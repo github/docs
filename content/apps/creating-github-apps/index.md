@@ -9,7 +9,7 @@ versions:
 topics:
   - GitHub Apps
 children:
-  - /creating-github-apps
+  - /setting-up-a-github-app
   - /authenticating-with-a-github-app
   - /guides
 redirect_from:

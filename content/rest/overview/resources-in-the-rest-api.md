@@ -90,7 +90,7 @@ You can authenticate your request by sending a token in the `Authorization` head
 ```shell
 curl --request GET \
 --url "{% data variables.product.api_url_code %}/octocat" \
---header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %}\
+--header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
@@ -129,7 +129,7 @@ Read [more about unauthenticated rate limiting](#increasing-the-unauthenticated-
 Authenticating with invalid credentials will return `401 Unauthorized`:
 
 ```shell
-$ curl -I {% data variables.product.api_url_pre %} -u foo:bar
+$ curl -I {% data variables.product.api_url_pre %} --header "Authorization: Bearer INVALID-TOKEN"
 > HTTP/2 401
 
 > {
@@ -143,8 +143,6 @@ the API will temporarily reject all authentication attempts for that user
 (including ones with valid credentials) with `403 Forbidden`:
 
 ```shell
-$ curl -i {% data variables.product.api_url_pre %} -u {% ifversion fpt or ghae or ghec %}
--u VALID_USERNAME:VALID_TOKEN {% endif %}{% ifversion ghes %}-u VALID_USERNAME:VALID_PASSWORD {% endif %}
 > HTTP/2 403
 > {
 >   "message": "Maximum number of login attempts exceeded. Please try again later.",
@@ -170,7 +168,7 @@ For `POST`, `PATCH`, `PUT`, and `DELETE` requests, parameters not included in th
 with a Content-Type of 'application/json':
 
 ```shell
-$ curl -i -u username -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
+$ curl -i --header "Authorization: Bearer YOUR-TOKEN" -d '{"scopes":["repo_deployment"]}' {% data variables.product.api_url_pre %}/authorizations
 ```
 
 ## Root endpoint
@@ -341,7 +339,7 @@ For unauthenticated requests, the rate limit allows for up to 60 requests per ho
 
 #### Rate limits for requests from {% data variables.product.prodname_github_apps %}
 
-Requests from a {% data variables.product.prodname_github_app %} may either use a user access token or an installation access token. For more information about rate limits for {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
+Requests from a {% data variables.product.prodname_github_app %} may either use a user access token or an installation access token. For more information about rate limits for {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)."
 
 #### Rate limits for requests from {% data variables.product.prodname_actions %}
 
@@ -400,10 +398,10 @@ If you are rate limited, you should not try your request until after the time sp
 
 ### Increasing the unauthenticated rate limit for {% data variables.product.prodname_oauth_apps %}
 
-If your {% data variables.product.prodname_oauth_app %} needs to make unauthenticated calls with a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
+If your {% data variables.product.prodname_oauth_app %} needs to make unauthenticated calls to public resources at a higher rate limit, you can pass your app's client ID and secret before the endpoint route.
 
 ```shell
-$ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/user/repos
+$ curl -u my_client_id:my_client_secret -I {% data variables.product.api_url_pre %}/meta
 > HTTP/2 200
 > Date: Mon, 01 Jul 2013 17:27:06 GMT
 > x-ratelimit-limit: 5000
@@ -655,7 +653,7 @@ These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this
 It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
-$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
+$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github-linguist/linguist/contents/new_file.md
 ```
 
 This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the API to manage contents generates a git commit for each addition or change and uses the current time as the timestamp. For more information, see "[AUTOTITLE](/rest/repos#contents)." This header will determine the timezone used for generating that current timestamp.

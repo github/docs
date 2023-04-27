@@ -22,14 +22,9 @@ In some situations, you may need to update values associated with a person's acc
 Enterprise owners can update a user's SAML `NameID` on a {% data variables.product.product_name %} instance.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. In the left sidebar, click **All users**.
-  !["All users" sidebar item in site administrator settings](/assets/images/enterprise/site-admin-settings/all-users.png)
-3. In the list of users, click the username you'd like to update the `NameID` mapping for.
-  ![Username in list of instance user accounts](/assets/images/enterprise/site-admin-settings/all-users-click-username.png)
+1. In the left sidebar, click **All users**.
+1. In the list of users, click the username you'd like to update the `NameID` mapping for.
 {% data reusables.enterprise_site_admin_settings.security-tab %}
-5. To the right of "Update SAML NameID", click **Edit** .
-  !["Edit" button under "SAML authentication" and to the right of "Update SAML NameID"](/assets/images/enterprise/site-admin-settings/update-saml-nameid-edit.png)
-6. In the "NameID" field, type the new `NameID` for the user.
-  !["NameID" field in modal dialog with NameID typed](/assets/images/enterprise/site-admin-settings/update-saml-nameid-field-in-modal.png)
-7. Click **Update NameID**.
-  !["Update NameID" button under updated NameID value within modal](/assets/images/enterprise/site-admin-settings/update-saml-nameid-update.png)
+1. To the right of "Update SAML NameID", click **Edit** .
+1. In the "NameID" field, type the new `NameID` for the user.
+1. Click **Update NameID**.

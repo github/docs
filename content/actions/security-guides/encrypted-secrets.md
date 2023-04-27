@@ -157,7 +157,8 @@ gh secret list --env ENV_NAME
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {%- ifversion actions-configuration-variables %}
 {% data reusables.actions.actions-secrets-tab %}
-   ![Organization secrets tab](/assets/images/help/organizations/actions-organization-secrets-tab.png){% endif %}
+
+   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Secrets," is outlined in dark orange.](/assets/images/help/actions/organization-secrets-tab.png){% endif %}
 1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.
@@ -211,9 +212,7 @@ You can check which access policies are being applied to a secret in your organi
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
-1. The list of secrets includes any configured permissions and policies. For example:
-   ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
-1. For more details on the configured permissions for each secret, click **Update**.
+1. The list of secrets includes any configured permissions and policies. For more details about the configured permissions for each secret, click **Update**.
 
 ## Using encrypted secrets in a workflow
 

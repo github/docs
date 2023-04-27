@@ -19,6 +19,10 @@ During an import, depending on the version control system you're importing from,
 
 ## Supported functionality by version control system
 
+{% data reusables.migrations.github-importer-non-git-deprecation %}
+
+{% rowheaders %}
+
 | Import action | Subversion | Mercurial | TFVC | Git |
 |:--------------|:----------:|:---------:|:----------------------:|:---:|
 | Authenticate with remote repository | {% octicon "check" aria-label="Supported" %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
@@ -26,7 +30,8 @@ During an import, depending on the version control system you're importing from,
 | Move large files to [Git Large File Storage](/repositories/working-with-files/managing-large-files/about-git-large-file-storage) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | Remove large files from your repository | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
+{% endrowheaders %}
+
 ## Further reading
 
 - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)"
-- "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/source-code-migration-tools)"

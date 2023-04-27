@@ -1,11 +1,10 @@
 # Node Versions
 
-This site will run on the Node.js version specified in `.node-version`.
+This site will run on the Node.js version specified in `package.json`.
 
 When updating to a new Node.js version, consider the following files:
 
 - [ ] The `engines.node` entry in `package.json`
-- [ ] The `.node-version` file used by [nodenv](https://github.com/nodenv/nodenv), a tool for managing multiple Node.js versions on your machine.
 - [ ] The `.github/*.workflow` Actions files
 - [ ] The `Dockerfile` that can be used for deployments
 - [ ] The `contributing/development.md` guide
@@ -33,7 +32,7 @@ If you're using another operating system, or did not use Homebrew to install nod
 To install Node.js and make it your default version, run this command:
 
 ```sh
-VERSION=`cat .node-version`
+# Set VERSION= based on package.json#engines
 nodenv install $VERSION && nodenv global $VERSION
 ```
 

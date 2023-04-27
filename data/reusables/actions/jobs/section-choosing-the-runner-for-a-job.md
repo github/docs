@@ -1,11 +1,11 @@
-Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on. 
+Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
 {% ifversion fpt or ghec %}- The destination machine can be either a [{% data variables.product.prodname_dotcom %}-hosted runner](#choosing-github-hosted-runners), [{% data variables.actions.hosted_runner %}](#choosing-runners-in-a-group), or a [self-hosted runner](#choosing-self-hosted-runners).{% else %}
-- The destination machine can be a [self-hosted runner](#choosing-self-hosted-runners).{% endif %} 
+- The destination machine can be a [self-hosted runner](#choosing-self-hosted-runners).{% endif %}
 {% ifversion target-runner-groups %}- You can target runners based on the labels assigned to them, or their group membership, or a combination of these.{% else %}
 - You can target runners based on the labels assigned to them.{% endif %}
-- You can provide `runs-on` as a single string or as an array of strings. 
-- If you specify an array of strings, your workflow will execute on any runner that matches all of the specified `runs-on` values. 
+- You can provide `runs-on` as a single string or as an array of strings.
+- If you specify an array of strings, your workflow will execute on any runner that matches all of the specified `runs-on` values.
 - If you would like to run your workflow on multiple machines, use [`jobs.<job_id>.strategy`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
 {% ifversion fpt or ghec or ghes %}
@@ -40,7 +40,7 @@ For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/abou
 runs-on: [self-hosted, linux]
 ```
 
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
 
 {% ifversion target-runner-groups %}
 

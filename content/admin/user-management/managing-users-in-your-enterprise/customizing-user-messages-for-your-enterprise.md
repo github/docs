@@ -126,9 +126,9 @@ You can also set an announcement banner{% ifversion ghes %} in the administrativ
    **Note:** Announcements must either have an expiration date, be user dismissible, or both.
 
    {% endnote %}{% endif %}
-{% ifversion ghe-announce-dismiss %}
+{%- ifversion ghe-announce-dismiss %}
 1. Optionally, to allow each user to dismiss the announcement, select **User dismissible**.
-{% endif %}{% ifversion custom-banner-messages %}
+{%- endif %}{% ifversion custom-banner-messages %}
 1. Optionally, to allow each user to dismiss the announcement, select **Allow users to dismiss the announcement**.
-{% endif %}
+{%- endif %}
 {% data reusables.enterprise_site_admin_settings.message-preview-save %}

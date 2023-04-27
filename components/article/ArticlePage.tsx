@@ -1,8 +1,7 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
-import { Box, Flash } from '@primer/react'
-import { LinkExternalIcon, BeakerIcon } from '@primer/octicons-react'
+import { LinkExternalIcon } from '@primer/octicons-react'
 
 import { Callout } from 'components/ui/Callout'
 import { DefaultLayout } from 'components/DefaultLayout'
@@ -43,6 +42,7 @@ export const ArticlePage = () => {
     productVideoUrl,
     miniTocItems,
     currentLearningTrack,
+    supportPortalVaIframeProps,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
   const { t } = useTranslation(['pages'])
@@ -58,44 +58,8 @@ export const ArticlePage = () => {
           <Breadcrumbs />
         </div>
         <ArticleGridLayout
-          topper={
-            <>
-              {/* This is a temporary thing for the duration of the
-              feature-flagged release of hover preview cards on /$local/pages/
-              articles.
-              Delete this whole thing when hover preview cards is
-              available on all articles independent of path.
-               */}
-              {router.query.productId === 'pages' && (
-                <Flash variant="default" className="mb-3">
-                  <Box sx={{ display: 'flex' }}>
-                    <Box
-                      sx={{
-                        p: 1,
-                        textAlign: 'center',
-                      }}
-                    >
-                      <BeakerIcon className="mr-2 color-fg-muted" />
-                    </Box>
-                    <Box
-                      sx={{
-                        flexGrow: 1,
-                        p: 0,
-                      }}
-                    >
-                      <p>
-                        Hover over a link to another article to get more details. If you have ideas
-                        for how we can improve this page, let us know in the{' '}
-                        <a href="https://github.com/github/docs/discussions/24591">discussion</a>.
-                      </p>
-                    </Box>
-                  </Box>
-                </Flash>
-              )}
-
-              <ArticleTitle>{title}</ArticleTitle>
-            </>
-          }
+          supportPortalVaIframeProps={supportPortalVaIframeProps}
+          topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
               {intro && (
@@ -131,7 +95,7 @@ export const ArticlePage = () => {
             {productVideoUrl && (
               <div className="my-2">
                 <Link id="product-video" href={productVideoUrl} target="_blank">
-                  <LinkExternalIcon className="octicon-link mr-2" />
+                  <LinkExternalIcon aria-label="(external site)" className="octicon-link mr-2" />
                   {t('video_from_transcript')}
                 </Link>
               </div>

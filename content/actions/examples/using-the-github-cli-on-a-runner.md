@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-cli-ci-example.png)
+![Diagram of an event triggering a workflow that uses the {% data variables.product.prodname_cli %} to create an issue.](/assets/images/help/actions/overview-actions-using-cli-ci-example.png)
 
 ## Features used in this example
 
@@ -46,16 +46,6 @@ topics:
 {% data reusables.actions.example-docs-engineering-intro %} [`check-all-english-links.yml`](https://github.com/github/docs/blob/6e01c0653836c10d7e092a17566a2c88b10504ce/.github/workflows/check-all-english-links.yml).
 
 {% data reusables.actions.note-understanding-example %}
-
-<table style="table-layout: fixed;">
-<thead>
-  <tr>
-    <th style="width:70%"></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
 
 ```yaml{:copy}
 name: Check all English links
@@ -117,7 +107,7 @@ jobs:
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
-        uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e
+        uses: peter-evans/create-issue-from-file@ceef9be92406ace67ab5421f66570acf213ec395
         with:
           token: {% raw %}${{ env.GITHUB_TOKEN }}{% endraw %}
 
@@ -173,11 +163,6 @@ jobs:
             fi
           done
 ```
-</tr>
-</td>
-</tbody>
-</table>
-
 ## Understanding the example
 
 {% data reusables.actions.example-explanation-table-intro %}
@@ -185,8 +170,8 @@ jobs:
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Code</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:60%"><b>Code</b></th>
+    <th scope="col" style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
@@ -395,7 +380,7 @@ If the `check-english-links.js` script detects broken links and returns a non-ze
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
-        uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e
+        uses: peter-evans/create-issue-from-file@ceef9be92406ace67ab5421f66570acf213ec395
         with:
           token: {% raw %}${{ env.GITHUB_TOKEN }}{% endraw %}
 
@@ -407,7 +392,7 @@ If the `check-english-links.js` script detects broken links and returns a non-ze
 </td>
 <td>
 
-Uses the `peter-evans/create-issue-from-file` action to create a new {% data variables.product.prodname_dotcom %} issue. This example is pinned to a specific version of the action, using the `b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e` SHA.
+Uses the `peter-evans/create-issue-from-file` action to create a new {% data variables.product.prodname_dotcom %} issue. This example is pinned to a specific version of the action, using the `ceef9be92406ace67ab5421f66570acf213ec395` SHA.
 </td>
 </tr>
 <tr>

@@ -25,10 +25,9 @@ shortTitle: View 2FA usage
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
 1. To view organization members, including organization owners, who have enabled or disabled two-factor authentication, on the right, select **2FA**, then click **Enabled** or **Disabled**.
- 
+
     ![Screenshot of the list of organization members. A dropdown menu, labeled "2FA", is expanded and outlined in orange.](/assets/images/help/2fa/filter-org-members-by-2fa.png)
-1. To view outside collaborators in your organization, under the "People" tab, click **Outside collaborators**.
-![select-outside-collaborators](/assets/images/help/organizations/select-outside-collaborators.png)
+1. To view outside collaborators in your organization, in the "Organization permissions" sidebar, click **Outside collaborators**.
 1. To view which outside collaborators have enabled or disabled two-factor authentication, above the list of outside collaborators, select the **2FA** dropdown menu, then click **Enabled** or **Disabled**.
 
    ![Screenshot of the list of outside collaborators. A dropdown menu, labeled "2FA", is expanded and outlined in orange.](/assets/images/help/2fa/filter-outside-collaborators-by-2fa.png)

@@ -32,18 +32,18 @@ Once {% data variables.product.prodname_github_connect %} is configured, you can
 
 1. From an enterprise owner account on {% data variables.product.product_name %}, navigate to the repository you want to delete from the *actions* organization (in this example `checkout`).
 1. By default, site administrators are not owners of the bundled *actions* organization. To get the access required to delete the `checkout` repository, you must use the site admin tools. Click {% octicon "rocket" aria-hidden="true" %} in the upper-right corner of any page in that repository.
-1. Click {% octicon "shield-lock" aria-hidden="true" %} **Security** to see the security overview for the repository.
+1. Click {% octicon "shield-lock" aria-hidden="true" %} **Security** to see an overview of the security for the repository.
 
    ![Screenshot of the site admin details for a repository. The "Security" link is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/access-repo-security-info.png)
 1. Under "Privileged access", click **Unlock**.
-  ![Unlock button](/assets/images/enterprise/site-admin-settings/unlock-priviledged-repo-access.png)
 1. Under **Reason**, type a reason for unlocking the repository, then click **Unlock**.
-  ![Confirmation dialog](/assets/images/enterprise/site-admin-settings/confirm-unlock-repo-access.png)
 1. Now that the repository is unlocked, you can leave the site admin pages and delete the repository within the `actions` organization. At the top of the page, click the repository name, in this example **checkout**, to return to the summary page.
-  ![Repository name link](/assets/images/enterprise/site-admin-settings/display-repository-admin-summary.png)
+
+  ![Screenshot of the site admin details for the actions/checkout repository. The name of the repository, "checkout", is a link and is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/display-repository-admin-summary.png)
 1. Under "Repository info", click **View code** to leave the site admin pages and display the `checkout` repository.
+
+  ![Screenshot of the site admin details for a repository. The "View code" link is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
 1. Delete the `checkout` repository within the `actions` organization. For information on how to delete a repository, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)."
-  ![View code link](/assets/images/enterprise/site-admin-settings/exit-admin-page-for-repository.png)
 1. Configure your workflow's YAML to use `{% data reusables.actions.action-checkout %}`.
 1. Each time your workflow runs, the runner will use the specified version of `actions/checkout` from {% data variables.product.prodname_dotcom_the_website %}.
 

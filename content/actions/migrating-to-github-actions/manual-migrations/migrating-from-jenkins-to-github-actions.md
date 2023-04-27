@@ -35,7 +35,7 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/understandi
 ## Key differences
 
 - Jenkins has two types of syntax for creating pipelines: Declarative Pipeline and Scripted Pipeline. {% data variables.product.prodname_actions %} uses YAML to create workflows and configuration files. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
-- Jenkins deployments are typically self-hosted, with users maintaining the servers in their own data centers. {% data variables.product.prodname_actions %} offers a hybrid cloud approach by hosting its own runners that you can use to run jobs, while also supporting self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners).
+- Jenkins deployments are typically self-hosted, with users maintaining the servers in their own data centers. {% data variables.product.prodname_actions %} offers a hybrid cloud approach by hosting its own runners that you can use to run jobs, while also supporting self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 ## Comparing capabilities
 
@@ -43,7 +43,7 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/understandi
 
 Jenkins lets you send builds to a single build agent, or you can distribute them across multiple agents. You can also classify these agents according to various attributes, such as operating system types.
 
-Similarly, {% data variables.product.prodname_actions %} can send jobs to {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners, and you can use labels to classify runners according to various attributes. For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions#runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+Similarly, {% data variables.product.prodname_actions %} can send jobs to {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners, and you can use labels to classify runners according to various attributes. For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions#runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 
 ### Using sections to organize pipelines
 
@@ -105,17 +105,7 @@ Jenkins groups `steps` together in `stages`. Each of these steps can be a script
 
 ### Scheduling a pipeline to run with `cron`
 
-<table>
-<tr>
-<th>
-Jenkins Pipeline
-</th>
-<th>
-{% data variables.product.prodname_actions %} Workflow
-</th>
-</tr>
-<tr>
-<td>
+#### Jenkins pipeline with `cron`
 
 ```yaml
 pipeline {
@@ -126,8 +116,7 @@ pipeline {
 }
 ```
 
-</td>
-<td>
+#### {% data variables.product.prodname_actions %} workflow with `cron`
 
 ```yaml
 on:
@@ -135,23 +124,9 @@ on:
     - cron: '*/15 * * * 1-5'
 ```
 
-</td>
-</tr>
-</table>
-
 ### Configuring environment variables in a pipeline
 
-<table>
-<tr>
-<th>
-Jenkins Pipeline
-</th>
-<th>
-{% data variables.product.prodname_actions %} Workflow
-</th>
-</tr>
-<tr>
-<td>
+#### Jenkins pipeline with an environment variable
 
 ```yaml
 pipeline {
@@ -162,8 +137,7 @@ pipeline {
 }
 ```
 
-</td>
-<td>
+#### {% data variables.product.prodname_actions %} workflow with an environment variable
 
 ```yaml
 jobs:
@@ -172,23 +146,9 @@ jobs:
       MAVEN_PATH: '/usr/local/maven'
 ```
 
-</td>
-</tr>
-</table>
-
 ### Building from upstream projects
 
-<table>
-<tr>
-<th>
-Jenkins Pipeline
-</th>
-<th>
-{% data variables.product.prodname_actions %} Workflow
-</th>
-</tr>
-<tr>
-<td>
+#### Jenkins pipeline that builds from an upstream project
 
 ```yaml
 pipeline {
@@ -201,8 +161,7 @@ pipeline {
 }
 ```
 
-</td>
-<td>
+#### {% data variables.product.prodname_actions %} workflow that builds from an upstream project
 
 ```yaml
 jobs:
@@ -213,23 +172,9 @@ jobs:
     needs: [job1, job2]
 ```
 
-</td>
-</tr>
-</table>
-
 ### Building with multiple operating systems
 
-<table>
-<tr>
-<th>
-Jenkins Pipeline
-</th>
-<th>
-{% data variables.product.prodname_actions %} Workflow
-</th>
-</tr>
-<tr>
-<td>
+#### Jenkins pipeline that builds with multiple operating systems
 
 ```yaml
 pipeline {
@@ -261,8 +206,7 @@ pipeline {
 }
 ```
 
-</td>
-<td>
+#### {% data variables.product.prodname_actions %} workflow that builds with multiple operating systems
 
 ```yaml
 name: demo-workflow
@@ -284,7 +228,3 @@ jobs:
       - run: bats tests
         working-directory: scripts/myapp
 ```
-
-</td>
-</tr>
-</table>

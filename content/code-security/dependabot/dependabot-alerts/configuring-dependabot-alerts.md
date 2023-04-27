@@ -70,16 +70,26 @@ By default, we notify people with admin permissions in the affected repositories
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Enable** to enable alerts or **Disable** to disable alerts.
-  ![Screenshot of "Code security and analysis" section with button to enable {% data variables.product.prodname_dependabot_security_updates %}](/assets/images/help/repository/security-and-analysis-disable-or-enable-fpt-private.png)
-{% endif %}{% ifversion ghes or ghae %}
+
+{% endif %}
+{% ifversion ghes or ghae %}
 
 {% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+
 {% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your organization
 {% ifversion fpt or ghec %}You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your organization. Your changes affect all repositories.
 
 ### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for all existing repositories
+
+{% ifversion code-security-multi-repo-enablement %}
+You can use security overview to find a set of repositories and enable or disable {% data variables.product.prodname_dependabot_alerts %} for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+
+You can also use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_dependabot_alerts %} for all existing repositories in an organization:
+{% else %}
+You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all existing repositories in an organization:
+{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

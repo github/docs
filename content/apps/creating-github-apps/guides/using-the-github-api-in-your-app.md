@@ -32,7 +32,7 @@ Once you've worked through the steps, you'll be ready to develop other kinds of 
 
 You may find it helpful to have a basic understanding of the following:
 
-* [GitHub Apps](/apps/creating-github-apps/creating-github-apps/about-apps)
+* [GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)
 * [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
 * [REST APIs](/rest)
@@ -190,7 +190,7 @@ You won't see much in the Terminal, _but_ you should see that a bot user has add
 
 {% note %}
 
-**Note:** When GitHub Apps take actions via the API, such as adding labels, GitHub shows these actions as being performed by _bot_ accounts. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
+**Note:** When GitHub Apps take actions via the API, such as adding labels, GitHub shows these actions as being performed by _bot_ accounts. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
 
 {% endnote %}
 

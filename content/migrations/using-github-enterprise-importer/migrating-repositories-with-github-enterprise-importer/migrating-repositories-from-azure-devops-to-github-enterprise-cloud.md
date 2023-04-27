@@ -189,6 +189,8 @@ Before you can use the {% data variables.product.prodname_ado2gh_cli_short %} to
 
 {% data reusables.enterprise-migration-tool.generate-migration-script %}
 
+If you want to migrate a single repository, skip to the next step.
+
 ### Generating a migration script
 
 To generate a migration script, run the `gh ado2gh generate-script` command.

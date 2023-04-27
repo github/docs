@@ -29,5 +29,5 @@ You can use slash commands by typing the command in a comment field, then follow
 | `/details` | Inserts a collapsible detail area. You choose the title and content.
 | `/saved-replies` | Inserts a saved reply. You choose from the saved replies for your user account. If you add `%cursor%` to your saved reply, the slash command will place the cursor in that location.
 | `/table` | Inserts a Markdown table. You choose the number of columns and rows.
-| `/tasklist` | Inserts a Tasklist. This slash command only works in an issue description. {% note %} **Note:** Tasklists are currently in private beta and may not be available to all users. For more information, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)." {% endnote %}
+| `/tasklist` | Inserts a tasklist. This slash command only works in an issue description. {% note %} **Note:** tasklists are currently in private beta and may not be available to all users. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)." {% endnote %}
 | `/template` | Shows all of the templates in the repository. You choose the template to insert. This slash command will work for issue templates and a pull request template.

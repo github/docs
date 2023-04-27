@@ -18,38 +18,243 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
     ```
     script/update-enterprise-dates.js
     ```
-- [ ] Create REST files based on previous version. Copy the latest GHES version of the decorate file from `src/rest/data` to a new file in the same directory for the new GHES release. Ex, `cp src/rest/data/ghes-3.4.json src/rest/data/ghes-3.5.json`.
-
-- [ ] Create GraphQL files based on previous version:
-
+- [ ] Create REST files based on previous version. Copy the latest GHES release data to a new directory for new release. For example, if the current release is 3.8 and the new release is 3.9:
   ```
-  script/enterprise-server-releases/create-graphql-files.js --oldVersion <PLAN@RELEASE> --newVersion <PLAN@RELEASE>
+  cp -rf src/rest/data/ghes-3.8 src/rest/data/ghes-3.9
   ```
-- [ ] Create webhook files based on previous version:
+
+- [ ] Create GraphQL files based on previous version. Copy the latest GHES release data to a new directory for new release. For example, if the current release is 3.8 and the new release is 3.9:
 
   ```
-  script/enterprise-server-releases/create-webhook-files.js --oldVersion <PLAN@RELEASE> --newVersion <PLAN@RELEASE>
+  cp -rf src/graphql/data/ghes-3.8 src/graphql/data/ghes-3.9
+  cp -rf data/graphql/ghes-3.8 data/graphql/ghes-3.9
   ```
+- [ ] Create webhook files based on previous version. Copy the latest GHES release data to a new directory for new release. For example, if the current release is 3.8 and the new release is 3.9:
+
+  ```
+  cp -rf src/webhooks/data/ghes-3.8 src/webhooks/data/ghes-3.9
+  ```
+
+- [ ] Create GitHub App files based on previous version. Copy the latest GHES release data to a new directory for new release. For example, if the current release is 3.8 and the new release is 3.9:
+
+  ```
+  cp -rf src/github-apps/data/ghes-3.8 src/github-apps/data/ghes-3.9
+  ```
+
 - [ ] Create a placeholder release notes file called `data/release-notes/<PRODUCT>/<RELEASE NUMBER>/PLACEHOLDER.yml`. For example `data/release-notes/enterprise-server/3-1/PLACEHOLDER.yml`. Add the following placeholder content to the file:
-
-  ```
-  date: '2021-05-04'
-  release_candidate: true
-  deprecated: false
-  intro: PLACEHOLDER
-  sections:
-    bugs:
-      - PLACEHOLDER
-    known_issues:
-      - PLACEHOLDER
-  ```
 
   **Note:** All of the content in this file will be updated when the release notes are created in the megabranch including the filename `PLACEHOLDER.yml`. You can update the date or leave it as-is and wait to update it when the release notes are finalized.
 
+  <details><summary>Click to view placeholder...</summary>
+
+  ```yaml
+  date: '2099-12-31'
+  release_candidate: true
+  deprecated: false
+  intro: |
+    {% note %}
+
+    **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can’t upgrade with a hotpatch. We recommend that you only run release candidates in a test environment.
+
+    {% endnote %}
+
+    For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+  sections:
+    # Remove section heading if the section contains no notes.
+
+    features:
+      # Remove a sub-section heading if the heading contains no notes. If sections
+      # that regularly recur are missing, add placeholders to this template.
+
+      - heading: Instance administration
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Instance services
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Identity and access management
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Authentication
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Migrations
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Policies
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Audit logs
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: GitHub Connect
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: GitHub Advanced Security
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Dependabot
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Code security
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: GitHub Actions
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: GitHub Packages
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: GitHub Pages
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Community experience
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Organizations
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Repositories
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Issues
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Projects
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: GitHub Discussions
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Commits
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Pull requests
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Releases
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Gist
+        notes:
+          # LINK TO RELEASES ISSUE
+          - |
+            ...
+
+      - heading: Markdown
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Accessibility
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: GitHub Mobile
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+      - heading: Integrations and extensions
+        notes:
+          # LINK TO RELEASE ISSUE
+          - |
+            ...
+
+    changes:
+      # LINK TO RELEASE ISSUE
+      - |
+        ...
+
+    known_issues:
+      # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
+      - |
+        ...
+
+    deprecations:
+      # LINK TO RELEASE ISSUE
+      - |
+        ...
+  ```
+  </details>
 - [ ] If this is a release candidate release, add a Release Candidate banner:
 
   ```
   script/enterprise-server-releases/release-banner.js --action create --version <PLAN@RELEASE>
+  script/copy-fixture-data.js // This updates the fixtures to match the updated data/variables/release_candidate.yml file
   ```
 
 - [ ] Create a PR with the above changes. This PR is used to track all docs changes and smoke tests associated with the release. For example https://github.com/github/docs-internal/pull/22286.

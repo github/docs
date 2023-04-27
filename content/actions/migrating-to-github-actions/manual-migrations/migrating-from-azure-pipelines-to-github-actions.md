@@ -55,19 +55,10 @@ You can run a script or a shell command as a step in a workflow. In Azure Pipeli
 
 In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key. To select a particular shell, you can specify the `shell` key when providing the script. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-Below is an example of the syntax for each system:
+Below is an example of the syntax for each system.
 
-<table class="d-block">
-<tr>
-<th>
-Azure Pipelines
-</th>
-<th>
-{% data variables.product.prodname_actions %}
-</th>
-</tr>
-<tr>
-<td class="d-table-cell v-align-top">
+### Azure Pipelines syntax for script steps
+
 {% raw %}
 ```yaml
 jobs:
@@ -83,8 +74,9 @@ jobs:
           script: Write-Host "This step runs in PowerShell"
 ```
 {% endraw %}
-</td>
-<td class="d-table-cell v-align-top">
+
+### {% data variables.product.prodname_actions %} syntax for script steps
+
 {% raw %}
 ```yaml
 jobs:
@@ -100,9 +92,6 @@ jobs:
         shell: powershell
 ```
 {% endraw %}
-</td>
-</tr>
-</table>
 
 ## Differences in script error handling
 
@@ -116,19 +105,10 @@ In Azure Pipelines, the default shell for scripts on Windows platforms is the Co
 
 If you're running a simple command, you might be able to run a Command shell script in PowerShell without any changes. But in most cases, you will either need to update your script with PowerShell syntax or instruct {% data variables.product.prodname_actions %} to run the script with the Command shell instead of PowerShell. You can do this by specifying `shell` as `cmd`.
 
-Below is an example of the syntax for each system:
+Below is an example of the syntax for each system.
 
-<table class="d-block">
-<tr>
-<th>
-Azure Pipelines
-</th>
-<th>
-{% data variables.product.prodname_actions %}
-</th>
-</tr>
-<tr>
-<td class="d-table-cell v-align-top">
+### Azure Pipelines syntax using CMD by default
+
 {% raw %}
 ```yaml
 jobs:
@@ -139,8 +119,9 @@ jobs:
       - script: echo "This step runs in CMD on Windows by default"
 ```
 {% endraw %}
-</td>
-<td class="d-table-cell v-align-top">
+
+### {% data variables.product.prodname_actions %} syntax for specifying CMD
+
 {% raw %}
 ```yaml
 jobs:
@@ -152,9 +133,6 @@ jobs:
         shell: cmd
 ```
 {% endraw %}
-</td>
-</tr>
-</table>
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#using-a-specific-shell)."
 
@@ -164,19 +142,10 @@ Azure Pipelines and {% data variables.product.prodname_actions %} can both run s
 
 Azure Pipelines uses functions within expressions to execute steps conditionally. In contrast, {% data variables.product.prodname_actions %} uses an infix notation. For example, you must replace the `eq` function in Azure Pipelines with the `==` operator in {% data variables.product.prodname_actions %}.
 
-Below is an example of the syntax for each system:
+Below is an example of the syntax for each system.
 
-<table class="d-block">
-<tr>
-<th>
-Azure Pipelines
-</th>
-<th>
-{% data variables.product.prodname_actions %}
-</th>
-</tr>
-<tr>
-<td class="d-table-cell v-align-top">
+### Azure Pipelines syntax for conditional expressions
+
 {% raw %}
 ```yaml
 jobs:
@@ -188,8 +157,9 @@ jobs:
         condition: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
 ```
 {% endraw %}
-</td>
-<td class="d-table-cell v-align-top">
+
+### {% data variables.product.prodname_actions %} syntax for conditional expressions
+
 {% raw %}
 ```yaml
 jobs:
@@ -200,9 +170,6 @@ jobs:
         if: ${{ env.str == 'ABC' && env.num == 123 }}
 ```
 {% endraw %}
-</td>
-</tr>
-</table>
 
 For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
 
@@ -212,17 +179,9 @@ Both Azure Pipelines and {% data variables.product.prodname_actions %} allow you
 
 Below is an example of the syntax for each system. The workflows start a first job named `initial`, and when that job completes, two jobs named `fanout1` and `fanout2` will run. Finally, when those jobs complete, the job `fanin` will run.
 
-<table class="d-block">
-<tr>
-<th>
-Azure Pipelines
-</th>
-<th>
-{% data variables.product.prodname_actions %}
-</th>
-</tr>
-<tr>
-<td class="d-table-cell v-align-top">
+
+### Azure Pipelines syntax for dependencies between jobs
+
 {% raw %}
 ```yaml
 jobs:
@@ -251,8 +210,9 @@ jobs:
       - script: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
-</td>
-<td class="d-table-cell v-align-top">
+
+### {% data variables.product.prodname_actions %} syntax for dependencies between jobs
+
 {% raw %}
 ```yaml
 jobs:
@@ -277,9 +237,6 @@ jobs:
       - run: echo "This job will run after fanout1 and fanout2 have finished."
 ```
 {% endraw %}
-</td>
-</tr>
-</table>
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
@@ -287,19 +244,10 @@ For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-
 
 Azure Pipelines uses _tasks_, which are application components that can be re-used in multiple workflows. {% data variables.product.prodname_actions %} uses _actions_, which can be used to perform tasks and customize your workflow. In both systems, you can specify the name of the task or action to run, along with any required inputs as key/value pairs.
 
-Below is an example of the syntax for each system:
+Below is an example of the syntax for each system.
 
-<table>
-<tr>
-<th>
-Azure Pipelines
-</th>
-<th>
-{% data variables.product.prodname_actions %}
-</th>
-</tr>
-<tr>
-<td class="d-table-cell v-align-top">
+### Azure Pipelines syntax for tasks
+
 {% raw %}
 ```yaml
 jobs:
@@ -314,8 +262,8 @@ jobs:
       - script: python script.py
 ```
 {% endraw %}
-</td>
-<td class="d-table-cell v-align-top">
+
+### {% data variables.product.prodname_actions %} syntax for actions
 
 ```yaml
 jobs:
@@ -328,9 +276,5 @@ jobs:
           architecture: 'x64'
       - run: python script.py
 ```
-
-</td>
-</tr>
-</table>
 
 You can find actions that you can use in your workflow in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions), or you can create your own actions. For more information, see "[AUTOTITLE](/actions/creating-actions)."

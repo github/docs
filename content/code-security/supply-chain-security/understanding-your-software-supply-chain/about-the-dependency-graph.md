@@ -24,11 +24,11 @@ shortTitle: Dependency graph
 
 When you push a commit to {% data variables.product.product_name %} that changes or adds a supported manifest or lock file to the default branch, the dependency graph is automatically updated.{% ifversion fpt or ghec %} In addition, the graph is updated when anyone pushes a change to the repository of one of your dependencies.{% endif %} For information on the supported ecosystems and manifest files, see "[Supported package ecosystems](#supported-package-ecosystems)" below.
 
-{% ifversion dependency-submission-api %}
 {% data reusables.dependency-submission.dependency-submission-link %}
-{% endif %}
 
 When you create a pull request containing changes to dependencies that targets the default branch, {% data variables.product.prodname_dotcom %} uses the dependency graph to add dependency reviews to the pull request. These indicate whether the dependencies contain vulnerabilities and, if so, the version of the dependency in which the vulnerability was fixed. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
+
+{% ifversion dependency-graph-sbom-export %}{% data reusables.dependency-graph.sbom-export %}{% endif %}
 
 ## Dependency graph availability
 
@@ -84,12 +84,12 @@ The recommended formats explicitly define which versions are used for all direct
 | Composer             | PHP           | `composer.lock` | `composer.json`, `composer.lock` |
 | NuGet | .NET languages (C#, F#, VB), C++  |   `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj` |  `.csproj`, `.vbproj`, `.nuspec`, `.vcxproj`, `.fsproj`, `packages.config` |
 {%- ifversion github-actions-in-dependency-graph %}
-| {% data variables.product.prodname_actions %} workflows [1] | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
+| {% data variables.product.prodname_actions %} workflows | YAML | `.yml`, `.yaml` | `.yml`, `.yaml` |
 {%- endif %}
 | Go modules | Go | `go.mod`| `go.mod`{% ifversion ghes < 3.9 or ghae < 3.9 %}, `go.sum`{% endif %} |
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
-| pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py`[2] |
+| pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py` |
 {%- ifversion dependency-graph-dart-support %}
 | pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
 {%- endif %}
@@ -97,22 +97,29 @@ The recommended formats explicitly define which versions are used for all direct
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
-{% ifversion github-actions-in-dependency-graph %}
-[1] {% data reusables.enterprise.3-5-missing-feature %} {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
-{% endif %}
-
-[2] If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
-
-{% ifversion github-actions-in-dependency-graph %}
 {% note %}
 
-**Note:** {% data variables.product.prodname_actions %} workflow dependencies are displayed in the dependency graph for informational purposes. Dependabot alerts are not currently supported for {% data variables.product.prodname_actions %} workflows.
+**Notes:** 
 
-{% endnote %}
+* If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+
+{% ifversion ghes = 3.5 %}
+
+* Support for {% data variables.product.prodname_actions %} workflows is available from GitHub Enterprise Server 3.5.4 onward. The feature is not available in 3.5.0, 3.5.1, 3.5.2, and 3.5.3. For information about determining the version of {% data variables.product.product_name %} you're using, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+
+{% endif %}{% ifversion github-actions-in-dependency-graph %}
+* {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
+
+* {% data variables.product.prodname_actions %} workflow dependencies are displayed in the dependency graph for informational purposes. Dependabot alerts are not currently supported for {% data variables.product.prodname_actions %} workflows.
+
 {% endif %}
 
-{% ifversion dependency-submission-api %}You can use the Dependency submission API (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above. The dependency graph will display the submitted dependencies grouped by ecosystem, but separately from the dependencies parsed from manifest or lock files. You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}. For more information on the Dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+{% endnote %}
+
+{% ifversion dependency-submission-api %}You can use the Dependency submission API (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above.{% endif %} {% data reusables.dependency-graph.dependency-submission-API-short %}
+
+{% ifversion dependency-submission-api %}You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}. For more information on the Dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
 ## Further reading
 
 - "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia

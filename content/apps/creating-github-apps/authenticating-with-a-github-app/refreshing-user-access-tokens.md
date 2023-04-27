@@ -31,7 +31,7 @@ If your refresh token expires before you use it, you can regenerate a user acces
 
 ## Configuring your app to use user access tokens that expire
 
-When you create your app, expiration of user access tokens is enabled unless you opt out. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)." You can also configure this setting after your app has been created.
+When you create your app, expiration of user access tokens is enabled unless you opt out. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)." You can also configure this setting after your app has been created.
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
@@ -55,6 +55,6 @@ If you opt into user access tokens that expire after you have already generated 
    `grant_type` | `string` | **Required.** The value must be "refresh_token".
    `refresh_token` | `string` | **Required.** The refresh token that you received when you generated a user access token.
 
-1. {% data variables.product.company_short %} will respond with a response body that includes the following parameters:
+1. {% data variables.product.company_short %} will give a response that includes the following parameters:
 
    {% data reusables.apps.user-access-token-response-parameters %}

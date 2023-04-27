@@ -16,7 +16,7 @@ shortTitle: Set visibility changes policy
 permissions: Organization owners can restrict repository visibility changes for an organization.
 ---
 
-You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)." 
+You can restrict who has the ability to change the visibility of repositories in your organization, such as changing a repository from private to public. For more information about repository visibility, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
 You can restrict the ability to change repository visibility to organization owners only, or you can allow anyone with admin access to a repository to change visibility.
 
@@ -29,6 +29,5 @@ You can restrict the ability to change repository visibility to organization own
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository visibility change", deselect **Allow members to change repository visibilities for this organization**.
-![Checkbox to allow members to change repository visibility](/assets/images/help/organizations/disallow-members-to-change-repo-visibility.png)
-6. Click **Save**.
+1. Under "Repository visibility change", deselect **Allow members to change repository visibilities for this organization**.
+1. Click **Save**.

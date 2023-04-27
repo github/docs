@@ -5,3 +5,6 @@ codeql_runner: 'CodeQL runner'
 
 # Descriptive name for the workflow used to run code scanning using the CodeQL action
 codeql_workflow: 'CodeQL analysis workflow'
+
+# The tool status page
+tool_status_page: 'tool status page'

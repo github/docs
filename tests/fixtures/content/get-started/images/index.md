@@ -9,4 +9,5 @@ versions:
 children:
   - /single-image
   - /images-in-lists
+  - /link-to-image
 ---

@@ -1,7 +1,2 @@
-1. Under your organization name, click {% octicon "people" aria-label="The people icon" %} **Teams**.
-  {% ifversion fpt or ghes or ghec %}
-  ![Teams tab](/assets/images/help/organizations/organization-teams-tab-with-overview.png)
-  {% else %}
-  ![Teams tab](/assets/images/help/organizations/organization-teams-tab.png)
-  {% endif %}
+{% data reusables.organizations.teams %}
 1. In the list of teams, click **Owners**.

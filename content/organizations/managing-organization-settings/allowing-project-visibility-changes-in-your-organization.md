@@ -27,7 +27,6 @@ This option may not be available to you if an enterprise owner restricts visibil
 {% data reusables.profile.org_settings %}
 1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
 1. To allow members to adjust project visibility, select **Allow members to change project visibilities for this organization**.
-  ![Screenshot showing checkbox to set visibility changes](/assets/images/help/projects-v2/visibility-change-checkbox.png)
 1. Click **Save**.
 
 ## Further reading

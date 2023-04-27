@@ -12,7 +12,7 @@ redirect_from:
 
 {% data reusables.classroom.assignments-group-definition %} Students can work together on a group assignment in a shared repository, like a team of professional developers.
 
-When a student accepts a group assignment, the student can create a new team or join an existing team. {% data variables.product.prodname_classroom %} saves the teams for an assignment as a set. You can name the set of teams for a specific assignment when you create the assignment, and you can reuse that set of teams for a later assignment.
+{% data reusables.classroom.about-teams-in-group-assignment %}
 
 {% data reusables.classroom.classroom-creates-group-repositories %}
 
@@ -146,6 +146,6 @@ The assignment overview page displays information about your assignment acceptan
 
 ## Further reading
 
-- [{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)
+- "[{% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers)"
 - "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)"
 - "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/using-github-classroom-with-github-cli)"
