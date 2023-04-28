@@ -286,13 +286,6 @@ Run this script after an Enterprise deprecation to remove Liquid statements and 
 ---
 
 
-### [`enterprise-server-releases/add-ghec-to-fpt.js`](enterprise-server-releases/add-ghec-to-fpt.js)
-
-Run this script to add versions frontmatter and Liquid conditionals for GitHub Enterprise Cloud, based on anything currently versioned for the specified release of free-pro-team.
-
----
-
-
 ### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
 
 This script creates the static GraphQL files for a new version.
