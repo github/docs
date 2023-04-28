@@ -50,7 +50,7 @@ options of [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs
 
 Select output format, either `text` *(default)* or `json`.
 
-### Supporting pagination in [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode)
+### Supporting pagination in codeql bqrs decode
 
 #### `--paginate-rows=<num>`
 
