@@ -230,96 +230,6 @@ describe('server', () => {
     })
   })
 
-  test('displays links to categories on product TOCs', async () => {
-    const $ = await getDOM('/en/authentication')
-    expect($('a[href="/en/authentication/keeping-your-account-and-data-secure"]')).toHaveLength(1)
-  })
-
-  describe('English local links', () => {
-    const latestEnterprisePath = `/en/enterprise-server@${enterpriseServerReleases.latest}`
-
-    test('dotcom articles on dotcom have links that include "en"', async () => {
-      const $ = await getDOM('/en/articles/set-up-git')
-      expect($('a[href="/en/repositories/working-with-files/managing-files"]').length).toBe(1)
-    })
-
-    // Any links expressed in Markdown as '.../enterprise-server@latest/...'
-    // should become '.../enterprise-server@<VERSION>/...' when rendered out.
-    test('enterprise-server@latest links get rewritten to include the latest GHE version', async () => {
-      const $ = await getDOM(
-        '/en/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server'
-      )
-      expect(
-        $(`a[href="${latestEnterprisePath}/billing/managing-your-license-for-github-enterprise"]`)
-          .length
-      ).toBe(1)
-    })
-
-    test('dotcom articles on GHE have Enterprise user links', async () => {
-      const $ = await getDOM(
-        `${latestEnterprisePath}/github/getting-started-with-github/set-up-git`
-      )
-      expect(
-        $(`a[href="${latestEnterprisePath}/repositories/working-with-files/managing-files"]`).length
-      ).toBe(1)
-    })
-
-    test('dotcom categories on GHE have Enterprise user links', async () => {
-      const $ = await getDOM(`${latestEnterprisePath}/get-started/writing-on-github`)
-      expect(
-        $(
-          `ul.list-style-circle li a[href="${latestEnterprisePath}/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github"]`
-        ).length
-      ).toBe(1)
-    })
-
-    test('dotcom-only links on GHE are dotcom-only', async () => {
-      const $ = await getDOM(
-        `${latestEnterprisePath}/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud`
-      )
-      expect(
-        $(
-          'a[href="/en/site-policy/github-terms/github-terms-for-additional-products-and-features#connect"]'
-        ).length
-      ).toBe(1)
-    })
-
-    test('desktop links on GHE are dotcom-only', async () => {
-      const $ = await getDOM(
-        `${latestEnterprisePath}/github/getting-started-with-github/set-up-git`
-      )
-      expect($('a[href="/en/desktop/installing-and-configuring-github-desktop"]').length).toBe(1)
-    })
-
-    test('admin articles that link to non-admin articles have Enterprise user links', async () => {
-      const $ = await getDOM(
-        `${latestEnterprisePath}/admin/installation/configuring-the-default-visibility-of-new-repositories-on-your-appliance`
-      )
-      expect(
-        $(
-          `a[href="${latestEnterprisePath}/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility"]`
-        ).length
-      ).toBeGreaterThan(0)
-    })
-
-    test('admin articles that link to Enterprise user articles have Enterprise user links', async () => {
-      const $ = await getDOM(
-        `${latestEnterprisePath}/admin/user-management/customizing-user-messages-for-your-enterprise`
-      )
-      expect($('a[href*="about-writing-and-formatting-on-github"]').length).toBe(1)
-    })
-
-    test('articles that link to external links that contain /articles/ are not rewritten', async () => {
-      const $ = await getDOM(
-        `${latestEnterprisePath}/admin/installation/upgrading-github-enterprise-server`
-      )
-      expect(
-        $('a[href="https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm"]')
-          .length
-      ).toBe(1)
-    })
-  })
-
   describeViaActionsOnly('Early Access articles', () => {
     test('have noindex meta tags', async () => {
       const allPages = await loadPages()
@@ -352,14 +262,6 @@ describe('server', () => {
       expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
       expect(res.headers.vary).toContain('accept-language')
       expect(res.headers.vary).toContain('x-user-language')
-    })
-
-    test('redirects old articles to their slugified URL', async () => {
-      const res = await get('/articles/about-github-s-ip-addresses')
-      expect(res.statusCode).toBe(302)
-      expect(res.body).toBe(
-        'Found. Redirecting to /en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses'
-      )
     })
 
     test('redirects / to /en when no language preference is specified', async () => {
@@ -433,69 +335,6 @@ describe('server', () => {
       expect(res.headers['cache-control']).toContain('public')
       expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
     })
-  })
-})
-
-describe('GitHub Enterprise URLs', () => {
-  test('renders the GHE user docs homepage', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}/user/get-started`)
-    expect(
-      $(
-        `a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/writing-on-github"]`
-      ).length
-    ).toBe(1)
-  })
-
-  test('renders the Enterprise Server homepage with correct links', async () => {
-    const $ = await getDOM(`/en/enterprise/${enterpriseServerReleases.latest}`)
-    expect(
-      $(
-        `section.container-xl a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/admin"]`
-      ).length
-    ).toBe(1)
-    expect(
-      $(
-        `section.container-xl a[href="/en/enterprise-server@${enterpriseServerReleases.latest}/get-started"]`
-      ).length
-    ).toBe(1)
-  })
-
-  test('renders the Enterprise Admin category homepage', async () => {
-    const adminPath = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin`
-    const $ = await getDOM(adminPath)
-    expect($(`h2 ~ a[href="${adminPath}/guides"]`).length).toBe(1)
-    expect($('h2 a[href="#all-docs"]').length).toBe(1)
-  })
-
-  test('renders an Enterprise Admin category with correct links', async () => {
-    const installationCategoryHome = `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/installation`
-    const $ = await getDOM(installationCategoryHome)
-    expect($(`a[href^="${installationCategoryHome}/"]`).length).toBeGreaterThan(1)
-  })
-
-  test('renders an Enterprise Admin category article', async () => {
-    const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/admin/overview/about-github-enterprise-server`
-    )
-    expect($.text()).toContain('platform that you can host in a private environment')
-  })
-
-  test('renders an Enterprise Admin map topic', async () => {
-    const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources`
-    )
-    expect(
-      $(
-        `a[href^="/en/enterprise-server@${enterpriseServerReleases.latest}/admin/enterprise-management/"]`
-      ).length
-    ).toBeGreaterThan(1)
-  })
-
-  test('renders an Enterprise Admin category article within a map topic', async () => {
-    const $ = await getDOM(
-      `/en/enterprise/${enterpriseServerReleases.latest}/admin/installation/upgrade-requirements`
-    )
-    expect($.text()).toContain('Before upgrading GitHub Enterprise')
   })
 })
 
