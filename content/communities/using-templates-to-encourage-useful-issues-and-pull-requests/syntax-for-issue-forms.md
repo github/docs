@@ -46,7 +46,7 @@ You can set the following top-level keys for each issue form.
 | `description` | A description for the issue form template, which appears in the template chooser interface. | Required | String |
 | `body` | Definition of the input types in the form. | Required | Array |
 | `assignees` | People who will be automatically assigned to issues created with this template. | Optional | Array or comma-delimited string |
-| `labels` | Labels that will automatically be added to issues created with this template. | Optional | Array or comma-delimited string |
+| `labels` | Labels that will automatically be added to issues created with this template. If a label does not already exist in the repository, it will not be automatically added to the issue. | Optional | Array or comma-delimited string |
 | `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |
 
 For the available `body` input types and their syntaxes, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
