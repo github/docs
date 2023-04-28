@@ -499,27 +499,6 @@ describe('GitHub Enterprise URLs', () => {
   })
 })
 
-describe('?json query param for context debugging', () => {
-  it('uses query param value as a key', async () => {
-    const res = await get('/en?json=page')
-    expect(res.statusCode).toBe(200)
-    const page = JSON.parse(res.body)
-    expect(typeof page.title).toBe('string')
-  })
-
-  it('returns a helpful message with top-level keys if query param has no value', async () => {
-    const res = await get('/en?json')
-    expect(res.statusCode).toBe(200)
-    const context = JSON.parse(res.body)
-
-    expect(context.message.includes('context object is too big to display')).toBe(true)
-    expect(Array.isArray(context.keys)).toBe(true)
-    expect(context.keys.includes('page')).toBe(true)
-    expect(context.keys.includes('pages')).toBe(true)
-    expect(context.keys.includes('redirects')).toBe(true)
-  })
-})
-
 describe('static routes', () => {
   it('serves content from the /assets directory', async () => {
     const res = await get('/assets/images/site/be-social.gif')
