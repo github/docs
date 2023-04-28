@@ -89,8 +89,6 @@ Now, move issues between groups to change their priority.
 1. Choose an issue.
 2. Drag and drop the issue into a different priority group. When you do this, the priority of the issue will change to be the priority of its new group.
 
-![Move issue between groups](/assets/images/help/projects/move_between_group.gif)
-
 ## Saving the priority view
 
 When you grouped your issues by priority in the previous step, your project displayed an indicator to show that the view was modified. Save these changes so that your collaborators will also see the tasks grouped by priority.
@@ -107,8 +105,6 @@ To view the progress of your project's issues, you can switch to board layout.
 
 The board layout is based on the status field, so specify a status for each issue in your project.
 
-![Example status](/assets/images/help/projects/status_example.png)
-
 Then, create a new view.
 
 {% data reusables.projects.new-view %}
@@ -117,8 +113,6 @@ Next, switch to board layout.
 
 {% data reusables.projects.open-view-menu %}
 1. Under "Layout", click **Board**.
-
-![Example priorities](/assets/images/help/projects/example_board.png)
 
 When you changed the layout, your project displayed an indicator to show that the view was modified. Save this view so that you and your collaborators can easily access it in the future.
 
@@ -131,22 +125,20 @@ To indicate the purpose of the view, give it a descriptive name.
 1. Type the new name for your view.
 1. To save changes, press <kbd>Return</kbd>.
 
-![Example priorities](/assets/images/help/projects/project-view-switch.gif)
-
 {% ifversion projects-v2-workflows %}
 
 ## Configure built-in automation
 
 {% ifversion projects-v2-auto-add %}
 
-Next, configure the auto-add workflow to automatically add issues opened in a repository with a specific label to your project. 
+Next, configure the auto-add workflow to automatically add issues opened in a repository with a specific label to your project.
 
 {% data reusables.projects.access-workflows %}
 1. In the "Default workflows" list, click **Auto-add to project**.
 1. To start editing the workflow, in the top right, click **Edit**.
-   
+
    ![Screenshot showing the workflow menu bar. The "Edit" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/workflow-start-editing.png)
-   
+
 1. Under "Filters", select the repository you want to add items from.
 1. Next to the repository selection, type the filter criteria you want items to match before they are automatically added to your project. For example, to catch all issues and PRs opened with the label "bug", use `is:issue,pr label:bug`.
 1. To enable the new workflow, click **Save and turn on workflow**.
