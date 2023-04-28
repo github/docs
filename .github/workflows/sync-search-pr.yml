@@ -52,7 +52,7 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Cache nextjs build
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
