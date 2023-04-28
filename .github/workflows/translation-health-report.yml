@@ -57,10 +57,10 @@ jobs:
             language_repo: github/docs-internal.ko-kr
     steps:
       - name: Checkout the docs-internal repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
       - name: Clone docs-internal.popular-pages
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           repository: github/docs-internal.popular-pages
           # This works because user `docubot` has read access to that private repo.
@@ -68,7 +68,7 @@ jobs:
           path: popular-pages
 
       - name: Checkout the language-specific repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           repository: ${{ matrix.language_repo }}
           token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
