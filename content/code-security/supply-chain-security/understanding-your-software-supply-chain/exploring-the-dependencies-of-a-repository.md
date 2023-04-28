@@ -96,7 +96,6 @@ The "Used by" section represents a single package from the repository. If you ha
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package.
-  ![Choose a "Used by" package](/assets/images/help/repository/choose-used-by-package.png)
 
 {% endif %}
 

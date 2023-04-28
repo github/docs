@@ -29,7 +29,12 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 
   ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Hide" is outlined in orange.](/assets/images/help/repository/comment-menu-hide.png)
 
-3. Using the "Choose a reason" drop-down menu, click a reason to hide the comment. Then click, **Hide comment**.
+3. Using the "Choose a reason" dropdown menu, choose a reason to hide the comment. Then select **Hide comment**.
+  {% ifversion fpt or ghec %}
+  ![Screenshot of a {% data variables.product.prodname_dotcom %} comment showing a menu to select a reason to hide the comment: Spam, Abuse, Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
+  {% else %}
+  ![Screenshot of a {% data variables.product.prodname_dotcom %} comment showing a menu to select a reason to hide the comment: Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
+  {% endif %}
 
 ## Unhiding a comment
 
