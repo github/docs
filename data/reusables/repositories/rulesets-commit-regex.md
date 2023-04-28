@@ -16,6 +16,8 @@ The negative lookahead assertion, denoted `?!`, is not supported. However, for c
 
 The following examples provide useful patterns for commit metadata.
 
+Make sure to set the requirement field to: `Must match a given regex pattern`.
+
 #### Ensure branch names are compatible with Windows
 
 You can use the following pattern to ensure that branch names only include numbers, lowercase letters, and the characters `-` and `_`. This ensures branch names are compatible with operating systems that do not use case-sensitive file systems by default.
