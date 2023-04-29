@@ -43,7 +43,7 @@ Asides being used to tell at a glance who is responsible for a given file, CODEO
 
 Pull requests use the version of CODEOWNERS from the base branch of a pull request. A base branch is the branch that a pull request will modify if the pull request is merged. If the repo that you forked from is the base of your PR, then the PR will use the CODEOWNERS file from the repo that you forked from. If your PR is targeting a branch within your forked repo, then the PR will use the CODEOWNERS on that base branch in your forked repo.
 
-When seeing who responsible for a file, the CODEOWNERS for whatever branch you're looking at on whatever repo you're looking at is used.
+When you view who is responsible for a file, you will see information from the `CODEOWNERS` file for whichever branch in whichever repository you're looking at.
 
 ## CODEOWNERS file size
 
