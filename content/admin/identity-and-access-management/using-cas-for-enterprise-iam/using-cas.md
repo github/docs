@@ -36,11 +36,9 @@ If you configure CAS, people with accounts on your identity provider (IdP) do no
 
 ## CAS attributes
 
-The following attributes are available.
+The `username` attribute is required and should be set to the {% data variables.product.prodname_ghe_server %} username.
 
-| Attribute name           | Type     | Description |
-|--------------------------|----------|-------------|
-| `username`               | Required | The {% data variables.product.prodname_ghe_server %} username. |
+No other attributes are available.
 
 ## Configuring CAS
 

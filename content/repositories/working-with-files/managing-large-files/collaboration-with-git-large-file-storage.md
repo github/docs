@@ -17,7 +17,7 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 
 {% tip %}
 
-**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or <a href="https://drive.google.com/" data-proofer-ignore>Google Drive</a>. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
+**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or [Google Drive](https://drive.google.com). For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
 
 {% endtip %}
 
@@ -26,7 +26,7 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 {% data variables.product.product_name %} does not render some {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown, with contents similar to the following:
 
 ```
-+version https://git-Ifs.github.com/spec/vi
++version https://git-lfs.github.com/spec/vi
 +id sha256:7194bdd797bde471a6e29b4fa9c8c2278b3c4dadfc5cb2c36d7f4531dc6cb8f
 +size 17330
 ```

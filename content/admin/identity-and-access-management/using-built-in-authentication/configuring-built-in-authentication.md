@@ -40,8 +40,7 @@ You can prevent unauthenticated people from creating new user accounts on your i
 
 Once your instance has been created, you'll need to create your own admin account.
 
-1. On the "Create Admin Account" page at `http(s)://[hostname]/join`, choose your username, password, and email address, then click **Create an account**.
-![Create Admin Account](/assets/images/enterprise/site-admin-settings/create-first-admin-acct.png)
+1. On the "Create Admin Account" page at `http(s)://[hostname]/join`, type your username, password, and email address, then click **Create an account**.
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 
 ## Next steps

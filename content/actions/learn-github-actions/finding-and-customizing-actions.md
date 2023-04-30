@@ -47,7 +47,7 @@ You can search and browse actions directly in your repository's workflow editor.
 
 ## Adding an action to your workflow
 
-You can add an action to your workflow by referencing the action in your workflow file. 
+You can add an action to your workflow by referencing the action in your workflow file.
 
 You can view the actions referenced in your {% data variables.product.prodname_actions %} workflows as dependencies in the dependency graph of the repository containing your workflows. For more information, see “[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).”
 
@@ -159,11 +159,11 @@ steps:
 
 ### Using SHAs
 
-If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. You must use a commit's full SHA value, and not an abbreviated value. This example targets an action's SHA:
+If you need more reliable versioning, you should use the SHA value associated with the version of the action. SHAs are immutable and therefore more reliable than tags or branches. However, this approach means you will not automatically receive updates for an action, including important bug fixes and security updates. You must use a commit's full SHA value, and not an abbreviated value. {% data reusables.actions.actions-pin-commit-sha %} This example targets an action's SHA:
 
 ```yaml
 steps:
-  - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
+  - uses: actions/javascript-action@a824008085750b8e136effc585c3cd6082bd575f
 ```
 
 ### Using branches

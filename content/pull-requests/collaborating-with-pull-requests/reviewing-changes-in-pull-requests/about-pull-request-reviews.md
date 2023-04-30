@@ -27,14 +27,10 @@ Reviews allow for discussion of proposed changes and help ensure that the change
 
 {% ifversion fpt or ghec %}You can schedule reminders for pull requests that need to be reviewed. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)."{% endif %}
 
-![Header of review requesting changes with line comments](/assets/images/help/pull_requests/review-header-with-line-comment.png)
-
 A review has three possible statuses:
 - **Comment**: Submit general feedback without explicitly approving the changes or requesting additional changes.
 - **Approve**: Submit feedback and approve merging the changes proposed in the pull request.
 - **Request changes**: Submit feedback that must be addressed before the pull request can be merged.
-
-![Image of review statuses](/assets/images/help/pull_requests/pull-request-review-statuses.png)
 
 {% data reusables.repositories.request-changes-tips %}
 
@@ -52,7 +48,7 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 ## Required reviews
 
-{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)."
+{% data reusables.pull_requests.required-reviews-for-prs-summary %} For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)."
 
 {% tip %}
 

@@ -27,9 +27,8 @@ children:
   - /viewing-and-managing-pending-changes-to-your-subscription
   - /downgrading-your-github-subscription
   - /managing-invoices-for-your-enterprise
-  - /connecting-an-azure-subscription-to-your-enterprise
+  - /connecting-an-azure-subscription
   - /how-does-upgrading-or-downgrading-affect-the-billing-process
   - /one-time-payments-for-customers-in-india
   - /discounted-subscriptions-for-github-accounts
 ---
-

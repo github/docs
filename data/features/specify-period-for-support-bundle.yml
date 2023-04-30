@@ -1,4 +1,0 @@
-# Reference: github/docs-content#8986
-# Specify a period for log collection in a GHES support bundle
-versions:
-  ghes: '>3.7'

@@ -14,13 +14,15 @@ topics:
   - Marketplace
 shortTitle: Webhook events
 ---
-## {% data variables.product.prodname_marketplace %} purchase webhook payload
+## About webhooks and {% data variables.product.prodname_marketplace %}
 
 Webhooks `POST` requests have special headers. See "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#delivery-headers)" for more details. GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
 
 Cancellations and downgrades take effect on the first day of the next billing cycle. Events for downgrades and cancellations are sent when the new plan takes effect at the beginning of the next billing cycle. Events for new purchases and upgrades begin immediately. Use the `effective_date` in the webhook payload to determine when a change will begin.
 
 {% data reusables.marketplace.marketplace-malicious-behavior %}
+
+## About the purchase webhook payload for {% data variables.product.prodname_marketplace %}
 
 Each `marketplace_purchase` webhook payload will have the following information:
 
@@ -59,18 +61,3 @@ Key | Type | Description
 `bullet` | `array of strings` | The names of the bullets set in the pricing plan.
 
 <br/>
-
-### Example webhook payload for a `purchased` event
-This example provides the `purchased` event payload.
-
-{{ webhookPayloadsForCurrentVersion.marketplace_purchase.purchased }}
-
-### Example webhook payload for a `changed` event
-
-Changes in a plan include upgrades and downgrades. This example represents the `changed`,`pending_change`, and `pending_change_cancelled` event payloads. The action identifies which of these three events has occurred.
-
-{{ webhookPayloadsForCurrentVersion.marketplace_purchase.changed }}
-
-### Example webhook payload for a `cancelled` event
-
-{{ webhookPayloadsForCurrentVersion.marketplace_purchase.cancelled }}

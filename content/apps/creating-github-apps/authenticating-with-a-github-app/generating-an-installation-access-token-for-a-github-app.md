@@ -1,6 +1,6 @@
 ---
 title: Generating an installation access token for a GitHub App
-shortTitle: Installation access token
+shortTitle: Generate an installation access token
 intro: Learn how to generate an installation access token for your {% data variables.product.prodname_github_app %}.
 versions:
   fpt: '*'

@@ -1,1 +1,1 @@
-1. In the enterprise account sidebar, click {% octicon "checklist" aria-label="" %} **Compliance**.
+1. In the enterprise account sidebar, click {% octicon "checklist" aria-hidden="true" %} **Compliance**.

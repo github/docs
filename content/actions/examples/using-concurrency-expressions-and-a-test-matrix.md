@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
+![Diagram of an event triggering a workflow that uses a test matrix.](/assets/images/help/actions/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
 
 ## Features used in this example
 
@@ -33,29 +33,21 @@ topics:
 {% data reusables.actions.cron-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+| Running the job on different runners, depending on the repository | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.if-conditions-table-entry %}
-| Using a matrix to create different test configurations: | [`matrix`](/actions/using-jobs/using-a-matrix-for-your-jobs)|
+| Using a matrix to create different test configurations | [`matrix`](/actions/using-jobs/using-a-matrix-for-your-jobs)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Caching dependencies: | [`actions/cache`](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)|
-| Running tests on the runner: | `npm test`|
+{%- ifversion actions-caching %}
+| Caching dependencies | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)|
+{%- endif %}
+| Running tests on the runner | `npm test`|
 
 ## Example workflow
 
 {% data reusables.actions.example-docs-engineering-intro %} [`test.yml`](https://github.com/github/docs/blob/main/.github/workflows/test.yml).
 
 {% data reusables.actions.note-understanding-example %}
-
-<table style="table-layout: fixed;">
-<thead>
-  <tr>
-    <th style="width:100%"></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
 
 ```yaml{:copy}
 name: Node.js Tests
@@ -206,10 +198,6 @@ jobs:
           CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
         run: npm test -- {% raw %}tests/${{ matrix.test-group }}/{% endraw %}
 ```
-</tr>
-</td>
-</tbody>
-</table>
 
 ## Understanding the example
 
@@ -218,8 +206,8 @@ jobs:
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Code</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:60%"><b>Code</b></th>
+    <th scope="col" style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
@@ -611,6 +599,7 @@ This step runs the `npm ci` shell command to install the npm software packages f
 </td>
 <td>
 
+{% ifversion actions-caching %}
 This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 </td>
 </tr>
@@ -623,6 +612,7 @@ This step uses the `actions/cache` action to cache the Next.js build, so that th
 ```
 </td>
 <td>
+{% endif %}
 
 This step runs the build script.
 </td>

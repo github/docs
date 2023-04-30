@@ -1,1 +1,1 @@
-1. In the "Access" section of the sidebar, click **{% octicon "people" aria-label="" %} Collaborators & teams**.
+1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" %} Collaborators & teams**.

@@ -23,7 +23,7 @@ shortTitle: Workflow billing & limits
 {% ifversion fpt or ghec %}
 {% data reusables.actions.actions-billing %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -41,7 +41,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 
 {% note %}
 
-**Note:** For self-hosted runners, different usage limits apply. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)."
+**Note:** For self-hosted runners, different usage limits apply. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
 
 {% endnote %}
 
@@ -57,25 +57,25 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Free | 20 | 5 |
   | Pro | 40 | 5 |
   | Team | 60 | 5 |
-  | Enterprise | 180 | 50 |
+  | Enterprise | 500 | 50 |
 
   **{% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s**
 
   | GitHub plan | Total concurrent jobs | Maximum concurrent macOS jobs |
   |---|---|---|
-  | All | 500 | n/a |
+  | All | 500 | Not applicable |
 
   {% note %}
 
   **Note:** If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact {% data variables.contact.contact_ent_support %} or your sales representative.
 
   {% endnote %}
-  
+
 - **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
-Usage limits apply to self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)."
+Usage limits apply to self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -89,7 +89,7 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository. 
+If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
 
 For more information see, "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 {% endif %}

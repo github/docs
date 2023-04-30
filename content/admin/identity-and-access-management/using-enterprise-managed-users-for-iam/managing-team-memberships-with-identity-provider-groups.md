@@ -55,8 +55,7 @@ Any member of an organization can create a new team and connect the team to an I
 {% data reusables.organizations.new_team %}
 {% data reusables.organizations.team_name %}
 {% data reusables.organizations.team_description %}
-1. To connect a team, select the "Identity Provider Groups" drop-down menu and click the team you want to connect.
-    ![Drop-down menu to choose identity provider groups](/assets/images/help/teams/choose-an-idp-group.png)
+1. To connect a team, under "Identity Provider Groups", select the **Select Groups** dropdown menu and click the team you want to connect.
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.create_team %}
 
@@ -86,9 +85,8 @@ Organization owners and team maintainers can manage the existing connection betw
 You can review a list of IdP groups, see any teams connected to an IdP group, and see the membership of each IdP group on {% data variables.product.product_name %}. You must edit the membership for a group on your IdP.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. To review a list of IdP groups, in the left sidebar, click {% octicon "key" aria-label="The key icon" %} **Identity provider**.
-    ![Screenshot showing "Identity provider" tab in enterprise sidebar](/assets/images/help/enterprises/enterprise-account-identity-provider-tab.png)
+1. To review a list of IdP groups, in the left sidebar, click {% octicon "key" aria-hidden="true" %} **Identity provider**.
+
 2. To see the members and teams connected to an IdP group, click the group's name.
-    ![Screenshot showing list of IdP groups, the group name is highlighted](/assets/images/help/enterprises/select-idp-group.png)
-4. To view the teams connected to the IdP group, click **Teams**.
-    ![Screenshot showing the "Teams" button](/assets/images/help/enterprises/idp-groups-team-switcher.png)
+
+3. To view the teams connected to the IdP group, click **Teams**.

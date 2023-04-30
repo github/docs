@@ -52,6 +52,5 @@ For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 1. Optionally, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
-  ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
 {% data reusables.repositories.select-marketplace-apps %}
-8. Click **Create repository from template**.
+1. Click **Create repository from template**.

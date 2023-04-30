@@ -37,7 +37,7 @@ The repository owner has full control of the repository. In addition to the acti
 | Change the visibility of the repository | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)" |{% ifversion fpt or ghec %}
 | Limit interactions with the repository | "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)" |{% endif %}
 | Rename a branch, including the default branch | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)" |
-| Merge a pull request on a protected branch, even if there are no approving reviews | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)" |
+| Merge a pull request on a protected branch, even if there are no approving reviews | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)" |
 | Delete the repository | "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)" |
 | Manage the repository's topics | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)" |{% ifversion fpt or ghec %}
 | Manage security and analysis settings for the repository | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)" |{% endif %}{% ifversion fpt or ghec %}

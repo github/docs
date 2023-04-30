@@ -26,11 +26,10 @@ shortTitle: Add a repository
 
 {% windows %}
 
-1. In the **File** menu, click **Add local repository**.
-  ![Add Local Repository menu option](/assets/images/help/desktop/add-local-repository-windows.png)
-2. Click **Choose...** and, using Windows Explorer, navigate to the local repository you want to add.
-  ![The Local Path field in the Windows app](/assets/images/help/desktop/add-repo-choose-button-win.png)
+1. In the menu bar, select **File**, then click **Add local repository**.
+  ![Screenshot of the menu bar on Windows. The "File" dropdown menu is open, and an option labeled "Add local repository" is highlighted with an orange outline.](/assets/images/help/desktop/add-local-repository-windows.png)
+2. In the "Add local repository" window, click **Choose...**, then use Windows Explorer to navigate to the local repository you want to add.
+  ![Screenshot of the "Add local repository" window. Next to the "repository path" field, a button, labeled "Choose", is highlighted with an orange outline.](/assets/images/help/desktop/add-repo-choose-button-mac.png)
 4. Click **Add repository**.
-  ![The Add repository button in the Windows app](/assets/images/help/desktop/add-repository-button-windows.png)
 
 {% endwindows %}

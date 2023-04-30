@@ -17,7 +17,7 @@ topics:
 
 ## About {% data variables.product.prodname_dotcom %}-hosted runners networking
 
-By default, {% data variables.product.prodname_dotcom %}-hosted runners have access to the public internet. However, you may also want these runners to access resources on your private network, such as a package registry, a secret manager, or other on-premise services. 
+By default, {% data variables.product.prodname_dotcom %}-hosted runners have access to the public internet. However, you may also want these runners to access resources on your private network, such as a package registry, a secret manager, or other on-premise services.
 
 {% data variables.product.prodname_dotcom %}-hosted runners are shared across all {% data variables.product.prodname_dotcom %} customers, so you will need a way of connecting your private network to just your runners while they are running your workflows. There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
 
@@ -28,14 +28,14 @@ With {% data variables.product.prodname_actions %}, you can use OpenID Connect (
 
 The following diagram gives an overview of this solution's architecture:
 
-![A diagram of an OIDC gateway architecture starting with a GitHub Actions runner and ending with a private network's private service.](/assets/images/help/images/actions-oidc-gateway.png)
+![A diagram of an OIDC gateway architecture, starting with a {% data variables.product.prodname_actions %} runner and ending with a private network's private service.](/assets/images/help/actions/actions-oidc-gateway.png)
 
 It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
 
 The main disadvantage of this approach is you have to implement the API gateway to make requests on your behalf, as well as run it on the edge of your network.
 
 But there are various advantages too:
-- You don't need to configure any firewalls, or modify the routing of your private network. 
+- You don't need to configure any firewalls, or modify the routing of your private network.
 - The API gateway is stateless, and so it scales horizontally to handle high availability and high throughput.
 
 For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) (note that this requires customization for your use case and is not ready-to-run as-is), and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)".
@@ -45,11 +45,11 @@ For more information, see [a reference implementation of an API Gateway](https:/
 
 If you don't want to maintain separate infrastructure for an API Gateway, you can create an overlay network between your runner and a service in your private network, by running WireGuard in both places.
 
-There are various disadvantages to this approach: 
+There are various disadvantages to this approach:
 
-- To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS. 
+- To reach WireGuard running on your private service, you will need a well-known IP address and port that your workflow can reference: this can either be a public IP address and port, a port mapping on a network gateway, or a service that dynamically updates DNS.
 - WireGuard doesn't handle NAT traversal out of the box, so you'll need to identify a way to provide this service.
-- This connection is one-to-one, so if you need high availability or high throughput you'll need to build that on top of WireGuard. 
+- This connection is one-to-one, so if you need high availability or high throughput you'll need to build that on top of WireGuard.
 - You'll need to generate and securely store keys for both the runner and your private service. WireGuard uses UDP, so your network must support UDP traffic.
 
 There are some advantages too, as you can run WireGuard on an existing server so you don't have to maintain separate infrastructure, and it's well supported on {% data variables.product.prodname_dotcom %}-hosted runners.

@@ -49,6 +49,18 @@
       "requestPath": "/orgs/{org}/actions/permissions/selected-actions"
     },
     {
+      "slug": "get-default-workflow-permissions-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/actions/permissions/workflow"
+    },
+    {
+      "slug": "set-default-workflow-permissions-for-an-organization",
+      "subcategory": "permissions",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/actions/permissions/workflow"
+    },
+    {
       "slug": "list-self-hosted-runner-groups-for-an-organization",
       "subcategory": "self-hosted-runner-groups",
       "verb": "get",
@@ -209,6 +221,12 @@
       "subcategory": "workflow-jobs",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/jobs/{job_id}/logs"
+    },
+    {
+      "slug": "list-repository-organization-secrets",
+      "subcategory": "secrets",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/actions/organization-secrets"
     },
     {
       "slug": "get-github-actions-permissions-for-a-repository",
@@ -453,6 +471,12 @@
       "subcategory": "apps",
       "verb": "get",
       "requestPath": "/app"
+    },
+    {
+      "slug": "list-installation-requests-for-the-authenticated-app",
+      "subcategory": "apps",
+      "verb": "get",
+      "requestPath": "/app/installation-requests"
     },
     {
       "slug": "list-installations-for-the-authenticated-app",

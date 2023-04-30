@@ -13,8 +13,11 @@ versions:
 topics:
   - OAuth Apps
 children:
+  - /rate-limits-for-oauth-apps
   - /creating-an-oauth-app
+  - /authenticating-to-the-rest-api-with-an-oauth-app
   - /authorizing-oauth-apps
   - /scopes-for-oauth-apps
   - /creating-a-custom-badge-for-your-oauth-app
 ---
+

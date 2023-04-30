@@ -55,11 +55,9 @@ You can find and view a package located in the repositories of an organization y
 
 ## Viewing your packages
 
-You can find and view any package you've published across all organizations and repositories. 
+You can find and view any package you've published across all organizations and repositories.
 
-{% data reusables.profile.access_profile %}
-2. On the top of the profile page, in the main navigation, click **Packages**.
-  ![Project tab](/assets/images/help/package-registry/user-packages-tab.png)
+{% data reusables.package_registry.package-settings-from-user-level %}
 {% data reusables.package_registry.navigate-to-packages %}
 
 ## Further reading

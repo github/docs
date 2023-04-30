@@ -31,23 +31,15 @@ shortTitle: Configure publishing source
 {% data reusables.pages.sidebar-pages %}
 {% ifversion pages-custom-workflow %}
 1. Under "Build and deployment", under "Source", select **Deploy from a branch**.
-1. Under "Build and deployment", under "Branch", use the **None** or **Branch** dropdown menu and select a publishing source.
-
-   ![Screenshot of the dropdown menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-
+1. Under "Build and deployment", use the branch dropdown menu and select a publishing source.
+   ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
 {% else %}
-3. Under "{% data variables.product.prodname_pages %}", use the **None** or **Branch** drop-down menu and select a publishing source.
-
-   ![Screenshot of the dropdown menu to select a publishing source](/assets/images/help/pages/publishing-source-drop-down.png)
-
+1. Under "{% data variables.product.prodname_pages %}", use the branch dropdown menu and select a publishing source.
+  ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
 {% endif %}
-1. Optionally, use the drop-down menu to select a folder for your publishing source.
-
-   ![Screenshot of the dropdown menu to select a folder for publishing source](/assets/images/help/pages/publishing-source-folder-drop-down.png)
-
+1. Optionally, use the folder dropdown menu to select a folder for your publishing source.
+  ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a folder for a publishing source, labeled "/(root)," is outlined in dark orange.](/assets/images/help/pages/publishing-source-folder-drop-down.png)
 1. Click **Save**.
-
-   ![Screenshot of the button to save changes to publishing source settings](/assets/images/help/pages/publishing-source-save.png)
 
 ### Troubleshooting publishing from a branch
 

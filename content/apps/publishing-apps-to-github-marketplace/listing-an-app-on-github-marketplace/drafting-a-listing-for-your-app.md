@@ -41,13 +41,13 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 
   {% endnote %}
 
-  ![App type selection](/assets/images/settings/apps_choose_app.png)
+  ![Screenshot of the sidebar on the "Developer Settings" page of {% data variables.product.prodname_dotcom %}. Options labeled "{% data variables.product.prodname_github_apps %}" and "{% data variables.product.prodname_oauth_apps %}" are outlined in dark orange.](/assets/images/settings/apps_choose_app.png)
 
 4. Select the app you'd like to add to {% data variables.product.prodname_marketplace %}.
 {% data reusables.user-settings.edit_marketplace_listing %}
 5. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
-![GitHub Marketplace listing](/assets/images/marketplace/marketplace_listing_overview.png)
 
+   ![Screenshot of a {% data variables.product.prodname_marketplace %} listing.](/assets/images/marketplace/marketplace-listing-overview.png)
 
 {% note %}
 

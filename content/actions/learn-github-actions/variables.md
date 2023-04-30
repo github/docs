@@ -150,30 +150,64 @@ The following rules apply to configuration variable names:
 {% data reusables.organizations.org_settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-variables-tab %}
-   ![Organization variables tab](/assets/images/help/organizations/actions-organization-variables-tab.png)
+
+   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Variables," is outlined in dark orange.](/assets/images/help/actions/organization-variables-tab.png)
 1. Click **New organization variable**.
 {% data reusables.actions.variable-fields %}
 1. From the **Repository access** dropdown list, choose an access policy.
 1. Click **Add variable**.
 
 ### Limits for configuration variables
+{% ifversion ghes %}
+{% ifversion ghes > 3.8 %}
 
-You can store up to 1,000 organization variables, 500 variables per repository, and 100 variables per environment. The total size limit for each organization and repository is 256 KB.
+Individual variables are limited to 48 KB in size.
+
+You can store up to 1,000 organization variables, 500 variables per repository, and 100 variables per environment. The total combined size limit for organization and repository variables is 10 MB per workflow run.
+
+A workflow created in a repository can access the following number of variables:
+
+* Up to 500 repository variables, if the total size of repository variables is less than 10 MB. If the total size of repository variables exceeds 10 MB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
+* Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 10 MB. If the total combined size of organization and repository variables exceeds 10 MB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
+* Up to 100 environment-level variables.
+
+{% note %}
+
+**Note**: Environment-level variables do not count toward the 10 MB total size limit. If you exceed the combined size limit for repository and organization variables and still need additional variables, you can use an environment and define additional variables in the environment.
+
+{% endnote %}
+{% elsif ghes < 3.9 %}
+
+Individual variables are limited to 48 KB in size.
+
+You can store up to 1,000 organization variables, 100 variables per repository, and 100 variables per environment.
+
+A workflow created in a repository can access the following number of variables:
+
+* All 100 repository variables.
+* If the repository is assigned access to more than 100 organization variables, the workflow can only use the first 100 organization variables (sorted alphabetically by variable name).
+* All 100 environment-level variables.
+{% endif %}
+
+{% else %}
+
+Individual variables are limited to 48 KB in size.
+
+You can store up to 1,000 organization variables, 500 variables per repository, and 100 variables per environment. The total combined size limit for organization and repository variables is 256 KB per workflow run.
 
 A workflow created in a repository can access the following number of variables:
 
 * Up to 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
 * Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
-* Up to 100 environment variables.
-
-Individual variables are limited to 48 KB in size.
+* Up to 100 environment-level variables.
 
 {% note %}
 
-**Note**: Environment variables do not count toward the 256 KB total size limit. If you exceed the size limit for repository and organization variables and still need additional variables, you can create an environment and define additional variables there.
+**Note**: Environment-level variables do not count toward the 256 KB total size limit. If you exceed the combined size limit for repository and organization variables and still need additional variables, you can use an environment and define additional variables in the environment.
 
 {% endnote %}
 
+{% endif %}
 {% endif %}
 
 ## Using contexts to access variable values

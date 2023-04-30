@@ -44,7 +44,7 @@ To enable {% data variables.product.prodname_code_scanning %} using {% data vari
 
 {% endif %}
 
-You can run code scanning on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [CodeQL action](https://github.com/github/codeql-action/). {% ifversion ghec %}{% data variables.product.prodname_code_scanning_capc %} uses [GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners) by default, but this can be customized if you plan to host your own runner with your own hardware specifications. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners)."{% endif %}
+You can run code scanning on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [CodeQL action](https://github.com/github/codeql-action/). {% ifversion ghec %}{% data variables.product.prodname_code_scanning_caps %} uses [GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners) by default, but this can be customized if you plan to host your own runner with your own hardware specifications. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners)."{% endif %}
 
 For more information about {% data variables.product.prodname_actions %}, see:
   - "[AUTOTITLE](/actions/learn-github-actions)"

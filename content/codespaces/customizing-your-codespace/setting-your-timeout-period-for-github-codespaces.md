@@ -33,7 +33,8 @@ Organizations can set a maximum idle timeout policy for codespaces created from 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
 1. Under "Default idle timeout", enter the time that you want, then click **Save**. The time must be between 5 minutes and 240 minutes (4 hours).
-   ![Selecting your timeout](/assets/images/help/codespaces/setting-default-timeout.png)
+
+   ![Screenshot of the "Default idle timeout" section of the {% data variables.product.prodname_codespaces %} settings, with "90 minutes" entered.](/assets/images/help/codespaces/setting-default-timeout.png)
 
 {% endwebui %}
 

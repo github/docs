@@ -7,17 +7,18 @@ const section = {
     },
     {
       type: 'array',
+      minItems: 1,
       items: {
         type: 'object',
+        required: ['heading', 'notes'],
+        additionalProperties: false,
         properties: {
           heading: {
             type: 'string',
-            required: true,
           },
           notes: {
             type: 'array',
             items: { type: 'string' },
-            required: true,
             minItems: 1,
           },
         },
@@ -27,6 +28,8 @@ const section = {
 }
 
 export default {
+  type: 'object',
+  required: ['date', 'sections'],
   properties: {
     intro: {
       type: 'string',
@@ -34,7 +37,6 @@ export default {
     date: {
       type: 'string',
       format: 'date',
-      required: true,
     },
     release_candidate: {
       type: 'boolean',
@@ -45,9 +47,9 @@ export default {
       default: false,
     },
     sections: {
-      required: true,
       type: 'object',
       minProperties: 1,
+      additionalProperties: false,
       properties: [
         'bugs',
         'known_issues',

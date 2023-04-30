@@ -286,13 +286,6 @@ Run this script after an Enterprise deprecation to remove Liquid statements and 
 ---
 
 
-### [`enterprise-server-releases/add-ghec-to-fpt.js`](enterprise-server-releases/add-ghec-to-fpt.js)
-
-Run this script to add versions frontmatter and Liquid conditionals for GitHub Enterprise Cloud, based on anything currently versioned for the specified release of free-pro-team.
-
----
-
-
 ### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
 
 This script creates the static GraphQL files for a new version.
@@ -469,14 +462,6 @@ A helper that returns an array of files for a given path and file extension.
 
 This script lists all local image files, sorted by their dimensions.
 
-NOTE: If you get this error:
-
-   Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'image-size' ...
-
-it's because you haven't installed all the *optional* dependencies. To do that, run:
-
-   npm install --include=optional
-
 ---
 
 
@@ -632,7 +617,7 @@ See how a piece of text gets turned into tokens by the different analyzers. Requ
 
 Example:
 
-   ./script/search/analyze-text.js my words to tokenize
+   ./src/scripts/search/analyze-text.js my words to tokenize
 
 ---
 
@@ -762,5 +747,3 @@ Exceptions: * Links with fragments (e.g., [Bar](/foo#bar)) will get their root l
 This script crawls the script directory, hooks on special comment markers in each script, and adds the comment to `script/README.md`.
 
 ---
-
-

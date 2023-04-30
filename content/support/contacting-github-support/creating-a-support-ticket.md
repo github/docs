@@ -28,8 +28,6 @@ topics:
 
 ## About support tickets
 
-{% data reusables.support.zendesk-old-tickets %}
-
 {% ifversion fpt %}
 {% data reusables.support.free-and-paid-support %}
 {% endif %}
@@ -42,7 +40,15 @@ topics:
 You can create your ticket using the {% data variables.contact.support_portal %} or, if you would like to include diagnostics with your support ticket, you can use the GitHub Enterprise Server Management Console.
 {% endif %}
 
+{% data reusables.support.zendesk-old-tickets %}
+
 After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)."
+
+{% ifversion ghec or ghes %}
+## Prerequisites
+
+{% ifversion ghec %}If you use an enterprise account, there{% else %}There{% endif %} are some steps you should follow before you start using the {% data variables.contact.enterprise_portal %}. For more information, see "[Getting started with the {% data variables.contact.enterprise_portal %}](/support/contacting-github-support/getting-started-with-the-github-support-portal)."
+{% endif%}
 
 ## What to include in your support ticket
 
@@ -68,7 +74,7 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 {% endif %}
 
-## Creating a support ticket{% ifversion ghes %} using the support portal{% endif %}
+## Creating a support ticket{% ifversion ghes %} using the {% data variables.contact.enterprise_portal %}{% endif %}
 
 1. Navigate to the {% data variables.contact.contact_support_portal %}.
 {% data reusables.support.submit-a-ticket %}
@@ -82,7 +88,6 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
 1. If you'd like to include diagnostics with your support ticket, Under "Diagnostics", click **Download diagnostic info** and save the file locally. You'll attach this file to your support ticket later.
-  ![Screenshot of button labelled "Download diagnostics info" on Management Console Support page.](/assets/images/enterprise/support/download-diagnostics-info-button.png)
 1. To complete your ticket and display the {% data variables.contact.enterprise_portal %}, under "Open Support Request", click **New support request**.
 {% data reusables.support.submit-a-ticket %}
 

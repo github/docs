@@ -9,6 +9,7 @@ versions:
 type: how_to
 topics:
   - Codespaces
+product: '{% data reusables.gated-features.codespaces-org %}'
 ---
 
 ## Overview
@@ -52,12 +53,9 @@ If you add an organization-wide policy, you should set it to the largest choice 
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Machine types**.
+1. Click {% octicon "pencil" aria-label="Edit policy" %} to edit the constraint, then clear the selection of any machine types that you don't want to be available.
 
-   ![Screenshot of the 'Add constraint' dropdown menu](/assets/images/help/codespaces/add-constraint-dropdown.png)
-
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint, then clear the selection of any machine types that you don't want to be available.
-
-   ![Screenshot of the pencil icon for editing the constraint](/assets/images/help/codespaces/edit-machine-constraint.png)
+   ![Screenshot of the "Allowed values" dropdown with options for four machine types. The options for 2-core and 4-core machines are selected.](/assets/images/help/codespaces/edit-machine-constraint.png)
 
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
@@ -81,9 +79,7 @@ You can edit an existing policy. For example, you may want to add or remove cons
 ## Deleting a policy
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the available machine types](#adding-a-policy-to-limit-the-available-machine-types)."
-1. Click the delete button to the right of the policy you want to delete.
-
-   ![Screenshot of the delete button for a policy](/assets/images/help/codespaces/policy-delete.png)
+{% data reusables.codespaces.delete-codespace-policy %}
 
 ## Further reading
 

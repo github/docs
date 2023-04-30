@@ -19,6 +19,14 @@ topics:
   - Profiles
 shortTitle: Personalize
 ---
+
+{% note %}
+
+**Note:**
+  Any details you add to your public {% data variables.product.product_name %} profile will be visible to all {% data variables.product.product_name %} users, including in regions where local laws, regulations, or cultural norms may pose risks to expressing your identity. We respect everyone’s decision about whether or not to share information about themselves on their {% data variables.product.product_name %} profile.
+
+{% endnote %}
+
 ## Changing your profile picture
 
 Your profile picture helps identify you across {% data variables.product.product_name %} in pull requests, comments, contributions pages, and graphs.
@@ -37,7 +45,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 ### Setting a profile picture
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select {% octicon "pencil" aria-label="" %} **Edit**, then click **Upload a photo...**.
+1. Under "Profile Picture", select {% octicon "pencil" aria-hidden="true" %} **Edit**, then click **Upload a photo...**.
 
    ![Screenshot of the "Public profile" section of a user account's settings. A button, labeled with a pencil icon and "Edit", is highlighted with an orange outline.](/assets/images/help/profile/edit-profile-photo.png)
 1. Select an image, then click **Upload**.
@@ -47,7 +55,7 @@ When you sign up for an account, {% data variables.product.product_name %} provi
 ### Resetting your profile picture to the identicon
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select {% octicon "pencil" aria-label="" %} **Edit**, then click **Remove photo** to revert to your identicon.
+1. Under "Profile Picture", select {% octicon "pencil" aria-hidden="true" %} **Edit**, then click **Remove photo** to revert to your identicon.
 
    {% ifversion not ghae %}If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.{% endif %}
 
@@ -100,16 +108,8 @@ For a longer-form and more prominent way of displaying customized information ab
 
 Add pronouns to your public user profile to share information about yourself with other {% data variables.product.product_name %} users. Your pronouns will only be visible to users that are signed in to {% data variables.product.product_name %}.
 
-{% note %}
-
-**Note:**
-  Your pronouns will be visible to {% data variables.product.product_name %} users. It is important to consider that for transgender and non-binary people, covering demands in the workplace, at school, or in other contexts, may make it more comfortable not to share their pronouns. Please be aware of any applicable local laws, regulations, or cultural norms that may pose additional risks to transgender or non-binary people as you consider whether to leverage the pronouns feature.
-
-{% endnote %}
-
 {% data reusables.user-settings.access_settings %}
 1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.
-  ![Screenshot of selected pronouns showing "they/them" highlighted with a dark orange outline](/assets/images/help/profile/pronouns-field.png)
 
 {% data reusables.profile.update-profile %}
 
@@ -182,7 +182,6 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 | {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | If you helped out hunting down security vulnerabilities, you'll get a Security Bug Bounty Hunter badge on your profile. For more information about the {% data variables.product.prodname_dotcom %} Security program, see [{% data variables.product.prodname_dotcom %} Security](https://bounty.github.com/). |
 | {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} Campus Expert** | If you participate in the {% data variables.product.prodname_campus_program %}, you will get a {% data variables.product.prodname_dotcom %} Campus Expert badge on your profile. For more information about the Campus Experts program, see [Campus Experts](https://education.github.com/experts). |
 | {% octicon "shield" aria-label="The shield icon" %} | **Security advisory credit** | If a security advisory you submit to the [{% data variables.product.prodname_dotcom %} Advisory Database](https://github.com/advisories) is accepted, you'll get a Security advisory credit badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Security Advisories, see [{% data variables.product.prodname_dotcom %} Security Advisories](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories). |
-| {% octicon "check" aria-label="The check icon" %} | **Discussion answered** | If your reply to a discussion is marked as the answer, you'll get a Discussion answered badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Discussions, see [About discussions](/discussions/collaborating-with-your-community-using-discussions/about-discussions). |
 
 {% endif %}
 

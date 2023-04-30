@@ -21,11 +21,7 @@ topics:
 
 Any organization member can post on your team's page or participate in a public discussion. {% data reusables.organizations.team-discussions-permissions %}
 
-![Discussions tab of team page with public and private discussions](/assets/images/help/organizations/team-page-discussions-tab.png)
-
 You can link to any team discussion to reference it elsewhere. You can pin important posts to your team's page for quick reference later. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/pinning-a-team-discussion)."
-
-![Pinned discussions tab of team page with pinned discussion](/assets/images/help/organizations/team-discussions-pinned.png)
 
 {% data reusables.organizations.team-discussions-default %} Owners can disable team discussions for the entire organization. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)."
 
