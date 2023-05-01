@@ -1,5 +1,6 @@
 ---
 title: About creating GitHub Apps
+shortTitle: About creating apps
 intro: "{% data variables.product.prodname_github_app %}s let you build integrations to automate processes and extend {% data variables.product.company_short %}'s functionality."
 versions:
   fpt: '*'
