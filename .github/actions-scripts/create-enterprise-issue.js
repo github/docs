@@ -5,7 +5,7 @@ import path from 'path'
 import { getOctokit } from '@actions/github'
 import { latest, oldestSupported } from '../../lib/enterprise-server-releases.js'
 const enterpriseDates = JSON.parse(
-  await fs.readFile(path.join(process.cwd(), 'lib/enterprise-dates.json'))
+  await fs.readFile(path.join(process.cwd(), 'src/ghes-releases/lib/enterprise-dates.json'))
 )
 
 const acceptedMilestones = ['release', 'deprecation']
@@ -23,7 +23,8 @@ const numberOfdaysBeforeDeprecationToOpenIssue = 15
 //
 // When a milestone is within the specified number of days, a new issue is
 // created using the templates in
-// .github/actions-scripts/enterprise-server-issue-templates.
+// src/ghes-releases/lib/release-steps.md
+// and src/ghes-releases/lib/deprecation-steps.md.
 //
 // Release issues are then added to the docs content squad board for triage.
 // Deprecations issues are owned by docs engineering and are added to the
@@ -53,7 +54,7 @@ async function run() {
 
   if (!versionNumber) {
     console.log(
-      `Could not find the next version number after ${latest} in enterprise-dates.json. Try running script/update-enterprise-dates.js, then rerun this script.`
+      `Could not find the next version number after ${latest} in enterprise-dates.json. Try running src/ghes-releases/scripts/update-enterprise-dates.js, then rerun this script.`
     )
     process.exit(0)
   }
@@ -62,7 +63,7 @@ async function run() {
 
   if (!datesForVersion) {
     console.log(
-      `Could not find ${versionNumber} in enterprise-dates.json. Try running script/update-enterprise-dates.js, then rerun this script.`
+      `Could not find ${versionNumber} in enterprise-dates.json. Try running src/ghes-releases/scripts/update-enterprise-dates.js, then rerun this script.`
     )
     process.exit(0)
   }
@@ -79,10 +80,7 @@ async function run() {
   }
 
   const milestoneSteps = await fs.readFile(
-    path.join(
-      process.cwd(),
-      `.github/actions-scripts/enterprise-server-issue-templates/${milestone}-issue.md`
-    ),
+    path.join(process.cwd(), `src/ghes-releases/lib/${milestone}-steps.md`),
     'utf8'
   )
   const issueLabels =
