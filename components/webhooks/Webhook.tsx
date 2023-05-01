@@ -7,7 +7,7 @@ import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
-import { LinkIconHeading } from 'components/article/LinkIconHeading'
+import { PermalinkHeader } from 'components/article/PermalinkHeader'
 import { useTranslation } from 'components/hooks/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from 'components/parameter-table/ParameterTable'
@@ -148,10 +148,9 @@ export function Webhook({ webhook }: Props) {
 
   return (
     <div>
-      <h2 id={webhookSlug}>
-        <LinkIconHeading slug={webhookSlug} />
-        <code>{currentWebhookAction.category}</code>
-      </h2>
+      <PermalinkHeader as="h2" slug={webhookSlug}>
+        {currentWebhookAction.category}
+      </PermalinkHeader>
       <div>
         <div dangerouslySetInnerHTML={{ __html: currentWebhookAction.summaryHtml }}></div>
         <h3

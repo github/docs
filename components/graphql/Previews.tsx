@@ -2,7 +2,7 @@ import React from 'react'
 import GithubSlugger from 'github-slugger'
 import cx from 'classnames'
 
-import { LinkIconHeading } from 'components/article/LinkIconHeading'
+import { PermalinkHeader } from 'components/article/PermalinkHeader'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { PreviewT } from 'components/graphql/types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
@@ -18,11 +18,10 @@ export function Previews({ schema }: Props) {
     const { t } = useTranslation('products')
 
     return (
-      <div className={cx(styles.markdownBody, styles.automatedPages)} key={slug}>
-        <h2 id={slug}>
-          <LinkIconHeading slug={slug} />
+      <div className={cx(styles.markdownBody)} key={slug}>
+        <PermalinkHeader as="h2" slug={slug}>
           {item.title}
-        </h2>
+        </PermalinkHeader>
         <p>{item.description}</p>
         <p>{t('graphql.overview.preview_header')}</p>
         <pre>

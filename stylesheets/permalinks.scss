@@ -1,0 +1,10 @@
+a.permalink {
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .permalink-symbol {
+    font-weight: lighter;
+    color: var(--color-fg-subtle);
+  }
+}

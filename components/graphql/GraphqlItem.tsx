@@ -1,4 +1,4 @@
-import { LinkIconHeading } from 'components/article/LinkIconHeading'
+import { PermalinkHeader } from 'components/article/PermalinkHeader'
 import type { GraphqlT } from './types'
 import { Notice } from './Notice'
 
@@ -13,18 +13,12 @@ export function GraphqlItem({ item, heading, children, headingLevel = 2 }: Props
   const lowerCaseName = item.name.toLowerCase()
   return (
     <div>
-      {headingLevel === 2 && (
-        <h2 id={lowerCaseName}>
-          <LinkIconHeading slug={lowerCaseName} />
-          <code>{item.name}</code>
-        </h2>
-      )}
-      {headingLevel === 3 && (
-        <h3 id={lowerCaseName}>
-          <LinkIconHeading slug={lowerCaseName} />
-          <code>{item.name}</code>
-        </h3>
-      )}
+      <PermalinkHeader
+        as={headingLevel === 2 ? 'h2' : headingLevel === 3 ? 'h3' : 'h6'}
+        slug={lowerCaseName}
+      >
+        {item.name}
+      </PermalinkHeader>
       <div
         dangerouslySetInnerHTML={{
           __html: item.description,
