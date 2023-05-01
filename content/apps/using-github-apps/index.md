@@ -12,6 +12,7 @@ versions:
   ghec: '*'
 shortTitle: 'Using {% data variables.product.prodname_github_apps %}'
 children:
+  - /about-using-github-apps
   - /installing-an-app-in-your-personal-account
   - /installing-an-app-in-your-organization
   - /authorizing-github-apps
