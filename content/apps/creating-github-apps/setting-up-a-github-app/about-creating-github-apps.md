@@ -51,7 +51,11 @@ When building an integration, you should consider using a {% data variables.prod
 
 ### Using a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}
 
-In general, {% data variables.product.prodname_github_app %}s are preferred over {% data variables.product.prodname_oauth_app %}s. For information on how to migrate an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
+In general, {% data variables.product.prodname_github_app %}s are preferred over {% data variables.product.prodname_oauth_app %}s.
+
+For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)."
+
+For information on how to migrate an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
 
 #### {% data variables.product.prodname_github_app %}s offer enhanced security
 
@@ -61,7 +65,7 @@ In general, {% data variables.product.prodname_github_app %}s are preferred over
 
 {% data variables.product.prodname_github_app %}s use short lived tokens. If the token is leaked, the token will be valid for a shorter amount of time, which reduces the damage that can be done. Conversely, {% data variables.product.prodname_oauth_app %} tokens do not expire until the person who authorized the {% data variables.product.prodname_oauth_app %} revokes the token.
 
-These security features help keep your {% data variables.product.prodname_github_app %} secure by limiting the damage that could be done if your app's credentials were leaked. Additionally, this lets organizations with stricter security policies use your app.
+These security features help harden your {% data variables.product.prodname_github_app %}'s security by limiting the damage that could be done if your app's credentials were leaked. Additionally, this lets organizations with stricter security policies use your app.
 
 #### {% data variables.product.prodname_github_app %}s can act independently of or on behalf of a user
 
