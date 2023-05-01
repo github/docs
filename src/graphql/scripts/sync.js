@@ -32,7 +32,7 @@ async function main() {
     // For example, free-pro-team@latest corresponds to dotcom,
     // enterprise-server@2.22 corresponds to ghes-2.22,
     // and github-ae@latest corresponds to ghae
-    const graphqlVersion = allVersions[version].miscVersionName
+    const graphqlVersion = allVersions[version].openApiVersionName
 
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
@@ -115,7 +115,7 @@ function getDataFilepath(id, graphqlVersion) {
 
   // dotcom files live at the root of data/graphql
   // non-dotcom files live in data/graphql/<version_subdir>
-  const dataSubdir = graphqlVersion === 'dotcom' ? '' : graphqlVersion
+  const dataSubdir = graphqlVersion === 'fpt' ? '' : graphqlVersion
 
   return path.join(graphqlDataDir, dataSubdir, filename)
 }
@@ -125,7 +125,7 @@ async function setBranchAsRef(options, graphqlVersion, branch = false) {
   const defaultBranch = 'master'
 
   const branches = {
-    dotcom: defaultBranch,
+    fpt: defaultBranch,
     ghec: defaultBranch,
     ghes: `enterprise-${graphqlVersion.replace('ghes-', '')}-release`,
     // TODO confirm the below is accurate after the release branch is created

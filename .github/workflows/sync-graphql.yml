@@ -39,7 +39,7 @@ jobs:
           # need to use a token from a user with access to github/github for this step
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
         run: |
-          src/graphql/scripts/update-files.js
+          src/graphql/scripts/sync.js
       - name: Create pull request
         id: create-pull-request
         uses: peter-evans/create-pull-request@5b4a9f6a9e2af26e5f02351490b90d01eb8ec1e5 # pin @v5.0.0
@@ -52,7 +52,7 @@ jobs:
           # don't trigger other workflows and this action force pushes updates
           # from the default branch.
           token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          commit-message: 'Action ran graphql script"update-files"'
+          commit-message: 'Update GraphQL data files'
           title: GraphQL schema update
           body:
             "Hello! Some GraphQL data in github/github was updated recently. This PR
@@ -87,4 +87,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last update-graphql-files run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/update-graphql-files.yml
+          text: The last sync-graphql run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/sync-graphql.yml
