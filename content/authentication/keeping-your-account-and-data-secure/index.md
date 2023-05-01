@@ -21,6 +21,7 @@ children:
   - /reviewing-your-deploy-keys
   - /token-expiration-and-revocation
   - /reviewing-your-security-log
+  - /security-log-events
   - /removing-sensitive-data-from-a-repository
   - /about-anonymized-urls
   - /about-githubs-ip-addresses
@@ -30,4 +31,3 @@ children:
   - /viewing-and-managing-your-sessions
 shortTitle: Account security
 ---
-

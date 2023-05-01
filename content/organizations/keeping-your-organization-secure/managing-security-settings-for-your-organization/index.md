@@ -16,5 +16,6 @@ children:
   - /restricting-email-notifications-for-your-organization
   - /reviewing-the-audit-log-for-your-organization
   - /displaying-ip-addresses-in-the-audit-log-for-your-organization
+  - /audit-log-events-for-your-organization
   - /accessing-compliance-reports-for-your-organization
 ---
