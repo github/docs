@@ -256,64 +256,6 @@ This script is run on a writer's machine while developing Early Access content l
 ---
 
 
-### [`enterprise-server-deprecations/archive-version.js`](enterprise-server-deprecations/archive-version.js)
-
-Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
-
-NOTE: If you get this error:
-
-   Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'website-scraper' ...
-
-it's because you haven't installed all the *optional* dependencies. To do that, run:
-
-   npm install --include=optional
-
-
----
-
-
-### [`enterprise-server-deprecations/remove-static-files.js`](enterprise-server-deprecations/remove-static-files.js)
-
-This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
-
----
-
-
-### [`enterprise-server-deprecations/remove-version-markup.js`](enterprise-server-deprecations/remove-version-markup.js)
-
-Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
-
----
-
-
-### [`enterprise-server-releases/add-ghec-to-fpt.js`](enterprise-server-releases/add-ghec-to-fpt.js)
-
-Run this script to add versions frontmatter and Liquid conditionals for GitHub Enterprise Cloud, based on anything currently versioned for the specified release of free-pro-team.
-
----
-
-
-### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
-
-This script creates the static GraphQL files for a new version.
-
----
-
-
-### [`enterprise-server-releases/create-webhook-files.js`](enterprise-server-releases/create-webhook-files.js)
-
-This script creates new static webhook payload files for a new version.
-
----
-
-
-### [`enterprise-server-releases/release-banner.js`](enterprise-server-releases/release-banner.js)
-
-This script creates or removes a release candidate banner for a specified version.
-
----
-
-
 ### [`find-orphaned-assets.js`](find-orphaned-assets.js)
 
 Print a list of all the asset files that can't be found mentioned in any of the source files (content & code).
@@ -398,13 +340,6 @@ Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it w
 ---
 
 
-### [`helpers/get-version-blocks.js`](helpers/get-version-blocks.js)
-
-
-
----
-
-
 ### [`helpers/git-utils.js`](helpers/git-utils.js)
 
 
@@ -418,19 +353,6 @@ Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it w
 
 ---
 
-
-### [`helpers/remove-deprecated-frontmatter.js`](helpers/remove-deprecated-frontmatter.js)
-
-
-
----
-
-
-### [`helpers/remove-liquid-statements.js`](helpers/remove-liquid-statements.js)
-
-
-
----
 
 
 ### [`helpers/retry-on-error-test.js`](helpers/retry-on-error-test.js)
@@ -729,13 +651,6 @@ List all the TODOs in our JavaScript files and stylesheets.
 ### [`toggle-ghae-feature-flags.js`](toggle-ghae-feature-flags.js)
 
 Find and replace lightweight feature flags for GitHub AE content.
-
----
-
-
-### [`update-enterprise-dates.js`](update-enterprise-dates.js)
-
-This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
 
 ---
 

@@ -42,6 +42,7 @@ jobs:
               { name: 'content', path: 'tests/content', },
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
               { name: 'events', path: 'src/events/tests', },
+              { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
               { name: 'graphql', path: 'src/graphql/tests', },
               { name: 'rest', path: 'src/rest/tests', },
               { name: 'webhooks', path: 'src/webhooks/tests', },
