@@ -3,7 +3,7 @@ import { slug } from 'github-slugger'
 import { CheckCircleFillIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
-import { LinkIconHeading } from 'components/article/LinkIconHeading'
+import { PermalinkHeader } from 'components/article/PermalinkHeader'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
@@ -39,10 +39,9 @@ export function RestOperation({ operation }: Props) {
 
   return (
     <div className="pb-8">
-      <h2 id={titleSlug}>
-        <LinkIconHeading slug={titleSlug} />
+      <PermalinkHeader as="h2" slug={titleSlug}>
         {operation.title}
-      </h2>
+      </PermalinkHeader>
       {operation.enabledForGitHubApps && (
         <div className="d-flex">
           <span className="mr-2 d-flex flex-items-center">
@@ -56,7 +55,7 @@ export function RestOperation({ operation }: Props) {
           </span>
         </div>
       )}
-      <div className={cx(styles.restOperation, 'd-flex flex-wrap gutter mt-4')}>
+      <div className="d-flex flex-wrap gutter mt-4">
         <div className="col-md-12 col-lg-6">
           <div
             className={cx(styles.codeBlock)}

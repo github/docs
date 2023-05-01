@@ -341,9 +341,7 @@ export function LinkPreviewPopover() {
     ).filter((link) => {
       // This filters out links that are not internal or in-page
       // and the ones that are in-page anchor links next to the headings.
-      return (
-        link.href.startsWith(window.location.origin) && !link.classList.contains('doctocat-link')
-      )
+      return link.href.startsWith(window.location.origin) && !link.classList.contains('permalink')
     })
 
     // Ideally, we'd have an event listener for the entire container and
