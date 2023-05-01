@@ -3,7 +3,7 @@ import getMiniTocItems from '../../lib/get-mini-toc-items'
 
 function generateHeading(h) {
   return (slug) => `<${h} id="${slug}">
-    <a href="${slug}" class="permalink">
+    <a href="${slug}" class="heading-link">
       ${slug}
     </a>
   </${h}>`

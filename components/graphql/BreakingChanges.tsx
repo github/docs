@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 
-import { PermalinkHeader } from 'components/article/PermalinkHeader'
+import { HeadingLink } from 'components/article/HeadingLink'
 import { BreakingChangesT } from 'components/graphql/types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
 
@@ -16,7 +16,7 @@ export function BreakingChanges({ schema }: Props) {
 
     return (
       <div className={cx(styles.markdownBody)} key={date}>
-        <PermalinkHeader as="h2">{heading}</PermalinkHeader>
+        <HeadingLink as="h2">{heading}</HeadingLink>
         {items.map((item) => {
           const criticalityStyles =
             item.criticality === 'breaking'

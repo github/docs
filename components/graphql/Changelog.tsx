@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 
-import { PermalinkHeader } from 'components/article/PermalinkHeader'
+import { HeadingLink } from 'components/article/HeadingLink'
 import { ChangelogItemT } from 'components/graphql/types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
 
@@ -15,7 +15,7 @@ export function Changelog({ changelogItems }: Props) {
 
     return (
       <div key={item.date}>
-        <PermalinkHeader as="h2">{heading}</PermalinkHeader>
+        <HeadingLink as="h2">{heading}</HeadingLink>
         {(item.schemaChanges || []).map((change, index) => (
           <React.Fragment key={index}>
             <p>{change.title}</p>

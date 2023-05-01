@@ -3,7 +3,7 @@ import cx from 'classnames'
 import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
 import { Link } from 'components/Link'
-import { PermalinkHeader } from 'components/article/PermalinkHeader'
+import { HeadingLink } from 'components/article/HeadingLink'
 
 import styles from './PatchNotes.module.scss'
 
@@ -37,9 +37,9 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
             )}
           >
             <div>
-              <PermalinkHeader as="h3" className="pl-4" slug={sectionSlug}>
+              <HeadingLink as="h3" className="pl-4" slug={sectionSlug}>
                 {`${patch.version}: ${SectionToLabelMap[key]}` || 'INVALID SECTION'}
-              </PermalinkHeader>
+              </HeadingLink>
               <ul>
                 {sectionItems.map((item, i) => {
                   if (typeof item === 'string') {

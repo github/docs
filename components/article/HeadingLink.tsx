@@ -9,13 +9,13 @@ export type PropsT = {
   className?: string
 }
 
-export function PermalinkHeader({ children, as: Component, slug, className }: PropsT) {
+export function HeadingLink({ children, as: Component, slug, className }: PropsT) {
   slug = slug || slugger.slug(children)
   return (
     <Component id={slug} className={className} tabIndex={-1}>
-      <a className="permalink" href={`#${slug}`}>
+      <a className="heading-link" href={`#${slug}`}>
         {children}
-        <span aria-hidden="true" className="permalink-symbol">
+        <span aria-hidden="true" className="heading-link-symbol">
           {' '}
           #
         </span>
