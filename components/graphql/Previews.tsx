@@ -2,7 +2,7 @@ import React from 'react'
 import GithubSlugger from 'github-slugger'
 import cx from 'classnames'
 
-import { PermalinkHeader } from 'components/article/PermalinkHeader'
+import { HeadingLink } from 'components/article/HeadingLink'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { PreviewT } from 'components/graphql/types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
@@ -19,9 +19,9 @@ export function Previews({ schema }: Props) {
 
     return (
       <div className={cx(styles.markdownBody)} key={slug}>
-        <PermalinkHeader as="h2" slug={slug}>
+        <HeadingLink as="h2" slug={slug}>
           {item.title}
-        </PermalinkHeader>
+        </HeadingLink>
         <p>{item.description}</p>
         <p>{t('graphql.overview.preview_header')}</p>
         <pre>

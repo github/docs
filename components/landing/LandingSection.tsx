@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { PermalinkHeader } from 'components/article/PermalinkHeader'
+import { HeadingLink } from 'components/article/HeadingLink'
 
 type Props = {
   title?: string
@@ -12,9 +12,9 @@ export const LandingSection = ({ title, children, className, sectionLink, descri
   return (
     <div className={cx('container-xl px-3 px-md-6 mt-6', className)}>
       {title && (
-        <PermalinkHeader as="h2" slug={sectionLink} className="mb-4">
+        <HeadingLink as="h2" slug={sectionLink} className="mb-4">
           {title}
-        </PermalinkHeader>
+        </HeadingLink>
       )}
       {description && (
         <div className="color-fg-muted f4" dangerouslySetInnerHTML={{ __html: description }} />

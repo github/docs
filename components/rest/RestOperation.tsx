@@ -3,7 +3,7 @@ import { slug } from 'github-slugger'
 import { CheckCircleFillIcon } from '@primer/octicons-react'
 import cx from 'classnames'
 
-import { PermalinkHeader } from 'components/article/PermalinkHeader'
+import { HeadingLink } from 'components/article/HeadingLink'
 import { Link } from 'components/Link'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { RestPreviewNotice } from './RestPreviewNotice'
@@ -39,9 +39,9 @@ export function RestOperation({ operation }: Props) {
 
   return (
     <div className="pb-8">
-      <PermalinkHeader as="h2" slug={titleSlug}>
+      <HeadingLink as="h2" slug={titleSlug}>
         {operation.title}
-      </PermalinkHeader>
+      </HeadingLink>
       {operation.enabledForGitHubApps && (
         <div className="d-flex">
           <span className="mr-2 d-flex flex-items-center">
