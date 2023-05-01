@@ -1,5 +1,5 @@
 ---
-title: 'Using GitHub Apps'
+title: Using GitHub Apps
 intro: 'You can purchase and install {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /articles/purchasing-and-installing-apps-in-github-marketplace
@@ -15,6 +15,7 @@ children:
   - /installing-an-app-in-your-personal-account
   - /installing-an-app-in-your-organization
   - /authorizing-github-apps
-  - /reviewing-your-authorized-integrations
+  - /reviewing-and-revoking-authorization-of-github-apps
   - /connecting-with-third-party-applications
 ---
+
