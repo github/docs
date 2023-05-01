@@ -16,7 +16,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
   - [ ] Run the script to update the dates file:
 
     ```
-    script/update-enterprise-dates.js
+    src/ghes-releases/scripts/update-enterprise-dates.js
     ```
 - [ ] Create REST files based on previous version. Copy the latest GHES release data to a new directory for new release. For example, if the current release is 3.8 and the new release is 3.9:
   ```
@@ -253,7 +253,7 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
 - [ ] If this is a release candidate release, add a Release Candidate banner:
 
   ```
-  script/enterprise-server-releases/release-banner.js --action create --version <PLAN@RELEASE>
+  src/ghes-releases/scripts/release-banner.js --action create --version <PLAN@RELEASE>
   script/copy-fixture-data.js // This updates the fixtures to match the updated data/variables/release_candidate.yml file
   ```
 
@@ -283,11 +283,11 @@ If you aren't comfortable going through the steps alone, sync up with a docs eng
 
 #### `Node.js tests / test content` failures
 
-If the `Node.js tests / test content` check fails with the following message, the `lib/enterprise-dates.json` file is not up-to-date:
+If the `Node.js tests / test content` check fails with the following message, the `src/ghes-releases/lib/enterprise-dates.json` file is not up-to-date:
 
 > FAIL tests/content/search.js ● search › has remote indexNames in every language for every supported GHE version
 
-This file should be automatically updated, but you can also run `script/update-enterprise-dates.js` to update it. **Note:** If the test is still failing after running this script, look at the dates for this release. If the date is still inaccurate, it may be an issue with the source at https://github.com/github/enterprise-releases/blob/master/docs/supported-versions.md#release-lifecycle-dates. If that is the case, manually update the dates in the `lib/enterprise-dates.json` file.
+This file should be automatically updated, but you can also run `src/ghes-releases/scripts/update-enterprise-dates.js` to update it. **Note:** If the test is still failing after running this script, look at the dates for this release. If the date is still inaccurate, it may be an issue with the source at https://github.com/github/enterprise-releases/blob/master/docs/supported-versions.md#release-lifecycle-dates. If that is the case, manually update the dates in the `src/ghes-releases/lib/enterprise-dates.json` file.
 
 ### Before shipping the release branch
 

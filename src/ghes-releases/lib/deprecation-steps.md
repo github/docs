@@ -1,6 +1,6 @@
 ## Overview
 
-The day after a GHES version's [deprecation date](https://github.com/github/docs-internal/tree/main/lib/enterprise-dates.json), a banner on the docs will say: `This version was deprecated on <date>.` This is all users need to know. However, we don't want to update those docs anymore or link to them in the nav. Follow the steps in this issue to **archive** the docs.
+The day after a GHES version's [deprecation date](https://github.com/github/docs-internal/tree/main/src/ghes-releases/lib/enterprise-dates.json), a banner on the docs will say: `This version was deprecated on <date>.` This is all users need to know. However, we don't want to update those docs anymore or link to them in the nav. Follow the steps in this issue to **archive** the docs.
 
 **Note**: Do each step below in a separate PR. Only move on to the next step when the previous PR has been merged.
 
@@ -33,7 +33,7 @@ Additionally, download:
   ```
   Then run the archive script:
   ```
-  $ script/enterprise-server-deprecations/archive-version.js
+  $ src/ghes-releases/scripts/archive-version.js
   ```
 
   This will generate a directory in `github/docs-internal` called `tmpArchivalDir_<VERSION_TO_DEPRECATE>`. For example 'tmpArchivalDir_3.0'. You can also create a specific output directory using the `--output` flag.
@@ -120,7 +120,7 @@ Poke around several pages, ensure that the stylesheets are working properly, ima
 **Note:** We do not remove the old content for GHES release notes. New release notes can be added after we perform a deprecation in some rare cases, and not removing this content makes it easier for us to re-scrape the content to add to Azure Blob Storage.
 
 - [ ] In your `docs-internal` checkout, create a new branch `remove-<version>-static-files` branch: `git checkout -b remove-<version>-static-files` (you can branch off of `main` or from your `deprecate-<version>` branch, up to you).
-- [ ] Run `script/enterprise-server-deprecations/remove-static-files.js` and commit results.
+- [ ] Run `src/ghes-releases/scripts/remove-static-files.js` and commit results.
 - [ ] Re-generate the static files by running `src/rest/scripts/update-files.js --decorate-only`.
 - [ ] Open a new PR.
 - [ ] Get a review from docs-engineering and merge. This step can be merged independently from step 6. The purpose of splitting up steps 5 and 6 is to focus the review on specific files.
@@ -129,7 +129,7 @@ Poke around several pages, ensure that the stylesheets are working properly, ima
 
 - [ ] In your `docs-internal` checkout, create a new branch `remove-<version>-markup` branch: `git checkout -b remove-<version>-markup` (you can branch off of `main` or from your `deprecate-<version>` branch, up to you).
 - [ ] Remove the outdated Liquid markup and frontmatter.
-  - [ ] Run the script: `script/enterprise-server-deprecations/remove-version-markup.js --release <number>`.
+  - [ ] Run the script: `src/ghes-releases/scripts/remove-version-markup.js --release <number>`.
   - [ ] Spot check a few changes. Content, frontmatter, and data files should all have been updated.
   - [ ] Open a PR with the results. The diff may be large and complex, so make sure to get a review from `@github/docs-content`.
   - [ ] Debug any test failures or unexpected results -- it's very likely manual updates will be necessary, the script does a lot of work but doesn't automate everything and can't 100% replace human intent.
@@ -152,7 +152,7 @@ Poke around several pages, ensure that the stylesheets are working properly, ima
 
 ## Re-scraping a page or all pages
 
-Occasionally, a change will need to be added to our archived enterprise versions. If this occurs, you can check out the `enterprise-<release number>-release` branch and re-scrape the page or all pages using `script/enterprise-server-deprecations/archive-version.js`. To scrape a single page you can use the `—page <page relative path>` option.
+Occasionally, a change will need to be added to our archived enterprise versions. If this occurs, you can check out the `enterprise-<release number>-release` branch and re-scrape the page or all pages using `src/ghes-releases/scripts/archive-version.js`. To scrape a single page you can use the `—page <page relative path>` option.
 
 For each language, upload the new file to Azure blob storage in the `enterprise` container.
 

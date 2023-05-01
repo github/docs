@@ -162,7 +162,8 @@
     "start-server-and-test": "^2.0.0",
     "typescript": "^5.0.2",
     "unist-util-remove": "^3.1.1",
-    "unist-util-visit-parents": "^5.1.3"
+    "unist-util-visit-parents": "^5.1.3",
+    "website-scraper": "^5.3.1"
   },
   "engines": {
     "node": "^16 || ^18"
@@ -174,7 +175,7 @@
     "esm": "^3.2.25",
     "jest-puppeteer": "^5.0.4",
     "puppeteer": "^9.1.1",
-    "website-scraper": "^5.0.0"
+    "website-scraper": "^5.3.1"
   },
   "private": true,
   "repository": "https://github.com/github/docs",

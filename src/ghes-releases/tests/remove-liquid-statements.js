@@ -3,10 +3,10 @@ import path from 'path'
 import cheerio from 'cheerio'
 import matter from 'gray-matter'
 import fs from 'fs/promises'
-import removeLiquidStatements from '../../script/helpers/remove-liquid-statements'
-import removeDeprecatedFrontmatter from '../../script/helpers/remove-deprecated-frontmatter'
+import removeLiquidStatements from '../scripts/remove-liquid-statements'
+import removeDeprecatedFrontmatter from '../scripts/remove-deprecated-frontmatter'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const removeLiquidStatementsFixtures = path.join(__dirname, '../fixtures/remove-liquid-statements')
+const removeLiquidStatementsFixtures = path.join(__dirname, './fixtures/remove-liquid-statements')
 
 // Hardcode values so tests don't go out of date
 const versionToDeprecate = '2.13'

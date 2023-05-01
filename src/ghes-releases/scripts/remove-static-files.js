@@ -2,7 +2,8 @@
 
 // [start-readme]
 //
-// This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
+// This script removes the static GraphQL, REST, and webhook files for any
+// deprecated GHES versions.
 //
 // [end-readme]
 
@@ -10,8 +11,9 @@ import fs from 'fs'
 import path from 'path'
 import { rimraf } from 'rimraf'
 import walk from 'walk-sync'
-import { allVersions } from '../../lib/all-versions.js'
-import { deprecated } from '../../lib/enterprise-server-releases.js'
+
+import { allVersions } from '../../../lib/all-versions.js'
+import { deprecated } from '../../../lib/enterprise-server-releases.js'
 
 const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const webhooksStaticDir = path.join(process.cwd(), 'src/webhooks/data')
