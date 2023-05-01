@@ -13,9 +13,7 @@ versions:
 topics:
   - GitHub search
 ---
-Use the Sort menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.
-
-  ![Menu with options for sorting search results](/assets/images/help/search/repo-search-sort.png)
+Use the **Sort** dropdown menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.
 
 To sort by interactions, reactions, author date, committer date, or how recently the items were updated, you can add a `sort` qualifier to your search query.
 

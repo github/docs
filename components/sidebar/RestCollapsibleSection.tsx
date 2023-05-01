@@ -3,11 +3,11 @@ import cx from 'classnames'
 import { useState, useEffect } from 'react'
 import { TreeView } from '@primer/react'
 
-import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
 import { EventType, sendEvent } from 'src/events/browser'
 import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
+import { Link } from 'components/Link'
 
 import styles from './RestCollapsibleSection.module.scss'
 
@@ -97,10 +97,16 @@ export const RestCollapsibleSection = (props: SectionProps) => {
     const miniTocAnchor = miniTocItem.contents.href
     const title = miniTocItem.contents.title
     const isAnchorCurrent = visibleAnchor === miniTocAnchor
-
     return (
       <a
+        id={miniTocAnchor}
         key={miniTocAnchor}
+        onKeyPressCapture={(e) => {
+          if (e.code === 'Enter') {
+            document.getElementById(miniTocAnchor)?.click()
+            e?.stopPropagation()
+          }
+        }}
         onClick={() => setVisibleAnchor(miniTocAnchor)}
         href={miniTocAnchor}
         className={cx(styles.operationWidth, 'color-fg-default no-underline')}
@@ -125,10 +131,13 @@ export const RestCollapsibleSection = (props: SectionProps) => {
           expanded={isActive && standAloneExpanded}
           onExpandedChange={setStandAloneExpanded}
           defaultExpanded={isActive}
+          onSelect={(e) => {
+            router.push(page.href)
+            e?.stopPropagation()
+            setStandAloneExpanded(!standAloneExpanded)
+          }}
         >
-          <Link href={page.href} className="color-fg-default no-underline d-block width-full">
-            {title}
-          </Link>
+          {title}
           <TreeView.SubTree>
             {miniTocItems.length > 0 && (
               <>
@@ -151,12 +160,12 @@ export const RestCollapsibleSection = (props: SectionProps) => {
               const childCurrent = routePath === childPage.href
               return (
                 <div
-                  key={childPage.href + i}
-                  className={cx(styles.toggleHover)}
                   data-testid="rest-subcategory"
+                  key={childPage.href + i}
+                  className={cx(styles.toggleHover, 'width-full')}
                 >
                   <TreeView.Item
-                    id={childPage.href}
+                    id={childPage.href + i}
                     expanded={childCurrent && mapTopicExpanded}
                     onExpandedChange={() => setMapTopicExpanded(childCurrent && mapTopicExpanded)}
                     defaultExpanded={childActive}
@@ -171,19 +180,35 @@ export const RestCollapsibleSection = (props: SectionProps) => {
                       ) {
                         prevTarget = currentTarget
                       }
+
                       if (prevTarget && prevTarget === currentTarget) {
                         setMapTopicExpanded(!mapTopicExpanded)
                       } else {
-                        router.push(childPage.href)
                         sendEvent({
                           type: EventType.navigate,
                           navigate_label: `rest page navigate to: ${childPage.href}`,
                         })
                       }
+
+                      if (
+                        e.nativeEvent instanceof KeyboardEvent &&
+                        e.nativeEvent.code === 'Enter'
+                      ) {
+                        document.getElementById(childPage.href)?.click()
+                        e?.stopPropagation()
+                      }
+
                       prevTarget = currentTarget
                     }}
                   >
-                    {childTitle}
+                    <Link
+                      id={childPage.href}
+                      href={childPage.href}
+                      className="d-block width-full no-underline color-fg-default"
+                    >
+                      {childTitle}
+                    </Link>
+
                     <TreeView.SubTree>
                       {/* At this point we have the mini-toc data for the current page
                         so we render this list of operation links. */}

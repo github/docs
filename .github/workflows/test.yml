@@ -22,9 +22,6 @@ env:
   # Setting this will activate the jest tests that depend on actually
   # sending real search queries to Elasticsearch
   ELASTICSEARCH_URL: http://localhost:9200/
-  # Hopefully the name is clear enough. By enabling this, we're testing
-  # the future code.
-  ENABLE_SEARCH_RESULTS_PAGE: true
 
 jobs:
   figureOutMatrix:
@@ -45,6 +42,7 @@ jobs:
               { name: 'content', path: 'tests/content', },
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
               { name: 'events', path: 'src/events/tests', },
+              { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
               { name: 'graphql', path: 'src/graphql/tests', },
               { name: 'rest', path: 'src/rest/tests', },
               { name: 'webhooks', path: 'src/webhooks/tests', },
@@ -75,7 +73,7 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
@@ -147,7 +145,7 @@ jobs:
           echo $DIFF | tr '\n' ' ' > get_diff_files.txt
 
       - name: Cache nextjs build
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -156,7 +154,7 @@ jobs:
         run: npm run build
 
       - name: Disk cache used by getRemoteJSON function in middleware
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
         with:
           path: .remotejson-cache
           # Very liberal cache key. Note, for this to become populated

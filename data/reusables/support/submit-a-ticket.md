@@ -27,6 +27,12 @@
 {%- endif %}
 {%- ifversion ghes or ghec %}
 1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
+
+   {% note %}
+
+   **Note:** You will only receive a callback if required for ticket resolution.
+
+   {% endnote %}
 {%- endif %}
 1. Under "Subject", type a descriptive title for the issue you're having.
 2. Under "How can we help", provide any additional information that will help the Support team troubleshoot the problem. You can use markdown to format your message.

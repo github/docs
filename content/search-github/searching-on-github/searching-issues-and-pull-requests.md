@@ -194,7 +194,7 @@ You can use the `project` qualifier to find issues that are associated with a sp
 | Qualifier        | Example
 | ------------- | -------------
 | <code>project:<em>PROJECT_BOARD</em></code> | **project:github/57** matches issues owned by GitHub that are associated with the organization's project board 57.
-| <code>project:<em>REPOSITORY/PROJECT_BOARD</em></code> | **project:github/linguist/1** matches issues that are associated with project board 1 in @github's linguist repository.
+| <code>project:<em>REPOSITORY/PROJECT_BOARD</em></code> | **project:github-linguist/linguist/1** matches issues that are associated with project board 1 in @github's linguist repository.
 
 ## Search by commit status
 

@@ -26,11 +26,8 @@ shortTitle: Create a team discussion
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
 6. Type a team discussion title and a comment to start a conversation.
-  ![New team discussions comment](/assets/images/help/projects/team-discussions-comment.png)
 7. Optionally, select whether you want your post to be private or public using the drop-down menu.
-  ![Team discussions privacy settings menu](/assets/images/help/projects/team-discussions-privacy-menu.png)
 8. Click **Comment**.
-  ![Create new team discussions comment button](/assets/images/help/projects/team-discussions-comment-button.png)
 
 ## Further reading
 

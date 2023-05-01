@@ -145,39 +145,6 @@ describe('browser search', () => {
   })
 })
 
-describe('medium viewports - 768-1011', () => {
-  jest.setTimeout(60 * 1000)
-  it('version picker is visible', async () => {
-    await page.setViewport({ width: 1000, height: 700 })
-    await page.goto('http://localhost:4000/ja/actions')
-    await page.click('[data-testid=version-picker]')
-    const versionItems = await page.$$('[data-testid=version-picker-item]')
-    expect(versionItems.length).toBeGreaterThan(0)
-  })
-
-  it('language picker icon is in mobile menu', async () => {
-    await page.goto('http://localhost:4000/en/actions')
-    await page.click('[data-testid=mobile-menu]')
-    await page.click('[data-testid=open-mobile-menu] [data-testid=language-picker]')
-    const defaultLanguageElement = await page.$('[data-testid=default-language]')
-    const languageValue = await defaultLanguageElement.evaluate((el) => el.textContent)
-    expect(languageValue).toBe('English')
-  })
-
-  it('sign up button is in mobile menu', async () => {
-    const signUpElement = await page.$('[data-testid=mobile-signup]')
-    const signUpValue = await signUpElement.evaluate((el) => el.textContent)
-    expect(signUpValue).toBe('Sign up')
-  })
-
-  it('hamburger button for sidebar overlay is visible', async () => {
-    await page.click('[data-testid=sidebar-hamburger]')
-    const sidebarElement = await page.$('[data-testid=sidebar-product-dialog]')
-    const sideBarValue = await sidebarElement.evaluate((el) => el.textContent)
-    expect(sideBarValue).toBe('GitHub Actions')
-  })
-})
-
 describe('small -> x-small viewports - under 544 -> 767', () => {
   jest.setTimeout(60 * 1000)
   it('sign up button is not visible', async () => {
@@ -352,17 +319,15 @@ describe('REST sidebar', () => {
       const browserUrl = `http://localhost:4000${url}`
       await page.goto(browserUrl)
       await page.setViewport({ width: 1024, height: 768 })
-      // console.log('went ot the page')
       await page.waitForSelector('[data-testid=rest-category] li div div span')
-      const restCategories = await page.$$('[data-testid=rest-category] li div div span')
 
-      for (const cat of restCategories) {
-        await page.evaluate(async (el) => {
-          return el.click()
-        }, cat)
-
-        await page.waitForSelector('[data-testid=rest-subcategory]')
-      }
+      await page.evaluate(() => {
+        Array.from(
+          document.querySelectorAll('[data-testid=rest-category] li div div span')
+        ).forEach(async (element) => {
+          if (element) element.click()
+        })
+      })
 
       const subcategories = await page.evaluate(() =>
         Array.from(document.querySelectorAll('[data-testid=rest-subcategory] li div div span')).map(

@@ -17,7 +17,7 @@ topics:
 
 Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
 
-![Code navigation display](/assets/images/help/repository/code-navigation-popover.png)
+![Screenshot showing a code file with a function called "request" highlighted and a pop-up window with information about the function underneath. The pop-up has two tabs: "Definition" and "Reference".](/assets/images/help/repository/code-navigation-popover.png)
 
 Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported.
 
@@ -75,7 +75,7 @@ If your precise results appear inaccurate, you can file a support request.
 
 Cross-repo code navigation is available for languages that are supported by precise code navigation and the dependency graph. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
 
-![Screenshot of cross-repository code navigation](/assets/images/help/repository/cross-repository-code-navigation.png)
+![Screenshot of a code file on {% data variables.product.prodname_dotcom %}. On the line "import o.s.", the module name "o.s." is highlighted, and a "Definitions" modal shows a result tagged with "cross-repo result".](/assets/images/help/repository/cross-repository-code-navigation.png)
 
 ## Troubleshooting code navigation
 

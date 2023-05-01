@@ -24,8 +24,6 @@ As you think about what open source repositories may be interesting, consider if
 
 When exploring repositories in the {% data variables.product.prodname_community_exchange %} gallery, you can filter available repositories by purpose, topics, or languages, and search for repositories by name and description. You can sort the list of repositories in the gallery by submission date, or by the number of stars, forks, or issues a repository has.
 
-![Screenshot of Community Exchange search box and dropdown filters](/assets/images/help/education/community-exchange-search-and-filter.png)
-
 ## Starring repositories
 
 You can star repositories listed in the {% data variables.product.prodname_community_exchange %} gallery. Starring makes it easy to find a repository in the gallery again later. Starring a repository also shows appreciation to the repository maintainer for their work.

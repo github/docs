@@ -40,7 +40,6 @@ Files that you add to a repository via a browser are limited to {% data variable
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 1. Click **Commit changes**.
-![Commit changes button](/assets/images/help/repository/commit-changes-button.png)
 
 ## Adding a file to a repository using the command line
 

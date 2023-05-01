@@ -67,7 +67,7 @@ This will display the code block with syntax highlighting:
 
 ![Screenshot of three lines of Ruby code as displayed on {% data variables.product.prodname_dotcom %}. Elements of the code display in purple, blue, and red type, making the lines more visually scannable.](/assets/images/help/writing/code-block-syntax-highlighting-rendered.png)
 
-We use [Linguist](https://github.com/github/linguist) to perform language detection and to select [third-party grammars](https://github.com/github/linguist/blob/master/vendor/README.md) for syntax highlighting. You can find out which keywords are valid in [the languages YAML file](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+We use [Linguist](https://github.com/github-linguist/linguist) to perform language detection and to select [third-party grammars](https://github.com/github-linguist/linguist/blob/master/vendor/README.md) for syntax highlighting. You can find out which keywords are valid in [the languages YAML file](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml).
 
 {% ifversion mermaid %}
 ## Creating diagrams

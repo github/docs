@@ -1,7 +1,22 @@
+import { beforeAll } from '@jest/globals'
+
 import { get } from '../../../tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
 
+const makeURL = (pathname) => `/api/pageinfo/v1?${new URLSearchParams({ pathname })}`
+
 describe('pageinfo api', () => {
+  beforeAll(() => {
+    // If you didn't set the `ROOT` variable, the tests will fail rather
+    // cryptically. So as a warning for engineers running these tests,
+    // alert in case it was accidentally forgotten.
+    if (!process.env.ROOT) {
+      console.warn(
+        'WARNING: The pageinfo tests require the ROOT environment variable to be set to the fixture root'
+      )
+    }
+  })
+
   test('redirects without version suffix', async () => {
     const res = await get('/api/pageinfo')
     expect(res.statusCode).toBe(307)
@@ -9,7 +24,7 @@ describe('pageinfo api', () => {
   })
 
   test('happy path', async () => {
-    const res = await get('/api/pageinfo/v1?pathname=/en/get-started/quickstart')
+    const res = await get(makeURL('/en/get-started/quickstart'))
     expect(res.statusCode).toBe(200)
     const { info } = JSON.parse(res.body)
     expect(info.product).toBe('Get started')
@@ -27,7 +42,7 @@ describe('pageinfo api', () => {
   })
 
   test('a pathname that does not exist', async () => {
-    const res = await get('/api/pageinfo/v1?pathname=/en/never/heard/of')
+    const res = await get(makeURL('/en/never/heard/of'))
     expect(res.statusCode).toBe(400)
     const { error } = JSON.parse(res.body)
     expect(error).toBe("No page found for '/en/never/heard/of'")
@@ -47,12 +62,50 @@ describe('pageinfo api', () => {
     expect(error).toBe("'pathname' query empty")
   })
 
-  test('redirects are automatically respected', async () => {
-    // This is based on the fixture content content/index.md which
-    // has a `redirect_from`.
-    const res = await get('/api/pageinfo/v1?pathname=/en/olden-days')
-    expect(res.statusCode).toBe(200)
-    const { info } = JSON.parse(res.body)
-    expect(info.title).toBe('GitHub Fixture Documentation')
+  test('redirects correct the URL', async () => {
+    // Regular redirect from `redirect_from`
+    {
+      const res = await get(makeURL('/en/olden-days'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toBe('GitHub.com Fixture Documentation')
+    }
+    // Short code for latest version
+    {
+      const res = await get(makeURL('/en/enterprise-server@latest/get-started/liquid/ifversion'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.intro).toMatch(/\(not on fpt\)/)
+    }
+    // A URL that doesn't have fpt as an available version
+    {
+      const res = await get(
+        '/api/pageinfo/v1?pathname=/en/get-started/versioning/only-ghec-and-ghes'
+      )
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toBe('Only in Enterprise Cloud and Enterprise Server')
+    }
+  })
+
+  test('a page that uses non-trivial Liquid to render', async () => {
+    // This page uses `{% ifversion not fpt %}` in the intro.
+
+    // First on the fpt version
+    {
+      const res = await get('/api/pageinfo/v1?pathname=/en/get-started/liquid/ifversion')
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.intro).toMatch(/\(on fpt\)/)
+    }
+    // Second on any other version
+    {
+      const res = await get(
+        `/api/pageinfo/v1?pathname=/en/enterprise-server@latest/get-started/liquid/ifversion`
+      )
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.intro).toMatch(/\(not on fpt\)/)
+    }
   })
 })
