@@ -1,6 +1,6 @@
 ---
 title: Differences between GitHub Apps and OAuth Apps
-intro: 'Understanding the differences between {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} will help you decide which app you want to create. An {% data variables.product.prodname_oauth_app %} acts as a GitHub user, whereas a {% data variables.product.prodname_github_app %} uses its own identity when installed on an organization or on repositories within an organization.'
+intro: 'In general, {% data variables.product.prodname_github_app %}s are preferred to {% data variables.product.prodname_oauth_app %}s because they use fine-grained permissions, give more control over which repositories the app can access, and use short-lived tokens.'
 redirect_from:
   - /early-access/integrations/integrations-vs-oauth-applications
   - /apps/building-integrations/setting-up-a-new-integration/about-choosing-an-integration-type
@@ -8,6 +8,7 @@ redirect_from:
   - /developers/apps/differences-between-github-apps-and-oauth-apps
   - /developers/apps/getting-started-with-apps/differences-between-github-apps-and-oauth-apps
   - /apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps
+  - /apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,6 +19,23 @@ topics:
   - OAuth Apps
 shortTitle: GitHub Apps & OAuth Apps
 ---
+
+## About {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_app %}s
+
+In general, {% data variables.product.prodname_github_app %}s are preferred over {% data variables.product.prodname_oauth_app %}s. {% data variables.product.prodname_github_app %}s use fine grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. These properties can harden the security of your app by limiting the damage that could be done if your app's credentials were leaked.
+
+Similar to {% data variables.product.prodname_oauth_app %}s, {% data variables.product.prodname_github_app %}s can still generate a type of OAuth token (called a user access token) and take actions on behalf of a user. However, {% data variables.product.prodname_github_app %}s can also act independently of a user. This is beneficial for automations that do not require user input. The app will continue to work even if the person who installed the app on an organization leaves the organization.
+
+{% data variables.product.prodname_github_app %}s have built-in, centralized webhooks. {% data variables.product.prodname_github_app %}s can receive webhook events for all repositories and organizations the app can access. Conversely, {% data variables.product.prodname_oauth_app %}s must configure webhooks individually for each repository and organization.
+
+The rate limit for {% data variables.product.prodname_github_app %}s using an installation access token scales with the number of repositories and number of organization users. Conversely, {% data variables.product.prodname_oauth_app %}s have lower rate limits and do not scale.
+
+There is one case where an {% data variables.product.prodname_oauth_app %} is preferred over a {% data variables.product.prodname_github_app %}. If your app needs to access enterprise resources, you should use an {% data variables.product.prodname_oauth_app %} because a {% data variables.product.prodname_github_app %} cannot yet be given permissions against an enterprise.
+
+For more information about {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)." 
+
+For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
+
 ## Who can install GitHub Apps and authorize OAuth Apps?
 
 You can install GitHub Apps in your personal account or organizations you own. If you have admin permissions in a repository, you can install GitHub Apps on organization accounts. If a GitHub App is installed in a repository and requires organization permissions, the organization owner must approve the application.
