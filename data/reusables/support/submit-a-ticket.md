@@ -2,7 +2,9 @@
 {% ifversion ghec or ghes %}
    {% note %}
 
-   **Note:** For Premium, Premium Plus, or Engineering Direct support, you need to choose an enterprise account with a {% data variables.contact.premium_support %} plan. If you don't see an Enterprises section in the dropdown menu, you're not entitled to open support tickets on behalf of an enterprise account. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support#about-support-entitlement)"
+   **Notes:**
+   - For Premium, Premium Plus, or Engineering Direct support, you need to choose an enterprise account with a {% data variables.contact.premium_support %} plan. If you don't see an Enterprises section in the dropdown menu, you're not entitled to open support tickets on behalf of an enterprise account. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support#about-support-entitlement)"
+   - To see a list of your enterprise accounts with a {% data variables.contact.premium_support %} plan, you must be signed into the {% data variables.contact.enterprise_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/getting-your-enterprise-started-with-the-github-support-portal)."
 
    {% endnote %}
 {% endif %}
