@@ -1,0 +1,3 @@
+When you enable Settings Sync in an instance of {% data variables.product.prodname_vscode_shortname %}, such as the {% data variables.product.prodname_vscode_shortname %} desktop application on your laptop, your settings for that instance are stored in the cloud. From the cloud, the settings are pulled into all new codespaces at the point of creation, and continuously synced to any existing codespaces in which Settings Sync is enabled. 
+
+Whether Settings Sync is enabled by default in a codespace depends on your existing settings and on whether you open the codespace in the browser or in the {% data variables.product.prodname_vscode_shortname %} desktop application.

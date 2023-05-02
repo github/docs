@@ -1,0 +1,6 @@
+# Reference: Issue #6151 in docs-content
+# Documentation about the "Type" dropdown filter for EMU organization membership lists
+versions:
+  ghes: '>3.7'
+  ghae: '>3.7'
+  ghec: '*'

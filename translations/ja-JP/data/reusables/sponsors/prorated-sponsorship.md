@@ -1,1 +1,0 @@
-If you're starting a monthly sponsorship on behalf of your personal account, you'll immediately be charged a prorated amount for the time until your next regular billing date. Organizationに代わってスポンサーを行っている場合、日割りの額を支払うか、月額全体を支払うかを選択できます。

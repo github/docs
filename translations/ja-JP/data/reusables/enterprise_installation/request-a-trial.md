@@ -1,1 +1,0 @@
-{% data variables.product.prodname_ghe_server %} を評価するためのトライアルをリクエストできます。 詳しい情報については、「[{% data variables.product.prodname_ghe_server %} のトライアルを設定する]({% ifversion ghae %}/enterprise-server@latest{% endif %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server)」を参照してください。

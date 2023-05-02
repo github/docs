@@ -1,1 +1,0 @@
-1. 在“{% data variables.product.prodname_sponsors %}”下，在被赞助帐户的右侧，单击等级帐户旁边的 {% octicon "triangle-down" aria-label="The down triangle octicon" %}，然后单击 **Change tier（更改等级）**。 ![更改等级按钮](/assets/images/help/billing/edit-sponsor-billing.png)

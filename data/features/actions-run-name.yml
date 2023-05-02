@@ -1,0 +1,7 @@
+# Reference: #7952
+# `run-name` for workflow runs to dynamically set the name of the workflow run.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>=3.8'

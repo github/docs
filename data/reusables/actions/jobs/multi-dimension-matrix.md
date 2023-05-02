@@ -12,7 +12,7 @@ jobs:
   example_matrix:
     strategy:
       matrix:
-        os: [ubuntu-18.04, ubuntu-20.04]
+        os: [ubuntu-22.04, ubuntu-20.04]
         version: [10, 12, 14]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:

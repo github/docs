@@ -1,1 +1,0 @@
-1. （可选）在页面顶部的帐单摘要下单击 **Get usage report（获取使用情况报告）**，以通过电子邮件将每个企业帐户组织中 {% data variables.product.prodname_actions %}、{% data variables.product.prodname_registry %} 和 {% data variables.product.prodname_codespaces %} 的存储使用情况 CSV 报告发送到该帐户的主电子邮件地址。 ![下载 CSV 报告](/assets/images/help/billing/actions-packages-report-download-enterprise.png)

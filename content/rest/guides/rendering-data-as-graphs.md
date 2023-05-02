@@ -271,7 +271,7 @@ something like this:
 ```
 
 Since we already have a list of repositories above, let's inspect each one, and
-call [the language listing API method][language API]:
+call the [GET /repos/{owner}/{repo}/languages endpoint][language API]:
 
 ``` ruby
 repos.each do |repo|

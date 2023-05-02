@@ -1,1 +1,0 @@
-1. Opcionalmente, ao lado de "Uso neste mês", clique em **Obter relatório de uso** para enviar um relatório CSV de armazenamento para {% data variables.product.prodname_actions %} e {% data variables.product.prodname_registry %} para o endereço de e-mail principal da conta. ![Baixar relatório em CSV](/assets/images/help/billing/actions-packages-report-download.png)

@@ -1,1 +1,0 @@
-Enterpriseを他のプロバイダから{% data variables.product.prodname_actions %}に移行しているなら、追加で考慮すべきことがあります。 詳しい情報については「[Enterpriseの{% data variables.product.prodname_actions %}への移行](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions)」を参照してください。

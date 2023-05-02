@@ -18,6 +18,11 @@ topics:
   - Storage
 shortTitle: Recommended alert thresholds
 ---
+
+## About recommended alert thresholds
+
+You can configure external monitoring systems to alert you to storage, CPU, and memory usage that may cause problems with {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring)."
+
 ## Monitoring storage
 
 We recommend that you monitor both the root and user storage devices and configure an alert with values that allow for ample response time when available disk space is low.
@@ -42,7 +47,7 @@ We also recommend that you monitor virtualization "steal" time to ensure that ot
 
 ## Monitoring memory usage
 
-The amount of physical memory allocated to {% data variables.product.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
+The amount of physical memory allocated to {% data variables.location.product_location %} can have a large impact on overall performance and application responsiveness. The system is designed to make heavy use of the kernel disk cache to speed up Git operations. We recommend that the normal RSS working set fit within 50% of total available RAM at peak usage.
 
 | Severity | Threshold |
 | -------- | --------- |

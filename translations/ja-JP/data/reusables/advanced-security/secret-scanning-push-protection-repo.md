@@ -1,1 +1,0 @@
-1. "{% data variables.product.prodname_secret_scanning_caps %}"の下の"Push protection（プッシュ保護）"の下で、**Enable（有効化）**をクリックしてください。 ![リポジトリで{% data variables.product.prodname_secret_scanning %}のプッシュ保護を有効化する方法を示しているスクリーンショット](/assets/images/help/repository/secret-scanning-enable-push-protection.png)

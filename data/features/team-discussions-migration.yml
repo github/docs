@@ -1,0 +1,5 @@
+# Reference: #8243
+# Team Discussions migration and eventual deprecation announcement
+versions:
+  fpt: '*'
+  ghec: '*'

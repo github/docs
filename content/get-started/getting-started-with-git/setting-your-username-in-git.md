@@ -24,7 +24,7 @@ Changing the name associated with your Git commits using `git config` will only 
 
 2. {% data reusables.user-settings.set_your_git_username %}
    ```shell
-   $ git config --global user.name "<em>Mona Lisa</em>"
+   $ git config --global user.name "Mona Lisa"
    ```
 
 3. {% data reusables.user-settings.confirm_git_username_correct %}
@@ -41,7 +41,7 @@ Changing the name associated with your Git commits using `git config` will only 
 
 3. {% data reusables.user-settings.set_your_git_username %}
    ```shell
-   $ git config user.name "<em>Mona Lisa</em>"
+   $ git config user.name "Mona Lisa"
    ```
 
 3. {% data reusables.user-settings.confirm_git_username_correct %}
@@ -52,5 +52,5 @@ Changing the name associated with your Git commits using `git config` will only 
 
 ## Further reading
 
-- "[Setting your commit email address](/articles/setting-your-commit-email-address)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)"
 - ["Git Configuration" from the _Pro Git_ book](https://git-scm.com/book/en/Customizing-Git-Git-Configuration)

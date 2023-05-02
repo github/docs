@@ -1,1 +1,0 @@
-若要对组织使用 SCIM，必须使用第三方拥有的 {% data variables.product.prodname_oauth_app %}。 {% data variables.product.prodname_oauth_app %} 必须由特定 {% data variables.product.prodname_dotcom %} 用户授权并随后代表其行事。 如果上次授权此 {% data variables.product.prodname_oauth_app %} 的用户离开或从组织中删除，SCIM 将停止工作。 若要避免此问题，我们建议创建一个专用用户帐户来配置 SCIM。 此用户帐户必须是组织所有者，并将使用许可证。

@@ -1,1 +1,0 @@
-A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. たとえばマトリックス戦略を使って、コードを言語の複数のバージョンや、複数のオペレーティングシステムでテストできます。

@@ -1,6 +1,4 @@
-import { cacheControlFactory } from './cache-control.js'
-
-const cacheControl = cacheControlFactory(60 * 60)
+import { defaultCacheControl } from './cache-control.js'
 
 export default function trailingSlashes(req, res, next) {
   if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') {
@@ -14,9 +12,7 @@ export default function trailingSlashes(req, res, next) {
       if (split.length) {
         url += `?${split.join('?')}`
       }
-      // So it can be cached in the CDN
-      res.removeHeader('set-cookie')
-      cacheControl(res)
+      defaultCacheControl(res)
       return res.redirect(301, url)
     }
   }

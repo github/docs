@@ -1,1 +1,0 @@
-A matrix strategy lets you use variables in a single job definition to automatically create multiple job runs that are based on the combinations of the variables. Por exemplo, você pode usar uma estratégia de matriz para testar seu código em várias versões de uma linguagem ou em vários sistemas operacionais.

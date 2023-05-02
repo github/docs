@@ -1,6 +1,6 @@
 ---
 title: Signing commits
-intro: You can sign commits locally using GPG or S/MIME.
+intro: 'You can sign commits locally using GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or S/MIME.'
 redirect_from:
   - /articles/signing-commits-and-tags-using-gpg
   - /articles/signing-commits-using-gpg
@@ -32,14 +32,14 @@ You can also manually configure [gpg-agent](http://linux.die.net/man/1/gpg-agent
 
 {% endtip %}
 
-If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/articles/telling-git-about-your-signing-key).
+If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key).
 
 1. When committing changes in your local branch, add the -S flag to the git commit command:
   ```shell
-  $ git commit -S -m <em>"your commit message"</em>
+  $ git commit -S -m "YOUR_COMMIT_MESSAGE"
   # Creates a signed commit
   ```
-2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/articles/generating-a-new-gpg-key).
+2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
 3. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.product_name %}:
   ```shell
   $ git push
@@ -47,14 +47,12 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
   ```
 4. On {% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
-5. To view more detailed information about the verified signature, click Verified.
-![Signed commit](/assets/images/help/commits/gpg-signed-commit-verified-without-details.png)
+5. To view more detailed information about the verified signature, click **Verified.**
+
+   ![Screenshot of a commit in the commit list for a repository. "Verified" is highlighted with an orange outline.](/assets/images/help/commits/verified-commit.png)
 
 ## Further reading
 
-* "[Checking for existing GPG keys](/articles/checking-for-existing-gpg-keys)"
-* "[Generating a new GPG key](/articles/generating-a-new-gpg-key)"
-* "[Adding a GPG key to your GitHub account](/articles/adding-a-gpg-key-to-your-github-account)"
-* "[Telling Git about your signing key](/articles/telling-git-about-your-signing-key)"
-* "[Associating an email with your GPG key](/articles/associating-an-email-with-your-gpg-key)"
-* "[Signing tags](/articles/signing-tags)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
+* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"{% ifversion fpt or ghec %}
+* "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)"{% endif %}

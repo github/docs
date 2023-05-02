@@ -1,12 +1,13 @@
-import { GetServerSideProps } from 'next'
+import React from 'react'
+import type { GetServerSideProps } from 'next'
 
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 
-import React from 'react'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleList } from 'components/landing/ArticleList'
 import { HomePageHero } from 'components/homepage/HomePageHero'
+import type { ProductGroupT } from 'components/homepage/ProductSelections'
 import { ProductSelections } from 'components/homepage/ProductSelections'
 
 type FeaturedLink = {
@@ -19,13 +20,23 @@ type Props = {
   mainContext: MainContextT
   popularLinks: Array<FeaturedLink>
   gettingStartedLinks: Array<FeaturedLink>
+  productGroups: Array<ProductGroupT>
 }
 
-export default function MainHomePage({ mainContext, gettingStartedLinks, popularLinks }: Props) {
+export default function MainHomePage({
+  mainContext,
+  gettingStartedLinks,
+  popularLinks,
+  productGroups,
+}: Props) {
   return (
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
-        <HomePage gettingStartedLinks={gettingStartedLinks} popularLinks={popularLinks} />
+        <HomePage
+          gettingStartedLinks={gettingStartedLinks}
+          popularLinks={popularLinks}
+          productGroups={productGroups}
+        />
       </DefaultLayout>
     </MainContext.Provider>
   )
@@ -34,15 +45,16 @@ export default function MainHomePage({ mainContext, gettingStartedLinks, popular
 type HomePageProps = {
   popularLinks: Array<FeaturedLink>
   gettingStartedLinks: Array<FeaturedLink>
+  productGroups: Array<ProductGroupT>
 }
 function HomePage(props: HomePageProps) {
-  const { gettingStartedLinks, popularLinks } = props
+  const { gettingStartedLinks, popularLinks, productGroups } = props
   const { t } = useTranslation(['toc'])
 
   return (
     <div>
       <HomePageHero />
-      <ProductSelections />
+      <ProductSelections productGroups={productGroups} />
       <div className="mt-6 px-3 px-md-6 container-xl">
         <div className="container-xl">
           <div className="gutter gutter-xl-spacious clearfix">
@@ -66,7 +78,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
   return {
     props: {
-      mainContext: getMainContext(req, res),
+      mainContext: await getMainContext(req, res),
+      productGroups: req.context.productGroups,
       gettingStartedLinks: req.context.featuredLinks.gettingStarted.map(
         ({ title, href, intro }: any) => ({ title, href, intro })
       ),

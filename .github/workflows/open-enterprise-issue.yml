@@ -7,7 +7,7 @@ name: Open Enterprise release or deprecation issue
 on:
   workflow_dispatch:
   schedule:
-    - cron: '49 14 * * *' # At 14:49 UTC daily
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -19,16 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
-      - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
-        with:
-          node-version: '16.15.0'
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Check for existing release or deprecation issues
         id: existingIssue
@@ -40,7 +33,7 @@ jobs:
       - name: Update enterprise dates
         if: steps.existingIssue.outputs.deprecationIssue == 'false' || steps.existingIssue.outputs.releaseIssue == 'false'
         run: |
-          script/update-enterprise-dates.js
+          src/ghes-releases/scripts/update-enterprise-dates.js
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
 

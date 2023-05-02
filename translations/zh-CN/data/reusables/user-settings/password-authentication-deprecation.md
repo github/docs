@@ -1,1 +1,0 @@
-当 Git 提示输入密码时，请输入个人访问令牌 (PAT)。 或者，可以使用凭据小助手，如 [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md)。{% ifversion not ghae %} Git 的基于密码的身份验证已被删除，取而代之的是更安全的身份验证方法。{% endif %} 更多信息请参阅[创建个人访问令牌](/github/authenticating-to-github/creating-a-personal-access-token)”。 

@@ -1,0 +1,1 @@
+{% ifversion repositories-forks-page-improvement %}You can view, sort, and filter the forks of a repository on the repository's forks page. For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories#listing-the-forks-of-a-repository)."{% endif %}

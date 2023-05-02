@@ -1,6 +1,6 @@
 ---
 title: Linking a pull request to an issue
-intro: You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when the pull request is merged.
+intro: 'You can link a pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %}to an issue to show that a fix is in progress and to automatically close the issue when the pull request {% ifversion link-existing-branches-to-issue %}or branch {% endif %} is merged.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests/linking-a-pull-request-to-an-issue
   - /articles/closing-issues-via-commit-message
@@ -30,21 +30,21 @@ You can link an issue to a pull request manually or using a supported keyword in
 
 When you link a pull request to the issue the pull request addresses, collaborators can see that someone is working on the issue.
 
-When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[Changing the default branch](/github/administering-a-repository/changing-the-default-branch)."
+When you merge a linked pull request into the default branch of a repository, its linked issue is automatically closed. For more information about the default branch, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/changing-the-default-branch)."
 
 ## Linking a pull request to an issue using a keyword
 
 You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
 
-* close
-* closes
-* closed
-* fix
-* fixes
-* fixed
-* resolve
-* resolves
-* resolved
+* `close`
+* `closes`
+* `closed`
+* `fix`
+* `fixes`
+* `fixed`
+* `resolve`
+* `resolves`
+* `resolved`
 
 If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
 
@@ -60,24 +60,41 @@ Only manually linked pull requests can be manually unlinked. To unlink an issue 
 
 You can also use closing keywords in a commit message. The issue will be closed when you merge the commit into the default branch, but the pull request that contains the commit will not be listed as a linked pull request.
 
-## Manually linking a pull request to an issue
+## Manually linking a pull request to an issue using the pull request sidebar
 
-Anyone with write permissions to a repository can manually link a pull request to an issue.
+Anyone with write permissions to a repository can manually link a pull request to an issue from the pull request sidebar.
 
 You can manually link up to ten issues to each pull request. The issue and pull request must be in the same repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 3. In the list of pull requests, click the pull request that you'd like to link to an issue.
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-6234 %}
-4. In the right sidebar, in the "Development" section click {% octicon "gear" aria-label="The Gear icon" %}.
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% data reusables.pull_requests.click-development %}
 {% else %}
 4. In the right sidebar, click **Linked issues**.
-  ![Linked issues in the right sidebar](/assets/images/help/pull_requests/linked-issues.png)
 {% endif %}
 5. Click the issue you want to link to the pull request.
-  ![Drop down to link issue](/assets/images/help/pull_requests/link-issue-drop-down.png)
+
+
+{% ifversion link-existing-branches-to-issue %}
+
+## Manually linking a pull request or branch to an issue using the issue sidebar
+
+Anyone with write permissions to a repository can manually link a pull request or branch to an issue from the issue sidebar.
+
+You can manually link up to ten issues to each pull request. The issue can be in a different repository than the linked pull request or branch. Your last selected repository will be remembered.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-issues %}
+1. In the list of issues, click the issue that you'd like to link a pull request or branch to.
+{% data reusables.pull_requests.click-development %}
+1. Click the repository containing the pull request or branch you want to link to the issue.
+1. Click the pull request or branch you want to link to the issue.
+1. Click **Apply**.
+
+{% endif %}
 
 ## Further reading
 
-- "[Autolinked references and URLs](/articles/autolinked-references-and-urls/#issues-and-pull-requests)"
+* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)"

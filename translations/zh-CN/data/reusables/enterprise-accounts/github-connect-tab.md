@@ -1,1 +1,0 @@
-1. 在企业帐户边栏中，单击 {% octicon "plug" aria-label="The GitHub Connect gear" %} **{% data variables.product.prodname_github_connect %}**。 ![企业帐户边栏中的 GitHub Connect 选项卡](/assets/images/help//business-accounts/enterprise-account-github-connect-tab.png)

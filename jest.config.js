@@ -2,18 +2,14 @@
 
 const isBrowser = process.env.BROWSER
 const isActions = Boolean(process.env.GITHUB_ACTIONS)
-const testTranslation = Boolean(process.env.TEST_TRANSLATION)
 
-let reporters = ['default']
+const reporters = ['default']
 
-if (testTranslation) {
-  // only use custom reporter if we are linting translations
-  reporters = ['<rootDir>/tests/helpers/lint-translation-reporter.js']
-} else if (isActions) {
+if (isActions) {
   reporters.push('jest-github-actions-reporter')
 }
 
-module.exports = {
+export default {
   coverageThreshold: {
     global: {
       branches: 95,
@@ -29,7 +25,7 @@ module.exports = {
   },
   reporters,
   modulePathIgnorePatterns: ['assets/'],
-  setupFilesAfterEnv: ['./jest.setup.js', '@alex_neo/jest-expect-message'],
+  setupFilesAfterEnv: ['./jest.setup.js', 'jest-expect-message'],
   ...(isBrowser ? {} : { testEnvironment: 'node' }),
   testPathIgnorePatterns: [
     'node_modules/',
@@ -41,6 +37,6 @@ module.exports = {
   ],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,
-  globalSetup: './script/start-server-for-jest.mjs',
-  globalTeardown: './script/kill-server-for-jest.mjs',
+  globalSetup: './script/start-server-for-jest.js',
+  globalTeardown: './script/kill-server-for-jest.js',
 }

@@ -1,1 +1,0 @@
-如果将 {% data variables.product.prodname_codeql %} 警报作为误报予以忽略，例如，因为代码使用不受支持的净化库，则考虑参与 {% data variables.product.prodname_codeql %} 仓库并改进分析。 有关 {% data variables.product.prodname_codeql %} 的更多信息，请参阅“[参与 {% data variables.product.prodname_codeql %}](https://github.com/github/codeql/blob/main/CONTRIBUTING.md)”。

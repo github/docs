@@ -1,45 +1,69 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider, ThemeProviderProps, SSRProvider } from '@primer/react'
+import { ThemeProvider, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
-import events from 'components/lib/events'
-import experiment from 'components/lib/experiment'
-import { LanguagesContext, LanguagesContextT } from 'components/context/LanguagesContext'
+import { initializeEvents } from 'src/events/browser'
+import { initializeExperiments } from 'src/events/experiment'
 import {
-  DotComAuthenticatedContext,
-  DotComAuthenticatedContextT,
-} from 'components/context/DotComAuthenticatedContext'
-import { defaultComponentTheme } from 'lib/get-theme.js'
+  LanguagesContext,
+  LanguagesContextT,
+  LanguageItem,
+} from 'components/context/LanguagesContext'
+import { useTheme } from 'components/hooks/useTheme'
 
 type MyAppProps = AppProps & {
-  csrfToken: string
   isDotComAuthenticated: boolean
-  themeProps: typeof defaultComponentTheme & Pick<ThemeProviderProps, 'colorMode'>
   languagesContext: LanguagesContextT
-  dotComAuthenticatedContext: DotComAuthenticatedContextT
 }
-const MyApp = ({
-  Component,
-  pageProps,
-  csrfToken,
-  themeProps,
-  languagesContext,
-  dotComAuthenticatedContext,
-}: MyAppProps) => {
+
+const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
+  const { theme } = useTheme()
+
   useEffect(() => {
-    events()
-    experiment()
+    initializeEvents()
+    initializeExperiments()
   }, [])
+
+  useEffect(() => {
+    // The CSS from primer looks something like this:
+    //
+    //   @media (prefers-color-scheme: dark) [data-color-mode=auto][data-dark-theme=dark] {
+    //       --color-canvas-default: black;
+    //   }
+    //   body {
+    //       background-color: var(--color-canvas-default);
+    //   }
+    //
+    // So if that `[data-color-mode][data-dark-theme=dark]` isn't present
+    // on the body, but on a top-level wrapping `<div>` then the `<body>`
+    // doesn't get the right CSS.
+    // Normally, with Primer you make sure you set these things in the
+    // `<body>` tag and you can use `_document.tsx` for that but that's
+    // only something you can do in server-side rendering. So,
+    // we use a hook to assure that the `<body>` tag has the correct
+    // dataset attribute values.
+    const body = document.querySelector('body')
+    if (body) {
+      // Note, this is the same as setting `<body data-color-mode="...">`
+      // But you can't do `body.dataset['color-mode']` so you use the
+      // camelCase variant and you get the same effect.
+      // Appears Next.js can't modify <body> after server rendering:
+      // https://stackoverflow.com/a/54774431
+      body.dataset.colorMode = theme.css.colorMode
+      body.dataset.darkTheme = theme.css.darkTheme
+      body.dataset.lightTheme = theme.css.lightTheme
+    }
+  }, [theme])
 
   return (
     <>
       <Head>
         <meta charSet="utf-8" />
-        <title>GitHub Documentation</title>
+        <title>GitHub Docs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* The value in these "/cb-xxxxx" prefixes aren't important. They
@@ -59,20 +83,16 @@ const MyApp = ({
           name="google-site-verification"
           content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY"
         />
-
-        <meta name="csrf-token" content={csrfToken} />
       </Head>
       <SSRProvider>
         <ThemeProvider
-          colorMode={themeProps.colorMode}
-          dayScheme={themeProps.dayTheme}
-          nightScheme={themeProps.nightTheme}
+          colorMode={theme.component.colorMode}
+          dayScheme={theme.component.dayScheme}
+          nightScheme={theme.component.nightScheme}
           preventSSRMismatch
         >
           <LanguagesContext.Provider value={languagesContext}>
-            <DotComAuthenticatedContext.Provider value={dotComAuthenticatedContext}>
-              <Component {...pageProps} />
-            </DotComAuthenticatedContext.Provider>
+            <Component {...pageProps} />
           </LanguagesContext.Provider>
         </ThemeProvider>
       </SSRProvider>
@@ -80,24 +100,40 @@ const MyApp = ({
   )
 }
 
-// Remember, function is only called once if the rendered page can
-// be in-memory cached. But still, the `<MyApp>` component will be
-// executed every time **in the client** if it was the first time
-// ever (since restart) or from a cached HTML.
 MyApp.getInitialProps = async (appContext: AppContext) => {
   const { ctx } = appContext
   // calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(appContext)
   const req: any = ctx.req
 
-  const { getTheme } = await import('lib/get-theme.js')
+  // Have to define the type manually here because `req.context.languages`
+  // comes from Node JS and is not type-aware.
+  const languagesContext: LanguagesContextT = {
+    languages: {},
+  }
+
+  // If we're rendering certain 404 error pages, the middleware might not
+  // yet have contextualized the `context.languages`. So omit this
+  // context mutation and live without it.
+  if (req.context.languages) {
+    for (const [langCode, langObj] of Object.entries(
+      req.context.languages as Record<string, LanguageItem>
+    )) {
+      if (langObj.wip) continue
+      // Only pick out the keys we actually need
+      languagesContext.languages[langCode] = {
+        name: langObj.name,
+        code: langObj.code,
+      }
+      if (langObj.nativeName) {
+        languagesContext.languages[langCode].nativeName = langObj.nativeName
+      }
+    }
+  }
 
   return {
     ...appProps,
-    themeProps: getTheme(req),
-    csrfToken: req?.csrfToken?.() || '',
-    languagesContext: { languages: req.context.languages, userLanguage: req.context.userLanguage },
-    dotComAuthenticatedContext: { isDotComAuthenticated: Boolean(req.cookies?.dotcom_user) },
+    languagesContext,
   }
 }
 

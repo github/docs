@@ -1,8 +1,11 @@
-1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your organization.
-1. Click {% octicon "table" aria-label="The project icon" %} **Projects**.
-1. Select the **New project** drop-down menu and click **New project (Beta)**.
-
-   ![New project](/assets/images/help/issues/new_project_beta.png)
-1. When prompted to select a template, click a template or, to start with an empty project, click "Table" or "Board". Then, click **Create**.
-
-   ![Screenshot showing template selection modal](/assets/images/help/issues/projects-select-template.png)
+{% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
+1. Under your organization name, click {% octicon "table" aria-hidden="true" %} **Projects**.
+  ![Screenshot showing the 'Projects' tab](/assets/images/help/projects-v2/tab-projects.png)
+1. Click **New project**.
+1. Optionally, in the text box under "Project name", type a name for your new project.
+  
+  ![Screenshot showing the template selection modal. The title field is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-select-template-title.png)
+  
+1. Click a template or, to start with an empty project, click **Table** or **Board**.
+1. Click **Create**.

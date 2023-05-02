@@ -1,1 +1,0 @@
-1. Ao lado do aplicativo que você gostaria de rebaixar, use o menu suspenso **Editar** e clique em **Alterar plano** ou **Cancelar plano**. ![Editar link na seção Compras no Marketplace das configurações de faturamento da sua conta pessoal](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

@@ -1,1 +1,0 @@
-如果要允许对外部身份验证提供程序上没有帐户的某些人员进行身份验证，则可以允许对 {% data variables.product.product_location %} 上的本地帐户进行回退身份验证。 更多信息请参阅“[允许对提供程序覆盖范围以外的用户进行内置身份验证](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider)”。

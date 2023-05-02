@@ -1,1 +1,0 @@
-如果您使用双重身份验证保护您的个人帐户，但不知道密码，您将无法按照以下步骤恢复您的帐户。 {% data variables.product.company_short %} 可以将密码重置电子邮件发送到与您的帐户关联的已验证地址。 更多信息请参阅“[更新 {% data variables.product.prodname_dotcom %} 访问凭据](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials#requesting-a-new-password)”。

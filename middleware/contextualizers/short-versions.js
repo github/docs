@@ -15,6 +15,7 @@ export default function shortVersions(req, res, next) {
   req.context[currentVersionObj.shortName] = true
 
   // Add convenience props.
+  req.context.currentVersionObj = currentVersionObj
   req.context.currentRelease = currentVersion.split('@')[1]
   req.context.currentVersionShortName = currentVersionObj.shortName
 

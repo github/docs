@@ -3,10 +3,7 @@ import { URL } from 'url'
 import { pathLanguagePrefixed } from '../../lib/languages.js'
 import { deprecatedWithFunctionalRedirects } from '../../lib/enterprise-server-releases.js'
 import getRedirect from '../../lib/get-redirect.js'
-import { cacheControlFactory } from '../cache-control.js'
-
-const cacheControl = cacheControlFactory(60 * 60 * 24) // one day
-const noCacheControl = cacheControlFactory(0)
+import { defaultCacheControl, languageCacheControl } from '../cache-control.js'
 
 export default function handleRedirects(req, res, next) {
   // never redirect assets
@@ -20,12 +17,7 @@ export default function handleRedirects(req, res, next) {
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
-
-    // Undo the cookie setting that CSRF sets.
-    res.removeHeader('set-cookie')
-
-    noCacheControl(res)
-
+    languageCacheControl(res)
     return res.redirect(302, `/${language}`)
   }
 
@@ -33,18 +25,40 @@ export default function handleRedirects(req, res, next) {
   let redirect = req.path
   let queryParams = req._parsedUrl.query
 
-  // update old-style query params (#9467)
-  if ('q' in req.query) {
-    const newQueryParams = new URLSearchParams(queryParams)
-    newQueryParams.set('query', newQueryParams.get('q'))
-    newQueryParams.delete('q')
-    return res.redirect(301, `${req.path}?${newQueryParams.toString()}`)
+  // Redirect `/some/uri?q=stuff` to `/en/search?query=stuff`
+  // Redirect `/some/uri?query=stuff` to `/en/search?query=stuff`
+  // Redirect `/fr/version@latest/some/uri?query=stuff`
+  // to `/fr/version@latest/search?query=stuff`
+  // The `q` param is deprecated, but we still need to support it in case
+  // there are links out there that use it.
+  if (
+    'q' in req.query ||
+    ('query' in req.query && !(req.path.endsWith('/search') || req.path.startsWith('/api/search')))
+  ) {
+    const language = getLanguage(req)
+    const sp = new URLSearchParams(req.query)
+    if (sp.has('q') && !sp.has('query')) {
+      sp.set('query', sp.get('q'))
+      sp.delete('q')
+    }
+
+    let redirectTo = `/${language}`
+    const { currentVersion } = req.context
+    if (currentVersion !== 'free-pro-team@latest') {
+      redirectTo += `/${currentVersion}`
+      // The `req.context.currentVersion` is just the portion of the URL
+      // pathname. It could be that the currentVersion is something
+      // like `enterprise` which needs to be redirected to its new name.
+      redirectTo = getRedirect(redirectTo, req.context)
+    }
+
+    redirectTo += `/search?${sp.toString()}`
+    return res.redirect(301, redirectTo)
   }
 
   // have to do this now because searchPath replacement changes the path as well as the query params
   if (queryParams) {
     queryParams = '?' + queryParams
-    redirect = (redirect + queryParams).replace(patterns.searchPath, '$1')
   }
 
   // remove query params temporarily so we can find the path in the redirects object
@@ -95,14 +109,11 @@ export default function handleRedirects(req, res, next) {
     return next()
   }
 
-  // Undo the cookie setting that CSRF sets.
-  res.removeHeader('set-cookie')
-
   // do the redirect if the from-URL already had a language in it
   if (pathLanguagePrefixed(req.path) || redirect.includes('://')) {
-    cacheControl(res)
+    defaultCacheControl(res)
   } else {
-    noCacheControl(res)
+    languageCacheControl(res)
   }
 
   const permanent = redirect.includes('://') || usePermanentRedirect(req)

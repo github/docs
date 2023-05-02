@@ -5,8 +5,9 @@ import { ActionList } from '@primer/react'
 import { useState } from 'react'
 import { FeaturedTrack } from 'components/context/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
-import slugger from 'github-slugger'
+import { slug } from 'github-slugger'
 import styles from './LearningTrack.module.scss'
+import { Link } from 'components/Link'
 
 type Props = {
   track: FeaturedTrack
@@ -16,7 +17,7 @@ const DEFAULT_VISIBLE_GUIDES = 4
 export const LearningTrack = ({ track }: Props) => {
   const [numVisible, setNumVisible] = useState(DEFAULT_VISIBLE_GUIDES)
   const { t } = useTranslation('product_guides')
-  const slug = track?.title ? slugger.slug(track?.title) : ''
+  const titleSlug = track?.title ? slug(track?.title) : ''
   const showAll = () => {
     setNumVisible(track?.guides?.length || 0)
   }
@@ -27,8 +28,11 @@ export const LearningTrack = ({ track }: Props) => {
         <div className="Box-header color-bg-subtle p-4 d-flex flex-1 flex-items-start flex-wrap">
           <div className="d-flex flex-auto flex-items-start col-7 col-md-7 col-xl-7">
             <div className="my-xl-0 mr-xl-3">
-              <h3 id={slug} className={cx('mb-3 color-text f3 text-semibold', styles.hashAnchor)}>
-                <a className="color-unset" href={`#${slug}`}>
+              <h3
+                id={titleSlug}
+                className={cx('mb-3 color-text f3 text-semibold', styles.hashAnchor)}
+              >
+                <a className="color-unset" href={`#${titleSlug}`}>
                   {track?.title}
                 </a>
               </h3>
@@ -37,7 +41,7 @@ export const LearningTrack = ({ track }: Props) => {
               </TruncateLines>
             </div>
           </div>
-          <a
+          <Link
             {...{ 'aria-label': `${track?.title} - ${t('start_path')}` }}
             className="d-inline-flex btn no-wrap mt-3 mt-md-0 flex-items-center flex-justify-center"
             href={`${track?.guides && track?.guides[0].href}?learn=${
@@ -46,7 +50,7 @@ export const LearningTrack = ({ track }: Props) => {
           >
             <span>{t('start_path')}</span>
             <ArrowRightIcon size={20} className="ml-2" />
-          </a>
+          </Link>
         </div>
 
         {track && track.guides && (
@@ -81,7 +85,7 @@ export const LearningTrack = ({ track }: Props) => {
                       },
                     }}
                   >
-                    <a
+                    <Link
                       className="rounded-0 pl-7 py-4 width-full d-block Box-row d-flex flex-items-center color-fg-default no-underline"
                       href={`${guide.href}?learn=${track?.trackName}&learnProduct=${track?.trackProduct}`}
                     >
@@ -92,7 +96,7 @@ export const LearningTrack = ({ track }: Props) => {
                       <div className="color-fg-muted h6 text-uppercase flex-shrink-0">
                         {t('guide_types')[guide.page?.type || '']}
                       </div>
-                    </a>
+                    </Link>
                   </ActionList.Item>
                 )
               })}
@@ -101,6 +105,7 @@ export const LearningTrack = ({ track }: Props) => {
         )}
         {
           <button
+            data-search="hide"
             className={
               'Box-footer btn-link border-top-0 position-relative text-center text-bold color-fg-accent pt-1 pb-3 col-12 ' +
               ((track?.guides?.length || 0) <= numVisible && cx(styles.removeHoverEvents))

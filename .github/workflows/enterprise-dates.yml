@@ -1,15 +1,17 @@
 name: Enterprise date updater
 
-# **What it does**: Runs on a schedule to update lib/enterprise-dates.json.
-# **Why we have it**: The lib/enterprise-dates.json file needs to be up-to-date
-# for the .github/workflows/open-enterprise-issue.yml workflow and the
+# **What it does**: Runs on a schedule to update
+# src/ghes-releases/lib/enterprise-dates.json.
+# **Why we have it**: The src/ghes-releases/lib/enterprise-dates.json
+# file needs to be up-to-date for the
+# .github/workflows/open-enterprise-issue.yml workflow and the
 # tests/content/search.js test.
 # **Who does it impact**: Docs engineering, docs content.
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '39 2 * * 2' # At 02:39 on Tuesday
+    - cron: '20 16 * * 2' # Run every Tuesday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: write
@@ -36,34 +38,27 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout repository code
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # pin @3.5.2
 
-      - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
-        with:
-          node-version: '16.15.0'
-          cache: npm
+      - uses: ./.github/actions/node-npm-setup
 
-      - name: Install Node.js dependencies
-        run: npm ci
-
-      - name: Run script/update-enterprise-dates.js
+      - name: Run src/ghes-releases/scripts/update-enterprise-dates.js
         run: |
-          script/update-enterprise-dates.js
+          src/ghes-releases/scripts/update-enterprise-dates.js
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
 
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@bd72e1b7922d417764d27d30768117ad7da78a0e
+        uses: peter-evans/create-pull-request@5b4a9f6a9e2af26e5f02351490b90d01eb8ec1e5 # pin @v5.0.0
         env:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'
         with:
           # need to use a token with repo and workflow scopes for this step
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: '🤖 ran script/update-enterprise-dates.js'
-          title: 🤖 lib/enterprise-dates.json update
+          commit-message: '🤖 ran src/ghes-releases/scripts/update-enterprise-dates.js'
+          title: 🤖 src/ghes-releases/lib/enterprise-dates.json update
           body:
             "Hello! The GitHub Enterprise Server release dates have changed.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n
@@ -87,13 +82,13 @@ jobs:
 
       - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         name: Approve
-        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
+        uses: juliangruber/approve-pull-request-action@dcc4effb325c0b503408619918d56e40653dcc91
         with:
           github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@f8d28715e7b8a4717047d23f48c39827cacad340
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         if: ${{ failure() && env.FREEZE != 'true' }}
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}

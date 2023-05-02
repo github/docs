@@ -1,0 +1,7 @@
+# Reference: #8094
+# Documentation for limiting who can request app access to an organization
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>=3.8'

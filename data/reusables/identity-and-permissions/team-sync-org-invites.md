@@ -1,0 +1,1 @@
+By default, team synchronization does not invite non-members to join organizations, which means that a user will only be successfully added to a team if they are already an organization member. If you prefer, you can allow team synchronization to invite non-members to join organizations.

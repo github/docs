@@ -1,0 +1,49 @@
+date: '2022-10-25'
+sections:
+  security_fixes:
+    - |
+      **HIGH**: Updated dependencies for the Management Console to the latest patch versions, which addresses security vulnerabilities including [CVE-2022-30123](https://github.com/advisories/GHSA-wq4h-7r42-5hrr) and [CVE-2022-29181](https://github.com/advisories/GHSA-xh29-r2w5-wx8m).
+    - |
+      **HIGH**: Added checks to address an improper cache key vulnerability that allowed an unauthorized actor to access private repository files through a public repository. This vulnerability has been assigned [CVE-2022-23738](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23738).
+    - |
+      **MEDIUM**: Updated [CommonMarker](https://github.com/gjtorikian/commonmarker) to address a scenario where parallel requests to the Markdown REST API could result in unbounded resource exhaustion. This vulnerability has been assigned [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209).
+    - |
+      **MEDIUM**: Updated Redis to 5.0.14 to address [CVE-2021-32672](https://nvd.nist.gov/vuln/detail/CVE-2021-32672) and [CVE-2021-32762](https://nvd.nist.gov/vuln/detail/CVE-2021-32762).
+    - |
+      **MEDIUM**: Updated GitHub Actions runners to fix a bug that allowed environment variables in GitHub Actions jobs to escape the context of the variable and modify the invocation of `docker` commands directly. For more information, see the [Actions Runner security advisory](https://github.com/actions/runner/security/advisories/GHSA-2c6m-6gqh-6qg3).
+    - |
+      **MEDIUM**: An improper privilege management vulnerability was identified in GitHub Enterprise Server that allowed users with improper privileges to create or delete pages via the API. To exploit this vulnerability, an attacker would need to be added to an organization's repo with write permissions. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23737](https://www.cve.org/CVERecord?id=CVE-2022-23737).
+    - |
+      **LOW**: Due to a CSRF vulnerability, a `GET` request to the instance's `site/toggle_site_admin_and_employee_status` endpoint could toggle a user's site administrator status unknowingly.
+    - Packages have been updated to the latest security versions. 
+  bugs:
+    - |
+      After a site administrator made a change that triggered a configuration run, such as disabling GitHub Actions, validation of services would sometimes fail with the message `WARNING: Validation encountered a problem`.
+    - |
+      After a site administrator installed a hotpatch containing changes to web interface assets such as JavaScript files or images, the instance did not serve the new assets.
+    - |
+      When a user accessed a renamed repository using Git, the hostname in the Git output incorrectly indicated GitHub.com instead of the instance's hostname.
+    - |
+      On instances using LDAP authentication and LDAP sync, sync would fail and print `undefined method ord for nil:NilClass` in `ldap-sync.log`.
+    - Addressed a bug in which the endpoint for [creating a tag protection state for a repository](https://docs.github.com/en/enterprise-server@3.5/rest/repos/tags#create-a-tag-protection-state-for-a-repository) was returning a 500 error. 
+    - |
+      Deleted assets and assets scheduled to be purged within a repository, such as LFS files, took too long to to be cleaned up.
+    - |
+      If a user installed a GitHub App for the user account and then converted the account into an organization, the app was not granted organization permissions.
+    - |
+      Missing secret scanning alerts on instance with a GitHub Advanced Security license that was not upgraded directly to GitHub Enterprise Server 3.4 are now visible in the web interface and through the REST API.
+    - In some cases, on an instance with a GitHub Advanced Security license, secret scanning alerts did not include a provider type, and instead indicated that the provider type was "unknown." 
+  changes:
+    - |
+      To ensure that site administrators can successfully complete an upgrade, the instance will now execute a preflight check to ensure that the virtual machine meets minimum hardware requirements. The check also verifies Elasticsearch's health. You can review the current requirements for CPU, memory, and storage for GitHub Enterprise Server in the "Minimum requirements" section within each article in "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an appliance from a backup taken on a different host.
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'

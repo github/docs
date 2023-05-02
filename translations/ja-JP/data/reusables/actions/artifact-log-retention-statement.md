@@ -1,1 +1,0 @@
-デフォルトでは、{% data variables.product.product_name %}はビルドログと成果物を90日間保存し、この保存期間はカスタマイズできます。{% ifversion fpt or ghec or ghes %}詳しい情報については「[利用制限、支払い、管理](/actions/reference/usage-limits-billing-and-administration#artifact-and-log-retention-policy)」を参照してください。{% endif %}

@@ -1,7 +1,7 @@
 ---
 title: Adopting GitHub Advanced Security at scale
 shortTitle: Adopting GHAS at scale
-intro: "A phased approach to rolling out GitHub Advanced Security at your company using industry and GitHub best practices."
+intro: A phased approach to rolling out GitHub Advanced Security at your company using industry and GitHub best practices.
 versions:
   ghes: '*'
   ghae: '*'
@@ -19,3 +19,4 @@ children:
   - /phase-5-rollout-and-scale-code-scanning
   - /phase-6-rollout-and-scale-secret-scanning
 ---
+

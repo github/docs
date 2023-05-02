@@ -1,1 +1,0 @@
-1. Revisa las [Condiciones Adicionales de {% data variables.product.prodname_sponsors %}](/free-pro-team@latest/github/site-policy/github-sponsors-additional-terms) y la [Declaración de Privacidad de {% data variables.product.prodname_dotcom %}](/free-pro-team@latest/github/site-policy/github-privacy-statement), posteriormente da clic en **Únete a la lista de espera**.

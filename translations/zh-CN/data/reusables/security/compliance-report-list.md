@@ -1,5 +1,0 @@
-- SOC 1，类型 2
-- SOC 2，类型 2
-- 端安全联盟 CAIQ 自我评估 (CSA CAIQ)
-- ISO/IEC 27001：2013 认证
-- {% data variables.product.prodname_dotcom_the_website %} 服务连续性和事件管理计划

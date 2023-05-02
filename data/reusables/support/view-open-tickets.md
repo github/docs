@@ -3,6 +3,6 @@
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 
-   ![Screenshot of the "My Tickets" dropdown menu.](/assets/images/help/support/ticket-context.png)
+   ![Screenshot of the "My Tickets" dropdown menu, with a support ticket highlighted in a dark orange outline.](/assets/images/help/support/ticket-context.png)
 1. In the list of tickets, click the subject of the ticket you want to view.
 ![Screenshot showing a list of support tickets with the subject highlighted.](/assets/images/help/support/my-tickets-list.png)
