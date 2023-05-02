@@ -175,6 +175,10 @@ jobs:
           rsync -rptovR ./user-code/pages/./**/*.tsx ./pages
           rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
 
+      - uses: ./.github/actions/warmup-remotejson-cache
+        with:
+          restore-only: true
+
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
         run: .github/actions-scripts/prune-for-preview-env.sh

@@ -71,6 +71,10 @@ jobs:
       - name: Merge docs-early-access repo's folders
         run: .github/actions-scripts/merge-early-access.sh
 
+      - uses: ./.github/actions/warmup-remotejson-cache
+        with:
+          restore-only: true
+
       - uses: ./.github/actions/clone-translations
         with:
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
