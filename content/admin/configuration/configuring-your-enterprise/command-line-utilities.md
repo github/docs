@@ -124,8 +124,9 @@ Allows you to exempt a list of users from REST API rate limits. A hard limit of 
 
 
 ``` shell
-$ ghe-config app.github.rate-limiting-exempt-users "USER1 USER2"
-# Exempts the users USER1 and USER2 from rate limits. Usernames are case-sensitive.
+$ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
+# Exempts the users hubot and github-actions[bot] from rate limits. Usernames are case-sensitive.
+
 ```
 
 ### ghe-config-apply

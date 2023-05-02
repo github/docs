@@ -88,7 +88,13 @@ After you have configured SAML SSO and provisioning, you will be able to provisi
 
 You can also automatically manage organization membership by adding groups to the "Push Groups" tab in Okta. When the group is provisioned successfully, it will be available to connect to teams in the enterprise's organizations. For more information about managing teams, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
 
-When assigning users, you can use the "Roles" attribute in the {% data variables.product.prodname_emu_idp_application %} application to set a user's role in your enterprise on {% data variables.product.product_name %}. For more information on roles, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+When assigning users, you can use the "Roles" attribute in the {% data variables.product.prodname_emu_idp_application %} application to set a user's role in your enterprise on {% data variables.product.product_name %}. For more information about the roles available to assign, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+
+{% note %}
+
+**Note:** You can only set the "Roles" attribute for an individual user, not a group. If you want to set roles for everyone in a group that's assigned to the {% data variables.product.prodname_emu_idp_application %} application, you must use the "Roles" attribute for each group member, individually.
+
+{% endnote %}
 
 ## Deprovisioning users and groups
 
