@@ -1128,7 +1128,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repo.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated.
 | `repo.update_actions_access_settings` | The setting to control how a repository was used by {% data variables.product.prodname_actions %} workflows in other repositories was changed.
 | `repo.update_default_branch` | The default branch for a repository was changed.
-| `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_github_codespaces %} integration secret was updated for a repository.
+| `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion ghec%} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was updated for a repository.
 | `repo.update_member` | A user's permission to a repository was changed.
 
 {%- ifversion fpt or ghec %}

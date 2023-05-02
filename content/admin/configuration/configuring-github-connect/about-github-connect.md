@@ -18,7 +18,7 @@ topics:
 
 Enabling {% data variables.product.prodname_github_connect %} will not allow {% data variables.product.prodname_dotcom_the_website %} users to make changes to {% data variables.product.product_name %}.
 
-To enable {% data variables.product.prodname_github_connect %}, you configure a connection between {% data variables.location.product_location %} and an organization or enterprise account on {% data variables.product.prodname_dotcom_the_website %} that uses {% data variables.product.prodname_ghe_cloud %}. {% data reusables.github-connect.connection-port-protocol %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
+To enable {% data variables.product.prodname_github_connect %}, you configure a connection between {% data variables.location.product_location %} and enterprise account on {% data variables.product.prodname_dotcom_the_website %} that uses {% data variables.product.prodname_ghe_cloud %}. {% data reusables.github-connect.connection-port-protocol %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
 After enabling {% data variables.product.prodname_github_connect %}, you will be able to enable features such as {% ifversion ghes %}automatic user license sync and {% endif %}{% data variables.product.prodname_dependabot_alerts %}. For more information about all of the features available, see "[{% data variables.product.prodname_github_connect %} features](#github-connect-features)."
 
@@ -35,7 +35,7 @@ Automatic user license sync | Manage license usage across your {% data variables
 Unified search | Allow users to include repositories on {% data variables.product.prodname_dotcom_the_website %} in their search results when searching from {% data variables.location.product_location %}. | "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-unified-search-for-your-enterprise)"
 Unified contributions | Allow users to include anonymized contribution counts for their work on {% data variables.location.product_location %} in their contribution graphs on {% data variables.product.prodname_dotcom_the_website %}. | "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-unified-contributions-for-your-enterprise)"
 
-## Data transmission for {% data variables.product.prodname_github_connect %} 
+## Data transmission for {% data variables.product.prodname_github_connect %}
 
 When {% data variables.product.prodname_github_connect %} is enabled, a record on {% data variables.product.prodname_ghe_cloud %} stores information about the connection. If you enable individual features of {% data variables.product.prodname_github_connect %}, additional data is transmitted.
 
@@ -54,7 +54,7 @@ When you enable {% data variables.product.prodname_github_connect %} or specific
 - The customer name on your {% data variables.product.prodname_ghe_server %} license
 - The version of {% data variables.location.product_location_enterprise %}{% endif %}
 - The hostname of {% data variables.location.product_location %}
-- The organization or enterprise account on {% data variables.product.prodname_ghe_cloud %} that's connected to {% data variables.location.product_location %}
+- The enterprise account on {% data variables.product.prodname_ghe_cloud %} that's connected to {% data variables.location.product_location %}
 - The authentication token that's used by {% data variables.location.product_location %} to make requests to {% data variables.product.prodname_ghe_cloud %}
 - If Transport Layer Security (TLS) is enabled and configured on {% data variables.location.product_location %}{% ifversion ghes %}
 - The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.location.product_location %}, and the date and time of enablement{% endif %}
@@ -68,7 +68,7 @@ When you enable {% data variables.product.prodname_github_connect %} or specific
 
 Additional data is transmitted if you enable individual features of {% data variables.product.prodname_github_connect %}.
 
-| Feature | Data | Which way does the data flow? | Where is the data used? | 
+| Feature | Data | Which way does the data flow? | Where is the data used? |
 | ------- | ---- | --------- | ------ |{% ifversion ghes %}
 Automatic user license sync | Each {% data variables.product.product_name %} user's user ID and email addresses | From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |{% endif %}{% ifversion ghes or ghae %}
 {% data variables.product.prodname_dependabot_alerts %} | Vulnerability alerts | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %} | {% data variables.product.product_name %} |{% endif %}{% ifversion dependabot-updates-github-connect %}
