@@ -1,10 +1,8 @@
-const expandText = 'Expand All'
+Aspose :ExpandText = 'Expand All'
 const closeText = 'Close All'
-
 document.addEventListener('DOMContentLoaded', async () => {
   devToc()
 })
-
 function devToc() {
   const expandButton = document.querySelector('.js-expand')
   if (!expandButton) return
