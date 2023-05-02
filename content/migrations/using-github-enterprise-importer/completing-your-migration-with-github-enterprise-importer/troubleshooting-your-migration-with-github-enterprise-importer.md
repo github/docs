@@ -45,7 +45,7 @@ The log contains a record of each command you issued and all of the API requests
 - [`Subsystem 'sftp' could not be executed` error](#subsystem-sftp-could-not-be-executed-error)
 - [`Source export archive... does not exist` error](#source-export-archive-does-not-exist-error)
 - [`Repository rule violations found` error](#repository-rule-violations-found-error)
-- [`Git source migration failed` error](#git-source-migration-failed-error)
+- [`Your push would publish a private email address` error](#your-push-would-publish-a-private-email-address-error)
 
 ### Unable to run migrations
 
@@ -119,9 +119,11 @@ If you receive a `Repository rule violations found` error, such as `GH013: Repos
 
 You can temporarily disable your rulesets during your migration, or you can use bypass mode or the bypass list to exempt your migration from configured rules. For more information, see "[AUTOTITLE]({% ifversion repo-rules-enterprise %}{% else %}/enterprise-cloud@latest{% endif %}/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)."
 
-### `Git source migration failed` error
+### `Your push would publish a private email address` error
 
-If you receive a `Git source migration failed` error, such as `GH007: Your push would publish a private email address`, review the email settings of your account. Go to *Settings* > *Emails* and scroll to the checkbox "Block command line pushes that expose my email" and make sure it is unchecked.
+If you receive a `Git source migration failed` error with `GH007: Your push would publish a private email address`,  the Git source you're trying to migrate includes commits authored by an email address that you have blocked from being pushed to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE]({% ifversion not fpt or ghec %}/enterprise-cloud@latest{% endif %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address){% ifversion fpt or ghec %}."{% else %}" in the  {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+
+To resolve this error, you can either rewrite the Git history to remove the email address, or you can disable the "Block command line pushes that expose my email" setting. 
 
 ## Troubleshooting successful migrations
 
