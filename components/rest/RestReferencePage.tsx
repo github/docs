@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import cx from 'classnames'
 
 import { DefaultLayout } from 'components/DefaultLayout'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
@@ -11,8 +10,6 @@ import { Operation } from './types'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
 import { ClientSideRedirects } from 'components/ClientSideRedirects'
 import { RestRedirect } from 'components/RestRedirect'
-
-import styles from './RestOperation.module.scss'
 
 export type StructuredContentT = {
   restOperations: Operation[]
@@ -45,10 +42,7 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
       <ClientSideRedirects />
       <ClientSideHighlight />
       <RestRedirect />
-      <div
-        className={cx(styles.restOperation, 'px-3 px-md-6 my-4 container-xl')}
-        data-search="article-body"
-      >
+      <div className="px-3 px-md-6 my-4 container-xl" data-search="article-body">
         <h1 id="title-h1" className="mb-3">
           {title}
         </h1>

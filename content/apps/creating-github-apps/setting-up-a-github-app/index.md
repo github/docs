@@ -13,7 +13,6 @@ topics:
   - GitHub Apps
 children:
   - /about-creating-github-apps
-  - /differences-between-github-apps-and-oauth-apps
   - /rate-limits-for-github-apps
   - /creating-a-github-app
   - /choosing-permissions-for-a-github-app
@@ -24,3 +23,4 @@ children:
   - /creating-a-custom-badge-for-your-github-app
   - /about-the-user-authorization-callback-url
 ---
+

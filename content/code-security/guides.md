@@ -92,6 +92,7 @@ includeGuides:
   - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
   - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
   - /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
+  - /code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository
