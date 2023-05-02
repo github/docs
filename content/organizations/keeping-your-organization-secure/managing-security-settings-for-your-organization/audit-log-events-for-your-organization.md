@@ -617,7 +617,9 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 ## `repository_vulnerability_alert` category actions
 
 | Action | Description
-|------------------|-------------------
+|------------------|-------------------{% ifversion dependabot-alert-rules-auto-dismissal-npm-dev-dependencies %}
+| `auto_dismiss` | Triggered when a {% data variables.product.prodname_dependabot %} alert is automatically dismissed due to its metadata matching an enabled {% data variables.product.prodname_dependabot %} alert rule. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts)."
+| `auto_reopen` | Triggered when a previously auto-dismissed {% data variables.product.prodname_dependabot %} alert is reopened because its metadata no longer matches an enabled {% data variables.product.prodname_dependabot %} alert rule. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts)."{% endif %}
 | `create` | Triggered when {% data variables.product.product_name %} creates a {% data variables.product.prodname_dependabot %} alert for a repository that uses a vulnerable dependency. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 | `dismiss` | Triggered when an organization owner or person with admin{% ifversion dependabot-alerts-permissions-write-maintain %}, write, or maintain{% endif %} access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
 | `resolve` | Triggered when someone with write {% ifversion dependabot-alerts-permissions-write-maintain %}or maintain{% endif %} access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
