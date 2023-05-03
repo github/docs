@@ -125,7 +125,7 @@ for (const page of pages) {
 // Sort by score desc so the translators know what to focus on first
 // Issues with more information should be higher
 issues = issues
-  .filter((issue) => !issue.message?.includes('early-access'))
+  .filter((issue) => !issue.path?.includes('early-access'))
   .sort((a, b) => b.score - a.score || JSON.stringify(b).length - JSON.stringify(a).length)
 
 // Begin an output report
