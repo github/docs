@@ -14,9 +14,7 @@ The negative lookahead assertion, denoted `?!`, is not supported. However, for c
 
 ### Useful regular expression patterns
 
-The following examples provide useful patterns for commit metadata.
-
-Make sure to set the requirement field to: `Must match a given regex pattern`.
+The following examples provide useful patterns for commit metadata. To use these patterns, set **Requirement** to "Must match a given regex pattern".
 
 #### Ensure branch names are compatible with Windows
 
