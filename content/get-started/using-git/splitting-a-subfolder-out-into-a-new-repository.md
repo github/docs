@@ -64,7 +64,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
    {% endtip %}
 
-8. Add a new remote name with the URL you copied in step 7 for your repository. For example, `origin` or `upstream` are two common choices.
+8. Add a new remote name with the URL you copied for your repository. For example, `origin` or `upstream` are two common choices.
    ```shell
    git remote add origin https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git
    ```
