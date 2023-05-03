@@ -7,9 +7,9 @@ describe('guides', () => {
     const title = 'Guides for cool security'
     expect($('title').text()).toMatch(title)
     expect($('h1').text()).toMatch(title)
-    const learningPaths = $('#learning-paths h2')
+    const learningPaths = $('h2#learning-paths')
     expect(learningPaths.text()).toMatch('Code security learning paths')
-    const allGuides = $('#all-guides h2')
+    const allGuides = $('h2#all-guides')
     expect(allGuides.text()).toMatch('All Code security guides')
   })
 })

@@ -7,8 +7,12 @@ versions:
 type: how_to
 topics:
   - Enterprise
-shortTitle: Removing organizations
+shortTitle: Remove organizations
 ---
+
+## About organization removal
+
+You can remove an organization that is owned by your enterprise account, so the organization stands alone.
 
 {% warning %}
 
@@ -20,7 +24,7 @@ shortTitle: Removing organizations
 
 {% endwarning %}
 
-## Removing an organization from your Enterprise
+## Removing an organization from your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 2. Under "Organizations", in the search bar, begin typing the organization's name until the organization appears in the search results.
@@ -28,3 +32,7 @@ shortTitle: Removing organizations
 
    ![Screenshot of a list of organizations in search results. To the right of the organization name, the dropdown menu labeled with a gear icon is expanded, and the "Remove organization" option is highlighted with an orange outline.](/assets/images/help/enterprises/remove-organization.png)
 1. Review the warnings, then click **Remove organization**.
+
+## Further reading
+
+- "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"

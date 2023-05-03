@@ -26,9 +26,9 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Above the list of files, click **Go to file**.
-![Find file button](/assets/images/help/search/find-file-button.png)
+![Screenshot of a row of buttons on the main page of a repository. The "Go to file" button is outlined in dark orange.](/assets/images/help/search/find-file-button.png)
 3. In the search field, type the name of the file you'd like to find.
-![Find file search field](/assets/images/help/search/find-file-search-field.png)
+![Screenshot of the search bar for finding a file in a repository. The search bar contains the term "readme" and under the search bar is a link to the file that is the result of the search, "README.md". The search bar is outlined in dark orange. ](/assets/images/help/search/find-file-search-field.png)
 4. In the list of results, click the file you wanted to find.
 
 {% ifversion file-finder-exclusion-controls %}

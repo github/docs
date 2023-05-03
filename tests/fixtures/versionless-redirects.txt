@@ -433,13 +433,6 @@
 /enterprise-cloud@latest/code-security/security-overview/filtering-alerts-in-security-overview
 - /code-security/security-overview/filtering-alerts-in-security-overview
 
-/enterprise-cloud@latest/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization
-- /organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization
-- /articles/verifying-your-organization-s-domain
-- /articles/verifying-your-organizations-domain
-- /github/setting-up-and-managing-organizations-and-teams/verifying-your-organizations-domain
-- /organizations/managing-organization-settings/verifying-your-organizations-domain
-
 /enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
 - /organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization
 - /articles/restricting-email-notifications-about-organization-activity-to-an-approved-email-domain
