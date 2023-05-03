@@ -70,6 +70,13 @@ describe('pageinfo api', () => {
       const { info } = JSON.parse(res.body)
       expect(info.title).toBe('GitHub.com Fixture Documentation')
     }
+    // Trailing slashes are always removed
+    {
+      const res = await get(makeURL('/en/olden-days/'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toBe('GitHub.com Fixture Documentation')
+    }
     // Short code for latest version
     {
       const res = await get(makeURL('/en/enterprise-server@latest/get-started/liquid/ifversion'))
