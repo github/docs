@@ -185,13 +185,12 @@ This means that you cannot automate the creation of accounts. But if you want to
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
 2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.
 
-[ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
-[generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
-[tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
-[git-automation]: /articles/git-automation-with-oauth-tokens
-[collaborator]: /articles/inviting-collaborators-to-a-personal-repository
-[outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
-[team]: /articles/adding-organization-members-to-a-team
+[ssh-agent-forwarding]: /authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding
+[generating-ssh-keys]: /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+[tos]: /free-pro-team@latest/site-policy/github-terms/github-terms-of-service
+[collaborator]: /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
+[outside-collaborator]: /organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization
+[team]: /organizations/organizing-members-into-teams/adding-organization-members-to-a-team
 
 ## Further reading
 - [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
