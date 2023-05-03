@@ -119,9 +119,8 @@ Poke around several pages, ensure that the stylesheets are working properly, ima
 
 **Note:** We do not remove the old content for GHES release notes. New release notes can be added after we perform a deprecation in some rare cases, and not removing this content makes it easier for us to re-scrape the content to add to Azure Blob Storage.
 
-- [ ] In your `docs-internal` checkout, create a new branch `remove-<version>-static-files` branch: `git checkout -b remove-<version>-static-files` (you can branch off of `main` or from your `deprecate-<version>` branch, up to you).
-- [ ] Run `src/ghes-releases/scripts/remove-static-files.js` and commit results.
-- [ ] Re-generate the static files by running `src/rest/scripts/update-files.js --decorate-only`.
+- [ ] In your `docs-internal` checkout, create a new branch: `git checkout -b remove-<version>-data-files` (you can branch off of `main` or from your `deprecate-<version>` branch, up to you).
+- [ ] Run `src/ghes-releases/scripts/sync-automated-pipeline-data.js` and commit results.
 - [ ] Open a new PR.
 - [ ] Get a review from docs-engineering and merge. This step can be merged independently from step 6. The purpose of splitting up steps 5 and 6 is to focus the review on specific files.
 
