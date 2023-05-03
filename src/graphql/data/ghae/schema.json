@@ -218,7 +218,7 @@
       "kind": "objects",
       "id": "query",
       "href": "/graphql/reference/objects#query",
-      "description": "<p>Hack to workaround <a href=\"https://github.com/facebook/relay/issues/112\">https://github.com/facebook/relay/issues/112</a> re-exposing the root query object.</p>",
+      "description": "<p>Workaround for re-exposing the root query object. (Refer to\n<a href=\"https://github.com/facebook/relay/issues/112\">https://github.com/facebook/relay/issues/112</a> for more information.).</p>",
       "args": []
     },
     {
