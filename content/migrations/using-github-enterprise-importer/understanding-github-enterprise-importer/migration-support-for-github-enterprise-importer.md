@@ -47,10 +47,11 @@ Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitb
 If your migration source is Bitbucket Server, you can migrate repositories. We currently only support migrating the following repository data from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %}.
 
 - Git source (including commit history)
-- Pull requests (including pull request reviews, required reviewers, comments and attachments)
+- Pull requests (including pull request reviews, required reviewers, comments and attachments, but excluding file-level comments)
 
 Currently, the following data is **not** migrated.
 
+- File-level comments on pull requests
 - Branch permissions
 - Commit comments
 - Repository settings
@@ -113,7 +114,7 @@ When you migrate a repository directly, teams and team access to repositories ar
 
 ### Branch protections
 
-Branch protections apply a specified set of rules to a specific branch name or branch name pattern. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+Branch protections apply a specified set of rules to a specific branch name or branch name pattern. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 Branch protections will always be migrated, but certain rules will not be migrated. The following branch protection rules are not migrated.
 

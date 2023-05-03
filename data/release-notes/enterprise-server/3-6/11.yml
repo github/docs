@@ -29,6 +29,7 @@ sections:
     - When a site administrator configures an outbound web proxy server for GitHub Enterprise Server, the instance now validates top-level domains (TLDs) excluded from the proxy configuration. By default, you can exclude public TLDs that the IANA specifies. Site administrators can specify a list of unregistered TLDs to exclude using `ghe-config`. The `.` prefix is required for any public TLDs. For example, `.example.com` is valid, but `example.com` is invalid. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)." 
     - To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, GitHub Enterprise Server checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced. 
     - The default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
   known_issues:
     - |
       On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.

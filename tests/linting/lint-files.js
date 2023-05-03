@@ -244,7 +244,7 @@ const automatedConfigFiles = walk(`src`, { includeBasePath: true, globs: ['**/li
 const automatedIgnorePaths = (
   await Promise.all(
     automatedConfigFiles.map(async (p) => {
-      return JSON.parse(await fs.readFile(p, 'utf8')).linterIgnore
+      return JSON.parse(await fs.readFile(p, 'utf8')).linterIgnore || []
     })
   )
 )

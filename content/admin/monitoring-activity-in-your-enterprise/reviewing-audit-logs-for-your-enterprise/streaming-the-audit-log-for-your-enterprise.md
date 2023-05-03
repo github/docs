@@ -69,19 +69,18 @@ You can set up streaming to S3 with access keys or, to avoid storing long-lived 
 #### Setting up streaming to S3 with access keys
 {% endif %}
 
-To stream audit logs to Amazon's S3 endpoint, you must have a bucket and access keys. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation. Make sure to block public access to the bucket to protect your audit log information.
-
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
-* The name of your Amazon S3 bucket
 * Your AWS access key ID
 * Your AWS secret key
 
 For information on creating or accessing your access key ID and secret key, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the AWS documentation.
 
+{% data reusables.audit_log.create-s3-bucket %}
+{% data reusables.audit_log.create-s3-policy %}
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
 1. Under "Authentication", click **Access keys**.{% endif %}
-1. Configure the stream settings.
+2. Configure the stream settings.
 
    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
    - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
@@ -96,6 +95,8 @@ For information on creating or accessing your access key ID and secret key, see 
 
    - For the provider URL, use `https://oidc-configuration.audit-log.githubusercontent.com`.
    - For "Audience", use `sts.amazonaws.com`.
+{% data reusables.audit_log.create-s3-bucket %}
+{% data reusables.audit_log.create-s3-policy %}
 1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
 1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket by copying the following JSON and replacing `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
 
@@ -115,7 +116,7 @@ For information on creating or accessing your access key ID and secret key, see 
    }
    ```
    For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
-1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
+4. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
 
    - Add the permissions policy you created above to allow writes to the bucket.
    - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
@@ -183,7 +184,7 @@ You need two pieces of information about your event hub: its instance name and t
 **On Microsoft Azure portal**:
 1. At the top of the page, next to "Microsoft Azure", use the search box to search for "Event Hubs".
 1. Select **Event Hubs**. The names of your event hubs are listed.
-2. Make a note of the name of the event hub to which you want to stream. Click the event hub. 
+2. Make a note of the name of the event hub to which you want to stream. Click the event hub.
 3. In the left menu, click **Shared Access Policies**.
 4. Select a shared access policy from the list of policies, or create a new policy.
 5. Copy the connection string from the **Connection string-primary key** field.
@@ -191,7 +192,7 @@ You need two pieces of information about your event hub: its instance name and t
 **On {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Azure Event Hubs**.
-   
+
 2. On the configuration page, enter:
    * The name of the Azure Event Hubs instance.
    * The connection string.
@@ -252,11 +253,15 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 2. On the configuration page, enter:
    * The domain on which the application you want to stream to is hosted.
 
-     If you are using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example: `http-inputs-mycompany.splunkcloud.com`.
+     If you're using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example, `http-inputs-mycompany.splunkcloud.com`.
+
+     If you're using the free trial version of Splunk Cloud, `Domain` should be `inputs.<host>`, where `host` is the domain you use in Splunk Cloud. For example, `inputs.mycompany.splunkcloud.com`.
 
    * The port on which the application accepts data.<br>
 
-     If you are using Splunk Cloud, `Port` should be `443` if you haven't changed the port configuration. If you are using the free trial version of Splunk Cloud, `Port` should be `8088`.
+     If you're using Splunk Cloud and haven't changed the port configration, `Port` should be `443`.
+
+     If you're using the free trial version of Splunk Cloud, `Port` should be `8088`.
 
    * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
 
@@ -294,7 +299,7 @@ When the application is ready to receive audit logs again, click **Resume stream
 
 {% note %}
 
-**Note:** This feature is currently in public beta and subject to change. 
+**Note:** This feature is currently in public beta and subject to change.
 
 {% endnote %}
 
@@ -302,5 +307,4 @@ When the application is ready to receive audit logs again, click **Resume stream
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Under "Audit log", click **Settings**.
-2. Under "API Requests", select **Enable API Request Events**. 
-
+2. Under "API Requests", select **Enable API Request Events**.

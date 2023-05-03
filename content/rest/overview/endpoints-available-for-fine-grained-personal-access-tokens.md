@@ -804,6 +804,7 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 ## security-advisories
 - [`GET /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#list-repository-security-advisories)
 - [`POST /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#create-a-repository-security-advisory)
+- [`POST /repos/{owner}/{repo}/security-advisories/reports`](/rest/security-advisories/repository-advisories#privately-report-a-security-vulnerability)
 - [`GET /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#get-a-repository-security-advisory)
 - [`PATCH /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#update-a-repository-security-advisory)
 

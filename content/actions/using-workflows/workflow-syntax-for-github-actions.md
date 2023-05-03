@@ -322,7 +322,7 @@ jobs:
 
 A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
 ### Example of `jobs.<job_id>.steps`
 
@@ -429,7 +429,7 @@ Actions are either JavaScript files or Docker containers. If the action you're u
 ```yaml
 steps:
   # Reference a specific commit
-  - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+  - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
   # Reference the major version of a release
   - uses: {% data reusables.actions.action-checkout %}
   # Reference a specific version
@@ -549,6 +549,8 @@ jobs:
       - name: Run my action
         uses: ./.github/actions/my-private-repo/my-action
 ```
+
+Alternatively, use a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %} in order to ensure your workflow continues to run even if the {% data variables.product.pat_generic %} owner leaves. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 
 ### `jobs.<job_id>.steps[*].run`
 
@@ -776,7 +778,7 @@ The maximum number of minutes to run the step before killing the process.
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
 {% note %}
 
@@ -1088,12 +1090,12 @@ The characters `*`, `[`, and `!` are special characters in YAML. If you start a 
 
 ```yaml
 # Valid
-branches:
+paths:
   - '**/README.md'
 
 # Invalid - creates a parse error that
 # prevents your workflow from running.
-branches:
+paths:
   - **/README.md
 
 # Valid

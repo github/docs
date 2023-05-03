@@ -58,7 +58,7 @@ Define the private registry configuration in a `dependabot.yml` file without `re
 In the `Dockerfile` file, add the image name in the format of `IMAGE[:TAG]`, where `IMAGE` consists of your username and the name of the repository.
 
 ```yaml
- FROM firewallregistrydep.azurecr.io/myreg/ubuntu:18.04
+ FROM firewallregistrydep.azurecr.io/myreg/ubuntu:22.04
 ```
 
 **Option 2**

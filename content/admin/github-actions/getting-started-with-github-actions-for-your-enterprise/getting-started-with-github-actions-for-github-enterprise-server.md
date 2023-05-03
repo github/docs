@@ -160,7 +160,7 @@ You can use policies to manage access to {% data variables.product.prodname_acti
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 ## Managing which actions can be used in your enterprise
 

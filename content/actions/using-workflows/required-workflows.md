@@ -43,7 +43,7 @@ After a required workflow has run at least once in a repository, you can view it
 {% data reusables.repositories.actions-tab %}
 1. In the left sidebar, you can view workflow runs for required workflows under "Required workflows."
 
-   ![Screenshot showing required workflows](/assets/images/help/settings/view-required-workflows.png)
+   ![Screenshot of the sidebar on the "Actions" page. A subsection, labeled "Required workflows", contains an entry called "Test required workflow" and is outlined in dark orange.](/assets/images/help/settings/view-required-workflows.png)
 
 
 

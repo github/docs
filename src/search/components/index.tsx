@@ -87,7 +87,7 @@ export function Search() {
       </Head>
       {hasQuery && (
         <Heading as="h1" className="mb-2">
-          {t('search_results_for')} "{query.trim()}"
+          {pageTitle}
         </Heading>
       )}
 

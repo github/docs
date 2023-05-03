@@ -17,7 +17,7 @@ shortTitle: Restrict repository creation
 
 You can choose whether members can create repositories in your organization. {% ifversion ghec or ghes or ghae %}If you allow members to create repositories, you can choose which types of repositories members can create.{% elsif fpt %}If you allow members to create repositories, you can choose whether members can create both public and private repositories or public repositories only.{% endif %} Organization owners can always create any type of repository.
 
-{% ifversion fpt %} 
+{% ifversion fpt %}
 Organizations using {% data variables.product.prodname_ghe_cloud %} can also restrict members to creating private repositories only. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization).
 {% endif %}
 
@@ -34,14 +34,8 @@ Enterprise owners can restrict the options you have available for your organizat
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository creation", select one or more options.
+1. Under "Repository creation", select one or more options.
 
-   {%- ifversion ghes or ghec or ghae %}
-   ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons.png)
-   {%- elsif fpt %}
-   ![Repository creation options](/assets/images/help/organizations/repo-creation-perms-radio-buttons-fpt.png)
-   {%- endif %}
-   
    {% ifversion fpt or ghec %}
    {% note %}
 
@@ -50,4 +44,4 @@ Enterprise owners can restrict the options you have available for your organizat
    {% endnote %}
    {%- endif %}
 
-6. Click **Save**.
+1. Click **Save**.

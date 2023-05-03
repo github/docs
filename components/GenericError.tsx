@@ -64,42 +64,44 @@ export const SimpleHeader = () => {
 
 export const SimpleFooter = () => {
   return (
-    <footer className="py-6 text-small">
-      <div className="container-xl d-flex px-3 px-md-6 flex-justify-center">
-        <ul className="d-flex list-style-none flex-wrap flex-justify-center">
+    <footer className="py-6">
+      <div className="container-xl px-3 px-md-6">
+        <ul className="d-flex flex-wrap list-style-none">
           <li className="d-flex mr-xl-3 color-fg-muted">
-            <MarkGithubIcon className="mr-2 mr-xl-3" size={20} />
             <span>&copy; {new Date().getFullYear()} GitHub, Inc.</span>
           </li>
           <li className="ml-3">
-            <a href="/site-policy/github-terms/github-terms-of-service">Terms</a>
+            <a className="text-underline" href="/site-policy/github-terms/github-terms-of-service">
+              Terms
+            </a>
           </li>
           <li className="ml-3">
-            <a href="/site-policy/privacy-policies/github-privacy-statement">Privacy </a>
+            <a
+              className="text-underline"
+              href="/site-policy/privacy-policies/github-privacy-statement"
+            >
+              Privacy{' '}
+            </a>
           </li>
           <li className="ml-3">
-            <a href="https://github.com/security">Security</a>
+            <a className="text-underline" href="https://www.githubstatus.com/">
+              Status
+            </a>
           </li>
           <li className="ml-3">
-            <a href="https://www.githubstatus.com/">Status</a>
+            <a className="text-underline" href="https://github.com/pricing">
+              Pricing
+            </a>
           </li>
           <li className="ml-3">
-            <a href="/">Help</a>
+            <a className="text-underline" href="https://services.github.com/">
+              Expert services
+            </a>
           </li>
           <li className="ml-3">
-            <a href="https://support.github.com">Contact GitHub</a>
-          </li>
-          <li className="ml-3">
-            <a href="https://github.com/pricing">Pricing</a>
-          </li>
-          <li className="ml-3">
-            <a href="/developers">Developer API</a>
-          </li>
-          <li className="ml-3">
-            <a href="https://services.github.com/">Training</a>
-          </li>
-          <li className="ml-3">
-            <a href="https://github.com/about">About</a>
+            <a className="text-underline" href="https://github.blog/">
+              Blog
+            </a>
           </li>
         </ul>
       </div>

@@ -68,7 +68,7 @@ Each user on {% data variables.location.product_location %} consumes a seat on y
 Administrators for your enterprise account on {% data variables.product.prodname_dotcom_the_website %} can access and manage billing for the enterprise. For more information, see "[Roles in an enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise){% ifversion ghec %}."{% elsif ghes %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% ifversion ghec %}
-{% data reusables.enterprise-accounts.billing-microsoft-ea-overview %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
+{% data reusables.enterprise-accounts.billing-azure-subscription-enterprise-only %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription)."
 {% endif %}
 
 {% ifversion ghes %}

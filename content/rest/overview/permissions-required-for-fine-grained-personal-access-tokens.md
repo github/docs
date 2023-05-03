@@ -903,34 +903,11 @@ When you create a {% data variables.product.pat_v2 %}, you grant it a set of per
 
 {% endif %}
 
-## Repository projects
-
-- [`GET /projects/columns/cards/{card_id}`](/rest/projects#get-a-project-card) (read)
-- [`PATCH /projects/columns/cards/{card_id}`](/rest/projects#update-a-project-card) (write)
-- [`DELETE /projects/columns/cards/{card_id}`](/rest/projects#delete-a-project-card) (write)
-- [`POST /projects/columns/cards/{card_id}/moves`](/rest/projects#move-a-project-card) (write)
-- [`GET /projects/columns/{column_id}`](/rest/projects#get-a-project-column) (read)
-- [`PATCH /projects/columns/{column_id}`](/rest/projects#update-a-project-column) (write)
-- [`DELETE /projects/columns/{column_id}`](/rest/projects#delete-a-project-column) (write)
-- [`GET /projects/columns/{column_id}/cards`](/rest/projects#list-project-cards) (read)
-- [`POST /projects/columns/{column_id}/cards`](/rest/projects#create-a-project-card) (write)
-- [`POST /projects/columns/{column_id}/moves`](/rest/projects#move-a-project-column) (write)
-- [`GET /projects/{project_id}`](/rest/projects#get-a-project) (read)
-- [`PATCH /projects/{project_id}`](/rest/projects#update-a-project) (write)
-- [`DELETE /projects/{project_id}`](/rest/projects#delete-a-project) (write)
-- [`GET /projects/{project_id}/collaborators`](/rest/projects#list-project-collaborators) (write)
-- [`PUT /projects/{project_id}/collaborators/{username}`](/rest/projects#add-project-collaborator) (write)
-- [`DELETE /projects/{project_id}/collaborators/{username}`](/rest/projects#remove-project-collaborator) (write)
-- [`GET /projects/{project_id}/collaborators/{username}/permission`](/rest/projects#get-project-permission-for-a-user) (write)
-- [`GET /projects/{project_id}/columns`](/rest/projects#list-project-columns) (read)
-- [`POST /projects/{project_id}/columns`](/rest/projects#create-a-project-column) (write)
-- [`GET /repos/{owner}/{repo}/projects`](/rest/projects#list-repository-projects) (read)
-- [`POST /repos/{owner}/{repo}/projects`](/rest/projects#create-a-repository-project) (write)
-
 ## Repository security advisories
 
 - [`GET /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#list-repository-security-advisories) (read)
 - [`POST /repos/{owner}/{repo}/security-advisories`](/rest/security-advisories/repository-advisories#create-a-repository-security-advisory) (write)
+- [`POST /repos/{owner}/{repo}/security-advisories/reports`](/rest/security-advisories/repository-advisories#privately-report-a-security-vulnerability) (write)
 - [`GET /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#get-a-repository-security-advisory) (read)
 - [`PATCH /repos/{owner}/{repo}/security-advisories/{ghsa_id}`](/rest/security-advisories/repository-advisories#update-a-repository-security-advisory) (write)
 

@@ -20,6 +20,12 @@ redirect_from:
 
 ## About {% data variables.product.prodname_github_codespaces %} pricing
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 {% data reusables.codespaces.codespaces-free-for-personal-intro %}
 
 Charges are billed to an organization or enterprise when all of the following are true:
@@ -81,9 +87,9 @@ A {% data variables.product.prodname_github_codespaces %} instance (a "codespace
 | Codespaces compute  |  8 core      | 1 hour          | 8                         | $0.72 |
 | Codespaces compute  |  16 core     | 1 hour          | 16                        | $1.44 |
 | Codespaces compute  |  32 core     | 1 hour          | 32                        | $2.88 |
-| Codespaces storage  |  Storage     | 1 GB-month [1] | Not applicable             | $0.07 |
+| Codespaces storage  |  Storage     | 1 GB-month | Not applicable             | $0.07 |
 
-[1] See "[About billing for storage usage](#about-billing-for-storage-usage)" later in this article for details of the GB-month unit of measure.
+For more information about the GB-month unit of measure, see "[About billing for storage usage](#about-billing-for-storage-usage)."
 
 If you enable prebuilding of codespaces this will incur additional charges. For more information, see "[About billing for {% data variables.product.prodname_codespaces %} prebuilds](#about-billing-for-codespaces-prebuilds)."
 
@@ -93,9 +99,7 @@ If you enable prebuilding of codespaces this will incur additional charges. For 
 
 Billing for {% data variables.product.prodname_github_codespaces %} shares your account's existing payment method, and receipt. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date)."
 
-{% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
-{% endif %}
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription)."
 
 ## About billing for compute usage
 The compute usage of a codespace is the length of time for which that codespace is active multiplied by the multiplier in the pricing table for the machine type of the codespace. Total compute usage is calculated by summing the time used by all codespaces billable to a particular account. These totals are reported to the billing service every hour, and are billed monthly.

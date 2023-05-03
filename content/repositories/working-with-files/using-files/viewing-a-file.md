@@ -41,7 +41,7 @@ Within the blame view, you can view the line-by-line revision history for an ent
 {% data reusables.repositories.navigate-to-repo %}
 1. Click to open the file whose line history you want to view.
 1. In the upper-right corner of the file view, click **Blame** to open the blame view.
-![Blame button](/assets/images/help/repository/blame-button.png)
+![Screenshot showing the header for a file. The "Blame" button is emphasised.](/assets/images/help/repository/blame-button.png)
 1. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="View blame prior to this change" %} until you've found the changes you're interested in viewing.
 
    ![Screenshot of the "Blame" view of a file. To the right of a commit message, the versions icon is outlined in dark orange.](/assets/images/help/repository/git_blame.png)
@@ -67,7 +67,13 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
 
 Now when you visit the blame view, the listed revisions will not be included in the blame. You'll see an **Ignoring revisions in .git-blame-ignore-revs** banner indicating that some commits may be hidden:
 
-![Screenshot of a banner on the blame view linking to the .git-blame-ignore-revs file](/assets/images/help/repository/blame-ignore-revs-file.png)
+<!--Page used for the screenshots below: https://github.com/electron/electron/blame/main/lib/browser/ipc-main-internal.ts -->
+
+{% ifversion fpt or ghec %}
+![Screenshot of the blame view for the "ipc-main-internal.ts" file. A blue banner states that the information is "Ignoring revisions in .git-blame-ignore-revs." The link to the .git-blame-ignore-revs file is outlined in dark orange.](/assets/images/help/repository/blame-ignore-revs-file.png)
+{% else %}
+![Screenshot of the blame view for the "ipc-main-internal.ts" file. A blue banner states that the information is "Ignoring revisions in .git-blame-ignore-revs." The link to the .git-blame-ignore-revs file is outlined in dark orange.](/assets/images/enterprise/repository/blame-ignore-revs-file.png)
+{% endif %}
 
 This can be useful when a few commits make extensive changes to your code. You can use the file when running `git blame` locally as well:
 
@@ -85,4 +91,4 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 
 ## Bypassing `.git-blame-ignore-revs` in the blame view
 
-If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** will disappear.
+If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** banner will disappear.

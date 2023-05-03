@@ -41,13 +41,11 @@ When verifying a signature, {% data variables.product.product_name %} extracts t
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-3. Click **New GPG key**.
-   ![GPG Key button](/assets/images/help/settings/gpg-add-gpg-key.png)
-4. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
-   ![The key field](/assets/images/help/settings/gpg-key-paste.png)
-5. Click **Add GPG key**.
-   ![The Add key button](/assets/images/help/settings/gpg-add-key.png)
-6. To confirm the action, enter your {% data variables.product.product_name %} password.
+1. Next to the "GPG keys" header, click **New GPG key**.
+1. In the "Title" field, type a name for your GPG key.
+1. In the "Key" field, paste the GPG key you copied when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
+1. Click **Add GPG key**.
+1. To confirm the action, authenticate to your {% data variables.product.prodname_dotcom %} account.
 
 {% ifversion upload-expired-or-revoked-gpg-key %}
 {% else %}

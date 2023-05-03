@@ -19,7 +19,7 @@ A user access token is a type of OAuth token. Unlike a traditional OAuth token, 
 
 Similarly, a user access token can only access resources that both the user and app can access. For example, if an app is granted access to repository `A` and `B`, and the user can access repository `B` and `C`, the user access token can access repository `B` but not `A` or `C`. You can use the REST API to check which installations and which repositories within an installation a user access token can access. For more information, see `GET /user/installations` and `GET /user/installations/{installation_id}/repositories` in "[AUTOTITLE](/rest/apps/installations)."
 
-When you make API requests with a user access token, the rate limits for user access tokens apply. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
+When you make API requests with a user access token, the rate limits for user access tokens apply. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)."
 
 By default, the user access token expires after 8 hours. You can use a refresh token to regenerate a user access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)."
 
@@ -57,7 +57,7 @@ If your app runs in the browser, you should use the web application flow to gene
 
 {% endnote %}
 
-If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow.
+If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. For a tutorial that uses device flow, see "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)."
 
 {% ifversion device-flow-is-opt-in %}Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)." {% endif %}
 
