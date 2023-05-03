@@ -33,7 +33,7 @@ Each alert highlights a problem with the code and the name of the tool that iden
 {% data reusables.code-scanning.alert-default-branch %}
 {% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt or ghec or ghes > 3.8 %}
 ![Screenshot showing the elements of a {% data variables.product.prodname_code_scanning %} alert, including the title of the alert and relevant lines of code at left and the severity level, affected branches, and weaknesses at right. ](/assets/images/help/repository/code-scanning-alert.png)
 {% elsif ghes = 3.4 %}
 ![Screenshot showing the elements of a {% data variables.product.prodname_code_scanning %} alert, including the title of the alert and relevant lines of code at left and the severity level, affected branches, and weaknesses at right.](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
