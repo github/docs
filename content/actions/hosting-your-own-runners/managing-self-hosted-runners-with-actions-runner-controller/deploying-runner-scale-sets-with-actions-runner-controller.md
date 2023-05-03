@@ -158,7 +158,7 @@ kubectl create secret generic pre-defined-secret \
   --from-literal=github_app_installation_id=654321 \
   --from-literal=github_app_private_key='-----BEGIN RSA PRIVATE KEY-----********'
 ```
-In your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/mastercharts/gha-runner-scale-set/values.yaml) pass the secret name as a reference.
+In your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) pass the secret name as a reference.
 ```yaml
 githubConfigSecret: pre-defined-secret
   ```

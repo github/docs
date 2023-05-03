@@ -81,5 +81,5 @@ export const GraphqlPage = ({ schema, pageName, objects }: Props) => {
     )
   }
 
-  return <div className={cx(styles.automatedPages, styles.markdownBody)}>{graphqlItems}</div>
+  return <div className={cx(styles.markdownBody)}>{graphqlItems}</div>
 }
