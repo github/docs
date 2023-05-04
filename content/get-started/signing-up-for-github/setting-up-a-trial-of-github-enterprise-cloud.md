@@ -45,6 +45,7 @@ You do not need to provide a payment method during the trial.
 
 The following features are not included in the trial of {% data variables.product.prodname_ghe_cloud %}:
 
+- {% data variables.product.prodname_GH_advanced_security %}
 - {% data variables.product.prodname_github_codespaces %}
 - {% data variables.product.prodname_copilot_for_business %}
 - {% data variables.product.prodname_sponsors %}

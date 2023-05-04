@@ -280,7 +280,7 @@ export default function (app) {
   app.use(instrument(breadcrumbs, './contextualizers/breadcrumbs'))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
   app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
-  app.use(instrument(glossaries, './contextualizers/glossaries'))
+  app.use(asyncMiddleware(instrument(glossaries, './contextualizers/glossaries')))
 
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))

@@ -48,7 +48,7 @@ Owners of organizations in your enterprise do not have access to the enterprise 
 Enterprise owners cannot access organization settings or content unless they are made an organization owner or given direct access to an organization-owned repository. Similarly, owners of organizations in your enterprise do not have access to the enterprise itself unless you make them enterprise owners.
 {% endif %}
 
-An enterprise owner will only consume a license if they are an owner or member of at least one organization within the enterprise. Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business.
+{% ifversion ghec %}An enterprise owner will only consume a license if they are an owner or member of at least one organization within the enterprise. {% endif %}Even if an enterprise owner has a role in multiple organizations, they will consume a single license. {% ifversion ghec %}Enterprise owners must have a personal account on {% data variables.product.prodname_dotcom %}.{% endif %} As a best practice, we recommend making only a few people in your company enterprise owners, to reduce the risk to your business. {% ifversion ghes %}For more information about accounts that consume a license for {% data variables.location.product_location %}, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-per-user-pricing#accounts-that-consume-a-license-on-github-enterprise-server)."{% endif %}
 
 ## Enterprise members
 

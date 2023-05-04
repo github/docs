@@ -15,7 +15,7 @@ allowTitleToDifferFromFilename: true
 
 ## {% data variables.product.prodname_actions %} workflows
 
-This section demonstrates how to use the GraphQL API and {% data variables.product.prodname_actions %} to add a pull request to an organization project. In the example workflows, when the pull request is marked as "ready for review", a new task is added to the project with a "Status" field set to "Todo", and the current date is added to a custom "Date posted" field.
+This article demonstrates how to use the GraphQL API and {% data variables.product.prodname_actions %} to add a pull request to an organization project. In the example workflows, when the pull request is marked as "ready for review", a new task is added to the project with a "Status" field set to "Todo", and the current date is added to a custom "Date posted" field.
 
 You can copy one of the workflows below and modify it as described in the table below to meet your needs.
 
@@ -34,6 +34,8 @@ You may also want to use the **actions/add-to-project** workflow, which is maint
 {% endnote %}
 
 ### Example workflow authenticating with a {% data variables.product.prodname_github_app %}
+
+For more information about authenticating in a {% data variables.product.prodname_actions %} workflow with a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 
 1. Create a {% data variables.product.prodname_github_app %} or choose an existing {% data variables.product.prodname_github_app %} owned by your organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
 2. Give your {% data variables.product.prodname_github_app %} read and write permissions to organization projects. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions)."
@@ -65,7 +67,7 @@ jobs:
     steps:
       - name: Generate token
         id: generate_token
-        uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
+        uses: tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92
         with:
           app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
           private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}

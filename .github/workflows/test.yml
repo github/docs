@@ -153,14 +153,10 @@ jobs:
       - name: Run build script
         run: npm run build
 
-      - name: Disk cache used by getRemoteJSON function in middleware
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
-        with:
-          path: .remotejson-cache
-          # Very liberal cache key. Note, for this to become populated
-          # for other branches, you have to manually run this workflow
-          # at least once using the "Run workflow" button.
-          key: ${{ runner.os }}-remotejson
+      - uses: ./.github/actions/warmup-remotejson-cache
+        # Only the 'routing' tests include end-to-end tests about
+        # archived enterprise server URLs.
+        if: ${{ matrix.name == 'routing' }}
 
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the group
