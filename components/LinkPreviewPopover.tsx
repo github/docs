@@ -341,10 +341,15 @@ export function LinkPreviewPopover() {
     ).filter((link) => {
       // This filters out links that are not internal or in-page
       // and the ones that are in-page anchor links next to the headings.
+      // Remember that `link.href` is always absolute because it comes
+      // from the DOM. So to test the pathname, we have to parse it
+      // and extract the pathname from the whole URL object.
+      const { pathname } = new URL(link.href)
       return (
         link.href.startsWith(window.location.origin) &&
         !link.classList.contains('heading-link') &&
-        !link.href.startsWith('/public/')
+        !pathname.startsWith('/public/') &&
+        !pathname.startsWith('/assets/')
       )
     })
 
