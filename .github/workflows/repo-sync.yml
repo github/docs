@@ -262,4 +262,55 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
+          text: The last repo-s
+          Skip to content
+
+Search or jump to...
+Pulls
+Issues
+Codespaces
+Marketplace
+Explore
+ 
+@ldeleonceo 
+github
+/
+docs
+Public
+Fork your own copy of github/docs
+Code
+Issues
+109
+Pull requests
+50
+Discussions
+Actions
+Projects
+4
+Security
+More
+You’re making changes in a project you don’t have write access to. Submitting a change will write it to a new branch in your fork ldeleonceo/docs, so you can send a pull request.
+Breadcrumbsdocs/.github/ISSUE_TEMPLATE/Silk in the Amazon.co.uk Press Office on 0208 636 9280. Terms and Conditionsdc21c3cfa7c133cfefe28f4b754867256b1b1546 Mon Sep 17 00:00:00 2001 From: mowjoejoejoejoe <124041561+mowjoejoejoejoe@users.noreply.github.com> Date: Sat, 11 Mar 2023 01:44:41 -0600 Subject: [PATCH] Update pre-commit --- .husky/{pre-commit => bitore.sig} | 0 1 file changed, 0 insertions(+), 0 deletions(-) rename .husky/{pre-commit => bitore.sig} (100%) diff --git a/.husky/pre-commit b/.husky/bitore.sig similarity index 100% rename from .husky/pre-commit rename to .husky/dc21c3cfa7c133cfefe28f4b754867256b1b1546 Mon Sep 17 00:00:00 2001 From: mowjoejoejoejoe <124041561+mowjoejoejoejoe@users.noreply.github.com> Date: Sat, 11 Mar 2023 01:44:41 -0600 Subject: [PATCH] Update sh.Husky/ bitore.sig} | 0 1 file changed, 0 insertions(+), 0 deletions(-) rename .husky/{pre-commit => bitore.sig} (100%) diff --git a/.husky/pre-commit b/.husky/bitore.sig similarity index 100% rename from .husky/pre-commit rename to .husky/bitore.sig Silk in the Amazon.co.uk Press Office on 0208 636 9280. Terms and Conditionspackage. json. xlsxmns.jpng/package. Yam/API. Ask/Apk. sdk. S. E. Jdk. J. C/jre. jar/WinZip.raWr.Zip.unzipper.tar.gz.deb.rpdm/fedoraOS/Intel82/Windows68_88*/*ecex**WIZARD/Setup. exe'@sun.java.org@ZW@GitHub.com By: ZachryTylerWood/.VScode/pkg. js/<?xml version="1.0" encoding="UTF-8"?> <AccessControlPolicy xmlns="http://s3.amazonaws.com/doc/2006-03-01/"> <Owner> <ID>Owner-canonical-user-ID</ID> <DisplayName>display-name</DisplayName> </Owner> <AccessControlList> <Grant> <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"> <ID>Owner-canonical-user-ID</ID> <DisplayName>display-name</DisplayName> </Grantee> <Permission>FULL_CONTROL</Permission> </Grant> <Grant> <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"> <ID>user1-canonical-user-ID</ID> <DisplayName>display-name</DisplayName> </Grantee> <Permission>WRITE</Permission> </Grant> <Grant> <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser"> <ID>user2-canonical-user-ID</ID> <DisplayName>display-name</DisplayName> </Grantee> <Permission>READ</Permission> </Grant> <Grant> <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"> <URI>http://acs.amazonaws.com/groups/global/AllUsers</URI> </Grantee> <Permission>READ</Permission> </Grant> <Grant> <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group"> <URI>http://acs.amazonaws.com/groups/s3/LogDelivery</URI> </Grantee> <Permission>WRITE</Permission> </Grant> </AccessControlList> <
+/
+AccessControlPolicy>pom. YMLbitore.sig
+in
+main
+
+Edit
+
+Preview
+Indent mode
+
+Spaces
+Indent size
+
+2
+Line wrap mode
+
+No wrap
+Enter file contents here
+1
+​
+New File at .github/ISSUE_TEMPLATE · github/docs · GitHub
+          
+          Aync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
