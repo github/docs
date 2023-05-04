@@ -33,3 +33,5 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - uses: ./.github/actions/warmup-remotejson-cache

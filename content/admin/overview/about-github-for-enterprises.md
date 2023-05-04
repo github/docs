@@ -22,6 +22,8 @@ To simplify administration for all the stages in the software development lifecy
 
 Optionally, you can add extra code security features with {% data variables.product.prodname_GH_advanced_security %}, and enhanced support options with {% data variables.contact.premium_support %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)" and "[About {% data variables.contact.premium_support %}]({% ifversion ghae %}/enterprise-cloud@latest{% endif %}/support/learning-about-github-support/about-github-premium-support){% ifversion ghae %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
+For a full list of features available with {% data variables.product.prodname_enterprise %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)" and {% data variables.product.pricing_link %}.
+
 ## About deployment options
 
 {% data reusables.enterprise.ghe-includes-ghec-and-ghes %} {% data variables.product.prodname_ghe_cloud %} is a set of advanced functionality on {% data variables.product.prodname_dotcom_the_website %}, while {% data variables.product.prodname_ghe_server %} is self-hosted platform. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)"{% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud%} documentation{% endif %} and "[About {% data variables.product.prodname_ghe_server %}]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}

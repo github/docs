@@ -18,21 +18,21 @@ shortTitle: Audit security alerts
 
 ## About security tools for auditors
 
-{% data variables.product.prodname_dotcom %} provides tools for security auditors and developers to review and analyze responses to security alerts within an enterprise or organization. This guide describes the tools, which include historical timelines, security overview, audit logs, the API, and webhooks. 
+{% data variables.product.prodname_dotcom %} provides tools for security auditors and developers to review and analyze responses to security alerts within an enterprise or organization. This guide describes the tools, which include historical timelines, security overview, audit logs, the API, and webhooks.
 
-Security auditors can use these tools to ensure the appropriate actions are being taken to resolve security alerts and to identify areas for additional training. Developers can use these tools to monitor and debug their own security alerts. You will only see data for repositories and organizations to which you already have access.   
+Security auditors can use these tools to ensure the appropriate actions are being taken to resolve security alerts and to identify areas for additional training. Developers can use these tools to monitor and debug their own security alerts. You will only see data for repositories and organizations to which you already have access.
 
 ## Security alert timelines
 
-Each security alert has a historical timeline that shows when the alert was created or when a problem was detected. When the status of an alert changes this is recorded on the timeline, regardless of what caused the change, for example, {% data variables.product.prodname_dependabot %} closing a fixed alert and a developer reopening an alert. You can see the historical timeline for an alert on the alert page under the description of the problem. 
+Each security alert has a historical timeline that shows when the alert was created or when a problem was detected. When the status of an alert changes this is recorded on the timeline, regardless of what caused the change, for example, {% data variables.product.prodname_dependabot %} closing a fixed alert and a developer reopening an alert. You can see the historical timeline for an alert on the alert page under the description of the problem.
 
 Many of the events in the timeline also create an event in the audit log, which you can query using the audit log UI or the API. For more information, see "[Audit log](/code-security/getting-started/auditing-security-alerts#audit-log)."
 
 ## Security overview page
 
-Security overview consolidates information about security alerts and provides high-level summaries of the security status of your enterprise or organization. 
+Security overview consolidates information about security alerts and provides high-level summaries of the security status of your enterprise or organization.
 
-In security overview you can see repositories with open security alerts{% ifversion security-overview-org-risk-coverage %}, as well as which repositories have enabled specific security features{% endif %}. You can also use security overview to filter and sort security alerts using interactive views. 
+In security overview you can see repositories with open security alerts{% ifversion security-overview-org-risk-coverage %}, as well as which repositories have enabled specific security features{% endif %}. You can also use security overview to filter and sort security alerts using interactive views.
 
 For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 
@@ -44,7 +44,7 @@ You can access and search audit logs using the API or the audit log UI. The audi
 - {% data variables.product.prodname_dependabot %} events track when an alert is created, dismissed, or resolved.
 - {% data variables.product.prodname_code_scanning_caps %} does not create timeline events in an audit log.
 
-For a list of audit log events, see "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" and "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
+For a list of audit log events, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
 
 {% ifversion audit-log-streaming %}
 
@@ -76,9 +76,9 @@ For more information, see "[{% data variables.product.prodname_dependabot %} ale
 
 You can list all {% data variables.product.prodname_secret_scanning %} alerts for a repository, organization, or enterprise, or use path parameters to list only alerts that meet a specific set of criteria. Alternatively, you can get full details for an alert or update the alert.
 
-To see which {% data variables.product.prodname_secret_scanning %} alerts were the result of a push protection bypass, filter the results for `"push_protection_bypassed": true`. 
+To see which {% data variables.product.prodname_secret_scanning %} alerts were the result of a push protection bypass, filter the results for `"push_protection_bypassed": true`.
 
-For more information, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/secret-scanning)." 
+For more information, see "[{% data variables.product.prodname_secret_scanning_caps %}](/rest/secret-scanning)."
 
 ### {% data variables.product.prodname_code_scanning_caps %} alerts API
 

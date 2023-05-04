@@ -94,7 +94,7 @@ To discover how a member was added to an organization, you can filter the member
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts. {% data variables.enterprise.prodname_managed_users_caps %} can install a {% data variables.product.prodname_github_app %} on an organization if the app does not request organization permissions and if the {% data variables.enterprise.prodname_managed_user %} has admin access to the repositories that they are granting the app access to.
 * You can choose whether {% data variables.enterprise.prodname_managed_users %} are able to create repositories owned by their user accounts. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
 * If you allow {% data variables.enterprise.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
 * {% data reusables.enterprise-accounts.emu-forks %}

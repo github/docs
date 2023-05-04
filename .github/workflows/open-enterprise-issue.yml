@@ -33,7 +33,7 @@ jobs:
       - name: Update enterprise dates
         if: steps.existingIssue.outputs.deprecationIssue == 'false' || steps.existingIssue.outputs.releaseIssue == 'false'
         run: |
-          script/update-enterprise-dates.js
+          src/ghes-releases/scripts/update-enterprise-dates.js
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
 

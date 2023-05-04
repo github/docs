@@ -1,5 +1,6 @@
 ---
 title: About creating GitHub Apps
+shortTitle: About creating apps
 intro: "{% data variables.product.prodname_github_app %}s let you build integrations to automate processes and extend {% data variables.product.company_short %}'s functionality."
 versions:
   fpt: '*'
@@ -50,15 +51,53 @@ When building an integration, you should consider using a {% data variables.prod
 
 ### Using a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}
 
-You should always favor building a {% data variables.product.prodname_github_app %} over an {% data variables.product.prodname_oauth_app %}. {% data variables.product.prodname_github_apps %} provide more granular control over the app's access and permissions. Administrators benefit too, because they get better control and visibility into what your application can do in their organization.
+In general, {% data variables.product.prodname_github_app %}s are preferred over {% data variables.product.prodname_oauth_app %}s.
 
-For information on how to migrate an {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
+For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)."
+
+For information on how to migrate an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
+
+#### {% data variables.product.prodname_github_app %}s offer enhanced security
+
+{% data variables.product.prodname_github_app %}s provide more control over what the app can do. Instead of the broad scopes that {% data variables.product.prodname_oauth_app %}s use, {% data variables.product.prodname_github_app %}s use fine-grained permissions. For example, if your app needs to read the contents of a repository, an {% data variables.product.prodname_oauth_app %} would require the `repo` scope, which would also let the app edit the repository contents and settings. A {% data variables.product.prodname_github_app %} can request read-only access to repository contents, which will not let the app take more privileged actions like editing the repository contents or settings.
+
+{% data variables.product.prodname_github_app %}s also offer more control over repository access. With a {% data variables.product.prodname_github_app %}, the user or organization owner who installed the app can decide what repositories the app can access. Conversely, an {% data variables.product.prodname_oauth_app %} can access every repository that the user who authorized the app can access.
+
+{% data variables.product.prodname_github_app %}s use short lived tokens. If the token is leaked, the token will be valid for a shorter amount of time, which reduces the damage that can be done. Conversely, {% data variables.product.prodname_oauth_app %} tokens do not expire until the person who authorized the {% data variables.product.prodname_oauth_app %} revokes the token.
+
+These security features help harden your {% data variables.product.prodname_github_app %}'s security by limiting the damage that could be done if your app's credentials were leaked. Additionally, this lets organizations with stricter security policies use your app.
+
+#### {% data variables.product.prodname_github_app %}s can act independently of or on behalf of a user
+
+{% data variables.product.prodname_github_app %}s can act independently of a user. This is beneficial for automations that do not require user input.
+
+Similar to {% data variables.product.prodname_oauth_app %}s, {% data variables.product.prodname_github_app %}s can still take actions on behalf of a user. Unlike {% data variables.product.prodname_oauth_app %}s, which don't indicate that the action was performed by the app, {% data variables.product.prodname_github_app %}s indicate that the action was performed by the app on behalf of the user.
+
+{% data variables.product.prodname_github_app %}s are not tied to a user account and do not consume a seat on {% data variables.product.product_name %}. {% data variables.product.prodname_github_app %}s remain installed even when the person who initially installed the app leaves the organization. This lets your integrations continue to work even if people leave your team.
+
+#### {% data variables.product.prodname_github_app %}s have scalable rate limits
+
+The rate limit for {% data variables.product.prodname_github_app %}s using an installation access token scales with the number of repositories and number of organization users. Conversely, {% data variables.product.prodname_oauth_apps %} have lower rate limits and do not scale. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)."
+
+#### {% data variables.product.prodname_github_app %}s have built in webhooks
+
+{% data variables.product.prodname_github_app %}s have built-in, centralized webhooks. {% data variables.product.prodname_github_app %}s can receive webhook events for all repositories and organizations the app can access. Conversely, {% data variables.product.prodname_oauth_app %}s  must configure webhooks individually for each repository and organization.
+
+#### API access differs slightly
+
+In general, {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_app %}s can make the same API requests. However, there are some differences:
+
+- The REST API to manage check runs and check suites is only available to {% data variables.product.prodname_github_app %}s.
+- Enterprise resources are only available to {% data variables.product.prodname_oauth_app %}s.
+- Some requests may return incomplete data depending on the permissions and repository access that was granted to an {% data variables.product.prodname_github_app %}. For example, if your app makes a request to get all repositories that a user can access, the response will only include the repositories that the app was also granted access to.
+
+For more information about the REST API endpoints that are available to {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/rest/overview/endpoints-available-for-github-apps)."
 
 ### Choosing between a {% data variables.product.prodname_github_app %} or a {% data variables.product.pat_generic %}
 
  If you want to access {% data variables.product.prodname_dotcom %} resources on behalf of a user or in an organization, or you anticipate a long-lived integration, we recommend building a {% data variables.product.prodname_github_app %}.
 
- You can use {% data variables.product.pat_generic_plural %} for API testing or short-lived scripts. It is important to note that since a {% data variables.product.pat_generic %} is associated to a user, your automation could break if the user no longer has access to the resources you need. A {% data variables.product.prodname_github_app %} installed in an organization is not dependent on a user.
+ You can use {% data variables.product.pat_generic_plural %} for API testing or short-lived scripts. Since a {% data variables.product.pat_generic %} is associated with a user, your automation could break if the user no longer has access to the resources you need. A {% data variables.product.prodname_github_app %} installed in an organization is not dependent on a user. Additionally, unlike a user, a {% data variables.product.prodname_github_app %} does not consume a {% data variables.product.company_short %} seat.
 
 {% data variables.product.company_short %} supports two types of {% data variables.product.pat_generic_plural %}, but recommends that you use {% data variables.product.pat_v2 %}s instead of {% data variables.product.pat_v1_plural %} whenever possible. For more information about {% data variables.product.pat_generic_plural %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#types-of-personal-access-tokens)."
 
@@ -72,8 +111,8 @@ For information on how to migrate an {% data variables.product.prodname_oauth_ap
 
 For more information about comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#comparing-github-actions-to-github-apps)."
 
-{% ifversion projects-v2 %}You can use a {% data variables.product.prodname_github_app %} to authenticate in a {% data variables.product.prodname_actions %}
-workflow if the built in `GITHUB_TOKEN` does not have sufficient permissions. For an example workflow that authenticates with a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions#example-workflow-authenticating-with-a-github-app)."{% endif %}
+You can use a {% data variables.product.prodname_github_app %} to authenticate in a {% data variables.product.prodname_actions %}
+workflow if the built in `GITHUB_TOKEN` does not have sufficient permissions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 
 ## Understanding what type of {% data variables.product.prodname_github_app %} to build
 

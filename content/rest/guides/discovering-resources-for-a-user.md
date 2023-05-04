@@ -97,15 +97,15 @@ If you've read the docs from cover to cover, you may have noticed an [API method
 
 As an application, you typically want all of the user's organizations that your app is authorized to access. The workflow above will give you exactly that.
 
-[basics-of-authentication]: /rest/guides/basics-of-authentication
-[list-public-orgs]: /rest/reference/orgs#list-organizations-for-a-user
-[list-repositories-for-current-user]: /rest/reference/repos#list-repositories-for-the-authenticated-user
-[list-orgs-for-current-user]: /rest/reference/orgs#list-organizations-for-the-authenticated-user
-[list-teams]: /rest/reference/teams#list-teams
-[make-authenticated-request-for-user]: /rest/guides/basics-of-authentication#making-authenticated-requests
+[basics-of-authentication]: /apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app
+[list-public-orgs]: /rest/orgs#list-organizations-for-a-user
+[list-repositories-for-current-user]: /rest/repos#list-repositories-for-the-authenticated-user
+[list-orgs-for-current-user]: /rest/orgs#list-organizations-for-the-authenticated-user
+[list-teams]: /rest/teams#list-teams
+[make-authenticated-request-for-user]: /apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#making-authenticated-requests
 [oap]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 [octokit.rb]: https://github.com/octokit/octokit.rb
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/discovering-resources-for-a-user
-[publicize-membership]: /rest/reference/orgs#set-public-organization-membership-for-the-authenticated-user
-[register-oauth-app]: /rest/guides/basics-of-authentication#registering-your-app
-[scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
+[publicize-membership]: /rest/orgs#set-public-organization-membership-for-the-authenticated-user
+[register-oauth-app]: /apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app
+[scopes]: /apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps

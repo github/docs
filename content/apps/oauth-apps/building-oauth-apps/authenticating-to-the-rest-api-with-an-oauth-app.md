@@ -359,13 +359,13 @@ the same callback URL, we've got to do a little bit of wonkiness to make it work
 Also, if we had never authorized this application to access our {% data variables.product.product_name %} data,
 we would've seen the same confirmation dialog from earlier pop-up and warn us.
 
-[webflow]: /apps/building-oauth-apps/authorizing-oauth-apps/
+[webflow]: /apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
 [Sinatra]: http://www.sinatrarb.com/
 [about env vars]: http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables
 [Sinatra guide]: https://github.com/sinatra/sinatra-book/blob/master/book/Introduction.markdown#hello-world-application
 [REST Client]: https://github.com/archiloque/rest-client
-[libraries]: /libraries/
-[oauth scopes]: /apps/building-oauth-apps/understanding-scopes-for-oauth-apps/
+[libraries]: /rest/overview/libraries
+[oauth scopes]: /apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/basics-of-authentication
 [new oauth app]: https://github.com/settings/applications/new
 [app settings]: https://github.com/settings/developers
