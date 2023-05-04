@@ -28,7 +28,7 @@ In order to use a {% data variables.product.prodname_github_app %}, you must ins
 
 You may also need to authorize a {% data variables.product.prodname_github_app %} to verify your identity, know what resources you can access, or take actions on your behalf. If you need to authorize the app, the app will prompt you to do so. For more information, see "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
 
-Occasionally, the {% data variables.product.prodname_github_app %} will request updated permissions. {% data variables.product.company_short %} will notify you when this occurs. In order for the app to continue to function, you will need to review and approve the updated permissions.
+Occasionally, the {% data variables.product.prodname_github_app %} will request updated permissions. {% data variables.product.company_short %} will notify you when this occurs. In order for the app to continue to function, you will need to review and approve the updated permissions. For more information, see "[AUTOTITLE](/apps/using-github-apps/approving-updated-permissions-for-a-github-app)."
 
 Before you install or authorize a {% data variables.product.prodname_github_app %}, you should make sure that you trust the app developer. If you no longer use the app, you should suspend or uninstall the app and/or revoke your authorization of the app. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/suspending-a-github-app-installation)" and "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
 
