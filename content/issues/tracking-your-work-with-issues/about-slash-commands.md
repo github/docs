@@ -59,3 +59,4 @@ Let's take an example from "Issues" of a repository:
 5. Finally, check for the preview.
 
     ![Screenshot of preview.](/assets/images/help/issues/issues_about_slash_commands_code_preview.png)
+
