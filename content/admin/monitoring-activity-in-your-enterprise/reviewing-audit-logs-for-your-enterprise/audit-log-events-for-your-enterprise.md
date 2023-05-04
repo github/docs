@@ -21,6 +21,12 @@ topics:
   - Security
 ---
 
+{% note %}
+
+**Note:** This article contains the events that may appear in the audit log for an enterprise. For the events that can appear in a user account's security log or the audit log for an organization, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
+
+{% endnote %}
+
 {% ifversion ghec%}
 ## About audit log events for your enterprise
 
@@ -1128,7 +1134,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repo.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated.
 | `repo.update_actions_access_settings` | The setting to control how a repository was used by {% data variables.product.prodname_actions %} workflows in other repositories was changed.
 | `repo.update_default_branch` | The default branch for a repository was changed.
-| `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_github_codespaces %} integration secret was updated for a repository.
+| `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion ghec%} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was updated for a repository.
 | `repo.update_member` | A user's permission to a repository was changed.
 
 {%- ifversion fpt or ghec %}

@@ -15,6 +15,12 @@ shortTitle: Billing for GitHub Actions
 ---
 ## About billing for {% data variables.product.prodname_actions %}
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 {% data reusables.actions.actions-billing %}
 
 {% data reusables.actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."

@@ -37,7 +37,7 @@ Files that you add to a repository via a browser are limited to {% data variable
 
    ![Screenshot of the main page of the repository. Above the list of a files, a button, labeled "Add file," is outlined in dark orange.](/assets/images/help/repository/upload-files-button.png)
 1. To select the files you want to upload, drag and drop the file or folder, or click **choose your files**.
-{% data reusables.files.write_commit_message %}
+{% data reusables.files.commit-message %}
 {% data reusables.files.choose_commit_branch %}
 1. Click **Commit changes**.
 
