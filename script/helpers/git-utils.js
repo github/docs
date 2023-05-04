@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+import crypto from 'crypto'
+import fs from 'fs/promises'
+
 import Github from './github.js'
 const github = Github()
 
@@ -70,11 +73,11 @@ export async function getTree(owner, repo, ref) {
 }
 
 // https://docs.github.com/rest/reference/git#get-a-blob
-export async function getContentsForBlob(owner, repo, blob) {
+export async function getContentsForBlob(owner, repo, sha) {
   const { data } = await github.git.getBlob({
     owner,
     repo,
-    file_sha: blob.sha,
+    file_sha: sha,
   })
   // decode blob contents
   return Buffer.from(data.content, 'base64')
@@ -89,7 +92,13 @@ export async function getContents(owner, repo, ref, path) {
       ref,
       path,
     })
-    // decode contents
+
+    if (!data.content) {
+      const blob = await getContentsForBlob(owner, repo, data.sha)
+      // decode Base64 encoded contents
+      return Buffer.from(blob, 'base64').toString()
+    }
+    // decode Base64 encoded contents
     return Buffer.from(data.content, 'base64').toString()
   } catch (err) {
     console.log(`error getting ${path} from ${owner}/${repo} at ref ${ref}`)
@@ -128,7 +137,12 @@ export async function createIssueComment(owner, repo, pullNumber, body) {
 }
 
 // Search for a string in a file in code and return the array of paths to files that contain string
-export async function getPathsWithMatchingStrings(strArr, org, repo) {
+export async function getPathsWithMatchingStrings(
+  strArr,
+  org,
+  repo,
+  { cache = true, forceDownload = false } = {}
+) {
   const perPage = 100
   const paths = new Set()
 
@@ -140,7 +154,7 @@ export async function getPathsWithMatchingStrings(strArr, org, repo) {
       let currentCount = 0
 
       do {
-        const data = await searchCode(q, perPage, currentPage)
+        const data = await searchCode(q, perPage, currentPage, cache, forceDownload)
         data.items.map((el) => paths.add(el.path))
         totalCount = data.total_count
         currentCount += data.items.length
@@ -155,13 +169,34 @@ export async function getPathsWithMatchingStrings(strArr, org, repo) {
   return paths
 }
 
-async function searchCode(q, perPage, currentPage) {
+async function searchCode(q, perPage, currentPage, cache = true, forceDownload = false) {
+  const cacheKey = `searchCode-${q}-${perPage}-${currentPage}`
+  const tempFilename = `/tmp/searchCode-${crypto
+    .createHash('md5')
+    .update(cacheKey)
+    .digest('hex')}.json`
+
+  if (!forceDownload && cache) {
+    try {
+      return JSON.parse(await fs.readFile(tempFilename, 'utf8'))
+    } catch (error) {
+      if (error.code !== 'ENOENT') {
+        throw error
+      }
+      console.log(`Cache miss on ${tempFilename} (${cacheKey})`)
+    }
+  }
+
   try {
     const { data } = await secondaryRateLimitRetry(github.rest.search.code, {
       q,
       per_page: perPage,
       page: currentPage,
     })
+    if (cache) {
+      await fs.writeFile(tempFilename, JSON.stringify(data))
+      console.log(`Wrote search results to ${tempFilename}`)
+    }
 
     return data
   } catch (err) {

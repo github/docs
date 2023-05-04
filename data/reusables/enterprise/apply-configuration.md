@@ -2,7 +2,7 @@
 
    {% note %}
    
-   **Note**: During a configuration run, services on {% data variables.product.product_location %} may restart, which can cause brief downtime for users.
+   **Note**: During a configuration run, services on {% data variables.location.product_location %} may restart, which can cause brief downtime for users.
 
    {% endnote %}
 

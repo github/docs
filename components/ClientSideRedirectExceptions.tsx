@@ -37,7 +37,7 @@ export default function ClientSideRedirectExceptions() {
         sp.set('hash', hash.replace(/^#/, ''))
 
         // call the anchor-redirect endpoint to get the redirect url
-        const response = await fetch(`/anchor-redirect?${sp.toString()}`, {
+        const response = await fetch(`/api/anchor-redirect?${sp.toString()}`, {
           signal,
         })
 

@@ -1,9 +1,8 @@
 ---
-title: 'Managing your views'
+title: Managing your views
 intro: 'Learn how to create, save, and manage your project views.'
-miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 type: tutorial
 topics:
   - Projects
@@ -33,8 +32,7 @@ You can duplicate an existing view and use it as a base to make further changes.
 
 1. Switch to the view you want to duplicate.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "versions" aria-label="the versions icon" %} **Duplicate view**.
-   ![Screenshot showing the duplicate menu item](/assets/images/help/projects-v2/duplicate-view.png)
+1. Click {% octicon "versions" aria-hidden="true" %} **Duplicate view**.
 
 ## Saving changes to a view
 
@@ -58,8 +56,7 @@ You can rename your saved views. The name change is automatically saved.
 
 1. Switch to the view you want to rename.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-label="the pencil icon" %} **Rename view**.
-   ![Screenshot showing the rename menu item](/assets/images/help/projects-v2/rename-view.png)
+1. Click {% octicon "pencil" aria-hidden="true" %} **Rename view**.
 1. Type the new name for your view.
 1. To save your changes, press <kbd>Return</kbd>.
 
@@ -67,7 +64,6 @@ You can rename your saved views. The name change is automatically saved.
 
 1. Switch to the view you want to delete.
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "trash" aria-label="the trasj icon" %} **Delete view**.
-   ![Screenshot showing the rename delete item](/assets/images/help/projects-v2/delete-view.png)
+1. Click {% octicon "trash" aria-hidden="true" %} **Delete view**.
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Delete view."

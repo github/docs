@@ -18,7 +18,7 @@ topics:
 **Tips:**
 
 - By default, file finder results exclude some directories like `build`, `log`, `tmp`, and `vendor`. To search for files in these directories, use the [`filename` code search qualifier](/search-github/searching-on-github/searching-code#search-by-filename).{% ifversion file-finder-exclusion-controls %} Alternatively, you can customize which directories are excluded by default [using a `.gitattributes` file](#customizing-excluded-files).{% endif %}
-- You can also open the file finder by pressing `t` on your keyboard. For more information, see "[Keyboard shortcuts](/articles/keyboard-shortcuts)."
+- You can also open the file finder by pressing `t` on your keyboard. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
 
 {% endtip %}
 
@@ -26,9 +26,9 @@ topics:
 
 {% data reusables.repositories.navigate-to-repo %}
 2. Above the list of files, click **Go to file**.
-![Find file button](/assets/images/help/search/find-file-button.png)
+![Screenshot of a row of buttons on the main page of a repository. The "Go to file" button is outlined in dark orange.](/assets/images/help/search/find-file-button.png)
 3. In the search field, type the name of the file you'd like to find.
-![Find file search field](/assets/images/help/search/find-file-search-field.png)
+![Screenshot of the search bar for finding a file in a repository. The search bar contains the term "readme" and under the search bar is a link to the file that is the result of the search, "README.md". The search bar is outlined in dark orange. ](/assets/images/help/search/find-file-search-field.png)
 4. In the list of results, click the file you wanted to find.
 
 {% ifversion file-finder-exclusion-controls %}
@@ -49,7 +49,7 @@ By default, file finder results do not include files in the following directorie
 
 You can override these default exclusions using a `.gitattributes` file.
 
-To do this, create or update a file called `.gitattributes` in your repository root, setting the [`linguist-generated`](https://github.com/github/linguist/blob/master/docs/overrides.md) attribute to `false` for each directory that should be included in file finder results.
+To do this, create or update a file called `.gitattributes` in your repository root, setting the [`linguist-generated`](https://github.com/github-linguist/linguist/blob/master/docs/overrides.md) attribute to `false` for each directory that should be included in file finder results.
 
 For example, the following `.gitattributes` file would cause files in the `build/` directory to be available to the file finder:
 
@@ -63,6 +63,6 @@ Note that this override requires the use of the recursive glob pattern (`**`). F
 
 ## Further reading
 
-- "[About searching on GitHub](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"{% ifversion file-finder-exclusion-controls %}
-- "[Customizing how changed files appear on GitHub](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)"
+- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"{% ifversion file-finder-exclusion-controls %}
+- "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)"
 - [`.gitattributes`](https://git-scm.com/docs/gitattributes) in the Git documentation{% endif %}

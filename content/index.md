@@ -3,13 +3,13 @@ title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/set-up-git
-    - /github/authenticating-to-github/connecting-to-github-with-ssh
+    - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
-    - /github/writing-on-github/basic-writing-and-formatting-syntax
+    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
+    - /migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 redirect_from:
@@ -17,6 +17,31 @@ redirect_from:
   - /articles
   - /common-issues-and-questions
   - /troubleshooting-common-issues
+  - /early-access/github/enforcing-best-practices-with-github-policies
+  - /github/enforcing-best-practices-with-github-policies/index
+  - /early-access/github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /early-access/github/enforcing-best-practices-with-github-policies/constraints
+  - /github/enforcing-best-practices-with-github-policies/constraints
+  - /early-access/github/enforcing-best-practices-with-github-policies/contexts
+  - /github/enforcing-best-practices-with-github-policies/contexts
+  - /early-access/github/enforcing-best-practices-with-github-policies/expressions
+  - /github/enforcing-best-practices-with-github-policies/expressions
+  - /early-access/github/enforcing-best-practices-with-github-policies/getting-started
+  - /early-access/github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /early-access/github/enforcing-best-practices-with-github-policies/onboarding
+  - /github/enforcing-best-practices-with-github-policies/onboarding
+  - /early-access/github/enforcing-best-practices-with-github-policies/overview
+  - /github/enforcing-best-practices-with-github-policies/overview
+  - /early-access/github/enforcing-best-practices-with-github-policies/release-notes
+  - /github/enforcing-best-practices-with-github-policies/release-notes
+  - /early-access/github/enforcing-best-practices-with-github-policies/resources
+  - /github/enforcing-best-practices-with-github-policies/resources
+  - /early-access/github/enforcing-best-practices-with-github-policies/sharing
+  - /github/enforcing-best-practices-with-github-policies/sharing
+  - /early-access/github/enforcing-best-practices-with-github-policies/syntax
+  - /github/enforcing-best-practices-with-github-policies/syntax
 versions: '*'
 children:
   - search
@@ -34,9 +59,11 @@ children:
   - actions
   - copilot
   - codespaces
+  - migrations
   - packages
   - search-github
-  - developers
+  - apps
+  - webhooks-and-events
   - rest
   - graphql
   - github-cli
@@ -48,11 +75,13 @@ children:
   - desktop
   - early-access
   - support
+  - video-transcripts
 childGroups:
   - name: Get started
     octicon: RocketIcon
     children:
       - get-started
+      - migrations
       - account-and-profile
       - authentication
       - billing
@@ -75,6 +104,11 @@ childGroups:
     octicon: ShieldLockIcon
     children:
       - code-security
+      - code-security/supply-chain-security
+      - code-security/security-advisories
+      - code-security/dependabot
+      - code-security/code-scanning
+      - code-security/secret-scanning
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
@@ -88,9 +122,10 @@ childGroups:
   - name: Developers
     octicon: CodeSquareIcon
     children:
-      - developers
+      - apps
       - rest
       - graphql
+      - webhooks-and-events
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -104,15 +139,10 @@ childGroups:
       - education
       - support
 externalProducts:
-  atom:
-    id: atom
-    name: Atom
-    href: 'https://atom.io/docs'
-    external: true
   electron:
     id: electron
     name: Electron
-    href: 'https://electronjs.org/docs'
+    href: 'https://electronjs.org/docs/latest'
     external: true
   codeql:
     id: codeql

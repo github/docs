@@ -15,11 +15,10 @@ topics:
   - Repositories
   - Dependencies
 children:
-  - /browsing-security-advisories-in-the-github-advisory-database
-  - /editing-security-advisories-in-the-github-advisory-database
   - /about-dependabot-alerts
   - /configuring-dependabot-alerts
   - /viewing-and-updating-dependabot-alerts
+  - /using-alert-rules-to-prioritize-dependabot-alerts
   - /configuring-notifications-for-dependabot-alerts
 ---
 

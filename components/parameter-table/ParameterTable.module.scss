@@ -1,5 +1,5 @@
 .parameterTable {
-  // this is for the child parameter table row that contiains the top level
+  // this is for the child parameter table row that contains the top level
   // properties details toggle element because we want it to match the
   // background color of the top level parameter rows.  We need the !important
   // because the child parameter rows (the nested expanded properties) otherwise
@@ -16,5 +16,11 @@
   & > tbody > tr > td > details {
     padding-left: 0px !important;
     margin-bottom: 4px !important;
+  }
+
+  & > tbody > tr > td > * {
+    width: auto;
+    display: block;
+    word-break: break-word;
   }
 }

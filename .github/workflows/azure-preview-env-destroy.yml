@@ -28,18 +28,19 @@ jobs:
   destory-azure-preview-env:
     name: Destroy
     runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     timeout-minutes: 5
     env:
       PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER }}
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
         with:
           creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
 
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
       - name: Get preview app info
         env:
@@ -64,7 +65,7 @@ jobs:
           az acr repository delete -n ${{ secrets.NONPROD_REGISTRY_SERVER }} --repository ${{ env.IMAGE_REPO }} -y || true
 
       # Remove all GitHub deployments from this environment and remove the environment
-      - uses: strumwolf/delete-deployment-environment@45c821e46baa405e25410700fe2e9643929706a0
+      - uses: strumwolf/delete-deployment-environment@3cb547f8ec03ee6c0473d90cce57c74c688c2510
         with:
           # The token provided by the workflow does not have the permissions to delete created environments
           token: ${{ secrets.DOCUBOT_REPO_PAT }}

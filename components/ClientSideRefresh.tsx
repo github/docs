@@ -11,7 +11,11 @@ export default function ClientSideRefresh() {
   useSWR(
     router.asPath,
     () => {
-      router.replace(router.asPath, undefined, { scroll: false })
+      // Remember, in NextJS, the `router.locale` is never including the
+      // `router.asPath`. So we have to make sure it's always there
+      // otherwise, after this hook runs, you lose that `/en` prefix
+      // in the URL on the address bar.
+      router.replace(`/${router.locale}${router.asPath}`, undefined, { scroll: false })
     },
     {
       // Implied here is that `revalidateOnFocus: true` which the default

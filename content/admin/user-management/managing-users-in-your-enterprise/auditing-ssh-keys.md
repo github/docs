@@ -19,39 +19,29 @@ Once initiated, the audit disables all existing SSH keys and forces users to app
 
 ## Initiating an audit
 
-You can initiate an SSH key audit from the "All users" tab of the site admin dashboard:
+You can initiate an SSH key audit from the "All users" tab of the site admin dashboard. After you click the **Start public key audit** button, you'll be taken to a confirmation screen explaining that initiating an SSH key audit will disable all public keys, preventing pushing and pulling over SSH. Users will be required to verify their public keys to restore SSH access.
 
-![Starting a public key audit](/assets/images/enterprise/security/Enterprise-Start-Key-Audit.png)
-
-After you click the "Start public key audit" button, you'll be taken to a confirmation screen explaining what will happen next:
-
-![Confirming the audit](/assets/images/enterprise/security/Enterprise-Begin-Audit.png)
-
-After you click the "Begin audit" button, all SSH keys are invalidated and will require approval. You'll see a notification indicating the audit has begun.
+After you click the **Begin audit** button, all SSH keys are invalidated and will require approval. You'll see a notification indicating the audit has begun.
 
 ## What users see
 
 If a user attempts to perform any git operation over SSH, it will fail and provide them with the following message:
 
 ```shell
-ERROR: Hi <em>username</em>. We're doing an SSH key audit.
-Please visit http(s)://<em>hostname</em>/settings/ssh/audit/2
+ERROR: Hi USERNAME. We're doing an SSH key audit.
+Please visit http(s)://HOSTNAME/settings/ssh/audit/2
 to approve this key so we know it's safe.
 Fingerprint: ed:21:60:64:c0:dc:2b:16:0f:54:5f:2b:35:2a:94:91
 fatal: The remote end hung up unexpectedly
 ```
 
-When they follow the link, they're asked to approve the keys on their account:
-
-![Auditing keys](/assets/images/enterprise/security/Enterprise-Audit-SSH-Keys.jpg)
-
-After they approve or reject their keys, they'll be able interact with repositories as usual.
+When they follow the link, they're asked to approve the keys on their account. After they approve or reject their keys, they'll be able interact with repositories as usual.
 
 ## Adding an SSH key
 
 {% ifversion ghes %}
 
-When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.product_name %} will prompt for authentication. For more information, see "[Sudo mode](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.product_name %} will prompt for authentication. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
 
 {% endif %}
 

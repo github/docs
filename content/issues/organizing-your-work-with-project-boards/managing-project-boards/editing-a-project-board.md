@@ -1,6 +1,6 @@
 ---
-title: Editing a {% data variables.product.prodname_project_v1 %}
-intro: You can edit the title and description of an existing {% data variables.projects.projects_v1_board %}.
+title: 'Editing a {% data variables.product.prodname_project_v1 %}'
+intro: 'You can edit the title and description of an existing {% data variables.projects.projects_v1_board %}.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/editing-a-project-board
   - /articles/editing-a-project
@@ -8,7 +8,7 @@ redirect_from:
   - /articles/editing-a-project-board
   - /github/managing-your-work-on-github/editing-a-project-board
 versions:
-  feature: "projects-v1"
+  feature: projects-v1
 topics:
   - Pull requests
 allowTitleToDifferFromFilename: true
@@ -17,7 +17,7 @@ allowTitleToDifferFromFilename: true
 
 {% tip %}
 
-**Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[Creating a {% data variables.product.prodname_project_v1 %}](/articles/creating-a-project-board)."
+**Tip:** For details on adding, removing, or editing columns in your {% data variables.projects.projects_v1_board %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."
 
 {% endtip %}
 
@@ -25,10 +25,9 @@ allowTitleToDifferFromFilename: true
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %} 
 4. Modify the {% data variables.projects.projects_v1_board %} name and description as needed, then click **Save project**.
-![Fields with the project board name and description, and Save project button](/assets/images/help/projects/edit-project-board-save-button.png)
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Deleting a {% data variables.product.prodname_project_v1 %}](/articles/deleting-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"

@@ -1,4 +1,5 @@
 import languages from '../../lib/languages.js'
+import { defaultCacheControl } from '../cache-control.js'
 
 const redirectPatterns = Object.values(languages)
   .map((language) => language.redirectPatterns || [])
@@ -11,30 +12,30 @@ const combinedRedirectPatternRegex =
     ? new RegExp(redirectPatterns.map((rex) => rex.source).join('|'))
     : null
 
+const allRedirectPatterns = Object.values(languages)
+  .map((language) =>
+    (language.redirectPatterns || []).map((redirectPattern) => [language.code, redirectPattern])
+  )
+  .flat()
+
 // This middleware handles redirects for mistyped language codes
 //
 // Examples:
 // /jp*    -> /ja*
-// /zh-TW* -> /cn*
+// /zh-TW* -> /zh*
 export default function languageCodeRedirects(req, res, next) {
   // Only in the unlikely event that the `req.path` starts with one of these
   // prefixes do we bother looking up what the redirect should be.
-  if (
-    !req.path.startsWith('/_next/static') &&
-    combinedRedirectPatternRegex &&
-    combinedRedirectPatternRegex.test(req.path)
-  ) {
-    // This loop is almost never ever used to it doesn't have to be
-    // particularly smart or fast.
-    for (const language of Object.values(languages)) {
-      const redirectPatterns = language.redirectPatterns || []
-      for (const redirectPattern of redirectPatterns) {
-        if (redirectPattern.test(req.path)) {
-          return res.redirect(301, req.path.replace(redirectPattern, `/${language.code}`))
-        }
-      }
-    }
-  }
+  if (req.path.startsWith('/_next/static')) return next()
+  if (!combinedRedirectPatternRegex) return next()
+  if (!combinedRedirectPatternRegex.test(req.path)) return next()
 
+  // This loop is almost never ever used so it doesn't have to be
+  // particularly smart or fast.
+  const [code, pattern] = allRedirectPatterns.find(([, pattern]) => pattern.test(req.path))
+  if (code && pattern) {
+    defaultCacheControl(res)
+    return res.redirect(301, req.path.replace(pattern, `/${code}`))
+  }
   return next()
 }

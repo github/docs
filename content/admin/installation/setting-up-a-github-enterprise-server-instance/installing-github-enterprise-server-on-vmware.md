@@ -21,7 +21,7 @@ shortTitle: Install on VMware
 ## Prerequisites
 
 - {% data reusables.enterprise_installation.software-license %}
-- You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.product.product_location %}s. We support versions 5.5 through 6.7 for {% data variables.product.prodname_ghe_server %} 3.4 and earlier. ESX version 7.0 is supported for {% data variables.product.prodname_ghe_server %} 3.5 and later. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
+- You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.location.product_location %}s. We support versions 5.5 through 6.7 for {% data variables.product.prodname_ghe_server %} 3.4 and earlier. ESX version 7.0 is supported for {% data variables.product.prodname_ghe_server %} 3.5 and later. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
 - You will need access to a vSphere Client. If you have vCenter Server you can use the vSphere Web Client. For more information, see the VMware guide "[Log in to vCenter Server by Using the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html)."
 
 ## Hardware considerations
@@ -46,13 +46,17 @@ shortTitle: Install on VMware
 
 ## Configuring the {% data variables.product.prodname_ghe_server %} instance
 
+{% data reusables.enterprise_installation.new-instance-config-summary %}
+
+{% data reusables.enterprise_installation.new-instance-attack-vector-warning %}
+
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[Configuring the {% data variables.product.prodname_ghe_server %} appliance](/enterprise/admin/guides/installation/configuring-the-github-enterprise-server-appliance)."
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)."
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
 ## Further reading
 
-- "[System overview](/enterprise/admin/guides/installation/system-overview)"{% ifversion ghes %}
-- "[About upgrades to new releases](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+- "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
+- "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}

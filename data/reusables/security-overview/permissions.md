@@ -1,1 +1,9 @@
-Organization owners and security managers can access the security overview for organizations{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %} and view their organization's repositories via the enterprise-level security overview. Enterprise owners can use the enterprise-level security overview to view all repositories in their enterprise's organizations{% endif %}. Members of a team can see the security overview for repositories that the team has admin privileges for.
+{% ifversion not fpt %}
+
+Security overview for an organization is available to all members of the organization. The views and data displayed are determined by your role in the organization, and by your permissions for individual repositories within the organization. {% ifversion security-overview-org-risk-coverage %}For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview)."{% endif %}
+
+{% ifversion ghec or ghes > 3.4 or ghae %}
+Security overview for an enterprise shows organization owners and security managers data for the organizations they have access to. Enterprise owners can only view data for organizations where they are added as an organization owner or security manager. {% ifversion enterprise-owner-join-org %}For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."{% endif %}
+{% endif %}
+
+{% endif %}

@@ -1,10 +1,9 @@
 ---
 title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actions'
-shortTitle: 'Automating with Actions'
+shortTitle: Automating with Actions
 intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
-miniTocMaxHeadingLevel: 3
 versions:
-  feature: "projects-v2"
+  feature: projects-v2
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/automating-projects
 type: tutorial
@@ -16,28 +15,30 @@ allowTitleToDifferFromFilename: true
 
 ## {% data variables.product.prodname_actions %} workflows
 
-This section demonstrates how to use the GraphQL API and {% data variables.product.prodname_actions %} to add a pull request to an organization project. In the example workflows, when the pull request is marked as "ready for review", a new task is added to the project with a "Status" field set to "Todo", and the current date is added to a custom "Date posted" field.
+This article demonstrates how to use the GraphQL API and {% data variables.product.prodname_actions %} to add a pull request to an organization project. In the example workflows, when the pull request is marked as "ready for review", a new task is added to the project with a "Status" field set to "Todo", and the current date is added to a custom "Date posted" field.
 
 You can copy one of the workflows below and modify it as described in the table below to meet your needs.
 
-A project can span multiple repositories, but a workflow is specific to a repository. Add the workflow to each repository that you want your project to track. For more information about creating workflow files, see "[Quickstart for {% data variables.product.prodname_actions %}](/actions/quickstart)."
+A project can span multiple repositories, but a workflow is specific to a repository. Add the workflow to each repository that you want your project to track. For more information about creating workflow files, see "[AUTOTITLE](/actions/quickstart)."
 
-This article assumes that you have a basic understanding of {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %}, see "[{% data variables.product.prodname_actions %}](/actions)."
+This article assumes that you have a basic understanding of {% data variables.product.prodname_actions %}. For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions)."
 
-For more information about other changes you can make to your project through the API, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
+For more information about other changes you can make to your project through the API, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
 
 You may also want to use the **actions/add-to-project** workflow, which is maintained by {% data variables.product.company_short %} and will add the current issue or pull request to the project specified. For more information, see the [actions/add-to-project](https://github.com/actions/add-to-project) repository and README.
 
 {% note %}
 
-**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a personal access token (recommended for user projects). Workflow examples for both approaches are shown below.
+**Note:** `GITHUB_TOKEN` is scoped to the repository level and cannot access {% data variables.projects.projects_v2 %}. To access {% data variables.projects.projects_v2 %} you can either create a {% data variables.product.prodname_github_app %} (recommended for organization projects) or a {% data variables.product.pat_generic %} (recommended for user projects). Workflow examples for both approaches are shown below.
 
 {% endnote %}
 
 ### Example workflow authenticating with a {% data variables.product.prodname_github_app %}
 
-1. Create a {% data variables.product.prodname_github_app %} or choose an existing {% data variables.product.prodname_github_app %} owned by your organization. For more information, see "[Creating a {% data variables.product.prodname_github_app %}](/developers/apps/building-github-apps/creating-a-github-app)."
-2. Give your {% data variables.product.prodname_github_app %} read and write permissions to organization projects. For more information, see "[Editing a {% data variables.product.prodname_github_app %}'s permissions](/developers/apps/managing-github-apps/editing-a-github-apps-permissions)."
+For more information about authenticating in a {% data variables.product.prodname_actions %} workflow with a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
+
+1. Create a {% data variables.product.prodname_github_app %} or choose an existing {% data variables.product.prodname_github_app %} owned by your organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
+2. Give your {% data variables.product.prodname_github_app %} read and write permissions to organization projects. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions)."
 
    {% note %}
 
@@ -45,9 +46,9 @@ You may also want to use the **actions/add-to-project** workflow, which is maint
 
    {% endnote %}
 
-3. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see "[Installing {% data variables.product.prodname_github_apps %}](/developers/apps/managing-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)."
-4. Store your {% data variables.product.prodname_github_app %}'s ID as a secret in your repository or organization. In the following workflow, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[Apps](/rest/reference/apps#get-an-app)."
-5. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[Authenticating with {% data variables.product.prodname_github_apps %}](/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key)."
+3. Install the {% data variables.product.prodname_github_app %} in your organization. Install it for all repositories that your project needs to access. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-github-apps#installing-your-private-github-app-on-your-repository)."
+4. Store your {% data variables.product.prodname_github_app %}'s ID as a secret in your repository or organization. In the following workflow, replace `APP_ID` with the name of the secret. You can find your app ID on the settings page for your app or through the App API. For more information, see "[AUTOTITLE](/rest/apps#get-an-app)."
+5. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
 6. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
 
 ```yaml{:copy}
@@ -66,7 +67,7 @@ jobs:
     steps:
       - name: Generate token
         id: generate_token
-        uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+        uses: tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92
         with:
           app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
           private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -143,7 +144,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $status_field
-                value: { 
+                value: {
                   singleSelectOptionId: $status_value
                   }
               }) {
@@ -155,7 +156,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $date_field
-                value: { 
+                value: {
                   date: $date_value
                 }
               }) {
@@ -167,10 +168,10 @@ jobs:
 
 ```
 
-### Example workflow authenticating with a personal access token
+### Example workflow authenticating with a {% data variables.product.pat_generic %}
 
-1. Create a personal access token with the `project` and `repo` scopes. For more information, see "[Creating a personal access token](/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-2. Save the personal access token as a secret in your repository or organization.
+1. Create a {% data variables.product.pat_v1 %} with the `project` and `repo` scopes. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+2. Save the {% data variables.product.pat_generic %} as a secret in your repository or organization.
 3. In the following workflow, replace `YOUR_TOKEN` with the name of the secret. Replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5.
 
 ```yaml{:copy}
@@ -255,7 +256,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $status_field
-                value: { 
+                value: {
                   singleSelectOptionId: $status_value
                   }
               }) {
@@ -267,7 +268,7 @@ jobs:
                 projectId: $project
                 itemId: $item
                 fieldId: $date_field
-                value: { 
+                value: {
                   date: $date_value
                 }
               }) {
@@ -284,7 +285,9 @@ jobs:
 The following table explains sections of the example workflows and shows you how to adapt the workflows for your own use.
 
 <table class="table-fixed">
-
+<tr>
+  <th scope="col">Code</th>
+  <th scope="col">Explanation</th>
 <tr>
 <td>
 
@@ -309,7 +312,7 @@ This workflow runs whenever a pull request in the repository is marked as "ready
 ```yaml
 - name: Generate token
   id: generate_token
-  uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+  uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
   with:
     app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
     private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -339,7 +342,7 @@ env:
   PROJECT_NUMBER: YOUR_PROJECT_NUMBER
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -353,7 +356,7 @@ env:
 Sets environment variables for this step.
 <br>
 <br>
-If you are using a personal access token, replace <code>YOUR_TOKEN</code> with the name of the secret that contains your personal access token.
+If you are using a {% data variables.product.pat_generic %}, replace <code>YOUR_TOKEN</code> with the name of the secret that contains your {% data variables.product.pat_generic %}.
 <br>
 <br>
 Replace <code>YOUR_ORGANIZATION</code> with the name of your organization. For example, <code>octo-org</code>.
@@ -433,7 +436,7 @@ env:
   PR_ID: {% raw %}${{ github.event.pull_request.node_id }}{% endraw %}
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -504,7 +507,7 @@ env:
   GITHUB_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
 ```
 
-Personal access token:
+{% data variables.product.pat_generic_caps %}:
 
 ```yaml
 env:
@@ -535,7 +538,7 @@ gh api graphql -f query='
       projectId: $project
       itemId: $item
       fieldId: $status_field
-      value: { 
+      value: {
         singleSelectOptionId: $status_value
         }
     }) {
@@ -547,7 +550,7 @@ gh api graphql -f query='
       projectId: $project
       itemId: $item
       fieldId: $date_field
-      value: { 
+      value: {
         date: $date_value
       }
     }) {

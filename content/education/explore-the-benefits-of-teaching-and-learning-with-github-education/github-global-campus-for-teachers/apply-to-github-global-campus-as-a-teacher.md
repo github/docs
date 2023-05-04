@@ -1,5 +1,5 @@
 ---
-title: 'Apply to GitHub Global Campus as a teacher'
+title: Apply to GitHub Global Campus as a teacher
 intro: 'If you''re a teacher, you can apply to join {% data variables.product.prodname_global_campus %} and receive access to the resources and benefits of {% data variables.product.prodname_education %}.'
 redirect_from:
   - /education/teach-and-learn-with-github-education/apply-for-an-educator-or-researcher-discount
@@ -21,21 +21,22 @@ shortTitle: Apply to Global Campus
 
 {% data reusables.education.educator-requirements %}
 
-For more information about personal accounts on {% data variables.product.product_name %}, see "[Signing up for a new {% data variables.product.prodname_dotcom %} account](/github/getting-started-with-github/signing-up-for-a-new-github-account)."
+For more information about personal accounts on {% data variables.product.product_name %}, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."
 
 ## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
 {% data reusables.education.click-get-teacher-benefits %}
+1. Under "Select the academic status", select **Teacher**.
 {% data reusables.education.select-email-address %}
-{% data reusables.education.upload-proof-status %}
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}
+{% data reusables.education.upload-proof-status %}
 {% data reusables.education.submit-application %}
 
 ## Further reading
 
-- "[Why wasn't my application to Global Campus for teachers approved?](/articles/why-wasn-t-my-application-for-an-educator-or-researcher-discount-approved)"
+- "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/why-wasnt-my-application-to-global-campus-for-teachers-approved)"
 - [{% data variables.product.prodname_education %}](https://education.github.com)
 - [{% data variables.product.prodname_classroom %} Videos](https://classroom.github.com/videos)
 - [{% data variables.product.prodname_education_community %}]({% data variables.product.prodname_education_forum_link %})

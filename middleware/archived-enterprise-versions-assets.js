@@ -5,13 +5,16 @@ import got from 'got'
 import patterns from '../lib/patterns.js'
 import isArchivedVersion from '../lib/is-archived-version.js'
 import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
-import { cacheControlFactory } from './cache-control.js'
-
-const cacheControl = cacheControlFactory(60 * 60 * 24 * 365)
+import { archivedCacheControl } from './cache-control.js'
 
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in
 // help-docs-archived-enterprise-versions
+//
+// Note that as of GHES 3.2, we no longer store assets for deprecated versions
+// in help-docs-archived-enterprise-versions. Instead, we store them in the
+// Azure blob storage `githubdocs` in the `enterprise` container. All HTML files
+// have been updated to use references to this blob storage for all assets.
 //
 // See also ./archived-enterprise-versions.js for non-CSS/JS paths
 
@@ -62,7 +65,7 @@ export default async function archivedEnterpriseVersionsAssets(req, res, next) {
 
     // This cache configuration should match what we do for archived
     // enterprise version URLs that are not assets.
-    cacheControl(res)
+    archivedCacheControl(res)
     setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
 
     return res.send(r.body)

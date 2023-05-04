@@ -15,9 +15,9 @@ topics:
 
 By default, system logs for {% data variables.product.product_name %} are automatically rotated every 24 hours and are retained for seven days. System logs include system-level events, application logs, and Git events data. As log files are often being written to and can be large in size, it may be beneficial to extract and parse relevant log entries on a host separate to your {% data variables.product.prodname_ghe_server %} instance.
 
-You can forward system logs to a third-party system or server for longer retention. For more information see "[Log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
+You can forward system logs to a third-party system or server for longer retention. For more information see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."
 
-In addition to reviewing your system logs, you can monitor activity in your enterprise in other ways, such as viewing audit logs, push logs and managing global webhooks. For more information, see "[Monitoring activity in your enterprise](/admin/monitoring-activity-in-your-enterprise)."
+In addition to reviewing your system logs, you can monitor activity in your enterprise in other ways, such as viewing audit logs, push logs and managing global webhooks. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise)."
 
 ## Types of logs
 
@@ -55,7 +55,7 @@ Oct 26 02:19:31 github-ent github_audit: { "pid":22860, "ppid":22859, "program":
 
 ## Support bundles
 
-The support bundle includes system logs and all audit information is logged to the `audit.log` file in the `github-logs` directory. For more information, see "[Providing data to {% data variables.product.prodname_dotcom %} Support](/support/contacting-github-support/providing-data-to-github-support)."
+The support bundle includes system logs and all audit information is logged to the `audit.log` file in the `github-logs` directory. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
 
 ## Further reading
 

@@ -1,0 +1,339 @@
+date: '2022-10-25'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+
+  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend that you only run release candidates in a test environment.
+
+  {% endnote %}
+
+  For upgrade instructions, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+sections:
+  features:
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/2407
+        - |
+         To increase the security of the Management Console, site administrators can configure the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
+
+        # https://github.com/github/releases/issues/2407
+        - |
+          The minimum password requirements for the Management Console are more stringent.
+
+        # https://github.com/github/releases/issues/2497
+        - |
+          Attempts to authenticate to the Management Console and changes made by a site administrator within the Management Console are written to a log file in `/var/log/enterprise-manage/audit.log`.
+
+    - heading: Instance services
+      notes:
+        # https://github.com/github/releases/issues/2344
+        - |
+          Azure Maps replaces MapBox for rendering GeoJSON files as graphical maps. Administrators can enable map rendering and provide an Azure Maps token in the Management Console. For more information, see "[Administering your instance from the Management Console](/admin/configuration/administering-your-instance-from-the-management-console)."
+
+    - heading: Authentication
+      notes:
+        # https://github.com/github/releases/issues/2197
+        - |
+          Users can verify commits using an SSH public key. For more information, see "[About commit signature verification](/authentication/managing-commit-signature-verification/about-commit-signature-verification#ssh-commit-signature-verification)."
+
+        # https://github.com/github/releases/issues/2460
+        - |
+          Site administrators can provision users and groups on a GitHub Enterprise Server instance automatically with SCIM. SCIM for GitHub Enterprise Server is in private beta and subject to change. For more information, see "[Configuring user provisioning with SCIM for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)" and "[SCIM](/rest/enterprise-admin/scim)" in the REST API documentation.
+
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/2256
+        - |
+          Enterprise owners on an instance with a GitHub Advanced Security license can see an overview of code scanning alerts for the entire instance, including a repository-centric view of application security risks, and an alert-centric view of all code scanning, secret scanning, and Dependabot alerts. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)."
+
+        # https://github.com/github/releases/issues/2373
+        - |
+           Users on an instance with a GitHub Advanced Security license can view and comment on code scanning alerts in their repository within a pull request's **Conversation** tab. If the **Require conversation resolution before merging** branch protection rule is enabled for the repository, all comments on these code scanning alerts must be resolved before a user merges the pull request. For more information, see "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning#about-code-scanning)," "[About pull request reviews](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)," and "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-conversation-resolution-before-merging)."
+
+        # https://github.com/github/releases/issues/2388
+        - |
+          To simplify the rollout of secret scanning for instances with dozens, hundreds, or even thousands of organizations, enterprise owners on an instance with a GitHub Advanced Security license can enable secret scanning and push protection for the instance using the web interface. For more information, see "[Managing GitHub Advanced Security features for your enterprise](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+
+        # https://github.com/github/releases/issues/2389
+        - |
+          Organization owners on an instance with a GitHub Advanced Security license can perform a dry run of custom patterns for secret scanning for all repositories within an organization. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+        # https://github.com/github/releases/issues/2383
+        - |
+           If a site administrator has enabled email notifications for an instance with a GitHub Advanced Security license, users who watch a repository's secret scanning alerts will receive an email notification when a contributor bypasses a secret blocked by push protection. Previously, notifications were not sent if the secret was marked as a false positive or used in tests. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)" and "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+
+        # https://github.com/github/releases/issues/2355
+        - |
+          To ease the management of dozens or hundreds of custom patterns for secret scanning, users, organization owners, or enterprise owners on an instance with a GitHub Advanced Security license can sort and filter the list of patterns for a repository, organization, or the entire instance. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+        # https://github.com/github/releases/issues/2319
+        - |
+          Users on an instance with a GitHub Advanced Security license who protect pushes with secret scanning can specify a custom link that will display in the error message when push protection detects and blocks a potential secret. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+
+        # https://github.com/github/releases/issues/2445
+        - |
+          Users can publish CodeQL packs to the Container registry. For more information, see [Creating and working with CodeQL packs](https://codeql.github.com/docs/codeql-cli/creating-and-working-with-codeql-packs/) in the CodeQL CLI documentation.
+
+        # https://github.com/github/releases/issues/2445
+        - |
+          Users on an instance with a GitHub Advanced Security license can use CodeQL packs with code scanning, including  packs that are published to the instance's GitHub Container registry. For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#downloading-codeql-packs-from-github-enterprise-server)" and [Publishing and using CodeQL packs](https://codeql.github.com/docs/codeql-cli/publishing-and-using-codeql-packs/)" in the CodeQL CLI documentation.
+
+        # https://github.com/github/releases/issues/2403
+        - |
+          Users on an instance with a GitHub Advanced Security license can exclude unnecessary CodeQL queries for code scanning by using query filters. For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#about-code-scanning-configuration)."
+
+        # https://github.com/github/releases/issues/2405
+        - |
+          Enterprise owners on an instance with a GitHub Advanced Security license can retrieve code scanning results for the entire instance using the REST API. The new endpoint supplements the existing endpoints for repositories and organizations. For more information, see "[Code Scanning](/rest/code-scanning#list-code-scanning-alerts-for-an-enterprise)" in the REST API documentation.
+
+        # https://github.com/github/releases/issues/2417
+        - |
+          Organization owners on an instance with a GitHub Advanced Security license can retrieve the enablement status or configure the automatic enablement of the following features using the REST API.
+
+          - GitHub Advanced Security
+          - Secret scanning
+          - Push protection
+
+          For more information, see "[Organizations](/rest/orgs/orgs#enable-or-disable-a-security-feature-for-an-organization)" in the REST API documentation.
+
+        # https://github.com/github/releases/issues/2348
+        - |
+          Users on an instance with a GitHub Advanced Security license can use cursors to paginate secret scanning alert results retrieved with the REST API's organization and repository endpoints. For more information, see "[Secret scanning](/rest/secret-scanning)" in the REST API documentation.
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/2308
+        - |
+          Users can see more information about the activity associated with a Dependabot alert. Within the details for a Dependabot alert, users can see a timeline of events, such as when the alert was opened, fixed, or reopened. Events will also show additional metadata when available, like relevant pull requests. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+
+        # https://github.com/github/releases/issues/2382
+        - |
+          Users' Dependabot alerts are sorted by importance by default. Importance considers CVSS as the primary factor, as well as potential risk, relevancy, and ease of fixing the vulnerability. The calculation will improve over time.
+
+        # https://github.com/github/releases/issues/2163
+        - |
+          Users can sort Dependabot alerts by the scope of the dependency, either runtime or development.
+
+        # https://github.com/github/releases/issues/2421
+        - |
+          Users can optionally add a comment when dismissing a Dependabot alert. Dismissal comments appear in the event timeline and within the `dismissComment`  field in the GraphQL API's `RepositoryVulnerabilityAlert` object. For more information about the GraphQL API, see "[Objects](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
+
+        # https://github.com/github/releases/issues/2160
+        - |
+          Users can select multiple Dependabot alerts, then dismiss or reopen the alerts. For example, from the **Closed alerts** tab, you can select multiple alerts that have been previously dismissed, and then reopen them all at once.
+
+        # https://github.com/github/releases/issues/2417
+        - |
+          Organization owners on an instance can retrieve the enablement status or configure the automatic enablement of the following features for dependency management using the REST API.
+
+          - Dependency graph
+          - Dependabot alerts
+          - Dependabot security updates
+
+          For more information, see "[Organizations](/rest/orgs/orgs#enable-or-disable-a-security-feature-for-an-organization)" in the REST API documentation.
+
+    - heading: Code security
+      notes:
+        # https://github.com/github/releases/issues/2300
+        - |
+          Enterprise and organization owners can see the security overview for the entire GitHub Enterprise Server instance or individual organizations on the instance. The security overview provides a centralized view of risk for application security teams, engineering leaders, and developers who work across many repositories. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+
+        # https://github.com/github/releases/issues/2415
+        - |
+          Organization owners can manage teams of security managers using the REST API. For more information, see "[Security Managers](/rest/orgs/security-managers)" in the REST API documentation.
+
+        # https://github.com/github/releases/issues/2042
+        # https://github.com/github/releases/issues/2295
+        # https://github.com/github/releases/issues/2307
+        - |
+          Users can take advantage of the following improvements to the [GitHub Advisory Database](https://github.com/advisories).
+
+          - The database displays advisories for for Elixir, Erlang's Hex package manager, and more.
+          - Users can find malware advisories by searching for `type:malware`.
+          - The database displays advisories for GitHub Actions vulnerabilities.
+
+          For more information, see "[Browsing security advisories in the GitHub Advisory Database](/code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database#about-the-github-advisory-database)."
+
+        # https://github.com/github/releases/issues/2099
+        - |
+          Users can populate a repository's dependency graph by submitting the dependencies for the repository using the REST API. The dependency graph powers Dependabot alerts and Dependabot security updates. For more information, see "[Using the Dependency submission API](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+
+    - heading: GitHub Actions
+      notes:
+        # https://github.com/github/releases/issues/2577
+        - |
+          GitHub Actions supports Google Cloud Storage as a storage provider for logs, artifacts, and caches. For more information, see "[Enabling GitHub Actions with Google Cloud Storage](/enterprise-server@3.7/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage)."
+
+        # https://github.com/github/releases/issues/2409
+        - |
+          GitHub Actions users who use dependency caching to speed up workflows can now use the GitHub CLI to manage the GitHub Actions cache for a repository. To manage caches using the GitHub CLI, install the `gh-actions-cache` extension. For more information, see the [`gh-actions-cache` documentation](https://github.com/actions/gh-actions-cache#readme).
+
+        # https://github.com/github/releases/issues/2340
+        - |
+          Workflow re-runs in GitHub Actions use the actor who initially triggered the workflow for privilege evaluation. The actor who triggered the re-run will continue to be displayed in the UI, and can be accessed in a workflow via the `triggering_actor` field in the `github` context. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)" and "[Contexts](/actions/learn-github-actions/contexts#github-context)."
+
+        # https://github.com/github/docs-content/issues/7093
+        # https://github.com/github/docs-content/issues/7094
+        - |
+          Users can call reusable workflows from a matrix or other reusable workflows. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-reusable-workflows)."
+
+        # https://github.com/github/releases/issues/2292
+        - |
+          When querying GitHub Actions for artifacts, the REST API returns information about the run and branch that produced the artifact. For more information, see "[GitHub Actions Artifacts](/rest/actions/artifacts)" in the REST API documentation.
+
+        # https://github.com/github/releases/issues/2325
+        - |
+          To support secure cloud deployments at scale, organization owners and repository administrators can complete the following tasks with the OpenID Connect REST API. For more information, see "[GitHub Actions OIDC](/rest/actions/oidc)" in the REST API documentation
+
+          - Enable a standard OpenID Connect configuration across cloud deployment workflows by customizing the `subject` claim format.
+          - Ensure additional compliance and security for OpenID Connect deployments by appending the `issuer` URL with the enterprise's slug.
+          - Configure advanced OpenID Connect policies by using additional OpenID Connect token claims like `repository_id` and `repo_visibility`.
+
+          For more information, see "[About security hardening with OpenID Connect](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#understanding-the-oidc-token)."
+
+        # https://github.com/github/releases/issues/2326
+        - |
+          GitHub Actions users who use dependency caching to speed up workflows can now use the GitHub Actions Cache REST API to accomplish the following tasks.
+
+          - List all caches within a repository and sort by metadata.
+          - Delete a corrupt or stale cache entry.
+          For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#managing-caches)" and "[GitHub Actions Cache](/rest/actions/cache)" in the REST API documentation.
+
+        # https://github.com/github/docs-content/issues/7689
+        - |
+          If a non-ephemeral self-hosted GitHub Actions runner does not communicate with the GitHub Enterprise Server instance for more than 14 days, the instance will automatically remove the runner. If an ephemeral self-hosted runner does not communicate with the instance for more than one day, the instance will automatically remove the runner. Previously, GitHub Enterprise Server removed runners after 30 days. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners#about-self-hosted-runners)."
+
+        # https://github.com/github/releases/issues/2210
+        - |
+          GitHub Actions can run self-hosted macOS workflows in a macOS ARM64 runtime with [runner](https://github.com/actions/runner) support for Apple silicon, such as the M1 or M2 chip. For more information, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow#using-default-labels-to-route-jobs)."
+
+    - heading: GitHub Pages
+      notes:
+          # https://github.com/github/blog/pull/3655
+        - |
+          Users can deploy a GitHub Pages site directly from a repository using GitHub Actions, without configuration of a publishing source. Using GitHub Actions provides control over the authoring framework and version, as well as more control over the publishing process with features like deployment gates. For more information, see "[Configuring a publishing source for your GitHub Pages site](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#creating-a-custom-github-actions-workflow-to-publish-your-site)."
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/releases/issues/2329
+        - |
+          Enterprise owners can prevent users from creating repositories owned by their user accounts. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
+
+        # https://github.com/github/releases/issues/1966
+        - |
+          Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
+
+        # https://github.com/github/releases/issues/1974
+        - |
+          Repository administrators can block potentially destructive pushes by limiting the number of branches and tags that can be updated by a single push. By default, there is no limit to the number of branches and tags that can be updated in a single push. For more information, see "[Managing the push policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-push-policy-for-your-repository)."
+
+        # https://github.com/github/docs-content/issues/7597
+        - |
+          Users can further customize the default commit message when squash-merging a pull request. For more information, see "[Configuring commit merging for pull requests](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-merging-for-pull-requests)" and "[Configuring commit squashing for pull requests](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)."
+
+        # https://github.com/github/releases/issues/2179
+        - |
+          Users can create a branch from a repository's **Branches** overview page by clicking the **New branch** button. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
+
+        # https://github.com/github/releases/issues/1964
+        # https://github.com/github/releases/issues/1965
+        # https://github.com/github/releases/issues/2170
+        # https://github.com/github/releases/issues/2369
+        # https://github.com/github/releases/issues/2406
+        - |
+          Improvements have been made to the creation and management of forks.
+
+          - When forking a repository, users can choose to only include the repository's default branch in the fork.
+          - Users can use a repository's' **Fork** button to see existing forks of the repository.
+          - The **Fetch upstream** button has been renamed to **Sync fork** to better describe the button's behavior. If the sync causes a conflict, the web UI prompts the user to contribute changes to the parent repository, discard changes, or resolve the conflict.
+          - To address situations where people work within one organization and don't want to fork a repository to a different organization or user account, users can fork a repository to the same organization as the parent repository.
+          - Users can fork an internal repository to another organization and the fork will retain internal visibility. When forking an internal repository, users can choose which organization should own the fork.
+
+          For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
+
+        # https://github.com/github/releases/issues/1973
+        - |
+          Repository administrators can block the creation of branches that match a configured name pattern with the **Restrict pushes that create matching branches** branch protection rule. For example, if a repository's default branch changes from `master` to `main`, a repository administrator can prevent any subsequent creation or push of the `master` branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#restrict-who-can-push-to-matching-branches)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
+
+        # https://github.com/github/releases/issues/2105
+        - |
+          Users can create files with geoJSON, topoJSON, and STL diagrams and render the diagrams in the web interface. For more information, see "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files)."
+
+        # https://github.com/github/releases/issues/2336
+        - |
+          Users can create autolink references using either alphanumeric or numeric identifiers. For more information, see "[Configuring autolinks to reference external resources autolinks](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)."
+
+        # https://github.com/github/releases/issues/2399
+        - |
+          Users can customize exclusions in the file finder like `vendor/` and `build/` by using `linguist` attributes in a `.gitattributes` file. For more information, see "[Finding files on GitHub](/search-github/searching-on-github/finding-files-on-github#customizing-excluded-files)" and "[Customizing how changed files appear on GitHub](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)."
+
+    - heading: Pull requests
+      notes:
+        # https://github.com/github/releases/issues/2178
+        - |
+          Users can browse the files modified in an individual commit using the tree view. For more information, see "[About commits](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits#using-the-file-tree)."
+
+    - heading: Issues
+      notes:
+        # https://github.com/github/releases/issues/2488
+        - |
+          Users can manually link existing branches or pull requests to an issue from the "Development" section in the issue's sidebar. For more information, see "[Linking a pull request to an issue](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-or-branch-to-an-issue-using-the-issue-sidebar)."
+
+    - heading: Markdown
+      notes:
+        # https://github.com/github/releases/issues/2027
+        - |
+          Users can use Mermaid syntax when writing Markdown, which displays a diagram when rendering the Markdown. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
+
+        # https://github.com/github/docs-content/issues/7471
+        - |
+          Users can write mathematical expressions using fenced code blocks with the `math` syntax in addition to the existing delimiters. `$$` is not required with this method. For more information, see "[Writing mathematical expressions](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)."
+
+        # https://github.com/github/releases/issues/2105
+        - |
+          Users can render maps directly in Markdown using fenced code blocks with the `geojson` or `topojson` syntax, and embed STL 3D renders using `stl` syntax. For more information, see "[Creating diagrams](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams)."
+
+        # https://github.com/github/releases/issues/2345
+        - |
+          In Markdown, users can write LaTeX-style syntax to render math expressions inline using `$` delimiters, or in blocks using `$$` delimiters. For more information, see "[Writing mathematical expressions](/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)."
+
+  changes:
+    - Secret scanning no longer supports custom patterns that use `.*` as an end delimiter in the "After secret" field, as the pattern syntax would cause scan problems and inconsistencies.
+
+    # https://github.com/github/releases/issues/2535
+    - When creating a new release, users can now submit the form using <kbd>Ctrl</kbd> + <kbd>Enter</kbd> in macOS, or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> in Windows or Linux.
+
+    # https://github.com/github/releases/issues/2533
+    - The **Wiki** tab in a repository only appears when a wiki exists. Previously, the tab always appeared.
+
+    # https://github.com/github/releases/issues/2410
+    - Rendered wikis display mathematical expressions and Mermaid diagrams.
+
+    # https://github.com/github/releases/issues/2534
+    - The size of the search field for user, organization, and enterprise audit logs has increased.
+
+    # https://github.com/github/releases/issues/2344
+    - To improve stability, the service for rendering GeoJSON, Jupyter Notebook, PDF, PSD, SVG, SolidWorks, and other binary formats has been replaced.
+
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
+    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - In some cases, users cannot convert existing issues to discussions.
+    - During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+
+  deprecations:
+    # https://github.com/github/releases/issues/2395
+    - Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
+
+    # https://github.com/github/releases/issues/2380
+    - Diffing GeoJSON, PSD, and STL files is no longer possible.
+
+    # https://github.com/github/releases/issues/2480
+    - Package registries on the new GitHub Packages architecture, including Container registry and npm packages, no longer expose data through the GraphQL API. In a coming release, other GitHub Packages registries will migrate to the new architecture, which will deprecate the GraphQL API for those registries as well. GitHub recommends using the REST API to programmatically access information about GitHub Packages. For more information, see "[Packages](/rest/packages)" in the REST API documentation.

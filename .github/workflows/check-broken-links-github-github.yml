@@ -7,7 +7,7 @@ name: Check Broken Docs Links in github/github
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 13 * * 1' # run every Monday at 1:20PM UTC
+    - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: read
@@ -39,30 +39,16 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
 
-      - name: Clone docs-early-access
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/get-docs-early-access
         with:
-          repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
-          path: docs-early-access
-          ref: main
-
-      - name: Setup Node
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048
-        with:
-          node-version: '16.15.0'
-          cache: npm
-
-      - name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
-
-      - name: Install Node.js dependencies
-        run: npm ci
 
       - name: Build server
         run: npm run build
@@ -71,6 +57,7 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 4000
+          ENABLED_LANGUAGES: en
         run: |
 
           node server.js &
@@ -79,27 +66,32 @@ jobs:
 
       - name: Run broken github/github link check
         run: |
-          script/check-github-github-links.js > broken_github_github_links.md
+          script/check-github-github-links.js broken_github_github_links.md
 
-      # check-github-github-links.js returns 0 if no links are broken, and 1 if any links
-      # are broken. When an Actions step's exit code is 1, the action run's job status
-      # is failure and the run ends. The following steps create an issue for the
-      # broken link report only if any links are broken, so `if: ${{ failure() }}`
-      # ensures the steps run despite the previous step's failure of the job.
-      #
-      # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
-
-      - if: ${{ failure() && env.FREEZE != 'true' }}
-        name: Get title for issue
+      - name: Get title for issue
+        # If the file 'broken_github_github_links.md' got created,
+        # the hash of it will not be an empty string. That means if found
+        # broken links, we want to create an issue.
+        if: ${{ hashFiles('broken_github_github_links.md') != '' && env.FREEZE != 'true' }}
         id: check
-        run: echo "::set-output name=title::$(head -1 broken_github_github_links.md)"
-      - if: ${{ failure() && env.FREEZE != 'true'}}
-        name: Create issue from file
+        run: echo "title=$(head -1 broken_github_github_links.md)" >> $GITHUB_OUTPUT
+
+      - name: Create issue from file
+        if: ${{ hashFiles('broken_github_github_links.md') != '' && env.FREEZE != 'true' }}
         id: github-github-broken-link-report
-        uses: peter-evans/create-issue-from-file@b4f9ee0a9d4abbfc6986601d9b1a4f8f8e74c77e
+        uses: peter-evans/create-issue-from-file@433e51abf769039ee20ba1293a088ca19d573b7f
         with:
           token: ${{ env.GITHUB_TOKEN }}
           title: ${{ steps.check.outputs.title }}
           content-filepath: ./broken_github_github_links.md
           repository: ${{ env.REPORT_REPOSITORY }}
           labels: ${{ env.REPORT_LABEL }}
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+        if: ${{ failure() && env.FREEZE != 'true' }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last "Check Broken Docs Links in github/github" run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/check-broken-links-github-github.yml

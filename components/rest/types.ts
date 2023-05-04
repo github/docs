@@ -15,6 +15,7 @@ export interface Operation {
 }
 
 export interface Parameter {
+  exampleName?: string
   in: string
   name: string
   description: string
@@ -72,9 +73,9 @@ export interface ChildParameter {
 
 export type ExampleT = {
   description: string
-  curl: string
-  javascript: string
-  ghcli?: string
+  [CodeSampleKeys.curl]?: string
+  [CodeSampleKeys.javascript]?: string
+  [CodeSampleKeys.ghcli]?: string
   response: {
     statusCode: string
     contentType?: string
@@ -84,7 +85,13 @@ export type ExampleT = {
   }
 }
 
-export type LanguageOptionT = {
-  key: keyof ExampleT
-  text: string
+export enum ResponseKeys {
+  example = 'example',
+  schema = 'schema',
+}
+
+export enum CodeSampleKeys {
+  curl = 'curl',
+  javascript = 'javascript',
+  ghcli = 'ghcli',
 }

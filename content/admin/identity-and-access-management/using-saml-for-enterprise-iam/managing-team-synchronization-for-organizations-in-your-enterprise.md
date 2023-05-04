@@ -26,21 +26,24 @@ If you use SAML at the enterprise level with Azure AD as your IdP, you can enabl
 
 {% data reusables.identity-and-permissions.about-team-sync %}
 
+{% ifversion team-sync-manage-org-invites %}
+{% data reusables.identity-and-permissions.team-sync-org-invites %}
+{% endif %}
+
 {% data reusables.identity-and-permissions.sync-team-with-idp-group %}
 
 {% data reusables.identity-and-permissions.team-sync-disable %}
 
-You can also configure and manage team synchronization for an individual organization. For more information, see "[Managing team synchronization for your organization](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
+You can also configure and manage team synchronization for an individual organization. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
 
 {% data reusables.identity-and-permissions.team-sync-usage-limits %}
 
 ## Prerequisites
 
-You or your Azure AD administrator must be a Global administrator or a Privileged Role administrator in Azure AD.
- 
-You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[Configuring SAML single sign-on for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise/configuring-saml-single-sign-on-for-your-enterprise)."
-
-You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see "[Authenticating with SAML single sign-on](/articles/authenticating-with-saml-single-sign-on)."
+- You must use an Azure AD commercial tenant, not Gov Cloud.
+- You or your Azure AD administrator must be a Global administrator or a Privileged Role administrator in Azure AD.
+- You must enforce SAML single sign-on for organizations in your enterprise account with your supported IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
+- You must authenticate to your enterprise account using SAML SSO and the supported IdP. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on)."
 
 ## Managing team synchronization for Azure AD
 
@@ -53,6 +56,13 @@ You must authenticate to your enterprise account using SAML SSO and the supporte
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
 7. Review the details for the IdP tenant you want to connect to your enterprise account, then click **Approve**.
-  ![Pending request to enable team synchronization to a specific IdP tenant with option to approve or cancel request](/assets/images/help/teams/approve-team-synchronization.png)
-8. To disable team synchronization, click **Disable team synchronization**.
-  ![Disable team synchronization](/assets/images/help/teams/disable-team-synchronization.png)
+8. To disable team synchronization, under "Team synchronization", click **Disable team synchronization**.
+
+{% ifversion team-sync-manage-org-invites %}
+## Managing whether team synchronization can invite non-members to organizations
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+{% data reusables.enterprise-accounts.security-tab %}
+1. Under "Team synchronization", select or deselect **Do not allow Team Sync to invite non-members to organizations.**
+{% endif %}

@@ -2,9 +2,9 @@
 
 Welcome to the content style guide for [GitHub Docs](https://docs.github.com/).
 
-These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [GitHub Brand Guide](https://brand.github.com/content/) first, then the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md).
+These guidelines are specific to GitHub’s documentation. For general style questions or guidance on topics not covered here, see the [Microsoft Style Guide](https://docs.microsoft.com/style-guide/welcome/). For markup specific to source content on docs.github.com, see our [markup reference guide](content-markup-reference.md). For any questions about the GitHub brand, see our "[GitHub Brand Guide](https://brand.github.com)"
 
-Use table of contents icon <img src="../assets/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+Use table of contents icon <img src="/contributing/images/table-of-contents.png" width="25" height="25" /> on the top right corner of this document to get to a specific section of this guide quickly.
 
 ## The GitHub Docs approach to style
 
@@ -39,16 +39,28 @@ Warnings and danger notices are rendered in red `{% warning %}` tags.
 
 For more information on formatting callouts, see “Callouts” in the [markup reference guide](content-markup-reference.md).
 
+## Call to action (CTA) buttons
+
+CTA buttons emphasize a link that we expect or encourage readers to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to GitHub-owned domains. For example, the CTA in "[Getting started with GitHub Copilot in Visual Studio Code](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)" links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on github.com.
+
+Only include a CTA button if navigating to the link supports user needs. Do not use CTA buttons solely for marketing GitHub features or products. In the above example, someone who wants to try Copilot must navigate to the GitHub Copilot settings menu and would likely want to after reading the article. In contrast, even though someone might use Copilot as part of writing code that they then create a pull request for, we would not add a "Try GitHub Copilot" CTA to "[Creating a pull request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)" since Copilot is not connected to the user needs of "Creating a pull request." Most people will create pull requests without using Copilot. But people visiting articles about getting started with Copilot are probably interested in trying Copilot if they are not already using it. So we add the CTA button to help people get where they are trying to go.
+
+Style your CTAs using the following format.
+
+`<a href="https://github.com/DESTINATION/URL" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>`
+
 ## Code
 
 ### Code blocks
 
-Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block.
+Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[Code sample syntax highlighting](./content-markup-reference.md#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
+  - If you show a command and the command's output, do not make the code block copyable.
 - If your code example includes `{` or `}` that should render, wrap that section in `{% raw %}` `{% endraw %}` to disable Liquid processing for that section.
+- If your code example includes content that should be parsed (for example, HTML tags to format text), wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
   - **Use**:
 
     ```
@@ -125,26 +137,101 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 - Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
 - Use a different time for each example.
 
+## Emphasis
+
+Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
+
+- **Use:** _Fine-grained personal access tokens_ have several security advantages over personal access tokens (classic).
+- **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
+- **Avoid:** Next to _**Title**_, add a descriptive label for your new key. 
+
+## Footnotes
+
+Avoid using footnotes where possible. Consider instead whether you could use a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
+
+If you must use footnotes:
+
+* Use numbers. Do not use typographical symbols or special characters.
+* Place footnote markers in square brackets: `[1]`.
+* Do not use superscript.
+
 ## Headers
 
-Use H2 for headers, and H3 for subheaders. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under “User licenses”, view your total licenses.
+Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
 
-Our guidelines for writing titles also apply to writing headers. For more information, see the [content model](/contributing/content-model.md#titles).
+Use H2 for headers, and H3 for subheaders. Articles must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
+- **Use:** Under "User licenses," view your total licenses.
 
-To orient readers and help them understand if the section is relevant to them, include introductory content after a header - don’t locate a subheader directly following a header.
+For more information, see the [content model](/contributing/content-model.md#titles).
 
 ## Images
 
+We use static images including screenshots, diagrams, and graphs throughout the docs to complement textual information.
+
+Do not use animated GIFs in the docs.
+
 ### Alt text
 
-Every image must include an alt attribute that provides a complete description of the image for the user. For more information, see “[Accessibility guidelines for images and videos](https://review.docs.microsoft.com/en-us/help/contribute/contribute-accessibility-multimedia)” in the Microsoft Docs Contributor Guide. Note that you'll need to be logged on to your Microsoft account to be able access this Microsoft resource.
+Every image must include alt text providing a textual equivalent of the visual information.
+
+- Express the core idea or meaning of the image, rather than describing it literally.
+- Use 40–150 characters.
+- End with a period.
+- Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
+- Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
+- Follow standard language used to describe UI elements in article text.
+- Put multi-word titles, e.g. names of menu items, in double quotation marks ("").
+- If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
+
+#### Alt text for screenshots
+
+Alt text provides a short description of a screenshot's content to benefit people who cannot see it.
+
+- Alt text only needs to include the most relevant elements of an image, not every detail.
+- Alt text is not intended to provide instructions for using the GitHub interface. These should be included in accompanying article text.
+
+##### Format
+
+> Screenshot of the `Product name` + `UI element` shown. The `UI element` + `state of the element/controls`, and its `keyboard shortcut XYZ`, are outlined in dark orange.
+
+- For `Product name`, use the GitHub product or feature name, such as "GitHub Actions" or "GitHub repository," rather than just "GitHub."
+- Use a variable for the word `GitHub` as we do in running copy: `{% data variables.product.prodname_dotcom %}`
+- Describe UI elements consistently with written documentation.
+- Be flexible with word order when needed for clarity.
+  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+
+##### Examples
+
+> Screenshot of the {% data variables.product.prodname_dotcom %} committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
+
+> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
+
+![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](./images/repository-code-button.png)
+
+#### Alt text for diagrams and graphs
+
+Explain the information conveyed in the diagram or graph in text on the page.
+
+Use alt text to express the core idea of the image, without duplicating the webpage text.
+
+##### Example
+
+> Diagram showing a five-step process by which a GitHub Actions runner can be automatically added to named classes of runners and then requested by specific jobs.
+
+[See accompanying explanation of this diagram in the Actions documentation.](https://docs.github.com/en/actions/using-github-hosted-runners/using-larger-runners#architectural-overview-of-larger-runners)
+
+#### Alt text for images of command-line interfaces
+
+Do not use screenshots of command-line interfaces to convey commands and their output. Instead, directly provide the commands a user should use. For more information, see the "[Commands](#commands)" section of the style guide.
+
+When using a screenshot of a command-line interface to show user interface elements, follow standard alt text guidelines for screenshots.
 
 ### Filenames
 
-Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. If replacing an image, use the exact filename.
+Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
+- **Avoid:** `purchase-button{% ifversion ghes %}-for-admins{% endif %}.png`
 
 ### Screenshots
 
@@ -152,7 +239,7 @@ To learn about creating and versioning images, see "[Creating and updating scree
 
 ## Inclusive language
 
-As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. It is critical that all of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
+As home to the largest developer community in the world, GitHub is committed to promoting diversity and inclusion in every aspect of what we do. All of our documentation is inclusive and respectful of our audience, which consists of people in widely varying circumstances from all over the planet. When we write our documentation, we use words that are inclusive, anti-racist, and accessible.
 
 Individual words might be small, but together they can create community, belonging, and equity. Be empathetic in all word and style choices. Be accurate when referring to people and communities.
 
@@ -163,9 +250,6 @@ Individual words might be small, but together they can create community, belongi
 | Default/Main branch | Master branch |
 
 ### Resources about inclusive language
-
-GitHub Brand Guide:
-- [People and communities](https://brand.github.com/content/grammar#people-and-communities)
 
 The Microsoft Style Guide offers resources on bias-free communication, accessibility terms, and writing for all abilities:
 - [Bias-free communication](https://docs.microsoft.com/style-guide/bias-free-communication)
@@ -214,11 +298,11 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
   **Note:** Windows and Linux have <kbd>Ctrl</kbd> abbreviated, whereas on Mac it is spelled in full: <kbd>Control</kbd>.
 
   - For Windows and Linux:
-  
+
     - **Use:** <kbd>Ctrl</kbd>, <kbd>Alt</kbd>.
     - **Avoid:** <kbd>Control</kbd>
   - For Mac:
-  
+
     - **Use:** <kbd>Command</kbd>, <kbd>Option</kbd>, <kbd>Control</kbd>.
     - **Avoid:** <kbd>Cmd</kbd>, <kbd>⌘</kbd>, <kbd>Opt</kbd>, <kbd>⌥</kbd>, <kbd>Ctrl</kbd>, <kbd>⌃</kbd>
 - Don't confuse key combinations with keys in a sequence.
@@ -228,11 +312,51 @@ Below are some usage highlights for how we present keyboard shortcuts in our doc
 - When describing a keyboard shortcut for multiple operating systems, append the operating system in brackets after the shortcut. Describe the Mac shortcut first, then Windows/Linux.
 
   - **Use:** `<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux)`, presented as:
-  
+
      <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows / Linux)
   - **Avoid:** `<kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>`, presented as:
 
     <kbd>Ctrl</kbd>+<kbd>B</kbd> or <kbd>Command</kbd>+<kbd>B</kbd>
+
+## Licensed content
+
+GitHub Docs is licensed under a [CC-BY license](https://github.com/github/docs/blob/main/LICENSE). If you reuse or modify licensed content in an article, you must make sure that the license is compatible and properly attributed.
+
+Do not create reusables for license attributions. We must use the exact license a project is licensed under, so any attributions must be accurately written for the articles that they appear in.
+
+If you are unsure of the legality of reusing any content, contact legal. If you are adding content with a license that is not listed below, you must receive a legal review before you can publish the content.
+
+### Attributing MIT-licensed content
+
+If we reuse or modify content under an MIT license, we must attribute the MIT license where the content appears.
+
+At the end of the article containing MIT-licensed content
+- Create a header titled `Legal notice`
+- Attribute where the content comes from and that it is licensed under the MIT license. Include a link to the project
+- Paste the full text of the MIT license from the project that you are attributing in a codeblock
+
+#### Example MIT license attribution
+
+This text is only an example. Always use the license text from the project you are attributing.
+
+`````
+## Legal notice
+
+Portions have been adapted from [PROJECT](link/to/project) under the MIT license:
+
+```
+MIT License
+
+Copyright <YEAR> <COPYRIGHT HOLDER>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+
+`````
 
 ## Linebreaks
 
@@ -240,14 +364,27 @@ For plain text, use linebreaks to separate paragraphs in the source (two consecu
 
 ## Links
 
-Introduce links consistently using a standard format that clearly indicates where we’re linking.
-For links to other articles in the GitHub docs: `For more information, see "[Page or article title]()."`
-For links to another section in the same article: `For more information, see "[Header text]()."`
-For links to specific sections in other articles in the GitHub docs: `For more information, see "[Article title]()."`
-For links to external documentation: `For more information, see [Page or article title]() in the X documentation.`
+Introduce links consistently using a standard format that clearly indicates where we're linking.
+
+For any link that points to another GitHub docs page, use the special keyword `AUTOTITLE`. See details in the [content markup reference](./content-markup-reference.md#internal-links-with-autotitle).
+
+Usage examples:
+
+- For links to other pages: `For more information, see "[AUTOTITLE](/path/to/page)."`
+- For links to sections in other pages: `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
+- For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME).`
+
+Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[Header text](#section-link)."`
+
+For links to external documentation, type out the full article name: `For more information, see [Page or article title](https://some-docs.com/path/to/page) in the X documentation.`
+
 Do not include quotation marks within a hyperlink.
 
-Links should be meaningful and provide high value to the user’s journey - link out carefully. Move links that are helpful but not necessary to an article’s further reading section. Do not repeat the same link more than once in the same article or under the same H2 header.
+Some best practices for using links:
+- Links should be meaningful and provide high value to the user’s journey—link out carefully.
+- Move links that are helpful but not necessary to an article’s further reading section.
+- Do not repeat the same link more than once in the same article or under the same H2 header.
+- Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurance.)
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
@@ -257,11 +394,13 @@ For more information on links and accessibility, see “[Links](https://readabil
 
 ### Links between versions
 
-Sometimes, you need to link from one version of GitHub Docs to another. For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
+Sometimes, you need to link from one version of GitHub Docs to another. When you want to link to a different version of the _same_ page, you should use the `currentArticle` property.
+
+For example, the Free, Pro, & Team version of "[Managing the publication of GitHub Pages sites for your organization](https://docs.github.com/en/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)" might link to the Enterprise Cloud version of the same article like this:
 
 >You can choose to allow or disallow the publication of GitHub Pages sites.
 >
->Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization).
+>Organizations that use GitHub Enterprise Cloud can choose to allow publicly published sites, privately published sites, both, or neither. For more information, see [the GitHub Enterprise Cloud documentation](/enterprise-cloud@latest/{{ currentArticle }}).
 
 To link to a different article in a different version, use this format:
 
@@ -269,9 +408,9 @@ To link to a different article in a different version, use this format:
 
 To link to the same article in a different version, use this format:
 
-> For more information, see [the VERSION documentation]().
+> For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).
 
-To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/admin/overview/about-enterprise-accounts`).
+To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/{{ currentArticle }}`).
 
 ### Links to specific sections of articles
 
@@ -282,6 +421,12 @@ To link to a specific header in the same article, use this format:
 
 To link to a specific header in a different article, use this format:
 > For more information, see "[ARTICLE TITLE](path-to-article#HEADER-TITLE)."
+
+### Links to a specific tool
+
+When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
+
+> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
 
 ### Links to learning paths
 
@@ -296,8 +441,6 @@ When linking to an external site, choose the most useful resource for the contex
 It's not necessary to link to an external product’s website when we mention an external product.
 
 ## Lists
-
-For general guidelines, see “[Lists](https://brand.github.com/content/grammar#lists)” in GitHub’s Brand Guide.
 
 Capitalize the first letter in each line of a list. Use periods at the end of lines in a list only if the line contains a complete sentence.
 
@@ -342,7 +485,7 @@ Product names are always singular.
 - **Use:** GitHub Actions helps you automate your software development workflows.
 - **Avoid:** GitHub Actions help you automate your software development workflows.
 
-Take care to distinguish between product names and product elements. For more information, see “[Terminology](https://brand.github.com/content/terminology)” in GitHub’s Brand Guide.
+Take care to distinguish between product names and product elements.
 
 | Product | Element |
 | --- | --- |
@@ -359,7 +502,7 @@ This section describes additional conventions that are specific to GitHub produc
 
 #### Reusables for first-party actions
 
-Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
+Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g. from `v1` to `v2`) easier to manage for products like GitHub Enterprise Server, which might not have the same action version available until a future Enterprise Server release.
 
 Action reusables are located in `/data/reusables/actions/` and have a filename like `action-<action_name>.md`
 
@@ -405,7 +548,7 @@ This is an example of a third-party action:
 
 ```
 steps:
-    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+    - uses: google-github-actions/setup-gcloud@1bee7de035d65ec5da40a31f8589e240eba8fde5
 ```
 
 Examples:
@@ -417,7 +560,7 @@ Code examples that use third-party actions must always pin to a full length comm
 
 ```
 steps:
-    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+    - uses: google-github-actions/setup-gcloud@1bee7de035d65ec5da40a31f8589e240eba8fde5
 ```
 
 For GitHub Docs purposes, a third-party action is any action that doesn't have one of the following prefixes: `actions/`, `github/`, and `octo-org/`. For example, this is a first-party action:
@@ -443,18 +586,337 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
+### GitHub Advanced Security (GHAS)
+
+Use the terms `licenses` and `active committers` when you refer to GitHub Advanced Security billing.
+
+We used to use the term `seats` to describe the number of accounts that can use GitHub Advanced Security in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES/GHAE 3.7 onward do not use it.
+
+### Personal access tokens
+
+GitHub has two types of personal access tokens:
+
+- Fine-grained personal access tokens: Offer granular control over repository access and permissions
+- Personal access tokens (classic): Use scopes and grant access to all repositories that the token owner can access
+
+You should use variables to refer to these types of tokens, as well as to personal access tokens in general:
+
+- Use `{% data variables.product.pat_generic %}`or `{% data variables.product.pat_generic_caps %}` to refer to personal access tokens in general. Use `{% data variables.product.pat_generic_title_case %}` if the phrase should be in title case ("Personal Access Token") in order to match UI text.
+- Use `{% data variables.product.pat_v2 %}` or `{% data variables.product.pat_v2_caps %}` to refer to fine-grained personal access tokens.
+- Use `{% data variables.product.pat_v1 %}`, `{% data variables.product.pat_v1_plural %}`, `{% data variables.product.pat_v1_caps %}`, or `{% data variables.product.pat_v1_caps_plural %}` to refer to personal access tokens (classic).
+
+For more information about GitHub's personal access tokens, see "[Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#about-personal-access-tokens)."
+
 ## Punctuation
 
-Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://brand.github.com/content/grammar#punctuation)” in GitHub’s Brand Guide and “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+
+## Release notes
+
+A set of release notes on GitHub Docs tell readers about administrator- or user-facing changes to a versioned release of a product like GitHub Enterprise Server (GHES). Release notes appear in the [Enterprise administrator docs](https://docs.github.com/en/enterprise-server/admin/release-notes).
+
+A good release note is a few sentences that sequentially answer the reader's questions about the change. For more information, see [Content model for GitHub Docs](/contributing/content-model.md#release-notes).
+
+Each release note in a set describes one of the following changes.
+
+- [Features](#features): brand-new behavior or functionality
+- [Security fixes](#security-fixes): fixes to flaws or unexpected behavior that have security implications
+- [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
+- [Changes](#changes): notable changes to past behavior
+- [Deprecations](#deprecations): removal of a feature or behavior
+
+You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note).
+
+### Features
+
+A release note for a feature summarizes brand-new behavior. Generally, notes for features are only part of feature releases.
+
+#### Writing release notes for features
+
+A release note for a feature answers the following questions.
+
+1. Does this new functionality apply to me, with my role or access?
+1. What need does the functionality satisfy?
+1. What is the functionality?
+1. If applicable, where can I read more about the functionality?
+
+> _AUDIENCE_ (**1**) can _DESCRIPTION OF NEED_ (**2**) by _DESCRIPTION OF FEATURE'S USE_ (**3**). For more information, see "[_ARTICLE TITLE_]()" (**4**).
+
+- Categorize each feature in a section, under a feature heading.
+- Write in the present tense.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+
+#### Examples of feature release notes
+
+- > Site administrators can increase the security of the Management Console by configuring the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](https://docs.github.com/enterprise-server@3.7/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
+
+- > Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see "[Enforcing repository management policies in your enterprise](https://docs.github.com/enterprise-server@3.7/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
+
+- > Users can create files with geoJSON, topoJSON, and STL diagrams and render the diagrams in the web interface. For more information, see "[Working with non-code files](https://docs.github.com/enterprise-server@3.7/repositories/working-with-files/using-files/working-with-non-code-files)."
+
+### Security fixes
+
+A release note for a security fix summarizes a change that mitigates or prevents exploitation of a security-related issue in the product. Generally, notes for security fixes are only part of patch releases.
+
+#### Writing release notes for security fixes
+
+A release note for a security fix answers the following questions.
+
+1. If available, what is the [NVD vulnerability severity rating](https://nvd.nist.gov/vuln-metrics/cvss) for the vulnerability that's fixed?
+1. What is the attack that an attacker could accomplish by exploiting the vulnerability?
+1. What type of vulnerability is exploitable?
+1. If available, what is the vulnerability's [CVE identifier](https://cve.mitre.org/cve/identifiers/), pending or active?
+1. Did someone report the vulnerability via the [GitHub Bug Bounty program](https://bounty.github.com)?
+
+> _SEVERITY_ (**1**): An attacker could _DESCRIPTION OF IMPACT_ (**2**) by _DESCRIPTION OF EXPLOIT_ (**3**). GitHub has requested CVE ID [_CVE-####-#####_]() (**4**) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com) (**5**).
+
+#### Examples of release notes for security fixes
+
+- > **MEDIUM**: An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, GitHub has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). GitHub has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
+
+- > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+
+### Bug fixes
+
+A release note for a bug fix describes a correction to an undesired or otherwise unexpected behavior. Generally, notes for bug fixes are only part of patch releases.
+
+#### Writing release notes for bug fixes
+
+A release note for a bug fix answers the following questions.
+
+1. Did the behavior affect me, with my role or access?
+1. What behavior would the reader experience prior to the fix?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF BEHAVIOR_ (**2**).
+
+- Because the bug is now fixed, write in the past tense.
+- Language like "fixed a bug..." or "fixed an issue..." is implied and unnecessary.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+
+#### Examples of release notes for bug fixes
+
+- > After a user imported a repository with push protection enabled, the repository was not immediately visible in the security overview's "Security Coverage" view.
+
+- > On an instance with GitHub Actions enabled, a workflow job for GitHub Actions would not start if a matching runner group was unavailable when the job was initially queued, even if a matching runner group became available after the job entered the queue.
+
+- > Commands that site administrators ran via SSH on any of the instances nodes were not logged in ``/var/log/ssh-console-audit.log``.
+
+### Changes
+
+A release note for a change describes a notable, but minor change to existing behavior. Notes for changes answer the following questions.
+
+#### Writing release notes for changes
+
+A release note for a change answers the following questions.
+
+1. Did the behavior affect me, with my role or access?
+1. If the change solves or avoids a problem, what's that problem?
+1. What's the new behavior?
+1. If relevant, what was the behavior before the change?
+
+> _AUDIENCE_ (**1**) / _DESCRIPTION OF PROBLEM CHANGE SOLVES_ (**2**) _DESCRIPTION OF NEW BEHAVIOR_ (**3**) _DESCRIPTION OF OLD BEHAVIOR_ (**4**).
+
+- Because the change applies to the release in question, write notes for changes in the present tense.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+- Often, the audience is implied.
+- If useful, include relevant links to GitHub Docs.
+
+#### Examples of release notes for changes
+
+- > On an instance with a GitHub Advanced Security license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
+
+- > For administrators who need to review or modify SAML mappings, the default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[Command-line utilities](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
+
+- > To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, GitHub Enterprise Server checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced.
+
+### Known issues
+
+A release note for a known issue describes an issue that GitHub has identified, but cannot or has not yet prioritized.
+
+#### Writing release notes for known issues
+
+A release note for a known issue answers the following questions.
+
+1. Does the behavior affect me, with my role or access?
+1. If the change solves or avoids a problem, what's that problem?
+1. What are any error messages or other recognizable UI elements that appear?
+1. Do I need to act? If so, what should I do?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF ISSUE_ (**2**) _DETAILS OF BEHAVIOR_ (**3**) _NEXT STEPS_ (**4**).
+
+- To clarify actors and impact, avoid passive language when possible.sent tense.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+- If useful, include relevant links to GitHub Docs.
+- Known issues are also a [type of content on GitHub Docs](/contributing/content-model.md#known-issues). If useful, write or link to more in-depth and contextually relevant content in the docs.
+
+#### Examples of release notes for known issues
+
+- > After a user enables the option for a repository to allow users with read access to create discussions, the feature is not enabled.
+
+- > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+
+### Deprecations
+
+A deprecation release note summarizes a behavior or feature that GitHub has removed or plans to remove. Generally, notes for deprecations are only part of feature releases.
+
+#### Writing release notes for deprecations
+
+A release note for a deprecation answers the following questions.
+
+1. Does this existing functionality apply to me, with my role or access?
+1. What is the functionality that's being deprecated?
+1. If applicable, what replaces the deprecated functionality?
+1. If applicable, where can I read more?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF DEPRECATED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see "[_ARTICLE TITLE_]()" (**4**).
+
+- Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release where the deprecation will occur.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+- Categorize each feature in a section, under a feature heading.
+
+#### Examples of release notes for deprecations
+
+- > **Upcoming deprecation**: In GitHub Enterprise Server 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+
+- > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
+
+### Adding or updating a release note
+
+If you add or update an individual release note after initial publication, to signal to readers that the note has changed, append a datestamp in the format "[Updated: YYYY-MM-DD]".
 
 ## Reusables and variables
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.
 
+## Sectional TOCs
+
+If a section of an article uses `H3` or `H4` headers to further divide the content and only some of the content is relevant to a reader, you can use a sectional table of contents (TOC) to help readers identify and navigate to the information that is most relevant to them. For example, in "[Streaming the audit log for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise#setting-up-streaming-to-amazon-s3)" people will probably only set up audit log streaming for one provider, so the sectional TOC in "Setting up audit log streaming" allows people to select their provider and navigate to the relevant content without reading the entire section.
+
+Do not add a sectional TOC if `H3` or `H4` headers are used only to group content and all information could be of relevance to a reader. For example, in "[About authentication for your enterprise](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)," people should read and consider each section as it relates to their enterprise. We do not include a sectional TOC in this article because people should be reading through each section, not picking and choosing between them. Adding a sectional TOC would also force people who use screenreaders or other adaptive technology to tab and scroll through more headers before finding what they need.
+
+Format sectional TOCs as a list. Include all subsections in the order that they appear in the article and refer to them using the full header title.
+
+Sectional TOCs must be introduced with a sentence or paragraph that helps people understand how the content is organized and select the section that is most relevant to them. Do not include a sectional TOC directly beneath a header.
+
+### Example of sectional TOCs
+
+```
+## Setting up the application
+
+Set up your application according to your operating system.
+
+- [Setting up for macOS](#setting-up-for-macOS)
+- [Setting up for Windows](#setting-up-for-windows)
+- [Setting up for Linux](#setting-up-for-linux)
+
+### Setting up for macOS
+
+TEXT
+
+### Setting up for Windows
+
+The application is supported for all versions of Windows, but the set up steps differ.
+
+- [Windows 98](#windows-98)
+- [Windows Vista](#windows-vista)
+- [Windows 11](#windows-11)
+
+#### Windows 98
+
+TEXT
+
+#### Windows Vista
+
+TEXT
+
+#### Windows 11
+
+TEXT
+
+### Setting up for Linux
+
+TEXT
+```
+
 ## Tables
 
-A table’s contents should be clear from the preceding content - avoid unneeded descriptions. If you must describe a table, use complete sentences closed with a period.
-- **Use:** Nothing or a clear header.
-- **Avoid:** “The table below shows what kind of migration data is exported:”
+### Use tables only for presenting tabular information
+Tables work best for presenting tabular data, such as information that needs to be compared or values with multiple attributes. Do not use tables for simple lists - see the "[Lists](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#lists)" section of this document.
+
+### Avoid describing table data
+A table’s data and why it is important should be clear from any preceding content, the column headers, and (if needed) the row headers. Avoid unneeded descriptions of the data in a table. If the data in a table is unclear without a lengthy description, consider if your table needs row headers or if the information would be better communicated in a different way.
+
+For example, in "[Autoscaling with self hosted runners](https://docs.github.com/en/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#recommended-autoscaling-solutions)," a table comparing the features between two supported autoscaling solutions is introduced with the sentence `Each solution has certain specifics that may be important to consider.` The article does not describe any of the different features that are compared because that information is clearly communicated by the table.
+
+- **Use:** "Different size limits per repository apply depending on your GHES version."
+- **Avoid:** "The first row of the table shows the information for GitHub Enterprise Cloud. The second row shows the information for GitHub Enterprise Server."
+- **Avoid:** “The table below shows what kind of migration data is exported.”
+
+### Use proper markup for row and column headers
+
+Tables in which the first column describes the data values in the table (but is not data itself) need to be marked up with row headers. This is important for assistive technology to understand relationships between cells. 
+
+For example in the following table, in order to make sense of the "Yes" and "No" values in the table, you need to know both the column header (role) and row header (permission).
+
+<table>
+  <tr>
+    <th>Organization permission</th>
+    <th>Owners</th>
+    <th>Members</th>
+    <th>Moderators</th>
+    <th>Billing managers</th>
+    <th>Security managers</th>
+  </tr>
+  <tr>
+    <th>Create repositories</th>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>View and edit billing information</th>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <th>Invite people to join the organization</th>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+</table>
+
+To add row headers for a Markdown table, wrap the table in the Liquid tags `{% rowheaders %} {% endrowheaders %}`. For more information about using row headers, see "[Table row headers](./content-markup-reference.md#table-row-headers)" in the content markup reference.
+
+### Include a value for every cell
+Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
+
+If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
+
+### Use clear, consistent symbols and labels
+
+For tables that use symbols:
+
+* Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
+* Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji.
+* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+* Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
+
+Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[About GitHub Support](https://docs.github.com/en/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase".
+
+### Use footnotes sparingly
+See "[Footnotes](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#footnotes)."
 
 ## Titles
 
@@ -476,7 +938,7 @@ We use short titles to populate the sidebar navigation. They should give users c
     - Enterprise accounts
 - Short titles should still mimic format of the full title
   - For task-based titles, if there’s a preposition or object or it’s otherwise awkward to shorten, try to find a verb but you can use a nouns when needed
-  
+
 | Instead of | Use |
 |---|---|
 | Authenticating to GitHub | Authentication |
@@ -528,6 +990,17 @@ Describe a user interface element’s location with standard terms.
 - Upper-left, upper-right, lower-left, lower-right
 - Top of the page, bottom of the page, right side of the page, left side of the page
 
+### Panels
+
+When possible, avoid referring to panels. Instead, describe what someone needs to do.
+- **Use:** Click **View charts and graphs** for your repository, then select the time period you want to view from the dropdown menu.
+- **Avoid:** Click the **View charts and graphs** to open the panel for your selected repository, then select the time period you want to view from the dropdown menu.
+
+If you need to refer to a panel to describe a change to the UI or to explain how to interact with the UI, format the panel name as [user interface text](#user-interface-text). Only include the word panel if it adds clarity or if the panel has no name in the UI.
+
+- **Use:** In the "Security coverage" panel, select **Enable** or **Disable**.
+- **Use:** In the panel, select **Enable** or **Disable**.
+
 ### Radio buttons
 
 Format radio button labels in bold and omit the words “radio button” or any other descriptor. To describe using a radio button, write "select."
@@ -543,19 +1016,28 @@ When referencing text in the user interface, reproduce the text exactly. Use quo
 - **Use:** Under “IP allow list”, click **Edit**.
 
 ### More resources
-GitHub Brand Guide:
-- [Referring to GitHub features and product elements](https://brand.github.com/content/terminology/#referring-to-github-features-and-product-elements)
-- [Page names and UI references](https://brand.github.com/content/grammar#page-names-and-ui-references)
 Microsoft Style Guide:
 - [Formatting text in instructions](https://docs.microsoft.com/style-guide/procedures-instructions/formatting-text-in-instructions)
 
+## Videos
+
+You may add videos to reinforce text-based information but videos should never replace written content. Videos are inaccessible to some users and are also difficult to find by searching.
+
+Videos on the GitHub Docs website must be well-produced and accessible, and conform to our content model for videos. For more information, see "[Using videos in GitHub Docs content](./videos.md)."
+
 ## Voice and tone
 
-Use clear, simple language that’s approachable and accessible for a wide range of readers. To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
+Use clear, simple language that’s approachable and accessible for a wide range of readers. Be authentic, empathetic, and confident with your writing.
+
+Write for your audience: some jargon and technical terms are necessary, but don't rely on the assumption that every reader has the same level of technical expertise.
+
+We are a global developer community. Avoid turns of phrase, idioms, and slang that are specific to a particular region or country.
+
+To learn more about writing approachable content, see “[Microsoft's brand voice: Above all, simple and human](https://docs.microsoft.com/style-guide/brand-voice-above-all-simple-human) and “[Top 10 tips for Microsoft style and voice](https://docs.microsoft.com/style-guide/top-10-tips-style-voice).”
 
 ## Word choice and terminology
 
-For general guidance and GitHub-specific terms, see “[Terminology](https://brand.github.com/content/terminology)” and “[Words that can be tricky](https://brand.github.com/content/grammar#words-that-can-be-tricky)” in GitHub’s Brand Guide. For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
+For general guidance and GitHub-specific terms, see our "[Glossary](https://docs.github.com/en/get-started/quickstart/github-glossary)". For more detailed guidance, see the “[A-Z word list](https://docs.microsoft.com/style-guide)” in Microsoft’s style guide.
 
 ### Abbreviations
 
@@ -663,10 +1145,6 @@ Where the first reference concerns `cents` or a non-dollar amount, capitalize th
 
 - **Use:** `99 cents (US currency)` for the first reference, and `99 cents` for subsequent references.
 - **Avoid:** `$0.99 (US currency)`, `$0.99 USD cents`, `USD$0.99 cents`.
-
-### Inclusive language
-
-See the “Inclusive language” section of this guide.
 
 ### Permissions
 

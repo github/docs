@@ -1,13 +1,12 @@
 import { jest } from '@jest/globals'
 import path from 'path'
-import { loadPages, loadPageMap, correctTranslationOrphans } from '../../lib/page-data.js'
+import { loadPages } from '../../lib/page-data.js'
 import libLanguages from '../../lib/languages.js'
 import { liquid } from '../../lib/render-content/index.js'
 import patterns from '../../lib/patterns.js'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
 import { chain, pick } from 'lodash-es'
-import checkIfNextVersionOnly from '../../lib/check-if-next-version-only.js'
 import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
 const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()
@@ -18,7 +17,7 @@ describe('pages module', () => {
   let pages
 
   beforeAll(async () => {
-    pages = await correctTranslationOrphans(await loadPages())
+    pages = await loadPages()
   })
 
   describe('loadPages', () => {
@@ -32,16 +31,9 @@ describe('pages module', () => {
     })
 
     test('every page has a non-empty `permalinks` array', async () => {
-      const brokenPages = pages
-        .filter((page) => !Array.isArray(page.permalinks) || page.permalinks.length === 0)
-        // Ignore pages that only have "next" versions specified and therefore no permalinks;
-        // These pages are not broken, they just won't render in the currently supported versions.
-        .filter(
-          (page) =>
-            !Object.values(page.versions).every((pageVersion) =>
-              checkIfNextVersionOnly(pageVersion)
-            )
-        )
+      const brokenPages = pages.filter(
+        (page) => !Array.isArray(page.permalinks) || page.permalinks.length === 0
+      )
 
       const expectation = JSON.stringify(
         brokenPages.map((page) => page.fullPath),
@@ -150,31 +142,6 @@ describe('pages module', () => {
 
       const failureMessage = JSON.stringify(liquidErrors, null, 2)
       expect(liquidErrors.length, failureMessage).toBe(0)
-    })
-  })
-
-  describe('loadPageMap', () => {
-    let pageMap
-    beforeAll(async () => {
-      pageMap = await loadPageMap(pages)
-    })
-
-    test('yields a non-empty object with more unique entries than pages', async () => {
-      // Why does it contain MORE unique entries, you ask?
-      // TL;DR: The pages array contains one item per Page + language, with a `permalinks` array
-      // property for each product version supported (free-pro-team, enterprise-server@3.0, etc.)
-      // The pageMap, on the other hand, is keyed by unique URLs, so it has 1-N (where N is the
-      // number of product versions supported) keys pointing to the same Page + language object
-
-      expect(Array.isArray(pageMap)).toBe(false)
-      expect(Object.keys(pageMap).length).toBeGreaterThan(pages.length)
-    })
-
-    test('has an identical key list to the deep permalinks of the array', async () => {
-      const allPermalinks = pages.flatMap((page) => page.permalinks.map((pl) => pl.href)).sort()
-      const allPageUrls = Object.keys(pageMap).sort()
-
-      expect(allPageUrls).toEqual(allPermalinks)
     })
   })
 })

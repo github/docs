@@ -44,8 +44,7 @@ export const getProductGuidesContextFromRequest = (req: any): ProductGuidesConte
   const page = req.context.page
 
   return {
-    ...pick(page, ['intro', 'allTopics']),
-    title: req.context.productMap[req.context.currentProduct].name,
+    ...pick(page, ['title', 'intro', 'allTopics']),
     featuredTrack: page.featuredTrack
       ? {
           ...pick(page.featuredTrack, ['title', 'description', 'trackName', 'trackProduct']),

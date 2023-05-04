@@ -30,7 +30,6 @@ export default async function featuredLinks(req, res, next) {
           req.context,
           {
             textOnly: true,
-            encodeEntities: true,
           }
         )
         const item = { title, href: req.context.page.featuredLinks[key][i].href }

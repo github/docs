@@ -12,8 +12,7 @@ on:
     types: [created]
 
   schedule:
-    # Schedule for five minutes after the hour every hour
-    - cron: '5 * * * *'
+    - cron: '20 * * * *' # Run each hour at 20 minutes past
 
 permissions:
   issues: write
@@ -21,6 +20,7 @@ permissions:
 jobs:
   noResponse:
     runs-on: ubuntu-latest
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - uses: lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb
         with:
