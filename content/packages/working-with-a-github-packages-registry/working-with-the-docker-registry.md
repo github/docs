@@ -33,7 +33,6 @@ Docker images previously stored in the Docker registry are being automatically m
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
 ## About Docker
-Although running Docker inside Docker is generally not recommended, there are some legitimate use cases, such as development of Docker itself.
 Docker is an open-source project that automates the deployment of applications inside software containers, by providing an additional layer of abstraction and automation of operating-system-level virtualization on Linux, Mac OS and Windows.
 
 
