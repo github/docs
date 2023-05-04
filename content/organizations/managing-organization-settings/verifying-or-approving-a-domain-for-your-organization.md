@@ -1,6 +1,6 @@
 ---
 title: Verifying or approving a domain for your organization
-intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm your organization''s identity. You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of your organization.'
+intro: 'You can verify your ownership of domains with {% data variables.product.company_short %} to confirm your organization''s identity.{% ifversion ghec or ghes %} You can also approve domains that {% data variables.product.company_short %} can send email notifications to for members of your organization.{% endif %}'
 redirect_from:
   - /articles/verifying-your-organization-s-domain
   - /articles/verifying-your-organizations-domain
@@ -8,6 +8,7 @@ redirect_from:
   - /organizations/managing-organization-settings/verifying-your-organizations-domain
 permissions: Organization owners can verify or approve a domain for an organization.
 versions:
+  fpt: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -23,14 +24,8 @@ shortTitle: Verify or approve a domain
 
 After verifying ownership of your organization's domains, a "Verified" badge will display on the organization's profile. {% ifversion ghec %}If your organization has agreed to the Corporate Terms of Service, organization owners will be able to verify the identity of organization members by viewing each member's email address within the verified domain. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-organizations-profile)" and "[AUTOTITLE](/free-pro-team@latest/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
 
-{% ifversion ghec %}If your organization is owned by an enterprise account, a{% elsif ghes %}A{% endif %} "Verified" badge will display on your organization's profile for any domains verified for the enterprise account, in addition to any domains verified for the organization. Organization owners can view any domains that an enterprise owner has verified or approved, and edit the domains if the organization owner is also an enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
-
-{% ifversion ghec %}
-{% note %}
-
-**Note:** To verify or approve domains, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
-
-{% endnote %}
+{% ifversion ghec or ghes %}
+{% ifversion ghec %}If your organization is owned by an enterprise account, a{% else %}A{% endif %} "Verified" badge will display on your organization's profile for any domains verified for the enterprise account, in addition to any domains verified for the organization. Organization owners can view any domains that an enterprise owner has verified or approved, and edit the domains if the organization owner is also an enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
 {% endif %}
 
 {% data reusables.organizations.verified-domains-details %}
@@ -39,8 +34,17 @@ After verifying ownership of your organization's domains, a "Verified" badge wil
 After verifying ownership of your organization's domain, you can restrict email notifications for the organization to that domain. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization)."
 {% endif %}
 
+{% ifversion ghec %}
+{% note %}
+
+**Note:** To restrict email notifications to a verified domain, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
+
 {% ifversion ghec %}You can also verify custom domains used for {% data variables.product.prodname_pages %} to prevent domain takeovers when a custom domain remains configured but your {% data variables.product.prodname_pages %} site is either disabled or no longer uses the domain. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."{% endif %}
 
+{% ifversion ghec or ghes %}
 ## About domain approval
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
@@ -52,6 +56,7 @@ After you approve domains for your organization, you can restrict email notifica
 Enterprise owners cannot see which organization members or email addresses receive notifications within approved domains.
 
 Enterprise owners can also approve additional domains for organizations owned by the enterprise. {% ifversion ghec %}For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}{% ifversion ghes %}For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."{% endif %}
+{% endif %}
 
 ## Verifying a domain for your organization
 

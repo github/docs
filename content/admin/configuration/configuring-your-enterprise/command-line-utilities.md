@@ -120,11 +120,13 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   $ ghe-config HOSTNAME.uuid
 ```
 
-Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+
 
 ``` shell
-$ ghe-config app.github.rate-limiting-exempt-users "HUBOT GITHUB-ACTIONS"
-# Exempts the users hubot and github-actions from rate limits
+$ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
+# Exempts the users hubot and github-actions[bot] from rate limits. Usernames are case-sensitive.
+
 ```
 
 ### ghe-config-apply

@@ -8,7 +8,7 @@ import { allVersions } from '../../../lib/all-versions.js'
 import { GRAPHQL_DATA_DIR } from '../lib/index.js'
 
 const allVersionValues = Object.values(allVersions)
-const graphqlVersions = allVersionValues.map((v) => v.miscVersionName)
+const graphqlVersions = allVersionValues.map((v) => v.openApiVersionName)
 const graphqlTypes = readJsonFile('./src/graphql/lib/types.json').map((t) => t.kind)
 
 const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })

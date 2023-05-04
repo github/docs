@@ -21,6 +21,7 @@ children:
   - pages
   - code-security
   - actions
+  - rest
   # - account-and-profile
   # - authentication
   # - repositories
@@ -35,7 +36,6 @@ children:
   # - packages
   # - search-github
   # - developers
-  # - rest
   # - graphql
   # - github-cli
   # - discussions

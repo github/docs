@@ -291,6 +291,8 @@ You can use the `--config-file-path` argument with the `audit`, `dry-run`, and `
 
 By default, {% data variables.product.prodname_actions_importer %} fetches pipeline contents from source control. The `--config-file-path` argument tells {% data variables.product.prodname_actions_importer %} to use the specified source files instead.
 
+The `--config-file-path` argument can also be used to specify which repository a converted composite action should be migrated to.
+
 ##### Audit example
 
 In this example, {% data variables.product.prodname_actions_importer %} uses the specified YAML configuration file to perform an audit.
@@ -317,6 +319,31 @@ The pipeline is selected by matching the `repository_slug` in the config file to
 
 ```bash
 gh actions-importer dry-run circle-ci --circle-ci-project circle-org-name/circle-project-name --output-dir ./output/ --config-file-path ./path/to/circle-ci/config.yml 
+```
+
+##### Specify the repository of converted composite actions
+
+{% data variables.product.prodname_actions_importer %} uses the YAML file provided to the `--config-file-path` argument to determine the repository that converted composite actions are migrated to.
+
+To begin, you should run an audit without the `--config-file-path` argument:
+
+```bash
+gh actions-importer audit circle-ci --output-dir ./output/
+```
+
+The output of this command will contain a file named `config.yml` that contains a list of all the composite actions that were converted by {% data variables.product.prodname_actions_importer %}. For example, the `config.yml` file may have the following contents:
+
+```yaml
+composite_actions:
+  - name: my-composite-action.yml
+    target_url: https://github.com/octo-org/octo-repo
+    ref: main
+```
+
+You can use this file to specify which repository and ref a reusable workflow or composite action should be added to. You can then use the `--config-file-path` argument to provide the `config.yml` file to {% data variables.product.prodname_actions_importer %}. For example, you can use this file when running a `migrate` command to open a pull request for each unique repository defined in the config file:
+
+```bash
+gh actions-importer migrate circle-ci --circle-ci-project my-project-name --output-dir output/ --config-file-path config.yml --target-url https://github.com/my-org/my-repo
 ```
 
 #### `--include-from`

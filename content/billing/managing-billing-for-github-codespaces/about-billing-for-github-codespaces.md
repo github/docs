@@ -20,6 +20,12 @@ redirect_from:
 
 ## About {% data variables.product.prodname_github_codespaces %} pricing
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 {% data reusables.codespaces.codespaces-free-for-personal-intro %}
 
 Charges are billed to an organization or enterprise when all of the following are true:

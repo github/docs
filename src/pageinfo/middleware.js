@@ -32,6 +32,13 @@ const validationMiddleware = (req, res, next) => {
   // if it needs to do a fallback, it needs to know the correct
   // equivalent English page.
   const redirectsContext = { pages: req.context.pages, redirects: req.context.redirects }
+
+  // Similar to how the `handle-redirects.js` middleware works, let's first
+  // check if the URL is just having a trailing slash.
+  while (pathname.endsWith('/') && pathname.length > 1) {
+    pathname = pathname.slice(0, -1)
+  }
+
   const redirect = getRedirect(pathname, redirectsContext)
   if (redirect) {
     pathname = redirect

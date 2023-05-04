@@ -16,6 +16,7 @@ children:
   - /using-the-github-api-in-your-app
   - /building-a-login-with-github-button-with-a-github-app
   - /building-a-cli-with-a-github-app
+  - /making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow
   - /creating-ci-tests-with-the-checks-api
   - /migrating-oauth-apps-to-github-apps
 ---
