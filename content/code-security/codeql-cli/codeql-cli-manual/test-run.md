@@ -53,9 +53,18 @@ Select output format. Possible choices:
 
 `text` *(default)*: A human-readable textual rendering.
 
-`json`: A streamed JSON array of objects.
+`json`: A streamed JSON array of test result objects.
 
-`jsonz`: A stream of zero-terminated JSON objects.
+`betterjson`: A streamed JSON array of event objects.
+
+`jsonz`: A stream of zero-terminated JSON test result objects.
+
+`betterjsonz`: A stream of zero-terminated JSON event objects.
+
+For the `betterjson` and `betterjsonz` formats, each event has a `type`
+property specifying the type of the event. New event types may be added
+in the future, so consumers should ignore any event with an unrecognized
+`kind` property.
 
 #### `--[no-]keep-databases`
 
