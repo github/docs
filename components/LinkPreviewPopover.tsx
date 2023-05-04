@@ -133,6 +133,13 @@ function popoverWrap(element: HTMLLinkElement) {
     const domElement = document.querySelector(`#${domID}`)
     if (domElement && domElement.textContent) {
       anchor = domElement.textContent
+      // Headings will have the `#` character to the right which is to
+      // indicate that it's a "permalink". It becomes part of the heading's
+      // text as a DOM element. Strip that.
+      if (anchor.endsWith(' #')) {
+        anchor = anchor.slice(0, -2)
+      }
+
       // Now we have to make up the product, intro, and title
       const domTitle = document.querySelector('h1')
       if (domTitle && domTitle.textContent) {
