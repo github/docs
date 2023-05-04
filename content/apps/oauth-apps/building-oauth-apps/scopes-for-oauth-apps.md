@@ -40,7 +40,8 @@ X-Accepted-OAuth-Scopes: user
 ## Available scopes
 
 Name | Description
------|-----------|{% ifversion not ghae %}
+-----|-----------|
+{% ifversion not ghae %}
 **`(no scope)`** | Grants read-only access to public information (including user profile info, repository info, and gists){% endif %}{% ifversion ghes or ghae %}
 **`site_admin`** | Grants site administrators access to [{% data variables.product.prodname_ghe_server %} Administration API endpoints](/rest/enterprise-admin).{% endif %}
 **`repo`** | Grants full access to public{% ifversion ghec or ghes or ghae %}, internal,{% endif %} and private repositories including read and write access to code, commit statuses, repository invitations, collaborators, deployment statuses, and repository webhooks. **Note**: In addition to repository related resources, the `repo` scope also grants access to manage organization-owned resources including projects, invitations, team memberships and webhooks. This scope also grants the ability to manage projects owned by users.
