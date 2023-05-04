@@ -64,19 +64,12 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
    {% endtip %}
 
-8. Check the existing remote name for your repository. For example, `origin` or `upstream` are two common choices.
+8. Add a new remote name with the URL you copied for your repository. For example, `origin` or `upstream` are two common choices.
    ```shell
-   $ git remote -v
-   > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (fetch)
-   > origin  https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git (push)
+   git remote add origin https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git
    ```
 
-9. Set up a new remote URL for your new repository using the existing remote name and the remote repository URL you copied in step 7.
-   ```shell
-   git remote set-url origin https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git
-   ```
-
-10. Verify that the remote URL has changed with your new repository name.
+9. Verify that the remote URL was added with your new repository name.
     ```shell
     $ git remote -v
     # Verify new remote URL
@@ -84,7 +77,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
     > origin  https://{% data variables.command_line.codeblock %}/USERNAME/NEW-REPOSITORY-NAME.git (push)
     ```
 
-11. Push your changes to the new repository on {% data variables.product.product_name %}.
+10. Push your changes to the new repository on {% data variables.product.product_name %}.
     ```shell
     git push -u origin BRANCH-NAME
     ```

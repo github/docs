@@ -17,6 +17,7 @@ children:
   - /installing-an-app-in-your-organization
   - /authorizing-github-apps
   - /reviewing-and-revoking-authorization-of-github-apps
+  - /approving-updated-permissions-for-a-github-app
   - /connecting-with-third-party-applications
 ---
 

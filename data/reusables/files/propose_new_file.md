@@ -1,1 +1,1 @@
-1. Click **Propose new file.**
+1. Click **Commit changes** or **Propose changes**.

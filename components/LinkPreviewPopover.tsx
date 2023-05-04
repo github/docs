@@ -342,7 +342,9 @@ export function LinkPreviewPopover() {
       // This filters out links that are not internal or in-page
       // and the ones that are in-page anchor links next to the headings.
       return (
-        link.href.startsWith(window.location.origin) && !link.classList.contains('heading-link')
+        link.href.startsWith(window.location.origin) &&
+        !link.classList.contains('heading-link') &&
+        !link.href.startsWith('/public/')
       )
     })
 
