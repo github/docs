@@ -39,9 +39,17 @@ const validationMiddleware = (req, res, next) => {
     pathname = pathname.slice(0, -1)
   }
 
-  const redirect = getRedirect(pathname, redirectsContext)
-  if (redirect) {
-    pathname = redirect
+  // E.g. a request for `/` is handled as a redirect outside the
+  // getRedirect() function.
+  if (pathname === '/') {
+    pathname = `/${req.context.currentLanguage}`
+  }
+
+  if (!(pathname in req.context.pages)) {
+    const redirect = getRedirect(pathname, redirectsContext)
+    if (redirect) {
+      pathname = redirect
+    }
   }
   const page = req.context.pages[pathname]
 
