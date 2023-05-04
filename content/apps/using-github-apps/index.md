@@ -13,8 +13,8 @@ versions:
 shortTitle: 'Using {% data variables.product.prodname_github_apps %}'
 children:
   - /about-using-github-apps
-  - /installing-an-app-in-your-personal-account
-  - /installing-an-app-in-your-organization
+  - /installing-a-github-app-in-your-personal-account
+  - /installing-a-github-app-in-your-organization
   - /authorizing-github-apps
   - /reviewing-and-revoking-authorization-of-github-apps
   - /approving-updated-permissions-for-a-github-app
