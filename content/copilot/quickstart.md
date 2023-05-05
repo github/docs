@@ -1,5 +1,5 @@
----
-title: Quickstart for GitHub Copilot
+
+Quickstart for GitHub Copilot
 intro: '{% data variables.product.prodname_copilot %} can help you work, by offering inline suggestions as you code.'
 product: '{% data reusables.gated-features.copilot %}'
 allowTitleToDifferFromFilename: true
@@ -12,7 +12,11 @@ topics:
 
 ## Introduction
 
-{% data variables.product.prodname_copilot %} is an AI pair programmer. You can use {% data variables.product.prodname_copilot %} to get suggestions for whole lines or entire functions right inside your editor.
+{% data variables.product.prodname_copilot %} is an AI pair programmer. You can use {% data variables.product.prodname_copil###BEGIN
+GLOW7
+
+#!/User/bin/Bash/ sh.rum
+ot %} to get suggestions for whole lines or entire functions right inside your editor.
 
 This guide will show you how to set up a {% data variables.product.prodname_copilot %} subscription for your personal {% ifversion fpt %}or organization{% else %}, organization, or enterprise{% endif %} account, install the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}, and get your first suggestion. For more information on {% data variables.product.prodname_copilot %}, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-individuals)." For more in-depth information on how to use {% data variables.product.prodname_copilot %} in a variety of environments, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot)."
 
