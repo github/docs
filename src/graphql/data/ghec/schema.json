@@ -43897,7 +43897,7 @@
         },
         {
           "name": "fieldValueByName",
-          "description": "<p>A specific field value given a field name.</p>",
+          "description": "<p>The field value of the first project field which matches the<code>name</code>argument that is set on the item.</p>",
           "type": "ProjectV2ItemFieldValue",
           "id": "projectv2itemfieldvalue",
           "kind": "unions",
@@ -43917,7 +43917,7 @@
         },
         {
           "name": "fieldValues",
-          "description": "<p>List of field values.</p>",
+          "description": "<p>The field values that are set on the item.</p>",
           "type": "ProjectV2ItemFieldValueConnection!",
           "id": "projectv2itemfieldvalueconnection",
           "kind": "objects",
