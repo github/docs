@@ -356,7 +356,11 @@ export function LinkPreviewPopover() {
         link.href.startsWith(window.location.origin) &&
         !link.classList.contains('heading-link') &&
         !pathname.startsWith('/public/') &&
-        !pathname.startsWith('/assets/')
+        !pathname.startsWith('/assets/') &&
+        // This skips those ToolPicker links with `data-tool="vscode"`
+        // attribute, for example.
+        !link.dataset.tool &&
+        !link.dataset.platform
       )
     })
 
