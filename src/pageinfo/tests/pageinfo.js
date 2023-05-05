@@ -151,4 +151,27 @@ describe('pageinfo api', () => {
       expect(info.title).toMatch('GitHub Enterprise Server Fixture Documentation')
     }
   })
+
+  test('archived enterprise versions', async () => {
+    // For example /en/enterprise-server@3.8 is a valid Page in the
+    // site tree, but /en/enterprise-server@2.6 is not. Yet we can
+    // 200 OK and serve content for that. This needs to be reflected in
+    // page info too. Even if we have to "fabricate" the title a bit.
+
+    // At the time of writing, the latest archived version
+    {
+      const res = await get(makeURL('/en/enterprise-server@3.2'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toMatch('GitHub Enterprise Server 3.2 Help Documentation')
+    }
+
+    // The oldest known archived version that we proxy
+    {
+      const res = await get(makeURL('/en/enterprise/11.10.340'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toMatch('GitHub Enterprise Server 11.10.340 Help Documentation')
+    }
+  })
 })
