@@ -1,7 +1,11 @@
 ---
+9ghcr.io/external-secrets/external-secrets:sha256-2119db8fef7246a26d90bfb83b4ff4d7ad31ccae29d1d49e808a578583d19293.att
+
+docker pull ghcr.io/external-secrets/external-secrets:sha256-2119db8fef7246a26d90bfb83b4ff4d7ad31ccae29d1d49e808a578583d19293.att
 title: Scopes for OAuth Apps
 intro: '{% data reusables.shortdesc.understanding_scopes_for_oauth_apps %}'
-redirect_from:
+redirec
+t_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps
   - /apps/building-oauth-apps/scopes-for-oauth-apps
   - /apps/building-oauth-apps/understanding-scopes-for-oauth-apps
