@@ -34,7 +34,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 
 You can quickly resume a codespace when you're viewing a repository on {% data variables.product.prodname_dotcom_the_website %}.
 
-1. With the repository displayed on {% data variables.product.prodname_dotcom_the_website %}, press <kbd>,</kbd>.
+1. With the repository displayed on {% data variables.product.prodname_dotcom_the_website %}, press <kbd>,</kbd> (the comma key).
 
    The "Resume codespace" page is displayed. This allows you to resume your most recently used codespace for the currently selected branch of the repository or, if you were viewing a pull request, for the topic branch of the pull request.
 
