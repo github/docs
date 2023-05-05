@@ -31,10 +31,10 @@ export default function handleRedirects(req, res, next) {
   // to `/fr/version@latest/search?query=stuff`
   // The `q` param is deprecated, but we still need to support it in case
   // there are links out there that use it.
-  if (
-    'q' in req.query ||
-    ('query' in req.query && !(req.path.endsWith('/search') || req.path.startsWith('/api/search')))
-  ) {
+  const onSearch = req.path.endsWith('/search') || req.path.startsWith('/api/search')
+  const hasQ = 'q' in req.query
+  const hasQuery = 'query' in req.query
+  if ((hasQ && !hasQuery) || (hasQuery && !onSearch)) {
     const language = getLanguage(req)
     const sp = new URLSearchParams(req.query)
     if (sp.has('q') && !sp.has('query')) {
