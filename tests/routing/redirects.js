@@ -64,6 +64,18 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(expected)
     })
 
+    test('convert q= to query= on search page', async () => {
+      const res = await get('/en/search?q=pulls')
+      expect(res.statusCode).toBe(301)
+      const expected = '/en/search?query=pulls'
+      expect(res.headers.location).toBe(expected)
+    })
+
+    test("don't convert q= to query= if query= already present", async () => {
+      const res = await get('/en/search?q=pulls&query=pushes')
+      expect(res.statusCode).toBe(200)
+    })
+
     test('have faq= not converted to query=', async () => {
       // Don't confuse `?faq=` for `?q=` just because they both start with `q=`
       // Docs internal #21945
