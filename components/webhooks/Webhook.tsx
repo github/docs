@@ -61,9 +61,7 @@ export function Webhook({ webhook }: Props) {
   // The param that was clicked so we can expand its property <details> element
   const [clickedBodyParameterName, setClickedBodyParameterName] = useState<undefined | string>('')
   // The selected webhook action type the user selects via a dropdown
-  const [selectedWebhookActionType, setSelectedWebhookActionType] = useState(
-    webhook.actionTypes.length > 1 ? webhook.actionTypes[0] : ''
-  )
+  const [selectedWebhookActionType, setSelectedWebhookActionType] = useState('')
   // The index of the selected action type so we can highlight which one is selected
   // in the action type dropdown
   const [selectedActionTypeIndex, setSelectedActionTypeIndex] = useState(0)

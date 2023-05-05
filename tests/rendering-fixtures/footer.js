@@ -11,19 +11,19 @@ describe('footer', () => {
       const $ = await getDOM(
         `/en/${nonEnterpriseDefaultVersion}/get-started/quickstart/hello-world`
       )
-      expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
+      expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
 
     test('leads to support on 404 pages', async () => {
       const $ = await getDOM('/delicious-snacks/donuts.php', { allow404: true })
-      expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
+      expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
   })
 
-  describe('"contact us" link with nextjs', () => {
+  describe('"support" link with nextjs', () => {
     test('leads to support from articles', async () => {
       const $ = await getDOM(`/en/${nonEnterpriseDefaultVersion}/get-started?nextjs=`)
-      expect($('a#contact-us').attr('href')).toBe('https://support.github.com/contact')
+      expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
   })
 
