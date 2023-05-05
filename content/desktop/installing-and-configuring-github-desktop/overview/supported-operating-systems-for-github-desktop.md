@@ -1,9 +1,10 @@
 ---
-title: Supported operating systems
+title: Supported operating systems for GitHub Desktop
 intro: 'You can use {% data variables.product.prodname_desktop %} on any supported operating system.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/supported-operating-systems
   - /desktop/installing-and-configuring-github-desktop/supported-operating-systems
+  - /desktop/installing-and-configuring-github-desktop/overview/supported-operating-systems
 versions:
   fpt: '*'
 shortTitle: Supported OS

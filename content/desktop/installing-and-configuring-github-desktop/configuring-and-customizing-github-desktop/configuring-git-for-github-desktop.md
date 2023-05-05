@@ -101,7 +101,7 @@ You can configure the default branch that will be used when you create a new rep
 1. In the Options window, click **Git**.
 
    ![Screenshot of the "Git" pane in the "Options" window. In the left sidebar, an option labeled "Git" is highlighted in blue and outlined in orange.](/assets/images/help/desktop/windows-select-git-pane.png)
-   
+
 1. Under "Default branch name for new repositories", select the default branch name you would like to use, or, to enter a custom name, select "Other...".
 {% data reusables.desktop.click-save-git-config %}
 
@@ -112,3 +112,4 @@ You can configure the default branch that will be used when you create a new rep
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)"
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)"
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
+- "[AUTOTITLE](/get-started/getting-started-with-git)"

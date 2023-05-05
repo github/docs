@@ -1,8 +1,11 @@
 ---
-title: Reordering commits
+title: Reordering commits in GitHub Desktop
+shortTitle: Reordering commits
 intro: 'You can use {% data variables.product.prodname_desktop %} to reorder commits in your branch''s history.'
 versions:
   fpt: '*'
+redirect_from:
+  - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reordering-commits
 ---
 
 ## About reordering a commit
@@ -32,8 +35,8 @@ When you reorder commits, you may see one of the following notifications or erro
 * A notification is shown indicating that there are uncommitted changes present on your current branch. Select **Stash Changes and Continue** to store the changes and proceed, or select **Close** to dismiss the message and commit the changes. When there are no longer any uncommitted changes, you can reorder your commits.
 * A message states that there are merge conflicts that you must resolve before the application can continue reordering commits on your branch.
     1. Click **View conflicts**.
-    
+
       ![Screenshot of a notification about conflicts. At the end of the message, a link, labeled "View commits", is highlighted with an orange outline.](/assets/images/help/desktop/reorder-resolve-conflicts.png)
     {% data reusables.desktop.resolve-merge-conflicts %}
    3. When all conflicts are resolved, you can reorder your commits.
-  
+

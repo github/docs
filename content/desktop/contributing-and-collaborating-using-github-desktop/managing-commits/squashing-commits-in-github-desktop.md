@@ -1,8 +1,11 @@
 ---
-title: Squashing commits
+title: Squashing commits in GitHub Desktop
+shortTitle: Squashing commmits
 intro: 'You can use {% data variables.product.prodname_desktop %} to squash commits in your branch''s history.'
 versions:
   fpt: '*'
+redirect_from:
+  - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/squashing-commits
 ---
 
 ## About squashing a commit
@@ -14,16 +17,16 @@ Squashing allows you to combine multiple commits in your branch's history into a
 {% data reusables.desktop.current-branch-menu %}
 2. In the list of branches, select the branch that has the commits that you want to squash.
 {% data reusables.desktop.history-tab %}
-4. Select the commits to squash and drop them on the commit you want to combine them with. 
-   
+4. Select the commits to squash and drop them on the commit you want to combine them with.
+
    {% mac %}
-   
+
    You can select one commit or select multiple commits using <kbd>Command</kbd> or <kbd>Shift</kbd>.
 
    {% endmac %}
 
    {% windows %}
-   
+
    You can select one commit or select multiple commits using <kbd>Ctrl</kbd> or <kbd>Shift</kbd>.
 
    {% endwindows %}

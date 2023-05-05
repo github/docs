@@ -1,9 +1,10 @@
 ---
-title: Committing and reviewing changes to your project
+title: Committing and reviewing changes to your project in GitHub Desktop
 intro: '{% data variables.product.prodname_desktop %} tracks all changes to all files as you edit them. You can decide how to group the changes to create meaningful commits.'
 redirect_from:
   - /desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
+  - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project
 versions:
   fpt: '*'
 shortTitle: Commit & review changes
@@ -16,7 +17,7 @@ shortTitle: Commit & review changes
 
 ## Choosing a branch and making changes
 
-1. [Create a new branch](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches), or select an existing branch by clicking {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
+1. [Create a new branch](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches-in-github-desktop), or select an existing branch by clicking {% octicon "git-branch" aria-label="The branch icon" %} **Current Branch** on the toolbar and selecting the branch from the list.
 
   ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
@@ -97,7 +98,7 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
 {% note %}
 
-**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags)."
+**Note**: {% data reusables.desktop.tags-push-with-commits %} For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags-in-github-desktop)."
 
 {% endnote %}
 
@@ -117,7 +118,11 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
 6. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request next to the "Current Branch" section of the repository bar. For more information about checks, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
- 
-   If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to preview the changes and create one. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request)."
+
+   If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to preview the changes and create one. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop)."
 
   ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-preview-pull-request.png)
+
+## Further reading
+
+- "[AUTOTITLE](/get-started/using-git)"
