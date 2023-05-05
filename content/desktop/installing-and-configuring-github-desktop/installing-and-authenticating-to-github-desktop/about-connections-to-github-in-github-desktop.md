@@ -1,9 +1,10 @@
 ---
-title: About connections to GitHub
+title: About connections to GitHub in GitHub Desktop
 intro: '{% data variables.product.prodname_desktop %} uses HTTPS to securely exchange data with {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/about-connections-to-github
   - /desktop/installing-and-configuring-github-desktop/about-connections-to-github
+  - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/about-connections-to-github
 versions:
   fpt: '*'
 shortTitle: About connections

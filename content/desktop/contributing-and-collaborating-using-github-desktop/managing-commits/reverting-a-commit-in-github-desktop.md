@@ -1,9 +1,11 @@
 ---
-title: Reverting a commit
-intro: You can revert a specific commit to remove its changes from your branch.
+title: Reverting a commit in GitHub Desktop
+shortTitle: Reverting a commit
+intro: 'You can use {% data variables.product.prodname_desktop %} to revert a specific commit to remove its changes from your branch.'
 redirect_from:
   - /desktop/contributing-to-projects/reverting-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/reverting-a-commit
+  - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit
 versions:
   fpt: '*'
 ---
