@@ -70249,7 +70249,7 @@
         },
         {
           "name": "isFollowingViewer",
-          "description": "<p>Whether or not this user is following the viewer. Inverse of viewer_is_following.</p>",
+          "description": "<p>Whether or not this user is following the viewer. Inverse of viewerIsFollowing.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -72518,7 +72518,7 @@
         },
         {
           "name": "viewerIsFollowing",
-          "description": "<p>Whether or not this user is followed by the viewer. Inverse of is_following_viewer.</p>",
+          "description": "<p>Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
