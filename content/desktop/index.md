@@ -8,19 +8,19 @@ featuredLinks:
   startHere:
     - /desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop
     - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop
-    - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github
+    - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-in-github-desktop
   guideCards:
-    - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/stashing-changes
-    - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit
-    - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/amending-a-commit
-    - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/cherry-picking-a-commit
+    - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/stashing-changes-in-github-desktop
+    - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit-in-github-desktop
+    - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/amending-a-commit-in-github-desktop
+    - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/cherry-picking-a-commit-in-github-desktop
   popular:
     - /desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop
-    - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches
-    - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits
-    - /desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch
-    - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request
-    - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github
+    - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches-in-github-desktop
+    - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits-in-github-desktop
+    - /desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch-in-github-desktop
+    - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop
+    - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop
 changelog:
   label: desktop
   versions:

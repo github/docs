@@ -1,9 +1,10 @@
 ---
-title: Configuring a default editor
-intro: You can configure GitHub Desktop to open files in your project with your preferred text editor or integrated development environment (IDE).
+title: Configuring a default editor in GitHub Desktop
+intro: 'You can configure {% data variables.product.prodname_desktop %} to open files in your project with your preferred text editor or integrated development environment (IDE).'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-a-default-editor
   - /desktop/installing-and-configuring-github-desktop/configuring-a-default-editor
+  - /desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor
 versions:
   fpt: '*'
 shortTitle: Configure default editor
@@ -90,6 +91,6 @@ shortTitle: Configure default editor
 3. In the Options window, select **Integrations**.
   ![Screenshot of the "Options" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/windows-select-integrations-pane.png)
 4. Under "External Editor", use the dropdown menu to select the editor you want to set as your default.
-5. Click **Save**.  
+5. Click **Save**.
 
 {% endwindows %}

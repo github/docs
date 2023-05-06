@@ -58,7 +58,7 @@ At the top of the {% data variables.product.prodname_desktop %} app, you will se
 
 ### Changes and History
 In the left sidebar, you'll find the **Changes** and **History** views.
-  
+
 ![Screenshot of the GitHub Desktop app. A sidebar on the left-hand side, with tabs labeled "Changes" and "History", is highlighted with an orange outline.](/assets/images/help/desktop/changes-and-history.png)
 
  - The **Changes** view shows changes you've made to files in your current branch but haven't committed to your local repository. At the bottom, there is a box with "Summary" and "Description" text boxes and a **Commit to BRANCH** button. This is where you'll commit new changes. The **Commit to BRANCH** button is dynamic and will display which branch you're committing your changes to.
@@ -79,7 +79,7 @@ When you create a new repository, it only exists on your computer and you are th
 ## Part 5: Making, committing, and pushing changes
 Now that you've created and published your repository, you're ready to make changes to your project and start crafting your first commit to your repository.
 
-1. To launch your external editor from within {% data variables.product.prodname_desktop %}, in the "{% data variables.product.prodname_desktop %}" menu bar, select **Repository**, then click **Open in EDITOR**. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor)."
+1. To launch your external editor from within {% data variables.product.prodname_desktop %}, in the "{% data variables.product.prodname_desktop %}" menu bar, select **Repository**, then click **Open in EDITOR**. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor-in-github-desktop)."
   ![Screenshot of a menu bar on a Mac. Under the open "Repository" dropdown menu, a cursor hovers over "Open in Visual Studio Code", highlighted in blue.](/assets/images/help/desktop/open-in-editor.png)
 
 2. Make some changes to the _README.md_ file that you previously created. You can add information that describes your project, like what it does and why it is useful. When you are satisfied with your changes, save them in your text editor.
@@ -91,7 +91,7 @@ Now that you've created and published your repository, you're ready to make chan
 5. Below your commit message, click **Commit to BRANCH NAME**. The commit button shows your current branch so you can be sure to commit to the branch you want.
 6. To push your changes to the remote repository on {% data variables.product.product_name %}, click **Push origin**.
    ![Screenshot of the "Repository" menu bar. A button, labeled "Push origin", is highlighted with an orange outline.](/assets/images/help/desktop/push-to-origin.png)
-   
+
    - The **Push origin** button is the same one that you clicked to publish your repository to {% data variables.product.product_name %}. This button changes contextually based on where you are at in the Git workflow. It should now say `Push origin` with a `1` next to it, indicating that there is one commit that has not been pushed up to {% data variables.product.product_name %}.
    - The "origin" in **Push origin** means that you are pushing changes to the remote called `origin`, which in this case is your project's repository on {% data variables.product.prodname_dotcom_the_website %}. Until you push any new commits to {% data variables.product.product_name %}, there will be differences between your project's repository on your computer and your project's repository on {% data variables.product.prodname_dotcom_the_website %}. This allows you to work locally and only push your changes to {% data variables.product.prodname_dotcom_the_website %} when you're ready.
 7. In the window to the right of the **Changes** view, you'll see suggestions for actions you can do next. To open the repository on {% data variables.product.product_name %} in your browser, click **View on {% data variables.product.product_name %}**.

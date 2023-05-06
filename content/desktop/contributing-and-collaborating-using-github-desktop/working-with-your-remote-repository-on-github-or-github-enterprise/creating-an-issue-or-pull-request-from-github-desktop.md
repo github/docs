@@ -1,11 +1,12 @@
 ---
-title: Creating an issue or pull request
+title: Creating an issue or pull request from GitHub Desktop
 intro: You can create an issue or pull request to propose and collaborate on changes to a repository.
 permissions: 'Anyone can create an issue in a public repository that has issues enabled. Anyone with read permissions to a repository can create a pull request, but you must have write permissions to create a branch.'
 redirect_from:
   - /desktop/contributing-to-projects/creating-an-issue-or-pull-request
   - /desktop/contributing-to-projects/creating-a-pull-request
   - /desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
+  - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request
 versions:
   fpt: '*'
 shortTitle: Create an issue or PR
@@ -19,14 +20,14 @@ After you create a branch and make changes to files in a project, you can create
 ## Prerequisites
 
 Before you create a pull request, you'll need to push changes to a branch on {% data variables.product.prodname_dotcom %}.
-- Save and commit any changes on your local branch. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project)."
+- Save and commit any changes on your local branch. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)."
 - Push your local commits to the remote repository. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github)."
-- Publish your current branch to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
+- Publish your current branch to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)."
 
 ## Creating an issue
 
 1. In the menu bar, select **Repository**, then click **Create Issue on {% data variables.product.prodname_dotcom %}**.
-   
+
    {% mac %}
 
    ![Screenshot of the menu bar on a Mac. In the expanded "Repository" dropdown menu, the cursor hovers over "Create Issue on GitHub".](/assets/images/help/desktop/create-issue-mac.png)
