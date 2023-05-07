@@ -2,6 +2,7 @@ import { beforeAll } from '@jest/globals'
 
 import { get } from '../../../tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
+import { latest } from '../../../lib/enterprise-server-releases.js'
 
 const makeURL = (pathname) => `/api/pageinfo/v1?${new URLSearchParams({ pathname })}`
 
@@ -86,9 +87,7 @@ describe('pageinfo api', () => {
     }
     // A URL that doesn't have fpt as an available version
     {
-      const res = await get(
-        '/api/pageinfo/v1?pathname=/en/get-started/versioning/only-ghec-and-ghes'
-      )
+      const res = await get(makeURL('/en/get-started/versioning/only-ghec-and-ghes'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
       expect(info.title).toBe('Only in Enterprise Cloud and Enterprise Server')
@@ -100,19 +99,79 @@ describe('pageinfo api', () => {
 
     // First on the fpt version
     {
-      const res = await get('/api/pageinfo/v1?pathname=/en/get-started/liquid/ifversion')
+      const res = await get(makeURL('/en/get-started/liquid/ifversion'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
       expect(info.intro).toMatch(/\(on fpt\)/)
     }
     // Second on any other version
     {
-      const res = await get(
-        `/api/pageinfo/v1?pathname=/en/enterprise-server@latest/get-started/liquid/ifversion`
-      )
+      const res = await get(makeURL('/en/enterprise-server@latest/get-started/liquid/ifversion'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
       expect(info.intro).toMatch(/\(not on fpt\)/)
+    }
+  })
+
+  test('home pages', async () => {
+    // The home page with language specified
+    {
+      const res = await get(makeURL('/en'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toMatch('GitHub.com Fixture Documentation')
+    }
+    // enterprise-server with language specified
+    // This is important because it tests that we check for a page
+    // before we bothering to see if it can be a redirect.
+    // That's how our middleware and Next router works. First we look
+    // for a page, if it can't be found, then we check if it's a redirect.
+    // This test proves something that caused a bug in production.
+    {
+      const res = await get(makeURL(`/en/enterprise-server@${latest}`))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toMatch('GitHub Enterprise Server Fixture Documentation')
+    }
+  })
+
+  test('home pages (with redirects)', async () => {
+    // The home page for the default language *not* specified
+    {
+      const res = await get(makeURL('/'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toMatch('GitHub.com Fixture Documentation')
+    }
+    // enterprise-server without language specified
+    {
+      const res = await get(makeURL('/enterprise-server@latest'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toMatch('GitHub Enterprise Server Fixture Documentation')
+    }
+  })
+
+  test('archived enterprise versions', async () => {
+    // For example /en/enterprise-server@3.8 is a valid Page in the
+    // site tree, but /en/enterprise-server@2.6 is not. Yet we can
+    // 200 OK and serve content for that. This needs to be reflected in
+    // page info too. Even if we have to "fabricate" the title a bit.
+
+    // At the time of writing, the latest archived version
+    {
+      const res = await get(makeURL('/en/enterprise-server@3.2'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toMatch('GitHub Enterprise Server 3.2 Help Documentation')
+    }
+
+    // The oldest known archived version that we proxy
+    {
+      const res = await get(makeURL('/en/enterprise/11.10.340'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.title).toMatch('GitHub Enterprise Server 11.10.340 Help Documentation')
     }
   })
 })

@@ -1,11 +1,12 @@
 ---
-title: Authenticating to GitHub
+title: Authenticating to GitHub in GitHub Desktop
 shortTitle: Authentication
 intro: 'You can securely access your account''s resources on {% data variables.product.prodname_desktop %} by authenticating to {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /desktop/getting-started-with-github-desktop/authenticating-to-github-using-the-browser
   - /desktop/getting-started-with-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
+  - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github
 versions:
   fpt: '*'
 ---
@@ -36,12 +37,12 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 1. In the "Preferences" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_enterprise %}".
 
    ![Screenshot of the "Accounts" pane in the "Preferences" window. Next to "GitHub Enterprise", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/sign-in-ghes.png)
-   
+
 1. To add an account on {% data variables.location.product_location_enterprise %}, in the "Sign in" modal window, type the URL for your instance under "Enterprise address," then click **Continue**.
 {% data reusables.desktop.sign-in-browser %}
 1. To authenticate to {% data variables.location.product_location_enterprise %} account, type your account credentials and click **Sign in**.
 
-  Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating. 
+  Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating.
 
 {% endmac %}
 

@@ -1,9 +1,11 @@
 ---
-title: Managing tags
+title: Managing tags in GitHub Desktop
+shortTitle: Managing tags
 intro: 'You can use {% data variables.product.prodname_desktop %} to create, push, and view tags.'
 redirect_from:
   - /desktop/contributing-to-projects/managing-tags
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-tags
+  - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/managing-tags
 versions:
   fpt: '*'
 ---
@@ -33,7 +35,7 @@ versions:
   ![Screenshot of a list of commits in the "History" tab. Next to a commit, a "hello-tag" label and an "up arrow" icon are outlined in orange.](/assets/images/help/desktop/viewing-tags-in-history.png)
 
 3. All tags associated with the commit are visible in that commit's metadata.
-   
+
    ![Screenshot of the detailed view of a commit. Above the commit's diff, in the commit's metadata, a tag icon and the label "hello-tag" are outlined in orange.](/assets/images/help/desktop/viewing-tags-in-commit.png)
 
 ## Deleting tags
