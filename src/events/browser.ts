@@ -307,15 +307,8 @@ function initLinkEvent() {
 function initHoverEvent() {
   document.documentElement.addEventListener('mouseover', (evt) => {
     const target = evt.target as HTMLElement
-    const link = target.closest('a[href]') as HTMLAnchorElement | null
-
+    const link = target.closest('a[href]') as HTMLAnchorElement
     if (!link) return
-
-    // For hover events, we only want to record them for links inside the
-    // content area.
-    const mainContent = document.querySelector('#main-content') as HTMLElement | null
-    if (!mainContent || !mainContent.contains(link)) return
-
     if (hoveredUrls.has(link.href)) return // Otherwise this is a flood of events
     const sameSite = link.origin === location.origin
     hoveredUrls.add(link.href)
