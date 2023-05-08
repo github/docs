@@ -37,10 +37,6 @@ To specify a self-hosted runner group for your job, configure `runs-on.group` in
 
 For information on creating and managing runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
 
-{% ifversion fpt %}
-{% data reusables.actions.runner-groups-ent-note %}
-{% endif %}
-
 {% endif %}
 
 ## Using default labels to route jobs
