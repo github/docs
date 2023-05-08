@@ -1,6 +1,6 @@
 import { afterEach } from '@jest/globals'
 import nock from 'nock'
-import { publish } from '../hydro.js'
+import { publish } from '../lib/hydro.js'
 
 describe('Hydro', () => {
   const secret = '3BD22A91'
