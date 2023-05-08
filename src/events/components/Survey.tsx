@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
-import { sendEvent, EventType } from 'src/events/browser'
+import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './Survey.module.scss'
 
