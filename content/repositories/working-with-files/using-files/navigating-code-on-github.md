@@ -49,6 +49,28 @@ To learn more about these approaches, see "[Precise and search-based navigation]
 
 Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
 
+{% ifversion code-search-code-view %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
+
+{% ifversion code-search-code-view %}
+## Using the symbols pane
+You can now quickly view and navigate between symbols such as functions or classes in your code with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
+
+Symbol search is a feature of code search. For more information, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+
+1. Select a repository, then navigate to a file containing symbols.
+1. To bring up the symbols pane, above the file content, click {% octicon "code-square" aria-label="The code square icon" %}.
+
+  Alternatively, you can open the symbols pane by clicking an eligible symbol in your file. Clickable symbols are highlighted in yellow when you hover over them.
+
+1. Click the symbol you would like to find from the symbols pane or within the file itself.
+
+   - To search for a symbol in the repository as a whole, in the symbols pane, click **Search for this symbol in this repository**. To search for a symbol in all repositories on {% data variables.product.prodname_dotcom %}, click **all repositories**.
+
+1. To navigate between references to a symbol, click {% octicon "chevron-down" aria-label="The downwards-facing chevron icon" %} or {% octicon "chevron-up" aria-label="The upwards-facing chevron icon" %}.
+1. To navigate to a specific reference to a symbol, click a result of the symbol search under {% octicon "chevron-down" aria-label="The downwards-facing chevron icon" %} **In this file**.
+1. To exit the search for a specific symbol, click {% octicon "arrow-left" aria-label="The left arrow icon" %} **All Symbols**.
+{% endif %}
+
 ## Jumping to the definition of a function or method
 
 You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
@@ -84,4 +106,4 @@ If code navigation is enabled for you but you don't see links to the definitions
 - Code navigation only works for repositories with fewer than 100,000 files.
 
 ## Further reading
-- "[AUTOTITLE](/search-github/searching-on-github/searching-code)"
+- "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}"
