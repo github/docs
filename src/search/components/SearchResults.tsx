@@ -6,7 +6,7 @@ import cx from 'classnames'
 import type { SearchResultsT, SearchResultHitT } from './types'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
-import { useQuery } from 'components/hooks/useQuery'
+import { useQuery } from 'src/search/components/useQuery'
 import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './SearchResults.module.scss'
