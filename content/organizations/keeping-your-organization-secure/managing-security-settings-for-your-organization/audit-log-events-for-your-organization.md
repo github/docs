@@ -129,6 +129,7 @@ shortTitle: Audit log events
 | `enable` | Triggered when an organization owner enables the dependency graph for all new repositories.
 {% endif %}
 
+{% ifversion team-discussions %}
 ## `discussion_post` category actions
 
 | Action | Description
@@ -142,6 +143,7 @@ shortTitle: Audit log events
 |------------------|-------------------
 | `update` | Triggered when [a reply to a team discussion post is edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).
 | `destroy` | Triggered when [a reply to a team discussion post is deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment).
+{% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 ## `enterprise` category actions
@@ -723,12 +725,14 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `remove_member` | Triggered when a member of an organization is [removed from a team](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team).
 | `remove_repository` | Triggered when a repository is no longer under a team's control.
 
+{% ifversion team-discussions %}
 ## `team_discussions` category actions
 
 | Action | Description
 |---|---|
 | `disable` | Triggered when an organization owner disables team discussions for an organization. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)."
 | `enable` | Triggered when an organization owner enables team discussions for an organization.
+{% endif %}
 
 ## `workflows` category actions
 

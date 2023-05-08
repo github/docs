@@ -553,17 +553,17 @@ By default, user access tokens expires after 8 hours. If you receive a user acce
 * [List reactions for an issue comment](/rest/reactions#list-reactions-for-an-issue-comment)
 * [Create reaction for an issue comment](/rest/reactions#create-reaction-for-an-issue-comment)
 * [List reactions for a pull request review comment](/rest/reactions#list-reactions-for-a-pull-request-review-comment)
-* [Create reaction for a pull request review comment](/rest/reactions#create-reaction-for-a-pull-request-review-comment)
+* [Create reaction for a pull request review comment](/rest/reactions#create-reaction-for-a-pull-request-review-comment){% ifversion team-discussions %}
 * [List reactions for a team discussion comment](/rest/reactions#list-reactions-for-a-team-discussion-comment)
 * [Create reaction for a team discussion comment](/rest/reactions#create-reaction-for-a-team-discussion-comment)
 * [List reactions for a team discussion](/rest/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reactions#create-reaction-for-a-team-discussion)
+* [Create reaction for a team discussion](/rest/reactions#create-reaction-for-a-team-discussion){% endif %}
 * [Delete a commit comment reaction](/rest/reactions#delete-a-commit-comment-reaction)
 * [Delete an issue reaction](/rest/reactions#delete-an-issue-reaction)
 * [Delete a reaction to a commit comment](/rest/reactions#delete-an-issue-comment-reaction)
-* [Delete a pull request comment reaction](/rest/reactions#delete-a-pull-request-comment-reaction)
+* [Delete a pull request comment reaction](/rest/reactions#delete-a-pull-request-comment-reaction){% ifversion team-discussions %}
 * [Delete team discussion reaction](/rest/reactions#delete-team-discussion-reaction)
-* [Delete team discussion comment reaction](/rest/reactions#delete-team-discussion-comment-reaction)
+* [Delete team discussion comment reaction](/rest/reactions#delete-team-discussion-comment-reaction){% endif %}
 
 ### Repositories
 
@@ -777,6 +777,7 @@ By default, user access tokens expires after 8 hours. If you receive a user acce
 * [List commit statuses for a reference](/rest/commits#list-commit-statuses-for-a-reference)
 * [Create a commit status](/rest/commits#create-a-commit-status)
 
+{% ifversion team-discussions %}
 ### Team Discussions
 
 * [List discussions](/rest/teams#list-discussions)
@@ -789,6 +790,7 @@ By default, user access tokens expires after 8 hours. If you receive a user acce
 * [Get a discussion comment](/rest/teams#get-a-discussion-comment)
 * [Update a discussion comment](/rest/teams#update-a-discussion-comment)
 * [Delete a discussion comment](/rest/teams#delete-a-discussion-comment)
+{% endif %}
 
 ### Topics
 
