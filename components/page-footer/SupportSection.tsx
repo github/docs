@@ -1,6 +1,6 @@
 import cx from 'classnames'
 
-import { Survey } from 'components/page-footer/Survey'
+import { Survey } from 'src/events/components/Survey'
 import { Contribution } from 'components/page-footer/Contribution'
 import { Support } from 'components/page-footer/Support'
 import { useMainContext } from 'components/context/MainContext'

@@ -38,6 +38,7 @@ jobs:
             // we're on the private docs-internal repo because only that
             // one has ability to clone the remote (private) translations
             // repos.
+            // You can run multiple paths per suite as space-separated in `path`.
             return [
               { name: 'content', path: 'tests/content', },
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },

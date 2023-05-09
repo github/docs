@@ -6,10 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/editing-or-deleting-a-team-discussion
   - /github/setting-up-and-managing-organizations-and-teams/editing-or-deleting-a-team-discussion
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: team-discussions
 topics:
   - Community
 shortTitle: Manage a team discussion

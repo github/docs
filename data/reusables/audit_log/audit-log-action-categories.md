@@ -45,12 +45,6 @@
 {%- endif %}
 | `dependency_graph` | Contains organization-level configuration activities for dependency graphs for repositories. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 | `dependency_graph_new_repos`  | Contains organization-level configuration activities for new repositories created in the organization.
-{%- ifversion fpt or ghec %}
-| `discussion` | Contains activities related to team discussions.
-| `discussion_comment` | Contains activities related to comments posted in discussions on a team page.
-| `discussion_post`   | Contains activities related to discussions posted to a team page.
-| `discussion_post_reply`   | Contains activities related to replies to discussions posted to a team page.
-{%- endif %}
 {%- ifversion ghec or ghes %}
 | `dotcom_connection` | Contains activities related to {% data variables.product.prodname_github_connect %}.
 | `enterprise` | Contains activities related to enterprise settings.
@@ -183,8 +177,8 @@
 {%- endif %}{% ifversion sso-redirect %}
 | `sso_redirect` | Contains activities related to automatically redirecting users to sign in (see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-sso-for-unauthenticated-users)").{% endif %}
 | `staff` | Contains activities related to a site admin performing an action.
-| `team` | Contains activities related to teams in an organization.
-| `team_discussions` | Contains activities related to managing team discussions for an organization.
+| `team` | Contains activities related to teams in an organization.{% ifversion team-discussions %}
+| `team_discussions` | Contains activities related to managing team discussions for an organization.{% endif %}
 {%- ifversion ghec %}
 | `team_sync_tenant` | Contains activities related to team synchronization with an IdP for an enterprise or organization.
 {%- endif %}
