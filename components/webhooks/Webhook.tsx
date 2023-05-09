@@ -7,7 +7,7 @@ import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
-import { LinkIconHeading } from 'components/article/LinkIconHeading'
+import { HeadingLink } from 'components/article/HeadingLink'
 import { useTranslation } from 'components/hooks/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from 'components/parameter-table/ParameterTable'
@@ -61,9 +61,7 @@ export function Webhook({ webhook }: Props) {
   // The param that was clicked so we can expand its property <details> element
   const [clickedBodyParameterName, setClickedBodyParameterName] = useState<undefined | string>('')
   // The selected webhook action type the user selects via a dropdown
-  const [selectedWebhookActionType, setSelectedWebhookActionType] = useState(
-    webhook.actionTypes.length > 1 ? webhook.actionTypes[0] : ''
-  )
+  const [selectedWebhookActionType, setSelectedWebhookActionType] = useState('')
   // The index of the selected action type so we can highlight which one is selected
   // in the action type dropdown
   const [selectedActionTypeIndex, setSelectedActionTypeIndex] = useState(0)
@@ -148,10 +146,9 @@ export function Webhook({ webhook }: Props) {
 
   return (
     <div>
-      <h2 id={webhookSlug}>
-        <LinkIconHeading slug={webhookSlug} />
-        <code>{currentWebhookAction.category}</code>
-      </h2>
+      <HeadingLink as="h2" slug={webhookSlug}>
+        {currentWebhookAction.category}
+      </HeadingLink>
       <div>
         <div dangerouslySetInnerHTML={{ __html: currentWebhookAction.summaryHtml }}></div>
         <h3

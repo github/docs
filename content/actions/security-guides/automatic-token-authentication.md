@@ -125,10 +125,7 @@ The permissions for the `GITHUB_TOKEN` are initially set to the default setting 
 
 ### Granting additional permissions
 
-If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a {% data variables.product.pat_generic %} and set it as a secret in your repository:
-
-1. Use or create a token with the appropriate permissions for that repository. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-1. Add the token as a secret in your workflow's repository, and refer to it using the {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a {% data variables.product.prodname_github_app %} and generate an installation access token within your workflow. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)." Alternatively, you can create a {% data variables.product.pat_generic %}, store it as a secret in your repository, and use the token in your workfow with the {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### Further reading
 

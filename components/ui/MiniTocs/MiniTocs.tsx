@@ -65,7 +65,11 @@ export function MiniTocs({ miniTocItems }: MiniTocsPropsT) {
         {t('miniToc')}
       </Heading>
 
-      <NavList className={cx(styles.miniToc, 'my-2')} aria-labelledby="in-this-article">
+      <NavList
+        data-testid="minitoc"
+        className={cx(styles.miniToc, 'my-2')}
+        aria-labelledby="in-this-article"
+      >
         {miniTocItems.map((items, i) => {
           return (
             <RenderTocItem

@@ -173,17 +173,13 @@ All of this communication is funneled back to our chat rooms. You don't need to
 build your own CI setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /rest/reference/repos#deployments
 [status API]: /rest/commits/statuses
 [ngrok]: https://ngrok.com/
-[using ngrok]: /webhooks/configuring/#using-ngrok
+[using ngrok]: /webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server
 [Sinatra]: http://www.sinatrarb.com/
-[webhook]: /webhooks/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[access token]: /articles/creating-an-access-token-for-command-line-use
+[access token]: /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 [travis api]: https://api.travis-ci.com/docs/
 [janky]: https://github.com/github/janky
-[heaven]: https://github.com/atmos/heaven
-[hubot]: https://github.com/github/hubot
 [integrations]: https://github.com/integrations

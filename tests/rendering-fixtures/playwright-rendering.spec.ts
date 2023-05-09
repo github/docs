@@ -22,7 +22,10 @@ test('view the for-playwright article', async ({ page }) => {
   await expect(page).toHaveTitle(/For Playwright - GitHub Docs/)
 
   // This is the right-hand sidebar mini-toc link
-  await page.getByRole('link', { name: 'Second heading' }).click()
+  await page
+    .getByTestId('minitoc')
+    .getByRole('link', { name: 'Second heading', exact: true })
+    .click()
   await expect(page).toHaveURL(/for-playwright#second-heading/)
 })
 
@@ -189,7 +192,10 @@ test('hovercards', async ({ page }) => {
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the secondary minitoc sidebar don't have a hovercard
-  await page.getByRole('link', { name: 'Regular internal link' }).hover()
+  await page
+    .getByTestId('minitoc')
+    .getByRole('link', { name: 'Regular internal link', exact: true })
+    .hover()
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the article intro have a hovercard
@@ -202,7 +208,10 @@ test('hovercards', async ({ page }) => {
   ).toBeVisible()
 
   // same page anchor links have a hovercard
-  await page.locator('#article-contents').getByRole('link', { name: 'introduction' }).hover()
+  await page
+    .locator('#article-contents')
+    .getByRole('link', { name: 'introduction', exact: true })
+    .hover()
   await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
 
   // links with formatted text need to work too

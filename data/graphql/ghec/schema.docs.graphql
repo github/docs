@@ -31646,7 +31646,7 @@ type ProjectV2Item implements Node {
   databaseId: Int
 
   """
-  A specific field value given a field name
+  The field value of the first project field which matches the 'name' argument that is set on the item.
   """
   fieldValueByName(
     """
@@ -31656,7 +31656,7 @@ type ProjectV2Item implements Node {
   ): ProjectV2ItemFieldValue
 
   """
-  List of field values
+  The field values that are set on the item.
   """
   fieldValues(
     """
@@ -36710,7 +36710,8 @@ type Query {
   ): RateLimit
 
   """
-  Hack to workaround https://github.com/facebook/relay/issues/112 re-exposing the root query object
+  Workaround for re-exposing the root query object. (Refer to
+  https://github.com/facebook/relay/issues/112 for more information.)
   """
   relay: Query!
 
@@ -56530,7 +56531,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   isEmployee: Boolean!
 
   """
-  Whether or not this user is following the viewer. Inverse of viewer_is_following
+  Whether or not this user is following the viewer. Inverse of viewerIsFollowing
   """
   isFollowingViewer: Boolean!
 
@@ -57706,7 +57707,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   viewerCanSponsor: Boolean!
 
   """
-  Whether or not this user is followed by the viewer. Inverse of is_following_viewer.
+  Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.
   """
   viewerIsFollowing: Boolean!
 

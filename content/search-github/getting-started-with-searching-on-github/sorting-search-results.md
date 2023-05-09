@@ -13,6 +13,15 @@ versions:
 topics:
   - GitHub search
 ---
+
+{% ifversion code-search-code-view %}
+  {% note %}
+
+  **Note:** Sorting search results is not supported for {% data variables.product.product_name %} code search. For more information on code search, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search)."
+
+  {% endnote %}
+{% endif %}
+
 Use the **Sort** dropdown menu to sort results by relevance, number of stars, number of forks, and how recently the items were updated.
 
 To sort by interactions, reactions, author date, committer date, or how recently the items were updated, you can add a `sort` qualifier to your search query.

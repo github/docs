@@ -15,6 +15,7 @@ coverage/
 *.tsbuildinfo
 /translations/
 .node-version
+.linkinator/full.log
 
 # blc: broken link checker
 blc_output.log

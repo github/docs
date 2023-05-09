@@ -35,7 +35,11 @@ The following steps occur to trigger a workflow run:
 
 {% data reusables.actions.actions-do-not-trigger-workflows %} For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
-If you do want to trigger a workflow from within a workflow run, you can use a {% data variables.product.pat_generic %} instead of `GITHUB_TOKEN` to trigger events that require a token. You'll need to create a {% data variables.product.pat_generic %} and store it as a secret. To minimize your {% data variables.product.prodname_actions %} usage costs, ensure that you don't create recursive or unintended workflow runs. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about storing a {% data variables.product.pat_generic %} as a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+If you do want to trigger a workflow from within a workflow run, you can use a {% data variables.product.prodname_github_app %} installation access token or a {% data variables.product.pat_generic %} instead of `GITHUB_TOKEN` to trigger events that require a token.
+
+If you use a {% data variables.product.prodname_github_app %}, you'll need to create a {% data variables.product.prodname_github_app %} and store the app ID and private key as secrets. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)." If you use a {% data variables.product.pat_generic %}, you'll need to create a {% data variables.product.pat_generic %} and store it as a secret. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+
+To minimize your {% data variables.product.prodname_actions %} usage costs, ensure that you don't create recursive or unintended workflow runs.
 
 For example, the following workflow uses a {% data variables.product.pat_generic %} (stored as a secret called `MY_TOKEN`) to add a label to an issue via {% data variables.product.prodname_cli %}. Any workflows that run when a label is added will run once this step is performed.
 

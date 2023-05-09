@@ -133,6 +133,13 @@ function popoverWrap(element: HTMLLinkElement) {
     const domElement = document.querySelector(`#${domID}`)
     if (domElement && domElement.textContent) {
       anchor = domElement.textContent
+      // Headings will have the `#` character to the right which is to
+      // indicate that it's a "permalink". It becomes part of the heading's
+      // text as a DOM element. Strip that.
+      if (anchor.endsWith(' #')) {
+        anchor = anchor.slice(0, -2)
+      }
+
       // Now we have to make up the product, intro, and title
       const domTitle = document.querySelector('h1')
       if (domTitle && domTitle.textContent) {
@@ -341,8 +348,19 @@ export function LinkPreviewPopover() {
     ).filter((link) => {
       // This filters out links that are not internal or in-page
       // and the ones that are in-page anchor links next to the headings.
+      // Remember that `link.href` is always absolute because it comes
+      // from the DOM. So to test the pathname, we have to parse it
+      // and extract the pathname from the whole URL object.
+      const { pathname } = new URL(link.href)
       return (
-        link.href.startsWith(window.location.origin) && !link.classList.contains('doctocat-link')
+        link.href.startsWith(window.location.origin) &&
+        !link.classList.contains('heading-link') &&
+        !pathname.startsWith('/public/') &&
+        !pathname.startsWith('/assets/') &&
+        // This skips those ToolPicker links with `data-tool="vscode"`
+        // attribute, for example.
+        !link.dataset.tool &&
+        !link.dataset.platform
       )
     })
 
