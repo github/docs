@@ -2,20 +2,21 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
 import walk from 'walk-sync'
-import matter from '../../lib/read-frontmatter.js'
 import { zip, difference } from 'lodash-es'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
-import renderContent from '../../lib/render-content/index.js'
-import getApplicableVersions from '../../lib/get-applicable-versions.js'
-import contextualize from '../../middleware/context.js'
-import shortVersions from '../../middleware/contextualizers/short-versions.js'
+
+import matter from '../../../lib/read-frontmatter.js'
+import renderContent from '../../../lib/render-content/index.js'
+import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import contextualize from '../../../middleware/context.js'
+import shortVersions from '../../../middleware/contextualizers/short-versions.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const slugger = new GithubSlugger()
 
-const contentDir = path.join(__dirname, '../../content')
+const contentDir = path.join(__dirname, '../../../content')
 
 describe('category pages', () => {
   const walkOptions = {

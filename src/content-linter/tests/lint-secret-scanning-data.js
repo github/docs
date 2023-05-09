@@ -4,7 +4,9 @@ import { get } from 'lodash-es'
 import Ajv from 'ajv'
 import addErrors from 'ajv-errors'
 import semver from 'semver'
-import schema from '../helpers/schemas/secret-scanning-schema.js'
+
+import schema from '../lib/secret-scanning-schema.js'
+
 const data = yaml.load(fs.readFileSync('data/secret-scanning.yml', 'utf8'))
 
 const ajv = new Ajv({ allErrors: true, allowUnionTypes: true })

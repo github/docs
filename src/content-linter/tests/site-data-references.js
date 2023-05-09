@@ -1,14 +1,13 @@
 import fs from 'fs/promises'
 import { fileURLToPath } from 'url'
 import path from 'path'
-
 import { isEqual, uniqWith } from 'lodash-es'
 import { jest } from '@jest/globals'
 
-import { loadPages } from '../../lib/page-data.js'
-import patterns from '../../lib/patterns.js'
-import frontmatter from '../../lib/read-frontmatter.js'
-import { getDataByLanguage, getDeepDataByLanguage } from '../../lib/get-data.js'
+import { loadPages } from '../../../lib/page-data.js'
+import patterns from '../../../lib/patterns.js'
+import frontmatter from '../../../lib/read-frontmatter.js'
+import { getDataByLanguage, getDeepDataByLanguage } from '../../../lib/get-data.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -56,7 +55,7 @@ describe('data references', () => {
     await Promise.all(
       pages.map(async (page) => {
         const metadataFile = path.join('content', page.relativePath)
-        const fileContents = await fs.readFile(path.join(__dirname, '../..', metadataFile))
+        const fileContents = await fs.readFile(path.join(__dirname, '../../..', metadataFile))
         const { data: metadata } = frontmatter(fileContents, { filepath: page.fullPath })
         const metadataRefs = getDataReferences(JSON.stringify(metadata))
         metadataRefs.forEach((key) => {
@@ -80,7 +79,7 @@ describe('data references', () => {
       reusables.map(async (reusablesPerFile) => {
         let reusableFile = path.join(
           __dirname,
-          '../../data/reusables/',
+          '../../../data/reusables/',
           getFilenameByValue(allReusables, reusablesPerFile)
         )
         reusableFile = await getFilepath(reusableFile)
@@ -108,7 +107,7 @@ describe('data references', () => {
       variables.map(async (variablesPerFile) => {
         let variableFile = path.join(
           __dirname,
-          '../../data/variables/',
+          '../../../data/variables/',
           getFilenameByValue(allVariables, variablesPerFile)
         )
         variableFile = await getFilepath(variableFile)
@@ -141,5 +140,5 @@ async function getFilepath(filepath) {
   }
 
   // we only need the relative path
-  return filepath.replace(path.join(__dirname, '../../'), '')
+  return filepath.replace(path.join(__dirname, '../../../'), '')
 }

@@ -3,14 +3,15 @@ import fs from 'fs/promises'
 import Ajv from 'ajv'
 import addErrors from 'ajv-errors'
 import semver from 'semver'
-import { allVersions, allVersionShortnames } from '../../lib/all-versions.js'
-import { supported, next, nextNext, deprecated } from '../../lib/enterprise-server-releases.js'
-import { getLiquidConditionals } from '../../script/helpers/get-liquid-conditionals.js'
-import allowedVersionOperators from '../../lib/liquid-tags/ifversion-supported-operators.js'
-import featureVersionsSchema from '../helpers/schemas/feature-versions-schema.js'
-import walkFiles from '../../script/helpers/walk-files'
-import { getDeepDataByLanguage } from '../../lib/get-data.js'
-import { formatAjvErrors } from '../helpers/schemas.js'
+
+import { allVersions, allVersionShortnames } from '../../../lib/all-versions.js'
+import { supported, next, nextNext, deprecated } from '../../../lib/enterprise-server-releases.js'
+import { getLiquidConditionals } from '../../../script/helpers/get-liquid-conditionals.js'
+import allowedVersionOperators from '../../../lib/liquid-tags/ifversion-supported-operators.js'
+import featureVersionsSchema from '../lib/feature-versions-schema.js'
+import walkFiles from '../../../script/helpers/walk-files.js'
+import { getDeepDataByLanguage } from '../../../lib/get-data.js'
+import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
 
 /*
   NOTE: This test suite does NOT validate the `versions` frontmatter in content files.
