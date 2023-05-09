@@ -56531,7 +56531,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   isEmployee: Boolean!
 
   """
-  Whether or not this user is following the viewer. Inverse of viewer_is_following
+  Whether or not this user is following the viewer. Inverse of viewerIsFollowing
   """
   isFollowingViewer: Boolean!
 
@@ -57707,7 +57707,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   viewerCanSponsor: Boolean!
 
   """
-  Whether or not this user is followed by the viewer. Inverse of is_following_viewer.
+  Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.
   """
   viewerIsFollowing: Boolean!
 
