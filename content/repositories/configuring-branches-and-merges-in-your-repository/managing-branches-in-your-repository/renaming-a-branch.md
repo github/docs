@@ -42,7 +42,8 @@ From the local clone of the repository on a computer, run the following commands
 ```shell
 $ git branch -m OLD-BRANCH-NAME NEW-BRANCH-NAME
 $ git fetch origin
-$ git branch -u origin/OLD-BRANCH-NAME NEW-BRANCH-NAME
+$ git push origin NEW-BRANCH-NAME
+$ git branch -u origin/NEW-BRANCH-NAME NEW-BRANCH-NAME
 $ git remote set-head origin -a
 ```
 
