@@ -5,10 +5,7 @@ redirect_from:
   - /articles/disabling-team-discussions-for-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/disabling-team-discussions-for-your-organization
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: team-discussions
 topics:
   - Organizations
   - Teams

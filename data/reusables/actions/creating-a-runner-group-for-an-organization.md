@@ -7,19 +7,17 @@ Always include a security admonition above this procedure. This is either one of
 
 {% endcomment %}
 
-All organizations have a single default runner group. Organizations within an enterprise account can create additional groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a runner group with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runner-groups)."
+All organizations have a single default runner group. {% ifversion fpt %}Organizations using the {% data variables.product.prodname_team %} plan{% else %}Organizations within an enterprise account{% endif %} can create additional groups. Organization admins can allow individual repositories access to a runner group. For information about how to create a runner group with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runner-groups)."
 
 Runners are automatically assigned to the default group when created, and can only be members of one group at a time. You can move a runner from the default group to any group you create.
 
 When creating a group, you must choose a policy that defines which repositories{% ifversion restrict-groups-to-workflows %} and workflows{% endif %} have access to the runner group.
 
-{% ifversion ghec or ghes or ghae %}
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 1. In the "Runner groups" section, click **New runner group**.
 1. Enter a name for your runner group.
- {% data reusables.actions.runner-group-assign-policy-repo %}
+{% data reusables.actions.runner-group-assign-policy-repo %}
 {% data reusables.actions.runner-group-assign-policy-workflow %}{%- ifversion restrict-groups-to-workflows %} Organization-owned runner groups cannot access workflows from a different organization in the enterprise; instead, you must create an enterprise-owned runner group.{% endif %}
 {% data reusables.actions.create-runner-group %}
-{% endif %}

@@ -23,7 +23,10 @@ By default, authorized users can access your organization's resources from any I
 {% ifversion ghec %}
 {% note %}
 
-**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+**Notes:** 
+
+- Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+- If you configure an IP allow list for your organization you won't be able to use {% data variables.product.prodname_github_codespaces %} for repositories owned by the organization.
 
 {% endnote %}
 {% endif %}

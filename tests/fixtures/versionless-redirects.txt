@@ -407,9 +407,6 @@
 - /code-security/secret-security/defining-custom-patterns-for-secret-scanning
 - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
 
-/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning
-- /code-security/secret-scanning/protecting-pushes-with-secret-scanning
-
 /enterprise-cloud@latest/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators
 - /articles/restricting-the-ability-to-add-outside-collaborators-to-organization-repositories
 - /articles/setting-permissions-for-adding-outside-collaborators

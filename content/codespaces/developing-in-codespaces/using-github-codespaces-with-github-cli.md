@@ -32,6 +32,7 @@ You can work with {% data variables.product.prodname_github_codespaces %} in the
   - [Access codespace logs](#access-codespace-logs)
   - [Access remote resources](#access-remote-resources)
   - [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
+  - [Rebuild a codespace](#rebuild-a-codespace)
 
 ## Installing {% data variables.product.prodname_cli %}
 
@@ -234,3 +235,13 @@ gh codespace edit -m MACHINE-TYPE-NAME
 ```
 
 For more information, see the "{% data variables.product.prodname_cli %}" tab of "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+
+### Rebuild a codespace
+
+```shell
+gh codespace rebuild
+```
+
+To perform a full rebuild, add `--full` at the end of this command.
+
+For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace)."

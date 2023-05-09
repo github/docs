@@ -85,6 +85,19 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>A</kbd> | Show or hide annotations on diffs
 |<kbd>B</kbd> | Open blame view. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/viewing-a-file)."
 
+{% ifversion code-search-code-view %}
+
+## Navigating within code files
+
+If you view a code file in a repository using the **Code** view and click on any line in the file, you will see a cursor. You can then navigate within the content of the file, also known as a blob (binary large object), using keyboard shortcuts.
+
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>Shift</kbd>+<kbd>J</kbd>| Highlights the line that is currently selected by the cursor within the code file
+|<kbd>Shift</kbd>+<kbd>F10</kbd> | If a line of code is currently selected, this shortcut opens the line menu for that line, appearing under {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} to the left of the line
+|<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Control</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Highlights the code symbol currently selected by the cursor and all other occurences of the symbol in the code, and shows the symbol in the symbols pane
+{% endif %}
+
 ## Comments
 
 | Keyboard shortcut | Description

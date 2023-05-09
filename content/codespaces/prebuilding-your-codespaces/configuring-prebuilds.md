@@ -97,6 +97,12 @@ For repositories owned by an organization, you can set up prebuilds if the organ
 
    ![Screenshot of the "Failure notifications" setting. The team named "octocat-team" has been added.](/assets/images/help/codespaces/prebuilds-failure-notification-setting.png)
 
+   {% note %}
+
+   **Note**: People will only receive notifications of failed prebuilds if they have enabled notifications for failed Actions workflows in their personal settings. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#github-actions-notification-options)."
+
+   {% endnote %}
+
 1. Optionally, at the bottom of the page, click **Show advanced options**.
 
    ![Screenshot of the bottom of the prebuilds configuration page. The link "Show advanced options" is highlighted with a dark orange outline.](/assets/images/help/codespaces/show-advanced-options.png)

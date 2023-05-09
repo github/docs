@@ -174,4 +174,18 @@ describe('pageinfo api', () => {
       expect(info.title).toMatch('GitHub Enterprise Server 11.10.340 Help Documentation')
     }
   })
+
+  test('pathname has to start with /', async () => {
+    const res = await get(makeURL('ip'))
+    expect(res.statusCode).toBe(400)
+    const { error } = JSON.parse(res.body)
+    expect(error).toBe("'pathname' has to start with /")
+  })
+
+  test("pathname can't contain spaces /", async () => {
+    const res = await get(makeURL('/en foo bar'))
+    expect(res.statusCode).toBe(400)
+    const { error } = JSON.parse(res.body)
+    expect(error).toBe("'pathname' can not contain whitespace")
+  })
 })
