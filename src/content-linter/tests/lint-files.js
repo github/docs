@@ -12,17 +12,18 @@ import { visit } from 'unist-util-visit'
 import fs from 'fs/promises'
 import { existsSync } from 'fs'
 import semver from 'semver'
-import { frontmatter, deprecatedProperties } from '../../lib/frontmatter.js'
-import languages from '../../lib/languages.js'
-import { tags } from '../../lib/liquid-tags/extended-markdown.js'
-import releaseNotesSchema from '../helpers/schemas/release-notes-schema.js'
-import learningTracksSchema from '../helpers/schemas/learning-tracks-schema.js'
-import renderContent from '../../lib/render-content/index.js'
-import getApplicableVersions from '../../lib/get-applicable-versions.js'
-import { allVersions } from '../../lib/all-versions.js'
 import { jest } from '@jest/globals'
-import { getDiffFiles } from '../helpers/diff-files.js'
-import { formatAjvErrors } from '../helpers/schemas.js'
+
+import { frontmatter, deprecatedProperties } from '../../../lib/frontmatter.js'
+import languages from '../../../lib/languages.js'
+import { tags } from '../../../lib/liquid-tags/extended-markdown.js'
+import releaseNotesSchema from '../lib/release-notes-schema.js'
+import learningTracksSchema from '../lib/learning-tracks-schema.js'
+import renderContent from '../../../lib/render-content/index.js'
+import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import { getDiffFiles } from '../lib/diff-files.js'
+import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -31,7 +32,7 @@ const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
   v.startsWith('enterprise-server@')
 )
 
-const rootDir = path.join(__dirname, '../..')
+const rootDir = path.join(__dirname, '../../..')
 const contentDir = path.join(rootDir, 'content')
 const reusablesDir = path.join(rootDir, 'data/reusables')
 const variablesDir = path.join(rootDir, 'data/variables')

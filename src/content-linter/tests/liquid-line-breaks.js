@@ -1,13 +1,14 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import walk from 'walk-sync'
-import matter from '../../lib/read-frontmatter.js'
 import { zip } from 'lodash-es'
 import yaml from 'js-yaml'
 import fs from 'fs/promises'
 
+import matter from '../../../lib/read-frontmatter.js'
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const rootDir = path.join(__dirname, '../..')
+const rootDir = path.join(__dirname, '../../..')
 const contentDir = path.join(rootDir, 'content')
 const reusablesDir = path.join(rootDir, 'data/reusables')
 const variablesDir = path.join(rootDir, 'data/variables')
