@@ -38,10 +38,10 @@ If you're an organization or enterprise owner, you can switch between settings f
 
 {% data reusables.user-settings.access_settings %}
 1. At the top of the page, to the right of your name, click **Switch to another account**.
-   
+
    ![Screenshot of the "Public profile" settings page for The Octocat. Next to the text "Your personal profile," a link, labeled "Switch to another account," is outlined in orange.](/assets/images/help/settings/context-switcher-button.png)
 1. Start typing the name of the account you want to switch to, then click the name of the account.
-1. In the left sidebar, click **{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans**.
+1. In the left sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
 
 ## Further reading
 
