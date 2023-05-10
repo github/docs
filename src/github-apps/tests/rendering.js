@@ -8,10 +8,9 @@ import { isApiVersioned, allVersions } from '../../../lib/all-versions.js'
 describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
 
-  // Checks every version of the
-  // /rest/overview/endpoints-available-for-github-apps page
-  // and ensures that all sections in the openapi schema
-  // are present in the page.
+  // This test ensures that the page component and the Markdown file are
+  // in sync. It also checks that all expected items are present.
+  // For every version of /rest/overview/endpoints-available-for-github-apps
   test('loads operations enabled for GitHub Apps', async () => {
     const flatMapping = getFlatMappingWithCalendarDates()
 

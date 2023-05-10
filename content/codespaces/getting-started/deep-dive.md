@@ -121,7 +121,7 @@ Git is installed by default in your codespace and so you can rely on your existi
 
 If you're working with an existing repository, you can create a codespace from any branch, commit, or pull request in the repository, or you can switch to a new or existing branch from within your active codespace. Because {% data variables.product.prodname_github_codespaces %} is designed to be ephemeral, you can use it as an isolated environment to experiment, check a teammate's pull request, or fix merge conflicts.
 
-If you only have read access to a repository, then you can create a codespace for the repository as long as you can fork it. When you make a commit from the codespace, {% data variables.product.prodname_github_codespaces %} either automatically creates a fork of the repository for you, or links the codespace to an existing fork if you already have one for the upstream repository.
+If you only have read access to a repository, then you can create a codespace for the repository as long as you can fork it. When you make a commit from the codespace, or push a new branch, {% data variables.product.prodname_github_codespaces %} either automatically creates a fork of the repository for you, or links the codespace to an existing fork if you already have one for the upstream repository.
 
 If you're working in a codespace created from a template, Git is installed by default, but you will need to publish your codespace to a remote repository to persist your work and to share it with others. If you start from {% data variables.product.company_short %}'s blank template, you first need to initialize your workspace as a Git repository (for example by entering `git init`) to start using source control within the codespace.
 

@@ -38,30 +38,29 @@ By default, the code scanning alerts page is filtered to show alerts for the def
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. Optionally, use the free text search box or the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
-   ![Filter by tool](/assets/images/help/repository/code-scanning-filter-by-tool.png)
 {% data reusables.code-scanning.explore-alert %}
-![Summary of alerts](/assets/images/help/repository/code-scanning-click-alert.png)
-
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-   {% data reusables.code-scanning.alert-default-branch %}
-   ![The "Affected branches" section in an alert](/assets/images/help/repository/code-scanning-affected-branches.png){% endif %}
+   {% data reusables.code-scanning.alert-default-branch %}{% endif %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
-  {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-   ![The "Show paths" link on an alert](/assets/images/help/repository/code-scanning-show-paths.png)
-   {% else %}
-   ![The "Show paths" link on an alert](/assets/images/enterprise/3.4/repository/code-scanning-show-paths.png)
-   {% endif %}
+   ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. The "Show paths" link is highlighted with a dark orange outline. The "Show more" link, described in the next step, is also highlighted.](/assets/images/help/repository/code-scanning-alert-details.png)
+
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
-   ![Details for an alert](/assets/images/help/repository/code-scanning-alert-details.png)
 
 For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
 
 {% note %}
 
+{% ifversion code-scanning-tool-status-page %}
+
+**Note:** You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)."
+
+{% else %}
+
 **Note:** For {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_codeql %}, you can see information about the latest run in a header at the top of the list of {% data variables.product.prodname_code_scanning %} alerts for the repository.
 
 For example, you can see when the last scan ran, the number of lines of code analyzed compared to the total number of lines of code in your repository, and the total number of alerts that were generated.
-  ![UI banner](/assets/images/help/repository/code-scanning-ui-banner.png)
+
+{% endif %}
 
 {% endnote %}
 
@@ -69,15 +68,9 @@ For example, you can see when the last scan ran, the number of lines of code ana
 
 You can filter the alerts shown in the {% data variables.product.prodname_code_scanning %} alerts view. This is useful if there are many alerts as you can focus on a particular type of alert. There are some predefined filters and a range of keywords that you can use to refine the list of alerts displayed.
 
-- To use a predefined filter, click **Filters**, or a filter shown in the header of the list of alerts, and choose a filter from the drop-down list.
-  {% ifversion fpt or ghes or ghec %}![Predefined filters](/assets/images/help/repository/code-scanning-predefined-filters.png)
-  {% else %}![Predefined filters](/assets/images/enterprise/3.0/code-scanning-predefined-filters.png){% endif %}
-- To use a keyword, either type directly in the filters text box, or:
-  1. Click in the filters text box to show a list of all available filter keywords.
-  1. Click the keyword you want to use and then choose a value from the drop-down list.
-  ![Keyword filters list](/assets/images/help/repository/code-scanning-filter-keywords.png)
+When you select a keyword from either a drop-down list, or as you enter a keyword in the search field, only values with results are shown. This makes it easier to avoid setting filters that find no results.
 
-The benefit of using keyword filters is that only values with results are shown in the drop-down lists. This makes it easy to avoid setting filters that find no results.
+![Screenshot of the search field on the {% data variables.product.prodname_code_scanning %} alerts view. The user has typed "branch:dependabot" into the field. The names of all valid branches with a name including "dependabot" are shown in a drop-down menu.](/assets/images/help/repository/code-scanning-filter-keywords.png)
 
 If you enter multiple filters, the view will show alerts matching _all_ these filters. For example, `is:closed severity:high branch:main` will only display closed high-severity alerts that are present on the `main` branch. The exception is filters relating to refs (`ref`, `branch` and `pr`): `is:open branch:main branch:next` will show you open alerts from both the `main` branch and the `next` branch.
 
@@ -93,7 +86,7 @@ You can prefix the `tag` filter with `-` to exclude results with that tag. For e
 
 ### Restricting results to application code only
 
-You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. See "[About labels for alerts not in application code](#about-labels-for-alerts-that-are-not-found-in-application-code)" above for more information about the types of code that are not application code.
+You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. For more information, see "[About labels for alerts not in application code](#about-labels-for-alerts-that-are-not-found-in-application-code)" above for more information about the types of code that are not application code.
 
 {% ifversion fpt or ghes or ghec %}
 
@@ -102,11 +95,6 @@ You can use the "Only alerts in application code" filter or `autofilter:true` ke
 You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
 - The name of the alert
 - The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
- {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
- ![The alert information used in searches](/assets/images/help/repository/code-scanning-free-text-search-areas.png)
- {% else %}
- ![The alert information used in searches](/assets/images/enterprise/3.4/repository/code-scanning-free-text-search-areas.png)
- {% endif %}
 
 | Supported search | Syntax example | Results |
 | ---- | ---- | ---- |
@@ -128,7 +116,7 @@ You can search the list of alerts. This is useful if there is a large number of 
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. To the right of the **Filters** drop-down menus, type the keywords to search for in the free text search box.
-  ![The free text search box](/assets/images/help/repository/code-scanning-search-alerts.png)
+  ![Screenshot of the search field on the {% data variables.product.prodname_code_scanning %} alerts view. The field includes the pre-defined filters "is: open branch:main". The free text of "sql or injection" is outlined in dark orange.](/assets/images/help/repository/code-scanning-search-alerts.png)
 1. Press <kbd>return</kbd>. The alert listing will contain the open {% data variables.product.prodname_code_scanning %} alerts matching your search criteria.
 
 {% endif %}
@@ -152,7 +140,7 @@ You can use the free text search or the filters to display a subset of alerts an
 
 Alerts may be fixed in one branch but not in another. You can use the "Branch" filter, on the summary of alerts, to check whether an alert is fixed in a particular branch.
 
-![Filtering alerts by branch](/assets/images/help/repository/code-scanning-branch-filter.png)
+![Screenshot of the search field on the {% data variables.product.prodname_code_scanning %}, with the "Branch" dropdown menu expanded. The "Branch" button is outlined in dark orange.](/assets/images/help/repository/code-scanning-branch-filter.png)
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.code-scanning.filter-non-default-branches %}
@@ -198,20 +186,12 @@ To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alert
 {% data reusables.repositories.sidebar-code-scanning-alerts %}{% ifversion delete-code-scanning-alerts %}
 1. If you have admin permissions for the repository, and you want to delete alerts for this {% data variables.product.prodname_code_scanning %} tool, select some or all of the check boxes and click **Delete**.
 
-   ![Deleting alerts](/assets/images/help/repository/code-scanning-delete-alerts.png)
-
    Optionally, you can use the free text search or the filters to display a subset of alerts and then delete all matching alerts at once. For example, if you have removed a query from {% data variables.product.prodname_codeql %} analysis, you can use the "Rule" filter to list just the alerts for that query and then select and delete all of those alerts.
-
-{% ifversion ghes or ghae %}
-  ![Filter alerts by rule](/assets/images/help/repository/code-scanning-filter-by-rule.png)
-{% else %}
-  ![Filter alerts by rule](/assets/images/enterprise/3.1/help/repository/code-scanning-filter-by-rule.png)
-{% endif %}{% endif %}
+{% endif %}
 1. If you want to dismiss an alert, it's important to explore the alert first, so that you can choose the correct dismissal reason. Click the alert you'd like to explore.
-![Open an alert from the summary list](/assets/images/help/repository/code-scanning-click-alert.png)
 {%- ifversion comment-dismissed-code-scanning-alert %}
 1. Review the alert, then click **Dismiss alert** and choose, or type, a reason for closing the alert.
-  ![Screenshot of code scanning alert with dropdown to choose dismissal reason emphasized](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
+  ![Screenshot of the check failure for a code scanning alert in a pull request. The "Dismiss alert" button in the check failure is highlighted in dark orange. The "Dismiss alert" drop-down is displayed. ](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
 {%- else %}
 1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
   ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)

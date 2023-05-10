@@ -28,8 +28,14 @@ If the file{% ifversion fpt or ghes or ghec %} or directory{% endif %} you delet
 ## Deleting a file
 
 1. Browse to the file in your repository that you want to delete.
-2. At the top of the file, click {% octicon "trash" aria-label="The trash icon" %}.
-{% data reusables.files.write_commit_message %}
+{% ifversion code-search-code-view %}
+1. In the top-right corner, select the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} dropdown menu, then click **Delete file**.
+
+   ![Screenshot of the file list for a directory. To the right of the directory name, a button, labeled with a kebab icon, is outlined in dark orange.](/assets/images/help/repository/delete-file-button.png)
+{% else %}
+1. At the top of the file, click {% octicon "trash" aria-label="The trash icon" %}.
+{% endif %}
+{% data reusables.files.commit-message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
@@ -39,10 +45,10 @@ If the file{% ifversion fpt or ghes or ghec %} or directory{% endif %} you delet
 
 1. Browse to the directory in your repository that you want to delete.
 1. In the top-right corner, select the {% octicon "kebab-horizontal" aria-label="More options" %} dropdown menu, then click **Delete directory**.
-
+  
   ![Screenshot of the file list for a directory. To the right of the directory name, a button, labeled with a kebab icon, is outlined in dark orange.](/assets/images/help/repository/delete-directory-button.png)
 1. Review the files you will delete.
-{% data reusables.files.write_commit_message %}
+{% data reusables.files.commit-message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}

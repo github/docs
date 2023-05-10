@@ -21,7 +21,7 @@ export const Support = () => {
         </a>
       </div>
       <div>
-        <a id="contact-us" href="https://support.github.com/contact" className="text-underline">
+        <a id="support" href="https://support.github.com" className="text-underline">
           <CommentDiscussionIcon size="small" className="octicon mr-1" />
           {t`contact_support`}
         </a>

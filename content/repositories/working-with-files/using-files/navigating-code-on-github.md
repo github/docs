@@ -17,7 +17,7 @@ topics:
 
 Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
 
-![Code navigation display](/assets/images/help/repository/code-navigation-popover.png)
+![Screenshot showing a code file with a function called "request" highlighted and a pop-up window with information about the function underneath. The pop-up has two tabs: "Definition" and "Reference".](/assets/images/help/repository/code-navigation-popover.png)
 
 Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages and navigation strategies are supported.
 
@@ -49,6 +49,28 @@ To learn more about these approaches, see "[Precise and search-based navigation]
 
 Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
 
+{% ifversion code-search-code-view %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
+
+{% ifversion code-search-code-view %}
+## Using the symbols pane
+You can now quickly view and navigate between symbols such as functions or classes in your code with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
+
+Symbol search is a feature of code search. For more information, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+
+1. Select a repository, then navigate to a file containing symbols.
+1. To bring up the symbols pane, above the file content, click {% octicon "code-square" aria-label="The code square icon" %}.
+
+  Alternatively, you can open the symbols pane by clicking an eligible symbol in your file. Clickable symbols are highlighted in yellow when you hover over them.
+
+1. Click the symbol you would like to find from the symbols pane or within the file itself.
+
+   - To search for a symbol in the repository as a whole, in the symbols pane, click **Search for this symbol in this repository**. To search for a symbol in all repositories on {% data variables.product.prodname_dotcom %}, click **all repositories**.
+
+1. To navigate between references to a symbol, click {% octicon "chevron-down" aria-label="The downwards-facing chevron icon" %} or {% octicon "chevron-up" aria-label="The upwards-facing chevron icon" %}.
+1. To navigate to a specific reference to a symbol, click a result of the symbol search under {% octicon "chevron-down" aria-label="The downwards-facing chevron icon" %} **In this file**.
+1. To exit the search for a specific symbol, click {% octicon "arrow-left" aria-label="The left arrow icon" %} **All Symbols**.
+{% endif %}
+
 ## Jumping to the definition of a function or method
 
 You can jump to a function or method's definition within the same repository by clicking the function or method call in a file.
@@ -75,7 +97,7 @@ If your precise results appear inaccurate, you can file a support request.
 
 Cross-repo code navigation is available for languages that are supported by precise code navigation and the dependency graph. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)." With cross-repo code navigation, you can jump to the definition of functions or variables defined in dependencies imported by your project if that dependency is a repository hosted by {% data variables.product.prodname_dotcom %}. Cross-repo code navigation does not support find-all-references requests at this time.
 
-![Screenshot of cross-repository code navigation](/assets/images/help/repository/cross-repository-code-navigation.png)
+![Screenshot of a code file on {% data variables.product.prodname_dotcom %}. On the line "import o.s.", the module name "o.s." is highlighted, and a "Definitions" modal shows a result tagged with "cross-repo result".](/assets/images/help/repository/cross-repository-code-navigation.png)
 
 ## Troubleshooting code navigation
 
@@ -84,4 +106,4 @@ If code navigation is enabled for you but you don't see links to the definitions
 - Code navigation only works for repositories with fewer than 100,000 files.
 
 ## Further reading
-- "[AUTOTITLE](/search-github/searching-on-github/searching-code)"
+- "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}"

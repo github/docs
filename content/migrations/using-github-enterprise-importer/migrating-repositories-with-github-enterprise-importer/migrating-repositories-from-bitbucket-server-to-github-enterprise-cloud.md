@@ -97,7 +97,113 @@ Before you can run a migration, you need to set up a storage container with your
 
 {% data reusables.enterprise-migration-tool.azure-credentials-cli %}
 
-## Step 5: Generate a migration script
+## Step 5: Migrate a repository
+
+You can migrate repositories with the `gh bbs2gh migrate-repo` command.
+
+When you migrate a repository, by default, the {% data variables.product.prodname_bbs2gh_cli %} performs the following steps:
+
+1. Connects to your Bitbucket Server instance and generates a migration archive per repository
+1. Downloads the migration archive from the Bitbucket Server instance to the machine where you're running the {% data variables.product.prodname_bbs2gh_cli %}, using SFTP (Linux) or SMB (Windows)
+1. Uploads the migration archives to the blob storage provider of your choice
+1. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
+1. Deletes the migration archive
+
+Alternatively, you can use the {% data variables.product.prodname_cli %} to generate the archive, download that archive manually, and then use the {% data variables.product.prodname_cli %} to continue the migration.
+
+- "[Allowing the {% data variables.product.prodname_cli %} to download the migration archive](#allowing-the-github-cli-to-download-the-migration-archive)"
+- "[Downloading the migration archive manually](#downloading-the-migration-archive-manually)"
+
+### Allowing the {% data variables.product.prodname_cli %} to download the migration archive
+
+To migrate a single repository, use the `gh bbs2gh migrate-repo` command.
+
+{% data reusables.enterprise-migration-tool.bitbucket-server-migrate-repo-access %}
+
+```shell{:copy}
+gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
+  --bbs-project PROJECT --bbs-repo CURRENT-NAME \
+  --github-org DESTINATION --github-repo NEW-NAME \
+  # Use the following options if your Bitbucket Server instance runs on Linux
+  --ssh-user SSH-USER --ssh-private-key PATH-TO-KEY
+  # Use the following options if your Bitbucket Server instance runs on Windows
+  --smb-user SMB-USER
+  # Use the following option if you're using AWS S3 as your blob storage provider
+  --aws-bucket-name AWS-BUCKET-NAME
+```
+
+{% data reusables.enterprise-migration-tool.placeholder-table %}
+{% data reusables.enterprise-migration-tool.bbs-server-url-placeholder %}
+{% data reusables.enterprise-migration-tool.project-placeholder %}
+{% data reusables.enterprise-migration-tool.current-name-placeholder %}
+{% data reusables.enterprise-migration-tool.destination-placeholder %}
+{% data reusables.enterprise-migration-tool.new-name-placeholder %}
+{% data reusables.enterprise-migration-tool.ssh-user-placeholder %}
+{% data reusables.enterprise-migration-tool.path-to-key-placeholder %}
+{% data reusables.enterprise-migration-tool.smb-user-placeholder %}
+{% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
+
+{% note %}
+
+**Note:** If you get an error mentioning `Renci.SshNet`, then the CLI is having issues making an SFTP connection to your server to download your migration archive. For information about how to troubleshoot these issues, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported)."
+
+{% endnote %}
+
+### Downloading the migration archive manually
+
+By default, the {% data variables.product.prodname_bbs2gh_cli %} performs the entire migration, including downloading the migration archive from the Bitbucket Server instance using SFTP or SMB.
+
+However, some customers prefer to download the migration archive manually, because their server does not offer SFTP access, for example. In that case, you can use the {% data variables.product.prodname_cli %} to generate the archive, download that archive manually, and then use the {% data variables.product.prodname_cli %} to continue the migration.
+
+You must follow this step from a computer that can access:
+
+- Your Bitbucket Server instance via HTTPS
+- Your chosen blob storage provider
+
+First, use the `gh bbs2gh migrate-repo` command with only the following arguments:
+
+```shell{:copy}
+gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
+  --bbs-project PROJECT \
+  --bbs-repo CURRENT-NAME
+```
+
+{% data reusables.enterprise-migration-tool.placeholder-table %}
+{% data reusables.enterprise-migration-tool.bbs-server-url-placeholder %}
+{% data reusables.enterprise-migration-tool.project-placeholder %}
+{% data reusables.enterprise-migration-tool.current-name-placeholder %}
+
+Your migration archive will be generated, and its path will be printed in the command output:
+
+```
+[12:14] [INFO] Export completed. Your migration archive should be ready on your
+instance at $BITBUCKET_SHARED_HOME/data/migration/export/Bitbucket_export_9.tar
+```
+
+In general, `$BITBUCKET_SHARED_HOME` will be set to `/var/atlassian/application-data/bitbucket/shared` on Linux and `C:\Atlassian\ApplicationData\Bitbucket\Shared` on Windows, but this may differ depending on your server configuration. To help you identify your shared home directory, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#source-export-archive-does-not-exist-error)."
+
+Download the migration archive from your Bitbucket Server instance, and store the archive on the machine where you're running the {% data variables.product.prodname_cli %}.
+
+To import your migration archive into {% data variables.product.prodname_dotcom %}, use the `gh bbs2gh migrate-repo` command again, with a different set of arguments:
+
+```shell{:copy}
+gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
+  --github-org DESTINATION --github-repo NEW-NAME \
+  # Use the following option if you're using AWS S3 as your blob storage provider
+  --aws-bucket-name AWS-BUCKET-NAME
+```
+
+{% data reusables.enterprise-migration-tool.placeholder-table %}
+{% data reusables.enterprise-migration-tool.archive-path-placeholder %}
+{% data reusables.enterprise-migration-tool.destination-placeholder %}
+{% data reusables.enterprise-migration-tool.new-name-placeholder %}
+{% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
+
+## Step 6: Validate your migration and check the error log
+
+{% data reusables.enterprise-migration-tool.validate-migration-logs %}
+
+## Step 7: Migrate multiple repositories
 
 {% data reusables.enterprise-migration-tool.generate-migration-script %}
 
@@ -134,28 +240,13 @@ After you generate the script, review the file and, optionally, edit the script.
 - If there are any repositories you don't want to migrate, delete or comment out the corresponding lines.
 - By default, repository names in {% data variables.product.prodname_dotcom %} will follow a `projectKey-repositoryName` convention. For example, a Bitbucket Server repository named `airports` that is part of the `open-source` project, which has the key `OS`, would be called `OS-airports` in {% data variables.product.prodname_dotcom %}. If you want any repositories to have a different name on {% data variables.product.prodname_dotcom %}, update the value for the corresponding `--github-repo` flag.
 
-## Step 6: Migrate repositories
+### Running your migration script
 
-You can migrate multiple repositories with a migration script or a single repository with the `gh bbs2gh migrate-repo` command.
+To migrate your repositories, run the generated script.
 
-When you migrate repositories, the {% data variables.product.prodname_bbs2gh_cli %} performs the following steps:
+{% data reusables.enterprise-migration-tool.bitbucket-server-migrate-repo-access %}
 
-1. Connects to your Bitbucket Server instance and generates a migration archive per repository
-1. Downloads the migration archive from the Bitbucket Server instance to the machine where you're running the {% data variables.product.prodname_bbs2gh_cli %}, using SFTP (Linux) or SMB (Windows)
-1. Uploads the migration archives to the blob storage provider of your choice
-1. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
-1. Deletes the migration archive
-
-You must follow this step from a computer that can access:
-
-- Your Bitbucket Server instance via HTTPS
-- Your Bitbucket Server instance via SFTP, if your Bitbucket Server instance runs on Linux. In general, if you can access the server via SSH, then you can also use SFTP.
-- Your Bitbucket Server instance via SMB, if your Bitbucket Server instance runs on Windows
-- Your chosen blob storage provider
-
-### Migrate multiple repositories
-
-Before running the script you generated above, you must set additional environment variables to authenticate to your blob storage provider.
+Before running the script, you must set additional environment variables to authenticate to your blob storage provider.
 
 - For AWS S3, set the following environment variables.
   - `AWS_ACCESS_KEY`: The access key for your bucket
@@ -164,43 +255,6 @@ Before running the script you generated above, you must set additional environme
   - `AWS_SESSION_TOKEN`: The session token, if you're using AWS temporary credentials (see [Using temporary credentials with AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html) in the AWS documentation)
 - For Azure Blob Storage, set `AZURE_STORAGE_CONNECTION_STRING` to the connection string for your Azure storage account.
 
-   {% data reusables.enterprise-migration-tool.azure-storage-connection-key %}
+{% data reusables.enterprise-migration-tool.azure-storage-connection-key %}
 
 {% data reusables.enterprise-migration-tool.migrate-multiple-repos %}
-
-### Migrate a single repository
-
-To migrate a single repository, use the `gh bbs2gh migrate-repo` command.
-
-```shell{:copy}
-gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
-  --bbs-project PROJECT --bbs-repo CURRENT-NAME \
-  --github-org DESTINATION --github-repo NEW-NAME \
-  # Use the following options if your Bitbucket Server instance runs on Linux
-  --ssh-user SSH-USER --ssh-private-key PATH-TO-KEY
-  # Use the following options if your Bitbucket Server instance runs on Windows
-  --smb-user SMB-USER
-  # Use the following option if you're using AWS S3 as your blob storage provider
-  --aws-bucket-name AWS-BUCKET-NAME
-```
-
-{% data reusables.enterprise-migration-tool.placeholder-table %}
-{% data reusables.enterprise-migration-tool.bbs-server-url-placeholder %}
-{% data reusables.enterprise-migration-tool.project-placeholder %}
-{% data reusables.enterprise-migration-tool.current-name-placeholder %}
-{% data reusables.enterprise-migration-tool.destination-placeholder %}
-{% data reusables.enterprise-migration-tool.new-name-placeholder %}
-{% data reusables.enterprise-migration-tool.ssh-user-placeholder %}
-{% data reusables.enterprise-migration-tool.path-to-key-placeholder %}
-{% data reusables.enterprise-migration-tool.smb-user-placeholder %}
-{% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
-
-{% note %}
-
-**Note:** If you get an error mentioning `Renci.SshNet`, then the CLI is having issues making an SFTP connection to your server to download your migration archive. For information about how to troubleshoot these issues, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported)."
-
-{% endnote %}
-
-## Step 7: Validate your migration and check the error log
-
-{% data reusables.enterprise-migration-tool.validate-migration-logs %}

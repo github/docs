@@ -19,6 +19,7 @@ sections:
     - The enterprise audit log now includes more user-generated events, such as `project.create`. The REST API also returns additional user-generated events, such as `repo.create`. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."
     - In some cases, cache replicas could reject some Git operations on recently updated repositories. For more information about repository caching, see "[AUTOTITLE](/admin/enterprise-management/caching-repositories/about-repository-caching)." 
     - You can now configure the global announcement banner to be dismissable using the REST API. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)." 
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
@@ -35,5 +36,5 @@ sections:
     - |
       GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
-    - '{% data reusables.release-notes.scim-custom-mappings-known-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'

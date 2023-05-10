@@ -27,16 +27,25 @@ Depending on the policy settings configured at the enterprise level, an organiza
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
 1. Under "User permissions," to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Purchase for all members**.
 1. In the "Confirm seat assignment" dialog, to confirm that you want to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, click **Confirm**.
 1. To save your changes, click **Save**.
 
 ### Enabling access to {% data variables.product.prodname_copilot %} for specific users in your organization
 
+{% ifversion ghec %}
+{% note %}
+
+**Note:** You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}.  For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
+
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
 1. Under "User permissions," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Purchase for selected teams/users** and click **Save**.
 1. If you are updating user access from the **Purchase for all members** setting, in the "Confirm seat assignment" dialog, select how you want to start assigning access.
     - To unassign all members and then select those who should have access, select **Start from scratch**.
@@ -71,7 +80,7 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
 1. Under "User permissions,", select **Purchase for selected teams/users** and then click **Save**.
 
     - In the "Confirm seat assignment" pop-up dialog, select **Keep all users**.
@@ -90,7 +99,7 @@ Removing a user from the organization(s) that had assigned them a {% data variab
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Policies**.
 1. In the "Suggestions matching public code" dropdown, select **Allow** or **Block** to allow or block suggestions matching public code.
 
 ## Further reading

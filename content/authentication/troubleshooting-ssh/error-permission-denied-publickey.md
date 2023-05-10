@@ -156,7 +156,6 @@ You must provide your public key to {% data variables.product.product_name %} to
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
 6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
@@ -177,7 +176,6 @@ You must provide your public key to {% data variables.product.product_name %} to
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
 6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 
@@ -204,7 +202,6 @@ You must provide your public key to {% data variables.product.product_name %} to
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
 6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endlinux %}
 

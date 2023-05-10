@@ -4,13 +4,13 @@ Our application is in Node, Express, React, & Next. We are using a "subject fold
 
 ## Why subject folders
 
-We used to organize our code more by role: client, stylesheets, server middleware, shared files, tests, etc. We found over time as the site grew it was difficult to find all the pieces that made a single feature work across the code base. Instead, we're moving to organize by subject, so its easy to find all the related code for a single capability in one place.
+We used to organize our code more by role. Client, stylesheets, server middleware, shared files, tests, and so on. As the site grew, we had difficulty finding all the pieces that made a single feature work across the code base. Instead, we're moving to organize by subject. Subjects are easier to find all the related code for a single capability in one place.
 
 ## How to create and use subject folders
 
 Run `script/create-subject.js --name x` to create a new subject folder.
 
-Subjects do not need every element below. Not every element needs to be a folder. A subject folder looks similar to:
+Subjects do not need every element below. Not every element needs to be a folder. A subject folder looks like:
 
 ```
 src/
@@ -28,21 +28,21 @@ src/
 
 If subject depends on another subject, please make this explicit in the README.
 
-If you are deciding which subject folder between two or three options to put code in, choose the _most specific_ option available.
+Choose the _most specific_ subject folder available when organizing code.
 
 ## When to use subject folders
 
-When a significant capability requires its _own specific tests_, that is a great sign the capability should have its own subject folder.
+A capability should have its own subject folder when it has its _own specific tests_.
 
 ## When not to use subject folders
 
-A few things are harder to categorize, so there's a few more broad folders for a few things:
+A few things are harder to categorize, so there's some broad folders:
 
-- `content/`, for things that make the `content/` or `data/` directories work and there's no more specific option.
-- `environments/`, for things that make local, testing, preview, staging, production work and there's no more specific option.
-- `frame/`, for things that make the header, footer, global sidebar functional and there's no more specific option.
+- `content/`, for things that make the `content/` or `data/` directories work. And there's no more specific option.
+- `environments/`, for things that make local, testing, preview, staging, production work. And there's no more specific option.
+- `frame/`, for things that make the header, footer, global sidebar functional. And there's no more specific option.
 
-But don't hestitate to make a new subject folder if there's at least a few files closely related.
+But don't hestitate to make a new subject folder if there's at least a few files related.
 
 ## Where to get help
 

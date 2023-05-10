@@ -34,7 +34,6 @@ Creating a repository from a template is similar to forking a repository, but th
 For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
 ## Creating a repository from a template
-
 {% data reusables.repositories.navigate-to-repo %}
 1. Above the file list, click **Use this template**.
 {% ifversion fpt or ghec %}

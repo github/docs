@@ -22,13 +22,9 @@ Anyone with write permissions to a {% data variables.projects.projects_v1_board 
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
 4. In the left sidebar, click **Linked repositories**.
-![Linked repositories menu option in left sidebar](/assets/images/help/projects/project-board-linked-repositories-setting.png)
 5. Click **Link a repository**.
-![Link a repository button on Linked repositories tab](/assets/images/help/projects/link-repository-button.png)
 6. Search for the repository you'd like to link.
-![Search field on Link a repository window](/assets/images/help/projects/search-to-link-repository.png)
 7. Click **Link**. To unlink, click **Unlink**.
-![Link button](/assets/images/help/projects/link-button.png)
 
 {% note %}
 

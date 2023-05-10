@@ -49,8 +49,6 @@ For some example queries, see "[An example query using the Enterprise Accounts A
 
 ### 1. Authenticate with your {% data variables.product.pat_generic %}
 
-{% data reusables.user-settings.graphql-classic-pat-only %}
-
 1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 2. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of your enterprise you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:

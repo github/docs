@@ -22,7 +22,10 @@ test('view the for-playwright article', async ({ page }) => {
   await expect(page).toHaveTitle(/For Playwright - GitHub Docs/)
 
   // This is the right-hand sidebar mini-toc link
-  await page.getByRole('link', { name: 'Second heading' }).click()
+  await page
+    .getByTestId('minitoc')
+    .getByRole('link', { name: 'Second heading', exact: true })
+    .click()
   await expect(page).toHaveURL(/for-playwright#second-heading/)
 })
 
@@ -160,34 +163,6 @@ test('navigate with side bar into article inside a map-topic inside a category',
   await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
 })
 
-test('code examples search', async ({ page }) => {
-  await page.goto('/code-security')
-  const codeExampleResults = page.getByTestId('code-example-results')
-
-  // more results after clicking the 'Show more' button
-  const initialResultsCount = (await codeExampleResults.getByRole('listitem').all()).length
-  await page.getByTestId('code-examples-show-more').click()
-  const showedMoreResultsCount = (await codeExampleResults.getByRole('listitem').all()).length
-  expect(showedMoreResultsCount).toBeGreaterThan(initialResultsCount)
-
-  // search for the 2 'policy' code examples
-  await page.getByTestId('code-examples-input').click()
-  await page.getByTestId('code-examples-input').fill('policy')
-  await page.getByTestId('code-examples-search-btn').click()
-  expect((await codeExampleResults.getByRole('listitem').all()).length).toBe(2)
-  await expect(codeExampleResults.getByText('Microsoft security policy template')).toBeVisible()
-  await expect(codeExampleResults.getByText('Electron security policy')).toBeVisible()
-
-  // what happens when there's no search results
-  await page.getByTestId('code-examples-input').click()
-  await page.getByTestId('code-examples-input').fill('should be no results')
-  await page.getByTestId('code-examples-search-btn').click()
-  await expect(page.locator('#code-examples').getByText('Matches displayed: 0')).toBeVisible()
-  await expect(
-    page.locator('#code-examples').getByText('Sorry, there is no result for should be no results')
-  ).toBeVisible()
-})
-
 test('hovercards', async ({ page }) => {
   await page.goto('/pages/quickstart')
 
@@ -217,16 +192,33 @@ test('hovercards', async ({ page }) => {
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the secondary minitoc sidebar don't have a hovercard
-  await page.getByRole('link', { name: 'Internal link' }).hover()
+  await page
+    .getByTestId('minitoc')
+    .getByRole('link', { name: 'Regular internal link', exact: true })
+    .hover()
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the article intro have a hovercard
   await page.locator('#article-intro').getByRole('link', { name: 'article intro link' }).hover()
   await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+  // this page's intro has two links; one in-page and one internal
+  await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
+  await expect(
+    page.getByText('Follow this Hello World exercise to get started with GitHub.')
+  ).toBeVisible()
 
   // same page anchor links have a hovercard
-  await page.locator('#article-contents').getByRole('link', { name: 'introduction' }).hover()
+  await page
+    .locator('#article-contents')
+    .getByRole('link', { name: 'introduction', exact: true })
+    .hover()
   await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
+
+  // links with formatted text need to work too
+  await page.locator('#article-contents').getByRole('link', { name: 'Bold is strong' }).hover()
+  await expect(page.getByText('The most basic of fixture data for GitHub')).toBeVisible()
+  await page.locator('#article-contents').getByRole('link', { name: 'bar' }).hover()
+  await expect(page.getByText("This page doesn't really have an intro")).toBeVisible()
 })
 
 test('x-large viewports - 1280+', async ({ page }) => {
@@ -241,4 +233,121 @@ test('x-large viewports - 1280+', async ({ page }) => {
   expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
   await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
   await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
+})
+
+test('large -> x-large viewports - 1012+', async ({ page }) => {
+  page.setViewportSize({
+    width: 1013,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // version picker should be visible
+  await page
+    .getByRole('button', {
+      name: 'Select GitHub product version: current version is free-pro-team@latest',
+    })
+    .click()
+  expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
+  await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
+
+  // language picker is visible
+  // TODO: currently no languages enabled for headless tests
+  // await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+  // await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+
+  // header sign up button is visible
+  await expect(page.getByTestId('header-signup')).toBeVisible()
+})
+
+test('large viewports - 1012-1279', async ({ page }) => {
+  page.setViewportSize({
+    width: 1013,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // breadcrumbs show up in the header, for this page we should have
+  // 3 items 'Get Started / Foo / Bar'
+  // in-article breadcrumbs don't show up
+  await expect(page.getByTestId('breadcrumbs-header')).toBeVisible()
+  expect(await page.getByTestId('breadcrumbs-header').getByRole('link').all()).toHaveLength(3)
+  await expect(page.getByTestId('breadcrumbs-in-article')).not.toBeVisible()
+
+  // hamburger button for sidebar overlay is visible
+  await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+  await page.getByTestId('sidebar-hamburger').click()
+  await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+})
+
+test('medium viewports - 768-1011', async ({ page }) => {
+  page.setViewportSize({
+    width: 1000,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // version picker is visible
+  await page
+    .getByRole('button', {
+      name: 'Select GitHub product version: current version is free-pro-team@latest',
+    })
+    .click()
+  expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
+  await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
+
+  // language picker is in mobile menu
+  // TODO: currently no languages enabled for headless tests
+  // await page.getByTestId('mobile-menu').click()
+  // await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+  // await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+
+  // sign up button is in mobile menu
+  await expect(page.getByTestId('header-signup')).not.toBeVisible()
+  await page.getByTestId('mobile-menu').click()
+  await expect(page.getByTestId('mobile-signup')).toBeVisible()
+
+  // hamburger button for sidebar overlay is visible
+  await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+  await page.getByTestId('sidebar-hamburger').click()
+  await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+})
+
+test('small viewports - 544-767', async ({ page }) => {
+  page.setViewportSize({
+    width: 500,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // header sign-up button is not visible
+  await expect(page.getByTestId('header-signup')).not.toBeVisible()
+
+  // TODO: currently no languages enabled for headless tests
+  // language picker is not visible
+  // await expect(page.getByTestId('language-picker')).not.toBeVisible()
+
+  // version picker is not visible
+  await expect(
+    page.getByRole('button', {
+      name: 'Select GitHub product version: current version is free-pro-team@latest',
+    })
+  ).not.toBeVisible()
+
+  // version picker is in mobile menu
+  await expect(page.getByTestId('version-picker')).not.toBeVisible()
+  await page.getByTestId('mobile-menu').click()
+  await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
+
+  // TODO: currently no languages enabled for headless tests
+  // language picker is in mobile menu
+  // await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
+
+  // sign up button is in mobile menu
+  await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
+
+  // hamburger button for sidebar overlay is visible
+  await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+  await page.getByTestId('sidebar-hamburger').click()
+  await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
 })

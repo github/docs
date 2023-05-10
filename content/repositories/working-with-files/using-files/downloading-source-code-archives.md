@@ -21,18 +21,18 @@ You can download the source code archives in three ways.
 ### Downloading source code archives from the repository view
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Above the list of files, click {% octicon "download" aria-label="The download icon" %} **Code**.
+1. Above the list of files, click {% octicon "code" aria-hidden="true" %} **Code**.
+   
+  ![Screenshot of the list of files on the landing page of a repository. The "Code" button is highlighted with a dark orange outline.](/assets/images/help/repository/code-button.png)
 
-   !["Code" button](/assets/images/help/repository/code-button.png)
-
-1. Click {% octicon "file-zip" aria-label="The ZIP icon" %} **Download ZIP**.
+1. Click {% octicon "file-zip" aria-hidden="true" %} **Download ZIP**.
 
 ### Downloading source code archives from a release
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 1. Scroll down to the "Assets" section of the release.
-1. To download the source code, click {% octicon "file-zip" aria-label="The ZIP icon" %} **Source code (zip)** or {% octicon "file-zip" aria-label="The ZIP icon" %} **Source code (tar.gz)**.
+1. To download the source code, click {% octicon "file-zip" aria-hidden="true" %} **Source code (zip)** or {% octicon "file-zip" aria-hidden="true" %} **Source code (tar.gz)**.
 
 ### Downloading source code archives from a tag
 

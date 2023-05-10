@@ -63,7 +63,6 @@ If you decide you don't want the changes in a topic branch to be merged to the u
 2. If prompted, type a commit message, or accept the default message.
 
    {% data reusables.pull_requests.default-commit-message-squash-merge %}
-
 {% data reusables.files.choose-commit-email %}
 
    {% note %}
@@ -71,7 +70,6 @@ If you decide you don't want the changes in a topic branch to be merged to the u
    **Note:** The email selector is not available for rebase merges, which do not create a merge commit{% ifversion squash-merge-email %}. For squash merges, the email selector is only shown if you are the pull request author and you have more than one email address associated with your account.{% else %}, or for squash merges, which credit the user who created the pull request as the author of the squashed commit.{% endif %}
 
    {% endnote %}
-
 1. Click **Confirm merge**, **Confirm squash and merge**, or **Confirm rebase and merge**.
 2. Optionally, [delete the branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request). This keeps the list of branches in your repository tidy.
 

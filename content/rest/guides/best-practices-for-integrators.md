@@ -170,4 +170,4 @@ Rather than ignore repeated `4xx` and `5xx` status codes, you should ensure that
 
 Intentionally ignoring repeated validation errors may result in the suspension of your app for abuse.
 
-[event-types]: /webhooks/event-payloads
+[event-types]: /webhooks-and-events/webhooks/webhook-events-and-payloads

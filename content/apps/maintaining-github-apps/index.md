@@ -15,10 +15,9 @@ topics:
 children:
   - /about-github-app-managers
   - /modifying-a-github-app
-  - /editing-a-github-apps-permissions
   - /managing-allowed-ip-addresses-for-a-github-app
   - /installing-github-apps
-  - /activating-optional-features-for-apps
+  - /activating-optional-features-for-github-apps
   - /suspending-a-github-app-installation
   - /transferring-ownership-of-a-github-app
   - /deleting-a-github-app

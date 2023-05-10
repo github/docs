@@ -403,7 +403,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Setup Ruby
-        uses: eregon/use-ruby-action@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: eregon/use-ruby-action@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
           ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
       - name: Cache dependencies

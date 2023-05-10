@@ -7,7 +7,6 @@ import { FeaturedArticles } from 'components/landing/FeaturedArticles'
 import { GuideCards } from 'components/landing/GuideCards'
 import { SponsorsExamples } from 'components/landing/SponsorsExamples'
 import { CommunityExamples } from 'components/landing/CommunityExamples'
-import { CodeExamples } from 'components/landing/CodeExamples'
 import { LandingSection } from 'components/landing/LandingSection'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ProductArticlesList } from 'components/landing/ProductArticlesList'
@@ -18,14 +17,8 @@ import { RestRedirect } from 'components/RestRedirect'
 export const ProductLanding = () => {
   const router = useRouter()
   const { isEnterpriseServer } = useVersion()
-  const {
-    title,
-    shortTitle,
-    featuredLinks,
-    productUserExamples,
-    productCommunityExamples,
-    productCodeExamples,
-  } = useProductLandingContext()
+  const { title, shortTitle, featuredLinks, productUserExamples, productCommunityExamples } =
+    useProductLandingContext()
   const { t } = useTranslation('product_landing')
 
   return (
@@ -39,16 +32,6 @@ export const ProductLanding = () => {
         <LandingSection>
           <FeaturedArticles />
         </LandingSection>
-
-        {productCodeExamples.length > 0 && (
-          <LandingSection
-            title={t('code_examples')}
-            sectionLink="code-examples"
-            className="my-6 pb-6"
-          >
-            <CodeExamples />
-          </LandingSection>
-        )}
 
         {productCommunityExamples.length > 0 && (
           <LandingSection title={t('communities_using_discussions')} className="my-6 pb-6">

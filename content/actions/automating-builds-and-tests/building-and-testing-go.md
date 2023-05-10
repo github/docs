@@ -51,7 +51,7 @@ jobs:
       - name: Set up Go
         uses: {% data reusables.actions.action-setup-go %}
         with:
-          go-version: 1.15
+          go-version: '1.15'
 
       - name: Build
         run: go build -v ./...

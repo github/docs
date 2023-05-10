@@ -4,7 +4,7 @@ import { readFile, writeFile, copyFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import walk from 'walk-sync'
 import { mkdirp } from 'mkdirp'
-import { execSync } from 'child_process'
+import { execFileSync, execSync } from 'child_process'
 import path from 'path'
 import matter from 'gray-matter'
 import { rimraf } from 'rimraf'
@@ -92,6 +92,6 @@ async function rstToMarkdown(sourceDirectory) {
       throw new Error(errorMsg)
     }
 
-    execSync(`pandoc ${tempFilePath} -f rst -t commonmark_x -o ${outputFilepath}`)
+    execFileSync('pandoc', [tempFilePath, '-f', 'rst', '-t', 'commonmark_x', '-o', outputFilepath])
   }
 }

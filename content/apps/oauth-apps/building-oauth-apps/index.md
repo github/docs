@@ -13,6 +13,7 @@ versions:
 topics:
   - OAuth Apps
 children:
+  - /differences-between-github-apps-and-oauth-apps
   - /rate-limits-for-oauth-apps
   - /creating-an-oauth-app
   - /authenticating-to-the-rest-api-with-an-oauth-app

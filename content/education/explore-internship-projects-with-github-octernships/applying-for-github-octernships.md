@@ -41,7 +41,6 @@ You can use the {% data variables.product.prodname_octernships %} website to fin
 4. Browse the available opportunities and information, such as the closing date for submitting the assignment, and click **I'm interested** on an opportunity. If **I'm interested** is disabled, you are not eligible.
 5. Click the link in the confirmation dialog to view the repository containing your assignment.
 6. Accept **Terms of Service** of the program. You must accept it to move forward.
-7. Click the link in the confirmation dialog to view the repository containing your assignment.
 
 You can find all the projects that you have applied to, and links to the assignment repositories, on the left of the {% data variables.product.prodname_octernships %} dashboard.
 Use the assignment repository to complete the task provided by the organization and commit your work for the company to review.
