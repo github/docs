@@ -183,31 +183,6 @@ describe('survey', () => {
   })
 })
 
-// Skipping because next/links are disabled by default for now
-// Docs Engineering issue: 962
-describe.skip('next/link client-side navigation', () => {
-  jest.setTimeout(60 * 1000)
-
-  it('should have 200 response to /_next/data when link is clicked', async () => {
-    const initialViewport = page.viewport()
-    await page.setViewport({ width: 1024, height: 768 })
-    await page.goto('http://localhost:4000/en/actions/guides')
-
-    const [response] = await Promise.all([
-      page.waitForResponse((response) =>
-        response.url().startsWith('http://localhost:4000/_next/data')
-      ),
-      page.waitForNavigation({ waitUntil: 'networkidle2' }),
-      page.click(
-        '[data-testid=sidebar-article-group]:nth-child(2) [data-testid=sidebar-article]:nth-child(1) a'
-      ),
-    ])
-
-    expect(response.status()).toBe(200)
-    await page.setViewport(initialViewport)
-  })
-})
-
 describe('iframe pages', () => {
   it('can open YouTube embed iframes', async () => {
     // Going to create a fresh page instance, so we can intercept the requests.
