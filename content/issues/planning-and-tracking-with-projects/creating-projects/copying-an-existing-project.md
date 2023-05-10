@@ -16,6 +16,8 @@ You can copy an existing project and use it as a template to save time configuri
 
 When you copy a project, the new project will contain the same views and custom fields. You also have the option to copy existing draft issues. The new project will not contain the original project's items, workflows, insights, collaborators, or team and repository links.
 
+{% ifversion projects-v2-org-templates %}{% data reusables.projects.org-templates %}{% endif %}
+
 ## Copying an existing project
 
 1. Navigate to the project you want to copy.

@@ -24,6 +24,12 @@ const validationMiddleware = (req, res, next) => {
   if (!pathname.trim()) {
     return res.status(400).json({ error: `'pathname' query empty` })
   }
+  if (!pathname.startsWith('/')) {
+    return res.status(400).json({ error: `'pathname' has to start with /` })
+  }
+  if (/\s/.test(pathname)) {
+    return res.status(400).json({ error: `'pathname' can not contain whitespace` })
+  }
   req.pageinfo = { pathname }
   return next()
 }

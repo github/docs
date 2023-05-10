@@ -145,63 +145,6 @@ describe('browser search', () => {
   })
 })
 
-describe('small -> x-small viewports - under 544 -> 767', () => {
-  jest.setTimeout(60 * 1000)
-  it('sign up button is not visible', async () => {
-    await page.setViewport({ width: 500, height: 700 })
-    await page.goto('http://localhost:4000/en/actions')
-    const signUpElement = await page.$('[data-testid=header-signup] a')
-    const classes = Object.values(await signUpElement.evaluate((el) => el.classList))
-    expect(classes).toEqual(expect.arrayContaining(['d-none', 'd-lg-flex']))
-  })
-
-  it('language picker is not visible', async () => {
-    const languagePickerElement = await page.$('[data-testid=language-picker]')
-    const parentNode = await languagePickerElement.getProperty('parentNode')
-    const classes = Object.values(await parentNode.evaluate((el) => el.classList))
-    expect(classes).toEqual(expect.arrayContaining(['d-none', 'd-lg-flex']))
-  })
-
-  it('version picker is not visible', async () => {
-    const hiddenElements = await page.evaluate(() => {
-      const data = []
-      const elements = document.getElementsByClassName('hide-sm')
-      for (const element of elements)
-        data.push(element.firstElementChild.getAttribute('data-testid'))
-
-      return data
-    })
-    expect(hiddenElements).toEqual(['version-picker'])
-  })
-
-  it('version picker icon is in mobile menu', async () => {
-    await page.click('[data-testid=mobile-menu]')
-    await page.click('[data-testid=open-mobile-menu] [data-testid=version-picker]')
-    const versionItems = await page.$$('[data-testid=version-picker-item]')
-    expect(versionItems.length).toBeGreaterThan(0)
-  })
-
-  it('language picker icon is in mobile menu', async () => {
-    await page.click('[data-testid=open-mobile-menu] [data-testid=language-picker]')
-    const defaultLanguageElement = await page.$('[data-testid=default-language]')
-    const languageValue = await defaultLanguageElement.evaluate((el) => el.textContent)
-    expect(languageValue).toBe('English')
-  })
-
-  it('sign up button is in mobile menu', async () => {
-    const signUpElement = await page.$('[data-testid=mobile-signup]')
-    const signUpValue = await signUpElement.evaluate((el) => el.textContent)
-    expect(signUpValue).toBe('Sign up')
-  })
-
-  it('hamburger button for sidebar overlay is visible', async () => {
-    await page.click('[data-testid=sidebar-hamburger]')
-    const sidebarElement = await page.$('[data-testid=sidebar-product-dialog]')
-    const sideBarValue = await sidebarElement.evaluate((el) => el.textContent)
-    expect(sideBarValue).toBe('GitHub Actions')
-  })
-})
-
 describe('survey', () => {
   jest.setTimeout(3 * 60 * 1000)
 

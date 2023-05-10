@@ -15,7 +15,7 @@ redirect_from:
 
 ## About webhooks and {% data variables.product.prodname_github_apps %}
 
-Webhooks enable your {% data variables.product.prodname_github_app %} to receive real-time notifications when events happen on {% data variables.product.prodname_dotcom %}, such as when someone pushes a commit or opens a pull request in a repository that your app can access. For more information about webhooks, see "[AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks)."
+Webhooks enable your {% data variables.product.prodname_github_app %} to receive real-time notifications when events happen on {% data variables.product.prodname_dotcom %}, such as when someone pushes a commit or opens a pull request in a repository that your app can access. For more information about webhooks, see "[AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks)." For a tutorial that demonstrates how to use webhooks with a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
 You can configure your {% data variables.product.prodname_github_app %} to receive webhooks for specific events on {% data variables.product.prodname_dotcom %} and automatically take action on them. For more information about the types of webhooks you can receive, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
 

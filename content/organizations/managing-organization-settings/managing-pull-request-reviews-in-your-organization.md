@@ -22,7 +22,7 @@ You can also enable code review limits for individual repositories. If you enabl
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "report" aria-label="The report icon" %} Moderation**.
+1. In the "Access" section of the sidebar, click **{% octicon "report" aria-hidden="true" %} Moderation**.
 1. Under "{% octicon "report" aria-hidden="true" %} Moderation", click **Code review limits**.
 1. Review the information on screen.
 1. Manage code review limits.
