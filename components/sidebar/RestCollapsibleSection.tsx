@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { TreeView } from '@primer/react'
 
 import { ProductTreeNode } from 'components/context/MainContext'
-import { EventType, sendEvent } from 'src/events/browser'
+import { EventType, sendEvent } from 'src/events/components/events'
 import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
 import { Link } from 'components/Link'

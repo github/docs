@@ -65,8 +65,8 @@ In addition to the features available with {% data variables.product.prodname_fr
 With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
 
 In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
-- {% data variables.product.prodname_gcf %}
-- Team discussions
+- {% data variables.product.prodname_gcf %}{% ifversion team-discussions %}
+- Team discussions{% endif %}
 - Team access controls for managing groups
 - 2,000 {% data variables.product.prodname_actions %} minutes per month
 - 500 MB {% data variables.product.prodname_registry %} storage

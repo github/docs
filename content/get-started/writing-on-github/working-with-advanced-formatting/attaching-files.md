@@ -16,8 +16,6 @@ topics:
   - Pull requests
 ---
 
-{% data reusables.repositories.anyone-can-view-anonymized-url %}
-
 To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
 
 ![Screenshot of the comment box. The bar to attach files by dragging and dropping, selecting, or pasting is outlined in dark orange.](/assets/images/help/pull_requests/select-bar.png)

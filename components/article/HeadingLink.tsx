@@ -15,10 +15,7 @@ export function HeadingLink({ children, as: Component, slug, className }: PropsT
     <Component id={slug} className={className} tabIndex={-1}>
       <a className="heading-link" href={`#${slug}`}>
         {children}
-        <span aria-hidden="true" className="heading-link-symbol">
-          {' '}
-          #
-        </span>
+        <span aria-hidden="true" className="heading-link-symbol" />
       </a>
     </Component>
   )

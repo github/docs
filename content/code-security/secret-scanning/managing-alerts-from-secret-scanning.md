@@ -77,7 +77,7 @@ shortTitle: Manage secret alerts
 
 {% endnote %}
 
-In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take. For more information on viewing individual alerts, see "[Managing {% data variables.product.prodname_secret_scanning %} alerts](#managing-secret-scanning-alerts)." 
+In the view for an active {% data variables.product.company_short %} token alert, you can review certain metadata about the token. This metadata may help you identify the token and decide what remediation steps to take. For more information on viewing individual alerts, see "[Managing {% data variables.product.prodname_secret_scanning %} alerts](#managing-secret-scanning-alerts)."
 
 Tokens, like {% data variables.product.pat_generic %} and other credentials, are considered personal information. For more information about using {% data variables.product.company_short %} tokens, see [GitHub's Privacy Statement](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement) and [Acceptable Use Policies](/free-pro-team@latest/site-policy/acceptable-use-policies/github-acceptable-use-policies).
 
@@ -120,7 +120,7 @@ Once a secret has been committed to a repository, you should consider the secret
 
 {% ifversion secret-scanning-notification-settings %}
 {% data reusables.repositories.navigate-to-repo %}
-1. To start watching the repository, select **{% octicon "eye" aria-label="The Eye icon" %}Watch**.
+1. To start watching the repository, select **{% octicon "eye" aria-hidden="true" %} Watch**.
 
    ![Screenshot of the repository's main page. A dropdown menu, titled "Watch", is highlighted with an orange outline.](/assets/images/help/repository/repository-watch-dropdown.png)
 
