@@ -6,10 +6,7 @@ redirect_from:
   - /github/building-a-strong-community/creating-a-team-discussion
   - /github/setting-up-and-managing-organizations-and-teams/creating-a-team-discussion
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+  feature: team-discussions
 topics:
   - Community
 shortTitle: Create a team discussion

@@ -43,6 +43,10 @@ If you create a codespace from an organization-owned repository, use of the code
 
 {% data reusables.codespaces.codespaces-continue-by-paying %}
 
+{% ifversion ghec %}
+{% data reusables.codespaces.codespaces-unavailable-for-emus %}
+{% endif %}
+
 ### Using organization-owned codespaces
 
 Owners of organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can enable use of {% data variables.product.prodname_github_codespaces %}, billable to the organization or enterprise account. This applies to codespaces created from repositories owned by the organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." You can set a spending limit for use of {% data variables.product.prodname_github_codespaces %} on your organization or enterprise account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."

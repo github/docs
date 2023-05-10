@@ -23,7 +23,7 @@ You can set the date or iteration fields that your roadmap will use to position 
 
   ![Screenshot showing the menu items for a roadmap layout. The "Date fields" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/roadmap-menu-dates.png)
 
-1. Optionally, to create a new date or iteration field, click {% octicon "plus" aria-label="the plus icon" %} **New field**, type the name of your field, and click **Save**. You can then select the new field or create another.
+1. Optionally, to create a new date or iteration field, click {% octicon "plus" aria-hidden="true" %} **New field**, type the name of your field, and click **Save**. You can then select the new field or create another.
 1. Select a date or iteration field for "Start date" and "Target date."
 
 {% ifversion projects-v2-roadmap-markers %}

@@ -50,7 +50,7 @@ You can find and view a package located in the repositories of an organization y
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-3. Under your organization name, click {% octicon "package" aria-label="The package icon" %} **Packages**.
+3. Under your organization name, click {% octicon "package" aria-hidden="true" %} **Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 
 ## Viewing your packages

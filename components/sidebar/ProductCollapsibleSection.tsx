@@ -3,7 +3,7 @@ import { TreeView } from '@primer/react'
 
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
-import { EventType, sendEvent } from 'src/events/browser'
+import { EventType, sendEvent } from 'src/events/components/events'
 
 type SectionProps = {
   routePath: string

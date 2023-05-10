@@ -18,7 +18,7 @@ shortTitle: Deploy keys
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-3. In the "Security" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Deploy keys**.
+3. In the "Security" section of the sidebar, click **{% octicon "key" aria-hidden="true" %} Deploy keys**.
 {% else %}
 3. In the left sidebar, click **Deploy keys**.
 {% endif %}

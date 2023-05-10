@@ -45,7 +45,7 @@ You can use the "Share a deep link" option to configure more options for the cod
 
    ![Screenshot of the expanded branch dropdown menu, listing various branches. The dropdown menu, labeled with a branch icon and "trunk," is highlighted with a dark orange outline.](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Click the **{% octicon "code" aria-label="The code icon" %} Code** button, then click the **Codespaces** tab.
+1. Click the **{% octicon "code" aria-hidden="true" %} Code** button, then click the **Codespaces** tab.
 1. To open the "Share codespace configuration" window, at the top right of the **Codespaces** tab, select {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %}, then click **Share a deep link**.
 
    ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab. The "Share a deep link" option is highlighted with an orange outline.](/assets/images/help/codespaces/share-deep-link.png)
@@ -60,7 +60,7 @@ You can use the "Share a deep link" option to configure more options for the cod
 
 You can create a link to a page for resuming your most recent codespace that matches the repository, branch, and other options specified in the URL.
 
-Add `?quickstart=1` to a `codespaces.new` URL, such as the URLs listed in the previous section of this article. This produces a URL that displays a "Resume codespace" page. 
+Add `?quickstart=1` to a `codespaces.new` URL, such as the URLs listed in the previous section of this article. This produces a URL that displays a "Resume codespace" page.
 
 For example, the URL `https://codespaces.new/octo-org/octo-repo?quickstart=1` opens a page to allow you to resume your most recent codespace for the default branch of the `octo-org/octo-repo` repository.
 
@@ -68,7 +68,7 @@ For example, the URL `https://codespaces.new/octo-org/octo-repo?quickstart=1` op
 
 {% note %}
 
-**Notes**: 
+**Notes**:
 
 - If the `codespaces.new` URL already contains a query string, add `&quickstart=1` at the end of the query string.
 - This type of URL will always open a codespace in the {% data variables.product.prodname_vscode_shortname %} web client, even if this is not set as your default editor for {% data variables.product.prodname_github_codespaces %}.
@@ -101,5 +101,5 @@ This type of URL is useful, for instance, in a README for your repository as it 
    ```
 
    The example Markdown is rendered like this:
-   
+
    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/docs)

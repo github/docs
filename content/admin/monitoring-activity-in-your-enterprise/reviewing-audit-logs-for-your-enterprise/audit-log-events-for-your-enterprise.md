@@ -331,35 +331,6 @@ Action                        | Description
 | `dependency_graph_new_repos.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled the dependency graph for all new repositories. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 | `dependency_graph_new_repos.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all new repositories.
 
-{%- ifversion fpt or ghec %}
-## `discussion` category actions
-
-| Action | Description
-|--------|-------------
-| `discussion.destroy` | A team discussion was deleted.
-
-## `discussion_comment` category actions
-
-| Action | Description
-|--------|-------------
-| `discussion_comment.destroy` | A [comment on a team discussion post was deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment).
-| `discussion_comment.update` | A [comment on a team discussion post was edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).
-
-## `discussion_post` category actions
-
-| Action | Description
-|--------|-------------
-| `discussion_post.destroy` | A [team discussion post was deleted](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).
-| `discussion_post.update` | A [team discussion post was edited](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).
-
-## `discussion_post_reply` category actions
-
-| Action | Description
-|--------|-------------
-| `discussion_post_reply.destroy` | A [reply to a team discussion post was deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment).
-| `discussion_post_reply.update` | A [reply to a team discussion post was edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).
-{%- endif %}
-
 {%- ifversion ghec or ghes %}
 ## `dotcom_connection` category actions
 
@@ -1422,6 +1393,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 | `team.update_permission` | A team's access was changed.
 | `team.update_repository_permission` | A team's permission to a repository was changed.
 
+{% ifversion team-discussions %}
 ## `team_discussions` category actions
 
 | Action | Description
@@ -1429,6 +1401,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 | `team_discussions.clear` | An organization owner cleared the setting to allow team discussions for an organization or enterprise.
 | `team_discussions.disable` | An organization owner disabled team discussions for an organization. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)."
 | `team_discussions.enable` | An organization owner enabled team discussions for an organization.
+{% endif %}
 
 {%- ifversion ghec %}
 ## `team_sync_tenant` category actions
