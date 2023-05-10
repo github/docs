@@ -214,7 +214,7 @@ A boolean specifying whether the input must be supplied.
 
 ## `on.workflow_dispatch.inputs.<input_id>.type`
 
-The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `environment`, or `string`.
+The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `number`, or `string`.
 
 ## `permissions`
 
@@ -552,7 +552,7 @@ jobs:
 
 Alternatively, use a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %} in order to ensure your workflow continues to run even if the {% data variables.product.pat_generic %} owner leaves. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 
-### `jobs.<job_id>.steps[*].run`
+## `jobs.<job_id>.steps[*].run`
 
 
 Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.

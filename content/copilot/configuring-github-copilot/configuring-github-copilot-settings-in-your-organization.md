@@ -27,7 +27,7 @@ Depending on the policy settings configured at the enterprise level, an organiza
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, and then click **Access**.
 1. Under "User permissions," to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Purchase for all members**.
 1. In the "Confirm seat assignment" dialog, to confirm that you want to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, click **Confirm**.
 1. To save your changes, click **Save**.

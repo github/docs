@@ -86,8 +86,8 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `secret_scanning` | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 | `secret_scanning_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} for new repositories created in the organization. {% endif %}{% ifversion fpt or ghec %}
 | `sponsors`| Contains all events related to sponsor buttons (see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)"){% endif %}
-| `team` | Contains all activities related to teams in your organization.
-| `team_discussions` | Contains activities related to managing team discussions for an organization.
+| `team` | Contains all activities related to teams in your organization.{% ifversion team-discussions %}
+| `team_discussions` | Contains activities related to managing team discussions for an organization.{% endif %}
 | `workflows` | Contains activities related to {% data variables.product.prodname_actions %} workflows.
 
 You can search for specific sets of actions using these terms. For example:

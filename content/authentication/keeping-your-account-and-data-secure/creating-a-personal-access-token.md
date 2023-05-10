@@ -90,7 +90,7 @@ When using a {% data variables.product.pat_generic %} in a script, you can store
 {% ifversion fpt or ghec %}1. [Verify your email address](/get-started/signing-up-for-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
 1. Click **Generate new token**.
 1. Under **Token name**, enter a name for the token.
 1. Under **Expiration**, select an expiration for the token.
@@ -131,7 +131,7 @@ If you selected an organization as the resource owner and the organization requi
 {% ifversion fpt or ghec %}1. [Verify your email address](/get-started/signing-up-for-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-{% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
+{% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
 {% ifversion pat-v2%}1. Select **Generate new token**, then click **Generate new token (classic)**.{% else %}{% data reusables.user-settings.generate_new_token %}{% endif %}
 5. In the "Note" field, give your token a descriptive name.
 6. To give your token an expiration, select **Expiration**, then choose a default option or click **Custom** to enter a date.

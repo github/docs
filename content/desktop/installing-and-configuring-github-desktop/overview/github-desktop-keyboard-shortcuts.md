@@ -26,6 +26,8 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>Command</kbd>+<kbd>0</kbd> | Reset zoom to default text size
 |<kbd>Command</kbd>+<kbd>=</kbd> | Zoom in for larger text and graphics
 |<kbd>Command</kbd>+<kbd>-</kbd> | Zoom out for smaller text and graphics
+|<kbd>Command</kbd>+<kbd>8</kbd> | Decrease active pane width
+|<kbd>Command</kbd>+<kbd>9</kbd> | Increase active pane width
 |<kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>I</kbd> | Toggle Developer Tools
 
 ## Repositories
@@ -80,6 +82,8 @@ GitHub Desktop keyboard shortcuts on Windows
 |<kbd>Ctrl</kbd>+<kbd>0</kbd> | Reset zoom to default text size
 |<kbd>Ctrl</kbd>+<kbd>=</kbd> | Zoom in for larger text and graphics
 |<kbd>Ctrl</kbd>+<kbd>-</kbd> | Zoom out for smaller text and graphics
+|<kbd>Ctrl</kbd>+<kbd>8</kbd> | Decrease active pane width
+|<kbd>Ctrl</kbd>+<kbd>9</kbd> | Increase active pane width
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> | Toggle Developer Tools
 
 ## Repositories

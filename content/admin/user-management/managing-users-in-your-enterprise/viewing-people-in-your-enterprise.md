@@ -140,7 +140,7 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can view
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Under "People", click **Suspended**. 
+1. Under "People", click **Suspended**.
 
 {% endif %}
 
@@ -172,7 +172,7 @@ You can view a list of members in your enterprise who don't have an email addres
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
-1. Under "Notification preferences", click the {% octicon "eye" aria-label="The github eye icon" %} **View enterprise members without an approved or verified domain email** link.
+1. Under "Notification preferences", click the {% octicon "eye" aria-hidden="true" %} **View enterprise members without an approved or verified domain email** link.
 {% endif %}
 
 ## Further reading

@@ -57,11 +57,11 @@ jobs:
 
 ## Specifying a Swift version
 
-To use a specific preinstalled version of Swift on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `fwal/setup-swift` action. This action finds a specific version of Swift from the tools cache on the runner and adds the necessary binaries to `PATH`. These changes will persist for the remainder of a job. For more information, see the [`fwal/setup-swift`](https://github.com/marketplace/actions/setup-swift) action.
+To use a specific preinstalled version of Swift on a {% data variables.product.prodname_dotcom %}-hosted runner, use the `swift-actions/setup-swift` action. This action finds a specific version of Swift from the tools cache on the runner and adds the necessary binaries to `PATH`. These changes will persist for the remainder of a job. For more information, see the [`swift-actions/setup-swift`](https://github.com/marketplace/actions/setup-swift) action.
 
 If you are using a self-hosted runner, you must install your desired Swift versions and add them to `PATH`.
 
-The examples below demonstrate using the `fwal/setup-swift` action.
+The examples below demonstrate using the `swift-actions/setup-swift` action.
 
 ### Using multiple Swift versions
 
@@ -87,7 +87,7 @@ jobs:
         swift: ["5.2", "5.3"]
     runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     steps:
-      - uses: fwal/setup-swift@ffb5a44dd03d3d22fb26f48fa43e43fa4ce655a7
+      - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
         with:
           swift-version: {% raw %}${{ matrix.swift }}{% endraw %}
       - uses: {% data reusables.actions.action-checkout %}
@@ -104,7 +104,7 @@ You can configure your job to use a single specific version of Swift, such as `5
 {% raw %}
 ```yaml{:copy}
 steps:
-  - uses: fwal/setup-swift@ffb5a44dd03d3d22fb26f48fa43e43fa4ce655a7
+  - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
     with:
       swift-version: "5.3.3"
   - name: Get swift version
@@ -119,7 +119,7 @@ You can use the same commands that you use locally to build and test your code u
 ```yaml{:copy}
 steps:
   - uses: {% data reusables.actions.action-checkout %}
-  - uses: fwal/setup-swift@ffb5a44dd03d3d22fb26f48fa43e43fa4ce655a7
+  - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
     with:
       swift-version: "5.3.3"
   - name: Build

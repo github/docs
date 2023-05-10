@@ -56,3 +56,4 @@ sections:
       GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'

@@ -16,7 +16,7 @@ sections:
     - When users performed an operation using the API, GitHub Enterprise Server enforced repository size quotas even when disabled globally.
     - If a user uploaded more than one file while creating a new Gist, the user could not delete any files uploaded after the first.
     - In some cases, searches via the API returned a `500` error.
-    - In some cases, when browsing repositories in the web interface, an erroneous banner indicated that a repository didnt contain a specific undefined path on the current branch.
+    - In some cases, when browsing repositories in the web interface, an erroneous banner indicated that a repository didn't contain a specific undefined path on the current branch.
     - The `member` webhook event did not include the `from` and `to` field values for the `permission` field as part of the `changes` field.
     - Adding a collaborator to a user-owned fork of a private, organization-owned repository with triage, maintain, or custom access resulted in a `500` error.
     - In some cases, the page for setting up code scanning would erroneously report that GitHub Actions was not configured for the instance.
@@ -41,3 +41,4 @@ sections:
     - '{% data reusables.release-notes.repository-inconsistencies-errors %}'
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
