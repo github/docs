@@ -30,7 +30,7 @@ You can star repositories listed in the {% data variables.product.prodname_commu
 
 Repository listings in the {% data variables.product.prodname_community_exchange %} gallery can be sorted on the number of stars a repository has.
 
-To star a repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to star, and click {% octicon "star" aria-label="The star icon" %} **Star** button found right by its name.
+To star a repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to star, and click {% octicon "star" aria-hidden="true" %} **Star** button found right by its name.
 
 ## Reporting abuse
 

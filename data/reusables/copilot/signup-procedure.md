@@ -1,5 +1,5 @@
 {% data reusables.user-settings.access_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-label="The copilot icon" %} {% data variables.product.prodname_copilot %}**.
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot %}**.
 1. On the {% data variables.product.prodname_copilot %} settings page, click **Enable {% data variables.product.prodname_copilot %}**.
 1. Choose whether you want to pay monthly or yearly, and click **Continue to get access to Copilot**.
 

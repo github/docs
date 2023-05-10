@@ -63,9 +63,11 @@ import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from './dynamic-assets.js'
+import rateLimit from './rate-limit.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
+
 // By default, logging each request (with morgan), is on. And by default
 // it's off if you're in a production environment or running automated tests.
 // But if you set the env var, that takes precedence.
@@ -195,6 +197,7 @@ export default function (app) {
   }
 
   // *** Early exits ***
+  app.use(rateLimit)
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 

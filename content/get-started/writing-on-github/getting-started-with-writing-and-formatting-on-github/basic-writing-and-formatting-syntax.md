@@ -354,6 +354,12 @@ You can tell {% data variables.product.product_name %} to ignore (or escape) Mar
 
 For more information on backslashes, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
 
+{% tip %}
+
+**Note**: The Markdown formatting will not be ignored in the title of an issue or a pull request.
+
+{% endtip %}
+
 ## Disabling Markdown rendering
 
 {% data reusables.repositories.disabling-markdown-rendering %}

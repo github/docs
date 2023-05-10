@@ -87,6 +87,16 @@ If you scan pull requests, then the results appear as alerts in a pull request c
 
 Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#scanning-on-push)."
 
+{% ifversion fpt or ghec %}
+
+{% note %}
+
+**Note:** If your repository is configured with a merge queue, you need to include the `merge_group` event as an additional trigger for {% data variables.product.prodname_code_scanning %}. This will ensure that pull requests are also scanned when they are added to a merge queue. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)."
+
+{% endnote %}
+
+{% endif %}
+
 ### Avoiding unnecessary scans of pull requests
 
 You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.

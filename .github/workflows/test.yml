@@ -47,7 +47,7 @@ jobs:
               { name: 'graphql', path: 'src/graphql/tests', },
               { name: 'rest', path: 'src/rest/tests', },
               { name: 'webhooks', path: 'src/webhooks/tests', },
-              { name: 'linting', path: 'tests/linting', },
+              { name: 'linting', path: 'src/content-linter/tests', },
               { name: 'meta', path: 'tests/meta', },
               { name: 'routing', path: 'tests/routing', },
               { name: 'rendering', path: 'tests/rendering', },
@@ -140,7 +140,7 @@ jobs:
           echo $DIFF
 
           # So that becomes a string like `foo.js path/bar.md`
-          # Must to do this because the list of files can be HUGE. Especially
+          # Must do this because the list of files can be HUGE. Especially
           # in a repo-sync when there are lots of translation files involved.
           echo __ format, write to get_diff_files.txt __
           echo $DIFF | tr '\n' ' ' > get_diff_files.txt
