@@ -1,7 +1,7 @@
 import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
-import type { CodeSample, Operation } from '../rest/types'
+import type { CodeSample, Operation } from 'src/rest/components/types'
 import { useVersion } from 'components/hooks/useVersion'
 import { useMainContext } from 'components/context/MainContext'
 
@@ -19,7 +19,7 @@ const CURL_CONTENT_TYPE_MAPPING: { [key: string]: string } = {
 /*
   Generates a curl example
 
-  For example: 
+  For example:
   curl \
   -X POST \
   -H "Accept: application/vnd.github+json" \

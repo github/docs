@@ -8,8 +8,8 @@ import { RestOperation } from './RestOperation'
 import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
 import { Operation } from './types'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
-import { ClientSideRedirects } from 'components/ClientSideRedirects'
-import { RestRedirect } from 'components/RestRedirect'
+import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
+import { RestRedirect } from 'src/rest/components/RestRedirect'
 
 export type StructuredContentT = {
   restOperations: Operation[]

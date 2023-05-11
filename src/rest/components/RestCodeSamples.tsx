@@ -10,8 +10,12 @@ import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
 
 import { useTranslation } from 'components/hooks/useTranslation'
-import useClipboard from 'components/hooks/useClipboard'
-import { getShellExample, getGHExample, getJSExample } from 'components/lib/get-rest-code-samples'
+import useClipboard from 'src/rest/components/useClipboard'
+import {
+  getShellExample,
+  getGHExample,
+  getJSExample,
+} from 'src/rest/components/get-rest-code-samples'
 import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
