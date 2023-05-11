@@ -6,7 +6,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { Picker } from 'components/ui/Picker'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { API_VERSION_COOKIE_NAME } from 'components/RestRedirect'
+import { API_VERSION_COOKIE_NAME } from 'src/rest/components/RestRedirect'
 
 const API_VERSION_SUFFIX = ' (latest)'
 

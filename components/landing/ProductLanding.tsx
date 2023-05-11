@@ -12,7 +12,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { ProductArticlesList } from 'components/landing/ProductArticlesList'
 import { ProductReleases } from 'components/landing/ProductReleases'
 import { useVersion } from 'components/hooks/useVersion'
-import { RestRedirect } from 'components/RestRedirect'
+import { RestRedirect } from 'src/rest/components/RestRedirect'
 
 export const ProductLanding = () => {
   const router = useRouter()

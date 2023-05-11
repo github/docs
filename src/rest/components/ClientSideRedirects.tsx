@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
 
 const ClientSideRedirectExceptions = dynamic(
-  () => import('components/ClientSideRedirectExceptions'),
+  () => import('src/rest/components/ClientSideRedirectExceptions'),
   {
     ssr: false,
   }

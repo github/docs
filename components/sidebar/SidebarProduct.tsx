@@ -6,7 +6,7 @@ import cx from 'classnames'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
-import { RestCollapsibleSection } from './RestCollapsibleSection'
+import { RestCollapsibleSection } from 'src/rest/components/RestCollapsibleSection'
 import { ProductCollapsibleSection } from './ProductCollapsibleSection'
 
 export const SidebarProduct = () => {

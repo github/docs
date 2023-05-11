@@ -1,4 +1,4 @@
-import { Parameter, StatusCode, CodeSample, BodyParameter } from '../../../components/rest/types'
+import { Parameter, StatusCode, CodeSample, BodyParameter } from 'src/rest/components/types'
 
 export interface WebhookT {
   actions: string[]
