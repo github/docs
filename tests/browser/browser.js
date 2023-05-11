@@ -145,69 +145,6 @@ describe('browser search', () => {
   })
 })
 
-describe('survey', () => {
-  jest.setTimeout(3 * 60 * 1000)
-
-  it('sends an event to /events when submitting form', async () => {
-    // Visit a page that displays the prompt
-    await page.goto(
-      'http://localhost:4000/en/actions/getting-started-with-github-actions/about-github-actions'
-    )
-
-    // Track network requests
-    await page.setRequestInterception(true)
-    page.on('request', (request) => {
-      // Ignore GET requests
-      if (!/\/events$/.test(request.url())) return request.continue()
-      expect(request.method()).toMatch(/POST|PUT/)
-      request.respond({
-        contentType: 'application/json',
-        body: JSON.stringify({ id: 'abcd1234' }),
-        status: 200,
-      })
-    })
-
-    // When I click the "Yes" button
-    await page.click('[data-testid=survey-form] [for=survey-yes]')
-    // (sent a POST request to /events)
-    // I see the request for my email
-    await page.waitForSelector('[data-testid=survey-form] [type="email"]')
-
-    // When I fill in my email and submit the form
-    await page.type('[data-testid=survey-form] [type="email"]', 'test@example.com')
-
-    await page.click('[data-testid=survey-form] [type="submit"]')
-    // (sent a PUT request to /events/{id})
-    // I see the feedback
-    await page.waitForSelector('[data-testid=survey-end]')
-  })
-})
-
-// Skipping because next/links are disabled by default for now
-// Docs Engineering issue: 962
-describe.skip('next/link client-side navigation', () => {
-  jest.setTimeout(60 * 1000)
-
-  it('should have 200 response to /_next/data when link is clicked', async () => {
-    const initialViewport = page.viewport()
-    await page.setViewport({ width: 1024, height: 768 })
-    await page.goto('http://localhost:4000/en/actions/guides')
-
-    const [response] = await Promise.all([
-      page.waitForResponse((response) =>
-        response.url().startsWith('http://localhost:4000/_next/data')
-      ),
-      page.waitForNavigation({ waitUntil: 'networkidle2' }),
-      page.click(
-        '[data-testid=sidebar-article-group]:nth-child(2) [data-testid=sidebar-article]:nth-child(1) a'
-      ),
-    ])
-
-    expect(response.status()).toBe(200)
-    await page.setViewport(initialViewport)
-  })
-})
-
 describe('iframe pages', () => {
   it('can open YouTube embed iframes', async () => {
     // Going to create a fresh page instance, so we can intercept the requests.

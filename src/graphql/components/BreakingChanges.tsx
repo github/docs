@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 
 import { HeadingLink } from 'components/article/HeadingLink'
-import { BreakingChangesT } from 'components/graphql/types'
+import { BreakingChangesT } from './types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
 
 type Props = {
