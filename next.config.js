@@ -37,6 +37,7 @@ export default {
   webpack: (config) => {
     config.experiments = config.experiments || {}
     config.experiments.topLevelAwait = true
+    config.resolve.fallback = { fs: false }
     return config
   },
 
