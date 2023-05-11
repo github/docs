@@ -1,14 +1,14 @@
 import React from 'react'
 import cx from 'classnames'
 
-import { Enum } from 'components/graphql/Enum'
-import { InputObject } from 'components/graphql/InputObject'
-import { Interface } from 'components/graphql/Interface'
-import { Scalar } from 'components/graphql/Scalar'
-import { Mutation } from 'components/graphql/Mutation'
-import { Object } from 'components/graphql/Object'
-import { Query } from 'components/graphql/Query'
-import { Union } from 'components/graphql/Union'
+import { Enum } from './Enum'
+import { InputObject } from './InputObject'
+import { Interface } from './Interface'
+import { Scalar } from './Scalar'
+import { Mutation } from './Mutation'
+import { Object } from './Object'
+import { Query } from './Query'
+import { Union } from './Union'
 import type {
   EnumT,
   InputObjectT,
@@ -18,7 +18,7 @@ import type {
   QueryT,
   ScalarT,
   UnionT,
-} from 'components/graphql/types'
+} from './types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
 
 type Props = {

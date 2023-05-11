@@ -4,7 +4,7 @@ import cx from 'classnames'
 
 import { HeadingLink } from 'components/article/HeadingLink'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { PreviewT } from 'components/graphql/types'
+import { PreviewT } from './types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
 
 type Props = {

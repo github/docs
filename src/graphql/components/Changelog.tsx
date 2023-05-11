@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 
 import { HeadingLink } from 'components/article/HeadingLink'
-import { ChangelogItemT } from 'components/graphql/types'
+import { ChangelogItemT } from './types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
 
 type Props = {
