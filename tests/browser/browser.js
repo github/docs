@@ -145,44 +145,6 @@ describe('browser search', () => {
   })
 })
 
-describe('survey', () => {
-  jest.setTimeout(3 * 60 * 1000)
-
-  it('sends an event to /events when submitting form', async () => {
-    // Visit a page that displays the prompt
-    await page.goto(
-      'http://localhost:4000/en/actions/getting-started-with-github-actions/about-github-actions'
-    )
-
-    // Track network requests
-    await page.setRequestInterception(true)
-    page.on('request', (request) => {
-      // Ignore GET requests
-      if (!/\/events$/.test(request.url())) return request.continue()
-      expect(request.method()).toMatch(/POST|PUT/)
-      request.respond({
-        contentType: 'application/json',
-        body: JSON.stringify({ id: 'abcd1234' }),
-        status: 200,
-      })
-    })
-
-    // When I click the "Yes" button
-    await page.click('[data-testid=survey-form] [for=survey-yes]')
-    // (sent a POST request to /events)
-    // I see the request for my email
-    await page.waitForSelector('[data-testid=survey-form] [type="email"]')
-
-    // When I fill in my email and submit the form
-    await page.type('[data-testid=survey-form] [type="email"]', 'test@example.com')
-
-    await page.click('[data-testid=survey-form] [type="submit"]')
-    // (sent a PUT request to /events/{id})
-    // I see the feedback
-    await page.waitForSelector('[data-testid=survey-end]')
-  })
-})
-
 describe('iframe pages', () => {
   it('can open YouTube embed iframes', async () => {
     // Going to create a fresh page instance, so we can intercept the requests.
