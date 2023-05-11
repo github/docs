@@ -64,7 +64,7 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
 
     The following is the list of required {% data variables.product.pat_generic %} scopes for ARC runners.
     - Repository runners: `repo`
-    - Organization runners: `manage_runners:org`
+    - Organization runners: `admin:org`
     {% ifversion ghec or ghes %}
     - Enterprise runners: `manage_runners:enterprise`
     {% endif %}

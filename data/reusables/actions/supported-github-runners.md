@@ -51,17 +51,6 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-Ubuntu 18.04 [deprecated]
-</td>
-<td>
-<code>ubuntu-18.04</code>
-</td>
-<td>
-Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more information, see <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">this GitHub blog post</A>.
-</td>
-</tr>
-<tr>
-<td>
 macOS 13 Ventura [Beta]
 </td>
 <td>

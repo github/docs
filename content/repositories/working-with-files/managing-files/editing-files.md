@@ -52,6 +52,6 @@ When you edit a file in another user's repository, we'll automatically [fork the
 {% data reusables.files.preview_change %}
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
-1. Click **Propose file change**.
+1. Click **Propose changes**.
 1. Type a title and description for your pull request.
 1. Click **Create pull request**.

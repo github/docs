@@ -48,6 +48,7 @@ Each Azure AD tenant can support only one OIDC integration with {% data variable
 2. To continue setup and be redirected to Azure AD, click **Save**.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 {% data reusables.enterprise-accounts.download-recovery-codes %}
+1. Click **Enable OIDC Authentication**.
 
 ## Enabling provisioning
 

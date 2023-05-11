@@ -15,6 +15,13 @@ versions:
 topics:
   - OAuth Apps
 ---
+
+{% note %}
+
+**Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. {% data variables.product.prodname_github_app %}s use fine-grained permissions instead of scopes, which give you more control over what your app can do. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+
+{% endnote %}
+
 When setting up an OAuth App on GitHub, requested scopes are displayed to the user on the authorization form.
 
 {% note %}
@@ -67,9 +74,9 @@ Name | Description
 &emsp;`user:follow`| Grants access to follow or unfollow other users.{% ifversion projects-oauth-scope %}
 **`project`** | Grants read/write access to user and organization {% data variables.projects.projects_v2 %}.
 &emsp;`read:project`| Grants read only access to user and organization {% data variables.projects.projects_v2 %}.{% endif %}
-**`delete_repo`** | Grants access to delete adminable repositories.
+**`delete_repo`** | Grants access to delete adminable repositories.{% ifversion team-discussions %}
 **`write:discussion`** | Allows read and write access for team discussions.
-&emsp;`read:discussion` | Allows read access for team discussions.
+&emsp;`read:discussion` | Allows read access for team discussions.{% endif %}
 **`write:packages`** | Grants access to upload or publish a package in {% data variables.product.prodname_registry %}. For more information, see "[AUTOTITLE](/packages/learn-github-packages/publishing-a-package)".
 **`read:packages`** | Grants access to download or install packages from {% data variables.product.prodname_registry %}. For more information, see "[AUTOTITLE](/packages/learn-github-packages/installing-a-package)".
 **`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."

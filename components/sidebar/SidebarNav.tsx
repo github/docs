@@ -4,7 +4,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { SidebarProduct } from './SidebarProduct'
 import { SidebarHomepage } from './SidebarHomepage'
 import { AllProductsLink } from './AllProductsLink'
-import { ApiVersionPicker } from './ApiVersionPicker'
+import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
 import { Link } from 'components/Link'
 
 type Props = {

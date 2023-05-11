@@ -2,11 +2,11 @@ import express from 'express'
 import { omit, without, mapValues } from 'lodash-es'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
-import { schemas, hydroNames } from './schema.js'
+import { schemas, hydroNames } from './lib/schema.js'
 import catchMiddlewareError from '../../middleware/catch-middleware-error.js'
 import { noCacheControl } from '../../middleware/cache-control.js'
-import { formatErrors } from './middleware-errors.js'
-import { publish as _publish } from './hydro.js'
+import { formatErrors } from './lib/middleware-errors.js'
+import { publish as _publish } from './lib/hydro.js'
 
 const router = express.Router()
 const ajv = new Ajv()
@@ -43,7 +43,7 @@ router.post(
     const validate = validations[type]
     if (!validate(req.body)) {
       // Track validation errors in Hydro so that we can know if
-      // there's a widespread problem in browser.ts
+      // there's a widespread problem in events.ts
       await publish(
         formatErrors(validate.errors, req.body).map((error) => ({
           schema: hydroNames.validation,

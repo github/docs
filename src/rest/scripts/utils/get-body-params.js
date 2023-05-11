@@ -177,6 +177,7 @@ export async function getBodyParams(schema, topLevel = false) {
       }
     } else if (param && param.allOf) {
       for (const prop of param.allOf) {
+        paramType.push('object')
         childParamsGroups.push(...(await getBodyParams(prop, false)))
       }
     }

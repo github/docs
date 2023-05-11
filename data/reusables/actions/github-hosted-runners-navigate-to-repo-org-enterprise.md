@@ -8,5 +8,5 @@
    * **If using an enterprise account**: Navigate to your enterprise account by clicking your profile photo in the top-right corner of {% data variables.product.prodname_dotcom_the_website %}, then clicking **Your enterprises**, then clicking the enterprise.
 1. Navigate to the {% data variables.product.prodname_actions %} settings:
    * **In an organization or repository**: Click **Actions** in the left sidebar, then click **Runners**.
-   * **If using an enterprise account**: In the left sidebar, click **"{% octicon "law" aria-label="The law icon" %} Policies"**, then click **Actions**, then click the **Runners** tab.
+   * **If using an enterprise account**: In the left sidebar, click **"{% octicon "law" aria-hidden="true" %} Policies"**, then click **Actions**, then click the **Runners** tab.
 {% endif %}

@@ -14,6 +14,13 @@ versions:
 topics:
   - OAuth Apps
 ---
+
+{% note %}
+
+**Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. {% data variables.product.prodname_github_app %}s use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+
+{% endnote %}
+
 {% ifversion fpt or ghec %}
 {% note %}
 

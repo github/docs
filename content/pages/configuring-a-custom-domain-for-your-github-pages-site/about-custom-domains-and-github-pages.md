@@ -37,6 +37,7 @@ After you configure a custom domain for a user or organization site, the custom 
 **Note:** The URLs for project sites that are privately published are not affected by the custom domain for your user or organization site. For more information about privately published sites, see "[AUTOTITLE](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion not ghec %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% endnote %}
+
 For more information about each type of site and handling custom domains, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 ## Using a subdomain for your {% data variables.product.prodname_pages %} site

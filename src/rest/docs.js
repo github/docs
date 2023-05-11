@@ -24,17 +24,17 @@ log(chalk.cyan.bold('  - All versions:') + '  ' + chalk.magenta('npm run sync-re
 log(
   chalk.cyan.bold('  - Dotcom only:') +
     '   ' +
-    chalk.magenta('npm run sync-rest -- --version api.github.com ; npm run dev')
+    chalk.magenta('npm run sync-rest -- --versions api.github.com ; npm run dev')
 )
 log(
   chalk.cyan.bold('  - Two versions:') +
     '  ' +
-    chalk.magenta('npm run sync-rest -- --version ghes-3.7 ghes-3.8 ; npm run dev')
+    chalk.magenta('npm run sync-rest -- --versions ghes-3.7 ghes-3.8 ; npm run dev')
 )
 log(
   chalk.cyan.bold('  - Dotcom and next calendar date version:') +
     ' ' +
-    chalk.magenta('npm run sync-rest -- --next --version api.github.com ; npm run dev')
+    chalk.magenta('npm run sync-rest -- --next --versions api.github.com ; npm run dev')
 )
 log(chalk.green.bold.underline('\nWebhook docs\n'))
 log(chalk.green.bold('  Examples of ways you can build the Webhook docs locally:\n'))
@@ -44,12 +44,12 @@ log(
 log(
   chalk.cyan.bold('  - Dotcom only:') +
     '   ' +
-    chalk.magenta('npm run sync-webhooks -- --version api.github.com ; npm run dev')
+    chalk.magenta('npm run sync-webhooks -- --versions api.github.com ; npm run dev')
 )
 log(
   chalk.cyan.bold('  - Two versions:') +
     '  ' +
-    chalk.magenta('npm run sync-webhooks -- --version ghes-3.7 ghes-3.8 ; npm run dev')
+    chalk.magenta('npm run sync-webhooks -- --versions ghes-3.7 ghes-3.8 ; npm run dev')
 )
 log(chalk.green.bold('\nYou can build specific versions of the REST and Webhook docs.\n'))
 log(chalk.white.bold('  Versions that can be built: ', openApiVersions, '\n'))

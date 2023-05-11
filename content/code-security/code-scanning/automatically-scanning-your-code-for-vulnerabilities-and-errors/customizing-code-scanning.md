@@ -87,6 +87,16 @@ If you scan pull requests, then the results appear as alerts in a pull request c
 
 Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#scanning-on-push)."
 
+{% ifversion fpt or ghec %}
+
+{% note %}
+
+**Note:** If your repository is configured with a merge queue, you need to include the `merge_group` event as an additional trigger for {% data variables.product.prodname_code_scanning %}. This will ensure that pull requests are also scanned when they are added to a merge queue. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)."
+
+{% endnote %}
+
+{% endif %}
+
 ### Avoiding unnecessary scans of pull requests
 
 You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.
@@ -378,7 +388,7 @@ You can also specify query suites in the value of `queries`. Query suites are co
 ``` yaml{:copy}
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    # Comma-separated list of queries / packs / suites to run. 
+    # Comma-separated list of queries / packs / suites to run.
     # This may include paths or a built in suite, for example:
     # security-extended or security-and-quality.
     queries: security-extended
@@ -560,6 +570,48 @@ You can quickly analyze small portions of a monorepo when you modify code in spe
 ### Example configuration files
 
 {% data reusables.code-scanning.example-configuration-files %}
+
+{% ifversion code-scanning-config-input %}
+## Specifying configuration details using the `config` input
+
+If you'd prefer to specify additional configuration details in the workflow file, you can use the `config` input of the `init` command of the {% data variables.product.prodname_codeql %} action. The value of this input must be a YAML string that follows the configuration file format documented at "[Using a custom configuration file](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-a-custom-configuration-file)" above.
+
+### Example configuration
+
+This step in a {% data variables.product.prodname_actions %} workflow file uses a `config` input to disable the default queries, add the `security-extended` query suite, and exclude queries that are tagged with `cwe-020`.
+
+```yaml
+- uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    languages: {% raw %}${{ matrix.language }}{% endraw %}
+    config: |
+      disable-default-queries: true
+      queries:
+        - uses: security-extended
+      query-filters:
+        - exclude:
+          tags: /cwe-020/
+```
+
+You can use the same approach to specify any valid configuration options in the workflow file.
+
+{% tip %}
+
+**Tip:**
+
+You can share one configuration across multiple repositories using  {% data variables.product.prodname_actions %} variables. One benefit of this approach is that you can update the configuration in a single place without editing the workflow file.
+
+In the following example, `vars.CODEQL_CONF` is a {% data variables.product.prodname_actions %} variable. Its value can be the contents of any valid configuration file. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+
+```yaml
+- uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    languages: {% raw %}${{ matrix.language }}{% endraw %}
+    config: {% raw %}${{ vars.CODEQL_CONF }}{% endraw %}
+```
+
+{% endtip %}
+{% endif %}
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 

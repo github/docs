@@ -59,14 +59,14 @@ You can authenticate to {% data variables.product.product_name %} in your browse
     - After you configure 2FA, your account enters a check up period for 28 days. You can leave the check up period by successfully performing 2FA within those 28 days. If you don't perform 2FA in that timespan, you'll then be asked to perform 2FA inside one of your existing {% data variables.product.prodname_dotcom_the_website %} sessions.
     - If you cannot perform 2FA to pass the 28th day checkup, you will be provided a shortcut that lets you reconfigure your 2FA settings. You must reconfigure your settings before you can access the rest of {% data variables.product.prodname_dotcom %}{% endif %}. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#providing-a-2fa-code-when-signing-in-to-the-website){% ifversion 2fa-check-up-period %}" and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication){% endif %}."
     - In addition to authentication with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}, you can optionally add an alternative method of authentication with {% ifversion fpt or ghec %}{% data variables.product.prodname_mobile %} or{% endif %} a security key using WebAuthn. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile)" and {% endif %}"[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
-    
+
     {% ifversion fpt or ghec %}
     {% note %}
 
     **Note:** {% data reusables.two_fa.unlink-email-address %}
 
     {% endnote %}
-    {% endif %}    
+    {% endif %}
 {% ifversion ghes %}
 - **External authentication**
   - Your site administrator may configure {% data variables.location.product_location %} to use external authentication instead of a username and password. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."{% endif %}{% ifversion fpt or ghec %}
@@ -76,7 +76,7 @@ You can authenticate to {% data variables.product.product_name %} in your browse
 {% endif %}
 
 ## Authenticating with {% data variables.product.prodname_desktop %}
-You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github)."
+You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
 
 ## Authenticating with the API
 

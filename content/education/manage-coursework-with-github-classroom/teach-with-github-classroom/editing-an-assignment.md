@@ -14,7 +14,7 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
-1. In the {% octicon "repo" aria-label="The repo icon" %} **Assignments** tab, next to the assignment you would like to edit, click {% octicon "pencil" aria-label="The pencil icon" %}.
+1. In the {% octicon "repo" aria-hidden="true" %} **Assignments** tab, next to the assignment you would like to edit, click {% octicon "pencil" aria-label="The pencil icon" %}.
 
     {% note %}
 

@@ -10,7 +10,7 @@ import {
 } from 'components/context/AutomatedPageContext'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
-import { RestRedirect } from 'components/RestRedirect'
+import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { categoriesWithoutSubcategories } from 'src/rest/lib/index.js'
 import { getEnabledForApps } from 'src/github-apps/lib/index.js'
 

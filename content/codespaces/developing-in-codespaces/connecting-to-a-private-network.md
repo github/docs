@@ -48,9 +48,9 @@ These third party solutions include:
 
 ### Allowlisting private resources for codespaces
 
-While {% data variables.product.prodname_dotcom %} publishes IP ranges for several products on its Meta API, codespaces IPs are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. We highly discourage users from allowlisting an entire IP range, as this would give overly broad access to all codespaces (including users not affiliated with your codespaces).
+While {% data variables.product.prodname_dotcom %} publishes IP ranges for several products on its Meta API, IP addresses for codespaces are dynamically assigned, meaning your codespace is not guaranteed to have the same IP address day to day. For more information about the Meta API, see "[Meta](/rest/reference/meta)."
 
-For more information about the Meta API, see "[AUTOTITLE](/rest/meta)."
+Allowlisting an entire IP range would give overly broad access to all codespaces (including users not affiliated with your codespaces), so for this reason codespace creation is disabled if you enable IP allow lists. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization#enabling-allowed-ip-addresses)."
 
 ## Restricting access to the public internet
 

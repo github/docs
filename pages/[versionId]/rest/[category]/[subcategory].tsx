@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import getRest, { getRestMiniTocItems } from 'src/rest/lib/index.js'
-import { Operation } from 'components/rest/types'
-import { RestReferencePage } from 'components/rest/RestReferencePage'
+import { Operation } from 'src/rest/components/types'
+import { RestReferencePage } from 'src/rest/components/RestReferencePage'
 import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
 import {
   AutomatedPageContext,

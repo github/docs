@@ -1052,10 +1052,12 @@ shortTitle: GitHub App permissions
 - [`GET /repos/{owner}/{repo}/commits/{ref}/statuses`](/rest/commits/statuses#list-commit-statuses-for-a-reference) (read)
 - [`POST /repos/{owner}/{repo}/statuses/{sha}`](/rest/commits/statuses#create-a-commit-status) (write)
 
+{% ifversion team-discussions %}
 ## Team discussions
 
 - [`DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}`](/rest/reactions#delete-team-discussion-comment-reaction) (write)
 - [`DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}`](/rest/reactions#delete-team-discussion-reaction) (write)
+{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.7 %}
 
