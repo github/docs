@@ -39,30 +39,17 @@ export default function WebhooksEventsAndPayloads({
   // we don't want the URL to be ?actionType=closed#fork).
   useEffect(() => {
     const hashChangeHandler = () => {
-      const { asPath } = router
-      let [pathRoot, pathQuery = ''] = asPath.split('?')
-
-      if (pathRoot.includes('#')) {
-        pathRoot = pathRoot.split('#')[0]
-      }
+      const { pathname, hash, search } = window.location
 
       // carry over any other query parameters besides `actionType` for the webhook
       // action type
-      if (pathQuery.includes('#')) {
-        pathQuery = pathQuery.split('#')[0]
-      }
-      const params = new URLSearchParams(pathQuery)
+      const params = new URLSearchParams(search)
       params.delete('actionType')
 
-      if (location.hash) {
-        router.replace(
-          { pathname: pathRoot, query: params.toString(), hash: location.hash },
-          undefined,
-          {
-            shallow: true,
-            locale,
-          }
-        )
+      if (hash) {
+        router.replace({ pathname, query: params.toString(), hash }, undefined, {
+          shallow: true,
+        })
       }
     }
 
