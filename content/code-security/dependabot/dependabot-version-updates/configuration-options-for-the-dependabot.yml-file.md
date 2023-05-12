@@ -68,10 +68,19 @@ In general, security updates use any configuration options that affect pull requ
 
 ### `package-ecosystem`
 
-**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.
+**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.{% ifversion ghes > 3.4 %}
+
+{% note %}
+
+**Note:** Enterprise owners can download the most recent version of the [{% data variables.product.prodname_dependabot %} action](https://github.com/github/dependabot-action) to get the best ecosystem coverage. {% data reusables.actions.action-bundled-actions %}
+
+{% endnote %}
+
+{% endif %}
 
 {% data reusables.dependabot.supported-package-managers %}
 
+#### Example of a basic setup for three package managers
 ```yaml
 # Basic set up for three package managers
 
@@ -167,7 +176,9 @@ updates:
 
 Use the `allow` option to customize which dependencies are updated. This applies to both version and security updates. You can use the following options:
 
-- `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`, for example: `org.kohsuke:github-api`.
+- `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters. 
+     - For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`; for example: `org.kohsuke:github-api`. 
+     - For Docker image tags, the format is the full name of the repository; for example, for an image tag of `<account ID>.dkr.ecr.us-west-2.amazonaws.com/base/foo/bar/ruby:3.1.0-focal-jemalloc`, use `base/foo/bar/ruby`.
 - `dependency-type`—use to allow updates for dependencies of specific types.
 
   | Dependency types | Supported by package managers | Allow updates |
@@ -321,7 +332,7 @@ For more information about the `@dependabot ignore` commands, see "[AUTOTITLE](/
 You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
 
 - `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
-- `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager. For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax.
+- `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager. For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax; for NuGet, use `7.*`.
 - `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
 
 If `versions` and `update-types` are used together, {% data variables.product.prodname_dependabot %} will ignore any update in either set.
@@ -368,8 +379,6 @@ updates:
 
 Package managers with the `package-ecosystem` values `bundler`, `mix`, and `pip` may execute external code in the manifest as part of the version update process. This might allow a compromised package to steal credentials or gain access to configured registries. When you add a [`registries`](#registries) setting within an `updates` configuration, {% data variables.product.prodname_dependabot %} automatically prevents external code execution, in which case the version update may fail. You can choose to override this behavior and allow external code execution for `bundler`, `mix`, and `pip` package managers by setting `insecure-external-code-execution` to `allow`.
 
-You can explicitly deny external code execution, irrespective of whether there is a `registries` setting for this update configuration, by setting `insecure-external-code-execution` to `deny`.
-
 {% raw %}
 ```yaml
 # Allow external code execution when updating dependencies from private registries
@@ -389,6 +398,40 @@ updates:
       interval: "monthly"
 ```
 {% endraw %}
+
+If you define a `registries` setting to allow {% data variables.product.prodname_dependabot %} to access a private package registry, and you set `insecure-external-code-execution` to `allow` in the same `updates` configuration, external code execution that occurs will only have access to the package managers in the registries associated with that `updates`setting. There is no access allowed to any of the registries defined in the top level `registries` configuration.
+
+In this example, the configuration file allows {% data variables.product.prodname_dependabot %} to access the `ruby-github` private package registry. In the same `updates`setting, `insecure-external-code-execution`is set to `allow`, which means that the code executed by dependencies will only access the `ruby-github` registry, and not the `dockerhub` registry.
+
+{% raw %}
+```yaml
+# Using `registries` in conjunction with `insecure-external-code-execution:allow`
+# in the same `updates` setting
+
+version: 2
+registries:
+  ruby-github:
+    type: rubygems-server
+    url: https://rubygems.pkg.github.com/octocat/github_api
+    token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
+  dockerhub:
+    type: docker-registry
+    url: registry.hub.docker.com
+    username: octocat
+    password: ${{secrets.DOCKERHUB_PASSWORD}}
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/rubygems-server"
+    insecure-external-code-execution: allow
+    registries:
+      - ruby-github # only access to registries associated with this ecosystem/directory
+    schedule:
+      interval: "monthly"
+
+```
+{% endraw %}
+
+You can explicitly deny external code execution, regardless of whether there is a `registries` setting for this update configuration, by setting `insecure-external-code-execution` to `deny`.
 
 ### `labels`
 
@@ -486,6 +529,15 @@ updates:
 
 By default, {% data variables.product.prodname_dependabot %} automatically rebases open pull requests when it detects any changes to the pull request. Use `rebase-strategy` to disable this behavior.
 
+{% ifversion dependabot-updates-rebase-30-days-cutoff %}
+
+{% note %}
+
+**Note:** {% data reusables.dependabot.pull-requests-30-days-cutoff %}
+
+{% endnote %}
+{% endif %}
+
 Available rebase strategies
 
 - `auto` to use the default behavior and rebase open pull requests when changes are detected.
@@ -497,17 +549,20 @@ When `rebase-strategy` is set to `auto`, {% data variables.product.prodname_depe
 - When you change the value of `target-branch` in the {% data variables.product.prodname_dependabot %} configuration file. For more information about this field, see "[`target-branch`](#target-branch)."
 - When {% data variables.product.prodname_dependabot %} detects that a {% data variables.product.prodname_dependabot %} pull request is in conflict after a recent push to the target branch.
 
+{% ifversion dependabot-updates-rebase-30-days-cutoff %}
+{% else %}
 {% note %}
 
 **Note:** {% data variables.product.prodname_dependabot %} will keep rebasing a pull request indefinitely until the pull request is closed, merged or you disable {% data variables.product.prodname_dependabot_updates %}.
 
 {% endnote %}
+{% endif %}
 
 When `rebase-strategy` is set to `disabled`, {% data variables.product.prodname_dependabot %} stops rebasing pull requests.
 
 {% note %}
 
-**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
+**Note:** This behavior only applies to pull requests that go into conflict with the target branch. {% data variables.product.prodname_dependabot %} will keep rebasing {% ifversion dependabot-updates-rebase-30-days-cutoff %}(until 30 days after opening){% endif %} pull requests opened prior to the `rebase-strategy` setting being changed, and pull requests that are part of a scheduled run.
 
 {% endnote %}
 

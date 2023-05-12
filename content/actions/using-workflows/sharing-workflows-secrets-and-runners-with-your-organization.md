@@ -34,11 +34,9 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 {% data reusables.actions.internal-actions-summary %}
 {% endif %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 ### Reusing workflows
 
 {% data reusables.actions.reusable-workflows %}
-{% endif %}
 
 ### Using starter workflows
 
@@ -71,7 +69,7 @@ When creating a secret {% ifversion actions-configuration-variables %} or variab
 
 Organization admins can add their self-hosted runners to groups, and then create policies that control which repositories can access the group.
 
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
 
 ## Next steps
 

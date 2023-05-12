@@ -15,7 +15,7 @@ shortTitle: Integrator best practices
 ---
 
 
-Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users *and* ensure that it's reliably interacting with the API. 
+Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users *and* ensure that it's reliably interacting with the API.
 
 ## Secure payloads delivered from GitHub
 
@@ -39,7 +39,7 @@ Note that even with a background job running, GitHub still expects your server t
 
 Every webhook has its own "Recent Deliveries" section, which lists whether a deployment was successful or not.
 
-![Recent Deliveries view](/assets/images/webhooks_recent_deliveries.png)
+![Screenshot of the "Recent Deliveries" tab on the "Manage webhook" page.](/assets/images/help/webhooks/webhooks_recent_deliveries.png)
 
 You should make use of proper HTTP status codes in order to inform users. You can use codes like `201` or `202` to acknowledge receipt of payload that won't be processed (for example, a payload delivered by a branch that's not the default). Reserve the `500` error code for catastrophic failures.
 
@@ -47,7 +47,7 @@ You should make use of proper HTTP status codes in order to inform users. You ca
 
 Users can dig into the server responses you send back to GitHub. Ensure that your messages are clear and informative.
 
-![Viewing a payload response](/assets/images/payload_response_tab.png)
+![Screenshot of the "Response" tab of a webhook delivery, including the "Headers" and "Body" sections.](/assets/images/help/webhooks/payload_response_tab.png)
 
 ## Follow any redirects that the API sends you
 
@@ -170,4 +170,4 @@ Rather than ignore repeated `4xx` and `5xx` status codes, you should ensure that
 
 Intentionally ignoring repeated validation errors may result in the suspension of your app for abuse.
 
-[event-types]: /webhooks/event-payloads
+[event-types]: /webhooks-and-events/webhooks/webhook-events-and-payloads

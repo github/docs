@@ -17,27 +17,20 @@ You can unfollow an organization if you do not wish to see their {% ifversion fp
 
 ## Following an organization on {% data variables.product.product_name %}
 
-1. Go to the organization page you want to follow
-2. Click **Follow** in the top-right corner of the header
-
-  ![Screenshot of the organization header, with the follow button highlighted](/assets/images/help/profile/organization-profile-following.png)
+1. Go to the organization page you want to follow.
+1. In the top-right corner, click **Follow**.
 
 ## Unfollowing an organization on {% data variables.product.product_name %}
 
-1. Go to the organization page you want to unfollow
-2. Click **Unfollow** in the top-right corner of the header.
-
-  ![Screenshot of the organization header, with the unfollow button highlighted](/assets/images/help/profile/organization-profile-unfollowing.png)
+1. Go to the organization page you want to unfollow.
+2. In the top-right corner, click **Unfollow**.
 
 ## Viewing people and organizations a user follows on {% data variables.product.product_name %}
 
-1. Click a user image to display that user's profile.
+{% data reusables.profile.navigate-to-user-profile %}
+2. Under the user's profile picture, click **following**.
 
-  ![User image](/assets/images/help/profile/user-profile-image.png)
-
-2. Click **following** under their profile image.
-
-  ![User following](/assets/images/help/profile/user-profile-following.png)
+  ![Screenshot of the sidebar of @octocat's profile page. A link, labeled "9 following", is outlined in dark orange.](/assets/images/help/profile/user-profile-following.png)
 
 {% ifversion fpt or ghec %}
 ## Further reading

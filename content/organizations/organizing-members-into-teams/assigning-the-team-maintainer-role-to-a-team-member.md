@@ -26,9 +26,9 @@ People with the team maintainer role can manage team membership and settings.
 - [Change the team's visibility](/organizations/organizing-members-into-teams/changing-team-visibility)
 - [Request to add a child team](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team)
 - [Request to add or change a parent team](/organizations/organizing-members-into-teams/requesting-to-add-or-change-a-parent-team)
-- [Set the team profile picture](/organizations/organizing-members-into-teams/setting-your-teams-profile-picture)
+- [Set the team profile picture](/organizations/organizing-members-into-teams/setting-your-teams-profile-picture){% ifversion team-discussions %}
 - [Edit team discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment)
-- [Delete team discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment)
+- [Delete team discussions](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment){% endif %}
 - [Add organization members to the team](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)
 - [Remove organization members from the team](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)
 - Remove the team's access to repositories
@@ -43,9 +43,10 @@ Before you can promote an organization member to team maintainer, the person mus
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_members_tab %}
-4. Select the person or people you'd like to promote to team maintainer.
-![Check box next to organization member](/assets/images/help/teams/team-member-check-box.png)
-5. Above the list of team members, use the drop-down menu and click **Change role...**.
-![Drop-down menu with option to change role](/assets/images/help/teams/bulk-edit-drop-down.png)
-6. Select a new role and click **Change role**.
-![Radio buttons for Maintainer or Member roles](/assets/images/help/teams/team-role-modal.png)
+1. Select the person or people you'd like to promote to team maintainer.
+
+   ![Screenshot of the first user in a list of team members. To the left of the user, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/team-member-check-box.png)
+1. Above the list of team members, use the drop-down menu and click **Change role...**.
+
+   {% data reusables.organizations.bulk-edit-team-members %}
+1. Select a new role, then click **Change role**.

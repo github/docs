@@ -9,7 +9,7 @@ featuredLinks:
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
+    - /migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
     - /get-started/getting-started-with-git/managing-remote-repositories
     - /pages
 redirect_from:
@@ -59,6 +59,7 @@ children:
   - actions
   - copilot
   - codespaces
+  - migrations
   - packages
   - search-github
   - apps
@@ -74,13 +75,13 @@ children:
   - desktop
   - early-access
   - support
-  # TODO 47F50CA3 uncomment when ready to add video transcripts
-  # - video-transcripts
+  - video-transcripts
 childGroups:
   - name: Get started
     octicon: RocketIcon
     children:
       - get-started
+      - migrations
       - account-and-profile
       - authentication
       - billing

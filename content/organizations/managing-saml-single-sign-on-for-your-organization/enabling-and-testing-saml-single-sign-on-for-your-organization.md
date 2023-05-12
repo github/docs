@@ -45,6 +45,13 @@ For more information about the identity providers (IdPs) that {% data variables.
 
 1. In the "Sign on URL" field, type the HTTPS endpoint of your IdP for single sign-on requests. This value is available in your IdP configuration.
 1. Optionally, in the "Issuer" field, type your SAML issuer's name. This verifies the authenticity of sent messages.
+
+  {% note %}
+
+  **Note:** If you want to enable team synchronization for your organization, the "Issuer" field is a required. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization)."
+
+  {% endnote %}
+
 1. Under "Public Certificate," paste a certificate to verify SAML responses.
 {% data reusables.saml.edit-signature-and-digest-methods %}
 1. Before enabling SAML SSO for your organization, click **Test SAML configuration** to ensure that the information you've entered is correct.

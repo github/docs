@@ -43,7 +43,9 @@ children:
   - /upgrading-to-the-corporate-terms-of-service
   - /disabling-project-boards-in-your-organization
   - /disabling-insights-for-projects-in-your-organization
+  - /managing-base-permissions-for-projects
   - /allowing-project-visibility-changes-in-your-organization
+  - /managing-rulesets-for-repositories-in-your-organization
 shortTitle: Manage organization settings
 ---
 {% ifversion fpt or ghec %}

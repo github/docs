@@ -8,8 +8,8 @@ versions:
 children:
   - /setting-up-github-desktop
   - /installing-github-desktop
-  - /authenticating-to-github
-  - /about-connections-to-github
+  - /authenticating-to-github-in-github-desktop
+  - /about-connections-to-github-in-github-desktop
   - /updating-github-desktop
   - /uninstalling-github-desktop
 shortTitle: Install & authenticate

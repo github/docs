@@ -33,7 +33,6 @@ shortTitle: Check verification status
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 2. At the top of the Releases page, click **Tags**.
-![Tags page](/assets/images/help/releases/tags-list.png)
 3. Next to your tag description, there is a box that shows whether your tag signature is verified{% ifversion fpt or ghec %}, partially verified,{% endif %} or unverified.
 
    ![Screenshot of a tag in the tag list for a repository. "Verified" is highlighted with an orange outline.](/assets/images/help/commits/gpg-signed-tag-verified.png)

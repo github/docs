@@ -35,11 +35,15 @@ Actions can run directly on a machine or in a Docker container. You can define a
 
 You can build Docker container, JavaScript, and composite actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
-| Type | Operating system |
-| ---- | ------------------- |
-| Docker container | Linux |
-| JavaScript | Linux, macOS, Windows |
-| Composite Actions | Linux, macOS, Windows |
+{% rowheaders %}
+
+| Type | Linux | macOS | Windows |
+| ---- | ----- | ----- | -------- |
+| Docker container | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| JavaScript | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Composite Actions | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+
+{% endrowheaders %}
 
 ### Docker container actions
 
@@ -133,7 +137,7 @@ Each Git commit receives a calculated SHA value, which is unique and immutable. 
 
 ```yaml
 steps:
-    - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
+    - uses: actions/javascript-action@a824008085750b8e136effc585c3cd6082bd575f
 ```
 
 ## Creating a README file for your action
@@ -149,7 +153,7 @@ We recommend creating a README file to help people learn how to use your action.
 
 ## Comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
+{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 ### Strengths of GitHub Actions and GitHub Apps
 

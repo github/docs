@@ -26,7 +26,7 @@ You can extend the CI and CD capabilities of your repository by publishing or in
 {% ifversion packages-registries-v2 %}
 ### Authenticating to package registries with granular permissions
 
-Some {% data variables.product.prodname_registry %} registries support granular permissions. This means you can choose to allow packages to be scoped to a user or an organization, or linked to a repository. For the list of registries that support granular permissions, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)." 
+Some {% data variables.product.prodname_registry %} registries support granular permissions. This means you can choose to allow packages to be scoped to a user or an organization, or linked to a repository. For the list of registries that support granular permissions, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
 {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
@@ -154,13 +154,13 @@ jobs:
       - name: Checkout
         uses: {% data reusables.actions.action-checkout %}
       - name: Log in to GitHub Docker Registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           push: true
           tags: |
@@ -171,6 +171,10 @@ jobs:
 The relevant settings are explained in the following table. For full details about each element in a workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 <table>
+<tr>
+  <th scope="col">Code</th>
+  <th scope="col">Explanation</th>
+</tr>
 <tr>
 <td>
 {% raw %}
@@ -240,7 +244,7 @@ run-npm-build:
 
 </td>
 <td>
-  This job installs NPM and uses it to build the app.
+  This job installs npm and uses it to build the app.
 </td>
 </tr>
 
@@ -317,7 +321,7 @@ permissions:
 {% raw %}
 ```yaml
 - name: Log in to the Container registry
-  uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+  uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
   with:
     registry: ${{ env.REGISTRY }}
     username: ${{ github.actor }}
@@ -336,7 +340,7 @@ permissions:
 ```yaml
 - name: Extract metadata (tags, labels) for Docker
   id: meta
-  uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+  uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
   with:
     images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 ```
@@ -353,7 +357,7 @@ permissions:
 {% raw %}
 ```yaml
 - name: Log in to GitHub Docker Registry
-  uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+  uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
   with:
     registry: {% endraw %}{% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
     username: ${{ github.actor }}
@@ -384,7 +388,7 @@ permissions:
 <td>
 {% raw %}
 ```yaml
-uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
 ```
 {% endraw %}
 </td>
@@ -498,17 +502,14 @@ For more information about the `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/securit
 Using the `GITHUB_TOKEN`, instead of a {% data variables.product.pat_v1 %} with the `repo` scope, increases the security of your repository as you don't need to use a long-lived {% data variables.product.pat_generic %} that offers unnecessary access to the repository where your workflow is run. For more information about security best practices, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-secrets)."
 
 1. Navigate to your package landing page.
-1. In the left sidebar, click **Actions access**.
-  !["Actions access" option in left menu](/assets/images/help/package-registry/organization-repo-access-for-a-package.png)
-1. To ensure your package has access to your workflow, you must add the repository where the workflow is stored to your package. Click **Add repository** and search for the repository you want to add.
-   !["Add repository" button](/assets/images/help/package-registry/add-repository-button.png)
+{% data reusables.package_registry.package-settings-actions-access %}
+1. To ensure your package has access to your workflow, you must add the repository where the workflow is stored to your package. {% data reusables.package_registry.package-settings-add-repo %}
   {% note %}
 
-  **Note:** Adding a repository to your package through the **Actions access** menu option is different than connecting your package to a repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+  **Note:** Adding a repository to your package {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
   {% endnote %}
-1. Optionally, using the "role" drop-down menu, select the default access level that you'd like the repository to have to your package.
-  {% ifversion packages-delete-with-github-token-api %}![Permission access levels to give to repositories](/assets/images/help/package-registry/package-access-control-options.png){% else %}![Permission access levels to give to repositories](/assets/images/help/package-registry/container-access-control-options.png){% endif %}
+1. Optionally, use {% data variables.package_registry.package-settings-actions-access-role-dropdown %}
 1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
 For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
@@ -518,9 +519,9 @@ name: Demo Push
 
 on:
   push:
-    # Publish `master` as Docker `latest` image.
+    # Publish `main` as Docker `latest` image.
     branches:
-      - master
+      - main
       - seed
 
     # Publish `v1.2.3` tags as releases.
@@ -563,7 +564,7 @@ jobs:
           # Strip "v" prefix from tag name
           [[ "{% raw %}${{ github.ref }}{% endraw %}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
+          [ "$VERSION" == "main" ] && VERSION=latest
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION

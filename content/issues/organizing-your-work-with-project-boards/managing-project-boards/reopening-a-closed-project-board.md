@@ -22,9 +22,7 @@ When you reopen a {% data variables.projects.projects_v1_board %}, you have the 
 {% data reusables.project-management.click-menu %}
 3. Choose whether to sync automation for your {% data variables.projects.projects_v1_board %} or reopen your {% data variables.projects.projects_v1_board %} without syncing.
     - To reopen your {% data variables.projects.projects_v1_board %} and sync automation, click **Reopen and sync project**.
-  ![Select "Reopen and resync project" button](/assets/images/help/projects/reopen-and-sync-project.png)
     - To reopen your {% data variables.projects.projects_v1_board %} without syncing automation, using the reopen drop-down menu, click **Reopen only**. Then, click **Reopen only**.
-  ![Reopen closed project board drop-down menu](/assets/images/help/projects/reopen-closed-project-board-drop-down-menu.png)
 
 ## Further reading
 

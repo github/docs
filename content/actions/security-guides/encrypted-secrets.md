@@ -62,7 +62,11 @@ You can also manage secrets using the REST API. For more information, see "[AUTO
 
 ### Limiting credential permissions
 
-When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a {% data variables.product.pat_v1 %}, select the fewest scopes necessary.{% ifversion pat-v2 %} When generating a {% data variables.product.pat_v2 %}, select the minimum repository access required.{% endif %}
+When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible.
+
+When generating a {% data variables.product.pat_v1 %}, select the fewest scopes necessary.{% ifversion pat-v2 %} When generating a {% data variables.product.pat_v2 %}, select the minimum permissions and repository access required.{% endif %}
+
+Instead of using a {% data variables.product.pat_generic %}, consider using a {% data variables.product.prodname_github_app %}, which uses fine-grained permissions and short lived tokens{% ifversion pat-v2 %}, similar to a {% data variables.product.pat_v2 %}{% endif %}. Unlike a {% data variables.product.pat_generic %}, a {% data variables.product.prodname_github_app %} is not tied to a user, so the workflow will continue to work even if the user who installed the app leaves your organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 
 {% note %}
 
@@ -81,10 +85,10 @@ When generating credentials, we recommend that you grant the minimum permissions
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {%- ifversion actions-configuration-variables %}
 {% data reusables.actions.actions-secrets-tab %}
-   ![Repository secrets tab](/assets/images/help/repository/actions-secrets-tab.png){% endif %}
+   ![Screenshot of the "Actions secrets and variables" page.](/assets/images/help/repository/actions-secrets-tab.png){% endif %}
 1. Click **New repository secret**.
-1. Type a name for your secret in the **Name** input box.
-1. Enter the value for your secret.
+1. In the **Name** field, type a name for your secret.
+1. In the **Secret** field, enter the value for your secret.
 1. Click **Add secret**.
 
 If your repository has environment secrets or can access secrets from the parent organization, then those secrets are also listed on this page.
@@ -157,7 +161,8 @@ gh secret list --env ENV_NAME
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {%- ifversion actions-configuration-variables %}
 {% data reusables.actions.actions-secrets-tab %}
-   ![Organization secrets tab](/assets/images/help/organizations/actions-organization-secrets-tab.png){% endif %}
+
+   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Secrets," is outlined in dark orange.](/assets/images/help/actions/organization-secrets-tab.png){% endif %}
 1. Click **New organization secret**.
 1. Type a name for your secret in the **Name** input box.
 1. Enter the **Value** for your secret.
@@ -211,9 +216,7 @@ You can check which access policies are being applied to a secret in your organi
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
-1. The list of secrets includes any configured permissions and policies. For example:
-   ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
-1. For more details on the configured permissions for each secret, click **Update**.
+1. The list of secrets includes any configured permissions and policies. For more details about the configured permissions for each secret, click **Update**.
 
 ## Using encrypted secrets in a workflow
 
@@ -223,11 +226,7 @@ You can check which access policies are being applied to a secret in your organi
 
 * {% data reusables.actions.forked-secrets %}
 
-{% ifversion fpt or ghec or ghes or ghae > 3.3 %}
-
 * Secrets are not automatically passed to reusable workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow)."
-
-{% endif %}
 
 {% endnote %}
 
@@ -384,7 +383,7 @@ To use secrets that are larger than 48 KB, you can use a workaround to store enc
 
 ## Storing Base64 binary blobs as secrets
 
-You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see ["Limits for secrets"](/actions/security-guides/encrypted-secrets#limits-for-secrets).
+You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#limits-for-secrets)."
 
 {% note %}
 
@@ -426,7 +425,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
            run: |
              openssl x509 -in cert.der -inform DER -text -noout
    ```
-   
+
 {% note %}
 
 **Note**: Using another shell might require different commands for decoding the secret to a file. On Windows runners, we recommend [using a bash shell](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell) with `shell: bash` to use the commands in the `run` step above.

@@ -50,16 +50,14 @@ You can find and view a package located in the repositories of an organization y
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-3. Under your organization name, click {% octicon "package" aria-label="The package icon" %} **Packages**.
+3. Under your organization name, click {% octicon "package" aria-hidden="true" %} **Packages**.
 {% data reusables.package_registry.navigate-to-packages %}
 
 ## Viewing your packages
 
-You can find and view any package you've published across all organizations and repositories. 
+You can find and view any package you've published across all organizations and repositories.
 
-{% data reusables.profile.access_profile %}
-2. On the top of the profile page, in the main navigation, click **Packages**.
-  ![Project tab](/assets/images/help/package-registry/user-packages-tab.png)
+{% data reusables.package_registry.package-settings-from-user-level %}
 {% data reusables.package_registry.navigate-to-packages %}
 
 ## Further reading

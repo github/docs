@@ -8,6 +8,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/testing-custom-queries
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -26,7 +28,7 @@ tests on them using the `test run` subcommand.
 
 ## Setting up a test {% data variables.product.prodname_codeql %} pack for custom queries
 
-All {% data variables.product.prodname_codeql %} tests must be stored in a special “test” {% data variables.product.prodname_codeql %} pack. That is, a directory for test files with a `qlpack.yml` file that defines:
+All {% data variables.product.prodname_codeql %} tests must be stored in a special "test" {% data variables.product.prodname_codeql %} pack. That is, a directory for test files with a `qlpack.yml` file that defines:
 
 ```yaml
 name: <name-of-test-pack>
@@ -38,7 +40,7 @@ extractor: <language-of-code-to-test>
 
 The `dependencies` value specifies the {% data variables.product.prodname_codeql %} packs containing queries to test.
 Typically, these packs will be resolved from source, and so it is not necessary
-to specify a fixed version of the pack. The `extractor` defines which language the CLI will use to create test databases from the code files stored in this {% data variables.product.prodname_codeql %} pack. For more information, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).”
+to specify a fixed version of the pack. The `extractor` defines which language the CLI will use to create test databases from the code files stored in this {% data variables.product.prodname_codeql %} pack. For more information, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
 
 You may find it useful to look at the way query tests are organized in the [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql). Each language has a `src` directory, `ql/<language>/ql/src`, that contains libraries and queries for analyzing codebases. Alongside the `src` directory, there is a `test` directory with tests for
 these libraries and queries.
@@ -48,16 +50,24 @@ Each `test` directory is configured as a test {% data variables.product.prodname
 - `query-tests` a series of subdirectories with tests for queries stored in the `src` directory. Each subdirectory contains test code and a QL reference file that specifies the query to test.
 - `library-tests` a series of subdirectories with tests for QL library files. Each subdirectory contains test code and queries that were written as unit tests for a library.
 
+After creating the `qlpack.yml` file, you need to make sure that all of the dependencies are downloaded and available to the CLI. Do this by running the following command in the same directory as the `qlpack.yml` file:
+
+```
+codeql pack install
+```
+
+This will generate a `codeql-pack.lock.yml` file that specifies all of the transitive dependencies required to run queries in this pack. This file should be checked in to source control.
+
 ## Setting up the test files for a query
 
 For each query you want to test, you should create a sub-directory in the test {% data variables.product.prodname_codeql %} pack.
 Then add the following files to the subdirectory before you run the test command:
 
-- A query reference file (`.qlref` file) defining the location of the query to test. The location is defined relative to the root of the {% data variables.product.prodname_codeql %} pack that contains the query. Usually, this is a {% data variables.product.prodname_codeql %} pack specified in the `dependencies` block of the test pack. For more information, see “[Query reference files](/code-security/codeql-cli/codeql-cli-reference/query-reference-files).”
+- A query reference file (`.qlref` file) defining the location of the query to test. The location is defined relative to the root of the {% data variables.product.prodname_codeql %} pack that contains the query. Usually, this is a {% data variables.product.prodname_codeql %} pack specified in the `dependencies` block of the test pack. For more information, see "[Query reference files](/code-security/codeql-cli/codeql-cli-reference/query-reference-files)."
 
    You do not need to add a query reference file if the query you want to test is stored in the test directory, but it is generally good practice to store queries separately from tests. The only exception is unit tests for QL libraries, which tend to be stored in test packs, separate from queries that generate alerts or paths.
 
-- The example code you want to run your query against. This should consist of one or more files containing examples of the code the query is designed to identify. 
+- The example code you want to run your query against. This should consist of one or more files containing examples of the code the query is designed to identify.
 
 You can also define the results you expect to see when you run the query against
 the example code, by creating a file with the extension `.expected`. Alternatively, you can leave the test command to create the `.expected` file for you.
@@ -93,8 +103,8 @@ The `<test|dir>` argument can be one or more of the following:
 You can also specify:
 
 - `--threads:` optionally, the number of threads to use when running queries. The default option is `1`. You can specify more threads to speed up query execution. Specifying `0` matches the number of threads to the number of logical processors.
-  
-For full details of all the options you can use when testing queries, see the [test run reference documentation](https://codeql.github.com/docs/codeql-cli/manual/test-run/). 
+
+For full details of all the options you can use when testing queries, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run/)."
 
 ## Example
 
@@ -112,7 +122,7 @@ blocks in Java code:
 
    ```
    import java
-   
+
    from IfStmt ifstmt
    where ifstmt.getThen() instanceof EmptyStmt
    select ifstmt, "This if statement has an empty then."
@@ -129,35 +139,37 @@ other custom queries. For example, `custom-queries/java/queries/EmptyThen.ql`.
      codeql/java-queries: "*"
    ```
 
-   For more information about {% data variables.product.prodname_codeql %} packs, see “[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).”
+   For more information about {% data variables.product.prodname_codeql %} packs, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
 
 4. Create a {% data variables.product.prodname_codeql %} pack for your Java tests by adding a `qlpack.yml` file with the following contents to `custom-queries/java/tests`, updating the `dependencies` to match the name of your {% data variables.product.prodname_codeql %} pack of custom queries:
 
   {% data reusables.codeql-cli.test-qlpack %}
 
-5. Within the Java test pack, create a directory to contain the test files
+5. Run `codeql pack install` in the root of the test directory. This generates a `codeql-pack.lock.yml` file that specifies all of the transitive dependencies required to run queries in this pack.
+
+6. Within the Java test pack, create a directory to contain the test files
 associated with `EmptyThen.ql`. For example, `custom-queries/java/tests/EmptyThen`.
 
-6. In the new directory, create `EmptyThen.qlref` to define the location of `EmptyThen.ql`. The path to the query must be specified relative to the root of
+7. In the new directory, create `EmptyThen.qlref` to define the location of `EmptyThen.ql`. The path to the query must be specified relative to the root of
 the {% data variables.product.prodname_codeql %} pack that contains the query. In this case, the query is in the
 top level directory of the {% data variables.product.prodname_codeql %} pack named `my-custom-queries`,
 which is declared as a dependency for `my-query-tests`. Therefore, `EmptyThen.qlref` should simply contain `EmptyThen.ql`.
 
-7. Create a code snippet to test. The following Java code contains an empty `if` statement on the third line. Save it in `custom-queries/java/tests/EmptyThen/Test.java`.
+8. Create a code snippet to test. The following Java code contains an empty `if` statement on the third line. Save it in `custom-queries/java/tests/EmptyThen/Test.java`.
 
    ```java
 class Test {
   public void problem(String arg) {
     if (arg.isEmpty())
-    ;
+      ;
     {
-        System.out.println("Empty argument");
+      System.out.println("Empty argument");
     }
   }
 
   public void good(String arg) {
     if (arg.isEmpty()) {
-        System.out.println("Empty argument");
+      System.out.println("Empty argument");
     }
   }
 }
@@ -214,8 +226,8 @@ This information may be sufficient to debug trivial test failures.
 
 For failures that are harder to debug, you can import `EmptyThen.testproj`
 into {% data variables.product.prodname_codeql %} for VS Code, execute `EmptyThen.ql`, and view the results in the
-`Test.java` example code. For more information, see “[Analyzing your projects](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)” in the {% data variables.product.prodname_codeql %} for VS Code help.
+`Test.java` example code. For more information, see "[Analyzing your projects](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)" in the {% data variables.product.prodname_codeql %} for VS Code help.
 
 ## Further reading
-- “[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)”
+- "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
 - "[Testing {% data variables.product.prodname_codeql %} queries in Visual Studio Code](https://codeql.github.com/docs/codeql-for-visual-studio-code/testing-codeql-queries-in-visual-studio-code/#testing-codeql-queries-in-visual-studio-code)."

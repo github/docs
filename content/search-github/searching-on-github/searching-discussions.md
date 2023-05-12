@@ -53,7 +53,7 @@ The `author` qualifier finds discussions created by a certain user.
 | Qualifier | Example |
 | :- | :- |
 | <code>author:<em>USERNAME</em></code> | [**cool author:octocat**](https://github.com/search?q=cool+author%3Aoctocat&type=Discussions) matches discussions with the word "cool" that were created by @octocat. |
-| | [**bootstrap in:body author:octocat**](https://github.com/search?q=bootstrap+in%3Abody+author%3Aoctocat&type=Discussions) matches discussions created by @octocat that contain the word "bootstrap" in the body. |
+| `in:body` <code>author:<em>USERNAME</em></code> | [**bootstrap in:body author:octocat**](https://github.com/search?q=bootstrap+in%3Abody+author%3Aoctocat&type=Discussions) matches discussions created by @octocat that contain the word "bootstrap" in the body. |
 
 ## Search by commenter
 
@@ -78,7 +78,7 @@ You can use the `involves` qualifier to find discussions that involve a certain 
 | Qualifier | Example |
 | :- | :- |
 | <code>involves:<em>USERNAME</em></code> | **[involves:becca involves:octocat](https://github.com/search?q=involves%3Abecca+involves%3Aoctocat&type=Discussions)** matches discussions either @becca or @octocat are involved in.
-| | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body.
+| `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT beta in:body involves:becca**](https://github.com/search?q=NOT+beta+in%3Abody+involves%3Abecca&type=Discussions) matches discussions @becca is involved in that do not contain the word "beta" in the body.
 
 ## Search by number of comments
 
@@ -87,7 +87,7 @@ You can use the `comments` qualifier along with greater than, less than, and ran
 | Qualifier | Example |
 | :- | :- |
 | <code>comments:<em>n</em></code> | [**comments:&gt;100**](https://github.com/search?q=comments%3A%3E100&type=Discussions) matches discussions with more than 100 comments.
-| | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) matches discussions with comments ranging from 500 to 1,000.
+| <code>comments:<em>n</em></code> | [**comments:500..1000**](https://github.com/search?q=comments%3A500..1000&type=Discussions) matches discussions with comments ranging from 500 to 1,000.
 
 ## Search by when a discussion was created or last updated
 

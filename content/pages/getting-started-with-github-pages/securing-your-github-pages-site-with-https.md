@@ -35,7 +35,6 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 3. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
-  ![Enforce HTTPS checkbox](/assets/images/help/pages/enforce-https-checkbox.png)
 
 ## Troubleshooting certificate provisioning ("Certificate not yet created" error)
 

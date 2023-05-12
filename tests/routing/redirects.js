@@ -18,7 +18,7 @@ describe('redirects', () => {
   let redirects
   beforeAll(async () => {
     const res = await get('/en?json=redirects')
-    redirects = JSON.parse(res.text)
+    redirects = JSON.parse(res.body)
   })
 
   test('page.buildRedirects() returns an array', async () => {
@@ -62,6 +62,18 @@ describe('redirects', () => {
       expect(res.statusCode).toBe(301)
       const expected = `/en/enterprise-server@${enterpriseServerReleases.latest}/search?query=pulls`
       expect(res.headers.location).toBe(expected)
+    })
+
+    test('convert q= to query= on search page', async () => {
+      const res = await get('/en/search?q=pulls')
+      expect(res.statusCode).toBe(301)
+      const expected = '/en/search?query=pulls'
+      expect(res.headers.location).toBe(expected)
+    })
+
+    test("don't convert q= to query= if query= already present", async () => {
+      const res = await get('/en/search?q=pulls&query=pushes')
+      expect(res.statusCode).toBe(200)
     })
 
     test('have faq= not converted to query=', async () => {
@@ -358,7 +370,7 @@ describe('redirects', () => {
 
   describe('desktop guide', () => {
     const desktopGuide =
-      '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request'
+      '/en/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop'
 
     test('no language code redirects to english', async () => {
       const res = await get(

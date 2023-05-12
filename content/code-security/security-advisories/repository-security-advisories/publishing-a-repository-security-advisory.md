@@ -72,10 +72,16 @@ Publishing a security advisory deletes the temporary private fork for the securi
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
-4. In the "Security Advisories" list, click the security advisory you'd like to publish.
-  ![Security advisory in list](/assets/images/help/security/security-advisory-in-list.png)
-5. At the bottom of the page, click **Publish advisory**.
-  ![Publish advisory button](/assets/images/help/security/publish-advisory-button.png)
+4. In the "Security Advisories" list, click the name of the security advisory you'd like to publish.
+5. Scroll to the bottom of the advisory form and click **Publish advisory**.
+
+  ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Publish advisory" button is outlined in dark orange.](/assets/images/help/security/publish-advisory-button.png)
+
+  {% note %}
+
+  **Note:** If you selected "Request CVE ID later", you will see a **Request CVE** button in place of the **Publish advisory** button. For more information, see "[Requesting a CVE identification number (Optional)](#requesting-a-cve-identification-number-optional)" below.
+
+  {% endnote %}
   
 ## {% data variables.product.prodname_dependabot_alerts %} for published security advisories
 
@@ -88,10 +94,10 @@ Publishing a security advisory deletes the temporary private fork for the securi
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
-4. In the "Security Advisories" list, click the security advisory you'd like to request a CVE identification number for.
-  ![Security advisory in list](/assets/images/help/security/security-advisory-in-list.png)
-5. Use the **Publish advisory** drop-down menu, and click **Request CVE**.
-6. Click **Request CVE**.
+4. In the "Security Advisories" list, click the name of the security advisory you'd like to request a CVE identification number for.
+6. Scroll to the bottom of the advisory form and click **Request CVE**.
+
+  ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Request CVE" button is outlined in dark orange.](/assets/images/help/security/security-advisory-request-cve-button.png)
 
 ## Further reading
 

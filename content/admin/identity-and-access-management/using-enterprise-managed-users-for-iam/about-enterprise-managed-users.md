@@ -58,13 +58,14 @@ To discover how a member was added to an organization, you can filter the member
 
 ## Identity provider support
 
-{% data variables.product.prodname_emus %} supports the following IdPs{% ifversion oidc-for-emu %} and authentication methods:
+{% ifversion oidc-for-emu %}
 
-|                                  | SAML                                          | OIDC                                          |
-|----------------------------------|-----------------------------------------------|-----------------------------------------------|
-| Azure Active Directory           | {% octicon "check" aria-label="Check icon" %} | {% octicon "check" aria-label="Check icon" %} |
-| Okta                             | {% octicon "check" aria-label="Check icon" %} |                                               |
-{% else %}:
+| Identity provider | SAML | OIDC |
+|-------------------|------|------|
+| Azure Active Directory | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+| Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+
+{% else %}
 
 {% data reusables.enterprise-accounts.emu-supported-idps %}
 
@@ -80,7 +81,8 @@ To discover how a member was added to an organization, you can filter the member
 
 {% data variables.enterprise.prodname_managed_users_caps %} can only contribute to private and internal repositories within their enterprise and private repositories owned by their user account. {% data variables.enterprise.prodname_managed_users_caps %} have read-only access to the wider {% data variables.product.prodname_dotcom %} community. These visibility and access restrictions for users and content apply to all requests, including API requests.
 
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot be invited to organizations or repositories outside of the enterprise, nor can the {% data variables.enterprise.prodname_managed_users %} be invited to other enterprises.
+* {% data variables.enterprise.prodname_managed_users_caps %} authenticate using only your identity provider, and have no password or two-factor authentication methods stored on {% data variables.product.prodname_dotcom %}. As a result, they do not see the sudo prompt when taking sensitive actions. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
+*  {% data variables.enterprise.prodname_managed_users_caps %} cannot be invited to organizations or repositories outside of the enterprise, nor can the {% data variables.enterprise.prodname_managed_users %} be invited to other enterprises.
 * {% data variables.enterprise.prodname_managed_users_caps %} and the content they create is only visible to other members of the enterprise.
 * Other {% data variables.product.prodname_dotcom %} users cannot see, mention, or invite a {% data variables.enterprise.prodname_managed_user %} to collaborate.
 * {% data variables.enterprise.prodname_managed_users_caps %} can view all public repositories on {% data variables.product.prodname_dotcom_the_website %}, but cannot interact with repositories outside of the enterprise in any of the following ways:
@@ -92,13 +94,16 @@ To discover how a member was added to an organization, you can filter the member
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create gists or comment on gists.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot follow users outside of the enterprise.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create starter workflows for {% data variables.product.prodname_actions %}.
-* {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts.
+* {% data variables.enterprise.prodname_managed_users_caps %} cannot install {% data variables.product.prodname_github_apps %} on their user accounts. {% data variables.enterprise.prodname_managed_users_caps %} can install a {% data variables.product.prodname_github_app %} on an organization if the app does not request organization permissions and if the {% data variables.enterprise.prodname_managed_user %} has admin access to the repositories that they are granting the app access to.
 * You can choose whether {% data variables.enterprise.prodname_managed_users %} are able to create repositories owned by their user accounts. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation)."
 * If you allow {% data variables.enterprise.prodname_managed_users %} to create repositories owned by their user accounts, they can only own private repositories and can only invite other enterprise members to collaborate on their user-owned repositories.
 * {% data reusables.enterprise-accounts.emu-forks %}
 * Only private and internal repositories can be created in organizations owned by an {% data variables.enterprise.prodname_emu_enterprise %}, depending on organization and enterprise repository visibility settings.
 * Outside collaborators are not supported by {% data variables.product.prodname_emus %}.
 * {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
+* {% data variables.enterprise.prodname_managed_users_caps %} can only create and use codespaces that are owned and paid for by their organization or enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:
+  - Can create codespaces for repositories owned by their organization, or forks of these repositories, provided that the organization has enabled billing for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+  - Cannot create codespaces for their personal repositories, other than forks of repositories owned by their organization; for any other repositories outside their organization; or from {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}.
 
 ## Getting started with {% data variables.product.prodname_emus %}
 
@@ -146,10 +151,8 @@ By default, when an unauthenticated user attempts to access an enterprise that u
 
 1. Navigate to [https://github.com/login](https://github.com/login).
 1. In the "Username or email address" text box, enter your username including the underscore and short code.
-  ![Screenshot showing login form](/assets/images/help/enterprises/emu-login-username.png)
   When the form recognizes your username, the form will update. You do not need to enter your password on this form.
 1. To continue to your identity provider, click **Sign in with your identity provider**.
-  ![Screenshot showing "Sign in with your identity provider" button](/assets/images/help/enterprises/emu-login-submit.png)
 
 ## Usernames and profile information
 

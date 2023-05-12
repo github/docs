@@ -53,11 +53,7 @@ If there is no existing account with a matching username on the instance, the us
 
 {% ifversion scim-for-ghes %}
 
-{% note %}
-
-**Note**: During SAML authentication, some environments may use a value other than `NameID` as the unique identifying claim. Currently, if you use SCIM provisioning, custom mappings for SAML user attributes are not supported.
-
-{% endnote %}
+During SAML authentication, some environments may use a value other than `NameID` as the unique identifying claim. If your environment does not use `NameID` to identify users, a site administrator can configure custom user attributes for the instance. {% data variables.product.product_name %} will respect this mapping when SCIM is configured. {% ifversion ghes = 3.6 or ghes = 3.7 %} Custom mappings are supported in {% data variables.product.product_name %} 3.6.5 or 3.7.2 and later.{% endif %} For more information about mapping user attributes, see "[Configuring SAML single sign-on for your enterprise](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."
 
 {% endif %}
 
@@ -163,9 +159,7 @@ After you enable SCIM on a {% data variables.product.product_name %} instance, a
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SCIM User Provisioning", select **Require SCIM user provisioning**.
-  ![Checkbox for "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-require-scim-user-provisioning.png)
-1. Click **Save**.
-  ![Save button under "Require SCIM user provisioning" within enterprise security settings](/assets/images/help/enterprises/settings-scim-save.png)
+2. Click **Save**.
 {%- endif %}
 1. Configure user provisioning in the application for {% data variables.product.product_name %} on your IdP.{% ifversion scim-for-ghes %} To request documentation for a supported IdP, contact your account manager on {% data variables.contact.contact_enterprise_sales %}. If your IdP is unsupported, you must create the application and configure SCIM manually.{% elsif ghae %}
 

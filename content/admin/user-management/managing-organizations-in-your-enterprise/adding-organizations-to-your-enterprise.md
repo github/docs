@@ -38,6 +38,7 @@ After you add an existing organization to your enterprise, the organization's re
   - "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation
   - "[AUTOTITLE](/github-ae@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_managed %} documentation
 - If the organization used billed {% data variables.product.prodname_marketplace %} apps, the organization can continue to use the apps, but must pay the vendor directly. For more information, contact the app's vendor.
+- If your organization was sponsoring any accounts, the sponsorships will be canceled.
 - Any coupons will be removed from the organization. To reapply the coupon, [contact our sales team](https://github.com/enterprise/contact).
 
 ## Creating an organization in your enterprise account
@@ -55,7 +56,9 @@ Enterprise owners who create an organization owned by the enterprise account aut
 
 ## Inviting an organization to join your enterprise account
 
-Enterprise owners can invite existing organizations to join their enterprise account. If the organization you want to invite is already owned by another enterprise account, you must be an owner of both enterprise accounts, or the previous enterprise must give up ownership of the organization first. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
+Enterprise owners can invite existing organizations to join their enterprise account. 
+
+If the organization you want to invite is already owned by another enterprise account, you must be an owner of both enterprise accounts. If you're not, you can ask an owner of the enterprise account that currently owns the organization to transfer the organization to your enterprise account instead. For more information, see "[Transferring an organization between enterprise accounts](#transferring-an-organization-between-enterprise-accounts)."
 
 When you invite an organization to join your enterprise account, at least one owner needs to accept the invitation. Then, you must give a final approval for the transfer.
 

@@ -11,6 +11,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/specifying-command-options-in-a-codeql-configuration-file
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}

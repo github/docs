@@ -26,29 +26,36 @@ If you publicize your private contributions, people without access to the privat
 
 ## Changing the visibility of your private contributions
 
-{% data reusables.profile.access_profile %}
-1. Publicize or hide your private contributions on your profile:
-    - To publicize your private contributions, above your contributions graph, use the **Contribution settings** drop-down menu, and select **Private contributions**. Visitors will see your private contribution counts without further details.
-  ![Enable visitors to see private contributions from contribution settings drop-down menu](/assets/images/help/profile/private-contributions-on.png)
-    - To hide your private contributions, above your contributions graph, use the **Contribution settings** drop-down menu, and unselect **Private contributions.** Visitors will only see your public contributions.
-   ![Enable visitors to see private contributions from contribution settings drop-down menu](/assets/images/help/profile/private-contributions-off.png)
+You can choose to publicize your private contributions, which allows visitors to your profile to see private contribution counts, without further details.
 
-## Changing the visibility of Achievements
+If you choose to hide your private contributions, visitors will only see your public contributions.
+
+{% data reusables.profile.access_profile %}
+1. Under "Contributions & Activity", select or deselect **Include private contributions on my profile**.
+
+
+## Changing the visibility of achievements
 
 {% data reusables.user-settings.access_settings %}
-1. Show or hide Achievements on your profile:
-    - To show Achievements on your profile, navigate to **Profile settings**, and select the checkbox next to **Show Achievements on my profile.**
-  ![Enable visitors to see Achievements from profile settings](/assets/images/help/profile/achievements-profile-settings-off.png)
-    - To hide Achievements from your profile, navigate to **Profile settings**, and unselect the checkbox next to **Show Achievements on my profile.**
-  ![Hide Achievements from visitors in profile settings](/assets/images/help/profile/achievements-profile-settings-on.png)
+1. Under "Profile settings", select or deselect **Show Achievements on my profile.**
+1. Click **Update preferences**.
+
 {% ifversion hide-individual-achievements %}
-1. Optionally, to hide individual Achievements from your profile:
-    {% data reusables.profile.access_profile %}
-     1. Navigate to the Achievements section on the left sidebar of your profile and select the Achievements header. ![Achievements on profile sidebar](/assets/images/help/profile/achievements-on-profile.png)
-     2. Open the detail view of the achievement you'd like to hide by clicking on the achievement.
-     3. Once in the detail view, click the {% octicon "eye" aria-label="The eye icon" %} icon to hide the achievement. ![Achievement detail view](/assets/images/help/profile/achievements-detail-view.png) When hidden, badges will be marked by the {% octicon "eye-closed" aria-label="The eye closed icon" %} icon and are only visible to you. ![Hidden achievements](/assets/images/help/profile/achievements-hidden.png)
+
+## Hiding an individual achievement on your profile
+
+You can hide an individual achievement on your profile. When hidden, badges are only visible to you.
+
+{% data reusables.profile.access_profile %}
+1. Under "Achievements", click the achievement you want to hide.
+
+   ![Screenshot of the "Achievements" section of a user profile. A badge with a cowboy image is highlighted with an orange outline.](/assets/images/help/profile/achievements-on-profile.png)
+1. Click {% octicon "eye" aria-label="Hide from profile" %}.
+
+   ![Screenshot of an achievement. An open eye icon is highlighted with an orange outline.](/assets/images/help/profile/achievements-detail-view.png)
 
 {% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"

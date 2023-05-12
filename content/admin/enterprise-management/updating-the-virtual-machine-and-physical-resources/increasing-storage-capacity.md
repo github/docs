@@ -44,6 +44,7 @@ As more users join {% data variables.location.product_location %}, you may need 
   ```shell
   $ ghe-storage-extend
   ```
+6. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 ## Increasing the root partition size using a new appliance
 

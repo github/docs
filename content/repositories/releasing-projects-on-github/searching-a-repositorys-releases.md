@@ -14,10 +14,11 @@ topics:
 
 ## Searching for releases in a repository
 
+You can search a repository's releases.
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-1. To search the repository's releases, in the search field at the top of the Releases page, type your query and press **Enter**.
-![Releases search field](/assets/images/help/releases/search-releases.png)
+1. At the top of the page, in the "Find a release" field, type your query and press **Enter**.
 
 ## Search syntax for searching releases in a repository
 

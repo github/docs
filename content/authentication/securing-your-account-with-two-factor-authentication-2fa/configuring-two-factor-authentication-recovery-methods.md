@@ -18,7 +18,7 @@ topics:
   - 2FA
 shortTitle: Configure 2FA recovery
 ---
-In addition to securely storing your two-factor authentication recovery codes, we strongly recommend configuring one or more additional recovery methods.
+In addition to securely storing your two-factor authentication (2FA) recovery codes, we strongly recommend configuring two or more authentication methods to avoid losing access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
 
 ## Downloading your two-factor authentication recovery codes
 
@@ -26,7 +26,8 @@ In addition to securely storing your two-factor authentication recovery codes, w
 
 To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager, such as:
 - [1Password](https://1password.com/)
-- [LastPass](https://lastpass.com/)
+- [Authy](https://authy.com/)
+- [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app)
 
 If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.{% ifversion 2fa-reconfiguration-inline-update %} Reconfiguring your 2FA settings without disabling 2FA will not change your recovery codes.{% endif %}
 
@@ -47,36 +48,15 @@ Once you use a recovery code to regain access to your account, it cannot be reus
 {% data reusables.two_fa.show-recovery-codes %}
 1. Under "Generate new recovery codes", click **Generate new recovery codes**.
 
-## Configuring a security key as an additional two-factor authentication method
+## Configuring backups for your time-based one-time password (TOTP) app
 
-You can set up a security key as a secondary two-factor authentication method, and use the security key to regain access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+Most TOTP apps support backups. If you lose access to your authentication device, you can use your TOTP app backup to access your authentication method and account credentials on a different authentication device, ensuring continued access to your 2FA-enabled account.
 
-{% ifversion fpt or ghec %}
+The process of configuring backups is different for each TOTP app. For some examples from popular TOTP apps, see the following documentation:
 
-## Setting a fallback authentication number
-
-You can provide a second number for a fallback device. If you lose access to both your preferred device and your recovery codes, a backup SMS number can get you back in to your account.
-
-You can use a fallback number regardless of whether you've configured authentication via text message or TOTP mobile application.
-
-{% warning %}
-
-**Warning:** Using a fallback number is a last resort. We recommend configuring additional recovery methods if you set a fallback authentication number.
-- Bad actors may attack cell phone carriers, so SMS authentication is risky.
-- SMS messages are only supported for certain countries outside the US; for the list, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/countries-where-sms-authentication-is-supported)".
-
-{% endwarning %}
-
-{% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.security %}
-1. Next to "Fallback SMS number", click **Add**.
-
-   ![Screenshot of account recovery options in the 2FA settings. A gray button, labeled "Add", is outlined in orange.](/assets/images/help/2fa/add-fallback-sms-number-button.png)
-1. Select your country code and type your mobile phone number, including the area code. When your information is correct, click **Set fallback**.
-
-  After setup, the backup device will receive a confirmation SMS.
-
-{% endif %}
+- [1Password](https://support.1password.com/backups/)
+- [Google Authenticator](https://security.googleblog.com/2023/04/google-authenticator-now-supports.html)
+- [Microsoft Authenticator](https://support.microsoft.com/en-us/account-billing/back-up-and-recover-account-credentials-in-the-authenticator-app-bb939936-7a8d-4e88-bc43-49bc1a700a40)
 
 ## Further reading
 

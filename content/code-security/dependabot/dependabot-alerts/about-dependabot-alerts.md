@@ -104,4 +104,6 @@ You can also see all the {% data variables.product.prodname_dependabot_alerts %}
 
 - "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)"
 - "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% endif %}
+- "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)"
 {% ifversion fpt or ghec %}- "[AUTOTITLE](/get-started/privacy-on-github)"{% endif %}
+

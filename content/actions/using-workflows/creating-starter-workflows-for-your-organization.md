@@ -34,13 +34,11 @@ Starter workflows can be created by users with write access to the organization'
 Starter workflows created by users can only be used to create workflows in public repositories. Organizations using {% data variables.product.prodname_ghe_cloud %} can also use starter workflows to create workflows in private repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/using-workflows/creating-starter-workflows-for-your-organization).
 {% endif %}
 
-{% ifversion fpt or ghes or ghae > 3.3 or ghec %}
 {% note %}
 
 **Note:** To avoid duplication among starter workflows you can call reusable workflows from within a workflow. This can help make your workflows easier to maintain. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
 {% endnote %}
-{% endif %}
 
 This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
 
@@ -94,14 +92,12 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
      * An icon from {% data variables.product.prodname_dotcom %}'s set of [Octicons](https://primer.style/octicons/). To reference an octicon, the value must be `octicon <icon name>`. For example, `octicon smiley`.
    * `categories` - **Optional.** Defines the categories that the workflow is shown under. You can use category names from the following lists:
      * General category names from the [starter-workflows](https://github.com/actions/starter-workflows/blob/main/README.md#categories) repository.
-     * Linguist languages from the list in the [linguist](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml) repository.
+     * Linguist languages from the list in the [linguist](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) repository.
      * Supported tech stacks from the list in the [starter-workflows](https://github.com/github-starter-workflows/repo-analysis-partner/blob/main/tech_stacks.yml) repository.
 
    * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
 
-To add another starter workflow, add your files to the same `workflow-templates` directory. For example:
-
-![Workflow files](/assets/images/help/images/workflow-template-files.png)
+To add another starter workflow, add your files to the same `workflow-templates` directory.
 
 ## Next steps
 

@@ -13,13 +13,11 @@ redirect_from:
 
 {% data reusables.classroom.about-autograding %}
 
-After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding.
+After a student accepts an assignment, on every push to the assignment repository, {% data variables.product.prodname_actions %} runs the commands for your autograding test in a Linux environment containing the student's newest code. {% data variables.product.prodname_classroom %} creates the necessary workflows for {% data variables.product.prodname_actions %}. You don't need experience with {% data variables.product.prodname_actions %} to use autograding. For more information on workflows and {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/guides/about-continuous-integration)."
 
 You can use a testing framework, run a custom command, write input/output tests, or combine different testing methods. The Linux environment for autograding contains many popular software tools. For more information, see the details for the latest version of Ubuntu in "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."
 
 You can see an overview of which students are passing autograding tests by navigating to the assignment in {% data variables.product.prodname_classroom %}. A green checkmark means that all tests are passing for the student, and a red X means that some or all tests are failing for the student. If you award points for one or more tests, then a bubble shows the score for the tests out of the maximum possible score for the assignment.
-
-![Overview for an assignment with autograding results](/assets/images/help/classroom/assignment-individual-hero.png)
 
 ## Grading methods
 
@@ -64,20 +62,16 @@ You can add, edit, or delete autograding tests for an existing assignment. All c
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.assignments-click-pencil %}
 1. In the left sidebar, click **Grading and feedback**.
-  !["Grading and feedback" to the left of assignment's basics](/assets/images/help/classroom/assignments-click-grading-and-feedback.png)
 1. Add, edit, or delete an autograding test.
-    - To add a test, under "Add autograding tests", select the **Add test** drop-down menu, then click the grading method you want to use.
-       ![Using the "Add test" drop-down menu to click a grading method](/assets/images/help/classroom/autograding-click-grading-method.png)
-       Configure the test, then click **Save test case**.
-       !["Save test case" button for an autograding test](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
+    - To add a test, under "Add autograding tests", select the **Add test** dropdown menu, then click the grading method you want to use.
+      Configure the test, then click **Save test case**.
+
     - To edit a test, to the right of the test name, click {% octicon "pencil" aria-label="The pencil icon" %}.
-        ![Pencil icon for editing an autograding test](/assets/images/help/classroom/autograding-click-pencil.png)
-       Configure the test, then click **Save test case**.
-       !["Save test case" button for an autograding test](/assets/images/help/classroom/assignments-click-save-test-case-button.png)
+      Configure the test, then click **Save test case**.
+
     - To delete a test, to the right of the test name, click {% octicon "trash" aria-label="The trash icon" %}.
-        ![Trash icon for deleting an autograding test](/assets/images/help/classroom/autograding-click-trash.png)
+
 1. At the bottom of the page, click **Update assignment**.
-  !["Update assignment" button at the bottom of the page](/assets/images/help/classroom/assignments-click-update-assignment.png)
 
 ## Viewing and downloading results from autograding tests
 
@@ -85,14 +79,11 @@ You can add, edit, or delete autograding tests for an existing assignment. All c
 
 You can also download a CSV of your students' autograding scores via the "Download" button. This will generate and download a CSV containing a link to the student's repository, their {% data variables.product.prodname_dotcom %} handle, roster identifier, submission timestamp, and autograding score.
 
-!["Download" button selected showing "Download grades highlighted" and an additional option to "Download repositories"](/assets/images/help/classroom/download-grades.png)
-
 ### View individual logs
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
-1. To the right of a submission, click **View test**.
-  !["View test" button for an assignment submission](/assets/images/help/classroom/assignments-click-view-test.png)
+1. To the right of a submission, click {% octicon "checklist" aria-label="The checklist icon" %}.
 1. Review the test output. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
 
 ## Further reading

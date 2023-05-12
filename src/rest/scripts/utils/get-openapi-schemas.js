@@ -3,8 +3,9 @@ import yaml from 'js-yaml'
 import path from 'path'
 
 import { allVersions } from '../../../../lib/all-versions.js'
-const OPEN_API_RELEASES_DIR = path.join('..', 'github', '/app/api/description/config/releases')
 
+const OPEN_API_RELEASES_DIR = '../github/app/api/description/config/releases'
+const configData = JSON.parse(await readFile('src/rest/lib/config.json', 'utf8'))
 // Gets the full list of unpublished + active, deprecated + active,
 // or active schemas from the github/github repo
 // `openApiReleaseDir` is the path to the `app/api/description/config/releases`
@@ -24,8 +25,21 @@ export async function getSchemas(directory = OPEN_API_RELEASES_DIR) {
     const content = await readFile(path.join(directory, file), 'utf8')
     const yamlContent = yaml.load(content)
 
+    const releaseMatch = Object.keys(configData.versionMapping).find((name) =>
+      fileBaseName.startsWith(name)
+    )
+    if (!releaseMatch) {
+      throw new Error(
+        `🛑 The file ${fileBaseName} does not match any known docs version name. (not one of ${Object.keys(
+          configData.versionMapping
+        )})`
+      )
+    }
+    const docsName =
+      configData.versionMapping[fileBaseName] ||
+      fileBaseName.replace(releaseMatch, configData.versionMapping[releaseMatch])
     const isDeprecatedInDocs = !Object.keys(allVersions).find(
-      (version) => allVersions[version].openApiVersionName === fileBaseName
+      (version) => allVersions[version].openApiVersionName === docsName
     )
     if (!yamlContent.published) {
       unpublished.push(newFileName)

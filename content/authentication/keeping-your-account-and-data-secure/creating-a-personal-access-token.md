@@ -28,9 +28,9 @@ shortTitle: 'Create a {% data variables.product.pat_generic %}'
 
 ## About {% data variables.product.pat_generic %}s
 
-{% data variables.product.pat_generic_caps %}s are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/other-authentication-methods#via-oauth-and-personal-access-tokens) or the [command line](#using-a-token-on-the-command-line).
+{% data variables.product.pat_generic_caps %}s are an alternative to using passwords for authentication to {% data variables.product.product_name %} when using the [GitHub API](/rest/overview/authenticating-to-the-rest-api) or the [command line](#using-a-personal-access-token-on-the-command-line).
 
-{% data variables.product.pat_generic_caps %}s are intended to access {% data variables.product.company_short %} resources on behalf of yourself. To access resources on behalf of an organization, or for long-lived integrations, you should use a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/developers/apps/getting-started-with-apps/about-apps)."
+{% data variables.product.pat_generic_caps %}s are intended to access {% data variables.product.company_short %} resources on behalf of yourself. To access resources on behalf of an organization, or for long-lived integrations, you should use a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 {% ifversion pat-v2 %}
 
@@ -40,7 +40,7 @@ shortTitle: 'Create a {% data variables.product.pat_generic %}'
 
 {% ifversion pat-v2 %}
 
-Organization owners can set a policy to restrict the access of {% data variables.product.pat_v1_plural %} to their organization{% ifversion ghec or ghes or ghae %}, and enterprise owners can restrict the access of {% data variables.product.pat_v1_plural %} to the enterprise or organizations owned by the enterprise{% endif %}. For more information, see "[Setting a {% data variables.product.pat_generic %} policy for your organization](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#restricting-access-by-personal-access-tokens-classic)."
+Organization owners can set a policy to restrict the access of {% data variables.product.pat_v1_plural %} to their organization{% ifversion ghec or ghes or ghae %}, and enterprise owners can restrict the access of {% data variables.product.pat_v1_plural %} to the enterprise or organizations owned by the enterprise{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#restricting-access-by-personal-access-tokens-classic)."
 
 {% endif %}
 
@@ -73,11 +73,11 @@ If you choose to use a {% data variables.product.pat_v1 %}, keep in mind that it
 {% data variables.product.pat_generic_caps %}s are like passwords, and they share the same inherent security risks. Before creating a new {% data variables.product.pat_generic %}, consider if there is a more secure method of authentication available to you:
 
 - To access {% data variables.product.company_short %} from the command line, you can use [{% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli) or [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) instead of creating a {% data variables.product.pat_generic %}.
-- When using a {% data variables.product.pat_generic %} in a {% data variables.product.prodname_actions %} workflow, consider whether you can use the built-in `GITHUB_TOKEN` instead. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)."
+- When using a {% data variables.product.pat_generic %} in a {% data variables.product.prodname_actions %} workflow, consider whether you can use the built-in `GITHUB_TOKEN` instead. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
 If these options are not possible, and you must create a {% data variables.product.pat_generic %}, consider using another service such as the [1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely, or 1Password's [{% data variables.product.company_short %} shell plugin](https://developer.1password.com/docs/cli/shell-plugins/github/) to securely authenticate to {% data variables.product.prodname_cli %}.
 
-When using a {% data variables.product.pat_generic %} in a script, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."{%- ifversion ghec or fpt %} You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+When using a {% data variables.product.pat_generic %} in a script, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."{%- ifversion ghec or fpt %} You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
 ## Creating a {% data variables.product.pat_v2 %}
 
@@ -90,7 +90,7 @@ When using a {% data variables.product.pat_generic %} in a script, you can store
 {% ifversion fpt or ghec %}1. [Verify your email address](/get-started/signing-up-for-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
 1. Click **Generate new token**.
 1. Under **Token name**, enter a name for the token.
 1. Under **Expiration**, select an expiration for the token.
@@ -131,26 +131,15 @@ If you selected an organization as the resource owner and the organization requi
 {% ifversion fpt or ghec %}1. [Verify your email address](/get-started/signing-up-for-github/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-{% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
+{% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
 {% ifversion pat-v2%}1. Select **Generate new token**, then click **Generate new token (classic)**.{% else %}{% data reusables.user-settings.generate_new_token %}{% endif %}
-5. Give your token a descriptive name.
-   ![Token description field](/assets/images/help/settings/token_description.png)
-6. To give your token an expiration, select the **Expiration** drop-down menu, then click a default or use the calendar picker.
-   ![Token expiration field](/assets/images/help/settings/token_expiration.png)
+5. In the "Note" field, give your token a descriptive name.
+6. To give your token an expiration, select **Expiration**, then choose a default option or click **Custom** to enter a date.
 7. Select the scopes you'd like to grant this token. To use your token to access repositories from the command line, select **repo**. A token with no assigned scopes can only access public information. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
-   {% ifversion fpt or ghes or ghec %}
-   ![Selecting token scopes](/assets/images/help/settings/token_scopes.gif)
-   {% elsif ghae %}
-   ![Selecting token scopes](/assets/images/enterprise/github-ae/settings/access-token-scopes-for-ghae.png)
-   {% endif %}
 8. Click **Generate token**.
-   ![Generate token button](/assets/images/help/settings/generate_token.png)
-   {% ifversion fpt or ghec %}
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens.png)
-   {% elsif ghes or ghae %}
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe.png)
-   {% else %}
-   ![Newly created token](/assets/images/help/settings/personal_access_tokens_ghe_legacy.png){% endif %}{% ifversion fpt or ghec %}
+1. Optionally, to copy the new token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
+
+   ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal_access_tokens.png){% ifversion fpt or ghec %}
 1. To use your token to access resources owned by an organization that uses SAML single sign-on, authorize the token. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 ## Using a {% data variables.product.pat_generic %} on the command line

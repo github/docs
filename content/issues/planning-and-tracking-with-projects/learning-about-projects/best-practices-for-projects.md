@@ -35,7 +35,7 @@ For example:
 - Describing the project views and how to use them.
 - Including relevant links and people to contact for more information.
 
-Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers. 
+Project READMEs support Markdown which allows you to use images and advanced formatting such as links, lists, and headers.
 
 For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."
 
@@ -73,7 +73,7 @@ Additionally, {%endif %}{% data variables.product.prodname_actions %} and the Gr
 - For more information about automatically adding items, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."{% endif %}{% endif %}
 - For an example workflow, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)."
 - For more information about the API, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
-- For more information about {% data variables.product.prodname_actions %}, see ["{% data variables.product.prodname_actions %}](/actions)."
+- For more information about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions)."
 
 ## Use different field types
 

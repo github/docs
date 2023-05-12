@@ -55,9 +55,9 @@ You can trigger a workflow to publish your package every time you publish a new 
 
 To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-By default, npm uses the `name` field of the *package.json* file to determine the name of your published package. When publishing to a global namespace, you only need to include the package name. For example, you would publish a package named `npm-hello-world-test` to `https://www.npmjs.com/package/npm-hello-world-test`.
+By default, npm uses the `name` field of the *package.json* file to determine the name of your published package. When publishing to a global namespace, you only need to include the package name. For example, you would publish a package named `my-package` to `https://www.npmjs.com/package/my-package`.
 
-If you're publishing a package that includes a scope prefix, include the scope in the name of your *package.json* file. For example, if your npm scope prefix is octocat and the package name is hello-world, the `name` in your *package.json* file should be `@octocat/hello-world`. If your npm package uses a scope prefix and the package is public, you need to use the option `npm publish --access public`. This is an option that npm requires to prevent someone from publishing a private package unintentionally.
+If you're publishing a package that includes a scope prefix, include the scope in the name of your *package.json* file. For example, if your npm scope prefix is "octocat" and the package name is "hello-world", the `name` in your *package.json* file should be `@octocat/hello-world`. If your npm package uses a scope prefix and the package is public, you need to use the option `npm publish --access public`. This is an option that npm requires to prevent someone from publishing a private package unintentionally.
 
 This example stores the `NPM_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
@@ -100,11 +100,11 @@ You can trigger a workflow to publish your package every time you publish a new 
 
 Linking your package to {% data variables.product.prodname_registry %} using the `repository` key is optional. If you choose not to provide the `repository` key in your *package.json* file, then {% data variables.product.prodname_registry %} publishes a package in the {% data variables.product.prodname_dotcom %} repository you specify in the `name` field of the *package.json* file. For example, a package named `@my-org/test` is published to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. If the `url` specified in the `repository` key is invalid, your package may still be published however it won't be linked to the repository source as intended.
 
-If you do provide the `repository` key in your *package.json* file, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-amazing-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository. Once published, only the repository source is updated, and the package doesn't inherit any permissions from the destination repository.
+If you do provide the `repository` key in your *package.json* file, then the repository in that key is used as the destination npm registry for {% data variables.product.prodname_registry %}. For example, publishing the below *package.json* results in a package named `my-package` published to the `octocat/my-other-repo` {% data variables.product.prodname_dotcom %} repository. Once published, only the repository source is updated, and the package doesn't inherit any permissions from the destination repository.
 
 ```json
 {
-  "name": "@octocat/my-amazing-package",
+  "name": "@octocat/my-package",
   "repository": {
     "type": "git",
     "url": "https://github.com/octocat/my-other-repo.git"

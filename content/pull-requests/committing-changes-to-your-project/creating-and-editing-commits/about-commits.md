@@ -61,10 +61,10 @@ You can use the file tree to navigate between files in a commit.
 
   {% endnote %}
 
-  ![Screenshot of filter changed files search box and file tree emphasized](/assets/images/help/repository/file-tree.png)
+  ![Screenshot of the "Files changed" tab of a pull request. In the left sidebar, the file tree is outlined in dark orange.](/assets/images/help/repository/file-tree.png)
 1. To filter by file path, enter part or all of the file path in the **Filter changed files** search box.
 
 {% endif %}
 
 ## Further reading
-- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#about-commits)" on {% data variables.product.prodname_desktop %}
+- "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#about-commits)" on {% data variables.product.prodname_desktop %}

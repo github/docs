@@ -43,7 +43,7 @@ The peak quantity of concurrent jobs running without performance loss depends on
 
 The CPU and memory resources available to {% data variables.location.product_location %} determine the number of runners that can be configured without performance loss. {% data reusables.actions.minimum-hardware %}
 
-The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated the following performance targets for GitHub Enterprise Server on a range of CPU and memory configurations:
+The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated performance targets for GitHub Enterprise Server on a range of CPU and memory configurations.
 
 {% endif %}
 
@@ -160,7 +160,7 @@ You can use policies to manage access to {% data variables.product.prodname_acti
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/adding-self-hosted-runners)."
+To run {% data variables.product.prodname_actions %} workflows, you need to add self-hosted runners. You can add self-hosted runners at the enterprise, organization, or repository levels. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 ## Managing which actions can be used in your enterprise
 

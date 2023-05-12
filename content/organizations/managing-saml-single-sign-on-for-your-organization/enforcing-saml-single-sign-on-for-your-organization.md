@@ -39,7 +39,7 @@ If your organization is owned by an enterprise account, requiring SAML for the e
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. Under "SAML single sign-on", select **Require SAML SSO authentication for all members of the _ORGANIZATION_ organization**.
+1. Under "SAML single sign-on", select **Require SAML SSO authentication for all members of the ORGANIZATION organization**.
 1. If any organization members have not authenticated via your IdP, {% data variables.product.company_short %} displays the members. If you enforce SAML SSO, {% data variables.product.company_short %} will remove the members from the organization.
 
    Review the warning and click **Remove members and require SAML single sign-on**.

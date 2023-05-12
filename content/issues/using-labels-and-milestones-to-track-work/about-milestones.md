@@ -25,8 +25,6 @@ To better manage your project, you can [view details about your milestone](/issu
 
 Additionally, you can edit the milestone from the milestone page and create new issues that are, by default, associated with the milestone.
 
-![Milestone page](/assets/images/help/issues/milestone-info-page.png)
-
 ## Prioritizing issues and pull requests in milestones
 
 You can prioritize open issues and pull requests in a milestone by clicking to the left of an issue or pull request's checkbox, dragging it to a new location, and dropping it.
@@ -36,12 +34,3 @@ You can prioritize open issues and pull requests in a milestone by clicking to t
 **Note:** If there are more than 500 open issues in a milestone, you won't be able to prioritize issues.
 
 {% endnote %}
-
-![Reordered milestone](/assets/images/help/issues/milestone-reordered.gif)
-
-## Further reading
-
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/creating-and-editing-milestones-for-issues-and-pull-requests)"
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/associating-milestones-with-issues-and-pull-requests)"
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress)"

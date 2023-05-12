@@ -38,7 +38,7 @@ The tabs in this article allow you to switch between information for each of the
 
 Using {% data variables.product.prodname_codespaces %} in the browser provides you with a fully featured development experience. You can edit code, debug, use Git commands, and run your application.
 
-![Annotated screenshot of a codespace in the browser](/assets/images/help/codespaces/codespace-overview-annotated.png)
+![Annotated screenshot of the five main components of the user interface: side bar, activity bar, editor, panels, status bar.](/assets/images/help/codespaces/codespace-overview-annotated.png)
 
 {% data reusables.codespaces.vscode-interface-annotation %}
 {% data reusables.codespaces.use-chrome %} For more information, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)."
@@ -55,7 +55,7 @@ The tabs in this article allow you to switch between information for each of the
 
 {% data variables.product.prodname_github_codespaces %} provides you with the full development experience of {% data variables.product.prodname_vscode %}. {% data reusables.codespaces.use-visual-studio-features %}
 
-![Annotated screenshot of a codespace in VS Code](/assets/images/help/codespaces/codespace-annotated-vscode.png)
+![Annotated screenshot of the five main components of the user interface: side bar, activity bar, editor, panels, status bar.](/assets/images/help/codespaces/codespace-annotated-vscode.png)
 
 {% data reusables.codespaces.vscode-interface-annotation %}
 
@@ -85,15 +85,15 @@ You can edit code, debug, and use Git commands while developing in a codespace w
 
 Within the {% data variables.product.prodname_github_codespaces %} documentation we use IntelliJ IDEA as a representative JetBrains IDE. Different JetBrains IDEs may have different layouts.
 
-![Annotated screenshot of a codespace in JetBrains IntelliJ IDEA](/assets/images/help/codespaces/jetbrains-gui-with-callouts.png)
+![Annotated screenshot of the six main components of the user interface for JetBrains IntelliJ IDEA.](/assets/images/help/codespaces/jetbrains-gui-with-callouts.png)
 
+The main components of the user interface are:
 1. **Navigation bar** - This displays the path to the currently selected file or directory. Use the buttons to the right of the navigation bar to perform various actions, including building, running, or debugging the project, or running Git commands to commit and push your changes.
 2. **Project tool window** - This shows you the structure of your project and allows you to open files in the editor.
 3. **{% data variables.product.prodname_github_codespaces %} tool window** - This is displayed by clicking the {% data variables.product.prodname_github_codespaces %} plugin in the bar to the left of the tool window. It displays information about your codespace, including its display name and machine type. The buttons at the top of this tool window allow you to:
-   * Stop the codespace and disconnect
+   * Refresh the details in the tool window for the active codespace
    * Display the "Your codespaces" web page
    * View the codespace creation logs
-   * Rebuild the dev container
 4. **Editor** - This is where you edit your files. You can right-click the tab for a file to access options such as moving the tab to a new window.
 5. **Terminal** - This is displayed by clicking **Terminal** in the tool window bar at the bottom of the main window (just above the status bar). The integrated terminal allows you to perform command-line tasks without having to switch to a dedicated terminal application.
 6. **Status bar** - Hover over the icon at the left of the status bar to see a list of tools. Click the icon to hide or show the tool window bars. The right side of the status bar shows information about the project, including the current Git branch.

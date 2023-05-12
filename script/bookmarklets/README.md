@@ -29,7 +29,7 @@ When you're looking at a page on a preview server at preview.ghdocs.com or your 
 
 [`script/bookmarklets/open-in-vscode.js`](./open-in-vscode.js)
 
-When you're looking at a page on either docs.github.com, preview.ghdocs.com, or localhost:400, clicking this bookmarklet will open the source Markdown file from your local checkout in VS Code.
+When you're looking at a page on either docs.github.com, preview.ghdocs.com, or localhost:4000, clicking this bookmarklet will open the source Markdown file from your local checkout in VS Code.
 
 The installation requires a few steps:
 

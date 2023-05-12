@@ -8,8 +8,8 @@ redirect_from:
   - /github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/licensing-a-repository
 versions:
   fpt: '*'
-  ghes: '*'
   ghec: '*'
+  ghes: '*'
 topics:
   - Repositories
 ---
@@ -35,7 +35,7 @@ As a best practice, we encourage you to include the license file with your proje
 
 ## Searching GitHub by license type
 
-You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword:
+You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword.
 
 License | License keyword
 ---  | ---
@@ -46,6 +46,7 @@ License | License keyword
 | BSD 2-clause "Simplified" license | `bsd-2-clause` |
 | BSD 3-clause "New" or "Revised" license | `bsd-3-clause` |
 | BSD 3-clause Clear license | `bsd-3-clause-clear` |
+| BSD Zero-Clause license | `0bsd` |
 | Creative Commons license family | `cc` |
 | Creative Commons Zero v1.0 Universal | `cc0-1.0` |
 | Creative Commons Attribution 4.0 | `cc-by-4.0` |
@@ -84,9 +85,13 @@ If your repository is using a license that is listed on the Choose a License web
 
 ## Applying a license to a repository with an existing license
 
-The license picker is only available when you create a new project on GitHub. You can manually add a license using the browser. For more information on adding a license to a repository, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)."
+{% ifversion fpt or ghec %}
+The license picker is only available when you create a new project on GitHub.
 
-![Screenshot of license picker on GitHub.com](/assets/images/help/repository/repository-license-picker.png)
+![Screenshot the "Choose a license" section of the new repository page, including a dropdown menu labeled "License."](/assets/images/help/repository/repository-license-picker.png)
+{% endif %}
+
+You can manually add a license using the browser. For more information on adding a license to a repository, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)."
 
 ## Disclaimer
 

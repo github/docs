@@ -4,7 +4,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { SidebarProduct } from './SidebarProduct'
 import { SidebarHomepage } from './SidebarHomepage'
 import { AllProductsLink } from './AllProductsLink'
-import { ApiVersionPicker } from './ApiVersionPicker'
+import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
 import { Link } from 'components/Link'
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const SidebarNav = ({ variant = 'full' }: Props) => {
-  const { error, currentProduct, currentProductTree } = useMainContext()
+  const { currentProduct, currentProductTree } = useMainContext()
   const isRestPage = currentProduct && currentProduct.id === 'rest'
   const productTitle = currentProductTree?.shortTitle || currentProductTree?.title
   // we need to roughly account for the site header height plus the height of
@@ -33,7 +33,9 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
               <Link
                 data-testid="sidebar-product-xl"
                 href={currentProductTree.href}
-                className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
+                // Note the `_product-title` is used by the popover preview cards
+                // when it needs this text for in-page links.
+                className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
               >
                 {productTitle}
               </Link>
@@ -50,8 +52,8 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
         style={{ width: 326, height: '100vh', paddingBottom: sidebarPaddingBottom }}
         role="banner"
       >
-        <nav>
-          {error === '404' || !currentProduct || currentProduct.id === 'search' ? (
+        <nav aria-labelledby="title-h1">
+          {!currentProduct || currentProduct.id === 'search' ? (
             <SidebarHomepage />
           ) : (
             <SidebarProduct />

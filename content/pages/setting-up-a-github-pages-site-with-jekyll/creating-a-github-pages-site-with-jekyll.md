@@ -43,11 +43,11 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 {% data reusables.pages.private_pages_are_public_warning %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-1. If you don't already have a local copy of your repository, navigate to the location where you want to store your site's source files, replacing _PARENT-FOLDER_ with the folder you want to contain the folder for your repository.
+1. If you don't already have a local copy of your repository, navigate to the location where you want to store your site's source files, replacing PARENT-FOLDER with the folder you want to contain the folder for your repository.
   ```shell
   $ cd PARENT-FOLDER
   ```
-1. If you haven't already, initialize a local Git repository, replacing _REPOSITORY-NAME_ with the name of your repository.
+1. If you haven't already, initialize a local Git repository, replacing REPOSITORY-NAME with the name of your repository.
   ```shell
   $ git init REPOSITORY-NAME
   > Initialized empty Git repository in /Users/octocat/my-site/.git/
@@ -86,7 +86,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    gem "github-pages", "~> GITHUB-PAGES-VERSION", group: :jekyll_plugins
    ```
 
-   Replace _GITHUB-PAGES-VERSION_ with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
+   Replace GITHUB-PAGES-VERSION with the latest supported version of the `github-pages` gem. You can find this version here: "[Dependency versions](https://pages.github.com/versions/)."
 
    The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 1. Save and close the Gemfile.
@@ -103,7 +103,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 git add .
 git commit -m 'Initial GitHub pages site with Jekyll'
 ```
-1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}_HOSTNAME_ with your enterprise's hostname,{% endif %} _USER_ with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and _REPOSITORY_ with the name of the repository.
+1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and REPOSITORY with the name of the repository.
 ```shell
 {% ifversion fpt or ghec %}
 $ git remote add origin https://github.com/USER/REPOSITORY.git
@@ -111,7 +111,7 @@ $ git remote add origin https://github.com/USER/REPOSITORY.git
 $ git remote add origin https://HOSTNAME/USER/REPOSITORY.git
 {% endif %}
 ```
-1. Push the repository to {% data variables.product.product_name %}, replacing _BRANCH_ with the name of the branch you're working on.
+1. Push the repository to {% data variables.product.product_name %}, replacing BRANCH with the name of the branch you're working on.
    ```shell
    $ git push -u origin BRANCH
    ```

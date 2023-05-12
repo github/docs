@@ -77,7 +77,9 @@ For information about the API endpoints {% data variables.product.prodname_githu
 
 The following table shows the permissions granted to the `GITHUB_TOKEN` by default. People with admin permissions to an {% ifversion not ghes %}enterprise, organization, or repository,{% else %}organization or repository{% endif %} can set the default permissions to be either permissive or restricted. For information on how to set the default permissions for the `GITHUB_TOKEN` for your enterprise, organization, or repository, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-workflow-permissions-in-your-enterprise)," "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#setting-the-permissions-of-the-github_token-for-your-organization)," or "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#setting-the-permissions-of-the-github_token-for-your-repository)."
 
-| Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access for<br>pull requests from<br>public forked repositories [1] |
+{% rowheaders %}
+
+| Scope         | Default access<br>(permissive) | Default access<br>(restricted) | Maximum access for<br>pull requests from<br>public forked repositories |
 |---------------|-----------------------------|-----------------------------|--------------------------------|
 | actions       | read/write  | none | read |
 | checks        | read/write  | none | read |
@@ -93,7 +95,13 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | security-events     | read/write | none | read |
 | statuses      | read/write  | none | read |
 
-[1] Private repositories can control if pull requests from forks can run workflows, and configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
+{% endrowheaders %}
+
+{% note %}
+
+**Note:** Private repositories can control if pull requests from forks can run workflows, and configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
+
+{% endnote %}
 
 {% data reusables.actions.workflow-runs-dependabot-note %}
 
@@ -117,10 +125,7 @@ The permissions for the `GITHUB_TOKEN` are initially set to the default setting 
 
 ### Granting additional permissions
 
-If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a {% data variables.product.pat_generic %} and set it as a secret in your repository:
-
-1. Use or create a token with the appropriate permissions for that repository. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
-1. Add the token as a secret in your workflow's repository, and refer to it using the {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+If you need a token that requires permissions that aren't available in the `GITHUB_TOKEN`, you can create a {% data variables.product.prodname_github_app %} and generate an installation access token within your workflow. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)." Alternatively, you can create a {% data variables.product.pat_generic %}, store it as a secret in your repository, and use the token in your workfow with the {%raw%}`${{ secrets.SECRET_NAME }}`{% endraw %} syntax. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### Further reading
 
