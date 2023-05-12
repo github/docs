@@ -232,18 +232,18 @@ To create a nested list in the comment editor on {% data variables.product.produ
 In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
 
 ```markdown
-1.   First list item
+100. First list item
      - First nested list item
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a list item prefaced by the number 100 followed by a bulleted item nested one level to the right.](/assets/images/help/writing/nested-list-example-3.png)
 
-You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by at least two more characters (nine spaces minimum).
 
 ```markdown
-1.   First list item
-     - First nested list item
-       - Second nested list item
+100. First list item
+       - First nested list item
+         - Second nested list item
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a list item prefaced by the number 100 followed by a bulleted item nested one level to the right, and another bulleted item nested yet further to the right.](/assets/images/help/writing/nested-list-example-2.png)
