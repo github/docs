@@ -36,5 +36,5 @@ For a complete list of available webhook events and their payloads, see "[AUTOTI
 
 For more information about the `ping` event webhook payload, see the [`ping`](/webhooks-and-events/webhooks/webhook-events-and-payloads#ping) event.
 
-[org-hooks]: /rest/reference/orgs#webhooks/
-[repo-hooks]: /rest/reference/repos#webhooks
+[org-hooks]: /rest/orgs#webhooks/
+[repo-hooks]: /rest/repos#webhooks

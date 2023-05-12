@@ -34,8 +34,6 @@ Consider combining OpenID Connect (OIDC) with reusable workflows to enforce cons
 
 You can access information about activity related to {% data variables.product.prodname_actions %} in the audit logs for your enterprise. If your business needs require retaining this information longer than audit log data is retained, plan how you'll export and store this data outside of {% data variables.product.prodname_dotcom %}. For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise)" and "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."{% else %}{% ifversion audit-log-streaming %}"[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)" and {% endif %}"[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding)."{% endif %}
 
-![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
-
 ## Security
 
 You should plan your approach to security hardening for {% data variables.product.prodname_actions %}.
@@ -52,7 +50,6 @@ You should plan where you'll store your secrets. We recommend storing secrets in
 
 In {% data variables.product.prodname_dotcom %}, you can store secrets at the repository or organization level. Secrets at the repository level can be limited to workflows in certain environments, such as production or testing. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-![Screenshot of a list of secrets](/assets/images/help/settings/actions-org-secrets-list.png)
 You should consider adding manual approval protection for sensitive environments, so that workflows must be approved before getting access to the environments' secrets. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment)."
 
 ### Security considerations for third-party actions

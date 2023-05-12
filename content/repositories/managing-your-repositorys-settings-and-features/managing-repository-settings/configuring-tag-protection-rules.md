@@ -23,8 +23,8 @@ Additionally, you can create custom repository roles to allow other groups of us
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code and automation" section of the sidebar, click **{% octicon "tag" aria-label="The tag icon" %} Tags**.
+1. In the "Code and automation" section of the sidebar, click **{% octicon "tag" aria-hidden="true"%} Tags**.
 1. Click **New rule**.
-1. Under "Tag name pattern", type the pattern of the tags you want to protect. In this example, typing "\*" protects all tags. 
+1. Under "Tag name pattern", type the pattern of the tags you want to protect. In this example, typing "\*" protects all tags.
 ![Screenshot of the "Protected tags / New rule" page. The example pattern `*` is shown with the "Add rule" button. ](/assets/images/help/repository/tag-protection-rule.png)
 1. Click **Add rule**.

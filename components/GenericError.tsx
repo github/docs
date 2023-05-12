@@ -23,11 +23,7 @@ export function GenericError() {
             We track these errors automatically, but if the problem persists please feel free to
             contact us.
           </p>
-          <a
-            id="contact-us"
-            href="https://support.github.com/contact"
-            className="btn btn-outline mt-2"
-          >
+          <a id="support" href="https://support.github.com" className="btn btn-outline mt-2">
             <CommentDiscussionIcon size="small" className="octicon mr-1" />
             Contact support
           </a>

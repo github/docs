@@ -24,9 +24,15 @@ With the raw view, you can view or copy the raw content of a file without any st
 {% data reusables.repositories.navigate-to-repo %}
 1. Click the file that you want to view.
 1. In the upper-right corner of the file view, click **Raw**.
+{% ifversion code-search-code-view %}
 
-   ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/help/repository/raw-file-button.png)
-1. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="Copy raw content" %}**.
+  ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/help/repository/raw-file-button.png)
+{% else %}
+
+  ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/enterprise/repository/raw-file-button.png)
+{% endif %}
+1. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="Copy raw content" %}**. {% ifversion code-search-code-view %} To download the raw file, click **{% octicon "download" aria-label="Download raw file" %}**.{% endif %}
+
 
 ## Viewing the line-by-line revision history for a file
 
@@ -40,11 +46,22 @@ Within the blame view, you can view the line-by-line revision history for an ent
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Click to open the file whose line history you want to view.
+{% ifversion code-search-code-view %}
+1. Above the file content, click **Blame**. This view gives you a line-by-line revision history, with the code in a file separated by commit. Each commit lists the author, commit description, and commit date.
+1. To see versions of a file before a particular commit, click {% octicon "versions" aria-label="View blame prior to this change" %}. Alternatively, to see more detail about a particular commit, click the commit message.
+
+      ![Screenshot of a commit in the blame view. The commit message and versions icon are outlined in dark orange.](/assets/images/help/repository/code-view-blame-commit-options.png)
+
+1. To return to the raw code view, above the file content, click **Code**.
+   - If you are viewing a Markdown file, above the file content, you can also click **Preview** to return to the view with Markdown formatting applied.
+{% else %}
 1. In the upper-right corner of the file view, click **Blame** to open the blame view.
-![Blame button](/assets/images/help/repository/blame-button.png)
+
+  ![Screenshot showing the header for a file. The "Blame" button is emphasized.](/assets/images/enterprise/repository/blame-button.png)
 1. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="View blame prior to this change" %} until you've found the changes you're interested in viewing.
 
-   ![Screenshot of the "Blame" view of a file. To the right of a commit message, the versions icon is outlined in dark orange.](/assets/images/help/repository/git_blame.png)
+   ![Screenshot of the "Blame" view of a file. To the right of a commit message, the versions icon is outlined in dark orange.](/assets/images/enterprise/repository/git-blame.png)
+{% endif %}
 
 {% ifversion blame-ignore-revs %}
 
@@ -67,7 +84,13 @@ All revisions specified in the `.git-blame-ignore-revs` file, which must be in t
 
 Now when you visit the blame view, the listed revisions will not be included in the blame. You'll see an **Ignoring revisions in .git-blame-ignore-revs** banner indicating that some commits may be hidden:
 
-![Screenshot of a banner on the blame view linking to the .git-blame-ignore-revs file](/assets/images/help/repository/blame-ignore-revs-file.png)
+<!--Page used for the screenshots below: https://github.com/electron/electron/blame/main/lib/browser/ipc-main-internal.ts -->
+
+{% ifversion fpt or ghec %}
+![Screenshot of the blame view for the "ipc-main-internal.ts" file. A blue banner states that the information is "Ignoring revisions in .git-blame-ignore-revs." The link to the .git-blame-ignore-revs file is outlined in dark orange.](/assets/images/help/repository/blame-ignore-revs-file.png)
+{% else %}
+![Screenshot of the blame view for the "ipc-main-internal.ts" file. A blue banner states that the information is "Ignoring revisions in .git-blame-ignore-revs." The link to the .git-blame-ignore-revs file is outlined in dark orange.](/assets/images/enterprise/repository/blame-ignore-revs-file.png)
+{% endif %}
 
 This can be useful when a few commits make extensive changes to your code. You can use the file when running `git blame` locally as well:
 
@@ -85,4 +108,4 @@ git config blame.ignoreRevsFile .git-blame-ignore-revs
 
 ## Bypassing `.git-blame-ignore-revs` in the blame view
 
-If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** will disappear.
+If the blame view for a file shows **Ignoring revisions in .git-blame-ignore-revs**, you can still bypass `.git-blame-ignore-revs` and see the normal blame view. In the URL, append a `~` to the SHA and the **Ignoring revisions in .git-blame-ignore-revs** banner will disappear.

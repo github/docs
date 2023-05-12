@@ -21,13 +21,19 @@ topics:
   - Security
 ---
 
+{% note %}
+
+**Note:** This article contains the events that may appear in the audit log for an enterprise. For the events that can appear in a user account's security log or the audit log for an organization, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
+
+{% endnote %}
+
 {% ifversion ghec%}
 ## About audit log events for your enterprise
 
 The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_emus %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
 
 - If your enterprise does not use {% data variables.product.prodname_emus %}, the audit log only includes events related to the enterprise account and the organizations within the enterprise account, which are listed in this article.
-- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.enterprise.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %} and actions they take within their user account. For a list of these user account events, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log#security-log-actions)."
+- If your enterprise uses {% data variables.product.prodname_emus %}, the audit log also includes user events for {% data variables.enterprise.prodname_managed_users %}, such as each time the user logs in to {% data variables.product.product_name %} and actions they take within their user account. For a list of these user account events, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)."
 {% endif %}
 
 {%- ifversion fpt or ghec %}
@@ -324,35 +330,6 @@ Action                        | Description
 |--------|-------------
 | `dependency_graph_new_repos.disable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} disabled the dependency graph for all new repositories. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 | `dependency_graph_new_repos.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all new repositories.
-
-{%- ifversion fpt or ghec %}
-## `discussion` category actions
-
-| Action | Description
-|--------|-------------
-| `discussion.destroy` | A team discussion was deleted.
-
-## `discussion_comment` category actions
-
-| Action | Description
-|--------|-------------
-| `discussion_comment.destroy` | A [comment on a team discussion post was deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment).
-| `discussion_comment.update` | A [comment on a team discussion post was edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).
-
-## `discussion_post` category actions
-
-| Action | Description
-|--------|-------------
-| `discussion_post.destroy` | A [team discussion post was deleted](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).
-| `discussion_post.update` | A [team discussion post was edited](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion).
-
-## `discussion_post_reply` category actions
-
-| Action | Description
-|--------|-------------
-| `discussion_post_reply.destroy` | A [reply to a team discussion post was deleted](/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment).
-| `discussion_post_reply.update` | A [reply to a team discussion post was edited](/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment).
-{%- endif %}
 
 {%- ifversion ghec or ghes %}
 ## `dotcom_connection` category actions
@@ -1128,7 +1105,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repo.update_actions_secret` | A {% data variables.product.prodname_actions %} secret was updated.
 | `repo.update_actions_access_settings` | The setting to control how a repository was used by {% data variables.product.prodname_actions %} workflows in other repositories was changed.
 | `repo.update_default_branch` | The default branch for a repository was changed.
-| `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %} or {% data variables.product.prodname_github_codespaces %} integration secret was updated for a repository.
+| `repo.update_integration_secret` | A {% data variables.product.prodname_dependabot %}{% ifversion ghec%} or {% data variables.product.prodname_github_codespaces %}{% endif %} integration secret was updated for a repository.
 | `repo.update_member` | A user's permission to a repository was changed.
 
 {%- ifversion fpt or ghec %}
@@ -1416,6 +1393,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 | `team.update_permission` | A team's access was changed.
 | `team.update_repository_permission` | A team's permission to a repository was changed.
 
+{% ifversion team-discussions %}
 ## `team_discussions` category actions
 
 | Action | Description
@@ -1423,6 +1401,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 | `team_discussions.clear` | An organization owner cleared the setting to allow team discussions for an organization or enterprise.
 | `team_discussions.disable` | An organization owner disabled team discussions for an organization. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization)."
 | `team_discussions.enable` | An organization owner enabled team discussions for an organization.
+{% endif %}
 
 {%- ifversion ghec %}
 ## `team_sync_tenant` category actions

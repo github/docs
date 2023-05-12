@@ -3,7 +3,7 @@ title: GitHub Apps documentation
 shortTitle: Apps
 intro: 'Go deeper with {% data variables.product.prodname_dotcom %} by integrating with our APIs and webhooks, customizing your {% data variables.product.prodname_dotcom %} workflow, and building and sharing apps with the community.'
 introLinks:
-  About apps: /apps/creating-github-apps/setting-up-a-github-app/about-apps
+  overview: /apps/overview
 layout: product-landing
 featuredLinks:
   startHere:
@@ -28,10 +28,11 @@ versions:
 topics:
   - GitHub Apps
 children:
+  - /overview
   - /using-github-apps
   - /creating-github-apps
-  - /publishing-apps-to-github-marketplace
   - /maintaining-github-apps
+  - /publishing-apps-to-github-marketplace
   - /oauth-apps
 redirect_from:
   - /developers

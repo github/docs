@@ -60,8 +60,6 @@ You can use templates to quickly set up a new {% data variables.projects.project
 
 For more information on automation for {% data variables.product.prodname_projects_v1 %}, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)."
 
-![{% data variables.product.prodname_project_v1 %} with basic kanban template](/assets/images/help/projects/project-board-basic-kanban-template.png)
-
 {% data reusables.project-management.copy-project-boards %}
 
 ## Further reading

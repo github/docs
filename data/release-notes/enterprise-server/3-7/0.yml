@@ -353,6 +353,7 @@ sections:
     - '{% data reusables.release-notes.new-subdomains-missing-from-management-console %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
     - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
 
   deprecations:
     # https://github.com/github/enterprise-releases/issues/3217

@@ -41,7 +41,7 @@ If {% ifversion ghec or fpt %}these options are not possible{% else %}this is no
 
 If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-First, import `Octokit` from `octokit`. Then, pass your {% data variables.product.pat_generic %} when you create an instance of `Octokit`. In the following example, replace `YOUR-TOKEN` with a reference to your {% data variables.product.pat_generic %}.{% ifversion ghes or ghae %} Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
+First, import `Octokit` from `octokit`. Then, pass your {% data variables.product.pat_generic %} when you create an instance of `Octokit`. In the following example, replace `YOUR-TOKEN` with a reference to your {% data variables.product.pat_generic %}.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```javascript{:copy}
 import { Octokit } from "octokit";
@@ -56,14 +56,17 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 
 If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an endpoint is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that endpoint will say "Works with {% data variables.product.prodname_github_apps %}." For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)," "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)," and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
-Instead of importing `Octokit` from `octokit`, import `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key. Replace `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)" in the REST reference documentation.
+Instead of importing `Octokit` from `octokit`, import `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key. Replace `INSTALLATION_ID` with the ID of the installation of your app that you want to authenticate on behalf of. You can find your app's ID and generate a private key on the settings page for your app. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)." You can get an installation ID with the `GET /users/{username}/installation`, `GET /repos/{owner}/{repo}/installation`, or `GET /orgs/{org}/installation` endpoints. For more information, see "[AUTOTITLE](/rest/apps/apps)" in the REST reference documentation.{% ifversion ghes or ghae %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
 ```javascript{:copy}
 import { App } from "octokit";
 
 const app = new App({
   appId: APP_ID,
-  privateKey: PRIVATE_KEY,
+  privateKey: PRIVATE_KEY,{% ifversion ghes or ghae %}
+  Octokit: Octokit.defaults({
+    baseUrl: "{% data variables.product.api_url_code %}",
+  }),{% endif %}
 });
 
 const octokit = await app.getInstallationOctokit(INSTALLATION_ID);

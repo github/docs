@@ -1,5 +1,9 @@
 name: Close issue/PR on adding invalid label
 
+# **What it does**: This action closes invalid pull requests in the open-source repository.
+# **Why we have it**: We get lots of spam in the open-source repository.
+# **Who does it impact**: Open-source contributors.
+
 on:
   issues:
     types: [labeled]

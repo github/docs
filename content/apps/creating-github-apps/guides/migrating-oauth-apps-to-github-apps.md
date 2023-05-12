@@ -1,6 +1,6 @@
 ---
 title: Migrating OAuth Apps to GitHub Apps
-intro: 'Learn about the advantages of migrating your {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %} and how to migrate an {% data variables.product.prodname_oauth_app %} that isn''t listed on {% data variables.product.prodname_marketplace %}. '
+intro: 'Learn about the advantages of migrating your {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, and learn how to migrate your {% data variables.product.prodname_oauth_app %}.'
 redirect_from:
   - /apps/migrating-oauth-apps-to-github-apps
   - /developers/apps/migrating-oauth-apps-to-github-apps
@@ -12,99 +12,115 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Migrate from OAuth Apps
+shortTitle: Migrate from {% data variables.product.prodname_oauth_app %}s
 ---
-This article provides guidelines for existing integrators who are considering migrating from an OAuth App to a GitHub App.
 
-## Reasons for switching to GitHub Apps
+## Benefits of migrating from {% data variables.product.prodname_oauth_app %}s to {% data variables.product.prodname_github_app %}s
 
-[GitHub Apps](/apps) are the officially recommended way to integrate with GitHub because they offer many advantages over a pure OAuth-based integration:
+{% data variables.product.prodname_github_app %}s are the recommended way to integrate with {% data variables.product.company_short %}. {% data variables.product.prodname_github_app %}s offer many advantages over {% data variables.product.prodname_oauth_app %}s, including:
 
-- [Fine-grained permissions](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#requesting-permission-levels-for-resources) target the specific information a GitHub App can access, allowing the app to be more widely used by people and organizations with security policies than OAuth Apps, which cannot be limited by permissions.
-- [Short-lived tokens](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#token-based-identification) provide a more secure authentication method over OAuth tokens. An OAuth token does not expire until the person who authorized the OAuth App revokes the token. GitHub Apps use tokens that expire quickly, creating a much smaller window of time for compromised tokens to be in use.
-- [Built-in, centralized webhooks](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#webhooks) receive events for all repositories and organizations the app can access. Conversely, OAuth Apps require configuring a webhook for each repository and organization accessible to the user.
-- [Bot accounts](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts) don't consume a {% data variables.product.product_name %} seat and remain installed even when the person who initially installed the app leaves the organization.
-- Built-in support for OAuth is still available to GitHub Apps using [endpoints with a user access token](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps).
-- Dedicated [API rate limits](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps) for bot accounts scale with your integration.
-- Repository owners can [install GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#who-can-install-github-apps-and-authorize-oauth-apps) on organization repositories. If a GitHub App's configuration has permissions that request an organization's resources, the org owner must approve the installation.
-- Open Source community support is available through [Octokit libraries](/rest/overview/libraries) and other frameworks such as [Probot](https://probot.github.io/).
-- Integrators building GitHub Apps have opportunities to adopt earlier access to APIs.
+- enhanced security features, like fine-grained permissions, choice over repository access, and short lived tokens
+- the ability to act independently of or on behalf of a user
+- scalable rate limits
+- built-in webhooks
 
-## Converting an OAuth App to a GitHub App
+For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps#using-a-github-app-instead-of-an-oauth-app)."
 
-These guidelines assume that you have a registered OAuth App{% ifversion fpt or ghec %} that may or may not be listed in GitHub Marketplace{% endif %}. At a high level, you'll need to follow these steps:
+## Converting an {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}
 
-1. [Review the available API endpoints for GitHub Apps](#review-the-available-api-endpoints-for-github-apps)
-1. [Design to stay within API rate limits](#design-to-stay-within-api-rate-limits)
-1. [Register a new GitHub App](#register-a-new-github-app)
-1. [Determine the permissions your app requires](#determine-the-permissions-your-app-requires)
-1. [Subscribe to webhooks](#subscribe-to-webhooks)
-1. [Understand the different methods of authentication](#understand-the-different-methods-of-authentication)
-1. [Direct users to install your GitHub App on repositories](#direct-users-to-install-your-github-app-on-repositories)
-1. [Remove any unnecessary repository hooks](#remove-any-unnecessary-repository-hooks)
-1. [Encourage users to revoke access to your OAuth App](#encourage-users-to-revoke-access-to-your-oauth-app)
-1. [Delete the OAuth App](#delete-the-oauth-app)
+The following steps provide an overview of how to migrate from an {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}. The specific steps depend on your app.
 
-### Review the available API endpoints for GitHub Apps
+### 1. Review your {% data variables.product.prodname_oauth_app %}
 
-While the majority of [REST API](/rest) endpoints and [GraphQL](/graphql) queries are available to GitHub Apps today, we are still in the process of enabling some endpoints. Review the [available REST endpoints](/rest/overview/endpoints-available-for-github-apps) to ensure that the endpoints you need are compatible with GitHub Apps. Note that some of the API endpoints enabled for GitHub Apps allow the app to act on behalf of the user. See "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)" for a list of endpoints that allow a GitHub App to authenticate as a user.
+Re-familiarize yourself with the code for your {% data variables.product.prodname_oauth_app %}. The API requests that your {% data variables.product.prodname_oauth_app %} makes will help you decide what permissions to select for your {% data variables.product.prodname_github_app %}.
 
-We recommend reviewing the list of API endpoints you need as early as possible. Please let Support know if there is an endpoint you require that is not yet enabled for {% data variables.product.prodname_github_apps %}.
+Additionally, there are a few REST API endpoints that are not available for {% data variables.product.prodname_oauth_app %}s. Verify that any REST endpoints that you use are available for {% data variables.product.prodname_github_app %}s by reviewing "[AUTOTITLE](/rest/overview/endpoints-available-for-github-apps)."
 
-### Design to stay within API rate limits
+### 2. Register a {% data variables.product.prodname_github_app %}
 
-GitHub Apps use [sliding rules for rate limits](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps), which can increase based on the number of repositories and users in the organization. A GitHub App can also make use of [conditional requests](/rest/overview/resources-in-the-rest-api#conditional-requests) or consolidate requests by using the [GraphQL API](/graphql).
+Register a new {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
-### Register a new GitHub App
+Compared to an {% data variables.product.prodname_oauth_app %}, you have more control over {% data variables.product.prodname_github_app %} settings. Some key additions are:
 
-Once you've decided to make the switch to GitHub Apps, you'll need to [create a new GitHub App](/apps/creating-github-apps/setting-up-a-github-app).
+- Unlike an {% data variables.product.prodname_oauth_app %}, which always acts on behalf of a user, you can make your {% data variables.product.prodname_github_app %} take actions as itself or on behalf of a user. If you do not want your new {% data variables.product.prodname_github_app %} to take actions on behalf of a user, you can skip the "Identifying and authorizing users" settings. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-### Determine the permissions your app requires
+- You can use webhooks to notify your {% data variables.product.prodname_github_app %} when specific events occur. Unlike webhooks for {% data variables.product.prodname_oauth_app %}s, which you must configure via the API for each repository or organization, webhooks are built into {% data variables.product.prodname_github_app %}s. When you register your {% data variables.product.prodname_github_app %}, you can select the webhook events that you want to receive. Additionally, if your {% data variables.product.prodname_oauth_app %} currently uses polling to determine if an event had occurred, consider subscribing to webhooks instead to help your {% data variables.product.prodname_github_app %} stay within the rate limit. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)."
 
-When registering your GitHub App, you'll need to select the permissions required by each endpoint used in your app's code. See "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)" for a list of the permissions needed for each endpoint available to GitHub Apps.
+- With an {% data variables.product.prodname_oauth_app %}, you request scopes when a user authorizes your app. With a {% data variables.product.prodname_github_app %}, you specify permissions in the app settings. These permissions are more granular than scopes and enable you to only select the permissions that your app needs. Additionally, these permissions are mapped to REST API endpoints and webhook events, so you can easily determine what permissions your {% data variables.product.prodname_github_app %} needs in order to access a specific REST API endpoint or subscribe to a specific webhook. Permissions are not currently documented for GraphQL requests. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
-In your GitHub App's settings, you can specify whether your app needs `No Access`, `Read-only`, or `Read & Write` access for each permission type. The fine-grained permissions allow your app to gain targeted access to the subset of data you need. We recommend specifying the smallest set of permissions possible that provides the desired functionality.
+### 3. Modify the code for your app
 
-### Subscribe to webhooks
+Once you have registered a {% data variables.product.prodname_github_app %}, adapt the code from your old {% data variables.product.prodname_oauth_app %} to work with your new {% data variables.product.prodname_github_app %}.
 
-After you've created a new GitHub App and selected its permissions, you can select the webhook events you wish to subscribe it to. See "[AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions)" to learn how to subscribe to webhooks.
+#### Update authentication
 
-### Understand the different methods of authentication
+You will need to update your app's code to handle API authentication for your {% data variables.product.prodname_github_app %}. A {% data variables.product.prodname_github_app %} can authenticate in three ways:
 
-GitHub Apps primarily use a token-based authentication that expires after a short amount of time, providing more security than an OAuth token that does not expire. It’s important to understand the different methods of authentication available to you and when you need to use them:
+- As the app itself, in order to get or modify details about the app or to create an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app)."
+- As an app installation, in order to take actions on behalf of itself. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
+- On behalf of a user, in order to attribute actions to a user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
 
-* A **JSON Web Token (JWT)** [authenticates as the GitHub App](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app). For example, you can authenticate with a **JWT** to fetch application installation details or exchange the **JWT** for an **installation access token**.
-* An **installation access token** [authenticates as a specific installation of your GitHub App](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app). For example, you can authenticate with an **installation access token** to open an issue or provide feedback on a pull request.
-* An **user access token** can [authenticate as a user of your GitHub App](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user). For example, you can use an OAuth access token to authenticate as a user when a GitHub App needs to verify a user’s identity or act on a user’s behalf.
+If you are using {% data variables.product.company_short %}'s official Octokit.js library, you can use the built-in `App` object to authenticate. For examples, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
-The most common scenario is to authenticate as a specific installation using an **installation access token**.
+#### Review rate limits
 
-### Direct users to install your GitHub App on repositories
+Review the differences in rate limits between {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_app %}s. {% data variables.product.prodname_github_app %}s use sliding rules for rate limits, which can increase based on the number of repositories and number of users in the organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
 
-Once you've made the transition from an OAuth App to a GitHub App, you will need to let users know that the GitHub App is available to install. For example, you can include an installation link for the GitHub App in a call-to-action banner inside your application. To ease the transition, you can use query parameters to identify the user or organization account that is going through the installation flow for your GitHub App and pre-select any repositories your OAuth App had access to. This allows users to easily install your GitHub App on repositories you already have access to.
+If possible, consider using conditional requests and subscribing to webhooks instead of polling to help you stay within rate limits. For more information about conditional requests, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#conditional-requests)." For more information about using webhooks with your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
-#### Query parameters
+#### Test your code
 
-| Name | Description |
-|------|-------------|
-| `suggested_target_id` | **Required**: ID of the user or organization that is installing your GitHub App. |
-| `repository_ids[]` | Array of repository IDs. If omitted, we select all repositories. The maximum number of repositories that can be pre-selected is 100. |
+Test your new {% data variables.product.prodname_github_app %} to make sure that your code works as expected.
 
-#### Example URL
-```
-https://github.com/apps/YOUR_APP_NAME/installations/new/permissions?suggested_target_id=ID_OF_USER_OR_ORG&repository_ids[]=REPO_A_ID&repository_ids[]=REPO_B_ID
-```
+### 4. Publicize your new {% data variables.product.prodname_github_app %}
 
-You'll need to replace `YOUR_APP_NAME` with the name of your GitHub App, `ID_OF_USER_OR_ORG` with the ID of your target user or organization, and include up to 100 repository IDs (`REPO_A_ID` and `REPO_B_ID`). To get a list of repositories your OAuth App has access to, use the [List repositories for the authenticated user](/rest/repos#list-repositories-for-the-authenticated-user) and [List organization repositories](/rest/repos#list-organization-repositories) endpoints.
+If you want other accounts to be able to use your new {% data variables.product.prodname_github_app %}, make sure that your app is public.{% ifversion fpt or ghec %} If you want to make your {% data variables.product.prodname_github_app %} more discoverable, list your app in {% data variables.product.prodname_marketplace %}. {% endif %}For more information, see {% ifversion ghec or fpt %}"[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace)" and {% endif %}"[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private)."
 
-### Remove any unnecessary repository hooks
+### 5. Instruct your users to migrate
 
-Once your GitHub App has been installed on a repository, you should remove any unnecessary webhooks that were created by your legacy OAuth App. If both apps are installed on a repository, they may duplicate functionality for the user. To remove webhooks, you can listen for the [`installation_repositories` webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#installation_repositories) with the `repositories_added` action and [Delete a repository webhook](/rest/webhooks#delete-a-repository-webhook) on those repositories that were created by your OAuth App.
+Once your new {% data variables.product.prodname_github_app %} is ready, instruct users of your old {% data variables.product.prodname_oauth_app %} to migrate to your new {% data variables.product.prodname_github_app %}. There is not a way to automatically migrate your users. Each user must install and/or authorize your {% data variables.product.prodname_github_app %} on their own.
 
-### Encourage users to revoke access to your OAuth app
+As the app owner, you should include calls to action to encourage your users to install/authorize the new {% data variables.product.prodname_github_app %} and revoke authorization for the old {% data variables.product.prodname_oauth_app %}. You should also update any documentation or user interface elements.
 
-As your GitHub App installation base grows, consider encouraging your users to revoke access to the legacy OAuth integration. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+#### Prompt users to install your {% data variables.product.prodname_github_app %}
 
-### Delete the OAuth App
+If you want your {% data variables.product.prodname_github_app %} to make API requests on behalf of itself or access organization or repository resources, the user must install your {% data variables.product.prodname_github_app %}. When a user installs a {% data variables.product.prodname_github_app %} on their account or organization, they choose which repositories the app can access, and they grant the app the organization and repository permissions that it requested.
 
-To avoid abuse of the OAuth App's credentials, consider deleting the OAuth App. This action will also revoke all of the OAuth App's remaining authorizations. For more information, see "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/deleting-an-oauth-app)."
+To help your users install your {% data variables.product.prodname_github_app %}, you can add a link to your app's webpage that users can click to install the {% data variables.product.prodname_github_app %}. The format of the install URL is `https://github.com/apps/YOUR_APP_NAME/installations/new`. Replace `YOUR_APP_NAME` with the name of your {% data variables.product.prodname_github_app %} (converted to lowercase, with spaces replaced by `-`, and with special characters replaced).
+
+To pre-select any repositories your {% data variables.product.prodname_oauth_app %} had access to, you can append `/permissions` and query parameters to the install URL. This helps users grant your {% data variables.product.prodname_github_app %} access to repositories that your {% data variables.product.prodname_oauth_app %} already has access to. The query parameters are:
+
+- `suggested_target_id`: The ID of the user or organization that is installing your {% data variables.product.prodname_github_app %}. This parameter is required.
+- `repository_ids[]`: The repository IDs to select for the installation. If omitted, all repositories are selected. The maximum number of repositories that can be pre-selected is 100. To get a list of repositories that your {% data variables.product.prodname_oauth_app %} has access to, use the [List repositories for the authenticated user](/rest/repos#list-repositories-for-the-authenticated-user) and [List organization repositories](/rest/repos#list-organization-repositories) endpoints.
+
+For example: `https://github.com/apps/YOUR_APP_NAME/installations/new/permissions?suggested_target_id=ID_OF_USER_OR_ORG&repository_ids[]=REPO_A_ID&repository_ids[]=REPO_B_ID`.
+
+{% ifversion ghec or fpt %}For more information about installing {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-personal-account)" and "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)."{% endif %}
+
+#### Prompt users to authorize your app
+
+If you want your {% data variables.product.prodname_github_app %} to make API requests on behalf of a user, the user must authorize the app. When a user authorizes an app, they grant the app permission to act on their behalf, and they grant the account permissions that the app requested. If the app is installed on an organization account, each user within that organization must authorize the app in order for the app to act on their behalf.
+
+To prompt users to authorize your app, you will lead them through the web application flow or device flow. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
+
+For more information about authorizing {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
+
+#### Encourage your users to revoke {% data variables.product.prodname_oauth_app %} access
+
+You should also encourage your users to revoke access for your old {% data variables.product.prodname_oauth_app %}. This will help you fully transition away from your {% data variables.product.prodname_oauth_app %} and will help keep your users' data secure. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-applications-oauth)."
+
+#### Update any interfaces or documentation
+
+You should update any user interface or documentation related to your app to reflect the change from an {% data variables.product.prodname_oauth_app %} to {% data variables.product.prodname_github_app %}.
+
+### 6. Remove webhooks for your old {% data variables.product.prodname_oauth_app %}
+
+When a user installs your {% data variables.product.prodname_github_app %} and grants access to a repository, you should remove any webhooks for your old {% data variables.product.prodname_oauth_app %}. If your new {% data variables.product.prodname_github_app %} and your old {% data variables.product.prodname_oauth_app %} respond to webhooks for the same event, the user may observe duplicate behavior.
+
+To remove repository webhooks, you can listen for the `installation_repositories` webhook with the `added` action. When your {% data variables.product.prodname_github_app %} receives that event, you can use the REST API to delete the webhook on those repositories for your {% data variables.product.prodname_oauth_app %}. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=added#installation_repositories)" and "[AUTOTITLE](/rest/webhooks#delete-a-repository-webhook)."
+
+Similarly, to remove organization webhooks, you can listen for the `installation` webhook with the `created` action. When your {% data variables.product.prodname_github_app %} receives that event for an organization, you can use the REST API to delete the webhook on that organization and corresponding repositories for your {% data variables.product.prodname_oauth_app %}. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=created#installation)," "[AUTOTITLE](/rest/orgs/webhooks#delete-an-organization-webhook)," and "[AUTOTITLE](/rest/webhooks#delete-a-repository-webhook)."
+
+### 7. Delete your old {% data variables.product.prodname_oauth_app %}
+
+Once your users have migrated to your new {% data variables.product.prodname_github_app %}, you should delete your old {% data variables.product.prodname_oauth_app %}. This will help avoid abuse of the {% data variables.product.prodname_oauth_app %}'s credentials. This action will also revoke all of the {% data variables.product.prodname_oauth_app %}'s remaining authorizations. For more information, see "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/deleting-an-oauth-app)." If your {% data variables.product.prodname_oauth_app %} is listed on {% data variables.product.prodname_marketplace %}, you may need to contact {% data variables.contact.github_support %} to remove your app from the marketplace first.

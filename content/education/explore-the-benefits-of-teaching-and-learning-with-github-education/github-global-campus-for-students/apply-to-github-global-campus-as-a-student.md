@@ -37,9 +37,7 @@ For information about renewing your {% data variables.product.prodname_global_ca
 
 {% data reusables.education.benefits-page %}
 1. Under "Individuals", click **Get student benefits**.
-  !["Get student benefits" on {% data variables.product.prodname_education %} homepage](/assets/images/help/education/click-get-student-benefits.png)
-1. Under "Select the academic status", select **Student**.
-  ![Select academic status](/assets/images/help/education/academic-status-student.png)
+2. Under "Select the academic status", select **Student**.
 {% data reusables.education.select-email-address %}
 {% data reusables.education.school-name %}
 {% data reusables.education.plan-to-use-github %}
@@ -50,7 +48,7 @@ For information about renewing your {% data variables.product.prodname_global_ca
 
 Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Reverify your academic affiliation**.
 
-![Menu option to reverify your academic affiliation](/assets/images/help/education/reverify-academic-affiliation.png)
+![Screenshot of a profile menu on the GitHub Education website. The "Reverify your academic affiliation" menu option is outlined in dark orange.](/assets/images/help/education/reverify-academic-affiliation.png)
 
 For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 

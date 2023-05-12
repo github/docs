@@ -29799,7 +29799,8 @@ type Query {
   ): RateLimit
 
   """
-  Hack to workaround https://github.com/facebook/relay/issues/112 re-exposing the root query object
+  Workaround for re-exposing the root query object. (Refer to
+  https://github.com/facebook/relay/issues/112 for more information.)
   """
   relay: Query!
 
@@ -45445,7 +45446,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   isEmployee: Boolean!
 
   """
-  Whether or not this user is following the viewer. Inverse of viewer_is_following
+  Whether or not this user is following the viewer. Inverse of viewerIsFollowing
   """
   isFollowingViewer: Boolean!
 
@@ -46197,7 +46198,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   viewerCanFollow: Boolean!
 
   """
-  Whether or not this user is followed by the viewer. Inverse of is_following_viewer.
+  Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.
   """
   viewerIsFollowing: Boolean!
 

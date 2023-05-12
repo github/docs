@@ -137,6 +137,14 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 - Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
 - Use a different time for each example.
 
+## Emphasis
+
+Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
+
+- **Use:** _Fine-grained personal access tokens_ have several security advantages over personal access tokens (classic).
+- **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
+- **Avoid:** Next to _**Title**_, add a descriptive label for your new key. 
+
 ## Footnotes
 
 Avoid using footnotes where possible. Consider instead whether you could use a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
@@ -151,7 +159,7 @@ If you must use footnotes:
 
 Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
 
-Use H2 for headers, and H3 for subheaders. Articles must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
+Use H2 for headers, and H3 for subheaders. If the article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
 - **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the [content model](/contributing/content-model.md#titles).

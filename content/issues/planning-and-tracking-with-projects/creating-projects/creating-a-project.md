@@ -23,7 +23,7 @@ You can also choose to use an existing project as a template and copy the views 
 
 ### Creating an organization project
 
-Organization projects can track issues and pull requests from the organization's repositories.
+Organization projects can track issues and pull requests from the organization's repositories. {% ifversion projects-v2-org-templates %}{% data reusables.projects.org-templates %}{% endif %}
 
 {% data reusables.projects.create-project %}
 

@@ -8,21 +8,11 @@ redirect_from:
   - /github/searching-for-information-on-github/searching-code
   - /github/searching-for-information-on-github/searching-on-github/searching-code
 versions:
-  fpt: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
 topics:
   - GitHub search
 ---
-
-{% ifversion github-code-search %}
-  {% note %}
-
-  **Note:** {% data reusables.search.classic-search-code-search-note %}
-
-  {% endnote %}
-{% endif %}
 
 {% data reusables.search.you-can-search-globally %} For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
@@ -79,7 +69,7 @@ You can use the `path` qualifier to search for source code that appears at a spe
 
 ## Search by language
 
-You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github-linguist/linguist repository](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml).
 
 | Qualifier  | Example
 | ------------- | -------------

@@ -653,7 +653,7 @@ These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this
 It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
-$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
+$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github-linguist/linguist/contents/new_file.md
 ```
 
 This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the API to manage contents generates a git commit for each addition or change and uses the current time as the timestamp. For more information, see "[AUTOTITLE](/rest/repos#contents)." This header will determine the timezone used for generating that current timestamp.

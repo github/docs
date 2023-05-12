@@ -289,7 +289,7 @@ This list describes the recommended approaches for accessing repository data wit
     - Deploy keys are one of the only credential types that grant read or write access to a single repository, and can be used to interact with another repository within a workflow. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)."
     - Note that deploy keys can only clone and push to the repository using Git, and cannot be used to interact with the REST or GraphQL API, so they may not be appropriate for your requirements.
 3. **{% data variables.product.prodname_github_app %} tokens**
-    - {% data variables.product.prodname_github_apps %} can be installed on select repositories, and even have granular permissions on the resources within them. You could create a {% data variables.product.prodname_github_app %} internal to your organization, install it on the repositories you need access to within your workflow, and authenticate as the installation within your workflow to access those repositories.
+    - {% data variables.product.prodname_github_apps %} can be installed on select repositories, and even have granular permissions on the resources within them. You could create a {% data variables.product.prodname_github_app %} internal to your organization, install it on the repositories you need access to within your workflow, and authenticate as the installation within your workflow to access those repositories. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 4. **{% data variables.product.pat_generic %}s**
     - You should never use a {% data variables.product.pat_v1 %}. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. This indirectly grants broad access to all write-access users of the repository the workflow is in.
     - If you do use a {% data variables.product.pat_generic %}, you should never use a {% data variables.product.pat_generic %} from your own account. If you later leave an organization, workflows using this token will immediately break, and debugging this issue can be challenging. Instead, you should use a {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %} for a new account that belongs to your organization and that is only granted access to the specific repositories that are needed for the workflow. Note that this approach is not scalable and should be avoided in favor of alternatives, such as deploy keys.
@@ -345,79 +345,16 @@ If you are using {% data variables.product.prodname_actions %} to deploy to a cl
 
 ## Auditing {% data variables.product.prodname_actions %} events
 
-You can use the audit log to monitor administrative tasks in an organization. The audit log records the type of action, when it was run, and which personal account performed the action.
+You can use the security log to monitor activity for your user account and the audit log to monitor activity in your organization{% ifversion ghec or ghes or ghae %} or enterprise{% endif %}. The security and audit log records the type of action, when it was run, and which personal account performed the action.
 
-For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets:
-  ![Audit log entries](/assets/images/help/repository/audit-log-entries.png)
+For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets.
 
-The following tables describe the {% data variables.product.prodname_actions %} events that you can find in the audit log. For more information on using the audit log, see
-"[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#searching-the-audit-log)" and "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise)."
+  ![Screenshot showing a search for "action:org.update_actions_secret" in the audit log for an organization. Two results detail API updates to two secrets that are available to selected repositories.](/assets/images/help/repository/audit-log-entries.png)
 
-{% ifversion fpt or ghec %}
-### Events for environments
+For the full list of events that you can find in the audit log for each account type, see the following articles:
 
-| Action | Description
-|------------------|-------------------
-| `environment.create_actions_secret` | Triggered when a secret is created in an environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.delete` | Triggered when an environment is deleted. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
-| `environment.remove_actions_secret` |  Triggered when a secret is removed from an environment. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.update_actions_secret` | Triggered when a secret in an environment is updated. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-{% endif %}
-
-{% ifversion fpt or ghes or ghec %}
-### Events for configuration changes
-| Action | Description
-|------------------|-------------------
-| `repo.actions_enabled` | Triggered when {% data variables.product.prodname_actions %} is enabled for a repository. Can be viewed using the UI. This event is not visible when you access the audit log using the REST API. For more information, see "[Using the REST API](#using-the-rest-api)."
-| `repo.update_actions_access_settings` | Triggered when the setting to control how your repository is used by {% data variables.product.prodname_actions %} workflows in other repositories is changed.
-{% endif %}
-
-### Events for secret management
-| Action | Description
-|------------------|-------------------
-| `org.create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."
-| `org.remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.
-| `org.update_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is updated.
-| `repo.create_actions_secret ` | Triggered when a {% data variables.product.prodname_actions %} secret is created for a repository. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
-| `repo.remove_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is removed.
-| `repo.update_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is updated.
-
-### Events for self-hosted runners
-| Action | Description
-|------------------|-------------------
-| `enterprise.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-enterprise)."
-| `enterprise.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed.
-| `enterprise.runner_group_runners_updated` | Triggered when a runner group's member list is updated. For more information, see "[AUTOTITLE](/rest/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
-| `enterprise.self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `enterprise.self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `enterprise.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI. This event is not included when you export the audit log as JSON data or a CSV file. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log)."
-| `org.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization)."
-| `org.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners#removing-a-runner-from-an-organization)."
-| `org.runner_group_runners_updated` | Triggered when a runner group's list of members is updated. For more information, see "[AUTOTITLE](/rest/actions#set-self-hosted-runners-in-a-group-for-an-organization)."
-| `org.runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `org.self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `org.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners)."
-| `repo.register_self_hosted_runner` | Triggered when a new self-hosted runner is registered. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository)."
-| `repo.remove_self_hosted_runner` | Triggered when a self-hosted runner is removed. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners#removing-a-runner-from-a-repository)."
-| `repo.self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `repo.self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
-| `repo.self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners)."
-
-### Events for self-hosted runner groups
-| Action | Description
-|------------------|-------------------
-| `enterprise.runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-enterprise)."
-| `enterprise.runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
-| `enterprise.runner_group_runner_removed` | Triggered when the REST API is used to remove a self-hosted runner from a group.
-| `enterprise.runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
-| `enterprise.runner_group_updated` |Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.runner_group_created` | Triggered when a self-hosted runner group is created. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#creating-a-self-hosted-runner-group-for-an-organization)."
-| `org.runner_group_removed` | Triggered when a self-hosted runner group is removed. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group)."
-| `org.runner_group_updated` | Triggered when the configuration of a self-hosted runner group is changed. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group)."
-| `org.runner_group_runners_added` | Triggered when a self-hosted runner is added to a group. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group)."
-| `org.runner_group_runner_removed` | Triggered when the REST API is used to remove a self-hosted runner from a group. For more information, see "[AUTOTITLE](/rest/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization)."
-
-### Events for workflow activities
-
-{% data reusables.actions.actions-audit-events-workflow %}
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+{%- ifversion ghec or ghes or ghae %}
+- "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)"
+{%- endif %}
