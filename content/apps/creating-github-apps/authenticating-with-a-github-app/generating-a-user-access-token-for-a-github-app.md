@@ -88,6 +88,7 @@ The device flow uses the OAuth 2.0 Device Authorization Grant.
    `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}.
    `device_code` | `string` | **Required.** The device verification code you received in the previous step.
    `grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
+   `repository_id` | `string` | The ID of a single repository that the user access token can access. If the {% data variables.product.prodname_github_app %} or user cannot access the repository, this will be ignored. Use this parameter to restrict the access of the user access token further.
 
    Do not poll this endpoint at a higher frequency than the frequency indicated by `interval`. If you do, you will hit the rate limit and receive a `slow_down` error. The `slow_down` error response adds 5 seconds to the last `interval`.
 
