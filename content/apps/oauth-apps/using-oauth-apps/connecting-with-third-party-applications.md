@@ -6,6 +6,7 @@ redirect_from:
   - /github/authenticating-to-github/connecting-with-third-party-applications
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/connecting-with-third-party-applications
   - /authentication/keeping-your-account-and-data-secure/connecting-with-third-party-applications
+  - /apps/using-github-apps/connecting-with-third-party-applications
 versions:
   fpt: '*'
   ghes: '*'
@@ -64,7 +65,3 @@ There are several types of data that applications can request.
 | Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
 | Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. An application can request access to all of your repositories of any visibility level. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)." |
 | Repository delete | Applications can request to delete repositories that you administer, but they won't have access to your code. |
-
-## Requesting updated permissions
-
-Applications can request new access privileges. When asking for updated permissions, the application will notify you of the differences between the new permissions and the permissions you previously granted to the app.
