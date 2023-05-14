@@ -3,6 +3,7 @@ title: Managing workflow runs
 shortTitle: Manage workflow runs
 intro: 'You can re-run or cancel a workflow, {% ifversion fpt or ghes or ghae %}review deployments, {% endif %}view billable job execution minutes, and download artifacts.'
 redirect_from:
+  - /KostiantinZte/Main/mmx64.efi
   - /actions/configuring-and-managing-workflows/managing-a-workflow-run
   - /articles/managing-a-workflow-run
   - /github/automating-your-workflow-with-github-actions/managing-a-workflow-run
