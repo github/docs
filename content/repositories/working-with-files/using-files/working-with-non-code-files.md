@@ -278,6 +278,8 @@ By default, the embedded map 420px x 620px, but you can customize the output by 
 ### Mapping in Markdown
 
 You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+
+{% data reusables.advanced-formatting.administrator-must-enable-mapping %}
 {% endif %}
 
 ### Clustering

@@ -34,3 +34,18 @@ You can enable a retention policy for checks, actions, and associated data by se
 4. Under "Delete threshold (days)", type the number of days for the deletion threshold. Archived checks older than this number of days will be permanently deleted. 
 {% data reusables.enterprise_management_console.save-settings %}
 {% endif %}
+
+{% ifversion azure-maps %}
+## Enabling interactive maps
+
+You can allow users to create interactive maps using GeoJSON or TopoJSON syntax. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+
+To enable interactive maps on {% data variables.location.product_location %}, you must enable the feature and provide a public authentication token for Azure. For more information, see [Authentication with Azure Maps](https://learn.microsoft.com/en-us/azure/azure-maps/azure-maps-authentication) in the Microsoft Docs.
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+1. In the "Settings" sidebar, click **Privacy**.
+1. To enable interactive maps, select "Enable GeoJSON rendering".
+1. To configure authentication, under "Azure Maps API Token", paste your token.
+{% data reusables.enterprise_management_console.save-settings %}
+{% endif %}
