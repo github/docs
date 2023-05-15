@@ -34,7 +34,7 @@ Every codespace also has an ID (identifier). This is not shown by default in {% 
 1. In {% data variables.product.prodname_vscode %}, browser or desktop, in the Activity Bar on the left, click **Remote Explorer** to show details for the codespace.
 {% indented_data_reference reusables.codespaces.remote-explorer spaces=3 %}
 1. If the side bar includes a "Codespace Performance" section, hover over the "Codespace ID" and click the clipboard icon to copy the ID.
-1. If the information is not shown, click {% octicon "gear" aria-label="The gear icon" %}, in the bottom-left corner of the Activity Bar, to display the "Settings" tab.
+1. If the information is not shown, click {% octicon "gear" aria-label="Manage" %}, in the bottom-left corner of the Activity Bar, to display the "Settings" tab.
 1. Expand **Extensions** and click **{% data variables.product.prodname_github_codespaces %}** to display the settings for the extension. Then enable **Show Performance Explorer** to display the "Codespace Performance" section in the side bar.
 
    ![Screenshot of "Show Performance Explorer" selected in {% data variables.product.prodname_vscode_shortname %}'s "Settings" tab and a codespace ID highlighted in the "Remote Explorer" side bar.](/assets/images/help/codespaces/find-codespace-id.png)
