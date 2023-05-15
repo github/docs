@@ -5,7 +5,7 @@ intro: You can use policies to limit access to self-hosted runners that have bee
 permissions: 'Enterprise accounts, organizations owned by enterprise accounts, and organizations using {% data variables.product.prodname_team %} can create and manage additional runner groups.'
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners
-  - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
+  - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups
 versions:
   fpt: '*'
   ghes: '*'
