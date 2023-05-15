@@ -23,7 +23,7 @@ As more users join {% data variables.location.product_location %}, you may need 
 
 {% note %}
 
-**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Note:** Before resizing any storage volume, put your instance in maintenance mode.{% ifversion ip-exception-list %} You can validate changes by configuring an IP exception list to allow access from specified IP addresses. {% endif %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 {% endnote %}
 
@@ -35,7 +35,7 @@ As more users join {% data variables.location.product_location %}, you may need 
 
 1. Resize the existing user volume disk using your virtualization platform's tools.
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. Put the appliance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+3. Put the appliance in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 4. Reboot the appliance to detect the new storage allocation:
   ```shell
   $ sudo reboot
@@ -44,10 +44,11 @@ As more users join {% data variables.location.product_location %}, you may need 
   ```shell
   $ ghe-storage-extend
   ```
+6. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 ## Increasing the root partition size using a new appliance
 
-1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[Setting up a {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/setting-up-a-github-enterprise-server-instance)."
+1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 2. Shut down the current appliance:
   ```shell
   $ sudo poweroff
@@ -59,7 +60,7 @@ As more users join {% data variables.location.product_location %}, you may need 
 
 {% warning %}
 
-**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/enterprise/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+**Warning:** Before increasing the root partition size, you must put your instance in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 {% endwarning %}
 
@@ -77,7 +78,7 @@ As more users join {% data variables.location.product_location %}, you may need 
    $ ghe-repl-stop
    ```
    
-1. Run the `ghe-upgrade` command to install a full, platform specific package to the newly partitioned disk. A universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`, will not work as expected. After the `ghe-upgrade` command completes, application services will automatically terminate.
+1. To install the {% data variables.product.prodname_ghe_server %} software on the newly partitioned disk, run the `ghe-upgrade` command. You must replace **PACKAGE-NAME.pkg** with the path to a platform-specific upgrade package that matches the version of {% data variables.product.prodname_ghe_server %} already running on the appliance. You cannot use a universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`. After the `ghe-upgrade` command completes, application services will automatically terminate.
 
   ```shell
   $ ghe-upgrade PACKAGE-NAME.pkg -s -t /dev/xvdg1
@@ -88,6 +89,6 @@ As more users join {% data variables.location.product_location %}, you may need 
   ```
 1. In the hypervisor, remove the old root disk and attach the new root disk at the same location as the old root disk.
 1. Start the appliance.
-1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[Enabling and scheduling maintenance mode](/admin/guides/installation/enabling-and-scheduling-maintenance-mode)."
+1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 If your appliance is configured for high-availability or geo-replication, remember to start replication on each replica node using `ghe-repl-start` after the storage on all nodes has been upgraded.

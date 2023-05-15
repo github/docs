@@ -12,6 +12,9 @@ versions:
   ghec: '*'
 children:
   - /about-billing-for-github-advanced-security
+  - /signing-up-for-github-advanced-security
   - /viewing-your-github-advanced-security-usage
+  - /managing-your-github-advanced-security-licensing
+
 ---
 

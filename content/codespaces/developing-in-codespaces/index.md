@@ -17,11 +17,12 @@ children:
   - /using-github-codespaces-for-pull-requests
   - /stopping-and-starting-a-codespace
   - /forwarding-ports-in-your-codespace
+  - /rebuilding-the-container-in-a-codespace
   - /default-environment-variables-for-your-codespace
+  - /persisting-environment-variables-and-temporary-files
   - /connecting-to-a-private-network
   - /getting-started-with-github-codespaces-for-machine-learning
   - /using-github-codespaces-in-visual-studio-code
   - /using-github-codespaces-in-your-jetbrains-ide
   - /using-github-codespaces-with-github-cli
 ---
-

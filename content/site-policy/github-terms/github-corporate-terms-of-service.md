@@ -25,7 +25,7 @@ This Agreement applies to the following GitHub offerings, as further defined bel
 
 **“Affiliate”** means any entity that directly or indirectly controls, is controlled by, or is under common control with a party where "control" means having more than fifty percent (50%) ownership or the right to direct the management of the entity.
 
-**“Agreement”** means, collectively, all the terms, conditions, notices contained or referenced in this document and all other operating rules, policies and procedures that GitHub may publish from time to time on the Service. GitHub's site policies are available at [https://docs.github.com/categories/site-policy](/categories/site-policy).
+**“Agreement”** means, collectively, all the terms, conditions, notices contained or referenced in this document and all other operating rules, policies and procedures that GitHub may publish from time to time on the Service. GitHub's site policies are available at [https://docs.github.com/categories/site-policy](/site-policy).
 
 **“All Users”** means, collectively, Customer’s Users and External Users who use the Service.
 
@@ -92,7 +92,7 @@ This Agreement applies to the following GitHub offerings, as further defined bel
 ## B. Account Terms
 
 ### 1. Account Controls.
-  * _Users._ Customer acknowledges that Users retain ultimate administrative control over their individual accounts and the Content within them. [GitHub's Standard Terms of Service](/articles/github-terms-of-service) govern Users' use of the Service, except with respect to Users' activities under this Section B.
+  * _Users._ Customer acknowledges that Users retain ultimate administrative control over their individual accounts and the Content within them. [GitHub's Standard Terms of Service](/site-policy/github-terms/github-terms-of-service) govern Users' use of the Service, except with respect to Users' activities under this Section B.
 
   *	_Organizations._ Customer retains ultimate administrative control over any Organization created on Customer’s behalf and User-Generated Content posted to the repositories within its Organization(s), subject to this Section B. This Section B will govern the use of Customer’s Organization(s).
 
@@ -103,7 +103,7 @@ In order to create an account, Customer must adhere to the following:
 
 *	A User’s login may not be shared by multiple people.
 
-- Customer must not use the Products (a) in violation of export control or sanctions laws of the United States or any other applicable jurisdiction; (b) if it is located in or ordinarily resident in a country or territory subject to comprehensive to comprehensive sanctions administered by the U.S. Office of Foreign Assets Control (OFAC); or (c) if it is or is working on behalf of a [Specially Designated National (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) or a person subject to similar blocking or denied party prohibitions. For more information, please see our [Export Controls policy](/articles/github-and-export-controls).
+- Customer must not use the Products (a) in violation of export control or sanctions laws of the United States or any other applicable jurisdiction; (b) if it is located in or ordinarily resident in a country or territory subject to comprehensive to comprehensive sanctions administered by the U.S. Office of Foreign Assets Control (OFAC); or (c) if it is or is working on behalf of a [Specially Designated National (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) or a person subject to similar blocking or denied party prohibitions. For more information, please see our [Export Controls policy](/site-policy/other-site-policies/github-and-trade-controls).
 
 ### 3. Account Security
 Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) [promptly notifying GitHub](https://github.com/contact) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section B.
@@ -112,10 +112,10 @@ Customer is responsible for: (i) all Content posted and activity that occurs und
 In some situations, third parties' terms may apply to Customer's use of GitHub. For example, Customer may be a member of an Organization with its own terms or license agreements; Customer may download an application that integrates with the Service; or Customer may use the Service to authenticate to another service. While this Agreement is GitHub’s full agreement with Customer, other parties' terms govern their relationships with Customer.
 
 ### 5. U.S. Federal Government Terms
-If Customer is a U.S. government entity or otherwise accessing or using the Service in a government capacity, the [U.S. Federal Government Amendment](/articles/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
+If Customer is a U.S. government entity or otherwise accessing or using the Service in a government capacity, the [U.S. Federal Government Amendment](/site-policy/site-policy-deprecated/amendment-to-github-terms-of-service-applicable-to-us-federal-government-users) applies, and Customer agrees to its provisions.
 
 ### 6. Enterprise Cloud Service Level Agreement
-GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided in the [Enterprise Service Level Agreement](/github/site-policy/github-enterprise-service-level-agreement). If Customer signed up for GitHub Enterprise Cloud, then Customer will be entitled to a service credit if GitHub does not meet its service level.
+GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided in the [Enterprise Service Level Agreement](/site-policy/site-policy-deprecated/github-enterprise-service-level-agreement). If Customer signed up for GitHub Enterprise Cloud, then Customer will be entitled to a service credit if GitHub does not meet its service level.
 
 ## C. Compliance with Laws; Acceptable Use; Privacy
 
@@ -123,10 +123,10 @@ GitHub’s quarterly uptime commitment for GitHub Enterprise Cloud is provided i
 Customer’s use of the Products must not violate any applicable laws, including copyright or trademark laws, export control laws, or regulations in its jurisdiction.
 
 ### 2. Acceptable Use
-Customer’s use of the Service must comply with [GitHub's Acceptable Use Policies](/articles/github-acceptable-use-policies) and [GitHub’s Community Guidelines](/articles/github-community-guidelines). Customer must not use the Service in any jurisdiction for unlawful, obscene, offensive or fraudulent Content or activity, such as advocating or causing harm, interfering with or violating the integrity or security of a network or system, evading filters, sending unsolicited, abusive, or deceptive messages, viruses or harmful code, or violating third party rights.
+Customer’s use of the Service must comply with [GitHub's Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies) and [GitHub’s Community Guidelines](/site-policy/github-terms/github-community-guidelines). Customer must not use the Service in any jurisdiction for unlawful, obscene, offensive or fraudulent Content or activity, such as advocating or causing harm, interfering with or violating the integrity or security of a network or system, evading filters, sending unsolicited, abusive, or deceptive messages, viruses or harmful code, or violating third party rights.
 
 ### 3. Privacy
-The [GitHub Privacy Statement](/articles/github-privacy-statement) and the [GitHub Data Protection Agreement](https://github.com/customer-terms) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Any person, entity, or service collecting data from the Service must comply with the GitHub Privacy Statement, particularly in regards to the collection of personal data (as defined in the GitHub Privacy Statement). If Customer collects any personal information from GitHub, Customer will only use it for the purpose for which the External User has authorized it. Customer will reasonably secure any such Personal Information, and Customer will respond promptly to complaints, removal requests, and "do not contact" requests from GitHub or External Users.
+The [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement) and the [GitHub Data Protection Agreement](https://github.com/customer-terms) provide detailed notice of GitHub's privacy and data use practices as well as GitHub's processing and security obligations with respect to Customer Personal Data. Any person, entity, or service collecting data from the Service must comply with the GitHub Privacy Statement, particularly in regards to the collection of personal data (as defined in the GitHub Privacy Statement). If Customer collects any personal information from GitHub, Customer will only use it for the purpose for which the External User has authorized it. Customer will reasonably secure any such Personal Information, and Customer will respond promptly to complaints, removal requests, and "do not contact" requests from GitHub or External Users.
 
 ## D. Content Responsibility; Ownership; License Rights
 
@@ -159,13 +159,13 @@ Customer is responsible for managing access to its Private Repositories, includi
 GitHub considers Customer Content in Customer’s Private Repositories to be Customer’s Confidential Information. GitHub will protect and keep strictly confidential the Customer Content of Private Repositories in accordance with Section P.
 
 ### 3. Access
-GitHub personnel may only access Customer's Private Repositories in the situations described in our [Privacy Statement](/github/site-policy/github-privacy-statement#repository-contents). 
+GitHub personnel may only access Customer's Private Repositories in the situations described in our [Privacy Statement](/site-policy/privacy-policies/github-privacy-statement#repository-contents). 
 
 Customer may choose to enable additional access to its Private Repositories. For example, Customer may enable various GitHub services or features that require additional rights to Customer Content in Private Repositories. These rights may vary depending on the service or feature, but GitHub will continue to treat Customer Content in Customer’s Private Repositories as Customer’s Confidential Information. If those services or features require rights in addition to those it needs to provide the Service, GitHub will provide an explanation of those rights.
 
-Additionally, we may be [compelled by law](/github/site-policy/github-privacy-statement#for-legal-disclosure) to disclose the contents of your private repositories. 
+Additionally, we may be [compelled by law](/site-policy/privacy-policies/github-privacy-statement#for-legal-disclosure) to disclose the contents of your private repositories. 
 
-GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/github/site-policy/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
+GitHub will provide notice regarding our access to private repository content, unless [for legal disclosure](/site-policy/privacy-policies/github-privacy-statement#for-legal-disclosure), to comply with our legal obligations, or where otherwise bound by requirements under law, for automated scanning, or if in response to a security threat or other risk to security.
 
 ## F. Intellectual Property Notice
 
@@ -179,13 +179,13 @@ If Customer would like to use GitHub's trademarks, Customer must follow all of G
 This Agreement is licensed under the [Creative Commons Zero license](https://creativecommons.org/publicdomain/zero/1.0/). For details, see our [site-policy repository](https://github.com/github/site-policy#license).
 
 ### 4. Copyright Infringement and DMCA Policy
-If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may notify GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](/articles/dmca-takedown-policy/) via the [DMCA form](https://github.com/contact/dmca) or by emailing copyright@github.com.
+If Customer is a copyright owner and believes that Content on the Service violates Customer’s copyright, Customer may notify GitHub in accordance with GitHub's [Digital Millennium Copyright Act Policy](/site-policy/content-removal-policies/dmca-takedown-policy) via the [DMCA form](https://github.com/contact/dmca) or by emailing copyright@github.com.
 
 ### 5. Intellectual Property Rights Reserved
 As between the Parties, GitHub owns all right, title and interest, including all intellectual property rights, in and to the Products. GitHub reserves all rights in and to the Products not expressly granted to Customer under this Agreement.
 
 ## G. GitHub Additional Product Terms
-Some Service features may be subject to additional terms as set forth in the [GitHub Additional Product Terms](/github/site-policy/github-additional-product-terms). By accessing or using these features, Customer agrees to the GitHub Additional Product Terms.
+Some Service features may be subject to additional terms as set forth in the [GitHub Additional Product Terms](/site-policy/github-terms/github-terms-for-additional-products-and-features). By accessing or using these features, Customer agrees to the GitHub Additional Product Terms.
 
 ## H. Subscription Licenses
 Subscription Licenses are granted on a per User basis and multiple Users may not use the same Subscription License. Customer may reassign a Subscription License to a new User only after ninety (90) days from the last reassignment of that same Subscription License, unless the reassignment is due to (i) permanent hardware failure or loss, (ii) termination of the User’s employment or contract, or (iii) temporary reallocation of Subscription Licenses to cover a User’s absence. When Customer reassigns a Subscription License from one User to another, Customer must block the former User’s access to the Subscription License and Customer’s Organizations.
@@ -199,7 +199,7 @@ Customer’s Affiliates are authorized to use the Products in accordance with th
 
 **Payment Terms** Our pricing is available at [github.com/pricing](https://github.com/pricing) (unless otherwise negotiated by the parties and stated in an Order Form). Customer agrees to pay the Fees in full, up front without deduction or setoff of any kind, in U.S. Dollars. Customer must pay the Fees within thirty (30) days of the GitHub invoice date. Amounts payable under this Agreement are non-refundable, except as otherwise provided in this Agreement. If Customer fails to pay any Fees on time, GitHub reserves the right, in addition to taking any other action at law or equity, to (i) charge interest on past due amounts at 1.0% per month or the highest interest rate allowed by law, whichever is less, and to charge all expenses of recovery, and (ii) terminate the applicable Order Form or SOW. Customer is solely responsible for all taxes, fees, duties and governmental assessments (except for taxes based on GitHub's net income) that are imposed or become due in connection with this Agreement.
 
-**Usage-Based Billing** Some Service features are billed based on your usage. A limited quantity of these Service features may be included in your plan for a limited term without additional charge. If you choose to purchase paid Service features beyond the quantity included in your plan, you pay for those Service features based on your actual usage in the preceding month. Monthly payment for these purchases will be charged on a periodic basis in arrears, provided that for invoiced customers, paid Service features are billed in advance. See [GitHub Additional Product Terms for details](/github/site-policy/github-additional-product-terms).
+**Usage-Based Billing** Some Service features are billed based on your usage. A limited quantity of these Service features may be included in your plan for a limited term without additional charge. If you choose to purchase paid Service features beyond the quantity included in your plan, you pay for those Service features based on your actual usage in the preceding month. Monthly payment for these purchases will be charged on a periodic basis in arrears, provided that for invoiced customers, paid Service features are billed in advance. See [GitHub Additional Product Terms for details](/site-policy/github-terms/github-terms-for-additional-products-and-features).
 
 ### 2. Purchasing Additional Subscription Licenses
 Customer may obtain additional Subscription Licenses under this Agreement by submitting a request through the Service or via its sales team. If Customer purchases the additional Subscription Licenses, Customer must pay the then-currently applicable Fees for them, prorated for the balance of the applicable Subscription Term. Upon renewal of Customer’s Subscription Licenses for another Subscription Term, GitHub will invoice all Subscription Licenses at once on an annual basis unless otherwise specified in an Order Form.
@@ -240,7 +240,7 @@ All provisions of this Agreement which by their nature should survive terminatio
 For contractual purposes, Customer (1) consents to receive communications in an electronic form via the email address it submitted or via the Service; and (2) agrees that all Terms of Service, agreements, notices, disclosures, and other communications that GitHub provides electronically satisfies any legal requirement that those communications would satisfy if they were on paper. This section does not affect Customer's non-waivable rights.
 
 ### 2. Legal Notice to GitHub Must Be in Writing
-Communications made through email or GitHub Support's messaging system will not constitute legal notice to GitHub in any situation where notice to GitHub is required by contract or any law or regulation. Legal notice to GitHub must be in writing and [served on GitHub's legal agent](/articles/guidelines-for-legal-requests-of-user-data/#submitting-requests).
+Communications made through email or GitHub Support's messaging system will not constitute legal notice to GitHub in any situation where notice to GitHub is required by contract or any law or regulation. Legal notice to GitHub must be in writing and [served on GitHub's legal agent](/site-policy/other-site-policies/guidelines-for-legal-requests-of-user-data#submitting-requests).
 
 ## M. Limited Warranty; Disclaimer
 
@@ -284,7 +284,7 @@ GitHub reserves the right, at its sole discretion, to amend this Agreement at an
 GitHub changes the Service via Updates and addition of new features. Nothwithstanding the foregoing, GitHub reserves the right at any time to modify or discontinue, temporarily or permanently, the Service (or any part of it) with or without notice.
 
 ## S. Support
-GitHub will provide standard technical Support for the Service at no additional charge twenty-four (24) hours per day, five (5) days per week, excluding weekends and national U.S. holidays. Standard Support is only offered via web-based ticketing through GitHub Support, and Support requests must be initiated from a User with which GitHub's Support team can interact. GitHub may provide premium Support (subject to the [GitHub Premium Support for Enterprise Cloud](/articles/about-github-premium-support) terms) or dedicated technical Support for the Service at the Support level, Fees, and Subscription Term specified in an Order Form or SOW.
+GitHub will provide standard technical Support for the Service at no additional charge twenty-four (24) hours per day, five (5) days per week, excluding weekends and national U.S. holidays. Standard Support is only offered via web-based ticketing through GitHub Support, and Support requests must be initiated from a User with which GitHub's Support team can interact. GitHub may provide premium Support (subject to the [GitHub Premium Support for Enterprise Cloud](/support/learning-about-github-support/about-github-premium-support) terms) or dedicated technical Support for the Service at the Support level, Fees, and Subscription Term specified in an Order Form or SOW.
 
 ## T. Miscellaneous
 

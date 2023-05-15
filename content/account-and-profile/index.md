@@ -1,11 +1,11 @@
 ---
-title: Your account and profile on GitHub
+title: Account and profile documentation
 shortTitle: Account and profile
 intro: 'Make {% data variables.product.product_name %} work best for you by adjusting the settings for your personal account, personalizing your profile page, and managing the notifications you receive for activity on {% data variables.product.prodname_dotcom %}.'
 introLinks:
   quickstart: /get-started/onboarding/getting-started-with-your-github-account
 featuredLinks:
-  guides:
+  startHere:
     - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username
     - '{% ifversion ghae %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard{% endif %}'
     - /account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme

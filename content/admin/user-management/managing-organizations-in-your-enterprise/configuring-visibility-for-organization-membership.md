@@ -25,8 +25,7 @@ You can also enforce your default setting on all current organization members in
 {% data reusables.enterprise-accounts.settings-tab %}
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
-3. Under "Default organization membership visibility", use the drop-down menu, and click **Private** or **Public**.
-  ![Drop-down menu with option to configure default organization membership visibility as public or private](/assets/images/enterprise/site-admin-settings/default-organization-membership-visibility-drop-down-menu.png)
-4. Optionally, to prevent members from changing their membership visibility from the default, select **Enforce on organization members**.
-  ![Checkbox to enforce the default setting on all members](/assets/images/enterprise/site-admin-settings/enforce-default-org-membership-visibility-setting.png){% ifversion ghes %}
-5. If you'd like to enforce your new visibility setting on all existing members, use the `ghe-org-membership-update` command-line utility. For more information, see "[Command-line utilities](/enterprise/admin/guides/installation/command-line-utilities#ghe-org-membership-update)."{% endif %}
+1. Under "Default organization membership visibility", select the drop-down menu, and click **Private** or **Public**.
+1. Optionally, to prevent members from changing their membership visibility from the default, select **Enforce for all enterprise members**.
+  ![Screenshot of the "Default organization membership visibility" section on the enterprise's policies page. The "Enforce for all enterprise members" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/enforce-default-org-membership-visibility-setting.png){% ifversion ghes %}
+1. If you'd like to enforce your new visibility setting on all existing members, use the `ghe-org-membership-update` command-line utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-membership-update)."{% endif %}

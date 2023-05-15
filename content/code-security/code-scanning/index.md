@@ -19,8 +19,6 @@ topics:
 children:
   - /automatically-scanning-your-code-for-vulnerabilities-and-errors
   - /integrating-with-code-scanning
-  - /using-the-codeql-cli
-  - /codeql-cli-reference
   - /using-codeql-code-scanning-with-your-existing-ci-system
 ---
 

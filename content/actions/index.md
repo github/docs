@@ -6,7 +6,7 @@ introLinks:
   overview: /actions/learn-github-actions/understanding-github-actions
   quickstart: /actions/quickstart
 featuredLinks:
-  guides:
+  startHere:
     - /actions/learn-github-actions
     - /actions/examples
     - /actions/automating-builds-and-tests/about-continuous-integration
@@ -28,7 +28,6 @@ featuredLinks:
     - /actions/security-guides/encrypted-secrets
 changelog:
   label: actions
-product_video: 'https://www.youtube-nocookie.com/embed/cP0I9w2coGU'
 redirect_from:
   - /articles/automating-your-workflow-with-github-actions
   - /articles/customizing-your-project-with-github-actions

@@ -13,7 +13,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 4
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -36,7 +35,7 @@ The name for workflow runs generated from the workflow. {% data variables.produc
 
 This value can include expressions and can reference the [`github`](/actions/learn-github-actions/contexts#github-context) and [`inputs`](/actions/learn-github-actions/contexts#inputs-context) contexts.
 
-### Example
+### Example of `run-name`
 
 {% raw %}
 ```yaml
@@ -49,46 +48,45 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 {% data reusables.actions.workflows.section-triggering-a-workflow %}
 
-### `on.<event_name>.types`
+## `on.<event_name>.types`
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-types %}
 
-### `on.<pull_request|pull_request_target>.<branches|branches-ignore>`
+## `on.<pull_request|pull_request_target>.<branches|branches-ignore>`
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-branches %}
 
-### `on.push.<branches|tags|branches-ignore|tags-ignore>`
+## `on.push.<branches|tags|branches-ignore|tags-ignore>`
 
 {% data reusables.actions.workflows.section-run-on-specific-branches-or-tags %}
 
-### `on.<push|pull_request|pull_request_target>.<paths|paths-ignore>`
+## `on.<push|pull_request|pull_request_target>.<paths|paths-ignore>`
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-paths %}
 
-### `on.schedule`
+## `on.schedule`
 
 {% data reusables.actions.workflows.section-triggering-a-workflow-schedule %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## `on.workflow_call`
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 
-Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
-### `on.workflow_call.inputs`
+## `on.workflow_call.inputs`
 
-When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[Events that trigger workflows](/actions/learn-github-actions/events-that-trigger-workflows#workflow-reuse-events)."
+When using the `workflow_call` keyword, you can optionally specify inputs that are passed to the called workflow from the caller workflow. For more information about the `workflow_call` keyword, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#workflow-reuse-events)."
 
 In addition to the standard input parameters that are available, `on.workflow_call.inputs` requires a `type` parameter. For more information, see [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype).
 
 If a `default` parameter is not set, the default value of the input is `false` for a boolean, `0` for a number, and `""` for a string.
 
-Within the called workflow, you can use the `inputs` context to refer to an input.
+Within the called workflow, you can use the `inputs` context to refer to an input. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#inputs-context)."
 
 If a caller workflow passes an input that is not specified in the called workflow, this results in an error.
 
-#### Example
+### Example of `on.workflow_call.inputs`
 
 {% raw %}
 ```yaml
@@ -111,19 +109,19 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
-#### `on.workflow_call.inputs.<input_id>.type`
+## `on.workflow_call.inputs.<input_id>.type`
 
 Required if input is defined for the `on.workflow_call` keyword. The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `number`, or `string`.
 
-### `on.workflow_call.outputs`
+## `on.workflow_call.outputs`
 
 A map of outputs for a called workflow. Called workflow outputs are available to all downstream jobs in the caller workflow. Each output has an identifier, an optional `description,` and a `value.` The `value` must be set to the value of an output from a job within the called workflow.
 
 In the example below, two outputs are defined for this reusable workflow: `workflow_output1` and `workflow_output2`. These are mapped to outputs called `job_output1` and `job_output2`, both from a job called `my_job`.
 
-#### Example
+### Example of `on.workflow_call.outputs`
 
 {% raw %}
 ```yaml
@@ -140,9 +138,9 @@ on:
 ```
 {% endraw %}
 
-For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
-### `on.workflow_call.secrets`
+## `on.workflow_call.secrets`
 
 A map of the secrets that can be used in the called workflow.
 
@@ -150,13 +148,13 @@ Within the called workflow, you can use the `secrets` context to refer to a secr
 
 {% note %}
 
-**Note:** If you are passing the secret to a nested reusable workflow, then you must use [`jobs.<job_id>.secrets`](#jobsjob_idsecrets) again to pass the secret. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#passing-secrets-to-nested-workflows)."
+**Note:** If you are passing the secret to a nested reusable workflow, then you must use [`jobs.<job_id>.secrets`](#jobsjob_idsecrets) again to pass the secret. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-secrets-to-nested-workflows)."
 
 {% endnote %}
 
 If a caller workflow passes a secret that is not specified in the called workflow, this results in an error.
 
-#### Example
+### Example of `on.workflow_call.secrets`
 
 {% raw %}
 ```yaml
@@ -186,22 +184,37 @@ jobs:
 ```
 {% endraw %}
 
-#### `on.workflow_call.secrets.<secret_id>`
+## `on.workflow_call.secrets.<secret_id>`
 
 A string identifier to associate with the secret.
 
-#### `on.workflow_call.secrets.<secret_id>.required`
+## `on.workflow_call.secrets.<secret_id>.required`
 
 A boolean specifying whether the secret must be supplied.
-{% endif %}
 
 ## `on.workflow_run.<branches|branches-ignore>`
 
 {% data reusables.actions.workflows.section-specifying-branches %}
 
+## `on.workflow_dispatch`
+
+{% data reusables.actions.workflow-dispatch %}
+
 ## `on.workflow_dispatch.inputs`
 
 {% data reusables.actions.workflow-dispatch-inputs %}
+
+### Example of `on.workflow_dispatch.inputs`
+
+{% data reusables.actions.workflow-dispatch-inputs-example %}
+
+## `on.workflow_dispatch.inputs.<input_id>.required`
+
+A boolean specifying whether the input must be supplied.
+
+## `on.workflow_dispatch.inputs.<input_id>.type`
+
+The value of this parameter is a string specifying the data type of the input. This must be one of: `boolean`, `choice`, `number`, or `string`.
 
 ## `permissions`
 
@@ -215,7 +228,7 @@ Variables in the `env` map cannot be defined in terms of other variables in the 
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### Example
+### Example of `env`
 
 ```yaml
 env:
@@ -226,7 +239,7 @@ env:
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults %}
 
-### `defaults.run`
+## `defaults.run`
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-run %}
 
@@ -238,17 +251,21 @@ env:
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow %}
 
-### `jobs.<job_id>`
+## `jobs.<job_id>`
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow-id %}
 
-### `jobs.<job_id>.name`
+## `jobs.<job_id>.name`
 
 {% data reusables.actions.jobs.section-using-jobs-in-a-workflow-name %}
 
-### `jobs.<job_id>.permissions`
+## `jobs.<job_id>.permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
+
+### Example: Setting permissions for a specific job
+
+{% data reusables.actions.jobs.setting-permissions-specific-jobs-example %}
 
 ## `jobs.<job_id>.needs`
 
@@ -280,7 +297,7 @@ A `map` of variables that are available to all steps in the job. You can set var
 
 {% data reusables.repositories.actions-env-var-note %}
 
-### Example
+## Example of `jobs.<job_id>.env`
 
 ```yaml
 jobs:
@@ -293,17 +310,21 @@ jobs:
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job %}
 
-### `jobs.<job_id>.defaults.run`
+## `jobs.<job_id>.defaults.run`
 
 {% data reusables.actions.jobs.setting-default-values-for-jobs-defaults-job-run %}
+
+### Example: Setting default `run` step options for a job
+
+{% data reusables.actions.jobs.setting-default-run-value-for-job-example %}
 
 ## `jobs.<job_id>.steps`
 
 A job contains a sequence of tasks called `steps`. Steps can run commands, run setup tasks, or run an action in your repository, a public repository, or an action published in a Docker registry. Not all steps run actions, but all actions run as a step. Each step runs in its own process in the runner environment and has access to the workspace and filesystem. Because steps run in their own process, changes to environment variables are not preserved between steps. {% data variables.product.prodname_dotcom %} provides built-in steps to set up and complete a job.
 
-You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+You can run an unlimited number of steps as long as you are within the workflow usage limits. For more information, see {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
-### Example
+### Example of `jobs.<job_id>.steps`
 
 {% raw %}
 ```yaml
@@ -327,17 +348,17 @@ jobs:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps[*].id`
+## `jobs.<job_id>.steps[*].id`
 
-A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
-### `jobs.<job_id>.steps[*].if`
+## `jobs.<job_id>.steps[*].if`
 
 You can use the `if` conditional to prevent a step from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[Expressions](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
 
-#### Example: Using contexts
+### Example: Using contexts
 
  This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
 
@@ -348,9 +369,9 @@ steps:
     run: echo This event is a pull request that had an assignee removed.
 ```
 
-#### Example: Using status check functions
+### Example: Using status check functions
 
-The `my backup step` only runs when the previous step of a job fails. For more information, see "[Expressions](/actions/learn-github-actions/expressions#status-check-functions)."
+The `my backup step` only runs when the previous step of a job fails. For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions#status-check-functions)."
 
 ```yaml
 steps:
@@ -361,7 +382,7 @@ steps:
     uses: actions/heroku@1.0.0
 ```
 
-#### Example: Using secrets
+### Example: Using secrets
 
 Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
 
@@ -384,13 +405,13 @@ jobs:
 ```
 {% endraw %}
 
-For more information, see "[Context availability](/actions/learn-github-actions/contexts#context-availability)" and "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-### `jobs.<job_id>.steps[*].name`
+## `jobs.<job_id>.steps[*].name`
 
 A name for your step to display on {% data variables.product.prodname_dotcom %}.
 
-### `jobs.<job_id>.steps[*].uses`
+## `jobs.<job_id>.steps[*].uses`
 
 Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
@@ -403,12 +424,12 @@ Some actions require inputs that you must set using the [`with`](#jobsjob_idstep
 
 Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see [`runs-on`](#jobsjob_idruns-on).
 
-#### Example: Using versioned actions
+### Example: Using versioned actions
 
 ```yaml
 steps:
   # Reference a specific commit
-  - uses: actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675
+  - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
   # Reference the major version of a release
   - uses: {% data reusables.actions.action-checkout %}
   # Reference a specific version
@@ -417,7 +438,7 @@ steps:
   - uses: actions/checkout@main
 ```
 
-#### Example: Using a public action
+### Example: Using a public action
 
 `{owner}/{repo}@{ref}`
 
@@ -435,7 +456,7 @@ jobs:
         uses: actions/aws@v2.0.1
 ```
 
-#### Example: Using a public action in a subdirectory
+### Example: Using a public action in a subdirectory
 
 `{owner}/{repo}/{path}@{ref}`
 
@@ -449,7 +470,7 @@ jobs:
         uses: actions/aws/ec2@main
 ```
 
-#### Example: Using an action in the same repository as the workflow
+### Example: Using an action in the same repository as the workflow
 
 `./path/to/dir`
 
@@ -465,7 +486,7 @@ jobs:
         uses: ./.github/actions/my-action
 ```
 
-#### Example: Using a Docker Hub action
+### Example: Using a Docker Hub action
 
 `docker://{image}:{tag}`
 
@@ -480,11 +501,11 @@ jobs:
 ```
 
 {% ifversion fpt or ghec %}
-#### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
+### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
 
-A Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
+A public Docker image in the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}.
 
 ```yaml
 jobs:
@@ -494,7 +515,7 @@ jobs:
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
 {% endif %}
-#### Example: Using a Docker public registry action
+### Example: Using a Docker public registry action
 
 `docker://{host}/{image}:{tag}`
 
@@ -508,9 +529,9 @@ jobs:
         uses: docker://gcr.io/cloud-builders/gradle
 ```
 
-#### Example: Using an action inside a different private repository than the workflow
+### Example: Using an action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as an encrypted secret. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)" and "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as an encrypted secret. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 
@@ -529,7 +550,10 @@ jobs:
         uses: ./.github/actions/my-private-repo/my-action
 ```
 
-### `jobs.<job_id>.steps[*].run`
+Alternatively, use a {% data variables.product.prodname_github_app %} instead of a {% data variables.product.pat_generic %} in order to ensure your workflow continues to run even if the {% data variables.product.pat_generic %} owner leaves. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
+
+## `jobs.<job_id>.steps[*].run`
+
 
 Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
 
@@ -561,7 +585,7 @@ Using the `working-directory` keyword, you can specify the working directory of 
   working-directory: ./temp
 ```
 
-### `jobs.<job_id>.steps[*].shell`
+## `jobs.<job_id>.steps[*].shell`
 
 You can override the default shell settings in the runner's operating system using the `shell` keyword. You can use built-in `shell` keywords, or you can define a custom set of shell options. The shell command that is run internally executes a temporary file that contains the commands specified in the `run` keyword.
 
@@ -576,7 +600,7 @@ You can override the default shell settings in the runner's operating system usi
 | Windows | `pwsh` | This is the default shell used on Windows. The PowerShell Core. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. If your self-hosted Windows runner does not have _PowerShell Core_ installed, then _PowerShell Desktop_ is used instead.| `pwsh -command ". '{0}'"`. |
 | Windows | `powershell` | The PowerShell Desktop. {% data variables.product.prodname_dotcom %} appends the extension `.ps1` to your script name. | `powershell -command ". '{0}'"`. |
 
-#### Example: Running a script using bash
+### Example: Running a script using bash
 
 ```yaml
 steps:
@@ -585,7 +609,7 @@ steps:
     shell: bash
 ```
 
-#### Example: Running a script using Windows `cmd`
+### Example: Running a script using Windows `cmd`
 
 ```yaml
 steps:
@@ -594,7 +618,7 @@ steps:
     shell: cmd
 ```
 
-#### Example: Running a script using PowerShell Core
+### Example: Running a script using PowerShell Core
 
 ```yaml
 steps:
@@ -603,7 +627,7 @@ steps:
     shell: pwsh
 ```
 
-#### Example: Using PowerShell Desktop to run a script
+### Example: Using PowerShell Desktop to run a script
 
 ```yaml
 steps:
@@ -612,7 +636,7 @@ steps:
     shell: powershell
 ```
 
-#### Example: Running a python script
+### Example: Running a python script
 
 ```yaml
 steps:
@@ -623,7 +647,7 @@ steps:
     shell: python
 ```
 
-#### Custom shell
+### Custom shell
 
 You can set the `shell` value to a template string using `command […options] {0} [..more_options]`. {% data variables.product.prodname_dotcom %} interprets the first whitespace-delimited word of the string as the command, and inserts the file name for the temporary script at `{0}`.
 
@@ -642,10 +666,10 @@ The command used, `perl` in this example, must be installed on the runner.
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
 {% elsif fpt or ghec %}
-For information about the software included on GitHub-hosted runners, see "[Specifications for GitHub-hosted runners](/actions/reference/specifications-for-github-hosted-runners#supported-software)."
+For information about the software included on GitHub-hosted runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)."
 {% endif %}
 
-#### Exit codes and error action preference
+### Exit codes and error action preference
 
 For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
 
@@ -663,11 +687,11 @@ For built-in shell keywords, we provide the following defaults that are executed
   - There doesn't seem to be a way to fully opt into fail-fast behavior other than writing your script to check each error code and respond accordingly. Because we can't actually provide that behavior by default, you need to write this behavior into your script.
   - `cmd.exe` will exit with the error level of the last program it executed, and it will return the error code to the runner. This behavior is internally consistent with the previous `sh` and `pwsh` default behavior and is the `cmd.exe` default, so this behavior remains intact.
 
-### `jobs.<job_id>.steps[*].with`
+## `jobs.<job_id>.steps[*].with`
 
 A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
 
-#### Example
+### Example of `jobs.<job_id>.steps[*].with`
 
 Defines the three input parameters (`first_name`, `middle_name`, and `last_name`) defined by the `hello_world` action. These input variables will be accessible to the `hello-world` action as `INPUT_FIRST_NAME`, `INPUT_MIDDLE_NAME`, and `INPUT_LAST_NAME` environment variables.
 
@@ -683,11 +707,11 @@ jobs:
           last_name: Octocat
 ```
 
-### `jobs.<job_id>.steps[*].with.args`
+## `jobs.<job_id>.steps[*].with.args`
 
 A `string` that defines the inputs for a Docker container. {% data variables.product.prodname_dotcom %} passes the `args` to the container's `ENTRYPOINT` when the container starts up. An `array of strings` is not supported by this parameter. A single argument that includes spaces should be surrounded by double quotes `""`.
 
-#### Example
+### Example of `jobs.<job_id>.steps[*].with.args`
 
 {% raw %}
 ```yaml
@@ -706,11 +730,11 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 1. Use defaults that allow using the action without specifying any `args`.
 1. If the action exposes a `--help` flag, or something similar, use that as the default to make your action self-documenting.
 
-### `jobs.<job_id>.steps[*].with.entrypoint`
+## `jobs.<job_id>.steps[*].with.entrypoint`
 
 Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Unlike the Docker `ENTRYPOINT` instruction which has a shell and exec form, `entrypoint` keyword accepts only a single string defining the executable to be run.
 
-#### Example
+### Example of `jobs.<job_id>.steps[*].with.entrypoint`
 
 ```yaml
 steps:
@@ -722,15 +746,15 @@ steps:
 
 The `entrypoint` keyword is meant to be used with Docker container actions, but you can also use it with JavaScript actions that don't define any inputs.
 
-### `jobs.<job_id>.steps[*].env`
+## `jobs.<job_id>.steps[*].env`
 
 Sets variables for steps to use in the runner environment. You can also set variables for the entire workflow or a job. For more information, see [`env`](#env) and [`jobs.<job_id>.env`](#jobsjob_idenv).
 
 {% data reusables.repositories.actions-env-var-note %}
 
-Public actions may specify expected variables in the README file. If you are setting a secret or sensitive value, such as a password or token, you must set secrets using the `secrets` context. For more information, see "[Contexts](/actions/learn-github-actions/contexts)."
+Public actions may specify expected variables in the README file. If you are setting a secret or sensitive value, such as a password or token, you must set secrets using the `secrets` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
-#### Example
+### Example of `jobs.<job_id>.steps[*].env`
 
 {% raw %}
 ```yaml
@@ -743,11 +767,11 @@ steps:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.steps[*].continue-on-error`
+## `jobs.<job_id>.steps[*].continue-on-error`
 
 Prevents a job from failing when a step fails. Set to `true` to allow a job to pass when this step fails.
 
-### `jobs.<job_id>.steps[*].timeout-minutes`
+## `jobs.<job_id>.steps[*].timeout-minutes`
 
 The maximum number of minutes to run the step before killing the process.
 
@@ -755,55 +779,55 @@ The maximum number of minutes to run the step before killing the process.
 
 The maximum number of minutes to let a job run before {% data variables.product.prodname_dotcom %} automatically cancels it. Default: 360
 
-If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[Usage limits and billing](/actions/reference/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners/#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
+If the timeout exceeds the job execution time limit for the runner, the job will be canceled when the execution time limit is met instead. For more information about job execution time limits, see {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#usage-limits)" for {% data variables.product.prodname_dotcom %}-hosted runners and {% endif %}"[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits){% ifversion fpt or ghec or ghes %}" for self-hosted runner usage limits.{% elsif ghae %}."{% endif %}
 
 {% note %}
 
-**Note:** {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[About the `GITHUB_TOKEN` secret](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
+**Note:** {% data reusables.actions.github-token-expiration %} For self-hosted runners, the token may be the limiting factor if the job timeout is greater than 24 hours. For more information on the `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#about-the-github_token-secret)."
 
 {% endnote %}
 
 ## `jobs.<job_id>.strategy`
 
-Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see "[Using a matrix for your jobs](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+Use `jobs.<job_id>.strategy` to use a matrix strategy for your jobs. {% data reusables.actions.jobs.about-matrix-strategy %} For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
-### `jobs.<job_id>.strategy.matrix`
+## `jobs.<job_id>.strategy.matrix`
 
 {% data reusables.actions.jobs.using-matrix-strategy %}
 
-#### Example: Using a single-dimension matrix
+### Example: Using a single-dimension matrix
 
 {% data reusables.actions.jobs.single-dimension-matrix %}
 
-#### Example: Using a multi-dimension matrix
+### Example: Using a multi-dimension matrix
 
 {% data reusables.actions.jobs.multi-dimension-matrix %}
 
-#### Example: Using contexts to create matrices
+### Example: Using contexts to create matrices
 
 {% data reusables.actions.jobs.matrix-from-context %}
 
-### `jobs.<job_id>.strategy.matrix.include`
+## `jobs.<job_id>.strategy.matrix.include`
 
 {% data reusables.actions.jobs.matrix-include %}
 
-#### Example: Expanding configurations
+### Example: Expanding configurations
 
 {% data reusables.actions.jobs.matrix-expand-with-include %}
 
-#### Example: Adding configurations
+### Example: Adding configurations
 
 {% data reusables.actions.jobs.matrix-add-with-include %}
 
-### `jobs.<job_id>.strategy.matrix.exclude`
+## `jobs.<job_id>.strategy.matrix.exclude`
 
 {% data reusables.actions.jobs.matrix-exclude %}
 
-### `jobs.<job_id>.strategy.fail-fast`
+## `jobs.<job_id>.strategy.fail-fast`
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-failfast %}
 
-### `jobs.<job_id>.strategy.max-parallel`
+## `jobs.<job_id>.strategy.max-parallel`
 
 {% data reusables.actions.jobs.section-using-a-build-matrix-for-your-jobs-max-parallel %}
 
@@ -838,27 +862,27 @@ strategy:
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container %}
 
-### `jobs.<job_id>.container.image`
+## `jobs.<job_id>.container.image`
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-image %}
 
-### `jobs.<job_id>.container.credentials`
+## `jobs.<job_id>.container.credentials`
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-credentials %}
 
-### `jobs.<job_id>.container.env`
+## `jobs.<job_id>.container.env`
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-env %}
 
-### `jobs.<job_id>.container.ports`
+## `jobs.<job_id>.container.ports`
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-ports %}
 
-### `jobs.<job_id>.container.volumes`
+## `jobs.<job_id>.container.volumes`
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-volumes %}
 
-### `jobs.<job_id>.container.options`
+## `jobs.<job_id>.container.options`
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-options %}
 
@@ -872,9 +896,9 @@ If you configure your job to run in a container, or your step uses container act
 
 If you configure the job to run directly on the runner machine and your step doesn't use a container action, you must map any required Docker service container ports to the Docker host (the runner machine). You can access the service container using localhost and the mapped port.
 
-For more information about the differences between networking service containers, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers)."
+For more information about the differences between networking service containers, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."
 
-### Example: Using localhost
+## Example: Using localhost
 
 This example creates two services: nginx and redis. When you specify the Docker host port but not the container port, the container port is randomly assigned to a free port. {% data variables.product.prodname_dotcom %} sets the assigned container port in the {% raw %}`${{job.services.<service_name>.ports}}`{% endraw %} context. In this example, you can access the service container ports using the {% raw %}`${{ job.services.nginx.ports['8080'] }}`{% endraw %} and {% raw %}`${{ job.services.redis.ports['6379'] }}`{% endraw %} contexts.
 
@@ -892,15 +916,15 @@ services:
       - 6379/tcp
 ```
 
-### `jobs.<job_id>.services.<service_id>.image`
+## `jobs.<job_id>.services.<service_id>.image`
 
 The Docker image to use as the service container to run the action. The value can be the Docker Hub image name or a  registry name.
 
-### `jobs.<job_id>.services.<service_id>.credentials`
+## `jobs.<job_id>.services.<service_id>.credentials`
 
 {% data reusables.actions.registry-credentials %}
 
-#### Example
+### Example of `jobs.<job_id>.services.<service_id>.credentials`
 
 {% raw %}
 ```yaml
@@ -918,15 +942,15 @@ services:
 ```
 {% endraw %}
 
-### `jobs.<job_id>.services.<service_id>.env`
+## `jobs.<job_id>.services.<service_id>.env`
 
 Sets a `map` of environment variables in the service container.
 
-### `jobs.<job_id>.services.<service_id>.ports`
+## `jobs.<job_id>.services.<service_id>.ports`
 
 Sets an `array` of ports to expose on the service container.
 
-### `jobs.<job_id>.services.<service_id>.volumes`
+## `jobs.<job_id>.services.<service_id>.volumes`
 
 Sets an `array` of volumes for the service container to use. You can use volumes to share data between services or other steps in a job. You can specify named Docker volumes, anonymous Docker volumes, or bind mounts on the host.
 
@@ -936,7 +960,7 @@ To specify a volume, you specify the source and destination path:
 
 The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
 
-#### Example
+### Example of `jobs.<job_id>.services.<service_id>.volumes`
 
 ```yaml
 volumes:
@@ -945,7 +969,7 @@ volumes:
   - /source/directory:/destination/directory
 ```
 
-### `jobs.<job_id>.services.<service_id>.options`
+## `jobs.<job_id>.services.<service_id>.options`
 
 Additional Docker container resource options. For a list of options, see "[`docker create` options](https://docs.docker.com/engine/reference/commandline/create/#options)."
 
@@ -955,7 +979,6 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 {% endwarning %}
 
-{% ifversion fpt or ghes > 3.3 or ghae > 3.3 or ghec %}
 ## `jobs.<job_id>.uses`
 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
@@ -964,13 +987,13 @@ The location and version of a reusable workflow file to run as a job. {% ifversi
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
-### Example
+### Example of `jobs.<job_id>.uses`
 
 {% data reusables.actions.uses-keyword-example %}
 
-For more information, see "[Reusing workflows](/actions/learn-github-actions/reusing-workflows)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
-### `jobs.<job_id>.with`
+## `jobs.<job_id>.with`
 
 When a job is used to call a reusable workflow, you can use `with` to provide a map of inputs that are passed to the called workflow.
 
@@ -978,7 +1001,7 @@ Any inputs that you pass must match the input specifications defined in the call
 
 Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
 
-#### Example
+### Example of `jobs.<job_id>.with`
 
 ```yaml
 jobs:
@@ -988,19 +1011,19 @@ jobs:
       username: mona
 ```
 
-### `jobs.<job_id>.with.<input_id>`
+## `jobs.<job_id>.with.<input_id>`
 
 A pair consisting of a string identifier for the input and the value of the input. The identifier must match the name of an input defined by [`on.workflow_call.inputs.<inputs_id>`](/actions/creating-actions/metadata-syntax-for-github-actions#inputsinput_id) in the called workflow. The data type of the value must match the type defined by [`on.workflow_call.inputs.<input_id>.type`](#onworkflow_callinputsinput_idtype) in the called workflow.
 
 Allowed expression contexts: `github`, and `needs`.
 
-### `jobs.<job_id>.secrets`
+## `jobs.<job_id>.secrets`
 
 When a job is used to call a reusable workflow, you can use `secrets` to provide a map of secrets that are passed to the called workflow.
 
 Any secrets that you pass must match the names defined in the called workflow.
 
-#### Example
+### Example of `jobs.<job_id>.secrets`
 
 {% raw %}
 ```yaml
@@ -1014,11 +1037,11 @@ jobs:
 
 {% ifversion actions-inherit-secrets-reusable-workflows %}
 
-### `jobs.<job_id>.secrets.inherit`
+## `jobs.<job_id>.secrets.inherit`
 
 Use the `inherit` keyword to pass all the calling workflow's secrets to the called workflow. This includes all secrets the calling workflow has access to, namely organization, repository, and environment secrets. The `inherit` keyword can be used to pass secrets across repositories within the same organization, or across organizations within the same enterprise.
 
-#### Example
+### Example of `jobs.<job_id>.secrets.inherit`
 
 {% raw %}
 
@@ -1046,9 +1069,7 @@ jobs:
 
 {% endraw %}
 
-{%endif%}
-
-### `jobs.<job_id>.secrets.<secret_id>`
+## `jobs.<job_id>.secrets.<secret_id>`
 
 A pair consisting of a string identifier for the secret and the value of the secret. The identifier must match the name of a secret defined by [`on.workflow_call.secrets.<secret_id>`](#onworkflow_callsecretssecret_id) in the called workflow.
 
@@ -1070,12 +1091,12 @@ The characters `*`, `[`, and `!` are special characters in YAML. If you start a 
 
 ```yaml
 # Valid
-branches:
+paths:
   - '**/README.md'
 
 # Invalid - creates a parse error that
 # prevents your workflow from running.
-branches:
+paths:
   - **/README.md
 
 # Valid

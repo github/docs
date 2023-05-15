@@ -44,7 +44,7 @@ const EXTERNAL_LINK_CHECKER_DB =
   process.env.EXTERNAL_LINK_CHECKER_DB || 'external-link-checker-db.json'
 
 const adapter = new JSONFile(EXTERNAL_LINK_CHECKER_DB)
-const externalLinkCheckerDB = new Low(adapter)
+const externalLinkCheckerDB = new Low(adapter, { urls: {} })
 
 // Given a number and a percentage, return the same number with a *percentage*
 // max change of making a bit larger or smaller.
@@ -233,7 +233,6 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   }
 
   await externalLinkCheckerDB.read()
-  externalLinkCheckerDB.data ||= { urls: {} }
 
   debugTimeStart(core, 'processPages')
   const t0 = new Date().getTime()
@@ -288,6 +287,12 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
         )
       }
     }
+  } else {
+    // It might be that the PR got a comment about >0 flaws before,
+    // and now it can update that comment to say all is well again.
+    if (shouldComment) {
+      await commentOnPR(core, octokit, flaws, opts)
+    }
   }
 }
 
@@ -327,7 +332,7 @@ async function linkReports(core, octokit, newReport, opts) {
 
   const [owner, repo] = reportRepository.split('/')
 
-  core.debug('Attempting to link reports...')
+  core.info('Attempting to link reports...')
   // Find previous broken link report issue
   let previousReports
   try {
@@ -346,7 +351,7 @@ async function linkReports(core, octokit, newReport, opts) {
     core.setFailed('Error listing issues for repo')
     throw error
   }
-  core.debug(`Found ${previousReports.length} previous reports`)
+  core.info(`Found ${previousReports.length} previous reports`)
 
   if (previousReports.length <= 1) {
     core.info('No previous reports to link to')
@@ -422,10 +427,48 @@ async function commentOnPR(core, octokit, flaws, opts) {
     return
   }
 
+  const findAgainSymbol = '<!-- rendered-content-link-checker-comment-finder -->'
+
   const body = flawIssueDisplay(flaws, opts, false)
+
+  const { data } = await octokit.rest.issues.listComments({
+    owner,
+    repo,
+    issue_number: pullNumber,
+  })
+  let previousCommentId
+  for (const { body, id } of data) {
+    if (body.includes(findAgainSymbol)) {
+      previousCommentId = id
+    }
+  }
+
   // Since failed external urls aren't included in PR comment, body may be empty
   if (!body) {
     core.info('No flaws qualify for comment')
+
+    if (previousCommentId) {
+      const nothingComment = 'Previous broken links comment now moot. 👌😙'
+      await octokit.rest.issues.updateComment({
+        owner,
+        repo,
+        comment_id: previousCommentId,
+        body: `${nothingComment}\n\n${findAgainSymbol}`,
+      })
+      core.info(`Updated comment on PR: ${pullNumber} (${previousCommentId})`)
+    }
+    return
+  }
+
+  if (previousCommentId) {
+    const noteComment = '(*The original automated comment was updated*)'
+    await octokit.rest.issues.updateComment({
+      owner,
+      repo,
+      comment_id: previousCommentId,
+      body: `${body}\n\n${noteComment}\n\n${findAgainSymbol}`,
+    })
+    core.info(`Updated comment on PR: ${pullNumber} (${previousCommentId})`)
     return
   }
 
@@ -434,7 +477,7 @@ async function commentOnPR(core, octokit, flaws, opts) {
       owner,
       repo,
       issue_number: pullNumber,
-      body,
+      body: `${body}\n\n${findAgainSymbol}`,
     })
     core.info(`Created comment on PR: ${pullNumber}`)
   } catch (error) {
@@ -607,7 +650,13 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
     patient,
     externalServerErrorsAsWarning,
   } = opts
-  const html = await renderInnerHTML(page, permalink)
+  let html = ''
+  try {
+    html = await renderInnerHTML(page, permalink)
+  } catch (error) {
+    console.warn(`The error happened trying to render ${page.relativePath}`)
+    throw error
+  }
   const $ = cheerio.load(html, { xmlMode: true })
   const flaws = []
   const links = []
@@ -1136,9 +1185,11 @@ async function renderInnerHTML(page, permalink) {
 
   req.context.relativePath = page.relativePath
 
+  const guts = [page.rawIntro, page.rawPermissions, page.markdown].filter(Boolean).join('\n').trim()
+
   // These lines do what the ubiquitous `renderContent` function does,
   // but at an absolute minimum to get a string of HTML.
-  const markdown = await liquid.parseAndRender(page.markdown, req.context)
+  const markdown = await liquid.parseAndRender(guts, req.context)
   const processor = createMinimalProcessor(req.context)
   const vFile = await processor.process(markdown)
   return vFile.toString()

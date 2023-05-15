@@ -21,11 +21,11 @@ shortTitle: Use GitHub Connect for actions
 
 ## About automatic access to {% data variables.product.prodname_dotcom_the_website %} actions
 
-By default, {% data variables.product.prodname_actions %} workflows on {% data variables.product.product_name %} cannot use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions). To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can use {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. 
+By default, {% data variables.product.prodname_actions %} workflows on {% data variables.product.product_name %} cannot use actions directly from {% data variables.product.prodname_dotcom_the_website %} or [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions). To make all actions from {% data variables.product.prodname_dotcom_the_website %} available on your enterprise instance, you can use {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}.
 
 {% data reusables.actions.self-hosted-runner-networking-to-dotcom %}
 
-Alternatively, if you want stricter control over which actions are allowed in your enterprise, you can manually download and sync actions onto your enterprise instance using the `actions-sync` tool. For more information, see "[Manually syncing actions from {% data variables.product.prodname_dotcom_the_website %}](/enterprise/admin/github-actions/manually-syncing-actions-from-githubcom)."
+Alternatively, if you want stricter control over which actions are allowed in your enterprise, you can manually download and sync actions onto your enterprise instance using the `actions-sync` tool. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom)."
 
 ## About resolution for actions using {% data variables.product.prodname_github_connect %}
 
@@ -37,13 +37,12 @@ If a user has already created an organization and repository in your enterprise 
 ## Enabling automatic access to all {% data variables.product.prodname_dotcom_the_website %} actions
 
 Before enabling access to all actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must{% ifversion ghes %}:
-- Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[Getting started with {% data variables.product.prodname_actions %} for GitHub Enterprise Server](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/getting-started-with-github-actions-for-github-enterprise-server)."
-- Enable{% else %} enable{% endif %} {% data variables.product.prodname_github_connect %}. For more information, see "[Managing {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/managing-github-connect)."
+- Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+- Enable{% else %} enable{% endif %} {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. Under "Users can utilize actions from GitHub.com in workflow runs", use the drop-down menu and select **Enabled**.
-  ![Drop-down menu to actions from GitHub.com in workflows runs](/assets/images/enterprise/site-admin-settings/enable-marketplace-actions-drop-down-ae.png)
 1. {% data reusables.actions.enterprise-limit-actions-use %}
 
 ## Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website %}
@@ -55,10 +54,9 @@ Automatic retirement of namespaces for actions accessed on {% data variables.pro
 After using an action from {% data variables.product.prodname_dotcom_the_website %}, if you want to create an action in {% data variables.location.product_location %} with the same name, first you need to make the namespace for that organization and repository available.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
-2. In the left sidebar, under **Site admin** click **Retired namespaces**.
-3. Locate the namespace that you want use in {% data variables.location.product_location %} and click **Unretire**.
-   ![Unretire namespace](/assets/images/enterprise/site-admin-settings/unretire-namespace.png)
-4. Go to the relevant organization and create a new repository.
+1. In the left sidebar, under **Site admin** click **Retired namespaces**.
+1. To the right of the namespace that you want use in {% data variables.location.product_location %}, click **Unretire**.
+1. Go to the relevant organization and create a new repository.
 
    {% tip %}
 

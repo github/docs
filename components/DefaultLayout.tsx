@@ -3,11 +3,11 @@ import { useRouter } from 'next/router'
 
 import { SidebarNav } from 'components/sidebar/SidebarNav'
 import { Header } from 'components/page-header/Header'
-import { SmallFooter } from 'components/page-footer/SmallFooter'
+import { LegalFooter } from 'components/page-footer/LegalFooter'
 import { ScrollButton } from 'components/ui/ScrollButton'
 import { SupportSection } from 'components/page-footer/SupportSection'
 import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
-import { RestBanner } from 'components/page-header/RestBanner'
+import { RestBanner } from 'src/rest/components/RestBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
@@ -42,7 +42,7 @@ export const DefaultLayout = (props: Props) => {
         </Head>
 
         {/* For local site search indexing */}
-        <div data-search="breadcrumbs">
+        <div className="d-none d-xl-block" data-search="breadcrumbs">
           <Breadcrumbs />
         </div>
 
@@ -108,7 +108,7 @@ export const DefaultLayout = (props: Props) => {
           </>
         )}
       </Head>
-      <a href="#main-content" className="sr-only">
+      <a href="#main-content" className="sr-only color-bg-accent-emphasis color-fg-on-emphasis">
         Skip to main content
       </a>
       <Header />
@@ -116,7 +116,7 @@ export const DefaultLayout = (props: Props) => {
         <SidebarNav />
         {/* Need to set an explicit height for sticky elements since we also
           set overflow to auto */}
-        <div className="flex-column flex-1">
+        <div className="flex-column flex-1 min-width-0">
           <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
             <DeprecationBanner />
             <RestBanner />
@@ -125,7 +125,7 @@ export const DefaultLayout = (props: Props) => {
           </main>
           <footer>
             <SupportSection />
-            <SmallFooter />
+            <LegalFooter />
             <ScrollButton
               className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
               ariaLabel={t('scroll_to_top')}

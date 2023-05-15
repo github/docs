@@ -17,9 +17,9 @@ export const Fields = (fieldProps: {
 
   return (
     <ActionList selectionVariant="single">
-      {items.map((item) =>
+      {items.map((item, i) =>
         item.divider ? (
-          <ActionList.Divider />
+          <ActionList.Divider key={`divider${i}`} />
         ) : (
           <ActionList.Item
             as={Link}

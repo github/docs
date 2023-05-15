@@ -27,7 +27,7 @@ This article will demonstrate how to write an action that retrieves a specific v
 
 ## Prerequisites
 
-You should have an understanding of how to write a custom action. For more information, see "[About custom actions](/actions/creating-actions/about-custom-actions)". For a more detailed guide on how to write a custom action, see "[Creating a JavaScript action](/actions/creating-actions/creating-a-javascript-action)."
+You should have an understanding of how to write a custom action. For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions)". For a more detailed guide on how to write a custom action, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."
 
 ## Example
 
@@ -58,7 +58,7 @@ module.exports = setup
 ```
 {% endraw %}
 
-To use this script, replace `getDownloadURL` with a function that downloads your CLI. You will also need to create an actions metadata file (`action.yml`) that accepts a `version` input and that runs this script. For full details about how to create an action, see "[Creating a JavaScript action](/actions/creating-actions/creating-a-javascript-action)."
+To use this script, replace `getDownloadURL` with a function that downloads your CLI. You will also need to create an actions metadata file (`action.yml`) that accepts a `version` input and that runs this script. For full details about how to create an action, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."
 
 For a full example of how to set up this action, see [example-setup-gh](https://github.com/github-developer/example-setup-gh).
 

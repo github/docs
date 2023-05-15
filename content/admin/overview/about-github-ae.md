@@ -25,13 +25,13 @@ All of your data is stored within the geographic region of your choosing. You ca
 
 ## Isolated accounts
 
-By default, all developer accounts on {% data variables.product.product_name %} are fully isolated from other services, including products from {% data variables.product.company_short %}. You can control the accounts through your identity provider, with SAML single sign-on as mandatory. SCIM enables you to ensure that employees only have access to the resources they should, as defined in your central identity management system. For more information, see "[Managing identity and access for your enterprise](/admin/authentication/managing-identity-and-access-for-your-enterprise)."
+By default, all developer accounts on {% data variables.product.product_name %} are fully isolated from other services, including products from {% data variables.product.company_short %}. You can control the accounts through your identity provider, with SAML single sign-on as mandatory. SCIM enables you to ensure that employees only have access to the resources they should, as defined in your central identity management system. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam)."
 
-Optionally, enterprise owners can enable limited integration between {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[About {% data variables.product.prodname_github_connect %}](/admin/configuration/configuring-github-connect/about-github-connect)."
+Optionally, enterprise owners can enable limited integration between {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect)."
 
 ## Restricted network access
 
-Secure access to your enterprise on {% data variables.product.prodname_ghe_managed %} with restricted network access, so that your data can only be accessed from within your network. For more information, see "[Restricting network traffic to your enterprise with an IP allow list](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)."
+Secure access to your enterprise on {% data variables.product.prodname_ghe_managed %} with restricted network access, so that your data can only be accessed from within your network. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list)."
 
 ## Commercial and government environments
 
@@ -54,5 +54,5 @@ Secure access to your enterprise on {% data variables.product.prodname_ghe_manag
 
 ## Further reading
 
-- "[About versions of {% data variables.product.prodname_docs %}](/get-started/learning-about-github/about-versions-of-github-docs)"
-- "[Receiving help from {% data variables.product.company_short %} Support](/admin/enterprise-support/receiving-help-from-github-support)"
+- "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)"
+- "[AUTOTITLE](/support/contacting-github-support)"

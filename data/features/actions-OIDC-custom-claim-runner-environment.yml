@@ -1,0 +1,6 @@
+# Reference: #9725
+# Adding new OIDC claim - runner environment
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

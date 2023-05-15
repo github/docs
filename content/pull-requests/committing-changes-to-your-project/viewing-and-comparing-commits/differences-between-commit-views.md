@@ -35,5 +35,5 @@ For more information on how Git considers commit history, see [the "History Simp
 
 ## Further reading
 
-- "[Signing commits](/articles/signing-commits)"
-- "[Searching commits](/search-github/searching-on-github/searching-commits)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+- "[AUTOTITLE](/search-github/searching-on-github/searching-commits)"

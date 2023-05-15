@@ -30,7 +30,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
 {% note %}
 
-**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-22.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 22.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[About {% data variables.product.prodname_dotcom %}-hosted runners](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-22.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 22.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[AUTOTITLE](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 
 {% endnote %}
 
@@ -75,7 +75,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
            with:
              path: {% raw %}${{runner.tool_cache}}/tool_cache.tar.gz{% endraw %}
    ```
-1. Download the tool cache artifact from the workflow run. For instructions on downloading artifacts, see "[Downloading workflow artifacts](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+1. Download the tool cache artifact from the workflow run. For instructions on downloading artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 1. Transfer the tool cache artifact to your self hosted runner and extract it to the local tool cache directory. The default tool cache directory is `RUNNER_DIR/_work/_tool`. If the runner hasn't processed any jobs yet, you might need to create the `_work/_tool` directories.
 
     After extracting the tool cache artifact uploaded in the above example, you should have a directory structure on your self-hosted runner that is similar to the following example:

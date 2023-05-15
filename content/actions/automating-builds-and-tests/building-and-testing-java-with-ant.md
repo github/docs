@@ -27,14 +27,14 @@ This guide shows you how to create a workflow that performs continuous integrati
 {% ifversion ghae %}
 {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Ant. For a list of software and the pre-installed versions for JDK and Ant, see "[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/reference/specifications-for-github-hosted-runners/#supported-software)".
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Ant. For a list of software and the pre-installed versions for JDK and Ant, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
 {% endif %}
 
 ## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
+- "[AUTOTITLE](/actions/learn-github-actions)"
 
 We recommend that you have a basic understanding of Java and the Ant framework. For more information, see the [Apache Ant Manual](https://ant.apache.org/manual/).
 
@@ -44,7 +44,7 @@ We recommend that you have a basic understanding of Java and the Ant framework. 
 
 {% data variables.product.prodname_dotcom %} provides an Ant starter workflow that will work for most Ant-based Java projects. For more information, see the [Ant starter workflow](https://github.com/actions/starter-workflows/blob/main/ci/ant.yml).
 
-To get started quickly, you can choose the preconfigured Ant starter workflow when you create a new workflow. For more information, see the "[{% data variables.product.prodname_actions %} quickstart](/actions/quickstart)."
+To get started quickly, you can choose the preconfigured Ant starter workflow when you create a new workflow. For more information, see the "[AUTOTITLE](/actions/quickstart)."
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
@@ -101,7 +101,7 @@ steps:
 
 ## Packaging workflow data as artifacts
 
-After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see "[Persisting workflow data using artifacts](/actions/automating-your-workflow-with-github-actions/persisting-workflow-data-using-artifacts)."
+After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 Ant will usually create output files like JARs, EARs, or WARs in the `build/jar` directory. You can upload the contents of that directory using the `upload-artifact` action.
 

@@ -17,7 +17,7 @@ topics:
   - Accounts
 shortTitle: Manage access project boards
 ---
-A collaborator is a person who has permissions to a project board you own. A collaborator's permissions will default to read access. For more information, see "[Permission levels for user-owned project boards](/articles/permission-levels-for-user-owned-project-boards)."
+A collaborator is a person who has permissions to a project board you own. A collaborator's permissions will default to read access. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-project-board-owned-by-a-personal-account)."
 
 ## Inviting collaborators to a user-owned project board
 
@@ -26,10 +26,8 @@ A collaborator is a person who has permissions to a project board you own. A col
 {% data reusables.project-management.access-collaboration-settings %}
 {% data reusables.project-management.collaborator-option %}
 5. Under "Search by username, full name or email address", type the collaborator's name, username, or {% data variables.product.prodname_dotcom %} email.
-   ![The Collaborators section with the Octocat's username entered in the search field](/assets/images/help/projects/org-project-collaborators-find-name.png)
 {% data reusables.project-management.add-collaborator %}
 7. The new collaborator has read permissions by default. Optionally, next to the new collaborator's name, use the drop-down menu and choose a different permission level.
-  ![The Collaborators section with the Permissions drop-down menu selected](/assets/images/help/projects/user-project-collaborators-edit-permissions.png)
 
 ## Removing a collaborator from a user-owned project board
 

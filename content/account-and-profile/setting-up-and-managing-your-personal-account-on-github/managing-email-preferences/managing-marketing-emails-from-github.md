@@ -25,11 +25,9 @@ shortTitle: Marketing emails
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.emails %}
 3. Under *Email preferences*, select **Only receive account related emails, and those I subscribe to**.
-  ![Screenshot of opting out of marketing email](/assets/images/help/notifications/email_preferences.png)
 4. Click **Save email preferences**.
-  ![Save email preferences button](/assets/images/help/notifications/save_email_preferences.png)
 
 ## Further reading
 
-- "[Types of emails GitHub sends](/articles/types-of-emails-github-sends)"
-- "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/types-of-emails-github-sends)"
+- "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)"

@@ -13,11 +13,12 @@ shortTitle: Managing organization members
 
 Enterprise members that are added to an organization via the bulk method will not receive an email inviting them to the organization. They are added immediately as a member to the selected organizations.
 
-Members can also be added or removed from an organization at the organization level. For more information, see {% ifversion ghec %}"[Inviting users to join your organization](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"{% else %}"[Adding people to your organization](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)"{% endif %} and "[Removing a member from your organization](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."
+Members can also be added or removed from an organization at the organization level. For more information, see {% ifversion ghec %}"[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"{% else %}"[AUTOTITLE](/organizations/managing-membership-in-your-organization/adding-people-to-your-organization)"{% endif %} and "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. To add or remove a user from an organization, select the checkbox next to the user's name, and use the dropdown to select **Add to organizations** or **Remove from organizations**.
+1. Select the checkbox next to each user you want to add or remove.
+1. At the top of the member list, select the **X user(s) selected** dropdown menu, then click **Add to organizations** or **Remove from organizations**.
 
    {% note %}
 
@@ -27,18 +28,15 @@ Members can also be added or removed from an organization at the organization le
 
    {% endnote %}
 
-   ![Screenshot of the dropdown to add or remove a user from organizations](/assets/images/help/business-accounts/enterprise-add-or-remove-from-org.png)
+   ![Screenshot of the list of enterprise members. A dropdown menu, labeled "1 user selected...", is expanded and highlighted with an orange outline.](/assets/images/help/business-accounts/enterprise-add-or-remove-from-org.png)
 
 2. In the popup, select the organizations you want to add or remove the user from.
 
     {% note %}
 
-    **Note:** Only organizations that you're an owner of can be selected.
+    **Note:** You can only select organizations where you're an organization owner.
 
     {% endnote %}
 
 3. To confirm, click **Add user** or **Remove user**.
-
-   ![Screenshot of the "Add user" button in the "Add users to organizations" modal](/assets/images/help/business-accounts/add-user-to-org.png)
-
 4. Optionally, to add or remove multiple users at the same time, select multiple checkboxes. Use the dropdown to select **Add to organizations** or **Remove from organizations**.

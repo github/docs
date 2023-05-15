@@ -68,59 +68,12 @@
   }
 }
 
-// The ... menu button when the smaller width search UI is open.  Since the search
-// UI is open, we don't show the button at smaller widths but we do show it as
-// the browser width increases to md, and then at lg and above widths we hide
-// the button again since the pickers and sign-up button are shown in the header.
-.menuButtonWithOpenSearch {
-  margin-left: 8px;
-  display: none;
-
-  @include breakpoint(md) {
-    display: inline-block;
-    margin-left: 4px;
-  }
-
-  @include breakpoint(lg) {
-    display: none;
-  }
-}
-
 // Prevent the ... menu from still showing if someone opens it and then widens
 // their browser to lg.
 .menuOverlay {
   min-width: 20rem;
 
   @include breakpoint(lg) {
-    display: none;
-  }
-}
-
-// The ... menu button when the smaller width search UI is closed, the button is
-// shown up to md.  At lg and above we don't show the button since the pickers
-// and sign-up button are shown in the header.
-.menuButtonWithClosedSearch {
-  margin-left: 16px;
-
-  @include breakpoint(md) {
-    margin-left: 0;
-  }
-
-  @include breakpoint(lg) {
-    display: none;
-  }
-}
-
-// The x button to close the small width search UI, not visible if search is closed.
-.closeSearchButtonWithClosedSearch {
-  display: none;
-}
-
-// The x button to close the small width search UI when search is open, as the
-// browser width increases to md and above we no longer show that search UI so
-// the close search button is hidden as well.
-.closeSearchButtonWithOpenSearch {
-  @include breakpoint(md) {
     display: none;
   }
 }

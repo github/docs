@@ -20,7 +20,7 @@ After you disable organization-wide project boards, it won’t be possible to cr
 After you disable repository project boards in an organization, it won't be possible to create new project boards in any repositories in the organization, and any existing project boards in repositories in the organization will become inaccessible at their previous URLs. Project boards at the organization level are not affected.
 
 
-When you disable project boards, you will no longer see project board information in timelines or [audit logs](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization).
+When you disable project boards, you will no longer see project board information in timelines or [audit logs](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization).
 
 
 {% data reusables.profile.access_org %}
@@ -31,15 +31,14 @@ When you disable project boards, you will no longer see project board informatio
 1. Decide whether to disable organization-wide project boards, disable repository project boards in the organization, or both. Then, under "Projects":
     - To disable organization-wide project boards, unselect **Enable projects for the organization**.
     - To disable repository project boards in the organization, unselect **Enable projects for all repositories**.
-  ![Checkboxes to disable projects for an organization or for all of an organization's repositories](/assets/images/help/projects/disable-org-projects-checkbox.png)
 1. Click **Save**.
 
 {% data reusables.organizations.disable_project_board_results %}
 
 ## Further reading
 
-{% ifversion projects-v2 %}- "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
-- "[About {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Closing a {% data variables.projects.projects_v1_board %}](/articles/closing-a-project-board)"
-- "[Deleting a {% data variables.projects.projects_v1_board %}](/articles/deleting-a-project-board)"
-- "[Disabling {% data variables.projects.projects_v1_boards %} in a repository](/articles/disabling-project-boards-in-a-repository)"
+{% ifversion projects-v2 %}- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)"

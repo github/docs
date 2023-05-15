@@ -34,7 +34,7 @@ jobs:
             POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Variables](/actions/learn-github-actions/variables#default-environment-variables)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
 
 ## Adding scripts to your workflow
 
@@ -58,7 +58,7 @@ jobs:
         shell: bash
 ```
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
 ## Sharing data between jobs
 
@@ -95,8 +95,8 @@ jobs:
 
 To download an artifact from the same workflow run, your download job should specify `needs: upload-job-name` so it doesn't start until the upload job finishes.
 
-For more information about artifacts, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+For more information about artifacts, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/using-workflows/about-workflows)."

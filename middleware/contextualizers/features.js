@@ -1,3 +1,6 @@
+import path from 'path'
+
+import { ROOT } from '../../lib/constants.js'
 import getApplicableVersions from '../../lib/get-applicable-versions.js'
 import { getDeepDataByLanguage } from '../../lib/get-data.js'
 
@@ -29,7 +32,10 @@ function getFeaturesByVersion(currentVersion) {
     // Determine whether the currentVersion belongs to the list of versions the feature is available in.
     for (const [featureName, feature] of Object.entries(allFeatures)) {
       const { versions } = feature
-      const applicableVersions = getApplicableVersions(versions, `data/features/${featureName}.yml`)
+      const applicableVersions = getApplicableVersions(
+        versions,
+        path.join(ROOT, `data/features/${featureName}.yml`)
+      )
 
       // Adding the resulting boolean to the context object gives us the ability to use
       // `{% if featureName ... %}` conditionals in content files.

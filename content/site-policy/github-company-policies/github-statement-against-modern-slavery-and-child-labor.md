@@ -48,7 +48,7 @@ GitHub complies with laws prohibiting trafficking and child labor in the jurisdi
 
 In addition, GitHub established a partnership with the FairHotel Program, which means GitHub encourages its employees to choose FairHotel endorsed hotels-where workers have fair wages, adequate benefits, and a voice on the job. Being a FairHotel partner also signifies that GitHub provides business to hotels as a fair employer.
 
-Going forward, GitHub will communicate this Statement to all employees, contractors, and suppliers, including recruiters and employment agencies. In addition, GitHub is developing training for all GitHub employees on modern slavery and child labor. GitHub [posts its Statement Against Modern Slavery and Child Labor publicly](/articles/github-statement-against-modern-slavery-and-child-labor).
+Going forward, GitHub will communicate this Statement to all employees, contractors, and suppliers, including recruiters and employment agencies. In addition, GitHub is developing training for all GitHub employees on modern slavery and child labor. GitHub [posts its Statement Against Modern Slavery and Child Labor publicly](/site-policy/github-company-policies/github-statement-against-modern-slavery-and-child-labor).
 
 GitHub has a non-retaliation policy for reporting workplace-related concerns. Consistent with this Statement, GitHub allows employees and contractors to report issues regarding modern slavery and child labor without fear of retaliation.
 
@@ -106,4 +106,4 @@ GitHub's procurement instructions to employees making company purchases now incl
 
 GitHub is developing modern slavery and child labor training that will be mandatory for all employees, with a view to GitHub's business and supply chain. GitHub will emphasize suppliers providing services involving manual labor, such as event support, construction, facilities services, and food services, as areas of greater potential risk.
 
-**GitHub's Board of Directors approved [this Statement](/assets/images/help/site-policy/github-statement-against-modern-slavery-and-child-labor.pdf).**
+**GitHub's Board of Directors approved this Statement. See a [copy of this statement signed by GitHub's Chief Strategy Officer and General Counsel (PDF)](/assets/images/help/site-policy/github-statement-against-modern-slavery-and-child-labor.pdf).**
