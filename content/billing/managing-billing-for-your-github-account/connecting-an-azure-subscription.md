@@ -15,6 +15,8 @@ shortTitle: Connect an Azure subscription
 
 {% data reusables.enterprise-accounts.billing-azure-subscription %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)," "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)," and "[AUTOTITLE](/billing/managing-billing-for-github-copilot)."
 
+{% data reusables.enterprise.ghec-trial-azure %}
+
 {% ifversion ghec %}
 {% note %}
 
