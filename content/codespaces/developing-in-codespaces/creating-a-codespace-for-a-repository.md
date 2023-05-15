@@ -82,7 +82,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
    * **Use the default options**
 
-      To create a codespace using the default options, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}). Alternatively, if you don't currently have any codespaces for this repository, you can click **Create codespace on BRANCH**. <br/><br/>
+      To create a codespace using the default options, click {% octicon "plus" aria-label="Create a codespace on BRANCH" %}. <br/><br/>
 
    * **Configure advanced options**
 

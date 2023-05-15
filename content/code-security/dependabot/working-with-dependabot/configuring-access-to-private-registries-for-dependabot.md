@@ -98,7 +98,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 1. From the **Repository access** dropdown list, choose an access policy.
 1. If you chose **Selected repositories**:
 
-   * Click {% octicon "gear" aria-label="The Gear icon" %}.
+   * Click {% octicon "gear" aria-label="selected repositories" %}.
    * In the dialog box, select the repositories that can access this secret.
    * Click **Update selection**.
 

@@ -40,7 +40,7 @@ Users in India can contact GitHub's Grievance Officer for India [here](https://s
 ## Reporting a discussion
 
 1. Navigate to the discussion you'd like to report.
-1. In the upper-right corner of the discussion, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab octicon" %}, then click **Report content**.
+1. In the upper-right corner of the discussion, click {% octicon "kebab-horizontal" aria-label="Discussion options" %}, then click **Report content**.
 
    ![Screenshot of a discussion. The option to report content in the kebab menu is outlined with dark orange.](/assets/images/help/discussions/report-discussion.png)
 

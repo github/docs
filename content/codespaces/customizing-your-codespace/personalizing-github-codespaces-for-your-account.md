@@ -54,7 +54,7 @@ For codespaces opened in the {% data variables.product.prodname_vscode_shortname
 
 For codespaces opened in the {% data variables.product.prodname_vscode_shortname %} web client, Settings Sync is disabled by default. This means the {% data variables.product.prodname_vscode_shortname %} instance in the codespace uses the default theme and settings.
 
-If you use the web client and want your codespaces to use your cached synced settings, you can enable Settings Sync in your user preferences on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing your preferences for Settings Sync](#managing-your-preferences-for-settings-sync)." Settings Sync is enabled in your user preferences automatically if you open a codespace in the web client and turn on Settings Sync in the codespace. 
+If you use the web client and want your codespaces to use your cached synced settings, you can enable Settings Sync in your user preferences on {% data variables.product.prodname_dotcom %}. For more information, see "[Managing your preferences for Settings Sync](#managing-your-preferences-for-settings-sync)." Settings Sync is enabled in your user preferences automatically if you open a codespace in the web client and turn on Settings Sync in the codespace.
 
 When Settings Sync is enabled in your user preferences, for codespaces opened in the web client, the behavior of Settings Sync depends on your list of trusted repositories.
 
@@ -63,7 +63,7 @@ When Settings Sync is enabled in your user preferences, for codespaces opened in
 
   If you turn on Settings Sync in a codespace, you will be prompted to add the repository to your list of trusted repositories. For more information, see "[Turning on Settings Sync in a codespace](#turning-on-settings-sync-in-a-codespace)."
 
-{% data reusables.codespaces.settings-sync-and-gpg %} 
+{% data reusables.codespaces.settings-sync-and-gpg %}
 
 For more information on managing your preferences for GPG verification, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
 
@@ -88,7 +88,7 @@ Your updates will take effect in new codespaces. However, you can turn on Settin
 
 The following procedure describes how to turn on Settings Sync in a codespace opened in the web client. For information about turning on Settings Sync in the {% data variables.product.prodname_vscode_shortname %} desktop application, see [Settings Sync](https://code.visualstudio.com/docs/editor/settings-sync#_turning-on-settings-sync) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
-1. In {% data variables.product.prodname_vscode_shortname %}, at the bottom of the Activity Bar, select {% octicon "gear" aria-label="The gear icon" %}, then click **Sign in to Sync Settings**.
+1. In {% data variables.product.prodname_vscode_shortname %}, at the bottom of the Activity Bar, select {% octicon "gear" aria-label="Manage" %}, then click **Sign in to Sync Settings**.
 1. If the repository from which you created the codespace is not in your list of trusted repositories, a browser window will open asking you to authorize additional permissions for Settings Sync. If you trust the repository, click **Authorize**, then close the browser window. The codespace will reload and display your latest synced settings.
 
    {% note %}
@@ -97,7 +97,7 @@ The following procedure describes how to turn on Settings Sync in a codespace op
 
    {% endnote %}
 
-1. To configure which settings you want to sync, open the Command Palette with <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux), then start typing "Settings Sync". Click **Settings Sync: Configure...**. 
+1. To configure which settings you want to sync, open the Command Palette with <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux), then start typing "Settings Sync". Click **Settings Sync: Configure...**.
 1. Select the settings you want to sync, then click **OK**.
 
    ![Screenshot of the "Setting Sync" options. There are seven options, each with a checkbox. The "OK" button is shown top right.](/assets/images/help/codespaces/settings-sync-config-ok.png)
