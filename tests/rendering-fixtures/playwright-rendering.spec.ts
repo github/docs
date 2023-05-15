@@ -312,3 +312,91 @@ test('medium viewports - 768-1011', async ({ page }) => {
   await page.getByTestId('sidebar-hamburger').click()
   await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
 })
+
+test('small viewports - 544-767', async ({ page }) => {
+  page.setViewportSize({
+    width: 500,
+    height: 700,
+  })
+  await page.goto('/get-started/foo/bar')
+
+  // header sign-up button is not visible
+  await expect(page.getByTestId('header-signup')).not.toBeVisible()
+
+  // TODO: currently no languages enabled for headless tests
+  // language picker is not visible
+  // await expect(page.getByTestId('language-picker')).not.toBeVisible()
+
+  // version picker is not visible
+  await expect(
+    page.getByRole('button', {
+      name: 'Select GitHub product version: current version is free-pro-team@latest',
+    })
+  ).not.toBeVisible()
+
+  // version picker is in mobile menu
+  await expect(page.getByTestId('version-picker')).not.toBeVisible()
+  await page.getByTestId('mobile-menu').click()
+  await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
+
+  // TODO: currently no languages enabled for headless tests
+  // language picker is in mobile menu
+  // await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
+
+  // sign up button is in mobile menu
+  await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
+
+  // hamburger button for sidebar overlay is visible
+  await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+  await page.getByTestId('sidebar-hamburger').click()
+  await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+})
+
+test.describe('survey', () => {
+  test('happy path, thumbs up and enter email', async ({ page }) => {
+    await page.goto('/get-started/foo/for-playwright')
+
+    let fulfilled = 0
+    await page.route('**/api/events', (route, request) => {
+      route.fulfill({})
+      expect(request.method()).toBe('POST')
+      fulfilled++
+      // At the time of writing you can't get the posted payload
+      // when you use `navigator.sendBeacon(url, data)`.
+      // So we can't make assertions about the payload.
+      // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    // The label is visually an SVG. Finding it by its `for` value feels easier.
+    await page.locator('[for=survey-yes]').click()
+    await page.getByPlaceholder('email@example.com').click()
+    await page.getByPlaceholder('email@example.com').fill('test@example.com')
+
+    await page.getByRole('button', { name: 'Send' }).click()
+    // Because it sent one about the thumbs and then another with the email.
+    expect(fulfilled).toBe(2)
+    await expect(page.getByTestId('survey-end')).toBeVisible()
+  })
+
+  test('thumbs down without filling in the form sends an API POST', async ({ page }) => {
+    await page.goto('/get-started/foo/for-playwright')
+
+    let fulfilled = 0
+    await page.route('**/api/events', (route, request) => {
+      route.fulfill({})
+      expect(request.method()).toBe('POST')
+      fulfilled++
+      // At the time of writing you can't get the posted payload
+      // when you use `navigator.sendBeacon(url, data)`.
+      // So we can't make assertions about the payload.
+      // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    await page.locator('[for=survey-yes]').click()
+    expect(fulfilled).toBe(1)
+
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
+    await page.getByRole('button', { name: 'Cancel' }).click()
+    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
+  })
+})

@@ -12,7 +12,7 @@ shortTitle: Exporting changes
 
 ## About exporting changes
 
-While using {% data variables.product.prodname_github_codespaces %}, you may want to export your changes to a branch without launching your codespace. This can be useful when you have hit a [spending limit](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces) or have a general issue accessing your codespace. 
+While using {% data variables.product.prodname_github_codespaces %}, you may want to export your changes to a branch without launching your codespace. This can be useful when you have hit a [spending limit](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces) or have a general issue accessing your codespace.
 
 You can export your changes in one of several ways, depending on how you created the codespace. In every case, only the Git branch that is currently checked out in the codespace is exported. Work contained in other branches is not exported.
 
@@ -24,7 +24,7 @@ You can export your changes in one of several ways, depending on how you created
 
 The following steps describe how to export your changes to a branch or fork. For information on exporting an unpublished codespace to a new repository, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template#publishing-from-githubcom)."
 
-{% data reusables.codespaces.your-codespaces-procedure-step %} Or, for an individual repository, click the **{% octicon "code" aria-label="The code icon" %} Code** menu.
+{% data reusables.codespaces.your-codespaces-procedure-step %} Or, for an individual repository, click the **{% octicon "code" aria-hidden="true" %} Code** menu.
 1. Click the ellipsis (**...**) to the right of the codespace you want to export from.
 1. Select **{% octicon "git-branch" aria-hidden="true" %} Export changes to a branch** or **{% octicon "git-branch" aria-hidden="true" %} Export changes to a fork**.
 

@@ -33,7 +33,7 @@ The spending information will display the total spending for each organization f
 {% endif %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-label="The credit card icon" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
 1. Under "{% data variables.product.prodname_copilot_short %}", view the breakdown of your {% data variables.product.prodname_copilot %} usage and upcoming changes in your organization.
 
    ![Screenshot of the organization-level {% data variables.product.prodname_copilot %} seat usage page](/assets/images/help/copilot/org-level-seat-view.png)

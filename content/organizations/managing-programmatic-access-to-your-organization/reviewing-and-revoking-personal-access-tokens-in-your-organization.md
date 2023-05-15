@@ -18,7 +18,7 @@ Organization owners can only view and revoke {% data variables.product.pat_v2 %}
 
 {% ifversion ghec %} Organization owners can also view and revoke {% data variables.product.pat_v1_plural %} if their organization requires SAML single-sign on. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise#viewing-and-revoking-authorized-credentials)". For more information about using the REST API to do this, see "[List SAML SSO authorizations for an organization](/rest/orgs/orgs#list-saml-sso-authorizations-for-an-organization)" and "[Remove a SAML SSO authorization for an organization](/rest/orgs/orgs#remove-a-saml-sso-authorization-for-an-organization)."{% endif %}
 
-{% ifversion pat-v2-org-admin-api %} 
+{% ifversion pat-v2-org-admin-api %}
 
 Organization admins can also use the REST API to review and revoke {% data variables.product.pat_v2 %}s. These endpoints can only be called by {% data variables.product.prodname_github_apps %}, and cannot be called with {% data variables.product.pat_generic_plural %} or {% data variables.product.prodname_oauth_apps %}. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-fine-grained-personal-access-tokens-with-access-to-organization-resources)."
 
@@ -28,7 +28,7 @@ Organization admins can also use the REST API to review and revoke {% data varia
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
 1. Click the name of the token that you want review or revoke.
 1. Review the access and permissions that the token has.
 1. To revoke access by the token to the organization, click **Revoke**.
@@ -37,7 +37,7 @@ Alternatively, you can revoke multiple tokens at once:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
 {% data reusables.user-settings.patv2-filters %}
 1. Select each token that you want to revoke.
 1. Select the **tokens selected...** dropdown menu and click **Revoke...**.

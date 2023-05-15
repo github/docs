@@ -13,4 +13,6 @@ children:
   - /installing-an-oauth-app-in-your-organization
   - /authorizing-oauth-apps
   - /reviewing-your-authorized-applications-oauth
+  - /connecting-with-third-party-applications
 ---
+

@@ -28,7 +28,9 @@ Regardless of who pays for a codespace, only people who can either push changes 
 - Ensure that the user has read access to the repository, and the repository permits forking, so that the user can create a codespace from the repository, push their changes to a fork, and create a pull request for any changes they want to make. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 - Ensure that the user has write access to the repository, so that they can push changes directly to the repository without forking.
 
-You must also ensure that your organization does not have an IP address allow list enabled. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+You must also ensure that{% ifversion ghec %}:
+- Your enterprise does not use OIDC with CAP. For more information, see "[About support for your IdP's Conditional Access Policy](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
+- Your{% else %} your{% endif %} organization does not have an IP address allow list enabled. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 To allow people to create codespaces for which your organization will be billed, you must:
 
