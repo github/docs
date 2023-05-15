@@ -54,7 +54,7 @@ For example, you could create an organization-wide policy that restricts the bas
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Base images**.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. Click {% octicon "pencil" aria-label="Edit policy" %} to edit the constraint.
 1. In the "Allowed values" field, enter the complete URL of an image you want to allow.
 
    ![Screenshot of the URL "mcr.microsoft.com/vscode/devcontainers/java" entered in the "Allowed values" field.](/assets/images/help/codespaces/image-allowed-values.png)
@@ -65,7 +65,7 @@ For example, you could create an organization-wide policy that restricts the bas
 
    {% endnote %}
 
-1. Click the plus button ({% octicon "plus" aria-label="The plus icon" %}) to add the value.
+1. Click {% octicon "plus" aria-label="Add button" %} to add the value.
 1. If required, repeat the previous two steps to add more image URLs.
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
@@ -83,7 +83,7 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to define the allowed images](#adding-a-policy-to-define-the-allowed-images)."
 1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Base images" constraint.
+1. Beside the "Base images" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Add or remove image URLs.
 1. Click **Save**.
 

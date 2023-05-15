@@ -41,6 +41,8 @@ You do not need to provide a payment method during the trial.
 
 {% data variables.product.prodname_emus %} is not part of the free trial of {% data variables.product.prodname_ghe_cloud %}. If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
+{% data reusables.enterprise.ghec-trial-azure %}
+
 ## Features not included in the trial
 
 The following features are not included in the trial of {% data variables.product.prodname_ghe_cloud %}:

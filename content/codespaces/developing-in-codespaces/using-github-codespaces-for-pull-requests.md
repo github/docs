@@ -28,7 +28,7 @@ redirect_from:
 
 1. In the list of pull requests, click the pull request you'd like to open in {% data variables.product.prodname_codespaces %}.
 1. On the right-hand side of your screen, click **{% octicon "code" aria-hidden="true" %} Code**.
-1. In the {% data variables.product.prodname_codespaces %} tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %})
+1. In the {% data variables.product.prodname_codespaces %} tab, click {% octicon "plus" aria-label="Create a codespace on BRANCH" %}.
 
    ![Screenshot of the "Code" dropdown with the "{% data variables.product.prodname_codespaces %}" tab selected. The message "No codespaces" is displayed. The plus button is highlighted.](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 
