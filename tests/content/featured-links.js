@@ -1,29 +1,10 @@
-import fs from 'fs/promises'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import { jest } from '@jest/globals'
 
-import { beforeAll, jest } from '@jest/globals'
-import nock from 'nock'
-
-import { getDOM, getJSON } from '../helpers/e2etest.js'
+import { getDOM } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('featuredLinks', () => {
   jest.setTimeout(3 * 60 * 1000)
-
-  beforeAll(async () => {
-    const packagesFeedFixturePayload = await fs.readFile(
-      path.join(__dirname, '../fixtures/github-blog-feed-packages-2021.xml'),
-      'utf-8'
-    )
-    nock('https://github.blog')
-      .get('/changelog/label/packages/feed')
-      .reply(200, packagesFeedFixturePayload)
-  })
-
-  afterAll(() => nock.cleanAll())
 
   describe('rendering', () => {
     test('non-TOC pages do not have intro links', async () => {
@@ -53,7 +34,7 @@ describe('featuredLinks', () => {
       const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks.length > 0).toBeTruthy()
       expect($featuredLinks.eq(0).attr('href')).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/github/getting-started-with-github/githubs-products`
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/learning-about-github/githubs-products`
       )
       expect($featuredLinks.eq(0).children('h3').text().startsWith('GitHub’s products')).toBe(true)
       expect(
@@ -86,24 +67,6 @@ describe('featuredLinks', () => {
         false
       )
       expect($productArticlesLinks.text().includes('Setting your billing email'), msg).toBe(false)
-    })
-  })
-
-  describe('context.page object', () => {
-    test('returns modified array of links', async () => {
-      const gettingStartedLinks = await getJSON('/en?json=featuredLinks.gettingStarted')
-      const expectedFirstLink = {
-        href: '/en/get-started/quickstart/set-up-git',
-        title: 'Set up Git',
-      }
-      expect(gettingStartedLinks[0].href).toEqual(expectedFirstLink.href)
-      expect(gettingStartedLinks[0].title).toEqual(expectedFirstLink.title)
-      expect(gettingStartedLinks[0].intro.startsWith('At the heart of GitHub')).toBe(true)
-    })
-
-    test('returns raw array of links on the page object', async () => {
-      const rawGettingStartedLinks = await getJSON('/en?json=page.featuredLinks.gettingStarted')
-      expect(rawGettingStartedLinks[0]).toEqual('/get-started/quickstart/set-up-git')
     })
   })
 })

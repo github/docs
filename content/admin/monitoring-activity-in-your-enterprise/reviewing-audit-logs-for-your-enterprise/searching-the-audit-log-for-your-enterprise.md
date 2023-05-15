@@ -18,22 +18,19 @@ topics:
   - Auditing
   - Enterprise
   - Logging
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About search for the enterprise audit log
 
 You can search your enterprise audit log directly from the user interface by using the **Filters** dropdown, or by typing a search query.
 
-  ![Search query](/assets/images/enterprise/site-admin-settings/search-query.png)
-
-For more information about viewing your enterprise audit log, see "[Accessing the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)." 
+For more information about viewing your enterprise audit log, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)."
 
 {% data reusables.audit_log.git-events-not-in-search-results %}
 
-You can also use the API to retrieve audit log events. For more information, see "[Using the audit log API for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
+You can also use the API to retrieve audit log events. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)."
 
-You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[Searching on {% data variables.product.prodname_dotcom %}](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 
 {% note %}
 
@@ -63,30 +60,45 @@ You can compose a search query from one or more `key:value` pairs, separated by 
 The `key:value` pairs that can be used in a search query are:
 
 Key            | Value
---------------:| --------------------------------------------------------
-`actor_id`     | ID of the user account that initiated the action
-`actor`        | Name of the user account that initiated the action
-`oauth_app_id` | ID of the OAuth application associated with the action
-`action`       | Name of the audited action
-`user_id`      | ID of the user affected by the action
-`user`         | Name of the user affected by the action
-`repo_id`      | ID of the repository affected by the action (if applicable)
-`repo`         | Name of the repository affected by the action (if applicable)
-`actor_ip`     | IP address from which the action was initiated
-`created`      | Time at which the action occurred{% ifversion ghes %}. If querying the audit log from the site admin dashboard, use `created_at` instead{% endif %}
-`from`         | View from which the action was initiated
-`note`         | Miscellaneous event-specific information (in either plain text or JSON format)
-`org`          | Name of the organization affected by the action (if applicable)
-`org_id`       | ID of the organization affected by the action (if applicable)
-`business` | Name of the enterprise affected by the action (if applicable)
-`business_id` | ID of the enterprise affected by the action (if applicable)
+-------------- | --------------------------------------------------------
+`action`       | Name of the audited action.
+`actor`        | Name of the user account that initiated the action.
+{%- ifversion ghes or ghae %}
+`actor_id`     | ID of the user account that initiated the action.{% endif %}
+{%- ifversion ghes or ghae %}
+`actor_ip`     | IP address from which the action was initiated.{% endif %}
+{%- ifversion ghes or ghae %}
+`business` | Name of the enterprise affected by the action (if applicable).{% endif %}
+{%- ifversion ghes or ghae %}
+`business_id` | ID of the enterprise affected by the action (if applicable).{% endif %}
 {%- ifversion token-audit-log %}
-`hashed_token` | The token used to authenticate for the action (if applicable, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)")
-{%- endif %}
+`created`      | Time at which the action occurred.{% ifversion ghes %} If querying the audit log from the site admin dashboard, use `created_at` instead.{% endif %}
+`country`           | Name of the country where the actor was when performing the action.
+`country_code`      | Two-letter short code of the country where the actor was when performing the action.
+{%- ifversion ghes or ghae %}
+`from`         | View from which the action was initiated.{% endif %}
+`hashed_token` | The token used to authenticate for the action (if applicable, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)"). {% endif %}
+`ip`                | IP address of the actor.
+{%- ifversion ghes or ghae %}
+`note`         | Miscellaneous event-specific information (in either plain text or JSON format).{% endif %}
+{%- ifversion ghes or ghae %}
+`oauth_app_id` | ID of the OAuth application associated with the action.{% endif %}
+`operation`         | Operation type that corresponds with the action. Operation types are `create`, `access`, `modify`, `remove`, `authentication`, `transfer`, and `restore`.
+{%- ifversion ghes or ghae %}
+`org`          | Name of the organization affected by the action (if applicable).{% endif %}
+{%- ifversion ghes or ghae %}
+`org_id`       | ID of the organization affected by the action (if applicable).{% endif %}
+{%- ifversion ghes or ghae %}
+`repo_id`      | ID of the repository affected by the action (if applicable).{% endif %}
+`repository`        | Name with owner of the repository where the action occurred (such as `octocat/octo-repo`).
+{%- ifversion ghes or ghae %}
+`user_id`      | ID of the user affected by the action.{% endif %}
+`user`         | Name of the user affected by the action.
+
 
 To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
 
-For a full list of actions in your enterprise audit log, see "[Audit log actions for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
+For a full list of actions in your enterprise audit log, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."
 
 ## Searching the audit log
 
@@ -111,6 +123,7 @@ Each category has a set of associated actions that you can filter on. For exampl
 Actions that can be found in your enterprise audit log are grouped within the following categories:
 
 {% data reusables.audit_log.audit-log-action-categories %}
+
 ### Search based on time of action
 
 Use the `created` qualifier to filter events in the audit log based on when they occurred.
@@ -137,5 +150,5 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 {% ifversion token-audit-log %}
 ### Search based on the token that performed the action
 
-Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
+Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."
 {% endif %}

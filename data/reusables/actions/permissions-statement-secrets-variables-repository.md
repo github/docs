@@ -1,0 +1,1 @@
+To create secrets {% ifversion actions-configuration-variables %}or variables {% endif %}for a personal account repository, you must be the repository owner. To create secrets {% ifversion actions-configuration-variables %}or variables {% endif %}for an organization repository, you must have `admin` access.

@@ -1,0 +1,1 @@
+The owner of a personal account can choose whether or not to publicly display an email address. If a user chooses not to display the email address, you cannot view the email address. Without SAML, {% data variables.product.prodname_dotcom %} cannot display external identity information, like the `NameID`, which is typically an email address.

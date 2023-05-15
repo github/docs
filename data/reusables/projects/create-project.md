@@ -1,9 +1,11 @@
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-1. Under your organization name, click {% octicon "table" aria-label="The project icon" %} **Projects**.
+1. Under your organization name, click {% octicon "table" aria-hidden="true" %} **Projects**.
   ![Screenshot showing the 'Projects' tab](/assets/images/help/projects-v2/tab-projects.png)
 1. Click **New project**.
-   ![Screenshot showing New project button](/assets/images/help/projects-v2/new-project-button.png)
-1. When prompted to select a template, click a template or, to start with an empty project, click **Table** or **Board**. Then, click **Create**.
-
-   ![Screenshot showing template selection modal](/assets/images/help/issues/projects-select-template.png)
+1. Optionally, in the text box under "Project name", type a name for your new project.
+  
+  ![Screenshot showing the template selection modal. The title field is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-select-template-title.png)
+  
+1. Click a {% ifversion projects-v2-org-templates %}built-in template, a template from your organization{% else %}template{% endif %} or, to start with an empty project, click **Table** or **Board**.
+1. Click **Create**.

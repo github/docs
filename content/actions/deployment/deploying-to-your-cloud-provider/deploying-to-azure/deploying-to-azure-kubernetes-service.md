@@ -24,7 +24,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 
@@ -78,12 +78,12 @@ jobs:
     - uses: {% data reusables.actions.action-checkout %}
 
     - name: Azure Login
-      uses: azure/login@89d153571fe9a34ed70fcf9f1d95ab8debea7a73
+      uses: azure/login@14a755a4e2fd6dff25794233def4f2cf3f866955
       with:
         creds: {% raw %}${{ secrets.AZURE_CREDENTIALS }}{% endraw %}
 
     - name: Build image on ACR
-      uses: azure/CLI@7378ce2ca3c38b4b063feb7a4cbe384fef978055
+      uses: azure/CLI@61bb69d64d613b52663984bf12d6bac8fd7b3cc8
       with:
         azcliversion: 2.29.1
         inlineScript: |
@@ -91,7 +91,7 @@ jobs:
           az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
     
     - name: Gets K8s context
-      uses: azure/aks-set-context@4e5aec273183a197b181314721843e047123d9fa
+      uses: azure/aks-set-context@94ccc775c1997a3fcfbfbce3c459fec87e0ab188
       with:
           creds: {% raw %}${{ secrets.AZURE_CREDENTIALS }}{% endraw %}
           resource-group: {% raw %}${{ env.RESOURCE_GROUP }}{% endraw %}
@@ -99,7 +99,7 @@ jobs:
       id: login
 
     - name: Configure deployment
-      uses: azure/k8s-bake@773b6144a3732e3bf4c78b146a0bb9617b2e016b
+      uses: azure/k8s-bake@61041e8c2f75c1f01186c8f05fb8b24e1fc507d8
       with:
         renderEngine: 'helm'
         helmChart: {% raw %}${{ env.CHART_PATH }}{% endraw %}
@@ -110,7 +110,7 @@ jobs:
       id: bake
 
     - name: Deploys application
-    - uses: Azure/k8s-deploy@c8fbd76ededaad2799c054a9fd5d0fa5d4e9aee4
+    - uses: Azure/k8s-deploy@dd4bbd13a5abd2fc9ca8bdcb8aee152bb718fa78
       with:
         manifests: {% raw %}${{ steps.bake.outputs.manifestsBundle }}{% endraw %}
         images: |

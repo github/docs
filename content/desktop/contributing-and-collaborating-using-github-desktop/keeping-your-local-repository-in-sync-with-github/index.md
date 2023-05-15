@@ -4,7 +4,7 @@ intro: 'You can keep your local repository in sync with your remote repository a
 versions:
   fpt: '*'
 children:
-  - /syncing-your-branch
+  - /syncing-your-branch-in-github-desktop
 shortTitle: Sync your local repo
 ---
 

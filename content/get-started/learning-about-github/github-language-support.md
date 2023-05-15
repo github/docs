@@ -16,7 +16,7 @@ redirect_from:
 
 ## About supported languages
 
-Most {% data variables.product.prodname_dotcom %} features work regardless of which languages your code is written in. You can search for code or enable syntax highlighting based on any language known to {% data variables.product.prodname_dotcom %}. For more information, see "[Searching code](/github/searching-for-information-on-github/searching-code#search-by-language)" or "[Creating and highlighting code blocks](/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting)."
+Most {% data variables.product.prodname_dotcom %} features work regardless of which languages your code is written in. You can search for code or enable syntax highlighting based on any language known to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/understanding-github-code-search-syntax#language-qualifier){% else %}(/search-github/searching-on-github/searching-code#search-by-language){% endif %}" or "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks#syntax-highlighting)."
 
 Some {% data variables.product.prodname_dotcom %} products have features that are currently only supported for a subset of programming languages.
 
@@ -39,4 +39,8 @@ Some features are supported for additional languages or package managers. If you
 {% data reusables.supported-languages.scala %}
 {% data reusables.supported-languages.typescript %}
 
-[1] These languages are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
+{% note %}
+
+**Note:** PHP{% ifversion ghae %}, Ruby,{% endif %} and Scala are supported for {% data variables.product.prodname_code_scanning %} by third-party actions.
+
+{% endnote %}

@@ -26,23 +26,21 @@ shortTitle: Large files
 
 ## About size limits on {% data variables.product.product_name %}
 
-{% ifversion fpt or ghec %}
-{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file and repository sizes. To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.
+{% data variables.product.product_name %} tries to provide abundant storage for all Git repositories, although there are hard limits for file {% ifversion fpt or ghec or ghae %}and repository sizes{% else %} sizes and recommendations for repository sizes{% endif %}. {% ifversion fpt or ghec %}To ensure performance and reliability for our users, we actively monitor signals of overall repository health. Repository health is a function of various interacting factors, including size, commit frequency, contents, and structure.{% endif %}
 
 ### File size limits
-{% endif %}
 
 {% data variables.product.product_name %} limits the size of files allowed in repositories. If you attempt to add or update a file that is larger than {% data variables.large_files.warning_size %}, you will receive a warning from Git. The changes will still successfully push to your repository, but you can consider removing the commit to minimize performance impact. For more information, see "[Removing files from a repository's history](#removing-files-from-a-repositorys-history)."
 
 {% note %}
 
-**Note:** If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[Adding a file to a repository](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
+**Note:** If you add a file to a repository via a browser, the file can be no larger than {% data variables.large_files.max_github_browser_size %}. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
 
 {% endnote %}
 
-{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}.  For more information, see "[Setting Git push limits](/enterprise/admin/guides/installation/setting-git-push-limits)."{% endif %}
+{% ifversion ghes %}By default, {% endif %}{% data variables.product.product_name %} blocks files larger than {% data variables.large_files.max_github_size %}. {% ifversion ghes %}However, a site administrator can configure a different limit for {% data variables.location.product_location %}.  For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."{% endif %}
 
-To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[About {% data variables.large_files.product_name_long %}](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
+To track files beyond this limit, you must use {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}). For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)."
 
 If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %} instead of tracking the files. For more information, see "[Distributing large binaries](#distributing-large-binaries)."
 
@@ -56,6 +54,14 @@ We recommend repositories remain small, ideally less than 1 GB, and less than 5 
 External dependencies can cause Git repositories to become very large. To avoid filling a repository with external dependencies, we recommend you use a package manager. Popular package managers for common languages include [Bundler](http://bundler.io/), [Node's Package Manager](http://npmjs.org/), and [Maven](http://maven.apache.org/). These package managers support using Git repositories directly, so you don't need pre-packaged sources.
 
 Git is not designed to serve as a backup tool. However, there are many solutions specifically designed for performing backups, such as [Arq](https://www.arqbackup.com/), [Carbonite](http://www.carbonite.com/), and [CrashPlan](https://www.crashplan.com/en-us/).
+{% endif %}
+
+{% ifversion ghes %}
+### Repository size recommendations
+
+We recommend repositories remain small, ideally less than 1 GB, and less than 5 GB is strongly recommended. Smaller repositories are faster to clone and easier to work with and maintain. 
+
+You can prevent your repository from impacting your infrastructure by effectively managing your repository's size and overall health. You can find advice and a tool for repository analysis in the [github/git-sizer](https://github.com/github/git-sizer) repository.
 {% endif %}
 
 ## Removing files from a repository's history
@@ -92,11 +98,11 @@ If the file was added with your most recent commit, and you have not pushed to {
 
 ### Removing a file that was added in an earlier commit
 
-If you added a file in an earlier commit, you need to remove it from the repository's history. To remove files from the repository's history, you can use the BFG Repo-Cleaner or the `git filter-branch` command. For more information see "[Removing sensitive data from a repository](/github/authenticating-to-github/removing-sensitive-data-from-a-repository)."
+If you added a file in an earlier commit, you need to remove it from the repository's history. To remove files from the repository's history, you can use the BFG Repo-Cleaner or the `git filter-repo` command. For more information see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 ## Distributing large binaries
 
-If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[About releases](/github/administering-a-repository/about-releases)."
+If you need to distribute large files within your repository, you can create releases on {% data variables.location.product_location %}. Releases allow you to package software, release notes, and links to binary files, for other people to use. For more information, visit "[AUTOTITLE](/repositories/releasing-projects-on-github/about-releases)."
 
 {% ifversion fpt or ghec %}
 

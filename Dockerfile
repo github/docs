@@ -3,7 +3,9 @@
 # --------------------------------------------------------------------------------
 # BASE IMAGE
 # --------------------------------------------------------------------------------
-FROM node:16.18.0-alpine@sha256:f16544bc93cf1a36d213c8e2efecf682e9f4df28429a629a37aaf38ecfc25cf4 as base
+# To update the sha, run `docker pull node:$VERSION-alpine`
+# look for something like: `Digest: sha256:0123456789abcdef`
+FROM node:18.16-alpine@sha256:1ccc70acda680aa4ba47f53e7c40b2d4d6892de74817128e0662d32647dd7f4d as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -24,9 +26,9 @@ COPY --chown=node:node package.json package-lock.json ./
 RUN npm ci --no-optional --registry https://registry.npmjs.org/
 
 # For Next.js v12+
-# This the appropriate necessary extra for node:16-alpine
+# This the appropriate necessary extra for node:VERSION-alpine
 # Other options are https://www.npmjs.com/search?q=%40next%2Fswc
-RUN npm i @next/swc-linux-x64-musl --no-save
+RUN npm i @next/swc-linux-x64-musl --no-save || npm i @next/swc-linux-arm64-musl --no-save
 
 
 # ---------------
@@ -46,6 +48,9 @@ COPY stylesheets ./stylesheets
 COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
+COPY src ./src
+# The star is because it's an optional directory
+COPY .remotejson-cache* ./.remotejson-cache
 # Certain content is necessary for being able to build
 COPY content/index.md ./content/index.md
 COPY content/rest ./content/rest
@@ -86,6 +91,8 @@ COPY --chown=node:node package.json ./
 COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
+COPY --chown=node:node src ./src
+COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
 COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
@@ -100,6 +107,10 @@ CMD ["node", "server.js"]
 # PRODUCTION IMAGE - includes all translations
 # --------------------------------------------------------------------------------
 FROM preview as production
+
+# Override what was set for previews
+# Make this match the default of `Object.keys(languages)` in lib/languages.js
+ENV ENABLED_LANGUAGES "en,zh,es,pt,ru,ja,fr,de,ko"
 
 # Copy in all translations
 COPY --chown=node:node translations ./translations

@@ -1,0 +1,29 @@
+name: Codeowners - Docs Engineering
+
+# **What it does**: Automatically add reviewers based on paths, but only for the docs-internal repo.
+# And sets the 'engineering' label on the PR.
+# **Why we have it**: So we can have reviewers automatically without getting open source notifications.
+# **Who does it impact**: Docs team.
+
+on:
+  pull_request:
+    paths:
+      - '**.js'
+      - '**.ts'
+      - '**.tsx'
+      - '**.scss'
+      - 'src/**'
+      - '.github/**'
+      - '**Dockerfile'
+      - 'package*.json'
+
+jobs:
+  codeowners-docs-engineering:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Docs Engineering as a reviewer
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          PR: ${{ github.event.pull_request.html_url }}
+        run: gh pr edit $PR --add-reviewer github/docs-engineering --add-label engineering

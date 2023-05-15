@@ -21,7 +21,7 @@ shortTitle: Manually sync actions
 
 {% ifversion ghes or ghae %}
 
-The recommended approach of enabling access to actions from {% data variables.product.prodname_dotcom_the_website %} is to enable automatic access to all actions. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Enabling automatic access to {% data variables.product.prodname_dotcom_the_website %} actions using {% data variables.product.prodname_github_connect %}](/enterprise/admin/github-actions/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
+The recommended approach of enabling access to actions from {% data variables.product.prodname_dotcom_the_website %} is to enable automatic access to all actions. You can do this by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.product_name %} with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
 
 However, if you want stricter control over which actions are allowed in your enterprise, you{% else %}You{% endif %} can follow this guide to use {% data variables.product.company_short %}'s open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise.
 
@@ -35,14 +35,14 @@ The `actions-sync` tool can only download actions from {% data variables.product
 
 {% note %}
 
-**Note:** The `actions-sync` tool is intended for use in systems where {% data variables.product.prodname_github_connect %} is not enabled. If you run the tool on a system with {% data variables.product.prodname_github_connect %} enabled, you may see the error `The repository <repo_name> has been retired and cannot be reused`. This indicates that a workflow has used that action directly on {% data variables.product.prodname_dotcom_the_website %} and the namespace is retired on {% data variables.location.product_location %}. For more information, see "[Automatic retirement of namespaces for actions accessed on {% data variables.product.prodname_dotcom_the_website%}](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)." 
+**Note:** The `actions-sync` tool is intended for use in systems where {% data variables.product.prodname_github_connect %} is not enabled. If you run the tool on a system with {% data variables.product.prodname_github_connect %} enabled, you may see the error `The repository <repo_name> has been retired and cannot be reused`. This indicates that a workflow has used that action directly on {% data variables.product.prodname_dotcom_the_website %} and the namespace is retired on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)." 
 
 {% endnote %}
 
 ## Prerequisites
 
-* Before using the `actions-sync` tool, you must ensure that all destination organizations already exist in your enterprise. The following example demonstrates how to sync actions to an organization named `synced-actions`. For more information, see "[Creating a new organization from scratch](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
-* You must create a {% data variables.product.pat_generic %} on your enterprise that can create and write to repositories in the destination organizations. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."{% ifversion ghes %}
+* Before using the `actions-sync` tool, you must ensure that all destination organizations already exist in your enterprise. The following example demonstrates how to sync actions to an organization named `synced-actions`. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+* You must create a {% data variables.product.pat_generic %} on your enterprise that can create and write to repositories in the destination organizations. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."{% ifversion ghes %}
 * If you want to sync the bundled actions in the `actions` organization on {% data variables.location.product_location %}, you must be an owner of the `actions` organization.
 
   {% note %}
@@ -51,7 +51,7 @@ The `actions-sync` tool can only download actions from {% data variables.product
   
   {% endnote %}
 
-  Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. For more information, see "[Accessing the administrative shell (SSH)](/admin/configuration/accessing-the-administrative-shell-ssh)" and "[`ghe-org-admin-promote`](/admin/configuration/command-line-utilities#ghe-org-admin-promote)."
+  Site administrators can use the `ghe-org-admin-promote` command in the administrative shell to promote a user to be an owner of the bundled `actions` organization. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-admin-promote)."
 
   ```shell
   ghe-org-admin-promote -u USERNAME -o actions
@@ -95,4 +95,4 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
    uses: synced-actions/actions-stale@v1
    ```
 
-   For more information, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."
+   For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses)."

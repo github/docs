@@ -5,7 +5,7 @@ import {
   isDocsTeamMember,
   findFieldID,
   findSingleSelectID,
-  generateUpdateProjectNextItemFieldMutation,
+  generateUpdateProjectV2ItemFieldMutation,
 } from './projects.js'
 
 async function getAllOpenPRs() {
@@ -104,7 +104,7 @@ async function run() {
     `
       query ($organization: String!, $projectNumber: Int!) {
         organization(login: $organization) {
-          projectNext(number: $projectNumber) {
+          projectV2(number: $projectNumber) {
             id
             items(last: 100) {
               nodes {
@@ -113,9 +113,18 @@ async function run() {
             }
             fields(first: 100) {
               nodes {
-                id
-                name
-                settings
+                ... on ProjectV2Field {
+                  id
+                  name
+                }
+                ... on ProjectV2SingleSelectField {
+                  id
+                  name
+                  options {
+                    id
+                    name
+                  }
+                }
               }
             }
           }
@@ -132,13 +141,13 @@ async function run() {
   )
 
   // Get the project ID
-  const projectID = projectData.organization.projectNext.id
+  const projectID = projectData.organization.projectV2.id
 
   // Get the IDs of the last 100 items on the board.
   // Until we have a way to check from a PR whether the PR is in a project,
   // this is how we (roughly) avoid overwriting PRs that are already on the board.
   // If we are overwriting items, query for more items.
-  const existingItemIDs = projectData.organization.projectNext.items.nodes.map((node) => node.id)
+  const existingItemIDs = projectData.organization.projectV2.items.nodes.map((node) => node.id)
 
   // Get the ID of the fields that we want to populate
   const datePostedID = findFieldID('Date posted', projectData)
@@ -153,6 +162,7 @@ async function run() {
   const readyForReviewID = findSingleSelectID('Ready for review', 'Status', projectData)
   const hubberTypeID = findSingleSelectID('Hubber or partner', 'Contributor type', projectData)
   const docsMemberTypeID = findSingleSelectID('Docs team', 'Contributor type', projectData)
+  const sizeMediumID = findSingleSelectID('M', 'Size', projectData)
 
   // Add the PRs to the project
   const itemIDs = await addItemsToProject(prIDs, projectID)
@@ -178,7 +188,7 @@ async function run() {
   // Populate fields for the new project items
   // (Using for...of instead of forEach since the function uses await)
   for (const [index, itemID] of newItemIDs.entries()) {
-    const updateProjectNextItemMutation = generateUpdateProjectNextItemFieldMutation({
+    const updateProjectV2ItemMutation = generateUpdateProjectV2ItemFieldMutation({
       item: itemID,
       author: newItemAuthors[index],
       turnaround: 2,
@@ -189,7 +199,7 @@ async function run() {
       : hubberTypeID
     console.log(`Populating fields for item: ${itemID} with author ${newItemAuthors[index]}`)
 
-    await graphql(updateProjectNextItemMutation, {
+    await graphql(updateProjectV2ItemMutation, {
       project: projectID,
       statusID,
       statusValueID: readyForReviewID,
@@ -198,12 +208,11 @@ async function run() {
       contributorTypeID,
       contributorType,
       sizeTypeID,
-      sizeType: '', // Although we aren't populating size, we are passing the variable so that we can use the shared mutation function
+      sizeType: sizeMediumID, // We need to provide something here, defaulting to 'medium' or 'M'
       featureID,
       authorID,
       headers: {
         authorization: `token ${process.env.TOKEN}`,
-        'GraphQL-Features': 'projects_next_graphql',
       },
     })
     console.log('Done populating fields for item')
