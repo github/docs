@@ -12,7 +12,6 @@ topics:
   - Actions
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
