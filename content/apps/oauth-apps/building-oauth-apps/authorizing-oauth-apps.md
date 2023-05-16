@@ -63,7 +63,7 @@ Parameter name | Type | Description
 `state` | `string` | {% data reusables.apps.state_description %}
 `allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
 
-The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time.
+The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time. CORS pre-flight requests (OPTIONS) are not supported at this time.
 
 ### 2. Users are redirected back to your site by GitHub
 
