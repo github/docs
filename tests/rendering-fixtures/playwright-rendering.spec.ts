@@ -402,3 +402,25 @@ test.describe('survey', () => {
     await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
   })
 })
+
+test.describe('rest API reference pages', () => {
+  test('REST code-scanning', async ({ page }) => {
+    await page.goto('/rest')
+    await page.getByRole('treeitem', { name: 'Code Scanning' }).locator('svg').click()
+    await page.getByText('Code Scanning').click()
+    await page.getByTestId('sidebar').getByRole('link', { name: 'About code scanning' }).click()
+    await expect(page).toHaveURL(/\/en\/rest\/code-scanning\?apiVersion=/)
+    await expect(page).toHaveTitle(/Code Scanning - GitHub Docs/)
+  })
+  test('REST actions', async ({ page }) => {
+    await page.goto('/rest')
+    await page.getByTestId('sidebar').getByText('Actions').click()
+    await page.getByTestId('rest-subcategory').getByRole('link', { name: 'Artifacts' }).click()
+    await page
+      .getByTestId('rest-subcategory')
+      .getByRole('link', { name: 'About artifacts in GitHub Actions' })
+      .click()
+    await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
+    await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
+  })
+})
