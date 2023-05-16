@@ -262,7 +262,8 @@ some code
 | [\`issues\`](/webhooks/event-payloads/#issues) | - \`opened\`<br/>- \`edited\`<br/>- \`other\` |`
     const file = await renderContent(content)
     expect(file).toBe(
-      '<table><thead><tr><th>Webhook event payload</th><th>Activity types</th></tr></thead><tbody><tr><td><a href="/webhooks/event-payloads/#issues"><code>issues</code></a></td><td>- <code>opened</code><br>- <code>edited</code><br>- <code>other</code></td></tr></tbody></table>'
+      '<table><thead><tr><th scope="col">Webhook event payload</th><th scope="col">Activity types</th></tr></thead>' +
+        '<tbody><tr><td><a href="/webhooks/event-payloads/#issues"><code>issues</code></a></td><td>- <code>opened</code><br>- <code>edited</code><br>- <code>other</code></td></tr></tbody></table>'
     )
   })
 

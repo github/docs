@@ -44,7 +44,7 @@ If you add an organization-wide policy, you should set it to the most lenient vi
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Port visibility**.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. Click {% octicon "pencil" aria-label="Edit policy" %} to edit the constraint.
 1. Clear the selection of the port visibility options (**Org** or **Public**) that you don't want to be available.
 
    ![Screenshot of the "Allowed values" dropdown, with two checkboxes. "Org" is selected and "Public" is cleared.](/assets/images/help/codespaces/choose-port-visibility-options.png)
@@ -65,10 +65,10 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
 1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Port visibility" constraint.
+1. Beside the "Port visibility" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Make the required changes then click **Save**.
 
-## Deleting a policy 
+## Deleting a policy
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to limit the port visibility options](#adding-a-policy-to-limit-the-port-visibility-options)."
 {% data reusables.codespaces.delete-codespace-policy %}

@@ -32,7 +32,7 @@ const maxWidthPathPartRegex = /\/mw-(\d+)\//
  * At the moment, the only business need is for 1,000 pixels, so the array
  * only has one. But can change in the future and make this sentence moot.
  */
-const VALID_MAX_WIDTHS = [1000]
+const VALID_MAX_WIDTHS = [1440, 1000]
 
 export default async function dynamicAssets(req, res, next) {
   if (!req.url.startsWith('/assets/')) return next()

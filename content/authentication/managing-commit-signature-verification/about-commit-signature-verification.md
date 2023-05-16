@@ -58,7 +58,7 @@ For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-me
 {% endif %}
 
 
-Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-signed-commits)."
+Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-signed-commits)."
 
 {% data reusables.identity-and-permissions.verification-status-check %}
 

@@ -26,12 +26,14 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 
 1. Navigate to the comment you'd like to hide.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
-  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete options](/assets/images/help/repository/comment-menu.png)
-3. Using the "Choose a reason" drop-down menu, click a reason to hide the comment. Then click, **Hide comment**.
+
+  ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Hide" is outlined in orange.](/assets/images/help/repository/comment-menu-hide.png)
+
+3. Using the "Choose a reason" dropdown menu, choose a reason to hide the comment. Then select **Hide comment**.
   {% ifversion fpt or ghec %}
-  ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
+  ![Screenshot of a {% data variables.product.prodname_dotcom %} comment showing a menu to select a reason to hide the comment: Spam, Abuse, Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
   {% else %}
-  ![Choose reason for hiding comment drop-down menu](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
+  ![Screenshot of a {% data variables.product.prodname_dotcom %} comment showing a menu to select a reason to hide the comment: Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
   {% endif %}
 
 ## Unhiding a comment
@@ -41,7 +43,8 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 1. Navigate to the comment you'd like to unhide.
 1. On the right side of the comment, click **{% octicon "fold" aria-hidden="true" %} Show comment**.
 1. On the right side of the expanded comment, select the {% octicon "kebab-horizontal" aria-label="Show options" %} dropdown menu, then click **Unhide**.
-   ![The horizontal kebab icon and comment moderation menu showing the edit, unhide, delete options](/assets/images/help/repository/comment-menu-hidden.png)
+   
+   ![Screenshot of a pull request comment marked as spam. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Unhide" is outlined in orange.](/assets/images/help/repository/comment-menu-hidden.png)
 
 ## Editing a comment
 
@@ -53,7 +56,7 @@ Sometimes it may make sense to clearly indicate edits and their justification.
 
 That said, anyone with read access to a repository can view a comment's edit history. The **edited** dropdown at the top of the comment contains a history of edits showing the user and timestamp for each edit.
 
-![Comment with added note that content was redacted](/assets/images/help/repository/content-redacted-comment.png)
+![Screenshot of a comment by octo-user, which has been partially redacted. In the comment header, next to the text "edited by octocat", a dropdown icon is outlined in orange.](/assets/images/help/repository/content-redacted-comment.png)
 
 ## Redacting sensitive information
 
@@ -62,7 +65,8 @@ Comment authors and anyone with write access to a repository can also delete sen
 1. Navigate to the comment you'd like to edit.
 1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Edit**.
 
-  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
+   ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Edit" is outlined in orange.](/assets/images/help/repository/comment-menu-edit.png)
+
 1. In the comment window, delete the content you'd like to remove, then type `[REDACTED]` to replace it.
 1. At the bottom of the comment, type a note indicating that you have edited the comment, and optionally, why you edited the comment.
 1. Click **Update comment**.
@@ -89,7 +93,7 @@ Deleting a comment creates a timeline event that is visible to anyone with read 
 
 1. Navigate to the comment you'd like to delete.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-  ![The horizontal kebab icon and comment moderation menu showing the edit, hide, delete, and report options](/assets/images/help/repository/comment-menu.png)
+  ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Delete" is outlined in orange.](/assets/images/help/repository/comment-menu-delete.png)
 3. Optionally, write a comment noting that you deleted a comment and why.
 
 {% ifversion fpt or ghec %}

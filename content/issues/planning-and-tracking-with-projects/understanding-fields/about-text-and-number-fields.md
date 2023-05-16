@@ -20,19 +20,15 @@ Number fields can also be used in filters. You can use `>`, `>=`, `<`, `<=`, and
 ## Adding a text field
 
 {% data reusables.projects.new-field %}
-1. Select **Text**
-   ![Screenshot showing the text option](/assets/images/help/projects-v2/new-field-text.png)
+1. Select **Text**.
 1. Click **Save**.
-   ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
 
 ## Adding a number field
 
 {% data reusables.projects.new-field %}
-1. Select **Number**
-   ![Screenshot showing the number option](/assets/images/help/projects-v2/new-field-number.png)
+1. Select **Number**.
 1. Click **Save**.
-   ![Screenshot showing save button](/assets/images/help/projects-v2/new-field-save.png)
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."

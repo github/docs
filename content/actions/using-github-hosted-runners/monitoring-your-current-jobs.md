@@ -17,8 +17,6 @@ You can get a list of all jobs currently running on {% data variables.product.pr
 {% data reusables.actions.github-hosted-runners-table-entry %}
 1. Review the "Active jobs" section, which contains a list of all jobs currently running on {% data variables.product.prodname_dotcom %}-hosted runners.
 
-  ![Screenshot of the list of active jobs](/assets/images/help/settings/actions-runner-active-jobs.png)
-
 ## Viewing queued jobs in your organization or enterprise
 
 {% data variables.product.prodname_dotcom %}-hosted runners allow you to run jobs concurrently, and the maximum number of concurrent jobs will vary depending on your plan. If you reach the maximum number of concurrent jobs, any new jobs will start to enter a queue. To find out more about the number of concurrent jobs available to your plan, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)."

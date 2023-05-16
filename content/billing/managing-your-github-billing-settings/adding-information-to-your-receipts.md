@@ -50,7 +50,10 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 {% endnote %}
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.user-settings.payment-info-link %}
+1. At the top of the page, click **Payment information**.
+   
+   ![Screenshot of the "Billing Summary" section of the settings page. A link, labeled "Payment information," is highlighted with an orange outline.](/assets/images/help/settings/payment-info-link.png)
+
 1. Under "Payment information", next to "Additional information click **Add information**.
 
   ![Screenshot of the "Payment information" section. A link, labeled "Add information", is highlighted with an orange outline.](/assets/images/help/billing/settings_billing_add_billing_extra.png)

@@ -38,7 +38,7 @@ Here are the steps you'll take to configure the template GitHub App:
 
 You may find it helpful to have a basic understanding of the following:
 
-* [GitHub Apps](/apps/creating-github-apps/creating-github-apps/about-apps)
+* [GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)
 * [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
 * [REST APIs](/rest)
@@ -93,7 +93,7 @@ We recommend leaving this Terminal window open and keeping Smee connected while 
 
 If you don't yet have a GitHub account, now is a [great time to join](https://github.com/join). Don't forget to verify your email before continuing! To register a new app, visit the [app settings page](https://github.com/settings/apps) in your GitHub profile, and click **New GitHub App**.
 
-You'll see a form where you can enter details about your app. See "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)" for general information about the fields on this page. For the purposes of this guide, you'll need to enter specific data in a few fields:
+You'll see a form where you can enter details about your app. See "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" for general information about the fields on this page. For the purposes of this guide, you'll need to enter specific data in a few fields:
 
 {% note %}
 
@@ -237,12 +237,12 @@ To make API calls, you'll be using the [Octokit library](http://octokit.github.i
 
 You'll learn about authenticating as an installation in the [next section](#authenticating-as-an-installation).
 
-[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app) lets you do a couple of things:
+Authenticating as a GitHub App lets you do a couple of things:
 
  * You can retrieve high-level management information about your GitHub App.
  * You can request access tokens for an installation of the app.
 
-For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token.
+For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
 Before you can use the Octokit.rb library to make API calls, you'll need to initialize an [Octokit client](http://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as a GitHub App. The `authenticate_app` helper method does just that!
 

@@ -28,7 +28,7 @@ A CI server hosts code that runs CI tests such as code linters (which check styl
 
 The [Checks API](/rest/checks) allows you to set up CI tests that are automatically run against each code commit in a repository. The Checks API reports detailed information about each check on GitHub in the pull request's **Checks** tab. With the Checks API, you can create annotations with additional details for specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab.
 
-A _check suite_ is a group of _check runs_ (individual CI tests). Both the suite and the runs contain _statuses_ that are visible in a pull request on GitHub. You can use statuses to determine when a code commit introduces errors. Using these statuses with [protected branches](/rest/repos#branches) can prevent people from merging pull requests prematurely. See "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)" for more details.
+A _check suite_ is a group of _check runs_ (individual CI tests). Both the suite and the runs contain _statuses_ that are visible in a pull request on GitHub. You can use statuses to determine when a code commit introduces errors. Using these statuses with [protected branches](/rest/repos#branches) can prevent people from merging pull requests prematurely. See "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)" for more details.
 
 The Checks API sends the [`check_suite` webhook event](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) to all GitHub Apps installed on a repository each time new code is pushed to the repository. To receive all Checks API event actions, the app must have the `checks:write` permission. GitHub automatically creates `check_suite` events for new code commits in a repository using the default flow, although [Update repository preferences for check suites](/rest/checks#update-repository-preferences-for-check-suites) if you'd like. Here's how the default flow works:
 
@@ -135,7 +135,7 @@ The `requested` action requests a check run each time code is pushed to the repo
 You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
 
 ``` ruby
-# Create a new check run with the status queued
+# Create a new check run with status "queued"
 def create_check_run
   @installation_client.create_check_run(
     # [String, Integer, Hash, Octokit Repository object] A GitHub repository.

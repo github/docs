@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/uninstalling-github-desktop
 versions:
   fpt: '*'
-shortTitle: Uninstall GitHub Desktop
+shortTitle: Uninstalling
 ---
 {% mac %}
 

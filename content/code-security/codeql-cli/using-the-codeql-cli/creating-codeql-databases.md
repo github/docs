@@ -11,6 +11,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+   - /code-security/codeql-cli/creating-codeql-databases
 ---
 <!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/codeql-docs/indirect-tracing.-->

@@ -34,7 +34,7 @@ You have several options for triaging notifications from your inbox.
 
 | Triaging option | Description |
 |-----------------|-------------|
-| Save            | Saves your notification for later review. To save a notification, to the right of the notification, click {% octicon "bookmark" aria-label="The bookmark icon" %}. <br> <br> Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day. |
+| Save            | Saves your notification for later review. To save a notification, to the right of the notification, click {% octicon "bookmark" aria-label="Save" %}. <br> <br> Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day. |
 | Done            | Marks a notification as completed and removes the notification from your inbox. You can see all completed notifications by clicking **Done** in the sidebar or with the `is:done` query. Notifications marked as **Done** are saved for 5 months.
 | Unsubscribe     | Automatically removes the notification from your inbox and unsubscribes you from the conversation until you are @mentioned, a team you're on is @mentioned, or you're requested for review.
 | Read            | Marks a notification as read. To only view read notifications in your inbox, use the `is:read` query. This query doesn't include notifications marked as **Done**.
@@ -46,7 +46,7 @@ Before choosing a triage option, you can preview your notification's details fir
 
 ## Triaging multiple notifications at the same time
 
-To triage multiple notifications at once, select the relevant notifications and use the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down to choose a triage option.
+To triage multiple notifications at once, select the relevant notifications and use the {% octicon "kebab-horizontal" aria-label="More options" %} drop-down to choose a triage option.
 
 ![Screenshot of the "Notifications" page. A drop-down menu is highlighted with an orange outline.](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
 
@@ -59,7 +59,7 @@ By default, your inbox has filters for when you are assigned, participating in a
 You can add up to 15 of your own custom filters.
 
 {% data reusables.notifications.access_notifications %}
-2. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="The Gear icon" %}.
+2. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="Customize filters" %}.
 
   {% tip %}
 
@@ -106,8 +106,8 @@ To filter notifications for specific activity on {% data variables.location.prod
 - `is:release`
 - `is:repository-invitation`
 - `is:repository-vulnerability-alert`{% ifversion fpt or ghec %}
-- `is:repository-advisory`{% endif %}
-- `is:team-discussion`{% ifversion fpt or ghec %}
+- `is:repository-advisory`{% endif %}{% ifversion team-discussions %}
+- `is:team-discussion`{% endif %}{% ifversion fpt or ghec %}
 - `is:discussion`{% endif %}
 
 For information about reducing noise from notifications for {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
@@ -127,8 +127,8 @@ To filter notifications by why you've received an update, you can use the `reaso
 |-----------------|-------------|
 | `reason:assign` | When there's an update on an issue or pull request you've been assigned to.
 | `reason:author` | When you opened a pull request or issue and there has been an update or new comment.
-| `reason:comment`| When you commented on an issue, pull request, or team discussion.
-| `reason:participating` | When you have commented on an issue, pull request, or team discussion or you have been @mentioned.
+| `reason:comment`| When you commented on an issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %}.
+| `reason:participating` | When you have commented on an issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %} or you have been @mentioned.
 | `reason:invitation` | When you're invited to a team, organization, or repository.
 | `reason:manual` | When you click **Subscribe** on an issue or pull request you weren't already subscribed to.
 | `reason:mention` | You were directly @mentioned.

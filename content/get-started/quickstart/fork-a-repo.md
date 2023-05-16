@@ -57,12 +57,12 @@ You might fork a project to propose changes to the upstream repository. In this 
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to the [octocat/Spoon-Knife](https://github.com/octocat/Spoon-Knife) repository.
 1. In the top-right corner of the page, click **Fork**.
-
+   
    ![Screenshot of the main page of repository. A button, labeled with a fork icon and "Fork 59.3k," is outlined in dark orange.](/assets/images/help/repository/fork_button.png)
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 1. Under "Owner," select the dropdown menu and click an owner for the forked repository.
-1. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
-1. Optionally, in the "Description" field, type a description of your fork.
+2. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
+3. Optionally, in the "Description" field, type a description of your fork.
 {%- ifversion fpt or ghec or ghes > 3.6 or ghae > 3.6 %}
 1. Optionally, select **Copy the DEFAULT branch only**.
 

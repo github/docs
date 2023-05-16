@@ -189,15 +189,15 @@ server we've built above:
 That's it! You don't need to build your own deployment setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /rest/reference/repos#deployments
-[status API]: /guides/building-a-ci-server
+[deploy API]: /rest/repos#deployments
+[status API]: /rest/guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
-[using ngrok]: /webhooks/configuring/#using-ngrok
+[using ngrok]: /webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/delivering-deployments
 [Sinatra]: http://www.sinatrarb.com/
-[webhook]: /webhooks/
+[webhook]: /webhooks-and-events/webhooks/about-webhooks
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[access token]: /articles/creating-an-access-token-for-command-line-use
+[access token]: /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 [travis api]: https://api.travis-ci.com/docs/
 [janky]: https://github.com/github/janky
 [heaven]: https://github.com/atmos/heaven

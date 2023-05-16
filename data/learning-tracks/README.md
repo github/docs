@@ -53,4 +53,4 @@ If the `versions` property is not included, it's assumed the track is available 
 
 ## Schema enforcement
 
-The schema for validating the learning track YAML lives in [`tests/helpers/schemas/learning-tracks-schema.js`](tests/helpers/schemas/learning-tracks-schema.js) and is exercised by [`tests/content/lint-files.js`](tests/content/lint-files.js).
+The schema for validating the learning track YAML lives in [`src/content-linter/lib/learning-tracks-schema.js`](src/content-linter/lib/learning-tracks-schema.js) and is exercised by [`tests/content/lint-files.js`](tests/content/lint-files.js).

@@ -22,13 +22,19 @@ With {% data variables.product.prodname_emus %}, your enterprise uses your ident
 
 You can adjust the lifetime of a session, and how often a {% data variables.enterprise.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from  your IdP. The default lifetime is one hour. For more information, see "[Configurable token lifetimes in the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes)" in the Azure AD documentation.
 
+{% note %}
+
+**Note:** If you need assistance configuring the session lifetime, contact [Microsoft Support](https://support.microsoft.com).
+
+{% endnote %}
+
 {% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 {% data reusables.enterprise-accounts.oidc-gei-warning %}
 
 ## Identity provider support
 
-Support for OIDC is available for customers using Azure Active Directory (Azure AD). 
+Support for OIDC is available for customers using Azure Active Directory (Azure AD).
 
 Each Azure AD tenant can support only one OIDC integration with {% data variables.product.prodname_emus %}. If you want to connect Azure AD to more than one enterprise on {% data variables.product.prodname_dotcom %}, use SAML instead. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."
 
@@ -38,10 +44,11 @@ Each Azure AD tenant can support only one OIDC integration with {% data variable
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-1. Under "OpenID Connect single sign-on", select **Require OIDC single sign-on**.  
+1. Under "OpenID Connect single sign-on", select **Require OIDC single sign-on**.
 2. To continue setup and be redirected to Azure AD, click **Save**.
 {% data reusables.enterprise-accounts.emu-azure-admin-consent %}
 {% data reusables.enterprise-accounts.download-recovery-codes %}
+1. Click **Enable OIDC Authentication**.
 
 ## Enabling provisioning
 

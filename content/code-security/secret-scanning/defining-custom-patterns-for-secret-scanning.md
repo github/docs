@@ -189,7 +189,7 @@ After your pattern is created, {% data variables.product.prodname_secret_scannin
 
 When you save a change to a custom pattern, this closes all the {% data variables.secret-scanning.alerts %} that were created using the previous version of the pattern.
 {% data reusables.secret-scanning.view-custom-pattern %}
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="The edit icon" %}.
+1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
 {%- ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga  %}
 1. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
 {%- endif %}
@@ -202,7 +202,7 @@ When you save a change to a custom pattern, this closes all the {% data variable
 ## Removing a custom pattern
 
 {% data reusables.secret-scanning.view-custom-pattern %}
-1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="The trash icon" %}.
+1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="Remove pattern" %}.
 1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
 1. Click **Yes, delete this pattern**.
 

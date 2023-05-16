@@ -38,8 +38,9 @@ To use a shorter and more memorable domain for your privately published site, yo
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
 3. Under "{% data variables.product.prodname_pages %}", select the **{% data variables.product.prodname_pages %} visibility** dropdown menu, then select a visibility.
-4. To see your published site, under "{% data variables.product.prodname_pages %}", click **{% octicon "link-external" aria-label="The external link icon" %} Visit site**.
-  ![Screenshot of a confirmation message for {% data variables.product.prodname_pages %} listing the site's URL. To the right of a long blue URL, a button labeled "Visit site" is outlined in dark orange.](/assets/images/help/pages/click-private-pages-url-to-preview.png)
+4. To see your published site, under "{% data variables.product.prodname_pages %}", click **{% octicon "link-external" aria-hidden="true" %} Visit site**.
+
+   ![Screenshot of a confirmation message for {% data variables.product.prodname_pages %} listing the site's URL. To the right of a long blue URL, a button labeled "Visit site" is outlined in dark orange.](/assets/images/help/pages/click-private-pages-url-to-preview.png)
 
   {% note %}
 

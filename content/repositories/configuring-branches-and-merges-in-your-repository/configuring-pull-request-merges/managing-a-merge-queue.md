@@ -40,6 +40,12 @@ For information about merge methods, see "[AUTOTITLE](/pull-requests/collaborati
 
 You can use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue. Note that this is a different event from the `pull_request` and `push` events.
 
+{% note %}
+
+**Note:** If your repository uses {% data variables.product.prodname_actions %} to perform required checks on pull requests in your repository, you need to update the workflows to include the `merge_group` event as an additional trigger. Otherwise, status checks will not be triggered when you add a pull request to a merge queue. The merge will fail as the required status check will not be reported.
+
+{% endnote %}
+
 A workflow that reports a check which is required by the target branch's protections would look like this:
 
 ```yaml
@@ -56,7 +62,7 @@ With other CI providers, you may need to update your CI configuration to run whe
 
 ## Managing a merge queue
 
-Repository administrators can require a merge queue by enabling the branch protection setting "Require merge queue" in the protection rules for the base branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
+Repository administrators can require a merge queue by enabling the branch protection setting "Require merge queue" in the protection rules for the base branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
 
 
 Once you have enabled "require merge queue," you can also access the following settings:
@@ -78,4 +84,4 @@ Once you have enabled "require merge queue," you can also access the following s
 ## Further reading
 
 * "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
-* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)"
+* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)"
