@@ -1,6 +1,6 @@
 ---
 title: About ticket priority
-intro: 'You can communicate the severity of your issue and how it is affecting you and your team by setting the priority of your support ticket.'
+intro: You can communicate the severity of your issue and how it is affecting you and your team by setting the priority of your support ticket.
 shortTitle: Ticket priority
 versions:
   ghec: '*'
@@ -76,4 +76,4 @@ The target eight-hour response time:
 
 ## Further reading
 
-- "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)"
+- "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)"

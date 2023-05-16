@@ -1,8 +1,8 @@
-import { LinkIcon } from '@primer/octicons-react'
 import cx from 'classnames'
+import { HeadingLink } from 'components/article/HeadingLink'
 
 type Props = {
-  title?: React.ReactNode
+  title?: string
   sectionLink?: string
   children?: React.ReactNode
   className?: string
@@ -10,18 +10,11 @@ type Props = {
 }
 export const LandingSection = ({ title, children, className, sectionLink, description }: Props) => {
   return (
-    <div className={cx('container-xl px-3 px-md-6 mt-6', className)} id={sectionLink}>
+    <div className={cx('container-xl px-3 px-md-6 mt-6', className)}>
       {title && (
-        <h2 className={cx('h1 color-fg-default', !description ? 'mb-3' : 'mb-4')}>
-          {sectionLink ? (
-            <a className="color-unset" href={`#${sectionLink}`}>
-              <LinkIcon size={24} className="m-1" />
-              {title}
-            </a>
-          ) : (
-            title
-          )}
-        </h2>
+        <HeadingLink as="h2" slug={sectionLink} className="mb-4">
+          {title}
+        </HeadingLink>
       )}
       {description && (
         <div className="color-fg-muted f4" dangerouslySetInnerHTML={{ __html: description }} />

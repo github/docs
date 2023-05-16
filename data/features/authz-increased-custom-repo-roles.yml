@@ -1,0 +1,5 @@
+versions:
+  ghec: '*'
+  fpt: '*'
+  ghes: '>=3.9'
+  ghae: '>=3.9'

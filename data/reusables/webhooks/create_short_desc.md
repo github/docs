@@ -1,1 +1,1 @@
-A Git branch or tag is created. For more information, see the "[Git database](/rest/reference/git#create-a-reference)" REST API.
+A Git branch or tag is created. For more information, see the "[AUTOTITLE](/rest/git#create-a-reference)" REST API.

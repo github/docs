@@ -1,0 +1,10 @@
+- To filter for any match of multiple values (an OR query), separate the values with a comma. For example `label:"good first issue",bug` will list all issues labelled `good first issue` or `bug`.
+- To filter for the absence of a specific value, place `-` before your filter. For example, `-label:"bug"` will only show items that do not have the label `bug`.
+- To filter for the absence of all values, enter `no:` followed by the field name. For example, `no:assignee` will only show items that do not have an assignee.
+- To filter by state, enter `is:`. For example, `is: issue` or `is:open`.
+- Separate multiple filters with a space. For example, `status:"In progress" -label:"bug" no:assignee` will show only items that have a status of `In progress`, do not have the label `bug`, and do not have an assignee.
+- To filter for the previous, current, or next iteration of an iteration field, use `@previous`, `@current`, or `@next`. For example, `iteration:@current`.
+- To filter for items assigned to the viewer, use `@me`. For example, `assignee:@me`. Anyone using this view will see items assigned to themselves.
+- To filter by when an item was last updated, use `last-updated:` followed by the number of days. This filter only supports `{number}days` (or `1day` for a single day) as a unit. For example, `last-updated:7days` will only show items that were last updated 7 or more days ago.
+- To filter date and number fields, use `>`, `>=`, `<`, `<=`, and `..` range queries. For example: `target:2022-03-01..2022-03-15`. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)." {% ifversion projects-v2-tasklists %}
+- To filter for issues tracked by a specified issue, use `tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>"` and replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. {% endif %}

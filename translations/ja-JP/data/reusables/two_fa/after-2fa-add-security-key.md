@@ -1,1 +1,0 @@
-モバイルアプリケーション{% ifversion fpt or ghec %}あるいはテキストメッセージ{% endif %}を使って2FAを設定した後、指紋リーダーやWindows Helloのようなセキュリティキーを追加できます。 セキュリティキーを使用した認証を可能にする技術は、WebAuthnと呼ばれます。 WebAuthnはU2Fの後継であり、現代的なすべてのブラウザーで動作します。 詳しい情報については「[WebAuthn](https://webauthn.guide/)」及び「[使えますか](https://caniuse.com/#search=webauthn)」を参照してください。

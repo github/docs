@@ -1,1 +1,0 @@
-公共包免费使用 {% data variables.product.prodname_registry %}。 For private packages, each account on {% data variables.product.product_location %} receives a certain amount of free storage and data transfer, depending on the product used with the account. 超出包含金额的任何使用量都由支出限制控制。

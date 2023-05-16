@@ -2,5 +2,5 @@
 # Documentation for enterprise owners UI updates
 versions:
   ghes: '>=3.4'
-  ghae: 'issue-####'
+  ghae: '>= 3.4'
   ghec: '*'

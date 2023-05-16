@@ -1,1 +1,1 @@
-Activity related to columns in a project board. {% data reusables.webhooks.action_type_desc %} For more information, see the "[project columns](/rest/reference/projects#columns)" REST API.
+Activity related to columns in a {% data variables.projects.projects_v1_board %}. {% data reusables.webhooks.action_type_desc %} For more information, see the "[AUTOTITLE](/rest/projects#columns)" REST API.

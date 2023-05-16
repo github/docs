@@ -1,6 +1,0 @@
-    - {% data variables.product.prodname_dotcom %}、または{% data variables.product.prodname_enterprise %}のアカウントを追加、または削除をするには、**Accounts**を選択します。
-    - **Integrations**を選択して、外部エディタもしくはシェルを選択してください。
-    - Gitの設定を編集するには、**Git**を選択します。
-    - ライトテーマとダークテーマを切り替えるには、**Appearance**を選択してください。
-    - **Prompts（プロンプト）**で、破壊的なアクションを実行する前の確認ダイアログの有効化するか無効化するかを選択してください。
-    - 詳細設定には、**Advanced**を選択します。

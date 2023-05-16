@@ -24,7 +24,7 @@ shortTitle: Access organization settings
 
 {% tip %}
 
-**Tip:** Only organization owners and billing managers can see and change the billing information and account settings for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+**Tip:** Only organization owners and billing managers can see and change the billing information and the full set of account settings for an organization. Organization moderators only see moderation settings. {% data reusables.organizations.new-org-permissions-more-info %}
 
 {% endtip %}
 

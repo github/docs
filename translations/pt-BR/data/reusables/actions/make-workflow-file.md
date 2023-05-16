@@ -1,1 +1,0 @@
-No repositório, crie um arquivo denominado `.github/workflows/YOUR_WORKFLOW.yml`, substituindo `YOUR_WORKFLOW` por um nome da sua escolha. Este é um arquivo do fluxo de trabaho. Para obter mais informações sobre como criar novos arquivos no GitHub, consulte "[Criar novos arquivos](/github/managing-files-in-a-repository/creating-new-files)".

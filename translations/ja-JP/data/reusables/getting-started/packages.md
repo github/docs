@@ -1,1 +1,0 @@
-{% data variables.product.prodname_registry %}はソフトウェアパッケージのホスティングサービスであり、ソフトウェアパッケージをプライベートもしくはパブリックでホストでき、パッケージをプロジェクト中で依存関係として使えるようになります。 詳しい情報については、「[{% data variables.product.prodname_registry %} の紹介](/packages/learn-github-packages/introduction-to-github-packages)」を参照してください。

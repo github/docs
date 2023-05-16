@@ -1,8 +1,8 @@
 | Parameter | Value |
-| :- | :- |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
-| `title` | Custom title |{% endif %}
+| :- | :- |
+| `title` | Custom title |
 | `file` | Filename |
-| `col` | Column number, starting at 1 |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
-| `endColumn` | End column number |{% endif %}
-| `line` | Line number, starting at 1 |{% ifversion fpt or ghes > 3.2 or ghae-issue-4929 or ghec %}
-| `endLine` | End line number |{% endif %}
+| `col` | Column number, starting at 1 |
+| `endColumn` | End column number |
+| `line` | Line number, starting at 1 |
+| `endLine` | End line number |

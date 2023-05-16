@@ -1,1 +1,0 @@
-1. Selecciona las automatizaciones del flujo de trabajo que deseas configurar para la columna. ![Lista de opciones para automatizar la columna](/assets/images/help/projects/select-automation-options-new-column.png)

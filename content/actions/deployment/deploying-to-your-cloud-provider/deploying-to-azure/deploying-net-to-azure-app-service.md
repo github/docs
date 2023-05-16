@@ -15,16 +15,15 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a .NET project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 
@@ -52,9 +51,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
@@ -68,6 +65,8 @@ Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Build and deploy ASP.Net Core app to an Azure Web App
 
@@ -86,15 +85,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Set up .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: {% data reusables.actions.action-setup-dotnet %}
         with:
           dotnet-version: {% raw %}${{ env.DOTNET_VERSION }}{% endraw %}
 
       - name: Set up dependency caching for faster builds
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         with:
           path: ~/.nuget/packages
           key: {% raw %}${{ runner.os }}-nuget-${{ hashFiles('**/packages.lock.json') }}{% endraw %}
@@ -108,7 +107,7 @@ jobs:
         run: dotnet publish -c Release -o {% raw %}${{env.DOTNET_ROOT}}{% endraw %}/myapp
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: .net-app
           path: {% raw %}${{env.DOTNET_ROOT}}{% endraw %}/myapp
@@ -122,13 +121,13 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: .net-app
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
+        uses: azure/webapps-deploy@05ac4e98bfa0f856e6669624239291c73ca27698
         with:
           app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}

@@ -1,1 +1,0 @@
-1. セキュリティサイドバーで、**{% data variables.product.prodname_dependabot_alerts %}**をクリックしてください。{% ifversion fpt or ghec %}![{% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/repository/dependabot-alerts-tab.png){% else %}![{% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/enterprise/repository/dependabot-alerts-tab.png){% endif %}

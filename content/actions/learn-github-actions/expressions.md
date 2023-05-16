@@ -7,7 +7,6 @@ versions:
   ghes: '*'
   ghae: '*'
   ghec: '*'
-miniTocMaxHeadingLevel: 3
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -15,7 +14,7 @@ miniTocMaxHeadingLevel: 3
 
 ## About expressions
 
-You can use expressions to programmatically set variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[Contexts](/actions/learn-github-actions/contexts)."
+You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
 Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
 
@@ -25,19 +24,19 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 `${{ <expression> }}`
 {% endraw %}
 
-{% data reusables.github-actions.expression-syntax-if %} For more information about `if` conditionals, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)."
+{% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
 
-{% data reusables.github-actions.context-injection-warning %}
+{% data reusables.actions.context-injection-warning %}
 
-#### Example expression in an `if` conditional
+### Example expression in an `if` conditional
 
 ```yaml
 steps:
-  - uses: actions/hello-world-javascript-action@v1.1
+  - uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 
-#### Example setting an environment variable
+### Example setting an environment variable
 
 {% raw %}
 ```yaml
@@ -55,11 +54,12 @@ As part of an expression, you can use `boolean`, `null`, `number`, or `string` d
 | `boolean` | `true` or `false` |
 | `null`    | `null` |
 | `number`  | Any number format supported by JSON. |
-| `string`  | You must use single quotes. Escape literal single-quotes with a single quote. |
+| `string`  | You don't need to enclose strings in `{% raw %}${{{% endraw %}` and `{% raw %}}}{% endraw %}`. However, if you do, you must use single quotes (`'`) around the string. To use a literal single quote, escape the literal single quote using an additional single quote (`''`). Wrapping with double quotes (`"`) will throw an error. |
 
-#### Example
+### Example of literals
 
 {% raw %}
+
 ```yaml
 env:
   myNull: ${{ null }}
@@ -67,10 +67,11 @@ env:
   myIntegerNumber: ${{ 711 }}
   myFloatNumber: ${{ -9.2 }}
   myHexNumber: ${{ 0xff }}
-  myExponentialNumber: ${{ -2.99-e2 }}
-  myString: ${{ 'Mona the Octocat' }}
-  myEscapedString: ${{ 'It''s open source!' }}
+  myExponentialNumber: ${{ -2.99e-2 }}
+  myString: Mona the Octocat
+  myStringInBraces: ${{ 'It''s open source!' }}
 ```
+
 {% endraw %}
 
 ## Operators
@@ -79,7 +80,7 @@ env:
 | ---         | ---         |
 | `( )`       | Logical grouping |
 | `[ ]`       | Index
-| `.`         | Property dereference |
+| `.`         | Property de-reference |
 | `!`         | Not |
 | `<`         | Less than |
 | `<=`        | Less than or equal |
@@ -123,13 +124,21 @@ env:
 
 Returns `true` if `search` contains `item`. If `search` is an array, this function returns `true` if the `item` is an element in the array. If `search` is a string, this function returns `true` if the `item` is a substring of `search`. This function is not case sensitive. Casts values to a string.
 
-#### Example using an array
-
-`contains(github.event.issue.labels.*.name, 'bug')` returns whether the issue related to the event has a label "bug".
-
 #### Example using a string
 
 `contains('Hello world', 'llo')` returns `true`.
+
+#### Example using an object filter
+
+`contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
+
+For more information, see "[Object filters](#object-filters)."
+
+#### Example matching an array of strings
+
+Instead of writing `github.event_name == "push" || github.event_name == "pull_request"`, you can use `contains()` with `fromJSON()` to check if an array of strings contains an `item`.
+
+For example, `contains(fromJSON('["push", "pull_request"]'), github.event_name)` returns `true` if `github.event_name` is "push" or "pull_request".
 
 ### startsWith
 
@@ -137,7 +146,7 @@ Returns `true` if `search` contains `item`. If `search` is an array, this functi
 
 Returns `true` when `searchString` starts with `searchValue`. This function is not case sensitive. Casts values to a string.
 
-#### Example
+#### Example of `startsWith`
 
 `startsWith('Hello world', 'He')` returns `true`.
 
@@ -147,7 +156,7 @@ Returns `true` when `searchString` starts with `searchValue`. This function is n
 
 Returns `true` if `searchString` ends with `searchValue`. This function is not case sensitive. Casts values to a string.
 
-#### Example
+#### Example of `endsWith`
 
 `endsWith('Hello world', 'ld')` returns `true`.
 
@@ -157,9 +166,13 @@ Returns `true` if `searchString` ends with `searchValue`. This function is not c
 
 Replaces values in the `string`, with the variable `replaceValueN`. Variables in the `string` are specified using the `{N}` syntax, where `N` is an integer. You must specify at least one `replaceValue` and `string`. There is no maximum for the number of variables (`replaceValueN`) you can use. Escape curly braces using double braces.
 
-#### Example
+#### Example of `format`
 
-`format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')`
+{% raw %}
+```js
+format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
+```
+{% endraw %}
 
 Returns 'Hello Mona the Octocat'.
 
@@ -179,7 +192,7 @@ Returns '{Hello Mona the Octocat!}'.
 
 The value for `array` can be an array or a string. All values in `array` are concatenated into a string. If you provide `optionalSeparator`, it is inserted between the concatenated values. Otherwise, the default separator `,` is used. Casts values to a string.
 
-#### Example
+#### Example of `join`
 
 `join(github.event.issue.labels.*.name, ', ')` may return 'bug, help wanted'
 
@@ -189,9 +202,9 @@ The value for `array` can be an array or a string. All values in `array` are con
 
 Returns a pretty-print JSON representation of `value`. You can use this function to debug the information provided in contexts.
 
-#### Example
+#### Example of `toJSON`
 
-`toJSON(job)` might return `{ "status": "Success" }`
+`toJSON(job)` might return `{ "status": "success" }`
 
 ### fromJSON
 
@@ -213,13 +226,17 @@ jobs:
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - id: set-matrix
+      - id: set-matrix{% endraw %}
+{%- ifversion actions-save-state-set-output-envs %}
+        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
+{%- else %}
         run: echo "::set-output name=matrix::{\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}"
+{%- endif %}{% raw %}
   job2:
     needs: job1
     runs-on: ubuntu-latest
     strategy:
-      matrix: ${{fromJSON(needs.job1.outputs.matrix)}}
+      matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
       - run: build
 ```
@@ -233,7 +250,7 @@ This workflow uses `fromJSON` to convert environment variables from a string to 
 ```yaml
 name: print
 on: push
-env: 
+env:
   continue: true
   time: 3
 jobs:
@@ -250,9 +267,9 @@ jobs:
 
 `hashFiles(path)`
 
-Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
+Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. If the `path` pattern does not match any files, this returns an empty string. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
 
-You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions/#filter-pattern-cheat-sheet)."
+You can use pattern matching characters to match file names. Pattern matching is case-insensitive on Windows. For more information about supported pattern matching characters, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
 
 #### Example with a single pattern
 
@@ -268,13 +285,13 @@ Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repos
 
 ## Status check functions
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[Workflow syntax for GitHub Actions](/articles/workflow-syntax-for-github-actions/#jobsjob_idif)" and "[Metadata syntax for GitHub Composite Actions](/actions/creating-actions/metadata-syntax-for-github-actions/#runsstepsif)".
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)" and "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif)".
 
 ### success
 
 Returns `true` when none of the previous steps have failed or been canceled.
 
-#### Example
+#### Example of `success`
 
 ```yaml
 steps:
@@ -285,9 +302,15 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. A job or step will not run when a critical failure prevents the task from running. For example, if getting sources failed.
+Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled. 
 
-#### Example
+{% note %}
+
+**Note:** Avoid using `always` for any task that could suffer from a critical failure, for example: getting sources, otherwise the workflow may hang until it times out. If you want to run a job or step regardless of its success or failure, use the recommended alternative:`if: success() || failure()`
+
+{% endnote %}
+
+#### Example of `always`
 
 ```yaml
 if: {% raw %}${{ always() }}{% endraw %}
@@ -297,7 +320,7 @@ if: {% raw %}${{ always() }}{% endraw %}
 
 Returns `true` if the workflow was canceled.
 
-#### Example
+#### Example of `cancelled`
 
 ```yaml
 if: {% raw %}${{ cancelled() }}{% endraw %}
@@ -307,7 +330,7 @@ if: {% raw %}${{ cancelled() }}{% endraw %}
 
 Returns `true` when any previous step of a job fails. If you have a chain of dependent jobs, `failure()` returns `true` if any ancestor job fails.
 
-#### Example
+#### Example of `failure`
 
 ```yaml
 steps:
@@ -316,31 +339,21 @@ steps:
     if: {% raw %}${{ failure() }}{% endraw %}
 ```
 
-### Evaluate Status Explicitly
+#### failure with conditions
 
-Instead of using one of the methods above, you can evaluate the status of the job or composite action that is executing the step directly:
+You can include extra conditions for a step to run after a failure, but you must still include `failure()` to override the default status check of `success()` that is automatically applied to `if` conditions that don't contain a status check function.
 
-#### Example for workflow step
-
-```yaml
-steps:
-  ...
-  - name: The job has failed
-    if: {% raw %}${{ job.status == 'failure' }}{% endraw %}
-```
-
-This is the same as using `if: failure()` in a job step.
-
-#### Example for composite action step
+##### Example of `failure` with conditions
 
 ```yaml
 steps:
   ...
-  - name: The composite action has failed
-    if: {% raw %}${{ github.action_status == 'failure' }}{% endraw %}
+  - name: Failing step
+    id: demo
+    run: exit 1
+  - name: The demo step has failed
+    if: {% raw %}${{ failure() && steps.demo.conclusion == 'failure' }}{% endraw %}
 ```
-
-This is the same as using `if: failure()` in a composite action step.
 
 ## Object filters
 
@@ -356,4 +369,40 @@ For example, consider an array of objects named `fruits`.
 ]
 ```
 
-The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`
+The filter `fruits.*.name` returns the array `[ "apple", "orange", "pear" ]`.
+
+You may also use the `*` syntax on an object. For example, suppose you have an object named `vegetables`.
+
+```json
+
+{
+  "scallions":
+  {
+    "colors": ["green", "white", "red"],
+    "ediblePortions": ["roots", "stalks"],
+  },
+  "beets":
+  {
+    "colors": ["purple", "red", "gold", "white", "pink"],
+    "ediblePortions": ["roots", "stems", "leaves"],
+  },
+  "artichokes":
+  {
+    "colors": ["green", "purple", "red", "black"],
+    "ediblePortions": ["hearts", "stems", "leaves"],
+  },
+}
+```
+
+The filter `vegetables.*.ediblePortions` could evaluate to:
+
+```json
+
+[
+  ["roots", "stalks"],
+  ["hearts", "stems", "leaves"],
+  ["roots", "stems", "leaves"],
+]
+```
+
+Since objects don't preserve order, the order of the output cannot be guaranteed.

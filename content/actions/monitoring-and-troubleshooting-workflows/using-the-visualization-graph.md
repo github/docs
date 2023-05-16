@@ -1,14 +1,14 @@
 ---
 title: Using the visualization graph
+shortTitle: Visualization graph
 intro: Every workflow run generates a real-time graph that illustrates the run progress. You can use this graph to monitor and debug workflows.
 redirect_from:
   - /actions/managing-workflow-runs/using-the-visualization-graph
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghae: '*'
   ghec: '*'
-shortTitle: Use the visualization graph
 ---
 
 {% data reusables.actions.enterprise-beta %}
@@ -20,7 +20,6 @@ shortTitle: Use the visualization graph
 {% data reusables.repositories.view-run %}
 
 1. The graph displays each job in the workflow. An icon to the left of the job name indicates the status of the job. Lines between jobs indicate dependencies.
-   ![Workflow graph](/assets/images/help/images/workflow-graph.png)
 
-2. Click on a job to view the job log.
-   ![Workflow graph](/assets/images/help/images/workflow-graph-job.png)
+   ![Screenshot of the visualization graph of a workflow run.](/assets/images/help/actions/workflow-graph.png)
+2. To view a job's log, click the job.

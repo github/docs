@@ -1,39 +1,82 @@
-// This middleware uses the request path to find a page in the preloaded context.pages object
+import path from 'path'
+import { existsSync } from 'fs'
 
-export default async function findPage(req, res, next) {
+import { ROOT } from '../lib/constants.js'
+import Page from '../lib/page.js'
+import { languageKeys } from '../lib/languages.js'
+
+const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
+const englishPrefixRegex = /^\/en(\/|$)/
+const CONTENT_ROOT = path.join(ROOT, 'content')
+
+export default async function findPage(
+  req,
+  res,
+  next,
+  // Express won't execute these but it makes it easier to unit test
+  // the middleware.
+  { isDev = process.env.NODE_ENV === 'development', contentRoot = CONTENT_ROOT } = {}
+) {
+  // Filter out things like `/will/redirect` or `/_next/data/...`
+  if (!languagePrefixRegex.test(req.pagePath)) {
+    return next()
+  }
+
   let page = req.context.pages[req.pagePath]
+  if (page && isDev && englishPrefixRegex.test(req.pagePath)) {
+    page = await rereadByPath(req.pagePath, contentRoot, req.context.currentVersion)
 
-  // When a user navigates to a translated page that doesn't yet exists
-  // we want to first check if there is an English page with the same relative
-  // path.
-  // If an exact match in English doesn't exist, the requested page might have
-  // a redirect configured to a new page. This happens when an English page is
-  // renamed and Crowdin hasn't synced the new file.
-  // In both cases, redirect to the English page. If we don't redirect most
-  // components won't refresh and everything except the article will render
-  // in req.language.
-  if (!page && req.language !== 'en') {
-    const englishPath = req.pagePath.replace(new RegExp(`^/${req.language}`), '/en')
-    // NOTE the fallback page will have page.languageCode = 'en'
-    page = req.context.pages[englishPath]
-    const redirectToPath = req.context.redirects[englishPath]
-
-    // If the requested translated page has a 1-1 mapping in English,
-    // redirect to that English page
-    if (page) {
-      return res.redirect(302, englishPath)
-    }
-    // If the English file was renamed and has a redirect that matches the
-    // requested page's href, redirect to the new English href
-    if (redirectToPath) {
-      return res.redirect(302, redirectToPath)
+    // This can happen if the page we just re-read has changed which
+    // versions it's available in (the `versions` frontmatter) meaning
+    // it might no longer be available on the current URL.
+    if (!page.applicableVersions.includes(req.context.currentVersion)) {
+      return res
+        .status(404)
+        .send(
+          `After re-reading the page, '${req.context.currentVersion}' is no longer an applicable version. ` +
+            'A restart is required.'
+        )
     }
   }
 
   if (page) {
     req.context.page = page
     req.context.page.version = req.context.currentVersion
+
+    // We can't depend on `page.hidden` because the dedicated search
+    // results page is a hidden page but it needs to offer all possible
+    // languages.
+    if (page.relativePath.startsWith('early-access')) {
+      // Override the languages to be only English
+      req.context.languages = {
+        en: req.context.languages.en,
+      }
+    }
   }
 
   return next()
+}
+
+async function rereadByPath(uri, contentRoot, currentVersion) {
+  const languageCode = uri.match(languagePrefixRegex)[1]
+  const withoutLanguage = uri.replace(languagePrefixRegex, '/')
+  const withoutVersion = withoutLanguage.replace(`/${currentVersion}`, '')
+  // TODO: Support loading translations the same way.
+  // NOTE: No one is going to test translations like this in development
+  // but perhaps one day we can always and only do these kinds of lookups
+  // at runtime.
+  const possible = path.join(contentRoot, withoutVersion)
+  const filePath = existsSync(possible) ? path.join(possible, 'index.md') : possible + '.md'
+  const relativePath = path.relative(contentRoot, filePath)
+  const basePath = contentRoot
+
+  // Remember, the Page.init() can return a Promise that resolves to falsy
+  // if it can't read the file in from disk. E.g. a request for /en/non/existent.
+  // In other words, it's fine if it can't be read from disk. It'll get
+  // handled and turned into a nice 404 message.
+  return await Page.init({
+    basePath,
+    relativePath,
+    languageCode,
+  })
 }

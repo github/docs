@@ -16,13 +16,11 @@ topics:
   - Repositories
 shortTitle: View releases & tags
 ---
-{% ifversion fpt or ghae or ghes or ghec %}
 {% tip %}
 
 **Tip**: You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {% data variables.product.prodname_cli %} documentation.
 
 {% endtip %}
-{% endif %}
 
 ## Viewing releases
 
@@ -34,9 +32,8 @@ shortTitle: View releases & tags
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-2. At the top of the Releases page, click **Tags**.
-![Tags page](/assets/images/help/releases/tags-list.png)
+2. At the top of the page, click **Tags**.
 
 ## Further reading
 
-- "[Signing tags](/articles/signing-tags)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"

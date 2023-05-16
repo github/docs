@@ -1,1 +1,0 @@
-Si un secreto con el mismo nombre existe en varios niveles, aquél en el nivel más bajo tomará presedencia. Por ejemplo, si un secreto a nivel de organización tiene el mismo nombre que un secreto a nivel de repositorio, entonces el secreto a nivel de repositorio tomará precedencia.

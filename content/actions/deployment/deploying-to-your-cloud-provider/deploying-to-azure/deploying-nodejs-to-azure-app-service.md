@@ -21,16 +21,15 @@ topics:
 {% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build, test, and deploy a Node.js project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 
@@ -58,9 +57,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
@@ -74,6 +71,8 @@ Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of
 
 ```yaml{:copy}
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 on:
   push:
@@ -89,10 +88,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: {% data reusables.actions.action-checkout %}
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: {% data reusables.actions.action-setup-node %}
       with:
         node-version: {% raw %}${{ env.NODE_VERSION }}{% endraw %}
         cache: 'npm'
@@ -103,7 +102,7 @@ jobs:
         npm run build --if-present
         npm run test --if-present
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
+      uses: {% data reusables.actions.action-upload-artifact %}
       with:
         name: node-app
         path: .
@@ -117,13 +116,13 @@ jobs:
 
     steps:
     - name: Download artifact from build job
-      uses: actions/download-artifact@v2
+      uses: {% data reusables.actions.action-download-artifact %}
       with:
         name: node-app
 
     - name: 'Deploy to Azure WebApp'
       id: deploy-to-webapp 
-      uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
+      uses: azure/webapps-deploy@05ac4e98bfa0f856e6669624239291c73ca27698
       with:
         app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
         publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
@@ -138,4 +137,4 @@ The following resources may also be useful:
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
 * For more examples of GitHub Action workflows that deploy to Azure, see the 
 [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
-* The "[Create a Node.js web app in Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using VS Code with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+* The "[Create a Node.js web app in Azure](https://docs.microsoft.com/azure/app-service/quickstart-nodejs)" quickstart in the Azure web app documentation demonstrates using {% data variables.product.prodname_vscode %} with the [Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).

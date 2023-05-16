@@ -1,1 +1,0 @@
-Cuando un cliente cancela una suscripción de {% data variables.product.prodname_marketplace %}, GitHub no desinstala la app automáticamente, así que el cliente puede esperar que las características gratuitas sigan funcionando.

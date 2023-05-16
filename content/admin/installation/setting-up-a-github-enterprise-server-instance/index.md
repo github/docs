@@ -18,7 +18,6 @@ children:
   - /installing-github-enterprise-server-on-hyper-v
   - /installing-github-enterprise-server-on-openstack-kvm
   - /installing-github-enterprise-server-on-vmware
-  - /installing-github-enterprise-server-on-xenserver
   - /setting-up-a-staging-instance
 shortTitle: Set up an instance
 ---

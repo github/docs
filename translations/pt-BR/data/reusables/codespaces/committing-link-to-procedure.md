@@ -1,3 +1,0 @@
-Depois de realizar alterações no seu código, tanto novo código como de configuração, você deverá fazer commit das suas alterações. O commit das alterações no seu repositório garante que qualquer pessoa que crie um codespace deste repositório tenha a mesma configuração. Isto também significa que qualquer personalização que você faça, como adicionar extensões de{% data variables.product.prodname_vscode %}, aparecerá para todos os usuários.
-
-Para obter informações, consulte "[Usando o controle de fonte no seu codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#committing-your-changes)".

@@ -24,7 +24,7 @@ children:
   - /essential-features-of-github-actions
   - /expressions
   - /contexts
-  - /environment-variables
+  - /variables
   - /usage-limits-billing-and-administration
 ---
 

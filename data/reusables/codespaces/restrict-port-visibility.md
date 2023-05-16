@@ -1,0 +1,1 @@
+Organization owners can restrict the ability to make forward ports available publicly or within the organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)."

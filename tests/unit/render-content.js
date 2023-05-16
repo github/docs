@@ -98,15 +98,6 @@ describe('renderContent', () => {
     expect(output).toBe('')
   })
 
-  test('encodes entities', async () => {
-    const template = '<beep></beep>'
-    const context = {}
-    const output = await renderContent(template, context, {
-      encodeEntities: true,
-    })
-    expect(output).toBe('&lt;p&gt;&lt;beep&gt;&lt;/beep&gt;&lt;/p&gt;')
-  })
-
   test('does not render newlines around links in tables', async () => {
     const template = nl(`
 | Keyboard shortcut | Description
@@ -249,7 +240,9 @@ $resourceGroupName = "octocat-testgroup"
     html = await renderContent(template)
     $ = cheerio.load(html, { xmlMode: true })
     expect($.html().includes('<pre><code class="hljs language-Powershell">')).toBeTruthy()
-    expect($.html().includes('<span class="hljs-variable">$resourceGroupName</span>')).toBeTruthy()
+    expect(
+      $.html().includes('<span class="hljs-variable">&#x24;resourceGroupName</span>')
+    ).toBeTruthy()
   })
 
   test('does not autoguess code block language', async () => {
@@ -269,7 +262,8 @@ some code
 | [\`issues\`](/webhooks/event-payloads/#issues) | - \`opened\`<br/>- \`edited\`<br/>- \`other\` |`
     const file = await renderContent(content)
     expect(file).toBe(
-      '<table><thead><tr><th>Webhook event payload</th><th>Activity types</th></tr></thead><tbody><tr><td><a href="/webhooks/event-payloads/#issues"><code>issues</code></a></td><td>- <code>opened</code><br>- <code>edited</code><br>- <code>other</code></td></tr></tbody></table>'
+      '<table><thead><tr><th scope="col">Webhook event payload</th><th scope="col">Activity types</th></tr></thead>' +
+        '<tbody><tr><td><a href="/webhooks/event-payloads/#issues"><code>issues</code></a></td><td>- <code>opened</code><br>- <code>edited</code><br>- <code>other</code></td></tr></tbody></table>'
     )
   })
 

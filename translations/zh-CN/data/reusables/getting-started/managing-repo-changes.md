@@ -1,3 +1,0 @@
-You can configure permissions for creating, transferring and deleting repositories in your organization, including which types members can create. For more information, see "[Restricting repository creation in your organization](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)" and "[Setting permissions for deleting or transferring repositories](/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories)."
-
-You can also restrict or grant the ability to change repository visibility. 更多信息请参阅“[限制组织的仓库可见性更改](/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization)”。

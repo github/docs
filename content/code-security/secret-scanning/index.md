@@ -16,8 +16,13 @@ topics:
   - Repositories
 children:
   - /about-secret-scanning
+  - /secret-scanning-partner-program
   - /configuring-secret-scanning-for-your-repositories
   - /defining-custom-patterns-for-secret-scanning
   - /managing-alerts-from-secret-scanning
+  - /secret-scanning-patterns
+  - /protecting-pushes-with-secret-scanning
+  - /pushing-a-branch-blocked-by-push-protection
+  - /troubleshooting-secret-scanning
 ---
 

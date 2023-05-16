@@ -1,15 +1,18 @@
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 
 import { SidebarNav } from 'components/sidebar/SidebarNav'
 import { Header } from 'components/page-header/Header'
-import { SmallFooter } from 'components/page-footer/SmallFooter'
+import { LegalFooter } from 'components/page-footer/LegalFooter'
 import { ScrollButton } from 'components/ui/ScrollButton'
 import { SupportSection } from 'components/page-footer/SupportSection'
 import { DeprecationBanner } from 'components/page-header/DeprecationBanner'
-import { RestRepoBanner } from 'components/page-header/RestRepoBanner'
+import { RestBanner } from 'src/rest/components/RestBanner'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { useRouter } from 'next/router'
+import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
+
+const MINIMAL_RENDER = Boolean(JSON.parse(process.env.MINIMAL_RENDER || 'false'))
 
 type Props = { children?: React.ReactNode }
 export const DefaultLayout = (props: Props) => {
@@ -24,10 +27,34 @@ export const DefaultLayout = (props: Props) => {
     fullUrl,
     status,
   } = useMainContext()
-  const { t } = useTranslation(['errors', 'scroll_button'])
+  const { t } = useTranslation(['errors', 'meta', 'scroll_button'])
   const router = useRouter()
+  const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
+
+  // This is only true when we do search indexing which renders every page
+  // just to be able to `cheerio` load the main body (and the meta
+  // keywords tag).
+  if (MINIMAL_RENDER) {
+    return (
+      <div>
+        <Head>
+          <title>{page.fullTitle}</title>
+        </Head>
+
+        {/* For local site search indexing */}
+        <div className="d-none d-xl-block" data-search="breadcrumbs">
+          <Breadcrumbs />
+        </div>
+
+        <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
+          {props.children}
+        </main>
+      </div>
+    )
+  }
+
   return (
-    <div className="d-lg-flex">
+    <>
       <Head>
         {error === '404' ? (
           <title>{t('oops')}</title>
@@ -37,7 +64,7 @@ export const DefaultLayout = (props: Props) => {
         ) : null}
 
         {/* For Google and Bots */}
-        {page.introPlainText && <meta name="description" content={page.introPlainText} />}
+        <meta name="description" content={metaDescription} />
         {page.hidden && <meta name="robots" content="noindex" />}
         {page.languageVariants.map((languageVariant) => {
           return (
@@ -81,23 +108,31 @@ export const DefaultLayout = (props: Props) => {
           </>
         )}
       </Head>
+      <a href="#main-content" className="sr-only color-bg-accent-emphasis color-fg-on-emphasis">
+        Skip to main content
+      </a>
+      <Header />
+      <div className="d-lg-flex">
+        <SidebarNav />
+        {/* Need to set an explicit height for sticky elements since we also
+          set overflow to auto */}
+        <div className="flex-column flex-1 min-width-0">
+          <main id="main-content" style={{ scrollMarginTop: '5rem' }}>
+            <DeprecationBanner />
+            <RestBanner />
 
-      <SidebarNav />
-
-      <main className="flex-1 min-width-0">
-        <Header />
-        <DeprecationBanner />
-        <RestRepoBanner />
-
-        {props.children}
-
-        <SupportSection />
-        <SmallFooter />
-        <ScrollButton
-          className="position-fixed bottom-0 mb-4 right-0 mr-4"
-          ariaLabel={t('scroll_to_top')}
-        />
-      </main>
-    </div>
+            {props.children}
+          </main>
+          <footer>
+            <SupportSection />
+            <LegalFooter />
+            <ScrollButton
+              className="position-fixed bottom-0 mb-4 right-0 mr-4 z-1"
+              ariaLabel={t('scroll_to_top')}
+            />
+          </footer>
+        </div>
+      </div>
+    </>
   )
 }

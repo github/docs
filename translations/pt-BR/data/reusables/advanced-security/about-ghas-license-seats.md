@@ -1,1 +1,0 @@
-Cada licença de {% data variables.product.prodname_GH_advanced_security %} especifica um número máximo de contas, ou estações, que podem usar essas funcionalidades. Periodicamente você deve verificar que sua utilização está dentro da sua capacidade de licença.

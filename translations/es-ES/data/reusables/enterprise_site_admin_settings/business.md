@@ -1,1 +1,0 @@
-1. En la barra lateral izquierda, da clic en **Descripción{% ifversion ghes or ghae %} de la empresa{% endif %}**. ![Pestaña de descripción{% ifversion ghes or ghae %} de la empresa{% endif %} en la configuración de administrador de sitio](/assets/images/enterprise/site-admin-settings/enterprise-tab.png)

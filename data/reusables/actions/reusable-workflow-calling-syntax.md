@@ -1,0 +1,4 @@
+* `{owner}/{repo}/.github/workflows/{filename}@{ref}`{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} for reusable workflows in {% ifversion fpt %}public and private{% elsif ghec or ghes > 3.7 or ghae > 3.7 %}public, internal and private{% else %}public and internal{% endif %} repositories.
+* `./.github/workflows/{filename}` for reusable workflows in the same repository.{% endif %}
+
+`{ref}` can be a SHA, a release tag, or a branch name. Using the commit SHA is the safest for stability and security. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#reusing-third-party-workflows)." {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}If you use the second syntax option (without `{owner}/{repo}` and `@{ref}`) the called workflow is from the same commit as the caller workflow.{% endif %}

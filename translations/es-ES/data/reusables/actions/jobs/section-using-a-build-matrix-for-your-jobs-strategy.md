@@ -1,1 +1,0 @@
-Use `jobs.<job_id>.strategy` to create a build matrix for your jobs. Puedes definir variaciones diferentes para que ejecuten cada job.
