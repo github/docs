@@ -64,6 +64,7 @@ import fastlyBehavior from './fastly-behavior.js'
 import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from './dynamic-assets.js'
 import rateLimit from './rate-limit.js'
+import handleInvalidQuerystrings from './handle-invalid-querystrings.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
@@ -198,6 +199,7 @@ export default function (app) {
 
   // *** Early exits ***
   app.use(rateLimit)
+  app.use(instrument(handleInvalidQuerystrings, './handle-invalid-querystrings'))
   app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 

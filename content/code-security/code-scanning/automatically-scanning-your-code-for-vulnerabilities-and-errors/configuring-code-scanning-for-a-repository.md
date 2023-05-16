@@ -71,7 +71,7 @@ Try default setup if you don't need to run extra queries, change the scan schedu
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.user-settings.security-analysis %}
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %}, then click **Default**.
+1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Default**.
 
   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "Code security and analysis" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
 
@@ -94,7 +94,7 @@ Try default setup if you don't need to run extra queries, change the scan schedu
   **Notes:**
      - The {% data variables.product.prodname_codeql %} default configuration window displays the details of the default setup, including the languages to analyze, the query suites to run, and the events that trigger a new scan. If you would like to change which events will trigger a new scan or customize other {% data variables.product.prodname_code_scanning %} features, you need to use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
      - If you are switching to the default setup from the advanced setup, you will see a warning informing you that the default setup will override existing configurations. {% data variables.product.prodname_codeql %} default setup will disable the existing workflow file, and block any {% data variables.product.prodname_codeql %} analysis API uploads.
-     - If you would like to see your default {% data variables.product.prodname_codeql %} setup after configuration, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click {% octicon "gear" aria-label="The gear icon" %} **View {% data variables.product.prodname_codeql %} configuration**.
+     - If you would like to see your default {% data variables.product.prodname_codeql %} setup after configuration, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click {% octicon "gear" aria-hidden="true" %} **View {% data variables.product.prodname_codeql %} configuration**.
 
   {% endnote %}
 
@@ -143,11 +143,11 @@ You can customize your {% data variables.product.prodname_code_scanning %} by cr
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.user-settings.security-analysis %}
-1. Scroll down to the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %}, then click **Advanced**.
+1. Scroll down to the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Advanced**.
 
   {% note %}
 
-  **Note:** If you are switching to the advanced {% data variables.product.prodname_code_scanning %} setup from the default setup, in the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click {% octicon "workflow" aria-hidden="true" %} **Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
+  **Note:** If you are switching to the advanced {% data variables.product.prodname_code_scanning %} setup from the default setup, in the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click {% octicon "workflow" aria-hidden="true" %} **Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
 
   {% endnote %}
 

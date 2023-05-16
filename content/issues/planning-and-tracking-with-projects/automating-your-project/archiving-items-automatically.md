@@ -13,7 +13,13 @@ topics:
 
 You can configure your project's built-in workflows to automatically archive items. Archiving items will help you stay below the limit of {% data variables.projects.item_limit %} items in each project.
 
-You can use the `is`, `reason`, and `last-updated` filters to specify when an item should be archived.
+The auto-archive workflow supports a subset of filters. You can use the following filters when configuring your workflow.
+
+| Qualifier | Possible values
+| --- | --- | --- |
+| `is` | `open`, `closed`, `merged`, `draft`, `issue`, `pr`
+| `reason` | `completed`, `reopened`, `"not planned"`
+| `updated` | <code><@today-<em>14</em>d</code> (the last 14 days), <code><@today-<em>3</em>w</code> (the last 3 weeks), <code><@today-<em>1</em>m</code> (the last month)
 
 When you enable automatic archiving for issues or pull requests, items in your project that already meet your criteria will also be archived. There may be some delay in archiving large numbers of items that already meet the criteria.
 
@@ -26,9 +32,9 @@ Projects also have a limit on the number of archived items they can contain. You
 1. In the top right, click **Edit**.
 
    ![Screenshot showing a project's menu bar. The "Edit" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/workflow-start-editing.png)
-   {% endif %}
-1. Next to **When**, check the item type(s) that you want to automatically archive.
-1. Next to {% octicon "filter" aria-label="The filter icon" %}, type the filter criteria you want to use to automatically archive items. You can only use the `is`, `reason`, and `last-updated` filters. For more information about filter syntax, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."{% ifversion projects-v2-workflows-ui-refresh %}
+   {% else %}
+1. Next to **When**, check the item type(s) that you want to automatically archive.{% endif %}
+1. In the "Filters" field, type the filter criteria you want to use to automatically archive items. You can only use the `is`, `reason`, and `updated` filters.{% ifversion projects-v2-workflows-ui-refresh %}
 1. To save your changes and enable the workflow, click **Save and turn on workflow**.{% else %}
 1. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.{% endif %}
    

@@ -29,7 +29,7 @@ After you've enabled version updates, you can confirm that your configuration is
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
 {% data reusables.dependabot.click-dependabot-tab %}
-1. Optionally, to view the files monitored for a package manager, click the associated {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
+1. Optionally, to view the files monitored for a package manager, to the right of the package manager, click {% octicon "kebab-horizontal" aria-label="Show monitored" %}.
 
    ![Screenshot of the {% data variables.product.prodname_dependabot %} tab under "Insights". A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/dependabot/monitored-dependency-files.png)
 

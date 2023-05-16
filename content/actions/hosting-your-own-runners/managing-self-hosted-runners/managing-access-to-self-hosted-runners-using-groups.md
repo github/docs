@@ -6,6 +6,7 @@ permissions: 'Enterprise accounts, organizations owned by enterprise accounts, a
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
+  - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups
 versions:
   fpt: '*'
   ghes: '*'

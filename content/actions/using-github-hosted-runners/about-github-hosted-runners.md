@@ -104,6 +104,11 @@ Hardware specification for macOS virtual machines:
 - 14 GB of RAM
 - 14 GB of SSD space
 
+Hardware specification for macOS XL virtual machines:
+- 12-core CPU (x86_64)
+- 30 GB of RAM
+- 14 GB of SSD space
+
 {% data reusables.actions.supported-github-runners %}
 
 Workflow logs list the runner used to run a job. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
