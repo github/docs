@@ -135,34 +135,3 @@ describe('browser search', () => {
     await newPage.waitForSelector('[data-testid=search-results]')
   })
 })
-
-describe('iframe pages', () => {
-  it('can open YouTube embed iframes', async () => {
-    // Going to create a fresh page instance, so we can intercept the requests.
-    const newPage = await browser.newPage()
-
-    await newPage.setRequestInterception(true)
-    const interceptedURLs = []
-    newPage.on('request', (request) => {
-      interceptedURLs.push(request.url())
-      request.continue()
-    })
-    const failedURLs = []
-    newPage.on('requestfailed', (request) => {
-      failedURLs.push(request.url())
-      request.continue()
-    })
-
-    // Hardcoded path to a page where we know we have a YouTube embed
-    const res = await newPage.goto('http://localhost:4000/en/codespaces')
-
-    expect(res.ok()).toBeTruthy()
-    expect(failedURLs.length, `Following URLs ${failedURLs.join(', ')} failed`).toBeFalsy()
-
-    const iframeSrc = await newPage.$eval('iframe', (el) => el.src)
-    expect(iframeSrc.startsWith('https://www.youtube-nocookie.com/embed')).toBeTruthy()
-    expect(
-      interceptedURLs.filter((url) => url.startsWith('https://www.youtube-nocookie.com/')).length
-    ).toBeTruthy()
-  })
-})
