@@ -14,8 +14,7 @@ topics:
   - Project management
 shortTitle: Add label to comment on issue
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction

@@ -15,8 +15,7 @@ topics:
   - CD
 shortTitle: 'Automate migration with {% data variables.product.prodname_actions_importer %}'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 [Legal notice](#legal-notice)
