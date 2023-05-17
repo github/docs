@@ -22,6 +22,8 @@ shortTitle: Connect an Azure subscription
 
 **Note:** If your enterprise account is on a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond the included amounts, or to use {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_copilot_business_short %} at all.
 
+**Note:** If your organisation is a part of an enteprirse account, you will only be able to connect your Azure subscription to enteprise account and not to orgnisation account.
+
 {% endnote %}
 {% endif %}
 After you connect an Azure subscription, you can also manage your spending limits.
