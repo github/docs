@@ -33,7 +33,7 @@ We recommend creating a GitHub App rather than an OAuth App. {% data reusables.m
 ## Data protection
 
 - Apps should encrypt data transferred over the public internet using HTTPS, with a valid TLS certificate, or SSH for Git.
-- Apps should store client ID and client secret keys securely. We recommend storing them as [environmental variables](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables).
+- Apps should store client ID and client secret keys securely. We recommend storing them as [environmental variables](https://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables).
 - Apps should delete all GitHub user data within 30 days of receiving a request from the user, or within 30 days of the end of the user's legal relationship with GitHub.
 - Apps should not require the user to provide their GitHub password.
 - Apps should encrypt tokens, client IDs, and client secrets.

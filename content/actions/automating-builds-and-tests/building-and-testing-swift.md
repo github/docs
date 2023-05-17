@@ -14,8 +14,7 @@ topics:
   - Swift
 shortTitle: Build & test Swift
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction

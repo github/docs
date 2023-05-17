@@ -14,11 +14,11 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 ## Overview
 
-By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage. 
+By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage.
 
 The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
-As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories. 
+As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories.
 
 {% note %}
 
@@ -48,7 +48,7 @@ If you add an organization-wide policy with a timeout constraint, you should set
 {% data reusables.profile.org_settings %}
 {% data reusables.codespaces.codespaces-org-policies %}
 1. Click **Add constraint** and choose **Maximum idle timeout**.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the constraint.
+1. Click {% octicon "pencil" aria-label="Edit policy" %} to edit the constraint.
 1. Enter the maximum number of minutes codespaces can remain inactive before they time out, then click **Save**.
 
    ![Screenshot of a dropdown with a field labeled "Maximum value" set to 60 minutes. To the right of the field is a "Save" button.](/assets/images/help/codespaces/maximum-minutes-timeout.png)
@@ -69,10 +69,10 @@ You can edit an existing policy. For example, you may want to add or remove cons
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
 1. Click the name of the policy you want to edit.
-1. Click the pencil icon ({% octicon "pencil" aria-label="The edit icon" %}) beside the "Maximum idle timeout" constraint.
+1. Beside the "Maximum idle timeout" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Make the required changes then click **Save**.
 
-## Deleting a policy 
+## Deleting a policy
 
 1. Display the "Codespace policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
 {% data reusables.codespaces.delete-codespace-policy %}

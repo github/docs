@@ -13,8 +13,7 @@ topics:
   - Docker
   - Azure App Service
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
