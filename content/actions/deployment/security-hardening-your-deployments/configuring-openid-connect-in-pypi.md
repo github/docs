@@ -56,7 +56,7 @@ then you should use the following settings for your trusted publisher on PyPI:
 
 Once your trusted publisher is registered on PyPI, you can update your release workflow to use trusted publishing.
 
-The [`pypa/gh-action-pypi-publish`](https://github.com/marketplace/actions/pypi-publish) has built-in support for trusted publishing, which can be enabled by giving its containing job the `id-token: write` permission and omitting the ordinary `username` and `password` action settings.
+The [`pypa/gh-action-pypi-publish`](https://github.com/marketplace/actions/pypi-publish) has built-in support for trusted publishing, which can be enabled by giving its containing job the `id-token: write` permission and omitting the `username` and `password`.
 
 The following example uses `pypa/gh-action-pypi-publish` to exchange an OIDC token for a PyPI API token, which is then used to upload a package's release distributions to PyPI.
 
