@@ -24,8 +24,7 @@ topics:
   - Policies
 shortTitle: GitHub Actions policies
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 
 ## About policies for {% data variables.product.prodname_actions %} in your enterprise
 

@@ -13,8 +13,7 @@ topics:
   - Teams
 shortTitle: Disable or limit actions
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your organization
