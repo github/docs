@@ -468,9 +468,7 @@ You can now update your YAML workflows to use OIDC access tokens instead of secr
 
 ## Enabling OpenID Connect for Python package publishing
 
-The [Python Package Index (PyPI)](https://pypi.org) supports "token exchange" with OpenID connect: you can configure a GitHub workflow in a repository as a trusted publisher for a PyPI project, allowing OIDC access tokens to be exchanged for temporary PyPI API tokens.
-
-See the guide in "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi)" for more information, as well as PyPI's [own documentation on trusted publishing](https://docs.pypi.org/trusted-publishers/).
+You can use a {% data variables.product.prodname_actions %} workflow in a repository as a trusted publisher for a PyPI project. Using a workflow as a trusted publisher allows OIDC access tokens to be exchanged for temporary PyPI API tokens. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-pypi)" and "[Publishing to PyPI with a Trusted Publisher](https://docs.pypi.org/trusted-publishers/)" in the PyPI documentation.
 
 ## Enabling OpenID Connect for your cloud provider
 

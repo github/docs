@@ -36,21 +36,22 @@ This guide gives an overview of how to configure PyPI to trust {% data variables
 
 ## Adding the identity provider to PyPI
 
-To use OIDC with PyPI, you will need to add a trust configuration that links each project on PyPI to each repository and workflow combination that's allowed to publish for it.
+To use OIDC with PyPI, add a trust configuration that links each project on PyPI to each repository and workflow combination that's allowed to publish for it.
 
-To configure a PyPI project to allow trusted publishing:
+1. Log into PyPI and navigate to the trusted publishing settings for the project you'd like to configure. For a project named `myproject`, this will be at `https://pypi.org/manage/project/myproject/settings/publishing/`.
 
-1. Log into PyPI, and navigate to the trusted publishing settings for the project you'd like to configure. For a project named `myproject`, this will be at `https://pypi.org/manage/project/myproject/settings/publishing/`.
+2. Configure a trust relationship between the PyPI project and a GitHub repository (and workflow within the repository). For example, if your GitHub repository is at `myorg/myproject` and your release workflow is defined in `release.yml`, you should use the following settings for your trusted publisher on PyPI.
 
-2. Configure a trust relationship between the PyPI project and a GitHub repository (and workflow within the repository). For example, if your GitHub repository is at `myorg/myproject` and your release workflow is defined in `release.yml`,
-then you should use the following settings for your trusted publisher on PyPI:
+{% note %}
 
-    * Owner: `myorg`
-    * Repository name: `myproject`
-    * Workflow name: `release.yml`
-
-    Take care to enter these values correctly: giving the incorrect user, repository, or workflow
+**Note:**  Enter these values correctly. Giving the incorrect user, repository, or workflow
     the ability to publish to your PyPI project is equivalent to sharing an API token.
+
+{% endnote %}
+
+- Owner: `myorg`
+- Repository name: `myproject`
+- Workflow name: `release.yml`
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
