@@ -19,11 +19,7 @@ By setting up a template repository, you can help people get started with your f
 
 Anyone with read access to your template repository can create a codespace from the repository's page on {% data variables.product.product_name %}. You can turn any existing repository into a template, and you do not have to change any settings to allow users to create a codespace from your template repository. For more information on turning a repository into a template, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository)."
 
-You can provide a link in the format `https://github.com/codespaces/new?template_repository=OWNER/TEMPLATE-REPO` to take users directly to a "Create a new codespace" page for your template.
-
-![Screenshot of the "Create a new codespace" page for a template repository called "Basic React website," with a "Use this template" button.](/assets/images/help/codespaces/create-a-new-codespace-page.png)
-
-For example, you could provide this link in a tutorial for getting started with your framework. In your link, replace `OWNER/TEMPLATE-REPO` with the name of your template repository, for example `monalisa/octo-template`.
+To help users find your template and get started quickly, you can share a link to the codespace creation page for the template. For example, you could provide this link in a tutorial for getting started with your framework. You can use the "share a deep link" option and select **Quick start** to build a link that takes users to a page where they can quickly create a new codespace or resume a recent one. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces#creating-a-link-to-the-codespace-creation-page-for-your-repository)."
 
 When someone creates a codespace from your template, the contents of your template repository will be cloned into their codespace. When the user is ready, they will be able to publish their work to a new repository on {% data variables.product.product_name %} belonging to their personal account. Any usage charges for the codespace will be billed to the user who created it. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
 
@@ -31,7 +27,7 @@ When someone creates a codespace from your template, the contents of your templa
 
 If you don't have one, create a README for your template repository to describe the purpose of your template and how to get started with it. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
-A short description of your template is displayed on the "Create a new codespace" page that users land on when they follow the `https://github.com/codespaces/new?template_repository=OWNER/TEMPLATE-REPO` link. This description is taken from the **Description** field that you can set when you create a repository. You can edit this description at any time by navigating to the repository's page and clicking **{% octicon "gear" aria-label="The Settings gear" %}** next to the **About** section on the right of the page.
+You can also provide a short description of your project by navigating to the repository's page and clicking **{% octicon "gear" aria-label="Edit repository metadata" %}** next to the **About** section on the right of the page.
 
 ![Screenshot of the "About" section on a repository page. The settings button (a gear symbol) is highlighted with a dark orange outline.](/assets/images/help/codespaces/repository-settings-icon.png)
 
@@ -59,6 +55,7 @@ You can add dev container configuration files to your template repository to cus
 
 You should configure your dev container with the tools and customization to give users the best experience with your template. For example, in your `devcontainer.json` file:
 - You can use the `openFiles` property to define a list of files to be opened automatically in the {% data variables.product.prodname_vscode_shortname %} web client when a codespace is created from your template.
+- If users need to provide personal secrets such as API keys to run the application in your template, you can prompt them to provide these secrets. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/specifying-recommended-secrets-for-a-repository)."
 - If your template contains files for a web application, you can make the application run automatically in the user's codespace. You can do this by using the `postAttachCommand` property to run a script that starts the application on a local server as soon as the {% data variables.product.prodname_vscode_shortname %} web client connects to the codespace, and by setting the `onAutoForward` property of a port to `openPreview` to display the application running on that port in a simple browser embedded in the {% data variables.product.prodname_vscode_shortname %} web client.
 
 The following configuration settings for a React template will open the `app.js` file in the user's editor, run `npm start` (defined in a `package.json` file) to start a local server, and forward port `3000` to a preview browser tab in the codespace.

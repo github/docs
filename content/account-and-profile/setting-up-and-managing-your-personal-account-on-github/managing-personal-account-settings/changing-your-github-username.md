@@ -79,7 +79,9 @@ After changing your username, links to your previous profile page, such as `http
 
 ## Your Git commits
 
-{% ifversion fpt or ghec %}Git commits that were associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph.{% endif %} If your Git commits are associated with another email address you've [added to your GitHub account](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account), {% ifversion fpt or ghec %}including the ID-based {% data variables.product.product_name %}-provided `noreply` email address, {% endif %}they'll continue to be attributed to you and appear in your contributions graph after you've changed your username. For more information on setting your email address, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."
+If your Git commits are associated with another email address you've added to your {% data variables.product.prodname_dotcom %} account, they'll continue to be attributed to you and appear in your contributions graph after you've changed your username. For more information on setting your email address, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)."
+
+{% ifversion fpt or ghec %}If you've been using a {% data variables.product.prodname_dotcom %}-provided private commit email address, whether or not your commit history will be retained after an account rename depends on the format of the email address. Git commits that are associated with your {% data variables.product.product_name %}-provided `noreply` email address won't be attributed to your new username and won't appear in your contributions graph, unless your `noreply` email address is in the form of `ID+USERNAME@users.noreply.github.com`. Older versions of the `noreply` email address that do not contain a numeric ID will not be associated with your {% data variables.product.prodname_dotcom %} account after changing your username.{% endif %}
 
 ## Your gists
 
@@ -93,14 +95,10 @@ After changing your username, CODEOWNERS files that include your old username wi
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. In the "Change username" section, click **Change username**.
-   ![Change Username button](/assets/images/help/settings/settings-change-username.png){% ifversion fpt or ghec %}
+3. In the "Change username" section, click **Change username**.{% ifversion fpt or ghec %}
 4. Read the warnings about changing your username. If you still want to change your username, click **I understand, let's change my username**.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-username-warning-button.png)
 5. Type a new username.
-   ![New username field](/assets/images/help/settings/settings-change-username-enter-new-username.png)
 6. If the username you've chosen is available, click **Change my username**. If the username you've chosen is unavailable, you can try a different username or one of the suggestions you see.
-   ![Change Username warning button](/assets/images/help/settings/settings-change-my-username-button.png)
 {% endif %}
 
 ## Further reading

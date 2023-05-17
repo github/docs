@@ -5,7 +5,7 @@
 - [ ] I've worked through build failures and tests are passing.
 - [ ] For REST API content, I've verified that endpoints, parameters, and responses are correct and work as expected and provided curl samples below.
   
-For more information, check out our [full review guidelines and checklist](https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/reviews-and-feedback/review-process.md).
+For more information, check out our [review process](https://github.com/github/docs-team/blob/main/contributing-to-docs/review-process.md).
 
 ## Review request
 

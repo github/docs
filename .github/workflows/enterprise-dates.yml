@@ -1,8 +1,10 @@
 name: Enterprise date updater
 
-# **What it does**: Runs on a schedule to update lib/enterprise-dates.json.
-# **Why we have it**: The lib/enterprise-dates.json file needs to be up-to-date
-# for the .github/workflows/open-enterprise-issue.yml workflow and the
+# **What it does**: Runs on a schedule to update
+# src/ghes-releases/lib/enterprise-dates.json.
+# **Why we have it**: The src/ghes-releases/lib/enterprise-dates.json
+# file needs to be up-to-date for the
+# .github/workflows/open-enterprise-issue.yml workflow and the
 # tests/content/search.js test.
 # **Who does it impact**: Docs engineering, docs content.
 
@@ -36,13 +38,13 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout repository code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # pin @3.1.0
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # pin @3.5.2
 
       - uses: ./.github/actions/node-npm-setup
 
-      - name: Run script/update-enterprise-dates.js
+      - name: Run src/ghes-releases/scripts/update-enterprise-dates.js
         run: |
-          script/update-enterprise-dates.js
+          src/ghes-releases/scripts/update-enterprise-dates.js
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
 
@@ -55,8 +57,8 @@ jobs:
         with:
           # need to use a token with repo and workflow scopes for this step
           token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: '🤖 ran script/update-enterprise-dates.js'
-          title: 🤖 lib/enterprise-dates.json update
+          commit-message: '🤖 ran src/ghes-releases/scripts/update-enterprise-dates.js'
+          title: 🤖 src/ghes-releases/lib/enterprise-dates.json update
           body:
             "Hello! The GitHub Enterprise Server release dates have changed.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n

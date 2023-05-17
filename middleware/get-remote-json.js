@@ -42,8 +42,8 @@ export default async function getRemoteJSON(url, config) {
     const ROOT = process.env.GET_REMOTE_JSON_DISK_CACHE_ROOT || '.remotejson-cache'
 
     const onDisk = path.join(ROOT, `${tempFilename}.json`)
-    // Never even try reading from disk in production.
-    if (!inProd && fs.existsSync(onDisk)) {
+
+    try {
       const body = fs.readFileSync(onDisk, 'utf-8')
       // It might exist on disk, but it could be empty
       if (body) {
@@ -57,6 +57,10 @@ export default async function getRemoteJSON(url, config) {
             throw error
           }
         }
+      }
+    } catch (error) {
+      if (!(error instanceof SyntaxError || error.code === 'ENOENT')) {
+        throw error
       }
     }
 

@@ -1,6 +1,6 @@
 import { jest, test } from '@jest/globals'
 
-import { getDOM } from '../../../tests/helpers/e2etest.js'
+import { getDOMCached as getDOM } from '../../../tests/helpers/e2etest.js'
 
 describe('automated page heading accessibility', () => {
   jest.setTimeout(3 * 60 * 1000)

@@ -32,6 +32,12 @@ If you're experiencing problems while switching between different authentication
 ## Accessing your enterprise when SSO is not available
 
 When a configuration error or an issue with your identity provider IdP prevents you from using SSO, you can use a recovery code to access your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."
+
+## SCIM provisioning errors
+
+Azure AD will retry SCIM provisioning attempts automatically during the next Azure AD sync cycle. The default SCIM provisioning interval for Azure AD is 40 minutes. For more information about this retry behavior, see the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/app-provisioning/how-provisioning-works#errors-and-retries) or contact Azure support if you need additional assistance.
+
+Okta will retry failed SCIM provisioning attempts with manual Okta admin intervention. For more information about how an Okta admin can retry a failed task for a specific application, see the [Okta documentation](https://support.okta.com/help/s/article/How-to-retry-failed-tasks-for-a-specific-application?language=en_US) or contact Okta support if you need additional assistance. 
 {% endif %}
 
 ## SAML authentication errors

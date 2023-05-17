@@ -33,10 +33,12 @@ Each alert highlights a problem with the code and the name of the tool that iden
 {% data reusables.code-scanning.alert-default-branch %}
 {% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/help/repository/code-scanning-alert.png)
+{% ifversion fpt or ghec or ghes > 3.8 %}
+![Screenshot showing the elements of a {% data variables.product.prodname_code_scanning %} alert, including the title of the alert and relevant lines of code at left and the severity level, affected branches, and weaknesses at right. ](/assets/images/help/repository/code-scanning-alert.png)
+{% elsif ghes = 3.4 %}
+![Screenshot showing the elements of a {% data variables.product.prodname_code_scanning %} alert, including the title of the alert and relevant lines of code at left and the severity level, affected branches, and weaknesses at right.](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
 {% else %}
-![Example alert from {% data variables.product.prodname_code_scanning %}](/assets/images/enterprise/3.4/repository/code-scanning-alert.png)
+![Screenshot showing the elements of a {% data variables.product.prodname_code_scanning %} alert, including the title of the alert and relevant lines of code at left and the severity level, affected branches, and weaknesses at right.](/assets/images/enterprise/code-security/code-scanning-alert.png)
 {% endif %}
 
 If you configure {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
@@ -71,7 +73,7 @@ You can run multiple configurations of code analysis on a repository, using diff
 
 If you use multiple configurations to analyze a file, any problems detected by the same query are reported as alerts with multiple analysis origins. If an alert has more than one analysis origin, a {% octicon "workflow" aria-label="The workflow icon" %} icon will appear next to any relevant branch in the **Affected branches** section on the right-hand side of the alert page. You can hover over the {% octicon "workflow" aria-label="The workflow icon" %} icon to see the names of each analysis origin and the status of the alert for that analysis origin. You can also view the history of when alerts appeared in each analysis origin in the timeline on the alert page. If an alert only has one analysis origin, no information about analysis origins is displayed on the alert page.
 
-![Code scanning alert with multiple analysis origins](/assets/images/help/repository/code-scanning-analysis-origins.png)
+![Screenshot showing a code scanning alert with multiple analysis origins.](/assets/images/help/repository/code-scanning-analysis-origins.png)
 
 {% note %}
 
@@ -91,13 +93,13 @@ If you use multiple configurations to analyze a file, any problems detected by t
 
 {% data variables.product.prodname_code_scanning_caps %} categorizes files by file path. You cannot manually categorize source files.
 
-Here is an example from the {% data variables.product.prodname_code_scanning %} alert list of an alert marked as occurring in library code.
+In this example, an alert is marked as in "Test" code in the {% data variables.product.prodname_code_scanning %} alert list.
 
-![Code scanning library alert in list](/assets/images/help/repository/code-scanning-library-alert-index.png)
+![Screenshot of an alert in the {% data variables.product.prodname_code_scanning %} list. To the right of the title, a "Test" label is highlighted with a dark orange outline.](/assets/images/help/repository/code-scanning-library-alert-index.png)
 
-On the alert page, you can see that the filepath is marked as library code (`Library` label).
+When you click through to see details for the alert, you can see that the file path is marked as "Test" code.
 
-![Code scanning library alert details](/assets/images/help/repository/code-scanning-library-alert-show.png)
+![Screenshot showing the details of an alert. The file path and "Test" label are highlighted with a dark orange outline.](/assets/images/help/repository/code-scanning-library-alert-show.png)
 
 {% ifversion codeql-ml-queries %}
 
@@ -107,7 +109,7 @@ On the alert page, you can see that the filepath is marked as library code (`Lib
 
 In repositories that run {% data variables.product.prodname_code_scanning %} using the {% data variables.product.prodname_codeql %} action, you may see some alerts that are marked as experimental. These are alerts that were found using a machine learning model to extend the capabilities of an existing {% data variables.product.prodname_codeql %} query.
 
-![Code scanning experimental alert in list](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
+![Screenshot showing an alert for {% data variables.product.prodname_code_scanning %}. An "Experimental" label is displayed to the right of the title, which is appended with "(experimental)."](/assets/images/help/repository/code-scanning-experimental-alert-list.png)
 
 ### Benefits of using machine learning models to extend queries
 
@@ -119,9 +121,7 @@ Each of the security queries for {% data variables.product.prodname_codeql %} id
 
 ### Alerts identified using machine learning
 
-Alerts found using a machine learning model are tagged as "Experimental alerts" to show that the technology is under active development. These alerts have a higher rate of false positive results than the queries they are based on. The machine learning model will improve based on user actions such as marking a poor result as a false positive or fixing a good result.
-
-![Code scanning experimental alert details](/assets/images/help/repository/code-scanning-experimental-alert-show.png)
+Alerts found using a machine learning model are displayed with an "Experimental alerts" banner to show that the technology is under active development. These alerts have a higher rate of false positive results than the queries they are based on. The machine learning model will improve based on user actions such as marking a poor result as a false positive or fixing a good result.
 
 ## Enabling experimental alerts
 

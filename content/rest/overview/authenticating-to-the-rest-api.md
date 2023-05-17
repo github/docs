@@ -60,7 +60,7 @@ For example:
 
 ```shell
 curl --request POST \
---url "{% data variables.product.api_url_code %}/authorizations"
+--url "{% data variables.product.api_url_code %}/authorizations" \
 --user CLIENT_ID:CLIENT_SECRET{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```

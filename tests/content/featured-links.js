@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { getDOM, getJSON } from '../helpers/e2etest.js'
+import { getDOM } from '../helpers/e2etest.js'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 
 describe('featuredLinks', () => {
@@ -67,24 +67,6 @@ describe('featuredLinks', () => {
         false
       )
       expect($productArticlesLinks.text().includes('Setting your billing email'), msg).toBe(false)
-    })
-  })
-
-  describe('context.page object', () => {
-    test('returns modified array of links', async () => {
-      const gettingStartedLinks = await getJSON('/en?json=featuredLinks.gettingStarted')
-      const expectedFirstLink = {
-        href: '/en/get-started/quickstart/set-up-git',
-        title: 'Set up Git',
-      }
-      expect(gettingStartedLinks[0].href).toEqual(expectedFirstLink.href)
-      expect(gettingStartedLinks[0].title).toEqual(expectedFirstLink.title)
-      expect(gettingStartedLinks[0].intro.startsWith('At the heart of GitHub')).toBe(true)
-    })
-
-    test('returns raw array of links on the page object', async () => {
-      const rawGettingStartedLinks = await getJSON('/en?json=page.featuredLinks.gettingStarted')
-      expect(rawGettingStartedLinks[0]).toEqual('/get-started/quickstart/set-up-git')
     })
   })
 })

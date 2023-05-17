@@ -34,6 +34,16 @@ let currentlyOpen: HTMLLinkElement | null = null
 // change accoding to the popover's true height. But this can cause a flicker.
 const BOUNDING_TOP_MARGIN = 300
 
+type Info = {
+  product: string
+  title: string
+  intro: string
+  anchor?: string
+}
+type APIInfo = {
+  info: Info
+}
+
 function getOrCreatePopoverGlobal() {
   let popoverGlobal = document.querySelector('div.Popover') as HTMLDivElement | null
   if (!popoverGlobal) {
@@ -106,45 +116,65 @@ function popoverWrap(element: HTMLLinkElement) {
   if (element.parentElement && element.parentElement.classList.contains('Popover')) {
     return
   }
-  let title = element.dataset.title
-  let product = element.dataset.productTitle || ''
-  let intro = element.dataset.intro || ''
+  let title = ''
+  let product = ''
+  let intro = ''
   let anchor = ''
 
-  if (!title) {
-    // But, is it an in-page anchor link? If so, get the title, intro
-    // and product from within the DOM. But only if we can use the anchor
-    // destination to find a DOM node that has text.
-    if (
-      element.href.includes('#') &&
-      element.href.split('#')[1] &&
-      element.href.startsWith(`${window.location.href.split('#')[0]}#`)
-    ) {
-      const domID = element.href.split('#')[1]
-      const domElement = document.querySelector(`#${domID}`)
-      if (domElement && domElement.textContent) {
-        anchor = domElement.textContent
-        // Now we have to make up the product, intro, and title
-        const domTitle = document.querySelector('h1')
-        if (domTitle && domTitle.textContent) {
-          title = domTitle.textContent
-          intro = ''
-          product = ''
-          const domProduct = document.querySelector('._product-title')
-          if (domProduct && domProduct.textContent) {
-            product = domProduct.textContent
-          }
-          const domIntro = document.querySelector('._page-intro')
-          if (domIntro && domIntro.textContent) {
-            intro = domIntro.textContent
-          }
+  // Is it an in-page anchor link? If so, get the title, intro
+  // and product from within the DOM. But only if we can use the anchor
+  // destination to find a DOM node that has text.
+  if (
+    element.href.includes('#') &&
+    element.href.split('#')[1] &&
+    element.href.startsWith(`${window.location.href.split('#')[0]}#`)
+  ) {
+    const domID = element.href.split('#')[1]
+    const domElement = document.querySelector(`#${domID}`)
+    if (domElement && domElement.textContent) {
+      anchor = domElement.textContent
+      // Headings will have the `#` character to the right which is to
+      // indicate that it's a "permalink". It becomes part of the heading's
+      // text as a DOM element. Strip that.
+      if (anchor.endsWith(' #')) {
+        anchor = anchor.slice(0, -2)
+      }
+
+      // Now we have to make up the product, intro, and title
+      const domTitle = document.querySelector('h1')
+      if (domTitle && domTitle.textContent) {
+        title = domTitle.textContent
+        intro = ''
+        product = ''
+        const domProduct = document.querySelector('._product-title')
+        if (domProduct && domProduct.textContent) {
+          product = domProduct.textContent
+        }
+        const domIntro = document.querySelector('._page-intro')
+        if (domIntro && domIntro.textContent) {
+          intro = domIntro.textContent
         }
       }
     }
+
+    if (title) {
+      fillPopover(element, { product, title, intro, anchor })
+    }
+    return
   }
 
-  if (!title) return
+  const { pathname } = new URL(element.href)
 
+  fetch(`/api/pageinfo/v1?${new URLSearchParams({ pathname })}`).then(async (response) => {
+    if (response.ok) {
+      const { info } = (await response.json()) as APIInfo
+      fillPopover(element, info)
+    }
+  })
+}
+
+function fillPopover(element: HTMLLinkElement, info: Info) {
+  const { product, title, intro, anchor } = info
   const popover = getOrCreatePopoverGlobal()
   const productHead = popover.querySelector('p.product') as HTMLParagraphElement | null
   if (productHead) {
@@ -318,8 +348,19 @@ export function LinkPreviewPopover() {
     ).filter((link) => {
       // This filters out links that are not internal or in-page
       // and the ones that are in-page anchor links next to the headings.
+      // Remember that `link.href` is always absolute because it comes
+      // from the DOM. So to test the pathname, we have to parse it
+      // and extract the pathname from the whole URL object.
+      const { pathname } = new URL(link.href)
       return (
-        link.href.startsWith(window.location.origin) && !link.classList.contains('doctocat-link')
+        link.href.startsWith(window.location.origin) &&
+        !link.classList.contains('heading-link') &&
+        !pathname.startsWith('/public/') &&
+        !pathname.startsWith('/assets/') &&
+        // This skips those ToolPicker links with `data-tool="vscode"`
+        // attribute, for example.
+        !link.dataset.tool &&
+        !link.dataset.platform
       )
     })
 

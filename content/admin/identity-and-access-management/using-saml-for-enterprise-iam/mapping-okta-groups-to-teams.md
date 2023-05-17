@@ -72,14 +72,6 @@ Enterprise owners can use the site admin dashboard to check how Okta groups are 
 
 ## Viewing audit log events for mapped groups
 
- To monitor SSO activity for mapped groups, you can review the following events in the {% data variables.product.prodname_ghe_managed %} audit log.
+To monitor SSO activity for mapped groups, you can review the `external_group` and `external_identity` events events in the {% data variables.product.prodname_ghe_managed %} audit log.
 
-For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)."
-
- ### `external_group` events
-
-{% data reusables.saml.external-group-audit-events %}
-
-### `external_identity` events
-
-{% data reusables.saml.external-identity-audit-events %}
+For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."

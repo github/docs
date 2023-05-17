@@ -6,7 +6,7 @@ import cx from 'classnames'
 import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
-import { RestCollapsibleSection } from './RestCollapsibleSection'
+import { RestCollapsibleSection } from 'src/rest/components/RestCollapsibleSection'
 import { ProductCollapsibleSection } from './ProductCollapsibleSection'
 
 export const SidebarProduct = () => {
@@ -50,6 +50,15 @@ export const SidebarProduct = () => {
                     id={childPage.href}
                     current={routePath === childPage.href}
                     key={childPage.href + i}
+                    onSelect={(e) => {
+                      if (
+                        e.nativeEvent instanceof KeyboardEvent &&
+                        e.nativeEvent.code === 'Enter'
+                      ) {
+                        document.getElementById(childPage.href)?.click()
+                        e?.stopPropagation()
+                      }
+                    }}
                   >
                     <Link href={childPage.href} className="color-fg-default no-underline">
                       {childTitle}
@@ -104,14 +113,27 @@ export const SidebarProduct = () => {
               return (
                 <div key={childTitle}>
                   {childPage.href.includes('quickstart') ? (
-                    <TreeView.Item id={childPage.href} key={childPage.href + i} current={isActive}>
-                      <Link
-                        href={childPage.href}
-                        className={cx('d-block no-underline width-full color-fg-default')}
+                    <Link
+                      href={childPage.href}
+                      className={cx('d-block no-underline width-full color-fg-default')}
+                    >
+                      <TreeView.Item
+                        id={childPage.href}
+                        key={childPage.href + i}
+                        current={isActive}
+                        onSelect={(e) => {
+                          if (
+                            e.nativeEvent instanceof KeyboardEvent &&
+                            e.nativeEvent.code === 'Enter'
+                          ) {
+                            document.getElementById(childPage.href)?.click()
+                            e?.stopPropagation()
+                          }
+                        }}
                       >
                         {childTitle}
-                      </Link>
-                    </TreeView.Item>
+                      </TreeView.Item>
+                    </Link>
                   ) : (
                     <TreeView.Item
                       id={childPage.href}

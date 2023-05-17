@@ -41,7 +41,7 @@ After you enable {% data variables.product.prodname_github_connect %}, license d
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Under "License sync", click {% octicon "sync" aria-label="The Sync icon" %} **Sync now**.
+1. Under "License sync", click {% octicon "sync" aria-hidden="true" %} **Sync now**.
 
 {% endif %}
 

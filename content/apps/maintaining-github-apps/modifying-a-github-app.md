@@ -26,6 +26,8 @@ You can modify your {% data variables.product.prodname_github_app %} to change a
 
 For example, you can change the name and description of your app, the permissions granted to your app, the webhooks your app subscribes to, or the visibility of your app.
 
+You can also choose to test new optional features for your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
+
 ## Navigating to your {% data variables.product.prodname_github_app %} settings
 
 To modify a {% data variables.product.prodname_github_app %}, first navigate to the app settings page.

@@ -184,7 +184,7 @@ You need two pieces of information about your event hub: its instance name and t
 **On Microsoft Azure portal**:
 1. At the top of the page, next to "Microsoft Azure", use the search box to search for "Event Hubs".
 1. Select **Event Hubs**. The names of your event hubs are listed.
-2. Make a note of the name of the event hub to which you want to stream. Click the event hub. 
+2. Make a note of the name of the event hub to which you want to stream. Click the event hub.
 3. In the left menu, click **Shared Access Policies**.
 4. Select a shared access policy from the list of policies, or create a new policy.
 5. Copy the connection string from the **Connection string-primary key** field.
@@ -192,7 +192,7 @@ You need two pieces of information about your event hub: its instance name and t
 **On {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Azure Event Hubs**.
-   
+
 2. On the configuration page, enter:
    * The name of the Azure Event Hubs instance.
    * The connection string.
@@ -253,11 +253,15 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 2. On the configuration page, enter:
    * The domain on which the application you want to stream to is hosted.
 
-     If you are using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example: `http-inputs-mycompany.splunkcloud.com`.
+     If you're using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example, `http-inputs-mycompany.splunkcloud.com`.
+
+     If you're using the free trial version of Splunk Cloud, `Domain` should be `inputs.<host>`, where `host` is the domain you use in Splunk Cloud. For example, `inputs.mycompany.splunkcloud.com`.
 
    * The port on which the application accepts data.<br>
 
-     If you are using Splunk Cloud, `Port` should be `443` if you haven't changed the port configuration. If you are using the free trial version of Splunk Cloud, `Port` should be `8088`.
+     If you're using Splunk Cloud and haven't changed the port configration, `Port` should be `443`.
+
+     If you're using the free trial version of Splunk Cloud, `Port` should be `8088`.
 
    * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
 
@@ -291,11 +295,12 @@ When the application is ready to receive audit logs again, click **Resume stream
 
 1. A confirmation message is displayed. Click **Delete stream** to confirm.
 
+{% ifversion ghec %}
 ## Enabling audit log streaming of API requests
 
 {% note %}
 
-**Note:** This feature is currently in public beta and subject to change. 
+**Note:** This feature is currently in public beta and subject to change.
 
 {% endnote %}
 
@@ -303,5 +308,5 @@ When the application is ready to receive audit logs again, click **Resume stream
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Under "Audit log", click **Settings**.
-2. Under "API Requests", select **Enable API Request Events**. 
-
+2. Under "API Requests", select **Enable API Request Events**.
+3. {% endif %}

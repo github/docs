@@ -11,6 +11,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+    - /code-security/codeql-cli/extractor-options
 ---
 <!--The CodeQL CLI man pages include a link to this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/codeql-cli-docs/extractor-options.-->

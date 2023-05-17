@@ -1100,7 +1100,7 @@ When you make a request to create a `repository_dispatch` event, you must specif
 ```yaml
 on:
   repository_dispatch:
-    types: [on-demand-test]
+    types: [test_result]
 ```
 
 {% note %}

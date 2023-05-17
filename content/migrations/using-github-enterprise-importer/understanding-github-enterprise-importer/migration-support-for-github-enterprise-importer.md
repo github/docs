@@ -47,10 +47,11 @@ Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitb
 If your migration source is Bitbucket Server, you can migrate repositories. We currently only support migrating the following repository data from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %}.
 
 - Git source (including commit history)
-- Pull requests (including pull request reviews, required reviewers, comments and attachments)
+- Pull requests (including pull request reviews, required reviewers, comments and attachments, but excluding file-level comments)
 
 Currently, the following data is **not** migrated.
 
+- File-level comments on pull requests
 - Branch permissions
 - Commit comments
 - Repository settings

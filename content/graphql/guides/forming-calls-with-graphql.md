@@ -16,22 +16,19 @@ shortTitle: Form calls with GraphQL
 
 ## Authenticating with GraphQL
 
-{% note %}
+You can authenticate to the GraphQL API using a {% data variables.product.pat_generic %}, {% data variables.product.prodname_github_app %}, or {% data variables.product.prodname_oauth_app %}.
 
-**Note**: You need to create a {% data variables.product.pat_v1 %}, {% data variables.product.prodname_github_app %}, or {% data variables.product.prodname_oauth_app %} to authenticate to the GraphQL API. The GraphQL API does not support authentication with {% data variables.product.pat_v2 %}s.
+### Authenticating with a {% data variables.product.pat_generic %}
 
-{% endnote %}
+To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes or permissions you will need. For example, select the "issues:read" permission to read all of the issues in the repos your token has access to.
 
+All {% data variables.product.pat_v2 %}s include read access to public repositories. To access public repositories with a {% data variables.product.pat_v1 %}, select the "public_repo" scope.
 
-### Authenticating with a {% data variables.product.pat_v1_caps %}
-
-To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" to create a {% data variables.product.pat_v1 %}. The data that you are requesting will dictate which scopes you will need. For example, select the "read:user" scope to request data about users. Select the "public_repo" scope to request data about public repositories.
-
-If your token does not have the required scopes to access a resource, the API will return an error message that states what scopes your token needs.
+If your token does not have the required scopes or permissions to access a resource, the API will return an error message that states the scopes or permissions your token needs.
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. In order to attribute activity to your app, you can make your app authenticate as an app installation. In order to attribute app activity to a user, you can make your app authenticate on behalf of a user. In both cases, you will generate a token that you can use to authenticate to the GraphQL API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. In order to attribute activity to your app, you can make your app authenticate as an app installation. In order to attribute app activity to a user, you can make your app authenticate on behalf of a user. In both cases, you will generate a token that you can use to authenticate to the GraphQL API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
 ### Authenticating with a {% data variables.product.prodname_oauth_app %}
 

@@ -157,8 +157,8 @@
 - term: contributions
   description: >-
     Specific activities on GitHub that will:
-    - Add a square to a user's contribution graph: "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile#what-counts-as-a-contribution)"
-    - Add activities to a user's timeline on their profile: "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile#contribution-activity)"
+      - Add a square to a user's contribution graph: "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile#what-counts-as-a-contribution)"
+      - Add activities to a user's timeline on their profile: "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile#contribution-activity)"
 - term: contributor
   description: >-
     A contributor is someone who does not have collaborator access to a repository but has contributed to a project and had a pull request they opened merged into the repository.

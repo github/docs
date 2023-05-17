@@ -18,7 +18,8 @@ includeGuides:
   - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/setting-a-minimum-specification-for-codespace-machines
   - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/adding-features-to-a-devcontainer-file
   - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/automatically-opening-files-in-the-codespaces-for-a-repository
-  - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/adding-a-codespaces-badge
+  - /codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/specifying-recommended-secrets-for-a-repository
+  - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces
   - /codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account
   - /codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository

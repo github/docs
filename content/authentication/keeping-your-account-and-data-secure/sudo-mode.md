@@ -66,8 +66,6 @@ You must configure two-factor authentication (2FA) for your account using a secu
 
 When prompted to authenticate for sudo mode, click **Use security key**, then follow the prompts.
 
-![Screenshot of security key option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_security_key.png)
-
 {% ifversion fpt or ghec %}
 
 ### Confirming access using {% data variables.product.prodname_mobile %}
@@ -75,12 +73,8 @@ When prompted to authenticate for sudo mode, click **Use security key**, then fo
 You must install and sign into {% data variables.product.prodname_mobile %} to confirm access to your account for sudo mode using the app. For more information, see "[AUTOTITLE](/get-started/using-github/github-mobile)."
 
 1. When prompted to authenticate for sudo mode, click **Use GitHub Mobile**.
-
-   ![Screenshot of {% data variables.product.prodname_mobile %} option for sudo mode](/assets/images/help/settings/sudo_mode_prompt_github_mobile_prompt.png)
-1. Open {% data variables.product.prodname_mobile %}. {% data variables.product.prodname_mobile %} will display numbers that you must enter on {% data variables.location.product_location %} to approve the request.
-
-   ![Screenshot of numbers from {% data variables.product.prodname_mobile %} to enter on {% data variables.product.product_name %} to approve sudo mode access](/assets/images/help/settings/sudo_mode_prompt_github_mobile.png)
-1. On {% data variables.product.product_name %}, type the numbers displayed in {% data variables.product.prodname_mobile %}.
+1. Open {% data variables.product.prodname_mobile %}. {% data variables.product.prodname_dotcom %} will display numbers that you must enter in {% data variables.product.prodname_mobile %} to approve the request.
+1. In {% data variables.product.prodname_mobile %}, type the numbers displayed.
 
 {% endif %}
 
@@ -90,12 +84,8 @@ You must configure 2FA using a TOTP mobile app{% ifversion fpt or ghec %} or tex
 
 When prompted to authenticate for sudo mode, type the authentication code from your TOTP mobile app{% ifversion fpt or ghec %} or the text message{% endif %}, then click **Verify**.
 
-![Screenshot of 2FA code prompt for sudo mode](/assets/images/help/settings/sudo_mode_prompt_2fa_code.png)
-
 ### Confirming access using your password
 
 {% endif %}
 
 When prompted to authenticate for sudo mode, type your password, then click **Confirm**.
-
-![Screenshot of password prompt for sudo mode](/assets/images/help/settings/sudo_mode_prompt_password.png)
