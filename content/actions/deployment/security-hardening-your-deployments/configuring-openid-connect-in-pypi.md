@@ -18,7 +18,7 @@ topics:
 
 OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to authenticate with [PyPI](https://pypi.org) to publish Python packages.
 
-This guide gives an overview of how to configure PyPI to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in the [`pypa/gh-action-pypa-publish`](https://github.com/pypa/gh-action-pypa-publish) action to publish packages to PyPI (or other Python package indices) without any manual API token management.
+This guide gives an overview of how to configure PyPI to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in the [`pypa/gh-action-pypi-publish`](https://github.com/marketplace/actions/pypi-publish) action to publish packages to PyPI (or other Python package indices) without any manual API token management.
 
 {% ifversion ghes %}
 {% note %}
@@ -56,7 +56,7 @@ then you should use the following settings for your trusted publisher on PyPI:
 
 Once your trusted publisher is registered on PyPI, you can update your release workflow to use trusted publishing.
 
-The [`pypa/gh-action-pypi-publish`](https://github.com/pypa/gh-action-pypa-publish) has built-in support for trusted publishing, which can be enabled by giving its containing job the `id-token: write` permission and omitting the ordinary `username` and `password` action settings.
+The [`pypa/gh-action-pypi-publish`](https://github.com/marketplace/actions/pypi-publish) has built-in support for trusted publishing, which can be enabled by giving its containing job the `id-token: write` permission and omitting the ordinary `username` and `password` action settings.
 
 The following example uses `pypa/gh-action-pypi-publish` to exchange an OIDC token for a PyPI API token, which is then used to upload a package's release distributions to PyPI.
 
