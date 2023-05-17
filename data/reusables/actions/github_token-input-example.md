@@ -7,11 +7,9 @@ on: [ pull_request_target ]
 jobs:
   triage:
     runs-on: ubuntu-latest
-
     permissions:
       contents: read
       pull-requests: write
-
     steps:
       - uses: {% data reusables.actions.action-labeler %}
         with:
