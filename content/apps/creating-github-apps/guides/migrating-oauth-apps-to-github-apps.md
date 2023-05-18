@@ -60,13 +60,13 @@ You will need to update your app's code to handle API authentication for your {%
 - As an app installation, in order to take actions on behalf of itself. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
 - On behalf of a user, in order to attribute actions to a user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
 
-If you are using {% data variables.product.company_short %}'s official Octokit.js library, you can use the built in `App` object to authenticate. For examples, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
+If you are using {% data variables.product.company_short %}'s official Octokit.js library, you can use the built-in `App` object to authenticate. For examples, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
 #### Review rate limits
 
 Review the differences in rate limits between {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_app %}s. {% data variables.product.prodname_github_app %}s use sliding rules for rate limits, which can increase based on the number of repositories and number of users in the organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
 
-If possible, consider using conditional requests and subscribing to webhooks instead of polling to help you stay within rate limits. For more information about conditional requests, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#conditional-requests)." For more information about using webhooks with your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)." For more information about GraphQL, see "[AUTOTITLE](/rest/overview/about-githubs-apis)."
+If possible, consider using conditional requests and subscribing to webhooks instead of polling to help you stay within rate limits. For more information about conditional requests, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#conditional-requests)." For more information about using webhooks with your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
 #### Test your code
 

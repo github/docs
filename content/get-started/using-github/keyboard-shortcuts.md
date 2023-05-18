@@ -163,10 +163,10 @@ If you view a code file in a repository using the **Code** view and click on any
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>Command</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
-|<kbd>←</kbd> | Move cell focus to the left
-|<kbd>→</kbd> | Move cell focus to the right
-|<kbd>↑</kbd> | Move cell focus up
-|<kbd>↓</kbd> | Move cell focus down
+|<kbd>←</kbd> | Move focus to the left
+|<kbd>→</kbd> | Move focus to the right
+|<kbd>↑</kbd> | Move focus up
+|<kbd>↓</kbd> | Move focus down
 
 ### Manipulating a project
 
@@ -176,10 +176,34 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Escape</kbd> | Cancel editing for the focused cell
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
 |<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item
+|<kbd>Shift</kbd>+<kbd>↓</kbd> | Add cell{% ifversion projects-v2-board-keyboard-shorts %} or card{% endif %} below to selection
+|<kbd>Shift</kbd>+<kbd>↑</kbd> | Add cell {% ifversion projects-v2-board-keyboard-shorts %}or card{% endif %} above to selection
 |<kbd>Space</kbd> | Open selected item
 |<kbd>e</kbd> | Archive selected items
 
+{% ifversion projects-v2-board-keyboard-shorts %}
+
+### Moving cards on the board layout
+
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>Enter</kbd> or <kbd>Shift</kbd>+<kbd>Space</kbd> | Start moving the selected card(s)
+|<kbd>Esc</kbd> | Cancel the move in progress
+|<kbd>Enter</kbd> | Complete the move in progress
+|<kbd>↓</kbd> | Move a single card down
+|<kbd>Command</kbd>+<kbd>↓</kbd> or </br> <kbd>Ctrl</kbd>+<kbd>↓</kbd> (Windows/Linux) | Move a single card to the bottom of the column
+|<kbd>↑</kbd> | Move a single card up
+|<kbd>Command</kbd>+<kbd>↑</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>↑</kbd> (Windows/Linux) | Move a single card to the top of the column
+|<kbd>←</kbd> | Move card(s) left
+|<kbd>Command</kbd>+<kbd>←</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> (Windows/Linux) | Move card(s) to the leftmost column
+|<kbd>→</kbd> | Move card(s) right
+|<kbd>Command</kbd>+<kbd>→</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> (Windows/Linux) | Move card(s) to the rightmost column
+
 {% endif %}
+
+{% endif %}
+
+{% ifversion projects-v1 %}
 
 ## {% data variables.product.prodname_projects_v1_caps %}
 
@@ -220,6 +244,8 @@ If you view a code file in a repository using the **Code** view and click on any
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>Esc</kbd> | Close the card preview pane
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_actions %}

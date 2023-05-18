@@ -10,7 +10,8 @@ sections:
     - After restoration of a deleted organization, the organization did not appear in the instance's list of organizations. 
     - |
       Collectd logs could grow rapidly in size due to the inclusion of `kredz.*` metrics, which can't be parsed by StatsD and resulted in error messages. 
-    - Dropped `launch.*` metrics that cant be parsed by statsd, as the resulting statsd errors caused collectd logs to grow rapidly in size. 
+    - |
+      Dropped `launch.*` metrics that can't be parsed by statsd, as the resulting statsd errors caused collectd logs to grow rapidly in size.
   changes:
     - If a site administrator provides an invalid configuration for blob storage for GitHub Actions or GitHub Packages on an instance, the preflight checks page displays details and troubleshooting information. 
   known_issues:
@@ -26,3 +27,4 @@ sections:
       {% data reusables.release-notes.repository-inconsistencies-errors %}
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'

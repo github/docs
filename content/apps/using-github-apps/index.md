@@ -18,6 +18,6 @@ children:
   - /authorizing-github-apps
   - /reviewing-and-revoking-authorization-of-github-apps
   - /approving-updated-permissions-for-a-github-app
-  - /connecting-with-third-party-applications
+  - /reviewing-and-modifying-installed-github-apps
 ---
 

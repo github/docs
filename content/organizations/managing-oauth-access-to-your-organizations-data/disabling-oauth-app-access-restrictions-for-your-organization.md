@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Disable OAuth App
+shortTitle: Unrestrict OAuth Apps
 ---
 
 {% danger %}

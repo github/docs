@@ -15,8 +15,7 @@ topics:
   - Enterprise
 shortTitle: About actions in your enterprise
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About actions on {% data variables.product.product_name %}

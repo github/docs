@@ -29,7 +29,7 @@ If you are not using {% data variables.product.prodname_ghe_cloud %}, you can fi
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.compliance %}
-1. To the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+1. To the right of the report you want to access, click {% octicon "download" aria-hidden="true" %} **Download** or {% octicon "link-external" aria-hidden="true" %} **View**.
 
    {% data reusables.security.compliance-report-screenshot %}
 

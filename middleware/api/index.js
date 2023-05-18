@@ -5,7 +5,7 @@ import events from '../../src/events/middleware.js'
 import anchorRedirect from '../../src/rest/api/anchor-redirect.js'
 import search from '../../src/search/middleware/search.js'
 import pageInfo from '../../src/pageinfo/middleware.js'
-import webhooks from './webhooks.js'
+import webhooks from '../../src/webhooks/middleware/webhooks.js'
 
 const router = express.Router()
 

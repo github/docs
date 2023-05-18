@@ -138,29 +138,37 @@ export async function getOpenApiSchemaFiles(schemas) {
   // The full list of dereferened OpenAPI schemas received from
   // bundling the OpenAPI in github/github
   const schemaNames = schemas.map((schema) => path.basename(schema, '.json'))
+
   const OPENAPI_VERSION_NAMES = Object.keys(allVersions).map(
     (elem) => allVersions[elem].openApiVersionName
   )
+
   for (const schema of schemaNames) {
     const schemaBasename = `${schema}.json`
-    // catches all of the schemas that are not
-    // calendar date versioned. Ex: ghec, ghes-3.7, and api.github.com
+    // If the version doesn't have calendar date versioning
+    // it should have an exact match with one of the versions defined
+    // in the allVersions object.
     if (OPENAPI_VERSION_NAMES.includes(schema)) {
       webhookSchemas.push(schemaBasename)
-      // Non-calendar date schemas could also match the calendar date versioned
-      // counterpart.
+    }
+
+    // If the schema version has calendar date versioning, then one of
+    // the versions defined in allVersions should be a substring of the
+    // schema version. This means the schema version is a supported version
+    if (OPENAPI_VERSION_NAMES.some((elem) => schema.startsWith(elem))) {
+      // If the schema being evaluated is a calendar-date version, then
+      // there would only be one exact match in the list of schema names.
+      // If the schema being evaluated is a non-calendar-date version, then
+      // there will be two matches.
       // Ex: api.github.com would match api.github.com and
       // api.github.com.2022-09-09
       const filteredMatches = schemaNames.filter((elem) => elem.includes(schema))
-      // If there is only one match then there are no calendar date counterparts
-      // and this is the only schema for this plan and release.
+      // If there is only one match then it's either a calendar-date version
+      // or the version doesn't support calendar dates yet. We favor calendar-date
+      // versions but default to non calendar-date versions.
       if (filteredMatches.length === 1) {
         restSchemas.push(schemaBasename)
       }
-      // catches all of the calendar date versioned schemas in the
-      // format api.github.com.<year>-<month>-<day>
-    } else {
-      restSchemas.push(schemaBasename)
     }
   }
   return { restSchemas, webhookSchemas }

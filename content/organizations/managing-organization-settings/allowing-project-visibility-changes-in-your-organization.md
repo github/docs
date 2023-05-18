@@ -13,7 +13,7 @@ permissions: 'Organization owners can allow {% data variables.projects.project_v
 
 ## About visibility changes for projects
 
-You can restrict who has the ability to change the visibility of {% data variables.projects.projects_v2_and_v1 %} in your organization, such as restricting members from changing {% data variables.projects.projects_v2_and_v1 %} from private to public. 
+You can restrict who has the ability to change the visibility of {% data variables.projects.projects_v2_and_v1 %} in your organization, such as restricting members from changing {% data variables.projects.projects_v2_and_v1 %} from private to public.
 
 You can limit the ability to change {% data variables.projects.project_v2_and_v1 %} visibility to just organization owners, or you can allow anyone granted admin permissions to change the visibility.
 
@@ -25,7 +25,7 @@ This option may not be available to you if an enterprise owner restricts visibil
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
 1. To allow members to adjust project visibility, select **Allow members to change project visibilities for this organization**.
 1. Click **Save**.
 

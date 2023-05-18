@@ -13,8 +13,7 @@ versions:
 type: tutorial
 shortTitle: Remove self-hosted runners
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Removing a runner from a repository
