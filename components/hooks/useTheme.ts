@@ -105,10 +105,12 @@ export function useTheme() {
   })
 
   useEffect(() => {
-    const cookieValue = Cookies.get('color_mode')
-    const css = getCssTheme(cookieValue)
-    const component = getComponentTheme(cookieValue)
-    setTheme({ css, component })
+    setTimeout(() => {
+      const cookieValue = Cookies.get('color_mode')
+      const css = getCssTheme(cookieValue)
+      const component = getComponentTheme(cookieValue)
+      setTheme({ css, component })
+    })
   }, [])
 
   return { theme }
