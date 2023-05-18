@@ -28,6 +28,7 @@ Administer a classroom, assign and review work from your students, and teach the
 - [Create an individual assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)
 - [Create a group assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)
 - [Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)
+- [Monitor students' progress with the assignment overview page](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/monitor-students-progress-with-the-assignment-overview-page)
 - [Leave feedback with pull requests](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)
 - [Use autograding](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)
 
