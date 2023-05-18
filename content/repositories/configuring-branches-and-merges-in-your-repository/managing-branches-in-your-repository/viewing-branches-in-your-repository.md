@@ -18,7 +18,7 @@ shortTitle: View branches
 {% data reusables.repositories.navigate-to-branches %}
 1. Use the navigation at the top of the page to view specific lists of branches:
     - **Your branches**: In repositories that you have push access to, the **Yours** view shows all branches that you’ve pushed to, excluding the default branch, with the most recent branches first.
-    - **Active branches**: The **Active** view shows all branches that anyone has committed to within the last three months, ordered by the branches with the most recent commits first.
+    - **Active branches**: The **Active** view shows all branches (excluding the default branch) that anyone has committed to within the last three months, ordered by the branches with the most recent commits first.
     - **Stale branches**: The **Stale** view shows all branches that no one has committed to in the last three months, ordered by the branches with the oldest commits first. Use this list to determine [which branches to delete](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
     - **All branches**: The **All** view shows the default branch, followed by all other branches ordered by the branches with the most recent commits first.
 
