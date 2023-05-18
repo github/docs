@@ -5,7 +5,6 @@ intro: Use OpenID Connect within your workflows to authenticate with PyPI
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
@@ -19,14 +18,6 @@ topics:
 OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to authenticate with [PyPI](https://pypi.org) to publish Python packages.
 
 This guide gives an overview of how to configure PyPI to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in the [`pypa/gh-action-pypi-publish`](https://github.com/marketplace/actions/pypi-publish) action to publish packages to PyPI (or other Python package indices) without any manual API token management.
-
-{% ifversion ghes %}
-{% note %}
-
-**Note:** PyPI currently only supports OIDC federation with GitHub's own hosted OIDC IdP, which is identified by its issuer (`https://token.actions.githubusercontent.com`). Self-hosted GitHub Enterprise instances are not supported.
-
-{% endnote %}
-{% endif %}
 
 ## Prerequisites
 
