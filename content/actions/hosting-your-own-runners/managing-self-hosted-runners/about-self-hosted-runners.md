@@ -12,8 +12,7 @@ versions:
   ghec: '*'
 type: overview
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About self-hosted runners
@@ -178,6 +177,7 @@ You must ensure that the machine has the appropriate network access to communica
 ```
 github.com
 api.github.com
+*.actions.githubusercontent.com
 ```
 
 **Needed for downloading actions:**

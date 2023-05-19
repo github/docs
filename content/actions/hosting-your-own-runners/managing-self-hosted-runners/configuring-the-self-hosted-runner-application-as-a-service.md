@@ -13,8 +13,7 @@ versions:
 type: tutorial
 defaultPlatform: linux
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}

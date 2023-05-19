@@ -16,8 +16,7 @@ topics:
   - Maven
 shortTitle: Build & test Java with Maven
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -36,7 +35,7 @@ You should be familiar with YAML and the syntax for {% data variables.product.pr
 - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[AUTOTITLE](/actions/learn-github-actions)"
 
-We recommend that you have a basic understanding of Java and the Maven framework. For more information, see the [Maven Getting Started Guide](http://maven.apache.org/guides/getting-started/index.html) in the Maven documentation.
+We recommend that you have a basic understanding of Java and the Maven framework. For more information, see the [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html) in the Maven documentation.
 
 {% data reusables.actions.enterprise-setup-prereq %}
 

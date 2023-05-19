@@ -13,8 +13,7 @@ versions:
   ghec: '*'
 shortTitle: Automatic token authentication
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About the `GITHUB_TOKEN` secret

@@ -8,8 +8,7 @@ versions:
   ghec: '*'
 shortTitle: About monitoring and troubleshooting
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Monitoring your workflows

@@ -8,8 +8,7 @@ versions:
   ghec: '*'
 shortTitle: Manually run a workflow
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Configuring a workflow to run manually

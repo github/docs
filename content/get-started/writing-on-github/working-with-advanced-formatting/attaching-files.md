@@ -16,6 +16,14 @@ topics:
   - Pull requests
 ---
 
+{% ifversion ghes %}
+{% warning %}
+
+**Warning:** When you upload an image or video to a pull request or issue comment, or upload a file to a ticket in the {% data variables.contact.support_portal %}, anyone can view the anonymized URL without authentication, even if the pull request or issue is in a private repository, or if private mode is enabled. To keep sensitive media files private, serve them from a private network or server that requires authentication.
+
+{% endwarning %}
+{% endif %}
+
 To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
 
 ![Screenshot of the comment box. The bar to attach files by dragging and dropping, selecting, or pasting is outlined in dark orange.](/assets/images/help/pull_requests/select-bar.png)

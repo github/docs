@@ -14,8 +14,7 @@ topics:
   - Project management
 shortTitle: Remove label when adding card
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
