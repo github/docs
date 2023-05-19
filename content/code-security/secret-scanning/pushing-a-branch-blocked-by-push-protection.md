@@ -28,7 +28,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 {% ifversion push-protection-custom-link-orgs %} 
 
-Organization admins can provide a custom link that will be included in the message from {% data variables.product.product_name %} when your push is blocked. This custom link can contain resources and advice specific to your organization and its policies.
+Organization owners can provide a custom link that will be included in the message from {% data variables.product.product_name %} when your push is blocked. This custom link can contain resources and advice specific to your organization and its policies.
 {% endif %}
 
 ## Resolving a blocked push on the command line
