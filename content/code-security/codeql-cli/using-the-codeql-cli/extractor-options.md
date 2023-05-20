@@ -1,5 +1,5 @@
 ---
-title: Extractor options
+title: Extractor options.
 intro: 'You can use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_codeql %} processes locally on software projects.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
@@ -33,13 +33,13 @@ Each extractor defines its own set of configuration options. To find out which o
     "extractor_options" : {
         "option1" : {
             "title" : "Java extractor option 1",
-            "description" : "An example string option for the Java extractor.",
+            "description" : "An example string option for the Java extractor",
             "type" : "string",
             "pattern" : "[a-z]+"
         },
         "group1" : {
             "title" : "Java extractor group 1",
-            "description" : "An example option group for the Java extractor.",
+            "description" : "An example option group for the Java extractor",
             "type" : "object",
             "properties" : {
                 "option2" : {
@@ -153,6 +153,6 @@ extractor:
 You can specify `--extractor-options-file` multiple times. The extractor option assignments are processed in the following order:
 
 1. All extractor option files specified by `--extractor-options-file` are processed in the order they appear on the command line, then
-2. All extractor option assignments specified by `--extractor-option` are processed in the order they appear on the command line
+2. All extractor option assignments specified by `--extractor-option` are processed in the order they appear on the command line.
 
 The same rules govern what happens when the same extractor option is set multiple times, regardless of whether the assignments are done using `--extractor-option`, using `--extractor-options-file`, or some combination of the two. If you set a `string` extractor option multiple times, the last option value overwrites all previous values. If you set an `array` extractor option multiple times, all option values are concatenated in order.
