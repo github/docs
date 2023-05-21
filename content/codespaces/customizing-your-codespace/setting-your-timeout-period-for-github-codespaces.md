@@ -8,7 +8,7 @@ versions:
 topics:
   - Codespaces
 type: how_to
-redirect_from:
+redirect_from#*_*#R-code
   - /codespaces/customizing-your-codespace/setting-your-timeout-period-for-codespaces
 ---
 
