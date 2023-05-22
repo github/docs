@@ -46,14 +46,6 @@ Third-party systems can be observability systems, change management systems, cod
 
 {% endif %}
 
-{% ifversion fpt %}
-{% note %}
-
-**Note:** Deployment protection rules are only available in **public** repositories if you are using {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %}. For access to deployment protection rules in **private** or **internal** repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your subscription, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
-
-{% endnote %}
-{% endif %}
-
 ### Required reviewers
 
 Use required reviewers to require a specific person or team to approve workflow jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
