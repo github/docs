@@ -116,6 +116,7 @@ export function useTheme() {
     // color mode will be called after Primer React's useEffect call.
     // The long term solution to this theming issue is to migrate to CSS variables
     // under the hood, which Primer is planning to do in the next couple quarters.
+    // Reference: https://github.com/primer/react/issues/2229
     setTimeout(() => {
       const cookieValue = Cookies.get('color_mode')
       const css = getCssTheme(cookieValue)
