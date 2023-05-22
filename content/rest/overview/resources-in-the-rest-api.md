@@ -439,7 +439,7 @@ If your application triggers an additional rate limit, you'll receive an informa
 > }
 ```
 
-You should wait and try your request again after a few minutes. If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed. Otherwise, you should not retry your request until the time, in UTC epoch seconds, specified by the `x-ratelimit-reset` header.
+You should wait and try your request at a later time. If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed. If the `x-ratelimit-remaining` header is `0`, you should not retry your request until after the time, in UTC epoch seconds, specified by the `x-ratelimit-reset` header. Otherwise, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 {% ifversion fpt or ghec %}
 
