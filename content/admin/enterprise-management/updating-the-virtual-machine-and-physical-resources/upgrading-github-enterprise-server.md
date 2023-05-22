@@ -206,6 +206,11 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+1. After the instance restarts, the upgrade will continue in the background. You cannot unset maintenance mode until the process completes. To monitor progress, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
+
+   ```shell
+   tail -f /data/user/common/ghe-config.log
+   ```
 {% ifversion ip-exception-list %}
 1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 {% endif %}
