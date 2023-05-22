@@ -67,6 +67,7 @@ const PUBLIC_REPOS = new Set([
   'codespaces-getting-started-ml',
   'dependabot-action',
   'gh-migration-analyzer',
+  'github-app-js-sample',
 ])
 
 // This regexp will capture the last segment of a GitHub repo name.
