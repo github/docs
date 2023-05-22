@@ -178,7 +178,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
+3. Add the SSH public key to your account on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endwindows %}
 
@@ -189,7 +189,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 2. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
    {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
-3. Add the SSH key to your account on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
+3. Add the SSH public key to your account on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
 
 {% endlinux %}
 
@@ -246,4 +246,4 @@ If you are using macOS or Linux, you may need to update your SSH client or insta
    > Enter passphrase (empty for no passphrase): [Type a passphrase]
    > Enter same passphrase again: [Type passphrase again]
    ```
-7. Add the SSH key to your account on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
+7. Add the SSH public key to your account on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
