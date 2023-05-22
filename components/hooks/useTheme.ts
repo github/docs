@@ -105,14 +105,14 @@ export function useTheme() {
   })
 
   useEffect(() => {
-    // Using setTimeout with a default delay value of 0 interjects one 
-    // additional event cycle, which works around a bug that is the 
+    // Using setTimeout with a default delay value of 0 interjects one
+    // additional event cycle, which works around a bug that is the
     // result of a timing issue. Without the setTimeout function
-    // the page loads, then the docs site switches the color mode to 
-    // match the user's GitHub color mode. Primer React has a useEffect 
+    // the page loads, then the docs site switches the color mode to
+    // match the user's GitHub color mode. Primer React has a useEffect
     // call that overrides this change, causing the site to ignore the
     // user's GitHub color mode and revert to auto.
-    // As a temporary workaround, this code that fetches the user's GitHub 
+    // As a temporary workaround, this code that fetches the user's GitHub
     // color mode will be called after Primer React's useEffect call.
     // The long term solution to this theming issue is to migrate to CSS variables
     // under the hood, which Primer is planning to do in the next couple quarters.
