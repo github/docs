@@ -28,7 +28,9 @@ If your codespace fails to pick up configuration settings from dotfiles, you sho
    - If your dotfiles were not cloned, check `/workspaces/.codespaces/.persistedshare/EnvironmentLog.txt` to see if there was a problem cloning them.
 1. Check `/workspaces/.codespaces/.persistedshare/creation.log` for possible issues. For more information, see [Creation logs](/codespaces/troubleshooting/github-codespaces-logs#creation-logs).
 
-If the configuration from your dotfiles is correctly picked up, but part of the configuration is incompatible with codespaces, use the `$CODESPACES` environment variable to add conditional logic for codespace-specific configuration settings.
+If the configuration from your dotfiles is correctly picked up, but part of the configuration is incompatible with codespaces, use the `$CODESPACES` environment variable to add conditional logic for codespace-specific configuration settings. For more information about configuration that may be incompatible with codespaces, see:
+- "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-authentication-to-a-repository#problems-with-the-repository-from-which-you-created-the-codespace)"
+- "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-gpg-verification-for-github-codespaces#errors-caused-by-conflicting-configuration)"
 
 ## Troubleshooting Settings Sync
 
