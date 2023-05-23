@@ -104,7 +104,7 @@
     "@babel/plugin-transform-runtime": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
     "@graphql-inspector/core": "^4.0.3",
-    "@graphql-tools/load": "^7.5.14",
+    "@graphql-tools/load": "^8.0.0",
     "@jest/globals": "29.5.0",
     "@octokit/graphql": "5.0.4",
     "@octokit/rest": "^19.0.4",
