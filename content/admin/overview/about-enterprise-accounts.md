@@ -60,6 +60,14 @@ From your enterprise account on {% ifversion ghae %}{% data variables.product.pr
 {% endif %}
 
 {% ifversion ghes %}
+{% note %}
+
+**Notes:**
+
+- Changing the enterprise display name in the settings for {% data variables.location.product_location %} will not change the enterprise name in {% data variables.location.product_location %} URL. The enterprise name in your instance's URL is generated based on the customer name in the {% data variables.product.prodname_ghe_server %} license file.
+- There is only one default enterprise account for {% data variables.product.prodname_ghe_server %}. You cannot create additional enterprise accounts.
+
+{% endnote %}
 
 ### About administration of your enterprise account on {% data variables.product.prodname_ghe_cloud %}
 
