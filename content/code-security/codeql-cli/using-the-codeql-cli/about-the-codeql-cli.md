@@ -32,7 +32,9 @@ source community
 - Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
 
 For information about using the {% data variables.product.prodname_codeql_cli %}, see
-"[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli)."
+"[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli)."
+
+You can also use {% data variables.product.prodname_actions %} or Azure DevOps pipelines to scan code using the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)" or [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
 ## About the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_codeql %} license
 
