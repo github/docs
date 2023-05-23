@@ -60,7 +60,7 @@ Crimea, the separatist areas of Donetsk and Luhansk, Cuba, Iran, North Korea, an
 
 In the rare instance that an account is affected unintentionally or in error, we have an appeal process to address such instances.
 
-If an individual user or organization administrator believes that they have been flagged in error, then that user has the opportunity to appeal the flag by providing verification information to GitHub. If GitHub receives sufficient information to verify that the user or organization is not affiliated with a U.S.-sanctioned jurisdiction for which we do not have a license or otherwise restricted by U.S. economic sanctions, then the flag will be removed. Please see [individual account appeals request form](https://airtable.com/shrGBcceazKIoz6pY) and [organizational account appeals request form](https://airtable.com/shrB2je5RBkqLEt5D).
+If an individual user or organization owner believes that they have been flagged in error, then that user has the opportunity to appeal the flag by providing verification information to GitHub. If GitHub receives sufficient information to verify that the user or organization is not affiliated with a U.S.-sanctioned jurisdiction for which we do not have a license or otherwise restricted by U.S. economic sanctions, then the flag will be removed. Please see [individual account appeals request form](https://airtable.com/shrGBcceazKIoz6pY) and [organizational account appeals request form](https://airtable.com/shrB2je5RBkqLEt5D).
 
 ### Will traveling in these regions be impacted?
 
