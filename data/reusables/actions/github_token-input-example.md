@@ -4,13 +4,12 @@ This example workflow uses the [labeler action](https://github.com/actions/label
 name: Pull request labeler
 on: [ pull_request_target ]
 
-permissions:
-  contents: read
-  pull-requests: write
-
 jobs:
   triage:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - uses: {% data reusables.actions.action-labeler %}
         with:

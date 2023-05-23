@@ -42,7 +42,7 @@ You may find it helpful to have a basic understanding of the following:
 * [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
 * [REST APIs](/rest)
-* [Sinatra](http://sinatrarb.com/)
+* [Sinatra](https://sinatrarb.com/)
 
 But you can follow along at any experience level. We'll link out to information you need along the way!
 
@@ -230,7 +230,7 @@ The second method `verify_webhook_signature` performs verification of the webhoo
 
 #### Authenticating as a GitHub App
 
-To make API calls, you'll be using the [Octokit library](http://octokit.github.io/octokit.rb/). Doing anything interesting with this library will require you, or rather your app, to authenticate. GitHub Apps have two methods of authentication:
+To make API calls, you'll be using the [Octokit library](https://octokit.github.io/octokit.rb/). Doing anything interesting with this library will require you, or rather your app, to authenticate. GitHub Apps have two methods of authentication:
 
 - Authenticating as a GitHub App using a [JSON Web Token (JWT)](https://jwt.io/introduction).
 - Authenticating as a specific installation of a GitHub App using an installation access token.
@@ -244,7 +244,7 @@ Authenticating as a GitHub App lets you do a couple of things:
 
 For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-Before you can use the Octokit.rb library to make API calls, you'll need to initialize an [Octokit client](http://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as a GitHub App. The `authenticate_app` helper method does just that!
+Before you can use the Octokit.rb library to make API calls, you'll need to initialize an [Octokit client](https://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as a GitHub App. The `authenticate_app` helper method does just that!
 
 ``` ruby
 # Instantiate an Octokit client authenticated as a GitHub App.
@@ -276,7 +276,7 @@ The code above generates a [JSON Web Token (JWT)](https://jwt.io/introduction) a
 
 #### Authenticating as an installation
 
-An _installation_ refers to any user or organization account that has installed the app. Even if someone installs the app on more than one repository, it only counts as one installation because it's within the same account. The last helper method `authenticate_installation` initializes an [Octokit client](http://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as an installation. This Octokit client is what you'd use to make authenticated API calls.
+An _installation_ refers to any user or organization account that has installed the app. Even if someone installs the app on more than one repository, it only counts as one installation because it's within the same account. The last helper method `authenticate_installation` initializes an [Octokit client](https://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as an installation. This Octokit client is what you'd use to make authenticated API calls.
 
 ``` ruby
 # Instantiate an Octokit client authenticated as an installation of a
@@ -288,7 +288,7 @@ def authenticate_installation(payload)
 end
 ```
 
-The [`create_app_installation_access_token`](http://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method) Octokit method creates an installation token. This method accepts two arguments:
+The [`create_app_installation_access_token`](https://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method) Octokit method creates an installation token. This method accepts two arguments:
 
 * Installation (integer): The ID of a GitHub App installation
 * Options (hash, defaults to `{}`): A customizable set of options
@@ -303,7 +303,7 @@ Now you're ready to start making API calls!
 
 Your app doesn't _do_ anything yet, but at this point, you can get it running on the server.
 
-Keep Smee running in the current tab in your Terminal. Open a new tab and `cd` into the directory where you [cloned the template app code](#prerequisites). The Ruby code in this repository will start up a [Sinatra](http://sinatrarb.com/) web server. This code has a few dependencies. You can install these by running:
+Keep Smee running in the current tab in your Terminal. Open a new tab and `cd` into the directory where you [cloned the template app code](#prerequisites). The Ruby code in this repository will start up a [Sinatra](https://sinatrarb.com/) web server. This code has a few dependencies. You can install these by running:
 
 ```shell
 $ gem install bundler

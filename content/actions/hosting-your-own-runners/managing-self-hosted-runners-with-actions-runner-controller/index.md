@@ -16,6 +16,5 @@ children:
   - /using-actions-runner-controller-runners-in-a-workflow
   - /troubleshooting-actions-runner-controller-errors
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}

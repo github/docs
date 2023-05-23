@@ -51,7 +51,7 @@ The Checks API sends the [`check_suite` webhook event](/webhooks-and-events/webh
 
 Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps), [Webhooks](/webhooks-and-events/webhooks/about-webhooks), and the [Checks API](/rest/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
 
-You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](http://sinatrarb.com/) to create your Checks API CI server app.
+You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](https://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](https://sinatrarb.com/) to create your Checks API CI server app.
 
 You don't need to be an expert in any of these tools or concepts to complete this project. This guide will walk you through all the required steps. Before you begin creating CI tests with the Checks API, you'll need to do the following:
 

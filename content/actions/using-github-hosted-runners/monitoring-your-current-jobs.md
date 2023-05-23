@@ -5,8 +5,7 @@ intro: 'Monitor how {% data variables.product.prodname_dotcom %}-hosted runners 
 versions:
   feature: github-runner-dashboard
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Viewing active jobs in your organization or enterprise

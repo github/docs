@@ -45,7 +45,7 @@ If you do not wish to create and clone a tutorial repository, you can create a n
 3. Click **Create repository**.
 
 ## Part 3: Exploring {% data variables.product.prodname_desktop %}
-In the file menu at the top of the screen, you can access settings and actions that you can perform in {% data variables.product.prodname_desktop %}. Most actions also have keyboard shortcuts to help you work more efficiently. For a full list of keyboard shortcuts, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/overview/keyboard-shortcuts)."
+In the file menu at the top of the screen, you can access settings and actions that you can perform in {% data variables.product.prodname_desktop %}. Most actions also have keyboard shortcuts to help you work more efficiently. For a full list of keyboard shortcuts, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/overview/github-desktop-keyboard-shortcuts)."
 
 ### The {% data variables.product.prodname_desktop %} repository bar
 At the top of the {% data variables.product.prodname_desktop %} app, you will see a bar that shows the current state of your repository.

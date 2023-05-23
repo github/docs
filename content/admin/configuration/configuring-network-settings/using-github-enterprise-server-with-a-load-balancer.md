@@ -35,7 +35,7 @@ Because client connections to {% data variables.product.prodname_ghe_server %} c
 
 ### Enabling PROXY protocol support on {% data variables.location.product_location %}
 
-We strongly recommend enabling PROXY protocol support for both your instance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
+We strongly recommend enabling PROXY protocol support for both your instance and the load balancer. Use the instructions provided by your vendor to enable the PROXY protocol on your load balancer. For more information, see [the PROXY protocol documentation](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt).
 
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 

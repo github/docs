@@ -20,6 +20,7 @@ versions:
 children:
   - /overview
   - /actions
+  - /code-scanning
 
 ---
 
