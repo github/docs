@@ -16,6 +16,13 @@ topics:
   - Monitoring
   - Performance
 ---
+
+## About monitoring the health of your cluster
+
+{% data reusables.enterprise_clustering.clustering-scale-recommendation %}
+
+You can monitor the health of your entire {% data variables.product.prodname_ghe_server %} cluster using a command-line utility or an external monitoring tool like Nagios.
+
 ## Manually checking cluster status
 
 {% data variables.product.prodname_ghe_server %} has a built-in command line utility for monitoring the health of the cluster. From the administrative shell, running the `ghe-cluster-status` command executes a series of health checks on each node including verification of connectivity and service status. The output shows all test results including the text `ok` or `error`. For example, to only display failing tests, run:

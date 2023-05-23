@@ -15,6 +15,13 @@ topics:
   - Networking
 shortTitle: Configure a cluster network
 ---
+
+## About cluster networking
+
+{% data reusables.enterprise_clustering.clustering-scale-recommendation %}
+
+Each node in your cluster must be able to communicate with all of the other nodes in the cluster over the network. You can review the required ports and protocols for end users, administration, and communication between nodes. To distribute traffic among front-end nodes, {% data variables.product.company_short %} recommends that you configure an external load balancer.
+
 ## Network considerations
 
 The simplest network design for clustering is to place the nodes on a single LAN. If a cluster must span subnetworks, we do not recommend configuring any firewall rules between the networks. The latency between nodes should be less than 1 millisecond.

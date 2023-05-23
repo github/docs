@@ -12,6 +12,12 @@ topics:
   - Clustering
   - Enterprise
 ---
+## About cluster nodes
+
+{% data reusables.enterprise_clustering.clustering-scale-recommendation %}
+
+Each node in your cluster is a virtual machine that runs the {% data variables.location.product_location %} software. Before you deploy a cluster, you can review hardware requirements, required services, and design recommendations. 
+
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ## Minimum hardware recommendations
