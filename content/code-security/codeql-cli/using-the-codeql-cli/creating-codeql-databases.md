@@ -290,6 +290,14 @@ Once you have created a {% data variables.product.prodname_codeql %} database us
 
 ### Example of creating a {% data variables.product.prodname_codeql %} database using indirect build tracing
 
+{% ifversion ghas-for-azure-devops %}
+{% note %}
+
+**Note:** If you use Azure DevOps pipelines, the simplest way to create a {% data variables.product.prodname_codeql %} database is to use {% data variables.product.prodname_ghas_azdo %}. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
+
+{% endnote %}
+{% endif %}
+
 The following example shows how you could use indirect build tracing in an Azure DevOps pipeline to create a {% data variables.product.prodname_codeql %} database:
 
 ```
