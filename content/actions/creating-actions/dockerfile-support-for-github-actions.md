@@ -11,8 +11,7 @@ versions:
   ghec: '*'
 type: reference
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About Dockerfile instructions

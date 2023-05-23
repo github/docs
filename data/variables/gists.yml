@@ -6,3 +6,6 @@ gist_search_url: >-
 
 discover_url: >-
   {% ifversion fpt or ghec %}[Discover](https://gist.github.com/discover){% elsif ghae %}Discover, `http(s)://gist.[hostname]/discover`{% else %}Discover, `http(s)://[hostname]/gist/discover` or `http(s)://gist.[hostname]/discover` if subdomains are enabled{% endif %}
+
+gist_starred: >-
+  {% ifversion fpt or ghec %}[Gist starred page](https://gist.github.com/starred){% elsif ghae %}Gist starred page, `http(s)://gist.[hostname]/starred`{% else %}Gist starred page, `http(s)://[hostname]/gist/starred` or `http(s)://gist.[hostname]/starred` if subdomains are enabled{% endif %}

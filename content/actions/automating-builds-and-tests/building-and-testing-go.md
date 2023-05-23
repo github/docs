@@ -11,8 +11,7 @@ topics:
   - CI
 shortTitle: Build & test Go
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction

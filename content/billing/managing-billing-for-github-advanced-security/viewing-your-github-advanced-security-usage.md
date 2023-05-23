@@ -24,7 +24,7 @@ shortTitle: View Advanced Security usage
 Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of {% ifversion ghas-billing-UI-update %}licenses {% else %}accounts, or seats, {% endif %}that can use these features. Periodically you should check that your use is within your license capacity. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 
 {% ifversion ghas-committers-calculator %}
-You can calculate how many additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories with the site admin dashboard. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/site-admin-dashboard#advanced-security-active-committers)."
+You can estimate the number of licenses your enterprise would need to purchase {% data variables.product.prodname_GH_advanced_security %} or to enable {% data variables.product.prodname_GH_advanced_security %} for additional organizations and repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security)."
 {% endif %}
 
 ## Viewing {% data variables.product.prodname_GH_advanced_security %} license usage for your enterprise account
@@ -88,8 +88,9 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the "Security" section of the sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**.
-1. In the "{% data variables.product.prodname_GH_advanced_security %} repositories" section, next to the repository you want usage information for, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Download CSV report**.
-  ![Screenshot of the committers by repository table. The horizontal kebab icon and "Download CSV report" button are highlighted with an orange outline.](/assets/images/help/billing/ghas-billing-table-repository-csv.png)
+1. In the "{% data variables.product.prodname_GH_advanced_security %} repositories" section, next to the repository you want usage information for, select {% octicon "kebab-horizontal" aria-label="GHAS repository actions" %}, then click **Download CSV report**.
+
+   ![Screenshot of the committers by repository table. The horizontal kebab icon and "Download CSV report" button are highlighted with an orange outline.](/assets/images/help/billing/ghas-billing-table-repository-csv.png)
 
 {% endif %}
 

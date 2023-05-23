@@ -17,8 +17,7 @@ topics:
   - CD
 shortTitle: Migrate from Azure Pipelines
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction

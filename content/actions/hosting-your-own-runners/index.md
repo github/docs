@@ -20,6 +20,5 @@ children:
   - /managing-self-hosted-runners
   - /managing-self-hosted-runners-with-actions-runner-controller
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}

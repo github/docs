@@ -59,4 +59,4 @@ The support bundle includes system logs and all audit information is logged to t
 
 ## Further reading
 
-- [Linux man page for the `journalctl` command](http://man7.org/linux/man-pages/man1/journalctl.1.html)
+- [Linux man page for the `journalctl` command](https://man7.org/linux/man-pages/man1/journalctl.1.html)

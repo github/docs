@@ -12,6 +12,7 @@ versions:
 topics:
   - GitHub Apps
 children:
+  - /quickstart
   - /setting-up-your-development-environment-to-create-a-github-app
   - /building-a-github-app-that-responds-to-webhook-events
   - /building-a-login-with-github-button-with-a-github-app
