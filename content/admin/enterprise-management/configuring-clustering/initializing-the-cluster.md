@@ -12,6 +12,13 @@ topics:
   - Clustering
   - Enterprise
 ---
+
+## About initialization of a cluster
+
+{% data reusables.enterprise_clustering.clustering-scale-recommendation %}
+
+To deploy a cluster in your environment, you must install {% data variables.product.prodname_ghe_server %}, upload a cluster-enabled license, configure the first node, and initialize the node with a configuration file.
+
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ## Installing {% data variables.product.prodname_ghe_server %}
