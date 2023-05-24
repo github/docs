@@ -320,6 +320,9 @@ sections:
     # https://github.com/github/releases/issues/2534
     - The size of the search field for user, organization, and enterprise audit logs has increased.
 
+    # https://github.com/github/actions-dotnet/pull/12831
+    - The maximum number of self-hosted runners in a runner group is limited to 10,000. Previously, there was no limit.
+
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
