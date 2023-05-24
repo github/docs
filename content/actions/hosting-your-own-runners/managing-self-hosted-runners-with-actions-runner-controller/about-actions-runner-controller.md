@@ -19,6 +19,31 @@ topics:
 
 {% data reusables.actions.actions-runner-controller-about-arc %}
 
+The following diagram illustrates the architecture of ARC's autoscaling runner scaleset mode.
+
+{% note %}
+
+**Note:** To view the following diagram in a larger size, see the [Autoscaling Runner Scale Sets mode](https://github.com/actions/actions-runner-controller/blob/master/docs/preview/gha-runner-scale-set-controller/README.md#how-it-works) documentation in the Actions Runner Controller repository.
+
+{% endnote %}
+
+![Diagram showing ARC's autoscaling runner ScaleSet mode.](/assets/images/help/actions/arc-diagram.png)
+
+<!-- The numbers in the ordered list below correspond to numbers in the above diagram, which is why we use explicit numbering here. -->
+
+1. {% data variables.product.prodname_actions_runner_controller %} is installed using the supplied Helm charts, and the controller manager pod is deployed in the specified namespace. A new AutoScalingRunnerSet resource is deployed via the supplied Helm charts or a customized manifest file. The AutoScalingRunnerSet Controller calls GitHub's APIs to fetch the runner group ID that the runner scale set will belong to.
+2. The AutoScalingRunnerSet Controller calls the APIs one more time to either fetch or create a runner scale set in the {% data variables.product.prodname_actions %} service before creating the Runner ScaleSet Listener resource.
+3. A Runner ScaleSet Listener pod is deployed by the AutoScalingListener Controller. In this pod, the listener application connects to the {% data variables.product.prodname_actions %} Service to authenticate and establish an HTTPS long poll connection. The listener stays idle until it receives a `Job Available` message from the {% data variables.product.prodname_actions %} Service.
+4. When a workflow run is triggered from a repository, the {% data variables.product.prodname_actions %} Service dispatches individual job runs to the runners or runner scalesets where the `runs-on` key matches the name of the runner scaleset or labels of self-hosted runners.
+5. When the Runner ScaleSet Listener receives the `Job Available` message, it checks whether it can scale up to the desired count. If it can, the Runner ScaleSet Listener acknowledges the message.
+6. The Runner ScaleSet Listener uses a Service Account and a Role bound to that account to make an HTTPS call through the Kubernetes APIs to patch the Ephemeral RunnerSet resource with the number of desired replicas count.
+7. The Ephemeral RunnerSet attempts to create new runners and the EphemeralRunner Controller requests a Just-in-Time (JIT) configuration token to register these runners. The controller attempts to create runner pods. If the pod's status is `failed`, the controller retries up to 5 times. After 24 hours the {% data variables.product.prodname_actions %} Service unassigns the job if no runner accepts it.
+8. Once the runner pod is created, the runner application in the pod uses the JIT configuration token to register itself with the {% data variables.product.prodname_actions %} Service. It then establishes another HTTPS long poll connection to receive the job details it needs to execute.
+9. The {% data variables.product.prodname_actions %} Service acknowledges the runner registration and dispatches the job run details.
+10. Throughout the job run execution, the runner continuously communicates the logs and job run status back to the {% data variables.product.prodname_actions %} Service.
+11. When the runner completes its job successfully, the EphemeralRunner Controller checks with the {% data variables.product.prodname_actions %} Service to see if runner can be deleted. If it can, the Ephemeral RunnerSet deletes the runner.
+
+
 ## {% data variables.product.prodname_actions_runner_controller %} components
 
 ARC consists of a set of custom resources. An ARC deployment applies these custom resources onto a Kubernetes cluster. Once applied, it creates a set of Pods that contain your self-hosted runners' containers. With ARC, {% data variables.product.company_short %} can treat these runner containers as self-hosted runners and allocate jobs to them as needed.

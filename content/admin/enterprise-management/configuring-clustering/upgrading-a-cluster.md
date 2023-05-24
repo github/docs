@@ -60,7 +60,7 @@ Run the `ghe-upgrade` command, providing the package file name you downloaded in
   ```shell
   $ ghe-upgrade PACKAGE-FILENAME.pkg
   > *** verifying upgrade package signature...
-  >  497MB 0:00:04 [ 117MB/s] [==========================================>] 100%            
+  >  497MB 0:00:04 [ 117MB/s] [==========================================>] 100%
   > gpg: Signature made Fri 19 Feb 2016 02:33:50 PM UTC using RSA key ID 0D65D57A
   > gpg: checking the trustdb
   > gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
@@ -72,7 +72,7 @@ Run the `ghe-upgrade` command, providing the package file name you downloaded in
   ```shell
   $ ghe-upgrade PACKAGE-FILENAME.pkg
   > *** verifying upgrade package signature...
-  >  497MB 0:00:04 [ 117MB/s] [==========================================>] 100%            
+  >  497MB 0:00:04 [ 117MB/s] [==========================================>] 100%
   > gpg: Signature made Fri 19 Feb 2016 02:33:50 PM UTC using RSA key ID 0D65D57A
   > gpg: checking the trustdb
   > gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model

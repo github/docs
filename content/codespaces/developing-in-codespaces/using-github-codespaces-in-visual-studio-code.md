@@ -16,7 +16,7 @@ topics:
   - Visual Studio Code
   - Developer
 ---
- 
+
 ## About {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}
 
 You can use your local install of {% data variables.product.prodname_vscode %} to create, manage, work in, and delete codespaces. {% data reusables.codespaces.using-codespaces-in-vscode %} For more information on setting up {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %}, see "[Prerequisites](#prerequisites)."
@@ -77,7 +77,7 @@ If you are using the {% data variables.product.prodname_vscode_shortname %} web 
 
 After you switch versions in a codespace, the web client will continue to use the Insiders version if you stop and restart the codespace. New codespaces that you create and open in the {% data variables.product.prodname_vscode_shortname %} web client will also use the Insiders version.
 
-1. In bottom left of the browser window that's displaying a codespace, click **{% octicon "gear" aria-label="The settings icon" %}**.
+1. In bottom left of the browser window that's displaying a codespace, click **{% octicon "gear" aria-label="Manage" %}**.
 2. In the menu, select "Switch to Insiders Version."
 
    ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} web client. A gear icon is highlighted with an orange outline. "Switch to Insiders Version" is shown in the menu.](/assets/images/help/codespaces/codespaces-insiders-vscode.png)
@@ -87,7 +87,7 @@ After you switch versions in a codespace, the web client will continue to use th
 To switch back to the Stable version of {% data variables.product.prodname_vscode_shortname %}, repeat the process but choose **Switch to Stable Version**. After you switch back, the codespace will continue to use the Stable version if you stop and restart the codespace. New codespaces that you create and open in the {% data variables.product.prodname_vscode_shortname %} web client will also use the Stable version.
 
 ## Using the Insiders desktop application for {% data variables.product.prodname_codespaces %}
-		
+
 To use {% data variables.product.prodname_github_codespaces %} in the Insiders version of the {% data variables.product.prodname_vscode_shortname %} desktop application, start or create your codespaces from within the {% data variables.product.prodname_vscode_shortname %} Insiders application. For more information see "[Creating a codespace in {% data variables.product.prodname_vscode_shortname %}](#creating-a-codespace-in-vs-code)" and "[Opening a codespace in {% data variables.product.prodname_vscode_shortname %}](#opening-a-codespace-in-vs-code)" earlier in this article.
 
 ## Further reading

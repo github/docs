@@ -295,6 +295,7 @@ When the application is ready to receive audit logs again, click **Resume stream
 
 1. A confirmation message is displayed. Click **Delete stream** to confirm.
 
+{% ifversion ghec %}
 ## Enabling audit log streaming of API requests
 
 {% note %}
@@ -308,3 +309,4 @@ When the application is ready to receive audit logs again, click **Resume stream
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Under "Audit log", click **Settings**.
 2. Under "API Requests", select **Enable API Request Events**.
+3. {% endif %}

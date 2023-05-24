@@ -18,8 +18,7 @@ topics:
   - iOS
 shortTitle: Build & test Xamarin apps
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction

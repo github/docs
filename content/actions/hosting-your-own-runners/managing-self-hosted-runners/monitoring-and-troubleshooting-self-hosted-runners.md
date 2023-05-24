@@ -15,8 +15,7 @@ type: tutorial
 defaultPlatform: linux
 shortTitle: Monitor & troubleshoot
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Checking the status of a self-hosted runner

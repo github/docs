@@ -12,8 +12,8 @@ import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
 import { Callout } from 'components/ui/Callout'
 import { Lead } from 'components/ui/Lead'
 import { LearningTrackNav } from 'components/article/LearningTrackNav'
-import { ClientSideRedirects } from 'components/ClientSideRedirects'
-import { RestRedirect } from 'components/RestRedirect'
+import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
+import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 
 export const TocLanding = () => {

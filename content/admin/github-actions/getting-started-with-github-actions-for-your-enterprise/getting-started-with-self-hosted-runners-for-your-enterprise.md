@@ -75,7 +75,7 @@ You can create a runner group to manage access to the runner that you added to y
 
 {% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
 1. To choose a policy for organization access, under "Organization access", select the **Organization access** drop-down, and click **Selected organizations**.
-1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="The Gear icon" %}.
+1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="Configure organizations" %}.
 1. Select the organizations you'd like to grant access to the runner group.
 {%- ifversion ghec or ghes %}
 1. Optionally, to allow public repositories in the selected organizations to use runners in the group, select **Allow public repositories**.
@@ -94,7 +94,7 @@ You can create a runner group to manage access to the runner that you added to y
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.
 1. Click **Edit**.
-1. Click **Runner groups {% octicon "gear" aria-label="The Gear icon" %}**.
+1. Click **Runner groups {% octicon "gear" aria-hidden="true" %}**.
 1. In the list of runner groups, click the name of the group that you previously created.
 1. Click **Save** to move the runner to the group.
 

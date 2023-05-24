@@ -15,8 +15,7 @@ versions:
   ghes: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
@@ -102,6 +101,11 @@ Hardware specification for Windows and Linux virtual machines:
 Hardware specification for macOS virtual machines:
 - 3-core CPU (x86_64)
 - 14 GB of RAM
+- 14 GB of SSD space
+
+Hardware specification for macOS XL virtual machines:
+- 12-core CPU (x86_64)
+- 30 GB of RAM
 - 14 GB of SSD space
 
 {% data reusables.actions.supported-github-runners %}

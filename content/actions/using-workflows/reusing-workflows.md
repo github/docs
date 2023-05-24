@@ -13,8 +13,7 @@ type: how_to
 topics:
   - Workflows
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.reusable-workflows-enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
