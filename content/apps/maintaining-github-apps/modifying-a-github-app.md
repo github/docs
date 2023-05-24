@@ -55,7 +55,7 @@ You can prompt users to authorize your {% data variables.product.prodname_github
 
 ## Enabling or disabling the device flow
 
-You can use the device flow to authorize users for a headless app like a CLI tool or Git credential manager. For more information about using the device flow with {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-device-flow-to-generate-a-user-access-token)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+You can use the device flow to authorize users for a headless app like a CLI tool or Git credential manager. For more information about using the device flow with {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-device-flow-to-generate-a-user-access-token)."
 
 {% data reusables.apps.navigate-to-app-settings-this-article %}
 1. Under "Identifying and authorizing users," select or deselect **Enable Device Flow**.
