@@ -18,6 +18,7 @@ children:
   - /choosing-permissions-for-a-github-app
   - /using-webhooks-with-github-apps
   - /making-a-github-app-public-or-private
+  - /making-your-github-app-available-for-github-enterprise-server
   - /creating-a-github-app-from-a-manifest
   - /creating-a-github-app-using-url-parameters
   - /creating-a-custom-badge-for-your-github-app
