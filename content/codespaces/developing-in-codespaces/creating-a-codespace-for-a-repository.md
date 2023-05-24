@@ -76,7 +76,9 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 1. Click the **{% octicon "code" aria-hidden="true" %} Code** button, then click the **Codespaces** tab.
 
-   If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed below the **Create codespace on BRANCH** button telling you who will pay for the codespace.
+   A message is displayed at the bottom of the dialog telling you who will pay for the codespace.
+
+   ![Screenshot of Codespaces dialog. The message showing who will pay for the codespace is highlighted with a dark orange outline.](/assets/images/help/codespaces/who-will-pay.png)
 
 1. Create your codespace, either using the default options, or after configuring advanced options:
 
@@ -144,7 +146,7 @@ To create a new codespace, use the `gh codespace create` subcommand.
 gh codespace create
 ```
 
-You are prompted to choose a repository. If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed telling you who will pay for the codespace. You are then prompted to choose a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
+You are prompted to choose a repository. A message is displayed telling you who will pay for the codespace. You are then prompted to choose a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
 
 Alternatively, you can use flags to specify some or all of the options:
 
