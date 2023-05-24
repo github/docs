@@ -186,13 +186,7 @@ end
 
 Try opening a new issue in your test repository and see what happens! If nothing happens right away, try refreshing.
 
-You won't see much in the Terminal, _but_ you should see that a bot user has added a label to the issue.
-
-{% note %}
-
-**Note:** When GitHub Apps take actions via the API, such as adding labels, GitHub shows these actions as being performed by _bot_ accounts. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
-
-{% endnote %}
+You won't see much in the Terminal, _but_ you should see that the {% data variables.product.prodname_github_app %} has added a label to the issue.
 
 If so, congrats! You've successfully built a working app! 🎉
 

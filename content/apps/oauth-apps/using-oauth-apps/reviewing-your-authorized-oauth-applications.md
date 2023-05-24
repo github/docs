@@ -1,11 +1,12 @@
 ---
-title: Reviewing your authorized applications (OAuth)
+title: Reviewing your authorized OAuth applications
 intro: 'You should review your authorized applications to verify that no new applications with expansive permissions are authorized, such as those that have access to your private repositories.'
 redirect_from:
   - /articles/reviewing-your-authorized-applications-oauth
   - /github/authenticating-to-github/reviewing-your-authorized-applications-oauth
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth
   - /authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-applications-oauth
+  - /apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-applications-oauth
 versions:
   fpt: '*'
   ghes: '*'
