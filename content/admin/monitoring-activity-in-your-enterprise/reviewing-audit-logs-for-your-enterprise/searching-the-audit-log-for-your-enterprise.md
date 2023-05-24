@@ -77,7 +77,7 @@ Key            | Value
 `country_code`      | Two-letter short code of the country where the actor was when performing the action.
 {%- ifversion ghes or ghae %}
 `from`         | View from which the action was initiated.{% endif %}
-`hashed_token` | The token used to authenticate for the action (if applicable, see "[Identifying audit log events performed by an access token](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)"). {% endif %}
+`hashed_token` | The token used to authenticate for the action (if applicable, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)"). {% endif %}
 `ip`                | IP address of the actor.
 {%- ifversion ghes or ghae %}
 `note`         | Miscellaneous event-specific information (in either plain text or JSON format).{% endif %}

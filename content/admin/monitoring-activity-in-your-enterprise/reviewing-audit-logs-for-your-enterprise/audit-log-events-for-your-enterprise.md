@@ -612,7 +612,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 `oauth_access.create`   | An [OAuth access token][] was generated for a user account. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 `oauth_access.destroy`  | An [OAuth access token][] was deleted from a user account.
 
-  [OAuth access token]: /developers/apps/building-oauth-apps/authorizing-oauth-apps
+  [OAuth access token]: /apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
 
 ## `oauth_application` category actions
 
@@ -634,7 +634,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `oauth_application.unsuspend`         | An [OAuth application][] was unsuspended for a user or organization account.
 {%- endif %}
 
-  [OAuth application]: /guides/basics-of-authentication/#registering-your-app
+  [OAuth application]: /apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app
 
 {%- ifversion fpt or ghec %}
 ## `oauth_authorization` category actions
@@ -1004,7 +1004,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `public_key.verify` | A user account's SSH key or a repository's [deploy key][] was verified.
 
   [add key]: /authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-  [deploy key]: /developers/overview/managing-deploy-keys#deploy-keys
+  [deploy key]: /authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys
 
 ## `pull_request` category actions
 
