@@ -23,7 +23,17 @@ function makeRequestResponse(url, currentVersion = 'free-pro-team@latest') {
   req.context.currentVersion = currentVersion
   req.context.pages = {}
 
-  return [req, new http.ServerResponse(req)]
+  const res = new http.ServerResponse(req)
+  res.status = function (code) {
+    this._status = code
+    return {
+      send: function (message) {
+        this._message = message
+      }.bind(this),
+    }
+  }
+
+  return [req, res]
 }
 
 describe('find page middleware', () => {
@@ -73,7 +83,6 @@ describe('find page middleware', () => {
     })
     expect(req.context.page).toBeInstanceOf(Page)
   })
-
   test('finds it for non-fpt version URLS', async () => {
     const [req, res] = makeRequestResponse('/en/page-with-redirects', 'enterprise-cloud@latest')
     req.context.pages = {
@@ -89,6 +98,27 @@ describe('find page middleware', () => {
       contentRoot: path.join(__dirname, '../fixtures'),
     })
     expect(req.context.page).toBeInstanceOf(Page)
+  })
+
+  test("will 404 if the request version doesn't match the page", async () => {
+    // The 'versions:' frontmatter on 'page-with-redirects.md' does
+    // not include ghes. So this'll eventually 404.
+    const [req, res] = makeRequestResponse('/en/page-with-redirects', 'enterprise-server@latest')
+    req.context.pages = {
+      '/en/page-with-redirects': await Page.init({
+        relativePath: 'page-with-redirects.md',
+        basePath: path.join(__dirname, '../fixtures'),
+        languageCode: 'en',
+      }),
+    }
+
+    await findPage(req, res, () => {}, {
+      isDev: true,
+      contentRoot: path.join(__dirname, '../fixtures'),
+    })
+    expect(res._status).toBe(404)
+    expect(res._message).toMatch('')
+    expect(req.context.page).toBeUndefined()
   })
 
   test('re-reads from disk if in development mode and finds nothing', async () => {

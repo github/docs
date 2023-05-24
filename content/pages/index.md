@@ -6,7 +6,7 @@ introLinks:
   quickstart: /pages/quickstart
   overview: /pages/getting-started-with-github-pages/about-github-pages
 featuredLinks:
-  guides:
+  startHere:
     - /pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
     - /pages/getting-started-with-github-pages/creating-a-github-pages-site
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site{% endif %}'
@@ -15,7 +15,7 @@ featuredLinks:
     - '{% ifversion ghes or ghae %}/pages/setting-up-a-github-pages-site-with-jekyll/adding-content-to-your-github-pages-site-using-jekyll{% endif %}'
   popular:
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages{% endif %}'
-    - /pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll)
+    - /pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll
     - '{% ifversion fpt or ghec %}/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages{% endif %}'
     - '{% ifversion fpt or ghec %}/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https{% endif %}'
     - '{% ifversion ghes or ghae %}/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site{% endif %}'
@@ -50,4 +50,3 @@ children:
   - /setting-up-a-github-pages-site-with-jekyll
   - /configuring-a-custom-domain-for-your-github-pages-site
 ---
-

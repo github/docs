@@ -13,15 +13,12 @@ versions:
 topics:
   - API
 ---
- 
-  
 
-The [Deployments API][deploy API] provides your projects hosted on {% data variables.product.product_name %} with
-the capability to launch them on a server that you own. Combined with
-[the Status API][status API], you'll be able to coordinate your deployments
-the moment your code lands on the default branch.
 
-This guide will use that API to demonstrate a setup that you can use.
+
+You can use the REST API to deploy your projects hosted on {% data variables.product.product_name %} on a server that you own. For more information about the endpoints to manage deployments and statuses, see "[AUTOTITLE](/rest/deployments)." You can also use the REST API to coordinate your deployments the moment your code lands on the default branch. For more information, see "[AUTOTITLE](/rest/guides/building-a-ci-server)."
+
+This guide will use the REST API to demonstrate a setup that you can use.
 In our scenario, we will:
 
 * Merge a pull request.
@@ -39,7 +36,7 @@ applications to the internet.
 {% ifversion cli-webhook-forwarding %}
 {% note %}
 
-**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[Receiving webhooks with the GitHub CLI](/developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
 
 {% endnote %}
 {% endif %}
@@ -67,15 +64,12 @@ end
 Start this server up. By default, Sinatra starts on port `4567`, so you'll want
 to configure `ngrok` to start listening for that, too.
 
-In order for this server to work, we'll need to set a repository up with a webhook.
-The webhook should be configured to fire whenever a pull request is created, or merged.
+In order for this server to work, we'll need to set a repository up with a webhook. The webhook should be configured to fire whenever a pull request is created, or merged.
+
 Go ahead and create a repository you're comfortable playing around in. Might we
 suggest [@octocat's Spoon/Knife repository](https://github.com/octocat/Spoon-Knife)?
-After that, you'll create a new webhook in your repository, feeding it the URL
-that `ngrok` gave you, and choosing `application/x-www-form-urlencoded` as the
-content type:
 
-![A new ngrok URL](/assets/images/webhook_sample_url.png)
+After that, you'll create a new webhook in your repository, feeding it the URL that `ngrok` gave you, and choosing `application/x-www-form-urlencoded` as the content type.
 
 Click **Update webhook**. You should see a body response of `Well, it worked!`.
 Great! Click on **Let me select individual events.**, and select the following:
@@ -195,16 +189,16 @@ server we've built above:
 That's it! You don't need to build your own deployment setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /rest/reference/repos#deployments
-[status API]: /guides/building-a-ci-server
+[deploy API]: /rest/repos#deployments
+[status API]: /rest/guides/building-a-ci-server
 [ngrok]: https://ngrok.com/
-[using ngrok]: /webhooks/configuring/#using-ngrok
+[using ngrok]: /webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/delivering-deployments
 [Sinatra]: http://www.sinatrarb.com/
-[webhook]: /webhooks/
+[webhook]: /webhooks-and-events/webhooks/about-webhooks
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[access token]: /articles/creating-an-access-token-for-command-line-use
-[travis api]: https://api.travis-ci.org/docs/
+[access token]: /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+[travis api]: https://api.travis-ci.com/docs/
 [janky]: https://github.com/github/janky
 [heaven]: https://github.com/atmos/heaven
 [hubot]: https://github.com/github/hubot

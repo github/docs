@@ -2,5 +2,4 @@
 [ -n "$CI" ] && exit 0
 . "$(dirname "$0")/_/husky.sh"
 
-node script/prevent-translation-commits.js
 npx lint-staged

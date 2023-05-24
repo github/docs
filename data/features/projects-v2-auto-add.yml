@@ -1,0 +1,6 @@
+# Issue 8996
+# ProjectV2 auto-adding
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

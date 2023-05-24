@@ -1,0 +1,7 @@
+# Issue #8727
+# Documentation for organization invitation enhancements
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'
+  ghae: '>=3.9'

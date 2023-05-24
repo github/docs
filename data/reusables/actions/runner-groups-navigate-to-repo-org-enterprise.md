@@ -4,7 +4,8 @@
 {% data reusables.organizations.settings-sidebar-actions-runner-groups %}
 {% elsif ghec or ghes or ghae %}
 1. Navigate to where your runner groups are located:
-   * **In an organization**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+   * **In an organization**:
+      1. Navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
    * **If using an enterprise-level group**:
 
 {% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}

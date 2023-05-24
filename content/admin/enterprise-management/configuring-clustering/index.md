@@ -19,8 +19,6 @@ children:
   - /upgrading-a-cluster
   - /monitoring-cluster-nodes
   - /replacing-a-cluster-node
-  - /evacuating-a-cluster-node
-  - /configuring-high-availability-replication-for-a-cluster
-  - /initiating-a-failover-to-your-replica-cluster
+  - /evacuating-a-cluster-node-running-data-services
 ---
 

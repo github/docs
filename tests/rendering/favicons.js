@@ -15,7 +15,7 @@ describe('favicon assets', () => {
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toContain('immutable')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    const maxAgeSeconds = parseInt(res.header['cache-control'].match(/max-age=(\d+)/)[1], 10)
+    const maxAgeSeconds = parseInt(res.headers['cache-control'].match(/max-age=(\d+)/)[1], 10)
     // Let's not be too specific in the tests, just as long as it's testing
     // that it's a reasonably large number of seconds.
     expect(maxAgeSeconds).toBeGreaterThanOrEqual(60 * 60)
@@ -30,7 +30,7 @@ describe('favicon assets', () => {
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toContain('immutable')
     expect(res.headers['cache-control']).toMatch(/max-age=\d+/)
-    const maxAgeSeconds = parseInt(res.header['cache-control'].match(/max-age=(\d+)/)[1], 10)
+    const maxAgeSeconds = parseInt(res.headers['cache-control'].match(/max-age=(\d+)/)[1], 10)
     // Let's not be too specific in the tests, just as long as it's testing
     // that it's a reasonably large number of seconds.
     expect(maxAgeSeconds).toBeGreaterThanOrEqual(60 * 60)

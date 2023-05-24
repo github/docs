@@ -10,10 +10,11 @@ import { DataDirectory } from '../helpers/data-directory.js'
 describe('get-data', () => {
   let dd
   const enDirBefore = languages.en.dir
-  const jaDirBefore = languages.ja.dir
+  // Only `en` is available in jest tests, so pretend we also have Japanese
+  languages.ja = Object.assign({}, languages.en, {})
 
   beforeAll(() => {
-    const dd = new DataDirectory({
+    dd = new DataDirectory({
       data: {
         ui: {
           key: 'Value',
@@ -63,9 +64,8 @@ describe('get-data', () => {
   })
 
   afterAll(() => {
-    if (dd) dd.destroy()
+    dd.destroy()
     languages.en.dir = enDirBefore
-    languages.ja.dir = jaDirBefore
   })
 
   test('getDataByLanguage variables English', () => {
@@ -189,6 +189,106 @@ describe('get-data', () => {
     {
       const result = getDeepDataByLanguage('reusables', 'en')
       expect(result['coolness.md']).toBe('This is *Markdown*')
+    }
+  })
+})
+
+const VALID_ENGLISH_MARKDOWN = `
+---
+front: matter
+---
+*English* /Markdown/
+`.trim()
+
+const VALID_JAPANESE_MARKDOWN = `
+---
+front:matter
+---
+*Japanese* /Markdown/
+`.trim()
+
+const INVALID_JAPANESE_MARKDOWN = `
+---
+front: >'matter
+---
+*Japanese* /Markdown/
+`.trim()
+
+describe('get-data on corrupt translations', () => {
+  let dd
+  const enDirBefore = languages.en.dir
+  // Only `en` is available in jest tests, so pretend we also have Japanese
+  languages.ja = Object.assign({}, languages.en, {})
+
+  beforeAll(() => {
+    dd = new DataDirectory({
+      data: {
+        variables: {
+          everything: {
+            is: 'Awesome',
+          },
+        },
+        reusables: {
+          cool: VALID_ENGLISH_MARKDOWN,
+        },
+      },
+    })
+    languages.en.dir = dd.root
+
+    const jaTranslationsRoot = path.join(dd.root, 'translations', 'ja-JP')
+    fs.mkdirSync(jaTranslationsRoot, { recursive: true })
+    languages.ja.dir = jaTranslationsRoot
+    new DataDirectory( // eslint-disable-line no-new
+      {
+        data: {
+          variables: {
+            everything: {
+              is: 'just you wait',
+            },
+          },
+          reusables: {
+            cool: VALID_JAPANESE_MARKDOWN,
+          },
+        },
+      },
+      jaTranslationsRoot
+    )
+    const ymlFile = path.join(jaTranslationsRoot, 'data', 'variables', 'everything.yml')
+    console.assert(fs.existsSync(ymlFile), `${ymlFile} wasn't created`)
+    fs.writeFileSync(ymlFile, `>:This is not valid Yaml:>`, 'utf-8')
+    const mdFile = path.join(jaTranslationsRoot, 'data', 'reusables', 'cool.md')
+    console.assert(fs.existsSync(mdFile), `${mdFile} wasn't created`)
+    fs.writeFileSync(mdFile, INVALID_JAPANESE_MARKDOWN, 'utf-8')
+  })
+
+  afterAll(() => {
+    dd.destroy()
+    languages.en.dir = enDirBefore
+  })
+
+  test('getDataByLanguage on a corrupt .yml file', () => {
+    // First make sure it works in English
+    {
+      const result = getDataByLanguage('variables.everything.is', 'en')
+      expect(result).toBe('Awesome')
+    }
+    // Japanese translations would fall back due to a corrupt Yaml file
+    {
+      const result = getDataByLanguage('variables.everything.is', 'ja')
+      expect(result).toBe('Awesome')
+    }
+  })
+
+  test('getDataByLanguage on a corrupt .md file', () => {
+    // First make sure it works in English
+    {
+      const result = getDataByLanguage('reusables.cool', 'en')
+      expect(result).toBe('*English* /Markdown/')
+    }
+    // Japanese translations would fall back due to a corrupt Yaml file
+    {
+      const result = getDataByLanguage('reusables.cool', 'ja')
+      expect(result).toBe('*English* /Markdown/')
     }
   })
 })

@@ -1,8 +1,13 @@
 import { formatReleases, renderPatchNotes } from '../../lib/release-notes-utils.js'
-import { getDeepDataByLanguage } from '../../lib/get-data.js'
 import { allVersions } from '../../lib/all-versions.js'
+import { getReleaseNotes } from './get-release-notes.js'
 
 export default async function ghaeReleaseNotesContext(req, res, next) {
+  // For example, the URL is something like /github-ae@latest/xxx/admin
+  // or /github-ae@latest/xxxx/release-notes
+  // Then it should not bother because it'll be a 404 anyway.
+  if (!req.context.page) return next()
+
   if (!(req.pagePath.endsWith('/release-notes') || req.pagePath.endsWith('/admin'))) return next()
   if (
     !allVersions[req.context.currentVersion] ||
@@ -10,10 +15,7 @@ export default async function ghaeReleaseNotesContext(req, res, next) {
   )
     return next()
 
-  let ghaeReleaseNotes = getDeepDataByLanguage('release-notes.github-ae', req.language)
-  if ((!ghaeReleaseNotes || Object.keys(ghaeReleaseNotes).length === 0) && req.language !== 'en') {
-    ghaeReleaseNotes = getDeepDataByLanguage('release-notes.github-ae', 'en')
-  }
+  const ghaeReleaseNotes = getReleaseNotes('github-ae', req.language)
 
   // internalLatestRelease is set in lib/all-versions, e.g., '3.5' but UI still displays '@latest'.
   let requestedRelease = req.context.currentVersionObj.internalLatestRelease

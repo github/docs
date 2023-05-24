@@ -23,6 +23,8 @@ type VersionItem = {
   openApiVersionName: string
   // api.github.com, ghec, ghes-, github.ae
   openApiBaseName: string
+  apiVersions: string[]
+  latestApiVersion: string
 }
 
 export type ProductTreeNode = {

@@ -12,13 +12,15 @@ redirect_from:
   - /codespaces/working-with-your-codespace/troubleshooting-your-codespace
 children:
   - /github-codespaces-logs
+  - /troubleshooting-github-codespaces-clients
+  - /troubleshooting-included-usage
   - /exporting-changes-to-a-branch
   - /troubleshooting-creation-and-deletion-of-codespaces
+  - /troubleshooting-authentication-to-a-repository
   - /troubleshooting-your-connection-to-github-codespaces
   - /troubleshooting-prebuilds
-  - /troubleshooting-dotfiles-for-codespaces
+  - /troubleshooting-personalization-for-codespaces
   - /troubleshooting-port-forwarding-for-github-codespaces
-  - /troubleshooting-github-codespaces-clients
   - /troubleshooting-gpg-verification-for-github-codespaces
   - /working-with-support-for-github-codespaces
 ---

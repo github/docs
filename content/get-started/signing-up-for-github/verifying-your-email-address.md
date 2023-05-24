@@ -30,6 +30,7 @@ If you do not verify your email address, you will not be able to:
   - Create or update gists
   - Create or use {% data variables.product.prodname_actions %}
   - Sponsor developers with {% data variables.product.prodname_sponsors %}
+  - Accept organization invitations
 
 {% warning %}
 
@@ -45,9 +46,9 @@ If you do not verify your email address, you will not be able to:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.emails %}
 1. Under your email address, click **Resend verification email**.
-  ![Resend verification email link](/assets/images/help/settings/email-verify-button.png)
+
+  ![Screenshot of a list of email addresses on the "Emails" page. Under an email address, a link, labeled "Resend verification email," is outlined in orange.](/assets/images/help/settings/email-verify-button.png)
 4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
-  ![Banner confirming that your email was verified](/assets/images/help/settings/email-verification-confirmation-banner.png)
 
 ## Troubleshooting email verification
 
@@ -57,7 +58,7 @@ If you do not verify your email address, you will not be able to:
 
 ### Error page after clicking verification link
 
-The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[Verifying your email address](/articles/verifying-your-email-address)."
+The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."
 
 If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
 
@@ -68,4 +69,4 @@ If you click on the link in the confirmation email within 24 hours and you are d
 
 ## Further reading
 
-- "[Changing your primary email address](/articles/changing-your-primary-email-address)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)"

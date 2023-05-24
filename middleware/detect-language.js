@@ -1,9 +1,14 @@
 import languages, { languageKeys } from '../lib/languages.js'
 import parser from 'accept-language-parser'
 
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../lib/constants.js'
+import { USER_LANGUAGE_COOKIE_NAME } from '../lib/constants.js'
 
-const chineseRegions = ['CN', 'HK']
+const chineseRegions = [
+  'CN', // Mainland
+  'HK', // Hong Kong
+  'SG', // Singapore
+  'TW', // Taiwan
+]
 
 function translationExists(language) {
   if (language.code === 'zh') {
@@ -14,7 +19,7 @@ function translationExists(language) {
 }
 
 function getLanguageCode(language) {
-  return language.code === 'zh' && chineseRegions.includes(language.region) ? 'cn' : language.code
+  return language.code === 'cn' && chineseRegions.includes(language.region) ? 'zh' : language.code
 }
 
 function getUserLanguage(browserLanguages) {
@@ -34,7 +39,7 @@ function getUserLanguage(browserLanguages) {
 }
 
 function getUserLanguageFromCookie(req) {
-  const value = req.cookies[PREFERRED_LOCALE_COOKIE_NAME]
+  const value = req.cookies[USER_LANGUAGE_COOKIE_NAME]
   // 92BD1212-61B8-4E7A: Remove ` && !languages[value].wip` for the public ship of ko, fr, de, ru
   if (value && languages[value] && !languages[value].wip) {
     return value

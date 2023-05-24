@@ -8,12 +8,11 @@ versions:
 topics:
   - Advanced Security
 shortTitle: 4. Create internal documentation
-miniTocMaxHeadingLevel: 3
 ---
 
 {% note %}
 
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[Phase 3: Pilot programs](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
+This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."
 
 {% endnote %}
 
@@ -23,10 +22,10 @@ If you ran pilot programs, use the experiences and feedback from the teams invol
 
 If you skip creating internal documentation, your rollout won’t go at your intended pace. Creating internal documentation may slow the initial rollout by a week or two, but that time will be made up when developers can answer their own questions instead of coming to your team.
 
-Education is probably the most crucial part of the rollout as it teaches developers what to do in different situations. You should ensure developers are empowered to maintain the security of their repository and that the security team are authorized to verify both what developers are doing and that it's in the best interest of security. In additional to internal documentation, education can take the form of online sessions, Q&As, etc.
+Education is probably the most crucial part of the rollout as it teaches developers what to do in different situations. You should ensure developers are empowered to maintain the security of their repository and that the security team are authorized to verify both what developers are doing and that it's in the best interest of security. In addition to internal documentation, education can take the form of online sessions, Q&As, etc.
 
 {% note %}
 
-For the next article in this series, see "[Phase 5: Rollout and scale code scanning](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
+For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning)."
 
 {% endnote %}

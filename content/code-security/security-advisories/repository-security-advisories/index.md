@@ -18,8 +18,10 @@ children:
   - /about-repository-security-advisories
   - /permission-levels-for-repository-security-advisories
   - /configuring-private-vulnerability-reporting-for-a-repository
+  - /configuring-private-vulnerability-reporting-for-an-organization
   - /creating-a-repository-security-advisory
   - /editing-a-repository-security-advisory
+  - /evaluating-the-security-settings-of-a-repository
   - /collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
   - /publishing-a-repository-security-advisory
   - /adding-a-collaborator-to-a-repository-security-advisory
