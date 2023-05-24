@@ -215,7 +215,9 @@ To provide a description for a multi-arch image, set a value for the `org.openco
 For example, the following {% data variables.product.prodname_actions %} workflow step builds and pushes a multi-arch image. The `outputs` parameter sets the description for the image.
 
 ```yaml
-{% data reusables.actions.actions-not-certified-by-github-comment %}
+{% data reusables.actions.actions-annotation-certified-by-github-comment %}p
+'![Screenshot_20230124-025735-184](https://github.com/github/docs/assets/86694624/ad488aa6-dda5-420e-9ee4-2083f1e595d6)'
+
 
 - name: Build and push Docker image
   uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
