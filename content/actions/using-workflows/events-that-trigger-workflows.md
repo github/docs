@@ -1043,7 +1043,7 @@ on:
 
 {% note %}
 
-**Note**: When pushing multi-architecture container images, this event will get emitted once per manifest so you might observe your workflow triggering multiple times. To mitigate this and only run your workflow job for the event that contains the actual image tag information, use a conditional:
+**Note**: When pushing multi-architecture container images, this event occurs once per manifest, so you might observe your workflow triggering multiple times. To mitigate this, and only run your workflow job for the event that contains the actual image tag information, use a conditional:
 
 {% raw %}
 ```yaml
