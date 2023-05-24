@@ -22,5 +22,6 @@ children:
   - /creating-a-github-app-using-url-parameters
   - /creating-a-custom-badge-for-your-github-app
   - /about-the-user-authorization-callback-url
+  - /about-the-setup-url
 ---
 
