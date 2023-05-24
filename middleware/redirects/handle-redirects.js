@@ -9,6 +9,10 @@ export default function handleRedirects(req, res, next) {
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
+  // All /api/ endpoints handle their own redirects
+  // such as /api/pageinfo redirects to /api/pageinfo/v1
+  if (req.path.startsWith('/api/')) return next()
+
   // Any double-slashes in the URL should be removed first
   if (req.path.includes('//')) {
     return res.redirect(301, req.path.replace(/\/\//g, '/'))
