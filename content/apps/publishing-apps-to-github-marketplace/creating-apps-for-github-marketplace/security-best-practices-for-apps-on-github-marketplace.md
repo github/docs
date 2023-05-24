@@ -1,5 +1,5 @@
 ---
-title: Security best practices for apps
+title: Security best practices for apps on GitHub Marketplace
 intro: 'Guidelines for preparing a secure app to share on {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /apps/marketplace/getting-started/security-review-process
@@ -7,6 +7,7 @@ redirect_from:
   - /developers/github-marketplace/security-review-process-for-submitted-apps
   - /developers/github-marketplace/security-best-practices-for-apps
   - /developers/github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps
+  - /apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps
 shortTitle: Security best practice
 versions:
   fpt: '*'
@@ -62,3 +63,8 @@ For an example of an incident response workflow, see the "Data Breach Response P
 You should conduct regular vulnerability scans of production infrastructure. You should triage the results of vulnerability scans and define a period of time in which you agree to remediate the vulnerability.
 
 If you are not ready to set up a full vulnerability management program, it's useful to start by creating a patching process. For guidance in creating a patch management policy, see this TechRepublic article "[Establish a patch management policy](https://www.techrepublic.com/article/establish-a-patch-management-policy-87756/)."
+
+## Further reading
+
+- "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)"
+- "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
