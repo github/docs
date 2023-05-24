@@ -748,3 +748,5 @@ This tutorial demonstrated how to write a CLI that uses the device flow to gener
 This tutorial generates a user access token and saves it in a local file. You should never commit this file or publicize the token.
 
 Depending on your device, you may choose different way to store the token. You should check the best practices for storing tokens on your device.
+
+For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
