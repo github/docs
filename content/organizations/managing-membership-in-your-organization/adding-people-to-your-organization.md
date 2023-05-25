@@ -15,7 +15,7 @@ shortTitle: Add people to organization
 {% endif %}
 
 {% ifversion not ghae %}
-If your organization [requires members to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), users must [enable two-factor authentication](/articles/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.
+If your organization [requires members to use two-factor authentication](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization), users must [enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.
 {% endif %}
 
 {% data reusables.profile.access_org %}
@@ -42,4 +42,4 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 {% endif %}
 
 ## Further reading
-- "[Adding organization members to a team](/articles/adding-organization-members-to-a-team)"
+- "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"

@@ -22,12 +22,13 @@ shortTitle: Change 2FA method
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
-1. In "Two-factor methods", find the method you want to set as your preferred 2FA method. Next to that method, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Set as preferred method**.
-    ![Screenshot of the "Set as preferred method" button in the 2FA settings](/assets/images/help/2fa/change-preferred-2fa-method.png)
+1. In "Two-factor methods", find the method you want to set as your preferred 2FA method. Next to that method, select {% octicon "kebab-horizontal" aria-label="Manage METHOD" %}, then click **Set as preferred method**.
+
+    ![Screenshot of the "Two-factor methods" settings. To the right of "Authenticator app," a dropdown menu, labeled with a kebab icon, is expanded and outlined in orange.](/assets/images/help/2fa/change-preferred-2fa-method.png)
 
 A "Preferred" label is displayed next to the name of your preferred method.
 
 ## Further reading
 
-- "[Configuring two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)"
-- "[Configuring two-factor authentication recovery methods](/articles/configuring-two-factor-authentication-recovery-methods)"
+- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)"
+- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)"

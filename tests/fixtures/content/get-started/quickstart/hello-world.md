@@ -10,7 +10,6 @@ type: quick_start
 topics:
   - Pull requests
   - Fundamentals
-miniTocMaxHeadingLevel: 3
 ---
 
 ## Introduction
@@ -25,3 +24,9 @@ Apparently, a Saab it is.
 
 Try changing the current version from "Free, Pro, & Team" to something
 like "Enterprise Server X.Y". It should change the above sentence.
+
+## Link to a page with variable title
+
+"[AUTOTITLE](/get-started/quickstart/dynamic-title)"
+
+"[AUTOTITLE](/get-started/foo/cross-version-linking)"

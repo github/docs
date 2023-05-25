@@ -1,4 +1,4 @@
-You can stop a codespace at any time. When you stop a codespace, any running processes are stopped and the terminal history is cleared. Any saved changes in your codespace will still be available when you next start it. If you do not explicitly stop a codespace, it will continue to run until it times out from inactivity. For more information, see "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle#timeouts-for-github-codespaces)."
+You can stop a codespace at any time. When you stop a codespace, any running processes are stopped and the terminal history is cleared. Any saved changes in your codespace will still be available when you next start it. If you do not explicitly stop a codespace, it will continue to run until it times out from inactivity. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle#timeouts-for-github-codespaces)."
 
 Only running codespaces incur CPU charges. A stopped codespace incurs only storage costs.
 

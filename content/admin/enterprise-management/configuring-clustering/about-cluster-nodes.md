@@ -12,6 +12,12 @@ topics:
   - Clustering
   - Enterprise
 ---
+## About cluster nodes
+
+{% data reusables.enterprise_clustering.clustering-scale-recommendation %}
+
+Each node in your cluster is a virtual machine that runs the {% data variables.location.product_location %} software. Before you deploy a cluster, you can review hardware requirements, required services, and design recommendations. 
+
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ## Minimum hardware recommendations
@@ -63,12 +69,3 @@ Clustering allows services that make up {% data variables.product.prodname_ghe_s
     - `pages-server`
     - `storage-server`
     - `metrics-server`
-
-### Example cluster diagram
-{% note %}
-
-**Note: This is only an example.** Your organization's optimal cluster design will depend on your unique needs. Talk to your dedicated representative or {% data variables.contact.contact_enterprise_sales %} so we can help you determine the best cluster configuration.
-
-{% endnote %}
-
-<img src="/assets/images/enterprise/cluster/cluster-diagram.png" alt="Example Cluster" style="width: 800px;border:0"/>

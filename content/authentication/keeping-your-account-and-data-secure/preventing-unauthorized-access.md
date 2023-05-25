@@ -19,12 +19,12 @@ shortTitle: Unauthorized access
 After changing your password, you should perform these actions to make sure that your account is secure:
 
 - [Enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication) on your account so that access requires more than just a password.
-- [Review your SSH keys](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys), [deploy keys](/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys), and [authorized integrations](/authentication/keeping-your-account-and-data-secure/reviewing-your-authorized-integrations) and revoke unauthorized or unfamiliar access in your SSH and Applications settings.
+- [Review your SSH keys](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys), [deploy keys](/authentication/keeping-your-account-and-data-secure/reviewing-your-deploy-keys), and [authorized integrations](/apps/using-github-apps/reviewing-your-authorized-integrations) and revoke unauthorized or unfamiliar access in your SSH and Applications settings.
 {% ifversion fpt or ghec %}
 - [Verify all your email addresses](/get-started/signing-up-for-github/verifying-your-email-address). If an attacker added their email address to your account, it could allow them to force an unintended password reset.
 {% endif %}
 - [Review your account's security log](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log). This provides an overview on various configurations made to your repositories. For example, you can ensure that no private repositories were turned public, or that no repositories were transferred.
-- [Review the webhooks](/get-started/customizing-your-github-workflow/exploring-integrations/about-webhooks) on your repositories. Webhooks could allow an attacker to intercept pushes made to your repository.
-- [Make sure that no new deploy keys](/developers/overview/managing-deploy-keys#deploy-keys) were created. This could enable outside servers access to your projects.
+- [Review the webhooks](/get-started/exploring-integrations/about-webhooks) on your repositories. Webhooks could allow an attacker to intercept pushes made to your repository.
+- [Make sure that no new deploy keys](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys) were created. This could enable outside servers access to your projects.
 - Review recent commits made to your repositories.
 - Review the list of collaborators for each repository.

@@ -156,7 +156,6 @@ You must provide your public key to {% data variables.product.product_name %} to
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
 6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endmac %}
 
@@ -177,7 +176,6 @@ You must provide your public key to {% data variables.product.product_name %} to
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
 6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endwindows %}
 
@@ -204,7 +202,6 @@ You must provide your public key to {% data variables.product.product_name %} to
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
 6. Compare the list of SSH keys with the output from the `ssh-add` command.
-![SSH key listing in {% data variables.product.product_name %}](/assets/images/help/settings/ssh_key_listing.png)
 
 {% endlinux %}
 
@@ -212,6 +209,6 @@ If you don't see your public key in {% data variables.product.product_name %}, y
 
 {% warning %}
 
-**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[Reviewing your SSH keys](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys)."
+**Warning**: If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %}, for further help. An unidentified public key may indicate a possible security concern. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-ssh-keys)."
 
 {% endwarning %}

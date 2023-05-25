@@ -93,7 +93,8 @@ describe('developer redirects', () => {
     // non-reference redirects (e.g. guides)
     res = await get('/en/v3/guides/basics-of-authentication')
     expect(res.statusCode).toBe(301)
-    expectedFinalPath = '/en/rest/guides/basics-of-authentication'
+    expectedFinalPath =
+      '/en/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app'
     expect(res.headers.location).toBe(expectedFinalPath)
   })
 

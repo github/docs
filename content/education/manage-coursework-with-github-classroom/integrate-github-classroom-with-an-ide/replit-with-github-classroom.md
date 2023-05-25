@@ -25,4 +25,4 @@ We know cloud IDE integrations are important to your classroom and are working h
 
 ## Further reading
 
-- "[About READMEs](/github/creating-cloning-and-archiving-repositories/about-readmes)"
+- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"

@@ -15,5 +15,6 @@ topics:
 children:
   - /using-the-codeql-cli
   - /codeql-cli-reference
+  - /codeql-cli-manual
 ---
 

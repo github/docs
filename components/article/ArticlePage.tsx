@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import dynamic from 'next/dynamic'
 import cx from 'classnames'
+import { LinkExternalIcon } from '@primer/octicons-react'
 
 import { Callout } from 'components/ui/Callout'
-
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
@@ -17,8 +17,11 @@ import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
 import { ClientSideHighlight } from 'components/ClientSideHighlight'
 import { LearningTrackCard } from 'components/article/LearningTrackCard'
-import { RestRedirect } from 'components/RestRedirect'
+import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
+import { Link } from 'components/Link'
+import { useTranslation } from 'components/hooks/useTranslation'
+import { LinkPreviewPopover } from 'components/LinkPreviewPopover'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,
@@ -36,26 +39,33 @@ export const ArticlePage = () => {
     includesPlatformSpecificContent,
     includesToolSpecificContent,
     product,
+    productVideoUrl,
     miniTocItems,
     currentLearningTrack,
+    supportPortalVaIframeProps,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
+  const { t } = useTranslation(['pages'])
 
   return (
     <DefaultLayout>
+      <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
       <ClientSideHighlight />
       {router.pathname.includes('/rest/') && <RestRedirect />}
       <div className="container-xl px-3 px-md-6 my-4">
-        <div className={cx('my-3 mr-auto width-full')}>
+        <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
           <Breadcrumbs />
         </div>
         <ArticleGridLayout
+          supportPortalVaIframeProps={supportPortalVaIframeProps}
           topper={<ArticleTitle>{title}</ArticleTitle>}
           intro={
             <>
               {intro && (
-                <Lead data-testid="lead" data-search="lead">
+                // Note the `_page-intro` is used by the popover preview cards
+                // when it needs this text for in-page links.
+                <Lead data-testid="lead" data-search="lead" className="_page-intro">
                   {intro}
                 </Lead>
               )}
@@ -82,6 +92,15 @@ export const ArticlePage = () => {
           }
         >
           <div id="article-contents">
+            {productVideoUrl && (
+              <div className="my-2">
+                <Link id="product-video" href={productVideoUrl} target="_blank">
+                  <LinkExternalIcon aria-label="(external site)" className="octicon-link mr-2" />
+                  {t('video_from_transcript')}
+                </Link>
+              </div>
+            )}
+
             <MarkdownContent>{renderedPage}</MarkdownContent>
             {effectiveDate && (
               <div className="mt-4" id="effectiveDate">

@@ -12,7 +12,7 @@ topics:
 shortTitle: Manage bots & service accounts
 ---
 
-To retain access for bots and service accounts, organization administrators can [enable](/articles/enabling-and-testing-saml-single-sign-on-for-your-organization), but **not** [enforce](/articles/enforcing-saml-single-sign-on-for-your-organization) SAML single sign-on for their organization. If you need to enforce SAML single sign-on for your organization, you can create an external identity for the bot or service account with your identity provider (IdP).
+To retain access for bots and service accounts, organization administrators can [enable](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization), but **not** [enforce](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization) SAML single sign-on for their organization. If you need to enforce SAML single sign-on for your organization, you can create an external identity for the bot or service account with your identity provider (IdP).
 
 {% warning %}
 
@@ -22,4 +22,4 @@ To retain access for bots and service accounts, organization administrators can 
 
 ## Further reading
 
-- "[About identity and access management with SAML single sign-on](/articles/about-identity-and-access-management-with-saml-single-sign-on)"
+- "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)"

@@ -14,23 +14,23 @@ versions:
   ghec: '*'
 shortTitle: macOS Keychain credentials
 ---
-{% tip %}
+{% note %}
 
-**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a {% data variables.product.pat_generic %} using the  `osxkeychain` helper that is built-in to macOS. 
+**Note:** Updating credentials from the macOS Keychain only applies to users who manually configured a {% data variables.product.pat_generic %} using the `osxkeychain` helper that is built-in to macOS.
 
 We recommend you either [configure SSH](/authentication/connecting-to-github-with-ssh) or upgrade to the [Git Credential Manager](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) (GCM) instead. GCM can manage authentication on your behalf (no more manual {% data variables.product.pat_generic %}s) including 2FA (two-factor auth).
 
-{% endtip %}
+{% endnote %}
 
 {% data reusables.user-settings.password-authentication-deprecation %}
 
 ## Updating your credentials via Keychain Access
 
-1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar. Type `Keychain access` then press the Enter key to launch the app.
-   ![Spotlight Search bar](/assets/images/help/setup/keychain-access.png)
-2. In Keychain Access, search for **{% data variables.command_line.backticks %}**.
-3. Find the "internet password" entry for `{% data variables.command_line.backticks %}`.
-4. Edit or delete the entry accordingly.
+1. Click on the Spotlight icon (magnifying glass) on the right side of the menu bar.
+1. Type `Keychain Access`, then press the Enter key to launch the app.
+1. In Keychain Access, search for `{% data variables.command_line.backticks %}`.
+1. Find the "Internet password" entry for `{% data variables.command_line.backticks %}`.
+1. Edit or delete the entry accordingly.
 
 ## Deleting your credentials via the command line
 
@@ -47,4 +47,4 @@ If it's successful, nothing will print out. To test that it works, try and clone
 
 ## Further reading
 
-- "[Caching your {% data variables.product.prodname_dotcom %} credentials in Git](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"
+- "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"

@@ -11,8 +11,7 @@ versions:
   ghec: '*'
 type: how_to
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About exit codes
@@ -36,7 +35,7 @@ try {
 }
 ```
 
-For more information, see "[Creating a JavaScript action](/articles/creating-a-javascript-action)."
+For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."
 
 ## Setting a failure exit code in a Docker container action
 
@@ -49,4 +48,4 @@ if <condition> ; then
 fi
 ```
 
-For more information, see "[Creating a Docker container action](/articles/creating-a-docker-container-action)."
+For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."

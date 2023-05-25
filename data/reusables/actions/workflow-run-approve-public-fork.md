@@ -4,6 +4,6 @@ To help prevent this, workflows on pull requests to public repositories from som
 
 {% note %}
 
-**Note:** Workflows triggered by `pull_request_target` events are run in the context of the base branch. Since the base branch is considered trusted, workflows triggered by these events will always run, regardless of approval settings.
+**Note:** Workflows triggered by `pull_request_target` events are run in the context of the base branch. Since the base branch is considered trusted, workflows triggered by these events will always run, regardless of approval settings. For more information about the `pull_request_target` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target)."
 
 {% endnote %}

@@ -4,4 +4,4 @@
    $ git config --global commit.gpgsign true
    ```
    
-   For more information, see "[Signing commits](/authentication/managing-commit-signature-verification/signing-commits)."
+   For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)."

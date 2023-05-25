@@ -27,9 +27,9 @@ $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSIT
 # Clones a repository to your computer
 ```
 
-You can choose from [several different URLs](/get-started/getting-started-with-git/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available below the repository details:
+You can choose from [several different URLs](/get-started/getting-started-with-git/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available on the main page of the repository when you click **{% octicon "code" aria-hidden="true" %} Code**.
 
-![Remote URL list](/assets/images/help/repository/remotes-url.png)
+![Screenshot of the main page of a repository. A green button, labeled "Code," is outlined in dark orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url.png)
 
 When you run `git clone`, the following actions occur:
 - A new folder called `repo` is made
@@ -53,7 +53,7 @@ $ git fetch REMOTE-NAME
 # Fetches updates made to a remote repository
 ```
 
-Otherwise, you can always add a new remote and then fetch. For more information, see "[Managing remote repositories](/get-started/getting-started-with-git/managing-remote-repositories)."
+Otherwise, you can always add a new remote and then fetch. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
 
 ## Merging changes into your local branch
 
@@ -84,4 +84,4 @@ to take the branch back to where it was in before you pulled.
 ## Further reading
 
 - ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
-- "[Troubleshooting connectivity problems](/get-started/using-github/troubleshooting-connectivity-problems)"{% endif %}
+- "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"{% endif %}

@@ -1,7 +1,6 @@
 ---
 title: 'Filtering {% data variables.projects.projects_v2 %}'
 intro: Use filters to choose which items appear in your project's views.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 redirect_from:
@@ -12,9 +11,9 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see "[Managing your views](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
+You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
 
-To filter a view, click {% octicon "filter" aria-label="The Filter icon" %} and start typing the fields and values you would like to filter for. As you type, possible values will appear. You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
+To filter a view, click {% octicon "filter" aria-label="Filter by keyword or by field" %} and start typing the fields and values you would like to filter for. As you type, possible values will appear. You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
 
 ![Screenshot showing the location of the filter icon](/assets/images/help/projects-v2/filter-example.png)
 
@@ -24,7 +23,7 @@ Using multiple filters will act as a logical AND filter. For example, `label:bug
 
 {% ifversion projects-v2-insights %}
 
-The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see "[Using insights with projects](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)."
+The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)."
 
 {% endif %}
 
@@ -131,11 +130,11 @@ You can filter closed items by their close reason.
 
 ## Filtering by the tracked-by field
 
-You can filter for issues that being tracked by another issue in a Tasklist. For more information, see "[About Tasklists](/issues/tracking-your-work-with-issues/about-tasklists)."
+You can filter for issues that being tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
 | Qualifier  | Example
 | ---------- | -------------
-| <code>tracked-by:"<em>OWNER</em>/<em>REPO</em>#<em>ISSUE NUMBER</em>"</code> | **tracked-by:"octocat/game#11"** will show any issue tracked by a Tasklist in issue #11 of the `octocat/game` repository.
+| <code>tracked-by:"<em>OWNER</em>/<em>REPO</em>#<em>ISSUE NUMBER</em>"</code> | **tracked-by:"octocat/game#11"** will show any issue tracked by a tasklist in issue #11 of the `octocat/game` repository.
 
 {% endif %}
 

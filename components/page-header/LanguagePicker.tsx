@@ -81,7 +81,7 @@ export const LanguagePicker = ({ mediumOrLower }: Props) => {
         }}
         buttonBorder={mediumOrLower}
         dataTestId="default-language"
-        ariaLabel="Select language"
+        ariaLabel={`Select language: current language is ${selectedLang.name}`}
         alignment={mediumOrLower ? 'start' : 'end'}
       />
     </div>

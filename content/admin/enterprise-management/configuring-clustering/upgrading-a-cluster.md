@@ -27,7 +27,7 @@ Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_serve
 
 ### Preparing to upgrade
 
-1. Review [Cluster network configuration](/enterprise/admin/guides/clustering/cluster-network-configuration) for the version you are upgrading to, and update your configuration as needed.
+1. Review [Cluster network configuration](/admin/enterprise-management/configuring-clustering/cluster-network-configuration) for the version you are upgrading to, and update your configuration as needed.
 2. Back up your data with [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 3. Schedule a maintenance window for end users of your {% data variables.product.prodname_ghe_server %} cluster, as it will be unavailable for normal use during the upgrade. Maintenance mode blocks user access and prevents data changes while the cluster upgrade is in progress.
 4. On the [{% data variables.product.prodname_ghe_server %} Download Page](https://enterprise.github.com/download), copy the URL for the upgrade *.pkg* file to the clipboard.
@@ -60,7 +60,7 @@ Run the `ghe-upgrade` command, providing the package file name you downloaded in
   ```shell
   $ ghe-upgrade PACKAGE-FILENAME.pkg
   > *** verifying upgrade package signature...
-  >  497MB 0:00:04 [ 117MB/s] [==========================================>] 100%            
+  >  497MB 0:00:04 [ 117MB/s] [==========================================>] 100%
   > gpg: Signature made Fri 19 Feb 2016 02:33:50 PM UTC using RSA key ID 0D65D57A
   > gpg: checking the trustdb
   > gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model
@@ -72,7 +72,7 @@ Run the `ghe-upgrade` command, providing the package file name you downloaded in
   ```shell
   $ ghe-upgrade PACKAGE-FILENAME.pkg
   > *** verifying upgrade package signature...
-  >  497MB 0:00:04 [ 117MB/s] [==========================================>] 100%            
+  >  497MB 0:00:04 [ 117MB/s] [==========================================>] 100%
   > gpg: Signature made Fri 19 Feb 2016 02:33:50 PM UTC using RSA key ID 0D65D57A
   > gpg: checking the trustdb
   > gpg: 3 marginal(s) needed, 1 complete(s) needed, PGP trust model

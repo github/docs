@@ -40,8 +40,8 @@ export type ProductLandingContextT = {
   product: Product
   introLinks: Record<string, string> | null
   productVideo: string
+  productVideoTranscript: string
   featuredLinks: Record<string, Array<FeaturedLink>>
-  productCodeExamples: Array<CodeExample>
   productUserExamples: Array<{ username: string; description: string }>
   productCommunityExamples: Array<{ repo: string; description: string }>
   featuredArticles: Array<{
@@ -108,6 +108,7 @@ export const getProductLandingContextFromRequest = async (
   return {
     ...pick(page, ['title', 'shortTitle', 'introPlainText', 'beta_product', 'intro']),
     productVideo,
+    productVideoTranscript: page.product_video_transcript || null,
     hasGuidesPage,
     product: {
       href: productTree.href,
@@ -115,7 +116,6 @@ export const getProductLandingContextFromRequest = async (
     },
     whatsNewChangelog: req.context.whatsNewChangelog || [],
     changelogUrl: req.context.changelogUrl || [],
-    productCodeExamples: req.context.productCodeExamples || [],
     productCommunityExamples: req.context.productCommunityExamples || [],
     ghesReleases: req.context.ghesReleases || [],
 

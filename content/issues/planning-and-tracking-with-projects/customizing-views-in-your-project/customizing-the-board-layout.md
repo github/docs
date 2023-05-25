@@ -2,7 +2,6 @@
 title: Customizing the board layout
 shortTitle: Customizing boards
 intro: You can use the board layout to arrange your project's items over customizable columns.
-miniTocMaxHeadingLevel: 3
 versions:
   feature: projects-v2
 type: tutorial
@@ -14,7 +13,7 @@ topics:
 
 {% data reusables.projects.about-board-layout %}
 
-For more information about changing a view to use the board layout, see "[Changing the project layout](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
+For more information about changing a view to use the board layout, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
 
 ## Showing and hiding fields
 
@@ -25,10 +24,8 @@ For more information about changing a view to use the board layout, see "[Changi
 In the board layout, you choose any single select or iteration field for your columns. If you drag an item to a new column, the value of that column is applied to the dragged item. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "columns" aria-label="the columns icon" %} **Column field**.
-   ![Screenshot showing the column field item](/assets/images/help/projects-v2/column-field-menu-item.png)
+1. Click {% octicon "columns" aria-hidden="true" %} **Column field**.
 1. Click the field you want to use.
-   ![Screenshot showing the column field menu](/assets/images/help/projects-v2/column-field-menu.png)
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Column field by."
 
@@ -38,14 +35,11 @@ Alternatively, open the project command palette by pressing {% data variables.pr
 
 In the board layout, you can can choose which columns to display. The available columns are made up of the contents of your selected column field.
 
-1. In the board layout, scroll to the right of your columns, and click {% octicon "plus" aria-label="the plus icon" %}.
+1. In the board layout, scroll to the right of your columns, and click {% octicon "plus" aria-label="Add a new column to the board" %}.
 
-   ![Screenshot showing the plus symbol button](/assets/images/help/projects-v2/board-add-column.png)
+   ![Screenshot of a board layout scrolled to the very right. The "Add a new column to the board" button is highlighted with an orange outline.](/assets/images/help/projects-v2/board-add-column.png)
 
 1. Select the columns you want to show.
-
-   ![Screenshot showing the list of columns](/assets/images/help/projects-v2/board-select-columns.png)
-
 {% endif %}
 
 {% ifversion projects-v2-consistent-sorting %}

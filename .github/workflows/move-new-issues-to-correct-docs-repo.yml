@@ -21,7 +21,7 @@ jobs:
     if: github.repository == 'github/docs-internal'
     steps:
       - id: move_to_correct_repo
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         env:
           TEAM_ENGINEERING_REPO: ${{ secrets.TEAM_ENGINEERING_REPO }}
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
@@ -41,13 +41,13 @@ jobs:
               correctRepo = process.env.TEAM_ENGINEERING_REPO
             }
 
-            const correctRepoObject = await github.repos.get({
+            const correctRepoObject = await github.rest.repos.get({
               owner: owner,
               repo: correctRepo
             })
 
             // Post a comment in the docs-internal issue
-            await github.issues.createComment({
+            await github.rest.issues.createComment({
               owner: owner,
               repo: originalRepo,
               issue_number: issueNo,
@@ -82,7 +82,7 @@ jobs:
 
             // Add the same labels to the new issue
             const newIssueNumber = graph.transferIssue.issue.number
-            await github.issues.addLabels({
+            await github.rest.issues.addLabels({
               owner: owner,
               repo: correctRepo,
               issue_number: newIssueNumber,

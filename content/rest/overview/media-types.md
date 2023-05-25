@@ -41,7 +41,7 @@ put it after `github`:
 
 ## Comment body properties
 
-The body of a comment can be written in [{% data variables.product.prodname_dotcom %} Flavored Markdown][gfm]. The APIs to manage [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and [gist comments](/rest/reference/gists#comments) all accept these same media types:
+The body of a comment can be written in [{% data variables.product.prodname_dotcom %} Flavored Markdown][gfm]. The APIs to manage [issues](/rest/issues), [issue comments](/rest/issues#comments), [pull request comments](/rest/pulls#comments), and [gist comments](/rest/gists#comments) all accept these same media types:
 
 ### Raw media type for comment body properties
 
@@ -73,7 +73,7 @@ Return raw, text and HTML representations. Response will include `body`,
 
 ## Git blob properties
 
-The following media types are allowed when [getting a blob](/rest/reference/git#get-a-blob):
+The following media types are allowed when [getting a blob](/rest/git#get-a-blob):
 
 ### JSON media type for Git blob properties
 
@@ -91,7 +91,7 @@ Return the raw blob data.
 
 ## Commits, commit comparison, and pull requests
 
-The REST API to manage [commits](/rest/reference/repos#commits) and [pull requests](/rest/reference/pulls) support [diff][git-diff] and [patch][git-patch] formats:
+The REST API to manage [commits](/rest/repos#commits) and [pull requests](/rest/pulls) support [diff][git-diff] and [patch][git-patch] formats:
 
 ### diff media type for commits, commit comparison, and pull requests
 
@@ -133,8 +133,6 @@ Return the raw contents of a gist. This is the default if you do not pass any sp
 
 The gist contents are base64-encoded before being sent out. This can be useful if your gist contains any invalid UTF-8 sequences.
 
-[gfm]:http://github.github.com/github-flavored-markdown/
-[git-diff]: http://git-scm.com/docs/git-diff
-[git-patch]: http://git-scm.com/docs/git-format-patch
-[hypermedia]: /rest#hypermedia
-[versions]: /developers/overview/about-githubs-apis
+[gfm]: https://github.github.com/github-flavored-markdown/
+[git-diff]: https://git-scm.com/docs/git-diff
+[git-patch]: https://git-scm.com/docs/git-format-patch

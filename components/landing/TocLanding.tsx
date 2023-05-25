@@ -12,8 +12,8 @@ import { ArticleGridLayout } from 'components/article/ArticleGridLayout'
 import { Callout } from 'components/ui/Callout'
 import { Lead } from 'components/ui/Lead'
 import { LearningTrackNav } from 'components/article/LearningTrackNav'
-import { ClientSideRedirects } from 'components/ClientSideRedirects'
-import { RestRedirect } from 'components/RestRedirect'
+import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
+import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 
 export const TocLanding = () => {
@@ -38,7 +38,7 @@ export const TocLanding = () => {
       <ClientSideRedirects />
 
       <div className="container-xl px-3 px-md-6 my-4">
-        <div className={cx('my-3 mr-auto width-full')}>
+        <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
           <Breadcrumbs />
         </div>
         <ArticleGridLayout>

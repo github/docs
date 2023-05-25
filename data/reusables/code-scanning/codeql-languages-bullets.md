@@ -4,8 +4,8 @@
 - Go
 - Java{% ifversion codeql-kotlin-beta %}/Kotlin{% endif %}
 - JavaScript/TypeScript
-- Python{% ifversion fpt or ghes or ghec or ghae > 3.3 %}
-- Ruby{% endif %}
+- Python
+- Ruby
 
 {% note %}
 

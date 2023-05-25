@@ -10,10 +10,11 @@ versions:
 topics:
   - API
 children:
+  - /about-githubs-apis
   - /resources-in-the-rest-api
   - /api-versions
   - /media-types
-  - /other-authentication-methods
+  - /authenticating-to-the-rest-api
   - /troubleshooting
   - /libraries
   - /openapi-description
@@ -22,5 +23,7 @@ children:
   - /permissions-required-for-github-apps
   - /breaking-changes
   - /permissions-required-for-fine-grained-personal-access-tokens
+redirect_from:
+  - /developers/overview
 ---
 

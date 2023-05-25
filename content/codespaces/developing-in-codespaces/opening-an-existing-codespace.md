@@ -18,22 +18,44 @@ shortTitle: Open an existing codespace
 
 {% endjetbrains %}
 
-You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[The codespace lifecycle](/codespaces/getting-started/the-codespace-lifecycle)."
+You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)."
 
 You can view all your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces). From this page, you can:
 
 - Open, stop, or delete your codespaces.
-- See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[About billing for {% data variables.product.prodname_github_codespaces %}](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+- See who owns (and may be billed for) your codespaces: your personal account, or organizations you belong to. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
 - See the machine type, size, and status of your codespaces.
-- Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[Creating a codespace from a template](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[Creating a codespace for a repository](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
-- Prevent automatic deletion of a codespace. For more information, see "[Configuring automatic deletion of your codespaces](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
-
-## Opening an existing codespace
+- Create a new codespace, either by choosing one of {% data variables.product.company_short %}'s templates or by clicking **New codespace**. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)" and "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+- Prevent automatic deletion of a codespace. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces?tool=webui#avoiding-automatic-deletion-of-codespaces)."
 
 {% webui %}
 
+## Resuming a codespace from a repository page
+
+You can quickly resume a codespace when you're viewing a repository on {% data variables.product.prodname_dotcom_the_website %}.
+
+1. With the repository displayed on {% data variables.product.prodname_dotcom_the_website %}, press <kbd>,</kbd> (the comma key).
+
+   The "Resume codespace" page is displayed. This allows you to resume your most recently used codespace for the currently selected branch of the repository or, if you were viewing a pull request, for the topic branch of the pull request.
+
+   ![Screenshot of the "Resume codespace" page showing the "Resume this codespace" and "Create a new one" buttons.](/assets/images/help/codespaces/resume-codespace.png)
+
+1. Click **Resume this codespace**.
+
+   Alternatively, if you want to create a new codespace for this branch of the repository, click **Create a new one**.
+
+   {% note %}
+
+   **Note**: If you don't have an existing codespace for this branch, the page is titled "Create codespace" and a button labeled **Create a new codespace** is displayed.
+
+   {% endnote %}
+
+You can bookmark the address of this page if you want to get back to it quickly to resume your codespace. Alternatively you can use the address in a link to provide other people with a quick way of creating and resuming their own codespaces for this repository.
+
+## Opening an existing codespace from the "Your codespaces" page
+
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. To open a codespace in your default editor, click the name of the codespace. {% data reusables.codespaces.about-changing-default-editor %} For more information, see "[Setting your default editor for {% data variables.product.prodname_github_codespaces %}](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
+1. To open a codespace in your default editor, click the name of the codespace. {% data reusables.codespaces.about-changing-default-editor %} For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces)."
 
    To open the codespace in an editor other than your default:
 
@@ -41,7 +63,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
    1. Click **Open in**.
    1. Click **Open in APPLICATION**.
 
-   ![Screenshot of the "Open in" dialog box, with "Open in Visual Studio Code" highlighted](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
+   ![Screenshot of the "Open in" dialog, with "Open in Visual Studio Code" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
 
    You can open the codespace in:
    * Your browser
@@ -57,9 +79,11 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 
 {% vscode %}
 
+## Reopening an existing codespace
+
 {% note %}
 
-**Note:** {% data reusables.codespaces.using-codespaces-in-vscode %} For more information, see "[Using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode %}](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
+**Note:** {% data reusables.codespaces.using-codespaces-in-vscode %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
 
 {% endnote %}
 
@@ -69,16 +93,18 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
    - To open a codespace in the web editor, select **Codespaces: Open in Browser**
 1. Click the codespace that you want to open.
 
-   ![Screenshot of a list of codespaces in Visual Studio Code](/assets/images/help/codespaces/open-codespace-from-vscode.png)
+   ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Command Palette showing a list of codespaces available to connect to.](/assets/images/help/codespaces/open-codespace-from-vscode.png)
 
 You can also access the commands listed above by navigating to the Remote Explorer view in {% data variables.product.prodname_vscode_shortname %} and right-clicking the codespace that you want to open.
 
-![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
+![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted in the right-click menu.](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
 
 {% data reusables.codespaces.remote-explorer %}
 {% endvscode %}
 
 {% cli %}
+
+## Reopening an existing codespace
 
 1. In a terminal, enter one of the following {% data variables.product.prodname_cli %} commands.
    - To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:
@@ -111,6 +137,12 @@ You can also access the commands listed above by navigating to the Remote Explor
 
      {% endnote %}
 
+   - To access a codespace from the command line, over SSH, enter:
+
+     ```shell{:copy}
+     gh codespace ssh
+     ```
+
 1. Using the arrow keys, navigate to the codespace that you want to open.
 1. To open the codespace, press <kbd>Enter</kbd>.
 
@@ -119,6 +151,8 @@ For more information, see [`gh codespace code`](https://cli.github.com/manual/gh
 {% endcli %}
 
 {% jetbrains %}
+
+## Reopening an existing codespace
 
 {% data reusables.codespaces.opening-codespace-in-jetbrains %}
 

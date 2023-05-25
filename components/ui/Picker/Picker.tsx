@@ -1,4 +1,4 @@
-import React, { ReactNode, useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { ActionMenu, IconButton } from '@primer/react'
 import { Icon } from '@primer/octicons-react'
 

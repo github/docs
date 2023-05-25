@@ -8,4 +8,7 @@ versions:
   ghec: '*'
 children:
   - /hello-world
+  - /link-rewriting
+  - /dynamic-title
+  - /github-glossary
 ---

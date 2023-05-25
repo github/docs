@@ -24,7 +24,7 @@ $ ssh -T -ai ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
 > provide shell access.
 ```
 
-The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/developers/overview/managing-deploy-keys#deploy-keys).
+The *username* in the response is the account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} that the key is currently attached to. If the response looks something like "username/repo", the key has been attached to a repository as a [*deploy key*](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys).
 
 
 To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:
@@ -41,4 +41,4 @@ If you don't have permissions to transfer the key, and can't contact a user who 
 
 ## Deploy keys
 
-Once a key has been attached to one repository as a deploy key, it cannot be used on another repository.  If you're running into this error while setting up deploy keys, see "[Managing deploy keys](/developers/overview/managing-deploy-keys)."
+Once a key has been attached to one repository as a deploy key, it cannot be used on another repository.  If you're running into this error while setting up deploy keys, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys)."

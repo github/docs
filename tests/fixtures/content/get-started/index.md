@@ -20,7 +20,15 @@ featuredLinks:
 children:
   - /quickstart
   - /foo
+  - /video-transcripts
+  - /minitocs
+  - /liquid
+  - /markdown
+  - /images
+  - /versioning
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'
+product_video: 'https://www.yourube.com/abc123'
+product_video_transcript: '/get-started/video-transcripts/transcript--my-awesome-video'
 ---

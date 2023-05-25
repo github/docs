@@ -11,13 +11,12 @@ versions:
   ghec: '*'
 topics:
   - API
-miniTocMaxHeadingLevel: 3
 shortTitle: GitHub App permissions
 ---
 
 ## About {% data variables.product.prodname_github_app %} permissions
 
-{% data variables.product.prodname_github_apps %} are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[Setting permissions for GitHub Apps](/apps/building-github-apps/setting-permissions-for-github-apps/)."
+{% data variables.product.prodname_github_apps %} are created with a set of permissions. Permissions define what resources the {% data variables.product.prodname_github_app %} can access via the API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
 
 ## Actions
 
@@ -154,10 +153,10 @@ shortTitle: GitHub App permissions
 - [`GET /user/repository_invitations`](/rest/collaborators/invitations#list-repository-invitations-for-the-authenticated-user) (read)
 - [`PATCH /user/repository_invitations/{invitation_id}`](/rest/collaborators/invitations#accept-a-repository-invitation) (write)
 - [`DELETE /user/repository_invitations/{invitation_id}`](/rest/collaborators/invitations#decline-a-repository-invitation) (write)
-- [`GET /repos/{owner}/{repo}/autolinks`](/v3/repos#list-autolinks) (read)
-- [`POST /repos/{owner}/{repo}/autolinks`](/v3/repos#create-an-autolink) (write)
-- [`GET /repos/{owner}/{repo}/autolinks/{autolink_id}`](/v3/repos#get-autolink) (read)
-- [`DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}`](/v3/repos#delete-autolink) (write)
+- [`GET /repos/{owner}/{repo}/autolinks`](/rest/repos#list-autolinks) (read)
+- [`POST /repos/{owner}/{repo}/autolinks`](/rest/repos#create-an-autolink) (write)
+- [`GET /repos/{owner}/{repo}/autolinks/{autolink_id}`](/rest/repos#get-autolink) (read)
+- [`DELETE /repos/{owner}/{repo}/autolinks/{autolink_id}`](/rest/repos#delete-autolink) (write)
 {% ifversion fpt or ghec or ghes %}- [`GET /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#list-labels-for-a-self-hosted-runner-for-a-repository) (read){% endif %}
 {% ifversion fpt or ghec or ghes %}- [`POST /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#add-custom-labels-to-a-self-hosted-runner-for-a-repository) (write){% endif %}
 {% ifversion fpt or ghec or ghes %}- [`PUT /repos/{owner}/{repo}/actions/runners/{runner_id}/labels`](/rest/actions#set-custom-labels-for-a-self-hosted-runner-for-a-repository) (write){% endif %}
@@ -287,7 +286,7 @@ shortTitle: GitHub App permissions
 
 ## Contents
 
-- [`GET /repos/{owner}/{repo}/codeowners/errors`](/rest/reference/repos#list-codeowners-errors) (read)
+- [`GET /repos/{owner}/{repo}/codeowners/errors`](/rest/repos#list-codeowners-errors) (read)
 - [`GET /repos/{owner}/{repo}/branches`](/rest/branches/branches#list-branches) (read)
 - [`GET /repos/{owner}/{repo}/branches/{branch}`](/rest/branches/branches#get-a-branch) (read)
 {% ifversion fpt or ghec or ghes %}- [`POST /repos/{owner}/{repo}/branches/{branch}/rename`](/rest/branches/branches#rename-a-branch) (write){% endif %}
@@ -432,7 +431,7 @@ shortTitle: GitHub App permissions
 ## Gists
 
 - [`POST /gists`](/rest/gists#create-a-gist) (write)
-- [`PATCH /gists/{gist_id}`](/rest/gists/#update-a-gist) (write)
+- [`PATCH /gists/{gist_id}`](/rest/gists#update-a-gist) (write)
 - [`DELETE /gists/{gist_id}`](/rest/gists#delete-a-gist) (write)
 - [`POST /gists/{gist_id}/comments`](/rest/gists#create-a-gist-comment) (write)
 - [`PATCH /gists/{gist_id}/comments/{comment_id}`](/rest/gists#update-a-gist-comment) (write)
@@ -539,6 +538,11 @@ shortTitle: GitHub App permissions
 {% ifversion fpt or ghec or ghes %}- [`DELETE /orgs/{org}/public_members/{username}`](/rest/orgs#remove-public-organization-membership-for-the-authenticated-user) (write){% endif %}
 - [`GET /orgs/{org}/teams`](/rest/teams#list-teams) (read)
 - [`POST /orgs/{org}/teams`](/rest/teams#create-a-team) (write)
+- [`GET /orgs/{org}/teams/{team_slug}/members`](/rest/teams/members#list-team-members) (read)
+- [`GET /orgs/{org}/teams/{team_slug}/invitations`](/rest/teams/members#list-pending-team-invitations) (read)
+- [`GET /orgs/{org}/teams/{team_slug}/memberships/{username}`](/rest/teams/members#get-team-membership-for-a-user) (read)
+- [`PUT /orgs/{org}/teams/{team_slug}/memberships/{username}`](/rest/teams/members#add-or-update-team-membership-for-a-user) (write)
+- [`DELETE /orgs/{org}/teams/{team_slug}/memberships/{username}`](/rest/teams/members#remove-team-membership-for-a-user) (write)
 - [`GET /teams/{team_id}/members/{username}`](/rest/teams#get-team-member-legacy) (read)
 - [`PUT /teams/{team_id}/members/{username}`](/rest/teams#add-team-member-legacy) (write)
 - [`DELETE /teams/{team_id}/members/{username}`](/rest/teams#remove-team-member-legacy) (write)
@@ -558,7 +562,7 @@ shortTitle: GitHub App permissions
 ## Metadata
 
 - [`POST /gists`](/rest/gists#create-a-gist) (read)
-- [`PATCH /gists/{gist_id}`](/rest/gists/#update-a-gist) (read)
+- [`PATCH /gists/{gist_id}`](/rest/gists#update-a-gist) (read)
 - [`DELETE /gists/{gist_id}`](/rest/gists#delete-a-gist) (read)
 - [`POST /gists/{gist_id}/comments`](/rest/gists#create-a-gist-comment) (read)
 - [`GET /gists/{gist_id}/comments/{comment_id}`](/rest/gists#get-a-gist-comment) (read)
@@ -587,7 +591,7 @@ shortTitle: GitHub App permissions
 - [`GET /repos/{owner}/{repo}/events`](/rest/activity#list-repository-events) (read)
 - [`GET /repos/{owner}/{repo}/forks`](/rest/repos#list-forks) (read)
 - [`GET /repos/{owner}/{repo}/languages`](/rest/repos#list-repository-languages) (read)
-- [`GET /repos/{owner}/{repo}/license`](/rest/licenses/#get-the-license-for-a-repository) (read)
+- [`GET /repos/{owner}/{repo}/license`](/rest/licenses#get-the-license-for-a-repository) (read)
 - [`GET /repos/{owner}/{repo}/stargazers`](/rest/activity#list-stargazers) (read)
 - [`GET /repos/{owner}/{repo}/stats/code_frequency`](/rest/metrics/statistics#get-the-weekly-commit-activity) (read)
 - [`GET /repos/{owner}/{repo}/stats/commit_activity`](/rest/metrics/statistics#get-the-last-year-of-commit-activity) (read)
@@ -845,6 +849,28 @@ shortTitle: GitHub App permissions
 {% ifversion fpt or ghec or ghes > 3.6 %}- [`POST /repos/{owner}/{repo}/pages/deployment`](/rest/pages#create-a-github-pages-deployment) (write){% endif %}
 {% ifversion fpt or ghec %}- [`GET /repos/{owner}/{repo}/pages/health`](/rest/pages#get-a-dns-health-check-for-github-pages) (write){% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.9 %}
+
+## {% data variables.product.pat_generic_caps %} requests
+
+- [`GET /organizations/{org}/personal-access-token-requests`](/rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens) (read)
+- [`POST /organizations/{org}/personal-access-token-requests`](/rest/orgs/orgs#review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens) (write)
+- [`POST /organizations/{org}/personal-access-token-requests/{pat_request_id}`](/rest/orgs/orgs#review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token) (write)
+- [`GET /organizations/{org}/personal-access-token-requests/{pat_request_id}/repositories`](/rest/orgs/orgs#list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token) (read)
+
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.9 %}
+
+## {% data variables.product.pat_generic_caps %}s
+
+- [`GET /organizations/{org}/personal-access-tokens`](/rest/orgs/orgs#list-fine-grained-personal-access-tokens-with-access-to-organization-resources) (read)
+- [`POST /organizations/{org}/personal-access-tokens`](/rest/orgs/orgs#update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens) (write)
+- [`POST /organizations/{org}/personal-access-tokens/{pat_id}`](/rest/orgs/orgs#update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources) (write)
+- [`GET /organizations/{org}/personal-access-tokens/{pat_id}/repositories`](/rest/orgs/orgs#list-repositories-a-fine-grained-personal-access-token-has-access-to) (read)
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## Plan
@@ -857,7 +883,7 @@ shortTitle: GitHub App permissions
 
 ## Profile
 
-- [`PATCH /user`](/rest/users/#update-the-authenticated-user) (write)
+- [`PATCH /user`](/rest/users#update-the-authenticated-user) (write)
 
 ## Pull requests
 
@@ -905,7 +931,7 @@ shortTitle: GitHub App permissions
 - [`POST /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions`](/rest/reactions#create-reaction-for-a-pull-request-review-comment) (write)
 - [`DELETE /repos/{owner}/{repo}/pulls/comments/{comment_id}/reactions/{reaction_id}`](/rest/reactions#delete-a-pull-request-comment-reaction) (write)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) (read)
-- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls/#update-a-pull-request) (write)
+- [`PATCH /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#update-a-pull-request) (write)
 - [`GET /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#list-review-comments-on-a-pull-request) (read)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments`](/rest/pulls#create-a-review-comment-for-a-pull-request) (write)
 - [`POST /repos/{owner}/{repo}/pulls/{pull_number}/comments/{comment_id}/replies`](/rest/pulls#create-a-reply-for-a-review-comment) (write)
@@ -1026,10 +1052,12 @@ shortTitle: GitHub App permissions
 - [`GET /repos/{owner}/{repo}/commits/{ref}/statuses`](/rest/commits/statuses#list-commit-statuses-for-a-reference) (read)
 - [`POST /repos/{owner}/{repo}/statuses/{sha}`](/rest/commits/statuses#create-a-commit-status) (write)
 
+{% ifversion team-discussions %}
 ## Team discussions
 
 - [`DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/comments/{comment_number}/reactions/{reaction_id}`](/rest/reactions#delete-team-discussion-comment-reaction) (write)
 - [`DELETE /orgs/{org}/teams/{team_slug}/discussions/{discussion_number}/reactions/{reaction_id}`](/rest/reactions#delete-team-discussion-reaction) (write)
+{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.7 %}
 
