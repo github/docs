@@ -17,6 +17,14 @@ const MAP = {
     contentType: 'image/png',
     buffer: getBuffer('assets/images/site/apple-touch-icon.png'),
   },
+  // It's the same image but it's fine. By default, when Safari tries to
+  // to figure out which apple touch icons are available it will
+  // try to load this by default. For example, if you in desktop Safari
+  // click share icon, it will load this to serve as a preview icon.
+  '/apple-touch-icon-precomposed.png': {
+    contentType: 'image/png',
+    buffer: getBuffer('assets/images/site/apple-touch-icon.png'),
+  },
 }
 
 function getBuffer(filePath) {
