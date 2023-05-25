@@ -31,5 +31,10 @@ export default function handleInvalidPaths(req, res, next) {
     return res.status(404).send('Not found')
   }
 
+  if (req.path.endsWith('/index.md')) {
+    defaultCacheControl(res)
+    return res.redirect(req.path.replace(/\/index\.md$/, ''))
+  }
+
   return next()
 }
