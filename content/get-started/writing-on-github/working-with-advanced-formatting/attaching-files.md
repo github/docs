@@ -24,6 +24,17 @@ topics:
 {% endwarning %}
 {% endif %}
 
+{% ifversion fpt or ghec %}
+
+{% note %}
+
+**Note:** For public repositories, uploaded files can be accessed without authentication.
+In the case of private and internal repositories, only people with access to the repository can view the uploaded files.
+
+{% endnote %}
+
+{% endif %}
+
 To attach a file to an issue or pull request conversation, drag and drop it into the comment box. Alternatively, you can click the bar at the bottom of the comment box to browse, select, and add a file from your computer.
 
 ![Screenshot of the comment box. The bar to attach files by dragging and dropping, selecting, or pasting is outlined in dark orange.](/assets/images/help/pull_requests/select-bar.png)
@@ -38,8 +49,8 @@ When you attach a file, it is uploaded immediately to {% data variables.product.
 
 The maximum file size is:
 - 10MB for images and gifs{% ifversion fpt or ghec %}
-- 10MB for videos uploaded to a repository owned by a user or organization on a free GitHub plan
-- 100MB for videos uploaded to a repository owned by a user or organization on a paid GitHub plan{% elsif ghes %}
+- 10MB for videos uploaded to a repository owned by a user or organization on a free {% data variables.product.prodname_dotcom %} plan
+- 100MB for videos uploaded to a repository owned by a user or organization on a paid {% data variables.product.prodname_dotcom %} plan{% elsif ghes %}
 - 100MB for videos{% endif %}
 - 25MB for all other files
 
