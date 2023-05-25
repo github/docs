@@ -1185,6 +1185,9 @@ registries:
 
 By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
 
+<!-- add list here once we get ecosystems released in beta -->
+There are currently no ecosystems in beta.
+
 ```yaml
 # Configure beta ecosystem
 
