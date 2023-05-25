@@ -15,7 +15,6 @@ import { ArticleGridLayout } from './ArticleGridLayout'
 import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
-import { ClientSideHighlight } from 'components/ClientSideHighlight'
 import { LearningTrackCard } from 'components/article/LearningTrackCard'
 import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
@@ -51,7 +50,6 @@ export const ArticlePage = () => {
     <DefaultLayout>
       <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
-      <ClientSideHighlight />
       {router.pathname.includes('/rest/') && <RestRedirect />}
       <div className="container-xl px-3 px-md-6 my-4">
         <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
