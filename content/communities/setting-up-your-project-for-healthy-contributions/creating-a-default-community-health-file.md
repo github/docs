@@ -37,6 +37,7 @@ Community health file | Description
 *CONTRIBUTING.md* | A CONTRIBUTING file communicates how people should contribute to your project. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."{% ifversion discussion-category-forms %}
 Discussion category forms | Discussion category forms customize the templates that are available for community members to use when they open new discussions in your repository. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/creating-discussion-category-forms)."{% endif %}{% ifversion fpt or ghec %}
 *FUNDING.yml* | A FUNDING file displays a sponsor button in your repository to increase the visibility of funding options for your open source project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)."{% endif %}
+*GOVERNANCE.md* | A GOVERNANCE file lets people know about how your project is governed. For example, it might discuss project roles and how decisions are made.
 Issue and pull request templates{% ifversion fpt or ghes or ghec %} and *config.yml*{% endif %} | Issue and pull request templates customize and standardize the information you'd like contributors to include when they open issues and pull requests in your repository. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates)."{% ifversion fpt or ghes or ghec %}
 *SECURITY.md* | A SECURITY file gives instructions for how to report a security vulnerability in your project. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."{% endif %}
 *SUPPORT.md* | A SUPPORT file lets people know about ways to get help with your project. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-support-resources-to-your-project)."
@@ -47,11 +48,10 @@ You cannot create a default license file. License files must be added to individ
 
 {% data reusables.repositories.create_new %}
 1. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} you want to create default files for.
-  ![Owner drop-down menu](/assets/images/help/repository/create-repository-owner.png)
+  ![Screenshot of the owner menu for a new {% data variables.product.prodname_dotcom %} repository. The menu shows two options, octocat and github.](/assets/images/help/repository/create-repository-owner.png)
 1. In the "Repository name" field, type **.github**.
 1. Optionally, in the "Description" field, type a description.
-1. Make sure the repository status is set to **Public** (a repository for default files cannot be private).
-  ![Radio buttons to select private or public status](/assets/images/help/repository/create-repository-public-private.png)
+2. Make sure the repository status is set to **Public**. A repository for default files cannot be private.
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 1. In the repository, create one of the supported community health files. Issue templates{% ifversion fpt or ghes or ghec %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."

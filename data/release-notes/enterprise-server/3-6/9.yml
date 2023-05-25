@@ -7,6 +7,8 @@ sections:
   bugs:
     - When using a VPC endpoint URL as an AWS S3 URL for GitHub Packages, publication and installation of packages failed.
     - On an instance with a GitHub Advanced Security license, if code scanning had been used while running GitHub Enterprise Server 3.4 or earlier, a subsequent upgrade from 3.5 to 3.6 or 3.7 could fail when attempting to add a unique index to a database table.
+  changes:
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
@@ -21,3 +23,4 @@ sections:
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
     - '{% data reusables.release-notes.stuck-discussion-conversion-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'

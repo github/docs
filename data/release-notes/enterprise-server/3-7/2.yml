@@ -40,18 +40,4 @@ sections:
     - '{% data reusables.release-notes.scim-saml-tokens-known-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
     - '{% data reusables.release-notes.replication-commands-in-maintenance-mode-known-issue %}'
-
-  deprecations:
-    # https://github.com/github/enterprise-releases/issues/3217
-    - |
-      **Upcoming deprecation**: In GitHub Enterprise Server 3.8 and later, unsecure algorithms will be disabled for SSH connections to the administrative shell.
-
-    # https://github.com/github/releases/issues/2395
-    - Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
-
-    # https://github.com/github/releases/issues/2380
-    - Diffing GeoJSON, PSD, and STL files is no longer possible.
-
-    # https://github.com/github/releases/issues/2480
-    - |
-      Package registries on the new GitHub Packages architecture, including Container registry and npm packages, no longer expose data through the GraphQL API. In a coming release, other GitHub Packages registries will migrate to the new architecture, which will deprecate the GraphQL API for those registries as well.
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'

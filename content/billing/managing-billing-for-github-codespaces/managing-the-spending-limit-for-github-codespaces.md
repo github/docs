@@ -62,9 +62,9 @@ Enterprise owners and billing managers can manage the spending limit for {% data
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Spending Limit**.
+1. On the "Billing" page, click the **Spending limit** tab.
 
-   ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
+   ![Screenshot of the "Billing" page. A tab labeled "Spending limit" is highlighted with an orange outline.](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}

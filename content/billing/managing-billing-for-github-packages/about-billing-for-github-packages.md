@@ -16,6 +16,12 @@ shortTitle: About billing
 ---
 ## About billing for {% data variables.product.prodname_registry %}
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 {% data reusables.package_registry.packages-billing %}
 
 {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."

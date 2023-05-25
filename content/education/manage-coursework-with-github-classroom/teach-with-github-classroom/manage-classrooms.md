@@ -103,12 +103,12 @@ You can archive a classroom that you no longer use on {% data variables.product.
 {% data reusables.classroom.sign-into-github-classroom %}
 1. To the right of a classroom's name, select the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} dropdown menu, then click **Archive**.
 
-   ![Screenshot of a tile for a classroom. The {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} dropdown menu is expanded and the "Archive" option is outlined in dark orange.](/assets/images/help/classroom/use-drop-down-then-click-archive.png)
+   ![Screenshot of a tile for a classroom. A dropdown menu labeled with a kebab icon is expanded and the "Archive" option is outlined in dark orange.](/assets/images/help/classroom/use-drop-down-then-click-archive.png)
 
 1. To view an archived classroom, use the dropdown menu next to the search bar to change the view to "Archived" or "All".
 1. To unarchive a classroom, to the right of a classroom's name, select the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} drop-down menu, then click **Unarchive**.
 
-   ![Screenshot of a tile for a classroom. The {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} dropdown menu is expanded and the "Unarchive" option is outlined in dark orange.](/assets/images/help/classroom/use-drop-down-then-click-unarchive.png)
+   ![Screenshot of a tile for a classroom. A dropdown menu labeled with a kebab icon is expanded and the "Unarchive" option is outlined in dark orange.](/assets/images/help/classroom/use-drop-down-then-click-unarchive.png)
 
 ## Deleting a roster for a classroom
 

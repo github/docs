@@ -1,6 +1,7 @@
 import sharp from 'sharp'
 
 import { get, head, getDOM } from '../helpers/e2etest.js'
+import { MAX_WIDTH } from '../../lib/render-content/plugins/rewrite-asset-img-tags.js'
 
 describe('render Markdown image tags', () => {
   test('page with a single image', async () => {
@@ -12,7 +13,7 @@ describe('render Markdown image tags', () => {
     const sources = $('source', pictures)
     expect(sources.length).toBe(1)
     const srcset = sources.attr('srcset')
-    expect(srcset).toBe('/assets/cb-914945/mw-1000/images/_fixtures/screenshot.webp')
+    expect(srcset).toBe(`/assets/cb-914945/mw-${MAX_WIDTH}/images/_fixtures/screenshot.webp`)
     const type = sources.attr('type')
     expect(type).toBe('image/webp')
 
@@ -28,16 +29,16 @@ describe('render Markdown image tags', () => {
     expect(res.headers['content-type']).toBe('image/webp')
 
     // The fixture image `_fixtures/screenshot.png` is known to be very
-    // large. Larger than 1,000 pixels wide.
+    // large. Larger than MAX_WIDTH pixels wide.
     // When transformed as a source in a `<picture>` tag, it's automatically
     // injected with the `mw-XXXXX` virtual indicator in the URL that
     // resizes it on-the-fly.
     const image = sharp(res.body)
     const { width, height } = await image.metadata()
-    expect(width).toBe(1000)
+    expect(width).toBe(MAX_WIDTH)
     // The `_fixtures/screenshot.png` is 2000x1494.
-    // So if 2000/1494==1000/x, then x becomes 1494*1000/2000=747
-    expect(height).toBe(747)
+    // So if 2000/1494==MAX_WIDTH/x, then x becomes 1494*MAX_WIDTH/2000=1076
+    expect(height).toBe(Math.round((1494 * MAX_WIDTH) / 2000))
   })
 
   test('image inside a list keeps its span', async () => {

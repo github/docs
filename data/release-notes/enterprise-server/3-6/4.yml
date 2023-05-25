@@ -23,6 +23,7 @@ sections:
     - Zombie processes no longer accumulate in the `gitrpcd` container.
   changes:
     - If a site administrator has not yet configured GitHub Actions for the instance, the UI for setting up code scanning will prompt the user to configure GitHub Actions.
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
@@ -36,5 +37,5 @@ sections:
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
     - '{% data reusables.release-notes.repository-inconsistencies-errors %}'
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
-    - '{% data reusables.release-notes.scim-custom-mappings-known-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'

@@ -137,11 +137,11 @@ export const ArticleCards = () => {
         ref={articleCardRef}
         className="d-flex flex-wrap mr-0 mr-md-n6 mr-lg-n8"
       >
-        {guides.slice(0, numVisible).map((card) => {
+        {guides.slice(0, numVisible).map((card, i) => {
           return (
             <ArticleCard
               tabIndex={-1}
-              key={card.href}
+              key={card.href + i}
               card={card}
               typeLabel={guideTypes[card.type]}
             />

@@ -15,12 +15,9 @@ After you disable insights for projects in your organization, it won't be possib
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the sidebar, click **{% octicon "sliders" aria-label="The sliders icon" %} Features**.
-   ![Screenshot showing features menu item](/assets/images/help/projects-v2/features-org-menu.png)
+1. In the sidebar, click **{% octicon "sliders" aria-hidden="true" %} Features**.
 1. Under "Insights", deselect **Enable Insights for the organization**.
-   ![Screenshot showing Enable Insights for the organization checkbox](/assets/images/help/projects-v2/disable-insights-checkbox.png)
 1. Click **Save**.
-   ![Screenshot showing save button](/assets/images/help/projects-v2/disable-insights-save.png)
 
 ## Further reading
 

@@ -94,7 +94,7 @@ jobs:
         uses: {% data reusables.actions.action-checkout %}
 
       - name: Login to private container registry for dependencies
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           registry: https://1234567890.dkr.ecr.us-east-1.amazonaws.com
           username: {% raw %}${{ secrets.READONLY_AWS_ACCESS_KEY_ID }}{% endraw %}

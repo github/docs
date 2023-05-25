@@ -21,11 +21,15 @@ jobs:
     steps:
     - name: Use variables
       run: |
-        echo "repository variable : ${{ vars.REPOSITORY_VAR }}"
-        echo "organization variable : ${{ vars.ORGANIZATION_VAR }}"
-        echo "overridden variable : ${{ vars.OVERRIDE_VAR }}"
+        echo "repository variable : $REPOSITORY_VAR"
+        echo "organization variable : $ORGANIZATION_VAR"
+        echo "overridden variable : $OVERRIDE_VAR"
         echo "variable from shell environment : $env_var"
-
+      env:
+        REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
+        ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
+        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
+        
     - name: ${{ vars.HELLO_WORLD_STEP }}
       if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
       uses: actions/hello-world-javascript-action@main

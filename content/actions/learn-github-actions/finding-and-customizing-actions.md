@@ -16,8 +16,7 @@ type: how_to
 topics:
   - Fundamentals
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -163,7 +162,7 @@ If you need more reliable versioning, you should use the SHA value associated wi
 
 ```yaml
 steps:
-  - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
+  - uses: actions/javascript-action@a824008085750b8e136effc585c3cd6082bd575f
 ```
 
 ### Using branches

@@ -18,8 +18,7 @@ topics:
   - Pull requests
 shortTitle: Manage GitHub Actions settings
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your repository
@@ -104,16 +103,6 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` {% ifversion actions-default-workflow-permissions-restrictive %}and `packages` scopes{% else %}scope{% endif %}.
-
-   {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-      {% ifversion actions-default-workflow-permissions-restrictive %}
-   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository-with-default-restrictive.png)
-      {% else %}
-   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
-      {% endif %}
-   {% else %}
-   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository.png)
-   {% endif %}
 1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
@@ -129,12 +118,6 @@ By default, when you create a new repository in your personal account, workflows
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
-
-   {% ifversion actions-default-workflow-permissions-restrictive %}
-   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository-with-default-restrictive.png)
-   {% else %}
-   ![Set GITHUB_TOKEN permissions for this repository](/assets/images/help/settings/actions-workflow-permissions-repository-with-pr-approval.png)
-   {% endif %}
 1. Click **Save** to apply the settings.
 {% endif %}
 
@@ -146,7 +129,7 @@ By default, when you create a new repository in your personal account, workflows
 You can use the steps below to configure whether {% ifversion internal-actions%}actions and {% endif %}reusable workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)." Alternatively, you can use the REST API to set, or get details of the level of access. For more information, see "[AUTOTITLE](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository)" and "[AUTOTITLE](/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository)."{% endif %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
-1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
+1. Under your repository name, click {% octicon "gear" aria-hidden="true" %} **Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
@@ -167,7 +150,7 @@ You can use the steps below to configure whether actions and reusable workflows 
 ### Managing access for a private repository
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
-1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
+1. Under your repository name, click {% octicon "gear" aria-hidden="true" %} **Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
@@ -181,7 +164,7 @@ You can use the steps below to configure whether actions and reusable workflows 
 ### Managing access for a private repository in an organization
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
-1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
+1. Under your repository name, click {% octicon "gear" aria-hidden="true" %} **Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
@@ -194,7 +177,7 @@ You can use the steps below to configure whether actions and reusable workflows 
 {% ifversion fpt %}{% else %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
-1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
+1. Under your repository name, click {% octicon "gear" aria-hidden="true" %} **Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
    * **Not accessible** - Workflows in other repositories cannot access this repository.

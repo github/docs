@@ -15,8 +15,7 @@ topics:
   - Containers
   - Docker
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About service containers

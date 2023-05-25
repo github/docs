@@ -1,26 +1,19 @@
 ---
-title: Understanding GitHub Code Search (beta) syntax
+title: Understanding GitHub Code Search syntax
+shortTitle: Code search syntax
 intro: 'You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: github-code-search
+  feature: code-search-code-view
 topics:
   - GitHub search
 ---
 
-{% note %}
+## About code search query structure
 
-**Note:** {% data reusables.search.code-search-code-view-beta-note %}
+The search syntax in this article only applies to searching code with {% data variables.product.prodname_dotcom %}  code search. {% data reusables.search.non-code-search-explanation %}
 
-{% data reusables.search.code-search-link %} {% data reusables.search.code-view-link %}
-
-{% endnote %}
-
-## About the new code search (beta) query structure
-
-The search syntax in this article only applies to searching code with the new code search (beta) enabled. {% data reusables.search.non-code-search-explanation %}
-
-Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search. 
+Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.
 
 A bare term with no qualifiers will match either the content of a file or the file's path. 
 
@@ -42,11 +35,11 @@ sparse index
 
 The search results would include all documents containing both the terms `sparse` and `index`, in any order. As examples, it would match a file containing `SparseIndexVector`, a file with the phrase `index for sparse trees`, and even a file named `index.txt` that contains the term `sparse`.  
 
-Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported in the new code search (beta). For more information about boolean operations, see "[Using boolean operations](#using-boolean-operations)."
+Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported. For more information about boolean operations, see "[Using boolean operations](#using-boolean-operations)."
 
-The new code search (beta) also supports searching for an exact string, including whitespace. For more information, see "[Query for an exact match](#query-for-an-exact-match)."
+Code search also supports searching for an exact string, including whitespace. For more information, see "[Query for an exact match](#query-for-an-exact-match)."
 
-You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in the new code search (beta), see "[Using qualifiers](#using-qualifiers)."
+You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in code search, see "[Using qualifiers](#using-qualifiers)."
 
 You can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
 
@@ -72,7 +65,7 @@ path: git language: "protocol buffers"
 
 ## Using boolean operations
 
-The new code search (beta) supports boolean expressions. You can use the operators `AND`, `OR`, and `NOT` to combine search terms.
+Code search supports boolean expressions. You can use the operators `AND`, `OR`, and `NOT` to combine search terms.
 
 By default, adjacent terms separated by whitespace are equivalent to using the `AND` operator. For example, the search query `sparse index` is the same as `sparse AND index`, meaning that the search results will include all documents containing both the terms `sparse` and `index`, in any order.
 
@@ -110,18 +103,18 @@ You can use specialized keywords to qualify your search.
 To search within a repository, use the `repo:` qualifier. You must provide the full repository name, including the owner. For example:
 
 ```
-repo:github/linguist
+repo:github-linguist/linguist
 ```
 
 To search within a set of repositories, you can combine multiple `repo:` qualifiers with the boolean operator `OR`. For example:
 
 ```
-repo:github/linguist OR repo:tree-sitter/tree-sitter
+repo:github-linguist/linguist OR repo:tree-sitter/tree-sitter
 ```
 
 {% note %}
 
-**Note:** The new code search beta does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
+**Note:** Code search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
 
 {% endnote %}
 
@@ -141,7 +134,7 @@ user:octocat
 
 {% note %}
 
-**Note:** The new code search beta does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
+**Note:** Code search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
 
 {% endnote %}
 
@@ -151,10 +144,10 @@ user:octocat
 To narrow down to a specific languages, use the `language:` qualifier. For example: 
 
 ```
-language: ruby OR language:cpp OR language:csharp
+language:ruby OR language:cpp OR language:csharp
 ```
 
-For a complete list of supported language names, see [languages.yaml](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml) in [github/linguist](https://github.com/github/linguist). If your preferred language is not on the list, you can open a pull request to add it.
+For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
 
 ### Path qualifier
 
@@ -279,7 +272,7 @@ log4j NOT is:fork
 
 ## Using regular expressions
 
-The new code search (beta) supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex in slashes. 
+Code search supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex in slashes. 
 
 For example, to search for the regular expression `sparse.*index`, you would use:
 

@@ -45,11 +45,8 @@ A good repository submission for both `Learn` and `Collaborate` purposes, is a r
 
 1. From your {% data variables.product.prodname_global_campus %} dashboard, navigate to the {% data variables.product.prodname_community_exchange %} home page.
 1. Above the list of repositories, to the right of the search and dropdown filters, click **Add repository**.
-  ![Screenshot of the Add repository button](/assets/images/help/education/community-exchange-submission-add-repo.png)
-1. Use the **What is the purpose of your submission?** drop-down menu and select one or more entries matching your submission.
-  ![Screenshot of the purpose dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-purpose.png)
-1. Use the **Which repository would you like to use?** drop-down menu and select the repository for your submission. If the submission criteria hasn't been met, you will be notified of the missing items.
-  ![Screenshot of the repository dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-repo.png)
+  ![Screenshot of a row of buttons and dropdown menus. The "Add repository" button is outlined in dark orange.](/assets/images/help/education/community-exchange-submission-add-repo.png)
+1. In the pop-up window, use the **What is the purpose of your submission?** drop-down menu and select one or more entries matching your submission.
+1. Use the **Which repository would you like to use?** drop-down menu and select the repository for your submission. If the submission criteria hasn't been met, you will be notified of the missing items, and you can click on **Edit your repository** if you want to view the repository and make changes to meet the criteria.
 1. Use the **Which offers did you use for your project?** drop-down menu and select one or more entries matching your submission.
-  ![Screenshot of the offers dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-offers.png)
 1. Click **Submit the project**.

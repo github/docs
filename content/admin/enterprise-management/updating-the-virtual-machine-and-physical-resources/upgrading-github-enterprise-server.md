@@ -206,6 +206,11 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+1. After the instance restarts, the upgrade will continue in the background. You cannot unset maintenance mode until the process completes. To monitor progress, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
+
+   ```shell
+   tail -f /data/user/common/ghe-config.log
+   ```
 {% ifversion ip-exception-list %}
 1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 {% endif %}
@@ -258,7 +263,7 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 
    {%- ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}
 
-   - If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/admin/enterprise-support/receiving-help-from-github-support)."
+   - If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
    {%- endif %}
 
    - {% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."

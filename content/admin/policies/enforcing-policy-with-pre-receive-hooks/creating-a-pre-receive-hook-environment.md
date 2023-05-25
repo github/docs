@@ -22,7 +22,7 @@ If you have a specific requirement that isn't met by this environment, such as s
 
 ## Creating a pre-receive hook environment using Docker
 
-You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](http://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
+You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](https://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
 
 {% data reusables.linux.ensure-docker %}
 2. Create the file `Dockerfile.alpine-3.3` that contains this information:
@@ -74,7 +74,7 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 
    {% endnote %}
 
-For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the *Ubuntu Community Help Wiki*, or "[Installing Alpine Linux in a chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the *Alpine Linux Wiki*.
+For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the *Ubuntu Community Help Wiki*, or "[Installing Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the *Alpine Linux Wiki*.
 
 ## Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
 

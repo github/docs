@@ -176,6 +176,8 @@ For some migration paths, we offer specialist tools that allow you to migrate so
   </tr>
   </table>
 
+{% data reusables.enterprise-migration-tool.bbs-release-phase %}
+
 If your migration path is not included in the table, then we don’t offer any specialist tools to migrate source, history and metadata. As an alternative, you could run a "source snapshot" or "source and history" migration.
 
 You can learn more about each tool and its use, review the tool's documentation or contact your expert:

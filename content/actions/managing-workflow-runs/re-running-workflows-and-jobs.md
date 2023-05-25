@@ -11,8 +11,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About re-running workflows and jobs
@@ -162,6 +161,5 @@ You can view the results from your previous attempts at running a workflow. You 
    ![Screenshot of the page for a workflow run. A dropdown menu, labeled "Latest #2," is outlined in dark orange.](/assets/images/help/actions/previous-run-attempts.png)
 {%- else %}
 1. In the left pane, click a previous run attempt.
-    ![Rerun workflow](/assets/images/help/settings/actions-review-workflow-rerun.png)
 {%- endif %}
 {% endif %}

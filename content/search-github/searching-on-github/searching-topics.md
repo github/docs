@@ -19,11 +19,9 @@ You can search for topics on {% data variables.product.product_name %}, explore 
 
 1. Navigate to https://github.com/search.
 2. Type a topic keyword.
-  ![search field](/assets/images/help/search/search-field.png)
 3. In the left sidebar, to narrow your search to topics, click **Topics**.
 {% ifversion fpt or ghec %}
-  ![Jekyll repository search results page with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% else %}
-  ![Jekyll repository search results page on dotcom with topics side-menu option highlighted](/assets/images/help/search/topic-left-side-navigation.png){% endif %}
+  ![Screenshot of the repository search results page for the search term 'jekyll' with the "Topics" option in the left-hand menu outlined in dark orange.](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% endif %}
 
 ## Narrowing your search with search qualifiers
 

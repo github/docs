@@ -20,6 +20,10 @@ redirect_from:
 
 ## About {% data variables.product.prodname_github_codespaces %} pricing
 
+{% ifversion billing-auth-and-capture %}
+{% data reusables.billing.authorization-charge %}
+{% endif %}
+
 {% data reusables.codespaces.codespaces-free-for-personal-intro %}
 
 Charges are billed to an organization or enterprise when all of the following are true:
@@ -31,6 +35,10 @@ Charges are billed to an organization or enterprise when all of the following ar
 Otherwise use of {% data variables.product.prodname_github_codespaces %} applies to the personal account of the person who created the codespace, and either consumes some of the monthly included usage for their personal account, or their account is billed according to their usage in excess of their included quotas.
 
 For information about how to configure an organization to be billed for codespace usage, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." The Free, Team, and Enterprise plans for organization and enterprise accounts do not include any free use of {% data variables.product.prodname_github_codespaces %}.
+
+{% ifversion ghec %}
+{% data reusables.codespaces.codespaces-unavailable-for-emus %}
+{% endif %}
 
 {% ifversion fpt %}
 
@@ -81,9 +89,9 @@ A {% data variables.product.prodname_github_codespaces %} instance (a "codespace
 | Codespaces compute  |  8 core      | 1 hour          | 8                         | $0.72 |
 | Codespaces compute  |  16 core     | 1 hour          | 16                        | $1.44 |
 | Codespaces compute  |  32 core     | 1 hour          | 32                        | $2.88 |
-| Codespaces storage  |  Storage     | 1 GB-month [1] | Not applicable             | $0.07 |
+| Codespaces storage  |  Storage     | 1 GB-month | Not applicable             | $0.07 |
 
-[1] See "[About billing for storage usage](#about-billing-for-storage-usage)" later in this article for details of the GB-month unit of measure.
+For more information about the GB-month unit of measure, see "[About billing for storage usage](#about-billing-for-storage-usage)."
 
 If you enable prebuilding of codespaces this will incur additional charges. For more information, see "[About billing for {% data variables.product.prodname_codespaces %} prebuilds](#about-billing-for-codespaces-prebuilds)."
 

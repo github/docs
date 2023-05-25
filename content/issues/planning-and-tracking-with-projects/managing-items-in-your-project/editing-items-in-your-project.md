@@ -28,7 +28,7 @@ You can copy the contents of one cell and paste the contents into multiple other
 
 1. To paste the previously copied content, press <kbd>Command</kbd>+<kbd>V</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows.)
 
-## Dragging a cell's contents to set neighbouring table cells
+## Dragging a cell's contents to set neighboring table cells
 
 You can quickly copy one cell's content over other cells in the same field by dragging up or down.
 

@@ -7,7 +7,7 @@ versions:
   fpt: '*'
   ghec: '*'
 children:
-  - /adding-a-codespaces-badge
+  - /facilitating-quick-creation-and-resumption-of-codespaces
   - /setting-up-a-template-repository-for-github-codespaces
 ---
 

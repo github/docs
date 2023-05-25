@@ -1,7 +1,7 @@
 ---
 title: Removing a member from your enterprise
-intro: You can remove a member from all organizations owned by your enterprise.
-permissions: Enterprise owners can remove an enterprise member from the enterprise.
+intro: You can remove an enterprise member from an enterprise.
+permissions: Enterprise owners can remove an enterprise member from an enterprise.
 versions:
   feature: remove-enterprise-members
 type: how_to
@@ -12,7 +12,7 @@ shortTitle: Remove member
 
 ## About removal of enterprise members
 
-If you enterprise does not use {% data variables.product.prodname_emus %}, you can remove an enterprise member from {% data variables.product.prodname_dotcom %}. When you remove a member from your enterprise, the member is removed from all organizations owned by your enterprise.
+If your enterprise does not use {% data variables.product.prodname_emus %}, you can remove an enterprise member from {% data variables.product.prodname_dotcom %}. When you remove a member from your enterprise, the member is removed from all organizations owned by your enterprise. Removing a member from your enterprise also removes any of the member's administrative roles, such as the owner or billing manager roles. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 
 If the enterprise member you're removing is the last owner of an organization owned by your enterprise, you will become an owner of that organization.
 

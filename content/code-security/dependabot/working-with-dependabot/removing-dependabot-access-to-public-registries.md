@@ -15,9 +15,19 @@ redirect_from:
 
 ## About configuring {% data variables.product.prodname_dependabot %} to only access private registries
 
-{% data variables.product.prodname_dependabot %} can access public registries and you can configure {% data variables.product.prodname_dependabot %} to also access private registries. For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+{% data reusables.dependabot.private-registry-support %} For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
 
-You can configure {% data variables.product.prodname_dependabot %} to _only_ access private registries by removing calls to public registries. This can only be configured for the ecosystems listed in this article.
+You can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. This can only be configured for the ecosystems listed in this article.
+
+{% ifversion dependabot-ghes-no-public-internet %}
+
+{% note %}
+
+**Note:** Before you remove access to public registries from your configuration for {% data variables.product.prodname_dependabot_updates %}, check that your site administrator has set up the {% data variables.product.prodname_dependabot %} runners with access to the private registries you need. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/configuring-dependabot-to-work-with-limited-internet-access)."
+
+{% endnote %}
+
+{% endif %}
 
 ## Bundler
 

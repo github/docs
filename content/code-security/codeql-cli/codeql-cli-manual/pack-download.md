@@ -16,6 +16,8 @@ intro: |-
   [Experimental] Download the set of qlpacks referenced by the query
   spec of the command line from the registry. Packs can be provided by
   name or implicitly inside of a query suite (.qls) file.
+redirect_from:
+  - /code-security/codeql-cli/manual/pack-download
 ---
 
 
@@ -37,6 +39,8 @@ name or implicitly inside of a query suite (.qls) file.
 
 The packs will be downloaded and unzipped into the package cache by
 default.
+
+Available since `v2.6.0`.
 
 ## Primary options
 
@@ -67,6 +71,8 @@ for each pack will be determined by the 'registries' property of
 Allow packs with pre-release version qualifiers (e.g.,
 `X.Y.Z-qualifier`) to be used. Without this flag, pre-release packs will
 be ignored.
+
+Available since `v2.11.3`.
 
 #### `-f, --[no-]force`
 
