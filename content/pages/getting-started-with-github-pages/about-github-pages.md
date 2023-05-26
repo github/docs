@@ -124,6 +124,7 @@ In addition, your use of {% data variables.product.prodname_pages %} is subject 
 
   - {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB.{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#file-and-repository-size-limitations)"{% endif %}
   - Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
+  - {% data variables.product.prodname_pages %} deployments will timeout if they take longer than 10 minutes.
 {% ifversion fpt or ghec %}
   - {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100 GB per month.
   - {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
