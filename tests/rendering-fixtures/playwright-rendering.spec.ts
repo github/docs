@@ -424,3 +424,59 @@ test.describe('rest API reference pages', () => {
     await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
   })
 })
+
+test.describe('translations', () => {
+  test('view Japanese home page', async ({ page }) => {
+    await page.goto('/ja')
+    await expect(page.getByRole('heading', { name: '日本 GitHub Docs' })).toBeVisible()
+  })
+
+  test('switch to English from Japanese using banner on home page', async ({ page }) => {
+    await page.goto('/ja')
+    await page.getByRole('link', { name: 'English documentation' }).click()
+    await expect(page).toHaveURL('/en')
+    await expect(page.getByRole('heading', { name: 'GitHub Docs' })).toBeVisible()
+  })
+
+  test('switch to Japanese from English using widget on home page', async ({ page }) => {
+    await page.goto('/en')
+    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await page.getByRole('menuitemradio', { name: '日本語' }).click()
+    await expect(page).toHaveURL('/ja')
+    await expect(page.getByRole('heading', { name: '日本 GitHub Docs' })).toBeVisible()
+
+    // Having done this once, should now use a cookie to redirect back to Japanese
+    await page.goto('/')
+    await expect(page).toHaveURL('/ja')
+  })
+
+  test('switch to English from Japanese using banner on article', async ({ page }) => {
+    await page.goto('/ja/get-started/quickstart/hello-world')
+    await expect(page.getByRole('heading', { name: 'こんにちは World' })).toBeVisible()
+    await page.getByRole('link', { name: 'English documentation' }).click()
+    await expect(page).toHaveURL('/en/get-started/quickstart/hello-world')
+    await expect(page.getByRole('heading', { name: 'Hello World' })).toBeVisible()
+  })
+
+  test('switch to Japanese from English using widget on article', async ({ page }) => {
+    await page.goto('/get-started/quickstart/hello-world')
+    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await page.getByRole('menuitemradio', { name: '日本語' }).click()
+    await expect(page).toHaveURL('/ja/get-started/quickstart/hello-world')
+    await expect(page.getByRole('heading', { name: 'こんにちは World' })).toBeVisible()
+
+    // Having done this once, should now use a cookie to redirect
+    // back to Japanese.
+    // Playwright will cache this redirect, so we need to add something
+    // to "cache bust" the URL
+    const cb = `?cb=${Math.random()}`
+    await page.goto('/get-started/quickstart/hello-world' + cb)
+    await expect(page).toHaveURL('/ja/get-started/quickstart/hello-world' + cb)
+
+    // If you go, with the Japanese cookie, to the English page directly,
+    // it will offer a link to the Japanese URL in a banner.
+    await page.goto('/en/get-started/quickstart/hello-world')
+    await page.getByRole('link', { name: 'Japanese' }).click()
+    await expect(page).toHaveURL('/ja/get-started/quickstart/hello-world')
+  })
+})

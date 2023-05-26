@@ -203,7 +203,7 @@
     "prestart": "node script/cmp-files.js package-lock.json .installed.package-lock.json || npm install && cp package-lock.json .installed.package-lock.json",
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon server.js",
     "start-all-languages": "cross-env NODE_ENV=development nodemon server.js",
-    "start-for-playwright": "cross-env ROOT=tests/fixtures NODE_ENV=test node server.js",
+    "start-for-playwright": "cross-env ROOT=tests/fixtures TRANSLATIONS_FIXTURE_ROOT=tests/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test node server.js",
     "sync-search": "cross-env NODE_OPTIONS='--max_old_space_size=8192' start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-ghes-release": "cross-env GHES_RELEASE=1 start-server-and-test sync-search-server 4002 sync-search-indices",
     "sync-search-indices": "src/search/scripts/sync-search-indices.js",
