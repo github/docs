@@ -52,6 +52,12 @@ If your code depends on a package with a security vulnerability, this can cause 
   {% endnote %}
 - The dependency graph for a repository changes. For example, when a contributor pushes a commit to change the packages or versions it depends on{% ifversion fpt or ghec %}, or when the code of one of the dependencies changes{% endif %}. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 
+{% note %}
+
+**Note:** {% data variables.product.prodname_dependabot %} doesn't scan archived repositories.
+
+{% endnote %}
+
 {% data reusables.repositories.dependency-review %}
 
 For a list of the ecosystems that {% data variables.product.product_name %} detects insecure dependencies in, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems)."
