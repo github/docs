@@ -52,7 +52,7 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/reponauts'
+    - '@github/repos'
 - title: Access to a Repository's Dependency Graph
   description: This preview adds support for reading a dependency graph for a repository.
   toggled_by: ':hawkgirl-preview'
