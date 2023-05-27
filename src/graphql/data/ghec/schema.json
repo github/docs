@@ -8473,7 +8473,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -92496,7 +92496,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -97237,7 +97237,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -98007,7 +98007,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
