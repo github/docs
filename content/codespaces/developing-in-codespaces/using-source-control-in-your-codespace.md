@@ -42,6 +42,12 @@ A typical workflow for updating a file using {% data variables.product.prodname_
 * Commit the change.
 * Raise a pull request.
 
+{% note %}
+
+**Note:** By default, {% data variables.product.prodname_github_codespaces %} uses the HTTPS protocol to transfer data to and from a remote repository, and authenticates with a `GITHUB_TOKEN` configured with read and write access to the repository from which you create the codespace. If you're having issues with authentication, see "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-authentication-to-a-repository)."
+
+{% endnote %}
+
 ## About automatic forking
 
 If you only have read access to a repository, you can usually create a codespace for the repository as long as you can fork it.

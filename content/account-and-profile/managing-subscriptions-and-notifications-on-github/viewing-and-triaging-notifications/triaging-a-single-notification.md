@@ -15,7 +15,7 @@ shortTitle: Triage a notification
 ---
 ## Saving a single notification
 
-To save a single notification to review later, to the right of the notification, click {% octicon "bookmark" aria-label="The bookmark icon" %}. You can only save one notification at a time.
+To save a single notification to review later, to the right of the notification, click {% octicon "bookmark" aria-label="Save" %}. You can only save one notification at a time.
 
 Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day.
 

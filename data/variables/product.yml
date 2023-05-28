@@ -162,6 +162,7 @@ prodname_matching_fund: 'GitHub Sponsors Matching Fund'
 # GitHub Advanced Security
 prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
+prodname_ghas_azdo: 'GitHub Advanced Security for Azure DevOps'
 
 # Codespaces
 prodname_codespaces: 'Codespaces'

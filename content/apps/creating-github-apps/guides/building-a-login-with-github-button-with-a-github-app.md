@@ -424,3 +424,5 @@ This tutorial stored all of the code into a single file, but you may want to mov
 This tutorial generates a user access token. Unless you opted out of expiration for user access tokens, the user access token will expire after eight hours. You will also receive a refresh token that can regenerate a user access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)."
 
 If you plan on interacting further with {% data variables.product.company_short %}'s APIs, you should store the token for future use. If you choose to store the user access token or refresh token, you must store it securely. You should never publicize the token.
+
+For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."

@@ -18,8 +18,7 @@ topics:
   - Pull requests
 shortTitle: Manage GitHub Actions settings
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your repository

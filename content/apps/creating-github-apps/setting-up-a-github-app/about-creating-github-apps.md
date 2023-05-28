@@ -21,7 +21,7 @@ topics:
 
 ## About {% data variables.product.prodname_github_apps %}
 
-A {% data variables.product.prodname_github_app %} is a type of integration that you can build to interact with and extend the functionality of {% data variables.product.company_short %}. You can build a {% data variables.product.prodname_github_app %} to provide flexibility and reduce friction in your processes, without needing to sign in a user or create a service account. 
+A {% data variables.product.prodname_github_app %} is a type of integration that you can build to interact with and extend the functionality of {% data variables.product.company_short %}. You can build a {% data variables.product.prodname_github_app %} to provide flexibility and reduce friction in your processes, without needing to sign in a user or create a service account.
 
 Common use cases for {% data variables.product.prodname_github_apps %} include:
 - Automating tasks or background processes
@@ -31,7 +31,7 @@ Common use cases for {% data variables.product.prodname_github_apps %} include:
 
 {% data variables.product.prodname_github_apps %} are independent actors within {% data variables.product.prodname_dotcom %}. A {% data variables.product.prodname_github_app %} acts on its own behalf, which means that you don't need to maintain a bot or service account as a separate user. They can also authenticate as a user and act on the user's behalf, using the permissions granted to it.
 
-A user or organization can own up to 100 {% data variables.product.prodname_github_apps %}, but there is no limit to how many can be installed on an account.
+{% data reusables.apps.maximum-github-apps-allowed %}
 
 If you want your app to respond to events on {% data variables.product.prodname_dotcom %}, your app should subscribe to webhooks. For example, you may want your app to leave a comment when a pull request is opened. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps)."
 

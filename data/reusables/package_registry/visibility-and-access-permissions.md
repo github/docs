@@ -1,6 +1,6 @@
-If a package belongs to a registry that supports granular permissions, anyone with admin permissions to the package can set the package to private or public. Public packages allow anonymous access and can be pulled without authentication or signing in via the CLI. For the list of registries that support granular permissions, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
+If a package belongs to a registry that supports granular permissions, anyone with admin permissions to the package can set the package to private or public, and can grant access permissions for the package that are separate from the permissions set at the organization and repository levels. For the list of registries that support granular permissions, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
 
-Anyone with admin permissions to the package can also grant access permissions for the package that are separate from the permissions set at the organization and repository levels.
+In most registries, to pull a package, you must authenticate with a {% data variables.product.pat_generic %} or `GITHUB_TOKEN`, regardless of whether the package is public or private. However, in the {% data variables.product.prodname_container_registry %}, public packages allow anonymous access and can be pulled without authentication or signing in via the CLI.
 
 {% ifversion packages-inherit-permissions %}
 {% note %}

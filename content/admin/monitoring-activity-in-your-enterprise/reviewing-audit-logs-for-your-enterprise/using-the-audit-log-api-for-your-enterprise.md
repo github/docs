@@ -19,7 +19,7 @@ topics:
 
 You can interact with the audit log using the REST API.{% ifversion read-audit-scope %} You can use the `read:audit_log` scope to access the audit log via the API.{% endif %}
 
-Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](http://en.wikipedia.org/wiki/Unix_time).
+Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](https://en.wikipedia.org/wiki/Unix_time).
 
 To ensure your intellectual property is secure, and you maintain compliance for your enterprise, you can use the audit log REST API to keep copies of your audit log data and monitor:
 {% data reusables.audit_log.audited-data-list %}
@@ -55,8 +55,8 @@ curl --include -H "Authorization: Bearer TOKEN" \
 If there are more than 100 results, the `link` header will include URLs to fetch the next, first, and previous pages of results.
 
 ```
-link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next", 
-<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=>; rel="first", 
+link: <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=MS42NjQzODMzNTk5MjdlKzEyfDloQzBxdURzaFdVbVlLWjkxRU9mNXc%3D&before=>; rel="next",
+<https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=>; rel="first",
 <https://api.github.com/enterprises/13827/audit-log?%3A2022-11-01=&per_page=100&after=&before=MS42Njc4NDA2MjM4MzNlKzEyfExqeG5sUElvNEZMbG1XZHA5akdKTVE%3D>; rel="prev"
 ```
 
@@ -81,9 +81,3 @@ curl -H "Authorization: Bearer TOKEN" \
 --request GET \
 "https://api.github.com/enterprises/avocado-corp/audit-log?phrase=action:pull_request+created:>=2022-01-01+actor:octocat"
 ```
-
-
-
-
-
-

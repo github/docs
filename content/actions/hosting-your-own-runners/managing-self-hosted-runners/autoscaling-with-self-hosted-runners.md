@@ -11,8 +11,7 @@ versions:
   ghae: '*'
 type: overview
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About autoscaling

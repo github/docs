@@ -399,9 +399,27 @@ describe('static routes', () => {
     expect((await get('/public/ghae/schema.docs-ghae.graphql')).statusCode).toBe(200)
   })
 
-  it('does not serve repo contents that live outside the /assets directory', async () => {
-    expect((await get('/package.json', { followRedirects: true })).statusCode).toBe(404)
-    expect((await get('/README.md', { followRedirects: true })).statusCode).toBe(404)
-    expect((await get('/server.js', { followRedirects: true })).statusCode).toBe(404)
+  test('does not serve repo contents that live outside the /assets directory', async () => {
+    const paths = ['/package.json', '/README.md', '/server.js', '/.git', '/.env']
+    for (const path of paths) {
+      const res = await get(path)
+      expect(res.statusCode).toBe(404)
+      expect(res.headers['content-type']).toMatch('text/plain')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers['cache-control']).toMatch('public')
+    }
+    expect.assertions(4 * paths.length)
+  })
+
+  test('junk requests with or without query strings is 404', async () => {
+    const paths = ['/env', '/xmlrpc.php', '/wp-login.php']
+    for (const path of paths) {
+      const res = await get(`${path}?r=${Math.random()}`)
+      expect(res.statusCode).toBe(404)
+      expect(res.headers['content-type']).toMatch('text/plain')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers['cache-control']).toMatch('public')
+    }
+    expect.assertions(4 * paths.length)
   })
 })

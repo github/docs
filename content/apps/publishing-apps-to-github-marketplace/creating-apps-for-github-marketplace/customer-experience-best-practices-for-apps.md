@@ -23,3 +23,8 @@ If you follow these best practices it will help you to provide a good customer e
 ## Plan management
 
 {% data reusables.marketplace.marketplace-billing-ui-requirements %}
+
+## Further reading
+
+- "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)"
+- "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"

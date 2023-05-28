@@ -10,8 +10,7 @@ type: tutorial
 topics:
   - Security
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview of OpenID Connect
@@ -126,7 +125,7 @@ The token also includes custom claims provided by {% data variables.product.prod
 {%- ifversion actions-OIDC-custom-claim-enterprise %}
 | `enterprise`| The name of the enterprise that contains the repository from where the workflow is running.                  |
 {%- endif %}
-| `environment`| The name of the environment used by the job.                    |
+| `environment`| The name of the environment used by the job. To include the `environment` claim you must reference an environment.                   |
 | `event_name`| The name of the event that triggered the workflow run.                    |
 | `head_ref`| The source branch of the pull request in a workflow run.                   |
 | `job_workflow_ref`| For jobs using a reusable workflow, the ref path to the reusable workflow. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/using-openid-connect-with-reusable-workflows)."                  |
