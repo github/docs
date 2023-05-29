@@ -1,1 +1,0 @@
-Anyone can publish an action in {% data variables.product.prodname_marketplace %}. {% data variables.product.prodname_dotcom %} verifies some partner organizations, but unlike verified apps, {% data variables.product.prodname_dotcom %} does not review or verify individual actions listed in {% data variables.product.prodname_marketplace %}.

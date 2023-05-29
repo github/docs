@@ -1,1 +1,0 @@
-1. Debajo de "Políticas", selecciona una opción. ![Habilita, inhabilita o limita las acciones para esta cuenta empresarial](/assets/images/help/settings/actions-enable-enterprise-account.png)

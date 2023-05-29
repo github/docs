@@ -1,174 +1,137 @@
-/* global page, browser */
-const sleep = require('await-sleep')
-const querystring = require('querystring')
+import { jest } from '@jest/globals'
+import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 
+jest.useFakeTimers({ legacyFakeTimers: true })
+
+/* global page, browser */
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
 
-  test('should be titled "GitHub Documentation"', async () => {
-    await page.goto('http://localhost:4001')
-    await expect(page.title()).resolves.toMatch('GitHub Documentation')
+  test('should be titled "GitHub Docs"', async () => {
+    await page.goto('http://localhost:4000')
+    await expect(page.title()).resolves.toMatch('GitHub Docs')
   })
 })
 
-describe('algolia browser search', () => {
+// Note: we can only test Elasticsearch searches on things we have indexed
+// in the fixtures. See the contents of /src/search/tests/fixtures/search-indexes
+describe('browser search', () => {
   jest.setTimeout(60 * 1000)
 
-  it('works on the homepage', async () => {
-    await page.goto('http://localhost:4001/en')
-    await page.click('#search-input-container input[type="search"]')
-    await page.type('#search-input-container input[type="search"]', 'actions')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
+  it('works on small and x-small viewport landing pages', async () => {
+    await page.setViewport({ width: 500, height: 700 })
+    await page.goto('http://localhost:4000/en/actions')
+    await page.click('[data-testid=mobile-search-button]')
+    await page.click('[data-testid=site-search-input]')
+    await page.type('[data-testid=site-search-input]', 'foo')
+    await page.keyboard.press('Enter')
+    await page.waitForSelector('[data-testid=search-result]')
+    const hits = await page.$$('[data-testid=search-result]')
+    expect(hits.length).toBeGreaterThan(1)
+  })
+
+  it('works on medium -> x-large viewport landing pages', async () => {
+    const initialViewport = page.viewport()
+    await page.setViewport({ width: 1000, height: 768 })
+    await page.goto('http://localhost:4000/en/actions')
+    await page.click('[data-testid=desktop-header] [data-testid=site-search-input]')
+    await page.type('[data-testid=desktop-header] [data-testid=site-search-input]', 'foo')
+    await page.keyboard.press('Enter')
+    await page.waitForSelector('[data-testid=search-result]')
+    const hits = await page.$$('[data-testid=search-result]')
+    expect(hits.length).toBeGreaterThan(1)
+    await page.setViewport(initialViewport)
+  })
+  // 404 page is statically generated with next, so search is not available, but may possibly be brought back
+  // Docs Engineering issue: 961
+  it.skip('works on 404 error page', async () => {
+    await page.goto('http://localhost:4000/en/404')
+    await page.click('[data-testid=search] input[type="search"]')
+    await page.type('[data-testid=search] input[type="search"]', 'actions')
+    await page.keyboard.press('Enter')
+    await page.waitForSelector('[data-testid=search-results]')
+    const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
   })
 
-  it('works on article pages', async () => {
-    await page.goto('http://localhost:4001/en/actions')
-    await page.click('#search-input-container input[type="search"]')
-    await page.type('#search-input-container input[type="search"]', 'workflows')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
-    expect(hits.length).toBeGreaterThan(5)
-  })
-
-  it('works on 404 error page', async () => {
-    await page.goto('http://localhost:4001/en/404')
-    await page.click('#search-input-container input[type="search"]')
-    await page.type('#search-input-container input[type="search"]', 'actions')
-    await page.waitForSelector('.ais-Hits')
-    const hits = await page.$$('.ais-Hits-item')
-    expect(hits.length).toBeGreaterThan(5)
-  })
-
-  it('sends the correct data to algolia for Enterprise Server', async () => {
-    expect.assertions(12) // 3 assertions x 4 letters ('test')
+  // Elasticsearch fixtures only work for dotco and GHAE
+  it.skip('sends the correct data to search for Enterprise Server', async () => {
+    expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/ja/enterprise/2.22/admin/installation')
+    await newPage.goto(
+      `http://localhost:4000/en/enterprise-server@${oldestSupported}/admin/installation`
+    )
 
     await newPage.setRequestInterception(true)
-    newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
-        const data = JSON.parse(interceptedRequest.postData())
-        const { indexName, params } = data.requests[0]
-        const parsedParams = querystring.parse(params)
-        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
-        expect(indexName).toBe('github-docs-2.22-ja')
-        expect(analyticsTags).toHaveLength(2)
-        // browser tests are run against production build, so we are expecting env:production
-        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+    newPage.on('request', (interceptedRequest) => {
+      if (
+        interceptedRequest.method() === 'GET' &&
+        /api\/search\/legacy\?/i.test(interceptedRequest.url())
+      ) {
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe(oldestSupported)
+        expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
 
-    await newPage.click('#search-input-container input[type="search"]')
-    await newPage.type('#search-input-container input[type="search"]', 'test')
+    const searchInput = await newPage.$('[data-testid=site-search-input]')
+    await searchInput.click()
+    await searchInput.type('code')
+    await page.keyboard.press('Enter')
+    await newPage.waitForSelector('[data-testid=search-result]')
   })
 
-  it('sends the correct data to algolia for GHAE', async () => {
-    expect.assertions(12) // 3 assertions x 4 letters ('test')
+  it('sends the correct data to search for dotcom', async () => {
+    expect.assertions(2)
 
     const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4001/en/github-ae@latest/admin/overview')
+    await newPage.goto('http://localhost:4000/en')
 
     await newPage.setRequestInterception(true)
-    newPage.on('request', interceptedRequest => {
-      if (interceptedRequest.method() === 'POST' && /algolia/i.test(interceptedRequest.url())) {
-        const data = JSON.parse(interceptedRequest.postData())
-        const { indexName, params } = data.requests[0]
-        const parsedParams = querystring.parse(params)
-        const analyticsTags = JSON.parse(parsedParams.analyticsTags)
-        expect(indexName).toBe('github-docs-ghae-en')
-        expect(analyticsTags).toHaveLength(2)
-        // browser tests are run against production build, so we are expecting env:production
-        expect(analyticsTags).toEqual(expect.arrayContaining(['site:docs.github.com', 'env:production']))
+    newPage.on('request', (interceptedRequest) => {
+      if (
+        interceptedRequest.method() === 'GET' &&
+        /api\/search\/v1\?/i.test(interceptedRequest.url())
+      ) {
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('free-pro-team@latest')
+        expect(searchParams.get('language')).toBe('en')
       }
       interceptedRequest.continue()
     })
 
-    await newPage.click('#search-input-container input[type="search"]')
-    await newPage.type('#search-input-container input[type="search"]', 'test')
+    const searchInput = await newPage.$('[data-testid=site-search-input]')
+    await searchInput.click()
+    await searchInput.type('foo')
+    await newPage.keyboard.press('Enter')
+    await newPage.waitForSelector('[data-testid=search-result]')
   })
 
-  it('removes `algolia-query` query param after page load', async () => {
-    await page.goto('http://localhost:4001/en?algolia-query=helpme')
+  it('sends the correct data to search for GHAE', async () => {
+    expect.assertions(2)
 
-    // check that the query is still present at page load
-    let location = await getLocationObject(page)
-    expect(location.search).toBe('?algolia-query=helpme')
+    const newPage = await browser.newPage()
+    await newPage.goto('http://localhost:4000/en/github-ae@latest/admin/overview')
 
-    // query removal is in a setInterval, so wait a bit
-    await sleep(1000)
-
-    // check that the query has been removed after a bit
-    location = await getLocationObject(page)
-    expect(location.search).toBe('')
-  })
-
-  it('does not remove hash when removing `algolia-query` query', async () => {
-    await page.goto('http://localhost:4001/en?algolia-query=helpme#some-header')
-
-    // check that the query is still present at page load
-    let location = await getLocationObject(page)
-    expect(location.search).toBe('?algolia-query=helpme')
-
-    // query removal is in a setInterval, so wait a bit
-    await sleep(1000)
-
-    // check that the query has been removed after a bit
-    location = await getLocationObject(page)
-    expect(location.search).toBe('')
-    expect(location.hash).toBe('#some-header')
-  })
-})
-
-describe('helpfulness', () => {
-  it('sends an event to /events when submitting form', async () => {
-    // Visit a page that displays the prompt
-    await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
-
-    // Track network requests
-    await page.setRequestInterception(true)
-    page.on('request', request => {
-      // Ignore GET requests
-      if (!/\/events$/.test(request.url())) return request.continue()
-      expect(request.method()).toMatch(/POST|PUT/)
-      request.respond({
-        contentType: 'application/json',
-        body: JSON.stringify({ id: 'abcd1234' }),
-        status: 200
-      })
+    await newPage.setRequestInterception(true)
+    newPage.on('request', (interceptedRequest) => {
+      if (
+        interceptedRequest.method() === 'GET' &&
+        /api\/search\/v1\?/i.test(interceptedRequest.url())
+      ) {
+        const { searchParams } = new URL(interceptedRequest.url())
+        expect(searchParams.get('version')).toBe('github-ae@latest')
+        expect(searchParams.get('language')).toBe('en')
+      }
+      interceptedRequest.continue()
     })
 
-    // When I click the "Yes" button
-    await page.click('.js-helpfulness [for=helpfulness-yes]')
-    // (sent a POST request to /events)
-    // I see the request for my email
-    await page.waitForSelector('.js-helpfulness [type="email"]')
-
-    // When I fill in my email and submit the form
-    await page.type('.js-helpfulness [type="email"]', 'test@example.com')
-
-    await sleep(1000)
-
-    await page.click('.js-helpfulness [type="submit"]')
-    // (sent a PUT request to /events/{id})
-    // I see the feedback
-    await page.waitForSelector('.js-helpfulness [data-help-end]')
+    const searchInput = await newPage.$('[data-testid=site-search-input]')
+    await searchInput.click()
+    await searchInput.type('silly')
+    await newPage.keyboard.press('Enter')
+    await newPage.waitForSelector('[data-testid=search-results]')
   })
 })
-
-describe('csrf meta', () => {
-  it('should have a csrf-token meta tag on the page', async () => {
-    await page.goto('http://localhost:4001/en/actions/getting-started-with-github-actions/about-github-actions')
-    await page.waitForSelector('meta[name="csrf-token"]')
-  })
-})
-
-async function getLocationObject (page) {
-  const location = await page.evaluate(() => {
-    return Promise.resolve(JSON.stringify(window.location, null, 2))
-  })
-  return JSON.parse(location)
-}

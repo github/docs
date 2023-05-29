@@ -1,1 +1,0 @@
-1. In the security sidebar, click **{% data variables.product.prodname_dependabot_alerts %}**. ![{% data variables.product.prodname_dependabot_alerts %} 选项卡](/assets/images/help/repository/dependabot-alerts-tab.png)

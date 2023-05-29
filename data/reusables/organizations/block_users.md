@@ -1,2 +1,1 @@
-1. In your organization's Settings sidebar, click **Blocked users**.
-![Blocked users in organization's settings](/assets/images/help/organizations/org-settings-block-users.png)
+1. In the sidebar, select **{% octicon "report" aria-hidden="true"%} Moderation**, then click **Blocked users**.

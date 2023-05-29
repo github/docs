@@ -1,1 +1,0 @@
-1. Klicke auf **View your eligible accounts** (Deine berechtigten Konten ansehen). ![Schaltfläche „View your eligible accounts" (Deine berechtigten Konten ansehen)](/assets/images/help/sponsors/view-eligible-accounts.png)

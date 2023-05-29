@@ -1,1 +1,0 @@
-Você pode configurar as opções de merge de pull request no {% data variables.product.product_location %} para atender às suas necessidades de fluxo de trabalho e preferências para gerenciar o histórico do Git. Para obter mais informações, consulte "[Configurando merges da pull request](/articles/configuring-pull-request-merges)".

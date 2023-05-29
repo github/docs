@@ -1,0 +1,200 @@
+date: '2022-05-17'
+sections:
+  features:
+    - heading: 'GitHub Advanced Security features are generally available'
+      notes:
+        - |
+          Code scanning and secret scanning are now generally available for GitHub AE. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+        - |
+          Custom patterns for secret scanning is now generally available. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+    - heading: 'View all code scanning alerts for a pull request'
+      notes:
+        - |
+          You can now find all code scanning alerts associated with your pull request with the new pull request filter on the code scanning alerts page. The pull request checks page shows the alerts introduced in a pull request, but not existing alerts on the pull request branch.  The new "View all branch alerts" link on the Checks page takes you to the code scanning alerts page with the specific pull request filter already applied, so you can see all the alerts associated with your pull request. This can be useful to manage lots of alerts, and to see more detailed information for individual alerts. For more information, see "[Managing code scanning alerts for your repository](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
+
+    - heading: 'Security overview for organizations'
+      notes:
+        - |
+          GitHub Advanced Security now offers an organization-level view of the application security risks detected by code scanning, Dependabot, and secret scanning. The security overview shows the enablement status of security features on each repository, as well as the number of alerts detected.
+
+          In addition, the security overview lists all secret scanning alerts at the organization level. Similar views for Dependabot and code scanning alerts are coming in future releases. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+
+          ![Screenshot of security overview](/assets/images/enterprise/3.2/release-notes/security-overview-UI.png)
+
+    - heading: 'Dependency graph'
+      notes:
+        - |
+          Dependency graph is now available on GitHub AE. The dependency graph helps you understand the open source software that you depend on by parsing the dependency manifests checked into repositories. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+
+    - heading: 'Dependabot alerts'
+      notes:
+        - |
+          Dependabot alerts can now notify you of vulnerabilities in your dependencies on GitHub AE. You can enable Dependabot alerts by enabling the dependency graph, enabling GitHub Connect, and syncing vulnerabilities from the GitHub Advisory Database. This feature is in beta and subject to change. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+
+          After you enable Dependabot alerts, members of your organization will receive notifications any time a new vulnerability that affects their dependencies is added to the GitHub Advisory Database or a vulnerable dependency is added to their manifest. Members can customize notification settings. For more information, see "[Configuring notifications for % data variables.product.prodname_dependabot_alerts %}](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)."
+
+    - heading: 'Security manager role for organizations'
+      notes:
+        - |
+          Organizations can now grant teams permission to manage security alerts and settings on all their repositories. The "security manager" role can be applied to any team and grants the team's members the following permissions.
+
+          - Read access on all repositories in the organization
+          - Write access on all security alerts in the organization
+          - Access to the organization-level security tab
+          - Write access on security settings at the organization level
+          - Write access on security settings at the repository level
+
+          For more information, see "[Managing security managers in your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
+
+    - heading: 'Ephemeral runners and autoscaling webhooks for GitHub Actions'
+      notes:
+        - |
+          GitHub AE now supports ephemeral (single job) self-hosted runners and a new [`workflow_job`](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook to make autoscaling runners easier.
+
+          Ephemeral runners are good for self-managed environments where each job is required to run on a clean image. After a job is run, GitHub AE automatically unregisteres ephemeral runners, allowing you to perform any post-job management.
+
+          You can combine ephemeral runners with the new `workflow_job` webhook to automatically scale self-hosted runners in response to job requests from GitHub Actions.
+
+          For more information, see "[Autoscaling with self-hosted runners](/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners)" and "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
+
+    - heading: 'Composite actions for GitHub Actions'
+      notes:
+        - |
+          You can reduce duplication in your workflows by using composition to reference other actions. Previously, actions written in YAML could only use scripts. For more information, see "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)."
+
+    - heading: 'New token scope for management of self-hosted runners'
+      notes:
+        - |
+          Managing self-hosted runners at the enterprise level no longer requires using personal access tokens with the `admin:enterprise` scope. You can instead use the `new manage_runners:enterprise` scope to restrict the permissions on your tokens. Tokens with this scope can authenticate to many REST API endpoints to manage your enterprise's self-hosted runners.
+
+    - heading: 'Audit log accessible via REST API'
+      notes:
+        - |
+          You can now use the REST API to programmatically interface with the audit log. While audit log forwarding provides you with the ability to retain and analyze data with your own toolkit and determine patterns over time, the new REST API will help you perform limited analysis on events of note that have happened in recent history. For more information, see "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-rest-api)."
+
+    - heading: 'Expiration dates for personal access tokens'
+      notes:
+        - |
+          You can now set an expiration date on new and existing personal access tokens. GitHub AE will send you an email when it's time to renew a token that's about to expire. Tokens that have expired can be regenerated, giving you a duplicate token with the same properties as the original. When using a token with the GitHub AE API, you'll see a new header, `GitHub-Authentication-Token-Expiration`, indicating the token's expiration date. You can use this in scripts, for example to log a warning message as the expiration date approaches. For more information, see "[Creating a personal access token](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[Getting started with the REST API](/rest/guides/getting-started-with-the-rest-api#using-personal-access-tokens)."
+
+    - heading: 'Export a list of people with access to a repository'
+      notes:
+        - |
+          Organization owners can now export a list of the people with access to a repository in CSV format. For more information, see "[Viewing people with access to your repository](/organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository#exporting-a-list-of-people-with-access-to-your-repository)."
+
+    - heading: 'Improved management of code review assignments'
+      notes:
+        - |
+          New settings to manage code review assignment code review assignment help distribute a team's pull request review across the team members so reviews aren't the responsibility of just one or two team members.
+
+          - Child team members: Limit assignment to only direct members of the team. Previously, team review requests could be assigned to direct members of the team or members of child teams.
+          - Count existing requests: Continue with automatic assignment even if one or more members of the team are already requested. Previously, a team member who was already requested would be counted as one of the team's automatic review requests.
+          - Team review request: Keep a team assigned to review even if one or more members is newly assigned.
+
+          For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
+
+    - heading: 'New themes'
+      notes:
+        - |
+          Two new themes are available for the GitHub AE web UI.
+          
+          - A dark high contrast theme, with greater contrast between foreground and background elements
+          - Light and dark colorblind, which swap colors such as red and green for orange and blue
+          
+          For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+
+    - heading: 'Markdown improvements'
+      notes:
+        - |
+          You can now use footnote syntax in any Markdown field to reference relevant information without disrupting the flow of your prose. Footnotes are displayed as superscript links. Click a footnote to jump to the reference, displayed in a new section at the bottom of the document. For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#footnotes)."
+
+        - |
+          You can now toggle between the source view and rendered Markdown view through the web UI by clicking the {% octicon "code" aria-label="The Code icon" %} button to "Display the source diff" at the top of any Markdown file. Previously, you needed to use the blame view to link to specific line numbers in the source of a Markdown file.
+
+        - |
+          GitHub AE now automatically generates a table of contents for Wikis, based on headings.
+
+  changes:
+    - heading: 'Performance'
+      notes:
+        - |
+          Page loads and jobs are now significantly faster for repositories with many Git refs.
+
+    - heading: 'Administration'
+      notes:
+        - |
+          The user impersonation process is improved. An impersonation session now requires a justification for the impersonation, actions are recorded in the audit log as being performed as an impersonated user, and the user who is impersonated will receive an email notification that they have been impersonated by an enterprise owner. For more information, see "[Impersonating a user](/admin/user-management/managing-users-in-your-enterprise/impersonating-a-user)."
+
+    - heading: 'GitHub Actions'
+      notes:
+        - |
+          To mitigate insider man-in-the-middle attacks when using actions resolved through GitHub Connect to GitHub.com from GitHub AE, GitHub AE retires the actions namespace (`OWNER/NAME`) on use. Retiring the namespace prevents that namespace from being created in your enterprise, and ensures all workflows referencing the action will download it from GitHub.com. For more information, see "[Enabling automatic access to GitHub.com actions using GitHub Connect](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect#automatic-retirement-of-namespaces-for-actions-accessed-on-githubcom)."
+
+        - |
+          The audit log now includes additional events for GitHub Actions. GitHub AE now records audit log entries for the following events.
+
+          - A self-hosted runner is registered or removed.
+          - A self-hosted runner is added to a runner group, or removed from a runner group.
+          - A runner group is created or removed.
+          - A workflow run is created or completed.
+          - A workflow job is prepared. Importantly, this log includes the list of secrets that were provided to the runner.
+
+          For more information, see "[Security hardening for GitHub Actions](/actions/security-guides/security-hardening-for-github-actions)."
+
+    - heading: 'GitHub Advanced Security'
+      notes:
+        - |
+          Code scanning will now map alerts identified in `on:push` workflows to show up on pull requests, when possible.  The alerts shown on the pull request are those identified by comparing the existing analysis of the head of the branch to the analysis for the target branch that you are merging against. Note that if the pull request's merge commit is not used, alerts can be less accurate when compared to the approach that uses `on:pull_request` triggers. For more information, see "[About code scanning with CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+
+          Some other CI/CD systems can exclusively be configured to trigger a pipeline when code is pushed to a branch, or even exclusively for every commit. Whenever such an analysis pipeline is triggered and results are uploaded to the SARIF API, code scanning will try to match the analysis results to an open pull request. If an open pull request is found, the results will be published as described above. For more information, see "[Uploading a SARIF file to GitHub](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
+
+        - |
+          GitHub AE now detects secrets from additional providers. For more information, see "[Secret scanning patterns](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+
+    - heading: 'Pull requests'
+      notes:
+        - |
+          The timeline and Reviewers sidebar on the pull request page now indicate if a review request was automatically assigned to one or more team members because that team uses code review assignment.
+          
+          ![Screenshot of indicator for automatic assignment of code review](https://user-images.githubusercontent.com/2503052/134931920-409dea07-7a70-4557-b208-963357db7a0d.png)
+          
+        - |
+          You can now filter pull request searches to only include pull requests you are directly requested to review by choosing **Awaiting review from you**. For more information, see "[Searching issues and pull requests](/search-github/searching-on-github/searching-issues-and-pull-requests)."
+
+        - |
+          If you specify the exact name of a branch when using the branch selector menu, the result now appears at the top of the list of matching branches. Previously, exact branch name matches could appear at the bottom of the list.
+
+        - |
+          When viewing a branch that has a corresponding open pull request, GitHub AE now links directly to the pull request. Previously, there would be a prompt to contribute using branch comparison or to open a new pull request.
+
+        - |
+          You can now click a button to copy the full raw contents of a file to the clipboard. Previously, you would need to open the raw file, select all, and then copy. To copy the contents of a file, navigate to the file and click  in the toolbar. Note that this feature is currently only available in some browsers.
+
+        - |
+          A warning is now displayed when viewing a file that contains bidirectional Unicode text. Bidirectional Unicode text can be interpreted or compiled differently than it appears in a user interface. For example, hidden bidirectional Unicode characters can be used to swap segments of text in a file. For more information about replacing these characters, see the [GitHub Changelog](https://github.blog/changelog/2021-10-31-warning-about-bidirectional-unicode-text/).
+
+    - heading: 'Repositories'
+      notes:
+        - |
+          GitHub AE now includes enhanced support for _CITATION.cff_ files. _CITATION.cff_ files are plain text files with human- and machine-readable citation information. GitHub AE parses this information into convenient formats such as [APA](https://apastyle.apa.org) and [BibTeX](https://en.wikipedia.org/wiki/BibTeX) that can be copied by others. For more information, see "[About CITATION files](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-citation-files)."
+
+        - |
+          You can now add, delete, or view autolinks through the Repositories API's Autolinks endpoint. For more information, see "[Autolinked references and URLs](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)" and "[Repositories](/rest/reference/repos#autolinks)" in the REST API documentation.
+
+    - heading: 'Releases'
+      notes:
+
+        - |
+          The tag selection component for GitHub releases is now a drop-down menu rather than a text field. For more information, see "[Managing releases in a repository](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)."
+
+    - heading: 'Markdown'
+      notes:
+
+        - |
+          When dragging and dropping files such as images and videos into a Markdown editor, GitHub AE now uses the mouse pointer location instead of the cursor location when placing the file.
+
+    - heading: 'REST API'
+      notes:
+        - |
+          REST API previews have now graduated and are an official part of the API. Preview headers are no longer required for REST API endpoints, but will still function as expected if you continue to specify a graduated preview in the `Accept` header of a request.

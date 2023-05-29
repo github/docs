@@ -1,0 +1,1 @@
+{% data variables.product.prodname_copilot %} can be managed through personal accounts with {% data variables.product.prodname_copilot_for_individuals %} or through organization{% ifversion ghec %} or enterprise{% endif %} accounts with {% data variables.product.prodname_copilot_for_business %}.

@@ -1,1 +1,0 @@
-Du kannst pro Repository oder sogar pro Branch mehr als einen Codespace erstellen. However, each user account has a two-codespace limit during limited public beta. Wenn Du das Limit erreicht hast und einen neuen Codespace erstellen möchtest, musst Du zuerst einen Codespace löschen.

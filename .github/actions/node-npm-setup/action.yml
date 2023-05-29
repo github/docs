@@ -1,0 +1,28 @@
+name: Node set up composite
+
+description: Will set up Node and install all packages by caching node_modules
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Cache node_modules
+      uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
+      id: cache-node_modules
+      env:
+        # Default is 10 min, per segment, but we can make it much smaller
+        # because it's not the end of the world if the cache restore fails.
+        SEGMENT_DOWNLOAD_TIMEOUT_MINS: '1'
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node_modules-${{ hashFiles('package*.json') }}-${{ hashFiles('.github/actions/node-npm-setup/action.yml') }}
+
+    - name: Setup Node.js
+      uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+      with:
+        node-version-file: 'package.json'
+        cache: npm
+
+    - name: Install dependencies
+      if: ${{ steps.cache-node_modules.outputs.cache-hit != 'true' }}
+      shell: bash
+      run: npm ci

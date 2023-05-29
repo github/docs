@@ -1,0 +1,1 @@
+Unpublished codespaces (codespaces created from a template that are not linked to a repository on {% data variables.product.product_name %}) always run on a virtual machine with the same specifications. You can't change the machine type of an unpublished codespace.

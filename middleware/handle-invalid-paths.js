@@ -1,21 +1,40 @@
-const patterns = require('../lib/patterns')
+import { defaultCacheControl } from './cache-control.js'
 
-module.exports = (req, res, next) => {
-  // prevent open redirect vulnerability
-  if (req.path.match(patterns.multipleSlashes)) {
-    return next(404)
+const JUNK_PATHS = new Set([
+  '/.env',
+  '/env',
+  '/xmlrpc.php',
+  '/wp-login.php',
+  '/README.md',
+  '/server.js',
+  '/package.json',
+  '/.git',
+])
+
+function isJunkPath(path) {
+  if (JUNK_PATHS.has(path)) return true
+
+  // Prevent various malicious injection attacks targeting Next.js
+  if (path.match(/^\/_next[^/]/) || path === '/_next/data' || path === '/_next/data/') {
+    return true
   }
 
-  // Prevent Express from blowing up with `URIError: Failed to decode param`
-  // for paths like /%7B%
-  try {
-    decodeURIComponent(req.path)
-    return next()
-  } catch (err) {
-    if (process.env.NODE_ENV !== 'test') {
-      console.log('unable to decode path', req.path, err)
-    }
+  return false
+}
 
-    return res.sendStatus(400)
+export default function handleInvalidPaths(req, res, next) {
+  if (isJunkPath(req.path)) {
+    // We can all the CDN to cache these responses because they're
+    // they're not going to suddenly work in the next deployment.
+    defaultCacheControl(res)
+    res.setHeader('content-type', 'text/plain')
+    return res.status(404).send('Not found')
   }
+
+  if (req.path.endsWith('/index.md')) {
+    defaultCacheControl(res)
+    return res.redirect(req.path.replace(/\/index\.md$/, ''))
+  }
+
+  return next()
 }

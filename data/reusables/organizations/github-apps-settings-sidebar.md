@@ -1,2 +1,5 @@
-1. In the left sidebar, click **{% data variables.product.prodname_github_app %}s**.
-![{% data variables.product.prodname_github_app %}s settings](/assets/images/help/organizations/github-apps-settings-sidebar.png)
+{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+1. In the left sidebar, select **{% octicon "code" aria-hidden="true" %} Developer settings** then click **{% data variables.product.prodname_github_apps %}**.
+{% else %}
+1. In the left sidebar, click **{% data variables.product.prodname_github_apps %}**.
+{% endif %}

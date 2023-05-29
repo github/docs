@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Scheduled reminders**.
+1. In the "Integrations" section of the sidebar, click **{% octicon "clock" aria-hidden="true" %} Scheduled reminders**.
