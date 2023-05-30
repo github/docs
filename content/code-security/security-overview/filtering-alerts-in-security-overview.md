@@ -36,6 +36,10 @@ You can use filters in a security overview to narrow your focus based on a range
 
 ## Filter by repository
 
+Security overview supports free text search for repositories. With free text search, you can search for a keyword, and repositories with names containing that keyword will be displayed. For example, if you search for "test", your search results would include both "test-repository" and "octocat-testing".
+
+To perform an exact search for a single repository, use the `repo` qualifier. If you do not type the name of the repository exactly as it appears, the repository will not be found.
+
 | Qualifier | Description |
 | -------- | -------- |
 | `repo:REPOSITORY-NAME` | Displays data for the specified repository. |
@@ -103,9 +107,9 @@ These qualifiers are available in the enterprise-level view.
 
 | Qualifier | Description |
 | -------- | -------- |
-| `code-scanning:NUMBER` | Display repositories that have NUMBER {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
-| `secret-scanning:NUMBER` | Display repositories that have NUMBER {% data variables.secret-scanning.alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
-| `dependabot:NUMBER` | Display repositories that have NUMBER {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
+| `code-scanning-alerts:NUMBER` | Display repositories that have NUMBER {% data variables.product.prodname_code_scanning %} alerts. This qualifier can use `=`, `>` and `<` comparison operators. |
+| `secret-scanning-alerts:NUMBER` | Display repositories that have NUMBER {% data variables.secret-scanning.alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
+| `dependabot-alerts:NUMBER` | Display repositories that have NUMBER {% data variables.product.prodname_dependabot_alerts %}. This qualifier can use `=`, `>` and `<` comparison operators. |
 
 ## Filter by team
 
@@ -123,6 +127,41 @@ These qualifiers are available in the main summary views{% ifversion security-ov
 | -------- | -------- |
 | `topic:TOPIC-NAME` | Displays repositories that are classified with TOPIC-NAME. For more information on repository topics, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)." |
 
+{% ifversion security-overview-dependabot-acv %}
+
+## Additional filters for {% data variables.product.prodname_dependabot %} alert views
+
+You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.
+
+| Qualifier | Description |
+| -------- | -------- |
+{% ifversion dependabot-alerts-vulnerable-calls or ghes > 3.5 or ghae > 3.5 -%}
+|`has:patch`|Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.|
+|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
+{% endif -%}
+|`ecosystem:ECOSYSTEM-NAME`|Displays {% data variables.product.prodname_dependabot_alerts %} detected in the specified ecosystem.|
+|`is:open`|Displays open {% data variables.product.prodname_dependabot_alerts %}.|
+|`is:closed`|Displays closed {% data variables.product.prodname_dependabot_alerts %}.|
+|`package:PACKAGE-NAME`|Displays {% data variables.product.prodname_dependabot_alerts %} detected in the specified package.|
+{% ifversion security-overview-alert-views -%}
+|`resolution:auto-dismissed`|Displays {% data variables.product.prodname_dependabot_alerts %} closed as "auto-dismissed."|
+|`resolution:fix-started`|Displays {% data variables.product.prodname_dependabot_alerts %} closed as "a fix has already been started."|
+|`resolution:fixed`|Displays {% data variables.product.prodname_dependabot_alerts %} closed as "fixed."|
+|`resolution:inaccurate`|Displays {% data variables.product.prodname_dependabot_alerts %} closed as "this alert is inaccurate or incorrect."|
+|`resolution:no-bandwidth`|Displays {% data variables.product.prodname_dependabot_alerts %} closed as "no bandwidth to fix this."|
+|`resolution:not-used`|Displays {% data variables.product.prodname_dependabot_alerts %} closed as "vulnerable code is not actually used."|
+|`resolution:tolerable-risk`|Displays {% data variables.product.prodname_dependabot_alerts %} closed as "risk is tolerable to this project."|
+|`scope:development`|Displays {% data variables.product.prodname_dependabot_alerts %} from the development dependency.|
+|`scope:runtime`|Displays {% data variables.product.prodname_dependabot_alerts %} from the runtime dependency.|
+{% endif -%}
+|`sort:manifest-path`|Displays {% data variables.product.prodname_dependabot_alerts %} grouped by the manifest file path the alerts point to.|
+|`sort:most-important`|Displays {% data variables.product.prodname_dependabot_alerts %} from most important to least important, as determined by CVSS score, vulnerability impact, relevancy, and actionability.|
+|`sort:newest`|Displays {% data variables.product.prodname_dependabot_alerts %} from newest to oldest.|
+|`sort:oldest`|Displays {% data variables.product.prodname_dependabot_alerts %} from oldest to newest.|
+|`sort:package-name`|Displays {% data variables.product.prodname_dependabot_alerts %} grouped by the package in which the alert was detected.|
+|`sort:severity`|Displays {% data variables.product.prodname_dependabot_alerts %} from most to least severe.
+{% endif %}
+
 {% ifversion security-overview-alert-views %}
 
 ## Additional filters for {% data variables.product.prodname_code_scanning %} alert views
@@ -131,6 +170,13 @@ All code scanning alerts have one of the categories shown below. You can click a
 
 | Qualifier | Description |
 | -------- | -------- |
+|`is:open`|Displays open {% data variables.product.prodname_code_scanning %} alerts.|
+|`is:closed`|Displays closed {% data variables.product.prodname_code_scanning %} alerts.|
+|`resolution:false-positive`|Displays {% data variables.product.prodname_code_scanning %} alerts closed as "false positive."|
+|`resolution:fixed`|Displays {% data variables.product.prodname_code_scanning %} alerts closed as "fixed."|
+|`resolution:used-in-tests`|Displays {% data variables.product.prodname_code_scanning %} alerts closed as "used in tests."|
+|`resolution:wont-fix`|Displays {% data variables.product.prodname_code_scanning %} alerts closed as "won't fix."|
+|`rule:RULE-NAME`|Displays {% data variables.product.prodname_code_scanning %} alerts opened for the specified rule.|
 |`severity:critical`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as critical.|
 |`severity:high`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as high.|
 |`severity:medium`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as medium.|
@@ -138,26 +184,31 @@ All code scanning alerts have one of the categories shown below. You can click a
 |`severity:error`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as errors.|
 |`severity:warning`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as warnings.|
 |`severity:note`|Displays {% data variables.product.prodname_code_scanning %} alerts categorized as notes.|
-
-{% ifversion dependabot-alerts-vulnerable-calls %}
-## Additional filters for {% data variables.product.prodname_dependabot %} alert views
-
-You can filter the view to show {% data variables.product.prodname_dependabot_alerts %} that are ready to fix or where additional information about exposure is available. You can click any result to see full details of the alert.
-
-| Qualifier | Description |
-| -------- | -------- |
-|`has:patch`|Displays {% data variables.product.prodname_dependabot %} alerts for vulnerabilities where a secure version is already available.|
-|`has:vulnerable-calls`|Displays {% data variables.product.prodname_dependabot %} alerts where at least one call from the repository to a vulnerable function is detected. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
-{% endif %}
-
-{% endif %}
+|`sort:created-desc`|Displays {% data variables.product.prodname_code_scanning %} alerts from newest to oldest.|
+|`sort:created-asc`|Displays {% data variables.product.prodname_code_scanning %} alerts from oldest to newest.|
+|`sort:updated-desc`|Displays {% data variables.product.prodname_code_scanning %} alerts from most recently updated to least recently updated.|
+|`sort:updated-asc`|Displays {% data variables.product.prodname_code_scanning %} alerts from least recently updated to most recently updated.|
+|`tool:TOOL-NAME`|Displays {% data variables.product.prodname_code_scanning %} alerts detected by the specified tool.|
 
 ## Additional filters for {% data variables.product.prodname_secret_scanning %} alert views
 
 | Qualifier | Description |
 | -------- | -------- |
-|`provider:PROVIDER_NAME` | Displays alerts for all secrets issues by the specified provider.  |
-| `secret-type:SERVICE_PROVIDER` | Displays alerts for the specified secret and provider. |
+|`provider:PROVIDER-NAME` | Displays alerts for all secrets issues by the specified provider.  |
+| `secret-type:PROVIDER-PATTERN` | Displays alerts for the specified secret and provider. |
 | `secret-type:CUSTOM-PATTERN` | Displays alerts for secrets matching the specified custom pattern.  |
+|`is:open`|Displays open {% data variables.product.prodname_secret_scanning %} alerts.|
+|`is:closed`|Displays closed {% data variables.product.prodname_secret_scanning %} alerts.|
+|`resolution:false-positive`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "false positive."|
+|`resolution:pattern-deleted`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "pattern deleted."|
+|`resolution:pattern-edited`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "pattern edited."|
+|`resolution:revoked`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "revoked."|
+|`resolution:used-in-tests`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "used in tests."|
+|`resolution:wont-fix`|Displays {% data variables.product.prodname_secret_scanning %} alerts closed as "won't fix."|
+|`sort:created-desc`|Displays {% data variables.product.prodname_secret_scanning %} alerts from newest to oldest.|
+|`sort:created-asc`|Displays {% data variables.product.prodname_secret_scanning %} alerts from oldest to newest.|
+|`sort:updated-desc`|Displays {% data variables.product.prodname_secret_scanning %} alerts from most recently updated to least recently updated.|
+|`sort:updated-asc`|Displays {% data variables.product.prodname_secret_scanning %} alerts from least recently updated to most recently updated.|
 
 For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
+{% endif %}
