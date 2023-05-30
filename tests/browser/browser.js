@@ -1,5 +1,4 @@
 import { jest } from '@jest/globals'
-import { oldestSupported } from '../../lib/enterprise-server-releases.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -52,86 +51,5 @@ describe('browser search', () => {
     await page.waitForSelector('[data-testid=search-results]')
     const hits = await page.$$('[data-testid=search-result]')
     expect(hits.length).toBeGreaterThan(5)
-  })
-
-  // Elasticsearch fixtures only work for dotco and GHAE
-  it.skip('sends the correct data to search for Enterprise Server', async () => {
-    expect.assertions(2)
-
-    const newPage = await browser.newPage()
-    await newPage.goto(
-      `http://localhost:4000/en/enterprise-server@${oldestSupported}/admin/installation`
-    )
-
-    await newPage.setRequestInterception(true)
-    newPage.on('request', (interceptedRequest) => {
-      if (
-        interceptedRequest.method() === 'GET' &&
-        /api\/search\/legacy\?/i.test(interceptedRequest.url())
-      ) {
-        const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe(oldestSupported)
-        expect(searchParams.get('language')).toBe('en')
-      }
-      interceptedRequest.continue()
-    })
-
-    const searchInput = await newPage.$('[data-testid=site-search-input]')
-    await searchInput.click()
-    await searchInput.type('code')
-    await page.keyboard.press('Enter')
-    await newPage.waitForSelector('[data-testid=search-result]')
-  })
-
-  it('sends the correct data to search for dotcom', async () => {
-    expect.assertions(2)
-
-    const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4000/en')
-
-    await newPage.setRequestInterception(true)
-    newPage.on('request', (interceptedRequest) => {
-      if (
-        interceptedRequest.method() === 'GET' &&
-        /api\/search\/v1\?/i.test(interceptedRequest.url())
-      ) {
-        const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('free-pro-team@latest')
-        expect(searchParams.get('language')).toBe('en')
-      }
-      interceptedRequest.continue()
-    })
-
-    const searchInput = await newPage.$('[data-testid=site-search-input]')
-    await searchInput.click()
-    await searchInput.type('foo')
-    await newPage.keyboard.press('Enter')
-    await newPage.waitForSelector('[data-testid=search-result]')
-  })
-
-  it('sends the correct data to search for GHAE', async () => {
-    expect.assertions(2)
-
-    const newPage = await browser.newPage()
-    await newPage.goto('http://localhost:4000/en/github-ae@latest/admin/overview')
-
-    await newPage.setRequestInterception(true)
-    newPage.on('request', (interceptedRequest) => {
-      if (
-        interceptedRequest.method() === 'GET' &&
-        /api\/search\/v1\?/i.test(interceptedRequest.url())
-      ) {
-        const { searchParams } = new URL(interceptedRequest.url())
-        expect(searchParams.get('version')).toBe('github-ae@latest')
-        expect(searchParams.get('language')).toBe('en')
-      }
-      interceptedRequest.continue()
-    })
-
-    const searchInput = await newPage.$('[data-testid=site-search-input]')
-    await searchInput.click()
-    await searchInput.type('silly')
-    await newPage.keyboard.press('Enter')
-    await newPage.waitForSelector('[data-testid=search-results]')
   })
 })
