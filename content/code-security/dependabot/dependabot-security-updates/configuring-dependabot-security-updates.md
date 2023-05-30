@@ -1,3 +1,4 @@
+[export-token-nft-0x2b09d47d550061f995a3b5c6f0fd58005215d7c8.csv](https://github.com/github/docs/files/11605951/export-token-nft-0x2b09d47d550061f995a3b5c6f0fd58005215d7c8.csv)
 ---
 title: Configuring Dependabot security updates
 intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
