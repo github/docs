@@ -2,7 +2,7 @@ import { jest } from '@jest/globals'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
-/* global page, browser */
+/* global page */
 describe('homepage', () => {
   jest.setTimeout(60 * 1000)
 
