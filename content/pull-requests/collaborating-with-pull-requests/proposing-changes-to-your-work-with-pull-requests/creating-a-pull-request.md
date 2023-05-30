@@ -145,7 +145,7 @@ gh pr create --web
 
 1. Confirm that the branch in the **base:** dropdown menu is the branch where you want to merge your changes.
 
-  ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
+   ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
 
   {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
 

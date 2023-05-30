@@ -75,7 +75,7 @@ Publishing a security advisory deletes the temporary private fork for the securi
 4. In the "Security Advisories" list, click the name of the security advisory you'd like to publish.
 5. Scroll to the bottom of the advisory form and click **Publish advisory**.
 
-  ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Publish advisory" button is outlined in dark orange.](/assets/images/help/security/publish-advisory-button.png)
+   ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Publish advisory" button is outlined in dark orange.](/assets/images/help/security/publish-advisory-button.png)
 
   {% note %}
 
@@ -97,7 +97,7 @@ Publishing a security advisory deletes the temporary private fork for the securi
 4. In the "Security Advisories" list, click the name of the security advisory you'd like to request a CVE identification number for.
 6. Scroll to the bottom of the advisory form and click **Request CVE**.
 
-  ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Request CVE" button is outlined in dark orange.](/assets/images/help/security/security-advisory-request-cve-button.png)
+   ![Screenshot of the "Required advisory information has been provided" area of a draft security advisory. The "Request CVE" button is outlined in dark orange.](/assets/images/help/security/security-advisory-request-cve-button.png)
 
 ## Further reading
 

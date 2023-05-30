@@ -65,7 +65,7 @@ You can filter issues and pull requests to find:
 {% data reusables.repositories.sidebar-issue-pr %}
 3. Above the list, select the **Filters** dropdown menu, then click the type of filter you're interested in.
 
-  ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Filters", is outlined in dark orange.](/assets/images/help/issues/issues_filter_dropdown.png)
+   ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Filters", is outlined in dark orange.](/assets/images/help/issues/issues_filter_dropdown.png)
 
 ## Filtering issues and pull requests by assignees
 
@@ -213,7 +213,7 @@ You can sort any filtered view by:
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Above the list of issues or pull requests, select the **Sort** dropdown menu, then click a sort method.
 
-  ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Sort," is outlined in dark orange.](/assets/images/help/issues/issues_sort_dropdown.png)
+   ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Sort," is outlined in dark orange.](/assets/images/help/issues/issues_sort_dropdown.png)
 
 To clear your sort selection, click **Sort** > **Newest**.
 
