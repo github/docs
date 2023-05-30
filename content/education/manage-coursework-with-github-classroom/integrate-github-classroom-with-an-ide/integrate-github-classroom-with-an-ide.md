@@ -12,7 +12,7 @@ redirect_from:
 ---
 ## About integration with an IDE
 
-{% data reusables.classroom.about-online-ides %} 
+{% data reusables.classroom.about-online-ides %}
 
 After a student accepts an assignment with an IDE, the README file in the student's assignment repository will contain a button to open the assignment in the IDE. The student can begin working immediately, and no additional configuration is necessary.
 
@@ -24,9 +24,9 @@ After a student accepts an assignment with an IDE, the README file in the studen
 | :- | :- |
 | {% data variables.product.prodname_github_codespaces %} | "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)" |
 | Microsoft MakeCode Arcade | "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/about-using-makecode-arcade-with-github-classroom)" |
-| {% data variables.product.prodname_vscode %} | [{% data variables.product.prodname_classroom %} extension](http://aka.ms/classroom-vscode-ext) in the Visual Studio Marketplace |
+| {% data variables.product.prodname_vscode %} | [{% data variables.product.prodname_classroom %} extension](https://aka.ms/classroom-vscode-ext) in the Visual Studio Marketplace |
 
-We know cloud IDE integrations are important to your classroom and are working to bring more options. 
+We know cloud IDE integrations are important to your classroom and are working to bring more options.
 
 ## Configuring an IDE for an assignment
 

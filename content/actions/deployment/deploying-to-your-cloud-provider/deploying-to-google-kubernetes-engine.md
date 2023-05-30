@@ -16,8 +16,7 @@ topics:
   - Google Kubernetes Engine
 shortTitle: Deploy to Google Kubernetes Engine
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction

@@ -1,5 +1,1 @@
-import GlobalPage from '../../[productId]/index'
-
-export { getServerSideProps } from '../../[productId]/index'
-
-export default GlobalPage
+export { default, getServerSideProps } from '../../[productId]/index'

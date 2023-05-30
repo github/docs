@@ -7,8 +7,8 @@ versions:
   fpt: '*'
 children:
   - /configuring-git-for-github-desktop
-  - /configuring-basic-settings
-  - /configuring-a-default-editor
+  - /configuring-basic-settings-in-github-desktop
+  - /configuring-a-default-editor-in-github-desktop
   - /setting-a-theme-for-github-desktop
   - /about-git-large-file-storage-and-github-desktop
 shortTitle: Configure & customize

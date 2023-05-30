@@ -79,12 +79,14 @@ When you created your new repository, you initialized it with a *README* file. *
 Let's commit a change to the README file.
 
 1. In your repository's list of files, select **README.md**.
-  ![README file in file list](/assets/images/help/repository/create-commit-open-readme.png)
+   
+   ![Screenshot of a list of files in a repository. A file name, "README.md", is highlighted with an orange outline.](/assets/images/help/repository/create-commit-open-readme.png)
 {% data reusables.repositories.edit-file-button %}
-3. In the text box, type some information about yourself.
+1. In the text box, type some information about yourself.
 {% data reusables.files.preview_change %}
-1. Review the changes you made to the file. You will see the new content in green.
-  ![File preview view](/assets/images/help/repository/create-commit-review.png)
+1. Review the changes you made to the file. If you select **Show diff**, you will see the new content in green.
+   
+   ![Screenshot of the "Preview" view for a file. A checkbox labeled "Show diff" is selected, and an addition to the file is indicated by a green line marker. Both are outlined in orange.](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}

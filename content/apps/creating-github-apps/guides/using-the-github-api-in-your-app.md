@@ -32,11 +32,11 @@ Once you've worked through the steps, you'll be ready to develop other kinds of 
 
 You may find it helpful to have a basic understanding of the following:
 
-* [GitHub Apps](/apps/creating-github-apps/creating-github-apps/about-apps)
+* [GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)
 * [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
 * [The Ruby programming language](https://www.ruby-lang.org/en/)
 * [REST APIs](/rest)
-* [Sinatra](http://sinatrarb.com/)
+* [Sinatra](https://sinatrarb.com/)
 
 But you can follow along at any experience level. We'll link out to information you need along the way!
 
@@ -155,9 +155,9 @@ Now that the label exists, you can program your app to use the REST API to [add 
 
 ## Step 4. Add label handling
 
-Congrats—you've made it to the final step: adding label handling to your app. For this task, you'll want to use the [Octokit.rb Ruby library](http://octokit.github.io/octokit.rb/).
+Congrats—you've made it to the final step: adding label handling to your app. For this task, you'll want to use the [Octokit.rb Ruby library](https://octokit.github.io/octokit.rb/).
 
-In the Octokit.rb docs, find the list of [label methods](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html). The method you'll want to use is [`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method).
+In the Octokit.rb docs, find the list of [label methods](https://octokit.github.io/octokit.rb/Octokit/Client/Labels.html). The method you'll want to use is [`add_labels_to_an_issue`](https://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method).
 
 Back in `template_server.rb`, find the method you defined previously:
 
@@ -167,7 +167,7 @@ def handle_issue_opened_event(payload)
 end
 ```
 
-The [`add_labels_to_an_issue`](http://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method) docs show you'll need to pass three arguments to this method:
+The [`add_labels_to_an_issue`](https://octokit.github.io/octokit.rb/Octokit/Client/Labels.html#add_labels_to_an_issue-instance_method) docs show you'll need to pass three arguments to this method:
 
 * Repo (string in `"owner/name"` format)
 * Issue number (integer)
@@ -186,13 +186,7 @@ end
 
 Try opening a new issue in your test repository and see what happens! If nothing happens right away, try refreshing.
 
-You won't see much in the Terminal, _but_ you should see that a bot user has added a label to the issue.
-
-{% note %}
-
-**Note:** When GitHub Apps take actions via the API, such as adding labels, GitHub shows these actions as being performed by _bot_ accounts. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts)."
-
-{% endnote %}
+You won't see much in the Terminal, _but_ you should see that the {% data variables.product.prodname_github_app %} has added a label to the issue.
 
 If so, congrats! You've successfully built a working app! 🎉
 

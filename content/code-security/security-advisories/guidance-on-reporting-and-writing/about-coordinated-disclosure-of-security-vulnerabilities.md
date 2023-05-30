@@ -79,8 +79,6 @@ The process for reporting and disclosing vulnerabilities for projects on {% data
 
 ### Private vulnerability reporting
 
-{% data reusables.security-advisory.private-vulnerability-reporting-beta %}
-
 {% data reusables.security-advisory.private-vulnerability-reporting-enable %}
 
  Private vulnerability reporting provides an easy way for vulnerability reporters to privately disclose security risks to repository maintainers, within {% data variables.product.prodname_dotcom %}, and in a way that immediately notifies the repository maintainers of the issue. For more information for security researchers and repository maintainers, see "[AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability)" and "[AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities)", respectively.

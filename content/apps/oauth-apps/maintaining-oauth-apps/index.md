@@ -14,6 +14,7 @@ topics:
   - OAuth Apps
 children:
   - /modifying-an-oauth-app
+  - /activating-optional-features-for-oauth-apps
   - /transferring-ownership-of-an-oauth-app
   - /troubleshooting-authorization-request-errors
   - /troubleshooting-oauth-app-access-token-request-errors

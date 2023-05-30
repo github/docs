@@ -85,6 +85,19 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>A</kbd> | Show or hide annotations on diffs
 |<kbd>B</kbd> | Open blame view. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/viewing-a-file)."
 
+{% ifversion code-search-code-view %}
+
+## Navigating within code files
+
+If you view a code file in a repository using the **Code** view and click on any line in the file, you will see a cursor. You can then navigate within the content of the file, also known as a blob (binary large object), using keyboard shortcuts.
+
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>Shift</kbd>+<kbd>J</kbd>| Highlights the line that is currently selected by the cursor within the code file
+|<kbd>Shift</kbd>+<kbd>F10</kbd> | If a line of code is currently selected, this shortcut opens the line menu for that line, appearing under {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} to the left of the line
+|<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Control</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Highlights the code symbol currently selected by the cursor and all other occurences of the symbol in the code, and shows the symbol in the symbols pane
+{% endif %}
+
 ## Comments
 
 | Keyboard shortcut | Description
@@ -150,10 +163,10 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>Command</kbd>+<kbd>f</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>f</kbd> (Windows/Linux) | Focus filter field
-|<kbd>←</kbd> | Move cell focus to the left
-|<kbd>→</kbd> | Move cell focus to the right
-|<kbd>↑</kbd> | Move cell focus up
-|<kbd>↓</kbd> | Move cell focus down
+|<kbd>←</kbd> | Move focus to the left
+|<kbd>→</kbd> | Move focus to the right
+|<kbd>↑</kbd> | Move focus up
+|<kbd>↓</kbd> | Move focus down
 
 ### Manipulating a project
 
@@ -163,10 +176,34 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>Escape</kbd> | Cancel editing for the focused cell
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>\</kbd> (Windows/Linux) | Open row actions menu
 |<kbd>Shift</kbd>+<kbd>Space</kbd> | Select item
+|<kbd>Shift</kbd>+<kbd>↓</kbd> | Add cell{% ifversion projects-v2-board-keyboard-shorts %} or card{% endif %} below to selection
+|<kbd>Shift</kbd>+<kbd>↑</kbd> | Add cell {% ifversion projects-v2-board-keyboard-shorts %}or card{% endif %} above to selection
 |<kbd>Space</kbd> | Open selected item
 |<kbd>e</kbd> | Archive selected items
 
+{% ifversion projects-v2-board-keyboard-shorts %}
+
+### Moving cards on the board layout
+
+| Keyboard shortcut | Description
+|-----------|------------
+|<kbd>Enter</kbd> or <kbd>Shift</kbd>+<kbd>Space</kbd> | Start moving the selected card(s)
+|<kbd>Esc</kbd> | Cancel the move in progress
+|<kbd>Enter</kbd> | Complete the move in progress
+|<kbd>↓</kbd> | Move a single card down
+|<kbd>Command</kbd>+<kbd>↓</kbd> or </br> <kbd>Ctrl</kbd>+<kbd>↓</kbd> (Windows/Linux) | Move a single card to the bottom of the column
+|<kbd>↑</kbd> | Move a single card up
+|<kbd>Command</kbd>+<kbd>↑</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>↑</kbd> (Windows/Linux) | Move a single card to the top of the column
+|<kbd>←</kbd> | Move card(s) left
+|<kbd>Command</kbd>+<kbd>←</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>←</kbd> (Windows/Linux) | Move card(s) to the leftmost column
+|<kbd>→</kbd> | Move card(s) right
+|<kbd>Command</kbd>+<kbd>→</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>→</kbd> (Windows/Linux) | Move card(s) to the rightmost column
+
 {% endif %}
+
+{% endif %}
+
+{% ifversion projects-v1 %}
 
 ## {% data variables.product.prodname_projects_v1_caps %}
 
@@ -207,6 +244,8 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>Esc</kbd> | Close the card preview pane
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 ## {% data variables.product.prodname_actions %}

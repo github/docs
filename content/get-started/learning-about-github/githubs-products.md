@@ -33,11 +33,14 @@ With {% data variables.product.prodname_free_team %} for personal accounts, you 
 With {% data variables.product.prodname_free_user %}, your personal account includes:
 - {% data variables.product.prodname_gcf %}
 - {% data variables.product.prodname_dependabot_alerts %}
+- Deployment protection rules for public repositories
 - Two-factor authentication enforcement
-- 2,000 {% data variables.product.prodname_actions %} minutes per month
 - 500 MB {% data variables.product.prodname_registry %} storage {% ifversion fpt or ghec%}
 - 120 {% data variables.product.prodname_github_codespaces %} core hours per month
 - 15 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
+- {% data variables.product.prodname_actions %} features:
+   - 2,000 minutes per month
+   - Deployment protection rules for public repositories
 
 ## {% data variables.product.prodname_pro %}
 
@@ -62,8 +65,8 @@ In addition to the features available with {% data variables.product.prodname_fr
 With {% data variables.product.prodname_free_team %} for organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set.
 
 In addition to the features available with {% data variables.product.prodname_free_user %} for personal accounts, {% data variables.product.prodname_free_team %} for organizations includes:
-- {% data variables.product.prodname_gcf %}
-- Team discussions
+- {% data variables.product.prodname_gcf %}{% ifversion team-discussions %}
+- Team discussions{% endif %}
 - Team access controls for managing groups
 - 2,000 {% data variables.product.prodname_actions %} minutes per month
 - 500 MB {% data variables.product.prodname_registry %} storage
@@ -104,6 +107,7 @@ In addition to the features available with {% data variables.product.prodname_te
 - Additional security, compliance, and deployment controls
 - Authentication with SAML single sign-on
 - Access provisioning with SAML or SCIM
+- Deployment protection rules with {% data variables.product.prodname_actions %} for private or internal repositories
 - {% data variables.product.prodname_github_connect %}
 - The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 

@@ -11,6 +11,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/creating-codeql-databases
 ---
 <!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/codeql-docs/indirect-tracing.-->
@@ -68,7 +70,7 @@ You can specify additional options depending on the location of your source file
 You can specify extractor options to customize the behavior of extractors that create {% data variables.product.prodname_codeql %} databases. For more information, see
 "[Extractor options](/code-security/codeql-cli/using-the-codeql-cli/extractor-options)."
 
-For full details of all the options you can use when creating databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create/)."
+For full details of all the options you can use when creating databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create)."
 
 ## Progress and results
 
@@ -287,6 +289,14 @@ Build your code; optionally, unset the environment variables using an `end-traci
 Once you have created a {% data variables.product.prodname_codeql %} database using indirect build tracing, you can work with it like any other {% data variables.product.prodname_codeql %} database. For example, analyze the database, and upload the results to {% data variables.product.prodname_dotcom %} if you use code scanning.
 
 ### Example of creating a {% data variables.product.prodname_codeql %} database using indirect build tracing
+
+{% ifversion ghas-for-azure-devops %}
+{% note %}
+
+**Note:** If you use Azure DevOps pipelines, the simplest way to create a {% data variables.product.prodname_codeql %} database is to use {% data variables.product.prodname_ghas_azdo %}. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
+
+{% endnote %}
+{% endif %}
 
 The following example shows how you could use indirect build tracing in an Azure DevOps pipeline to create a {% data variables.product.prodname_codeql %} database:
 

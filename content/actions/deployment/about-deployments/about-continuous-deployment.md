@@ -13,8 +13,7 @@ topics:
   - CD
 shortTitle: About continuous deployment
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About continuous deployment

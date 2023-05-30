@@ -5,10 +5,9 @@ import cx from 'classnames'
 
 import type { SearchResultsT, SearchResultHitT } from './types'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { useNumberFormatter } from 'components/hooks/useNumberFormatter'
 import { Link } from 'components/Link'
-import { useQuery } from 'components/hooks/useQuery'
-import { sendEvent, EventType } from 'src/events/browser'
+import { useQuery } from 'src/search/components/useQuery'
+import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './SearchResults.module.scss'
 
@@ -17,20 +16,11 @@ type Props = {
   query: string
 }
 export function SearchResults({ results, query }: Props) {
-  const { t } = useTranslation('search')
-  const { formatInteger } = useNumberFormatter()
-
   const pages = Math.ceil(results.meta.found.value / results.meta.size)
   const { page } = results.meta
 
   return (
     <div>
-      <Text role={'status'}>
-        {results.meta.found.value === 1
-          ? t('one_result')
-          : t('n_results').replace('{n}', formatInteger(results.meta.found.value))}
-      </Text>
-      <br />
       <SearchResultHits hits={results.hits} query={query} />
       {pages > 1 && <ResultsPagination page={page} totalPages={pages} />}
     </div>

@@ -16,13 +16,25 @@ Mathematical expressions rendering is available in {% data variables.product.pro
 
 ## Writing inline expressions
 
-To include a math expression inline with your text, delimit the expression with a dollar symbol `$`.
+{% ifversion math-backtick-syntax %}
+There are two options for delimiting a math expression inline with your text. You can either surround the expression with dollar symbols (`$`), or start the expression with <code>$\`</code> and end it with <code>\`$</code>. The latter syntax is useful when the expression you are writing contains characters that overlap with markdown syntax. For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)."
+{% else %}
+To include a math expression inline within your text, delimit the expression with dollar symbols `$`.
+{% endif %}
 
 ```
 This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 ```
 
-![Screenshot of rendered Markdown showing how a mathematical expression displays on {% data variables.product.prodname_dotcom %} with a square root symbol and an exponent.](/assets/images/help/writing/inline-math-markdown-rendering.png)
+![Screenshot of rendered Markdown showing how a mathematical expression displays on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared](/assets/images/help/writing/inline-math-markdown-rendering.png)
+
+{% ifversion math-backtick-syntax %}
+````
+This sentence uses $\` and \`$ delimiters to show math inline:  $`\sqrt{3x-1}+(1+x)^2`$
+````
+
+![Screenshot of rendered Markdown showing how a mathematical expression displays inline on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared](/assets/images/help/writing/inline-backtick-math-markdown-rendering.png)
+{% endif %}
 
 ## Writing expressions as blocks
 
@@ -30,26 +42,22 @@ To add a math expression as a block, start a new line and delimit the expression
 
 ```
 **The Cauchy-Schwarz Inequality**
-
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-![Screenshot of rendered Markdown showing how a complex equation displays on {% data variables.product.prodname_dotcom %} with appropriate mathematical symbols, including parentheses and sigma notation.](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
+![Screenshot of rendered Markdown showing how a complex equation displays on {% data variables.product.prodname_dotcom %}. The bolded text reads "The Cauchy-Schwarz Inequality". Below the text, there is an equation showing open paren the sum from k equals 1 to n of a sub k b sub k close paren squared is less than or equal to open paren the sum from k equals 1 to n of a sub k squared close paren times open paren the sum from k equals 1 to n of b sub k squared close paren](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
 {% ifversion math-fenced-blocks %}
 
-Alternatively, you can use the <code>\`\`\`math</code> code block syntax to display a math expression as a block. With this syntax, you don't need to use `$$` delimiters.
+Alternatively, you can use the <code>\`\`\`math</code> code block syntax to display a math expression as a block. With this syntax, you don't need to use `$$` delimiters. The following will render the same as above:
 
 ````
-**Here is some math!**
+**The Cauchy-Schwarz Inequality**
 
 ```math
-\sqrt{3}
+\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 ```
 ````
-
-![Screenshot of rendered Markdown showing the bolded text "Here is some math!" followed by notation for the square root of 3.](/assets/images/help/writing/math-expression-as-a-fenced-code-block.png)
-
 {% endif %}
 
 ## Writing dollar signs in line with and within mathematical expressions

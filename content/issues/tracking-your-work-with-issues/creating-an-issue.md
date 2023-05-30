@@ -107,7 +107,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click {% octicon "issue-opened" aria-label="The issues icon" %} **Create issue from discussion**.
+1. In the right sidebar, click {% octicon "issue-opened" aria-hidden="true" %} **Create issue from discussion**.
 
    ![Screenshot of the sidebar in a discussion. The "Create issue from discussion" option is outlined in dark orange.](/assets/images/help/discussions/create-issue-from-discussion.png)
 

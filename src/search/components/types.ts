@@ -29,3 +29,28 @@ export type SearchResultsT = {
   meta: SearchResultsMeta
   hits: SearchResultHitT[]
 }
+
+export type SearchQueryT = {
+  query: string
+  version: string
+  language: string
+  size: number
+  page: number
+  sort: string
+  highlights: string[]
+  autocomplete: boolean
+  debug: boolean
+  include: string[]
+  indexName: string
+}
+
+export type SearchValidationErrorT = {
+  error: string
+  fields?: string[]
+}
+
+export type SearchT = {
+  search: SearchQueryT
+  results?: SearchResultsT
+  validationErrors: SearchValidationErrorT[]
+}

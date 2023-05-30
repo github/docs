@@ -23,10 +23,12 @@ Administer a classroom, assign and review work from your students, and teach the
 
 - [About {% data variables.product.prodname_global_campus %} for teachers](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/about-github-global-campus-for-teachers)
 - [Manage classrooms](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms)
+- [About assignments](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/about-assignments)
 - [Use the Git and {% data variables.product.company_short %} starter assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment)
 - [Create an individual assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)
 - [Create a group assignment](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)
 - [Create an assignment from a template repository](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)
+- [Monitor students' progress with the assignment overview page](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/monitor-students-progress-with-the-assignment-overview-page)
 - [Leave feedback with pull requests](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/leave-feedback-with-pull-requests)
 - [Use autograding](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)
 

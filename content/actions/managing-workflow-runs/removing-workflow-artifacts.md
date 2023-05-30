@@ -8,8 +8,7 @@ versions:
   ghec: '*'
 shortTitle: Remove workflow artifacts
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Deleting an artifact

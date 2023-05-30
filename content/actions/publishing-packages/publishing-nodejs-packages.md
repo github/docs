@@ -18,8 +18,7 @@ topics:
   - Node
   - JavaScript
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -47,7 +46,7 @@ When a local *.npmrc* file exists and has a `registry` value specified, the `npm
 
 You can specify the Node.js version installed on the runner using the `setup-node` action.
 
-If you add steps in your workflow to configure the `publishConfig` fields in your *package.json* file, you don't need to specify the registry-url using the `setup-node` action, but you will be limited to publishing the package to one registry. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
+If you add steps in your workflow to configure the `publishConfig` fields in your *package.json* file, you don't need to specify the registry-url using the `setup-node` action, but you will be limited to publishing the package to one registry. For more information, see "[publishConfig](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#publishconfig)" in the npm documentation.
 
 ## Publishing packages to the npm registry
 

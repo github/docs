@@ -11,6 +11,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/using-custom-queries-with-the-codeql-cli
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -21,7 +23,7 @@ topics:
 
 You can customize your {% data variables.product.prodname_codeql %} analyses by writing your own queries to highlight specific vulnerabilities or errors.
 
-This topic is specifically about writing queries to use with the [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze/) command to produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results).
+This topic is specifically about writing queries to use with the [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze) command to produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results).
 
 {% data reusables.codeql-cli.advanced-query-execution %}
 

@@ -56,7 +56,7 @@ These two examples show how to calculate the total nodes in a call.
 
               = 550 total nodes</pre>
 
-2. Complex query:
+1. Complex query:
 
   <pre>query {
     viewer {
@@ -136,18 +136,22 @@ Why are the API rate limits different? With [GraphQL](/graphql), one GraphQL cal
 
 To accurately represent the server cost of a query, the GraphQL API calculates a call's **rate limit score** based on a normalized scale of points. A query's score factors in first and last arguments on a parent connection and its children.
 
-* The formula uses the `first` and `last` arguments on a parent connection and its children to pre-calculate the potential load on GitHub's systems, such as MySQL, ElasticSearch, and Git.
+* The formula uses the `first` and `last` arguments on a parent connection and its children to pre-calculate the potential load on GitHub's systems, such as MySQL, Elasticsearch, and Git.
 * Each new connection has its own point value. Points are combined with other points from the call into an overall rate limit score.
 
-The GraphQL API rate limit is **5,000 points per hour**. 
+{% ifversion ghes %}
+Rate limiting is **disabled** by default for {% data variables.location.product_location %}. When rate limiting is disabled, there is no limit to how many GraphQL points you can use.
 
-Note that 5,000 points per hour is not the same as 5,000 calls per hour: the GraphQL API and REST API use different rate limits.
+However, a site administrator can enable rate limits for {% data variables.location.product_location %}. If enabled, the rate limit is configurable, with a default of 200 points per hour. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#enabling-rate-limits-for-the-github-enterprise-server-apis)."
+{% else %}
+The GraphQL API rate limit is **5,000 points per hour**.
 
 {% note %}
 
 **Note**: The current formula and rate limit are subject to change as we observe how developers use the GraphQL API.
 
 {% endnote %}
+{% endif %}
 
 ### Returning a call's rate limit status
 
@@ -182,7 +186,7 @@ query {
 Querying the `rateLimit` object returns a call's score, but running the call counts against the limit. To avoid this dilemma, you can calculate the score of a call before you run it. The following calculation works out to roughly the same cost that `rateLimit { cost }` returns.
 
 1. Add up the number of requests needed to fulfill each unique connection in the call. Assume every request will reach the `first` or `last` argument limits.
-2. Divide the number by **100** and round the result to get the final aggregate cost. This step normalizes large numbers.
+1. Divide the number by **100** and round the result to get the final aggregate cost. This step normalizes large numbers.
 
 {% note %}
 

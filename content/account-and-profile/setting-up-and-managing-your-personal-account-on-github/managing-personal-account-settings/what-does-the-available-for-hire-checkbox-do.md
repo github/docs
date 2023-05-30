@@ -22,8 +22,5 @@ Deprecation note: GitHub Jobs is now deprecated. The last date to post a job was
 
 The [GitHub Jobs](https://jobs.github.com/) board is a great way to find employment in tech. You can opt to see jobs posted there on your GitHub dashboard.
 
-![GitHub Jobs ads on the dashboard](/assets/images/help/settings/jobs-ads-on-dashboard.png)
-
 {% data reusables.user-settings.access_settings %}
 2. Under Jobs Profile, select **Available for hire**, then click **Save jobs profile**.
-	![Jobs profile settings](/assets/images/help/settings/jobs-profile-settings.png)

@@ -64,8 +64,10 @@ You can remove a lost or compromised private key by deleting it, but you must re
 
 ## Storing private keys
 
-The private key is the single most valuable secret for a {% data variables.product.prodname_github_app %}. We recommend storing the key in a key vault, such as [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), and making it sign-only. This ensures that you can't lose the private key. Once the private key is uploaded to the key vault, it can never be read from there. It can only be used to sign things, and access to the private key is determined by your infrastructure rules.
+The private key is the single most valuable secret for a {% data variables.product.prodname_github_app %}. Consider storing the key in a key vault, such as [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), and making it sign-only. This helps ensure that you can't lose the private key. Once the private key is uploaded to the key vault, it can never be read from there. It can only be used to sign things, and access to the private key is determined by your infrastructure rules.
 
 Alternatively, you can store the key as an environment variable. This is not as strong as storing the key in a key vault. If an attacker gains access to the environment, they can read the private key and gain persistent authentication as the {% data variables.product.prodname_github_app %}.
 
 You should not hard-code your private key in your app, even if your code is stored in a private repository.
+
+For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."

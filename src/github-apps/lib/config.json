@@ -1,3 +1,11 @@
 {
-  "sha": "cf133481cb255f2119fe875dcfde3e047d2017b7"
+  "api-versions": {
+    "fpt": [
+      "2022-11-28"
+    ],
+    "ghec": [
+      "2022-11-28"
+    ]
+  },
+  "sha": "df7d66cbf0ce6e08a1f4183278f91e2ea679684c"
 }

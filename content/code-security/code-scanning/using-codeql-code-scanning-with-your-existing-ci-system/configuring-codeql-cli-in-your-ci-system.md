@@ -223,7 +223,7 @@ When you have decided on the most secure and reliable method for your CI server,
 | <nobr>`--github-url`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the URL for {% data variables.product.product_name %}.{% endif %}
 | <nobr>`--github-auth-stdin`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use to pass the CLI the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication with {% data variables.product.company_short %}'s REST API via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
 
-For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results/)."
+For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results)."
 
 ### Basic example of uploading results to {% data variables.product.product_name %}
 
@@ -263,7 +263,7 @@ This SARIF file will contain diagnostic information for the failed analysis, inc
 
 ### Uploading diagnostic information if the analysis fails
 
-You can make this diagnostic information available on the tool status page by uploading the SARIF file to {% data variables.product.product_name %} using "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results/)", for example:
+You can make this diagnostic information available on the tool status page by uploading the SARIF file to {% data variables.product.product_name %} using "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results)", for example:
 
 ```bash
 $ echo $UPLOAD_TOKEN | codeql github upload-results \

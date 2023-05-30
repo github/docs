@@ -1041,7 +1041,21 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[AUTOTITLE](/packages)."
+{% note %}
+
+**Note**: When pushing multi-architecture container images, this event occurs once per manifest, so you might observe your workflow triggering multiple times. To mitigate this, and only run your workflow job for the event that contains the actual image tag information, use a conditional:
+
+{% raw %}
+```yaml
+jobs:
+    job_name:
+        if: ${{ github.event.registry_package.package_version.container_metadata.tag.name != '' }}
+```
+{% endraw %}
+
+{% endnote %}
+
+Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
 
 For example, you can run a workflow when a new package version has been `published`.
 
@@ -1100,7 +1114,7 @@ When you make a request to create a `repository_dispatch` event, you must specif
 ```yaml
 on:
   repository_dispatch:
-    types: [on-demand-test]
+    types: [test_result]
 ```
 
 {% note %}

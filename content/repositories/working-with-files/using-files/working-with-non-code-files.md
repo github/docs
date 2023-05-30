@@ -148,14 +148,15 @@ If you want to find a certain value in your dataset, you can start typing in the
 
 ### Handling errors
 
-Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, an error box appears at the bottom of your raw text, suggesting what the error may be.
+Occasionally, you may discover that your CSV or TSV file isn't rendering. In those instances, a message appears above your raw text, suggesting what the error may be.
 
-![CSV render error message](/assets/images/help/repository/csv_render_error.png)
+![Screenshot of a text view of a CSV file. In the header, a message points out an error: "No commas found in this CSV file in line 0."](/assets/images/help/repository/csv_render_error.png)
 
 Common errors include:
 
 * Mismatched column counts. You must have the same number of separators in each row, even if the cell is blank
 * Exceeding the file size. Our rendering only works for files up to 512KB. Anything bigger than that slows down the browser.
+* Using unsupported delimiters, such as semicolons instead of commas.
 
 ## Rendering PDF documents
 
@@ -277,6 +278,8 @@ By default, the embedded map 420px x 620px, but you can customize the output by 
 ### Mapping in Markdown
 
 You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+
+{% data reusables.advanced-formatting.administrator-must-enable-mapping %}
 {% endif %}
 
 ### Clustering

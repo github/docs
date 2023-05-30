@@ -8,8 +8,7 @@ versions:
   ghec: '*'
 shortTitle: About monitoring and troubleshooting
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Monitoring your workflows
@@ -63,4 +62,4 @@ If you attempt to cancel a workflow and the cancellation doesn't succeed, make s
 
 If you use self-hosted runners, you can view their activity and diagnose common issues.
 
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners)."

@@ -6,8 +6,8 @@ import { ThemeProvider, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
-import { initializeEvents } from 'src/events/browser'
-import { initializeExperiments } from 'src/events/experiment'
+import { initializeEvents } from 'src/events/components/events'
+import { initializeExperiments } from 'src/events/components/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
@@ -115,7 +115,9 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // If we're rendering certain 404 error pages, the middleware might not
   // yet have contextualized the `context.languages`. So omit this
   // context mutation and live without it.
-  if (req.context.languages) {
+  // Note, `req` will be undefined if this is the client-side rendering
+  // of a 500 page ("Ooops! It looks like something went wrong.")
+  if (req?.context?.languages) {
     for (const [langCode, langObj] of Object.entries(
       req.context.languages as Record<string, LanguageItem>
     )) {

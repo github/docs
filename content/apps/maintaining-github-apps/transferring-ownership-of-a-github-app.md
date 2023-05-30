@@ -15,7 +15,16 @@ topics:
   - GitHub Apps
 shortTitle: Transfer ownership
 ---
-{% data reusables.user-settings.access_settings %}
+
+## About transferring {% data variables.product.prodname_github_app %}s
+
+The owner of a {% data variables.product.prodname_github_app %} can transfer ownership of the {% data variables.product.prodname_github_app %} to another user or organization. If an organization has designated any app managers for an app owned by the organization, the app managers can also transfer ownership of the {% data variables.product.prodname_github_app %}. For more information about app managers, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization)."
+
+You can only transfer ownership to a user or organization. You cannot transfer ownership to a team.
+
+## Transferring a {% data variables.product.prodname_github_app %}
+
+{% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 4. Select the GitHub App whose ownership you want to transfer.

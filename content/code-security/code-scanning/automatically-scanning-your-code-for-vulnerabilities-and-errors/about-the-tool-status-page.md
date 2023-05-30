@@ -37,7 +37,7 @@ The code scanning alerts page for each repository includes a tools banner with a
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. Click **Tool status** in the tools banner.
-  ![Screenshot showing how to access the tool status page from a repository. The "Tool status" button is highlighted in a dark orange outline.](/assets/images/help/repository/code-scanning-tool-status-page-access.png)
+   ![Screenshot showing how to access the tool status page from a repository. The "Tool status" button is highlighted in a dark orange outline.](/assets/images/help/repository/code-scanning-tool-status-page-access.png)
 
 ## Using the {% data variables.code-scanning.tool_status_page %}
 
@@ -87,7 +87,19 @@ You can download the list of rules that {% data variables.product.prodname_code_
 * The SARIF identifier.
 * How many alerts were found.
 
-To download a report, select a configuration you're interested in. Then click **{% octicon "kebab-horizontal" aria-label="Scanned files menu"  %}** on the top right of the page, and select **{% octicon "download" aria-hidden="true"  %} Download list of rules used**.
+To download a report, select a configuration you're interested in. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu"  %}** on the top right of the page, and select **{% octicon "download" aria-hidden="true"  %} Download list of rules used**.
+
+### Removing configurations
+
+You can remove stale, duplicate, or unwanted configurations for the default branch of your repository.
+
+To remove a configuration, select the configuration you want to delete. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu"  %}** on the top right of the page, and select **{% octicon "trash" aria-hidden="true"  %} Delete configuration**. Once you have read the warning about alerts, to confirm the deletion, click the **Delete** button.
+
+{% note %}
+
+**Note:** You can only use the {% data variables.code-scanning.tool_status_page %} to remove configurations for the default branch of a repository. For information about removing configurations from non-default branches, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+
+{% endnote %}
 
 ## Debugging using the {% data variables.code-scanning.tool_status_page %}
 

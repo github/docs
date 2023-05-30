@@ -90,11 +90,22 @@ Once custom deployment protection rules have been created and installed on a rep
 
 Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
+{% ifversion fpt %}
+{% note %}
+
+**Notes:**
+
+- Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+- Environment secrets are only available in **public** repositories if you are using {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %}. For access to environment secrets in **private** or **internal** repositories, you must use {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_enterprise %}. For more information on switching your subscription, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription)."
+
+{% endnote %}
+{% else %}
 {% note %}
 
 **Note:** Workflows that run on self-hosted runners are not run in an isolated container, even if they use environments. Environment secrets should be treated with the same level of security as repository and organization secrets. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
 {% endnote %}
+{% endif %}
 
 {% ifversion actions-configuration-variables %}
 ## Environment variables
@@ -175,7 +186,7 @@ Deleting an environment will delete all secrets and protection rules associated 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-environment %}
-1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="The trash icon" %}.
+1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="Delete environment" %}.
 2. Click **I understand, delete this environment**.
 
 You can also delete environments through the REST API. For more information, see "[AUTOTITLE](/rest/repos#environments)."

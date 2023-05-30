@@ -4,7 +4,7 @@ This repository contains the documentation website code and Markdown source file
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
-Use the table of contents icon <img src="/contributing/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to get to a specific section of this guide quickly.
+Use the table of contents icon <img src="/contributing/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to navigate to a specific section quickly.
 
 ## Contributing
 
@@ -26,7 +26,7 @@ We use GitHub Discussions to talk about all sorts of topics related to documenta
 
 ### And that's it!
 
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com/contact).
+If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
 
 That's how you can easily become a member of the GitHub Docs community. :sparkles:
 
@@ -41,12 +41,7 @@ In addition to the README you're reading right now, this repo includes other REA
 - [data/README.md](data/README.md)
 - [data/reusables/README.md](data/reusables/README.md)
 - [data/variables/README.md](data/variables/README.md)
-- [components/README.md](components/README.md)
-- [lib/liquid-tags/README.md](lib/liquid-tags/README.md)
-- [middleware/README.md](middleware/README.md)
-- [script/README.md](script/README.md)
-- [stylesheets/README.md](stylesheets/README.md)
-- [tests/README.md](tests/README.md)
+- [src/README.md](src/README.md)
 
 ## License
 

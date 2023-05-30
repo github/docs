@@ -16,8 +16,6 @@ As a faculty member at an accredited educational institution, you can apply for 
 
 {% data variables.product.prodname_global_campus %} is a portal that allows the GitHub Education Community to access their education benefits, all in one place. Once you are a verified {% data variables.product.prodname_global_campus %} teacher, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).
 
-![{% data variables.product.prodname_global_campus %} portal for teachers](/assets/images/help/education/global-campus-portal-teachers.png)
-
 Before applying for an individual discount, check if your learning community is already partnered with us as a {% data variables.product.prodname_campus_program %} school. For more information, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-github-campus-program)."
 
 ## {% data variables.product.prodname_global_campus %} features for teachers
