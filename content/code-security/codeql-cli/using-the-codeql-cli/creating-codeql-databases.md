@@ -12,7 +12,7 @@ topics:
   - Code scanning
   - CodeQL
 redirect_from:
-   - /code-security/codeql-cli/creating-codeql-databases
+  - /code-security/codeql-cli/creating-codeql-databases
 ---
 <!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/codeql-docs/indirect-tracing.-->
@@ -70,7 +70,7 @@ You can specify additional options depending on the location of your source file
 You can specify extractor options to customize the behavior of extractors that create {% data variables.product.prodname_codeql %} databases. For more information, see
 "[Extractor options](/code-security/codeql-cli/using-the-codeql-cli/extractor-options)."
 
-For full details of all the options you can use when creating databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create/)."
+For full details of all the options you can use when creating databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create)."
 
 ## Progress and results
 
