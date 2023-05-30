@@ -40,7 +40,7 @@ To troubleshoot this error, follow these steps.
 3. Right-click `com.github.GitHubClient.ShipIt` and then click **Get Info**.
 4. Click the arrow to the left of "Sharing & Permissions."
 5. If the Privilege to the right of your user account does not say "Read & Write," click the text and then click **Read & Write**.
-  ![Screenshot of the info window on a Mac. Under "Sharing and permissions", a context menu is open, with "Read & Write" marked by a checkmark.](/assets/images/help/desktop/mac-adjust-permissions.png)
+   ![Screenshot of the info window on a Mac. Under "Sharing and permissions", a context menu is open, with "Read & Write" marked by a checkmark.](/assets/images/help/desktop/mac-adjust-permissions.png)
 6. Open {% data variables.product.prodname_desktop %} and check for updates.
 
 ## Troubleshooting problems on Windows

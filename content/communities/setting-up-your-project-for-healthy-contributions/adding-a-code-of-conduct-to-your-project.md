@@ -31,7 +31,7 @@ You can create a default code of conduct for your organization or personal accou
 {% data reusables.files.add-file %}
 3. In the file name field, type *CODE_OF_CONDUCT.md*.
 4. Select **Choose a code of conduct template**.
-  ![Screenshot of a {% data variables.product.prodname_dotcom %} repository showing a new markdown file being created. A button at right, labeled "Choose a code of conduct template," is outlined in dark orange.](/assets/images/help/repository/code-of-conduct-tool.png)
+   ![Screenshot of a {% data variables.product.prodname_dotcom %} repository showing a new markdown file being created. A button at right, labeled "Choose a code of conduct template," is outlined in dark orange.](/assets/images/help/repository/code-of-conduct-tool.png)
 5. On the left side of the page, select a code of conduct to preview and add to your project.
 6. On the right side of the page, complete the fields to populate the selected code of conduct with the appropriate information.
 7. Click **Review and submit**.

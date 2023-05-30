@@ -26,5 +26,5 @@ Automation in your {% data variables.projects.projects_v1_board %} does not appl
 
 {% data reusables.project-management.click-menu %}
 2. Click {% octicon "kebab-horizontal" aria-label="Project menu" %}, then click **View archive**.
-  ![Screenshot showing the project menu. The "View archive" option is highlighted with an orange outline.](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
+   ![Screenshot showing the project menu. The "View archive" option is highlighted with an orange outline.](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
 3. Above the {% data variables.projects.projects_v1_board %} card you want to unarchive, click **Restore**.

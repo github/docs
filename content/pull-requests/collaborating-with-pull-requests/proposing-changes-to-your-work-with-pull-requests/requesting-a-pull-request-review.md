@@ -35,7 +35,7 @@ You can request a review from either a suggested or specific person. Suggested r
 1. In the list of pull requests, click the pull request that you'd like to ask a specific person or a team to review.
 1. To request a review from a suggested person under **Reviewers**, next to their username, click **Request**.
 
-  ![Screenshot of the "Reviewers" section of a pull request's sidebar. To the right of @octocat, a "Request" link is outlined in dark orange.](/assets/images/help/pull_requests/request-suggested-review.png)
+   ![Screenshot of the "Reviewers" section of a pull request's sidebar. To the right of @octocat, a "Request" link is outlined in dark orange.](/assets/images/help/pull_requests/request-suggested-review.png)
 
 1. Optionally, to request a review from someone other than a suggested person, click **Reviewers**.
 
@@ -43,7 +43,7 @@ You can request a review from either a suggested or specific person. Suggested r
 
 1. After your pull request is reviewed and you've made the necessary changes, you can ask a reviewer to re-review your pull request. Navigate to **Reviewers** in the right sidebar and click {% octicon "sync" aria-label="Re-request review" %} next to the reviewer's name whose review you'd like.
 
-  ![Screenshot of the "Reviewers" section of a pull request's sidebar. To the right of @octocat, a sync icon is outlined in dark orange.](/assets/images/help/pull_requests/request-re-review.png)
+   ![Screenshot of the "Reviewers" section of a pull request's sidebar. To the right of @octocat, a sync icon is outlined in dark orange.](/assets/images/help/pull_requests/request-re-review.png)
 
 ## Further reading
 
