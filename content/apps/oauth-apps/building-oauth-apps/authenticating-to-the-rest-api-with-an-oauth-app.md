@@ -1,6 +1,6 @@
 ---
 title: Authenticating to the REST API with an OAuth App
-shortTitle: Authenticating with OAuth App
+shortTitle: Authenticate with an OAuth App
 intro: Learn about the different ways to authenticate with some examples.
 redirect_from:
   - /guides/basics-of-authentication

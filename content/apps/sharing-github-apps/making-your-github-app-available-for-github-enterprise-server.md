@@ -9,13 +9,19 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
+redirect_from:
+  - /apps/creating-github-apps/setting-up-a-github-app/making-your-github-app-available-for-github-enterprise-server
 ---
 
 ## About developing {% data variables.product.prodname_github_app %}s for {% data variables.product.prodname_ghe_server %}
 
 If you want your {% data variables.product.prodname_github_app %} to be available to organizations in a {% data variables.product.prodname_ghe_server %} instance that you are not part of, you must take the following steps.
 
-These steps are not required if your {% data variables.product.prodname_github_app %} will only be used by organizations in a {% data variables.product.prodname_ghe_server %} instance that you are part of.
+{% ifversion ghes %}
+These steps are not required if your {% data variables.product.prodname_github_app %} will only be used by organizations in a {% data variables.product.prodname_ghe_server %} instance that you are part of. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-your-own-github-app)."
+{% endif %}
+
+If {% data variables.product.prodname_ghe_server %} access is important, consider whether a custom action for {% data variables.product.prodname_actions %} will suit your needs instead. Public actions are available on {% data variables.product.prodname_ghe_server %} instances with {% data variables.product.prodname_github_connect %}. For more information, see {% ifversion ghes %}"[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."{% else %}"[AUTOTITLE](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)" in the  {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
 ## Each {% data variables.product.prodname_ghe_server %} instance must create their own {% data variables.product.prodname_github_app %}
 

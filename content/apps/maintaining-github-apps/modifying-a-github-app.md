@@ -1,5 +1,6 @@
 ---
 title: Modifying a GitHub App
+shortTitle: Modify app settings
 intro: '{% data reusables.shortdesc.modifying_github_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/modifying-a-github-app

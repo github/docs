@@ -1,5 +1,6 @@
 ---
 title: Deleting a GitHub App
+shortTitle: Delete your app
 intro: 'You can delete {% data variables.product.prodname_github_app %}s that you own if you no longer want to use or maintain the app.'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/deleting-a-github-app

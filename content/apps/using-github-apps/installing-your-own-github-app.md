@@ -1,11 +1,12 @@
 ---
 title: Installing your own GitHub App
-intro: 'You can install your {% data variables.product.prodname_github_app %} on the user or organization account that owns the app. If your app is public, the {% data variables.product.prodname_github_app %} can also be installed on other accounts.'
+intro: 'You can install a {% data variables.product.prodname_github_app %} that you created on the user or organization account that owns the app. If your app is public, the {% data variables.product.prodname_github_app %} can also be installed on other accounts.'
 redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
   - /developers/apps/managing-github-apps/installing-github-apps
   - /apps/maintaining-github-apps/installing-github-apps
+  - /apps/maintaining-github-apps/installing-your-own-github-app
 versions:
   fpt: '*'
   ghes: '*'
@@ -13,7 +14,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Install your app
+shortTitle: Install your own app
 ---
 
 ## About installing your own {% data variables.product.prodname_github_app %}

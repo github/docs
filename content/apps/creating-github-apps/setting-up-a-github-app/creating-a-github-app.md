@@ -1,5 +1,6 @@
 ---
 title: Creating a GitHub App
+shortTitle: Create a {% data variables.product.prodname_github_app %}
 intro: 'You can create a {% data variables.product.prodname_github_app %} under your personal account or under any organization you own.'
 redirect_from:
   - /early-access/integrations/creating-an-integration
