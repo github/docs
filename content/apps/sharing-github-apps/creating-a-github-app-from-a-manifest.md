@@ -6,6 +6,7 @@ redirect_from:
   - /developers/apps/creating-a-github-app-from-a-manifest
   - /developers/apps/building-github-apps/creating-a-github-app-from-a-manifest
   - /apps/creating-github-apps/creating-github-apps/creating-a-github-app-from-a-manifest
+  - /apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest
 versions:
   fpt: '*'
   ghes: '*'

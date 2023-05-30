@@ -13,17 +13,15 @@ topics:
   - GitHub Apps
 children:
   - /about-creating-github-apps
-  - /rate-limits-for-github-apps
+  - /migrating-oauth-apps-to-github-apps
+  - /best-practices-for-creating-a-github-app
   - /creating-a-github-app
+  - /about-the-user-authorization-callback-url
+  - /about-the-setup-url
   - /choosing-permissions-for-a-github-app
   - /using-webhooks-with-github-apps
   - /making-a-github-app-public-or-private
-  - /making-your-github-app-available-for-github-enterprise-server
-  - /creating-a-github-app-from-a-manifest
-  - /creating-a-github-app-using-url-parameters
+  - /rate-limits-for-github-apps
   - /creating-a-custom-badge-for-your-github-app
-  - /about-the-user-authorization-callback-url
-  - /about-the-setup-url
-  - /best-practices-for-creating-a-github-app
 ---
 

@@ -17,7 +17,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Manage app visibility
+shortTitle: Visibility
 ---
 
 ## About visibility for {% data variables.product.prodname_github_app %}s

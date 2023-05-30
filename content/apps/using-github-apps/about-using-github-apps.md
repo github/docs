@@ -34,4 +34,10 @@ Before you install or authorize a {% data variables.product.prodname_github_app 
 
 ## {% data variables.product.prodname_github_app %}s and OAuth Apps
 
-{% data variables.product.company_short %} also supports OAuth Apps. Unlike {% data variables.product.prodname_github_app %}s, you do not install an OAuth App or control what repositories it can access. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+{% data variables.product.company_short %} also supports {% data variables.product.prodname_oauth_app %}s. Unlike {% data variables.product.prodname_github_app %}s, you do not install an {% data variables.product.prodname_oauth_app %} or control what repositories it can access.
+
+Both {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_app %}s use OAuth 2.0.
+
+{% data variables.product.prodname_oauth_app %}s can only act on behalf of a user while {% data variables.product.prodname_github_app %}s can either act on behalf of a user or independently of a user.
+
+For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."

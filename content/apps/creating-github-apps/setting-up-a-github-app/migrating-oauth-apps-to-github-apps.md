@@ -5,6 +5,7 @@ redirect_from:
   - /apps/migrating-oauth-apps-to-github-apps
   - /developers/apps/migrating-oauth-apps-to-github-apps
   - /developers/apps/getting-started-with-apps/migrating-oauth-apps-to-github-apps
+  - /apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,7 +13,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Migrate from {% data variables.product.prodname_oauth_app %}s
+shortTitle: 'Migrate from {% data variables.product.prodname_oauth_app %}s'
 ---
 
 ## Benefits of migrating from {% data variables.product.prodname_oauth_app %}s to {% data variables.product.prodname_github_app %}s

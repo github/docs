@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Suspend app installation
+shortTitle: Suspend an installation
 ---
 
 When a {% data variables.product.prodname_github_app %} is suspended for an installation, the {% data variables.product.prodname_github_app %} cannot access resources owned by that installation account. For example, you might want to suspend your {% data variables.product.prodname_github_app %} if you are worried that your app's credentials were leaked.

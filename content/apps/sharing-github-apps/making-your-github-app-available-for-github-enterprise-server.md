@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
+redirect_from:
+  - /apps/creating-github-apps/setting-up-a-github-app/making-your-github-app-available-for-github-enterprise-server
 ---
 
 ## About developing {% data variables.product.prodname_github_app %}s for {% data variables.product.prodname_ghe_server %}

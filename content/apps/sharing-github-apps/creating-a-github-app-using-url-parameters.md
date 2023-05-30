@@ -6,6 +6,7 @@ redirect_from:
   - /developers/apps/creating-a-github-app-using-url-parameters
   - /developers/apps/building-github-apps/creating-a-github-app-using-url-parameters
   - /apps/creating-github-apps/creating-github-apps/creating-a-github-app-using-url-parameters
+  - /apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters
 versions:
   fpt: '*'
   ghes: '*'

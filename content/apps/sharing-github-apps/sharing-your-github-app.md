@@ -7,6 +7,8 @@ versions:
   ghae: '*'
   ghes: '*'
 shortTitle: Share your app
+redirect_from:
+  - /apps/maintaining-github-apps/sharing-your-github-app
 ---
 
 {% ifversion fpt or ghec %}

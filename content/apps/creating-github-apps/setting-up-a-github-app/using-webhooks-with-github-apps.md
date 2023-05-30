@@ -1,6 +1,6 @@
 ---
 title: Using webhooks with GitHub Apps
-shortTitle: Using webhooks
+shortTitle: Webhooks
 intro: 'Your {% data variables.product.prodname_github_app %} can subscribe to webhook events to receive notifications whenever certain activity occurs.'
 versions:
   fpt: '*'

@@ -15,7 +15,7 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: Authorized integrations
+shortTitle: Review your authorizations
 ---
 
 ## About authorized {% data variables.product.prodname_github_apps %}
