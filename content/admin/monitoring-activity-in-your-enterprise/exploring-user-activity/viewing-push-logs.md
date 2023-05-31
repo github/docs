@@ -27,6 +27,11 @@ Push log entries show:
 - The Git client used to push
 - The SHA hashes from before and after the operation
 
+{% ifversion repository-activity-view %}
+{% data reusables.repositories.activity-view %}
+For more information, see "[Using the activity view to see changes to your repository](/enterprise-server@latest/repositories/viewing-activity-and-data-for-your-repository/viewing-repository-activity#using-the-activity-view-to-see-changes-to-a-repository)."
+{% endif %}
+
 ## Viewing a repository's push logs
 
 1. Sign into {% data variables.product.prodname_ghe_server %} as a site administrator.
