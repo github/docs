@@ -63,6 +63,13 @@ describe('pageinfo api', () => {
     expect(error).toBe("'pathname' query empty")
   })
 
+  test('repeated pathname query string key', async () => {
+    const res = await get('/api/pageinfo/v1?pathname=a&pathname=b')
+    expect(res.statusCode).toBe(400)
+    const { error } = JSON.parse(res.body)
+    expect(error).toBe("Multiple 'pathname' keys")
+  })
+
   test('redirects correct the URL', async () => {
     // Regular redirect from `redirect_from`
     {
