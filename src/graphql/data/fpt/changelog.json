@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>warningsCount</code> was added to interface <code>Migration</code></p>",
+          "<p>Field <code>warningsCount</code> was added to object type <code>RepositoryMigration</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-05-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>BranchNamePatternParameters.name</code> changed type from <code>String!</code> to <code>String</code></p>",
           "<p>Field <code>BranchNamePatternParameters.operator</code> changed type from <code>String</code> to <code>String!</code></p>",
           "<p>Field <code>BranchNamePatternParameters.pattern</code> changed type from <code>String</code> to <code>String!</code></p>",
