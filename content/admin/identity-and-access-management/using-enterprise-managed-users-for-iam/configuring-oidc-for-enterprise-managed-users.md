@@ -20,11 +20,11 @@ With {% data variables.product.prodname_emus %}, your enterprise uses your ident
 
 {% data reusables.enterprise-accounts.emu-cap-validates %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy)."
 
-You can adjust the lifetime of a session, and how often a {% data variables.enterprise.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from  your IdP. The default lifetime is one hour. For more information, see "[Configurable token lifetimes in the Microsoft identity platform](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-configurable-token-lifetimes)" in the Azure AD documentation.
+You can adjust the lifetime of a session, and how often a {% data variables.enterprise.prodname_managed_user %} needs to reauthenticate with your IdP, by changing the lifetime policy property of the ID tokens issued for {% data variables.product.prodname_dotcom %} from your IdP. The default lifetime is one hour. For more information, see "[Configure token lifetime policies](https://learn.microsoft.com/en-us/azure/active-directory/develop/configure-token-lifetimes)" in the Azure AD documentation.
 
 {% note %}
 
-**Note:** If you need assistance configuring the session lifetime, contact [Microsoft Support](https://support.microsoft.com).
+**Note:** If you need assistance configuring the OIDC session lifetime, contact [Microsoft Support](https://support.microsoft.com).
 
 {% endnote %}
 
