@@ -1,6 +1,6 @@
 ---
 title: Installing your own GitHub App
-intro: 'You can install a {% data variables.product.prodname_github_app %} that you created on the user or organization account that owns the app. If your app is public, the {% data variables.product.prodname_github_app %} can also be installed on other accounts.'
+intro: 'You can install a {% data variables.product.prodname_github_app %} that you created on the personal or organization account that owns the app. If your app is public, the {% data variables.product.prodname_github_app %} can also be installed on other accounts.'
 redirect_from:
   - /apps/installing-github-apps
   - /developers/apps/installing-github-apps
@@ -19,7 +19,7 @@ shortTitle: Install your own app
 
 ## About installing your own {% data variables.product.prodname_github_app %}
 
-Once you create a {% data variables.product.prodname_github_app %}, you can install it. If your {% data variables.product.prodname_github_app %} is owned by a personal account{% ifversion ghec%} and you are not an {% data variables.product.prodname_emu %}{% endif %}, you can install it on your account. If your {% data variables.product.prodname_github_app %} is owned by an organization and you are an organization owner, you can install it on your organization.
+Once you create a {% data variables.product.prodname_github_app %}, you can install it. If your {% data variables.product.prodname_github_app %} is owned by a personal account{% ifversion ghec%} and you are not an {% data variables.product.prodname_emu %}{% endif %}, you can install it on your account. If your {% data variables.product.prodname_github_app %} is owned by an organization and you are an organization owner, you can install it on the organization.
 
 {% ifversion fpt or ghec %}
 If your {% data variables.product.prodname_github_app %} is public{% ifversion ghec%} and you are not an {% data variables.product.prodname_emu %}{% endif %}, you can also share your {% data variables.product.prodname_github_app %} with other users or organizations. {% ifversion ghec%}If you are an {% data variables.product.prodname_emu %}, then you can only share your app with other organizations within your enterprise.{% endif %}For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/sharing-your-github-app)."

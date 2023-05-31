@@ -59,6 +59,16 @@ You can create a {% data variables.product.prodname_github_app %} owned by your 
 1. Under "Where can this GitHub App be installed?", select  **Only on this account** or **Any account**. For more information on installation options, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/making-a-github-app-public-or-private)."
 1. Click **Create GitHub App**.
 
-## Further reading
+## Next steps
 
-- "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)"
+After creating a {% data variables.product.prodname_github_app %}, you will want to write code to make your {% data variables.product.prodname_github_app %} do something. For examples of how to write code, see: 
+
+- "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)"
+- "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-login-with-github-button-with-a-github-app)" 
+- "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)"
+
+You should aim to follow best practices. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
+
+Once your {% data variables.product.prodname_github_app %} is fully built, you can install your {% data variables.product.prodname_github_app %} and share your {% data variables.product.prodname_github_app %} with others. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)" and "[AUTOTITLE](/apps/sharing-github-apps/sharing-your-github-app)."
+
+You can always make changes to the settings for your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
