@@ -75,6 +75,8 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
         <link rel="alternate icon" type="image/png" href="/assets/cb-600/images/site/favicon.png" />
         <link rel="icon" type="image/svg+xml" href="/assets/cb-803/images/site/favicon.svg" />
 
+        <link href="/manifest.json" rel="manifest" />
+
         <meta
           name="google-site-verification"
           content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ"
