@@ -29,9 +29,6 @@ Due to GitHub Copilot's interaction with a remote machine learning model and its
 
 Additional domains and URLs may require allowlisting, depending on your organization's security policies and the editors in use. For more information about specific editors, see [Further reading](#further-reading).
 
-## Can the GitHub Copilot work behind a CIDR block? 
-No, GitHub Copilot only provides public endpoints for networking filters.
-
 ## Further reading
 
 - [Network Connections in Visual Studio Code](https://code.visualstudio.com/docs/setup/network)
