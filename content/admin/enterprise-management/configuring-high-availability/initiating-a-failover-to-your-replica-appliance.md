@@ -44,9 +44,9 @@ The time required to failover depends on how long it takes to manually promote t
       ```
 
 4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
-  ```shell
-  $ ghe-repl-promote
-  ```
+   ```shell
+   $ ghe-repl-promote
+   ```
 
    {% note %}
 
