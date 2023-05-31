@@ -402,7 +402,19 @@ describe('static routes', () => {
   })
 
   test('does not serve repo contents that live outside the /assets directory', async () => {
-    const paths = ['/package.json', '/README.md', '/server.js', '/.git', '/.env']
+    const paths = [
+      '/package.json',
+      '/README.md',
+      '/server.js',
+      '/.git',
+      '/.env',
+      // Also add paths that aren't at the root. But it doesn't matter
+      // which page this is done for so much.
+      '/en/billing/.env',
+      '/en/billing/.env.local',
+      '/en/pages/.env_sample',
+      '/en/pages/.env.development.local',
+    ]
     for (const path of paths) {
       const res = await get(path)
       expect(res.statusCode).toBe(404)
