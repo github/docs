@@ -135,6 +135,8 @@ describe('server', () => {
 
     expect(csp.get('style-src').includes("'self'")).toBe(true)
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
+
+    expect(csp.get('manifest-src').includes("'self'")).toBe(true)
   })
 
   test('sets Fastly cache control headers', async () => {

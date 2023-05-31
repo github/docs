@@ -30,6 +30,7 @@ import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-ass
 import api from './api/index.js'
 import healthz from './healthz.js'
 import productIcons from './product-icons.js'
+import manifestJson from './manifest-json.js'
 import remoteIP from './remote-ip.js'
 import buildInfo from './build-info.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
@@ -248,6 +249,7 @@ export default function (app) {
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
   app.use('/producticons', instrument(productIcons, './product-icons'))
+  app.use('/manifest.json', asyncMiddleware(instrument(manifestJson, './manifest')))
 
   // Things like `/api` sets their own Fastly surrogate keys.
   // Now that the `req.language` is known, set it for the remaining endpoints

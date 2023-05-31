@@ -74,6 +74,7 @@ children:
   - /query-run
   - /resolve-database
   - /resolve-extensions
+  - /resolve-extensions-by-pack
   - /resolve-extractor
   - /resolve-files
   - /resolve-languages
