@@ -214,7 +214,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
   })
 
-  it('returns the expected JS file > 2.18', async () => {
+  it('returns the expected JS file > 2.18 by using Referrer', async () => {
     const result = await get('/enterprise/2.18/dist/index.js', {
       headers: {
         Referrer: '/en/enterprise/2.18',
@@ -223,6 +223,24 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(200)
     expect(result.headers['x-is-archived']).toBe('true')
     expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
+  })
+
+  it("can not return the archived asset if there's no Referrer", async () => {
+    const result = await get('/enterprise/2.18/dist/index.js', {
+      headers: {
+        // No Referrer header set at all.
+      },
+    })
+    expect(result.statusCode).toBe(404)
+  })
+
+  it('can not return the archived asset if empty Referrer', async () => {
+    const result = await get('/enterprise/2.18/dist/index.js', {
+      headers: {
+        Referrer: '',
+      },
+    })
+    expect(result.statusCode).toBe(404)
   })
 
   it('returns the expected JS file', async () => {
