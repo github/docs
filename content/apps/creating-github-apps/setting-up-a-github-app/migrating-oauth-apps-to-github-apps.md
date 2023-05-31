@@ -96,7 +96,7 @@ To pre-select any repositories your {% data variables.product.prodname_oauth_app
 
 For example: `{% data variables.product.oauth_host_code %}/{% ifversion ghes or ghae %}github-apps{% else %}apps{% endif %}/YOUR_APP_NAME/installations/new/permissions?suggested_target_id=ID_OF_USER_OR_ORG&repository_ids[]=REPO_A_ID&repository_ids[]=REPO_B_ID`.
 
-{% ifversion ghec or fpt %}For more information about installing {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-personal-account)" and "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)."{% endif %}
+For more information about installing {% data variables.product.prodname_github_app %}s, see {% ifversion ghec or fpt %}"[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)," "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations),"{% endif %} "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party)" and "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)."
 
 #### Prompt users to authorize your app
 

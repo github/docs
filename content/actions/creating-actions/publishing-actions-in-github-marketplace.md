@@ -58,3 +58,10 @@ To remove a published action from {% data variables.product.prodname_marketplace
 {% data reusables.releases.edit-release %}
 4. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
 5. Click **Update release** at the bottom of the page.
+
+## About badges in {% data variables.product.prodname_marketplace %}
+
+Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
+
+![Screenshot of {% data variables.product.prodname_actions %} with the verified creator badge.](/assets/images/marketplace/verified-creator-badge-for-actions.png)
+

@@ -15,6 +15,9 @@ versions:
 topics:
   - Marketplace
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 If you follow these best practices it will help you to provide a secure user experience.
 
 ## Authorization, authentication, and access control

@@ -14,6 +14,9 @@ topics:
   - Marketplace
 shortTitle: Webhook events
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 ## About webhooks and {% data variables.product.prodname_marketplace %}
 
 Webhooks `POST` requests have special headers. See "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#delivery-headers)" for more details. GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
