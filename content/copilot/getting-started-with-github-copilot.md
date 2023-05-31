@@ -197,9 +197,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-  ```csharp{:copy}
-  int CalculateDaysBetweenDates(
-  ```
+   ```csharp{:copy}
+   int CalculateDaysBetweenDates(
+   ```
 
 {% data reusables.copilot.accept-suggestion %}
 
@@ -277,9 +277,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-  ```javascript{:copy}
-  function calculateDaysBetweenDates(begin, end) {
-  ```
+   ```javascript{:copy}
+   function calculateDaysBetweenDates(begin, end) {
+   ```
 
 {% data reusables.copilot.accept-suggestion %}
 
@@ -289,9 +289,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
-  ```javascript{:copy}
-  function calculateDaysBetweenDates(begin, end) {
-  ```
+   ```javascript{:copy}
+   function calculateDaysBetweenDates(begin, end) {
+   ```
 {% data reusables.copilot.see-alternative-suggestions %}
 
    | OS | See next suggestion | See previous suggestion |
@@ -308,9 +308,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
-  ```javascript{:copy}
-  function calculateDaysBetweenDates(begin, end) {
-  ```
+   ```javascript{:copy}
+   function calculateDaysBetweenDates(begin, end) {
+   ```
 1. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
 
