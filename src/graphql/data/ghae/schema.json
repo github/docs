@@ -6356,7 +6356,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -50498,6 +50498,14 @@
           "id": "migrationstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#migrationstate"
+        },
+        {
+          "name": "warningsCount",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -62432,6 +62440,14 @@
           "id": "migrationstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#migrationstate"
+        },
+        {
+          "name": "warningsCount",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -75419,7 +75435,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -79056,7 +79072,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -79708,7 +79724,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"

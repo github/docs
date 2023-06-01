@@ -22,7 +22,7 @@ If you install a {% data variables.product.prodname_github_app %} on your person
 
 {% data reusables.marketplace.free-trials %}
 
-For more information about installing an {% data variables.product.prodname_oauth_app %} from {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-personal-account)."
+For more information about installing an {% data variables.product.prodname_oauth_app %} instead of a {% data variables.product.prodname_github_app %} from {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-personal-account)."
 
 ## About installing {% data variables.product.prodname_github_app %}s
 

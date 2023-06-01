@@ -40,15 +40,15 @@ If an image is showing up in your browser but not on {% data variables.product.p
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Request the image headers using `curl`.
-  ```shell
-  $ curl -I https://www.my-server.com/images/some-image.png
-  > HTTP/2 200
-  > Date: Fri, 06 Jun 2014 07:27:43 GMT
-  > Expires: Sun, 06 Jul 2014 07:27:43 GMT
-  > Content-Type: image/x-png
-  > Server: Google Frontend
-  > Content-Length: 6507
-  ```
+   ```shell
+   $ curl -I https://www.my-server.com/images/some-image.png
+   > HTTP/2 200
+   > Date: Fri, 06 Jun 2014 07:27:43 GMT
+   > Expires: Sun, 06 Jul 2014 07:27:43 GMT
+   > Content-Type: image/x-png
+   > Server: Google Frontend
+   > Content-Length: 6507
+   ```
 3. Check the value of `Content-Type`. In this case, it's `image/x-png`.
 4. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
 
@@ -63,14 +63,14 @@ If you changed an image recently and it's showing up in your browser but not {% 
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Request the image headers using `curl`.
-  ```shell
-  $ curl -I https://www.my-server.com/images/some-image.png
-  > HTTP/2 200
-  > Expires: Fri, 01 Jan 1984 00:00:00 GMT
-  > Content-Type: image/png
-  > Content-Length: 2339
-  > Server: Jetty(8.y.z-SNAPSHOT)
-  ```
+   ```shell
+   $ curl -I https://www.my-server.com/images/some-image.png
+   > HTTP/2 200
+   > Expires: Fri, 01 Jan 1984 00:00:00 GMT
+   > Content-Type: image/png
+   > Content-Length: 2339
+   > Server: Jetty(8.y.z-SNAPSHOT)
+   ```
 
 Check the value of `Cache-Control`. In this example, there's no `Cache-Control`. In that case:
   * If you own the server that's hosting the image, modify it so that it returns a `Cache-Control` of `no-cache` for images.
@@ -84,10 +84,10 @@ Purging the cache forces every {% data variables.product.prodname_dotcom %} user
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Purge the image using `curl -X PURGE` on the Camo URL.
-  ```shell
-  $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
-  > {"status": "ok", "id": "216-8675309-1008701"}
-  ```
+   ```shell
+   $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
+   > {"status": "ok", "id": "216-8675309-1008701"}
+   ```
 
 ### Viewing images on private networks
 

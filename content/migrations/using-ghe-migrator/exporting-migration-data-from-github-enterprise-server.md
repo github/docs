@@ -48,56 +48,56 @@ shortTitle: Export from GHES
       ```
 
 3. When prompted, enter your {% data variables.product.prodname_ghe_server %} username:
-  ```shell
-  Enter username authorized for migration:  admin
-  ```
+   ```shell
+   Enter username authorized for migration:  admin
+   ```
 4. When prompted for a {% data variables.product.pat_generic %}, enter the access token you created in "[Preparing the {% data variables.product.prodname_ghe_server %} source instance](#preparing-the-github-enterprise-server-source-instance)":
-  ```shell
-  Enter {% data variables.product.pat_generic %}:  **************
-  ```
+   ```shell
+   Enter {% data variables.product.pat_generic %}:  **************
+   ```
 5. When `ghe-migrator add` has finished it will print the unique "Migration GUID" that it generated to identify this export as well as a list of the resources that were added to the export. You will use the Migration GUID that it generated in subsequent `ghe-migrator add` and `ghe-migrator export` steps to tell `ghe-migrator` to continue operating on the same export.
-  ```shell
-  > 101 models added to export
-  > Migration GUID: EXAMPLE-MIGRATION-GUID
-  > Number of records in this migration:
-  > users                        |  5
-  > organizations                |  1
-  > repositories                 |  1
-  > teams                        |  3
-  > protected_branches           |  1
-  > pull_request_reviews         |  1
-  > milestones                   |  1
-  > issues                       |  3
-  > pull_requests                |  5
-  > pull_request_review_comments |  4
-  > commit_comments              |  2
-  > issue_comments               | 10
-  > issue_events                 | 63
-  > releases                     |  3
-  > attachments                  |  4
-  > projects                     |  2
-  ```
-  Each time you add a new repository with an existing Migration GUID it will update the existing export. If you run `ghe-migrator add` again without a Migration GUID it will start a new export and generate a new Migration GUID. **Do not re-use the Migration GUID generated during an export when you start preparing your migration for import**.
+   ```shell
+   > 101 models added to export
+   > Migration GUID: EXAMPLE-MIGRATION-GUID
+   > Number of records in this migration:
+   > users                        |  5
+   > organizations                |  1
+   > repositories                 |  1
+   > teams                        |  3
+   > protected_branches           |  1
+   > pull_request_reviews         |  1
+   > milestones                   |  1
+   > issues                       |  3
+   > pull_requests                |  5
+   > pull_request_review_comments |  4
+   > commit_comments              |  2
+   > issue_comments               | 10
+   > issue_events                 | 63
+   > releases                     |  3
+   > attachments                  |  4
+   > projects                     |  2
+   ```
+   Each time you add a new repository with an existing Migration GUID it will update the existing export. If you run `ghe-migrator add` again without a Migration GUID it will start a new export and generate a new Migration GUID. **Do not re-use the Migration GUID generated during an export when you start preparing your migration for import**.
 
 6. To add more repositories to the same export, use the `ghe-migrator add` command with the `-g` flag. You'll pass in the new repository URL and the Migration GUID from Step 5:
-  ```shell
-  $ ghe-migrator add https://HOSTNAME/USERNAME/OTHER-REPO-NAME -g MIGRATION-GUID --lock
-  ```
+   ```shell
+   $ ghe-migrator add https://HOSTNAME/USERNAME/OTHER-REPO-NAME -g MIGRATION-GUID --lock
+   ```
 7. When you've finished adding repositories, generate the migration archive using the `ghe-migrator export` command with the `-g` flag and the Migration GUID from Step 5:
-    ```shell
-    $ ghe-migrator export -g MIGRATION-GUID
-    > Archive saved to: /data/github/current/tmp/MIGRATION-GUID.tar.gz
-    ```
-    * {% data reusables.enterprise_migrations.specify-staging-path %}
+   ```shell
+   $ ghe-migrator export -g MIGRATION-GUID
+   > Archive saved to: /data/github/current/tmp/MIGRATION-GUID.tar.gz
+   ```
+   * {% data reusables.enterprise_migrations.specify-staging-path %}
 
 8. Close the connection to {% data variables.location.product_location %}:
-  ```shell
-  $ exit
-  > logout
-  > Connection to HOSTNAME closed.
-  ```
+   ```shell
+   $ exit
+   > logout
+   > Connection to HOSTNAME closed.
+   ```
 9. Copy the migration archive to your computer using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command. The archive file will be named with the Migration GUID:
-  ```shell
-  $ scp -P 122 admin@HOSTNAME:/data/github/current/tmp/MIGRATION-GUID.tar.gz ~/Desktop
-  ```
+   ```shell
+   $ scp -P 122 admin@HOSTNAME:/data/github/current/tmp/MIGRATION-GUID.tar.gz ~/Desktop
+   ```
 {% data reusables.enterprise_migrations.ready-to-import-migrations %}

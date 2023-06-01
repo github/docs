@@ -59,7 +59,7 @@ You can download the log files from your workflow run. You can also download a w
 {% data reusables.repositories.navigate-to-job %}
 1. In the upper right corner of the log, select the {% octicon "gear" aria-label="Show options" %} dropdown menu, then click **Download log archive**.
 
-  ![Screenshot of the log for a job. In the header, a gear icon is outlined in dark orange.](/assets/images/help/actions/download-logs-drop-down.png)
+   ![Screenshot of the log for a job. In the header, a gear icon is outlined in dark orange.](/assets/images/help/actions/download-logs-drop-down.png)
 
   {% ifversion re-run-jobs %}
 

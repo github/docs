@@ -30,6 +30,7 @@ import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-ass
 import api from './api/index.js'
 import healthz from './healthz.js'
 import productIcons from './product-icons.js'
+import manifestJson from './manifest-json.js'
 import remoteIP from './remote-ip.js'
 import buildInfo from './build-info.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
@@ -63,6 +64,7 @@ import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from './dynamic-assets.js'
+import contextualizeSearch from '../src/search/middleware/contextualize.js'
 import rateLimit from './rate-limit.js'
 import handleInvalidQuerystrings from './handle-invalid-querystrings.js'
 
@@ -247,6 +249,7 @@ export default function (app) {
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
   app.use('/producticons', instrument(productIcons, './product-icons'))
+  app.use('/manifest.json', asyncMiddleware(instrument(manifestJson, './manifest')))
 
   // Things like `/api` sets their own Fastly surrogate keys.
   // Now that the `req.language` is known, set it for the remaining endpoints
@@ -286,7 +289,7 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
   app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
   app.use(asyncMiddleware(instrument(glossaries, './contextualizers/glossaries')))
-
+  app.use(asyncMiddleware(instrument(contextualizeSearch, './search/middleware/contextualize')))
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
 

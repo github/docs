@@ -127,7 +127,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 Organization owners can provide a custom link that will be displayed when a push is blocked. This custom link can contain resources and advice specific to your organization. For example, the custom link can point to a README file with information about the organization's secret vault, which teams and individuals to escalate questions to, or the organization's approved policy for working with secrets and rewriting commit history.
 {% endif %}
 
-You can remove the secret from the file using the web UI. Once you remove the secret, the banner at the top of the page will change and tell you that you can now commit your changes.
+You can remove the secret from the file using the web UI. Once you remove the secret, you will be able to commit your changes.
 
 ### Bypassing push protection for a secret
 
@@ -141,9 +141,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-If you confirm a secret is real and that you intend to fix it later, you should aim to remediate the secret as soon as possible.
-
-1. In the banner that appeared at the top of the page when {% data variables.product.prodname_dotcom %} blocked your commit, click **Bypass protection**.
+1. In dialog box that appeared when {% data variables.product.prodname_dotcom %} blocked your commit, review the name and location of the secret.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 1. Click **Allow secret**.
 

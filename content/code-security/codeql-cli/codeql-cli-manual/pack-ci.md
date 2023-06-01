@@ -32,14 +32,19 @@ codeql pack ci [--force] <options>... -- <dir>
 
 ## Description
 
-\[Experimental] Install dependencies for this pack, verifying that the
-existing lock file is up to date.
+\[Experimental] Clean install dependencies for this pack, verifying
+that the existing lock file is up to date.
 
 This command installs the dependencies of the pack, using the versions
 specified in the codeql-pack.lock.yml file. If any of the versions
 specified in the lock file are incompatible with the version constraints
 specified in the qlpack.yml file, or if no lock file is present, this
 command fails.
+
+This command is similar to `codeql pack install`, except it's meant to
+be used in automated environments such as test platforms, continuous
+integration, and deployment -- or any situation where you want to make
+sure you're doing a clean install of your dependencies.
 
 Available since `v2.12.4`.
 

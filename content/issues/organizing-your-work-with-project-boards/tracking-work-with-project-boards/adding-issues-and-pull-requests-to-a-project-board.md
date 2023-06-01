@@ -58,13 +58,13 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 
 1. On the right side of an issue or pull request, click **Projects {% octicon "gear" aria-label="The Gear icon" %}**.
 
-  ![Screenshot showing an issue's sidebar. The "Projects" section header is highlighted with an orange outline.](/assets/images/help/projects-v2/issue-sidebar-projects.png)
+   ![Screenshot showing an issue's sidebar. The "Projects" section header is highlighted with an orange outline.](/assets/images/help/projects-v2/issue-sidebar-projects.png)
 
 2. Click the **Recent**, **Repository**, **User**, or **Organization** tab for the {% data variables.projects.projects_v1_board %} you would like to add to.
 3. Type the name of the project in **Filter projects** field.
 4. Select one or more {% data variables.projects.projects_v1_boards %} where you want to add the issue or pull request.
 5. Click **Awaiting triage**{% octicon "triangle-down" aria-hidden="true" %}, then click the column where you want your issue or pull request. The card will move to the bottom of the {% data variables.projects.projects_v1_board %} column you select.
-  ![Screenshot showing the projects section in an issue's sidebar. The awaiting triage option is highlighted with an orange outline](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
+   ![Screenshot showing the projects section in an issue's sidebar. The awaiting triage option is highlighted with an orange outline](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
 ## Further reading
 

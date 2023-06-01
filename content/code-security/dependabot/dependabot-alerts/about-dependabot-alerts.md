@@ -68,7 +68,7 @@ For a list of the ecosystems that {% data variables.product.product_name %} dete
 
 {% endnote %}
 
-##  Configuration of {% data variables.product.prodname_dependabot_alerts %}
+## Configuration of {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.repositories.enable-security-alerts %}
 
@@ -97,7 +97,7 @@ For repositories where {% data variables.product.prodname_dependabot_security_up
 
 You can see all of the alerts that affect a particular project{% ifversion fpt or ghec %} on the repository's **Security** tab or{% endif %} in the repository's dependency graph. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)."
 
-By default, we notify people with admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% ifversion fpt or ghec %}{% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working with repositories that you own or have admin permissions for. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
+By default, we notify people with {% ifversion dependabot-alerts-permissions-write-maintain %}write, maintain, or {% endif %}admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% ifversion fpt or ghec %}{% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working with repositories that you own or have admin permissions for. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)."
 {% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-enable %}
@@ -112,4 +112,3 @@ You can also see all the {% data variables.product.prodname_dependabot_alerts %}
 - "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)"{% endif %}
 - "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)"
 {% ifversion fpt or ghec %}- "[AUTOTITLE](/get-started/privacy-on-github)"{% endif %}
-

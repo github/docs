@@ -48,7 +48,7 @@ You cannot create a default license file. License files must be added to individ
 
 {% data reusables.repositories.create_new %}
 1. Use the **Owner** drop-down menu, and select the organization{% ifversion fpt or ghes or ghec %} or personal account{% endif %} you want to create default files for.
-  ![Screenshot of the owner menu for a new {% data variables.product.prodname_dotcom %} repository. The menu shows two options, octocat and github.](/assets/images/help/repository/create-repository-owner.png)
+   ![Screenshot of the owner menu for a new {% data variables.product.prodname_dotcom %} repository. The menu shows two options, octocat and github.](/assets/images/help/repository/create-repository-owner.png)
 1. In the "Repository name" field, type **.github**.
 1. Optionally, in the "Description" field, type a description.
 2. Make sure the repository status is set to **Public**. A repository for default files cannot be private.

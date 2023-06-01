@@ -16,9 +16,10 @@ children:
   - /installing-a-github-app-from-github-marketplace-for-your-personal-account
   - /installing-a-github-app-from-github-marketplace-for-your-organizations
   - /installing-a-github-app-from-a-third-party
+  - /installing-your-own-github-app
   - /authorizing-github-apps
-  - /reviewing-and-revoking-authorization-of-github-apps
   - /approving-updated-permissions-for-a-github-app
+  - /reviewing-and-revoking-authorization-of-github-apps
   - /reviewing-and-modifying-installed-github-apps
 ---
 

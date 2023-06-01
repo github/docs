@@ -750,3 +750,7 @@ This tutorial generates a user access token and saves it in a local file. You sh
 Depending on your device, you may choose different way to store the token. You should check the best practices for storing tokens on your device.
 
 For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
+
+### Follow best practices
+
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."

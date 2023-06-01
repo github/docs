@@ -15,6 +15,9 @@ topics:
   - Marketplace
 shortTitle: New purchases & free trials
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 {% warning %}
 
 If you offer a {% data variables.product.prodname_github_app %} in {% data variables.product.prodname_marketplace %}, your app must identify users following the OAuth authorization flow. You don't need to set up a separate {% data variables.product.prodname_oauth_app %} to support this flow. See "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)" for more information.

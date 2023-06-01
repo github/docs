@@ -21,6 +21,9 @@ const validationMiddleware = (req, res, next) => {
   if (!pathname) {
     return res.status(400).json({ error: `No 'pathname' query` })
   }
+  if (Array.isArray(pathname)) {
+    return res.status(400).json({ error: "Multiple 'pathname' keys" })
+  }
   if (!pathname.trim()) {
     return res.status(400).json({ error: `'pathname' query empty` })
   }

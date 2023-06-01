@@ -28,11 +28,11 @@ SNMP is a common standard for monitoring devices over a network. We strongly rec
 4. In the **Community string** field, enter a new community string. If left blank, this defaults to `public`.
 {% data reusables.enterprise_management_console.save-settings %}
 5. Test your SNMP configuration by running the following command on a separate workstation with SNMP support in your network:
-  ```shell
-  # community-string is your community string
-  # hostname is the IP or domain of your Enterprise instance
-  $ snmpget -v 2c -c COMMUNITY-STRING -O e HOSTNAME hrSystemDate.0
-  ```
+   ```shell
+   # community-string is your community string
+   # hostname is the IP or domain of your Enterprise instance
+   $ snmpget -v 2c -c COMMUNITY-STRING -O e HOSTNAME hrSystemDate.0
+   ```
 
 This should return the system time on {% data variables.location.product_location %} host.
 

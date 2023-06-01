@@ -48,33 +48,33 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
 
 ### Configuring the Nagios host
 1. Generate an SSH key with a blank passphrase. Nagios uses this to authenticate to the {% data variables.product.prodname_ghe_server %} cluster.
-  ```shell
-  nagiosuser@nagios:~$ ssh-keygen -t ed25519
-  > Generating public/private ed25519 key pair.
-  > Enter file in which to save the key (/home/nagiosuser/.ssh/id_ed25519):
-  > Enter passphrase (empty for no passphrase): LEAVE BLANK BY PRESSING ENTER
-  > Enter same passphrase again: PRESS ENTER AGAIN
-  > Your identification has been saved in /home/nagiosuser/.ssh/id_ed25519.
-  > Your public key has been saved in /home/nagiosuser/.ssh/id_ed25519.pub.
-  ```
-  {% danger %}
+   ```shell
+   nagiosuser@nagios:~$ ssh-keygen -t ed25519
+   > Generating public/private ed25519 key pair.
+   > Enter file in which to save the key (/home/nagiosuser/.ssh/id_ed25519):
+   > Enter passphrase (empty for no passphrase): LEAVE BLANK BY PRESSING ENTER
+   > Enter same passphrase again: PRESS ENTER AGAIN
+   > Your identification has been saved in /home/nagiosuser/.ssh/id_ed25519.
+   > Your public key has been saved in /home/nagiosuser/.ssh/id_ed25519.pub.
+   ```
+   {% danger %}
 
-  **Security Warning:** An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
+   **Security Warning:** An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
 
-  {% enddanger %}
-  {% note %}
+   {% enddanger %}
+   {% note %}
 
-  **Note:** If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
-  ```shell
-  nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
-  ```
+   **Note:** If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
+   ```shell
+   nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
+   ```
 
-  {% endnote %}
+   {% endnote %}
 2. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
-  ```shell
-  nagiosuser@nagios:~$ sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/
-  nagiosuser@nagios:~$ sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519
-  ```
+   ```shell
+   nagiosuser@nagios:~$ sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/
+   nagiosuser@nagios:~$ sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519
+   ```
 
 3. To authorize the public key to run *only* the `ghe-cluster-status -n` command, use a `command=` prefix in the `/data/user/common/authorized_keys` file. From the administrative shell on any node, modify this file to add the public key generated in step 1. For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
@@ -88,39 +88,39 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
   ```
 
 5. To test that the Nagios plugin can successfully execute the command, run it interactively from Nagios host.
-  ```shell
-  nagiosuser@nagios:~$ /usr/lib/nagios/plugins/check_by_ssh -l admin -p 122 -H HOSTNAME -C "ghe-cluster-status -n" -t 30
-  > OK - No errors detected
-  ```
+   ```shell
+   nagiosuser@nagios:~$ /usr/lib/nagios/plugins/check_by_ssh -l admin -p 122 -H HOSTNAME -C "ghe-cluster-status -n" -t 30
+   > OK - No errors detected
+   ```
 
 6. Create a command definition in your Nagios configuration.
 
-  **Example definition**
+   **Example definition**
 
-  ```
-  define command {
+   ```
+   define command {
         command_name    check_ssh_ghe_cluster
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
-  }
-  ```
+   }
+   ```
 7. Add this command to a service definition for a node in the {% data variables.product.prodname_ghe_server %} cluster.
 
-  **Example definition**
+   **Example definition**
 
-  ```
-  define host{
+   ```
+   define host{
         use                     generic-host
         host_name               ghe-data-node-0
         alias                   ghe-data-node-0
         address                 10.11.17.180
         }
 
-  define service{
+   define service{
           use                             generic-service
           host_name                       ghe-data-node-0
           service_description             GitHub Cluster Status
           check_command                   check_ssh_ghe_cluster
           }
-  ```
+   ```
 
 After you add the definition to Nagios, the service check executes according to your configuration. You should be able to see the newly configured service in the Nagios web interface.

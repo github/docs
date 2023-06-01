@@ -563,3 +563,7 @@ For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-g
 ### Share your app
 
 If you want to share your app with other users and organizations, make your app public. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private)."
+
+### Follow best practices
+
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
