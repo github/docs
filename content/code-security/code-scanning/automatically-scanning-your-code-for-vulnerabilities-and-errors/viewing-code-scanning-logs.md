@@ -60,7 +60,7 @@ After configuring {% data variables.product.prodname_code_scanning %} for your r
 
   You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
 
-  ![Actions list showing {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-actions-list.png)
+  ![Screenshot of the "All workflows" page. In the list of workflow runs is a run labeled "Create .github/workflows/codeql.yml."](/assets/images/help/repository/code-scanning-actions-list.png)
 
 1. Click the entry for the {% data variables.product.prodname_code_scanning %} workflow.
 
@@ -74,7 +74,7 @@ After configuring {% data variables.product.prodname_code_scanning %} for your r
 
 1. Click the job name on the left. For example, **Analyze (LANGUAGE)**.
 
-   ![Log output from the {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
+   ![Screenshot of the log output for the "Analyze (go)" job. In the left sidebar, under the "Jobs" heading, "Analyze (go)" is listed.](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
 
 1. Review the logging output from the actions in this workflow as they run.
 
