@@ -55,9 +55,10 @@ You must specify:
 | Java{% ifversion codeql-kotlin-beta %}/Kotlin{% endif %} | `java`
 | JavaScript/TypeScript | `javascript`
 | Python | `python`
-| Ruby | `ruby`
+| Ruby | `ruby` {% ifversion codeql-swift-beta %} 
+| Swift | `swift` {% endif %}
 
-{% data reusables.code-scanning.beta-kotlin-support %}
+{% data reusables.code-scanning.beta-kotlin-or-swift-support %}
 {% data reusables.code-scanning.beta-ruby-support %}
 
 You can specify additional options depending on the location of your source file, if the code needs to be compiled, and if you want to create {% data variables.product.prodname_codeql %} databases for more than one language:
@@ -133,13 +134,9 @@ For compiled languages, {% data variables.product.prodname_codeql %} needs to in
 
 ### Detecting the build system
 
-   {% note %}
+{% data reusables.code-scanning.beta-kotlin-or-swift-support %}
 
-   **Note:** {% data variables.product.prodname_codeql %} analysis for Kotlin is currently in beta. During the beta, analysis of Kotlin code, and the accompanying documentation, will not be as comprehensive as for other languages.
-
-   {% endnote %}
-
-The {% data variables.product.prodname_codeql_cli %} includes autobuilders for C/C++, C#, Go, and Java code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database.
+The {% data variables.product.prodname_codeql_cli %} includes autobuilders for C/C++, C#, Go, {% ifversion codeql-swift-beta %} Java, and Swift{% else %} and Java{% endif %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database.
 
 An autobuilder is invoked automatically when you execute `codeql database create` for a compiled `--language` if don’t include a
 `--command` option. For example, for a Java codebase, you would simply run:
@@ -213,6 +210,37 @@ The following examples are designed to give you an idea of some of the build com
    ```
    codeql database create java-database --language=java --command='ant -f build.xml'
    ```
+
+{% ifversion codeql-swift-beta %}
+- Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
+	
+	   It's a good idea to ensure that the project is in a clean state and that there are no build artefacts available.
+	
+	   ```
+	   xcodebuild clean -all
+	   codeql database create -l swift swift-database
+	   ```
+
+- Swift project built with `swift build`:
+
+   ```
+   codeql database create -l swift -c "swift build" swift-database
+   ```
+
+- Swift project built with `xcodebuild`:
+
+   ```
+      codeql database create -l swift -c "xcodebuild build -target your-target" swift-database
+   ```
+
+   You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that CodeQL requires for a successful scan. 
+
+- Swift project built using a custom build script:
+
+   ```
+   codeql database create -l swift -c "./scripts/build.sh" swift-database
+   ```
+{% endif %}
 
 - Project built using Bazel:
 

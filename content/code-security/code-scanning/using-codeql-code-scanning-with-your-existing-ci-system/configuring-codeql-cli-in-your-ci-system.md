@@ -35,7 +35,7 @@ You use three different commands to generate results and upload them to {% data 
 
 <!--Option to analyze multiple languages with one call-->
 1. `database create` to create a {% data variables.product.prodname_codeql %} database to represent the hierarchical structure of each supported programming language in the repository.
-2. ` database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file.
+2. `database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file.
 3. `github upload-results` to upload the resulting SARIF files to {% data variables.product.product_name %} where the results are matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts.
 
 You can display the command-line help for any command using the <nobr>`--help`</nobr> option.
@@ -70,7 +70,7 @@ You can display the command-line help for any command using the <nobr>`--help`</
 | Option | Required | Usage |
 |--------|:--------:|-----|
 | `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. |
-| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: `{% data reusables.code-scanning.codeql-languages-keywords %}` (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. |
+| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %} (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. |
 | <nobr>`--command`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <nobr>`--source-root`</nobr>. Not needed for Python and JavaScript/TypeScript analysis. |
 | <nobr>`--db-cluster`</nobr> | {% octicon "x" aria-label="Optional" %} | Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>. |
 | <nobr>`--no-run-unnecessary-builds`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript). |

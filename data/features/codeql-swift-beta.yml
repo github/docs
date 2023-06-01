@@ -1,0 +1,7 @@
+# Reference: #10251.
+# [2023-06-01] Swift support for code scanning users (GitHub docs site) [Public beta]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.9'
+  ghae: '>3.9'
