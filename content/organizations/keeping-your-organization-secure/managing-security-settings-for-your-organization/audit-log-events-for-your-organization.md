@@ -398,15 +398,16 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `update` | Triggered when a default label is edited.
 | `destroy` | Triggered when a default label is deleted.
 
+{%- ifversion not ghes %}
 ## `packages` category actions
 
 | Action | Description |
 |--------|-------------|
+| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 | `package_version_published` | Triggered when a package version is published. |
 | `package_version_deleted` | Triggered when a specific package version is deleted. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_version_restored` | Triggered when a specific package version is deleted. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_restored` | Triggered when an entire package is restored. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_version_published` | A specific package version was published or republished to a package.
+{%- endif %}
 
 {% ifversion fpt or ghec %}
 

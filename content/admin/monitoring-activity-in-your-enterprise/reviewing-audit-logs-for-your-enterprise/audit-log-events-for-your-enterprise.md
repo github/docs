@@ -849,21 +849,16 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `organization_projects_change.enable` | Organization projects were enabled for all organizations in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
 {%- endif %}
 
+{%- ifversion not ghes %}
 ## `packages` category actions
 
 | Action | Description
 |--------|-------------
-| `packages.insecure_hash` | Maven published an insecure hash for a specific package version.
 | `packages.package_deleted` | A package was deleted from an organization.{% ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 | `packages.package_published` | A package was published or republished to an organization.
-| `packages.package_restored` | An entire package was restored.{% ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 | `packages.package_version_deleted` | A specific package version was deleted.{% ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 | `packages.package_version_published` | A specific package version was published or republished to a package.
-| `packages.package_version_restored` | A specific package version was deleted.{% ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `packages.part_upload` | A specific package version was partially uploaded to an organization.
-| `packages.upstream_package_fetched` | A specific package version was fetched from the npm upstream proxy.
-| `packages.version_download` | A specific package version was downloaded.
-| `packages.version_upload` | A specific package version was uploaded.
+{%- endif %}
 
 {%- ifversion fpt or ghec %}
 ## `pages_protected_domain` category actions
@@ -1044,7 +1039,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repo.access`         | The visibility of a repository changed to private{%- ifversion ghes %}, public,{% endif %} or internal.
+| `repo.access`         | The visibility of a repository changed.
 | `repo.actions_enabled` | {% data variables.product.prodname_actions %} was enabled for a repository.
 | `repo.add_member`     | A collaborator was added to a repository.
 | `repo.add_topic`     | A topic was added to a repository.
