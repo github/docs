@@ -13,7 +13,7 @@ topics:
   - GitHub Apps
 children:
   - /about-creating-github-apps
-  - /creating-a-github-app
+  - /registering-a-github-app
   - /about-the-user-authorization-callback-url
   - /about-the-setup-url
   - /choosing-permissions-for-a-github-app

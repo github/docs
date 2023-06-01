@@ -1,7 +1,7 @@
 ---
-title: Creating a GitHub App
-shortTitle: Create a {% data variables.product.prodname_github_app %}
-intro: 'You can create a {% data variables.product.prodname_github_app %} under your personal account or under any organization you own.'
+title: Registering a GitHub App
+shortTitle: 'Register a {% data variables.product.prodname_github_app %}'
+intro: 'You can register a {% data variables.product.prodname_github_app %} under your personal account or under any organization you own.'
 redirect_from:
   - /early-access/integrations/creating-an-integration
   - /apps/building-integrations/setting-up-and-registering-github-apps/registering-github-apps
@@ -9,6 +9,7 @@ redirect_from:
   - /developers/apps/creating-a-github-app
   - /developers/apps/building-github-apps/creating-a-github-app
   - /apps/creating-github-apps/creating-github-apps/creating-a-github-app
+  - /apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,13 +19,13 @@ topics:
   - GitHub Apps
 ---
 
-## About creating {% data variables.product.prodname_github_apps %}
+## About registering {% data variables.product.prodname_github_apps %}
 
-You can create a {% data variables.product.prodname_github_app %} owned by your personal account, by an organization that you own, or by an organization that has granted you permission to manage all apps owned by the organization. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-github-app-managers-in-your-organization)."
+You can register a {% data variables.product.prodname_github_app %} under your personal account, under an organization that you own, or under an organization that has granted you permission to manage all apps owned by the organization. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-github-app-managers-in-your-organization)."
 
 {% data reusables.apps.maximum-github-apps-allowed %}
 
-## Creating a {% data variables.product.prodname_github_app %}
+## Registering a {% data variables.product.prodname_github_app %}
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
@@ -61,10 +62,10 @@ You can create a {% data variables.product.prodname_github_app %} owned by your 
 
 ## Next steps
 
-After creating a {% data variables.product.prodname_github_app %}, you will want to write code to make your {% data variables.product.prodname_github_app %} do something. For examples of how to write code, see: 
+After registering a {% data variables.product.prodname_github_app %}, you will want to write code to make your {% data variables.product.prodname_github_app %} do something. For examples of how to write code, see:
 
 - "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)"
-- "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-login-with-github-button-with-a-github-app)" 
+- "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-login-with-github-button-with-a-github-app)"
 - "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)"
 
 You should aim to follow best practices. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."

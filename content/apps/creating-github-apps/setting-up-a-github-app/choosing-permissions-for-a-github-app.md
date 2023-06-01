@@ -21,7 +21,7 @@ topics:
 
 ## About {% data variables.product.prodname_github_app %} permissions
 
-{% data variables.product.prodname_github_app %}s don't have any permissions by default. When you create an app, you can select permissions for the app. The permissions that you select determine what the app can do with {% data variables.product.company_short %}'s APIs and what webhooks the app can subscribe to. You should select the minimum permissions required for the app.
+{% data variables.product.prodname_github_app %}s don't have any permissions by default. When you register a {% data variables.product.prodname_github_app %}, you can select permissions for the app. The permissions that you select determine what the app can do with {% data variables.product.company_short %}'s APIs and what webhooks the app can subscribe to. You should select the minimum permissions required for the app.
 
 Although {% data variables.product.prodname_github_app %}s don't have any permissions by default, they do have implicit permissions to read public resources when acting on behalf of a user. When a user authorizes the app to act on their behalf, the {% data variables.product.prodname_github_app %} can use the resulting user access token to make requests to the REST API{% ifversion graphQL-for-fgpats-and-apps %} and the GraphQL API{% endif %} to read public resources. To learn more about acting on behalf of a user, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
 
@@ -35,7 +35,7 @@ You can modify the permissions for your app at any time. When you modify the per
 
 Some webhooks and API access requires "Administration" permissions. If your app requires "Administration" permissions, consider explaining this requirement on your app's homepage. This will help users understand why your app needs a high level permission.
 
-For more information about specifying permissions during app creation, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)." For more information about modifying permissions, see "[AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions)."
+For more information about specifying permissions during {% data variables.product.prodname_github_app %} registration, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)." For more information about modifying permissions, see "[AUTOTITLE](/apps/maintaining-github-apps/editing-a-github-apps-permissions)."
 
 ## Choosing permissions for webhook access
 
@@ -43,7 +43,7 @@ The webhook documentation indicates whether each webhook is available to {% data
 
 For example, if you want your app to subscribe to `team` events, your app must have the "Members" organization permission.
 
-On your app settings page, the available webhook events will change as you change your app's permissions. If you did not select sufficient permissions for your app to subscribe to an event, the event will not appear as an option on your app settings page.
+On your {% data variables.product.prodname_github_app %} registration page, the available webhook events will change as you change your app's permissions. If you did not select sufficient permissions for your {% data variables.product.prodname_github_app %} to subscribe to an event, the event will not appear as an option on your app registration page.
 
 ## Choosing permissions for REST API access
 

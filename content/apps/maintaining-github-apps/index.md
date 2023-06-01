@@ -13,7 +13,7 @@ versions:
 topics:
   - GitHub Apps
 children:
-  - /modifying-a-github-app
+  - /modifying-a-github-app-registration
   - /activating-optional-features-for-github-apps
   - /about-github-app-managers
   - /managing-allowed-ip-addresses-for-a-github-app

@@ -1,5 +1,5 @@
 ---
-title: Creating a GitHub App using URL parameters
+title: Registering a GitHub App using URL parameters
 intro: 'You can use URL query parameters to help other people quickly set up a new {% data variables.product.prodname_github_app %} with a specific configuration you have preselected.'
 redirect_from:
   - /apps/building-github-apps/creating-github-apps-using-url-parameters
@@ -7,6 +7,7 @@ redirect_from:
   - /developers/apps/building-github-apps/creating-a-github-app-using-url-parameters
   - /apps/creating-github-apps/creating-github-apps/creating-a-github-app-using-url-parameters
   - /apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters
+  - /apps/sharing-github-apps/creating-a-github-app-using-url-parameters
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,11 +15,11 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: App creation query parameters
+shortTitle: App query parameters
 ---
-## About URL parameters for creating {% data variables.product.prodname_github_app %}s
+## About URL parameters for registering {% data variables.product.prodname_github_app %}s
 
-You can use URL parameters to preselect the configuration settings of a new {% data variables.product.prodname_github_app %} and share a custom link with other people. The link will take people to an app registration page, where the app settings will be pre-filled according to the URL parameters you included in the URL.
+You can use URL parameters to preselect the configuration settings of a new {% data variables.product.prodname_github_app %} registration and share a custom link with other people. The link will take people to a {% data variables.product.prodname_github_app %} registration page, where the app settings will be pre-filled according to the URL parameters you included in the URL.
 
 This approach is useful for integrators who want customers to set up an app on their personal account or organization with certain specifications, or for customers using {% data variables.product.prodname_ghe_server %} who aren't able to install apps from the {% data variables.product.prodname_marketplace %}.
 
@@ -28,12 +29,12 @@ Alternatively, you can create a {% data variables.product.prodname_github_app %}
 
 To create a custom configuration URL for a {% data variables.product.prodname_github_app %} on a personal or organization account, add query parameters after the following base URLs.
 
-* To create an app on a personal account, add URL parameters to: `{% data variables.product.oauth_host_code %}/settings/apps/new`
-* To create an app on an organization account, add URL parameters to: `{% data variables.product.oauth_host_code %}/organizations/ORGANIZATION/settings/apps/new`. Replace `ORGANIZATION` with the name of the organization where you'd like the customer to create the app.
+* To register an app on a personal account, add URL parameters to: `{% data variables.product.oauth_host_code %}/settings/apps/new`
+* To register an app on an organization account, add URL parameters to: `{% data variables.product.oauth_host_code %}/organizations/ORGANIZATION/settings/apps/new`. Replace `ORGANIZATION` with the name of the organization where you'd like the customer to register the app.
 
-On the app registration page, the person creating the app can edit the preselected values before submitting the app. If you do not include parameters for required values (like `name`) in the URL query string, the person creating the app will need to input a value before they can submit the app.
+On the app registration page, the person registering the app can edit the preselected values before submitting the app. If you do not include parameters for required values (like `name`) in the URL query string, the person registering the app will need to input a value before they can register the app.
 
-For example, the following URL creates a new public app named `octocat-github-app` on a personal account. Using query parameters, the URL preconfigures a description and a callback URL. It also selects read and write permissions for `checks`, activates webhooks using the `webhook_active` parameter, subscribes to the `check_run` and `check_suite` webhook events, and selects the option to request user authorization (OAuth) during installation:
+For example, the following URL registers a new public app named `octocat-github-app` on a personal account. Using query parameters, the URL preconfigures a description and a callback URL. It also selects read and write permissions for `checks`, activates webhooks using the `webhook_active` parameter, subscribes to the `check_run` and `check_suite` webhook events, and selects the option to request user authorization (OAuth) during installation:
 
 ```text
 {% data variables.product.oauth_host_code %}/settings/apps/new?name=octocat-github-app&description=An%20Octocat%20App&callback_urls[]=https://example.com&request_oauth_on_install=true&public=true&checks=write&webhook_active=true&events[]=check_run&events[]=check_suite
@@ -41,7 +42,7 @@ For example, the following URL creates a new public app named `octocat-github-ap
 
 ## {% data variables.product.prodname_github_app %} configuration parameters
 
-You can use the following query parameters to select a specific configuration for the {% data variables.product.prodname_github_app %}. For example, to name the app "octocat-github-app", your query string would include `name=octocat-github-app`.
+You can use the following query parameters to select a specific configuration for the {% data variables.product.prodname_github_app %} registration. For example, to name the app "octocat-github-app", your query string would include `name=octocat-github-app`.
 
 Parameter name | Type | Description
 -----|------|-------------
@@ -62,7 +63,7 @@ Parameter name | Type | Description
 
 ## {% data variables.product.prodname_github_app %} permissions
 
-You can use query parameters to select the permissions for the {% data variables.product.prodname_github_app %}. For more information about the possible permissions you can select for the app, and the endpoints that the app can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)." For the URL query parameter, use the permission name as the query parameter name, and set the query value to one of the possible values for that permission set.
+You can use query parameters to select the permissions for the {% data variables.product.prodname_github_app %} registration. For more information about the possible permissions you can select for the app, and the endpoints that the app can access with each permission, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)." For the URL query parameter, use the permission name as the query parameter name, and set the query value to one of the possible values for that permission set.
 
 For example, to select "Read & write" permissions in the user interface for `contents`, your query string would include `contents=write`. To select "Read-only" permissions in the user interface for `blocking`, your query string would include `blocking=read`. To select "No access" in the user interface for `checks`, your query string would not include the `checks` permission.
 
@@ -76,6 +77,6 @@ To enable the {% data variables.product.prodname_github_app %} webhook, use `web
 
 For example, to subscribe a {% data variables.product.prodname_github_app %} to receive webhook payloads for activity relating to commit comments, the query string would include `&webhook_active=true&webhook_url=https://example.com&events[]=commit_comment`. Note that the `commit_comment` webhook event requires the {% data variables.product.prodname_github_app %} to have at least read-level access for the "Contents" repository permission. So your query string should also include a parameter to set the `contents` permission to `read` or `write`. For more information, see "[{% data variables.product.prodname_dotcom %} app permissions](#github-app-permissions)."
 
-You cannot use query parameters to set the value of a webhook secret. If an app requires a secret to secure its webhook, the value of the secret must be set in the {% data variables.product.company_short %} UI by the person creating the app.
+You cannot use query parameters to set the value of a webhook secret. If an app requires a secret to secure its webhook, the value of the secret must be set in the {% data variables.product.company_short %} UI by the person registering the app.
 
 For more information about webhooks and {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps)."

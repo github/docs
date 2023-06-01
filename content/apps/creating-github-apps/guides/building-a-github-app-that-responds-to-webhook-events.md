@@ -20,9 +20,9 @@ This tutorial uses JavaScript, but you can use any programming language that you
 
 ### About webhooks
 
-When you create a {% data variables.product.prodname_github_app %}, you can specify a webhook URL and subscribe to webhook events. When activity on {% data variables.product.company_short %} triggers an event that your app is subscribed to, {% data variables.product.company_short %} will send a webhook event to your app's webhook URL.
+When you register a {% data variables.product.prodname_github_app %}, you can specify a webhook URL and subscribe to webhook events. When activity on {% data variables.product.company_short %} triggers an event that your app is subscribed to, {% data variables.product.company_short %} will send a webhook event to your app's webhook URL.
 
-For example, you can subscribe your app to the pull request webhook event. When a pull request is opened in a repository that the app was granted access to, {% data variables.product.company_short %} will send a pull request webhook event to your app's webhook URL. If multiple actions can trigger the event, the event payload will include an `action` field to indicate what type of action triggered the event. In this example, the value of `action` would be `opened` since the event was triggered because a pull request was opened.
+For example, you can subscribe your {% data variables.product.prodname_github_app %} to the pull request webhook event. When a pull request is opened in a repository that the app was granted access to, {% data variables.product.company_short %} will send a pull request webhook event to your app's webhook URL. If multiple actions can trigger the event, the event payload will include an `action` field to indicate what type of action triggered the event. In this example, the value of `action` would be `opened` since the event was triggered because a pull request was opened.
 
 If your app is running on a server that is listening for these webhook events, then your app can take an action when it receives a webhook event. For example, your app can use the {% data variables.product.company_short %} API to post a comment to the pull request when it receives a pull request webhook event.
 
@@ -40,7 +40,7 @@ The following sections will lead you through setting up the following components
 
 - a repository to store the code for your app
 - a way to receive webhooks locally
-- a {% data variables.product.prodname_github_app %} that is subscribed to "pull request" webhook events, has permission to add comments to pull requests, and uses a webhook URL that you can receive locally
+- a {% data variables.product.prodname_github_app %} registration that is subscribed to "pull request" webhook events, has permission to add comments to pull requests, and uses a webhook URL that you can receive locally
 
 ### Create a repository to store code for your app
 
@@ -59,16 +59,16 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
 1. Click **Start a new channel**.
 1. Copy the full URL under "Webhook Proxy URL". You will use this URL in a later step.
 
-### Create a {% data variables.product.prodname_github_app %}
+### Register a {% data variables.product.prodname_github_app %}
 
-For this tutorial, you must have a {% data variables.product.prodname_github_app %} that:
+For this tutorial, you must have a {% data variables.product.prodname_github_app %} registration that:
 
 - Has webhooks active
 - Uses a webhook URL that you can receive locally
 - Has the "Pull request" repository permission
 - Subscribes to the "Pull request" webhook event
 
-The following steps will guide you through configuring a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+The following steps will guide you through registering a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
