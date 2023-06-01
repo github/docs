@@ -58,6 +58,7 @@ export default {
         'deprecations',
         'security_fixes',
         'backups',
+        'errata',
       ].reduce((prev, curr) => ({ ...prev, [curr]: section }), {}),
     },
   },
