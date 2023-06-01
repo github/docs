@@ -253,9 +253,8 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
 
     // language picker is visible
-    // TODO: currently no languages enabled for headless tests
-    // await page.getByRole('button', { name: 'Select language: current language is English' }).click()
-    // await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // header sign up button is visible
     await expect(page.getByTestId('header-signup')).toBeVisible()
@@ -298,14 +297,11 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
 
     // language picker is in mobile menu
-    // TODO: currently no languages enabled for headless tests
-    // await page.getByTestId('mobile-menu').click()
-    // await page.getByRole('button', { name: 'Select language: current language is English' }).click()
-    // await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+    await page.getByTestId('mobile-menu').click()
+    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // sign up button is in mobile menu
-    await expect(page.getByTestId('header-signup')).not.toBeVisible()
-    await page.getByTestId('mobile-menu').click()
     await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
@@ -324,9 +320,8 @@ test.describe('test nav at different viewports', () => {
     // header sign-up button is not visible
     await expect(page.getByTestId('header-signup')).not.toBeVisible()
 
-    // TODO: currently no languages enabled for headless tests
     // language picker is not visible
-    // await expect(page.getByTestId('language-picker')).not.toBeVisible()
+    await expect(page.getByTestId('language-picker')).not.toBeVisible()
 
     // version picker is not visible
     await expect(
@@ -340,9 +335,8 @@ test.describe('test nav at different viewports', () => {
     await page.getByTestId('mobile-menu').click()
     await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
 
-    // TODO: currently no languages enabled for headless tests
     // language picker is in mobile menu
-    // await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
+    await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
 
     // sign up button is in mobile menu
     await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
