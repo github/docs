@@ -70,7 +70,6 @@ jobs:
 * `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory.
 * `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. For example:
 
-
   ![Screenshot of a workflow run failure for a Pester test. Test reports "Expected $true, but got $false" and "Error: Process completed with exit code 1."](/assets/images/help/repository/actions-failed-pester-test-updated.png)
 
 
