@@ -43,7 +43,7 @@ To draft a new release and publish the action to {% data variables.product.prodn
 
    {% note %}
    
-   The "Publish" checkbox is disabled if the user or organization that owns the repository has not yet accepted the {% data variables.product.prodname_marketplace %} Developer Agreement. If you own the repository or are an organization owner, a link to "accept the GitHub Marketplace Developer Agreement" is displayed. Click this link and accept the agreement to continue. If there is no link, send the organization owner a link to this "Release Action" page and ask them to accept the agreement.
+   **Note**: The "Publish" checkbox is disabled if the account that owns the repository has not yet accepted the {% data variables.product.prodname_marketplace %} Developer Agreement. If you own the repository or are an organization owner, click the link to "accept the GitHub Marketplace Developer Agreement", then accept the agreement. If there is no link, send the organization owner a link to this "Release Action" page and ask them to accept the agreement.
 
    {% endnote %}
 1. If the labels in your metadata file contain any problems, you will see an error message. Address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message.
