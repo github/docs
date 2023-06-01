@@ -138,13 +138,11 @@ sections:
         - |
           Organization owners can manage teams of security managers using the REST API. For more information, see "[Security Managers](/rest/orgs/security-managers)" in the REST API documentation.
 
-        # https://github.com/github/releases/issues/2042
         # https://github.com/github/releases/issues/2295
         # https://github.com/github/releases/issues/2307
         - |
           Users can take advantage of the following improvements to the [GitHub Advisory Database](https://github.com/advisories).
 
-          - The database displays advisories for for Elixir, Erlang's Hex package manager, and more.
           - Users can find malware advisories by searching for `type:malware`.
           - The database displays advisories for GitHub Actions vulnerabilities.
 
@@ -372,3 +370,8 @@ sections:
     # https://github.com/github/releases/issues/2480
     - |
       Package registries on the new GitHub Packages architecture, including Container registry and npm packages, no longer expose data through the GraphQL API. In a coming release, other GitHub Packages registries will migrate to the new architecture, which will deprecate the GraphQL API for those registries as well.
+
+  errata:
+    # https://github.com/github/releases/issues/2042
+    - |
+      "[Features](#3.7.0-features)" incorrectly indicated that users of the GitHub Advisory Database can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
