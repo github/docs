@@ -2,12 +2,12 @@ import { GetServerSideProps } from 'next'
 import { Fragment } from 'react'
 import { useRouter } from 'next/router'
 
-import { AutomatedPage } from 'components/article/AutomatedPage'
+import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'components/context/AutomatedPageContext'
+} from 'src/automated-pipelines/components/AutomatedPageContext'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { Link } from 'components/Link'
 import { RestRedirect } from 'src/rest/components/RestRedirect'

@@ -10,7 +10,7 @@ import { useVersion } from 'components/hooks/useVersion'
 import { HeadingLink } from 'components/article/HeadingLink'
 import { useTranslation } from 'components/hooks/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
-import { ParameterTable } from 'components/parameter-table/ParameterTable'
+import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
 
 import styles from './WebhookPayloadExample.module.scss'
 
