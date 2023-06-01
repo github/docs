@@ -45,15 +45,15 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell{:copy}
-  cd hello-world-javascript-action
-  ```
+   ```shell{:copy}
+   cd hello-world-javascript-action
+   ```
 
 1. From your terminal, initialize the directory with npm to generate a `package.json` file.
 
-  ```shell{:copy}
-  npm init -y
-  ```
+   ```shell{:copy}
+   npm init -y
+   ```
 
 ## Creating an action metadata file
 

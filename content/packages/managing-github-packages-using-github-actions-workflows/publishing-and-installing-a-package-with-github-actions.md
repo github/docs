@@ -504,11 +504,11 @@ Using the `GITHUB_TOKEN`, instead of a {% data variables.product.pat_v1 %} with 
 1. Navigate to your package landing page.
 {% data reusables.package_registry.package-settings-actions-access %}
 1. To ensure your package has access to your workflow, you must add the repository where the workflow is stored to your package. {% data reusables.package_registry.package-settings-add-repo %}
-  {% note %}
+   {% note %}
 
-  **Note:** Adding a repository to your package {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+   **Note:** Adding a repository to your package {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
-  {% endnote %}
+   {% endnote %}
 1. Optionally, use {% data variables.package_registry.package-settings-actions-access-role-dropdown %}
 1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 

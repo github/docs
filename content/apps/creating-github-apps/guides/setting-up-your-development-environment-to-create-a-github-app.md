@@ -111,7 +111,7 @@ You'll see a form where you can enter details about your app. See "[AUTOTITLE](/
 
 * At the bottom of the Permissions & Webhooks page, under "Where can this {% data variables.product.prodname_github_app %} be installed?", specify whether this is a private app or a public app.
 
-   This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
+  This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
 
 Click **Create GitHub App** to create your app!
 
