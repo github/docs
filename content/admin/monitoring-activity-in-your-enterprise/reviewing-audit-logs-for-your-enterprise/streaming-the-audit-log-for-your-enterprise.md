@@ -97,26 +97,7 @@ For information on creating or accessing your access key ID and secret key, see 
    - For "Audience", use `sts.amazonaws.com`.
 {% data reusables.audit_log.create-s3-bucket %}
 {% data reusables.audit_log.create-s3-policy %}
-1. Create a bucket, and block public access to the bucket. For more information, see [Creating, configuring, and working with Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html) in the AWS documentation.
-1. Create a policy that allows {% data variables.product.company_short %} to write to the bucket by copying the following JSON and replacing `EXAMPLE-BUCKET` with the name of your bucket. {% data variables.product.prodname_dotcom %} requires only the permissions in this JSON.
-
-   ```
-   {
-      "Version": "2012-10-17",
-      "Statement": [
-         {
-            "Sid": "VisualEditor0",
-            "Effect": "Allow",
-            "Action": [
-               "s3:PutObject"
-            ],
-            "Resource": "arn:aws:s3:::EXAMPLE-BUCKET/*"
-        }
-      ]
-   }
-   ```
-   For more information, see [Creating IAM policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) in the AWS documentation.
-4. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
+1. Configure the role and trust policy for the {% data variables.product.prodname_dotcom %} IdP. For more information, see [Creating a role for web identity or OpenID Connect Federation (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html) in the AWS documentation.
 
    - Add the permissions policy you created above to allow writes to the bucket.
    - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
@@ -132,7 +113,7 @@ For information on creating or accessing your access key ID and secret key, see 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}
 1. Under "Authentication", click **OpenID Connect**.
-2. Configure the stream settings.
+1. Configure the stream settings.
 
    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
    - Under "ARN Role" type the ARN role you noted earlier. For example, `arn:aws::iam::1234567890:role/github-audit-log-streaming-role`.
