@@ -68,7 +68,7 @@ $ git merge REMOTE-NAME/BRANCH-NAME
 
 ## Pulling changes from a remote repository
 
-`git pull` is a convenient shortcut for completing both `git fetch` and `git merge `in the same command:
+`git pull` is a convenient shortcut for completing both `git fetch` and `git merge`in the same command:
 
 ```shell
 $ git pull REMOTE-NAME BRANCH-NAME

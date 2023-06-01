@@ -961,28 +961,28 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `protected_branch.create ` | Branch protection was enabled on a branch.
+| `protected_branch.create` | Branch protection was enabled on a branch.
 | `protected_branch.destroy` | Branch protection was disabled on a branch.
-| `protected_branch.dismiss_stale_reviews ` | Enforcement of dismissing stale pull requests was updated on a branch.
+| `protected_branch.dismiss_stale_reviews` | Enforcement of dismissing stale pull requests was updated on a branch.
 {%- ifversion ghes %}
 | `protected_branch.dismissal_restricted_users_teams` | Enforcement of restricting users and/or teams who can dismiss reviews was updated on a branch.
 {%- endif %}
-| `protected_branch.policy_override ` | A branch protection requirement was overridden by a repository administrator.
-| `protected_branch.rejected_ref_update ` | A branch update attempt was rejected.
+| `protected_branch.policy_override` | A branch protection requirement was overridden by a repository administrator.
+| `protected_branch.rejected_ref_update` | A branch update attempt was rejected.
 | `protected_branch.required_status_override` | The required status checks branch protection requirement was overridden by a repository administrator.
 | `protected_branch.review_policy_and_required_status_override` | The required reviews and required status checks branch protection requirements were overridden by a repository administrator.
 | `protected_branch.review_policy_override` | The required reviews branch protection requirement was overridden by a repository administrator.
-| `protected_branch.update_admin_enforced ` | Branch protection was enforced for repository administrators.
+| `protected_branch.update_admin_enforced` | Branch protection was enforced for repository administrators.
 {%- ifversion ghes %}
 | `protected_branch.update_allow_deletions_enforcement_level` | Enforcement of allowing users with push access to delete matching branches was updated on a branch.
 | `protected_branch.update_allow_force_pushes_enforcement_level` | Enforcement of allowing force pushes for all users with push access was updated on a branch.
 | `protected_branch.update_linear_history_requirement_enforcement_level` | Enforcement of requiring linear commit history was updated on a branch.
 {%- endif %}
-| `protected_branch.update_pull_request_reviews_enforcement_level ` | Enforcement of required pull request reviews was updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
-| `protected_branch.update_require_code_owner_review ` | Enforcement of required code owner review was updated on a branch.
+| `protected_branch.update_pull_request_reviews_enforcement_level` | Enforcement of required pull request reviews was updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
+| `protected_branch.update_require_code_owner_review` | Enforcement of required code owner review was updated on a branch.
 | `protected_branch.update_required_approving_review_count` | Enforcement of the required number of approvals before merging was updated on a branch.
-| `protected_branch.update_required_status_checks_enforcement_level ` | Enforcement of required status checks was updated on a branch.
-| `protected_branch.update_signature_requirement_enforcement_level ` | Enforcement of required commit signing was updated on a branch.
+| `protected_branch.update_required_status_checks_enforcement_level` | Enforcement of required status checks was updated on a branch.
+| `protected_branch.update_signature_requirement_enforcement_level` | Enforcement of required commit signing was updated on a branch.
 | `protected_branch.update_strict_required_status_checks_policy` | Enforcement of required status checks was updated on a branch.
 | `protected_branch.update_name` | A branch name pattern was updated for a branch.
 

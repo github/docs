@@ -352,8 +352,8 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `secret_scanning_push_protection_custom_message_updated` | Triggered when an organization owner or admin updates the custom message triggered by an attempted push to a push-protected repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `secret_scanning_push_protection_disable ` | Triggered when an organization owner or person with admin access to the organization disables push protection for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `secret_scanning_push_protection_enable ` | Triggered when an organization owner or person with admin access to the organization enables push protection for {% data variables.product.prodname_secret_scanning %}.{%- endif %}
+| `secret_scanning_push_protection_disable` | Triggered when an organization owner or person with admin access to the organization disables push protection for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `secret_scanning_push_protection_enable` | Triggered when an organization owner or person with admin access to the organization enables push protection for {% data variables.product.prodname_secret_scanning %}.{%- endif %}
 | `self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
 | `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% ifversion fpt or ghes or ghec %}
 | `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}
@@ -457,20 +457,20 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |--------------------|---------------------
-| `create ` | Triggered when branch protection is enabled on a branch.
+| `create` | Triggered when branch protection is enabled on a branch.
 | `destroy` | Triggered when branch protection is disabled on a branch.
-| `update_admin_enforced ` | Triggered when branch protection is enforced for repository administrators.
-| `update_require_code_owner_review ` | Triggered when enforcement of required Code Owner review is updated on a branch.
-| `dismiss_stale_reviews ` | Triggered when enforcement of dismissing stale pull requests is updated on a branch.
-| `update_signature_requirement_enforcement_level ` | Triggered when enforcement of required commit signing is updated on a branch.
-| `update_pull_request_reviews_enforcement_level ` | Triggered when enforcement of required pull request reviews is updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
-| `update_required_status_checks_enforcement_level ` | Triggered when enforcement of required status checks is updated on a branch.
+| `update_admin_enforced` | Triggered when branch protection is enforced for repository administrators.
+| `update_require_code_owner_review` | Triggered when enforcement of required Code Owner review is updated on a branch.
+| `dismiss_stale_reviews` | Triggered when enforcement of dismissing stale pull requests is updated on a branch.
+| `update_signature_requirement_enforcement_level` | Triggered when enforcement of required commit signing is updated on a branch.
+| `update_pull_request_reviews_enforcement_level` | Triggered when enforcement of required pull request reviews is updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
+| `update_required_status_checks_enforcement_level` | Triggered when enforcement of required status checks is updated on a branch.
 | `update_strict_required_status_checks_policy` | Triggered when the requirement for a branch to be up to date before merging is changed.
-| `rejected_ref_update ` | Triggered when a branch update attempt is rejected.
-| `policy_override ` | Triggered when a branch protection requirement is overridden by a repository administrator.
-| `update_allow_force_pushes_enforcement_level ` | Triggered when force pushes are enabled or disabled for a protected branch.
-| `update_allow_deletions_enforcement_level ` | Triggered when branch deletion is enabled or disabled for a protected branch.
-| `update_linear_history_requirement_enforcement_level ` | Triggered when required linear commit history is enabled or disabled for a protected branch.
+| `rejected_ref_update` | Triggered when a branch update attempt is rejected.
+| `policy_override` | Triggered when a branch protection requirement is overridden by a repository administrator.
+| `update_allow_force_pushes_enforcement_level` | Triggered when force pushes are enabled or disabled for a protected branch.
+| `update_allow_deletions_enforcement_level` | Triggered when branch deletion is enabled or disabled for a protected branch.
+| `update_linear_history_requirement_enforcement_level` | Triggered when required linear commit history is enabled or disabled for a protected branch.
 
 ## `pull_request` category actions
 
