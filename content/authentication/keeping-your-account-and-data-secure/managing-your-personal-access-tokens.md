@@ -1,6 +1,7 @@
 ---
-title: Creating a personal access token
-intro: 'Use a {% data variables.product.pat_generic %} in place of a password when authenticating to GitHub in the command line or with the API.'
+title: Managing your personal access tokens
+shortTitle: 'Manage {% data variables.product.pat_generic %}s'
+intro: 'You can use a {% data variables.product.pat_generic %} in place of a password when authenticating to GitHub in the command line or with the API.'
 redirect_from:
   - /articles/creating-an-oauth-token-for-command-line-use
   - /articles/creating-an-access-token-for-command-line-use
@@ -9,6 +10,7 @@ redirect_from:
   - /github/authenticating-to-github/creating-a-personal-access-token
   - /github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token
   - /github/extending-github/git-automation-with-oauth-tokens
+  - /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +19,6 @@ versions:
 topics:
   - Identity
   - Access management
-shortTitle: 'Create a {% data variables.product.pat_generic %}'
 ---
 
 {% warning %}
@@ -78,6 +79,8 @@ If you choose to use a {% data variables.product.pat_v1 %}, keep in mind that it
 If these options are not possible, and you must create a {% data variables.product.pat_generic %}, consider using another service such as the [1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely, or 1Password's [{% data variables.product.company_short %} shell plugin](https://developer.1password.com/docs/cli/shell-plugins/github/) to securely authenticate to {% data variables.product.prodname_cli %}.
 
 When using a {% data variables.product.pat_generic %} in a script, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."{%- ifversion ghec or fpt %} You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+
+For more information about best practices, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
 
 ## Creating a {% data variables.product.pat_v2 %}
 
@@ -142,9 +145,24 @@ If you selected an organization as the resource owner and the organization requi
    ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal_access_tokens.png){% ifversion fpt or ghec %}
 1. To use your token to access resources owned by an organization that uses SAML single sign-on, authorize the token. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
+## Deleting a {% data variables.product.pat_generic %}
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.developer_settings %}
+{% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
+1. To the right of the {% data variables.product.pat_generic %} you want to delete, click **Delete**.
+
 ## Using a {% data variables.product.pat_generic %} on the command line
 
-{% data reusables.command_line.providing-token-as-password %}
+Once you have a {% data variables.product.pat_generic %}, you can enter it instead of your password when performing Git operations over HTTPS.
+
+For example, to clone a repository on the command line you would enter the following `git clone` command. You would then be prompted to enter your username and password. When prompted for your password, enter your {% data variables.product.pat_generic %} instead of a password.
+
+```shell
+$ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPO.git
+Username: YOUR_USERNAME
+Password: YOUR_PERSONAL_ACCESS_TOKEN
+```
 
 {% data variables.product.pat_generic_caps %}s can only be used for HTTPS Git operations. If your repository uses an SSH remote URL, you will need to [switch the remote from SSH to HTTPS](/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-ssh-to-https).
 
