@@ -1,12 +1,13 @@
 ---
-title: Creating a GitHub App from a manifest
-intro: 'A GitHub App Manifest is a preconfigured GitHub App you can share with anyone who wants to use your app in their personal repositories. The manifest flow allows someone to quickly create, install, and start extending a GitHub App without needing to register the app or connect the registration to the hosted app code.'
+title: Registering a GitHub App from a manifest
+intro: 'A {% data variables.product.prodname_github_app %} manifest is a way to share a preconfigured {% data variables.product.prodname_github_app %} registration with other users. The manifest flow allows someone to quickly register a {% data variables.product.prodname_github_app %}.'
 redirect_from:
   - /apps/building-github-apps/creating-github-apps-from-a-manifest
   - /developers/apps/creating-a-github-app-from-a-manifest
   - /developers/apps/building-github-apps/creating-a-github-app-from-a-manifest
   - /apps/creating-github-apps/creating-github-apps/creating-a-github-app-from-a-manifest
   - /apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest
+  - /apps/sharing-github-apps/creating-a-github-app-from-a-manifest
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,15 +15,15 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: App creation manifest flow
+shortTitle: App manifest
 ---
 ## About GitHub App Manifests
 
-When someone creates a GitHub App from a manifest, they only need to follow a URL and name the app. The manifest includes the permissions, events, and webhook URL needed to automatically register the app. The manifest flow creates the GitHub App registration and retrieves the app's webhook secret, private key (PEM file), and GitHub App ID. The person who creates the app from the manifest will own the app and can choose to [edit the app's configuration settings](/apps/maintaining-github-apps/modifying-a-github-app), delete it, or transfer it to another person on GitHub.
+When someone registers a GitHub App from a manifest, they only need to follow a URL and name the app. The manifest includes the permissions, events, and webhook URL needed to automatically register the app. The manifest flow creates the GitHub App registration and generates the app's webhook secret, private key (PEM file), client secret, and GitHub App ID. The person who creates the {% data variables.product.prodname_github_app %} registration from the manifest will own the {% data variables.product.prodname_github_app %} registration and can choose to edit the registration's settings, delete it, or transfer it to another person on GitHub.
 
 You can use [Probot](https://probot.github.io/) to get started with GitHub App Manifests or see an example implementation. See "[Using Probot to implement the GitHub App Manifest flow](#using-probot-to-implement-the-github-app-manifest-flow)" to learn more.
 
-Here are some scenarios where you might use GitHub App Manifests to create preconfigured apps:
+Here are some scenarios where you might use GitHub App Manifests to register pre-configured apps:
 
 * Help new team members come up-to-speed quickly when developing GitHub Apps.
 * Allow others to extend a GitHub App using the GitHub APIs without requiring them to configure an app.
@@ -42,17 +43,17 @@ The GitHub App Manifest flow uses a handshaking process similar to the [OAuth fl
 
 Follow these steps to implement the GitHub App Manifest flow:
 
-1. You redirect people to GitHub to create a new GitHub App.
+1. You redirect people to GitHub to register a new GitHub App.
 1. GitHub redirects people back to your site.
 1. You exchange the temporary code to retrieve the app configuration.
 
-### 1. You redirect people to GitHub to create a new GitHub App
+### 1. You redirect people to GitHub to register a new GitHub App
 
-To redirect people to create a new GitHub App, [provide a link](#examples) for them to click that sends a `POST` request to `https://github.com/settings/apps/new` for a personal account or `https://github.com/organizations/ORGANIZATION/settings/apps/new` for an organization account, replacing `ORGANIZATION` with the name of the organization account where the app will be created.
+To redirect people to register a new GitHub App, [provide a link](#examples) for them to click that sends a `POST` request to `https://github.com/settings/apps/new` for a personal account or `https://github.com/organizations/ORGANIZATION/settings/apps/new` for an organization account, replacing `ORGANIZATION` with the name of the organization account where the app will be registered.
 
 You must include the [GitHub App Manifest parameters](#github-app-manifest-parameters) as a JSON-encoded string in a parameter called `manifest`. You can also include a `state` [parameter](#parameters) for additional security.
 
-The person creating the app will be redirected to a GitHub page with an input field where they can edit the name of the app you included in the `manifest` parameter. If you do not include a `name` in the `manifest`, they can set their own name for the app in this field.
+The person registering the app will be redirected to a GitHub page with an input field where they can edit the name of the app you included in the `manifest` parameter. If you do not include a `name` in the `manifest`, they can set their own name for the app in this field.
 
 #### GitHub App Manifest parameters
 
@@ -61,7 +62,7 @@ The person creating the app will be redirected to a GitHub page with an input fi
 `name` | `string` | The name of the {% data variables.product.prodname_github_app %}.
 `url` | `string` | **Required.** The homepage of your {% data variables.product.prodname_github_app %}.
 `hook_attributes` | `object` | The configuration of the {% data variables.product.prodname_github_app %}'s webhook.
-`redirect_url` | `string` | The full URL to redirect to after a user initiates the creation of a {% data variables.product.prodname_github_app %} from a manifest.
+`redirect_url` | `string` | The full URL to redirect to after a user initiates the registration of a {% data variables.product.prodname_github_app %} from a manifest.
 `callback_urls` | `array of strings` | A full URL to redirect to after someone authorizes an installation. You can provide up to 10 callback URLs.
 `setup_url` | `string` | A full URL to redirect users to after they install your {% data variables.product.prodname_github_app %} if additional setup is required.
 `description` | `string` | A description of the {% data variables.product.prodname_github_app %}.
@@ -90,7 +91,7 @@ This example uses a form on a web page with a button that triggers the `POST` re
 
 ```html
 <form action="https://github.com/settings/apps/new?state=abc123" method="post">
- Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
+ Register a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
 </form>
 
@@ -121,11 +122,11 @@ This example uses a form on a web page with a button that triggers the `POST` re
 </script>
 ```
 
-This example uses a form on a web page with a button that triggers the `POST` request for an organization account. Replace `ORGANIZATION` with the name of the organization account where you want to create the app.
+This example uses a form on a web page with a button that triggers the `POST` request for an organization account. Replace `ORGANIZATION` with the name of the organization account where you want to register the app.
 
 ```html
 <form action="https://github.com/organizations/ORGANIZATION/settings/apps/new?state=abc123" method="post">
- Create a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
+ register a GitHub App Manifest: <input type="text" name="manifest" id="manifest"><br>
  <input type="submit" value="Submit">
 </form>
 
@@ -182,7 +183,7 @@ You must complete this step of the GitHub App Manifest flow within one hour.
 
 For more information about the endpoint's response, see [Create a GitHub App from a manifest](/rest/apps#create-a-github-app-from-a-manifest).
 
-When the final step in the manifest flow is completed, the person creating the app from the flow will be an owner of a registered GitHub App that they can install on any of their personal repositories. They can choose to extend the app using the GitHub APIs, transfer ownership to someone else, or delete it at any time.
+When the final step in the manifest flow is completed, the person registering the app from the flow will be an owner of a registered GitHub App that they can install on any of their personal repositories. They can choose to extend the app using the GitHub APIs, transfer ownership to someone else, or delete it at any time.
 
 ## Using Probot to implement the GitHub App Manifest flow
 
@@ -193,7 +194,7 @@ To create a Probot App that you can share, follow these steps:
 1. [Generate a new GitHub App](https://probot.github.io/docs/development/#generating-a-new-app).
 1. Open the project you created, and customize the settings in the `app.yml` file. Probot uses the settings in `app.yml` as the [GitHub App Manifest parameters](#github-app-manifest-parameters).
 1. Add your application's custom code.
-1. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally) or [host it anywhere you'd like](#hosting-your-app-with-glitch). When you navigate to the hosted app's URL, you'll find a web page with a **Register GitHub App** button that people can click to create a preconfigured app.
+1. [Run the GitHub App locally](https://probot.github.io/docs/development/#running-the-app-locally) or [host it anywhere you'd like](#hosting-your-app-with-glitch). When you navigate to the hosted app's URL, you'll find a web page with a **Register GitHub App** button that people can click to register a preconfigured app.
 
 Using [dotenv](https://github.com/bkeepers/dotenv), Probot creates a `.env` file and sets the `APP_ID`, `PRIVATE_KEY`, and `WEBHOOK_SECRET` environment variables with the values [retrieved from the app configuration](#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration).
 

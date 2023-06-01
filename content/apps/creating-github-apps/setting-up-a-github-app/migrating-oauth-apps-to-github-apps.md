@@ -57,7 +57,7 @@ Once you have registered a {% data variables.product.prodname_github_app %}, ada
 
 You will need to update your app's code to handle API authentication for your {% data variables.product.prodname_github_app %}. A {% data variables.product.prodname_github_app %} can authenticate in three ways:
 
-- As the app itself, in order to get or modify details about the app or to create an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app)."
+- As the app itself, in order to get or modify details about the {% data variables.product.prodname_github_app %} registration or to create an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app)."
 - As an app installation, in order to take actions on behalf of itself. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
 - On behalf of a user, in order to attribute actions to a user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
 

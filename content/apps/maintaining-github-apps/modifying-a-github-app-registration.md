@@ -1,5 +1,5 @@
 ---
-title: Modifying a GitHub App
+title: Modifying a GitHub App registration
 shortTitle: Modify app settings
 intro: '{% data reusables.shortdesc.modifying_github_apps %}'
 redirect_from:
@@ -12,6 +12,7 @@ redirect_from:
   - /developers/apps/editing-a-github-apps-permissions
   - /developers/apps/managing-github-apps/editing-a-github-apps-permissions
   - /apps/maintaining-github-apps/editing-a-github-apps-permissions
+  - /apps/maintaining-github-apps/modifying-a-github-app
 versions:
   fpt: '*'
   ghes: '*'
@@ -23,7 +24,7 @@ topics:
 
 ## About {% data variables.product.prodname_github_app %} modifications
 
-You can modify your {% data variables.product.prodname_github_app %} to change any of the settings that were selected when the app was created. For more information about the settings you can select while creating a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+You can modify your {% data variables.product.prodname_github_app %} registration to change any of the settings that were selected when the app was initially registered. For more information about the settings you can select while registering a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
 For example, you can change the name and description of your app, the permissions granted to your app, the webhooks your app subscribes to, or the visibility of your app.
 
