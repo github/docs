@@ -346,6 +346,37 @@ test.describe('test nav at different viewports', () => {
     await page.getByTestId('sidebar-hamburger').click()
     await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
   })
+
+  test('do a search when the viewport is x-small', async ({ page }) => {
+    test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+    page.setViewportSize({
+      width: 500,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+    await page.getByRole('button', { name: 'Open Search Bar' }).click()
+    await page.getByTestId('site-search-input').click()
+    await page.getByTestId('site-search-input').fill('serve playwright')
+    await page.getByTestId('site-search-input').press('Enter')
+    await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+    await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+  })
+
+  test('do a search when the viewport is medium', async ({ page }) => {
+    test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+    page.setViewportSize({
+      width: 1000,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+    await page.getByTestId('site-search-input').click()
+    await page.getByTestId('site-search-input').fill('serve playwright')
+    await page.getByTestId('site-search-input').press('Enter')
+    await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+    await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+  })
 })
 
 test.describe('survey', () => {
