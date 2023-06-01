@@ -155,6 +155,14 @@ This workflow scans:
 
 ## Specifying an operating system
 
+{% ifversion codeql-swift-beta %}
+{% note %}
+
+**Note**: Code scanning of Swift code uses macOS runners by default. {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, so you should consider only scanning the build step. For more information about configuring code scanning for Swift, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#considerations-for-building-swift)." For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+
+{% endnote %}
+
+{% endif %}
 If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.code-scanning.codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
 
 ``` yaml{:copy}
