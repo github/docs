@@ -150,8 +150,7 @@ By default, when an unauthenticated user attempts to access an enterprise that u
 ### Authenticating as a {% data variables.enterprise.prodname_managed_user %} via {% data variables.product.prodname_dotcom_the_website %}
 
 1. Navigate to [https://github.com/login](https://github.com/login).
-1. In the "Username or email address" text box, enter your username including the underscore and short code.
-  When the form recognizes your username, the form will update. You do not need to enter your password on this form.
+1. In the "Username or email address" text box, enter your username including the underscore and short code. When the form recognizes your username, the form will update. You do not need to enter your password on this form.
 1. To continue to your identity provider, click **Sign in with your identity provider**.
 
 ## Usernames and profile information
