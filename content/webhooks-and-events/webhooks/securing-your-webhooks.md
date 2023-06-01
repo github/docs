@@ -129,7 +129,6 @@ const verify_signature = (req: Request) => {
   return `sha256=${signature}` === req.headers.get("x-hub-signature-256");
 };
 
-//
 const handleWebhook = (req: Request, res: Response) => {
   if (!verify_signature(req)) {
     res.status(401).send("Unauthorized");
