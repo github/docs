@@ -22,7 +22,7 @@ When organization members create a {% data variables.product.pat_v2 %} to access
 
 {% ifversion pat-v2-org-admin-api %}
 
-Organization admins can also use the REST API to review and manage {% data variables.product.pat_v2 %} requests. These endpoints can only be called by {% data variables.product.prodname_github_apps %}, and cannot be called with {% data variables.product.pat_generic_plural %} or {% data variables.product.prodname_oauth_apps %}. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens)."
+Organization owners can also use the REST API to review and manage {% data variables.product.pat_v2 %} requests. These endpoints can only be called by {% data variables.product.prodname_github_apps %}, and cannot be called with {% data variables.product.pat_generic_plural %} or {% data variables.product.prodname_oauth_apps %}. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens)."
 
 {% endif %}
 
