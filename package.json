@@ -146,6 +146,8 @@
     "kill-port": "2.0.1",
     "lint-staged": "^13.0.1",
     "make-promises-safe": "^5.1.0",
+    "markdownlint": "^0.28.2",
+    "markdownlint-rule-helpers": "^0.19.0",
     "mdast-util-gfm-table": "^1.0.7",
     "micromark-extension-gfm-table": "^1.0.5",
     "mkdirp": "^3.0.0",
