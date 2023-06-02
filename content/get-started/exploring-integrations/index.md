@@ -1,4 +1,6 @@
 ---
+
+```
 title: Exploring integrations
 intro: 'Learn how you can customize your {% data variables.product.prodname_dotcom %} workflow with integrations.'
 redirect_from:
@@ -20,4 +22,5 @@ children:
   - /github-extensions-and-integrations
   - /github-developer-program
 shortTitle: Exploring integrations
+```
 ---
