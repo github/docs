@@ -53,6 +53,10 @@ When building an integration, you should consider using a {% data variables.prod
 
 In general, {% data variables.product.prodname_github_app %}s are preferred over {% data variables.product.prodname_oauth_app %}s.
 
+Both {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_app %}s use OAuth 2.0.
+
+{% data variables.product.prodname_oauth_app %}s can only act on behalf of a user while {% data variables.product.prodname_github_app %}s can either act on behalf of a user or independently of a user.
+
 For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)."
 
 For information on how to migrate an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."

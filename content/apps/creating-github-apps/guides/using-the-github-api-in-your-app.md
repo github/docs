@@ -43,9 +43,9 @@ But you can follow along at any experience level. We'll link out to information 
 Before you begin, you'll need to do the following:
 
 1. Clone the [Using the GitHub API in your app](https://github.com/github-developer/using-the-github-api-in-your-app) repository.
-  ```shell
-    $ git clone https://github.com/github-developer/using-the-github-api-in-your-app.git
-  ```
+   ```shell
+   $ git clone https://github.com/github-developer/using-the-github-api-in-your-app.git
+   ```
 
   Inside the directory, you'll find a `template_server.rb` file with the template code you'll use in this quickstart and a `server.rb` file with the completed project code.
 

@@ -46,17 +46,19 @@ Signing commits differs from signing off on a commit. For more information about
 | **Unverified** | The commit is signed but the signature could not be verified.
 | No verification status | The commit is not signed.
 
+{% endif %}
+
 ### Signature verification for rebase and merge
 {% data reusables.pull_requests.rebase_and_merge_verification %}
 
 For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
 
+{% ifversion fpt or ghec %}
 ### Statuses with vigilant mode enabled
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
 
 {% endif %}
-
 
 Repository administrators can enforce required commit signing on a branch to block all commits that are not signed and verified. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-signed-commits)."
 

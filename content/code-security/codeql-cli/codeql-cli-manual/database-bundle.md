@@ -50,6 +50,13 @@ that results, logs, TRAP, or similar should be included.
 
 Include any precomputed query results in the bundle.
 
+#### `--include-temp`
+
+Includes the "temp" directory, where any generated packs, queries, and
+suites are located.
+
+Available since `v2.13.3`.
+
 #### `--include-uncompressed-source`
 
 Include an uncompressed version of the source archive directory. This is

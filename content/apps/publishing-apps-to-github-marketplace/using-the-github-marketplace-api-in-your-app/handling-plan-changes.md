@@ -13,6 +13,9 @@ versions:
 topics:
   - Marketplace
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 For more information about upgrading and downgrading as it relates to billing, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
 ## Step 1. Pricing plan change event

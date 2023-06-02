@@ -93,9 +93,9 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
 
 {% data reusables.package_registry.authenticate-step %}
 1. Build the package from the *gemspec* to create the *.gem* package. Replace `GEM_NAME` with the name of your gem.
-  ```
-  gem build GEM_NAME.gemspec
-  ```
+   ```
+   gem build GEM_NAME.gemspec
+   ```
 1. Publish a package to {% data variables.product.prodname_registry %}, replacing `NAMESPACE` with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the package will be scoped{% else %}that owns the repository containing your project{% endif %} and `GEM_NAME` with the name of your gem package.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace `HOSTNAME` with the hostname of {% data variables.location.product_location %}.{% endif %}
 
    {% note %}
@@ -104,11 +104,11 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
 
    {% endnote %}
 
-  ```
-  $ gem push --key github \
-  --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE \
-  GEM_NAME-0.0.1.gem
-  ```
+   ```
+   $ gem push --key github \
+   --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE \
+   GEM_NAME-0.0.1.gem
+   ```
 
 {% ifversion packages-rubygems-v2 %}
 
@@ -164,9 +164,9 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   ```
 
 4. Install the package:
-  ```
-  $ gem install GEM_NAME --version "0.1.1"
-  ```
+   ```
+   $ gem install GEM_NAME --version "0.1.1"
+   ```
 
 ## Further reading
 

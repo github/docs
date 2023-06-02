@@ -6,7 +6,7 @@ import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'components/context/AutomatedPageContext'
+} from 'src/automated-pipelines/components/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
 
 type MinitocItemsT = {

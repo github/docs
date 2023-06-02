@@ -31,7 +31,7 @@ You can archive an item to keep the context about the item in the project but re
 1. Navigate to your project.
 1. In the top-right, click {% octicon "kebab-horizontal" aria-label="More options" %}.
 
-  ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
+   ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
   
 1. In the menu, click {% octicon "archive" aria-hidden="true" %} **Archived items**.
 1. Optionally, to filter the archived items displayed, type your filter into the text box above the list of items. For more information about the available filters, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
