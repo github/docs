@@ -1,6 +1,12 @@
 {
   "actions": [
     {
+      "slug": "create-configuration-for-a-just-in-time-runner-for-an-enterprise",
+      "subcategory": "self-hosted-runners",
+      "verb": "post",
+      "requestPath": "/enterprises/{enterprise}/actions/runners/generate-jitconfig"
+    },
+    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -227,6 +233,12 @@
       "subcategory": "self-hosted-runners",
       "verb": "get",
       "requestPath": "/orgs/{org}/actions/runners/downloads"
+    },
+    {
+      "slug": "create-configuration-for-a-just-in-time-runner-for-an-organization",
+      "subcategory": "self-hosted-runners",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/runners/generate-jitconfig"
     },
     {
       "slug": "create-a-registration-token-for-an-organization",
@@ -557,6 +569,12 @@
       "subcategory": "self-hosted-runners",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/runners/downloads"
+    },
+    {
+      "slug": "create-configuration-for-a-just-in-time-runner-for-a-repository",
+      "subcategory": "self-hosted-runners",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/runners/generate-jitconfig"
     },
     {
       "slug": "create-a-registration-token-for-a-repository",
@@ -2829,6 +2847,24 @@
       "subcategory": "orgs",
       "verb": "post",
       "requestPath": "/orgs/{org}/{security_product}/{enablement}"
+    },
+    {
+      "slug": "list-organization-memberships-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs"
+    },
+    {
+      "slug": "get-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs/{org}"
+    },
+    {
+      "slug": "update-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "patch",
+      "requestPath": "/user/memberships/orgs/{org}"
     },
     {
       "slug": "list-organizations-for-a-user",
