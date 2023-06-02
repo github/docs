@@ -35,7 +35,8 @@ The default development container, or "dev container," for {% data variables.pro
 
 {% data reusables.codespaces.setup-custom-devcontainer %}
 {% data reusables.codespaces.command-palette-container %}
-1. Type `php` and click **PHP**. Other options are available if your project uses particular tools. For example, PHP & MariaDB.
+
+1. Type `php` and click **PHP**. Other options are available if your project uses particular tools. For example, **PHP & MariaDB**.
 
    <!-- ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing "PHP & MariaDB" option.](/assets/images/help/codespaces/add-php-devcontainer-config.png) -->
 
@@ -43,7 +44,7 @@ The default development container, or "dev container," for {% data variables.pro
 
    <!-- ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing a variety of PHP versions, including "8.2 (default)."](/assets/images/help/codespaces/add-php-version.png) -->
 
-1. A list of additional features you can install is displayed. <!-- We'll install JSHint, a code quality tool for detecting errors in JavaScript code. To install this tool, type `js`, select `JSHint (via npm)`, then click **OK**. -->
+1. A list of additional features you can install is displayed. We'll install {% data variables.product.prodname_cli %}, a tool for interacting with {% data variables.product.prodname_dotcom %} from the command line. To install this tool, type `github`, select `{% data variables.product.prodname_cli %}`, then click **OK**.
 
    <!-- ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing "js" in the text box and "JSHint (via npm)" in the dropdown list.](/assets/images/help/codespaces/add-jshint-config.png) -->
 
@@ -62,29 +63,18 @@ The default development container, or "dev container," for {% data variables.pro
   // "features": {},
 
   // Configure tool-specific properties.
-  "customizations": {
-    // Configure properties specific to VS Code.
-    "vscode": {
-      "settings": {},
-      "extensions": [
-        "streetsidesoftware.code-spell-checker"
-      ]
-    }
-  },
+  // "customizations": {},
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  // "forwardPorts": [8000],
-
-  // Use 'portsAttributes' to set default properties for specific forwarded ports. More info: https://code.visualstudio.com/docs/remote/devcontainerjson-reference.
-  "portsAttributes": {
-    "8000": {
-      "label": "Hello Remote World",
-      "onAutoForward": "notify"
-    }
+  "forwardPorts": [
+    8080
+  ],
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
   }
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html",
+  // "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
 
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
@@ -98,26 +88,15 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
+
 * Run `composer install`, after the dev container is created, to install the dependencies listed in the `composer.json` file.
 * Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
-1. In the `devcontainer.json` file, add a comma after the `portsAttributes` property.
+1. In the `devcontainer.json` file, delete the two commented-out lines about features:
 
    ```json{:copy}
-   // Use 'portsAttributes' to set default properties for specific forwarded ports. More info: https://code.visualstudio.com/docs/remote/devcontainerjson-reference.
-     "portsAttributes": {
-       "8000": {
-         "label": "Hello Remote World",
-         "onAutoForward": "notify"
-       }
-   },
-   ```
-
-1. Uncomment the `postCreateCommand` property and assign it the command `composer install`.
-
-   ```json{:copy}
-   // Use 'postCreateCommand' to run commands after the container is created.
-   "postCreateCommand": "composer install",
+   // Features to add to the dev container. More info: https://containers.dev/features.
+   // "features": {},
    ```
 
 1. Edit the `customizations` property as follows to install the "Composer" extension.
@@ -127,13 +106,26 @@ With your dev container configuration added and a basic understanding of what ev
    "customizations": {
      // Configure properties specific to VS Code.
      "vscode": {
-       "settings": {},
        "extensions": [
-         "streetsidesoftware.code-spell-checker",
          "ikappas.composer"
        ]
      }
    },
+   ```
+
+1. Add a comma after the `features` property.
+
+   ```json{:copy}
+   "features": {
+     "ghcr.io/devcontainers/features/github-cli:1": {}
+   },
+   ```
+
+1. Uncomment the `postCreateCommand` property and change its value to the command `composer install`.
+
+   ```json{:copy}
+   // Use 'postCreateCommand' to run commands after the container is created.
+   "postCreateCommand": "composer install"
    ```
 
   The `devcontainer.json` file should now look similar to this, depending on which image you chose:
@@ -146,34 +138,26 @@ With your dev container configuration added and a basic understanding of what ev
      // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
      "image": "mcr.microsoft.com/devcontainers/php:0-8.2",
 
-     // Features to add to the dev container. More info: https://containers.dev/features.
-     // "features": {},
-
      // Configure tool-specific properties.
      "customizations": {
        // Configure properties specific to VS Code.
        "vscode": {
-         "settings": {},
          "extensions": [
-           "streetsidesoftware.code-spell-checker",
            "ikappas.composer"
          ]
        }
      },
 
      // Use 'forwardPorts' to make a list of ports inside the container available locally.
-     // "forwardPorts": [8000],
-
-     // Use 'portsAttributes' to set default properties for specific forwarded ports. More info: https://code.visualstudio.com/docs/remote/devcontainerjson-reference.
-     "portsAttributes": {
-       "8000": {
-         "label": "Hello Remote World",
-         "onAutoForward": "notify"
-       }
+     "forwardPorts": [
+       8080
+     ],
+     "features": {
+       "ghcr.io/devcontainers/features/github-cli:1": {}
      },
 
      // Use 'postCreateCommand' to run commands after the container is created.
-     "postCreateCommand": "composer install",
+     "postCreateCommand": "composer install"
 
      // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
      // "remoteUser": "root"
