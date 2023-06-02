@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { LinkExternalIcon, NoteIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
-import { useProductLandingContext } from 'components/context/ProductLandingContext'
+import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useVersion } from 'components/hooks/useVersion'
 import { Lead } from 'components/ui/Lead'

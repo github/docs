@@ -1,7 +1,7 @@
 import { jest } from '@jest/globals'
 
-import { getDOM } from '../helpers/e2etest.js'
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { getDOM } from '../../../tests/helpers/e2etest.js'
+import enterpriseServerReleases from '../../../lib/enterprise-server-releases.js'
 
 describe('featuredLinks', () => {
   jest.setTimeout(3 * 60 * 1000)

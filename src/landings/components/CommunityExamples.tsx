@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { ArrowRightIcon } from '@primer/octicons-react'
 
-import { useProductLandingContext } from 'components/context/ProductLandingContext'
+import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { RepoCard } from 'components/landing/RepoCard'
+import { RepoCard } from 'src/landings/components/RepoCard'
 
 export const CommunityExamples = () => {
   const { productCommunityExamples } = useProductLandingContext()

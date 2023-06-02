@@ -1,5 +1,5 @@
 import cx from 'classnames'
-import { useProductGuidesContext } from 'components/context/ProductGuidesContext'
+import { useProductGuidesContext } from 'src/landings/components/ProductGuidesContext'
 import { ArrowRightIcon, StarFillIcon } from '@primer/octicons-react'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'

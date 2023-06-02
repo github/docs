@@ -14,7 +14,7 @@ import {
   TocLandingContext,
   TocLandingContextT,
 } from 'components/context/TocLandingContext'
-import { TocLanding } from 'components/landing/TocLanding'
+import { TocLanding } from 'src/landings/components/TocLanding'
 
 type MinitocItemsT = {
   restOperationsMiniTocItems: MiniTocItem[]

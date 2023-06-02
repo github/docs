@@ -1,4 +1,4 @@
-import { OctocatHeader } from 'components/landing/OctocatHeader'
+import { OctocatHeader } from 'src/landings/components/OctocatHeader'
 import { useTranslation } from 'components/hooks/useTranslation'
 
 export const HomePageHero = () => {

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-import { ArticleGuide, useProductGuidesContext } from 'components/context/ProductGuidesContext'
+import { ArticleGuide, useProductGuidesContext } from 'src/landings/components/ProductGuidesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { ArticleCard } from './ArticleCard'
 import { ActionList, ActionMenu } from '@primer/react'

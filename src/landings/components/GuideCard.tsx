@@ -1,4 +1,4 @@
-import type { FeaturedLink } from 'components/context/ProductLandingContext'
+import type { FeaturedLink } from 'src/landings/components/ProductLandingContext'
 
 type Props = {
   guide: FeaturedLink
