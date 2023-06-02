@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-import setupJestPuppeteer from 'jest-environment-puppeteer/setup.js'
-
 import { main } from '../start-server.js'
 
 import { PORT, START_JEST_SERVER, isServerHealthy, isPortRunning } from './server-for-jest.js'
@@ -29,14 +27,5 @@ export default async () => {
     console.assert(await isServerHealthy())
   } else {
     console.warn(`jest is NOT automatically starting a server on port :${PORT}`)
-  }
-
-  // The way jest-puppeteer works is that you add a preset in
-  // `jest.config.js` but that preset will clash with the execution
-  // of this script. So we have to manually do what we do normally
-  // do in `jest.config.js`.
-  // Note, we can delete this when we migrate to Playwright.
-  if (process.env.BROWSER) {
-    await setupJestPuppeteer()
   }
 }
