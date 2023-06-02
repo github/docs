@@ -6,6 +6,7 @@ redirect_from:
   - /developers/apps/migrating-oauth-apps-to-github-apps
   - /developers/apps/getting-started-with-apps/migrating-oauth-apps-to-github-apps
   - /apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps
+  - /apps/creating-github-apps/setting-up-a-github-app/migrating-oauth-apps-to-github-apps
 versions:
   fpt: '*'
   ghes: '*'

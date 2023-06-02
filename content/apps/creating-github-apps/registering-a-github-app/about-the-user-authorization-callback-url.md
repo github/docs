@@ -11,6 +11,7 @@ topics:
 shortTitle: Callback URL
 redirect_from:
   - /apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url
+  - /apps/creating-github-apps/setting-up-a-github-app/about-the-user-authorization-callback-url
 ---
 
 When you register a {% data variables.product.prodname_github_app %}, you can specify a callback URL. When you use the web application flow to generate a user access token in order to act on behalf of a user, users will be redirected to the callback URL after they authorize the {% data variables.product.prodname_github_app %}.

@@ -1,7 +1,7 @@
 ---
 title: Best practices for creating a GitHub App
 shortTitle: Best practices
-intro: "Follow these best practices to improve the security and performance of your {% data variables.product.prodname_github_app %}."
+intro: 'Follow these best practices to improve the security and performance of your {% data variables.product.prodname_github_app %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
+redirect_from:
+  - /apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app
 ---
 
 ## Select the minimum permissions required
