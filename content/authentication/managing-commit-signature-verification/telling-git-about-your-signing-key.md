@@ -99,9 +99,6 @@ If you have multiple GPG keys, you need to tell Git which one to use.
    ```bash
    $ [ -f ~/.bashrc ] && echo -e '\nexport GPG_TTY=\$(tty)' >> ~/.bashrc
    ```
-   ```bash
-   $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
-   ```
 {% endlinux %}
 {% ifversion ssh-commit-verification %}
 
