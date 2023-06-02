@@ -1,5 +1,5 @@
 import { ProductT, useMainContext } from 'components/context/MainContext'
-import type { ProductGroupT } from 'components/homepage/ProductSelections'
+import type { ProductGroupT } from 'src/landings/components/ProductSelections'
 
 import React from 'react'
 import { useRouter } from 'next/router'

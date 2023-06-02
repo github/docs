@@ -7,7 +7,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
 import { RestCollapsibleSection } from 'src/rest/components/RestCollapsibleSection'
-import { ProductCollapsibleSection } from './ProductCollapsibleSection'
+import { ProductCollapsibleSection } from 'components/sidebar/ProductCollapsibleSection'
 
 export const SidebarProduct = () => {
   const router = useRouter()

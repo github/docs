@@ -4,8 +4,8 @@ import { Link } from 'components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { useMainContext } from 'components/context/MainContext'
 
-import { useProductLandingContext } from 'components/context/ProductLandingContext'
-import { GuideCard } from 'components/landing/GuideCard'
+import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
+import { GuideCard } from 'src/landings/components/GuideCard'
 import { useTranslation } from 'components/hooks/useTranslation'
 
 export const GuideCards = () => {
