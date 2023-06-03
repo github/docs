@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Deny OAuth App access
+shortTitle: Deny OAuth App
 ---
 
 {% data reusables.profile.access_org %}

@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: OAuth App restrictions
+shortTitle: OAuth App access
 ---
 
 ## About OAuth App access restrictions
