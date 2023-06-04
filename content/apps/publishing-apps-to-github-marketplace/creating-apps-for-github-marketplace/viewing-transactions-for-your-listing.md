@@ -12,6 +12,9 @@ topics:
   - Marketplace
 shortTitle: View listing transactions
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 {% note %}
 
 **Note:** Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.

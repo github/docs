@@ -1,7 +1,7 @@
 import { defaultCacheControl } from './cache-control.js'
 
+// When a *whole* path is considerered junk.
 const JUNK_PATHS = new Set([
-  '/.env',
   '/env',
   '/xmlrpc.php',
   '/wp-login.php',
@@ -11,8 +11,20 @@ const JUNK_PATHS = new Set([
   '/.git',
 ])
 
+// Basename is the last token of the path when split by `/`.
+// For example `/foo/bar/baz` has a basename of `baz`.
+const JUNK_BASENAMES = new Set([
+  // E.g. /en/code-security/.env
+  '.env',
+])
+
 function isJunkPath(path) {
   if (JUNK_PATHS.has(path)) return true
+
+  const basename = path.split('/').pop()
+  // E.g. `/billing/.env.local` or `/billing/.env_sample`
+  if (/^\.env(.|_)[\w.]+/.test(basename)) return true
+  if (JUNK_BASENAMES.has(basename)) return true
 
   // Prevent various malicious injection attacks targeting Next.js
   if (path.match(/^\/_next[^/]/) || path === '/_next/data' || path === '/_next/data/') {

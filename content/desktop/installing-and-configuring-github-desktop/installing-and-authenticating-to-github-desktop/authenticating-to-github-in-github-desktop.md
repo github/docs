@@ -88,7 +88,7 @@ For some errors, {% data variables.product.prodname_desktop %} will prompt you w
 
 1. In the menu bar, select **Help**, then click **Show Logs in Finder**.
 
-  ![Screenshot of the "GitHub Desktop" menu bar on a Mac. Under the expanded "Help" dropdown menu, a cursor hovers over "Show Logs in Finder", highlighted in blue.](/assets/images/help/desktop/mac-show-logs.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on a Mac. Under the expanded "Help" dropdown menu, a cursor hovers over "Show Logs in Finder", highlighted in blue.](/assets/images/help/desktop/mac-show-logs.png)
 
 2. Select the log file from the date when you encountered the authentication error.
 
@@ -98,7 +98,7 @@ For some errors, {% data variables.product.prodname_desktop %} will prompt you w
 
 1. Use the **Help** drop-down menu and click **Show Logs in Explorer**.
 
-  ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Help" dropdown menu, an option labeled "Show Logs in Explorer" is outlined in orange.](/assets/images/help/desktop/windows-show-logs.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Help" dropdown menu, an option labeled "Show Logs in Explorer" is outlined in orange.](/assets/images/help/desktop/windows-show-logs.png)
 
 2. Select the log file from the date when you encountered the authentication error.
 

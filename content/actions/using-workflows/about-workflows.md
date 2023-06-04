@@ -127,7 +127,7 @@ For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-yo
 
 If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
 
-This example demonstrates how to cache the ` ~/.npm` directory:
+This example demonstrates how to cache the `~/.npm` directory:
 
 ```yaml
 jobs:

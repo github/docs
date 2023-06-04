@@ -21,6 +21,9 @@ topics:
   - Marketplace
 shortTitle: Draft an app listing
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 ## Create a new draft {% data variables.product.prodname_marketplace %} listing
 
 You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:

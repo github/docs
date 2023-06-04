@@ -44,9 +44,9 @@ You can also create a global *.gitignore* file to define a list of rules for ign
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Configure Git to use the exclude file *~/.gitignore_global* for all Git repositories.
-  ```shell
-  $ git config --global core.excludesfile ~/.gitignore_global
-  ```
+   ```shell
+   $ git config --global core.excludesfile ~/.gitignore_global
+   ```
 
 ## Excluding local files without creating a *.gitignore* file
 

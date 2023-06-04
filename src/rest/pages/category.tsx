@@ -6,7 +6,7 @@ import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'components/context/AutomatedPageContext'
+} from 'src/automated-pipelines/components/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
@@ -14,7 +14,7 @@ import {
   TocLandingContext,
   TocLandingContextT,
 } from 'components/context/TocLandingContext'
-import { TocLanding } from 'components/landing/TocLanding'
+import { TocLanding } from 'src/landings/components/TocLanding'
 
 type MinitocItemsT = {
   restOperationsMiniTocItems: MiniTocItem[]

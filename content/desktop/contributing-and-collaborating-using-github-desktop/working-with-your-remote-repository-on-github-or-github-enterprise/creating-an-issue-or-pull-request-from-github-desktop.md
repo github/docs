@@ -66,7 +66,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
    Alternatively, to go straight to {% data variables.product.prodname_dotcom %} to create your pull request, select the dropdown icon and click **Create Pull Request**.
 1. Confirm that the branch in the **base:** dropdown menu is the branch where you want to merge your changes.
-  ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
+   ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
 
   {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
   ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline](/assets/images/help/desktop/preview-dialog-merge-status.png)

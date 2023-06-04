@@ -8,6 +8,12 @@ name: Codeowners - Docs Engineering
 
 on:
   pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
     paths:
       - '**.js'
       - '**.ts'
@@ -20,7 +26,7 @@ on:
 
 jobs:
   codeowners-docs-engineering:
-    if: ${{ github.repository == 'github/docs-internal' }}
+    if: ${{ github.repository == 'github/docs-internal' && !github.event.pull_request.draft }}
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.DOCS_BOT_FR }}

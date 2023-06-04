@@ -41,7 +41,7 @@ To create a new repository role, you add permissions to an inherited role and gi
 {% data reusables.organizations.org-settings-repository-roles %}
 1. To the right of the role you want to edit, click {% octicon "kebab-horizontal" aria-label="Show custom role actions" %}, then click **Edit**.
 
-  ![Screenshot of the list of custom roles for an organization. To the right of a role, a kebab icon is outlined in dark orange.](/assets/images/help/organizations/repository-role-edit-setting.png)
+   ![Screenshot of the list of custom roles for an organization. To the right of a role, a kebab icon is outlined in dark orange.](/assets/images/help/organizations/repository-role-edit-setting.png)
 1. Edit, then click **Update role**.
 
 ## Deleting a repository role

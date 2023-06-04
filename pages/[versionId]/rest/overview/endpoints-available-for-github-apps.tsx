@@ -1,1 +1,4 @@
-export { default, getServerSideProps } from 'src/rest/pages/endpoints-available-for-github-apps'
+export {
+  default,
+  getServerSideProps,
+} from 'src/github-apps/pages/endpoints-available-for-github-apps'
