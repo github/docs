@@ -44,20 +44,20 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. If you don't already have a local copy of your repository, navigate to the location where you want to store your site's source files, replacing PARENT-FOLDER with the folder you want to contain the folder for your repository.
-  ```shell
-  $ cd PARENT-FOLDER
-  ```
+   ```shell
+   $ cd PARENT-FOLDER
+   ```
 1. If you haven't already, initialize a local Git repository, replacing REPOSITORY-NAME with the name of your repository.
-  ```shell
-  $ git init REPOSITORY-NAME
-  > Initialized empty Git repository in /Users/octocat/my-site/.git/
-  # Creates a new folder on your computer, initialized as a Git repository
-  ```
-  4. Change directories to the repository.
-  ```shell
-  $ cd REPOSITORY-NAME
-  # Changes the working directory
-  ```
+   ```shell
+   $ git init REPOSITORY-NAME
+   > Initialized empty Git repository in /Users/octocat/my-site/.git/
+   # Creates a new folder on your computer, initialized as a Git repository
+   ```
+1. Change directories to the repository.
+   ```shell
+   $ cd REPOSITORY-NAME
+   # Changes the working directory
+   ```
 {% data reusables.pages.decide-publishing-source %}
 {% data reusables.pages.navigate-publishing-source %}
   For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.

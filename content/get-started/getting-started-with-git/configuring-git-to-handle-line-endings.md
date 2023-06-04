@@ -110,22 +110,22 @@ When you set the `core.autocrlf` option or commit a *.gitattributes* file, you m
 To ensure that all the line endings in your repository match your new configuration, backup your files with Git, delete all files in your repository (except the `.git` directory), then restore the files all at once.
 
 1. Save your current files in Git, so that none of your work is lost.
-  ```shell
-  $ git add . -u
-  $ git commit -m "Saving files before refreshing line endings"
-  ```
+   ```shell
+   $ git add . -u
+   $ git commit -m "Saving files before refreshing line endings"
+   ```
 2. Add all your changed files back and normalize the line endings.
-  ```shell
-  $ git add --renormalize .
-  ```
+   ```shell
+   $ git add --renormalize .
+   ```
 3. Show the rewritten, normalized files.
-  ```shell
-  $ git status
-  ```
+   ```shell
+   $ git status
+   ```
 4. Commit the changes to your repository.
-  ```shell
-  $ git commit -m "Normalize all the line endings"
-  ```
+   ```shell
+   $ git commit -m "Normalize all the line endings"
+   ```
 
 ## Further reading
 

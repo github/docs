@@ -1,6 +1,6 @@
 ---
 title: About marketplace badges
-intro: 'Learn about the badges that you may see for some apps and actions listings on {% data variables.product.prodname_marketplace %}.'
+intro: 'Learn about the badges that you may see for some apps listings on {% data variables.product.prodname_marketplace %}.'
 redirect_from:
   - /developers/github-marketplace/about-verified-creator-badges
   - /developers/github-marketplace/about-marketplace-badges
@@ -9,7 +9,8 @@ versions:
   fpt: '*'
   ghec: '*'
 ---
-## For {% data variables.product.prodname_github_apps %}
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
 
 Certain apps on the {% data variables.product.prodname_marketplace %} have the {% octicon "verified" aria-label="The verified badge" %} badge and a tooltip that says "Publisher domain and email verified". This means that the app is owned by an organization that has:
 
@@ -32,11 +33,3 @@ Some apps on the {% data variables.product.prodname_marketplace %} have the {% o
 For more information about the requirements for listing an app on {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/requirements-for-listing-an-app)."
 
 For information on finding apps to use, see "[AUTOTITLE](/search-github/searching-on-github/searching-github-marketplace)."
-
-## For {% data variables.product.prodname_actions %}
-
-Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
-
-![Screenshot of {% data variables.product.prodname_actions %} with the verified creator badge.](/assets/images/marketplace/verified-creator-badge-for-actions.png)
-
-For information on how to publish a {% data variables.product.company_short %} action to {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace)."

@@ -96,6 +96,7 @@ The following properties are supported in `qlpack.yml` files.
   ```yaml
   dependencies:
     codeql/cpp-all: ^0.0.2`
+  ```
 
 #### `defaultSuiteFile`
 
@@ -114,7 +115,7 @@ The following properties are supported in `qlpack.yml` files.
     queries: .
     exclude:
       precision: medium
-  ```    
+  ```
   
 #### `library`
 

@@ -11,6 +11,9 @@ redirect_from:
   - /developers/github-marketplace/customer-experience-best-practices-for-apps
   - /developers/github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 If you follow these best practices it will help you to provide a good customer experience.
 
 ## Customer communication

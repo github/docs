@@ -131,6 +131,17 @@ The `autobuild` process tries to determine the build system for Java codebases b
 1. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
 1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
 
+{% ifversion codeql-swift-beta %}
+### Swift
+
+| Supported system type | System name |
+|----|----|
+| Operating system | macOS |
+| Build system | Xcode |
+
+The `autobuild` process tries to build the biggest target from an Xcode project or workspace.
+{% endif %}
+
 ## Adding build steps for a compiled language
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#editing-a-code-scanning-workflow)."
@@ -164,3 +175,17 @@ For more information about the `if` conditional, see "[AUTOTITLE](/actions/using
 For more tips and tricks about why `autobuild` won't build your code, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)."
 
 If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
+
+{% ifversion codeql-swift-beta %} 
+### Considerations for building Swift
+
+{% data reusables.code-scanning.beta-swift-support %}
+
+Code scanning of Swift code uses macOS runners by default. Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+
+`xcodebuild` and `swift build` are both supported for Swift builds. We recommend only targeting one architecture during the build. For example, `ARCH=arm64` for `xcodebuild`, or `--arch arm64` for `swift build`.
+
+You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that CodeQL requires for a successful scan.
+
+For Swift analysis, you must always explicitly install dependencies managed via CocoaPods or Carthage before generating the {% data variables.product.prodname_codeql %} database.
+{% endif %}

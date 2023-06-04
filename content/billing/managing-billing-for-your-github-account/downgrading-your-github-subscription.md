@@ -39,7 +39,7 @@ If you downgrade your personal account from {% data variables.product.prodname_p
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
 1. Under "Current plan", use the **Edit** drop-down and click **Downgrade to Free**.
-  ![Screenshot of the "Current plan" section of the billing settings page. The "Edit" dropdown menu is expanded and highlighted with an orange outline.](/assets/images/help/billing/downgrade-to-free.png)
+   ![Screenshot of the "Current plan" section of the billing settings page. The "Edit" dropdown menu is expanded and highlighted with an orange outline.](/assets/images/help/billing/downgrade-to-free.png)
 5. Read the information about the features your personal account will no longer have access to on your next billing date, then click **I understand. Continue with downgrade**.
 
 If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, remove or update your DNS records before downgrading from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, to avoid the risk of a domain takeover. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)."
@@ -61,7 +61,7 @@ Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SA
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Current plan", use the **Edit** drop-down and click the downgrade option you want.
-  ![Screenshot of the "Current plan" section of the billing settings page. The "Edit" dropdown menu is expanded and highlighted with an orange outline.](/assets/images/help/billing/downgrade-to-free.png)
+   ![Screenshot of the "Current plan" section of the billing settings page. The "Edit" dropdown menu is expanded and highlighted with an orange outline.](/assets/images/help/billing/downgrade-to-free.png)
 {% data reusables.dotcom_billing.confirm_cancel_org_plan %}
 
 ## Downgrading an organization's subscription with legacy per-repository pricing

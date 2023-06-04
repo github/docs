@@ -1,6 +1,6 @@
 ---
 title: Reviewing and modifying installed GitHub Apps
-shortTitle: Review and modify
+shortTitle: Review installations
 intro: "You can review the permissions and change the repository access for {% data variables.product.prodname_github_app %}s that you have installed. You can also temporarily or permanently prevent a {% data variables.product.prodname_github_app %} from accessing resources owned by your account or organization."
 versions:
   fpt: '*'

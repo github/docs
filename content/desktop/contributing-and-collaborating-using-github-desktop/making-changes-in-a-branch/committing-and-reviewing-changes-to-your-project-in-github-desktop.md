@@ -19,7 +19,7 @@ shortTitle: Commit & review changes
 
 1. [Create a new branch](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches-in-github-desktop), or select an existing branch by clicking {% octicon "git-branch" aria-hidden="true" %} **Current Branch** on the toolbar and selecting the branch from the list.
 
-  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
+   ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
 ## Choosing how to display diffs
@@ -107,7 +107,7 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
   ![Screenshot of the "Changes" tab in the sidebar. To the right of a profile picture, a text field containing a commit message is outlined in orange.](/assets/images/help/desktop/commit-message.png)
 1. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
 
-  ![Screenshot of the "Changes" tab. In the corner of the "Description" field, a "person with a plus sign" icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)
+   ![Screenshot of the "Changes" tab. In the corner of the "Description" field, a "person with a plus sign" icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
 4. If the branch you're trying to commit to is protected, Desktop will warn you.
     - To move your changes, click **switch branches**.

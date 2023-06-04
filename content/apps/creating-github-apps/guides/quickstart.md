@@ -40,7 +40,7 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
 1. Click **Start a new channel**.
 1. Copy the full URL under "Webhook Proxy URL". You will use this URL in a later step.
 
-## Step 3: Create a {% data variables.product.prodname_github_app %}
+## Step 3: Register a {% data variables.product.prodname_github_app %}
 
 The following steps will guide you through configuring the app settings that are required for this quickstart. For more information about the settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
@@ -160,3 +160,7 @@ You should never publicize your app's private key or webhook secret. This tutori
 ### Share your app
 
 If you want to share your app with other users and organizations, make your app public. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private)."
+
+### Follow best practices
+
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."

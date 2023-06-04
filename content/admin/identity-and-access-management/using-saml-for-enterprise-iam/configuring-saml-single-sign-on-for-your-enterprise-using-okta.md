@@ -25,6 +25,8 @@ You can control access to your enterprise account in {% data variables.product.p
 
 SAML SSO controls and secures access to enterprise account resources like organizations, repositories, issues, and pull requests. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
 
+{% data reusables.saml.no-scim-for-enterprises %}
+
 {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
 Alternatively, you can also configure SAML SSO using Okta for an organization that uses {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/configuring-saml-single-sign-on-and-scim-using-okta)."

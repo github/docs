@@ -27,7 +27,7 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 1. Navigate to the comment you'd like to hide.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
 
-  ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Hide" is outlined in orange.](/assets/images/help/repository/comment-menu-hide.png)
+   ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Hide" is outlined in orange.](/assets/images/help/repository/comment-menu-hide.png)
 
 3. Using the "Choose a reason" dropdown menu, choose a reason to hide the comment. Then select **Hide comment**.
   {% ifversion fpt or ghec %}
@@ -93,7 +93,7 @@ Deleting a comment creates a timeline event that is visible to anyone with read 
 
 1. Navigate to the comment you'd like to delete.
 2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-  ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Delete" is outlined in orange.](/assets/images/help/repository/comment-menu-delete.png)
+   ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Delete" is outlined in orange.](/assets/images/help/repository/comment-menu-delete.png)
 3. Optionally, write a comment noting that you deleted a comment and why.
 
 {% ifversion fpt or ghec %}

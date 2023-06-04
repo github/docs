@@ -624,6 +624,7 @@ Each release note in a set describes one of the following changes.
 - [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
 - [Changes](#changes): notable changes to past behavior
 - [Deprecations](#deprecations): removal of a feature or behavior
+- [Errata](#errata): correction to inaccurate release note or documentation
 
 You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note).
 
@@ -785,9 +786,30 @@ A release note for a deprecation answers the following questions.
 
 - > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
 
+### Errata
+
+Errata corrects inaccurate information previously published in the release notes or documentation for a release.
+
+#### Writing errata
+
+Errata answers the following questions.
+
+1. If applicable, which section of the release notes or content on GitHub Docs was affected?
+1. Did the incorrect information apply to me, with my role or access?
+1. What did the release note or documentation describe that was incorrect?
+1. When was the errata published?
+
+> _CONTENT_ (**1**) incorrectly indicated that _AUDIENCE_ (**2**) can _SUMMARY OF INACCURATE INFORMATION_ (**3**). [Updated: _PUBLICATION DATE_ **4**]
+
+- Format the publication date according to the guidance in [Adding or updating a release note](#adding-or-updating-a-release-note).
+
+#### Example of errata
+
+- > "[Features]()" incorrectly indicated that users of the GitHub Advisory Database can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
+
 ### Adding or updating a release note
 
-If you add or update an individual release note after initial publication, to signal to readers that the note has changed, append a datestamp in the format "[Updated: YYYY-MM-DD]".
+To signal to readers that you've added or changed a note, or to indicate the publication date of errata, append a datestamp in the format "[Updated: YYYY-MM-DD]".
 
 ## Reusables and variables
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.

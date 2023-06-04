@@ -14,6 +14,9 @@ topics:
   - Marketplace
 shortTitle: REST API
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 Here are some useful endpoints available for Marketplace listings:
 
 * [List plans](/rest/apps#list-plans)

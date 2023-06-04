@@ -23,7 +23,7 @@ When you copy a project, the new project will contain the same views and custom 
 1. Navigate to the project you want to copy.
 1. In the top-right, click {% octicon "kebab-horizontal" aria-label="More options" %} to open the menu.
 
-  ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
+   ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
 
 1. In the menu, click {% octicon "copy" aria-hidden="true" %} **Make a copy**.  
 1. Optionally, if you want all draft issues to be copied with the project, in the "Make a copy" dialog, select **Draft issues will be copied if selected**.

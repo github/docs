@@ -11,7 +11,7 @@ shortTitle: Install from third party
 
 {% ifversion ghes or ghae %}
 
-You cannot install third-party {% data variables.product.prodname_github_app %}s on organizations owned by your enterprise. If you want to use the functionality of a third-party {% data variables.product.prodname_github_app %}, you can contact the app developer about creating an app from a manifest or from URL parameters. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters)." Once you create the {% data variables.product.prodname_github_app %} from the manifest or URL parameters, you will install your app and share your app credentials with the third party.
+You cannot install third-party {% data variables.product.prodname_github_app %}s on organizations owned by your instance.{% ifversion ghes %} If you want to use the functionality of a third-party {% data variables.product.prodname_github_app %}, you can contact the app developer about making the {% data variables.product.prodname_github_app %} available for {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server)."{% endif %}
 
 For more information about installing {% data variables.product.prodname_github_app %}s that you own, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-your-own-github-app)."
 
@@ -19,9 +19,7 @@ For more information about installing {% data variables.product.prodname_github_
 
 ## About installing {% data variables.product.prodname_github_app %}s
 
-{% ifversion ghec or fpt %}
-This article describes how to install a {% data variables.product.prodname_github_app %} directly from the app owner instead of from {% data variables.product.prodname_marketplace %}. For more information on installing {% data variables.product.prodname_github_app %}s from {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-personal-account)" and "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-organization)."
-{% endif %}
+This article describes how to install a {% data variables.product.prodname_github_app %} directly from the app owner instead of from {% data variables.product.prodname_marketplace %}. For more information on installing {% data variables.product.prodname_github_app %}s from {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-personal-account)" and "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-in-your-organization)." For more information about installing {% data variables.product.prodname_github_app %}s that you own, see "[AUTOTITLE](/apps/maintaining-github-apps/installing-your-own-github-app)."
 
 {% data reusables.apps.about-installation %}
 
@@ -57,6 +55,6 @@ During the installation process, the app owner will direct you to a {% data vari
 
    If the app creates any repositories, the app will automatically be granted access to those repositories as well.
 1. Review the permissions that the app is requesting. For more information about the REST API requests the {% data variables.product.prodname_github_app %} can make with those permissions, see "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)."
-1. Click **Install**, **Install and request**, or **Request**. The button that is presented depends on whether your organization owner must approve some or all of the requested access for the app.
+1. Click **Install**, **Install and request**, or **Request**. The button that is presented depends on whether your organization owner must approve none, some, or all of the requested access for the app. For more information, see "[Requirements to install a {% data variables.product.prodname_github_app %}](#requirements-to-install-a-github-app)."
 
 {% endif %}

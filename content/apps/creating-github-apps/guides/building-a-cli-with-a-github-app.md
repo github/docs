@@ -33,7 +33,7 @@ There are two ways to generate a user access token for a {% data variables.produ
 
 ## Prerequisites
 
-This tutorial assumes that you have already created a {% data variables.product.prodname_github_app %}. For more information about creating an app, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
+This tutorial assumes that you have already registered a {% data variables.product.prodname_github_app %}. For more information about registering a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
 
 Before following this tutorial, you must enable device flow for your app. For more information about enabling device flow for your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
@@ -750,3 +750,7 @@ This tutorial generates a user access token and saves it in a local file. You sh
 Depending on your device, you may choose different way to store the token. You should check the best practices for storing tokens on your device.
 
 For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
+
+### Follow best practices
+
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."

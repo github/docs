@@ -27,7 +27,7 @@ Organization-level roles are sets of permissions that can be assigned to individ
 
 ## About organization roles
 
-You can assign individuals or teams to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
+You can assign people to a variety of organization-level roles to control your members' access to your organization and its resources. For more details about the individual permissions included in each role, see "[Permissions for organization roles](#permissions-for-organization-roles)."
 
 {% ifversion enterprise-owner-join-org %}
 If your organization is owned by an enterprise account, enterprise owners can choose to join your organization with any role. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
@@ -58,9 +58,9 @@ Billing managers are users who can manage the billing settings for your organiza
 If your organization has a security team, you can use the security manager role to give members of the team the least access they need to the organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 {% endif %}
 ### {% data variables.product.prodname_github_app %} managers
-By default, only organization owners can manage the settings of {% data variables.product.prodname_github_apps %} owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_apps %} owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
+By default, only organization owners can manage the settings of {% data variables.product.prodname_github_app %} registrations owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_app %} registrations owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
 
-When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_apps %} owned by the organization. The {% data variables.product.prodname_github_app %} manager role does not grant users access to install and uninstall {% data variables.product.prodname_github_apps %} on an organization. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization)."
+When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_app %} registrations owned by the organization. The {% data variables.product.prodname_github_app %} manager role does not grant users access to install and uninstall {% data variables.product.prodname_github_apps %} on an organization. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization)."
 
 ### Outside collaborators
 To keep your organization's data secure while allowing access to repositories, you can add *outside collaborators*. {% data reusables.organizations.outside_collaborators_description %}

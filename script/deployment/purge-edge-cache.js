@@ -1,6 +1,6 @@
 import got from 'got'
 
-// Because we use Origin Shielding, it's recommended that you purge twice
+// Because we use shielding, it's recommended that you purge twice
 // so it purges the edge nodes *and* the origin.
 // The documentation says:
 //
@@ -10,8 +10,8 @@ import got from 'got'
 //    key purges, around 2 seconds apart.
 //
 // See https://developer.fastly.com/learning/concepts/purging/#shielding
-const DELAY_BEFORE_FIRST_PURGE = 5 * 1000
-const DELAY_BEFORE_SECOND_PURGE = 30 * 1000
+const DELAY_BEFORE_FIRST_PURGE = 0 * 1000
+const DELAY_BEFORE_SECOND_PURGE = 2 * 1000
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -62,8 +62,7 @@ export default async function purgeEdgeCache(
   const firstPurge = await purgeFastlyBySurrogateKey(purgingParams)
   console.log('First Fastly purge result:', firstPurge.body || firstPurge)
 
-  // Evidence has shown that it's necessary to purge twice to ensure all
-  // customers see fresh content.
+  // See comment above about why we purge twice. (Hint, it's shielding)
   if (purgeTwice) {
     console.log('Waiting to purge a second time...')
     await sleep(delayBeforeSecondPurge)
