@@ -143,6 +143,12 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
        Host {% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}
          IgnoreUnknown UseKeychain
        ```
+
+     - For MacOS Ventura 13, the above `~/.ssh/config` changes do not work. Passphrases are still needed when trying to push to github remotes. The following command needs to be added to the `.zshrc` file:
+
+       ```
+       ssh-add --apple-load-keychain -q
+       ```
      {% endnote %}
 
 1. Add your SSH private key to the ssh-agent and store your passphrase in the keychain. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
