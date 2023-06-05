@@ -26,7 +26,6 @@ You cannot comment on a pull request from {% data variables.product.prodname_des
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.click-pull-requests %}
-   ![Screenshot of the "Current Branch" dropdown menu. A tab, labeled "Pull Requests", is highlighted with an orange outline.](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
 {% data reusables.desktop.choose-pr-from-list %}
 
    Optionally, to refresh the list of pull requests, click {% octicon "sync" aria-label="The sync icon" %}.

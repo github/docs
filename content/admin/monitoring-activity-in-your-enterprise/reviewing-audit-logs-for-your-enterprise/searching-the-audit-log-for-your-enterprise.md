@@ -55,7 +55,7 @@ Filter| Description
 
 You can compose a search query from one or more `key:value` pairs, separated by AND/OR logical operators. For example, to see all actions that have affected the repository `octocat/Spoon-Knife` since the beginning of 2017:
 
-  `repo:"octocat/Spoon-Knife" AND created:>=2017-01-01`
+`repo:"octocat/Spoon-Knife" AND created:>=2017-01-01`
 
 The `key:value` pairs that can be used in a search query are:
 

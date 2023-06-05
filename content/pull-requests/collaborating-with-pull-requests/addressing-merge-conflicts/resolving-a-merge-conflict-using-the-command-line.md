@@ -62,9 +62,9 @@ For example, if you and another person both edited the file _styleguide.md_ on t
    ```
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In this example, both changes are incorporated into the final merge:
 
-  ```shell
-  If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
-  ```
+   ```shell
+   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
+   ```
 7. Add or stage your changes.
    ```shell
    $ git add .

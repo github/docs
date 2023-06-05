@@ -83,13 +83,13 @@ For example, a code linting app could use requested actions to display a button 
 
 To create a button that can request additional actions from your app, use the [`actions` object](/rest/checks#create-a-check-run--parameters) when you [Create a check run](/rest/checks#create-a-check-run). For example, the `actions` object below displays a button in the **Checks** tab of a pull request with the label "Fix this." The button appears after the check run completes.
 
-   ```json
-  "actions": [{
-      "label": "Fix this",
-      "description": "Let us fix that for you",
-      "identifier": "fix_errors"
-    }]
-  ```
+```json
+"actions": [{
+  "label": "Fix this",
+  "description": "Let us fix that for you",
+  "identifier": "fix_errors"
+}]
+```
 
 When a user clicks the button, {% data variables.product.prodname_dotcom %} sends the [`check_run.requested_action` webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) to your app. When your app receives a `check_run.requested_action` webhook event, it can look for the `requested_action.identifier` key in the webhook payload to determine which button was clicked and perform the requested task.
 

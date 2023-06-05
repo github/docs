@@ -384,7 +384,6 @@ Errors with `body` will be prefixed with `body[i]` where `i` represents the inde
 
 The `label` below is being parsed as a Boolean, but it should be a string.
 
-
 ```yaml
 body:
 - type: markdown

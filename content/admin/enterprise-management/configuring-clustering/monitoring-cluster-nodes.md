@@ -80,12 +80,12 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
 
 4. Validate and copy the configuration to each node in the cluster by running `ghe-cluster-config-apply` on the node where you modified the `/data/user/common/authorized_keys` file.
 
-  ```shell
-  admin@ghe-data-node-0:~$ ghe-cluster-config-apply
-  > Validating configuration
-  > ...
-  > Finished cluster configuration
-  ```
+   ```shell
+   admin@ghe-data-node-0:~$ ghe-cluster-config-apply
+   > Validating configuration
+   > ...
+   > Finished cluster configuration
+   ```
 
 5. To test that the Nagios plugin can successfully execute the command, run it interactively from Nagios host.
    ```shell

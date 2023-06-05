@@ -48,9 +48,9 @@ When you publish a package that is scoped to a personal account or an organizati
 
 2. Build your container image. This example builds an image from the Dockerfile in the current directory and assigns the image name `hello_docker`.
 
-  ```shell
-  $ docker build -t hello_docker .
-  ```
+   ```shell
+   $ docker build -t hello_docker .
+   ```
 
 3. Optionally, review the details of the Docker image you just created.
    ```shell
