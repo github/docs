@@ -2,23 +2,18 @@ import languages from '../lib/languages.js'
 import enterpriseServerReleases from '../lib/enterprise-server-releases.js'
 import { allVersions } from '../lib/all-versions.js'
 import { productMap } from '../lib/all-products.js'
-import pathUtils from '../lib/path-utils.js'
-import productNames from '../lib/product-names.js'
-import warmServer from '../lib/warm-server.js'
-import searchVersions from '../src/search/lib/versions.js'
-import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
-import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
-
-const activeProducts = Object.values(productMap).filter(
-  (product) => !product.wip && !product.hidden
-)
-const {
+import {
   getVersionStringFromPath,
   getProductStringFromPath,
   getCategoryStringFromPath,
   getPathWithoutLanguage,
   getPathWithoutVersion,
-} = pathUtils
+} from '../lib/path-utils.js'
+import productNames from '../lib/product-names.js'
+import warmServer from '../lib/warm-server.js'
+import searchVersions from '../src/search/lib/versions.js'
+import nonEnterpriseDefaultVersion from '../lib/non-enterprise-default-version.js'
+import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
 
 // This doesn't change just because the request changes, so compute it once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
@@ -42,7 +37,6 @@ export default async function contextualize(req, res, next) {
   req.context.currentProduct = getProductStringFromPath(req.pagePath)
   req.context.currentCategory = getCategoryStringFromPath(req.pagePath)
   req.context.productMap = productMap
-  req.context.activeProducts = activeProducts
   req.context.allVersions = allVersions
   req.context.currentPathWithoutLanguage = getPathWithoutLanguage(req.pagePath)
 

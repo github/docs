@@ -66,13 +66,6 @@ async function testJSONParameters() {
     assert(/enterprise-server@\d/.test(info))
   }
 
-  // activeProducts
-  {
-    const res = await get('/en?json=activeProducts')
-    const activeProducts = JSON.parse(res.body)
-    assert(Array.isArray(activeProducts))
-  }
-
   // currentProduct (home page)
   {
     const res = await get('/en?json=currentProduct')
