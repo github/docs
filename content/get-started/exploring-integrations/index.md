@@ -15,6 +15,7 @@ versions:
   ghes: '*'
 children:
   - /about-integrations
+  - /about-webhooks
   - /about-github-marketplace
   - /github-extensions-and-integrations
   - /github-developer-program
