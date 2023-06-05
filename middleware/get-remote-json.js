@@ -3,7 +3,7 @@ import fs from 'fs'
 import crypto from 'crypto'
 
 import got from 'got'
-import statsd from '../src/observability/lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 
 // The only reason this is exported is for the sake of the unit tests'
 // ability to test in-memory miss after purging this with a mutation

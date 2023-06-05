@@ -1,8 +1,8 @@
 import express from 'express'
 
-import statsd from '../../src/observability/lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 import { defaultCacheControl } from '../../middleware/cache-control.js'
-import catchMiddlewareError from '../../src/observability/middleware/catch-middleware-error.js'
+import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import {
   SURROGATE_ENUMS,
   setFastlySurrogateKey,

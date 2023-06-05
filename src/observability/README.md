@@ -1,19 +1,7 @@
-# OBSERVABILITY
+# Observability
 
-TBD what is OBSERVABILITY
+Observability, for lack of simpler term, is our ability to collect data about how the Docs operates. These tools allow us to monitor the health of our systems, catch any errors, and get paged if a system stops working. 
 
-## What OBSERVABILITY does
+In this directory we have files that connect us to our observability tools, as well as high-level error handling that helps keep our systems resilient.
 
-TBD why is OBSERVABILITY on the docs
-
-## How OBSERVABILITY works
-
-TBD step-by-step instructions to work on OBSERVABILITY
-
-## How to work on OBSERVABILITY
-
-TBD step-by-step instructions on how to work on OBSERVABILITY
-
-## How to get help for OBSERVABILITY
-
-TBD reference material
+We collect data in our observability systems to track the health of the Docs systems, not to track user behaviors. User behavior data collection is under the `src/events` directory.
