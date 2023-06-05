@@ -205,9 +205,10 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 
 Action                        | Description
 ----------------------------- | -----------------------------------------------
-| `business_secret_scanning_custom_pattern.create` | An enterprise-level custom pattern is published for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
-| `business_secret_scanning_custom_pattern.delete` | An enterprise-level custom pattern is removed from {% data variables.product.prodname_secret_scanning %}.
-| `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern are saved for {% data variables.product.prodname_secret_scanning %}.
+| `business_secret_scanning_custom_pattern.create` | An enterprise-level custom pattern was created for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
+| `business_secret_scanning_custom_pattern.delete` | An enterprise-level custom pattern was removed from {% data variables.product.prodname_secret_scanning %}.
+| `business_secret_scanning_custom_pattern.publish` | An enterprise-level custom pattern was published for {% data variables.product.prodname_secret_scanning %}.
+| `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern were saved and a dry run was executed for {% data variables.product.prodname_secret_scanning %}.
 {%- endif %}
 
 {%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
@@ -817,9 +818,10 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|---------------
-| `org_secret_scanning_custom_pattern.create` | A custom pattern is published for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
-| `org_secret_scanning_custom_pattern.delete` | A custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
-| `org_secret_scanning_custom_pattern.update` |Changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `org_secret_scanning_custom_pattern.create` | A custom pattern was created for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `org_secret_scanning_custom_pattern.delete` | A custom pattern was removed from {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+| `org_secret_scanning_custom_pattern.publish` | A custom pattern was published for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `org_secret_scanning_custom_pattern.update` | Changes to a custom pattern were saved and a dry run was executed for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 {%- endif %}
 
 ## `organization_default_label` category actions
@@ -1179,9 +1181,10 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |------------------|-------------------
-| `repository_secret_scanning_custom_pattern.create` | A custom pattern is published for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
-| `repository_secret_scanning_custom_pattern.delete` | A custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
-| `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."{%- endif %}
+| `repository_secret_scanning_custom_pattern.create` | A custom pattern was created for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+| `repository_secret_scanning_custom_pattern.delete` | A custom pattern was removed from {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+| `repository_secret_scanning_custom_pattern.publish` | A custom pattern was published for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+| `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern were saved and a dry run was executed for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."{%- endif %}
 
 {%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
 
@@ -1198,8 +1201,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |------------------|-------------------
-| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator  disabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator  enabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
 ## `repository_visibility_change` category actions
 
