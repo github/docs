@@ -105,7 +105,7 @@ For example, if you edited a file, such as *README.md*, and another person remov
    > # no changes added to commit (use "git add" and/or "git commit -a")
    ```
 3. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
-6. Decide if you want keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
+6. Decide if you want to keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
 
    To add the removed file back to your repository:
    ```shell
