@@ -1,7 +1,10 @@
 import FailBot from '../lib/failbot.js'
-import { nextApp } from './next.js'
-import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
-import { errorCacheControl } from './cache-control.js'
+import { nextApp } from '../../../middleware/next.js'
+import {
+  setFastlySurrogateKey,
+  SURROGATE_ENUMS,
+} from '../../../middleware/set-fastly-surrogate-key.js'
+import { errorCacheControl } from '../../../middleware/cache-control.js'
 
 const DEBUG_MIDDLEWARE_TESTS = Boolean(JSON.parse(process.env.DEBUG_MIDDLEWARE_TESTS || 'false'))
 

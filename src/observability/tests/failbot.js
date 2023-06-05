@@ -1,4 +1,4 @@
-import FailBot from '../../lib/failbot.js'
+import FailBot from '../lib/failbot.js'
 import nock from 'nock'
 
 describe('FailBot', () => {
