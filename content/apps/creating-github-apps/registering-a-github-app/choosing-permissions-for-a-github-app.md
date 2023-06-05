@@ -1,7 +1,7 @@
 ---
 title: Choosing permissions for a GitHub App
 shortTitle: Permissions
-intro: "The permissions of a GitHub App determine what the app can do with {% data variables.product.company_short %}'s APIs and what webhooks the app can receive."
+intro: 'The permissions of a GitHub App determine what the app can do with {% data variables.product.company_short %}''s APIs and what webhooks the app can receive.'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-permissions-for-github-apps
   - /apps/building-github-apps/permissions-for-github-apps
@@ -10,6 +10,7 @@ redirect_from:
   - /developers/apps/building-github-apps/setting-permissions-for-github-apps
   - /apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps
   - /apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app
+  - /apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app
 versions:
   fpt: '*'
   ghes: '*'

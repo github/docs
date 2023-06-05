@@ -6,6 +6,7 @@ redirect_from:
   - /apps/quickstart-guides/using-the-github-api-in-your-app
   - /developers/apps/using-the-github-api-in-your-app
   - /developers/apps/guides/using-the-github-api-in-your-app
+  - /apps/creating-github-apps/guides/using-the-github-api-in-your-app
 versions:
   fpt: '*'
   ghes: '*'
