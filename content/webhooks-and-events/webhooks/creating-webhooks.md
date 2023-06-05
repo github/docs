@@ -48,6 +48,8 @@ Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
 
 You can install webhooks on an organization or on a specific repository.
 
+{% data reusables.organizations.owners-and-admins-can %} manage webhooks for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
+
 To set up a webhook, go to the settings page of your repository or organization. From there, click **Webhooks**, then **Add webhook**.
 
 Alternatively, you can choose to build and manage a webhook [through the Webhooks API][webhook-api].
@@ -97,3 +99,9 @@ To configure a webhook for all events, use the wildcard (`*`) character to speci
 [webhooks-overview]: /webhooks-and-events/webhooks/about-webhooks
 [webhook-api]: /rest/repos#hooks
 [hooks-api]: /webhooks-and-events/webhooks/about-webhooks#events
+
+### Ping event
+
+{% data reusables.webhooks.ping_short_desc %}
+
+For more information about the `ping` event webhook payload, see the [`ping`](/webhooks-and-events/webhooks/webhook-events-and-payloads#ping) event.
