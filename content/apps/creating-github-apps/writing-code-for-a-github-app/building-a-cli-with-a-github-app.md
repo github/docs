@@ -1,7 +1,7 @@
 ---
 title: Building a CLI with a GitHub App
 shortTitle: Build a CLI
-intro: "Follow this tutorial to write a CLI in Ruby that generates a user access token for a {% data variables.product.prodname_github_app %} via the device flow."
+intro: 'Follow this tutorial to write a CLI in Ruby that generates a user access token for a {% data variables.product.prodname_github_app %} via the device flow.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -9,6 +9,8 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
+redirect_from:
+  - /apps/creating-github-apps/guides/building-a-cli-with-a-github-app
 ---
 
 ## Introduction

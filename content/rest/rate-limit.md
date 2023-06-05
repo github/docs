@@ -21,7 +21,9 @@ The REST API for searching items has a custom rate limit that is separate from t
 
 * The `core` object provides your rate limit status for all non-search-related resources in the REST API.
 
-* The `search` object provides your rate limit status for the REST API for searching.
+* The `search` object provides your rate limit status for the REST API for searching (excluding code searches). For more information, see "[AUTOTITLE](/rest/search)."
+
+* The `code_search` object provides your rate limit status for the REST API for searching code. For more information, see "[AUTOTITLE](/rest/search#search-code)."
 
 * The `graphql` object provides your rate limit status for the GraphQL API.
 

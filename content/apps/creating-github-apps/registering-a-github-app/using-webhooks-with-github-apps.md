@@ -11,6 +11,7 @@ topics:
   - GitHub Apps
 redirect_from:
   - /apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps
+  - /apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps
 ---
 
 ## About webhooks and {% data variables.product.prodname_github_apps %}

@@ -9,6 +9,7 @@ redirect_from:
   - /developers/apps/rate-limits-for-github-apps
   - /developers/apps/building-github-apps/rate-limits-for-github-apps
   - /apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps
+  - /apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps
 versions:
   fpt: '*'
   ghes: '*'
