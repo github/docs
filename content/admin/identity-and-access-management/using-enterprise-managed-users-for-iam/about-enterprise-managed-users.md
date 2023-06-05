@@ -129,8 +129,8 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
    To get started, read the guide for your chosen authentication method.
 
-   - "[Configuring OIDC for Enterprise Managed Users](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
-   - "[Configuring SAML single sign-on for Enterprise Managed Users](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
+   - "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users)."
+   - "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-with-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
    {%- endif %}
 
 4. Once you have configured SSO, you can configure SCIM provisioning. SCIM is how your identity provider will create {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom_the_website %}. For more information on configuring SCIM provisioning, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."

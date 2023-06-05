@@ -69,7 +69,7 @@ If you have installed and signed in to {% data variables.product.prodname_mobile
    {% endnote %}
 
    - Upon approving the login attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sign in attempt automatically.
-   - Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[Keeping your account and data secure](/authentication/keeping-your-account-and-data-secure)."
+   - Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)."
 
 {% endif %}
 
