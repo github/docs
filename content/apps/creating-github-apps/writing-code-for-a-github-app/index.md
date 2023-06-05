@@ -20,6 +20,6 @@ children:
   - /building-a-cli-with-a-github-app
   - /setting-up-your-development-environment-to-create-a-github-app
   - /using-the-github-api-in-your-app
-  - /creating-ci-tests-with-the-checks-api
+  - /building-ci-checks-with-a-github-app
 ---
 

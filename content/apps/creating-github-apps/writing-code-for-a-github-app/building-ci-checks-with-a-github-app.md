@@ -6,6 +6,7 @@ redirect_from:
   - /developers/apps/creating-ci-tests-with-the-checks-api
   - /developers/apps/guides/creating-ci-tests-with-the-checks-api
   - /apps/creating-github-apps/guides/creating-ci-tests-with-the-checks-api
+  - /apps/creating-github-apps/writing-code-for-a-github-app/creating-ci-tests-with-the-checks-api
 versions:
   fpt: '*'
   ghes: '*'
