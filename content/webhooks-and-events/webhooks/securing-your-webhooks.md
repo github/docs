@@ -112,4 +112,30 @@ def verify_signature(payload_body, secret_token, signature_header):
         raise HTTPException(status_code=403, detail="Request signatures didn't match!")
 ```
 
+### Typescript example
+
+For example, you can define the following `verify_signature` function and call it when you receive a webhook payload:
+
+```javascript{:copy}
+import * as crypto from "crypto";
+
+const WEBHOOK_SECRET: string = process.env.WEBHOOK_SECRET;
+
+const verify_signature = (req: Request) => {
+  const signature = crypto
+    .createHmac("sha256", WEBHOOK_SECRET)
+    .update(JSON.stringify(req.body))
+    .digest("hex");
+  return `sha256=${signature}` === req.headers.get("x-hub-signature-256");
+};
+
+const handleWebhook = (req: Request, res: Response) => {
+  if (!verify_signature(req)) {
+    res.status(401).send("Unauthorized");
+    return;
+  }
+  // The rest of your logic here
+};
+```
+
 [secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare

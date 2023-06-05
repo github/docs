@@ -38,7 +38,7 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 {% data reusables.enterprise-accounts.license-tab %}
    The "{% data variables.product.prodname_GH_advanced_security %}" section shows details of the current usage.
 
-  If you run out of licenses, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more licenses. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
+   If you run out of licenses, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more licenses. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
 
 {% elsif ghes %}
 
@@ -50,7 +50,8 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 {% endif %}
 {%- ifversion ghas-billing-table-ui-update -%}
 1. Optionally, to see a detailed breakdown of usage per organization, in the enterprise account sidebar, click **Billing**.
-  In the “{% data variables.product.prodname_GH_advanced_security %}” section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization. The organizations in the billing table are sorted by the highest number of unique committers in descending order.
+
+   In the “{% data variables.product.prodname_GH_advanced_security %}” section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization. The organizations in the billing table are sorted by the highest number of unique committers in descending order.
 {% endif %}
 1. Optionally, display the security and analysis settings for an organization.
    - Click the name of the organization.
@@ -114,12 +115,12 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {%- ifversion ghec %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," click the **Manage** dropdown and then click **Download report**.
 
-  ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Download Report" button is highlighted with an orange outline.](/assets/images/help/enterprises/ghas-download-report.png)
+   ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Download Report" button is highlighted with an orange outline.](/assets/images/help/enterprises/ghas-download-report.png)
 
 {%- elsif ghes > 3.8 %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," click {% octicon "download" aria-hidden="true" %} **CSV report** in the header of the "Committers" table.
 
-  ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-CSV-report-ghes-3.9.png)
+   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-CSV-report-ghes-3.9.png)
 
 {%- else %}
 1. Under "{% data variables.product.prodname_GH_advanced_security %}," {% octicon "download" aria-label="The download icon" %} in the header of the "Committers" table.

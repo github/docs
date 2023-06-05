@@ -145,10 +145,10 @@ If the upgrade target you're presented with is a feature release instead of a pa
 1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (*.hpkg* file).
 {% data reusables.enterprise_installation.download-package %}
 1. Run the `ghe-upgrade` command using the package file name:
-  ```shell
-  admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
-  *** verifying upgrade package signature...
-  ```
+   ```shell
+   admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
+   *** verifying upgrade package signature...
+   ```
 1. If at least one service or system component requires a reboot, the hotpatch upgrade script notifies you. For example, updates to the kernel, MySQL, or Elasticsearch may require a reboot. 
 
 ### Upgrading an instance with multiple nodes using a hotpatch
@@ -194,18 +194,18 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   {% endnote %}
 
 1. Run the `ghe-upgrade` command using the package file name:
-  ```shell
-  admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.pkg
-  *** verifying upgrade package signature...
-  ```
+   ```shell
+   admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.pkg
+   *** verifying upgrade package signature...
+   ```
 1. Confirm that you'd like to continue with the upgrade and restart after the package signature verifies. The new root filesystem writes to the secondary partition and the instance automatically restarts in maintenance mode:
-  ```shell
-  *** applying update...
-  This package will upgrade your installation to version VERSION-NUMBER
-  Current root partition: /dev/xvda1 [VERSION-NUMBER]
-  Target root partition:  /dev/xvda2
-  Proceed with installation? [y/N]
-  ```
+   ```shell
+   *** applying update...
+   This package will upgrade your installation to version VERSION-NUMBER
+   Current root partition: /dev/xvda1 [VERSION-NUMBER]
+   Target root partition:  /dev/xvda2
+   Proceed with installation? [y/N]
+   ```
 1. After the instance restarts, the upgrade will continue in the background. You cannot unset maintenance mode until the process completes. To monitor progress, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
 
    ```shell

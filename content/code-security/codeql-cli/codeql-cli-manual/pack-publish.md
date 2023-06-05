@@ -75,6 +75,13 @@ directory. This will reduce the size of the pack and the time it takes
 to create it, but will require compilation before the pack can be run.
 Only meaningful for query packs.
 
+#### `--no-validate-extensions`
+
+\[Advanced] Avoid validating data extensions as part of the compile
+step.
+
+Available since `v2.13.3`.
+
 #### `--no-overwrite`
 
 \[Advanced] Avoid recompiling and overwriting any existing compiled

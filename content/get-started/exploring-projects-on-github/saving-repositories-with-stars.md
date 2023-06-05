@@ -81,14 +81,14 @@ You can add a repository to an existing or new list wherever you see a repositor
 {% data reusables.stars.stars-page-navigation %}
 2. Find the repository you want to add to your list by typing it into the search bar.
 3. Next to the repository you want to add, use the **Starred** dropdown menu and select your list.
-  ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
+   ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
 
 ### Removing a repository from your list
 
 {% data reusables.stars.stars-page-navigation %}
 2. Select your list.
 3. Next to the repository you want to remove, use the **Starred** drop-down menu and deselect your list.
-  ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
+   ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
 
 ### Editing a list name or description
 

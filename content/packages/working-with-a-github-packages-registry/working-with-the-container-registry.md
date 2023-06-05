@@ -62,16 +62,18 @@ This registry supports granular permissions. {% data reusables.package_registry.
 ## Pushing container images
 
 This example pushes the latest version of `IMAGE_NAME`.
-  ```shell
-  $ docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  ```
+
+```shell
+$ docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+```
 
 Replace `NAMESPACE` with the name of the personal account or organization to which you want the image to be scoped.
 
 This example pushes the `2.5` version of the image.
-  ```shell
-  $ docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:2.5
-  ```
+
+```shell
+$ docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:2.5
+```
 
 {% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
@@ -88,20 +90,20 @@ To connect a repository when publishing an image from the command line, and to e
 To ensure you're always using the same image, you can specify the exact container image version you want to pull by the `digest` SHA value.
 
 1. To find the digest SHA value, use `docker inspect` or `docker pull` and copy the SHA value after `Digest:`
-  ```shell
-  $ docker inspect {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME
-  ```
+   ```shell
+   $ docker inspect {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME
+   ```
 
    Replace `NAMESPACE` with the name of the personal account or organization to which the image is scoped.
 2. Remove image locally as needed.
-  ```shell
-  $ docker rmi  {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  ```
+   ```shell
+   $ docker rmi  {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+   ```
 
 3. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
-  ```shell
-  $ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
-  ```
+   ```shell
+   $ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
+   ```
 
 ### Pull by name
 
@@ -114,52 +116,54 @@ Replace `NAMESPACE` with the name of the personal account or organization to whi
 ### Pull by name and version
 
 Docker CLI example showing an image pulled by its name and the `1.14.1` version tag:
-  ```shell
-  $ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:1.14.1
-  > 5e35bd43cf78: Pull complete
-  > 0c48c2209aab: Pull complete
-  > fd45dd1aad5a: Pull complete
-  > db6eb50c2d36: Pull complete
-  > Digest: sha256:ae3b135f133155b3824d8b1f62959ff8a72e9cf9e884d88db7895d8544010d8e
-  > Status: Downloaded newer image for {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME/release:1.14.1
-  > {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME/release:1.14.1
-  ```
+
+```shell
+$ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:1.14.1
+> 5e35bd43cf78: Pull complete
+> 0c48c2209aab: Pull complete
+> fd45dd1aad5a: Pull complete
+> db6eb50c2d36: Pull complete
+> Digest: sha256:ae3b135f133155b3824d8b1f62959ff8a72e9cf9e884d88db7895d8544010d8e
+> Status: Downloaded newer image for {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME/release:1.14.1
+> {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME/release:1.14.1
+```
 
 Replace `NAMESPACE` with the name of the personal account or organization to which the image is scoped.
 
 ### Pull by name and latest version
 
-  ```shell
-  $ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  > latest: Pulling from NAMESPACE/IMAGE_NAME
-  > Digest: sha256:b3d3e366b55f9a54599220198b3db5da8f53592acbbb7dc7e4e9878762fc5344
-  > Status: Downloaded newer image for {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  > {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
-  ```
+```shell
+$ docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+> latest: Pulling from NAMESPACE/IMAGE_NAME
+> Digest: sha256:b3d3e366b55f9a54599220198b3db5da8f53592acbbb7dc7e4e9878762fc5344
+> Status: Downloaded newer image for {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+> {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+```
 
 Replace `NAMESPACE` with the name of the personal account or organization to which the image is scoped.
 
 ## Building container images
 
 This example builds the `hello_docker` image:
-  ```shell
-  $ docker build -t hello_docker .
-  ```
+
+```shell
+$ docker build -t hello_docker .
+```
 
 ## Tagging container images
 
 1. Find the ID for the Docker image you want to tag.
-  ```shell
-  $ docker images
-  > REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
-  > {% data reusables.package_registry.container-registry-hostname %}/my-org/hello_docker         latest            38f737a91f39        47 hours ago        91.7MB
-  > hello-world                                           latest              fce289e99eb9        16 months ago       1.84kB
-  ```
+   ```shell
+   $ docker images
+   > REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
+   > {% data reusables.package_registry.container-registry-hostname %}/my-org/hello_docker         latest            38f737a91f39        47 hours ago        91.7MB
+   > hello-world                                           latest              fce289e99eb9        16 months ago       1.84kB
+   ```
 
 2. Tag your Docker image using the image ID and your desired image name and hosting destination.
-  ```shell
-  $ docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:latest
-  ```
+   ```shell
+   $ docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:latest
+   ```
 
 Replace `NAMESPACE` with the name of the personal account or organization to which you want the image to be scoped.
 

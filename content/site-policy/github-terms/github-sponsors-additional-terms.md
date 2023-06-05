@@ -105,7 +105,7 @@ While we understand that you may want to promote your Sponsors by posting their 
 ### 4.1. Payment.
 GitHub will pay you the Sponsored Developer Payment in accordance with this Section 4, so long as you meet the Sponsored Developer Obligations in Section 3 and are not in violation of these Additional Terms. If you fail to meet these obligations for any given month, we may at our sole discretion withhold the Sponsored Developer Payment for that month. If you fail to meet or maintain the Sponsored Developer Obligations for two (2) or more months during the Term (consecutively or non-consecutively), then GitHub may terminate these Additional Terms as provided in Section 6.
 
-###  4.2. Sponsored Developer Payment Exclusions.
+### 4.2. Sponsored Developer Payment Exclusions.
 The following amounts are not included in Sponsored Developer Payments, or may be withheld by GitHub, as applicable.
 
 #### 4.2.1. Sponsored Developer Expenses.

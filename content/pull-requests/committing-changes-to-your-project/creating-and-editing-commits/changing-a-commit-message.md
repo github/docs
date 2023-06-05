@@ -52,9 +52,9 @@ We strongly discourage force pushing, since this changes the history of your rep
 
 1. Follow the [steps above](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
 2. Use the `push --force-with-lease` command to force push over the old commit.
-  ```shell
-  $ git push --force-with-lease origin EXAMPLE-BRANCH
-  ```
+   ```shell
+   $ git push --force-with-lease origin EXAMPLE-BRANCH
+   ```
 
 **Changing the message of older or multiple commit messages**
 
@@ -63,47 +63,47 @@ If you need to amend the message for multiple commits or an older commit, you ca
 1. On the command line, navigate to the repository that contains the commit you want to amend.
 2. Use the `git rebase -i HEAD~n` command to display a list of the last `n` commits in your default text editor.
 
-    ```shell
-    # Displays a list of the last 3 commits on the current branch
-    $ git rebase -i HEAD~3
-    ```
-    The list will look similar to the following:
+   ```shell
+   # Displays a list of the last 3 commits on the current branch
+   $ git rebase -i HEAD~3
+   ```
+   The list will look similar to the following:
 
-    ```shell
-    pick e499d89 Delete CNAME
-    pick 0c39034 Better README
-    pick f7fde4a Change the commit message but push the same commit.
+   ```shell
+   pick e499d89 Delete CNAME
+   pick 0c39034 Better README
+   pick f7fde4a Change the commit message but push the same commit.
 
-    # Rebase 9fdb3bd..f7fde4a onto 9fdb3bd
-    #
-    # Commands:
-    # p, pick = use commit
-    # r, reword = use commit, but edit the commit message
-    # e, edit = use commit, but stop for amending
-    # s, squash = use commit, but meld into previous commit
-    # f, fixup = like "squash", but discard this commit's log message
-    # x, exec = run command (the rest of the line) using shell
-    #
-    # These lines can be re-ordered; they are executed from top to bottom.
-    #
-    # If you remove a line here THAT COMMIT WILL BE LOST.
-    #
-    # However, if you remove everything, the rebase will be aborted.
-    #
-    # Note that empty commits are commented out
-    ```
+   # Rebase 9fdb3bd..f7fde4a onto 9fdb3bd
+   #
+   # Commands:
+   # p, pick = use commit
+   # r, reword = use commit, but edit the commit message
+   # e, edit = use commit, but stop for amending
+   # s, squash = use commit, but meld into previous commit
+   # f, fixup = like "squash", but discard this commit's log message
+   # x, exec = run command (the rest of the line) using shell
+   #
+   # These lines can be re-ordered; they are executed from top to bottom.
+   #
+   # If you remove a line here THAT COMMIT WILL BE LOST.
+   #
+   # However, if you remove everything, the rebase will be aborted.
+   #
+   # Note that empty commits are commented out
+   ```
 3. Replace `pick` with `reword` before each commit message you want to change.
-  ```shell
-  pick e499d89 Delete CNAME
-  reword 0c39034 Better README
-  reword f7fde4a Change the commit message but push the same commit.
-  ```
+   ```shell
+   pick e499d89 Delete CNAME
+   reword 0c39034 Better README
+   reword f7fde4a Change the commit message but push the same commit.
+   ```
 4. Save and close the commit list file.
 5. In each resulting commit file, type the new commit message, save the file, and close it.
 6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
-```shell
-$ git push --force origin EXAMPLE-BRANCH
-```
+   ```shell
+   $ git push --force origin EXAMPLE-BRANCH
+   ```
 
 For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
 

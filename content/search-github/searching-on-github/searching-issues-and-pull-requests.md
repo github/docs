@@ -306,7 +306,7 @@ This qualifier takes a date as its parameter. {% data reusables.time_date.date_f
 | Qualifier        | Example
 | ------------- | -------------
 | <code>closed:><em>YYYY-MM-DD</em></code> | [**language:swift closed:>2014-06-11**](https://github.com/search?q=language%3Aswift+closed%3A%3E2014-06-11&type=Issues) matches issues and pull requests in Swift that were closed after June 11, 2014.
-| `in:body `<code>closed:<<em>YYYY-MM-DD</em></code> | [**data in:body closed:<2012-10-01**](https://github.com/search?utf8=%E2%9C%93&q=data+in%3Abody+closed%3A%3C2012-10-01+&type=Issues) matches issues and pull requests with the word "data" in the body that were closed before October 2012.
+| <code>in:body closed:<<em>YYYY-MM-DD</em></code> | [**data in:body closed:<2012-10-01**](https://github.com/search?utf8=%E2%9C%93&q=data+in%3Abody+closed%3A%3C2012-10-01+&type=Issues) matches issues and pull requests with the word "data" in the body that were closed before October 2012.
 
 ## Search by when a pull request was merged
 

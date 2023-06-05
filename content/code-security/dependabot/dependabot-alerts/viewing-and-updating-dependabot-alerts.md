@@ -61,7 +61,7 @@ The search bar also allows for full text searching of alerts and related securit
 {% endif %}
 
 {% ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
+![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
 You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply.{% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
@@ -117,7 +117,8 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 {% data reusables.repositories.sidebar-dependabot-alerts %}
 1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. {% ifversion dependabot-filter-label-security-advisory %}Alternatively, to filter by label, click a label assigned to an alert to automatically apply that filter to the alert list.{% endif %} For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-dependabot-alerts)."
 {%- ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% endif %}
+
+   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% endif %}
 1. Click the alert that you would like to view.
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}
@@ -153,7 +154,7 @@ For supported languages, {% data variables.product.prodname_dependabot %} detect
 {% ifversion fpt or ghec or ghes %}
 1. If you have {% data variables.product.prodname_dependabot_security_updates %} enabled, there may be a link to a pull request that will fix the dependency. Alternatively, you can click **Create {% data variables.product.prodname_dependabot %} security update** at the top of the alert details page to create a pull request.
 
-  ![Screenshot of a {% data variables.product.prodname_dependabot %} alert with the "Create {% data variables.product.prodname_dependabot %} security update" button highlighted with a dark orange outline.](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
+   ![Screenshot of a {% data variables.product.prodname_dependabot %} alert with the "Create {% data variables.product.prodname_dependabot %} security update" button highlighted with a dark orange outline.](/assets/images/help/repository/create-dependabot-security-update-button-ungrouped.png)
 
 1. Optionally, if you do not use {% data variables.product.prodname_dependabot_security_updates %}, you can use the information on the page to decide which version of the dependency to upgrade to and create a pull request to update the dependency to a secure version.
 {% elsif ghae %}

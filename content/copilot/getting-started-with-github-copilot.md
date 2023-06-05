@@ -183,7 +183,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. Close the "Manage Extensions" window, then exit and relaunch {% data variables.product.prodname_vs %}.
 1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information.
   
-  ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
+   ![Screenshot of installed extensions in Visual Studio with GitHub Copilot emphasized](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
 1. Open or create a new project in {% data variables.product.prodname_vs %}.
 1. In the "Microsoft {% data variables.product.prodname_vs %}" dialog box, to copy your device activation code, click **OK**.
 1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
@@ -197,9 +197,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-  ```csharp{:copy}
-  int CalculateDaysBetweenDates(
-  ```
+   ```csharp{:copy}
+   int CalculateDaysBetweenDates(
+   ```
 
 {% data reusables.copilot.accept-suggestion %}
 
@@ -277,9 +277,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-  ```javascript{:copy}
-  function calculateDaysBetweenDates(begin, end) {
-  ```
+   ```javascript{:copy}
+   function calculateDaysBetweenDates(begin, end) {
+   ```
 
 {% data reusables.copilot.accept-suggestion %}
 
@@ -289,9 +289,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
-  ```javascript{:copy}
-  function calculateDaysBetweenDates(begin, end) {
-  ```
+   ```javascript{:copy}
+   function calculateDaysBetweenDates(begin, end) {
+   ```
 {% data reusables.copilot.see-alternative-suggestions %}
 
    | OS | See next suggestion | See previous suggestion |
@@ -308,9 +308,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
-  ```javascript{:copy}
-  function calculateDaysBetweenDates(begin, end) {
-  ```
+   ```javascript{:copy}
+   function calculateDaysBetweenDates(begin, end) {
+   ```
 1. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
 
@@ -399,9 +399,9 @@ If you use Neovim, you can view and incorporate suggestions from {% data variabl
 
 For guidance on using {% data variables.product.prodname_copilot %} in Neovim, you can view the plugin documentation. To see the documentation, open Neovim and run the following command:
 
-  ```
-  :help copilot
-  ```
+```
+:help copilot
+```
 
 ## Further reading
 

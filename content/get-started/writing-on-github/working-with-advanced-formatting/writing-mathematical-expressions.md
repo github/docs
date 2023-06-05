@@ -64,7 +64,7 @@ Alternatively, you can use the <code>\`\`\`math</code> code block syntax to disp
 
 To display a dollar sign as a character in the same line as a mathematical expression, you need to escape the non-delimiter `$` to ensure the line renders correctly.
   
-  - Within a math expression, add a `\` symbol before the explicit `$`.
+- Within a math expression, add a `\` symbol before the explicit `$`.
 
   ```
   This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
@@ -72,7 +72,7 @@ To display a dollar sign as a character in the same line as a mathematical expre
 
   ![Screenshot of rendered Markdown showing how a backslash before a dollar sign displays the sign as part of a mathematical expression.](/assets/images/help/writing/dollar-sign-within-math-expression.png)
 
-  - Outside a math expression, but on the same line, use span tags around the explicit `$`.
+- Outside a math expression, but on the same line, use span tags around the explicit `$`.
 
   ```
   To split <span>$</span>100 in half, we calculate $100/2$

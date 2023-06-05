@@ -133,7 +133,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `business.invite_admin` | An invitation for someone to be an enterprise owner{% ifversion ghes %} or site administrator{% endif %} of an enterprise was sent.
 | `business.invite_billing_manager` | An invitation for someone to be an billing manager of an enterprise was sent.
 {%- endif %}
-| `business.members_can_update_protected_branches.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unset a policy for whether members of an enterprise can update protected branches on repositories for individual organizations. Organization administrators can choose whether to allow updating protected branches settings.
+| `business.members_can_update_protected_branches.clear` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} unset a policy for whether members of an enterprise can update protected branches on repositories for individual organizations. Organization owners can choose whether to allow updating protected branches settings.
 | `business.members_can_update_protected_branches.disable` | The ability for enterprise members to update branch protection rules was disabled. Only enterprise owners can update protected branches.
 | `business.members_can_update_protected_branches.enable` | The ability for enterprise members to update branch protection rules was enabled. Enterprise owners and members can update protected branches.
 | `business.remove_admin` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} was removed from an enterprise.
@@ -205,9 +205,10 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 
 Action                        | Description
 ----------------------------- | -----------------------------------------------
-| `business_secret_scanning_custom_pattern.create` | An enterprise-level custom pattern is published for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
-| `business_secret_scanning_custom_pattern.delete` | An enterprise-level custom pattern is removed from {% data variables.product.prodname_secret_scanning %}.
-| `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern are saved for {% data variables.product.prodname_secret_scanning %}.
+| `business_secret_scanning_custom_pattern.create` | An enterprise-level custom pattern was created for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account)."
+| `business_secret_scanning_custom_pattern.delete` | An enterprise-level custom pattern was removed from {% data variables.product.prodname_secret_scanning %}.
+| `business_secret_scanning_custom_pattern.publish` | An enterprise-level custom pattern was published for {% data variables.product.prodname_secret_scanning %}.
+| `business_secret_scanning_custom_pattern.update` | Changes to an enterprise-level custom pattern were saved and a dry run was executed for {% data variables.product.prodname_secret_scanning %}.
 {%- endif %}
 
 {%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
@@ -719,7 +720,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org.integration_manager_removed` | An organization owner removed access to manage all GitHub Apps owned by an organization from an organization member.
 | `org.invite_member` | A new user was invited to join an organization. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)."{% endif %}
 | `org.invite_to_business` | An organization was invited to join an enterprise.
-| `org.members_can_update_protected_branches.clear` | An organization owner unset a policy for whether members of an organization can update protected branches on repositories in an organization. Organization administrators can choose whether to allow updating protected branches settings.
+| `org.members_can_update_protected_branches.clear` | An organization owner unset a policy for whether members of an organization can update protected branches on repositories in an organization. Organization owners can choose whether to allow updating protected branches settings.
 | `org.members_can_update_protected_branches.disable` | The ability for enterprise members to update protected branches was disabled. Only enterprise owners can update protected branches.
 | `org.members_can_update_protected_branches.enable` |  The ability for enterprise members to update protected branches was enabled. Members of an organization can update protected branches.
 {%- ifversion fpt or ghec %}
@@ -817,9 +818,10 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|---------------
-| `org_secret_scanning_custom_pattern.create` | A custom pattern is published for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
-| `org_secret_scanning_custom_pattern.delete` | A custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
-| `org_secret_scanning_custom_pattern.update` |Changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `org_secret_scanning_custom_pattern.create` | A custom pattern was created for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `org_secret_scanning_custom_pattern.delete` | A custom pattern was removed from {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+| `org_secret_scanning_custom_pattern.publish` | A custom pattern was published for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `org_secret_scanning_custom_pattern.update` | Changes to a custom pattern were saved and a dry run was executed for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 {%- endif %}
 
 ## `organization_default_label` category actions
@@ -849,21 +851,16 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `organization_projects_change.enable` | Organization projects were enabled for all organizations in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards)."
 {%- endif %}
 
+{%- ifversion not ghes %}
 ## `packages` category actions
 
 | Action | Description
 |--------|-------------
-| `packages.insecure_hash` | Maven published an insecure hash for a specific package version.
 | `packages.package_deleted` | A package was deleted from an organization.{% ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 | `packages.package_published` | A package was published or republished to an organization.
-| `packages.package_restored` | An entire package was restored.{% ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 | `packages.package_version_deleted` | A specific package version was deleted.{% ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
 | `packages.package_version_published` | A specific package version was published or republished to a package.
-| `packages.package_version_restored` | A specific package version was deleted.{% ifversion fpt or ghec or ghes %} For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."{% endif %}
-| `packages.part_upload` | A specific package version was partially uploaded to an organization.
-| `packages.upstream_package_fetched` | A specific package version was fetched from the npm upstream proxy.
-| `packages.version_download` | A specific package version was downloaded.
-| `packages.version_upload` | A specific package version was uploaded.
+{%- endif %}
 
 {%- ifversion fpt or ghec %}
 ## `pages_protected_domain` category actions
@@ -908,7 +905,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 |--------|-------------
 | `pre_receive_hook.create` | A pre-receive hook was created. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks)."
 | `pre_receive_hook.destroy` | A pre-receive hook was deleted. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#deleting-pre-receive-hooks)."
-| `pre_receive_hook.enforcement` | A pre-receive hook enforcement setting allowing repository and organization administrators to override the hook configuration was enabled or disabled. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance)."
+| `pre_receive_hook.enforcement` | A pre-receive hook enforcement setting allowing repository administrators and organization owners to override the hook configuration was enabled or disabled. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance)."
 | `pre_receive_hook.rejected_push` | A pre-receive hook rejected a push.
 | `pre_receive_hook.update` | A pre-receive hook was created. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#editing-pre-receive-hooks)."
 | `pre_receive_hook.warned_push` | A pre-receive hook warned about a push.
@@ -966,28 +963,28 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `protected_branch.create ` | Branch protection was enabled on a branch.
+| `protected_branch.create` | Branch protection was enabled on a branch.
 | `protected_branch.destroy` | Branch protection was disabled on a branch.
-| `protected_branch.dismiss_stale_reviews ` | Enforcement of dismissing stale pull requests was updated on a branch.
+| `protected_branch.dismiss_stale_reviews` | Enforcement of dismissing stale pull requests was updated on a branch.
 {%- ifversion ghes %}
 | `protected_branch.dismissal_restricted_users_teams` | Enforcement of restricting users and/or teams who can dismiss reviews was updated on a branch.
 {%- endif %}
-| `protected_branch.policy_override ` | A branch protection requirement was overridden by a repository administrator.
-| `protected_branch.rejected_ref_update ` | A branch update attempt was rejected.
+| `protected_branch.policy_override` | A branch protection requirement was overridden by a repository administrator.
+| `protected_branch.rejected_ref_update` | A branch update attempt was rejected.
 | `protected_branch.required_status_override` | The required status checks branch protection requirement was overridden by a repository administrator.
 | `protected_branch.review_policy_and_required_status_override` | The required reviews and required status checks branch protection requirements were overridden by a repository administrator.
 | `protected_branch.review_policy_override` | The required reviews branch protection requirement was overridden by a repository administrator.
-| `protected_branch.update_admin_enforced ` | Branch protection was enforced for repository administrators.
+| `protected_branch.update_admin_enforced` | Branch protection was enforced for repository administrators.
 {%- ifversion ghes %}
 | `protected_branch.update_allow_deletions_enforcement_level` | Enforcement of allowing users with push access to delete matching branches was updated on a branch.
 | `protected_branch.update_allow_force_pushes_enforcement_level` | Enforcement of allowing force pushes for all users with push access was updated on a branch.
 | `protected_branch.update_linear_history_requirement_enforcement_level` | Enforcement of requiring linear commit history was updated on a branch.
 {%- endif %}
-| `protected_branch.update_pull_request_reviews_enforcement_level ` | Enforcement of required pull request reviews was updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
-| `protected_branch.update_require_code_owner_review ` | Enforcement of required code owner review was updated on a branch.
+| `protected_branch.update_pull_request_reviews_enforcement_level` | Enforcement of required pull request reviews was updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
+| `protected_branch.update_require_code_owner_review` | Enforcement of required code owner review was updated on a branch.
 | `protected_branch.update_required_approving_review_count` | Enforcement of the required number of approvals before merging was updated on a branch.
-| `protected_branch.update_required_status_checks_enforcement_level ` | Enforcement of required status checks was updated on a branch.
-| `protected_branch.update_signature_requirement_enforcement_level ` | Enforcement of required commit signing was updated on a branch.
+| `protected_branch.update_required_status_checks_enforcement_level` | Enforcement of required status checks was updated on a branch.
+| `protected_branch.update_signature_requirement_enforcement_level` | Enforcement of required commit signing was updated on a branch.
 | `protected_branch.update_strict_required_status_checks_policy` | Enforcement of required status checks was updated on a branch.
 | `protected_branch.update_name` | A branch name pattern was updated for a branch.
 
@@ -1044,7 +1041,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repo.access`         | The visibility of a repository changed to private{%- ifversion ghes %}, public,{% endif %} or internal.
+| `repo.access`         | The visibility of a repository changed.
 | `repo.actions_enabled` | {% data variables.product.prodname_actions %} was enabled for a repository.
 | `repo.add_member`     | A collaborator was added to a repository.
 | `repo.add_topic`     | A topic was added to a repository.
@@ -1165,7 +1162,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repository_projects_change.clear` | The repository projects policy was removed for an organization, or all organizations in the enterprise. Organization admins can now control their repository projects settings. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise)."
+| `repository_projects_change.clear` | The repository projects policy was removed for an organization, or all organizations in the enterprise. Organization owners can now control their repository projects settings. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise)."
 | `repository_projects_change.disable` | Repository projects were disabled for a repository, all repositories in an organization, or all organizations in an enterprise.
 | `repository_projects_change.enable` | Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.
 
@@ -1184,9 +1181,10 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |------------------|-------------------
-| `repository_secret_scanning_custom_pattern.create` | A custom pattern is published for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
-| `repository_secret_scanning_custom_pattern.delete` | A custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
-| `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."{%- endif %}
+| `repository_secret_scanning_custom_pattern.create` | A custom pattern was created for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+| `repository_secret_scanning_custom_pattern.delete` | A custom pattern was removed from {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+| `repository_secret_scanning_custom_pattern.publish` | A custom pattern was published for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+| `repository_secret_scanning_custom_pattern.update` | Changes to a custom pattern were saved and a dry run was executed for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."{%- endif %}
 
 {%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
 
@@ -1203,8 +1201,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |------------------|-------------------
-| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator  disabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator  enabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
 ## `repository_visibility_change` category actions
 

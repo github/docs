@@ -7,10 +7,10 @@ import {
   getAutomatedPageContextFromRequest,
   AutomatedPageContext,
   AutomatedPageContextT,
-} from 'components/context/AutomatedPageContext'
+} from 'src/automated-pipelines/components/AutomatedPageContext'
 import { WebhookAction } from 'src/webhooks/components/types'
 import { Webhook } from 'src/webhooks/components/Webhook'
-import { AutomatedPage } from 'components/article/AutomatedPage'
+import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
 
 type Props = {
   mainContext: MainContextT

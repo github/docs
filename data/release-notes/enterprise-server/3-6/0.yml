@@ -322,3 +322,6 @@ sections:
           {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
           
           You can adjust the cutoff date. For more information, see "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)." [Updated: 2023-01-31]
+
+  errata:
+    - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'

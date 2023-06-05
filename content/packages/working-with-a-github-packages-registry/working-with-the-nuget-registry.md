@@ -119,18 +119,18 @@ If you specify a `RepositoryURL` in your `nuget.config` file, the published pack
 If you don't already have a {% data variables.product.pat_generic %} to use for your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 1. Create a new project. Replace `PROJECT_NAME` with the name you'd like to give the project.
-  ```shell
-  dotnet new console --name PROJECT_NAME
-  ```
+   ```shell
+   dotnet new console --name PROJECT_NAME
+   ```
 2. Package the project.
-  ```shell
-  dotnet pack --configuration Release
-  ```
+   ```shell
+   dotnet pack --configuration Release
+   ```
 
 3. Publish the package using your {% data variables.product.pat_generic %} as the API key. Replace `PROJECT_NAME` with the name of the project, `1.0.0` with the version number of the package, and `YOUR_GITHUB_PAT` with your {% data variables.product.pat_generic %}.
-  ```shell
-  dotnet nuget push "bin/Release/PROJECT_NAME.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
-  ```
+   ```shell
+   dotnet nuget push "bin/Release/PROJECT_NAME.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
+   ```
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -142,39 +142,39 @@ When publishing, {% ifversion packages-nuget-v2 %}if you are linking your packag
 
 {% data reusables.package_registry.authenticate-step %}
 2. Create a new project. Replace `PROJECT_NAME` with the name you'd like to give the project.
-  ```shell
-  dotnet new console --name PROJECT_NAME
-  ```
+   ```shell
+   dotnet new console --name PROJECT_NAME
+   ```
 3. Add your project's specific information to your project's file, which ends in *.csproj*.  Make sure to replace:
-    - `1.0.0` with the version number of the package.
-    - `OWNER` with the name of the personal account or organization that owns the repository to which you want to {% ifversion packages-nuget-v2 %}link your package{% else %}publish your package{% endif %}.
-    - `REPOSITORY` with the name of the repository to which you want to connect your package.{% ifversion ghes or ghae %}
-    - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
-  ``` xml
-  <Project Sdk="Microsoft.NET.Sdk">
+   - `1.0.0` with the version number of the package.
+   - `OWNER` with the name of the personal account or organization that owns the repository to which you want to {% ifversion packages-nuget-v2 %}link your package{% else %}publish your package{% endif %}.
+   - `REPOSITORY` with the name of the repository to which you want to connect your package.{% ifversion ghes or ghae %}
+   - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
+   ``` xml
+   <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-      <OutputType>Exe</OutputType>
-      <TargetFramework>netcoreapp3.0</TargetFramework>
-      <PackageId>PROJECT_NAME</PackageId>
-      <Version>1.0.0</Version>
-      <Authors>AUTHORS</Authors>
-      <Company>COMPANY_NAME</Company>
-      <PackageDescription>PACKAGE_DESCRIPTION</PackageDescription>
-      <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
-    </PropertyGroup>
+     <PropertyGroup>
+       <OutputType>Exe</OutputType>
+       <TargetFramework>netcoreapp3.0</TargetFramework>
+       <PackageId>PROJECT_NAME</PackageId>
+       <Version>1.0.0</Version>
+       <Authors>AUTHORS</Authors>
+       <Company>COMPANY_NAME</Company>
+       <PackageDescription>PACKAGE_DESCRIPTION</PackageDescription>
+       <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+     </PropertyGroup>
 
-  </Project>
-  ```
+   </Project>
+   ```
 4. Package the project.
-  ```shell
-  dotnet pack --configuration Release
-  ```
+   ```shell
+   dotnet pack --configuration Release
+   ```
 
 5. Publish the package using the `key` you specified in the *nuget.config* file. Replace `PROJECT_NAME` with the name of the project, and replace `1.0.0` with the version number of the package.
-  ```shell
-  dotnet nuget push "bin/Release/PROJECT_NAME.1.0.0.nupkg" --source "github"
-  ```
+   ```shell
+   dotnet nuget push "bin/Release/PROJECT_NAME.1.0.0.nupkg" --source "github"
+   ```
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -225,31 +225,31 @@ Using packages from {% data variables.product.prodname_dotcom %} in your project
 {% data reusables.package_registry.authenticate-step %}
 
 2. To use a package, add `ItemGroup` and configure the `PackageReference` field in the *.csproj* project file. Replace the `PACKAGE_NAME` value in `Include="PACKAGE_NAME"` with your package dependency, and replace the `X.X.X` value in `Version="X.X.X"` with the version of the package you want to use:
-  ``` xml
-  <Project Sdk="Microsoft.NET.Sdk">
+   ``` xml
+   <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-      <OutputType>Exe</OutputType>
-      <TargetFramework>netcoreapp3.0</TargetFramework>
-      <PackageId>My-app</PackageId>
-      <Version>1.0.0</Version>
+     <PropertyGroup>
+       <OutputType>Exe</OutputType>
+       <TargetFramework>netcoreapp3.0</TargetFramework>
+       <PackageId>My-app</PackageId>
+       <Version>1.0.0</Version>
       <Authors>Octocat</Authors>
-      <Company>GitHub</Company>
+       <Company>GitHub</Company>
       <PackageDescription>This package adds an Octocat!</PackageDescription>
-      <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
-    </PropertyGroup>
+       <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+     </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="PACKAGE_NAME" Version="X.X.X" />
-    </ItemGroup>
+     <ItemGroup>
+       <PackageReference Include="PACKAGE_NAME" Version="X.X.X" />
+     </ItemGroup>
 
-  </Project>
-  ```
+   </Project>
+   ```
 
 3. Install the packages with the `restore` command.
-  ```shell
-  dotnet restore
-  ```
+   ```shell
+   dotnet restore
+   ```
 
 ## Troubleshooting
 

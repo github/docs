@@ -14,7 +14,7 @@ type: overview
 topics:
   - Security
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -323,6 +323,26 @@ You should also consider the environment of the self-hosted runner machines:
 
 Some customers might attempt to partially mitigate these risks by implementing systems that automatically destroy the self-hosted runner after each job execution. However, this approach might not be as effective as intended, as there is no way to guarantee that a self-hosted runner only runs one job. Some jobs will use secrets as command-line arguments which can be seen by another job running on the same runner, such as `ps x -w`. This can lead to secret leakages.
 
+{% ifversion actions-single-use-tokens %}
+
+### Using just-in-time runners
+
+To improve runner registration security, you can use the REST API to create ephemeral, just-in-time (JIT) runners. These self-hosted runners perform at most one job before being automatically removed from the repository, organization, or enterprise. For more information about configuring JIT runners, see "[AUTOTITLE](/rest/actions/self-hosted-runners#create-configuration-for-a-just-in-time-runner-for-an-organization)."
+
+{% note %}
+
+**Note:** Re-using hardware to host JIT runners can risk exposing information from the environment. Use automation to ensure the JIT runner uses a clean environment. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling)."
+
+{% endnote %}
+
+Once you have the config file from the REST API response, you can pass it to the runner at startup.
+
+```shell
+./run.sh --jitconfig ${encoded_jit_config}
+```
+
+{% endif %}
+
 ### Planning your management strategy for self-hosted runners
 
 A self-hosted runner can be added to various levels in your {% data variables.product.prodname_dotcom %} hierarchy: the enterprise, organization, or repository level. This placement determines who will be able to manage the runner:
@@ -348,7 +368,7 @@ You can use the security log to monitor activity for your user account and the a
 
 For example, you can use the audit log to track the `org.update_actions_secret` event, which tracks changes to organization secrets.
 
-  ![Screenshot showing a search for "action:org.update_actions_secret" in the audit log for an organization. Two results detail API updates to two secrets that are available to selected repositories.](/assets/images/help/repository/audit-log-entries.png)
+![Screenshot showing a search for "action:org.update_actions_secret" in the audit log for an organization. Two results detail API updates to two secrets that are available to selected repositories.](/assets/images/help/repository/audit-log-entries.png)
 
 For the full list of events that you can find in the audit log for each account type, see the following articles:
 

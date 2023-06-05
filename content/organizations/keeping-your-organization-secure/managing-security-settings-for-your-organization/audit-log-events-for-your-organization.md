@@ -352,8 +352,8 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `secret_scanning_push_protection_custom_message_updated` | Triggered when an organization owner or admin updates the custom message triggered by an attempted push to a push-protected repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `secret_scanning_push_protection_disable ` | Triggered when an organization owner or person with admin access to the organization disables push protection for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `secret_scanning_push_protection_enable ` | Triggered when an organization owner or person with admin access to the organization enables push protection for {% data variables.product.prodname_secret_scanning %}.{%- endif %}
+| `secret_scanning_push_protection_disable` | Triggered when an organization owner or person with admin access to the organization disables push protection for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `secret_scanning_push_protection_enable` | Triggered when an organization owner or person with admin access to the organization enables push protection for {% data variables.product.prodname_secret_scanning %}.{%- endif %}
 | `self_hosted_runner_online` | Triggered when the runner application is started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
 | `self_hosted_runner_offline` | Triggered when the runner application is stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."{% ifversion fpt or ghes or ghec %}
 | `self_hosted_runner_updated` | Triggered when the runner application is updated. Can be viewed using the REST API and the UI; not visible in the JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}
@@ -384,9 +384,10 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when a custom pattern is published for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
-| `update` | Triggered when changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `create` | Triggered when a custom pattern is created for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
 | `delete` | Triggered when a custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+| `publish` | Triggered when changes to a custom pattern are published for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-organization)."
+| `update` | Triggered when changes to a custom pattern are saved and a dry run is executed for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 
 {% endif %}
 
@@ -398,15 +399,16 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `update` | Triggered when a default label is edited.
 | `destroy` | Triggered when a default label is deleted.
 
+{%- ifversion not ghes %}
 ## `packages` category actions
 
 | Action | Description |
 |--------|-------------|
+| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
 | `package_version_published` | Triggered when a package version is published. |
 | `package_version_deleted` | Triggered when a specific package version is deleted. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_deleted` | Triggered when an entire package is deleted. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_version_restored` | Triggered when a specific package version is deleted. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
-| `package_restored` | Triggered when an entire package is restored. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)."
+| `package_version_published` | A specific package version was published or republished to a package.
+{%- endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -456,20 +458,20 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |--------------------|---------------------
-| `create ` | Triggered when branch protection is enabled on a branch.
+| `create` | Triggered when branch protection is enabled on a branch.
 | `destroy` | Triggered when branch protection is disabled on a branch.
-| `update_admin_enforced ` | Triggered when branch protection is enforced for repository administrators.
-| `update_require_code_owner_review ` | Triggered when enforcement of required Code Owner review is updated on a branch.
-| `dismiss_stale_reviews ` | Triggered when enforcement of dismissing stale pull requests is updated on a branch.
-| `update_signature_requirement_enforcement_level ` | Triggered when enforcement of required commit signing is updated on a branch.
-| `update_pull_request_reviews_enforcement_level ` | Triggered when enforcement of required pull request reviews is updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
-| `update_required_status_checks_enforcement_level ` | Triggered when enforcement of required status checks is updated on a branch.
+| `update_admin_enforced` | Triggered when branch protection is enforced for repository administrators.
+| `update_require_code_owner_review` | Triggered when enforcement of required Code Owner review is updated on a branch.
+| `dismiss_stale_reviews` | Triggered when enforcement of dismissing stale pull requests is updated on a branch.
+| `update_signature_requirement_enforcement_level` | Triggered when enforcement of required commit signing is updated on a branch.
+| `update_pull_request_reviews_enforcement_level` | Triggered when enforcement of required pull request reviews is updated on a branch. Can be one of `0`(deactivated), `1`(non-admins), `2`(everyone).
+| `update_required_status_checks_enforcement_level` | Triggered when enforcement of required status checks is updated on a branch.
 | `update_strict_required_status_checks_policy` | Triggered when the requirement for a branch to be up to date before merging is changed.
-| `rejected_ref_update ` | Triggered when a branch update attempt is rejected.
-| `policy_override ` | Triggered when a branch protection requirement is overridden by a repository administrator.
-| `update_allow_force_pushes_enforcement_level ` | Triggered when force pushes are enabled or disabled for a protected branch.
-| `update_allow_deletions_enforcement_level ` | Triggered when branch deletion is enabled or disabled for a protected branch.
-| `update_linear_history_requirement_enforcement_level ` | Triggered when required linear commit history is enabled or disabled for a protected branch.
+| `rejected_ref_update` | Triggered when a branch update attempt is rejected.
+| `policy_override` | Triggered when a branch protection requirement is overridden by a repository administrator.
+| `update_allow_force_pushes_enforcement_level` | Triggered when force pushes are enabled or disabled for a protected branch.
+| `update_allow_deletions_enforcement_level` | Triggered when branch deletion is enabled or disabled for a protected branch.
+| `update_linear_history_requirement_enforcement_level` | Triggered when required linear commit history is enabled or disabled for a protected branch.
 
 ## `pull_request` category actions
 
@@ -600,9 +602,10 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when a custom pattern is published for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
-| `update` | Triggered when changes to a custom pattern are saved for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
+| `create` | Triggered when a custom pattern is created for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
 | `delete` | Triggered when a custom pattern is removed from {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#removing-a-custom-pattern)."
+| `publish` | Triggered when a custom pattern is published for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+| `update` | Triggered when changes to a custom pattern are saved and a dry run is executed for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern)."
 
 {% endif %}{% ifversion secret-scanning-custom-pattern-push-protection-audit %}
 
