@@ -157,10 +157,9 @@ If you must use footnotes:
 
 ## Headers
 
-Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
+Headers must adequately describe the content under them. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
 
 Use H2 for headers, and H3 for subheaders. If the article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the [content model](/contributing/content-model.md#titles).
 
@@ -180,7 +179,7 @@ Every image must include alt text providing a textual equivalent of the visual i
 - Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
 - Follow standard language used to describe UI elements in article text.
-- Put multi-word titles, e.g. names of menu items, in double quotation marks ("").
+- Put multi-word titles, e.g. names of menu items, in double quotation marks (""). When using punctuation after multi-word titles, place it outside of the quotation marks so that the string in quotation marks exactly matches the title as it appears in context.
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
 
 #### Alt text for screenshots
@@ -198,15 +197,15 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 - Use a variable for the word `GitHub` as we do in running copy: `{% data variables.product.prodname_dotcom %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
-  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu..." to avoid multiple nouns in a row.
 
 ##### Examples
 
 > Screenshot of the {% data variables.product.prodname_dotcom %} committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
 
-> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
+> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code", is outlined in dark orange.
 
-![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](./images/repository-code-button.png)
+![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code", is outlined in dark orange.](./images/repository-code-button.png)
 
 #### Alt text for diagrams and graphs
 
@@ -609,7 +608,10 @@ For more information about GitHub's personal access tokens, see "[Creating a per
 
 ## Punctuation
 
-Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+When referencing a UI element in quotation marks, place any subsequent punctuation outside of the quotation marks so that the label in quotation marks exactly matches the UI.
+- **Use:** Under "User licenses", view your total licenses.
+
+Otherwise, follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Release notes
 
@@ -624,6 +626,7 @@ Each release note in a set describes one of the following changes.
 - [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
 - [Changes](#changes): notable changes to past behavior
 - [Deprecations](#deprecations): removal of a feature or behavior
+- [Errata](#errata): correction to inaccurate release note or documentation
 
 You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note).
 
@@ -785,9 +788,30 @@ A release note for a deprecation answers the following questions.
 
 - > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
 
+### Errata
+
+Errata corrects inaccurate information previously published in the release notes or documentation for a release.
+
+#### Writing errata
+
+Errata answers the following questions.
+
+1. If applicable, which section of the release notes or content on GitHub Docs was affected?
+1. Did the incorrect information apply to me, with my role or access?
+1. What did the release note or documentation describe that was incorrect?
+1. When was the errata published?
+
+> _CONTENT_ (**1**) incorrectly indicated that _AUDIENCE_ (**2**) can _SUMMARY OF INACCURATE INFORMATION_ (**3**). [Updated: _PUBLICATION DATE_ **4**]
+
+- Format the publication date according to the guidance in [Adding or updating a release note](#adding-or-updating-a-release-note).
+
+#### Example of errata
+
+- > "[Features]()" incorrectly indicated that users of the GitHub Advisory Database can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
+
 ### Adding or updating a release note
 
-If you add or update an individual release note after initial publication, to signal to readers that the note has changed, append a datestamp in the format "[Updated: YYYY-MM-DD]".
+To signal to readers that you've added or changed a note, or to indicate the publication date of errata, append a datestamp in the format "[Updated: YYYY-MM-DD]".
 
 ## Reusables and variables
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.

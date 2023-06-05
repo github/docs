@@ -1,6 +1,6 @@
 ---
 title: Managing allowed IP addresses for a GitHub App
-intro: 'You can add an IP allow list to your {% data variables.product.prodname_github_app %} to prevent your app from being blocked by an organization''s own allow list.'
+intro: 'You can add an IP allow list to your {% data variables.product.prodname_github_app %} registration to prevent your app from being blocked by an organization''s own allow list.'
 versions:
   fpt: '*'
   ghae: '*'
@@ -23,7 +23,7 @@ When an organization has an allow list, third-party applications that connect vi
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 
-## Adding an IP address allow list to a {% data variables.product.prodname_github_app %}
+## Adding an IP address allow list to a {% data variables.product.prodname_github_app %} registration
 
 {% data reusables.identity-and-permissions.ipv6-allow-lists %}
 
