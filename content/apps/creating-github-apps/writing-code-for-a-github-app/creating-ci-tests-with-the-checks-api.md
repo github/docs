@@ -17,15 +17,19 @@ shortTitle: CI tests using Checks API
 ---
 ## Introduction
 
-This guide will introduce you to [GitHub Apps](/apps) and the [Checks API](/rest/checks), which you'll use to build a continuous integration (CI) server that runs tests.
+This tutorial demonstrates how to build a continuous integration (CI) server that runs tests on new code that's pushed to a repository. You'll build and configure a {% data variables.product.prodname_github_app %} to act as a server that receives and responds to Checks webhook events using {% data variables.product.prodname_dotcom %}'s REST API.
+
+In this tutorial, you will use your computer or codespace as a server while you develop your app. Once the app is ready for production use, you should deploy your app to a dedicated server.
+
+This tutorial uses Ruby, but you can use any programming language that you can run on your server.
+
+### About continuous integration (CI)
 
 CI is a software practice that requires frequently committing code to a shared repository. Committing code more often raises errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts. 🙌
 
 A CI server hosts code that runs CI tests such as code linters (which check style formatting), security checks, code coverage, and other checks against new code commits in a repository. CI servers can even build and deploy code to staging or production servers. For some examples of the types of CI tests you can create with a GitHub App, check out the [continuous integration apps](https://github.com/marketplace/category/continuous-integration) available in GitHub Marketplace.
 
-{% data reusables.apps.app-ruby-guides %}
-
-### Checks API overview
+### About checks
 
 The [Checks API](/rest/checks) allows you to set up CI tests that are automatically run against each code commit in a repository. The Checks API reports detailed information about each check on GitHub in the pull request's **Checks** tab. With the Checks API, you can create annotations with additional details for specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab.
 
@@ -50,24 +54,491 @@ The Checks API sends the [`check_suite` webhook event](/webhooks-and-events/webh
 
 ## Prerequisites
 
-Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps), [Webhooks](/webhooks-and-events/webhooks/about-webhooks), and the [Checks API](/rest/checks), if you're not already. You'll find more APIs in the [REST API docs](/rest). The Checks API is also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
+Before you get started, you may want to familiarize yourself with [GitHub Apps](/apps), [Webhooks](/webhooks-and-events/webhooks/about-webhooks), and the [REST API checks endpoints](/rest/checks). The Checks endpoints are also available to use in [GraphQL](/graphql), but this quickstart focuses on REST. See the GraphQL [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) objects for more details.
 
 You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](https://octokit.github.io/octokit.rb/) for the GitHub REST API, and the [Sinatra web framework](https://sinatrarb.com/) to create your Checks API CI server app.
 
-You don't need to be an expert in any of these tools or concepts to complete this project. This guide will walk you through all the required steps. Before you begin creating CI tests with the Checks API, you'll need to do the following:
+## Setup
 
-1. Clone the [Creating CI tests with the Checks API](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) repository.
+The following sections will lead you through setting up the following components:
+
+- A repository to store the code for your app
+- A way to receive webhooks locally
+- A {% data variables.product.prodname_github_app %} that is subscribed to "Check suite" and "Check run" webhook events, has write permission for checks, and uses a webhook URL that you can receive locally.
+
+### Create a repository to store code for your app
+
+1. Create a repository to store the code for your app. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Clone your repository from the previous step. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)." You may use a local clone or {% data variables.product.prodname_github_codespaces %}.
+1. In a terminal, navigate to the directory where your clone is stored.
+1. Create a Ruby file named `server.rb`. This file will contain all the code for your app. You will add content to this file later.
+1. If the directory doesn't already include a `.gitignore` file, add a `.gitignore` file. You will add content to this file later. For more information about `.gitignore` files, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."
+
+### Get a webhook proxy URL
+
+In order to develop your app locally, you can use a webhook proxy URL to forward webhook events from {% data variables.product.company_short %} to your computer or codespace. This tutorial uses Smee.io to provide a webhook proxy URL and forward events.
+
+1. In your browser, navigate to https://smee.io/.
+1. Click **Start a new channel**.
+1. Copy the full URL under "Webhook Proxy URL". You will use this URL in a following step, and during the app registration steps later in the tutorial.
+1. In a terminal, run the following command to install the Smee client:
    ```shell
-   $ git clone https://github.com/github-developer/creating-ci-tests-with-the-checks-api.git
+   npm install --global smee-client
+   ```
+1. In the terminal, run the following command to start the Smee client. Replace `https://smee.io/YOUR_DOMAIN` with the Webhook Proxy URL you copied in the previous step.
+   ```shell
+   smee --url https://smee.io/YOUR_DOMAIN --path /event_handler --port 3000
+   ```
+   You should see output like the following:
+   ```shell
+   Forwarding https://smee.io/YOUR_DOMAIN to http://127.0.0.1:3000/event_handler
+   Connected https://smee.io/YOUR_DOMAIN
    ```
 
-  Inside the directory, you'll find a `template_server.rb` file with the template code you'll use in this quickstart and a `server.rb` file with the completed project code.
+The `smee --url <unique_channel>` command tells Smee to forward all webhook events received by the Smee channel to the Smee client running on your computer. The `--path /event_handler` option forwards events to the `/event_handler` route, which we'll cover in a [later section](#step-5-review-the-github-app-template-code). The `--port 3000` option specifies port 3000, which is the port your server will be listening to. Using Smee, your machine does not need to be open to the public internet to receive webhooks from GitHub. You can also open that Smee URL in your browser to inspect webhook payloads as they come in.
 
-1. Follow the steps in the "[AUTOTITLE](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app)" quickstart to configure and run the app server. **Note:** Instead of [cloning the GitHub App template repository](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#prerequisites), use the `template_server.rb` file in the repository you cloned in the previous step in this quickstart.
+We recommend leaving this terminal window open and keeping Smee connected while you complete the rest of the steps in this guide. Although you _can_ disconnect and reconnect the Smee client without losing your unique domain (unlike `ngrok`), you may find it easier to leave it connected and do other command-line tasks in a different terminal window.
 
-  If you've completed a GitHub App quickstart before, make sure to register a _new_ GitHub App and start a new Smee channel to use with this quickstart.
+### Register a {% data variables.product.prodname_github_app %}
 
-  See the [troubleshooting](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#troubleshooting) section if you are running into problems setting up your template GitHub App.
+For this tutorial, you must register a {% data variables.product.prodname_github_app %} that:
+
+- Has webhooks active
+- Uses a webhook URL that you can receive locally
+- Has the "Checks" repository permission
+- Subscribes to the "Checks" webhook event
+
+The following steps will guide you through configuring a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+
+{% data reusables.apps.settings-step %}
+{% data reusables.user-settings.developer_settings %}
+{% data reusables.user-settings.github_apps %}
+1. Click **New GitHub App**.
+1. Under "GitHub App name," enter a name for your app. For example, `USERNAME-ci-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
+1. Under "Homepage URL," enter a URL for your app. For example, you can use the URL of the repository that you created to store the code for your app.
+1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial. For more information about these settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+1. Make sure that **Active** is selected under "Webhooks."
+1. Under "Webhook URL", enter your webhook proxy URL from earlier. For more information, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)."
+1. Under "Webhook secret," enter a random string. This secret is used to verify that webhooks are sent by {% data variables.product.prodname_dotcom %}. You will use this string later.
+1. Under "Repository permissions," next to "Checks," select **Read & write**.
+1. Under "Subscribe to events," select **Check suite** and **Check run**.
+1. Under "Where can this GitHub App be installed?", select **Only on this account**. You can change this later if you want to publish your app.
+1. Click **Create GitHub App**.
+
+### Store your app's identifying information and credentials
+
+This tutorial will show you how to store your app's credentials and identifying information as environment variables in a `.env` file. When you deploy your app, you will want to change how you store the credentials. For more information, see "[Deploy your app](#deploy-your-app)."
+
+Make sure that you are on a secure machine before performing these steps since you will store your credentials locally.
+
+1. In your terminal, navigate to the directory where your clone is stored.
+1. Create a file called `.env` at the top level of this directory.
+1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your app's credentials.
+1. Add the following contents to your `.env` file. {% ifversion ghes or ghae %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
+
+   ```{:copy}
+   APP_IDENTIFIER="YOUR_APP_ID"
+   WEBHOOK_SECRET="YOUR_WEBHOOK_SECRET"
+   PRIVATE_KEY="YOUR_PRIVATE_KEY"{% ifversion ghes or ghae %}
+   ENTERPRISE_HOSTNAME="YOUR_HOSTNAME"{% endif %}
+   ```
+
+1. {% data reusables.apps.navigate-to-app-settings-page %}
+1. On your app's settings page, next to "App ID," find the app ID for your app.
+1. In your `.env` file, replace `YOUR_APP_ID` with the app ID of your app.
+1. In your `.env` file, replace `YOUR_WEBHOOK_SECRET` with the webhook secret for your app. If you have forgotten your webhook secret, under "Webhook secret (optional)," click **Change secret**. Enter a new secret, then click **Save changes**.
+1. On your app's settings page, under "Private keys," click **Generate a private key**. You will see a private key `.pem` file downloaded to your computer.
+1. Open the `.pem` file with a text editor, or use the following command on the command line to display the contents of the file: `cat PATH/TO/YOUR/private-key.pem`.
+1. Copy and paste the entire contents of the file into your `.env` file as the value of `GITHUB_PRIVATE_KEY`, and add double quotes around the entire value.
+
+   Here is an example .env file:
+
+   ```
+   GITHUB_APP_IDENTIFIER=12345
+   GITHUB_WEBHOOK_SECRET=your webhook secret
+   GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
+   ...
+   HkVN9...
+   ...
+   -----END DSA PRIVATE KEY-----"
+   ```
+
+## Add code for your app
+
+This section will show you how to add some basic template code for your GitHub App, and it will explain what the code does. Later in the tutorial, you will learn how to modify and add to this code, to build out your app's functionality.
+
+Add the following template code to your `server.rb` file:
+
+```ruby{:copy}
+require 'sinatra'
+require 'octokit'
+require 'dotenv/load' # Manages environment variables
+require 'json'
+require 'openssl'     # Verifies the webhook signature
+require 'jwt'         # Authenticates a GitHub App
+require 'time'        # Gets ISO 8601 representation of a Time object
+require 'logger'      # Logs debug statements
+
+set :port, 3000
+set :bind, '0.0.0.0'
+
+
+# This is template code to create a GitHub App server.
+# You can read more about GitHub Apps here: # https://developer.github.com/apps/
+#
+# On its own, this app does absolutely nothing, except that it can be installed.
+# It's up to you to add functionality!
+# You can check out one example in advanced_server.rb.
+#
+# This code is a Sinatra app, for two reasons:
+#   1. Because the app will require a landing page for installation.
+#   2. To easily handle webhook events.
+#
+# Of course, not all apps need to receive and process events!
+# Feel free to rip out the event handling code if you don't need it.
+#
+# Have fun!
+#
+
+class GHAapp < Sinatra::Application
+
+  # Expects that the private key in PEM format. Converts the newlines
+  PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
+
+  # Your registered app must have a secret set. The secret is used to verify
+  # that webhooks are sent by GitHub.
+  WEBHOOK_SECRET = ENV['GITHUB_WEBHOOK_SECRET']
+
+  # The GitHub App's identifier (type integer) set when registering an app.
+  APP_IDENTIFIER = ENV['GITHUB_APP_IDENTIFIER']
+
+  # Turn on Sinatra's verbose logging during development
+  configure :development do
+    set :logging, Logger::DEBUG
+  end
+
+
+  # Before each request to the `/event_handler` route
+  before '/event_handler' do
+    get_payload_request(request)
+    verify_webhook_signature
+    authenticate_app
+    # Authenticate the app installation in order to run API operations
+    authenticate_installation(@payload)
+  end
+
+
+  post '/event_handler' do
+
+    # # # # # # # # # # # #
+    # ADD YOUR CODE HERE  #
+    # # # # # # # # # # # #
+
+    200 # success status
+  end
+
+
+  helpers do
+
+    # # # # # # # # # # # # # # # # #
+    # ADD YOUR HELPER METHODS HERE  #
+    # # # # # # # # # # # # # # # # #
+
+    # Saves the raw payload and converts the payload to JSON format
+    def get_payload_request(request)
+      # request.body is an IO or StringIO object
+      # Rewind in case someone already read it
+      request.body.rewind
+      # The raw text of the body is required for webhook signature verification
+      @payload_raw = request.body.read
+      begin
+        @payload = JSON.parse @payload_raw
+      rescue => e
+        fail  'Invalid JSON (#{e}): #{@payload_raw}'
+      end
+    end
+
+    # Instantiate an Octokit client authenticated as a GitHub App.
+    # GitHub App authentication requires that you construct a
+    # JWT (https://jwt.io/introduction/) signed with the app's private key,
+    # so GitHub can be sure that it came from the app an not altererd by
+    # a malicious third party.
+    def authenticate_app
+      payload = {
+          # The time that this JWT was issued, _i.e._ now.
+          iat: Time.now.to_i,
+
+          # JWT expiration time (10 minute maximum)
+          exp: Time.now.to_i + (10 * 60),
+
+          # Your GitHub App's identifier number
+          iss: APP_IDENTIFIER
+      }
+
+      # Cryptographically sign the JWT.
+      jwt = JWT.encode(payload, PRIVATE_KEY, 'RS256')
+
+      # Create the Octokit client, using the JWT as the auth token.
+      @app_client ||= Octokit::Client.new(bearer_token: jwt)
+    end
+
+    # Instantiate an Octokit client, authenticated as an installation of a
+    # GitHub App, to run API operations.
+    def authenticate_installation(payload)
+      @installation_id = payload['installation']['id']
+      @installation_token = @app_client.create_app_installation_access_token(@installation_id)[:token]
+      @installation_client = Octokit::Client.new(bearer_token: @installation_token)
+    end
+
+    # Check X-Hub-Signature to confirm that this webhook was generated by
+    # GitHub, and not a malicious third party.
+    #
+    # GitHub uses the WEBHOOK_SECRET, registered to the GitHub App, to
+    # create the hash signature sent in the `X-HUB-Signature` header of each
+    # webhook. This code computes the expected hash signature and compares it to
+    # the signature sent in the `X-HUB-Signature` header. If they don't match,
+    # this request is an attack, and you should reject it. GitHub uses the HMAC
+    # hexdigest to compute the signature. The `X-HUB-Signature` looks something
+    # like this: 'sha1=123456'.
+    # See https://developer.github.com/webhooks/securing/ for details.
+    def verify_webhook_signature
+      their_signature_header = request.env['HTTP_X_HUB_SIGNATURE'] || 'sha1='
+      method, their_digest = their_signature_header.split('=')
+      our_digest = OpenSSL::HMAC.hexdigest(method, WEBHOOK_SECRET, @payload_raw)
+      halt 401 unless their_digest == our_digest
+
+      # The X-GITHUB-EVENT header provides the name of the event.
+      # The action value indicates the which action triggered the event.
+      logger.debug "---- received event #{request.env['HTTP_X_GITHUB_EVENT']}"
+      logger.debug "----    action #{@payload['action']}" unless @payload['action'].nil?
+    end
+
+  end
+
+  # Finally some logic to let us run this server directly from the command line,
+  # or with Rack. Don't worry too much about this code. But, for the curious:
+  # $0 is the executed file
+  # __FILE__ is the current file
+  # If they are the same—that is, we are running this file directly, call the
+  # Sinatra run method
+  run! if __FILE__ == $0
+end
+```
+
+The rest of this section will explain what the template code does. There aren't any steps that you need to complete in this section. If you're already familiar with the template code, you can skip ahead to "[Start the server](#start-the-server)."
+
+### Review the template code
+
+Open up the `server.rb` file in a text editor. You'll see comments throughout the file that provide additional context for the template code. We recommend reading those comments carefully and even adding your own comments to accompany new code you write.
+
+At the top of the file you'll see `set :port 3000`, which sets the port used when starting the web server to match the port you redirected your webhook payloads to in "[Step 1. Start a new Smee channel](#step-1-start-a-new-smee-channel)."
+
+The next code you'll see is the `class GHApp < Sinatra::Application` declaration. You'll write all of the code for your GitHub App inside this class.
+
+Out of the box, the class in the template does the following things:
+* [Read the environment variables](#read-the-environment-variables)
+* [Turn on logging](#turn-on-logging)
+* [Define a before filter](#define-a-before-filter)
+* [Define the route handler](#define-a-route-handler)
+* [Define the helper methods](#define-the-helper-methods)
+
+#### Read the environment variables
+
+The first thing that this class does is read the three environment variables you set in "[Step 4. Prepare the runtime environment](#step-4-prepare-the-runtime-environment)" and store them in variables to use later:
+
+``` ruby
+# Expects that the private key in PEM format. Converts the newlines
+PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
+
+# Your registered app must have a secret set. The secret is used to verify
+# that webhooks are sent by GitHub.
+WEBHOOK_SECRET = ENV['GITHUB_WEBHOOK_SECRET']
+
+# The GitHub App's identifier (type integer) set when registering an app.
+APP_IDENTIFIER = ENV['GITHUB_APP_IDENTIFIER']
+```
+
+#### Turn on logging
+
+Next is a code block that enables logging during development, which is the default environment in Sinatra. This code turns on logging at the `DEBUG` level to show useful output in the Terminal while you are developing the app:
+
+``` ruby
+# Turn on Sinatra's verbose logging during development
+configure :development do
+  set :logging, Logger::DEBUG
+end
+```
+
+#### Define a before filter
+
+Sinatra uses [before filters](https://github.com/sinatra/sinatra#filters) that allow you to execute code before the route handler. The `before` block in the template calls four [helper methods](https://github.com/sinatra/sinatra#helpers). The template app defines those helper methods in a [later section](#define-the-helper-methods).
+
+``` ruby
+# Before each request to the `/event_handler` route
+before '/event_handler' do
+  get_payload_request(request)
+  verify_webhook_signature
+  authenticate_app
+  # Authenticate the app installation in order to run API operations
+  authenticate_installation(@payload)
+end
+```
+
+#### Define a route handler
+
+An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You won't write this event handler in this quickstart, but see the other [quickstart guides](/apps/creating-github-apps/guides) for examples of how to extend this template app.
+
+``` ruby
+post '/event_handler' do
+
+end
+```
+
+#### Define the helper methods
+
+The helper methods in this template do most of the heavy lifting. Four helper methods are defined in this section of the code.
+
+##### Handling the webhook payload
+
+The first method `get_payload_request` captures the webhook payload and converts it to JSON format, which makes accessing the payload's data much easier.
+
+##### Verifying the webhook signature
+
+The second method `verify_webhook_signature` performs verification of the webhook signature to ensure that GitHub generated the event. To learn more about the code in the `verify_webhook_signature` helper method, see "[AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks)." If the webhooks are secure, this method will log all incoming payloads to your Terminal. The logger code is helpful in verifying your web server is working but you can always remove it later.
+
+##### Authenticating as a GitHub App
+
+To make API calls, you'll be using the [Octokit library](https://octokit.github.io/octokit.rb/). Doing anything interesting with this library will require you, or rather your app, to authenticate. GitHub Apps have two methods of authentication:
+
+- Authenticating as a GitHub App using a [JSON Web Token (JWT)](https://jwt.io/introduction).
+- Authenticating as a specific installation of a GitHub App using an installation access token.
+
+You'll learn about authenticating as an installation in the [next section](#authenticating-as-an-installation).
+
+Authenticating as a GitHub App lets you do a couple of things:
+
+ * You can retrieve high-level management information about your GitHub App.
+ * You can request access tokens for an installation of the app.
+
+For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
+
+Before you can use the Octokit.rb library to make API calls, you'll need to initialize an [Octokit client](https://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as a GitHub App. The `authenticate_app` helper method does just that!
+
+``` ruby
+# Instantiate an Octokit client authenticated as a GitHub App.
+# GitHub App authentication requires that you construct a
+# JWT (https://jwt.io/introduction/) signed with the app's private key,
+# so GitHub can be sure that it came from the app an not altered by
+# a malicious third party.
+def authenticate_app
+  payload = {
+      # The time that this JWT was issued, _i.e._ now.
+      iat: Time.now.to_i,
+
+      # JWT expiration time (10 minute maximum)
+      exp: Time.now.to_i + (10 * 60),
+
+      # Your GitHub App's identifier number
+      iss: APP_IDENTIFIER
+  }
+
+  # Cryptographically sign the JWT
+  jwt = JWT.encode(payload, PRIVATE_KEY, 'RS256')
+
+  # Create the Octokit client, using the JWT as the auth token.
+  @app_client ||= Octokit::Client.new(bearer_token: jwt)
+end
+```
+
+The code above generates a [JSON Web Token (JWT)](https://jwt.io/introduction) and uses it (along with your app's private key) to initialize the Octokit client. GitHub checks a request's authentication by verifying the token with the app's stored public key. To learn more about how this code works, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-json-web-token-jwt-for-a-github-app)."
+
+##### Authenticating as an installation
+
+An _installation_ refers to any user or organization account that has installed the app. Even if someone installs the app on more than one repository, it only counts as one installation because it's within the same account. The last helper method `authenticate_installation` initializes an [Octokit client](https://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as an installation. This Octokit client is what you'd use to make authenticated API calls.
+
+``` ruby
+# Instantiate an Octokit client authenticated as an installation of a
+# GitHub App to run API operations.
+def authenticate_installation(payload)
+  installation_id = payload['installation']['id']
+  installation_token = @app_client.create_app_installation_access_token(installation_id)[:token]
+  @installation_client = Octokit::Client.new(bearer_token: installation_token)
+end
+```
+
+The [`create_app_installation_access_token`](https://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method) Octokit method creates an installation token. This method accepts two arguments:
+
+* Installation (integer): The ID of a GitHub App installation
+* Options (hash, defaults to `{}`): A customizable set of options
+
+Any time a GitHub App receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a GitHub App, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. The response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
+
+With this method in place, each time your app receives a new webhook payload, it creates a client for the installation that triggered the event. This authentication process enables your GitHub App to work for all installations on any account.
+
+## Start the server
+
+Your app doesn't do anything yet, but at this point, you can get it running on the server.
+
+Keep Smee running in the current tab in your terminal. Open a new tab and `cd` into the directory where you [cloned the template app code](#prerequisites). The Ruby code in this repository will start up a [Sinatra](https://sinatrarb.com/) web server. This code has a few dependencies. You can install these by running:
+
+```shell{:copy}
+gem install bundler
+```
+
+Followed by:
+
+```shell{:copy}
+bundle install
+```
+
+With the dependencies installed, you can start the server:
+
+```shell{:copy}
+bundle exec ruby server.rb
+```
+
+You should see a response like:
+
+```shell
+> == Sinatra (v2.0.3) has taken the stage on 3000 for development with backup from Puma
+> Puma starting in single mode...
+> * Version 3.11.2 (ruby 2.4.0-p0), codename: Love Song
+> * Min threads: 0, max threads: 16
+> * Environment: development
+> * Listening on tcp://localhost:3000
+> Use Ctrl-C to stop
+```
+
+If you see an error, make sure you've created the `.env` file in the directory that contains `server.rb`.
+
+Once the server is running, you can test it by going to `http://localhost:3000` in your browser. If the app works as expected, you'll see a helpful error page that says, "Sinatra doesn't know this ditty."
+
+This is good! Even though it's an error page, it's a Sinatra error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
+
+## Install the app on your account
+
+You can test that the server is listening to your app by triggering an event for it to receive. A simple event you can test is installing the app on your GitHub account, which should send the [`installation`](/webhooks-and-events/webhooks/webhook-events-and-payloads#installation) event. If the app receives it, you should see some output in the Terminal tab where you started `template_server.rb`.
+
+To install the app, visit the [app settings page](https://github.com/settings/apps), choose your app, and click **Install App** in the sidebar. Next to your username, click **Install**.
+
+You'll be asked whether to install the app on all repositories or selected repositories. If you don't want to install the app on _all_ of your repositories, that's okay! You may want to create a sandbox repository for testing purposes and install your app there.
+
+After you click **Install**, look at the output in your Terminal. You should see something like this:
+
+```shell
+> D, [2018-06-29T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
+> D, [2018-06-29T15:45:43.773141 #30488] DEBUG -- : ----         action created
+> 192.30.252.44 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0067
+> D, [2018-06-29T15:45:43.833016 #30488] DEBUG -- : ---- received event installation
+> D, [2018-06-29T15:45:43.833062 #30488] DEBUG -- : ----         action created
+> 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0019
+```
+
+This is good news! It means your app received a notification that it was installed on your GitHub account. If you see something like this, your app is running on the server as expected.
+
+If you don't see the output, make sure Smee is running correctly in another Terminal tab. If you need to restart Smee, note that you'll also need to _uninstall_ and _reinstall_ the app to send the `installation` event to your app again and see the output in Terminal. If Smee isn't the problem, see the "[Troubleshooting](#troubleshooting)" section for other ideas.
+
+If you're wondering where the terminal output above is coming from, it's written in the [app template code](#add-code-for-your-app) in `server.rb`.
 
 ## Part 1. Creating the Checks API interface
 
