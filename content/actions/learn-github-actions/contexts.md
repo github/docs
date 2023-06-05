@@ -131,8 +131,8 @@ jobs:
         run: echo '$JOB_CONTEXT'
       - name: Dump steps context
         env:
-          STEP_CONTEXT: ${{ toJson(step) }}
-        run: echo '$STEP_CONTEXT'
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo '$STEPS_CONTEXT'
       - name: Dump runner context
         env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
