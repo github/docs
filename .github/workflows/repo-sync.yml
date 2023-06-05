@@ -34,7 +34,7 @@ jobs:
         uses: juliangruber/find-pull-request-action@3a4c7c62101755c3778d397dcb6a760a558992f1
         id: find-pull-request
         with:
-          github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
+          github-token: ${{ secrets.DOCS_BOT_FR }}
           branch: repo-sync
           base: main
           state: open
@@ -43,7 +43,7 @@ jobs:
         if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
-          github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
+          github-token: ${{ secrets.DOCS_BOT_FR }}
           script: |
             const { owner, repo } = context.repo
 
