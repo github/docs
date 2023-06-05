@@ -26,13 +26,13 @@ versions:
 
 {% data reusables.desktop.history-tab %}
 2. Click the commit.
-  {% note %}
+   {% note %}
 
-  **Note**: {% data variables.product.prodname_desktop %} displays an arrow {% octicon "arrow-up" aria-label="The up arrow icon" %} if the tag has not been pushed to the remote repository.
+   **Note**: {% data variables.product.prodname_desktop %} displays an arrow {% octicon "arrow-up" aria-label="The up arrow icon" %} if the tag has not been pushed to the remote repository.
 
-  {% endnote %}
+   {% endnote %}
 
-  ![Screenshot of a list of commits in the "History" tab. Next to a commit, a "hello-tag" label and an "up arrow" icon are outlined in orange.](/assets/images/help/desktop/viewing-tags-in-history.png)
+   ![Screenshot of a list of commits in the "History" tab. Next to a commit, a "hello-tag" label and an "up arrow" icon are outlined in orange.](/assets/images/help/desktop/viewing-tags-in-history.png)
 
 3. All tags associated with the commit are visible in that commit's metadata.
 

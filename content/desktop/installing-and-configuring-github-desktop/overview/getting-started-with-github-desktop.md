@@ -53,7 +53,7 @@ After you install {% data variables.product.prodname_desktop %}, you can configu
 
 You can connect or remove accounts on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, choose a default text editor or shell, edit your Git configuration, change the appearance of {% data variables.product.prodname_desktop %}, customize system dialog boxes, and set privacy preferences in the {% data variables.product.prodname_desktop %} Preferences window. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-basic-settings-in-github-desktop)."
 
-  ![The basic settings in the Preference window](/assets/images/help/desktop/mac-select-preferences-pane.png)
+![Screenshot of the "Preferences" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/mac-select-preferences-pane.png)
 
 {% endmac %}
 
@@ -61,7 +61,7 @@ You can connect or remove accounts on {% data variables.product.prodname_dotcom 
 
 You can connect or remove accounts on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, choose a default text editor or shell, edit your Git configuration, change the appearance of {% data variables.product.prodname_desktop %}, customize system dialog boxes, and set privacy preferences in the {% data variables.product.prodname_desktop %} Options window. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-basic-settings-in-github-desktop)."
 
-  ![The basic settings in the Options window](/assets/images/help/desktop/mac-select-preferences-pane.png)
+![Screenshot of the "Preferences" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/mac-select-preferences-pane.png)
 
 {% endwindows %}
 
@@ -77,13 +77,13 @@ You can clone a repository from {% data variables.product.prodname_dotcom %} by 
 
 {% mac %}
 
-  ![Screenshot of the menu bar on a Mac. Actions for repositories are listed in the open "File" dropdown menu.](/assets/images/help/desktop/mac-file-menu.png)
+![Screenshot of the menu bar on a Mac. Actions for repositories are listed in the open "File" dropdown menu.](/assets/images/help/desktop/mac-file-menu.png)
 
 {% endmac %}
 
 {% windows %}
 
-  ![Screenshot of the "GitHub Desktop" menu bar on Windows. Actions for repositories are listed in the open "File" dropdown menu.](/assets/images/help/desktop/windows-file-menu.png)
+![Screenshot of the "GitHub Desktop" menu bar on Windows. Actions for repositories are listed in the open "File" dropdown menu.](/assets/images/help/desktop/windows-file-menu.png)
 
 {% endwindows %}
 

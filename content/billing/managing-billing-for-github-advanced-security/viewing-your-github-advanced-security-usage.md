@@ -38,7 +38,7 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 {% data reusables.enterprise-accounts.license-tab %}
    The "{% data variables.product.prodname_GH_advanced_security %}" section shows details of the current usage.
 
-  If you run out of licenses, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more licenses. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
+   If you run out of licenses, the section will be red and show "Limit exceeded." You should either reduce your use of {% data variables.product.prodname_GH_advanced_security %} or purchase more licenses. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#getting-the-most-out-of-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing)."
 
 {% elsif ghes %}
 
@@ -50,7 +50,8 @@ You can view the enterprise account's current {% ifversion ghas-billing-UI-updat
 {% endif %}
 {%- ifversion ghas-billing-table-ui-update -%}
 1. Optionally, to see a detailed breakdown of usage per organization, in the enterprise account sidebar, click **Billing**.
-  In the “{% data variables.product.prodname_GH_advanced_security %}” section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization. The organizations in the billing table are sorted by the highest number of unique committers in descending order.
+
+   In the “{% data variables.product.prodname_GH_advanced_security %}” section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization. The organizations in the billing table are sorted by the highest number of unique committers in descending order.
 {% endif %}
 1. Optionally, display the security and analysis settings for an organization.
    - Click the name of the organization.
