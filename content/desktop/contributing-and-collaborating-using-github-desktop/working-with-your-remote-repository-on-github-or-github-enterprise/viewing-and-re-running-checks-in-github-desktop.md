@@ -15,7 +15,6 @@ versions:
 
 {% data reusables.desktop.current-branch-menu %}
 {% data reusables.desktop.click-pull-requests %}
-  ![Screenshot of the "Current Branch" dropdown menu. A tab, labeled "Pull Requests", is highlighted with an orange outline.](/assets/images/help/desktop/branch-drop-down-pull-request-tab.png)
 {% data reusables.desktop.choose-pr-from-list %}
 4. Click on the pull request number, to the right of the pull request branch name.
 

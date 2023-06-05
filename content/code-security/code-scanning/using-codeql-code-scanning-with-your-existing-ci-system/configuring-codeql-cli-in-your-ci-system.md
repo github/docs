@@ -51,21 +51,21 @@ You can display the command-line help for any command using the <nobr>`--help`</
 3. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
 4. Run `codeql database create` from the checkout root of your repository and build the codebase.
 
-  ```shell
-  # Single supported language - create one CodeQL database
-  codeql database create &lt;database&gt; --command &lt;build&gt; \
-        --language=&lt;language-identifier&gt;
+   ```shell
+   # Single supported language - create one CodeQL database
+   codeql database create &lt;database&gt; --command &lt;build&gt; \
+         --language=&lt;language-identifier&gt;
 
-  # Multiple supported languages - create one CodeQL database per language
-  codeql database create &lt;database&gt; --command &lt;build&gt; \
-        --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt;
-  ```
+   # Multiple supported languages - create one CodeQL database per language
+   codeql database create &lt;database&gt; --command &lt;build&gt; \
+         --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt;
+   ```
 
-  {% note %}
+   {% note %}
 
-  **Note:** If you use a containerized build, you need to run the {% data variables.product.prodname_codeql_cli %} inside the container where your build task takes place.
+   **Note:** If you use a containerized build, you need to run the {% data variables.product.prodname_codeql_cli %} inside the container where your build task takes place.
 
-  {% endnote %}
+   {% endnote %}
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
@@ -206,13 +206,13 @@ Before you can upload results to {% data variables.product.product_name %}, you 
 
 When you have decided on the most secure and reliable method for your CI server, run `codeql github upload-results` on each SARIF results file and include `--github-auth-stdin` unless the token is available in the environment variable `GITHUB_TOKEN`.
 
-  ```shell
-  echo "$UPLOAD_TOKEN" | codeql github upload-results \
-      --repository=&lt;repository-name&gt; \
-      --ref=&lt;ref&gt; --commit=&lt;commit&gt; \
-      --sarif=&lt;file&gt; {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; \
-      {% endif %}--github-auth-stdin
-  ```
+```shell
+echo "$UPLOAD_TOKEN" | codeql github upload-results \
+    --repository=&lt;repository-name&gt; \
+    --ref=&lt;ref&gt; --commit=&lt;commit&gt; \
+    --sarif=&lt;file&gt; {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; \
+    {% endif %}--github-auth-stdin
+```
 
 | Option | Required | Usage |
 |--------|:--------:|-----|

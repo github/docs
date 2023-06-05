@@ -359,9 +359,9 @@ You can use the `if` conditional to prevent a step from running unless a conditi
 
 ### Example: Using contexts
 
- This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
 
- ```yaml
+```yaml
 steps:
   - name: My first step
     if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}

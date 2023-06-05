@@ -216,13 +216,13 @@ You may have multiple code scanning configurations on a single repository. When 
 1. In the "Affected branches" section of the sidebar, click the desired branch.
 1. In the "Configurations analyzing" dialog, review details of the configurations that reported this alert on the selected branch. To delete an unwanted configuration for the desired branch, click {% octicon "trash" aria-label="Delete configuration" %}.
 
-  If you delete a configuration by mistake, click **Cancel** to avoid applying your changes.
+   If you delete a configuration by mistake, click **Cancel** to avoid applying your changes.
 
-  ![Screenshot of the "Configurations analyzing" modal. The "Delete configuration" icon is outlined in dark orange.](/assets/images/help/repository/code-scanning-remove-configuration.png)
+   ![Screenshot of the "Configurations analyzing" modal. The "Delete configuration" icon is outlined in dark orange.](/assets/images/help/repository/code-scanning-remove-configuration.png)
 
 1. Once you have removed any unwanted configurations and confirmed the expected configurations are displayed, click **Save changes**.
 
-  If you save your changes after accidentally deleting a configuration, re-run the configuration to update the alert. For more information on re-running configurations that use {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-all-the-jobs-in-a-workflow)."
+   If you save your changes after accidentally deleting a configuration, re-run the configuration to update the alert. For more information on re-running configurations that use {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/managing-workflow-runs/re-running-workflows-and-jobs#re-running-all-the-jobs-in-a-workflow)."
 
 {% note %}
 

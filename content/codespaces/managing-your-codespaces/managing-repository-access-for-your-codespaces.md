@@ -36,29 +36,29 @@ To create codespaces with custom permissions defined, you must use one of the fo
 
 1. Edit the `devcontainer.json` file, adding the repository name and permissions needed to the `repositories` object:
 
-  ```json{:copy}
-  {
-    "customizations": {
-      "codespaces": {
-        "repositories": {
-          "my_org/my_repo": {
-            "permissions": {
-              "issues": "write"
-            }
-          }
-        }
-      }
-    }
-  }
-  ```
+   ```json{:copy}
+   {
+     "customizations": {
+       "codespaces": {
+         "repositories": {
+           "my_org/my_repo": {
+             "permissions": {
+               "issues": "write"
+             }
+           }
+         }
+       }
+     }
+   }
+   ```
 
-  {% note %}
+   {% note %}
 
-  **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
+   **Note:** You can only reference repositories that belong to the same personal account or organization as the repository you are currently working in.
 
-  {% endnote %}
+   {% endnote %}
 
-  You can grant as many or as few of the following permissions for each repository listed:
+   You can grant as many or as few of the following permissions for each repository listed:
    * `actions` - read / write
    * `checks` - read / write
    * `contents` - read / write
@@ -72,39 +72,39 @@ To create codespaces with custom permissions defined, you must use one of the fo
    * `statuses` - read / write
    * `workflows` - write
 
-  To set a permission for a repository in an organization, you must explicitly add that repository name in the `repositories` object.
+   To set a permission for a repository in an organization, you must explicitly add that repository name in the `repositories` object.
 
-  ```json
-  {
-    "customizations": {
-      "codespaces": {
-        "repositories": {
-          "my_org/my_repo": {
-            "permissions": {
-              "issues": "write"
-            }
-          }
-        }
-      }
-    }
-  }
-  ```
+   ```json
+   {
+     "customizations": {
+       "codespaces": {
+         "repositories": {
+           "my_org/my_repo": {
+             "permissions": {
+               "issues": "write"
+             }
+           }
+         }
+       }
+     }
+   }
+   ```
 
-  To set all permissions for a given repository, use `"permissions": "read-all"` or `"permissions": "write-all"` in the repository object.
+   To set all permissions for a given repository, use `"permissions": "read-all"` or `"permissions": "write-all"` in the repository object.
 
-  ```json
-  {
-    "customizations": {
-      "codespaces": {
-        "repositories": {
-          "my_org/my_repo": {
-            "permissions": "write-all"
-          }
-        }
-      }
-    }
-  }
-  ```
+   ```json
+   {
+     "customizations": {
+       "codespaces": {
+         "repositories": {
+           "my_org/my_repo": {
+             "permissions": "write-all"
+           }
+         }
+       }
+     }
+   }
+   ```
 
 ## Authorizing requested permissions
 

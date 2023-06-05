@@ -52,9 +52,9 @@ To keep your credentials secure, we recommend you save your {% data variables.pr
 
 {% ifversion fpt or ghec %}
 {% raw %}
-  ```shell
-  $ cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
-  ```
+```shell
+$ cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
+```
 {% endraw %}
 {% endif %}
 
@@ -63,16 +63,16 @@ To keep your credentials secure, we recommend you save your {% data variables.pr
 If your instance has subdomain isolation enabled:
 {% endif %}
 {% raw %}
- ```shell
- $ cat ~/TOKEN.txt | docker login docker.HOSTNAME -u USERNAME --password-stdin
+```shell
+$ cat ~/TOKEN.txt | docker login docker.HOSTNAME -u USERNAME --password-stdin
 ```
 {% endraw %}
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
 {% raw %}
- ```shell
- $ cat ~/TOKEN.txt | docker login HOSTNAME -u USERNAME --password-stdin
+```shell
+$ cat ~/TOKEN.txt | docker login HOSTNAME -u USERNAME --password-stdin
 ```
 {% endraw %}
 {% endif %}

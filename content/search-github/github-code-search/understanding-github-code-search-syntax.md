@@ -138,7 +138,6 @@ user:octocat
 
 {% endnote %}
 
-
 ### Language qualifier
 
 To narrow down to a specific languages, use the `language:` qualifier. For example: 
@@ -156,13 +155,15 @@ To search within file paths, use the `path:` qualifier. This will match files co
 ```
 path:unit_tests
 ```
- The above query will match both `src/unit_tests/my_test.py` and `src/docs/unit_tests.md` since they both contain `unit_test` somewhere in their path. 
 
- To match only a specific filename (and not part of the path), you could use a regular expression:
+The above query will match both `src/unit_tests/my_test.py` and `src/docs/unit_tests.md` since they both contain `unit_test` somewhere in their path. 
 
- ```
- path:/(^|\/)README\.md$/
- ```
+To match only a specific filename (and not part of the path), you could use a regular expression:
+
+```
+path:/(^|\/)README\.md$/
+```
+
 Note that the `.` in the filename is escaped, since `.` has special meaning for regular expressions. For more information about using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
 
 <br>

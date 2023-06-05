@@ -58,18 +58,18 @@ After configuring {% data variables.product.prodname_code_scanning %} for your r
 
 {% data reusables.repositories.actions-tab %}
 
-  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
+   You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
 
-  ![Screenshot of the "All workflows" page. In the list of workflow runs is a run labeled "Create .github/workflows/codeql.yml."](/assets/images/help/repository/code-scanning-actions-list.png)
+   ![Screenshot of the "All workflows" page. In the list of workflow runs is a run labeled "Create .github/workflows/codeql.yml."](/assets/images/help/repository/code-scanning-actions-list.png)
 
 1. Click the entry for the {% data variables.product.prodname_code_scanning %} workflow.
 
 {%- ifversion code-scanning-without-workflow %}
-  {% note %}
+   {% note %}
 
-  **Note:** If you are looking for the {% data variables.product.prodname_codeql %} workflow run triggered by enabling default setup, the text of the entry is "{% data variables.product.prodname_codeql %}."
+   **Note:** If you are looking for the {% data variables.product.prodname_codeql %} workflow run triggered by enabling default setup, the text of the entry is "{% data variables.product.prodname_codeql %}."
 
-  {% endnote %}
+   {% endnote %}
 {% endif -%}
 
 1. Click the job name on the left. For example, **Analyze (LANGUAGE)**.

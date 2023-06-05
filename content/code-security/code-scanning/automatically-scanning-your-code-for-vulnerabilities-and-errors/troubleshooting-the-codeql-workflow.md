@@ -123,14 +123,14 @@ If your workflow fails with an error `No source code was seen during the build` 
 
 1. Automatic language detection identified a supported language, but there is no analyzable code of that language in the repository. A typical example is when our language detection service finds a file associated with a particular programming language like a `.h`, or `.gyp` file, but no corresponding executable code is present in the repository. To solve the problem, you can manually define the languages you want to analyze by updating the list of languages in the `language` matrix. For example, the following configuration will analyze only Go, and JavaScript.
 
-  ```yaml
-  strategy:
-    fail-fast: false
-    matrix:
-      # Override automatic language detection by changing the list below.
-      # Supported options are listed in a comment in the default workflow.
-      language: ['go', 'javascript']
-  ```
+   ```yaml
+   strategy:
+     fail-fast: false
+     matrix:
+       # Override automatic language detection by changing the list below.
+       # Supported options are listed in a comment in the default workflow.
+       language: ['go', 'javascript']
+   ```
 
    For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
 

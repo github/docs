@@ -264,48 +264,48 @@ The `login` command will run the device flow to get a user access token. For mor
 
 1. Add the following `poll_for_token` function to `app_cli.rb`. This function polls `{% data variables.product.oauth_host_code %}/login/oauth/access_token` at the specified interval until {% data variables.product.company_short %} responds with an `access_token` parameter instead of an `error` parameter. Then, it writes the user access token to a file and restricts the permissions on the file.
 
-  ```ruby{:copy}
-  def poll_for_token(device_code, interval)
+   ```ruby{:copy}
+   def poll_for_token(device_code, interval)
 
-    loop do
-      response = request_token(device_code)
-      error, access_token = response.values_at("error", "access_token")
+     loop do
+       response = request_token(device_code)
+       error, access_token = response.values_at("error", "access_token")
 
-      if error
-        case error
-        when "authorization_pending"
-          # The user has not yet entered the code.
-          # Wait, then poll again.
-          sleep interval
-          next
-        when "slow_down"
-          # The app polled too fast.
-          # Wait for the interval plus 5 seconds, then poll again.
-          sleep interval + 5
-          next
-        when "expired_token"
-          # The `device_code` expired, and the process needs to restart.
-          puts "The device code has expired. Please run `login` again."
-          exit 1
-        when "access_denied"
-          # The user cancelled the process. Stop polling.
-          puts "Login cancelled by user."
-          exit 1
-        else
-          puts response
-          exit 1
-        end
-      end
+       if error
+         case error
+         when "authorization_pending"
+           # The user has not yet entered the code.
+           # Wait, then poll again.
+           sleep interval
+           next
+         when "slow_down"
+           # The app polled too fast.
+           # Wait for the interval plus 5 seconds, then poll again.
+           sleep interval + 5
+           next
+         when "expired_token"
+           # The `device_code` expired, and the process needs to restart.
+           puts "The device code has expired. Please run `login` again."
+           exit 1
+         when "access_denied"
+           # The user cancelled the process. Stop polling.
+           puts "Login cancelled by user."
+           exit 1
+         else
+           puts response
+           exit 1
+         end
+       end
 
-      File.write("./.token", access_token)
+       File.write("./.token", access_token)
 
-      # Set the file permissions so that only the file owner can read or modify the file
-      FileUtils.chmod(0600, "./.token")
+       # Set the file permissions so that only the file owner can read or modify the file
+       FileUtils.chmod(0600, "./.token")
 
-      break
-    end
-  end
-  ```
+       break
+     end
+   end
+   ```
 
 1. Add the following `login` function.
 

@@ -43,12 +43,12 @@ Organizations can use the `name@organization.com` email as a public point of con
 
 2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
 
-  ```shell
-  $ git commit -m "Refactor usability tests.
-  >
-  >
-  on-behalf-of: @ORG NAME@ORGANIZATION.COM"
-  ```
+   ```shell
+   $ git commit -m "Refactor usability tests.
+   >
+   >
+   on-behalf-of: @ORG NAME@ORGANIZATION.COM"
+   ```
 
 The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository)."
 

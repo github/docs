@@ -61,7 +61,7 @@ The search bar also allows for full text searching of alerts and related securit
 {% endif %}
 
 {% ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
+![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% elsif ghes = 3.5 %}
 You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply.{% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
@@ -117,7 +117,8 @@ For more information, see "[Reviewing and fixing alerts](#reviewing-and-fixing-a
 {% data reusables.repositories.sidebar-dependabot-alerts %}
 1. Optionally, to filter alerts, select a filter in a dropdown menu then click the filter that you would like to apply. You can also type filters into the search bar. {% ifversion dependabot-filter-label-security-advisory %}Alternatively, to filter by label, click a label assigned to an alert to automatically apply that filter to the alert list.{% endif %} For more information about filtering and sorting alerts, see "[Prioritizing {% data variables.product.prodname_dependabot_alerts %}](#prioritizing-dependabot-alerts)."
 {%- ifversion dependabot-bulk-alerts %}
-  ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% endif %}
+
+   ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png){% endif %}
 1. Click the alert that you would like to view.
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}

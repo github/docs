@@ -70,14 +70,14 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
 
 1. To clone the [{% data variables.product.prodname_enterprise_backup_utilities %} project repository](https://github.com/github/backup-utils/) to a local directory on your backup host, run the following command.
 
-  ```
-  $ git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
-  ```
+   ```
+   $ git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
+   ```
 1. To change into the local repository directory, run the following command.
 
-  ```
-  cd backup-utils
-  ```
+   ```
+   cd backup-utils
+   ```
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 1. To copy the included `backup.config-example` file to `backup.config`, run the following command.
 
@@ -98,14 +98,14 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
 1. To grant your backup host access to your instance, open your primary instance's settings page at `http(s)://HOSTNAME/setup/settings` and add the backup host's SSH key to the list of authorized SSH keys. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh#enabling-access-to-the-administrative-shell-via-ssh)."
 1. On your backup host, verify SSH connectivity with {% data variables.location.product_location %} with the `ghe-host-check` command.
 
-  ```shell
-  ./bin/ghe-host-check
-  ```		  
+   ```shell
+   ./bin/ghe-host-check
+   ```		  
 1. To create an initial full backup, run the following command.
 
-  ```shell
-  ./bin/ghe-backup
-  ```
+   ```shell
+   ./bin/ghe-backup
+   ```
 
 For more information on advanced usage, see the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#readme) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
@@ -144,9 +144,9 @@ If your installation is in a Git repository, you can install the latest version 
 
 1. Download the latest project updates by running the `git fetch` command.
 
-  ```shell
-  git fetch
-  ```
+   ```shell
+   git fetch
+   ```
 
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
@@ -158,33 +158,33 @@ If your backup host has internet connectivity and you previously used a compress
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
 1. To back up your existing {% data variables.product.prodname_enterprise_backup_utilities %} configuration, copy your current `backup.config` file to a safe location, such as your home directory.
 
-  ```
-  $ cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
-  ```
+   ```
+   $ cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
+   ```
 
 1. Change to the local directory on your backup host where you want to install the {% data variables.product.prodname_enterprise_backup_utilities %} Git repository.
 1. To clone the [project repository](https://github.com/github/backup-utils/) to the directory on your backup host, run the following command.
 
-  ```
-  git clone https://github.com/github/backup-utils.git
-  ```
+   ```
+   git clone https://github.com/github/backup-utils.git
+   ```
 1. To change into the cloned repository, run the following command.
 
-  ```
-  cd backup-utils
-  ```
+   ```
+   cd backup-utils
+   ```
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 1. To restore your backup configuration from earlier, copy your existing backup configuration file to the local repository directory. Replace the path in the command with the location of the file saved in step 2.
 
-  ```
-  $ cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
-  ```
+   ```
+   $ cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
+   ```
   
-  {% note %}
+   {% note %}
 
-  **Note:** You can choose where to restore your backup configuration file to after cloning. For more information about where configuration files can be located, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+   **Note:** You can choose where to restore your backup configuration file to after cloning. For more information about where configuration files can be located, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
-  {% endnote %}
+   {% endnote %}
 
 1. To confirm that the paths to directories or scripts in your backup configuration file are correct, review the file in a text editor.
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
