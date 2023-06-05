@@ -1,9 +1,9 @@
 import express from 'express'
 
-import FailBot from '../../../src/observability/lib/failbot.js'
-import statsd from '../../../src/observability/lib/statsd.js'
+import FailBot from '#src/observability/lib/failbot.js'
+import statsd from '#src/observability/lib/statsd.js'
 import { searchCacheControl } from '../../../middleware/cache-control.js'
-import catchMiddlewareError from '../../../src/observability/middleware/catch-middleware-error.js'
+import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import { setFastlySurrogateKey } from '../../../middleware/set-fastly-surrogate-key.js'
 import { getSearchResults } from './es-search.js'
 import { getSearchFromRequest } from './get-search-request.js'

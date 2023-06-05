@@ -1,10 +1,10 @@
 import { get } from 'lodash-es'
 
-import FailBot from '../src/observability/lib/failbot.js'
+import FailBot from '#src/observability/lib/failbot.js'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
-import statsd from '../src/observability/lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 import { allVersions } from '../lib/all-versions.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
 import { nextApp, nextHandleRequest } from './next.js'
