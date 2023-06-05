@@ -51,7 +51,7 @@ Before you can use Jekyll to test a site, you must:
    {% note %}
 
    **Note:** If you've installed Ruby 3.0 or later (which you may have if you installed the default version via Homebrew), you might get an error at this step. That's because these versions of Ruby no longer come with `webrick` installed.
-  
+
    To fix the error, try running `bundle add webrick`, then re-running `bundle exec jekyll serve`.
    {% endnote %}
 
@@ -68,4 +68,4 @@ Jekyll is an active open source project that is updated frequently. If the `gith
 
 ## Further reading
 
-- [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) in the Jekyll documentation
+- [{% data variables.product.prodname_pages %}](https://jekyllrb.com/docs/github-pages/) in the Jekyll documentation

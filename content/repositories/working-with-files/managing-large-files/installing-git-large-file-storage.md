@@ -16,7 +16,7 @@ shortTitle: Install Git LFS
 {% mac %}
 
 1. Navigate to [git-lfs.github.com](https://git-lfs.github.com) and click **Download**. Alternatively, you can install {% data variables.large_files.product_name_short %} using a package manager:
-    - To use [Homebrew](http://brew.sh/), run `brew install git-lfs`.
+    - To use [Homebrew](https://brew.sh/), run `brew install git-lfs`.
     - To use [MacPorts](https://www.macports.org/), run `port install git-lfs`.
 
  If you install {% data variables.large_files.product_name_short %} with Homebrew or MacPorts, skip to step six.
