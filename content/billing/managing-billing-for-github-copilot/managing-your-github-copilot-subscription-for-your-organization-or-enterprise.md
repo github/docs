@@ -45,7 +45,7 @@ Before you can start using {% data variables.product.prodname_copilot %} in your
 
 {% endif %}
 
-##  Modifying your {% data variables.product.prodname_copilot_business_short %} subscription
+## Modifying your {% data variables.product.prodname_copilot_business_short %} subscription
 
 {% ifversion ghec %}
 
