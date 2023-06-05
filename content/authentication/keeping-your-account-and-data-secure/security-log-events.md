@@ -119,7 +119,7 @@ topics:
 
 | Action | Description
 |------------------|-------------------
-| `access` | Triggered when you a repository you own is [switched from "private" to "public"](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) (or vice versa).
+| `access` | Triggered when you [change the visibility of a repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
 | `add_member` | Triggered when a {% data variables.product.product_name %} user is {% ifversion fpt or ghec %}[invited to have collaboration access](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
 | `add_topic` | Triggered when a repository owner [adds a topic](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) to a repository.
 | `archived` | Triggered when a repository owner [archives a repository](/repositories/archiving-a-github-repository/archiving-repositories).{% ifversion ghes %}

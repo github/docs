@@ -19,15 +19,15 @@ Webhooks enable your {% data variables.product.prodname_github_app %} to receive
 
 You can configure your {% data variables.product.prodname_github_app %} to receive webhooks for specific events on {% data variables.product.prodname_dotcom %} and automatically take action on them. For more information about the types of webhooks you can receive, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
 
-To receive webhook events in your {% data variables.product.prodname_github_app %}, you must activate webhooks in the app settings and specify a webhook URL where {% data variables.product.prodname_dotcom %} will send the webhook payloads. For more information about creating and configuring a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
+To receive webhook events in your {% data variables.product.prodname_github_app %}, you must enable webhooks for your {% data variables.product.prodname_github_app %} registration and specify a webhook URL where {% data variables.product.prodname_dotcom %} will send the webhook payloads.
 
-If your app does not need to respond to webhooks or will only be used for authentication, you can turn off the webhook function in your app settings. You do not need to specify a webhook URL. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
+If your {% data variables.product.prodname_github_app %} does not need to respond to webhooks or will only be used for authentication, you can turn off the webhook function for your {% data variables.product.prodname_github_app %} registration. You do not need to specify a webhook URL.
 
-For information about changing the webhooks that a {% data variables.product.prodname_github_app %} subscribes to, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
+For more information about registering a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)." For more information about changing the webhooks that a {% data variables.product.prodname_github_app %} registration subscribes to, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 ## Choosing a webhook URL
 
-When you activate webhooks in the settings for your {% data variables.product.prodname_github_app %}, you will need to specify a webhook URL. The webhook URL is the address of a web server that will receive the webhook event payloads sent to your {% data variables.product.prodname_github_app %}. The server can then take action based on the content of the payload. You should choose a web server that's appropriate for the volume of webhook traffic that your {% data variables.product.prodname_github_app %} will encounter.
+When you activate webhooks for your {% data variables.product.prodname_github_app %} registration, you will need to specify a webhook URL. The webhook URL is the address of a web server that will receive the webhook event payloads sent to your {% data variables.product.prodname_github_app %}. The server can then take action based on the content of the payload. You should choose a web server that's appropriate for the volume of webhook traffic that your {% data variables.product.prodname_github_app %} will encounter.
 
 ### Choosing a webhook URL for development and testing
 
@@ -39,7 +39,7 @@ You can use Smee to create a unique domain where {% data variables.product.prodn
 
 1. To use Smee to create a unique domain, go to https://smee.io and click **Start a new channel**.
 1. On the Smee channel page, follow the instructions under "Use the CLI" to install and run the Smee client.
-1. To connect your Smee webhook URL to your {% data variables.product.prodname_github_app %}, enter your unique Smee domain in the "Webhook URL" field of your app settings. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
+1. To connect your Smee webhook URL to your {% data variables.product.prodname_github_app %}, enter your unique Smee domain in the "Webhook URL" field on your {% data variables.product.prodname_github_app %} registration page. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" and "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 ### Choosing a webhook URL for production
 
@@ -51,7 +51,7 @@ To handle a higher volume of webhook traffic for a large app in production, cons
 
 Once you've configured your server to receive payloads, it will listen for any payload sent to the server. For security reasons, you should limit incoming requests to only those originating from {% data variables.product.prodname_dotcom %}. You can do that by creating a webhook secret for your app.
 
-To create a webhook secret for your GitHub App, type a secret token in your app settings under "Webhook secret." You should choose a random string of text with high entropy. For more information about how to create a webhook secret in your app settings, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
+To create a webhook secret for your GitHub App, type a secret token under "Webhook secret" on your {% data variables.product.prodname_github_app %} registration page. You should choose a random string of text with high entropy. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" and "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
 
 After creating a webhook secret for your app, you will need to configure your server to securely store and validate the webhook secret token. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/securing-your-webhooks)."
 

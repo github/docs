@@ -11,7 +11,7 @@ topics:
 children:
   - /sharing-your-github-app
   - /making-your-github-app-available-for-github-enterprise-server
-  - /creating-a-github-app-from-a-manifest
-  - /creating-a-github-app-using-url-parameters
+  - /registering-a-github-app-from-a-manifest
+  - /registering-a-github-app-using-url-parameters
 ---
 

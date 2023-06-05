@@ -23,20 +23,20 @@ These steps are not required if your {% data variables.product.prodname_github_a
 
 If {% data variables.product.prodname_ghe_server %} access is important, consider whether a custom action for {% data variables.product.prodname_actions %} will suit your needs instead. Public actions are available on {% data variables.product.prodname_ghe_server %} instances with {% data variables.product.prodname_github_connect %}. For more information, see {% ifversion ghes %}"[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."{% else %}"[AUTOTITLE](/enterprise-server@latest/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)" in the  {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
 
-## Each {% data variables.product.prodname_ghe_server %} instance must create their own {% data variables.product.prodname_github_app %}
+## Each {% data variables.product.prodname_ghe_server %} instance must register their own {% data variables.product.prodname_github_app %}
 
-Organizations owned by a {% data variables.product.prodname_ghe_server %} instance cannot install {% data variables.product.prodname_github_app %}s registered on {% data variables.product.prodname_dotcom_the_website %} or on another {% data variables.product.prodname_ghe_server %} instance. Instead, they must create and install their own {% data variables.product.prodname_github_app %} for use on that instance.
+Organizations owned by a {% data variables.product.prodname_ghe_server %} instance cannot install {% data variables.product.prodname_github_app %}s registered on {% data variables.product.prodname_dotcom_the_website %} or on another {% data variables.product.prodname_ghe_server %} instance. Instead, they must register and install their own {% data variables.product.prodname_github_app %} for use on that instance.
 
 1. The app developer creates a manifest or URL parameters. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters)."
 1. The app developer shares the manifest or URL parameters with the {% data variables.product.prodname_ghe_server %} instance that wants to use the app. The same manifest or URL parameters can be shared with multiple {% data variables.product.prodname_ghe_server %} instances.
-1. An organization owned by the instance creates a {% data variables.product.prodname_github_app %} from the manifest or URL parameters.
-1. The organization installs the {% data variables.product.prodname_github_app %} that they created.
+1. An organization owned by the instance uses the manifest or URL parameters to register a {% data variables.product.prodname_github_app %}.
+1. The organization installs the {% data variables.product.prodname_github_app %} that they registered.
 
    Optionally, if the organization made the {% data variables.product.prodname_github_app %} public, other organizations within the instance can install the {% data variables.product.prodname_github_app %} as well. There is not a way to install a {% data variables.product.prodname_github_app %} on an entire instance, only on organizations within an instance.
 
 ## The app code must be able to access the {% data variables.product.prodname_github_app %} credentials for the instance
 
-You app's code will need the credentials of the {% data variables.product.prodname_github_app %} that the {% data variables.product.prodname_ghe_server %} instance created. It will also need the hostname of the instance. You have two options: get the credentials and hostname from the instance, or share the app code with the instance.
+You app's code will need the credentials of the {% data variables.product.prodname_github_app %} that the {% data variables.product.prodname_ghe_server %} instance registered. It will also need the hostname of the instance. You have two options: get the credentials and hostname from the instance, or share the app code with the instance.
 
 ### Get the credentials from the {% data variables.product.prodname_ghe_server %} instance
 

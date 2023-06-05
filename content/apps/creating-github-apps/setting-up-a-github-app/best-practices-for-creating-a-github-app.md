@@ -13,9 +13,9 @@ topics:
 
 ## Select the minimum permissions required
 
-Select the minimum permissions that your {% data variables.product.prodname_github_app %} needs. If any keys or tokens for your app become compromised, this will limit the amount of damage that can occur. For more information about how to choose permissions, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
+When you register a {% data variables.product.prodname_github_app %}, select the minimum permissions that your {% data variables.product.prodname_github_app %} needs. If any keys or tokens for your app become compromised, this will limit the amount of damage that can occur. For more information about how to choose permissions, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
 
-When your app creates an installation access token or user access token, you can further limit the repositories that the app can access and the permissions that the token has. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
+When your {% data variables.product.prodname_github_app %} creates an installation access token or user access token, you can further limit the repositories that the app can access and the permissions that the token has. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
 
 ## Stay under the rate limit
 
@@ -29,7 +29,7 @@ If you do hit a rate limit and need to retry an API request, use the `x-ratelimi
 
 ## Secure your app's credentials
 
-You can generate a private key and client secret for your app. With these credentials, your app can generate installation access tokens, user access tokens, and refresh tokens. These tokens can be used to make API requests on behalf of an app installation or user.
+You can generate a private key and client secret for your {% data variables.product.prodname_github_app %}. With these credentials, your app can generate installation access tokens, user access tokens, and refresh tokens. These tokens can be used to make API requests on behalf of an app installation or user.
 
 You must store these credentials securely. The storage mechanism depends on your integrations architecture and the platform that it runs on. In general, you should use a storage mechanism that is intended to store sensitive data on the platform that you are using.
 

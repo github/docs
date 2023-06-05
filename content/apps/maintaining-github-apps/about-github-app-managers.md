@@ -1,6 +1,6 @@
 ---
 title: About GitHub App managers
-intro: 'Organization owners can grant or revoke access for a user to manage some or all of the {% data variables.product.prodname_github_apps %} owned by the organization.'
+intro: 'Organization owners can grant or revoke access for a user to manage some or all of the {% data variables.product.prodname_github_app %} registrations owned by the organization.'
 versions:
   fpt: '*'
   ghes: '*'
