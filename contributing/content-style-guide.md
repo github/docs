@@ -157,10 +157,9 @@ If you must use footnotes:
 
 ## Headers
 
-Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
+Headers must adequately describe the content under them. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
 
 Use H2 for headers, and H3 for subheaders. If the article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the [content model](/contributing/content-model.md#titles).
 
@@ -180,7 +179,7 @@ Every image must include alt text providing a textual equivalent of the visual i
 - Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
 - Follow standard language used to describe UI elements in article text.
-- Put multi-word titles, e.g. names of menu items, in double quotation marks ("").
+- Put multi-word titles, e.g. names of menu items, in double quotation marks (""). When using punctuation after multi-word titles, place it outside of the quotation marks so that the string in quotation marks exactly matches the title as it appears in context.
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
 
 #### Alt text for screenshots
@@ -198,15 +197,15 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 - Use a variable for the word `GitHub` as we do in running copy: `{% data variables.product.prodname_dotcom %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
-  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu..." to avoid multiple nouns in a row.
 
 ##### Examples
 
 > Screenshot of the {% data variables.product.prodname_dotcom %} committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
 
-> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
+> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code", is outlined in dark orange.
 
-![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](./images/repository-code-button.png)
+![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code", is outlined in dark orange.](./images/repository-code-button.png)
 
 #### Alt text for diagrams and graphs
 
@@ -609,7 +608,10 @@ For more information about GitHub's personal access tokens, see "[Creating a per
 
 ## Punctuation
 
-Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+When referencing a UI element in quotation marks, place any subsequent punctuation outside of the quotation marks so that the label in quotation marks exactly matches the UI.
+- **Use:** Under "User licenses", view your total licenses.
+
+Otherwise, follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Release notes
 
