@@ -98,6 +98,7 @@ Alternatively, you can write your own action to submit dependencies for your pro
 {% ifversion dependency-graph-sbom-export %}
 To generate an SBOM, you can use:
 - the {% data variables.product.prodname_dotcom %} user interface.  For more information about how to export an SBOM for a repository using information from the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)."
+- the REST API. For more information, see "[AUTOTITLE](/rest/dependency-graph/sboms)."
 - {% data variables.product.prodname_actions %}. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 {% else %}
 You can use {% data variables.product.prodname_actions %} to generate an SBOM. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."

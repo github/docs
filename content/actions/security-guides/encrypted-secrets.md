@@ -19,7 +19,7 @@ versions:
 
 ## About encrypted secrets
 
-Secrets are encrypted variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
+Secrets are variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_actions %} can only read a secret if you explicitly include the secret in a workflow.
 
 {% data reusables.actions.secrets-org-level-overview %}
 
