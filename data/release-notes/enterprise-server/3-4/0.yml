@@ -313,3 +313,6 @@ sections:
 
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+
+  errata:
+    - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'
