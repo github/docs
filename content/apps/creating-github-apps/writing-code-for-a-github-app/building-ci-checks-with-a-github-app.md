@@ -1,6 +1,7 @@
 ---
-title: Creating CI tests with the Checks API
-intro: 'Build a continuous integration server to run tests using a {% data variables.product.prodname_github_app %} and the Checks API.'
+title: Building CI checks with a GitHub App
+shortTitle: Build CI checks
+intro: 'Build a continuous integration server to run tests using a {% data variables.product.prodname_github_app %} and checks.'
 redirect_from:
   - /apps/quickstart-guides/creating-ci-tests-with-the-checks-api
   - /developers/apps/creating-ci-tests-with-the-checks-api
@@ -14,7 +15,6 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: CI tests using Checks API
 ---
 ## Introduction
 
@@ -164,7 +164,7 @@ Make sure that you are on a secure machine before performing these steps since y
    -----END DSA PRIVATE KEY-----"
    ```
 
-## Add code for your app
+## Add code for your {% data variables.product.prodname_github_app %}
 
 This section will show you how to add some basic template code for your GitHub App, and it will explain what the code does. Later in the tutorial, you will learn how to modify and add to this code, to build out your app's functionality.
 
