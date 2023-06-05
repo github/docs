@@ -6,7 +6,7 @@ module.exports = {
     node: true,
   },
   parser: '@babel/eslint-parser',
-  extends: ['eslint:recommended', 'standard', 'prettier'],
+  extends: ['eslint:recommended', 'standard', 'plugin:import/errors', 'prettier'],
   parserOptions: {
     ecmaVersion: 11,
     requireConfigFile: 'false',
@@ -39,4 +39,10 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    'import/resolver': {
+      typescript: true,
+      node: true
+    }
+  }
 }

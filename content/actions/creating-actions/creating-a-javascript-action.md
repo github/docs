@@ -45,15 +45,15 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell{:copy}
-  cd hello-world-javascript-action
-  ```
+   ```shell{:copy}
+   cd hello-world-javascript-action
+   ```
 
 1. From your terminal, initialize the directory with npm to generate a `package.json` file.
 
-  ```shell{:copy}
-  npm init -y
-  ```
+   ```shell{:copy}
+   npm init -y
+   ```
 
 ## Creating an action metadata file
 
@@ -183,27 +183,31 @@ git push --follow-tags
 Checking in your `node_modules` directory can cause problems. As an alternative, you can use a tool called [`@vercel/ncc`](https://github.com/vercel/ncc) to compile your code and modules into one file used for distribution.
 
 1. Install `vercel/ncc` by running this command in your terminal.
-  `npm i -g @vercel/ncc`
+  
+   `npm i -g @vercel/ncc`
 
 1. Compile your `index.js` file.
-  `ncc build index.js --license licenses.txt`
+  
+   `ncc build index.js --license licenses.txt`
 
-  You'll see a new `dist/index.js` file with your code and the compiled modules.
-  You will also see an accompanying `dist/licenses.txt` file containing all the licenses of the `node_modules` you are using.
+   You'll see a new `dist/index.js` file with your code and the compiled modules. You will also see an accompanying `dist/licenses.txt` file containing all the licenses of the `node_modules` you are using.
 
 1. Change the `main` keyword in your `action.yml` file to use the new `dist/index.js` file.
- `main: 'dist/index.js'`
+
+   `main: 'dist/index.js'`
 
 1. If you already checked in your `node_modules` directory, remove it.
-  `rm -rf node_modules/*`
+
+   `rm -rf node_modules/*`
 
 1. From your terminal, commit the updates to your `action.yml`, `dist/index.js`, and `node_modules` files.
-```shell{:copy}
-git add action.yml dist/index.js node_modules/*
-git commit -m "Use vercel/ncc"
-git tag -a -m "My first action release" v1.1
-git push --follow-tags
-```
+
+   ```shell{:copy}
+   git add action.yml dist/index.js node_modules/*
+   git commit -m "Use vercel/ncc"
+   git tag -a -m "My first action release" v1.1
+   git push --follow-tags
+   ```
 
 ## Testing out your action in a workflow
 

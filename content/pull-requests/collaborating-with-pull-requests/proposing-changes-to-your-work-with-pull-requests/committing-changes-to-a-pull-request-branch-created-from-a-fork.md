@@ -32,11 +32,11 @@ Only the user who created the pull request can give you permission to push commi
 1. On {% data variables.product.product_name %}, navigate to the main page of the fork (or copy of your repository) where the pull request branch was created.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
- {% tip %}
+   {% tip %}
 
- **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)."
+   **Tip:** If you prefer to clone the fork using {% data variables.product.prodname_desktop %}, then see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)."
 
- {% endtip %}
+   {% endtip %}
 4. Change the current working directory to the location where you want to download the cloned directory.
    ```shell
    $ cd open-source-projects

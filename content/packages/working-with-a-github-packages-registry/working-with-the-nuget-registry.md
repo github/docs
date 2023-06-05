@@ -146,26 +146,26 @@ When publishing, {% ifversion packages-nuget-v2 %}if you are linking your packag
    dotnet new console --name PROJECT_NAME
    ```
 3. Add your project's specific information to your project's file, which ends in *.csproj*.  Make sure to replace:
-    - `1.0.0` with the version number of the package.
-    - `OWNER` with the name of the personal account or organization that owns the repository to which you want to {% ifversion packages-nuget-v2 %}link your package{% else %}publish your package{% endif %}.
-    - `REPOSITORY` with the name of the repository to which you want to connect your package.{% ifversion ghes or ghae %}
-    - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
-  ``` xml
-  <Project Sdk="Microsoft.NET.Sdk">
+   - `1.0.0` with the version number of the package.
+   - `OWNER` with the name of the personal account or organization that owns the repository to which you want to {% ifversion packages-nuget-v2 %}link your package{% else %}publish your package{% endif %}.
+   - `REPOSITORY` with the name of the repository to which you want to connect your package.{% ifversion ghes or ghae %}
+   - `HOSTNAME` with the host name for {% data variables.location.product_location %}.{% endif %}
+   ``` xml
+   <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-      <OutputType>Exe</OutputType>
-      <TargetFramework>netcoreapp3.0</TargetFramework>
-      <PackageId>PROJECT_NAME</PackageId>
-      <Version>1.0.0</Version>
-      <Authors>AUTHORS</Authors>
-      <Company>COMPANY_NAME</Company>
-      <PackageDescription>PACKAGE_DESCRIPTION</PackageDescription>
-      <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
-    </PropertyGroup>
+     <PropertyGroup>
+       <OutputType>Exe</OutputType>
+       <TargetFramework>netcoreapp3.0</TargetFramework>
+       <PackageId>PROJECT_NAME</PackageId>
+       <Version>1.0.0</Version>
+       <Authors>AUTHORS</Authors>
+       <Company>COMPANY_NAME</Company>
+       <PackageDescription>PACKAGE_DESCRIPTION</PackageDescription>
+       <RepositoryUrl>https://{% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY</RepositoryUrl>
+     </PropertyGroup>
 
-  </Project>
-  ```
+   </Project>
+   ```
 4. Package the project.
    ```shell
    dotnet pack --configuration Release

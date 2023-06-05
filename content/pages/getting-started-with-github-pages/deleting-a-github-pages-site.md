@@ -27,5 +27,5 @@ If you want to remove the current deployment of your site but do not want to del
 {% data reusables.pages.sidebar-pages %}
 1. Under "Build and deployment", under "Source", select **Deploy from a branch** even if the site is currently using {% data variables.product.prodname_actions %}.
 1. Under "Build and deployment", use the branch dropdown menu and select `None` as the publishing source.
-  ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
+   ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
 1. Click **Save**.

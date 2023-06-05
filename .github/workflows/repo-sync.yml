@@ -7,11 +7,9 @@
 name: Repo Sync
 
 # **What it does**:
-#  - close-invalid-repo-sync: Close repo sync pull requests not created by Octomerger or a Hubber.
-#  - repo-sync: Syncs docs and docs-internal.
+#  Syncs docs and docs-internal.
 # **Why we have it**:
-#  - close-invalid-repo-sync: Another form of spam prevention for the open-source repository.
-#  - repo-sync: To keep the open-source repository up-to-date, while still having an internal
+#  To keep the open-source repository up-to-date, while still having an internal
 #    repository for sensitive work.
 # **Who does it impact**: Open-source.
 
@@ -25,74 +23,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  close-invalid-repo-sync:
-    name: Close invalid Repo Sync PRs
-    runs-on: ubuntu-latest
-    steps:
-      - name: Find pull request
-        if: ${{ github.repository == 'github/docs' }}
-        uses: juliangruber/find-pull-request-action@3a4c7c62101755c3778d397dcb6a760a558992f1
-        id: find-pull-request
-        with:
-          github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
-          branch: repo-sync
-          base: main
-          state: open
-
-      - name: Close pull request if unwanted
-        if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
-        with:
-          github-token: ${{ secrets.DOCS_BOT_SPAM_VISION }}
-          script: |
-            const { owner, repo } = context.repo
-
-            const { data: pr } = await github.rest.pulls.get({
-              owner,
-              repo,
-              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
-            })
-
-            const prCreator = pr.user.login
-
-            // If the PR creator is the expected account, stop now
-            if (prCreator === 'Octomerger') {
-              return
-            }
-
-            try {
-              await github.rest.teams.getMembershipForUserInOrg({
-                org: 'github',
-                team_slug: 'employees',
-                username: prCreator
-              })
-
-              // If the PR creator is a GitHub employee, stop now
-              return
-            } catch (err) {
-              // An error will be thrown if the user is not a GitHub employee.
-              // That said, we still want to proceed anyway!
-            }
-
-            // Close the PR and add the invalid label
-            await github.rest.issues.update({
-              owner,
-              repo,
-              issue_number: pr.number,
-              labels: ['invalid'],
-              state: 'closed'
-            })
-
-            // Comment on the PR
-            await github.rest.issues.createComment({
-              owner,
-              repo,
-              issue_number: pr.number,
-              body: "Please leave this `repo-sync` branch to the robots!\n\nI'm going to close this pull request now, but feel free to open a new issue or ask any questions in [discussions](https://github.com/github/docs/discussions)!"
-            })
-
   repo-sync:
-    needs: close-invalid-repo-sync
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     name: Repo Sync
     runs-on: ubuntu-latest

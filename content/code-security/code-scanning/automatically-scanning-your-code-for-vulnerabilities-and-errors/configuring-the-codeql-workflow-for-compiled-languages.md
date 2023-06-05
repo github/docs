@@ -48,7 +48,7 @@ You set up {% data variables.product.prodname_dotcom %} to run {% data variables
 {% data reusables.code-scanning.edit-workflow %}
 For general information about configuring {% data variables.product.prodname_code_scanning %} and editing workflow files, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)" and  "[AUTOTITLE](/actions/learn-github-actions)."
 
-##  About autobuild for {% data variables.product.prodname_codeql %}
+## About autobuild for {% data variables.product.prodname_codeql %}
 
 {% data variables.product.prodname_code_scanning_caps %} works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository.
 For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %}{% ifversion codeql-kotlin-beta %} Kotlin, {% endif %} and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}

@@ -147,9 +147,9 @@ gh pr create --web
 
    ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
 
-  {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
+   {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
 
-  ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline](/assets/images/help/desktop/preview-dialog-merge-status.png)
+   ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline](/assets/images/help/desktop/preview-dialog-merge-status.png)
 
 1. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
 {% data reusables.repositories.pr-title-description %}
