@@ -19,21 +19,21 @@ redirect_from:
 {% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
 You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
-  - [List all of your codespaces](#list-all-of-your-codespaces)
-  - [Create a new codespace](#create-a-new-codespace)
-  - [Stop a codespace](#stop-a-codespace)
-  - [Delete a codespace](#delete-a-codespace)
-  - [Rename a codespace](#rename-a-codespace)
-  - [Rebuild a codespace](#rebuild-a-codespace)
-  - [SSH into a codespace](#ssh-into-a-codespace)
-  - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
-  - [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
-  - [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
-  - [Modify ports in a codespace](#modify-ports-in-a-codespace)
-  - [Access codespace logs](#access-codespace-logs)
-  - [Access remote resources](#access-remote-resources)
-  - [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
-  - [Rebuild a codespace](#rebuild-a-codespace)
+- [List all of your codespaces](#list-all-of-your-codespaces)
+- [Create a new codespace](#create-a-new-codespace)
+- [Stop a codespace](#stop-a-codespace)
+- [Delete a codespace](#delete-a-codespace)
+- [Rename a codespace](#rename-a-codespace)
+- [Rebuild a codespace](#rebuild-a-codespace)
+- [SSH into a codespace](#ssh-into-a-codespace)
+- [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
+- [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
+- [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
+- [Modify ports in a codespace](#modify-ports-in-a-codespace)
+- [Access codespace logs](#access-codespace-logs)
+- [Access remote resources](#access-remote-resources)
+- [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
+- [Rebuild a codespace](#rebuild-a-codespace)
 
 ## Installing {% data variables.product.prodname_cli %}
 

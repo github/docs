@@ -49,8 +49,8 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 
 By default, `ghe-migrator audit` returns every record. It also allows you to filter records by:
 
-  * The types of records.
-  * The state of the records.
+* The types of records.
+* The state of the records.
 
 The record types match those found in the [migrated data](/migrations/using-ghe-migrator/about-ghe-migrator#migrated-data).
 
@@ -133,9 +133,9 @@ After your migration is applied to your target instance and you have reviewed th
 ### Unlocking repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
 To unlock the repositories on a {% data variables.product.prodname_dotcom_the_website %} organization, you'll send a `DELETE` request to [the migration unlock endpoint](/free-pro-team@latest/rest/migrations#unlock-an-organization-repository). You'll need:
-  * Your access token for authentication
-  * The unique `id` of the migration
-  * The name of the repository to unlock
+* Your access token for authentication
+* The unique `id` of the migration
+* The name of the repository to unlock
 
 ```shell
 curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \

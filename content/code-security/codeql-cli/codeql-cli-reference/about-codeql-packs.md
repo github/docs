@@ -148,8 +148,8 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `authors`
- - Optional.
- - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For example:
+- Optional.
+- Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For example:
   ```yaml
   authors: author1@github.com,author2@github.com 
   ```

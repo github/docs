@@ -89,8 +89,8 @@ If a network level firewall is in place between nodes, these ports will need to 
 
  We recommend an external TCP-based load balancer that supports the PROXY protocol to distribute traffic across nodes. Consider these load balancer configurations:
 
- - TCP ports (shown below) should be forwarded to nodes running the `web-server` service. These are the only nodes that serve external client requests.
- - Sticky sessions shouldn't be enabled.
+- TCP ports (shown below) should be forwarded to nodes running the `web-server` service. These are the only nodes that serve external client requests.
+- Sticky sessions shouldn't be enabled.
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
@@ -112,9 +112,9 @@ We strongly recommend enabling PROXY support for both your instance and the load
   ```shell
   $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply
   ```
-  - For the load balancer, use the instructions provided by your vendor.
+- For the load balancer, use the instructions provided by your vendor.
 
-  {% data reusables.enterprise_clustering.proxy_protocol_ports %}
+{% data reusables.enterprise_clustering.proxy_protocol_ports %}
 
 ### Enabling X-Forwarded-For support on {% data variables.product.prodname_ghe_server %}
 

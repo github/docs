@@ -64,7 +64,7 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
 
-   - To generate a CSV file with a list of mannequins for an organization, use the `gh gei generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
+- To generate a CSV file with a list of mannequins for an organization, use the `gh gei generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
 
 {% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
 
@@ -95,7 +95,7 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
 
-   - To generate a CSV file with a list of mannequins for an organization, use the `gh ado2gh generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
+- To generate a CSV file with a list of mannequins for an organization, use the `gh ado2gh generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
 
 {% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
 
