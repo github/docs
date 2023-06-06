@@ -26383,6 +26383,11 @@
           "href": "/graphql/reference/interfaces#comment"
         },
         {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/interfaces#deletable"
+        },
+        {
           "name": "Labelable",
           "id": "labelable",
           "href": "/graphql/reference/interfaces#labelable"
@@ -27577,6 +27582,14 @@
         {
           "name": "viewerCanClose",
           "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",

@@ -42,11 +42,11 @@ By default, the restrictions of a branch protection rule don't apply to people w
 {% data reusables.pull_requests.you-can-auto-merge %}
 
 {% ifversion repo-rules %}
-{% tip %}
+{% note %}
 
-**Tip:** Only a single branch protection rule can apply at a time, which means it can be difficult to know which rule will apply when multiple versions of a rule target the same branch. {% ifversion repo-rules-enterprise %}Additionally, you may want to create a single set of rules that applies to multiple repositories in an organization. {% endif %}For information about an alternative to branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+**Note:** Only a single branch protection rule can apply at a time, which means it can be difficult to know which rule will apply when multiple versions of a rule target the same branch. {% ifversion repo-rules-enterprise %}Additionally, you may want to create a single set of rules that applies to multiple repositories in an organization. {% endif %}For information about an alternative to branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
-{% endtip %}
+{% endnote %}
 {% endif %}
 
 ## About branch protection settings
@@ -100,6 +100,10 @@ Optionally, you can choose to require reviews from code owners. If you do, any p
 Optionally, you can require that the most recent reviewable push must be approved by someone other than the person who pushed it. This means at least one other authorized reviewer has approved any changes. For example, the "last reviewer" can check that the latest set of changes incorporates feedback from other reviews, and does not add new, unreviewed content.
 
 For complex pull requests that require many reviews, requiring an approval from someone other than the last person to push can be a compromise that avoids the need to dismiss all stale reviews: with this option, "stale" reviews are not dismissed, and the pull request remains approved as long as someone other than the person who made the most recent changes approves it. Users who have already reviewed a pull request can reapprove after the most recent push to meet this requirement. If you are concerned about pull requests being "hijacked" (where unapproved content is added to approved pull requests), it is safer to dismiss stale reviews.
+{% endif %}
+
+{% ifversion pull-request-mergeability-security-changes %}
+{% data reusables.pull_requests.security-changes-mergeability %}
 {% endif %}
 
 ### Require status checks before merging

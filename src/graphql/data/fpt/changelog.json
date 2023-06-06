@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p><code>Issue</code> object implements <code>Deletable</code> interface</p>",
+          "<p>Field <code>viewerCanDelete</code> was added to object type <code>Issue</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-06-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>ruleset</code> was added to object type <code>Organization</code></p>",
           "<p>Field <code>ruleset</code> was added to object type <code>Repository</code></p>",
           "<p>Field <code>createdAt</code> was added to object type <code>RepositoryRuleset</code></p>",

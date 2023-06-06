@@ -54,7 +54,7 @@ The rate limit for {% data variables.product.prodname_github_app %}s using an in
 In general, {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_app %}s can make the same API requests. However, there are some differences:
 
 - The REST API to manage check runs and check suites is only available to {% data variables.product.prodname_github_app %}s.
-- Enterprise resources are only available to {% data variables.product.prodname_oauth_app %}s.
+- Enterprise-level resources such as the enterprise object itself are not available to {% data variables.product.prodname_github_app %}s. This means that {% data variables.product.prodname_github_app %}s cannot call endpoints like `GET /enterprise/settings/license`. However, enterprise-owned organization and repository resources are available.
 - Some requests may return incomplete data depending on the permissions and repository access that was granted to an {% data variables.product.prodname_github_app %}. For example, if your app makes a request to get all repositories that a user can access, the response will only include the repositories that the app was also granted access to.
 
 For more information about the REST API endpoints that are available to {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/rest/overview/endpoints-available-for-github-apps)."
