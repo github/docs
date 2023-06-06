@@ -25,8 +25,8 @@ For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-manag
   {% tip %}
 
   **Tip:** You can help a co-author find their preferred email address by sharing this information:
-  - To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
-  - To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
+- To find your {% data variables.product.product_name %}-provided `no-reply` email, navigate to your email settings page under "Keep my email address private."
+- To find the email you used to configure Git on your computer, run `git config user.email` on the command line.
 
   {% endtip %}
 

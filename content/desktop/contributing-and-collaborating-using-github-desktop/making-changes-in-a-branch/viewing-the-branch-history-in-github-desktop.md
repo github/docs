@@ -11,10 +11,10 @@ shortTitle: View branch history
 ---
 Each commit shows:
 
- - The commit message
- - The time the commit was created
- - The committer's username and profile photo (if available)
- - The commit's SHA-1 hash (the unique ID)
+- The commit message
+- The time the commit was created
+- The committer's username and profile photo (if available)
+- The commit's SHA-1 hash (the unique ID)
 
 {% data reusables.desktop.history-tab %}
 1. On the **History** tab, click the commit you'd like to review.

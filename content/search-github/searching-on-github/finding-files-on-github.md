@@ -46,15 +46,15 @@ topics:
 
 By default, file finder results do not include files in the following directories if they exist at your repository root:
 
- - `.git`
- - `.hg`
- - `.sass-cache`
- - `.svn`
- - `build`
- - `dot_git`
- - `log`
- - `tmp`
- - `vendor`
+- `.git`
+- `.hg`
+- `.sass-cache`
+- `.svn`
+- `build`
+- `dot_git`
+- `log`
+- `tmp`
+- `vendor`
 
 You can override these default exclusions using a `.gitattributes` file.
 

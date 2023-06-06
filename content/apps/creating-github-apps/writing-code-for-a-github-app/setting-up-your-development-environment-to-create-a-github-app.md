@@ -239,8 +239,8 @@ You'll learn about authenticating as an installation in the [next section](#auth
 
 Authenticating as a GitHub App lets you do a couple of things:
 
- * You can retrieve high-level management information about your GitHub App.
- * You can request access tokens for an installation of the app.
+* You can retrieve high-level management information about your GitHub App.
+* You can request access tokens for an installation of the app.
 
 For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 

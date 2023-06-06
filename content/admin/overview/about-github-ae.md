@@ -44,13 +44,13 @@ Secure access to your enterprise on {% data variables.product.prodname_ghe_manag
 - FedRAMP High Authorization to Operate (ATO)
 - SOC 1, SOC 2 Type II, and SOC 3
 - ISO/IEC certifications
-   - ISO/IEC 27001:2013 
-   - ISO/IEC 27701:2019
-   - ISO/IEC 9001:2015
-   - ISO/IEC 22301:2019 
-   - ISO/IEC 27018:2014 
-   - ISO/IEC 20000-1:2018 
-   - ISO/IEC 27017:2015
+  - ISO/IEC 27001:2013 
+  - ISO/IEC 27701:2019
+  - ISO/IEC 9001:2015
+  - ISO/IEC 22301:2019 
+  - ISO/IEC 27018:2014 
+  - ISO/IEC 20000-1:2018 
+  - ISO/IEC 27017:2015
 
 ## Further reading
 

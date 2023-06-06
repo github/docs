@@ -207,11 +207,11 @@ Here are a few common problems and some suggested solutions. If you run into any
 
     **A:** Make sure all of the following are true:
 
-    * You [installed the app](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-7-install-the-app-on-your-account) on the repository where you're opening the issue.
-    * Your [Smee client is running](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-1-start-a-new-smee-channel) in a Terminal window.
-    * Your [web server is running](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-6-start-the-server) with no errors in another Terminal window.
-    * Your app has [read & write permissions on issues and is subscribed to issue events](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-1-start-a-new-smee-channel).
-    * You [checked your email](#step-1-update-app-permissions) after updating the permissions and accepted the new permissions.
+  * You [installed the app](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-7-install-the-app-on-your-account) on the repository where you're opening the issue.
+  * Your [Smee client is running](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-1-start-a-new-smee-channel) in a Terminal window.
+  * Your [web server is running](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-6-start-the-server) with no errors in another Terminal window.
+  * Your app has [read & write permissions on issues and is subscribed to issue events](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app#step-1-start-a-new-smee-channel).
+  * You [checked your email](#step-1-update-app-permissions) after updating the permissions and accepted the new permissions.
 
 ## Conclusion
 

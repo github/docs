@@ -50,10 +50,10 @@ For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-
 
 This example `cluster.conf` defines a cluster with 11 nodes.
 
-  - Two nodes called `ghes-front-end-node-\*` run services responsible for responding to client requests.
-  - Three nodes called `ghes-database-node-\*` run services responsible for storage, retrieval, and replication of database data.
-  - Three nodes called `ghes-search-node-\*` run services responsible for search functionality.
-  - Three nodes called `ghes-storage-node-\*` run services responsible for storage, retrieval, and replication of data.
+- Two nodes called `ghes-front-end-node-\*` run services responsible for responding to client requests.
+- Three nodes called `ghes-database-node-\*` run services responsible for storage, retrieval, and replication of database data.
+- Three nodes called `ghes-search-node-\*` run services responsible for search functionality.
+- Three nodes called `ghes-storage-node-\*` run services responsible for storage, retrieval, and replication of data.
 
 The names of the nodes can be any valid hostname you choose. The names are set as the hostname of each node, and will also be added to `/etc/hosts` on each node, so that the nodes are locally resolvable to each other.
 

@@ -49,14 +49,14 @@ We recommend that you use the **Package name** field to specify which packages a
 We recommend that you use the **Affected versions** field to specify which versions are affected because this information is required for "{% data variables.product.company_short %}-reviewed" advisories in the {% data variables.product.prodname_advisory_database %}. Version information is optional for repository-level security advisories, but including this information early simplifies the review process when you publish your security advisory.
 
 - A valid affected version string consists of one of the following:
-   - A lower bound operator sequence.
-   - An upper bound operator sequence.
-   - Both an upper and lower bound operator sequence.
-   - A specific version sequence using the equality (`=`) operator.
+  - A lower bound operator sequence.
+  - An upper bound operator sequence.
+  - Both an upper and lower bound operator sequence.
+  - A specific version sequence using the equality (`=`) operator.
 - Each operator sequence must be specified as the operator, a single space, and then the version.
-   - Valid operators are `=`, `<`, `<=`, `>`, or `>=`.
-   - The version must begin with a number followed by any number of numbers, letters, dots, dashes, or underscores (anything other than a space or comma)
-   - When specifying both an upper and lower bound sequence, the lower bound must come first, followed by a comma and a single space, then the upper bound.
+  - Valid operators are `=`, `<`, `<=`, `>`, or `>=`.
+  - The version must begin with a number followed by any number of numbers, letters, dots, dashes, or underscores (anything other than a space or comma)
+  - When specifying both an upper and lower bound sequence, the lower bound must come first, followed by a comma and a single space, then the upper bound.
    {% note %}
 
    **Note:** Affected version strings cannot contain leading or trailing spaces.
