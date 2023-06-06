@@ -30,7 +30,7 @@ Similar to {% data variables.product.prodname_oauth_app %}s, {% data variables.p
 
 The rate limit for {% data variables.product.prodname_github_app %}s using an installation access token scales with the number of repositories and number of organization users. Conversely, {% data variables.product.prodname_oauth_app %}s have lower rate limits and do not scale.
 
-There is one case where an {% data variables.product.prodname_oauth_app %} is preferred over a {% data variables.product.prodname_github_app %}. If your app needs to access enterprise resources, you should use an {% data variables.product.prodname_oauth_app %} because a {% data variables.product.prodname_github_app %} cannot yet be given permissions against an enterprise.
+There is one case where an {% data variables.product.prodname_oauth_app %} is preferred over a {% data variables.product.prodname_github_app %}. If your app needs to access enterprise-level resources such as the enterprise object itself, you should use an {% data variables.product.prodname_oauth_app %} because a {% data variables.product.prodname_github_app %} cannot yet be given permissions against an enterprise. {% data variables.product.prodname_github_app %}s can still access enterprise-owned organization and repository resources.
 
 For more information about {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)." 
 
