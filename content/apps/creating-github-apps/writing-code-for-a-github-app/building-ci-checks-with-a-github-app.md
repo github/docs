@@ -537,13 +537,8 @@ bundle exec ruby server.rb
 You should see a response like:
 
 ```shell
-> == Sinatra (v2.0.3) has taken the stage on 3000 for development with backup from Puma
-> Puma starting in single mode...
-> * Version 3.11.2 (ruby 2.4.0-p0), codename: Love Song
-> * Min threads: 0, max threads: 16
-> * Environment: development
-> * Listening on tcp://localhost:3000
-> Use Ctrl-C to stop
+> == Sinatra (v2.2.3) has taken the stage on 3000 for development with backup from WEBrick
+> [2023-06-06 10:55:25] INFO  WEBrick::HTTPServer#start: pid=93165 port=3000
 ```
 
 If you see an error, make sure you've created the `.env` file in the directory that contains `server.rb`.
@@ -552,28 +547,25 @@ Once the server is running, you can test it by going to `http://localhost:3000` 
 
 This is good! Even though it's an error page, it's a Sinatra error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
 
-## Install the app on your account
+## Test that the server is listening to your app
 
-You can test that the server is listening to your app by triggering an event for it to receive. A simple event you can test is installing the app on your {% data variables.product.prodname_dotcom %} account, which should send the [`installation`](/webhooks-and-events/webhooks/webhook-events-and-payloads#installation) event. If the app receives it, you should see some output in the Terminal tab where you started `template_server.rb`.
+You can test that the server is listening to your app by triggering an event for it to receive. A simple event you can test is installing the app on your {% data variables.product.prodname_dotcom %} account, which should send the [`installation`](/webhooks-and-events/webhooks/webhook-events-and-payloads#installation) event. If the app receives it, you should see some output in the terminal tab where you started `server.rb`.
 
-To install the app, visit the [app settings page](https://github.com/settings/apps), choose your app, and click **Install App** in the sidebar. Next to your username, click **Install**.
+1. Install the {% data variables.product.prodname_github_app %} on your account. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app#installing-your-own-github-app)." You can choose to install it on all of your repositories, or just one. For example, you could install it on the repository you created for this tutorial.
+2. After you click **Install**, look at the output in the terminal tab where you started `server.rb`. You should see something like this:
 
-You'll be asked whether to install the app on all repositories or selected repositories. If you don't want to install the app on _all_ of your repositories, that's okay! You may want to create a sandbox repository for testing purposes and install your app there.
+   ```shell
+   > D, [2018-06-29T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
+   > D, [2018-06-29T15:45:43.773141 #30488] DEBUG -- : ----         action created
+   > 192.30.252.44 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0067
+   > D, [2018-06-29T15:45:43.833016 #30488] DEBUG -- : ---- received event installation
+   > D, [2018-06-29T15:45:43.833062 #30488] DEBUG -- : ----         action created
+   > 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0019
+   ```
 
-After you click **Install**, look at the output in your Terminal. You should see something like this:
+   If you see output like this, it means your app received a notification that it was installed on your {% data variables.product.prodname_dotcom %} account. The app is running on the server as expected.
 
-```shell
-> D, [2018-06-29T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
-> D, [2018-06-29T15:45:43.773141 #30488] DEBUG -- : ----         action created
-> 192.30.252.44 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0067
-> D, [2018-06-29T15:45:43.833016 #30488] DEBUG -- : ---- received event installation
-> D, [2018-06-29T15:45:43.833062 #30488] DEBUG -- : ----         action created
-> 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0019
-```
-
-This is good news! It means your app received a notification that it was installed on your {% data variables.product.prodname_dotcom %} account. If you see something like this, your app is running on the server as expected.
-
-If you don't see the output, make sure Smee is running correctly in another Terminal tab. If you need to restart Smee, note that you'll also need to _uninstall_ and _reinstall_ the app to send the `installation` event to your app again and see the output in Terminal. If Smee isn't the problem, see the "[Troubleshooting](#troubleshooting)" section for other ideas.
+If you don't see this output, make sure Smee is running correctly in another terminal tab. If you need to restart Smee, note that you'll also need to _uninstall_ and _reinstall_ the app to send the `installation` event to your app again and see the output in terminal. If Smee isn't the problem, see the "[Troubleshooting](#troubleshooting)" section for other ideas. [TODOCS: Remove troubleshooting link if we remove troubleshooting section.]
 
 If you're wondering where the terminal output above is coming from, it's written in the [app template code](#add-code-for-your-app) in `server.rb`.
 
