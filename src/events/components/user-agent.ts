@@ -1,30 +1,49 @@
-// A tiny user agent checking RegExp for analytics purposes
+const OS_MAP = {
+  'iphone os': 'ios',
+  'ipad os': 'ios',
+  mac: 'mac',
+  windows: 'windows',
+  android: 'android',
+  cros: 'cros',
+  linux: 'linux',
+};
 
-// The order matters with these
-const OS_REGEXPS = [
-  /(iphone os|ipad os) ([^);]+)/i,
-  /(mac) os x ([^);]+)/i,
-  /(windows) ([^);]+)/i,
-  /(android) ([^);]+)/i,
-  /(cros) ([^);]+)/i,
-  /(linux) ([^);]+)/i,
-]
-
-// The order matters with these
-const BROWSER_REGEXPS = [
-  /(firefox)\/([^\s)]+)/i,
-  /(edge)\/([^\s)]+)/i,
-  /(chrome)\/([^\s)]+)/i,
-  /(safari)\/([^\s)]+)/i,
-  /ms(ie)\/([^\s)]+)/i,
-]
+const BROWSER_MAP = {
+  firefox: 'firefox',
+  edge: 'edge',
+  chrome: 'chrome',
+  safari: 'safari',
+  'msie': 'msie',
+};
 
 export function parseUserAgent(ua = navigator.userAgent) {
-  ua = ua.toLowerCase()
-  const osRe = OS_REGEXPS.find((re) => re.test(ua))
-  let [, os = 'other', os_version = '0'] = (osRe && ua.match(osRe)) || []
-  if (os === 'iphone os' || os === 'ipad os') os = 'ios'
-  const browserRe = BROWSER_REGEXPS.find((re) => re.test(ua))
-  const [, browser = 'other', browser_version = '0'] = (browserRe && ua.match(browserRe)) || []
-  return { os, os_version, browser, browser_version }
+  ua = ua.toLowerCase();
+  
+  let os = 'other';
+  let os_version = '0';
+  for (const key in OS_MAP) {
+    if (ua.includes(key)) {
+      os = OS_MAP[key];
+      const match = ua.match(new RegExp(`${key} ([^);]+)`, 'i'));
+      if (match) {
+        os_version = match[1];
+      }
+      break;
+    }
+  }
+  
+  let browser = 'other';
+  let browser_version = '0';
+  for (const key in BROWSER_MAP) {
+    if (ua.includes(key)) {
+      browser = BROWSER_MAP[key];
+      const match = ua.match(new RegExp(`${key}/([^\\s)]+)`, 'i'));
+      if (match) {
+        browser_version = match[1];
+      }
+      break;
+    }
+  }
+  
+  return { os, os_version, browser, browser_version };
 }
