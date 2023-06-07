@@ -1,11 +1,12 @@
 ---
-title: About GitHub Marketplace
-intro: 'Learn about {% data variables.product.prodname_marketplace %} where you can share your apps and actions publicly with all {% data variables.product.product_name %} users.'
+title: About GitHub Marketplace for apps
+intro: 'Learn about {% data variables.product.prodname_marketplace %} where you can share your apps publicly with all {% data variables.product.product_name %} users.'
 redirect_from:
   - /apps/marketplace/getting-started
   - /marketplace/getting-started
   - /developers/github-marketplace/about-github-marketplace
   - /developers/github-marketplace/github-marketplace-overview/about-github-marketplace
+  - /apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace
 versions:
   fpt: '*'
   ghec: '*'

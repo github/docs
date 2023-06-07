@@ -5,10 +5,11 @@ versions:
   fpt: '*'
   ghec: '*'
 children:
-  - /about-github-marketplace
+  - /about-github-marketplace-for-apps
   - /about-marketplace-badges
   - /applying-for-publisher-verification-for-your-organization
 shortTitle: Overview
 redirect_from:
   - /developers/github-marketplace/github-marketplace-overview
 ---
+
