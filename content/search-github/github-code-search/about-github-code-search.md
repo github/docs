@@ -14,6 +14,8 @@ topics:
 
 Code search is integrated with features in the search interface on {% data variables.product.prodname_dotcom_the_website %}, such as suggestions, completions, and the ability to save your searches. For more information, see "[AUTOTITLE](/search-github/github-code-search/using-github-code-search)."
 
+{% data reusables.search.code-search-login-requirement %}
+
 {% data reusables.search.non-code-search-explanation %}
 
 ## Limitations
