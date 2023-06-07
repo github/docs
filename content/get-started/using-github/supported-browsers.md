@@ -18,10 +18,10 @@ versions:
 
 We design {% data variables.product.product_name %} with the latest web browsers in mind. We recommend that you use the latest version of one of the following browsers.
 
- - [Apple Safari](https://apple.com/safari)
- - [Google Chrome](https://google.com/chrome)
- - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
- - [Mozilla Firefox](https://mozilla.org/firefox)
+- [Apple Safari](https://apple.com/safari)
+- [Google Chrome](https://google.com/chrome)
+- [Microsoft Edge](https://www.microsoft.com/en-us/edge)
+- [Mozilla Firefox](https://mozilla.org/firefox)
 
 If you do not use the latest version of a recommended browser, or if you use a browser that is not listed above, {% data variables.product.product_name %} or some features may not work as you expect, or at all.
 

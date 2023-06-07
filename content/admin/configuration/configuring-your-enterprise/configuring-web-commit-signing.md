@@ -23,9 +23,9 @@ You can enable web commit signing, rotate the private key used for web commit si
 ## Enabling web commit signing
 
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
-    - Use `web-flow` as the username. If `web-flow` is unavailable or unusable, use any new unique username. Use this username throughout the following steps in this article.
+   - Use `web-flow` as the username. If `web-flow` is unavailable or unusable, use any new unique username. Use this username throughout the following steps in this article.
    - If you have a no-reply email address defined in the {% data variables.enterprise.management_console %}, use that email address. If not, use any email address, such as `web-flow@my-company.com`. The email address does not need to be valid.
-{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
+   {% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
 {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
 {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
 1. Enable web commit signing.
@@ -57,7 +57,7 @@ You can enable web commit signing, rotate the private key used for web commit si
 {% data reusables.enterprise_site_admin_settings.create-pgp-key-web-commit-signing %}
    - Use the web commit signing user's username, for example, `web-flow`.
    - Use the no-reply email address defined in the {% data variables.enterprise.management_console %}, which should be the same as the email address of the web commit signing user, for example, `web-flow`.
-{% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
+   {% data reusables.enterprise_site_admin_settings.pgp-key-no-passphrase %}
 {% data reusables.enterprise_site_admin_settings.pgp-key-env-variable %}
 {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
 {% data reusables.enterprise_site_admin_settings.add-key-to-web-flow-user %}

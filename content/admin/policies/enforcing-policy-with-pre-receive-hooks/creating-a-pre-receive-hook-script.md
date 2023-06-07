@@ -259,4 +259,4 @@ You can test a pre-receive hook script locally before you create or update it on
    Notice that the push was rejected after executing the pre-receive hook and echoing the output from the script.
 
 ## Further reading
- - "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the *Pro Git website*
+- "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the *Pro Git website*

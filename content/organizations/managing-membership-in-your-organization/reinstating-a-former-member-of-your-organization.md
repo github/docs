@@ -38,13 +38,13 @@ If your organization has a paid per-user subscription, an unused license must be
 
 When you reinstate a former organization member, the following items can be restored:
 
- - The user's role in the organization
- - Any private forks of repositories owned by the organization
- - Membership in the organization's teams
- - Previous access and permissions for the organization's repositories
- - Stars for organization repositories
- - Issue assignments in the organization
- - Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
+- The user's role in the organization
+- Any private forks of repositories owned by the organization
+- Membership in the organization's teams
+- Previous access and permissions for the organization's repositories
+- Stars for organization repositories
+- Issue assignments in the organization
+- Repository subscriptions (notification settings for watching, not watching, or ignoring a repository's activity)
 
 {% ifversion ghec %}
 
