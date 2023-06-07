@@ -64,6 +64,7 @@ To discover how a member was added to an organization, you can filter the member
 |-------------------|------|------|
 | Azure Active Directory | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 | Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+| PingFederate (private beta) | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% else %}
 
@@ -113,7 +114,7 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
    Your contact on the GitHub Sales team will work with you to create your new {% data variables.enterprise.prodname_emu_enterprise %}. You'll need to provide the email address for the user who will set up your enterprise and a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 
-2. After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SSO is successfully enabled. The setup user's username is your enterprise's shortcode suffixed with `_admin`.
+1. After we create your enterprise, you will receive an email from {% data variables.product.prodname_dotcom %} inviting you to choose a password for your enterprise's setup user, which will be the first owner in the enterprise. Use an incognito or private browsing window when setting the password. The setup user is only used to configure single sign-on and SCIM provisioning integration for the enterprise. It will no longer have access to administer the enterprise account once SSO is successfully enabled. The setup user's username is your enterprise's shortcode suffixed with `_admin`.
 
    {% note %}
 
@@ -121,9 +122,9 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
    {% endnote %}
 
-3. After you log in as the setup user, we recommend enabling two-factor authentication. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+1. After you log in as the setup user, we recommend enabling two-factor authentication. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
-1. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). We recommend OIDC, which includes support for Conditional Access Policies (CAP). If you require multiple enterprises with {% data variables.enterprise.prodname_managed_users %} provisioned from one tenant, you must use SAML for each enterprise after the first. If you are using Okta as your identity provider, you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
+2. To get started, configure {% ifversion oidc-for-emu %}how your members will authenticate. If you are using Azure Active Directory as your identity provider, you can choose between OpenID Connect (OIDC) and Security Assertion Markup Language (SAML). We recommend OIDC, which includes support for Conditional Access Policies (CAP). If you require multiple enterprises with {% data variables.enterprise.prodname_managed_users %} provisioned from one tenant, you must use SAML for each enterprise after the first. If you are using another identity provider, like Okta or PingFederate (private beta), you can use SAML to authenticate your members.{% else %}SAML SSO for your enterprise. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-saml-single-sign-on-for-enterprise-managed-users)."{% endif %}
 
    {%- ifversion oidc-for-emu %}
 
