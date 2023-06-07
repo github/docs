@@ -14,6 +14,8 @@ topics:
 
 Not all code is indexed, and you can currently only search the default branches of repositories. For more information on known limitations, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."
 
+{% data reusables.search.code-search-login-requirement %}
+
 ## Using the search bar
 
 You can search using the search interface on {% data variables.product.prodname_dotcom_the_website %}. Using suggestions, completions, and saved searches, you can quickly find what you are looking for, often without having to fully type a query or view the search results page.
