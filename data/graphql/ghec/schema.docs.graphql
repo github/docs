@@ -28692,6 +28692,11 @@ enum OrganizationMigrationState {
   FAILED
 
   """
+  The Octoshift migration has invalid credentials.
+  """
+  FAILED_VALIDATION
+
+  """
   The Octoshift migration is in progress.
   """
   IN_PROGRESS
@@ -28700,6 +28705,11 @@ enum OrganizationMigrationState {
   The Octoshift migration has not started.
   """
   NOT_STARTED
+
+  """
+  The Octoshift migration needs to have its credentials validated.
+  """
+  PENDING_VALIDATION
 
   """
   The Octoshift migration is performing post repository migrations.
