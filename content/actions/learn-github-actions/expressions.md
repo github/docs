@@ -78,7 +78,7 @@ env:
 | Operator    | Description |
 | ---         | ---         |
 | `( )`       | Logical grouping |
-| `[ ]`       | Index
+| `[ ]`       | Index |
 | `.`         | Property de-reference |
 | `!`         | Not |
 | `<`         | Less than |
@@ -89,6 +89,16 @@ env:
 | `!=`        | Not equal |
 | `&&`        | And |
 |  <code>\|\|</code> | Or |
+
+{% data variables.product.prodname_dotcom %} performs loose ordinal comparisons.
+
+* If the value is a string, as may be the case for outputs from previous steps in a workflow, the `<` and `>` operators will compare the values in ASCII-betical order.
+  | Expression                       | Result  | Explanation                                                                                                                                                                     |
+  | ---                              | ---     | ---                                                                                                                                                                             |
+  | `'a' < 'b'`                      | `true`  | `'a'` is `61` in ASCII and is less than `'b'` which is `62` in ASCII                                                                                                            |
+  | `'d' < 'c'`                      | `false` | `'d'` is `64` in ASCII and is not less than `'c'` which is `63` in ASCII                                                                                                        |
+  | `'15' < '9'`                     | `true`  | The first character, `'1'`, is `31` in ASCII and is less than `'9'` which is `39` in ASCII, even though `15` is not less than `9` when evaluated as numbers instead of strings. |
+  | `fromJSON('15') < fromJSON('9')` | `false` | The `fromJSON()` function parses `'15'` and `'9'` as numbers, and `15` is not less than `9`.                                                                                    |
 
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 
