@@ -1,5 +1,5 @@
 ---
-title: GitHub extensions and integrations
+title: Featured GitHub integrations
 intro: 'Use {% data variables.product.prodname_dotcom %} extensions to work seamlessly in repositories on {% data variables.location.product_location %} within third-party applications.'
 redirect_from:
   - /articles/about-github-extensions-for-third-party-applications
@@ -7,11 +7,12 @@ redirect_from:
   - /github/customizing-your-github-workflow/github-extensions-and-integrations
   - /github/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations
   - /get-started/customizing-your-github-workflow/exploring-integrations/github-extensions-and-integrations
+  - /get-started/exploring-integrations/github-extensions-and-integrations
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.7'
-shortTitle: Extensions & integrations
+shortTitle: Featured integrations
 ---
 
 {% ifversion fpt or ghec %}

@@ -6,7 +6,7 @@
   "/apps/managing-oauth-apps": "/en/apps/oauth-apps/maintaining-oauth-apps",
   "/apps/quickstart-guides": "/en/apps/creating-github-apps/writing-code-for-a-github-app",
   "/marketplace": "/en/apps/publishing-apps-to-github-marketplace",
-  "/marketplace/getting-started": "/en/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace",
+  "/marketplace/getting-started": "/en/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace-for-apps",
   "/marketplace/integrating-with-the-github-marketplace-api": "/en/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app",
   "/marketplace/listing-on-github-marketplace": "/en/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace",
   "/marketplace/selling-your-app": "/en/apps/publishing-apps-to-github-marketplace/selling-your-app-on-github-marketplace",
