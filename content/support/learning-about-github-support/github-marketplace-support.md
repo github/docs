@@ -23,6 +23,5 @@ Every app in {% data variables.product.prodname_marketplace %} includes a link t
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/exploring-integrations/about-github-marketplace)"
 - "[AUTOTITLE](/apps/using-github-apps)"
 - "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps)"

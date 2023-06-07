@@ -26383,6 +26383,11 @@
           "href": "/graphql/reference/interfaces#comment"
         },
         {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/interfaces#deletable"
+        },
+        {
           "name": "Labelable",
           "id": "labelable",
           "href": "/graphql/reference/interfaces#labelable"
@@ -27577,6 +27582,14 @@
         {
           "name": "viewerCanClose",
           "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -79660,12 +79673,20 @@
           "description": "<p>The Octoshift migration has failed.</p>"
         },
         {
+          "name": "FAILED_VALIDATION",
+          "description": "<p>The Octoshift migration has invalid credentials.</p>"
+        },
+        {
           "name": "IN_PROGRESS",
           "description": "<p>The Octoshift migration is in progress.</p>"
         },
         {
           "name": "NOT_STARTED",
           "description": "<p>The Octoshift migration has not started.</p>"
+        },
+        {
+          "name": "PENDING_VALIDATION",
+          "description": "<p>The Octoshift migration needs to have its credentials validated.</p>"
         },
         {
           "name": "POST_REPO_MIGRATION",

@@ -61,4 +61,4 @@ You can change the project board's visibility from private to {% ifversion ghae 
 
 ## Further reading
 
-  - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-access-to-your-personal-accounts-project-boards)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-access-to-your-personal-accounts-project-boards)"

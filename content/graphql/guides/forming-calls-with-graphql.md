@@ -340,9 +340,9 @@ With the ID known, we can proceed with the mutation:
 
 * The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/graphql/reference/mutations#addreaction), which three possible return fields:
 
-    - `clientMutationId` (`String`)
-    - `reaction` (`Reaction!`)
-    - `subject` (`Reactable!`)
+  - `clientMutationId` (`String`)
+  - `reaction` (`Reaction!`)
+  - `subject` (`Reactable!`)
 
   In this example, we return the two required fields (`reaction` and `subject`), both of which have required subfields (respectively, `content` and `id`).
 
