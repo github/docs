@@ -650,7 +650,11 @@ To test this code, restart the server from your terminal:
 ruby server.rb
 ```
 
-{% data reusables.apps.sinatra_restart_instructions %}
+{% note %}
+
+**Note:** You'll need to restart the Sinatra server before you can test changes. Enter `Ctrl-C` to stop the server, and then run `ruby server.rb` again. If you don't want to do this every time you change your app code, you can look into [reloading](http://sinatrarb.com/faq.html#reloading).
+
+{% endnote %}
 
 Now open a pull request in the repository where you installed your app. Your app should respond by creating a check run on your pull request. Click on the **Checks** tab, and you should see a check run with the name "Octo RuboCop", or whichever name you chose earlier for the check run.
 
