@@ -86,8 +86,6 @@
     "got": "^13.0.0",
     "gray-matter": "^4.0.3",
     "hast-util-from-parse5": "^7.1.0",
-    "hast-util-parse-selector": "^3.1.0",
-    "hast-util-select": "^5.0.2",
     "hast-util-to-string": "^2.0.0",
     "hastscript": "^7.0.2",
     "helmet": "^7.0.0",
