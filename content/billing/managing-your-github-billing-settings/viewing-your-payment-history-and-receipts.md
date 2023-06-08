@@ -24,7 +24,7 @@ shortTitle: View history & receipts
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans_payment %}
-{% data reusables.dotcom_billing.view-payment-history %}
+{% data reusables.dotcom_billing.view-payment-history-personal-account %}
 {% data reusables.dotcom_billing.download_receipt %}
 
 ## Viewing receipts for your organization
