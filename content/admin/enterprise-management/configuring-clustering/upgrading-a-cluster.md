@@ -1,6 +1,7 @@
 ---
 title: Upgrading a cluster
-intro: 'Use the administrative shell (SSH) to upgrade a {% data variables.product.prodname_ghe_server %} cluster to the latest release.'
+intro: "To upgrade a {% data variables.product.prodname_ghe_server %} cluster to the latest release, use the administrative shell (SSH)."
+product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/upgrading-a-cluster
   - /enterprise/admin/enterprise-management/upgrading-a-cluster
@@ -13,7 +14,13 @@ topics:
   - Enterprise
   - Upgrades
 ---
+
+## About upgrades to a {% data variables.product.product_name %} cluster
+
+{% data reusables.enterprise.about-upgrades %}
+
 ## Upgrading with a hotpatch
+
 {% data reusables.enterprise_installation.hotpatching-explanation %} The hotpatch installation script installs the hotpatch on every node in the cluster and restarts the services in their proper sequence to avoid downtime.
 
 1. Back up your data with [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).

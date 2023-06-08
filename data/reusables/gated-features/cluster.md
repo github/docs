@@ -1,0 +1,1 @@
+{% data variables.product.company_short %} determines eligibility for clustering, and must enable the configuration for your instance's license. Clustering requires careful planning and additional administrative overhead. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-clustering)."
