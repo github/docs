@@ -4,7 +4,7 @@ intro: 'You can use {% data variables.product.company_short %}''s form schema to
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.7'
+  ghes: '> 3.8'
 topics:
   - Community
 ---

@@ -1,6 +1,7 @@
 ---
 title: Initializing the cluster
 intro: 'A {% data variables.product.prodname_ghe_server %} cluster must be set up with a license and initialized using the administrative shell (SSH).'
+product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/initializing-the-cluster
   - /enterprise/admin/enterprise-management/initializing-the-cluster
@@ -13,20 +14,22 @@ topics:
   - Enterprise
 ---
 
-## About initialization of a cluster
+## About initialization of a {% data variables.product.product_name %} cluster
 
-{% data reusables.enterprise_clustering.clustering-scale-recommendation %}
-
-To deploy a cluster in your environment, you must install {% data variables.product.prodname_ghe_server %}, upload a cluster-enabled license, configure the first node, and initialize the node with a configuration file.
+To deploy a {% data variables.product.product_name %} cluster in your environment, you must install {% data variables.product.prodname_ghe_server %}, upload a cluster-enabled license, configure the first node, and initialize the node with a configuration file.
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ## Installing {% data variables.product.prodname_ghe_server %}
 
+To start setting up the cluster, install the {% data variables.product.prodname_ghe_server %} appliance on each node's virtual machine (VM), then configure an IP address.
+
 1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
 2. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
 
 ## Configuring the first node
+
+On the node that will function as your primary MySQL node, install your {% data variables.product.product_name %} license.
 
 1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
 2. In your web browser, visit `https://<ip address>:8443/setup/`.

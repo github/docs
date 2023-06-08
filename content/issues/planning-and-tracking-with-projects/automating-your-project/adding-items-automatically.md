@@ -75,4 +75,6 @@ Once you have duplicated a workflow, you can click **Edit** to start making chan
 ## Further reading
 
 * "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"
+{%- ifversion projects-v2-workflows %}
 * "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-built-in-automations)"
+{%- endif %}

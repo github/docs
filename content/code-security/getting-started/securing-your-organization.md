@@ -45,7 +45,12 @@ You can create a default security policy that will display in any of your organi
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
+
+{% ifversion dependabot-alerts-ghes-enablement %}
+{% data reusables.dependabot.dependabot-alerts-enterprise-server-repo-org-enablement %}
+{% else %}
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
+{% endif %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)," "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository)," and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
