@@ -20,7 +20,7 @@ If you reopen a {% data variables.projects.projects_v1_board %}, you have the op
 
 1. Navigate to the list of {% data variables.projects.projects_v1_boards %} in your repository or organization, or owned by your personal account.
 2. In the projects list, next to the {% data variables.projects.projects_v1_board %} you want to close, click {% octicon "kebab-horizontal" aria-label="Project menu" %}.
-![Screenshot showing the projects index. The project menu icon is highlighted with an orange rectangle](/assets/images/help/projects/project-list-action-chevron.png)
+![Screenshot showing the projects index. The project menu icon is highlighted with an orange rectangle.](/assets/images/help/projects/project-list-action-chevron.png)
 3. Click **Close**.
 
 ## Further reading

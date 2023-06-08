@@ -22,7 +22,7 @@ Discussion category forms are not supported for polls. For more information abou
 
 Here is the rendered version of the issue form.
 
-![Screenshot of a rendered discussion category form](/assets/images/help/discussions/discussion-category-form-sample.png)
+![Screenshot of a rendered discussion category form.](/assets/images/help/discussions/discussion-category-form-sample.png)
 
 ## Creating discussion category forms
 

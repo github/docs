@@ -50,7 +50,7 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 1. Under **Note**, give your token a descriptive name.
 2. Select the **Expiration** dropdown menu, then click **No expiration**.
 3. Select the **admin:enterprise** scope.
-   ![Screenshot showing the admin:enterprise scope](/assets/images/help/enterprises/enterprise-pat-scope.png)
+   ![Screenshot showing the admin:enterprise scope.](/assets/images/help/enterprises/enterprise-pat-scope.png)
 4. Click **Generate token**.
 5. To copy the token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
 

@@ -8,10 +8,19 @@ export const imageAltTextPeriod = {
     forEachInlineChild(params, 'image', function forToken(token) {
       const imageAltText = token.content.trim()
       if (!imageAltText.endsWith('.') && !imageAltText.endsWith('."')) {
+        const period = imageAltText.endsWith('"') ? '."' : '.'
         addError(
           onError,
           token.lineNumber,
-          `On line ${token.lineNumber}, the image alt text: "${imageAltText}" must have a period at the end of it.`
+          `On line ${token.lineNumber}, the image alt text: "${imageAltText}" must have a period at the end of it.`,
+          undefined,
+          undefined,
+          {
+            lineNumber: token.lineNumber,
+            editColumn: token.line.indexOf(']') + 1,
+            deleteCount: 0,
+            insertText: period,
+          }
         )
       }
     })
