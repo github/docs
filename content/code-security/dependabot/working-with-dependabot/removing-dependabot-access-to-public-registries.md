@@ -277,6 +277,27 @@ This is an example of adding key `nuget.org` as true to the `disabledPackageSour
 </configuration>
 ```
 
+To configure {% data variables.product.prodname_dependabot %} to access both private _and_ public feeds, view the following `dependabot.yml` example which includes the configured `public` feed under `registries`:
+
+```yaml
+version: 2
+registries:
+  nuget-example:
+    type: nuget-feed
+    url: https://nuget.example.com/v3/index.json
+    username: ${{ secrets.USERNAME }}
+    password: ${{ secrets.PASSWORD }}
+  public:
+    type: nuget-feed
+    url: https://api.nuget.org/v3/index.json
+updates:
+  - package-ecosystem: nuget
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: daily
+```
+
 ## Python
 
 Pip, Pip-compile, Pipenv, and Poetry are the four package managers that the Python ecosystem currently supports.
