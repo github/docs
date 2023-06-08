@@ -93,6 +93,7 @@ env:
 {% data variables.product.prodname_dotcom %} performs loose ordinal comparisons.
 
 * If the value is a string, as may be the case for outputs from previous steps in a workflow, the `<` and `>` operators will compare the values in ASCII-betical order.
+
   | Expression                       | Result  | Explanation                                                                                                                                                                     |
   | ---                              | ---     | ---                                                                                                                                                                             |
   | `'a' < 'b'`                      | `true`  | `'a'` is `61` in ASCII and is less than `'b'` which is `62` in ASCII                                                                                                            |
