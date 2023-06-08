@@ -9,6 +9,13 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
+redirect_from:
+  - /apps/building-your-first-github-app
+  - /apps/quickstart-guides/using-the-github-api-in-your-app
+  - /developers/apps/using-the-github-api-in-your-app
+  - /developers/apps/guides/using-the-github-api-in-your-app
+  - /apps/creating-github-apps/guides/using-the-github-api-in-your-app
+  - /apps/creating-github-apps/writing-code-for-a-github-app/using-the-github-api-in-your-app
 ---
 
 ## Prerequisites
