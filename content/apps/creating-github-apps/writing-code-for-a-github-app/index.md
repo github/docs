@@ -19,7 +19,6 @@ children:
   - /building-a-login-with-github-button-with-a-github-app
   - /building-a-cli-with-a-github-app
   - /setting-up-your-development-environment-to-create-a-github-app
-  - /using-the-github-api-in-your-app
   - /creating-ci-tests-with-the-checks-api
 ---
 
