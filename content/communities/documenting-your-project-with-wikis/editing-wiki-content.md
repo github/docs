@@ -1,7 +1,7 @@
 ---
 title: Editing wiki content
 intro: 'You can add images and links to content in your wiki, and use some supported MediaWiki formats.'
-redireccd t_from:
+redirect_from:
   - /articles/adding-links-to-wikis
   - /articles/how-do-i-add-links-to-my-wiki
   - /articles/how-do-i-add-or-upload-images-to-the-wiki
