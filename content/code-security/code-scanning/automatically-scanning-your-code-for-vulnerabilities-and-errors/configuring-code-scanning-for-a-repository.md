@@ -117,7 +117,7 @@ The advanced setup for {% data variables.product.prodname_code_scanning %} is he
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. If the repository has already at least one workflow configured and running, click **New workflow** to display starter workflows. If there are currently no workflows configured for the repository, go to the next step.
-   ![Screenshot of the Actions tab for a repository. The "New workflow" button is highlighted with an orange outline](/assets/images/help/security/actions-new-workflow-button.png)
+   ![Screenshot of the Actions tab for a repository. The "New workflow" button is highlighted with an orange outline.](/assets/images/help/security/actions-new-workflow-button.png)
 2. In the "Choose a workflow" or "Get started with {% data variables.product.prodname_actions %}" view, scroll down to the "Security" category and click **Configure** under the workflow you want to configure. You may need to click **View all** to find the security workflow you want to configure.
    ![Screenshot of the Security category of starter workflows. The Configure button and "View all" link are highlighted with an orange outline.](/assets/images/help/security/actions-workflows-security-section.png)
 3. Follow any instructions in the workflow to customize it to your needs. For more general assistance about workflows, click **Documentation** on the right pane of the workflow page.
@@ -261,7 +261,7 @@ There are other situations where there may be no analysis for the latest commit 
 
   To check whether a branch has been scanned, go to the {% data variables.product.prodname_code_scanning_caps %} page, click the **Branch** drop-down and select the relevant branch.
 
-  ![Choose a branch from the Branch drop-down menu](/assets/images/help/repository/code-scanning-branch-dropdown.png)
+  ![Choose a branch from the Branch drop-down menu.](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 
   The solution in this situation is to add the name of the base branch to the `on:push` and `on:pull_request` specification in the {% data variables.product.prodname_code_scanning %} workflow on that branch and then make a change that updates the open pull request that you want to scan.
 

@@ -75,9 +75,9 @@ Organization owners and team maintainers can manage the existing connection betw
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 1. Optionally, under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="X symbol" %}.
-    ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png)
+    ![Unselect a connected IdP group from the GitHub team.](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png)
 1. To connect an IdP group, under "Identity Provider Group", select the drop-down menu, and click an identity provider group from the list.
-    ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
+    ![Drop-down menu to choose identity provider group.](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
 1. Click **Save changes**.
 
 ## Viewing IdP groups, group membership, and connected teams

@@ -21,7 +21,7 @@ You can add personal information about yourself in your bio, like previous place
 
 {% data reusables.profile.profile-readme %}
 
-![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
+![Profile README file displayed on profile.](/assets/images/help/repository/profile-with-readme.png)
 
 {% endif %}
 
