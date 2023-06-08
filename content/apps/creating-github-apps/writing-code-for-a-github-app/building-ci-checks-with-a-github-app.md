@@ -99,7 +99,6 @@ The following sections will lead you through setting up the following components
    gem 'sinatra', '~> 2.0'
    gem 'jwt', '~> 2.1'
    gem 'octokit', '~> 4.0'
-   gem 'webrick'
    gem 'rubocop'
    gem 'dotenv'
    gem 'git'
@@ -118,11 +117,11 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
 1. Click **Start a new channel**.
 1. Copy the full URL under "Webhook Proxy URL". You will use this URL in a following step, and during the app registration steps later in the tutorial.
 1. In a terminal, run the following command to install the Smee client:
-   ```shell
+   ```shell{:copy}
    npm install --global smee-client
    ```
 1. In the terminal, run the following command to start the Smee client. Replace `https://smee.io/YOUR_DOMAIN` with the Webhook Proxy URL you copied in the previous step.
-   ```shell
+   ```shell{:copy}
    smee --url https://smee.io/YOUR_DOMAIN --path /event_handler --port 3000
    ```
    You should see output like the following:
@@ -219,20 +218,14 @@ set :bind, '0.0.0.0'
 
 
 # This is template code to create a GitHub App server.
-# You can read more about GitHub Apps here: # https://developer.github.com/apps/
+# You can read more about GitHub Apps here: https://docs.github.com/en/apps
 #
 # On its own, this app does absolutely nothing, except that it can be installed.
-# It's up to you to add functionality!
-# You can check out one example in advanced_server.rb.
+# This tutorial will show you how to add more functionality.
 #
 # This code is a Sinatra app, for two reasons:
 #   1. Because the app will require a landing page for installation.
 #   2. To easily handle webhook events.
-#
-# Of course, not all apps need to receive and process events!
-# Feel free to rip out the event handling code if you don't need it.
-#
-# Have fun!
 #
 
 class GHAapp < Sinatra::Application
@@ -265,9 +258,7 @@ class GHAapp < Sinatra::Application
 
   post '/event_handler' do
 
-    # # # # # # # # # # # #
-    # ADD YOUR CODE HERE  #
-    # # # # # # # # # # # #
+    # ADD YOUR CODE HERE #
 
     200 # success status
   end
@@ -275,9 +266,7 @@ class GHAapp < Sinatra::Application
 
   helpers do
 
-    # # # # # # # # # # # # # # # # #
-    # ADD YOUR HELPER METHODS HERE  #
-    # # # # # # # # # # # # # # # # #
+    # ADD YOUR HELPER METHODS HERE #
 
     # Saves the raw payload and converts the payload to JSON format
     def get_payload_request(request)
@@ -537,15 +526,22 @@ bundle exec ruby server.rb
 You should see a response like:
 
 ```shell
-> == Sinatra (v2.2.3) has taken the stage on 3000 for development with backup from WEBrick
-> [2023-06-06 10:55:25] INFO  WEBrick::HTTPServer#start: pid=93165 port=3000
+> == Sinatra (v2.2.3) has taken the stage on 3000 for development with backup from Puma
+> Puma starting in single mode...
+> * Puma version: 6.3.0 (ruby 3.1.2-p20) ("Mugi No Toki Itaru")
+> *  Min threads: 0
+> *  Max threads: 5
+> *  Environment: development
+> *          PID: 14915
+> * Listening on http://0.0.0.0:3000
+> Use Ctrl-C to stop
 ```
 
 If you see an error, make sure you've created the `.env` file in the directory that contains `server.rb`.
 
-Once the server is running, you can test it by going to `http://localhost:3000` in your browser. If the app works as expected, you'll see a helpful error page that says, "Sinatra doesn't know this ditty."
+Once the server is running, test it by going to `http://localhost:3000` in your browser. If you see an error page that says "Sinatra doesn't know this ditty," the app is working as expected.
 
-This is good! Even though it's an error page, it's a Sinatra error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
+Even though it's an error page, it's a Sinatra error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
 
 ## Test that the server is listening to your app
 
@@ -555,19 +551,19 @@ You can test that the server is listening to your app by triggering an event for
 2. After you click **Install**, look at the output in the terminal tab where you started `server.rb`. You should see something like this:
 
    ```shell
-   > D, [2018-06-29T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
-   > D, [2018-06-29T15:45:43.773141 #30488] DEBUG -- : ----         action created
-   > 192.30.252.44 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0067
-   > D, [2018-06-29T15:45:43.833016 #30488] DEBUG -- : ---- received event installation
-   > D, [2018-06-29T15:45:43.833062 #30488] DEBUG -- : ----         action created
-   > 192.30.252.39 - - [29/Jun/2018:15:45:43 -0400] "POST / HTTP/2" 200 2 0.0019
+   > D, [2023-06-08T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
+   > D, [2023-06-08T15:45:43.773141 #30488] DEBUG -- : ----         action created
+   > 192.30.252.44 - - [08/Jun/2023:15:45:43 -0400] "POST /event_handler HTTP/1.1" 200 - 0.5390
+   > D, [2023-06-08T15:45:43.833016 #30488] DEBUG -- : ---- received event installation
+   > D, [2023-06-08T15:45:43.833062 #30488] DEBUG -- : ----         action created
+   > 192.30.252.39 - - [08/Jun/2023:15:45:43 -0400] "POST /event_handler HTTP/1.1" 200 - 0.5390
    ```
 
    If you see output like this, it means your app received a notification that it was installed on your {% data variables.product.prodname_dotcom %} account. The app is running on the server as expected.
 
 If you don't see this output, make sure Smee is running correctly in another terminal tab. If you need to restart Smee, note that you'll also need to _uninstall_ and _reinstall_ the app to send the `installation` event to your app again and see the output in terminal. If Smee isn't the problem, see the "[Troubleshooting](#troubleshooting)" section for other ideas. [TODOCS: Remove troubleshooting link if we remove troubleshooting section.]
 
-If you're wondering where the terminal output above is coming from, it's written in the [app template code](#add-code-for-your-app) in `server.rb`.
+If you're wondering where the terminal output above is coming from, it's written in the app template code you added to `server.rb` in "[Add code for your {% data variables.product.prodname_github_app %}](#add-code-for-your-github-app)".
 
 ## Part 1. Creating the Checks API interface
 
@@ -575,48 +571,32 @@ In this part, you will add the code necessary to receive `check_suite` webhook e
 
 Your check run will not be performing any checks on the code in this section. You'll add that functionality in [Part 2: Creating the Octo RuboCop CI test](#part-2-creating-the-octo-rubocop-ci-test).
 
-You should already have a Smee channel configured that is forwarding webhook payloads to your local server. Your server should be running and connected to the {% data variables.product.prodname_github_app %} you registered and installed on a test repository. If you haven't completed the steps in "[AUTOTITLE](/apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app)," you'll need to do that before you can continue.
+You should already have a Smee channel configured that is forwarding webhook payloads to your local server. Your server should be running and connected to the {% data variables.product.prodname_github_app %} you registered and installed on a test repository.
 
 Let's get started! These are the steps you'll complete in Part 1:
 
-1. [Updating app permissions](#step-11-updating-app-permissions)
-1. [Adding event handling](#step-12-adding-event-handling)
-1. [Creating a check run](#step-13-creating-a-check-run)
-1. [Updating a check run](#step-14-updating-a-check-run)
+1. [Add event handling](#step-11-add-event-handling)
+1. [Create a check run](#step-12-create-a-check-run)
+1. [Update a check run](#step-13-update-a-check-run)
 
-## Step 1.1. Updating app permissions
+## Step 1.1. Add event handling
 
-When you [first registered your app](#prerequisites), you accepted the default permissions, which means your app doesn't have access to most resources. For this example, your app will need permission to read and write checks.
+Because your app is subscribed to the **Check suite** and **Check run** events, it will receive the [`check_suite`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) and [`check_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) webhooks. {% data variables.product.prodname_dotcom %} sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost:3000/event_handler`, your server will receive the `POST` request payloads at the `post '/event_handler'` route.
 
-To update your app's permissions:
-
-1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
-1. In the "Permissions" section, find "Checks", and select **Read & write** in the Access dropdown next to it.
-1. In the "Subscribe to events" section, select **Check suite** and **Check run** to subscribe to these events.
-{% data reusables.apps.accept_new_permissions_steps %}
-
-Great! Your app has permission to do the tasks you want it to do. Now you can add the code to handle the events.
-
-## Step 1.2. Adding event handling
-
-Now that your app is subscribed to the **Check suite** and **Check run** events, it will start receiving the [`check_suite`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) and [`check_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) webhooks. {% data variables.product.prodname_dotcom %} sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost:3000/event_handler`, your server will receive the `POST` request payloads at the `post '/event_handler'` route.
-
-An empty `post '/event_handler'` route is already included in the `template_server.rb` file, which you downloaded in the [prerequisites](#prerequisites) section. The empty route looks like this:
+An empty `post '/event_handler'` route is already included in the template code in the `server.rb` file that you created in "[Add code for your {% data variables.product.prodname_github_app %}](#add-code-for-your--data-variablesproductprodname_github_app)." The empty route looks like this:
 
 ``` ruby
   post '/event_handler' do
 
-    # # # # # # # # # # # #
     # ADD YOUR CODE HERE  #
-    # # # # # # # # # # # #
 
     200 # success status
   end
 ```
 
-Use this route to handle the `check_suite` event by adding the following code:
+Use this route to handle the `check_suite` event by adding the following code. Under `post '/event_handler' do`, where it says `# ADD YOUR CODE HERE  #`, add the following code:
 
-``` ruby
+``` ruby{:copy}
 # Get the event type from the HTTP_X_GITHUB_EVENT header
 case request.env['HTTP_X_GITHUB_EVENT']
 when 'check_suite'
@@ -631,11 +611,13 @@ Every event that {% data variables.product.prodname_dotcom %} sends includes a r
 
 The `requested` action requests a check run each time code is pushed to the repository, while the `rerequested` action requests that you re-run a check for code that already exists in the repository. Because both the `requested` and `rerequested` actions require creating a check run, you'll call a helper called `create_check_run`. Let's write that method now.
 
-## Step 1.3. Creating a check run
+## Step 1.2. Create a check run
 
-You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too. Under `helpers do`, add this `create_check_run` method:
+You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too.
 
-``` ruby
+Under `helpers do`, where it says `# ADD YOUR HELPER METHODS HERE #`, add this `create_check_run` method:
+
+``` ruby{:copy}
 # Create a new check run with status "queued"
 def create_check_run
   @installation_client.create_check_run(
@@ -652,9 +634,9 @@ def create_check_run
 end
 ```
 
-This code calls the "[AUTOTITLE](/rest/checks#create-a-check-run)" endpoint using the [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method).
+This code calls the "[AUTOTITLE](/rest/checks#create-a-check-run)" endpoint using the Octokit [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method).
 
-To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this quickstart, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
+To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this tutorial, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
 
 You're only supplying the required parameters now to get the basic functionality working, but you'll update the check run later as you collect more information about the check run. By default, {% data variables.product.prodname_dotcom %} sets the `status` to `queued`.
 
@@ -664,8 +646,8 @@ In the code above, you're using the [ternary operator](https://ruby-doc.org/core
 
 To test this code, restart the server from your terminal:
 
-```shell
-$ ruby template_server.rb
+```shell{:copy}
+ruby server.rb
 ```
 
 {% data reusables.apps.sinatra_restart_instructions %}
@@ -676,7 +658,7 @@ If you see other apps in the Checks tab, it means you have other apps installed 
 
 Great! You've told {% data variables.product.prodname_dotcom %} to create a check run. You can see the check run status is set to `queued` next to a yellow icon. Next, you'll want to wait for {% data variables.product.prodname_dotcom %} to create the check run and update its status.
 
-## Step 1.4. Updating a check run
+## Step 1.3. Updating a check run
 
 When your `create_check_run` method runs, it asks {% data variables.product.prodname_dotcom %} to create a new check run. When {% data variables.product.prodname_dotcom %} finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
 
@@ -734,7 +716,7 @@ end
 
 The code above calls the "[AUTOTITLE](/rest/checks#update-a-check-run)" API endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method) to update the check run that you already created.
 
-Here's what this code is doing. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. In [Part 2](#part-2-creating-the-octo-rubocop-ci-test) of this quickstart, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
+Here's what this code is doing. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. In [Part 2](#part-2-creating-the-octo-rubocop-ci-test) of this tutorial, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
 
 You'll notice in the "[AUTOTITLE](/rest/checks#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `skipped`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
 
@@ -760,9 +742,9 @@ Your app will run RuboCop on the CI server and create check runs (CI tests in th
 
 The Checks API allows you to report rich details about each check run, including statuses, images, summaries, annotations, and requested actions.
 
-Annotations are information about specific lines of code in a repository. An annotation allows you to pinpoint and visualize the exact parts of the code you'd like to show additional information for. That information can be anything: for example, a comment, an error, or a warning. This quickstart uses annotations to visualize RuboCop errors.
+Annotations are information about specific lines of code in a repository. An annotation allows you to pinpoint and visualize the exact parts of the code you'd like to show additional information for. That information can be anything: for example, a comment, an error, or a warning. This tutorial uses annotations to visualize RuboCop errors.
 
-To take advantage of requested actions, app developers can create buttons in the **Checks** tab of pull requests. When someone clicks one of these buttons, the click sends a `requested_action` `check_run` event to the {% data variables.product.prodname_github_app %}. The action that the app takes is completely configurable by the app developer. This quickstart will walk you through adding a button that allows users to request that RuboCop fix the errors it finds. RuboCop supports automatically fixing errors using a command-line option, and you'll configure the `requested_action` to take advantage of this option.
+To take advantage of requested actions, app developers can create buttons in the **Checks** tab of pull requests. When someone clicks one of these buttons, the click sends a `requested_action` `check_run` event to the {% data variables.product.prodname_github_app %}. The action that the app takes is completely configurable by the app developer. This tutorial will walk you through adding a button that allows users to request that RuboCop fix the errors it finds. RuboCop supports automatically fixing errors using a command-line option, and you'll configure the `requested_action` to take advantage of this option.
 
 Let's get started! These are the steps you'll complete in this section:
 
@@ -776,7 +758,7 @@ Let's get started! These are the steps you'll complete in this section:
 
 ## Step 2.1. Adding a Ruby file
 
-You can pass specific files or entire directories for RuboCop to check. In this quickstart, you'll run RuboCop on an entire directory. Because RuboCop only checks Ruby code, you'll want at least one Ruby file in your repository that contains errors. The example file provided below contains a few errors. Add this example Ruby file to the repository where your app is installed (make sure to name the file with an `.rb` extension, as in `myfile.rb`):
+You can pass specific files or entire directories for RuboCop to check. In this tutorial, you'll run RuboCop on an entire directory. Because RuboCop only checks Ruby code, you'll want at least one Ruby file in your repository that contains errors. The example file provided below contains a few errors. Add this example Ruby file to the repository where your app is installed (make sure to name the file with an `.rb` extension, as in `myfile.rb`):
 
 ```ruby
 # The Octocat class tells you about different breeds of Octocat
@@ -808,7 +790,7 @@ The `Gemfile` in the `building-a-checks-api-ci-server` repository already includ
 require 'git'
 ```
 
-Your app needs read permission for "Repository contents" to clone a repository. Later in this quickstart, you'll need to push contents to {% data variables.product.prodname_dotcom %}, which requires write permission. Go ahead and set your app's "Repository contents" permission to **Read & write** now so you don't need to update it again later. To update your app's permissions:
+Your app needs read permission for "Repository contents" to clone a repository. Later in this tutorial, you'll need to push contents to {% data variables.product.prodname_dotcom %}, which requires write permission. Go ahead and set your app's "Repository contents" permission to **Read & write** now so you don't need to update it again later. To update your app's permissions:
 
 1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
 1. In the "Permissions" section, find "Repository contents", and select **Read & write** in the "Access" dropdown next to it.
@@ -948,7 +930,7 @@ You should see the linting errors in the debug output, although they aren't prin
 
 The `@output` variable contains the parsed JSON results of the RuboCop report. As shown above, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
 
-The Checks API allows you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this quickstart you are [updating the check run](/rest/checks#update-a-check-run) with annotations.
+The Checks API allows you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this tutorial you are [updating the check run](/rest/checks#update-a-check-run) with annotations.
 
 The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [AUTOTITLE](/rest/checks#update-a-check-run) endpoint. For example, to create 105 annotations you'd need to call the [AUTOTITLE](/rest/checks#update-a-check-run) endpoint three times. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
 
@@ -1013,7 +995,7 @@ This code limits the total number of annotations to 50. But you can modify this 
 
 When the `offense_count` is zero, the CI test is a `success`. If there are errors, this code sets the conclusion to `neutral` in order to prevent strictly enforcing errors from code linters. But you can change the conclusion to `failure` if you would like to ensure that the check suite fails when there are linting errors.
 
-When errors are reported, the code above iterates through the `files` array in the RuboCop report. For each file, it extracts the file path and sets the annotation level to `notice`. You could go even further and set specific warning levels for each type of [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), but to keep things simpler in this quickstart, all errors are set to a level of `notice`.
+When errors are reported, the code above iterates through the `files` array in the RuboCop report. For each file, it extracts the file path and sets the annotation level to `notice`. You could go even further and set specific warning levels for each type of [RuboCop Cop](https://docs.rubocop.org/rubocop/cops.html), but to keep things simpler in this tutorial, all errors are set to a level of `notice`.
 
 This code also iterates through each error in the `offenses` array and collects the location of the offense and error message. After extracting the information needed, the code creates an annotation for each error and stores it in the `annotations` array. Because annotations only support start and end columns on the same line, `start_column` and `end_column` are only added to the `annotation` object if the start and end line values are the same.
 
@@ -1021,7 +1003,7 @@ This code doesn't yet create an annotation for the check run. You'll add that co
 
 ## Step 2.5. Updating the check run with CI test results
 
-Each check run from {% data variables.product.prodname_dotcom %} contains an `output` object that includes a `title`, `summary`, `text`, `annotations`, and `images`. The `summary` and `title` are the only required parameters for the `output`, but those alone don't offer much detail, so this quickstart adds `text` and `annotations` too. The code here doesn't add an image, but feel free to add one if you'd like!
+Each check run from {% data variables.product.prodname_dotcom %} contains an `output` object that includes a `title`, `summary`, `text`, `annotations`, and `images`. The `summary` and `title` are the only required parameters for the `output`, but those alone don't offer much detail, so this tutorial adds `text` and `annotations` too. The code here doesn't add an image, but feel free to add one if you'd like!
 
 For the `summary`, this example uses the summary information from RuboCop and adds some newlines (`\n`) to format the output. You can customize what you add to the `text` parameter, but this example sets the `text` parameter to the RuboCop version. To set the `summary` and `text`, append this code to the code you added in the [previous section](#step-24-collecting-rubocop-errors):
 
@@ -1031,7 +1013,7 @@ summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_c
 text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 ```
 
-Now you've got all the information you need to update your check run. In the [first half of this quickstart](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
+Now you've got all the information you need to update your check run. In the [first half of this tutorial](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
 
 ``` ruby
 # Mark the check run as complete!
@@ -1180,10 +1162,10 @@ To see the full final code for the app you just built, see "[Full code example](
 
 ## Step 2.7. Security tips
 
-The template {% data variables.product.prodname_github_app %} code already has a method to verify incoming webhook payloads to ensure they are from a trusted source. If you are not validating webhook payloads, you'll need to ensure that when repository names are included in the webhook payload, the webhook does not contain arbitrary commands that could be used maliciously. The code below validates that the repository name only contains Latin alphabetic characters, hyphens, and underscores. To provide you with a complete example, the complete `server.rb` code available in the [companion repository](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) for this quickstart includes both the method of validating incoming webhook payloads and this check to verify the repository name.
+The template {% data variables.product.prodname_github_app %} code already has a method to verify incoming webhook payloads to ensure they are from a trusted source. If you are not validating webhook payloads, you'll need to ensure that when repository names are included in the webhook payload, the webhook does not contain arbitrary commands that could be used maliciously. The code below validates that the repository name only contains Latin alphabetic characters, hyphens, and underscores. To provide you with a complete example, the complete `server.rb` code available in the [companion repository](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) for this tutorial includes both the method of validating incoming webhook payloads and this check to verify the repository name.
 
 ``` ruby
-# This quickstart example uses the repository name in the webhook with
+# This tutorial example uses the repository name in the webhook with
 # command-line utilities. For security reasons, you should validate the
 # repository name to ensure that a bad actor isn't attempting to execute
 # arbitrary commands or inject false repository names. If a repository name
@@ -1236,7 +1218,7 @@ class GHAapp < Sinatra::Application
     get_payload_request(request)
     verify_webhook_signature
 
-    # This Quickstart example uses the repository name in the webhook with
+    # This tutorial example uses the repository name in the webhook with
     # command line utilities. For security reasons, you should validate the
     # repository name to ensure that a bad actor isn't attempting to execute
     # arbitrary commands or inject false repository names. If a repository name
