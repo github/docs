@@ -114,6 +114,6 @@ If you disconnect an IdP group from a {% data variables.product.prodname_dotcom 
 {%- elsif ghae %}
 1. Under "Identity Provider Group", to the right of the IdP group you want to disconnect, click {% octicon "x" aria-label="Remove group" %}.
 
-   ![Unselect a connected IdP group from the GitHub team](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png)
+   ![Unselect a connected IdP group from the GitHub team.](/assets/images/enterprise/github-ae/teams/unselect-idp-group.png)
 {%- endif %}
 1. Click **Save changes**.

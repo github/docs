@@ -67,10 +67,10 @@ Providing {% data variables.contact.github_support %} with everything they need 
 
 Especially for tickets with {% data variables.product.support_ticket_priority_urgent %} priority, the person contacting {% data variables.contact.github_support %} should:
 
- - Be knowledgeable in your internal systems, tools, policies, and practices.
- - Be a proficient user of {% data variables.product.product_name %}.
- - Have full access and permissions to any services that are required to troubleshoot the issue.
- - Be authorized to make the recommended changes to your network and any applicable products.
+- Be knowledgeable in your internal systems, tools, policies, and practices.
+- Be a proficient user of {% data variables.product.product_name %}.
+- Have full access and permissions to any services that are required to troubleshoot the issue.
+- Be authorized to make the recommended changes to your network and any applicable products.
 
 {% endif %}
 

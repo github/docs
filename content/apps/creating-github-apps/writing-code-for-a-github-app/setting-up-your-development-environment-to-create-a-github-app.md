@@ -107,12 +107,11 @@ You'll see a form where you can enter details about your app. See "[AUTOTITLE](/
 
 * For the "Webhook secret", create a password to secure your webhook endpoints. This should be something that only you (and GitHub, via this form) know. The secret is important because you will be receiving payloads from the public internet, and you'll use this secret to verify the webhook sender. Note that the GitHub App settings say the webhook secret is optional, which is true in most cases, but for the template app code to work, you must set a webhook secret.
 
-* On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions"
- section, scroll down to "Metadata" and select `Access: Read-only`. If you decide to extend this template app, you can update these permissions later.
+* On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions" section, scroll down to "Metadata" and select `Access: Read-only`. If you decide to extend this template app, you can update these permissions later.
 
 * At the bottom of the Permissions & Webhooks page, under "Where can this {% data variables.product.prodname_github_app %} be installed?", specify whether this is a private app or a public app.
 
-   This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
+  This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
 
 Click **Create GitHub App** to create your app!
 
@@ -240,8 +239,8 @@ You'll learn about authenticating as an installation in the [next section](#auth
 
 Authenticating as a GitHub App lets you do a couple of things:
 
- * You can retrieve high-level management information about your GitHub App.
- * You can request access tokens for an installation of the app.
+* You can retrieve high-level management information about your GitHub App.
+* You can request access tokens for an installation of the app.
 
 For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 

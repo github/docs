@@ -72,7 +72,7 @@ For more information about these views, see "[AUTOTITLE](/code-security/security
 
 ### Understanding the main security overview
 
-![Screenshot of security overview for an organization](/assets/images/help/security-overview/security-overview-org-legacy.png)
+![Screenshot of security overview for an organization.](/assets/images/help/security-overview/security-overview-org-legacy.png)
 
 Each repository is shown in security overview with an indicator for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the indicator for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
 

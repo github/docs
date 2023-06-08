@@ -57,10 +57,10 @@ If your locally-hosted code isn't tracked by any VCS, the first step is to initi
    ```
 1. Add the files in your new local repository. This stages them for the first commit.
 
-  ```shell
-  $ git add .
-  # Adds the files in the local repository and stages them for commit. {% data reusables.git.unstage-codeblock %}
-  ```
+   ```shell
+   $ git add .
+   # Adds the files in the local repository and stages them for commit. {% data reusables.git.unstage-codeblock %}
+   ```
 1. Commit the files that you've staged in your local repository.
    ```shell
    $ git commit -m "First commit"
@@ -121,7 +121,7 @@ After you've initialized a Git repository, you can push the repository to {% dat
    # Sets the new remote
    $ git remote -v
    # Verifies the new remote URL
-  ```
+   ```
 1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
    ```shell
    $ git push origin main

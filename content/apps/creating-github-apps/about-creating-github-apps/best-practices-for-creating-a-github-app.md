@@ -73,6 +73,8 @@ User access tokens will attribute activity to a user and to your app. These are 
 
 An installation access token is restricted based on the {% data variables.product.prodname_github_app %}'s permissions and access. A user access token is restricted based on both the {% data variables.product.prodname_github_app %}'s permission and access and the user's permission and access. Therefore, if your {% data variables.product.prodname_github_app %} takes an action on behalf of a user, it should always use a user access token instead of an installation access token. Otherwise, your app might allow a user to see or do things that they shouldn't be able to see or do.
 
+Your app should never use a {% data variables.product.pat_generic %} or {% data variables.product.company_short %} password to authenticate.
+
 ## Validate organization access for every new authentication
 
 When you use a user access token, you should track which organizations the token is authorized for. If an organization uses SAML SSO and a user has not performed SAML SSO, the user access token should not have access to that organization. You can use the `GET /user/installations` REST API endpoint to verify which organizations a user access token has access to. If the user is not authorized to access an organization, you should reject their access until they perform SAML SSO. For more information, see "[AUTOTITLE](/rest/apps/installations#list-app-installations-accessible-to-the-user-access-token)."
@@ -83,13 +85,17 @@ When you use a user access token, you should track which organizations the token
 
 Installation access tokens expire after one hour, expiring user access tokens expire after eight hours, and refresh tokens expire after six months. However, you can also revoke tokens as soon as you no longer need them. For more information, see "[AUTOTITLE](/rest/apps/installations#revoke-an-installation-access-token)" to revoke an installation access token and "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)" to revoke a user access token.
 
-## Make a plan for rotating credentials
+## Make a plan for handling security breaches
 
 You should have a plan in place so that you can handle any security breaches in a timely manner.
 
 In the event that your app's private key or secret is compromised, you will need to generate a new key or secret, update your app to use the new key or secret, and delete your old key or secret.
 
-In the event that installation access tokens, user access tokens, or refresh tokens are compromised, you should immediately revoke these tokens. For more information, see "[AUTOTITLE](/rest/apps/installations#revoke-an-installation-access-token)."
+In the event that installation access tokens, user access tokens, or refresh tokens are compromised, you should immediately revoke these tokens. For more information, see "[AUTOTITLE](/rest/apps/installations#revoke-an-installation-access-token)" to revoke an installation access token and "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)" to revoke a user access token.
+
+## Conduct regular vulnerability scans
+
+{% data reusables.apps.app-scans %}
 
 ## Choose an appropriate environment
 
@@ -110,6 +116,18 @@ For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-g
 When you add repository or organization permissions to your {% data variables.product.prodname_github_app %}, users who have the app installed on their personal account or organization will receive an email prompting them to review the new permissions. Until the user approves the new permissions, their app installation will only receive the old permissions.
 
 When you update permissions, you should consider making your app backwards compatible to give your users time to accept the new permissions. You can use the [installation webhook with the `new_permissions_accepted` action property](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to learn when users accept new permissions for your app.
+
+## Use services in a secure manner
+
+{% data reusables.apps.app-services %}
+
+## Add logging and monitoring
+
+{% data reusables.apps.apps-logging %}
+
+## Enable data deletion
+
+If your {% data variables.product.prodname_github_app %} is available to other users or organizations, you should give users and organization owners a way to delete their data. Users should not need to email or call a support person in order to delete their data.
 
 {% ifversion fpt or ghec %}
 

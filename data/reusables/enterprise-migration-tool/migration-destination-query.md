@@ -1,4 +1,4 @@
-####  `GetOrgInfo` query
+#### `GetOrgInfo` query
 
 ```graphql
 query(

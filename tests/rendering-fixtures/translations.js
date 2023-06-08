@@ -22,6 +22,15 @@ describe('translations', () => {
     expect(notification.length).toBe(1)
     const toEnglishDoc = notification.find('a#to-english-doc')
     expect(toEnglishDoc.text()).toBe('English documentation')
+
+    // Sidebar uses the translated shortTitle
+    const links = $('[data-testid=sidebar] a[href]')
+    const hrefs = links
+      .filter((i, link) => $(link).attr('href').startsWith('/'))
+      .map((i, link) => $(link))
+      .get()
+    const linkTexts = Object.fromEntries(hrefs.map(($link) => [$link.attr('href'), $link.text()]))
+    expect(linkTexts['/ja/get-started']).toBe('はじめに')
   })
 
   test('hello world', async () => {

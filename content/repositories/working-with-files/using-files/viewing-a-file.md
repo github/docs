@@ -26,13 +26,12 @@ With the raw view, you can view or copy the raw content of a file without any st
 1. In the upper-right corner of the file view, click **Raw**.
 {% ifversion code-search-code-view %}
 
-  ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/help/repository/raw-file-button.png)
+   ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/help/repository/raw-file-button.png)
 {% else %}
 
-  ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/enterprise/repository/raw-file-button.png)
+   ![Screenshot of a file. In the header, a button, labeled "Raw," outlined in dark orange.](/assets/images/enterprise/repository/raw-file-button.png)
 {% endif %}
 1. Optionally, to copy the raw file content, in the upper-right corner of the file view, click **{% octicon "copy" aria-label="Copy raw content" %}**. {% ifversion code-search-code-view %} To download the raw file, click **{% octicon "download" aria-label="Download raw file" %}**.{% endif %}
-
 
 ## Viewing the line-by-line revision history for a file
 

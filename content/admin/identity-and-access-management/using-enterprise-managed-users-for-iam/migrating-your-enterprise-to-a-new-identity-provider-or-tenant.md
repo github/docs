@@ -38,6 +38,7 @@ To migrate to a new IdP or tenant, you cannot edit your existing SAML configurat
 1. In your current IdP, deactivate provisioning in the application for {% data variables.product.prodname_emus %}.
     -  If you use Azure AD, navigate to the "Provisioning" tab of the application, and then click **Stop provisioning**.
     - If you use Okta, navigate to the "Provisioning" tab of the application, click the **Integration** tab, and then click **Edit**. Deselect **Enable API integration**.
+    - If you use PingFederate, navigate to the channel settings in the application. From the **Activation & Summary** tab, click **Active** or **Inactive** to toggle the provisioning status, and then click **Save**. For more information about managing provisioning, see "[Reviewing channel settings](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saaschanneltasklet_saasactivationstate)" and "[Managing channels](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saasmanagementtasklet_saasmanagementstate)" in the Ping Federate documentation.
 1. Use a recovery code to sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user, whose username is your enterprise's shortcode suffixed with `_admin`. For more information about the setup user, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
 
 1. Deactivate SAML for the {% data variables.enterprise.prodname_emu_enterprise %}.

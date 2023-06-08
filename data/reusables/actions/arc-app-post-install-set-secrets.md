@@ -10,10 +10,10 @@
       --from-literal=github_app_private_key='-----BEGIN RSA PRIVATE KEY-----********'
    ```
 
-  Then using the `githubConfigSecret` property in your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file, pass the secret name as a reference.
+   Then using the `githubConfigSecret` property in your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) file, pass the secret name as a reference.
 
-  ```yaml
-  githubConfigSecret: pre-defined-secret
-  ```
+   ```yaml
+   githubConfigSecret: pre-defined-secret
+   ```
 
   {% data reusables.actions.actions-runner-controller-helm-chart-options %}

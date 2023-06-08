@@ -26,11 +26,11 @@ topics:
 {% ifversion ghes %}
 **Notes**:
 
-   - {% else %}
+- {% else %}
 **Note:** {% endif %}This article contains the events that may appear in the audit log for an enterprise. For the events that can appear in a user account's security log or the audit log for an organization, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
 
 {% ifversion ghes %}
-   - This article contains the events that may appear in the enterprise settings, specifically. The audit log in the site admin dashboard may contain additional events not listed here.
+- This article contains the events that may appear in the enterprise settings, specifically. The audit log in the site admin dashboard may contain additional events not listed here.
 {% endif %}
 
 {% endnote %}
@@ -539,6 +539,51 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `issues.deletes_disabled` | The ability for enterprise members to delete issues was disabled. Members cannot delete issues in any organizations in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."
 | `issues.deletes_enabled` | The ability for enterprise members to delete issues was enabled. Members can delete issues in any organizations in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."
 | `issues.deletes_policy_cleared` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for allowing members to delete issues in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."
+
+{% ifversion management-console-events-audit-log %}
+## `management_console` category actions
+
+| Action | Description
+|--------|-------------
+| `management_console.add_authorized_ssh_key` | Access to the administrative shell (SSH) was granted by adding a public key. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)." |
+| `management_console.change_password` | The password for the root site administrator was changed. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console)." |
+| `management_console.chatops_remove` | A configuration for the Microsoft Teams or Slack integration was removed. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
+| `management_console.configure_github_enterprise` | A configuration run was started on the instance. |
+| `management_console.create_user` | A new {% data variables.enterprise.management_console %} user was created. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#creating-or-deleting-a-user-account-for-the-management-console)." |
+| `management_console.delete_authorized_ssh_key` | Access to the administrative shell (SSH) was revoked due to the removal of a public key. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)." |
+| `management_console.delete_user` | A {% data variables.enterprise.management_console %} user was deleted. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#creating-or-deleting-a-user-account-for-the-management-console)." |
+| `management_console.diagnostics_file_download` | A diagnostic file for the instance was generated. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support#creating-a-diagnostic-file-from-the-management-console)." |
+| `management_console.dns_test` | Domain settings were validated. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/validating-your-domain-settings)." |
+| `management_console.edit_user` | A {% data variables.enterprise.management_console %} user's name or role was edited. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console)." |
+| `management_console.email_test` | A test email was sent while enabling email notifications for the instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#testing-email-delivery)." |
+| `management_console.initialize_cluster` | The instance was initialized as a cluster. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster)." |
+| `management_console.initialize_management_console` | During initial configuration of the instance, a license was uploaded and the root site administrator password was set. |
+| `management_console.ldap_test` | LDAP connectivity was tested during configuration of LDAP for authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#configuring-ldap-with-your-github-enterprise-server-instance)." |
+| `management_console.manage_maintenance_ip_exception_list` | The IP exception list to validate changes in maintenance mode was configured. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)." |
+| `management_console.manage_maintenance_mode` | Maintenance mode was enabled, disabled, or scheduled for the instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)." |
+| `management_console.modify_automatic_updates` | Automatic update checks were enabled or disabled for the instance. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks)." |
+| `management_console.msteams_app_manifest` | A manifest file was generated for the Microsoft Teams integration. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
+| `management_console.msteams_app_update` | The configuration for the Microsoft Teams integration was updated. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
+| `management_console.new_user_setup` | An invitation invitation was sent to a new {% data variables.enterprise.management_console %} user. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#inviting-new-management-console-users)." |
+| `management_console.request_tls_certificate` | A TLS certificate for the instance was requested from Let's Encrypt. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls#about-lets-encrypt-support)." |
+| `management_console.resend_user_invitation` | An invitation to a new {% data variables.enterprise.management_console %} user was re-sent. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#inviting-new-management-console-users)." |
+| `management_console.save_first_run_settings` | Settings were saved during the initial configuration of the instance. |
+| `management_console.save_settings` | Settings were saved. |
+| `management_console.select_installation_type` | An installation type was selected during initialization of the instance. |
+| `management_console.slack_app_generate` | An app for the Slack integration was generated. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
+| `management_console.slack_app_update` | The app-level token for the Slack integration was updated. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
+| `management_console.smtp_test` | An SMTP configuration was tested while enabling email notifications for the instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#testing-email-delivery)." |
+| `management_console.ssh_command` | A command was run using the administrative shell (SSH). For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)." 
+| `management_console.storage_actions_test` | A storage configuration for {% data variables.product.prodname_actions %} was tested. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server)." |
+| `management_console.storage_migrations_test` | A storage configuration for {% data variables.product.prodname_importer_proper_name %} was tested. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud)." |
+| `management_console.storage_packages_test` | A storage configuration for {% data variables.product.prodname_registry %} was tested. For more information, see "[AUTOTITLE](/admin/packages)." |
+| `management_console.support_bundle_download` | A support bundle for the instance was generated. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support#creating-a-support-bundle-from-the-management-console)." |
+| `management_console.unblock_user` | A {% data variables.enterprise.management_console %} user account was unlocked after the account was blocked for multiple failed sign-in attempts. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-a-management-console-user-account)." |
+| `management_console.update_user_password` | The password for a {% data variables.enterprise.management_console %} user was updated. |
+| `management_console.upgrade_license` | A new license for the instance was uploaded. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)." |
+| `management_console.user_sign_in` | Someone signed into the {% data variables.enterprise.management_console %}. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/accessing-the-management-console)." |
+| `management_console.user_sign_out` | Someone signed out of the {% data variables.enterprise.management_console %}. |
+{% endif %}
 
 {%- ifversion fpt or ghec %}
 ## `marketplace_agreement_signature` category actions

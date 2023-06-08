@@ -58,7 +58,7 @@ You can map a team in your enterprise to an Okta group you previously pushed to 
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
 6. Under "Identity Provider Group", select the drop-down menu and click an identity provider group.
-    ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
+    ![Drop-down menu to choose identity provider group.](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
 7. Click **Save changes**.
 
 ## Checking the status of your mapped teams

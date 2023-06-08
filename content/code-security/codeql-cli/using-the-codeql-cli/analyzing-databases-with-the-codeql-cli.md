@@ -93,8 +93,8 @@ is a list of arguments, where each argument can be:
   * a path to a directory containing query files
   * a path to a query suite file
   * the name of a {% data variables.product.prodname_codeql %} query pack
-       * with an optional version range
-        * with an optional path to a query, directory, or query suite inside the pack
+    * with an optional version range
+    * with an optional path to a query, directory, or query suite inside the pack
 
   If omitted, the default query suite for the language of the analyzed database will be used. For the complete syntax of query specifiers, see "[Specifying which queries to run in a {% data variables.product.prodname_codeql %} pack](#specifying-which-queries-to-run-in-a-codeql-pack)."
 

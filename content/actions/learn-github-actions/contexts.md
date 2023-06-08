@@ -122,18 +122,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
-        id: github_context_step
-        run: echo '${{ toJSON(github) }}'
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo '$GITHUB_CONTEXT'
       - name: Dump job context
-        run: echo '${{ toJSON(job) }}'
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo '$JOB_CONTEXT'
       - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo '$STEPS_CONTEXT'
       - name: Dump runner context
-        run: echo '${{ toJSON(runner) }}'
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo '$RUNNER_CONTEXT'
       - name: Dump strategy context
-        run: echo '${{ toJSON(strategy) }}'
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo '$STRATEGY_CONTEXT'
       - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo '$MATRIX_CONTEXT'
 ```
 {% endraw %}
 

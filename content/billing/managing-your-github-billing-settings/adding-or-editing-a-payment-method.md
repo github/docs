@@ -33,7 +33,7 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 ## Updating your personal account's payment method
 
 {% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.update_payment_method %}
+{% data reusables.dotcom_billing.update_payment_method_personal_account %}
 {% data reusables.billing.edit-billing-information %}
 {% data reusables.dotcom_billing.enter-billing-info %}
 {% data reusables.billing.edit-payment-method %}
@@ -46,7 +46,7 @@ We don't provide invoicing or support purchase orders for personal accounts. We 
 If your organization is outside of the US or if you're using a corporate checking account to pay for {% data variables.product.product_name %}, PayPal could be a helpful method of payment.
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.update_payment_method %}
+{% data reusables.dotcom_billing.update_payment_method_organization_account %}
 1. If your account has an existing credit card that you want to update, click **New Card**.
 ![Screenshot of the "Payment method" section. Below some card details, a link, labeled "New Card", is highlighted with an orange outline.](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

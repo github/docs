@@ -1,4 +1,4 @@
-1. To apply the configuration, enter the following command.
+1. To apply the configuration, run the following command.
 
    {% note %}
    
@@ -6,7 +6,7 @@
 
    {% endnote %}
 
-    ```shell
+    ```shell{:copy}
     ghe-config-apply
     ```
 1. Wait for the configuration run to complete.

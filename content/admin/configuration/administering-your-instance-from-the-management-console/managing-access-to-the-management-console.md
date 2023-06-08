@@ -38,7 +38,7 @@ The root site administrator can provision one of two roles for {% data variables
 - **Editor**: A {% data variables.enterprise.management_console %} user with the editor role can perform basic administrative tasks for {% data variables.location.product_location %} in the {% data variables.enterprise.management_console %}. Editors cannot add public SSH keys to the {% data variables.enterprise.management_console %} to grant administrative SSH access to the instance.
 - **Operator**: A {% data variables.enterprise.management_console %} user with the operator role can perform basic administrative tasks for {% data variables.location.product_location %} in the {% data variables.enterprise.management_console %}. Users with the operator role can add SSH keys to the {% data variables.enterprise.management_console %} to grant administrative access to the instance via SSH.
 
-### Creating or deleting a user account for the {% data variables.enterprise.management_console %}
+## Creating or deleting a user account for the {% data variables.enterprise.management_console %}
 
 While signed into the {% data variables.enterprise.management_console %} as the root site administrator, you can create new {% data variables.enterprise.management_console %} user accounts.
 

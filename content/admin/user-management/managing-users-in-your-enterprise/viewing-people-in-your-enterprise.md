@@ -160,7 +160,7 @@ You can view a list of all dormant users {% ifversion ghes or ghae %} who have n
 
    ![Screenshot of the tabs above an organization name. The "People" tab is highlighted with an orange outline.](/assets/images/help/enterprises/emu-organization-people-tab.png)
 4. Above the list of members, click **Type**, then select the type of members you want to view.
-   ![Screenshot of the "Type" button](/assets/images/help/enterprises/filter-by-member-type.png)
+   ![Screenshot of the "Type" button.](/assets/images/help/enterprises/filter-by-member-type.png)
 
 {% endif %}
 

@@ -4,7 +4,7 @@ import { get } from '../helpers/e2etest.js'
 import {
   MAX_UNFAMILIAR_KEYS_BAD_REQUEST,
   MAX_UNFAMILIAR_KEYS_REDIRECT,
-} from '../../src/observability/middleware/handle-invalid-query-strings.js'
+} from '#src/observability/middleware/handle-invalid-query-strings.js'
 
 const alpha = Array.from(Array(26)).map((e, i) => i + 65)
 const alphabet = alpha.map((x) => String.fromCharCode(x))

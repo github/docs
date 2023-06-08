@@ -102,4 +102,4 @@ This type of URL is useful, for instance, in a README for your repository as it 
 
    The example Markdown is rendered like this:
 
-   [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/docs)
+   [![Open in GitHub Codespaces.](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/docs)

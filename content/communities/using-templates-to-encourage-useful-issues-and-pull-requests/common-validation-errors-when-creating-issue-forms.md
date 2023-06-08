@@ -2,8 +2,7 @@
 title: Common validation errors when creating issue forms
 intro: 'You may see some of these common validation errors when creating, saving, or viewing issue forms.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: issue-forms
 topics:
   - Community
 ---
@@ -383,7 +382,6 @@ Errors with `body` will be prefixed with `body[i]` where `i` represents the inde
 ### Example of "body[i]: label must be a string" error
 
 The `label` below is being parsed as a Boolean, but it should be a string.
-
 
 ```yaml
 body:
