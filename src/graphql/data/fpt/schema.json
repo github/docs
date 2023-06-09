@@ -73631,6 +73631,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "file",
+          "description": "<p>The workflow file.</p>",
+          "type": "WorkflowRunFile",
+          "id": "workflowrunfile",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrunfile"
+        },
+        {
           "name": "pendingDeploymentRequests",
           "description": "<p>The pending deployment requests of all check runs in this workflow run.</p>",
           "type": "DeploymentRequestConnection!",
@@ -73785,6 +73793,91 @@
           "id": "workflowrun",
           "kind": "objects",
           "href": "/graphql/reference/objects#workflowrun"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunFile",
+      "kind": "objects",
+      "id": "workflowrunfile",
+      "href": "/graphql/reference/objects#workflowrunfile",
+      "description": "<p>An executed workflow file for a workflow run.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/interfaces#uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "path",
+          "description": "<p>The path of the workflow file relative to its repository.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repositoryFileUrl",
+          "description": "<p>The direct link to the file in the repository which stores the workflow file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The repository name and owner which stores the workflow file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this workflow run file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "run",
+          "description": "<p>The parent workflow run execution for this file.</p>",
+          "type": "WorkflowRun!",
+          "id": "workflowrun",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrun"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this workflow run file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "viewerCanPushRepository",
+          "description": "<p>If the viewer has permissions to push to the repository which stores the workflow.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanReadRepository",
+          "description": "<p>If the viewer has permissions to read the repository which stores the workflow.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     }

@@ -29,14 +29,14 @@ topics:
   - Kotlin
 ---
 
-
 {% data reusables.code-scanning.beta %}
 {% data reusables.code-scanning.enterprise-enable-code-scanning-actions %}
 
 ## About the {% data variables.code-scanning.codeql_workflow %} and compiled languages
 
-{% data variables.product.prodname_code_scanning_caps %} works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository.
-For the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %}{% ifversion codeql-kotlin-beta %} Kotlin, {% endif %} and Java, the process of populating this database involves building the code and extracting data. {% data reusables.code-scanning.analyze-go %}
+{% data variables.product.prodname_code_scanning_caps %} works by running queries against one or more databases. Each database contains a representation of all of the code in a single language in your repository. For the compiled languages {% data variables.code-scanning.compiled_languages %}, the process of populating this database involves building the code and extracting data.
+
+{% data reusables.code-scanning.autobuild-compiled-languages %}
 
 {% ifversion code-scanning-without-workflow %}
 
@@ -143,6 +143,8 @@ The `autobuild` process tries to determine the build system for Java codebases b
 | Build system | Xcode |
 
 The `autobuild` process tries to build the biggest target from an Xcode project or workspace.
+
+For more information about building Swift code, see "[Considerations for building Swift](#considerations-for-building-swift)."
 {% endif %}
 
 ## Adding build steps for a compiled language
@@ -191,4 +193,7 @@ Code scanning of Swift code uses macOS runners by default. Since {% data variabl
 You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that CodeQL requires for a successful scan.
 
 For Swift analysis, you must always explicitly install dependencies managed via CocoaPods or Carthage before generating the {% data variables.product.prodname_codeql %} database.
+
+For Swift, the `autobuild` process tries to build the biggest target from an Xcode project or workspace.
+
 {% endif %}
