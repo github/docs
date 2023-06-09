@@ -10,8 +10,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 These extra logs are enabled by setting secrets{% ifversion actions-configuration-variables %} or variables{% endif %} in the repository containing the workflow, so the same permissions requirements will apply:

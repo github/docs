@@ -3,20 +3,19 @@ import path from 'path'
 
 import express from 'express'
 
-import instrument from '../lib/instrument-middleware.js'
+import instrument from '#src/observability/lib/instrument-middleware.js'
 import haltOnDroppedConnection from './halt-on-dropped-connection.js'
 import abort from './abort.js'
 import timeout from './timeout.js'
 import morgan from 'morgan'
-import datadog from './connect-datadog.js'
+import datadog from '#src/observability/middleware/connect-datadog.js'
 import helmet from './helmet.js'
 import cookieParser from './cookie-parser.js'
 import {
   setDefaultFastlySurrogateKey,
   setLanguageFastlySurrogateKey,
 } from './set-fastly-surrogate-key.js'
-import handleErrors from './handle-errors.js'
-import handleInvalidPaths from './handle-invalid-paths.js'
+import handleErrors from '#src/observability/middleware/handle-errors.js'
 import handleNextDataPath from './handle-next-data-path.js'
 import detectLanguage from './detect-language.js'
 import reloadTree from './reload-tree.js'
@@ -30,13 +29,14 @@ import archivedEnterpriseVersionsAssets from './archived-enterprise-versions-ass
 import api from './api/index.js'
 import healthz from './healthz.js'
 import productIcons from './product-icons.js'
+import manifestJson from './manifest-json.js'
 import remoteIP from './remote-ip.js'
 import buildInfo from './build-info.js'
 import archivedEnterpriseVersions from './archived-enterprise-versions.js'
 import robots from './robots.js'
 import earlyAccessLinks from './contextualizers/early-access-links.js'
 import categoriesForSupport from './categories-for-support.js'
-import triggerError from './trigger-error.js'
+import triggerError from '#src/observability/middleware/trigger-error.js'
 import secretScanning from './contextualizers/secret-scanning.js'
 import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
 import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
@@ -49,7 +49,8 @@ import glossaries from './contextualizers/glossaries.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import productGroups from './contextualizers/product-groups.js'
-import featuredLinks from './featured-links.js'
+import homepageLinks from './contextualizers/homepage-links.js'
+import featuredLinks from '#src/landings/middleware/featured-links.js'
 import learningTrack from './learning-track.js'
 import next from './next.js'
 import renderPage from './render-page.js'
@@ -63,9 +64,12 @@ import trailingSlashes from './trailing-slashes.js'
 import fastlyBehavior from './fastly-behavior.js'
 import mockVaPortal from './mock-va-portal.js'
 import dynamicAssets from './dynamic-assets.js'
+import contextualizeSearch from '#src/search/middleware/contextualize.js'
+import shielding from '#src/shielding/middleware/index.js'
 
 const { DEPLOYMENT_ENV, NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
+
 // By default, logging each request (with morgan), is on. And by default
 // it's off if you're in a production environment or running automated tests.
 // But if you set the env var, that takes precedence.
@@ -195,7 +199,7 @@ export default function (app) {
   }
 
   // *** Early exits ***
-  app.use(instrument(handleInvalidPaths, './handle-invalid-paths'))
+  app.use(shielding)
   app.use(instrument(handleNextDataPath, './handle-next-data-path'))
 
   // *** Security ***
@@ -242,6 +246,7 @@ export default function (app) {
   app.get('/_ip', instrument(remoteIP, './remoteIP'))
   app.get('/_build', instrument(buildInfo, './buildInfo'))
   app.use('/producticons', instrument(productIcons, './product-icons'))
+  app.use('/manifest.json', asyncMiddleware(instrument(manifestJson, './manifest')))
 
   // Things like `/api` sets their own Fastly surrogate keys.
   // Now that the `req.language` is known, set it for the remaining endpoints
@@ -280,10 +285,11 @@ export default function (app) {
   app.use(instrument(breadcrumbs, './contextualizers/breadcrumbs'))
   app.use(asyncMiddleware(instrument(productExamples, './contextualizers/product-examples')))
   app.use(asyncMiddleware(instrument(productGroups, './contextualizers/product-groups')))
-  app.use(instrument(glossaries, './contextualizers/glossaries'))
-
+  app.use(asyncMiddleware(instrument(glossaries, './contextualizers/glossaries')))
+  app.use(asyncMiddleware(instrument(contextualizeSearch, './search/middleware/contextualize')))
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
+  app.use(asyncMiddleware(instrument(homepageLinks, './homepage-links')))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

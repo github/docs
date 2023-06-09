@@ -7,7 +7,7 @@ The following table shows, for each package manager:
 Package manager | YAML value      | Supported versions | Private repositories | Private registries | Vendoring
 ---------------|------------------|------------------|:---:|:---:|:---:
 Bundler        | `bundler`        | v1, v2           | {% octicon "x" aria-label="Not supported" %}| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
-Cargo          | `cargo`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+[Cargo](#cargo)          | `cargo`          | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
 Composer       | `composer`       | v1, v2           | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 {% ifversion dependabot-version-updates-enhanced-docker-support %}[Docker](#docker){% else %}Docker{% endif %}         | `docker`         | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 Hex            | `mix`            | v1               | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
@@ -34,6 +34,10 @@ Terraform      | `terraform`      | >= 0.13, <= 1.3.x  | {% octicon "check" aria
 
 {% endtip %}
 
+#### Cargo
+
+Private registry support applies to git registries, and doesn't include cargo registries.
+
 {% ifversion dependabot-version-updates-enhanced-docker-support %}
 #### Docker
 {% ifversion dependabot-version-updates-docker-metadata-support %}
@@ -52,9 +56,9 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 
 #### Gradle
 {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files:
-   - `build.gradle`, `build.gradle.kts` (for Kotlin projects){% ifversion dependabot-updates-gradle-versions-catalog-support %}
-   - `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog){% endif %}
-   - Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
+- `build.gradle`, `build.gradle.kts` (for Kotlin projects){% ifversion dependabot-updates-gradle-versions-catalog-support %}
+- `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog){% endif %}
+- Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 #### Maven
 {% data variables.product.prodname_dependabot %} doesn't run Maven but supports updates to `pom.xml` files.
@@ -70,11 +74,11 @@ In addition to supporting updates to `requirements.txt` files, {% data variables
 {% ifversion fpt or ghec or ghes > 3.4 %}
 #### pub
 {% ifversion ghes = 3.5 %}`pub` support is currently in beta. Any known limitations are subject to change. Note that {% data variables.product.prodname_dependabot %}:
-   - Doesn't support updating git dependencies for `pub`.
-   - Won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
+- Doesn't support updating git dependencies for `pub`.
+- Won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
 
-   For information about configuring your _dependabot.yml_ file for `pub`, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)."
-   {%- else %}{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.{% endif %}
+For information about configuring your _dependabot.yml_ file for `pub`, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)."
+{%- else %}{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.{% endif %}
 {% endif %}
 
 {% ifversion dependabot-yarn-v3-update %}

@@ -8,8 +8,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About expressions
@@ -32,7 +31,7 @@ You need to use specific syntax to tell {% data variables.product.prodname_dotco
 
 ```yaml
 steps:
-  - uses: actions/hello-world-javascript-action@v1.1
+  - uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
     if: {% raw %}${{ <expression> }}{% endraw %}
 ```
 

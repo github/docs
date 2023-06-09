@@ -11,8 +11,7 @@ topics:
   - CI
 shortTitle: Build & test Go
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -51,7 +50,7 @@ jobs:
       - name: Set up Go
         uses: {% data reusables.actions.action-setup-go %}
         with:
-          go-version: 1.15
+          go-version: '1.15'
 
       - name: Build
         run: go build -v ./...

@@ -57,15 +57,15 @@ If your locally-hosted code isn't tracked by any VCS, the first step is to initi
    ```
 1. Add the files in your new local repository. This stages them for the first commit.
 
-  ```shell
-  $ git add .
-  # Adds the files in the local repository and stages them for commit. {% data reusables.git.unstage-codeblock %}
-  ```
+   ```shell
+   $ git add .
+   # Adds the files in the local repository and stages them for commit. {% data reusables.git.unstage-codeblock %}
+   ```
 1. Commit the files that you've staged in your local repository.
-  ```shell
-  $ git commit -m "First commit"
-  # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
-  ```
+   ```shell
+   $ git commit -m "First commit"
+   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
+   ```
 
 ## Importing a Git repository with the command line
 
@@ -87,66 +87,69 @@ After you've initialized a Git repository, you can push the repository to {% dat
 {% mac %}
 
 {% data reusables.migrations.create-empty-repo %}
-1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
-	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+	 
+   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
 1. [Add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
-  ```shell
-  $ git remote add origin &lt;REMOTE_URL>
-  # Sets the new remote
-  $ git remote -v
-  # Verifies the new remote URL
-  ```
+   ```shell
+   $ git remote add origin &lt;REMOTE_URL>
+   # Sets the new remote
+   $ git remote -v
+   # Verifies the new remote URL
+   ```
 1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
-  ```shell
-  $ git push -u origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
-  ```
+   ```shell
+   $ git push -u origin main
+   # Pushes the changes in your local repository up to the remote repository you specified as the origin
+   ```
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.migrations.create-empty-repo %}
-1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
-	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+
+   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
 1. In the Command prompt, [add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
-  ```shell
-  $ git remote add origin &lt;REMOTE_URL>
-  # Sets the new remote
-  $ git remote -v
-  # Verifies the new remote URL
-  ```
+   ```shell
+   $ git remote add origin &lt;REMOTE_URL>
+   # Sets the new remote
+   $ git remote -v
+   # Verifies the new remote URL
+   ```
 1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
-  ```shell
-  $ git push origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
-  ```
+   ```shell
+   $ git push origin main
+   # Pushes the changes in your local repository up to the remote repository you specified as the origin
+   ```
 
 {% endwindows %}
 
 {% linux %}
 
 {% data reusables.migrations.create-empty-repo %}
-1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "clippy" aria-label="The copy to clipboard icon" %} to copy the remote repository URL.
-	![Copy remote repository URL field](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+1. At the top of your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
+
+   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
 1. [Add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
-  ```shell
-  $ git remote add origin &lt;REMOTE_URL>
-  # Sets the new remote
-  $ git remote -v
-  # Verifies the new remote URL
-  ```
+   ```shell
+   $ git remote add origin &lt;REMOTE_URL>
+   # Sets the new remote
+   $ git remote -v
+   # Verifies the new remote URL
+   ```
 1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
-  ```shell
-  $ git push origin main
-  # Pushes the changes in your local repository up to the remote repository you specified as the origin
-  ```
+   ```shell
+   $ git push origin main
+   # Pushes the changes in your local repository up to the remote repository you specified as the origin
+   ```
 
 {% endlinux %}
 

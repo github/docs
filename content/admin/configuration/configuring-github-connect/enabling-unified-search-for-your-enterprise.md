@@ -28,7 +28,7 @@ topics:
 
 When you enable unified search, users can view search results from content on {% data variables.product.prodname_dotcom_the_website %} when searching from {% data variables.location.product_location %}{% ifversion ghae %} on {% data variables.product.prodname_ghe_managed %}{% endif %}.
 
-You can choose to allow search results for public repositories on {% data variables.product.prodname_dotcom_the_website %}, and you can separately choose to allow search results for private repositories on {% data variables.product.prodname_ghe_cloud %}. If you enable unified search for private repositories, users can only search private repositories that they have access to and that are owned by the connected organization or enterprise account. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-across-github-enterprise-and-githubcom-simultaneously)."
+You can choose to allow search results for public repositories on {% data variables.product.prodname_dotcom_the_website %}, and you can separately choose to allow search results for private repositories on {% data variables.product.prodname_ghe_cloud %}. If you enable unified search for private repositories, users can only search private repositories that they have access to and that are owned by the connected enterprise account. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github#searching-across-github-enterprise-and-githubcom-simultaneously)."
 
 Users will never be able to search {% data variables.location.product_location %} from {% data variables.product.prodname_dotcom_the_website %}, even if they have access to both environments.
 
@@ -50,6 +50,6 @@ Before you can enable {% data variables.enterprise.prodname_unified_search %}, y
 1. To the right of "Unified search", click **Enable**.
 
    ![Screenshot of the "Unified search" option on the GitHub Connect page. The "Enable" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/github-dotcom-enable-search.png)
-1. Optionally, to the right of "Users can search private repositories on ENTERPRISE ACCOUNT/ORGANIZATION when searching from Enterprise Server", click **Enable**.
+1. Optionally, to the right of "Users can search private repositories on ENTERPRISE ACCOUNT when searching from Enterprise Server", click **Enable**.
 
    ![Screenshot of the "Unified search" option on the GitHub Connect page. To the right of the setting to allow search of private repositories, the "Enable" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/enable-private-search.png)

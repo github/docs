@@ -290,6 +290,7 @@ sections:
     - If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved.
     - |
       VMware vSphere ESXi hypervisor version 7.0 is now supported. [Updated: 2022-09-07]
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
 
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
@@ -308,8 +309,8 @@ sections:
     - |
       GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
-    - '{% data reusables.release-notes.scim-custom-mappings-known-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
 
   deprecations:
     - heading: Changes to supported SSH algorithms
@@ -321,3 +322,6 @@ sections:
           {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
           
           You can adjust the cutoff date. For more information, see "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)." [Updated: 2023-01-31]
+
+  errata:
+    - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'

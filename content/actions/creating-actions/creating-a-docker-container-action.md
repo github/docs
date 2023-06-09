@@ -17,8 +17,7 @@ topics:
   - Action development
   - Docker
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -50,9 +49,9 @@ Before you begin, you'll need to create a {% data variables.product.prodname_dot
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell{:copy}
-  cd hello-world-docker-action
-  ```
+   ```shell{:copy}
+   cd hello-world-docker-action
+   ```
 
 ## Creating a Dockerfile
 
@@ -110,33 +109,33 @@ Next, the script gets the current time and sets it as an output variable that ac
 
 1. Add the following code to your `entrypoint.sh` file.
 
-  **entrypoint.sh**
-  ```shell{:copy}
-  #!/bin/sh -l
+   **entrypoint.sh**
+   ```shell{:copy}
+   #!/bin/sh -l
 
-  echo "Hello $1"
-  time=$(date)
+   echo "Hello $1"
+   time=$(date)
 {%- ifversion actions-save-state-set-output-envs %}
-  echo "time=$time" >> $GITHUB_OUTPUT
+   echo "time=$time" >> $GITHUB_OUTPUT
 {%- else %}
-  echo "::set-output name=time::$time"
+   echo "::set-output name=time::$time"
 {%- endif %}
-  ```
-  If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
+   ```
+   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 
 1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
-  ```shell{:copy}
-  $ git add entrypoint.sh
-  $ git update-index --chmod=+x entrypoint.sh
-  ```
+   ```shell{:copy}
+   $ git add entrypoint.sh
+   $ git update-index --chmod=+x entrypoint.sh
+   ```
 
 1. Optionally, to check the permission mode of the file in the git index, run the following command.
 
-  ```shell{:copy}
-  $ git ls-files --stage entrypoint.sh
-  ```
+   ```shell{:copy}
+   $ git ls-files --stage entrypoint.sh
+   ```
 
    An output like `100755 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       entrypoint.sh` means the file has the executable permission. In this example, `755` denotes the executable permission.
 

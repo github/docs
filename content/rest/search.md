@@ -30,16 +30,7 @@ Unless another sort option is provided as a query parameter, results are sorted 
 {% data reusables.enterprise.rate_limit %}
 
 The REST API has a custom rate limit for searching. For authenticated requests, you can make up to
-30 requests per minute. For unauthenticated requests, the rate limit allows you
-to make up to 10 requests per minute.
-
-{% ifversion fpt or ghec %}
-{% note %}
-
-**Note:** Starting on April 10, 2023, the "[Search code](/rest/search#search-code)" endpoint will require you to authenticate and limit you to 10 requests per minute. The other search endpoints will stay the same. For more information, see [this blog post](https://github.blog/changelog/2023-03-10-changes-to-the-code-search-api/).
-
-{% endnote %}
-{% endif %}
+30 requests per minute{% ifversion fpt or ghec %} for all search endpoints except for the "[Search code](/rest/search#search-code)" endpoint. The "[Search code](/rest/search#search-code)" endpoint requires you to authenticate and limits you to 10 requests per minute{% endif %}. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
 
 See the [rate limit documentation](/rest/rate-limit) for details on
 determining your current rate limit status.

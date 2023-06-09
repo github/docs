@@ -16,7 +16,7 @@ sections:
     - When users performed an operation using the API, GitHub Enterprise Server enforced repository size quotas even when disabled globally.
     - If a user uploaded more than one file while creating a new Gist, the user could not delete any files uploaded after the first.
     - In some cases, searches via the API returned a `500` error.
-    - In some cases, when browsing repositories in the web interface, an erroneous banner indicated that a repository didnt contain a specific undefined path on the current branch.
+    - In some cases, when browsing repositories in the web interface, an erroneous banner indicated that a repository didn't contain a specific undefined path on the current branch.
     - The `member` webhook event did not include the `from` and `to` field values for the `permission` field as part of the `changes` field.
     - Adding a collaborator to a user-owned fork of a private, organization-owned repository with triage, maintain, or custom access resulted in a `500` error.
     - In some cases, the page for setting up code scanning would erroneously report that GitHub Actions was not configured for the instance.
@@ -26,7 +26,7 @@ sections:
     - To avoid failing domain verification due to the 63-character limit enforced by DNS providers for DNS records, the GitHub-generated `TXT` record to verify domain ownership is now limited to 63 characters.
     - After an enterprise owner enables Dependabot alerts, GitHub Enterprise Server enqueues the synchronization of advisory data to ensure hourly updates from GitHub.com.
     - A user's list of recently accessed repositories no longer includes deleted repositories.
-    - '{% data reusables.release-notes.scim-custom-mappings-supported-change %}'
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
   known_issues:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
@@ -40,5 +40,5 @@ sections:
     - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
     - '{% data reusables.release-notes.repository-inconsistencies-errors %}'
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
-    - '{% data reusables.release-notes.scim-saml-tokens-known-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'

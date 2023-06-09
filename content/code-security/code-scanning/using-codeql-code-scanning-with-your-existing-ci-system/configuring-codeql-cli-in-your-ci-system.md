@@ -35,7 +35,7 @@ You use three different commands to generate results and upload them to {% data 
 
 <!--Option to analyze multiple languages with one call-->
 1. `database create` to create a {% data variables.product.prodname_codeql %} database to represent the hierarchical structure of each supported programming language in the repository.
-2. ` database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file.
+2. `database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file.
 3. `github upload-results` to upload the resulting SARIF files to {% data variables.product.product_name %} where the results are matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts.
 
 You can display the command-line help for any command using the <nobr>`--help`</nobr> option.
@@ -51,26 +51,26 @@ You can display the command-line help for any command using the <nobr>`--help`</
 3. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
 4. Run `codeql database create` from the checkout root of your repository and build the codebase.
 
-  ```shell
-  # Single supported language - create one CodeQL database
-  codeql database create &lt;database&gt; --command &lt;build&gt; \
-        --language=&lt;language-identifier&gt;
+   ```shell
+   # Single supported language - create one CodeQL database
+   codeql database create &lt;database&gt; --command &lt;build&gt; \
+         --language=&lt;language-identifier&gt;
 
-  # Multiple supported languages - create one CodeQL database per language
-  codeql database create &lt;database&gt; --command &lt;build&gt; \
-        --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt;
-  ```
+   # Multiple supported languages - create one CodeQL database per language
+   codeql database create &lt;database&gt; --command &lt;build&gt; \
+         --db-cluster --language=&lt;language-identifier&gt;,&lt;language-identifier&gt;
+   ```
 
-  {% note %}
+   {% note %}
 
-  **Note:** If you use a containerized build, you need to run the {% data variables.product.prodname_codeql_cli %} inside the container where your build task takes place.
+   **Note:** If you use a containerized build, you need to run the {% data variables.product.prodname_codeql_cli %} inside the container where your build task takes place.
 
-  {% endnote %}
+   {% endnote %}
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
 | `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. |
-| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: `{% data reusables.code-scanning.codeql-languages-keywords %}` (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. |
+| <nobr>`--language`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %} (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <nobr>`--db-cluster`</nobr>, the option accepts a comma-separated list, or can be specified more than once. |
 | <nobr>`--command`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <nobr>`--source-root`</nobr>. Not needed for Python and JavaScript/TypeScript analysis. |
 | <nobr>`--db-cluster`</nobr> | {% octicon "x" aria-label="Optional" %} | Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>. |
 | <nobr>`--no-run-unnecessary-builds`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript). |
@@ -132,10 +132,10 @@ $
 
 1. Create a {% data variables.product.prodname_codeql %} database (see above).
 2. Run `codeql database analyze` on the database and specify which {% ifversion codeql-packs %}packs and/or {% endif %}queries to use.
-  ```shell
-  codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
-      --output=&lt;output&gt;  {% ifversion codeql-packs %}--download &lt;packs,queries&gt;{% else %}&lt;queries&gt;{% endif %}
-  ```
+   ```shell
+   codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
+       --output=&lt;output&gt;  {% ifversion codeql-packs %}--download &lt;packs,queries&gt;{% else %}&lt;queries&gt;{% endif %}
+   ```
 
 {% note %}
 
@@ -206,13 +206,13 @@ Before you can upload results to {% data variables.product.product_name %}, you 
 
 When you have decided on the most secure and reliable method for your CI server, run `codeql github upload-results` on each SARIF results file and include `--github-auth-stdin` unless the token is available in the environment variable `GITHUB_TOKEN`.
 
-  ```shell
-  echo "$UPLOAD_TOKEN" | codeql github upload-results \
-      --repository=&lt;repository-name&gt; \
-      --ref=&lt;ref&gt; --commit=&lt;commit&gt; \
-      --sarif=&lt;file&gt; {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; \
-      {% endif %}--github-auth-stdin
-  ```
+```shell
+echo "$UPLOAD_TOKEN" | codeql github upload-results \
+    --repository=&lt;repository-name&gt; \
+    --ref=&lt;ref&gt; --commit=&lt;commit&gt; \
+    --sarif=&lt;file&gt; {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; \
+    {% endif %}--github-auth-stdin
+```
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
@@ -223,7 +223,7 @@ When you have decided on the most secure and reliable method for your CI server,
 | <nobr>`--github-url`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the URL for {% data variables.product.product_name %}.{% endif %}
 | <nobr>`--github-auth-stdin`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use to pass the CLI the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication with {% data variables.product.company_short %}'s REST API via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
 
-For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results/)."
+For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results)."
 
 ### Basic example of uploading results to {% data variables.product.product_name %}
 
@@ -263,7 +263,7 @@ This SARIF file will contain diagnostic information for the failed analysis, inc
 
 ### Uploading diagnostic information if the analysis fails
 
-You can make this diagnostic information available on the tool status page by uploading the SARIF file to {% data variables.product.product_name %} using "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results/)", for example:
+You can make this diagnostic information available on the tool status page by uploading the SARIF file to {% data variables.product.product_name %} using "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/github-upload-results)", for example:
 
 ```bash
 $ echo $UPLOAD_TOKEN | codeql github upload-results \

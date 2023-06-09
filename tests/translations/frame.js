@@ -110,7 +110,7 @@ describe('release notes', () => {
   }
 
   test.each(getReleaseNotesVersionCombinations(langs))(
-    'latest release notes',
+    'latest release notes in %s for %s',
     async (lang, version) => {
       const url = `/${lang}/${version}/admin/release-notes`
       const res = await get(url)

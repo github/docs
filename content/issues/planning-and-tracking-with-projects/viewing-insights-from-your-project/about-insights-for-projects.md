@@ -25,7 +25,7 @@ You can create current charts to visualize your project items. For example, you 
 
 You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
 
- ![Screenshot of a stacked column chart, with a column for each iteration. Each column is divided into sections for "Bug", "Feedback", "Backend", and "UI."](/assets/images/help/issues/column-chart-example.png)
+![Screenshot of a stacked column chart, with a column for each iteration. Each column is divided into sections for "Bug", "Feedback", "Backend", and "UI."](/assets/images/help/issues/column-chart-example.png)
 
 For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)."
 

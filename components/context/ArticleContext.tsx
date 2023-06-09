@@ -55,6 +55,8 @@ export const useArticleContext = (): ArticleContextT => {
 const PagePathToVaFlowMapping: Record<string, string> = {
   'content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile.md':
     'contribution_troubleshooting',
+  'content/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials.md':
+    '2fa',
 }
 
 export const getArticleContextFromRequest = (req: any): ArticleContextT => {

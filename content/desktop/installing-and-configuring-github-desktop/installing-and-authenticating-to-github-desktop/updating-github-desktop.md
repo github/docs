@@ -1,5 +1,6 @@
 ---
 title: Updating GitHub Desktop
+shortTitle: Updating
 intro: GitHub Desktop automatically downloads updates and installs them when you restart. You can also manually check for updates.
 redirect_from:
   - /desktop/getting-started-with-github-desktop/updating-github-desktop

@@ -66,8 +66,7 @@ If an enterprise owner disallows members from creating certain types of reposito
 {% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Default repository visibility", use the drop-down menu and select a default visibility.
-{% data reusables.enterprise_installation.image-urls-viewable-warning %}
-
+{% indented_data_reference reusables.enterprise_installation.image-urls-viewable-warning spaces=3 %}
 {% endif %}
 
 ## Enforcing a policy for base repository permissions

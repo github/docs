@@ -19,19 +19,21 @@ redirect_from:
 {% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
 You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
-  - [List all of your codespaces](#list-all-of-your-codespaces)
-  - [Create a new codespace](#create-a-new-codespace)
-  - [Stop a codespace](#stop-a-codespace)
-  - [Delete a codespace](#delete-a-codespace)
-  - [Rename a codespace](#rename-a-codespace)
-  - [SSH into a codespace](#ssh-into-a-codespace)
-  - [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
-  - [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
-  - [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
-  - [Modify ports in a codespace](#modify-ports-in-a-codespace)
-  - [Access codespace logs](#access-codespace-logs)
-  - [Access remote resources](#access-remote-resources)
-  - [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
+- [List all of your codespaces](#list-all-of-your-codespaces)
+- [Create a new codespace](#create-a-new-codespace)
+- [Stop a codespace](#stop-a-codespace)
+- [Delete a codespace](#delete-a-codespace)
+- [Rename a codespace](#rename-a-codespace)
+- [Rebuild a codespace](#rebuild-a-codespace)
+- [SSH into a codespace](#ssh-into-a-codespace)
+- [Open a codespace in {% data variables.product.prodname_vscode %}](#open-a-codespace-in--data-variablesproductprodname_vscode-)
+- [Open a codespace in JupyterLab](#open-a-codespace-in-jupyterlab)
+- [Copy a file to/from a codespace](#copy-a-file-tofrom-a-codespace)
+- [Modify ports in a codespace](#modify-ports-in-a-codespace)
+- [Access codespace logs](#access-codespace-logs)
+- [Access remote resources](#access-remote-resources)
+- [Change the machine type of a codespace](#change-the-machine-type-of-a-codespace)
+- [Rebuild a codespace](#rebuild-a-codespace)
 
 ## Installing {% data variables.product.prodname_cli %}
 
@@ -106,7 +108,17 @@ For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/dele
 gh codespace edit -c CODESPACE-NAME -d DISPLAY-NAME
 ```
 
-For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/renaming-a-codespace)."
+For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/renaming-a-codespace?tool=cli)."
+
+### Rebuild a codespace
+
+```shell
+gh codespace rebuild
+```
+
+When you use this command to rebuild a codespace, it uses the `devcontainer.json` file that is currently saved in the codespace's system. This happens regardless of whether or not the current state of the file has been saved in source control.
+
+For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers)."
 
 ### SSH into a codespace
 
@@ -234,3 +246,13 @@ gh codespace edit -m MACHINE-TYPE-NAME
 ```
 
 For more information, see the "{% data variables.product.prodname_cli %}" tab of "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+
+### Rebuild a codespace
+
+```shell
+gh codespace rebuild
+```
+
+To perform a full rebuild, add `--full` at the end of this command.
+
+For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/rebuilding-the-container-in-a-codespace)."

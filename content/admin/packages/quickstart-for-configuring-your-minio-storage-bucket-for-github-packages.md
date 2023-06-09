@@ -116,8 +116,8 @@ For more information about your options, see the official [MinIO docs](https://d
 
 To finish configuring storage for {% data variables.product.prodname_registry %}, you'll need to copy the MinIO storage URL:
 
-  ```
-  echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
-  ```
+```
+echo "http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY}@minioclustername.example.com:9000"
+```
 
 For the next steps, see "[AUTOTITLE](/admin/packages/enabling-github-packages-with-minio)."

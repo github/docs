@@ -11,6 +11,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/testing-query-help-files
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -54,7 +56,7 @@ The `--output` option defines a file path where the rendered query help will be 
 - For directories containing `.qhelp` files or a query suites defining one or more `.qhelp` files, you must specify an `--output` directory. Filenames within the output directory will be derived from the `.qhelp` file names.
 - For single `.qhelp` or `.ql` files, you may specify an `--output` option. If you don’t specify an output path, the rendered query help is written to `stdout`.
 
-For full details of all the options you can use when testing query help files, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/generate-query-help/)."
+For full details of all the options you can use when testing query help files, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/generate-query-help)."
 
 ## Results
 

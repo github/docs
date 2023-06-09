@@ -28,9 +28,14 @@ sections:
     - In some cases on an instance with multiple nodes, GitHub Enterprise Server erroneously stopped writing to replica fileservers, causing repository data to fall out of sync. 
     - GitHub Enterprise Server published distribution metrics that cannot be processed by collectd. The metrics included `pre_receive.lfsintegrity.dist.referenced_oids`, `pre_receive.lfsintegrity.dist.unknown_oids`, and `git.hooks.runtime`. 
     - On an instance with a GitHub Advanced Security license, if code scanning had been used while running GitHub Enterprise Server 3.4 or earlier, a subsequent upgrade from 3.5 to 3.6 or 3.7 could fail when attempting to add a unique index to a database table. 
+    - |
+      An enterprise owner could not enable two-factor authentication (2FA) for an instance if any enterprise owners had not enabled 2FA for their user accounts. [Updated: 2023-04-17]
+    - |
+      On an instance with GitHub Packages enabled, after users pushed to the Container registry, the instance erroneously responded with a `429 Too Many Requests` error in cases when the instance could accommodate the request. The limits have been raised, and users should receive this message less often. [Updated: 2023-05-30]
+
   changes:
     - When the dependency submission API received a submission with one or more dependencies without a version, the dependency graph will now correctly report this fact. 
-    - To avoid a failure during a configuration run on a cluster, validation of `cluster.conf` with the `ghe-cluster-config-check` utility ensures that the `consul-datacenter` field for each nodes matches the top-level `primary-datacenter` field. 
+    - To avoid a failure during a configuration run on a cluster, validation of `cluster.conf` with the `ghe-cluster-config-check` utility ensures that the `consul-datacenter` field for each node matches the top-level `primary-datacenter` field. 
     - On an instance in a cluster configuration, when a site administrator sets maintenance mode on a single cluster node using `ghe-maintenance -s`, the utility warns the administrator to use `ghe-cluster-maintenance -s` to set maintenance mode on all of the clusters nodes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#enabling-or-disabling-maintenance-mode-for-all-nodes-in-a-cluster)." 
     - When a site administrator configures an outbound web proxy server for GitHub Enterprise Server, the instance now validates top-level domains (TLDs) excluded from the proxy configuration. By default, you can exclude public TLDs that the IANA specifies. Site administrators can specify a list of unregistered TLDs to exclude using `ghe-config`. The `.` prefix is required for any public TLDs. For example, `.example.com` is valid, but `example.com` is invalid. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)." 
     - To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, GitHub Enterprise Server checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced. 
@@ -50,3 +55,4 @@ sections:
       {% data reusables.release-notes.repository-inconsistencies-errors %}
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'

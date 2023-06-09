@@ -137,6 +137,14 @@ Workflow runs are delayed when too many workflows run at once. Since many users 
 - Do not use examples that run more frequently than necessary. For example, instead of running every 5 minutes, consider if the example makes sense to run every 30 minutes instead.
 - Use a different time for each example.
 
+## Emphasis
+
+Use italics to emphasize words or parts of a sentence. Use emphasis sparingly for terminology or context that someone must be aware of to successfully complete the task that they're working on. Do not use italics to emphasize words that have other formatting applied such as all caps for placeholder text or bold for UI elements.
+
+- **Use:** _Fine-grained personal access tokens_ have several security advantages over personal access tokens (classic).
+- **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
+- **Avoid:** Next to _**Title**_, add a descriptive label for your new key. 
+
 ## Footnotes
 
 Avoid using footnotes where possible. Consider instead whether you could use a [callout](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#callouts) or present the information in another way. See some [examples of alternatives to footnotes from NICE.org.uk](https://www.nice.org.uk/corporate/ecd6/chapter/footnotes).
@@ -149,10 +157,9 @@ If you must use footnotes:
 
 ## Headers
 
-Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
+Headers must adequately describe the content under them. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
 
-Use H2 for headers, and H3 for subheaders. Articles must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under "User licenses," view your total licenses.
+Use H2 for headers, and H3 for subheaders. If the article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
 
 For more information, see the [content model](/contributing/content-model.md#titles).
 
@@ -168,11 +175,11 @@ Every image must include alt text providing a textual equivalent of the visual i
 
 - Express the core idea or meaning of the image, rather than describing it literally.
 - Use 40–150 characters.
-- End with a period.
+- End with a punctuation mark. This should generally be a period unless the alt text is describing an image of text that ends with other punctuation, such as a question mark or exclamation point.
 - Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
 - Follow standard language used to describe UI elements in article text.
-- Put multi-word titles, e.g. names of menu items, in double quotation marks ("").
+- Put multi-word titles, e.g. names of menu items, in double quotation marks (""). When using punctuation after multi-word titles, place it outside of the quotation marks so that the string in quotation marks exactly matches the title as it appears in context.
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
 
 #### Alt text for screenshots
@@ -190,15 +197,15 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 - Use a variable for the word `GitHub` as we do in running copy: `{% data variables.product.prodname_dotcom %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
-  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu..." to avoid multiple nouns in a row.
 
 ##### Examples
 
 > Screenshot of the {% data variables.product.prodname_dotcom %} committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
 
-> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
+> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code", is outlined in dark orange.
 
-![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](./images/repository-code-button.png)
+![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code", is outlined in dark orange.](./images/repository-code-button.png)
 
 #### Alt text for diagrams and graphs
 
@@ -540,7 +547,7 @@ This is an example of a third-party action:
 
 ```
 steps:
-    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+    - uses: google-github-actions/setup-gcloud@1bee7de035d65ec5da40a31f8589e240eba8fde5
 ```
 
 Examples:
@@ -552,7 +559,7 @@ Code examples that use third-party actions must always pin to a full length comm
 
 ```
 steps:
-    - uses: google-github-actions/setup-gcloud@daadedc81d5f9d3c06d2c92f49202a3cc2b919ba
+    - uses: google-github-actions/setup-gcloud@1bee7de035d65ec5da40a31f8589e240eba8fde5
 ```
 
 For GitHub Docs purposes, a third-party action is any action that doesn't have one of the following prefixes: `actions/`, `github/`, and `octo-org/`. For example, this is a first-party action:
@@ -601,7 +608,210 @@ For more information about GitHub's personal access tokens, see "[Creating a per
 
 ## Punctuation
 
-Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+When referencing a UI element in quotation marks, place any subsequent punctuation outside of the quotation marks so that the label in quotation marks exactly matches the UI.
+- **Use:** Under "User licenses", view your total licenses.
+
+Otherwise, follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+
+## Release notes
+
+A set of release notes on GitHub Docs tell readers about administrator- or user-facing changes to a versioned release of a product like GitHub Enterprise Server (GHES). Release notes appear in the [Enterprise administrator docs](https://docs.github.com/en/enterprise-server/admin/release-notes).
+
+A good release note is a few sentences that sequentially answer the reader's questions about the change. For more information, see [Content model for GitHub Docs](/contributing/content-model.md#release-notes).
+
+Each release note in a set describes one of the following changes.
+
+- [Features](#features): brand-new behavior or functionality
+- [Security fixes](#security-fixes): fixes to flaws or unexpected behavior that have security implications
+- [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
+- [Changes](#changes): notable changes to past behavior
+- [Deprecations](#deprecations): removal of a feature or behavior
+- [Errata](#errata): correction to inaccurate release note or documentation
+
+You can also review guidelines for updating release notes in [Adding or updating a release note](#adding-or-updating-a-release-note).
+
+### Features
+
+A release note for a feature summarizes brand-new behavior. Generally, notes for features are only part of feature releases.
+
+#### Writing release notes for features
+
+A release note for a feature answers the following questions.
+
+1. Does this new functionality apply to me, with my role or access?
+1. What need does the functionality satisfy?
+1. What is the functionality?
+1. If applicable, where can I read more about the functionality?
+
+> _AUDIENCE_ (**1**) can _DESCRIPTION OF NEED_ (**2**) by _DESCRIPTION OF FEATURE'S USE_ (**3**). For more information, see "[_ARTICLE TITLE_]()" (**4**).
+
+- Categorize each feature in a section, under a feature heading.
+- Write in the present tense.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+
+#### Examples of feature release notes
+
+- > Site administrators can increase the security of the Management Console by configuring the rate limit for sign-in attempts, as well as the lockout duration after exceeding the rate limit. For more information, see "[Configuring rate limits](https://docs.github.com/enterprise-server@3.7/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-authentication-to-the-management-console)."
+
+- > Enterprise owners can control where users can fork repositories. Forking can be limited to preset combinations of organizations, the same organization as the parent repository, user accounts, or everywhere. For more information, see "[Enforcing repository management policies in your enterprise](https://docs.github.com/enterprise-server@3.7/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
+
+- > Users can create files with geoJSON, topoJSON, and STL diagrams and render the diagrams in the web interface. For more information, see "[Working with non-code files](https://docs.github.com/enterprise-server@3.7/repositories/working-with-files/using-files/working-with-non-code-files)."
+
+### Security fixes
+
+A release note for a security fix summarizes a change that mitigates or prevents exploitation of a security-related issue in the product. Generally, notes for security fixes are only part of patch releases.
+
+#### Writing release notes for security fixes
+
+A release note for a security fix answers the following questions.
+
+1. If available, what is the [NVD vulnerability severity rating](https://nvd.nist.gov/vuln-metrics/cvss) for the vulnerability that's fixed?
+1. What is the attack that an attacker could accomplish by exploiting the vulnerability?
+1. What type of vulnerability is exploitable?
+1. If available, what is the vulnerability's [CVE identifier](https://cve.mitre.org/cve/identifiers/), pending or active?
+1. Did someone report the vulnerability via the [GitHub Bug Bounty program](https://bounty.github.com)?
+
+> _SEVERITY_ (**1**): An attacker could _DESCRIPTION OF IMPACT_ (**2**) by _DESCRIPTION OF EXPLOIT_ (**3**). GitHub has requested CVE ID [_CVE-####-#####_]() (**4**) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com) (**5**).
+
+#### Examples of release notes for security fixes
+
+- > **MEDIUM**: An attacker could cause unbounded resource exhaustion on the instance by making parallel requests to the Markdown REST API. To mitigate this issue, GitHub has updated [CommonMarker](https://github.com/gjtorikian/commonmarker). GitHub has requested CVE ID [CVE-2022-39209](https://nvd.nist.gov/vuln/detail/CVE-2022-39209) for this vulnerability.
+
+- > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+
+### Bug fixes
+
+A release note for a bug fix describes a correction to an undesired or otherwise unexpected behavior. Generally, notes for bug fixes are only part of patch releases.
+
+#### Writing release notes for bug fixes
+
+A release note for a bug fix answers the following questions.
+
+1. Did the behavior affect me, with my role or access?
+1. What behavior would the reader experience prior to the fix?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF BEHAVIOR_ (**2**).
+
+- Because the bug is now fixed, write in the past tense.
+- Language like "fixed a bug..." or "fixed an issue..." is implied and unnecessary.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+
+#### Examples of release notes for bug fixes
+
+- > After a user imported a repository with push protection enabled, the repository was not immediately visible in the security overview's "Security Coverage" view.
+
+- > On an instance with GitHub Actions enabled, a workflow job for GitHub Actions would not start if a matching runner group was unavailable when the job was initially queued, even if a matching runner group became available after the job entered the queue.
+
+- > Commands that site administrators ran via SSH on any of the instances nodes were not logged in ``/var/log/ssh-console-audit.log``.
+
+### Changes
+
+A release note for a change describes a notable, but minor change to existing behavior. Notes for changes answer the following questions.
+
+#### Writing release notes for changes
+
+A release note for a change answers the following questions.
+
+1. Did the behavior affect me, with my role or access?
+1. If the change solves or avoids a problem, what's that problem?
+1. What's the new behavior?
+1. If relevant, what was the behavior before the change?
+
+> _AUDIENCE_ (**1**) / _DESCRIPTION OF PROBLEM CHANGE SOLVES_ (**2**) _DESCRIPTION OF NEW BEHAVIOR_ (**3**) _DESCRIPTION OF OLD BEHAVIOR_ (**4**).
+
+- Because the change applies to the release in question, write notes for changes in the present tense.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+- Often, the audience is implied.
+- If useful, include relevant links to GitHub Docs.
+
+#### Examples of release notes for changes
+
+- > On an instance with a GitHub Advanced Security license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
+
+- > For administrators who need to review or modify SAML mappings, the default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[Command-line utilities](https://docs.github.com/en/enterprise-server@3.8/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
+
+- > To avoid intermittent issues with the success of Git operations on an instance with multiple nodes, GitHub Enterprise Server checks the status of the MySQL container before attempting a SQL query. The timeout duration has also been reduced.
+
+### Known issues
+
+A release note for a known issue describes an issue that GitHub has identified, but cannot or has not yet prioritized.
+
+#### Writing release notes for known issues
+
+A release note for a known issue answers the following questions.
+
+1. Does the behavior affect me, with my role or access?
+1. If the change solves or avoids a problem, what's that problem?
+1. What are any error messages or other recognizable UI elements that appear?
+1. Do I need to act? If so, what should I do?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF ISSUE_ (**2**) _DETAILS OF BEHAVIOR_ (**3**) _NEXT STEPS_ (**4**).
+
+- To clarify actors and impact, avoid passive language when possible.sent tense.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+- If useful, include relevant links to GitHub Docs.
+- Known issues are also a [type of content on GitHub Docs](/contributing/content-model.md#known-issues). If useful, write or link to more in-depth and contextually relevant content in the docs.
+
+#### Examples of release notes for known issues
+
+- > After a user enables the option for a repository to allow users with read access to create discussions, the feature is not enabled.
+
+- > After an administrator begins a configuration run, a `No such object error` may occur during the validation phase for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+
+### Deprecations
+
+A deprecation release note summarizes a behavior or feature that GitHub has removed or plans to remove. Generally, notes for deprecations are only part of feature releases.
+
+#### Writing release notes for deprecations
+
+A release note for a deprecation answers the following questions.
+
+1. Does this existing functionality apply to me, with my role or access?
+1. What is the functionality that's being deprecated?
+1. If applicable, what replaces the deprecated functionality?
+1. If applicable, where can I read more?
+
+> _AUDIENCE_ (**1**) _DESCRIPTION OF DEPRECATED FUNCTIONALITY_ (**2**) _REPLACEMENT FUNCTIONALITY_ (**3**) For more information, see "[_ARTICLE TITLE_]()" (**4**).
+
+- Notes are in the present tense, or the future tense for upcoming changes. If applicable, specify the upcoming release where the deprecation will occur.
+- To reduce repetition and unnecessary words, "now" is usually implied.
+- To clarify actors and impact, avoid passive language when possible.
+- Categorize each feature in a section, under a feature heading.
+
+#### Examples of release notes for deprecations
+
+- > **Upcoming deprecation**: In GitHub Enterprise Server 3.8 and later, to ensure instance security, unsecure algorithms will be disabled for SSH connections to the administrative shell.
+
+- > Commit comments, which are comments that users add directly to a commit outside of a pull request, no longer appear in the pull request timeline. Users could not reply to or resolve these comments. The Timeline events REST API and the GraphQL API's `PullRequest` object also no longer return commit comments.
+
+### Errata
+
+Errata corrects inaccurate information previously published in the release notes or documentation for a release.
+
+#### Writing errata
+
+Errata answers the following questions.
+
+1. If applicable, which section of the release notes or content on GitHub Docs was affected?
+1. Did the incorrect information apply to me, with my role or access?
+1. What did the release note or documentation describe that was incorrect?
+1. When was the errata published?
+
+> _CONTENT_ (**1**) incorrectly indicated that _AUDIENCE_ (**2**) can _SUMMARY OF INACCURATE INFORMATION_ (**3**). [Updated: _PUBLICATION DATE_ **4**]
+
+- Format the publication date according to the guidance in [Adding or updating a release note](#adding-or-updating-a-release-note).
+
+#### Example of errata
+
+- > "[Features]()" incorrectly indicated that users of the GitHub Advisory Database can see advisories for Elixir, Erlang's Hex package manager, and more. This feature is unavailable in GitHub Enterprise Server 3.7, and will be available in a future release. [Updated 2023-06-01]
+
+### Adding or updating a release note
+
+To signal to readers that you've added or changed a note, or to indicate the publication date of errata, append a datestamp in the format "[Updated: YYYY-MM-DD]".
 
 ## Reusables and variables
 Use reusable strings for individual nouns (e.g. product names) or for complete sentences or paragraphs. Sentence fragments and phrases should not be contained in reusable strings as they can cause problems when content is localized. For more information, see the [data directory](../data) in the github/docs repository and the “[Product names](#product-names)” section of this document.

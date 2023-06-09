@@ -48,8 +48,8 @@ As an organization owner, you can also query the SCIM REST API or GraphQL to lis
 The SCIM REST API will only return data for users that have SCIM metadata populated under their external identities. We recommend you compare a list of SCIM provisioned identities with a list of all your organization members.
 
 For more information, see:
-  - "[AUTOTITLE](/rest/scim#list-scim-provisioned-identities)"
-  - "[AUTOTITLE](/rest/orgs#list-organization-members)"
+- "[AUTOTITLE](/rest/scim#list-scim-provisioned-identities)"
+- "[AUTOTITLE](/rest/orgs#list-organization-members)"
 
 #### Using GraphQL
 
@@ -85,8 +85,8 @@ curl -X POST -H "Authorization: Bearer YOUR_TOKEN" -H "Content-Type: application
 ```
 
 For more information on using the GraphQL API, see: 
-   - "[AUTOTITLE](/graphql/guides)"
-   - "[AUTOTITLE](/graphql/overview/explorer)"
+- "[AUTOTITLE](/graphql/guides)"
+- "[AUTOTITLE](/graphql/overview/explorer)"
 
 ### Re-provisioning SCIM for users through your identity provider
 

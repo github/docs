@@ -53,7 +53,7 @@ To migrate your enterprise from SAML to OIDC, you will disable your existing {% 
 
    {% note %}
 
-   **Note:** You must use a recovery code for your enterprise, not your user account. For more information, see "[Downloading your enterprise account's single sign-on recovery codes](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
+   **Note:** You must use a recovery code for your enterprise, not your user account. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes)."
 
    {% endnote %}
 {% data reusables.enterprise-accounts.security-tab %}

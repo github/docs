@@ -23,8 +23,8 @@ Codespaces are set to stop after 30 minutes without any activity. If you try to 
 
 Sometimes you may not be able to access a codespace from your browser. If this happens, go to https://github.com/codespaces and try connecting to the codespace from that page.
 
-  - If the codespace is not listed on that page, check that you are the owner of the codespace you are trying to connect to. You can only open a codespace that you created. The URLs for your codespaces always include your {% data variables.product.company_short %} handle.
-  - If the codespace is listed but you cannot connect from that page, check whether you can connect using a different browser.
+- If the codespace is not listed on that page, check that you are the owner of the codespace you are trying to connect to. You can only open a codespace that you created. The URLs for your codespaces always include your {% data variables.product.company_short %} handle.
+- If the codespace is listed but you cannot connect from that page, check whether you can connect using a different browser.
 
 Your company network may be blocking the connection. If possible, check any logging for rejected connections on your device.
 

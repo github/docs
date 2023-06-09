@@ -1672,7 +1672,7 @@ type BranchNamePatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -1682,12 +1682,12 @@ type BranchNamePatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -4409,7 +4409,7 @@ type CommitAuthorEmailPatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -4419,12 +4419,12 @@ type CommitAuthorEmailPatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -4918,7 +4918,7 @@ type CommitMessagePatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -4928,12 +4928,12 @@ type CommitMessagePatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -5008,7 +5008,7 @@ type CommitterEmailPatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -5018,12 +5018,12 @@ type CommitterEmailPatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -10677,7 +10677,8 @@ type Enterprise implements AnnouncementBanner & Node {
   ): OrganizationConnection!
 
   """
-  Enterprise information only visible to enterprise owners.
+  Enterprise information visible to enterprise owners or enterprise owners'
+  personal access tokens (classic) with read:enterprise or admin:enterprise scope.
   """
   ownerInfo: EnterpriseOwnerInfo
 
@@ -11090,6 +11091,8 @@ type EnterpriseFailedInvitationEdge {
 
 """
 An identity provider configured to provision identities for an enterprise.
+Visible to enterprise owners or enterprise owners' personal access tokens
+(classic) with read:enterprise or admin:enterprise scope.
 """
 type EnterpriseIdentityProvider implements Node {
   """
@@ -11405,7 +11408,8 @@ type EnterpriseOutsideCollaboratorEdge {
 }
 
 """
-Enterprise information only visible to enterprise owners.
+Enterprise information visible to enterprise owners or enterprise owners'
+personal access tokens (classic) with read:enterprise or admin:enterprise scope.
 """
 type EnterpriseOwnerInfo {
   """
@@ -11610,6 +11614,8 @@ type EnterpriseOwnerInfo {
 
   """
   The IP addresses that are allowed to access resources owned by the enterprise.
+  Visible to enterprise owners or enterprise owners' personal access tokens
+  (classic) with admin:enterprise scope.
   """
   ipAllowListEntries(
     """
@@ -12205,8 +12211,7 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
-  The SAML Identity Provider for the enterprise. When used by a GitHub App,
-  requires an installation token with read and write access to members.
+  The SAML Identity Provider for the enterprise.
   """
   samlIdentityProvider: EnterpriseIdentityProvider
 
@@ -13215,7 +13220,13 @@ type EnvironmentEdge {
 }
 
 """
-An external identity provisioned by SAML SSO or SCIM.
+An external identity provisioned by SAML SSO or SCIM. If SAML is configured on
+the organization, the external identity is visible to (1) organization owners,
+(2) organization owners' personal access tokens (classic) with read:org or
+admin:org scope, (3) GitHub App with an installation token with read or write
+access to members. If SAML is configured on the enterprise, the external
+identity is visible to (1) enterprise owners, (2) enterprise owners' personal
+access tokens (classic) with read:enterprise or admin:enterprise scope.
 """
 type ExternalIdentity implements Node {
   """
@@ -14912,7 +14923,7 @@ union IpAllowListOwner = App | Enterprise | Organization
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
 """
-type Issue implements Assignable & Closable & Comment & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type Issue implements Assignable & Closable & Comment & Deletable & Labelable & Lockable & Node & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   """
   Reason that the conversation was locked.
   """
@@ -15384,6 +15395,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   Indicates if the object can be closed by the viewer.
   """
   viewerCanClose: Boolean!
+
+  """
+  Check if the current viewer can delete this object.
+  """
+  viewerCanDelete: Boolean!
 
   """
   Can user react to this subject
@@ -15930,6 +15946,31 @@ type IssueTemplate {
   about: String
 
   """
+  The suggested assignees.
+  """
+  assignees(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): UserConnection!
+
+  """
   The suggested issue body.
   """
   body: String
@@ -15938,6 +15979,36 @@ type IssueTemplate {
   The template filename.
   """
   filename: String!
+
+  """
+  The suggested issue labels
+  """
+  labels(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for labels returned from the connection.
+    """
+    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+  ): LabelConnection
 
   """
   The template name.
@@ -17881,6 +17952,12 @@ interface Migration {
   The migration state.
   """
   state: MigrationState!
+
+  """
+  The number of warnings encountered for this migration. To review the warnings,
+  check the [Migration Log](https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer).
+  """
+  warningsCount: Int!
 }
 
 """
@@ -24059,6 +24136,16 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   resourcePath: URI!
 
   """
+  Returns a single ruleset from the current organization by ID.
+  """
+  ruleset(
+    """
+    The ID of the ruleset to be returned.
+    """
+    databaseId: Int!
+  ): RepositoryRuleset
+
+  """
   A list of rulesets for this organization.
   """
   rulesets(
@@ -24089,7 +24176,10 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   ): RepositoryRulesetConnection
 
   """
-  The Organization's SAML identity providers
+  The Organization's SAML identity provider. Visible to (1) organization owners,
+  (2) organization owners' personal access tokens (classic) with read:org or
+  admin:org scope, (3) GitHub App with an installation token with read or write
+  access to members.
   """
   samlIdentityProvider: OrganizationIdentityProvider
 
@@ -24453,7 +24543,10 @@ type OrganizationEnterpriseOwnerEdge {
 }
 
 """
-An Identity Provider configured to provision SAML and SCIM identities for Organizations
+An Identity Provider configured to provision SAML and SCIM identities for
+Organizations. Visible to (1) organization owners, (2) organization owners'
+personal access tokens (classic) with read:org or admin:org scope, (3) GitHub
+App with an installation token with read or write access to members.
 """
 type OrganizationIdentityProvider implements Node {
   """
@@ -24825,6 +24918,11 @@ enum OrganizationMigrationState {
   FAILED
 
   """
+  The Octoshift migration has invalid credentials.
+  """
+  FAILED_VALIDATION
+
+  """
   The Octoshift migration is in progress.
   """
   IN_PROGRESS
@@ -24833,6 +24931,11 @@ enum OrganizationMigrationState {
   The Octoshift migration has not started.
   """
   NOT_STARTED
+
+  """
+  The Octoshift migration needs to have its credentials validated.
+  """
+  PENDING_VALIDATION
 
   """
   The Octoshift migration is performing post repository migrations.
@@ -27876,37 +27979,37 @@ enum PullRequestOrderField {
 }
 
 """
-Parameters to be used for the pull_request rule
+Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.
 """
 type PullRequestParameters {
   """
   New, reviewable commits pushed will dismiss previous pull request review approvals.
   """
-  dismissStaleReviewsOnPush: Boolean
+  dismissStaleReviewsOnPush: Boolean!
 
   """
   Require an approving review in pull requests that modify files that have a designated code owner.
   """
-  requireCodeOwnerReview: Boolean
+  requireCodeOwnerReview: Boolean!
 
   """
   Whether the most recent reviewable push must be approved by someone other than the person who pushed it.
   """
-  requireLastPushApproval: Boolean
+  requireLastPushApproval: Boolean!
 
   """
   The number of approving reviews that are required before a pull request can be merged.
   """
-  requiredApprovingReviewCount: Int
+  requiredApprovingReviewCount: Int!
 
   """
   All conversations on code must be resolved before a pull request can be merged.
   """
-  requiredReviewThreadResolution: Boolean
+  requiredReviewThreadResolution: Boolean!
 }
 
 """
-Parameters to be used for the pull_request rule
+Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.
 """
 input PullRequestParametersInput {
   """
@@ -29727,7 +29830,8 @@ type Query {
   ): RateLimit
 
   """
-  Hack to workaround https://github.com/facebook/relay/issues/112 re-exposing the root query object
+  Workaround for re-exposing the root query object. (Refer to
+  https://github.com/facebook/relay/issues/112 for more information.)
   """
   relay: Query!
 
@@ -30532,14 +30636,14 @@ type RefNameConditionTarget {
   """
   Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.
   """
-  exclude: [String!]
+  exclude: [String!]!
 
   """
   Array of ref names or patterns to include. One of these patterns must match
   for the condition to pass. Also accepts `~DEFAULT_BRANCH` to include the
   default branch or `~ALL` to include all branches.
   """
-  include: [String!]
+  include: [String!]!
 }
 
 """
@@ -35132,6 +35236,16 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   resourcePath: URI!
 
   """
+  Returns a single ruleset from the current repository by ID.
+  """
+  ruleset(
+    """
+    The ID of the ruleset to be returned.
+    """
+    databaseId: Int!
+  ): RepositoryRuleset
+
+  """
   A list of rulesets for this repository.
   """
   rulesets(
@@ -36099,6 +36213,12 @@ type RepositoryMigration implements Migration & Node {
   The migration state.
   """
   state: MigrationState!
+
+  """
+  The number of warnings encountered for this migration. To review the warnings,
+  check the [Migration Log](https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer).
+  """
+  warningsCount: Int!
 }
 
 """
@@ -36188,13 +36308,13 @@ type RepositoryNameConditionTarget {
   """
   Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.
   """
-  exclude: [String!]
+  exclude: [String!]!
 
   """
   Array of repository names or patterns to include. One of these patterns must
   match for the condition to pass. Also accepts `~ALL` to include all repositories.
   """
-  include: [String!]
+  include: [String!]!
 
   """
   Target changes that match these patterns will be prevented except by those with bypass permissions.
@@ -36561,42 +36681,46 @@ enum RepositoryRuleType {
   COMMIT_MESSAGE_PATTERN
 
   """
-  Creation
+  Only allow users with bypass permission to create matching refs.
   """
   CREATION
 
   """
-  Deletion
+  Only allow users with bypass permissions to delete matching refs.
   """
   DELETION
 
   """
-  Non fast forward
+  Prevent users with push access from force pushing to branches.
   """
   NON_FAST_FORWARD
 
   """
-  Pull request
+  Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.
   """
   PULL_REQUEST
 
   """
-  Required deployments
+  Choose which environments must be successfully deployed to before branches can
+  be merged into a branch that matches this rule.
   """
   REQUIRED_DEPLOYMENTS
 
   """
-  Required linear history
+  Prevent merge commits from being pushed to matching branches.
   """
   REQUIRED_LINEAR_HISTORY
 
   """
-  Required signatures
+  Commits pushed to matching branches must have verified signatures.
   """
   REQUIRED_SIGNATURES
 
   """
-  Required status checks
+  Choose which status checks must pass before branches can be merged into a
+  branch that matches this rule. When enabled, commits must first be pushed to
+  another branch, then merged or pushed directly to a branch that matches this
+  rule after status checks have passed.
   """
   REQUIRED_STATUS_CHECKS
 
@@ -36606,7 +36730,7 @@ enum RepositoryRuleType {
   TAG_NAME_PATTERN
 
   """
-  Update
+  Only allow users with bypass permission to update matching refs.
   """
   UPDATE
 }
@@ -36649,6 +36773,11 @@ type RepositoryRuleset implements Node {
   The set of conditions that must evaluate to true for this ruleset to apply
   """
   conditions: RepositoryRuleConditions!
+
+  """
+  Identifies the date and time when the object was created.
+  """
+  createdAt: DateTime!
 
   """
   Identifies the primary key from the database.
@@ -36705,6 +36834,11 @@ type RepositoryRuleset implements Node {
   Target of the ruleset.
   """
   target: RepositoryRulesetTarget
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
 }
 
 """
@@ -37394,17 +37528,19 @@ interface RequirableByPullRequest {
 }
 
 """
-Parameters to be used for the required_deployments rule
+Choose which environments must be successfully deployed to before branches can
+be merged into a branch that matches this rule.
 """
 type RequiredDeploymentsParameters {
   """
   The environments that must be successfully deployed to before branches can be merged.
   """
-  requiredDeploymentEnvironments: [String!]
+  requiredDeploymentEnvironments: [String!]!
 }
 
 """
-Parameters to be used for the required_deployments rule
+Choose which environments must be successfully deployed to before branches can
+be merged into a branch that matches this rule.
 """
 input RequiredDeploymentsParametersInput {
   """
@@ -37446,24 +37582,30 @@ input RequiredStatusCheckInput {
 }
 
 """
-Parameters to be used for the required_status_checks rule
+Choose which status checks must pass before branches can be merged into a branch
+that matches this rule. When enabled, commits must first be pushed to another
+branch, then merged or pushed directly to a branch that matches this rule after
+status checks have passed.
 """
 type RequiredStatusChecksParameters {
   """
   Status checks that are required.
   """
-  requiredStatusChecks: [StatusCheckConfiguration!]
+  requiredStatusChecks: [StatusCheckConfiguration!]!
 
   """
   Whether pull requests targeting a matching branch must be tested with the
   latest code. This setting will not take effect unless at least one status
   check is enabled.
   """
-  strictRequiredStatusChecksPolicy: Boolean
+  strictRequiredStatusChecksPolicy: Boolean!
 }
 
 """
-Parameters to be used for the required_status_checks rule
+Choose which status checks must pass before branches can be merged into a branch
+that matches this rule. When enabled, commits must first be pushed to another
+branch, then merged or pushed directly to a branch that matches this rule after
+status checks have passed.
 """
 input RequiredStatusChecksParametersInput {
   """
@@ -39331,12 +39473,12 @@ type StatusCheckConfiguration {
   """
   The status check context name that must be present on the commit.
   """
-  context: String
+  context: String!
 
   """
   The optional integration ID that this status check must originate from.
   """
-  integrationId: Int!
+  integrationId: Int
 }
 
 """
@@ -39832,7 +39974,7 @@ type TagNamePatternParameters {
   """
   How this rule will appear to users.
   """
-  name: String!
+  name: String
 
   """
   If true, the rule will fail if the pattern matches.
@@ -39842,12 +39984,12 @@ type TagNamePatternParameters {
   """
   The operator to use for matching.
   """
-  operator: String
+  operator: String!
 
   """
   The pattern to match with.
   """
-  pattern: String
+  pattern: String!
 }
 
 """
@@ -44259,17 +44401,17 @@ type UpdateOrganizationWebCommitSignoffSettingPayload {
 }
 
 """
-Parameters to be used for the update rule
+Only allow users with bypass permission to update matching refs.
 """
 type UpdateParameters {
   """
   Branch can pull changes from its upstream repository
   """
-  updateAllowsFetchAndMerge: Boolean
+  updateAllowsFetchAndMerge: Boolean!
 }
 
 """
-Parameters to be used for the update rule
+Only allow users with bypass permission to update matching refs.
 """
 input UpdateParametersInput {
   """
@@ -45373,7 +45515,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   isEmployee: Boolean!
 
   """
-  Whether or not this user is following the viewer. Inverse of viewer_is_following
+  Whether or not this user is following the viewer. Inverse of viewerIsFollowing
   """
   isFollowingViewer: Boolean!
 
@@ -46125,7 +46267,7 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
   viewerCanFollow: Boolean!
 
   """
-  Whether or not this user is followed by the viewer. Inverse of is_following_viewer.
+  Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.
   """
   viewerIsFollowing: Boolean!
 
@@ -46545,7 +46687,7 @@ interface Votable {
 """
 A workflow contains meta information about an Actions workflow file.
 """
-type Workflow implements Node {
+type Workflow implements Node & UniformResourceLocatable {
   """
   Identifies the date and time when the object was created.
   """
@@ -46561,6 +46703,11 @@ type Workflow implements Node {
   The name of the workflow.
   """
   name: String!
+
+  """
+  The HTTP path for this workflow
+  """
+  resourcePath: URI!
 
   """
   The runs of the workflow.
@@ -46601,6 +46748,11 @@ type Workflow implements Node {
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+
+  """
+  The HTTP URL for this workflow
+  """
+  url: URI!
 }
 
 """

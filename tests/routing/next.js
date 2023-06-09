@@ -2,7 +2,7 @@ import { describe, expect, jest, test } from '@jest/globals'
 
 import { get } from '../helpers/e2etest.js'
 
-describe('redirects', () => {
+describe('bad requests', () => {
   jest.setTimeout(60 * 1000)
 
   test('any _next/image request should 404', async () => {
@@ -14,6 +14,6 @@ describe('redirects', () => {
   test('any _next.* request should 404', async () => {
     const res = await get('/_next.php.hack.junk')
     expect(res.statusCode).toBe(404)
-    expect(res.headers['content-type']).toMatch('text/html')
+    expect(res.headers['content-type']).toMatch('text/plain')
   })
 })

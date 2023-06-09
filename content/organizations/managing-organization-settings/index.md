@@ -1,6 +1,6 @@
 ---
 title: Managing organization settings
-intro: 'Organization administrators can change several settings, including the names of repositories that belong to the organization and Owners team membership. In addition, organization admins can delete the organization and all of its repositories.'
+intro: 'Organization owners can change several settings, including the names of repositories that belong to the organization and Owners team membership. In addition, organization owners can delete the organization and all of its repositories.'
 redirect_from:
   - /articles/managing-organization-settings
   - /github/setting-up-and-managing-organizations-and-teams/managing-organization-settings
@@ -43,6 +43,7 @@ children:
   - /upgrading-to-the-corporate-terms-of-service
   - /disabling-project-boards-in-your-organization
   - /disabling-insights-for-projects-in-your-organization
+  - /managing-base-permissions-for-projects
   - /allowing-project-visibility-changes-in-your-organization
   - /managing-rulesets-for-repositories-in-your-organization
 shortTitle: Manage organization settings

@@ -12,6 +12,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/analyzing-databases-with-the-codeql-cli
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -33,16 +35,16 @@ For information about writing queries to run with `database analyze`, see "[Usin
 Queries run with `database analyze` have strict [metadata requirements](/code-security/codeql-cli/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli#including-query-metadata). You can also execute queries using the following
 plumbing-level subcommands:
 
-* [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-run-queries/), which
+* [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-run-queries), which
     outputs non-interpreted results in an intermediate binary format called [BQRS](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#bqrs-file)
 
-* [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/query-run/), which will output BQRS files, or print
+* [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/query-run), which will output BQRS files, or print
     results tables directly to the command line. Viewing results directly in
     the command line may be useful for iterative query development using the CLI.
 
 Queries run with these commands don't have the same metadata requirements.
 However, to save human-readable data you have to process each BQRS results
-file using the [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode/) plumbing
+file using the [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode) plumbing
 subcommand. Therefore, for most use cases it's easiest to use `database
 analyze` to directly generate interpreted results.
 
@@ -80,7 +82,7 @@ You must specify:
 * `--format`: the format of the results file generated during analysis. A
 number of different formats are supported, including CSV, [SARIF](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#sarif-file), and graph formats. For more information about CSV and SARIF,
 see [Results](#results). To find out which other results formats are
-supported, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze/)."
+supported, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze)."
 * `--output`: the output path of the results file generated during analysis.
 
 You can also specify:
@@ -91,8 +93,8 @@ is a list of arguments, where each argument can be:
   * a path to a directory containing query files
   * a path to a query suite file
   * the name of a {% data variables.product.prodname_codeql %} query pack
-       * with an optional version range
-        * with an optional path to a query, directory, or query suite inside the pack
+    * with an optional version range
+    * with an optional path to a query, directory, or query suite inside the pack
 
   If omitted, the default query suite for the language of the analyzed database will be used. For the complete syntax of query specifiers, see "[Specifying which queries to run in a {% data variables.product.prodname_codeql %} pack](#specifying-which-queries-to-run-in-a-codeql-pack)."
 
@@ -122,7 +124,7 @@ required upgrades. Explicitly running the upgrade command is not necessary.
 
 {% endnote %}
 
-For full details of all the options you can use when analyzing databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze/)."
+For full details of all the options you can use when analyzing databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze)."
 
 ## Specifying which queries to run in a {% data variables.product.prodname_codeql %} pack
 

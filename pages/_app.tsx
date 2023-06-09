@@ -6,8 +6,8 @@ import { ThemeProvider, SSRProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
-import { initializeEvents } from 'src/events/browser'
-import { initializeExperiments } from 'src/events/experiment'
+import { initializeEvents } from 'src/events/components/events'
+import { initializeExperiments } from 'src/events/components/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
@@ -75,6 +75,8 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
         <link rel="alternate icon" type="image/png" href="/assets/cb-600/images/site/favicon.png" />
         <link rel="icon" type="image/svg+xml" href="/assets/cb-803/images/site/favicon.svg" />
 
+        <link href="/manifest.json" rel="manifest" />
+
         <meta
           name="google-site-verification"
           content="OgdQc0GZfjDI52wDv1bkMT-SLpBUo_h5nn9mI9L22xQ"
@@ -115,7 +117,9 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // If we're rendering certain 404 error pages, the middleware might not
   // yet have contextualized the `context.languages`. So omit this
   // context mutation and live without it.
-  if (req.context.languages) {
+  // Note, `req` will be undefined if this is the client-side rendering
+  // of a 500 page ("Ooops! It looks like something went wrong.")
+  if (req?.context?.languages) {
     for (const [langCode, langObj] of Object.entries(
       req.context.languages as Record<string, LanguageItem>
     )) {

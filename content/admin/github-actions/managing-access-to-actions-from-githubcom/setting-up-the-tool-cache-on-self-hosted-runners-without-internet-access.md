@@ -14,8 +14,7 @@ topics:
   - Networking
   - Storage
 shortTitle: Tool cache for offline runners
----
-{% data reusables.actions.enterprise-beta %}
+--- 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About the included setup actions and the runner tool cache

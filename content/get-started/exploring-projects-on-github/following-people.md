@@ -36,7 +36,7 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 {% data reusables.profile.navigate-to-user-profile %}
 1. Under the user's profile picture, click **following**.
 
-  ![Screenshot of the sidebar of @octocat's profile page. A link, labeled "9 following", is outlined in dark orange.](/assets/images/help/profile/user-profile-following.png)
+   ![Screenshot of the sidebar of @octocat's profile page. A link, labeled "9 following", is outlined in dark orange.](/assets/images/help/profile/user-profile-following.png)
 
 ## Viewing followers on {% data variables.product.product_name %}
 

@@ -11,6 +11,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/creating-codeql-query-suites
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -248,7 +250,7 @@ use:
 <!--Changed this to a note to fit with style guide -->
 {% note %}
 
-**Note:** You can use the `codeql resolve queries /path/to/suite.qls` command to see which queries are selected by a query suite definition. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries/)."
+**Note:** You can use the `codeql resolve queries /path/to/suite.qls` command to see which queries are selected by a query suite definition. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries)."
 
 {% endnote %}
 
@@ -373,7 +375,7 @@ instruction:
 - description: <name-of-query-suite>
 ```
 
-This value is displayed when you run [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries/), if the suite is added to a "well-known"
+This value is displayed when you run [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-queries), if the suite is added to a "well-known"
 directory. For more information, see "[Specifying well-known query suites](#specifying-well-known-query-suites)."
 
 {% ifversion codeql-packs %}

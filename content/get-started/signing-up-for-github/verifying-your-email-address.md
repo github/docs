@@ -19,18 +19,18 @@ shortTitle: Verify your email address
 You can verify your email address after signing up for a new account, or when you add a new email address. If an email address is undeliverable or bouncing, it will be unverified.
 
 If you do not verify your email address, you will not be able to:
-  - Create or fork repositories
-  - Create issues or pull requests
-  - Comment on issues, pull requests, or commits
-  - Authorize {% data variables.product.prodname_oauth_app %} applications
-  - Generate {% data variables.product.pat_generic %}s
-  - Receive email notifications
-  - Star repositories
-  - Create or update project boards, including adding cards
-  - Create or update gists
-  - Create or use {% data variables.product.prodname_actions %}
-  - Sponsor developers with {% data variables.product.prodname_sponsors %}
-  - Accept organization invitations
+- Create or fork repositories
+- Create issues or pull requests
+- Comment on issues, pull requests, or commits
+- Authorize {% data variables.product.prodname_oauth_app %} applications
+- Generate {% data variables.product.pat_generic %}s
+- Receive email notifications
+- Star repositories
+- Create or update project boards, including adding cards
+- Create or update gists
+- Create or use {% data variables.product.prodname_actions %}
+- Sponsor developers with {% data variables.product.prodname_sponsors %}
+- Accept organization invitations
 
 {% warning %}
 
@@ -47,7 +47,7 @@ If you do not verify your email address, you will not be able to:
 {% data reusables.user-settings.emails %}
 1. Under your email address, click **Resend verification email**.
 
-  ![Screenshot of a list of email addresses on the "Emails" page. Under an email address, a link, labeled "Resend verification email," is outlined in orange.](/assets/images/help/settings/email-verify-button.png)
+   ![Screenshot of a list of email addresses on the "Emails" page. Under an email address, a link, labeled "Resend verification email," is outlined in orange.](/assets/images/help/settings/email-verify-button.png)
 4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
 
 ## Troubleshooting email verification

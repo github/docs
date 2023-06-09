@@ -16,6 +16,8 @@ intro: |-
   [Experimental] [Deep plumbing] List the CodeQL packages rooted at
   this directory. This directory must contain a qlpack.yml or
   .codeqlmanifest.json file.
+redirect_from:
+  - /code-security/codeql-cli/manual/pack-ls
 ---
 
 
@@ -34,6 +36,8 @@ codeql pack ls <options>... -- <dir>
 \[Experimental] \[Deep plumbing] List the CodeQL packages rooted at
 this directory. This directory must contain a qlpack.yml or
 .codeqlmanifest.json file.
+
+Available since `v2.7.1`.
 
 ## Primary options
 

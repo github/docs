@@ -120,11 +120,11 @@ Allows you to find the universally unique identifier (UUID) of your node in `clu
   $ ghe-config HOSTNAME.uuid
 ```
 
-Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
-$ ghe-config app.github.rate-limiting-exempt-users "HUBOT GITHUB-ACTIONS"
-# Exempts the users hubot and github-actions from rate limits
+$ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
+# Exempts the users hubot and github-actions[bot] from rate limits. Usernames are case-sensitive.
 ```
 
 ### ghe-config-apply
@@ -574,6 +574,54 @@ ghe-webhook-logs -g DELIVERY_GUID
 
 ## Clustering
 
+{% ifversion cluster-rebalancing %}
+
+### ghe-cluster-balance
+
+This utility allows you to enforce an even distribution of allocations across your cluster nodes by checking the status of your cluster's allocations, then rebalancing problematic allocations. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads)."
+
+To output a list of balanceable jobs and their associated allocation spread:
+
+```shell
+$ ghe-cluster-balance status
+```
+
+To output allocation counts for a given job or comma-delimited list of jobs:
+
+```shell
+$ ghe-cluster-balance -j JOB
+```
+
+To rebalance problematic allocations for a given job or comma-delimited list of jobs:
+
+```shell
+$ ghe-cluster-balance rebalance -j JOB
+```
+
+You can use the following flags with `ghe-cluster-balance rebalance`.
+
+Flag | Description
+---- | ----------
+`-j/--job-names` | Specify the jobs to rebalance. Accepts a job name or comma-delimited list of names.
+`-n/--dry-run` | Output the Nomad operations that the utility will run, without actually running them. Can be used in tandem with `-j/--job-name`.
+`-y/--yes` | Skip the user prompt.
+`w/--workers` | Specify the maximum number of simultaneous jobs to stop and wait for reallocation to complete on. Defaults to 4.
+`-t/--timeout` | Specify how many seconds to wait for a stopped allocation for a job to be replaced. Defaults to 300 seconds.
+
+To output completion scripts for the given shell:
+
+```shell
+$ ghe-cluster-balance completion
+```
+
+To display a short description of the utility and any valid subcommands:
+
+```shell
+$ ghe-cluster-balance help
+```
+
+{% endif %}
+
 ### ghe-cluster-status
 
 Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
@@ -597,17 +645,17 @@ $ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support
 
 To create a standard bundle including data from the last 3 hours:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p '3 hours' -o" > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 2 days:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p '2 days' -o" > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 4 days and 8 hours:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p '4 days 8 hours' -o" > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -644,9 +692,32 @@ To evacuate a {% data variables.product.prodname_pages %} storage service before
 ghe-dpages evacuate pages-server-UUID
 ```
 
+{% ifversion ghe-spokes-deprecation-phase-1 %}
+
+### ghe-spokesctl
+
+This utility allows you to manage replication of repositories on the distributed Git servers.
+
+```shell
+ghe-spokesctl
+```
+
+To show the servers where the repository is stored:
+
+```shell
+ghe-spokesctl routes
+```
+
+To evacuate storage services on a cluster node:
+```shell
+ghe-spokesctl server set evacuating git-server-UUID
+```
+
+{% else %}
+
 ### ghe-spokes
 
-This utility allows you to manage the three copies of each repository on the distributed git servers.
+This utility allows you to manage the three copies of each repository on the distributed Git servers.
 
 ```shell
 ghe-spokes
@@ -670,6 +741,8 @@ To evacuate storage services on a cluster node:
 ghe-spokes server evacuate git-server-UUID
 ```
 
+{% endif %}
+
 ### ghe-storage
 
 This utility allows you to evacuate all storage services before evacuating a cluster node.
@@ -677,6 +750,64 @@ This utility allows you to evacuate all storage services before evacuating a clu
 ```shell
 ghe-storage evacuate storage-server-UUID
 ```
+
+{% ifversion node-eligibility-service %}
+
+### nes
+
+This utility allows you to monitor the health of cluster nodes using {% data variables.product.prodname_nes %}. By default, {% data variables.product.prodname_nes %} is disabled. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service)."
+
+To view the health of the cluster's nodes:
+
+```shell
+nes get-cluster-health
+```
+
+To verify TTL settings:
+
+```shell
+nes get-node-ttl all
+```
+
+To set the TTL for the `fail` state in minutes:
+
+```shell
+nes set-node-ttl fail MINUTES
+```
+
+The TTL for the `fail` state must be higher than the TTL for the `warn` state.
+
+To set the TTL for the `warn` state in minutes:
+
+```shell
+nes set-node-ttl warn TIME
+```
+
+To review whether {% data variables.product.prodname_nes %} can take administrative action when a node with the hostname HOSTNAME goes offline:
+
+```shell
+nes get-node-adminaction HOSTNAME
+```
+
+To allow {% data variables.product.prodname_nes %} to automatically take administrative action when a node with the hostname HOSTNAME goes offline:
+
+```shell
+nes set-node-adminaction approved HOSTNAME
+```
+
+To revoke {% data variables.product.prodname_nes %}'s ability to take the node with hostname HOSTNAME offline:
+
+```shell
+nes set-node-adminaction approved HOSTNAME
+```
+
+To manually update a node's eligibility for re-addition to the cluster:
+
+```shell
+nes set-node-eligibility eligible HOSTNAME
+```
+
+{% endif %}
 
 ## Git
 
@@ -771,6 +902,77 @@ If your storage system is configured correctly, you'll see the following output.
 All Storage tests passed
 ```
 
+## High availability
+
+### ghe-repl-promote
+
+This command disables replication on an existing replica node and converts the replica node to a primary node using the same settings as the original primary node. All replication services are enabled. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance)."
+
+{% data reusables.enterprise_installation.promoting-a-replica %}
+
+```shell
+ghe-repl-promote
+```
+
+
+### ghe-repl-setup
+
+Run this utility on an existing node to begin enabling a high availability configuration. The utility puts the node in standby mode before you begin replication with [`ghe-repl-start`](#ghe-repl-start). For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)."
+
+After running the utility, the following configuration occurs on the node.
+
+- An encrypted WireGuard VPN tunnel is established for communication between the nodes.
+- Database services are configured for replication and started.
+- Application services are disabled. Attempts to access the replica node over HTTP or HTTPS, Git, or other supported protocols will display "Server in replication mode" message, a maintenance page, or an error message.
+
+When running this utility, replace PRIMARY-NODE-IP with the IP address of your instance's primary node.
+
+```shell
+ghe-repl-setup PRIMARY-NODE-IP
+```
+
+### ghe-repl-start
+
+This utility begins replication of all datastores on a node. Run this utility after running [`ghe-repl-setup`](#ghe-repl-setup). For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)."
+
+```shell
+ghe-repl-start
+```
+
+### ghe-repl-status
+
+This utility displays the status of replication on a node, returning an `OK`, `WARNING` or `CRITICAL` status for each datastore's replication stream. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration)."
+
+- If any of the replication channels are in a `WARNING` state, the command will exit with code `1`.
+- If any of the channels are in a `CRITICAL` state, the command will exit with code `2`.
+- The output conforms to the expectations of Nagios' check_by_ssh plugin. For more information, see the [check_by_ssh plugin](https://nagios-plugins.org/doc/man/check_by_ssh.html) on the official Nagios plugins page.
+
+```shell
+ghe-repl-status
+```
+
+The `-v` and `-vv` options provide additional details about each datastore's replication state.
+
+```shell
+ghe-repl-status -v
+```
+
+### ghe-repl-stop
+
+This command temporarily disables replication for all datastores on an existing replica node. All replication services are stopped. To resume replication, use [`ghe-repl-start`](#ghe-repl-start).
+
+```shell
+ghe-repl-stop
+```
+
+### ghe-repl-teardown
+
+This utility completely disables replication on an existing replica node, removing the replica configuration. You can run the following command from a replica node, but if the replica node is unreachable, you can also run the command from the primary node.
+
+```
+ghe-repl-teardown
+```
+
 ## Import and export
 
 ### ghe-migrator
@@ -856,17 +1058,17 @@ $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 
 To create a standard bundle including data from the last 3 hours:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p '3 hours' -o" > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 2 days:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p '2 days' -o" > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 4 days and 8 hours:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p '4 days 8 hours' -o" > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -902,6 +1104,44 @@ ghe-repl-status -vv | ghe-support-upload -t TICKET_ID -d "Verbose Replication St
 In this example, `ghe-repl-status -vv` sends verbose status information from a replica appliance. You should replace `ghe-repl-status -vv` with the specific data you'd like to stream to `STDIN`, and `Verbose Replication Status` with a brief description of the data. {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 ## Upgrading {% data variables.product.prodname_ghe_server %}
+
+{% ifversion ghe-migrations-cli-utility %}
+
+### ghe-migrations
+
+During an upgrade to a feature release, this utility displays the status of active database migrations on {% data variables.location.product_location %}. The output includes a version identifier for the migration, the migration's name, the migration's status, and the current duration of the migration.
+
+To display the list of migrations:
+
+```shell
+ghe-migrations
+```
+
+By default, the utility outputs a table with 10 lines. To adjust the height of the table in lines:
+
+```shell
+ghe-migrations -height LINES
+```
+
+By default, the visualizer refreshes every second. To specify the duration in seconds to refresh the visualizer:
+
+```shell
+ghe-migrations -refresh_rate SECONDS
+```
+
+{% endif %}
+
+### ghe-update-check
+
+This utility will check to see if a new patch release of {% data variables.product.prodname_enterprise %} is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to */var/lib/ghe-updates*. An administrator can then [perform the upgrade](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources).
+
+A file containing the status of the download is available at */var/lib/ghe-updates/ghe-update-check.status*.
+
+To check for the latest {% data variables.product.prodname_enterprise %} release, use the `-i` switch.
+
+```shell
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
+```
 
 ### ghe-upgrade
 
@@ -939,18 +1179,6 @@ $ ghe-upgrade-scheduler -s UPGRADE PACKAGE FILENAME
 To remove scheduled installations for a package:
 ```shell
 $ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
-```
-
-### ghe-update-check
-
-This utility will check to see if a new patch release of {% data variables.product.prodname_enterprise %} is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to */var/lib/ghe-updates*. An administrator can then [perform the upgrade](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources).
-
-A file containing the status of the download is available at */var/lib/ghe-updates/ghe-update-check.status*.
-
-To check for the latest {% data variables.product.prodname_enterprise %} release, use the `-i` switch.
-
-```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
 ```
 
 ## User management

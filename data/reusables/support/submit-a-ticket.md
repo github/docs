@@ -2,7 +2,9 @@
 {% ifversion ghec or ghes %}
    {% note %}
 
-   **Note:** For Premium, Premium Plus, or Engineering Direct support, you need to choose an enterprise account with a {% data variables.contact.premium_support %} plan. If you don't see an Enterprises section in the dropdown menu, you're not entitled to open support tickets on behalf of an enterprise account. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support#about-support-entitlement)"
+   **Notes:**
+   - For Premium, Premium Plus, or Engineering Direct support, you need to choose an enterprise account with a {% data variables.contact.premium_support %} plan. If you don't see an Enterprises section in the dropdown menu, you're not entitled to open support tickets on behalf of an enterprise account. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support#about-support-entitlement)"
+   - To see a list of your enterprise accounts with a {% data variables.contact.premium_support %} plan, you must be signed into the {% data variables.contact.enterprise_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/getting-your-enterprise-started-with-the-github-support-portal)."
 
    {% endnote %}
 {% endif %}
@@ -27,6 +29,12 @@
 {%- endif %}
 {%- ifversion ghes or ghec %}
 1. Optionally, if your account includes {% data variables.contact.premium_support %} and your ticket is {% ifversion ghes %}urgent or high{% elsif ghec %}high{% endif %} priority, you can request a callback in English. Select **Request a callback from GitHub Support**, select the country code dropdown menu to choose your country, and enter your phone number.
+
+   {% note %}
+
+   **Note:** You will only receive a callback if required for ticket resolution.
+
+   {% endnote %}
 {%- endif %}
 1. Under "Subject", type a descriptive title for the issue you're having.
 2. Under "How can we help", provide any additional information that will help the Support team troubleshoot the problem. You can use markdown to format your message.
