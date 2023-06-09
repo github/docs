@@ -623,7 +623,7 @@ In the following example, `vars.CODEQL_CONF` is a {% data variables.product.prod
 
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
-{% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
+{% data reusables.code-scanning.autobuild-compiled-languages %}
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages)."
 
