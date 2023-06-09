@@ -57,6 +57,7 @@ jobs:
               { name: 'rest', path: 'src/rest/tests', },
               { name: 'routing', path: 'tests/routing', },
               { name: 'search', path: 'src/search/tests', },
+              { name: 'shielding', path: 'src/shielding/tests', },
               context.payload.repository.full_name === 'github/docs-internal' &&
                 { name: 'translations', path: 'tests/translations', },
               { name: 'unit', path: 'tests/unit', },

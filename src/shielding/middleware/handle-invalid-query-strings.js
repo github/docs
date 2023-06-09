@@ -1,4 +1,4 @@
-import statsd from '../lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 import { noCacheControl, defaultCacheControl } from '../../../middleware/cache-control.js'
 
 const STATSD_KEY = 'middleware.handle_invalid_querystrings'
