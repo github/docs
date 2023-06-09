@@ -46,10 +46,16 @@ export default function handleInvalidQuerystrings(req, res, next) {
       }
     }
 
-    if (keys.length >= MAX_UNFAMILIAR_KEYS_BAD_REQUEST) {
+    // If you fill out the Survey form with all the fields and somehow
+    // don't attempt to make a POST request, you'll end up with a query
+    // string like this.
+    const honeypotted = 'survey-token' in query && 'survey-vote' in query
+
+    if (keys.length >= MAX_UNFAMILIAR_KEYS_BAD_REQUEST || honeypotted) {
       noCacheControl(res)
 
-      res.status(400).send('Too many unrecognized query string parameters')
+      const message = honeypotted ? 'Honeypotted' : 'Too many unrecognized query string parameters'
+      res.status(400).send(message)
 
       const tags = [
         'response:400',
