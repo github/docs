@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>WorkflowRunFile</code> was added</p>",
+          "<p>Field <code>file</code> was added to object type <code>WorkflowRun</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-06-09"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Enum value 'FAILED_VALIDATION<code>was added to enum</code>OrganizationMigrationState'</p>",
           "<p>Enum value 'PENDING_VALIDATION<code>was added to enum</code>OrganizationMigrationState'</p>"
         ]
