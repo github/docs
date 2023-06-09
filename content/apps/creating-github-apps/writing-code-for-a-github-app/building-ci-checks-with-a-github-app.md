@@ -99,6 +99,7 @@ The following sections will lead you through setting up the following components
    gem 'sinatra', '~> 2.0'
    gem 'jwt', '~> 2.1'
    gem 'octokit', '~> 4.0'
+   gem 'puma'
    gem 'rubocop'
    gem 'dotenv'
    gem 'git'
@@ -551,12 +552,9 @@ You can test that the server is listening to your app by triggering an event for
 2. After you click **Install**, look at the output in the terminal tab where you started `server.rb`. You should see something like this:
 
    ```shell
-   > D, [2023-06-08T15:45:43.773077 #30488] DEBUG -- : ---- received event integration_installation
-   > D, [2023-06-08T15:45:43.773141 #30488] DEBUG -- : ----         action created
+   > D, [2023-06-08T15:45:43.773077 #30488] DEBUG -- : ---- received event installation
+   > D, [2023-06-08T15:45:43.773141 #30488]] DEBUG -- : ----    action created
    > 192.30.252.44 - - [08/Jun/2023:15:45:43 -0400] "POST /event_handler HTTP/1.1" 200 - 0.5390
-   > D, [2023-06-08T15:45:43.833016 #30488] DEBUG -- : ---- received event installation
-   > D, [2023-06-08T15:45:43.833062 #30488] DEBUG -- : ----         action created
-   > 192.30.252.39 - - [08/Jun/2023:15:45:43 -0400] "POST /event_handler HTTP/1.1" 200 - 0.5390
    ```
 
    If you see output like this, it means your app received a notification that it was installed on your {% data variables.product.prodname_dotcom %} account. The app is running on the server as expected.
@@ -594,7 +592,7 @@ An empty `post '/event_handler'` route is already included in the template code 
   end
 ```
 
-Use this route to handle the `check_suite` event by adding the following code. Under `post '/event_handler' do`, where it says `# ADD YOUR CODE HERE  #`, add the following code:
+This route will handle the `check_suite` event. Under `post '/event_handler' do`, where it says `# ADD YOUR CODE HERE  #`, add the following code:
 
 ``` ruby{:copy}
 # Get the event type from the HTTP_X_GITHUB_EVENT header
@@ -604,8 +602,9 @@ when 'check_suite'
   if @payload['action'] == 'requested' || @payload['action'] == 'rerequested'
     create_check_run
   end
-end
 ```
+
+[TODOCS: Deleted an extra `end` at the end of the code block above. According to the final code in the repo, it shouldn't be there. But it was in original tutorial code.]
 
 Every event that {% data variables.product.prodname_dotcom %} sends includes a request header called `HTTP_X_GITHUB_EVENT`, which indicates the type of event in the `POST` request. Right now, you're only interested in events of type `check_suite`, which are emitted when a new check suite is created. Each event has an additional `action` field that indicates the type of action that triggered the events. For `check_suite`, the `action` field can be `requested`, `rerequested`, or `completed`.
 
@@ -644,23 +643,19 @@ You're only supplying the required parameters now to get the basic functionality
 
 In the code above, you're using the [ternary operator](https://ruby-doc.org/core-2.3.0/doc/syntax/control_expressions_rdoc.html#label-Ternary+if), which works like an `if/else` statement, to check if the payload contains a `check_run` object. If it does, you read the `head_sha` from the `check_run` object, otherwise you read it from the `check_suite` object.
 
-To test this code, restart the server from your terminal:
+### Test that a check run is created
+
+To test the code you just added, use the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
 
 ```shell{:copy}
 ruby server.rb
 ```
 
-{% note %}
-
-**Note:** You'll need to restart the Sinatra server before you can test changes. Enter `Ctrl-C` to stop the server, and then run `ruby server.rb` again. If you don't want to do this every time you change your app code, you can look into [reloading](http://sinatrarb.com/faq.html#reloading).
-
-{% endnote %}
-
-Now open a pull request in the repository where you installed your app. Your app should respond by creating a check run on your pull request. Click on the **Checks** tab, and you should see a check run with the name "Octo RuboCop", or whichever name you chose earlier for the check run.
+Now open a pull request in the repository where you installed your app. Your app should respond by creating a check run on your pull request. Click on the **Checks** tab, and you should see a check run with the name "Octo RuboCop," or whichever name you chose earlier for the check run.
 
 If you see other apps in the Checks tab, it means you have other apps installed on your repository that have **Read & write** access to checks and are subscribed to **Check suite** and **Check run** events.
 
-Great! You've told {% data variables.product.prodname_dotcom %} to create a check run. You can see the check run status is set to `queued` next to a yellow icon. Next, you'll want to wait for {% data variables.product.prodname_dotcom %} to create the check run and update its status.
+So far you've told {% data variables.product.prodname_dotcom %} to create a check run. The check run status in the pull request is set to queued with a yellow icon. Next, you'll want to wait for {% data variables.product.prodname_dotcom %} to create the check run and update its status.
 
 ## Step 1.3. Updating a check run
 
@@ -668,9 +663,9 @@ When your `create_check_run` method runs, it asks {% data variables.product.prod
 
 You'll want to update your event handler to look for the `created` action. While you're updating the event handler, you can add a conditional for the `rerequested` action. When someone re-runs a single test on {% data variables.product.prodname_dotcom %} by clicking the "Re-run" button, {% data variables.product.prodname_dotcom %} sends the `rerequested` check run event to your app. When a check run is `rerequested`, you'll want to start the process all over and create a new check run.
 
-To include a condition for the `check_run` event in the `post '/event_handler'` route, add the following code under `case request.env['HTTP_X_GITHUB_EVENT']`:
+To do that, you'll include a condition for the `check_run` event in the `post '/event_handler'` route. Under `post '/event_handler' do`, add the following code below `case request.env['HTTP_X_GITHUB_EVENT']`:
 
-``` ruby
+``` ruby{:copy}
 when 'check_run'
   # Check that the event is being sent to this app
   if @payload['check_run']['app']['id'].to_s === APP_IDENTIFIER
@@ -691,7 +686,9 @@ In this section, you're not going to kick off the CI test yet, but you'll walk t
 
 Let's create the `initiate_check_run` method and update the status of the check run. Add the following code to the helpers section:
 
-``` ruby
+Under `helpers do`, add the following code:
+
+``` ruby{:copy}
 # Start the CI process
 def initiate_check_run
   # Once the check run is created, you'll update the status of the check run
@@ -724,11 +721,13 @@ Here's what this code is doing. First, it updates the check run's status to `in_
 
 You'll notice in the "[AUTOTITLE](/rest/checks#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `skipped`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
 
-You could also provide more details about what your check is doing, but you'll get to that in the next section. Let's test this code again by re-running `template_server.rb`:
+You could also provide more details about what your check is doing, but you'll get to that in the next section. Let's test this code again. If your server is currently running, enter `Ctrl-C` in your terminal to stop the server. Run the following command to restart the server:
 
-```shell
-$ ruby template_server.rb
+```shell{:copy}
+ruby server.rb
 ```
+
+[TODOCS: Do you have to push another commit first, before it will update to show the "Re-run" button?]
 
 Head over to your open pull request and click the **Checks** tab. Click the "Re-run all" button in the upper right corner. You should see the check run move from `pending` to `in_progress` and end with `success`.
 
@@ -788,7 +787,7 @@ m.display
 
 RuboCop is available as a command-line utility. That means your {% data variables.product.prodname_github_app %} will need to clone a local copy of the repository on the CI server so RuboCop can parse the files. To run Git operations in your Ruby app, you can use the [ruby-git](https://github.com/ruby-git/ruby-git) gem.
 
-The `Gemfile` in the `building-a-checks-api-ci-server` repository already includes the ruby-git gem, and you installed it when you ran `bundle install` in the [prerequisite steps](#prerequisites). To use the gem, add this code to the top of your `template_server.rb` file:
+The `Gemfile` in the `building-a-checks-api-ci-server` repository already includes the ruby-git gem, and you installed it when you ran `bundle install` in the [prerequisite steps](#prerequisites). To use the gem, add this code to the top of your `server.rb` file:
 
 ``` ruby
 require 'git'
@@ -808,7 +807,7 @@ git clone https://x-access-token:<token>@github.com/<owner>/<repo>.git
 
 The code above clones a repository over HTTP. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
 
-After your app clones the repository, it needs to pull the latest code changes and check out a specific Git ref. The code to do all of this will fit nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. Add the following new method to the helper method section in `template_server.rb`:
+After your app clones the repository, it needs to pull the latest code changes and check out a specific Git ref. The code to do all of this will fit nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. Add the following new method to the helper method section in `server.rb`:
 
 ``` ruby
 # Clones the repository to the current working directory, updates the
@@ -827,7 +826,7 @@ def clone_repository(full_repo_name, repository, ref)
 end
 ```
 
-The code above uses the `ruby-git` gem to clone the repository using the app's installation token. This code clones the code in the same directory as `template_server.rb`. To run Git commands in the repository, the code needs to change into the repository directory. Before changing directories, the code stores the current working directory in a variable (`pwd`) to remember where to return before exiting the `clone_repository` method.
+The code above uses the `ruby-git` gem to clone the repository using the app's installation token. This code clones the code in the same directory as `server.rb`. To run Git commands in the repository, the code needs to change into the repository directory. Before changing directories, the code stores the current working directory in a variable (`pwd`) to remember where to return before exiting the `clone_repository` method.
 
 From the repository directory, this code fetches and merges the latest changes (`@git.pull`), checks out the ref (`@git.checkout(ref)`), then changes the directory back to the original working directory (`pwd`).
 
@@ -864,14 +863,14 @@ Because this code stores the RuboCop results in a `@report` variable, it can saf
 
 {% note %}
 
-**Note:** The command used to remove the repository (`rm -rf`) cannot be undone. See [Step 2.7. Security tips](#step-27-security-tips) to learn how to check webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. 😱 If for some reason you're _not_ using the method `verify_webhook_signature` (which is included in `template_server.rb`) to validate the sender of the webhook, make sure you check that the repository name is valid.
+**Note:** The command used to remove the repository (`rm -rf`) cannot be undone. See [Step 2.7. Security tips](#step-27-security-tips) to learn how to check webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. 😱 If for some reason you're _not_ using the method `verify_webhook_signature` (which is included in `server.rb`) to validate the sender of the webhook, make sure you check that the repository name is valid.
 
 {% endnote %}
 
-You can test that this code works and see the errors reported by RuboCop in your server's debug output. Start up the `template_server.rb` server again and create a new pull request in the repository where you're testing your app:
+You can test that this code works and see the errors reported by RuboCop in your server's debug output. Start up the `server.rb` server again and create a new pull request in the repository where you're testing your app:
 
 ```shell
-$ ruby template_server.rb
+$ ruby server.rb
 ```
 
 You should see the linting errors in the debug output, although they aren't printed with formatting. You can use a web tool like [JSON formatter](https://jsonformatter.org/) to format your JSON output like this formatted linting error output:
@@ -1058,10 +1057,10 @@ Now that you're setting a conclusion based on the status of the CI test and you'
 
 The code above also adds a feature to your CI server called [requested actions](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) via the `actions` object. {% ifversion fpt or ghec %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}Requested actions add a button in the **Checks** tab on {% data variables.product.prodname_dotcom %} that allows someone to request the check run to take additional action. The additional action is completely configurable by your app. For example, because RuboCop has a feature to automatically fix the errors it finds in Ruby code, your CI server can use a requested actions button to allow people to request automatic error fixes. When someone clicks the button, the app receives the `check_run` event with a `requested_action` action. Each requested action has an `identifier` that the app uses to determine which button was clicked.
 
-The code above doesn't have RuboCop automatically fix errors yet. You'll add that in the next section. But first, take a look at the CI test that you just created by starting up the `template_server.rb` server again and creating a new pull request:
+The code above doesn't have RuboCop automatically fix errors yet. You'll add that in the next section. But first, take a look at the CI test that you just created by starting up the `server.rb` server again and creating a new pull request:
 
 ```shell
-$ ruby template_server.rb
+$ ruby server.rb
 ```
 
 The annotations will show up in the **Checks** tab. Also notice the "Fix this" button that you created by adding a requested action.
@@ -1148,13 +1147,17 @@ The code above clones a repository just like the code you added in [Step 2.2. Cl
 
 The files are changed locally, but you'll still need to push them to {% data variables.product.prodname_dotcom %}. You'll use the handy `ruby-git` gem again to commit all of the files. Git has a single command that stages all modified or deleted files and commits them: `git commit -a`. To do the same thing using `ruby-git`, the code above uses the `commit_all` method. Then the code pushes the committed files to {% data variables.product.prodname_dotcom %} using the installation token, using the same authentication method as the Git `clone` command. Finally, it removes the repository directory to ensure the working directory is prepared for the next event.
 
-That's it! The code you have written now completes your Checks API CI server. 💪 Restart your `template_server.rb` server again and create a new pull request:
+That's it! The code you have written now completes your Checks API CI server. 💪 Restart your `server.rb` server again and create a new pull request:
 
 ```shell
-$ ruby template_server.rb
+$ ruby server.rb
 ```
 
-{% data reusables.apps.sinatra_restart_instructions %}
+{% note %}
+
+**Note:** You'll need to restart the Sinatra server before you can test changes. Enter `Ctrl-C` to stop the server, and then run `ruby server.rb` again. If you don't want to do this every time you change your app code, you can look into [reloading](http://sinatrarb.com/faq.html#reloading).
+
+{% endnote %}
 
 This time, click the "Fix this" button to automatically fix the errors RuboCop found from the **Checks** tab.
 
@@ -1538,7 +1541,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
     **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
 
-* **Q:** I see an error in the `template_server.rb` debug output related to cloning my repository.
+* **Q:** I see an error in the `server.rb` debug output related to cloning my repository.
 
     **A:** If you see the following error, you haven't deleted the checkout of the repository in one or both of the `initiate_check_run` or `take_requested_action` methods:
 
@@ -1550,11 +1553,11 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 * **Q:** New check runs are not showing up in the "Checks" tab on {% data variables.product.prodname_dotcom %}.
 
-    **A:** Restart Smee and re-run your `template_server.rb` server.
+    **A:** Restart Smee and re-run your `server.rb` server.
 
 * **Q:** I do not see the "Re-run all" button in the "Checks" tab on {% data variables.product.prodname_dotcom %}.
 
-    **A:** Restart Smee and re-run your `template_server.rb` server.
+    **A:** Restart Smee and re-run your `server.rb` server.
 
 ## Conclusion
 
