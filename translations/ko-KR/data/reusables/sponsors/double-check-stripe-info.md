@@ -1,1 +1,0 @@
-When applying for a Stripe Connect account, ensure all of your information is correct before you submit your application. It's difficult to update identity information, like your name and date of birth, after your application has been submitted.

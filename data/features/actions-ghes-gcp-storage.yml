@@ -1,0 +1,4 @@
+# Reference: #8154
+# Google Cloud storage as Actions storage provider on GHES
+versions:
+  ghes: '>=3.7'

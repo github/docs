@@ -1,1 +1,1 @@
-{% data variables.product.prodname_codeql %} also runs a build for Go projects to set up the project. However, in contrast to the other compiled languages, all Go files in the repository are extracted, not just those that are built. Custom build commands are not supported for Go.
+For these languages, {% data variables.product.prodname_codeql %} analyzes the source files in your repository that are built. For any of these languages, you can disable `autobuild` and instead use custom build commands in order to analyze only the files that are built by these custom commands.

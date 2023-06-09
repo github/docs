@@ -1,1 +1,0 @@
-1. No pedido de pull request, clique em {% octicon "diff" aria-label="The file diff icon" %} **Arquivos alterados**. ![Aba de Arquivos Alterados](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)

@@ -1,0 +1,7 @@
+# Issue 6662
+# Commit file tree view
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'
+  ghae: '>=3.7'

@@ -1,1 +1,0 @@
-1. Na barra lateral esquerda, clique em **alertas de varredura de código**. Opcionalmente, selecione a ferramenta de varredura de código que você usou. ![Aba de "Alertas de varredura de código"](/assets/images/help/repository/sidebar-code-scanning-alerts.png)

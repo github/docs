@@ -1,1 +1,0 @@
-SAML-SSO bietet Organisations- und Enterprise-Inhabern auf {% data variables.product.prodname_dotcom %} die Möglichkeit, den Zugriff auf Organisationsressourcen wie Repositorys, Issues oder Pull Requests zu kontrollieren und zu sichern.

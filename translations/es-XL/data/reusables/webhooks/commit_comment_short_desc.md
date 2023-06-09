@@ -1,1 +1,0 @@
-Se creó un comentario de una confirmación. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[comentario de confirmación](/v3/repos/comments/)".

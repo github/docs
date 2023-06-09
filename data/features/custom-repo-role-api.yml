@@ -1,0 +1,6 @@
+# Issue 7793
+# Custom Repo Roles Management API
+versions:
+  ghec: '*'
+  ghes: '>=3.9'
+  ghae: '>=3.9'

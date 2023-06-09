@@ -1,1 +1,0 @@
-Atividade relacionada a um repositório que está sendo importado para o GitHub. {% data reusables.webhooks.action_type_desc %} Para obter mais informações, consulte a API REST de "[importações de código-fonte"](/v3/migrations/source_imports/)".

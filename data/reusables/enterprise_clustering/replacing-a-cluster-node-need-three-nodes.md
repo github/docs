@@ -1,1 +1,1 @@
-1. If you're taking a node offline that has `git-server = true` set in cluster.conf, evacuate the node. For more information, see "[Evacuating a cluster node](/enterprise/{{ currentVersion }}/admin/clustering/evacuating-a-cluster-node)."
+1. If you're taking a node offline that provides data services, such as `git-server`, `pages-server`, or `storage-server`, evacuate the node. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/evacuating-a-cluster-node-running-data-services)."

@@ -1,0 +1,6 @@
+# Issues 4834 and 5722
+# New feed for personal dashboards and option to follow organizations
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.5'

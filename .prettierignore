@@ -1,0 +1,11 @@
+data/release-notes/
+script/bookmarklets/
+/.next/
+
+# jest --coverage option
+/.coverage
+/coverage
+
+# Automated content source
+rest-api-description
+semmle-code

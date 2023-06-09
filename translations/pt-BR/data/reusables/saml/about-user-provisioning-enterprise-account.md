@@ -1,1 +1,0 @@
-Se você usar o Okta como seu IdP, você poderá usar o SCIM para gerenciar a associação à organização na conta corporativa. O SCIM convida automaticamente as pessoas ou remove pessoas de organizações na sua conta corporativa com base no fato de serem integrantes do grupo que correspondem a cada organização em seu IdP.

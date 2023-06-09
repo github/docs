@@ -1,1 +1,0 @@
-具有写入权限的部署键可以执行与具有管理员权限的组织成员或个人仓库上的协作者相同的操作。 更多信息请参阅“[组织的仓库权限级别](/articles/repository-permission-levels-for-an-organization/)”和“[用户帐户仓库的权限级别](/articles/permission-levels-for-a-user-account-repository/)”。

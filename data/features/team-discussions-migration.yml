@@ -1,0 +1,4 @@
+# Reference: #8869
+# Team Discussions migration and eventual deprecation announcement (for GHES - already deprecated for Dotcom and GHEC)
+versions:
+  ghes: '>3.9'

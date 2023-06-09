@@ -1,1 +1,0 @@
-1. Em "Authentication", selecione **Exigir autenticação de dois fatores para todos da sua organização** e clique em **Salvar**. ![Requer a caixa de seleção 2FA](/assets/images/help/organizations/require-2fa-checkbox.png)

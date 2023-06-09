@@ -1,1 +1,0 @@
-1. No lado direito da página, em "Selecione uma camada", reveja as camadas de patrocínio disponíveis. Em seguida, à direita da camada que você quer, clique em **Selecionar**. ![Selecione uma caixa de camada](/assets/images/help/sponsors/select-a-tier-box.png)

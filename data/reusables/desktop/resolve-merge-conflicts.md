@@ -1,1 +1,1 @@
-1. Resolve any merge conflicts in your preferred way, using a text editor, the command line, or another tool. For more information, see "[Addressing merge conflicts](/github/collaborating-with-issues-and-pull-requests/addressing-merge-conflicts)."
+1. Resolve any merge conflicts in your preferred way, using a text editor, the command line, or another tool. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."

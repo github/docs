@@ -1,0 +1,8 @@
+# Issue: 7123
+# Description: Allow adding expired and revoked GPG keys for verifying commit and tag signatures
+# Usage: {% ifversion upload-expired-or-revoked-gpg-key %} ... {% endif %}
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.6'
+  ghae: '>= 3.6'

@@ -1,0 +1,7 @@
+# Reference: #6913
+# Dependabot support for TypeScript @types/*
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.5'
+  ghae: '>= 3.6'

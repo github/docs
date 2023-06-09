@@ -1,0 +1,12 @@
+.sectionHeading {
+  scroll-margin-top: 70px !important;
+  pre code {
+    white-space: pre-wrap;
+  }
+}
+
+.aside {
+  width: 260px;
+  height: calc(100vh - 70px);
+  top: 70px;
+}
