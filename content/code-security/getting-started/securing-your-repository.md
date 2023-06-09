@@ -60,7 +60,11 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
+{% ifversion dependabot-alerts-ghes-enablement %}
+{% data reusables.dependabot.dependabot-alerts-enterprise-server-repo-org-enablement %}
+{% else %}
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
+{% endif %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts){% ifversion fpt or ghec %}" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account){% endif %}."
 

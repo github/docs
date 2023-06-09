@@ -14,7 +14,7 @@ topics:
 ## Introduction
 You can use {% data variables.product.prodname_dotcom %} repositories, issues, project boards, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion fpt or ghec %} and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates{% ifversion issue-forms %} and forms{% endif %}, open issues and use task lists to break down work, and establish a project board for organizing and tracking issues.
 
 ## Creating a repository
 When starting a new project, initiative, or feature, the first step is to create a repository. Repositories contain all of your project's files and give you a place to collaborate with others and manage your work. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
@@ -47,7 +47,7 @@ You can use issues to track the different types of work that your cross-function
 - Feature requests: Your team or users can create issues to request an improvement to your product or project.
 - Bugs: Your team or users can create issues to report a bug.
 
-Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% ifversion fpt or ghec %}and forms{% endif %} for your repository. Issue templates {% ifversion fpt or ghec %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
+Depending on the type of repository and project you are working on, you may prioritize certain types of issues over others. Once you have identified the most common issue types for your team, you can create issue templates {% ifversion issue-forms %}and forms{% endif %} for your repository. Issue templates {% ifversion issue-forms %}and forms{% endif %} allow you to create a standardized list of templates that a contributor can choose from when they open an issue in your repository. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository)."
 
 ### Issue template example
 Below we are creating an issue template for reporting a bug in Project Octocat.

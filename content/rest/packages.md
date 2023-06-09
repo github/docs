@@ -4,8 +4,7 @@ intro: >-
   Use the REST API to interact with {% data variables.product.prodname_registry
   %}.
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: packages-rest-api
 topics:
   - API
 redirect_from:
@@ -24,7 +23,8 @@ To use the REST API to manage {% data variables.product.prodname_registry %}, yo
 
 If your package is in a registry that supports granular permissions, then your token does not need the `repo` scope to access or manage this package. If your package is in a registry that only supports repository-scoped permissions, then your token must also include the `repo` scope since your package inherits permissions from a {% data variables.product.prodname_dotcom %} repository. For a list of registries that only support repository-scoped permissions, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#permissions-for-repository-scoped-packages)."
 
-To access resources in an organization with SSO enabled, you must enable SSO for your {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
-
+{% ifversion ghec %}
+To access resources in an organization with SSO enabled, you must enable SSO for your {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)."
+{% endif %}
 
 <!-- Content after this section is automatically generated -->

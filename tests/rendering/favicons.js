@@ -38,8 +38,14 @@ describe('favicon assets', () => {
     expect(res.headers['surrogate-key']).toBe(SURROGATE_ENUMS.MANUAL)
   })
 
-  test('should also 200 OK on /apple-touch-icon-precomposed.png', async () => {
-    const res = await get('/apple-touch-icon-precomposed.png')
+  test.each([
+    '/apple-touch-icon-precomposed.png',
+    '/apple-touch-icon-120x120-precomposed.png',
+    '/apple-touch-icon-120x120.png',
+    '/apple-touch-icon-152x152.png',
+    '/apple-touch-icon-152x152-precomposed.png',
+  ])('should also 200 OK on %s', async (path) => {
+    const res = await get(path)
     expect(res.statusCode).toBe(200)
     expect(res.headers['content-type']).toBe('image/png')
   })

@@ -51,7 +51,7 @@ You can pin a discussion above the list of discussions for the repository or org
 
 This is what it looks like when you have a globally pinned discussion and a discussion pinned to the Ideas category.
 
-![Screenshot of a globally pinned discussion and a discussion pinned to the Ideas category](/assets/images/help/discussions/overview-pinned-discussions.png)
+![Screenshot of a globally pinned discussion and a discussion pinned to the Ideas category.](/assets/images/help/discussions/overview-pinned-discussions.png)
 
 ### Pinning a discussion globally
 {% endif %}
@@ -116,7 +116,7 @@ You can unpin a globally pinned discussion. This will not delete the discussion,
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "pin" aria-hidden="true" %} **Unpin discussion**.
 
-   ![Screenshot of the "Unpin discussion" option in right sidebar for discussion](/assets/images/help/discussions/click-unpin-discussion.png)
+   ![Screenshot of the "Unpin discussion" option in right sidebar for discussion.](/assets/images/help/discussions/click-unpin-discussion.png)
 
 1. Read the warning, then click **Unpin discussion**.
 

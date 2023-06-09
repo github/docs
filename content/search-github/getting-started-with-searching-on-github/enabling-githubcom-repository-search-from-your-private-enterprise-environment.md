@@ -28,6 +28,6 @@ An enterprise owner for {% data variables.product.product_name %} must enable {%
 
 1. Sign into {% data variables.product.product_name %} and {% data variables.product.prodname_dotcom_the_website %}.
 1. On {% data variables.product.product_name %}, in the upper-right corner of any page, click your profile photo, then click **Settings**.
-![Settings icon in the user bar](/assets/images/help/settings/userbar-account-settings.png)
+![Settings icon in the user bar.](/assets/images/help/settings/userbar-account-settings.png)
 {% data reusables.github-connect.github-connect-tab-user-settings %}
 {% data reusables.github-connect.connect-dotcom-and-enterprise %}

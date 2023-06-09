@@ -104,6 +104,8 @@ For a longer-form and more prominent way of displaying customized information ab
 
 {% data reusables.profile.update-profile %}
 
+{% ifversion profile-pronouns %}
+
 ## Adding pronouns to your profile
 
 Add pronouns to your public user profile to share information about yourself with other {% data variables.product.product_name %} users. Your pronouns will only be visible to users that are signed in to {% data variables.product.product_name %}.
@@ -112,6 +114,8 @@ Add pronouns to your public user profile to share information about yourself wit
 1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.
 
 {% data reusables.profile.update-profile %}
+
+{% endif %}
 
 {% ifversion profile-time-zone %}
 
