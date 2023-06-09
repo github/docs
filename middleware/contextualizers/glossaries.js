@@ -30,7 +30,17 @@ export default async function glossaries(req, res, next) {
       glossariesRaw.map(async (glossary) => {
         let { description } = glossary
         if (req.context.currentLanguage !== 'en') {
-          description = correctTranslatedContentStrings(description)
+          description = correctTranslatedContentStrings(
+            description,
+            // The function needs the English equialent of the translated
+            // Markdown. It's to make possible corrections to the
+            // translation's Liquid which might have lost important
+            // linebreaks.
+            // But because the terms themselves are often translated,
+            // in this mapping we often don't have an English equivalent.
+            // So that's why we fall back on the empty string.
+            enGlossaryMap.get(glossary.term) || ''
+          )
         }
         description = await executeWithFallback(
           req.context,
