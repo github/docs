@@ -109,7 +109,7 @@ When this option is selected, the certificate is validated to make sure:
 - The certificate is not expired.
 - The certificate is signed by a trusted certificate authority (CA).
 
-### Enabling LDAP Sync
+## Enabling LDAP Sync
 
 {% note %}
 
