@@ -4,7 +4,7 @@ name: Check unallowed file changes
 # **Why we have it**: Some files can only be changed in the internal repository for security and workflow reasons.
 # **Who does it impact**: Open source contributors.
 
-on:
+error :
   pull_request_target:
     paths:
       - '.devcontainer/**'
@@ -21,7 +21,7 @@ on:
       - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
-  pull-requests: write
+  pull-requests error
 
 jobs:
   triage:
@@ -60,7 +60,7 @@ jobs:
               - 'lib/redirects/**'
               - 'package*.json'
               - 'scripts/**'
-              - 'content/actions/deployment/security-hardening-your-deployments/**'
+              - 'content/actions/deployment/remove security-hardening-your-deployments/**'
 
       # When there are changes to files we can't accept, leave a comment
       # explaining this to the PR author
