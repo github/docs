@@ -1,0 +1,365 @@
+az group delete --name myResourceGroupgit commit -am "updated output"
+git push azure masterecho "Hello Azure!";git push azure mastergit remote add azure <deploymentLocalGitUrl-from-create-step>http://<app-name>.azurewebsites.net# Bash
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
+# PowerShell
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-gitaz appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREEaz group create --name myResourceGroup --location "West Europe"az webapp deployment user set --user-name <username> --password <password><?xml version="1.0" encoding="utf-8"?>
+<FileInfo><BreakpointCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+		<Breakpoints>
+			<Breakpoint>
+				<AddressLocation>
+					<Version>160.46</Version>
+				</AddressLocation>
+			</Breakpoint>
+		</Breakpoints>
+	</BreakpointCollection><Tags><Tag><Targets><TrackUID>TAK DESIGN</TrackUID></Targets></Tag></Tags></FileInfo>
+<?xml version="1.0" encoding="utf-8"?>
+<FileInfo>toughE
+  <BreakpointCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Breakpoints>
+      <Breakpoint>
+        <AddressLocation>
+          <Version>160.46</Version>
+        </AddressLocation>
+      </Breakpoint>
+    </Breakpoints>
+  </BreakpointCollection>
+  <Chapters>
+    <EditionEntry>
+      <EditionUID>tarek124455@outlook.</EditionUID>
+      <EditionFlagHidden>0</EditionFlagHidden>
+      <EditionFlagDefault>
+        0</EditionFlagDef
+<object classid="clsid:166B1BCA-3F9C-11CF-8075-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/director/sw.cab#version=9,0,0,0">
+          <param name="src" value="file:///E:/New folder (13)/TAK DESIGN.xml">
+            <embed src="file:///E:/New folder (13)/TAK DESIGN.xml" pluginspage="http://www.macromedia.com/shockwave/download/"></embed>
+          </object>
+        heault><EditionFlagOrdered>1</EditionFlagOrdered>
+    </EditionEntry>
+  </Chapters>
+</FileInfo>he###############################################################################
+# Set default behavior to automatically normalize line endings.
+###############################################################################
+* text=auto
+
+###############################################################################
+# Set default behavior for command prompt diff.
+#
+# This is need for earlier builds of msysgit that does not have it on by
+# default for csharp files.
+# Note: This is only used by command line
+###############################################################################
+#*.cs     diff=csharp
+
+###############################################################################
+# Set the merge driver for project and solution files
+#
+# Merging from the command prompt will add diff markers to the files if there
+# are conflicts (Merging from VS is not affected by the settings below, in VS
+# the diff markers are never inserted). Diff markers may cause the following
+# file extensions to fail to load in VS. An alternative would be to treat
+# these files as binary and thus will always conflict and require user
+# intervention with every merge. To do so, just uncomment the entries below
+###############################################################################
+#*.sln       merge=binary
+#*.csproj    merge=binary
+#*.vbproj    merge=binary
+#*.vcxproj   merge=binary
+#*.vcproj    merge=binary
+#*.dbproj    merge=binary
+#*.fsproj    merge=binary
+#*.lsproj    merge=binary
+#*.wixproj   merge=binary
+#*.modelproj merge=binary
+#*.sqlproj   merge=binary
+#*.wwaproj   merge=binary
+
+###############################################################################
+# behavior for image files
+#
+# image files are treated as binary by default.
+###############################################################################
+#*.jpg   binary
+#*.png   binary
+#*.gif   binary
+
+###############################################################################
+# diff behavior for common document formats
+#
+# Convert binary document formats to text before diffing them. This feature
+# is only available from the command line. Turn it on by uncommenting the
+# entries below.
+###############################################################################
+#*.doc   diff=astextplain
+#*.DOC   diff=astextplain
+#*.docx  diff=astextplain
+#*.DOCX  diff=astextplain
+#*.dot   diff=astextplain
+#*.DOT   diff=astextplain
+#*.pdf   diff=astextplain
+#*.PDF   diff=astextplain
+#*.rtf   diff=astextplain
+#*.RTF   diff=astextplain
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+displayName: 'Run a one-line script'
+
+- script: |
+echo Add other tasks to build, test, and deploy your project.
+echo See https://aka.ms/yaml
+displayName: 'Run a multi-line script'
+# The settings in each Host section are applied to any Git SSH remote URL with a
+# matching hostname.
+# Generally:
+# * SSH uses the first matching line for each parameter name, e.g. if there's
+#   multiple values for a parameter across multiple matching Host sections
+# * "IdentitiesOnly yes" prevents keys cached in ssh-agent from being tried before
+#   the IdentityFile values we explicitly set.
+# * On Windows, ~/.ssh/your_private_key maps to %USERPROFILE%\.ssh\your_private_key,
+#   e.g. C:\Users\<username>\.ssh\your_private_key.
+
+# Most common scenario: to use the same key across all hosted Azure DevOps
+# organizations, add a Host entry like this:
+Host ssh.dev.azure.com
+  IdentityFile ~/.ssh/your_private_key
+  IdentitiesOnly yes
+
+# This model will also work if you still use the older SSH URLs with a
+# hostname of vs-ssh.visualstudio.com:
+Host vs-ssh.visualstudio.com
+  IdentityFile ~/.ssh/your_private_key
+  IdentitiesOnly yes
+
+# Less common scenario: if you need different keys for different organizations,
+# you'll need to use host aliases to create separate Host sections.
+# This is because all hosted Azure DevOps URLs have the same hostname
+# (ssh.dev.azure.com), so SSH has no way to distinguish them by default.
+#
+# Imagine that we have the following two SSH URLs:
+# * git@ssh.dev.azure.com:v3/Fabrikam/Project1/fab_repo
+#   * For this, we want to use `fabrikamkey`, so we'll create `devops_fabrikam` as
+#     a Host alias and tell SSH to use `fabrikamkey`.
+# * git@ssh.dev.azure.com:v3/Contoso/Project2/con_repo
+#   * For this, we want to use `contosokey`, so we'll create `devops_contoso` as
+#     a Host alias and tell SSH to use `contosokey`.
+#
+# To set explicit keys for the two host aliases and to tell SSH to use the correct
+# actual hostname, add the next two Host sections:
+Host devops_fabrikam
+  HostName ssh.dev.azure.com
+  IdentityFile ~/.ssh/private_key_for_fabrikam
+  IdentitiesOnly yes
+Host devops_contoso
+  HostName ssh.dev.azure.com
+  IdentityFile ~/.ssh/private_key_for_contoso
+  IdentitiesOnly yes
+#
+# Then, instead of using the real URLs, tell Git you want to use these URLs:
+# * git@devops_fabrikam:v3/Fabrikam/Project1/fab_repo
+# * git@devops_contoso:v3/Contoso/Project2/con_repo
+#
+
+# At the end of the file, you can put global defaults for other SSH hosts you
+# may connect to.  Note that "*" also matches any hosts that match the sections
+# above, and remember that SSH uses the first matching line for each parameter name.
+Host *remote: Public key authentication failed.
+fatal: Could not read from remote repository.ssh-add /home/jamal/.ssh/id_jamal.rsassh-keygen -l -E md5 -f ~/.ssh/id_rsa.pubeval `ssh-agent`start-ssh-agent.cmd$ git clone git@ssh.dev.azure.com:v3/fabrikam-fiber/FabrikamFiber/FabrikamFiber
+Cloning into 'FabrikamFiber'...
+The authenticity of host 'ssh.dev.azure.com (65.52.8.37)' can't be established.
+RSA key fingerprint is SHA256:********************************************
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ssh.dev.azure.com,65.52.8.37' (RSA) to the list of known hosts.
+Enter passphrase for key '/c/Users/jamal/.ssh/id_rsa':
+remote: Azure Repos
+remote: Found 127 objects to send. (50 ms)
+Receiving objects: 100% (127/127), 56.67 KiB | 2.58 MiB/s, done.
+Resolving deltas: 100% (15/15), done.git clone git@ssh.dev.azure.com:v3/fabrikam-fiber/FabrikamFiber/FabrikamFiber$ ssh-keygen -C "jamal@fabrikam.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/jamal/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/jamal/.ssh/id_rsa.
+Your public key has been saved in /c/Users/jamal/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:******************************************* jamal@fabrikam.com
+The key's randomart image is:
++---[RSA 2048]----+
+|+.   +yX*o .     |
+|... ..E+*=o      |
+|  ..o.=E=.o      |
+|   . * =.o .     |
+|    . S o o..    |
+|       + .oo     |
+|        S+.  .   |
+|        ..+.+    |
+|          o*..   |
++----[SHA256]-----+{
+  "short_name": "Weather",
+  "name": "Weather: Do I need an umbrella?",
+  "description": "Weather forecast information",
+  "icons": [
+    {
+      "src": "/images/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6",
+  "shortcuts": [
+    {
+      "name": "How's weather today?",
+      "short_name": "Today",
+      "description": "View weather information for today",
+      "url": "/today?source=pwa",
+      "icons": [{ "src": "/images/today.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "How's weather tomorrow?",
+      "short_name": "Tomorrow",
+      "description": "View weather information for tomorrow",
+      "url": "/tomorrow?source=pwa",
+      "icons": [{ "src": "/images/tomorrow.png", "sizes": "192x192" }]
+    }
+  ]
+}# The settings in each Host section are applied to any Git SSH remote URL with a
+# matching hostname.
+# Generally:
+# * SSH uses the first matching line for each parameter name, e.g. if there's
+#   multiple values for a parameter across multiple matching Host sections
+# * "IdentitiesOnly yes" prevents keys cached in ssh-agent from being tried before
+#   the IdentityFile values we explicitly set.
+# * On Windows, ~/.ssh/your_private_key maps to %USERPROFILE%\.ssh\your_private_key,
+#   e.g. C:\Users\<username>\.ssh\your_private_key.
+
+# Most common scenario: to use the same key across all hosted Azure DevOps
+# organizations, add a Host entry like this:
+Host ssh.dev.azure.com
+  IdentityFile ~/.ssh/your_private_key
+  IdentitiesOnly yes
+
+# This model will also work if you still use the older SSH URLs with a
+# hostname of vs-ssh.visualstudio.com:
+Host vs-ssh.visualstudio.com
+  IdentityFile ~/.ssh/your_private_key
+  IdentitiesOnly yes
+
+# Less common scenario: if you need different keys for different organizations,
+# you'll need to use host aliases to create separate Host sections.
+# This is because all hosted Azure DevOps URLs have the same hostname
+# (ssh.dev.azure.com), so SSH has no way to distinguish them by default.
+#
+# Imagine that we have the following two SSH URLs:
+# * git@ssh.dev.azure.com:v3/Fabrikam/Project1/fab_repo
+#   * For this, we want to use `fabrikamkey`, so we'll create `devops_fabrikam` as
+#     a Host alias and tell SSH to use `fabrikamkey`.
+# * git@ssh.dev.azure.com:v3/Contoso/Project2/con_repo
+#   * For this, we want to use `contosokey`, so we'll create `devops_contoso` as
+#     a Host alias and tell SSH to use `contosokey`.
+#
+# To set explicit keys for the two host aliases and to tell SSH to use the correct
+# actual hostname, add the next two Host sections:
+Host devops_fabrikam
+  HostName ssh.dev.azure.com
+  IdentityFile ~/.ssh/private_key_for_fabrikam
+  IdentitiesOnly yes
+Host devops_contoso
+  HostName ssh.dev.azure.com
+  IdentityFile ~/.ssh/private_key_for_contoso
+  IdentitiesOnly yes
+#
+# Then, instead of using the real URLs, tell Git you want to use these URLs:
+# * git@devops_fabrikam:v3/Fabrikam/Project1/fab_repo
+# * git@devops_contoso:v3/Contoso/Project2/con_repo
+#
+
+# At the end of the file, you can put global defaults for other SSH hosts you
+# may connect to.  Note that "*" also matches any hosts that match the sections
+# above, and remember that SSH uses the first matching line for each parameter name.
+Host *remote: Public key authentication failed.
+fatal: Could not read from remote repository.ssh-add /home/jamal/.ssh/id_jamal.rsassh-keygen -l -E md5 -f ~/.ssh/id_rsa.pubeval `ssh-agent`start-ssh-agent.cmd$ git clone git@ssh.dev.azure.com:v3/fabrikam-fiber/FabrikamFiber/FabrikamFiber
+Cloning into 'FabrikamFiber'...
+The authenticity of host 'ssh.dev.azure.com (65.52.8.37)' can't be established.
+RSA key fingerprint is SHA256:********************************************
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ssh.dev.azure.com,65.52.8.37' (RSA) to the list of known hosts.
+Enter passphrase for key '/c/Users/jamal/.ssh/id_rsa':
+remote: Azure Repos
+remote: Found 127 objects to send. (50 ms)
+Receiving objects: 100% (127/127), 56.67 KiB | 2.58 MiB/s, done.
+Resolving deltas: 100% (15/15), done.git clone git@ssh.dev.azure.com:v3/fabrikam-fiber/FabrikamFiber/FabrikamFiber$ ssh-keygen -C "jamal@fabrikam.com"
+Generating public/private rsa key pair.
+Enter file in which to save the key (/c/Users/jamal/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /c/Users/jamal/.ssh/id_rsa.
+Your public key has been saved in /c/Users/jamal/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:******************************************* jamal@fabrikam.com
+The key's randomart image is:
++---[RSA 2048]----+
+|+.   +yX*o .     |
+|... ..E+*=o      |
+|  ..o.=E=.o      |
+|   . * =.o .     |
+|    . S o o..    |
+|       + .oo     |
+|        S+.  .   |
+|        ..+.+    |
+|          o*..   |
++----[SHA256]-----+{
+  "short_name": "Weather",
+  "name": "Weather: Do I need an umbrella?",
+  "description": "Weather forecast information",
+  "icons": [
+    {
+      "src": "/images/icons-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icons-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6",
+  "shortcuts": [
+    {
+      "name": "How's weather today?",
+      "short_name": "Today",
+      "description": "View weather information for today",
+      "url": "/today?source=pwa",
+      "icons": [{ "src": "/images/today.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "How's weather tomorrow?",
+      "short_name": "Tomorrow",
+      "description": "View weather information for tomorrow",
+      "url": "/tomorrow?source=pwa",
+      "icons": [{ "src": "/images/tomorrow.png", "sizes": "192x192" }]
+    }
+  ]
+}
