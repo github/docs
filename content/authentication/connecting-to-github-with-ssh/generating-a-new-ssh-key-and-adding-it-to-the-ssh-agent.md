@@ -157,7 +157,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
   If you don't have Apple's standard version of `ssh-add` installed, you may receive an error. For more information, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
   
-  If you continue to be prompted for your passphrase, you may need to add the above command to your ~/.zshrc file (or .bashrc for bash).
+  If you continue to be prompted for your passphrase, you may need to add the above command to your `~/.zshrc` file (or your `~/.bashrc` file for bash).
 
 
    {% endnote %}
