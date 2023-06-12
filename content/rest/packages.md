@@ -4,7 +4,9 @@ intro: >-
   Use the REST API to interact with {% data variables.product.prodname_registry
   %}.
 versions:
-  feature: packages-rest-api
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'
 topics:
   - API
 redirect_from:
