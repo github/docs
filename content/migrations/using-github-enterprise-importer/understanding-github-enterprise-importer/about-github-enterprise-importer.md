@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About {% data variables.product.prodname_importer_proper_name %}
 
 {% data variables.product.prodname_importer_proper_name %} is a highly customizable migration tool designed to help you move your enterprise to {% data variables.product.prodname_ghe_cloud %}.

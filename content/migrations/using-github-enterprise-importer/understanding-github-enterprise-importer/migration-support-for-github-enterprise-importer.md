@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About migration support for {% data variables.product.prodname_importer_proper_name %}
 
 {% data variables.product.prodname_importer_proper_name %} can migrate to {% data variables.product.prodname_ghe_cloud %} from any of our supported migration sources. The data included in each migration depends on the source.

@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About troubleshooting steps for {% data variables.product.prodname_importer_proper_name %}
 
 If your migration fails or produces unexpected results, try the first steps for troubleshooting below, which commonly resolve a variety of issues. If these first steps do not resolve your issue, check for error messages in the logs for your migration. Then, locate the error message in this article and try the steps for resolution.
