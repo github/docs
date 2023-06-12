@@ -4,6 +4,7 @@ import FailBot from '#src/observability/lib/failbot.js'
 import patterns from '../lib/patterns.js'
 import getMiniTocItems from '../lib/get-mini-toc-items.js'
 import Page from '../lib/page.js'
+import { pathLanguagePrefixed } from '../lib/languages.js'
 import statsd from '#src/observability/lib/statsd.js'
 import { allVersions } from '../lib/all-versions.js'
 import { isConnectionDropped } from './halt-on-dropped-connection.js'
@@ -54,6 +55,14 @@ export default async function renderPage(req, res) {
         `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`
       )
     }
+
+    if (!pathLanguagePrefixed(req.path)) {
+      defaultCacheControl(res)
+      return res.status(404).type('text').send('Not found')
+    }
+
+    // The rest is "unhandled" requests where we don't have the page
+    // but the URL looks like a real page.
 
     statsd.increment(STATSD_KEY_404, 1, [
       `url:${req.url}`,
