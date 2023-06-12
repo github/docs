@@ -1,17 +1,11 @@
-# The docs.github.com project has two repositories: github/docs (public) and github/docs-internal (private)
-#
-# This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
-#
-# For more details, see https://github.com/repo-sync/repo-sync#how-it-works
-
 name: Repo Sync
 
-# **What it does**:
-#  Syncs docs and docs-internal.
-# **Why we have it**:
-#  To keep the open-source repository up-to-date, while still having an internal
-#    repository for sensitive work.
+# **What it does**: GitHub Docs has two repositories: github/docs (public) and github/docs-internal (private).
+# This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
+# **Why we have it**: To keep the open-source repository up-to-date
+# while still having an internal repository for sensitive work.
 # **Who does it impact**: Open-source.
+# For more details, see https://github.com/repo-sync/repo-sync#how-it-works
 
 on:
   workflow_dispatch:
@@ -31,18 +25,6 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
-      # Set up npm and run npm ci to get custom husky githooks error
-      # messages if they exist. We could also remove these steps
-      # because currently we have no hooks with customer error messages.
-      # See pull #32064 where they were removed.
-      - name: Setup Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
-        with:
-          node-version-file: 'package.json'
-          cache: npm
-      - name: Install dependencies
-        run: npm ci
-
       - name: Sync repo to branch
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
         env:
@@ -53,41 +35,64 @@ jobs:
           destination_branch: repo-sync
           github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
 
-      - name: Create pull request
-        uses: repo-sync/pull-request@65785d95a5a466e46a9d0708933a3bd51bbf9dde
-        env:
-          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+      - name: Find or create pull request
+        id: pull-request
+        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
         with:
-          source_branch: repo-sync
-          destination_branch: main
-          pr_title: 'repo sync'
-          pr_body: "This is an automated pull request to sync changes between the public and private repos.\n\n:robot: This pull request should be merged (not squashed) to preserve continuity across repos, so please let a bot do the merging!"
-          pr_label: automated-reposync-pr
-          github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          # This will exit 0 if there's no difference between `repo-sync`
-          # and `main`. And if so, no PR will be created.
-          pr_allow_empty: false
+          github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          result-encoding: string
+          script: |
+            const { owner, repo } = context.repo
+            const head = 'repo-sync'
+            const base = 'main'
+            const label = 'automated-reposync-pr'
 
-      - name: Find pull request
-        uses: juliangruber/find-pull-request-action@3a4c7c62101755c3778d397dcb6a760a558992f1
-        id: find-pull-request
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          branch: repo-sync
-          base: main
-          author: Octomerger
-          state: open
+            // Check if a pull request already exists
+            let { data: pulls } = await github.rest.pulls.list({ owner, repo, head, base })
+            let foundPull = pulls.find(pr => pr.labels.some(xlabel => xlabel.name === label))
+            if (foundPull) {
+              console.log('Found pull request and will not create a new one', foundPull.html_url)
+              return foundPull.number
+            }
+
+            const body = `
+            This is an automated pull request to sync changes between the public and private repos.
+            Our bot will merge this pull request automatically.
+            To preserve continuity across repos, _do not squash_ this pull request.
+            `
+            console.log('Create a new pull request')
+            let { data: pull } = await github.rest.pulls.create({
+              owner,
+              repo,
+              head,
+              base,
+              title: 'Repo sync',
+              body,
+            })
+
+            console.log('Add label', label)
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number: pull.number,
+              labels: [label]
+            })
+
+            console.log('Created pull request successfully', pull.html_url)
+            return pull.number
 
       # Because we get far too much spam ;_;
       - name: Lock conversations
-        if: ${{ github.repository == 'github/docs' && steps.find-pull-request.outputs.number }}
+        if: ${{ github.repository == 'github/docs' && steps.pull-request.outputs.result }}
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        env:
+          PR_NUMBER: ${{ steps.pull-request.outputs.result }}
         with:
           script: |
             try {
               await github.rest.issues.lock({
                 ...context.repo,
-                issue_number: parseInt(${{ steps.find-pull-request.outputs.number }}),
+                issue_number: parseInt(process.env.PR_NUMBER),
                 lock_reason: 'spam'
               })
               console.log('Locked the pull request to prevent spam!')
@@ -96,10 +101,13 @@ jobs:
               console.error(`Failed to lock the pull request. Error: ${error}`)
             }
 
-      # There are cases where the branch becomes out-of-date in between the time this workflow began and when the pull request is created/updated
+      # There are cases where the branch becomes out-of-date in between the time this workflow began
+      # and when the pull request is created/updated
       - name: Update branch
-        if: ${{ steps.find-pull-request.outputs.number }}
+        if: ${{ steps.pull-request.outputs.result }}
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        env:
+          PR_NUMBER: ${{ steps.pull-request.outputs.result }}
         with:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           script: |
@@ -109,9 +117,10 @@ jobs:
             })
             console.log(`heads/main sha: ${mainHeadSha.data.object.sha}`)
 
+            const pull_number = parseInt(process.env.PR_NUMBER)
             const pull = await github.rest.pulls.get({
               ...context.repo,
-              pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+              pull_number,
             })
             console.log(`Pull request base sha: ${pull.data.base.sha}`)
 
@@ -119,7 +128,7 @@ jobs:
               try {
                 const updateBranch = await github.rest.pulls.updateBranch({
                   ...context.repo,
-                  pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+                  pull_number,
                 })
                 console.log(updateBranch.data.message)
               } catch (error) {
@@ -129,7 +138,7 @@ jobs:
                   try {
                     const updateBranch = await github.rest.pulls.updateBranch({
                       ...context.repo,
-                      pull_number: parseInt(${{ steps.find-pull-request.outputs.number }})
+                      pull_number,
                     })
                     console.log(updateBranch.data.message)
                   } catch (error) {
@@ -147,11 +156,11 @@ jobs:
             }
 
       - name: Check pull request file count after updating
-        if: ${{ steps.find-pull-request.outputs.number }}
+        if: ${{ steps.pull-request.outputs.result }}
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: pr-files
         env:
-          PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
+          PR_NUMBER: ${{ steps.pull-request.outputs.result }}
         with:
           github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
           result-encoding: string
@@ -165,24 +174,26 @@ jobs:
       # Sometimes after updating the branch, there aren't any remaining files changed.
       # If not, we should close the PR instead of merging it and triggering deployments.
       - name: Close the pull request if no files remain
-        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count == '0' }}
+        if: ${{ steps.pull-request.outputs.result && steps.pr-files.outputs.count == '0' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.pull-request.outputs.result }}
         run: |
-          gh pr close ${{ steps.find-pull-request.outputs.number }} --repo $GITHUB_REPOSITORY
+          gh pr close $PR_NUMBER --repo $GITHUB_REPOSITORY
 
       - name: Approve pull request
-        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count != '0' }}
+        if: ${{ steps.steps.pull-request.outputs.result && steps.pr-files.outputs.count != '0' }}
         uses: juliangruber/approve-pull-request-action@dcc4effb325c0b503408619918d56e40653dcc91
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ steps.find-pull-request.outputs.number }}
+          number: ${{ steps.pull-request.outputs.result }}
 
+      # Admin merge to avoid being squashed in the merge queue
       - name: Admin merge the pull request
-        if: ${{ steps.find-pull-request.outputs.number && steps.pr-files.outputs.count != '0' }}
+        if: ${{ steps.pull-request.outputs.result && steps.pr-files.outputs.count != '0' }}
         env:
           GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
-          PR_NUMBER: ${{ steps.find-pull-request.outputs.number }}
+          PR_NUMBER: ${{ steps.pull-request.outputs.result }}
         run: |
           gh pr merge $PR_NUMBER --admin --merge
 
@@ -193,4 +204,4 @@ jobs:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
+          text: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/repo-sync.yml
