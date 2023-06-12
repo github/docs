@@ -34,7 +34,7 @@ Docker images previously stored in the Docker registry are being automatically m
 
 ## About Docker support
 
-When installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
+While installing or publishing a Docker image, the Docker registry does not currently support foreign layers, such as Windows images.
 
 ## Authenticating to {% data variables.product.prodname_registry %}
 
