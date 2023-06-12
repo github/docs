@@ -11,8 +11,7 @@ versions:
   ghec: '*'
 type: reference
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About Dockerfile instructions
@@ -90,9 +89,10 @@ printf '\n'
 ```
 
 Your code must be executable. Make sure the `entrypoint.sh` file has `execute` permissions before using it in a workflow. You can modify the permission from your terminal using this command:
-  ``` sh
-  chmod +x entrypoint.sh
-  ```
+
+``` sh
+chmod +x entrypoint.sh
+```
 
 When an `ENTRYPOINT` shell script is not executable, you'll receive an error similar to this:
 

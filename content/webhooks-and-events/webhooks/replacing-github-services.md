@@ -70,6 +70,6 @@ The {% data variables.product.prodname_ghe_server %} 2.17 release will be the fi
 Please [contact us](https://github.com/contact?form%5Bsubject%5D=GitHub+Services+Deprecation) with any questions.
 
 As a high-level overview, the process of migration typically involves:
-  - Identifying how and where your product is using GitHub Services.
-  - Identifying the corresponding webhook events you need to configure in order to move to plain webhooks.
-  - Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps#reasons-for-switching-to-github-apps)."
+- Identifying how and where your product is using GitHub Services.
+- Identifying the corresponding webhook events you need to configure in order to move to plain webhooks.
+- Implementing the design using either [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps) or [{% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app) are preferred. To learn more about why {% data variables.product.prodname_github_apps %} are preferred, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps#reasons-for-switching-to-github-apps)."

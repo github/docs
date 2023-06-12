@@ -73,7 +73,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
 
-    ![Screenshot of the menu to disable {% data variables.product.prodname_copilot %} globally or for the current language in a JetBrains IDE](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+    ![Screenshot of the menu to disable {% data variables.product.prodname_copilot %} globally or for the current language in a JetBrains IDE.](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 ## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 
@@ -126,16 +126,16 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
 
-   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
+   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar.](/assets/images/help/copilot/vs-toolbar-options.png)
 
 1. In the "Options" dialog, under **Environment**, click **Keyboard**.
 1. Under "Show commands containing:", search for the command you want to rebind.
 
-   ![Screenshot of the show commands containing search bar](/assets/images/help/copilot/vs-show-commands-containing.png)
+   ![Screenshot of the show commands containing search bar.](/assets/images/help/copilot/vs-show-commands-containing.png)
 
 1. Under "Press shortcut keys," type the shortcut you want to assign to the command, then click **Assign**.
 
-   ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
+   ![Screenshot of the keyboard shortcut assignment.](/assets/images/help/copilot/vs-rebind-shortcut.png)
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
@@ -144,7 +144,7 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
 1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
-   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
+   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar.](/assets/images/help/copilot/vs-toolbar-options.png)
 1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**.
 1. Under "General" select **{% data variables.product.prodname_vs %}** and then click **Save**.
 
@@ -211,12 +211,12 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. Click **Code**, click **Preferences**, then click **Keyboard Shortcuts**.
 
-   ![Screenshot of Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts-mac.png)
+   ![Screenshot of Visual Studio Code keyboard shortcuts.](/assets/images/help/copilot/vsc-keyboard-shortcuts-mac.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 1. Next to the command you want to change, click the pencil icon.
 
-   ![Screenshot of Keyboard shortcut editor](/assets/images/help/copilot/vsc-edit-shortcuts-mac.png)
+   ![Screenshot of Keyboard shortcut editor.](/assets/images/help/copilot/vsc-edit-shortcuts-mac.png)
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
@@ -224,12 +224,12 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. Click the **File** menu, click **Preferences**, then click **Keyboard Shortcuts**.
 
-   ![Screenshot of Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
+   ![Screenshot of Visual Studio Code keyboard shortcuts.](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 1. Next to the command you want to change, click the pencil icon.
 
-   ![Screenshot of Keyboard shortcut editor](/assets/images/help/copilot/vsc-edit-shortcuts.png)
+   ![Screenshot of Keyboard shortcut editor.](/assets/images/help/copilot/vsc-edit-shortcuts.png)
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
@@ -237,12 +237,12 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. Click the **File** menu, click **Preferences**, then click **Keyboard Shortcuts**.
 
-   ![Screenshot of Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
+   ![Screenshot of Visual Studio Code keyboard shortcuts.](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 1. Next to the command you want to change, click the pencil icon.
 
-   ![Screenshot of Keyboard shortcut editor](/assets/images/help/copilot/vsc-edit-shortcuts.png)
+   ![Screenshot of Keyboard shortcut editor.](/assets/images/help/copilot/vsc-edit-shortcuts.png)
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
@@ -304,7 +304,7 @@ After you have revoked authorization, if you want to continue using {% data vari
 
 1. In the bottom left corner of {% data variables.product.prodname_vscode %}, click the **Accounts** icon, hover over your username, and click **Sign in with {% data variables.product.prodname_dotcom %} to use {% data variables.product.prodname_copilot %}**.
 
-  ![Screenshot of the accounts menu in {% data variables.product.prodname_vscode %}. The "Sign in with {% data variables.product.prodname_dotcom %} to use {% data variables.product.prodname_copilot %} (1)" option is outlined in dark orange.](/assets/images/help/copilot/vsc-sign-in.png)
+   ![Screenshot of the accounts menu in {% data variables.product.prodname_vscode %}. The "Sign in with {% data variables.product.prodname_dotcom %} to use {% data variables.product.prodname_copilot %} (1)" option is outlined in dark orange.](/assets/images/help/copilot/vsc-sign-in.png)
 
 1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Continue**.
 1. In the "Open {% data variables.product.prodname_vscode %}?" pop-up, click **Open {% data variables.product.prodname_vscode %}**.

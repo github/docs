@@ -5,6 +5,9 @@
     ],
     "ghec": [
       "2022-11-28"
+    ],
+    "ghes-3.9": [
+      "2022-11-28"
     ]
   },
   "versionMapping": {
@@ -30,5 +33,5 @@
       ]
     }
   },
-  "sha": "32e8e407fdb3957859a03ae38a6c0bd6513f3c7e"
+  "sha": "fab4bfd6f7c4235a5357b09c0d37bb74f8a5d57d"
 }

@@ -8473,7 +8473,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -26383,6 +26383,11 @@
           "href": "/graphql/reference/interfaces#comment"
         },
         {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/interfaces#deletable"
+        },
+        {
           "name": "Labelable",
           "id": "labelable",
           "href": "/graphql/reference/interfaces#labelable"
@@ -27577,6 +27582,14 @@
         {
           "name": "viewerCanClose",
           "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -38817,6 +38830,26 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "ruleset",
+          "description": "<p>Returns a single ruleset from the current organization by ID.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset",
+          "arguments": [
+            {
+              "name": "databaseId",
+              "description": "<p>The ID of the ruleset to be returned.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "rulesets",
           "description": "<p>A list of rulesets for this organization.</p>",
           "type": "RepositoryRulesetConnection",
@@ -48664,7 +48697,7 @@
       "kind": "objects",
       "id": "pullrequestparameters",
       "href": "/graphql/reference/objects#pullrequestparameters",
-      "description": "<p>Parameters to be used for the pull_request rule.</p>",
+      "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
       "fields": [
         {
           "name": "dismissStaleReviewsOnPush",
@@ -59113,6 +59146,26 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "ruleset",
+          "description": "<p>Returns a single ruleset from the current repository by ID.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset",
+          "arguments": [
+            {
+              "name": "databaseId",
+              "description": "<p>The ID of the ruleset to be returned.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "rulesets",
           "description": "<p>A list of rulesets for this repository.</p>",
           "type": "RepositoryRulesetConnection",
@@ -60156,6 +60209,14 @@
           "id": "migrationstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#migrationstate"
+        },
+        {
+          "name": "warningsCount",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -60462,6 +60523,14 @@
           "href": "/graphql/reference/objects#repositoryruleconditions"
         },
         {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "databaseId",
           "description": "<p>Identifies the primary key from the database.</p>",
           "type": "Int",
@@ -60560,6 +60629,14 @@
           "id": "repositoryrulesettarget",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryrulesettarget"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -61514,7 +61591,7 @@
       "kind": "objects",
       "id": "requireddeploymentsparameters",
       "href": "/graphql/reference/objects#requireddeploymentsparameters",
-      "description": "<p>Parameters to be used for the required_deployments rule.</p>",
+      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
       "fields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -61556,7 +61633,7 @@
       "kind": "objects",
       "id": "requiredstatuschecksparameters",
       "href": "/graphql/reference/objects#requiredstatuschecksparameters",
-      "description": "<p>Parameters to be used for the required_status_checks rule.</p>",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
       "fields": [
         {
           "name": "requiredStatusChecks",
@@ -69644,7 +69721,7 @@
       "kind": "objects",
       "id": "updateparameters",
       "href": "/graphql/reference/objects#updateparameters",
-      "description": "<p>Parameters to be used for the update rule.</p>",
+      "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
       "fields": [
         {
           "name": "updateAllowsFetchAndMerge",
@@ -73554,6 +73631,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "file",
+          "description": "<p>The workflow file.</p>",
+          "type": "WorkflowRunFile",
+          "id": "workflowrunfile",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrunfile"
+        },
+        {
           "name": "pendingDeploymentRequests",
           "description": "<p>The pending deployment requests of all check runs in this workflow run.</p>",
           "type": "DeploymentRequestConnection!",
@@ -73708,6 +73793,91 @@
           "id": "workflowrun",
           "kind": "objects",
           "href": "/graphql/reference/objects#workflowrun"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunFile",
+      "kind": "objects",
+      "id": "workflowrunfile",
+      "href": "/graphql/reference/objects#workflowrunfile",
+      "description": "<p>An executed workflow file for a workflow run.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/interfaces#uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "path",
+          "description": "<p>The path of the workflow file relative to its repository.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repositoryFileUrl",
+          "description": "<p>The direct link to the file in the repository which stores the workflow file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The repository name and owner which stores the workflow file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this workflow run file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "run",
+          "description": "<p>The parent workflow run execution for this file.</p>",
+          "type": "WorkflowRun!",
+          "id": "workflowrun",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrun"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this workflow run file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "viewerCanPushRepository",
+          "description": "<p>If the viewer has permissions to push to the repository which stores the workflow.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanReadRepository",
+          "description": "<p>If the viewer has permissions to read the repository which stores the workflow.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     }
@@ -74654,6 +74824,14 @@
           "id": "migrationstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#migrationstate"
+        },
+        {
+          "name": "warningsCount",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -79588,12 +79766,20 @@
           "description": "<p>The Octoshift migration has failed.</p>"
         },
         {
+          "name": "FAILED_VALIDATION",
+          "description": "<p>The Octoshift migration has invalid credentials.</p>"
+        },
+        {
           "name": "IN_PROGRESS",
           "description": "<p>The Octoshift migration is in progress.</p>"
         },
         {
           "name": "NOT_STARTED",
           "description": "<p>The Octoshift migration has not started.</p>"
+        },
+        {
+          "name": "PENDING_VALIDATION",
+          "description": "<p>The Octoshift migration needs to have its credentials validated.</p>"
         },
         {
           "name": "POST_REPO_MIGRATION",
@@ -81271,35 +81457,35 @@
         },
         {
           "name": "CREATION",
-          "description": "<p>Creation.</p>"
+          "description": "<p>Only allow users with bypass permission to create matching refs.</p>"
         },
         {
           "name": "DELETION",
-          "description": "<p>Deletion.</p>"
+          "description": "<p>Only allow users with bypass permissions to delete matching refs.</p>"
         },
         {
           "name": "NON_FAST_FORWARD",
-          "description": "<p>Non fast forward.</p>"
+          "description": "<p>Prevent users with push access from force pushing to branches.</p>"
         },
         {
           "name": "PULL_REQUEST",
-          "description": "<p>Pull request.</p>"
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>"
         },
         {
           "name": "REQUIRED_DEPLOYMENTS",
-          "description": "<p>Required deployments.</p>"
+          "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>"
         },
         {
           "name": "REQUIRED_LINEAR_HISTORY",
-          "description": "<p>Required linear history.</p>"
+          "description": "<p>Prevent merge commits from being pushed to matching branches.</p>"
         },
         {
           "name": "REQUIRED_SIGNATURES",
-          "description": "<p>Required signatures.</p>"
+          "description": "<p>Commits pushed to matching branches must have verified signatures.</p>"
         },
         {
           "name": "REQUIRED_STATUS_CHECKS",
-          "description": "<p>Required status checks.</p>"
+          "description": "<p>Choose which status checks must pass before branches can be merged into a\nbranch that matches this rule. When enabled, commits must first be pushed to\nanother branch, then merged or pushed directly to a branch that matches this\nrule after status checks have passed.</p>"
         },
         {
           "name": "TAG_NAME_PATTERN",
@@ -81307,7 +81493,7 @@
         },
         {
           "name": "UPDATE",
-          "description": "<p>Update.</p>"
+          "description": "<p>Only allow users with bypass permission to update matching refs.</p>"
         }
       ]
     },
@@ -92360,7 +92546,7 @@
       "kind": "inputObjects",
       "id": "pullrequestparametersinput",
       "href": "/graphql/reference/input-objects#pullrequestparametersinput",
-      "description": "<p>Parameters to be used for the pull_request rule.</p>",
+      "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
       "inputFields": [
         {
           "name": "dismissStaleReviewsOnPush",
@@ -92496,7 +92682,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -93312,7 +93498,7 @@
       "kind": "inputObjects",
       "id": "requireddeploymentsparametersinput",
       "href": "/graphql/reference/input-objects#requireddeploymentsparametersinput",
-      "description": "<p>Parameters to be used for the required_deployments rule.</p>",
+      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
       "inputFields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -93354,7 +93540,7 @@
       "kind": "inputObjects",
       "id": "requiredstatuschecksparametersinput",
       "href": "/graphql/reference/input-objects#requiredstatuschecksparametersinput",
-      "description": "<p>Parameters to be used for the required_status_checks rule.</p>",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
       "inputFields": [
         {
           "name": "requiredStatusChecks",
@@ -96616,7 +96802,7 @@
       "kind": "inputObjects",
       "id": "updateparametersinput",
       "href": "/graphql/reference/input-objects#updateparametersinput",
-      "description": "<p>Parameters to be used for the update rule.</p>",
+      "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
       "inputFields": [
         {
           "name": "updateAllowsFetchAndMerge",
@@ -97237,7 +97423,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -98007,7 +98193,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"

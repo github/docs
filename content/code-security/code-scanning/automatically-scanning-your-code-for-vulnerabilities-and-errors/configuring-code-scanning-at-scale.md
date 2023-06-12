@@ -74,7 +74,11 @@ You can use the "Security coverage" view in security overview to show repositori
 {%- endif %}
     - `code-scanning-default-setup:not-eligible` shows repositories that either have advanced setup configured already, or where the languages not are suitable for default setup.
 
+{% ifversion code-security-multi-repo-enablement %}
+
 You can select all of the displayed repositories, or a subset of them, and enable or disable default setup for {% data variables.product.prodname_code_scanning %} for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+
+{% endif %}
 
 {% endif %}
 

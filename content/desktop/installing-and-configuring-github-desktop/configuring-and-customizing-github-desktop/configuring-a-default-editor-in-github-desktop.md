@@ -79,7 +79,7 @@ shortTitle: Configure default editor
 
 {% data reusables.desktop.mac-select-desktop-menu %}
 3. In the Preferences window, select **Integrations**.
-  ![Screenshot of the "Preferences" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/mac-select-integrations-pane.png)
+   ![Screenshot of the "Preferences" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/mac-select-integrations-pane.png)
 4. Under "External Editor", use the dropdown menu to select the editor you want to set as your default.
 5. Click **Save**.
 
@@ -89,7 +89,7 @@ shortTitle: Configure default editor
 
 {% data reusables.desktop.windows-choose-options %}
 3. In the Options window, select **Integrations**.
-  ![Screenshot of the "Options" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/windows-select-integrations-pane.png)
+   ![Screenshot of the "Options" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/windows-select-integrations-pane.png)
 4. Under "External Editor", use the dropdown menu to select the editor you want to set as your default.
 5. Click **Save**.
 

@@ -19,7 +19,7 @@ shortTitle: Commit & review changes
 
 1. [Create a new branch](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches-in-github-desktop), or select an existing branch by clicking {% octicon "git-branch" aria-hidden="true" %} **Current Branch** on the toolbar and selecting the branch from the list.
 
-  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
+   ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.make-changes %}
 
 ## Choosing how to display diffs
@@ -59,7 +59,7 @@ If one file contains multiple changes, but you only want some of those changes t
 
 To exclude changed lines from your commit, click one or more changed lines so the blue disappears. The lines that are still highlighted in blue will be included in the commit.
 
-  ![Screenshot of the diff view of a text file. Next to the text "I don't want to include this line", the background color behind the line numbers is green, not blue.](/assets/images/help/desktop/partial-commit.png)
+![Screenshot of the diff view of a text file. Next to the text "I don't want to include this line", the background color behind the line numbers is green, not blue.](/assets/images/help/desktop/partial-commit.png)
 
 ## Discarding changes
 If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
@@ -71,7 +71,7 @@ Discarded changes are saved in a dated file in the Trash. You can recover discar
 {% data reusables.desktop.select-discard-files %}
 {% data reusables.desktop.click-discard-files %}
 
-  ![Screenshot of the "Changes" tab. Two selected files are highlighted in blue. In a context menu, the cursor hovers over "Discard 2 Selected Changes".](/assets/images/help/desktop/discard-changes-mac.png)
+   ![Screenshot of the "Changes" tab. Two selected files are highlighted in blue. In a context menu, the cursor hovers over "Discard 2 Selected Changes".](/assets/images/help/desktop/discard-changes-mac.png)
 {% data reusables.desktop.confirm-discard-files %}
 
 ### Discarding changes in one or more lines
@@ -85,12 +85,11 @@ You can discard one or more changed lines that are uncommitted.
 
 To discard one added line, in the list of changed lines, right-click the line number of the line you want to discard, then select **Discard Added Line**.
 
-  ![Screenshot of the diff view of a file. In a context menu, a cursor hovers over "Discard Added Line", highlighted in blue.](/assets/images/help/desktop/discard-single-line.png)
+![Screenshot of the diff view of a file. In a context menu, a cursor hovers over "Discard Added Line", highlighted in blue.](/assets/images/help/desktop/discard-single-line.png)
 
 To discard a group of changed lines, right-click the vertical bar to the right of the line numbers for the lines you want to discard, then select **Discard added lines**.
 
-  ![Screenshot of the diff view of a file. To the right of the line numbers, a narrow, darker blue line is highlighted with an orange outline.](/assets/images/help/desktop/discard-multiple-lines.png)
-
+![Screenshot of the diff view of a file. To the right of the line numbers, a narrow, darker blue line is highlighted with an orange outline.](/assets/images/help/desktop/discard-multiple-lines.png)
 
 ## Write a commit message and push your changes
 
@@ -104,10 +103,10 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
 {% data reusables.desktop.commit-message %}
 
-  ![Screenshot of the "Changes" tab in the sidebar. To the right of a profile picture, a text field containing a commit message is outlined in orange.](/assets/images/help/desktop/commit-message.png)
+   ![Screenshot of the "Changes" tab in the sidebar. To the right of a profile picture, a text field containing a commit message is outlined in orange.](/assets/images/help/desktop/commit-message.png)
 1. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
 
-  ![Screenshot of the "Changes" tab. In the corner of the "Description" field, a "person with a plus sign" icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)
+   ![Screenshot of the "Changes" tab. In the corner of the "Description" field, a "person with a plus sign" icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
 4. If the branch you're trying to commit to is protected, Desktop will warn you.
     - To move your changes, click **switch branches**.
@@ -120,7 +119,7 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
    If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to preview the changes and create one. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop)."
 
-  ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-preview-pull-request.png)
+   ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-preview-pull-request.png)
 
 ## Further reading
 

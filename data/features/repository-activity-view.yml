@@ -1,0 +1,7 @@
+# Reference: Issue #8651 - Repository Activity View
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.9'
+  ghae: '> 3.9'

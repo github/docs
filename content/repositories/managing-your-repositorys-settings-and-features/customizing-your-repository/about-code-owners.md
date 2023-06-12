@@ -1,6 +1,7 @@
 ---
 title: About code owners
 intro: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.
+permissions: 'People with write permissions for the repository can create or edit the CODEOWNERS file and be listed as code owners. People with admin or owner permissions can require that pull requests have to be approved by code owners before they can be merged.'
 redirect_from:
   - /articles/about-codeowners
   - /articles/about-code-owners
@@ -15,8 +16,6 @@ versions:
 topics:
   - Repositories
 ---
-People with admin or owner permissions can set up a CODEOWNERS file in a repository.
-
 The people you choose as code owners must have write permissions for the repository. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
 ## About code owners

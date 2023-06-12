@@ -53,7 +53,7 @@ Depending on the policy settings configured at the enterprise level, an organiza
 1. If you selected **Start from scratch**, click **Add people** or **Add teams** to add individual users, or entire teams.
 1. If you selected **Add people**, in the "Enable {% data variables.product.prodname_copilot %} access for selected members of ORGANIZATION" dialog, you can either search for individual members, or you can add members in bulk by uploading a CSV file.
 
-   ![Screenshot of the enable access for selected members dialog](/assets/images/help/copilot/enable-access-for-selected-members.png)
+   ![Screenshot of the enable access for selected members dialog.](/assets/images/help/copilot/enable-access-for-selected-members.png)
 
     - To search for members, type the member's username, full name, or email address in the search bar.
     - To add members in bulk, click **Upload CSV**, and then upload a CSV file including either the username or email address for each member you want to add, separated by a comma.

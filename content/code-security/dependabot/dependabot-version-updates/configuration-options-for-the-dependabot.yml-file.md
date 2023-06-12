@@ -137,7 +137,13 @@ updates:
 
 ### `schedule.interval`
 
-**Required**. You must define how often to check for new versions for each package manager. By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. To set a specific time, you can use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone).
+**Required**. You must define how often to check for new versions for each package manager. By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. To set a specific time, you can use [`schedule.time`](#scheduletime) and [`schedule.timezone`](#scheduletimezone). 
+
+{% note %}
+
+**Note:** The `schedule.time` option is a best effort, and it may take some time before {% data variables.product.prodname_dependabot %} opens pull requests to update to newer dependency versions.
+
+{% endnote %}
 
 | Interval types | Frequency |
 |----------------|-----------|
@@ -176,9 +182,10 @@ updates:
 
 Use the `allow` option to customize which dependencies are updated. This applies to both version and security updates. You can use the following options:
 
-- `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters. 
-     - For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`; for example: `org.kohsuke:github-api`. 
+- `dependency-name`—use to allow updates for dependencies with matching names, optionally using `*` to match zero or more characters.
+     - For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId`; for example: `org.kohsuke:github-api`.
      - For Docker image tags, the format is the full name of the repository; for example, for an image tag of `<account ID>.dkr.ecr.us-west-2.amazonaws.com/base/foo/bar/ruby:3.1.0-focal-jemalloc`, use `base/foo/bar/ruby`.
+
 - `dependency-type`—use to allow updates for dependencies of specific types.
 
   | Dependency types | Supported by package managers | Allow updates |
@@ -1184,6 +1191,9 @@ registries:
 ### `enable-beta-ecosystems`
 
 By default, {% data variables.product.prodname_dependabot %} updates the dependency manifests and lock files only for fully supported ecosystems. Use the `enable-beta-ecosystems` flag to opt in to updates for ecosystems that are not yet generally available.
+
+<!-- add list here once we get ecosystems released in beta -->
+There are currently no ecosystems in beta.
 
 ```yaml
 # Configure beta ecosystem

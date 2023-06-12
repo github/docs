@@ -3,7 +3,7 @@ title: Endpoints available for fine-grained personal access tokens
 intro: 'Your {% data variables.product.pat_v2 %} can make requests to the following REST endpoints.'
 versions:
   feature: pat-v2
-shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
+shortTitle: 'Endpoints for fine-grained PATs'
 ---
 
 ## actions
@@ -628,24 +628,24 @@ shortTitle: '{% data variables.product.pat_v2_caps %}-enabled endpoints'
 {% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/invitations/{invitation_id}`](/rest/orgs#cancel-an-organization-invitation){% endif %}
 {% ifversion fpt or ghec %}- [`GET /orgs/{org}/invitations/{invitation_id}/teams`](/rest/orgs#list-organization-invitation-teams){% endif %}
 
-{% ifversion fpt or ghec %}
+{% ifversion packages-rest-api %}
 
 ## packages
-{% ifversion fpt or ghec %}- [`GET /orgs/{org}/packages`](/rest/packages#list-packages-for-an-organization){% endif %}
-{% ifversion fpt or ghec %}- [`GET /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-an-organization){% endif %}
-{% ifversion fpt or ghec %}- [`DELETE /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-an-organization){% endif %}
-{% ifversion fpt or ghec %}- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-an-organization){% endif %}
-{% ifversion fpt or ghec %}- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-an-organization){% endif %}
-{% ifversion fpt or ghec %}- [`GET /user/packages`](/rest/packages#list-packages-for-the-authenticated-user){% endif %}
-{% ifversion fpt or ghec %}- [`GET /user/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-the-authenticated-user){% endif %}
-{% ifversion fpt or ghec %}- [`DELETE /user/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-the-authenticated-user){% endif %}
-{% ifversion fpt or ghec %}- [`GET /user/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-the-authenticated-user){% endif %}
-{% ifversion fpt or ghec %}- [`GET /user/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-the-authenticated-user){% endif %}
-{% ifversion fpt or ghec %}- [`GET /users/{username}/packages`](/rest/packages#list-packages-for-user){% endif %}
-{% ifversion fpt or ghec %}- [`GET /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-a-user){% endif %}
-{% ifversion fpt or ghec %}- [`DELETE /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-a-user){% endif %}
-{% ifversion fpt or ghec %}- [`GET /users/{username}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-a-user){% endif %}
-{% ifversion fpt or ghec %}- [`GET /users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-a-user){% endif %}
+{% ifversion packages-rest-api %}- [`GET /orgs/{org}/packages`](/rest/packages#list-packages-for-an-organization){% endif %}
+{% ifversion packages-rest-api %}- [`GET /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-an-organization){% endif %}
+{% ifversion packages-rest-api %}- [`DELETE /orgs/{org}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-an-organization){% endif %}
+{% ifversion packages-rest-api %}- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-an-organization){% endif %}
+{% ifversion packages-rest-api %}- [`GET /orgs/{org}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-an-organization){% endif %}
+{% ifversion packages-rest-api %}- [`GET /user/packages`](/rest/packages#list-packages-for-the-authenticated-user){% endif %}
+{% ifversion packages-rest-api %}- [`GET /user/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-the-authenticated-user){% endif %}
+{% ifversion packages-rest-api %}- [`DELETE /user/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-the-authenticated-user){% endif %}
+{% ifversion packages-rest-api %}- [`GET /user/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-the-authenticated-user){% endif %}
+{% ifversion packages-rest-api %}- [`GET /user/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-the-authenticated-user){% endif %}
+{% ifversion packages-rest-api %}- [`GET /users/{username}/packages`](/rest/packages#list-packages-for-user){% endif %}
+{% ifversion packages-rest-api %}- [`GET /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#get-a-package-for-a-user){% endif %}
+{% ifversion packages-rest-api %}- [`DELETE /users/{username}/packages/{package_type}/{package_name}`](/rest/packages#delete-a-package-for-a-user){% endif %}
+{% ifversion packages-rest-api %}- [`GET /users/{username}/packages/{package_type}/{package_name}/versions`](/rest/packages#get-all-package-versions-for-a-package-owned-by-a-user){% endif %}
+{% ifversion packages-rest-api %}- [`GET /users/{username}/packages/{package_type}/{package_name}/versions/{package_version_id}`](/rest/packages#get-a-package-version-for-a-user){% endif %}
 
 {% endif %}
 

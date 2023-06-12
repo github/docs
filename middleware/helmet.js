@@ -48,6 +48,7 @@ const DEFAULT_OPTIONS = {
       frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: ["'self'", "'unsafe-inline'", 'data:', AZURE_STORAGE_URL],
       childSrc: ["'self'"], // exception for search in deprecated GHE versions
+      manifestSrc: ["'self'"],
       upgradeInsecureRequests: isDev ? null : [],
     },
   },

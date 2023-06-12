@@ -56,7 +56,7 @@ gh pr checkout PULL-REQUEST
 
 ## Modifying an inactive pull request locally
 
-If a pull request's author is unresponsive to requests or has deleted their fork, the pull request can still be merged. However, if you want to make changes to a pull request and the author is not responding, you'll need to perform some additional steps to update the pull request.
+If a pull request’s author is unresponsive to requests or has deleted their fork, the changes proposed in that pull request can still be merged via a new pull request. However, if you want to make changes to a pull request and the author is not responding, you'll need to perform some additional steps to update the pull request.
 
 Once a pull request is opened, {% data variables.product.product_name %} stores all of the changes remotely. In other words, commits in a pull request are available in a repository even before the pull request is merged. You can fetch an open pull request and recreate it as your own.
 
@@ -70,26 +70,26 @@ Anyone can work with a previously opened pull request to continue working on it,
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 5. Fetch the reference to the pull request based on its ID number, creating a new branch in the process.
-  ```shell
-  $ git fetch origin pull/ID/head:BRANCH_NAME
-  ```
+   ```shell
+   $ git fetch origin pull/ID/head:BRANCH_NAME
+   ```
 6. Switch to the new branch that's based on this pull request:
-  ```shell
-  [main] $ git checkout BRANCH_NAME
-  > Switched to a new branch 'BRANCH_NAME'
-  ```
+   ```shell
+   [main] $ git checkout BRANCH_NAME
+   > Switched to a new branch 'BRANCH_NAME'
+   ```
 7. At this point, you can do anything you want with this branch. You can run some local tests, or merge other branches into the branch.
 8. When you're ready, you can push the new branch up:
-  ```shell
-  [pull-inactive-pull-request] $ git push origin BRANCH_NAME
-  > Counting objects: 32, done.
-  > Delta compression using up to 8 threads.
-  > Compressing objects: 100% (26/26), done.
-  > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
-  > Total 29 (delta 8), reused 0 (delta 0)
-  > To https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
-  >  * [new branch]      BRANCH_NAME -> BRANCH_NAME
-  ```
+   ```shell
+   [pull-inactive-pull-request] $ git push origin BRANCH_NAME
+   > Counting objects: 32, done.
+   > Delta compression using up to 8 threads.
+   > Compressing objects: 100% (26/26), done.
+   > Writing objects: 100% (29/29), 74.94 KiB | 0 bytes/s, done.
+   > Total 29 (delta 8), reused 0 (delta 0)
+   > To https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
+   >  * [new branch]      BRANCH_NAME -> BRANCH_NAME
+   ```
 9. [Create a new pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with your new branch.
 
 ## Error: Failed to push some refs

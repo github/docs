@@ -17,8 +17,7 @@ topics:
   - CI
 shortTitle: Continuous integration
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About continuous integration

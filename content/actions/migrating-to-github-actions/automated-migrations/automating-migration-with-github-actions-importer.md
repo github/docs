@@ -15,8 +15,7 @@ topics:
   - CD
 shortTitle: 'Automate migration with {% data variables.product.prodname_actions_importer %}'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 [Legal notice](#legal-notice)
@@ -34,6 +33,7 @@ Any workflow that is converted by the {% data variables.product.prodname_actions
 You can use {% data variables.product.prodname_actions_importer %} to migrate from the following platforms:
 
 - Azure DevOps
+- Bamboo
 - CircleCI
 - GitLab
 - Jenkins
@@ -84,6 +84,7 @@ Description:
 
 Commands:
   azure-devops  An audit will output a list of data used in an Azure DevOps instance.
+  bamboo        An audit will output a list of data used in a Bamboo instance.
   circle-ci     An audit will output a list of data used in a CircleCI instance.
   gitlab        An audit will output a list of data used in a GitLab instance.
   jenkins       An audit will output a list of data used in a Jenkins instance.
@@ -105,6 +106,7 @@ Description:
 
 Commands:
   azure-devops  Forecasts GitHub Actions usage from historical Azure DevOps pipeline utilization.
+  bamboo        Forecasts GitHub Actions usage from historical Bamboo pipeline utilization.
   jenkins       Forecasts GitHub Actions usage from historical Jenkins pipeline utilization.
   gitlab        Forecasts GitHub Actions usage from historical GitLab pipeline utilization.
   circle-ci     Forecasts GitHub Actions usage from historical CircleCI pipeline utilization.
@@ -127,6 +129,7 @@ Description:
 
 Commands:
   azure-devops  Convert an Azure DevOps pipeline to a GitHub Actions workflow and output its yaml file.
+  bamboo        Convert a Bamboo pipeline to GitHub Actions workflows and output its yaml file.
   circle-ci     Convert a CircleCI pipeline to GitHub Actions workflows and output the yaml file(s).
   gitlab        Convert a GitLab pipeline to a GitHub Actions workflow and output the yaml file.
   jenkins       Convert a Jenkins job to a GitHub Actions workflow and output its yaml file.
@@ -148,6 +151,7 @@ Description:
 
 Commands:
   azure-devops  Convert an Azure DevOps pipeline to a GitHub Actions workflow and open a pull request with the changes.
+  bamboo        Convert a Bamboo pipeline to GitHub Actions workflows and open a pull request with the changes.
   circle-ci     Convert a CircleCI pipeline to GitHub Actions workflows and open a pull request with the changes.
   gitlab        Convert a GitLab pipeline to a GitHub Actions workflow and open a pull request with the changes.
   jenkins       Convert a Jenkins job to a GitHub Actions workflow and open a pull request with the changes.

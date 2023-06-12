@@ -12,7 +12,6 @@ versions:
 type: overview
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About autoscaling
@@ -60,6 +59,12 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 **Note:**  If a job is labeled for a certain type of runner, but none matching that type are available, the job does not immediately fail at the time of queueing. Instead, the job will remain queued until the 24 hour timeout period expires.
 
 {% endnote %}
+
+{% ifversion actions-single-use-tokens %}
+
+Alternatively, you can create ephemeral, just-in-time runners using the REST API. For more information, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
+
+{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.4 or ghae %}
 

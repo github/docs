@@ -11,7 +11,7 @@ versions:
   ghec: '*'
 topics:
   - API
-shortTitle: GitHub App permissions
+shortTitle: Permissions for GitHub Apps
 ---
 
 ## About {% data variables.product.prodname_github_app %} permissions

@@ -17,8 +17,7 @@ topics:
   - CD
 shortTitle: Migrate from Travis CI
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -178,12 +177,12 @@ The concurrent jobs and workflow execution times in {% data variables.product.pr
 ### Using different languages in {% data variables.product.prodname_actions %}
 
 When working with different languages in {% data variables.product.prodname_actions %}, you can create a step in your job to set up your language dependencies. For more information about working with a particular language, see the specific guide:
-  - [Building and testing Node.js](/actions/automating-builds-and-tests/building-and-testing-nodejs)
-  - [Building and testing Python](/actions/automating-builds-and-tests/building-and-testing-python)
-  - [Building and testing PowerShell](/actions/automating-builds-and-tests/building-and-testing-powershell)
-  - [Building and testing Java with Maven](/actions/automating-builds-and-tests/building-and-testing-java-with-maven)
-  - [Building and testing Java with Gradle](/actions/automating-builds-and-tests/building-and-testing-java-with-gradle)
-  - [Building and testing Java with Ant](/actions/automating-builds-and-tests/building-and-testing-java-with-ant)
+- [Building and testing Node.js](/actions/automating-builds-and-tests/building-and-testing-nodejs)
+- [Building and testing Python](/actions/automating-builds-and-tests/building-and-testing-python)
+- [Building and testing PowerShell](/actions/automating-builds-and-tests/building-and-testing-powershell)
+- [Building and testing Java with Maven](/actions/automating-builds-and-tests/building-and-testing-java-with-maven)
+- [Building and testing Java with Gradle](/actions/automating-builds-and-tests/building-and-testing-java-with-gradle)
+- [Building and testing Java with Ant](/actions/automating-builds-and-tests/building-and-testing-java-with-ant)
 
 ## Executing scripts
 

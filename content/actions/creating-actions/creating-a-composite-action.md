@@ -13,8 +13,7 @@ type: tutorial
 topics:
   - Action development
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -35,28 +34,28 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell{:copy}
-  cd hello-world-composite-action
-  ```
+   ```shell{:copy}
+   cd hello-world-composite-action
+   ```
 
 2. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
 
-  ```bash{:copy}
-  echo "Goodbye"
-  ```
+   ```bash{:copy}
+   echo "Goodbye"
+   ```
 
 3. From your terminal, make `goodbye.sh` executable.
 
-  ```shell{:copy}
-  chmod +x goodbye.sh
-  ```
+   ```shell{:copy}
+   chmod +x goodbye.sh
+   ```
 
 1. From your terminal, check in your `goodbye.sh` file.
-  ```shell{:copy}
-  git add goodbye.sh
-  git commit -m "Add goodbye script"
-  git push
-  ```
+   ```shell{:copy}
+   git add goodbye.sh
+   git commit -m "Add goodbye script"
+   git push
+   ```
 
 ## Creating an action metadata file
 
@@ -102,18 +101,18 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
 1. From your terminal, check in your `action.yml` file.
 
-  ```shell{:copy}
-  git add action.yml
-  git commit -m "Add action"
-  git push
-  ```
+   ```shell{:copy}
+   git add action.yml
+   git commit -m "Add action"
+   git push
+   ```
 
 1. From your terminal, add a tag. This example uses a tag called `v1`. For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
 
-  ```shell{:copy}
-  git tag -a -m "Description of this release" v1
-  git push --follow-tags
-  ```
+   ```shell{:copy}
+   git tag -a -m "Description of this release" v1
+   git push --follow-tags
+   ```
 
 ## Testing out your action in a workflow
 

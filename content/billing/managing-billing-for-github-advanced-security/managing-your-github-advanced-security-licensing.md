@@ -24,7 +24,7 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 2. Under "Committers", click **Manage committers**.
 3. Under "Total committers", click the plus or minus buttons to add or remove committers.
 
-  ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} committers screen. A text box with the number 5, a minus button on its left, and a plus button on its right, are highlighted in an orange outline.](/assets/images/help/enterprises/ghas-add-committers.png)
+   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} committers screen. A text box with the number 5, a minus button on its left, and a plus button on its right, are highlighted in an orange outline.](/assets/images/help/enterprises/ghas-add-committers.png)
 1. Click **Update committers**.
 
 ## Canceling your {% data variables.product.prodname_GH_advanced_security %} subscription

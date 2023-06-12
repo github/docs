@@ -3,7 +3,7 @@ title: Permissions required for fine-grained personal access tokens
 intro: 'You can find the required permissions for each {% data variables.product.pat_v2 %}-compatible endpoint.'
 versions:
   feature: pat-v2
-shortTitle: '{% data variables.product.pat_v2_caps %} permissions'
+shortTitle: 'Permissions for fine-grained PATs'
 ---
 
 ## About permissions required for {% data variables.product.pat_v2 %}

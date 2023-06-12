@@ -42,8 +42,8 @@ Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sit
 You do not need to configure anything in your repository to enable code navigation. We will automatically extract search-based and precise code navigation information for these supported languages in all repositories and you can switch between the two supported code navigation approaches if your programming language is supported by both.
 
 {% data variables.product.prodname_dotcom %} has developed two code navigation approaches based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) and [`stack-graphs`](https://github.com/github/stack-graphs) library:
- - Search-based - searches all definitions and references across a repository to find entities with a given name
- - Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
+- Search-based - searches all definitions and references across a repository to find entities with a given name
+- Precise - resolves definitions and references based on the set of classes, functions, and imported definitions at a given point in your code
 
 To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
 
