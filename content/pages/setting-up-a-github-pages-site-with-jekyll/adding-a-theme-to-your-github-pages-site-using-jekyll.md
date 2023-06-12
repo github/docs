@@ -46,12 +46,12 @@ People with write permissions for a repository can add a theme to a {% data vari
 {% data reusables.pages.navigate-publishing-source %}
 1. Create a new file called _/assets/css/style.scss_.
 2. Add the following content to the top of the file:
-  ```scss
-  ---
-  ---
+   ```scss
+   ---
+   ---
 
-  @import "{% raw %}{{ site.theme }}{% endraw %}";
-  ```
+   @import "{% raw %}{{ site.theme }}{% endraw %}";
+   ```
 3. Add any custom CSS or Sass (including imports) you'd like immediately after the `@import` line.
 
 ## Customizing your theme's HTML layout

@@ -20,39 +20,39 @@ The time required to failover depends on how long it takes to manually promote t
 
 1. If the primary appliance is available, to allow replication to finish before you switch appliances, on the primary appliance, put the primary appliance into maintenance mode.
 
-    - Put the appliance into maintenance mode.
+   - Put the appliance into maintenance mode.
 
-       - To use the management console, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)"
+     - To use the management console, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)"
 
-       - You can also use the `ghe-maintenance -s` command.
-         ```shell
-         $ ghe-maintenance -s
-         ```
+     - You can also use the `ghe-maintenance -s` command.
+       ```shell
+       $ ghe-maintenance -s
+       ```
 
    - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
 
-      {% note %}
+     {% note %}
 
-      **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
+     **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
     
-      {% endnote %}
+     {% endnote %}
 
    - To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
 
-      ```shell
-      $ ghe-repl-status -vv
-      ```
+     ```shell
+     $ ghe-repl-status -vv
+     ```
 
 4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
-  ```shell
-  $ ghe-repl-promote
-  ```
+   ```shell
+   $ ghe-repl-promote
+   ```
 
    {% note %}
 
    **Note:** If the primary node is unavailable, warnings and timeouts may occur but can be ignored.
 
-  {% endnote %}
+   {% endnote %}
 
 5. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
 6. Notify users that they can resume normal operations.

@@ -7,13 +7,22 @@ Always include a security admonition above this procedure. This is either one of
 
 {% endcomment %}
 
-For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}. For runner groups in an organization, you can change what repositories in the organization can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}.
+{% ifversion ghec or ghes or ghae %}For runner groups in an enterprise, you can change what organizations in the enterprise can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}. {% endif %}For runner groups in an organization, you can change what repositories in the organization can access a runner group{% ifversion restrict-groups-to-workflows %} or restrict what workflows a runner group can run{% endif %}.
 
 ### Changing what organizations or repositories can access a runner group
 
 {% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-1. For runner groups in an enterprise, under **Organization access**, modify what organizations can access the runner group. For runner groups in an organization, under **Repository access**, modify what repositories can access the runner group.
+1. For runner groups in an organization, under "Repository access," use the dropdown menu to click **Selected organizations**.
+   1. To the right of the dropdown menu, click {% octicon "gear" aria-label="The Gear icon" %}.
+   1. In the popup, use the checkboxes to select repositories that can access this runner group.
+
+{% ifversion ghec or ghes or ghae %}
+1. For runner groups in an enterprise, under "Organization access," use the dropdown menu to click **Selected organizations**.
+   1. To the right of the dropdown menu, click {% octicon "gear" aria-label="The Gear icon" %}.
+   1. In the popup, use the checkboxes to select organizations that can use this runner group.
+{% endif %}
+1. Click **Save group**.
 
 {% data reusables.actions.configure-runner-group-access %}
 

@@ -7,6 +7,6 @@
 
    {% endnote %}
 
-   ![App type selection](/assets/images/settings/apps_choose_app.png)
+   ![Screenshot of the sidebar on the "Developer Settings" page of {% data variables.product.prodname_dotcom %}. Options labeled "{% data variables.product.prodname_github_apps %}" and "{% data variables.product.prodname_oauth_apps %}" are outlined in dark orange.](/assets/images/settings/apps_choose_app.png)
 
 {% endif %}

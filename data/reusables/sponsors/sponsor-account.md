@@ -1,2 +1,1 @@
-1. Click **Sponsor ACCOUNT**.
-  ![Sponsor button](/assets/images/help/sponsors/sponsor-developer-button.png)
+1. Review the information about the charge and your billing date, then click **Sponsor ACCOUNT**.

@@ -34,13 +34,12 @@ Creating a repository from a template is similar to forking a repository, but th
 For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
 
 ## Creating a repository from a template
-
 {% data reusables.repositories.navigate-to-repo %}
 1. Above the file list, click **Use this template**.
 {% ifversion fpt or ghec %}
 1. Select **Create a new repository**.
 
-   ![Use this template button](/assets/images/help/repository/use-this-template-button.png)
+   ![Use this template button.](/assets/images/help/repository/use-this-template-button.png)
 
    {% note %}
 
@@ -52,6 +51,5 @@ For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-
 {% data reusables.repositories.repo-name %}
 {% data reusables.repositories.choose-repo-visibility %}
 1. Optionally, to include the directory structure and files from all branches in the template, and not just the default branch, select **Include all branches**.
-  ![Include all branches checkbox](/assets/images/help/repository/include-all-branches.png)
 {% data reusables.repositories.select-marketplace-apps %}
 1. Click **Create repository from template**.

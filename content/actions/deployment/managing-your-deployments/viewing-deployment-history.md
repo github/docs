@@ -19,8 +19,6 @@ You can deliver deployments through {% data variables.product.prodname_actions %
 
 To view current and past deployments, click **Environments** in the sidebar of the home page of your repository.
 
-![Screenshot of the sidebar of a repository page. The "Environments" section is outlined in dark orange.](/assets/images/help/actions/environments-sidebar.png)
-
 The deployments page displays the last active deployment of each environment for your repository. If the deployment includes an environment URL, a **View deployment** button that links to the URL is shown next to the deployment.
 
 The activity log shows the deployment history for your environments. By default, only the most recent deployment for an environment has an `Active` status; all previously active deployments have an `Inactive` status. For more information on automatic inactivation of deployments, see "[AUTOTITLE](/rest/deployments#inactive-deployments)."

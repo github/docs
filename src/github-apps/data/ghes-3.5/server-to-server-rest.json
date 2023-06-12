@@ -1,24 +1,6 @@
 {
   "actions": [
     {
-      "slug": "get-github-actions-cache-usage-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/usage"
-    },
-    {
-      "slug": "get-github-actions-cache-usage-policy-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy"
-    },
-    {
-      "slug": "set-github-actions-cache-usage-policy-for-an-enterprise",
-      "subcategory": "cache",
-      "verb": "patch",
-      "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy"
-    },
-    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -2131,6 +2113,24 @@
       "subcategory": "members",
       "verb": "get",
       "requestPath": "/orgs/{org}/public_members/{username}"
+    },
+    {
+      "slug": "list-organization-memberships-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs"
+    },
+    {
+      "slug": "get-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs/{org}"
+    },
+    {
+      "slug": "update-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "patch",
+      "requestPath": "/user/memberships/orgs/{org}"
     },
     {
       "slug": "list-organizations-for-a-user",

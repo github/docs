@@ -41,6 +41,20 @@ console.warn = console.error = (...args) => {
   } else if (args[0]?.constructor === Object) {
     const path = args[0].path?.replace('/index.md', '').replace('.md', '')
     issues.push({ path, message: args[0].message, score: scores[path] || 0 })
+  } else if (Array.isArray(args[0]) && args[0][0]?.constructor === Object && args[0][0].filepath) {
+    // This is a YML parsing error. It's serious enough to bump the score.
+    let message = args[0][0].message
+    if (args[0][0].reason) {
+      message += ` (reason: ${args[0][0].reason})`
+    }
+    const path = args[0][0].filepath
+    // By giving it a +100 on the score, it at least stands above all the
+    // other issues which are mostly score 0. It's artificial but it works.
+    issues.push({ path, message, score: (scores[path] || 0) + 100 })
+  } else {
+    // Don't use .warn() because this logging here is for the engineer
+    // working on this script.
+    console.log("WARNING: Don't know how to turn these args into an issue", args)
   }
 }
 
@@ -111,7 +125,7 @@ for (const page of pages) {
 // Sort by score desc so the translators know what to focus on first
 // Issues with more information should be higher
 issues = issues
-  .filter((issue) => !issue.message?.includes('early-access'))
+  .filter((issue) => !issue.path?.includes('early-access'))
   .sort((a, b) => b.score - a.score || JSON.stringify(b).length - JSON.stringify(a).length)
 
 // Begin an output report

@@ -75,13 +75,13 @@ There are two types of snapshots:
 
   {% endnote %}
 
-| Platform | Snapshot method | Snapshot documentation URL |
+| Platform | Snapshot method | Documentation |
 |---|---|---|
-| Amazon AWS | Disk | <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html>
-| Azure | VM | <https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm>
-| Hyper-V | VM | <https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v>
-| Google Compute Engine | Disk | <https://cloud.google.com/compute/docs/disks/create-snapshots>
-| VMware | VM | <https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html>
+| Amazon AWS | Disk | [Create Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html) in the AWS documentation
+| Azure | VM | [Back up an Azure VM from the VM settings](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm) in Microsoft Learn
+| Hyper-V | VM | [Enable or disable checkpoints in Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/enable-or-disable-checkpoints-in-hyper-v) in Microsoft Learn
+| Google Compute Engine | Disk | [Create and manage disk snapshots](https://cloud.google.com/compute/docs/disks/create-snapshots) in the Google Cloud documentation
+| VMware | VM | [Taking Snapshots of a Virtual Machine](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-64B866EF-7636-401C-A8FF-2B4584D9CA72.html) in VMware Docs
 
 ## Choosing an upgrade package
 
@@ -145,10 +145,10 @@ If the upgrade target you're presented with is a feature release instead of a pa
 1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (*.hpkg* file).
 {% data reusables.enterprise_installation.download-package %}
 1. Run the `ghe-upgrade` command using the package file name:
-  ```shell
-  admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
-  *** verifying upgrade package signature...
-  ```
+   ```shell
+   admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
+   *** verifying upgrade package signature...
+   ```
 1. If at least one service or system component requires a reboot, the hotpatch upgrade script notifies you. For example, updates to the kernel, MySQL, or Elasticsearch may require a reboot. 
 
 ### Upgrading an instance with multiple nodes using a hotpatch
@@ -194,10 +194,10 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   {% endnote %}
 
 1. Run the `ghe-upgrade` command using the package file name:
-  ```shell
-  admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.pkg
-  *** verifying upgrade package signature...
-  ```
+   ```shell
+   admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.pkg
+   *** verifying upgrade package signature...
+   ```
 1. Confirm that you'd like to continue with the upgrade and restart after the package signature verifies. The new root filesystem writes to the secondary partition and the instance automatically restarts in maintenance mode:
   ```shell
   *** applying update...
@@ -206,8 +206,16 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+{%- ifversion ghe-migrations-cli-utility %}
+1. Optionally, during an upgrade to a feature release, you can monitor the status of database migrations using the `ghe-migrations` utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-migrations)."
+{%- endif %}
+1. After the instance restarts, the upgrade will continue in the background. You cannot unset maintenance mode until the process completes. To monitor progress, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
+
+   ```shell
+   tail -f /data/user/common/ghe-config.log
+   ```
 {% ifversion ip-exception-list %}
-1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 {% endif %}
 1. For single node upgrades, disable maintenance mode so users can use {% data variables.location.product_location %}.
 
@@ -235,13 +243,13 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 1. On the primary node, enable maintenance mode and wait for all active processes to complete. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 {% data reusables.enterprise_installation.replica-ssh %}
 1. To stop replication on all nodes, run `ghe-repl-stop` on each node.
-1. To upgrade the primary node, follow the instructions in "[Upgrading a single node with an upgrade package](#upgrading-a-single-node-with-an-upgrade-package)."
+1. To upgrade the primary node, follow the instructions in "[Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)."
 
 #### Upgrading additional nodes with an upgrade package
 
 {% data reusables.enterprise_installation.multiple-node-upgrade-admonishment %}
 
-1. Upgrade the node by following the instructions in "[Upgrading a single node with an upgrade package](#upgrading-a-single-node-with-an-upgrade-package)."
+1. Upgrade the node by following the instructions in "[Upgrading a standalone instance using an upgrade package](#upgrading-a-standalone-instance-using-an-upgrade-package)."
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 {% data reusables.enterprise_installation.start-replication %}
@@ -258,7 +266,7 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
 
    {%- ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}
 
-   - If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/admin/enterprise-support/receiving-help-from-github-support)."
+   - If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
    {%- endif %}
 
    - {% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."

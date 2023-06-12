@@ -105,7 +105,10 @@ async function decorateRedirects(operation, clientSideRedirects) {
     const redirectTo = subcategory
       ? `/rest/${category}/${subcategory}${fragment}`
       : `/rest/${category}/${category}${fragment}`
-    clientSideRedirects[oldUrl] = redirectTo
+
+    if (redirectTo !== oldUrl) {
+      clientSideRedirects[oldUrl] = redirectTo
+    }
   }
 
   // There are a lot of section headings that we'll want to redirect too,

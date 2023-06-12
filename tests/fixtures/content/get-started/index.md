@@ -23,6 +23,9 @@ children:
   - /video-transcripts
   - /minitocs
   - /liquid
+  - /markdown
+  - /images
+  - /versioning
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'

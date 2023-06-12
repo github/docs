@@ -11,8 +11,7 @@ topics:
   - CD
   - Azure Static Web Apps
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 

@@ -45,7 +45,7 @@ shortTitle: Manage pre-receive hooks
 
 ## Configure pre-receive hooks for an organization
 
-An organization administrator can only configure hook permissions for an organization if the site administrator selected the **Administrators can enable or disable this hook** option when they created the pre-receive hook. To configure pre-receive hooks for a repository, you must be an organization administrator or owner.
+An organization owner can only configure hook permissions for an organization if the site administrator selected the **Administrators can enable or disable this hook** option when they created the pre-receive hook. To configure pre-receive hooks for a repository, you must be an organization owner.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

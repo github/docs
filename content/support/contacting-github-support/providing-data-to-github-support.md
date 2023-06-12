@@ -123,10 +123,10 @@ You can use these steps to create and share a support bundle if you have SSH acc
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
 1. Download the support bundle via SSH:
-  ```shell
-  $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
-  ```
-  For more information about the `ghe-support-bundle` command, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-support-bundle)".
+   ```shell
+   $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
+   ```
+   For more information about the `ghe-support-bundle` command, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-support-bundle)".
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
@@ -134,15 +134,13 @@ You can use these steps to create and share a support bundle if you have SSH acc
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. In the left sidebar, click **Enterprise licensing**.
-  ![Screenshot showing "Enterprise licensing" link in the enterprise account settings sidebar.](/assets/images/help/enterprises/enterprise-licensing-tab.png)
-4. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
-  ![Screenshot showing "Upload a support bundle link".](/assets/images/enterprise/support/upload-support-bundle.png)
-5. Under "Select an enterprise account", select the support bundle's associated account from the drop-down menu.
-  ![Screenshot showing the dropdown menu to select the support bundle's enterprise account.](/assets/images/enterprise/support/support-bundle-account.png)
-6. Under "Upload a support bundle for {% data variables.contact.enterprise_support %}", to select your support bundle, click **Choose file**, or drag your support bundle file onto **Choose file**.
-  ![Screenshot showing the "Choose file" button to upload a support bundle file.](/assets/images/enterprise/support/choose-support-bundle-file.png)
-7. Click **Upload**.
+{% data reusables.enterprise-accounts.license-tab %}
+1. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
+
+   ![Screenshot of the "GitHub Enterprise help" section of the enterprise settings page. The "Upload a support bundle link" is highlighted with a dark orange rectangle.](/assets/images/enterprise/support/upload-support-bundle.png)
+1. Under "Select an enterprise account", use the drop-down menu to select the support bundle's associated account.
+1. Under "Upload a support bundle for {% data variables.contact.enterprise_support %}", to select your support bundle, click **Choose file**, or drag your support bundle file onto **Choose file**.
+1. Click **Upload**.
 
 ### Uploading a support bundle directly using SSH
 
@@ -151,9 +149,9 @@ You can directly upload a support bundle to our server if:
 - Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
 1. Upload the bundle to our support bundle server:
-  ```shell
-  $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u'
-  ```
+   ```shell
+   $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u'
+   ```
 
 ## Creating and sharing extended support bundles
 
@@ -166,9 +164,9 @@ To prevent bundles from becoming too large, bundles only contain logs that haven
 You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.location.product_location %} and you have outbound internet access.
 
 1. Download the extended support bundle via SSH by adding the `-x` flag to the `ghe-support-bundle` command:
-  ```shell
-  $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o -x' > support-bundle.tgz
-  ```
+   ```shell
+   $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o -x' > support-bundle.tgz
+   ```
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
@@ -179,9 +177,9 @@ You can directly upload a support bundle to our server if:
 - Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
 1. Upload the bundle to our support bundle server:
-  ```shell
-  $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u -x'
-  ```
+   ```shell
+   $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u -x'
+   ```
 
 ## Further reading
 

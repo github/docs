@@ -19,6 +19,9 @@ topics:
   - Marketplace
 shortTitle: Write listing descriptions
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 Here are guidelines about the fields you'll need to fill out in the **Listing description** section of your draft listing.
 
 ## Naming and links

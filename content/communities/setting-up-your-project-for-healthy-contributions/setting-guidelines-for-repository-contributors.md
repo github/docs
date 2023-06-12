@@ -15,9 +15,7 @@ topics:
 shortTitle: Contributor guidelines
 ---
 ## About contributing guidelines
-To help your project contributors do good work, you can add a file with contribution guidelines to your project repository's root, `docs`, or `.github` folder. When someone opens a pull request or creates an issue, they will see a link to that file. The link to the contributing guidelines also appears on your repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
-
-![contributing-guidelines](/assets/images/help/pull_requests/contributing-guidelines.png)
+To help your project contributors do good work, you can add a file with contribution guidelines to your project repository's root, `docs`, or `.github` folder. When someone opens a pull request or creates an issue, they will see a link to that file. {% ifversion fpt or ghec %}The link to the contributing guidelines also appears on your repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).{% endif %}
 
 For the repository owner, contribution guidelines are a way to communicate how people should contribute.
 
@@ -42,7 +40,6 @@ You can create default contribution guidelines for your organization{% ifversion
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. Decide whether to store your contributing guidelines in your repository's root, `docs`, or `.github` directory. Then, in the filename field, type the name and extension for the file. Contributing guidelines filenames are not case sensitive. Files are rendered in rich text format if the file extension is in a supported format. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)."
-  ![New file name](/assets/images/help/repository/new-file-name.png)
     - To make your contributing guidelines visible in the repository's root directory, type *CONTRIBUTING*.
     - To make your contributing guidelines visible in the repository's `docs` directory, type *docs/* to create the new directory, then *CONTRIBUTING*.
     - If a repository contains more than one *CONTRIBUTING* file, then the file shown in links is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.

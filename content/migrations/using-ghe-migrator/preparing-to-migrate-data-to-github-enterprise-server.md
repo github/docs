@@ -48,9 +48,9 @@ shortTitle: Prepare to migrate data
     ```
     - If no conflicts are reported, you can safely import the data by following the steps in "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
 2. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy *conflicts.csv* to your local computer:
-  ```shell
-  $ scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
-  ```
+   ```shell
+   $ scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
+   ```
 3. Continue to "[Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
 
 ## Reviewing migration conflicts
@@ -83,7 +83,7 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 | `action`      | Description | Applicable models |
 |------------------------|-------------|-------------------|
 | `import`      | (default) Data from the source is imported to the target. | All record types
-| `map`         | Data from the source is replaced by existing data on the target. | Users, organizations, repositories
+| `map`         | Data from the source is replaced by existing data on the target. | Users, organizations
 | `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories
 | `map_or_rename` | If the target exists, map to that target. Otherwise, rename the imported model. | Users
 | `merge`       | Data from the source is combined with existing data on the target. | Teams
@@ -95,19 +95,19 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 
 If you believe that `ghe-migrator` will perform an incorrect change, you can make corrections by changing the data in *conflicts.csv*. You can make changes to any of the rows in *conflicts.csv*.
 
-For example, let's say you notice that the `octocat` user from the source is being mapped to `octocat` on the target:
+For example, let's say you notice that the `octocat` user from the source is being mapped to `octocat` on the target.
 
 | `model_name`   | `source_url`   | `target_url` | `recommended_action` |
 |--------------|--------------|------------|--------------------|
 | `user`         | `https://example-gh.source/octocat` | `https://example-gh.target/octocat` | `map`
 
-You can choose to map the user to a different user on the target. Suppose you know that `octocat` should actually be `monalisa` on the target. You can change the `target_url` column in *conflicts.csv* to refer to `monalisa`:
+You can choose to map the user to a different user on the target. Suppose you know that `octocat` should actually be `monalisa` on the target. You can change the `target_url` column in *conflicts.csv* to refer to `monalisa`.
 
 | `model_name`   | `source_url`   | `target_url` | `recommended_action` |
 |--------------|--------------|------------|--------------------|
 | `user`         | `https://example-gh.source/octocat` | `https://example-gh.target/monalisa` | `map`
 
-As another example, if you want to rename the `octo-org/widgets` repository to `octo-org/amazing-widgets` on the target instance, change the `target_url` to `octo-org/amazing-widgets` and the `recommend_action` to `rename`:
+As another example, if you want to rename the `octo-org/widgets` repository to `octo-org/amazing-widgets` on the target instance, change the `target_url` to `octo-org/amazing-widgets` and the `recommend_action` to `rename`.
 
 | `model_name`   | `source_url`   | `target_url` | `recommended_action` |
 |--------------|--------------|------------|--------------------|

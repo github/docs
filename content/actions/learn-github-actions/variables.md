@@ -13,8 +13,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About variables
@@ -101,7 +100,7 @@ You can create configuration variables for use across multiple workflows, and ca
 
 For example, you can use configuration variables to set default values for parameters passed to build tools at an organization level, but then allow repository owners to override these parameters on a case-by-case basis.
 
-When you define configuration variables, they are automatically available in the `vars` context. For more information, see "[Using the `vars `context to access configuration variable values](#using-the-vars-context-to-access-configuration-variable-values)".
+When you define configuration variables, they are automatically available in the `vars` context. For more information, see "[Using the `vars` context to access configuration variable values](#using-the-vars-context-to-access-configuration-variable-values)".
 
 ### Configuration variable precedence
 
@@ -150,7 +149,8 @@ The following rules apply to configuration variable names:
 {% data reusables.organizations.org_settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
 {% data reusables.actions.actions-variables-tab %}
-   ![Organization variables tab](/assets/images/help/organizations/actions-organization-variables-tab.png)
+
+   ![Screenshot of the "Actions secrets and variables" page. A tab, labeled "Variables," is outlined in dark orange.](/assets/images/help/actions/organization-variables-tab.png)
 1. Click **New organization variable**.
 {% data reusables.actions.variable-fields %}
 1. From the **Repository access** dropdown list, choose an access policy.

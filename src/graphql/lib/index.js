@@ -92,5 +92,5 @@ function getGraphqlVersion(version) {
   if (!(version in allVersions)) {
     throw new Error(`Unrecognized version '${version}'. Not found in ${Object.keys(allVersions)}`)
   }
-  return allVersions[version].miscVersionName
+  return allVersions[version].openApiVersionName
 }

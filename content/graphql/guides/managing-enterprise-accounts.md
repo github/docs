@@ -41,15 +41,13 @@ For a list of the fields available with the Enterprise Accounts API, see "[AUTOT
 ## Getting started using GraphQL for enterprise accounts
 
 Follow these steps to get started using GraphQL to manage your enterprise accounts:
- - Authenticating with a {% data variables.product.pat_generic %}
- - Choosing a GraphQL client or using the GraphQL Explorer
- - Setting up Insomnia to use the GraphQL API
+- Authenticating with a {% data variables.product.pat_generic %}
+- Choosing a GraphQL client or using the GraphQL Explorer
+- Setting up Insomnia to use the GraphQL API
 
 For some example queries, see "[An example query using the Enterprise Accounts API](#an-example-query-using-the-enterprise-accounts-api)."
 
 ### 1. Authenticate with your {% data variables.product.pat_generic %}
-
-{% data reusables.user-settings.graphql-classic-pat-only %}
 
 1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
@@ -72,9 +70,9 @@ For some example queries, see "[An example query using the Enterprise Accounts A
 We recommend you use GraphiQL or another standalone GraphQL client that lets you configure the base URL.
 
 You may also consider using these GraphQL clients:
-  - [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
-  - [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
-  - [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
+- [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
+- [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
+- [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
 
 The next steps will use Insomnia.
 

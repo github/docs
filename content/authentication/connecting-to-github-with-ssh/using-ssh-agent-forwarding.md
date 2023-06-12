@@ -164,6 +164,6 @@ For MacOS versions prior to Monterey (12.0), use `-K` instead of `--apple-use-ke
 {% endtip %}
 
 [tech-tips]: http://www.unixwiz.net/techtips/ssh-agent-forwarding.html
-[generating-keys]: /articles/generating-ssh-keys
-[ssh-passphrases]: /ssh-key-passphrases/
-[autolaunch-ssh-agent]: /github/authenticating-to-github/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows
+[generating-keys]: /authentication/connecting-to-github-with-ssh
+[ssh-passphrases]: /authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases
+[autolaunch-ssh-agent]: /authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases#auto-launching-ssh-agent-on-git-for-windows

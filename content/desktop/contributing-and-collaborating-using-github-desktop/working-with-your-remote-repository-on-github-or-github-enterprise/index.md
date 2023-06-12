@@ -6,11 +6,11 @@ redirect_from:
 versions:
   fpt: '*'
 children:
-  - /creating-an-issue-or-pull-request
+  - /creating-an-issue-or-pull-request-from-github-desktop
   - /viewing-a-pull-request-in-github-desktop
   - /viewing-and-re-running-checks-in-github-desktop
   - /configuring-notifications-in-github-desktop
-  - /changing-the-remote-url-for-a-repository-from-github-desktop
+  - /changing-the-remote-url-for-a-repository-in-github-desktop
 shortTitle: Work with your remote repo
 ---
 

@@ -48,7 +48,7 @@ By making security reporting instructions clearly available, you make it easy fo
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. In the left sidebar, click **Security policy**.
+3. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" %} Policy**.
 4. Click **Start setup**.
 5. In the new _SECURITY.md_ file, add information about supported versions of your project and how to report a vulnerability.
 {% data reusables.files.write_commit_message %}

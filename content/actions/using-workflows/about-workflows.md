@@ -29,7 +29,7 @@ A workflow must contain the following basic components:
 
 For more information on these basic components, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions#the-components-of-github-actions)."
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![Diagram of an event triggering Runner 1 to run Job 1, which triggers Runner 2 to run Job 2. Each of the jobs is broken into multiple steps.](/assets/images/help/actions/overview-actions-simple.png)
 
 ## Triggering a workflow
 
@@ -127,7 +127,7 @@ For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-yo
 
 If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
 
-This example demonstrates how to cache the ` ~/.npm` directory:
+This example demonstrates how to cache the `~/.npm` directory:
 
 ```yaml
 jobs:
@@ -187,7 +187,7 @@ jobs:
 
 A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. {% ifversion fpt or ghec %}If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.{% endif %}
 
-To learn more about self-hosted runner labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+To learn more about self-hosted runner labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)."
 
 {% ifversion fpt or ghec %}
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."

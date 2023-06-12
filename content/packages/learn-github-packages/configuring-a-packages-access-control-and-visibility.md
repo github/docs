@@ -17,7 +17,7 @@ shortTitle: Access control & visibility
 
 A package can inherit its visibility and access permissions from a repository, or, for registries that support granular permissions, you can set the visibility and permissions of the package separately from a repository.
 
-For the list of registries that support granular permisions, and for more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
+For the list of registries that support granular permissions, and for more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
 {% else %}
 A package inherits the permissions and visibility of the repository in which the package is published.
@@ -190,9 +190,7 @@ Once you've selected the package you're interested in sharing with codespaces in
 {% endif %}
 ## Configuring visibility of packages for your personal account
 
-When you first publish a package that is scoped to your personal account, the default visibility is private and only you can see the package. You can modify a private or public  package's access by changing the access settings.
-
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+When you first publish a package that is scoped to your personal account, the default visibility is private and only you can see the package. You can modify a private or public  package's access by changing the access settings. Once you make your package public, you cannot make your package private again.
 
 {% data reusables.package_registry.package-settings-option %}
 1. At the bottom of the page, under "Danger Zone", click **Change visibility**.
@@ -220,9 +218,7 @@ For registries that support granular permissions, you can choose the visibility 
 
 ## Configuring visibility of packages for an organization
 
-When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your package through the access settings.
-
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your package through the access settings. Once you make your package public, you cannot make your package private again.
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}

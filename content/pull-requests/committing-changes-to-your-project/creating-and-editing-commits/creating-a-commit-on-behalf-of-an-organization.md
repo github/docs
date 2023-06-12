@@ -30,11 +30,11 @@ Organizations can use the `name@organization.com` email as a public point of con
 ## Creating commits with an `on-behalf-of` badge on the command line
 
 1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
-  ```shell
-  $ git commit -m "Refactor usability tests.
-  >
-  >
-  ```
+   ```shell
+   $ git commit -m "Refactor usability tests.
+   >
+   >
+   ```
   {% tip %}
 
   **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `on-behalf-of:` commit trailer.
@@ -43,12 +43,12 @@ Organizations can use the `name@organization.com` email as a public point of con
 
 2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
 
-  ```shell
-  $ git commit -m "Refactor usability tests.
-  >
-  >
-  on-behalf-of: @ORG NAME@ORGANIZATION.COM"
-  ```
+   ```shell
+   $ git commit -m "Refactor usability tests.
+   >
+   >
+   on-behalf-of: @ORG NAME@ORGANIZATION.COM"
+   ```
 
 The new commit, message, and badge will appear on {% data variables.location.product_location %} the next time you push. For more information, see "[AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository)."
 
@@ -56,13 +56,10 @@ The new commit, message, and badge will appear on {% data variables.location.pro
 
 After you've made changes in a file using the web editor on {% data variables.product.product_name %}, you can create a commit on behalf of your organization by adding an `on-behalf-of:` trailer to the commit's message.
 
-1. After making your changes, at the bottom of the page, type a short, meaningful commit message that describes the changes you made.
-  ![Commit message for your change](/assets/images/help/repository/write-commit-message-quick-pull.png)
-
-2. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
-
-  ![Commit message on-behalf-of trailer example in second commit message text box](/assets/images/help/repository/write-commit-message-on-behalf-of-trailer.png)
-4. Click **Commit changes** or **Propose changes**.
+1. Click **Commit changes...**
+1. In the "Commit message" field, type a short, meaningful commit message that describes the changes you made.
+1. In the text box below your commit message, add `on-behalf-of: @org <name@organization.com>`.
+1. Click **Commit changes** or **Propose changes**.
 
 The new commit, message, and badge will appear on {% data variables.location.product_location %}.
 

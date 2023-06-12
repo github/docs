@@ -145,7 +145,7 @@ sections:
         - When configuring protected branches, you can now enforce that a required status check is provided by a specific {% data variables.product.prodname_github_app %}. If a status is then provided by a different application, or by a user via a commit status, merging is prevented. This ensures all changes are validated by the intended application. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-12-01-ensure-required-status-checks-provided-by-the-intended-app/)."
 
         # https://github.com/github/releases/issues/1911
-        - Only users with administrator permissions are now able to rename protected branches and modify branch protection rules. Previously, with the exception of the default branch, a collaborator could rename a branch and consequently any non-wildcard branch protection rules that applied to that branch were also renamed. For more information, see "[Renaming a branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule)."
+        - Only users with administrator permissions are now able to rename protected branches and modify branch protection rules. Previously, with the exception of the default branch, a collaborator could rename a branch and consequently any non-wildcard branch protection rules that applied to that branch were also renamed. For more information, see "[Renaming a branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
 
         # https://github.com/github/releases/issues/1845
         - Administrators can now allow only specific users and teams to bypass pull request requirements. For more information, see the "[{% data variables.product.prodname_dotcom %} changelog](https://github.blog/changelog/2021-11-19-allow-bypassing-required-pull-requests/)."
@@ -244,7 +244,6 @@ sections:
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
     - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
-    - Issues cannot be closed if they contain a permalink to a blob in the same repository, where the blob's file path is longer than 255 characters.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
     - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
     - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
@@ -314,3 +313,6 @@ sections:
 
   backups:
     - '{% data variables.product.prodname_ghe_server %} 3.4 requires at least [GitHub Enterprise Backup Utilities 3.4.0](https://github.com/github/backup-utils) for [Backups and Disaster Recovery](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).'
+
+  errata:
+    - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'
