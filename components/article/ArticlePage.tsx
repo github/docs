@@ -12,6 +12,7 @@ import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { PermissionsStatement } from 'components/ui/PermissionsStatement'
 import { ArticleGridLayout } from './ArticleGridLayout'
+import { ArticleInlineLayout } from './ArticleInlineLayout'
 import { PlatformPicker } from 'components/article/PlatformPicker'
 import { ToolPicker } from 'components/article/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
@@ -42,9 +43,61 @@ export const ArticlePage = () => {
     miniTocItems,
     currentLearningTrack,
     supportPortalVaIframeProps,
+    currentLayout,
   } = useArticleContext()
   const isLearningPath = !!currentLearningTrack?.trackName
   const { t } = useTranslation(['pages'])
+
+  const introProp = (
+    <>
+      {intro && (
+        // Note the `_page-intro` is used by the popover preview cards
+        // when it needs this text for in-page links.
+        <Lead data-testid="lead" data-search="lead" className="_page-intro">
+          {intro}
+        </Lead>
+      )}
+
+      {permissions && <PermissionsStatement permissions={permissions} />}
+
+      {includesPlatformSpecificContent && <PlatformPicker />}
+      {includesToolSpecificContent && <ToolPicker />}
+
+      {product && (
+        <Callout variant="success" className="mb-4" dangerouslySetInnerHTML={{ __html: product }} />
+      )}
+    </>
+  )
+
+  const toc = (
+    <>
+      {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
+      {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
+    </>
+  )
+
+  const articleContents = (
+    <div id="article-contents">
+      {productVideoUrl && (
+        <div className="my-2">
+          <Link id="product-video" href={productVideoUrl} target="_blank">
+            <LinkExternalIcon aria-label="(external site)" className="octicon-link mr-2" />
+            {t('video_from_transcript')}
+          </Link>
+        </div>
+      )}
+
+      <MarkdownContent>{renderedPage}</MarkdownContent>
+      {effectiveDate && (
+        <div className="mt-4" id="effectiveDate">
+          Effective as of:{' '}
+          <time dateTime={new Date(effectiveDate).toISOString()}>
+            {new Date(effectiveDate).toDateString()}
+          </time>
+        </div>
+      )}
+    </div>
+  )
 
   return (
     <DefaultLayout>
@@ -55,61 +108,25 @@ export const ArticlePage = () => {
         <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
           <Breadcrumbs />
         </div>
-        <ArticleGridLayout
-          supportPortalVaIframeProps={supportPortalVaIframeProps}
-          topper={<ArticleTitle>{title}</ArticleTitle>}
-          intro={
-            <>
-              {intro && (
-                // Note the `_page-intro` is used by the popover preview cards
-                // when it needs this text for in-page links.
-                <Lead data-testid="lead" data-search="lead" className="_page-intro">
-                  {intro}
-                </Lead>
-              )}
-
-              {permissions && <PermissionsStatement permissions={permissions} />}
-
-              {includesPlatformSpecificContent && <PlatformPicker />}
-              {includesToolSpecificContent && <ToolPicker />}
-
-              {product && (
-                <Callout
-                  variant="success"
-                  className="mb-4"
-                  dangerouslySetInnerHTML={{ __html: product }}
-                />
-              )}
-            </>
-          }
-          toc={
-            <>
-              {isLearningPath && <LearningTrackCard track={currentLearningTrack} />}
-              {miniTocItems.length > 1 && <MiniTocs miniTocItems={miniTocItems} />}
-            </>
-          }
-        >
-          <div id="article-contents">
-            {productVideoUrl && (
-              <div className="my-2">
-                <Link id="product-video" href={productVideoUrl} target="_blank">
-                  <LinkExternalIcon aria-label="(external site)" className="octicon-link mr-2" />
-                  {t('video_from_transcript')}
-                </Link>
-              </div>
-            )}
-
-            <MarkdownContent>{renderedPage}</MarkdownContent>
-            {effectiveDate && (
-              <div className="mt-4" id="effectiveDate">
-                Effective as of:{' '}
-                <time dateTime={new Date(effectiveDate).toISOString()}>
-                  {new Date(effectiveDate).toDateString()}
-                </time>
-              </div>
-            )}
-          </div>
-        </ArticleGridLayout>
+        {currentLayout === 'inline' ? (
+          <ArticleInlineLayout
+            supportPortalVaIframeProps={supportPortalVaIframeProps}
+            topper={<ArticleTitle>{title}</ArticleTitle>}
+            intro={introProp}
+            toc={toc}
+          >
+            {articleContents}
+          </ArticleInlineLayout>
+        ) : (
+          <ArticleGridLayout
+            supportPortalVaIframeProps={supportPortalVaIframeProps}
+            topper={<ArticleTitle>{title}</ArticleTitle>}
+            intro={introProp}
+            toc={toc}
+          >
+            {articleContents}
+          </ArticleGridLayout>
+        )}
 
         {isLearningPath ? (
           <div className="mt-4">
