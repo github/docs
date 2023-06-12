@@ -3,7 +3,8 @@ import markdownlint from 'markdownlint'
 
 import { incorrectAltTextLength } from '../../lib/linting-rules/image-alt-text-length.js'
 import { testOptions } from '../../lib/default-markdownlint-options.js'
-const fixtureFile = 'src/content-linter/tests/unit/image-alt-text-length.md'
+
+const fixtureFile = 'src/content-linter/tests/fixtures/image-alt-text-length.md'
 
 describe('image alt text length rule', () => {
   jest.setTimeout(60 * 1000)
