@@ -248,12 +248,12 @@ $resourceGroupName = "octocat-testgroup"
   test('does not autoguess code block language', async () => {
     const template = nl(`
 \`\`\`
-some code
-\`\`\`\
+var a = 1
+\`\`\`
     `)
     const html = await renderContent(template)
     const $ = cheerio.load(html, { xmlMode: true })
-    expect($.html().includes('<pre><code>some code\n</code></pre>')).toBeTruthy()
+    expect($.html().includes('var a = 1')).toBeTruthy()
   })
 
   test('renders a line break in a table', async () => {
@@ -267,15 +267,15 @@ some code
     )
   })
 
-  test('renders a copy button for code blocks with {:copy} annotation', async () => {
+  test('renders a copy button for code blocks with language specified', async () => {
     const template = nl(`
-\`\`\`js{:copy}
-some code
-\`\`\`\
+\`\`\`javascript copy
+var a = 1
+\`\`\`
     `)
     const html = await renderContent(template)
     const $ = cheerio.load(html)
     const el = $('button.js-btn-copy')
-    expect(el.data('clipboard-text')).toBe('some code')
+    expect(el.data('clipboard-text')).toBe('var a = 1\n')
   })
 })
