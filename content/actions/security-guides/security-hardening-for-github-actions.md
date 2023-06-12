@@ -204,14 +204,6 @@ The same principles described above for using third-party actions also apply to 
 You can use {% data variables.product.prodname_dependabot_version_updates %} to ensure that references to actions{% ifversion dependabot-updates-actions-reusable-workflows %} and reusable workflows{% endif %} used in your repository are kept up to date. Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. {% data variables.product.prodname_dependabot_version_updates %} take the effort out of maintaining your dependencies as {% data variables.product.prodname_dependabot %} does this automatically for you. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)."
 {% endif %}
 
-{% ifversion required-workflows %}
-
-## Required workflows
-
-Required workflows allow you to specify workflows to run on selected repositories or all repositories in your organization, providing the ability to enforce organization-wide security policies while only maintaining a single workflow. Required workflows appear as required status checks on pull requests and the checks must succeed before the pull request can be merged. For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."
-
-{% endif %}
-
 {% ifversion internal-actions %}
 ## Allowing workflows to access internal {% ifversion private-actions %}and private {% endif %}repositories
 
