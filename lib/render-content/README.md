@@ -39,7 +39,7 @@ The [Liquid](https://ghub.io/liquidjs) instance used internally.
 
 ### Code block headers
 
-You can add a header to code blocks by adding the ` copy` annotation after the code fences:
+You can add a header to code blocks by adding the ` copy` annotation after the code fences, and a specified language:
 
     ```js copy
     const copyMe = true
