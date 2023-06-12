@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql execute language-server --check-errors=<checkErrors> <options>...
 ```
 

@@ -35,7 +35,7 @@ If you have disabled GPG verification, and are working in an existing codespace,
 
 To keep making regular, unsigned commits in your codespace, reset `commit.gpgsign` to the default value of `false` by entering the following command in the terminal.
 
-```Shell{:copy}
+```Shell copy
 git config --unset commit.gpgsign
 ```
 
@@ -101,7 +101,7 @@ For example, if the global `.gitconfig` file on your local machine contains a `g
 
 Alternatively, if your dotfiles repository contains an installation script in a recognized file such as `install.sh`, you can use the `$CODESPACES` environment variable to add conditional logic, such as only setting `gpg.program` when you are not in a codespace. In the following example, `-z "$CODESPACES"` returns `true` if you are not in a codespace.
 
-```Shell{:copy}
+```Shell copy
 if [ -z "$CODESPACES" ]; then
   git config --global gpg.program gpg2
 fi

@@ -42,7 +42,7 @@ Regardless of where you created or access your codespaces, you can view and mana
 
 To stop a codespace use the `gh codespace stop` subcommand and then choose the codespace you want to stop from the list that's displayed.
 
-```shell{:copy}
+```shell copy
 gh codespace stop
 ```
 
@@ -79,13 +79,13 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 - To restart a codespace and open it in {% data variables.product.prodname_vscode %}, use the `gh codespace code` subcommand and then choose the codespace you want to restart from the list that's displayed.
 
-  ```shell{:copy}
+  ```shell copy
   gh codespace code
   ```
 
 - To restart a codespace and open it in your browser, use the `gh codespace open --web` subcommand and then choose the codespace you want to restart from the list that's displayed.
 
-  ```shell{:copy}
+  ```shell copy
   gh codespace open --web
   ```
 

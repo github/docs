@@ -65,7 +65,7 @@ The {% data variables.product.prodname_github_codespaces %} plugin for the JetBr
 
 Use this command to check your version of {% data variables.product.prodname_cli %}:
 
-```shell{:copy}
+```shell copy
 gh --version
 ```
 

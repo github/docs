@@ -25,7 +25,7 @@ For information on how to see the current total {% data variables.product.prodna
 
 To list all of the current codespaces for a specified organization, use the following command.
 
-```shell{:copy}
+```shell copy
 gh codespace list --org ORGANIZATION 
 ```
 
@@ -37,7 +37,7 @@ This command returns a list that includes the following information for each cod
 
 To list all of the current codespaces for an organization that were created by a specific user, use the following command.
 
-```shell{:copy}
+```shell copy
 gh codespace list --org ORGANIZATION --user USER
 ```
 

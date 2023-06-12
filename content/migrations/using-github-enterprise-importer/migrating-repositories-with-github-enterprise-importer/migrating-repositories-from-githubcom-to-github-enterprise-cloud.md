@@ -173,7 +173,7 @@ If you want to migrate a single repository, skip to the next step.
 
 {% data reusables.enterprise-migration-tool.gh-gei-generate-script %}
 
-```shell{:copy}
+```shell copy
 gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATION --output FILENAME
 ```
 
@@ -197,7 +197,7 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 
 {% data reusables.enterprise-migration-tool.gei-migrate-repo %}
 
-```shell{:copy}
+```shell copy
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME
 ```
 {% data reusables.enterprise-migration-tool.skip-releases %}

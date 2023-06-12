@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database cleanup [--mode=<mode>] <options>... -- <database>
 ```
 

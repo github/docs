@@ -123,7 +123,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 
 {% data reusables.copilot.create-java-file %}
 1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
-    ```java{:copy}
+    ```java copy
     // find all images without alternate text
     // and give them a red border
     void process () {
@@ -197,7 +197,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-   ```csharp{:copy}
+   ```csharp copy
    int CalculateDaysBetweenDates(
    ```
 
@@ -208,7 +208,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will show you a suggestion.
 
-   ```csharp{:copy}
+   ```csharp copy
    int CalculateDaysBetweenDates(
    ```
 1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
@@ -221,7 +221,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
-   ```csharp{:copy}
+   ```csharp copy
    using System.Xml.Linq;
 
    var doc = XDocument.Load("index.xhml");
@@ -277,7 +277,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-   ```javascript{:copy}
+   ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
 
@@ -289,7 +289,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
-   ```javascript{:copy}
+   ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
 {% data reusables.copilot.see-alternative-suggestions %}
@@ -308,7 +308,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
-   ```javascript{:copy}
+   ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
 1. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
@@ -320,7 +320,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
-   ```javascript{:copy}
+   ```javascript copy
    // find all images without alternate text
    // and give them a red border
    function process() {
@@ -332,11 +332,11 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
-   ```javascript{:copy}
+   ```javascript copy
    // Express server on port 3000
 1. To accept each line, press <kbd>Tab</kbd>, then <kbd>Enter</kbd>.
 1. Type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation for the default handler.
-   ```javascript{:copy}
+   ```javascript copy
    // Return the current time
    ```
 1. To accept each line, press <kbd>Tab</kbd>.

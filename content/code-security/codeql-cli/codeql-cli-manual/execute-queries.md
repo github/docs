@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql execute queries [--output=<dir|file.bqrs>] [--threads=<num>] <options>... -- <dataset> <query|dir|suite|pack>...
 ```
 

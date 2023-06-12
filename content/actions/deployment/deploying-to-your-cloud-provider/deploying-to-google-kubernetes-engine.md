@@ -49,7 +49,7 @@ To create the GKE cluster, you will first need to authenticate using the `gcloud
 For example:
 
 {% raw %}
-```bash{:copy}
+```bash copy
 $ gcloud container clusters create $GKE_CLUSTER \
 	--project=$GKE_PROJECT \
 	--zone=$GKE_ZONE
@@ -61,7 +61,7 @@ $ gcloud container clusters create $GKE_CLUSTER \
 Enable the Kubernetes Engine and Container Registry APIs. For example:
 
 {% raw %}
-```bash{:copy}
+```bash copy
 $ gcloud services enable \
 	containerregistry.googleapis.com \
 	container.googleapis.com
@@ -133,7 +133,7 @@ Under the `env` key, change the value of `GKE_CLUSTER` to the name of your clust
 
 {% data reusables.actions.delete-env-key %}
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}

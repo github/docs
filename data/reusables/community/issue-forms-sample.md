@@ -1,4 +1,4 @@
-```YAML{:copy}
+```YAML copy
 name: Bug Report
 description: File a bug report
 title: "[Bug]: "

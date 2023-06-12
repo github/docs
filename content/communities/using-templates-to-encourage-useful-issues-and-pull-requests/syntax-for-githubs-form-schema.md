@@ -23,7 +23,7 @@ A form is a set of elements for requesting user input. You can configure a form 
 
 For example, the following form definition includes four form elements: a text area for providing the user's operating system, a dropdown menu for choosing the software version the user is running, a checkbox to acknowledge the Code of Conduct, and Markdown that thanks the user for completing the form.
 
-```yaml{:copy}
+```yaml copy
 - type: textarea
   attributes:
     label: Operating System
@@ -98,7 +98,7 @@ For multi-line text, you can use the pipe operator.
 
 #### Example of `markdown`
 
-```YAML{:copy}
+```YAML copy
 body:
 - type: markdown
   attributes:
@@ -135,7 +135,7 @@ You can use a `textarea` element to add a multi-line text field to your form. Co
 
 #### Example of `textarea`
 
-```YAML{:copy}
+```YAML copy
 body:
 - type: textarea
   id: repro
@@ -177,7 +177,7 @@ You can use an `input` element to add a single-line text field to your form.
 
 #### Example of `input`
 
-```YAML{:copy}
+```YAML copy
 body:
 - type: input
   id: prevalence
@@ -214,7 +214,7 @@ You can use a `dropdown` element to add a dropdown menu in your form.
 
 #### Example of `dropdown`
 
-```YAML{:copy}
+```YAML copy
 body:
 - type: dropdown
   id: download
@@ -255,7 +255,7 @@ You can use the `checkboxes` element to add a set of checkboxes to your form.
 
 #### Example of `checkboxes`
 
-```YAML{:copy}
+```YAML copy
 body:
 - type: checkboxes
   id: operating-systems

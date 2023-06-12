@@ -80,7 +80,7 @@ Within the command-line syntax, use all uppercase text to indicate placeholder t
 
 You can also add a header that includes the name of the language and a button to copy the contents of the code block:
 
-    ```js{:copy}
+    ```js copy
     const copyMe = true
     ```
 

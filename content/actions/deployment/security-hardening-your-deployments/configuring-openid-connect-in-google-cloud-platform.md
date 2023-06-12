@@ -62,7 +62,7 @@ This example has a job called `Get_OIDC_ID_token` that uses actions to request a
 This action exchanges a {% data variables.product.prodname_dotcom %} OIDC token for a Google Cloud access token, using [Workload Identity Federation](https://cloud.google.com/iam/docs/workload-identity-federation).
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 name: List services in GCP
 on:
   pull_request:
