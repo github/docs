@@ -45,8 +45,4 @@ You can add a header to code blocks by adding the ` copy` annotation after the c
     const copyMe = true
     ```
 
-This renders:
-
-![Screenshot of a code block showing the clipboard icon that is displayed when you use ` copy` annotation.](/assets/images/internal-docs/copy-block-header.png)
-
 The un-highlighted text is available as `button.js-btn-copy`'s `data-clipboard-text` attribute.
