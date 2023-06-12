@@ -6,8 +6,6 @@ versions:
   feature: discussion-category-forms
 ---
 
-{% data reusables.discussions.discussion-category-forms-beta %}
-
 ## About YAML syntax for discussion category forms
 
 You can create custom discussion category forms by adding a YAML form definition file to the `/.github/DISCUSSION_TEMPLATE/` folder in your repository. {% data reusables.actions.learn-more-about-yaml %} 

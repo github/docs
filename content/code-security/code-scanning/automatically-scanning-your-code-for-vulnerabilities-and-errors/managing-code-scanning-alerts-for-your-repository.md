@@ -194,7 +194,7 @@ To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alert
    ![Screenshot of the check failure for a code scanning alert in a pull request. The "Dismiss alert" button in the check failure is highlighted in dark orange. The "Dismiss alert" drop-down is displayed. ](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
 {%- else %}
 1. Review the alert, then click **Dismiss** and choose a reason for closing the alert.
-   ![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
+   ![Choosing a reason for dismissing an alert.](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 {%- endif %}
    {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 

@@ -70,7 +70,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
-{%- ifversion fpt or ghec or ghes > 3.7 %}
+{%- ifversion fpt or ghec or ghes > 3.8 %}
 1. Under "Setup authenticator app", do one of the following:
     - Scan the QR code with your mobile device's app. After scanning, the app displays a six-digit code that you can enter on {% data variables.product.product_name %}.
     - If you can't scan the QR code, click **enter this text code** to see a code that you can manually enter in your TOTP app instead.

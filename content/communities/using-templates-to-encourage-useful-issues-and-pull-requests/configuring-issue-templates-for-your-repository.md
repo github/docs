@@ -7,9 +7,9 @@ redirect_from:
   - /github/building-a-strong-community/configuring-issue-templates-for-your-repository
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
 topics:
   - Community
 shortTitle: Configure
@@ -39,7 +39,7 @@ shortTitle: Configure
 1. Below the commit message fields, select whether to commit your template directly to the default branch, or to create a new branch and open a pull request. For more information about pull requests, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
 1. Click **Commit changes**. Once these changes are merged into the default branch, the template will be available for contributors to use when they open new issues in the repository.
 
-{% ifversion fpt or ghec %}
+{% ifversion issue-forms %}
 
 ## Creating issue forms
 

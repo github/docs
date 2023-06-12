@@ -59,4 +59,33 @@ describe('translations', () => {
     // There are 4 links on the `autotitling.md` content.
     expect.assertions(4)
   })
+
+  test('correction of linebreaks in translations', async () => {
+    // free-pro-team
+    {
+      const $ = await getDOM('/ja/get-started/foo/table-with-ifversions')
+
+      const paragraph = $('#article-contents p').text()
+      expect(paragraph).toMatch('mention of GitHub in Liquid')
+
+      const tds = $('#article-contents td')
+        .map((i, element) => $(element).text())
+        .get()
+      expect(tds.length).toBe(2)
+      expect(tds[1]).toBe('Not')
+    }
+    // enterprise-server
+    {
+      const $ = await getDOM('/ja/enterprise-server@latest/get-started/foo/table-with-ifversions')
+
+      const paragraph = $('#article-contents p').text()
+      expect(paragraph).toMatch('mention of GitHub Enterprise Server in Liquid')
+
+      const tds = $('#article-contents td')
+        .map((i, element) => $(element).text())
+        .get()
+      expect(tds.length).toBe(2)
+      expect(tds[1]).toBe('Present')
+    }
+  })
 })

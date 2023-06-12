@@ -55,19 +55,19 @@ You can use [{% data variables.product.prodname_github_codespaces %}](/codespace
 1. Open the pull request in a codespace, as described in "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)."
 2. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/github-pr-view.png)
+   ![Option to open PR in a codespace.](/assets/images/help/codespaces/github-pr-view.png)
 
 3. To review a specific file, click the **Open File** icon in the Side Bar.
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/changes-in-files.png)
+   ![Option to open PR in a codespace.](/assets/images/help/codespaces/changes-in-files.png)
 
 4. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/start-review.png)
+   ![Option to open PR in a codespace.](/assets/images/help/codespaces/start-review.png)
 
 5. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
 
-   ![Option to open PR in a codespace](/assets/images/help/codespaces/submit-review.png)
+   ![Option to open PR in a codespace.](/assets/images/help/codespaces/submit-review.png)
 
 For more information on reviewing pull requests in {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
@@ -83,7 +83,7 @@ If the pull request contains changes to dependencies you can use the dependency 
 
 1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
-   ![The rich diff button](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![The rich diff button.](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
 {% data reusables.repositories.return-to-source-diff %}
 {% endif %}

@@ -175,7 +175,7 @@ Every image must include alt text providing a textual equivalent of the visual i
 
 - Express the core idea or meaning of the image, rather than describing it literally.
 - Use 40–150 characters.
-- End with a period.
+- End with a punctuation mark. This should generally be a period unless the alt text is describing an image of text that ends with other punctuation, such as a question mark or exclamation point.
 - Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
 - Follow standard language used to describe UI elements in article text.

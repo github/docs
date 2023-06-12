@@ -199,20 +199,23 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    *** verifying upgrade package signature...
    ```
 1. Confirm that you'd like to continue with the upgrade and restart after the package signature verifies. The new root filesystem writes to the secondary partition and the instance automatically restarts in maintenance mode:
-   ```shell
-   *** applying update...
-   This package will upgrade your installation to version VERSION-NUMBER
-   Current root partition: /dev/xvda1 [VERSION-NUMBER]
-   Target root partition:  /dev/xvda2
-   Proceed with installation? [y/N]
-   ```
+  ```shell
+  *** applying update...
+  This package will upgrade your installation to version VERSION-NUMBER
+  Current root partition: /dev/xvda1 [VERSION-NUMBER]
+  Target root partition:  /dev/xvda2
+  Proceed with installation? [y/N]
+  ```
+{%- ifversion ghe-migrations-cli-utility %}
+1. Optionally, during an upgrade to a feature release, you can monitor the status of database migrations using the `ghe-migrations` utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-migrations)."
+{%- endif %}
 1. After the instance restarts, the upgrade will continue in the background. You cannot unset maintenance mode until the process completes. To monitor progress, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
 
    ```shell
    tail -f /data/user/common/ghe-config.log
    ```
 {% ifversion ip-exception-list %}
-1. Optionally, to validate the upgrade, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
+1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 {% endif %}
 1. For single node upgrades, disable maintenance mode so users can use {% data variables.location.product_location %}.
 
