@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-organizations-with-github-enterprise-importer/migrating-organizations-from-githubcom-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About organization migrations with {% data variables.product.prodname_importer_proper_name %}
 
 {% data reusables.enterprise-migration-tool.tool-options %}
