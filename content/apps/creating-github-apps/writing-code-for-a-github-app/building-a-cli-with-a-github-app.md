@@ -60,7 +60,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 1. Create a Ruby file to hold the code that will generate a user access token. This tutorial will name the file `app_cli.rb`.
 1. In your terminal, from the directory where `app_cli.rb` is stored, run the following command to make `app_cli.rb` executable:
 
-   ``` copy
+   ```text copy
    chmod +x app_cli.rb
    ```
 

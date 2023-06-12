@@ -158,7 +158,7 @@ The following table shows which toolkit functions are available within a workflo
 
 Sets an action's output parameter.
 
-``` copy
+```text copy
 ::set-output name={name}::{value}
 ```
 
@@ -189,7 +189,7 @@ Write-Output "::set-output name=action_fruit::strawberry"
 
 Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."
 
-``` copy
+```text copy
 ::debug::{message}
 ```
 
@@ -215,7 +215,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-``` copy
+```text copy
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -243,7 +243,7 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 Creates a warning message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-``` copy
+```text copy
 ::warning file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -270,7 +270,7 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 Creates an error message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-``` copy
+```text copy
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -298,7 +298,7 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
-``` copy
+```text copy
 ::group::{title}
 ::endgroup::
 ```
@@ -341,7 +341,7 @@ jobs:
 
 ## Masking a value in a log
 
-``` copy
+```text copy
 ::add-mask::{value}
 ```
 
@@ -569,7 +569,7 @@ jobs:
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
-``` copy
+```text copy
 ::stop-commands::{endtoken}
 ```
 
@@ -581,7 +581,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 {% endwarning %}
 
-``` copy
+```text copy
 ::{endtoken}::
 ```
 
@@ -629,7 +629,7 @@ jobs:
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
-``` copy
+```text copy
 ::echo::on
 ::echo::off
 ```
@@ -680,7 +680,7 @@ jobs:
 
 The example above prints the following lines to the log:
 
-``` copy
+```text copy
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
@@ -831,7 +831,7 @@ steps:
 
 For multiline strings, you may use a delimiter with the following syntax.
 
-``` copy
+```text copy
 {name}<<{delimiter}
 {value}
 {delimiter}
