@@ -581,7 +581,7 @@ Let's get started! These are the steps you'll complete in Part 1:
 
 Because your app is subscribed to the **Check suite** and **Check run** events, it will receive the [`check_suite`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) and [`check_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) webhooks. {% data variables.product.prodname_dotcom %} sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost:3000/event_handler`, your server will receive the `POST` request payloads at the `post '/event_handler'` route.
 
-An empty `post '/event_handler'` route is already included in the template code in the `server.rb` file that you created in "[Add code for your {% data variables.product.prodname_github_app %}](#add-code-for-your--data-variablesproductprodname_github_app)." The empty route looks like this:
+Open the `server.rb` file that you created in "[Add code for your {% data variables.product.prodname_github_app %}](#add-code-for-your--data-variablesproductprodname_github_app)", and look for the following code. An empty `post '/event_handler'` route is already included in the template code. The empty route looks like this:
 
 ``` ruby
   post '/event_handler' do
@@ -602,9 +602,8 @@ when 'check_suite'
   if @payload['action'] == 'requested' || @payload['action'] == 'rerequested'
     create_check_run
   end
+end
 ```
-
-[TODOCS: Deleted an extra `end` at the end of the code block above. According to the final code in the repo, it shouldn't be there. But it was in original tutorial code.]
 
 Every event that {% data variables.product.prodname_dotcom %} sends includes a request header called `HTTP_X_GITHUB_EVENT`, which indicates the type of event in the `POST` request. Right now, you're only interested in events of type `check_suite`, which are emitted when a new check suite is created. Each event has an additional `action` field that indicates the type of action that triggered the events. For `check_suite`, the `action` field can be `requested`, `rerequested`, or `completed`.
 
@@ -727,9 +726,9 @@ You could also provide more details about what your check is doing, but you'll g
 ruby server.rb
 ```
 
-[TODOCS: Do you have to push another commit first, before it will update to show the "Re-run" button?]
-
 Head over to your open pull request and click the **Checks** tab. Click the "Re-run all" button in the upper right corner. You should see the check run move from `pending` to `in_progress` and end with `success`.
+
+[TODOCS: I had to push another commit first, before the PR would update to show the "Re-run" button. But pushing another commit already re-runs the test. So it maybe feels weird to also tell them to click the re-run all button... but maybe not? Is there another way to get the re-run all button to show up?]
 
 ## Part 2. Creating the Octo RuboCop CI test
 
@@ -741,11 +740,11 @@ Head over to your open pull request and click the **Checks** tab. Click the "Re-
 
 Now that you've got the interface created to receive Checks API events and create check runs, you can create a check run that implements a CI test.
 
-Your app will run RuboCop on the CI server and create check runs (CI tests in this case) that report the results that RuboCop reports to {% data variables.product.prodname_dotcom %}.
+Your app will run RuboCop on the CI server, and create check runs (CI tests in this case) that report the results that RuboCop reports to {% data variables.product.prodname_dotcom %}.
 
 The Checks API allows you to report rich details about each check run, including statuses, images, summaries, annotations, and requested actions.
 
-Annotations are information about specific lines of code in a repository. An annotation allows you to pinpoint and visualize the exact parts of the code you'd like to show additional information for. That information can be anything: for example, a comment, an error, or a warning. This tutorial uses annotations to visualize RuboCop errors.
+Annotations are information about specific lines of code in a repository. An annotation allows you to pinpoint and visualize the exact parts of the code you'd like to show additional information for. For example, you could show that information as a comment, error, or warning on a specific line of code. This tutorial uses annotations to visualize RuboCop errors.
 
 To take advantage of requested actions, app developers can create buttons in the **Checks** tab of pull requests. When someone clicks one of these buttons, the click sends a `requested_action` `check_run` event to the {% data variables.product.prodname_github_app %}. The action that the app takes is completely configurable by the app developer. This tutorial will walk you through adding a button that allows users to request that RuboCop fix the errors it finds. RuboCop supports automatically fixing errors using a command-line option, and you'll configure the `requested_action` to take advantage of this option.
 
@@ -759,57 +758,67 @@ Let's get started! These are the steps you'll complete in this section:
 1. [Automatically fixing RuboCop errors](#step-26-automatically-fixing-rubocop-errors)
 1. [Security tips](#step-27-security-tips)
 
-## Step 2.1. Adding a Ruby file
+## Step 2.1. Add a Ruby file
 
-You can pass specific files or entire directories for RuboCop to check. In this tutorial, you'll run RuboCop on an entire directory. Because RuboCop only checks Ruby code, you'll want at least one Ruby file in your repository that contains errors. The example file provided below contains a few errors. Add this example Ruby file to the repository where your app is installed (make sure to name the file with an `.rb` extension, as in `myfile.rb`):
+You can pass specific files or entire directories for RuboCop to check. In this tutorial, you'll run RuboCop on an entire directory. RuboCop only checks Ruby code. You'll need to add a Ruby file in your repository that contains errors for RuboCop to find.
 
-```ruby
-# The Octocat class tells you about different breeds of Octocat
-class Octocat
-  def initialize(name, *breeds)
-    # Instance variables
-    @name = name
-    @breeds = breeds
-  end
+1. Navigate to the directory where your app is installed.
+2. Create a new file named `myfile.rb`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
+3. Add the following content to `myfile.rb`:
 
-  def display
-    breed = @breeds.join("-")
+   ```ruby{:copy}
+   # The Octocat class tells you about different breeds of Octocat
+   class Octocat
+     def initialize(name, *breeds)
+       # Instance variables
+       @name = name
+       @breeds = breeds
+     end
 
-    puts "I am of #{breed} breed, and my name is #{@name}."
-  end
-end
+     def display
+       breed = @breeds.join("-")
 
-m = Octocat.new("Mona", "cat", "octopus")
-m.display
-```
+       puts "I am of #{breed} breed, and my name is #{@name}."
+     end
+   end
 
-## Step 2.2. Cloning the repository
+   m = Octocat.new("Mona", "cat", "octopus")
+   m.display
+   ```
+
+## Step 2.2. Clone the repository
 
 RuboCop is available as a command-line utility. That means your {% data variables.product.prodname_github_app %} will need to clone a local copy of the repository on the CI server so RuboCop can parse the files. To run Git operations in your Ruby app, you can use the [ruby-git](https://github.com/ruby-git/ruby-git) gem.
 
 The `Gemfile` in the `building-a-checks-api-ci-server` repository already includes the ruby-git gem, and you installed it when you ran `bundle install` in the [prerequisite steps](#prerequisites). To use the gem, add this code to the top of your `server.rb` file:
 
-``` ruby
+``` ruby{:copy}
 require 'git'
 ```
 
-Your app needs read permission for "Repository contents" to clone a repository. Later in this tutorial, you'll need to push contents to {% data variables.product.prodname_dotcom %}, which requires write permission. Go ahead and set your app's "Repository contents" permission to **Read & write** now so you don't need to update it again later. To update your app's permissions:
+### Update your app permissions
 
-1. Select your app from the [app settings page](https://github.com/settings/apps) and click **Permissions & Webhooks** in the sidebar.
-1. In the "Permissions" section, find "Repository contents", and select **Read & write** in the "Access" dropdown next to it.
+Next you'll need to update your {% data variables.product.prodname_github_app %}'s permissions. Your app will need read permission for "Repository contents" to clone a repository. And later in this tutorial, it will need write permission to push contents to {% data variables.product.prodname_dotcom %}. To update your app's permissions:
+
+1. Select your app from the [app settings page](https://github.com/settings/apps), and click **Permissions & events** in the sidebar.
+1. Under "Repository permissions," next to "Contents," select **Read & write**.
 {% data reusables.apps.accept_new_permissions_steps %}
 
-To clone a repository using your {% data variables.product.prodname_github_app %}'s permissions, you can use the app's installation token (`x-access-token:<token>`) shown in the example below:
+### Add code to clone a repository
+
+To clone a repository using your {% data variables.product.prodname_github_app %}'s permissions, your code will use the app's installation token (`x-access-token:<token>`), as shown in the example below:
 
 ```shell
-git clone https://x-access-token:<token>@github.com/<owner>/<repo>.git
+git clone https://x-access-token:&lt;TOKEN&gt;@github.com/&lt;OWNER&gt;/&lt;REPO&gt;.git
 ```
 
-The code above clones a repository over HTTP. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
+The command above clones a repository over HTTP. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
 
-After your app clones the repository, it needs to pull the latest code changes and check out a specific Git ref. The code to do all of this will fit nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. Add the following new method to the helper method section in `server.rb`:
+After your app clones the repository, it needs to pull the latest code changes and check out a specific Git ref. The code to do all of this will fit nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag.
 
-``` ruby
+Open your `server.rb` file. Under `helpers do`, add the following code:
+
+``` ruby{:copy}
 # Clones the repository to the current working directory, updates the
 # contents using Git pull, and checks out the ref.
 #
@@ -830,7 +839,9 @@ The code above uses the `ruby-git` gem to clone the repository using the app's i
 
 From the repository directory, this code fetches and merges the latest changes (`@git.pull`), checks out the ref (`@git.checkout(ref)`), then changes the directory back to the original working directory (`pwd`).
 
-Now you've got a method that clones a repository and checks out a ref. Next, you need to add code to get the required input parameters and call the new `clone_repository` method. Add the following code under the `***** RUN A CI TEST *****` comment in your `initiate_check_run` helper method:
+Now you've got a method that clones a repository and checks out a ref. Next, you need to add code to get the required input parameters and call the new `clone_repository` method.
+
+Under `helpers do`, in the `initiate_check_run` helper method where it says `# ***** RUN A CI TEST *****`, add the following code:
 
 ``` ruby
 # ***** RUN A CI TEST *****
