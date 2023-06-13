@@ -10,6 +10,7 @@ topics:
   - Codespaces
   - Set up
 permissions: People with admin access to a repository can configure prebuilds for the repository.
+product: '{% data reusables.gated-features.codespaces-repo %}'
 ---
 
 By default, the {% data variables.product.prodname_actions %} workflow for a prebuild configuration can only access its own repository contents. Your project may use additional resources, located elsewhere, to build the development environment.

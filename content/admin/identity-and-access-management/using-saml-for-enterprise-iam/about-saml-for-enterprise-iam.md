@@ -40,13 +40,9 @@ Alternatively, you can provision and manage the accounts of your enterprise memb
 
 After you enable SAML SSO, depending on the IdP you use, you may be able to enable additional identity and access management features.
 
+{% data reusables.saml.no-scim-for-enterprises %}
+
 If you use Azure AD as your IdP, you can use team synchronization to manage team membership within each organization. {% data reusables.identity-and-permissions.about-team-sync %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise)."
-
-{% note %}
-
-**Note:** You cannot configure SCIM for your enterprise account unless your account was created to use {% data variables.product.prodname_emus %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
-
-{% endnote %}
 
 {% data reusables.saml.switching-from-org-to-enterprise %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/switching-your-saml-configuration-from-an-organization-to-an-enterprise-account)."
 
@@ -102,12 +98,12 @@ We test and officially support the following IdPs. For SAML SSO, we offer limite
 
 IdP | SAML | Team synchronization |
 --- | :--: | :-------: |
-Active Directory Federation Services (AD FS) | {% octicon "check-circle-fill" aria-label= "The check icon" %} | |
-Azure Active Directory (Azure AD) | {% octicon "check-circle-fill" aria-label="The check icon" %} | {% octicon "check-circle-fill" aria-label="The check icon" %} |
-Okta | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
-OneLogin | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
-PingOne | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
-Shibboleth | {% octicon "check-circle-fill" aria-label="The check icon" %} | |
+Active Directory Federation Services (AD FS) | {% octicon "check" aria-label= "Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+Azure Active Directory (Azure AD) | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
+Okta | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+OneLogin | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+PingOne | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+Shibboleth | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 
 {% elsif ghes %}
 

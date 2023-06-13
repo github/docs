@@ -4,7 +4,7 @@ Currently, the following data is **not** migrated.
 - {% data variables.product.prodname_actions %} secrets, environments, or workflow run history
 - Webhook secrets
 - {% data variables.product.prodname_github_codespaces %} secrets
-- {% data variables.product.prodname_code_scanning_capc %} results
+- {% data variables.product.prodname_code_scanning_caps %} results
 - Remediation states of {% data variables.product.prodname_secret_scanning %} results
 - {% data variables.product.prodname_dependabot %} alerts
 - {% data variables.product.prodname_dependabot %} secrets

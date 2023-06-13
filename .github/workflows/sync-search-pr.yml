@@ -8,9 +8,8 @@ name: Sync search - PR
 on:
   pull_request:
     paths:
-      - 'script/search/**'
+      - 'src/search/**'
       - 'package*.json'
-      - lib/search/popular-pages.json
       # Ultimately, for debugging this workflow itself
       - .github/workflows/sync-search-pr.yml
 
@@ -27,6 +26,10 @@ env:
   # as they do in `sync-search-elasticsearch.yml` where it uses
   # that `${{ env.ELASTICSEARCH_URL }}`
   ELASTICSEARCH_URL: http://localhost:9200
+  # Since we'll run in NDOE_ENV=production, we need to be explicit that
+  # we don't want Hydro configured.
+  HYDRO_ENDPOINT: ''
+  HYDRO_SECRET: ''
 
 jobs:
   dryRunElasticsearchIndexes:
@@ -34,14 +37,22 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     steps:
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+
+      - name: Clone docs-internal.popular-pages
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        with:
+          repository: github/docs-internal.popular-pages
+          # This works because user `docubot` has read access to that private repo.
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: popular-pages
 
       - uses: ./.github/actions/setup-elasticsearch
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Cache nextjs build
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -78,6 +89,10 @@ jobs:
           # let's just accept an empty string instead.
           THROW_ON_EMPTY: false
 
+          # The sync-search-index recognizes this env var if you don't
+          # use the `--popular-pags <PATH>` option.
+          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
+
         run: |
           mkdir /tmp/records
           npm run sync-search-indices -- /tmp/records \
@@ -92,7 +107,7 @@ jobs:
 
       - name: Index into Elasticsearch
         run: |
-          ./script/search/index-elasticsearch.js /tmp/records \
+          ./src/search/scripts/index-elasticsearch.js /tmp/records \
             --language en \
             --version dotcom
 

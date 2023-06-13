@@ -12,8 +12,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-githubcom-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
 
 {% data reusables.enterprise-migration-tool.tool-options %}
@@ -166,6 +164,8 @@ mutation startRepositoryMigration (
 ## Step 4: Generate a migration script
 
 {% data reusables.enterprise-migration-tool.generate-migration-script %}
+
+If you want to migrate a single repository, skip to the next step.
 
 ### Generating a migration script
 

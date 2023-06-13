@@ -78,7 +78,7 @@ jobs:
           script: |
             const issueToRemove = context.payload.number
             const cards = await github.rest.projects.listCards({
-              column_id: 11130889
+              column_id: 19473478
             })
             cards.data.forEach(card => {
               if (card.content_url) {

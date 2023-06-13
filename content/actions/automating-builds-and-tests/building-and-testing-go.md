@@ -11,8 +11,7 @@ topics:
   - CI
 shortTitle: Build & test Go
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -51,7 +50,7 @@ jobs:
       - name: Set up Go
         uses: {% data reusables.actions.action-setup-go %}
         with:
-          go-version: 1.15
+          go-version: '1.15'
 
       - name: Build
         run: go build -v ./...
@@ -128,7 +127,21 @@ You can use `go get` to install dependencies:
 
 ### Caching dependencies
 
-You can cache and restore the dependencies using the [`setup-go` action](https://github.com/actions/setup-go). By default, caching is disabled, but you can set the `cache` parameter to `true` to enable it.
+You can cache and restore dependencies using the [`setup-go` action](https://github.com/actions/setup-go). By default, caching is {% ifversion actions-setup-go-default-cache-enabled %}enabled when using the `setup-go` action.{% else %}disabled, but you can set the `cache` parameter to `true` to enable it.{% endif %}
+
+{% ifversion actions-setup-go-default-cache-enabled %}
+The `setup-go` action searches for the dependency file, `go.sum`, in the repository root and uses the hash of the dependency file as a part of the cache key.
+
+You can use the `cache-dependency-path` parameter for cases when multiple dependency files are used, or when they are located in different subdirectories.
+
+```yaml{:copy}
+      - name: Setup Go
+      - uses: {% data reusables.actions.action-setup-go %}
+        with:
+          go-version: '1.17'
+          cache-dependency-path: subdir/go.sum
+```
+{% else %}
 
 When caching is enabled, the `setup-go` action searches for the dependency file, `go.sum`, in the repository root and uses the hash of the dependency file as a part of the cache key.
 
@@ -149,6 +162,7 @@ Alternatively, you can use the `cache-dependency-path` parameter for cases when 
           cache: true
           cache-dependency-path: subdir/go.sum
 ```
+{% endif %}
 
 If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 

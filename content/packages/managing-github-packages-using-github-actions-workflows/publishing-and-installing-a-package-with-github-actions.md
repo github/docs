@@ -154,13 +154,13 @@ jobs:
       - name: Checkout
         uses: {% data reusables.actions.action-checkout %}
       - name: Log in to GitHub Docker Registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}
           username: {% raw %}${{ github.actor }}{% endraw %}
           password: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           push: true
           tags: |
@@ -171,6 +171,10 @@ jobs:
 The relevant settings are explained in the following table. For full details about each element in a workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 <table>
+<tr>
+  <th scope="col">Code</th>
+  <th scope="col">Explanation</th>
+</tr>
 <tr>
 <td>
 {% raw %}
@@ -240,7 +244,7 @@ run-npm-build:
 
 </td>
 <td>
-  This job installs NPM and uses it to build the app.
+  This job installs npm and uses it to build the app.
 </td>
 </tr>
 
@@ -317,7 +321,7 @@ permissions:
 {% raw %}
 ```yaml
 - name: Log in to the Container registry
-  uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+  uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
   with:
     registry: ${{ env.REGISTRY }}
     username: ${{ github.actor }}
@@ -336,7 +340,7 @@ permissions:
 ```yaml
 - name: Extract metadata (tags, labels) for Docker
   id: meta
-  uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+  uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
   with:
     images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 ```
@@ -353,7 +357,7 @@ permissions:
 {% raw %}
 ```yaml
 - name: Log in to GitHub Docker Registry
-  uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+  uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
   with:
     registry: {% endraw %}{% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}{% raw %}
     username: ${{ github.actor }}
@@ -384,7 +388,7 @@ permissions:
 <td>
 {% raw %}
 ```yaml
-uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
 ```
 {% endraw %}
 </td>
@@ -500,11 +504,11 @@ Using the `GITHUB_TOKEN`, instead of a {% data variables.product.pat_v1 %} with 
 1. Navigate to your package landing page.
 {% data reusables.package_registry.package-settings-actions-access %}
 1. To ensure your package has access to your workflow, you must add the repository where the workflow is stored to your package. {% data reusables.package_registry.package-settings-add-repo %}
-  {% note %}
+   {% note %}
 
-  **Note:** Adding a repository to your package {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+   **Note:** Adding a repository to your package {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
-  {% endnote %}
+   {% endnote %}
 1. Optionally, use {% data variables.package_registry.package-settings-actions-access-role-dropdown %}
 1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
@@ -515,9 +519,9 @@ name: Demo Push
 
 on:
   push:
-    # Publish `master` as Docker `latest` image.
+    # Publish `main` as Docker `latest` image.
     branches:
-      - master
+      - main
       - seed
 
     # Publish `v1.2.3` tags as releases.
@@ -560,7 +564,7 @@ jobs:
           # Strip "v" prefix from tag name
           [[ "{% raw %}${{ github.ref }}{% endraw %}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
           # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
+          [ "$VERSION" == "main" ] && VERSION=latest
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION

@@ -137,31 +137,31 @@ For more information on creating a package, see the [maven.apache.org documentat
 
 1. Edit the `distributionManagement` element of the *pom.xml* file located in your package directory, replacing {% ifversion ghes or ghae %}*HOSTNAME* with the host name of {% data variables.location.product_location %}, {% endif %}`OWNER` with the name of the personal account or organization that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% ifversion ghes %}
 
-  If your instance has subdomain isolation enabled:{% endif %}
-  ```xml
-  <distributionManagement>
-     <repository>
-       <id>github</id>
-       <name>GitHub OWNER Apache Maven Packages</name>
-       <url>https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
-     </repository>
-  </distributionManagement>
-  ```{% ifversion ghes %}
-  If your instance has subdomain isolation disabled:
-  ```xml
-  <distributionManagement>
-     <repository>
-       <id>github</id>
-       <name>GitHub OWNER Apache Maven Packages</name>
-       <url>https://HOSTNAME/_registry/maven/OWNER/REPOSITORY</url>
-     </repository>
-  </distributionManagement>
-  ```{% endif %}
+   If your instance has subdomain isolation enabled:{% endif %}
+   ```xml
+   <distributionManagement>
+      <repository>
+        <id>github</id>
+        <name>GitHub OWNER Apache Maven Packages</name>
+        <url>https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/REPOSITORY</url>
+      </repository>
+   </distributionManagement>
+   ```{% ifversion ghes %}
+   If your instance has subdomain isolation disabled:
+   ```xml
+   <distributionManagement>
+      <repository>
+        <id>github</id>
+        <name>GitHub OWNER Apache Maven Packages</name>
+        <url>https://HOSTNAME/_registry/maven/OWNER/REPOSITORY</url>
+      </repository>
+   </distributionManagement>
+   ```{% endif %}
 {% data reusables.package_registry.checksum-maven-plugin %}
 1. Publish the package.
    ```shell
    $ mvn deploy
-  ```
+   ```
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -172,21 +172,21 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 {% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to the `dependencies` element of your project *pom.xml* file, replacing `com.example:test` with your package.
 
-  ```xml
-  <dependencies>
+   ```xml
+   <dependencies>
     <dependency>
-      <groupId>com.example</groupId>
-      <artifactId>test</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
-  ```
+       <groupId>com.example</groupId>
+       <artifactId>test</artifactId>
+       <version>1.0.0-SNAPSHOT</version>
+     </dependency>
+   </dependencies>
+   ```
 {% data reusables.package_registry.checksum-maven-plugin %}
 3. Install the package.
 
-  ```shell
-  $ mvn install
-  ```
+   ```shell
+   $ mvn install
+   ```
 
 ## Further reading
 

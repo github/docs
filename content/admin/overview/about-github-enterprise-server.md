@@ -17,6 +17,12 @@ topics:
 
 {% data reusables.enterprise.github-distributes-ghes %} For more information, see "[AUTOTITLE](/admin/overview/system-overview)."
 
+{% note %}
+
+**Note:** Installing third-party software or making changes to the underlying operating system is not supported for {% data variables.product.prodname_ghe_server %}.
+
+{% endnote %}
+
 You can choose to deploy {% data variables.product.product_name %} on premises, or to a supported cloud environment.
 
 ## Supported environments for deployment
@@ -81,7 +87,7 @@ Additionally, you can configure a passive replica instance to fail over to in th
 
 ## About documentation
 
-Documentation for both administrators and users of {% data variables.product.product_name %} is available on this site, {% data variables.product.prodname_docs %}. 
+Documentation for both administrators and users of {% data variables.product.product_name %} is available on this site, {% data variables.product.prodname_docs %}.
 
 - [Enterprise administrator documentation](/admin)
 - [User documentation](/)

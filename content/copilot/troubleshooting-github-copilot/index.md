@@ -6,10 +6,8 @@ versions:
   fpt: '*'
   ghec: '*'
 children:
-  - /troubleshooting-github-copilot-in-visual-studio-code
-  - /troubleshooting-github-copilot-in-visual-studio
-  - /troubleshooting-github-copilot-in-a-jetbrains-ide
-  - /troubleshooting-github-copilot-in-neovim
+  - /troubleshooting-github-copilot-in-your-environment
   - /troubleshooting-certificate-errors-for-github-copilot
+  - /troubleshooting-firewall-settings-for-github-copilot
   - /troubleshooting-common-issues-with-github-copilot
 ---

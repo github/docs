@@ -44,7 +44,7 @@ const EXTERNAL_LINK_CHECKER_DB =
   process.env.EXTERNAL_LINK_CHECKER_DB || 'external-link-checker-db.json'
 
 const adapter = new JSONFile(EXTERNAL_LINK_CHECKER_DB)
-const externalLinkCheckerDB = new Low(adapter)
+const externalLinkCheckerDB = new Low(adapter, { urls: {} })
 
 // Given a number and a percentage, return the same number with a *percentage*
 // max change of making a bit larger or smaller.
@@ -233,7 +233,6 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   }
 
   await externalLinkCheckerDB.read()
-  externalLinkCheckerDB.data ||= { urls: {} }
 
   debugTimeStart(core, 'processPages')
   const t0 = new Date().getTime()
@@ -1186,9 +1185,11 @@ async function renderInnerHTML(page, permalink) {
 
   req.context.relativePath = page.relativePath
 
+  const guts = [page.rawIntro, page.rawPermissions, page.markdown].filter(Boolean).join('\n').trim()
+
   // These lines do what the ubiquitous `renderContent` function does,
   // but at an absolute minimum to get a string of HTML.
-  const markdown = await liquid.parseAndRender(page.markdown, req.context)
+  const markdown = await liquid.parseAndRender(guts, req.context)
   const processor = createMinimalProcessor(req.context)
   const vFile = await processor.process(markdown)
   return vFile.toString()

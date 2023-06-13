@@ -43,7 +43,8 @@ To generate a private key:
 To verify a private key:
 
 1. Find the fingerprint for the private and public key pair you want to verify in the "Private keys" section of your {% data variables.product.prodname_github_app %}'s developer settings page. For more information, see "[Generating private keys](#generating-private-keys)".
-![Private key fingerprint](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
+
+   ![Screenshot of a private key in a {% data variables.product.prodname_github_app %} settings page. The fingerprint, the part of the private key after the colon, is outlined in dark orange.](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
 1. Generate the fingerprint of your private key (PEM) locally by using the following command:
     ```shell
     $ openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha256 -binary | openssl base64
@@ -60,12 +61,13 @@ You can remove a lost or compromised private key by deleting it, but you must re
 1. Next to the {% data variables.product.prodname_github_app %} that you want to delete a private key for, click **Edit**.
 1. Under "Private keys", to the right of the private key you want to delete, click **Delete**.
 1. When prompted, confirm you want to delete the private key by clicking **Delete**. If your {% data variables.product.prodname_github_app %} has only one key, you will need to generate a new key before deleting the old key. For more information, see "[Generating private keys](#generating-private-keys)."
-   ![Deleting last private key](/assets/images/github-apps/github_apps_delete_key.png)
 
 ## Storing private keys
 
-The private key is the single most valuable secret for a {% data variables.product.prodname_github_app %}. We recommend storing the key in a key vault, such as [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), and making it sign-only. This ensures that you can't lose the private key. Once the private key is uploaded to the key vault, it can never be read from there. It can only be used to sign things, and access to the private key is determined by your infrastructure rules.
+The private key is the single most valuable secret for a {% data variables.product.prodname_github_app %}. Consider storing the key in a key vault, such as [Azure Key Vault](https://azure.microsoft.com/en-gb/products/key-vault), and making it sign-only. This helps ensure that you can't lose the private key. Once the private key is uploaded to the key vault, it can never be read from there. It can only be used to sign things, and access to the private key is determined by your infrastructure rules.
 
 Alternatively, you can store the key as an environment variable. This is not as strong as storing the key in a key vault. If an attacker gains access to the environment, they can read the private key and gain persistent authentication as the {% data variables.product.prodname_github_app %}.
 
 You should not hard-code your private key in your app, even if your code is stored in a private repository.
+
+For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."

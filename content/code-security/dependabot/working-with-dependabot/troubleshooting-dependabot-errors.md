@@ -72,8 +72,6 @@ To see the log file for any manifest file, click the **Last checked TIME ago** l
 
 To see the logs for any manifest file, click the **Last checked TIME ago** link, and then click **View logs**.
 
-![{% data variables.product.prodname_dependabot %} version update error and log ](/assets/images/enterprise/3.3/dependabot/dependabot-version-update-error.png)
-
 {% endif %}
 
 ## Understanding {% data variables.product.prodname_dependabot %} errors

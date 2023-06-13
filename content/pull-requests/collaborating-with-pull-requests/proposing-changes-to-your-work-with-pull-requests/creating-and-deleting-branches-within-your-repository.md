@@ -41,10 +41,16 @@ You can create a branch in different ways on {% data variables.product.product_n
 
 ### Creating a branch using the branch dropdown
 {% data reusables.repositories.navigate-to-repo %}
+{% ifversion code-search-code-view %}
+1. Select the {% octicon "git-branch" aria-hidden="true" %} branch dropdown menu, in the file tree view or at the top of the integrated file editor.
+
+   ![Screenshot of the file tree view for a repository. A dropdown menu for branches is outlined in dark orange.](/assets/images/help/branches/file-tree-view-branch-dropdown.png)
+{% else %}
 1. Select the branch selector dropdown menu.
 
    ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
-1. Optionally, if you want to create the new branch from a branch other than the default branch of the repository, click another branch, then select the branch selector dropdown menu again.
+{% endif %}
+1. Optionally, if you want to create the new branch from a branch other than the default branch of the repository, click another branch, then select the branch dropdown menu again.
 1. In the "Find or create a branch..." text field, type a unique name for your new branch, then click **Create branch**.
 
    ![Screenshot of the branch selector dropdown menu. "Create branch: new-branch" is highlighted with an orange outline.](/assets/images/help/branches/create-branch-text.png)
@@ -68,7 +74,7 @@ If the branch you want to delete is associated with an open pull request, you mu
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Next branch that you want to delete, click {% octicon "trash" aria-label="Delete BRANCH" %}.
+1. Next to the branch that you want to delete, click {% octicon "trash" aria-label="The trash icon" %} .
 
    ![Screenshot of a branch in the branch list. A trash icon is highlighted with an orange outline.](/assets/images/help/branches/branches-delete.png)
 {%- ifversion fpt or ghes > 3.5 or ghae > 3.5 or ghec %}

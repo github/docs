@@ -15,7 +15,7 @@ shortTitle: Enable Packages with AWS
 {% warning %}
 
 **Warnings:**
-- It is critical that you configure any restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible to the public internet. For more information, see "[Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)" in the AWS Documentation.
+- It is critical that you configure any restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible to the public internet. For more information, see "[Setting bucket and object access permissions](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html)" in the AWS Documentation. If restrictions by IP address have been set up, please include IP addresses for {% data variables.location.product_location_enterprise %} and the end users who will be using the {% data variables.location.product_location_enterprise %}.
 - We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
 - Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
 
@@ -26,13 +26,13 @@ shortTitle: Enable Packages with AWS
 Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your AWS storage bucket. To prepare your AWS storage bucket, we recommend consulting the official AWS docs at [AWS Documentation](https://docs.aws.amazon.com/index.html).
 
 Ensure your AWS access key ID and secret have the following permissions:
-  - `s3:PutObject`
-  - `s3:GetObject`
-  - `s3:ListBucketMultipartUploads`
-  - `s3:ListMultipartUploadParts`
-  - `s3:AbortMultipartUpload`
-  - `s3:DeleteObject`
-  - `s3:ListBucket`
+- `s3:PutObject`
+- `s3:GetObject`
+- `s3:ListBucketMultipartUploads`
+- `s3:ListMultipartUploadParts`
+- `s3:AbortMultipartUpload`
+- `s3:DeleteObject`
+- `s3:ListBucket`
 
 ## Enabling {% data variables.product.prodname_registry %} with AWS external storage
 

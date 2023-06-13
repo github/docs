@@ -18,6 +18,10 @@ children:
   - search
   - get-started
   - early-access
+  - pages
+  - code-security
+  - actions
+  - rest
   # - account-and-profile
   # - authentication
   # - repositories
@@ -25,22 +29,18 @@ children:
   # - billing
   # - site-policy
   # - organizations
-  # - code-security
   # - pull-requests
   # - issues
-  # - actions
   # - copilot
   # - codespaces
   # - packages
   # - search-github
   # - developers
-  # - rest
   # - graphql
   # - github-cli
   # - discussions
   # - sponsors
   # - communities
-  # - pages
   # - education
   # - desktop
   # - support
@@ -49,6 +49,11 @@ childGroups:
     octicon: RocketIcon
     children:
       - get-started
+  - name: CI/CD and DevOps
+    octicon: GearIcon
+    children:
+      - actions
+      - pages
 
 externalProducts:
   electron:

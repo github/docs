@@ -22,8 +22,8 @@ Anyone with read permissions for a repository can test a {% data variables.produ
 ## Prerequisites
 
 Before you can use Jekyll to test a site, you must:
-  - Install [Jekyll](https://jekyllrb.com/docs/installation/).
-  - Create a Jekyll site. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)."
+- Install [Jekyll](https://jekyllrb.com/docs/installation/).
+- Create a Jekyll site. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)."
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -35,25 +35,25 @@ Before you can use Jekyll to test a site, you must:
 {% data reusables.pages.navigate-publishing-source %}
 3. Run `bundle install`.
 3. Run your Jekyll site locally.
-  ```shell
-  $ bundle exec jekyll serve
-  > Configuration file: /Users/octocat/my-site/_config.yml
-  >            Source: /Users/octocat/my-site
-  >       Destination: /Users/octocat/my-site/_site
-  > Incremental build: disabled. Enable with --incremental
-  >      Generating...
-  >                    done in 0.309 seconds.
-  > Auto-regeneration: enabled for '/Users/octocat/my-site'
-  > Configuration file: /Users/octocat/my-site/_config.yml
-  >    Server address: http://127.0.0.1:4000/
-  >  Server running... press ctrl-c to stop.
-  ```
-  {% note %}
+   ```shell
+   $ bundle exec jekyll serve
+   > Configuration file: /Users/octocat/my-site/_config.yml
+   >            Source: /Users/octocat/my-site
+   >       Destination: /Users/octocat/my-site/_site
+   > Incremental build: disabled. Enable with --incremental
+   >      Generating...
+   >                    done in 0.309 seconds.
+   > Auto-regeneration: enabled for '/Users/octocat/my-site'
+   > Configuration file: /Users/octocat/my-site/_config.yml
+   >    Server address: http://127.0.0.1:4000/
+   >  Server running... press ctrl-c to stop.
+   ```
+   {% note %}
 
-  **Note:** If you've installed Ruby 3.0 or later (which you may have if you installed the default version via Homebrew), you might get an error at this step. That's because these versions of Ruby no longer come with `webrick` installed.
-  
-  To fix the error, try running `bundle add webrick`, then re-running `bundle exec jekyll serve`.
-  {% endnote %}
+   **Note:** If you've installed Ruby 3.0 or later (which you may have if you installed the default version via Homebrew), you might get an error at this step. That's because these versions of Ruby no longer come with `webrick` installed.
+
+   To fix the error, try running `bundle add webrick`, then re-running `bundle exec jekyll serve`.
+   {% endnote %}
 
 3. To preview your site, in your web browser, navigate to `http://localhost:4000`.
 
@@ -68,4 +68,4 @@ Jekyll is an active open source project that is updated frequently. If the `gith
 
 ## Further reading
 
-- [{% data variables.product.prodname_pages %}](http://jekyllrb.com/docs/github-pages/) in the Jekyll documentation
+- [{% data variables.product.prodname_pages %}](https://jekyllrb.com/docs/github-pages/) in the Jekyll documentation

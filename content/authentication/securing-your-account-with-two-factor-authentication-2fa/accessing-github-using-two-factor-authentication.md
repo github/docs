@@ -62,14 +62,14 @@ If you have installed and signed in to {% data variables.product.prodname_mobile
 
 1. Sign in to {% data variables.product.product_name %} with your browser, using your username and password.
 1. {% data variables.product.product_name %} will send you a push notification to verify your sign in attempt. Opening the push notification or opening the {% data variables.product.prodname_mobile %} app will display a prompt, asking you to approve or reject this sign in attempt.
-  {% note %}
+   {% note %}
 
-  **Note**: This prompt may require you to enter a two-digit number displayed within the browser you are signing in to.
+   **Note**: This prompt may require you to enter a two-digit number displayed within the browser you are signing in to.
 
-  {% endnote %}
+   {% endnote %}
 
-    - Upon approving the login attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sign in attempt automatically.
-    - Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[Keeping your account and data secure](/authentication/keeping-your-account-and-data-secure)."
+   - Upon approving the login attempt using {% data variables.product.prodname_mobile %}, your browser will complete the sign in attempt automatically.
+   - Rejecting the sign in attempt will prevent the authentication from finishing. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)."
 
 {% endif %}
 

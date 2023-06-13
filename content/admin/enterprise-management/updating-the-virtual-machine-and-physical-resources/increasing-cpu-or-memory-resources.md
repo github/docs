@@ -95,17 +95,16 @@ You can scale the VM up by changing the VM size. Changing its size will cause it
 It's not possible to add CPU or memory resources to an existing OpenStack KVM instance. Instead, you must:
 
 1. Take a snapshot of the current instance.
-2. Stop the instance.
-3. Select a new instance flavor that has the desired CPU and/or memory resources.
+1. Stop the instance.
+1. Select a new instance flavor that has the desired CPU and/or memory resources.
 
 ## Adding CPU or memory resources for VMware
 
 {% data reusables.enterprise_installation.increasing-cpus-req %}
 
 1. Use the vSphere Client to connect to the VMware ESXi host.
-2. Shut down {% data variables.location.product_location %}.
-3. Select the virtual machine and click **Edit Settings**.
-4. Under "Hardware", adjust the CPU and/or memory resources allocated to the virtual machine as needed:
-![VMware setup resources](/assets/images/enterprise/vmware/vsphere-hardware-tab.png)
-5. To start the virtual machine, click **OK**.
+1. Shut down {% data variables.location.product_location %}.
+1. Select the virtual machine and click **Edit Settings**.
+1. Under "Hardware", adjust the CPU and/or memory resources allocated to the virtual machine as needed.
+1. To start the virtual machine, click **OK**.
 {% data reusables.enterprise_installation.configuration-recognized %}

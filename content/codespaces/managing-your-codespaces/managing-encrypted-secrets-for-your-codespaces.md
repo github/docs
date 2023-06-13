@@ -96,3 +96,4 @@ Codespace secrets cannot be used:
 ## Further reading
 
 - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
+- "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#recommended-secrets)"

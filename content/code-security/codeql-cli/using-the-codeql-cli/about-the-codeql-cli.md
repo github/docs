@@ -12,6 +12,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/about-the-codeql-cli
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -30,7 +32,9 @@ source community
 - Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
 
 For information about using the {% data variables.product.prodname_codeql_cli %}, see
-“[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli).”
+"[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli)."
+
+You can also use {% data variables.product.prodname_actions %} or Azure DevOps pipelines to scan code using the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)" or [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
 ## About the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_codeql %} license
 
@@ -42,7 +46,7 @@ For information about using the {% data variables.product.prodname_codeql_cli %}
 - To demonstrate the software.
 - To test {% data variables.product.prodname_codeql %} queries that are released under an OSI-approved License to confirm that new versions of those queries continue to find the right vulnerabilities.
 
-Where “OSI-approved License” means an Open Source Initiative (OSI)-approved open source software license.
+Where "OSI-approved License" means an Open Source Initiative (OSI)-approved open source software license.
 
 If you are working with an Open Source Codebase (that is, a codebase that is released under an OSI-approved License) you can also use {% data variables.product.prodname_codeql %} for the following tasks:
 
@@ -60,5 +64,5 @@ command line. To run a command, use:
 codeql [command] [subcommand]
 ```
 
-To view the reference documentation for a command, add the `--help` flag, or visit the
-"[{% data variables.product.prodname_codeql_cli %} manual](https://codeql.github.com/docs/codeql-cli/manual/)."
+To view the reference documentation for a command, add the `--help` flag, or see
+"[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual)."

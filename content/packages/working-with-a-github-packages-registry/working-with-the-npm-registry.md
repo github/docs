@@ -147,22 +147,22 @@ You can use an *.npmrc* file to configure the scope mapping for your project. In
 You can use `publishConfig` element in the *package.json* file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
 
 1. Edit the *package.json* file for your package and include a `publishConfig` entry.
-  {% ifversion ghes %}
-  If your instance has subdomain isolation enabled:
-  {% endif %}
-  ```shell
-  "publishConfig": {
-    "registry": "https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}"
-  },
-  ```
-  {% ifversion ghes %}
-  If your instance has subdomain isolation disabled:
+   {% ifversion ghes %}
+   If your instance has subdomain isolation enabled:
+   {% endif %}
+   ```shell
+   "publishConfig": {
+     "registry": "https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm. HOSTNAME/{% endif %}"
+   },
+   ```
+   {% ifversion ghes %}
+   If your instance has subdomain isolation disabled:
    ```shell
    "publishConfig": {
      "registry": "https://HOSTNAME/_registry/npm/"
    },
-  ```
-  {% endif %}
+   ```
+   {% endif %}
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
@@ -195,24 +195,24 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
 1. Configure *package.json* in your project to use the package you are installing. To add your package dependencies to the *package.json* file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from *npmjs.com*, specify the full name, such as `@babel/core` or `@lodash`. Replace `ORGANIZATION_NAME/PACKAGE_NAME` with your package dependency.
 
-  ```json
-  {
-    "name": "@my-org/server",
-    "version": "1.0.0",
-    "description": "Server app that uses the ORGANIZATION_NAME/PACKAGE_NAME package",
-    "main": "index.js",
-    "author": "",
-    "license": "MIT",
-    "dependencies": {
-      "ORGANIZATION_NAME/PACKAGE_NAME": "1.0.0"
-    }
-  }
-  ```
+   ```json
+   {
+     "name": "@my-org/server",
+     "version": "1.0.0",
+     "description": "Server app that uses the ORGANIZATION_NAME/PACKAGE_NAME package",
+     "main": "index.js",
+     "author": "",
+     "license": "MIT",
+     "dependencies": {
+       "ORGANIZATION_NAME/PACKAGE_NAME": "1.0.0"
+     }
+   }
+   ```
 5. Install the package.
 
-  ```shell
-  $ npm install
-  ```
+   ```shell
+   $ npm install
+   ```
 
 ### Installing packages from other organizations
 
@@ -237,7 +237,7 @@ If your instance has subdomain isolation disabled:
 {% endif %}
 
 {% ifversion ghes %}
-## Using the official NPM registry
+## Using the official npm registry
 
-{% data variables.product.prodname_registry %} allows you to access the official NPM registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official NPM registry](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise#connecting-to-the-official-npm-registry).
+{% data variables.product.prodname_registry %} allows you to access the official npm registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official npm registry](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise#connecting-to-the-official-npm-registry).
 {% endif %}

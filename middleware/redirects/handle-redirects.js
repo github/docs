@@ -9,6 +9,10 @@ export default function handleRedirects(req, res, next) {
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
+  // All /api/ endpoints handle their own redirects
+  // such as /api/pageinfo redirects to /api/pageinfo/v1
+  if (req.path.startsWith('/api/')) return next()
+
   // Any double-slashes in the URL should be removed first
   if (req.path.includes('//')) {
     return res.redirect(301, req.path.replace(/\/\//g, '/'))
@@ -25,35 +29,16 @@ export default function handleRedirects(req, res, next) {
   let redirect = req.path
   let queryParams = req._parsedUrl.query
 
-  // If process.env.ENABLE_SEARCH_RESULTS_PAGE isn't set, you can't go to the
-  // dedicated search results page.
-  // If that's the case, use the "old redirect" where all it does is
-  // "correcting" the old query string 'q' to 'query'.
-  if (!process.env.ENABLE_SEARCH_RESULTS_PAGE && 'q' in req.query && !('query' in req.query)) {
-    // update old-style query params (#9467)
-    const newQueryParams = new URLSearchParams(queryParams)
-    newQueryParams.set('query', newQueryParams.get('q'))
-    newQueryParams.delete('q')
-    return res.redirect(301, `${req.path}?${newQueryParams.toString()}`)
-  }
-
-  // If process.env.ENABLE_SEARCH_RESULTS_PAGE is set, the dedicated search
-  // result page is ready. If that's the case, we can redirect to
-  // `/$locale/search?query=...` from `/foo/bar?query=...` or from
-  // (the old style) `/foo/bar/?q=...`
-  if (
-    process.env.ENABLE_SEARCH_RESULTS_PAGE &&
-    ('q' in req.query ||
-      ('query' in req.query &&
-        !(req.path.endsWith('/search') || req.path.startsWith('/api/search'))))
-  ) {
-    // If you had the old legacy format of /some/uri?q=stuff
-    // it needs to redirect to /en/search?query=stuff or
-    // /some/uri?query=stuff depending on if ENABLE_SEARCH_RESULTS_PAGE has been
-    // set up.
-    // If you have the new format of /some/uri?query=stuff it too needs
-    // to redirect to /en/search?query=stuff
-    // ...or /en/{version}/search?query=stuff
+  // Redirect `/some/uri?q=stuff` to `/en/search?query=stuff`
+  // Redirect `/some/uri?query=stuff` to `/en/search?query=stuff`
+  // Redirect `/fr/version@latest/some/uri?query=stuff`
+  // to `/fr/version@latest/search?query=stuff`
+  // The `q` param is deprecated, but we still need to support it in case
+  // there are links out there that use it.
+  const onSearch = req.path.endsWith('/search') || req.path.startsWith('/api/search')
+  const hasQ = 'q' in req.query
+  const hasQuery = 'query' in req.query
+  if ((hasQ && !hasQuery) || (hasQuery && !onSearch)) {
     const language = getLanguage(req)
     const sp = new URLSearchParams(req.query)
     if (sp.has('q') && !sp.has('query')) {

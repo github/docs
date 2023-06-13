@@ -4,6 +4,9 @@ intro: 'If members of your organization no longer require access to any reposito
 redirect_from:
   - /articles/removing-a-member-from-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/removing-a-member-from-your-organization
+  - /enterprise/admin/user-management/removing-users-from-teams-and-organizations
+  - /admin/user-management/removing-users-from-teams-and-organizations
+  - /admin/user-management/managing-organizations-in-your-enterprise/removing-users-from-teams-and-organizations
 versions:
   fpt: '*'
   ghes: '*'
@@ -36,9 +39,9 @@ permissions: Organization owners can remove members from an organization.
 {% warning %}
 
 **Warning:** When you remove members from an organization:
- - Removed members will lose access to private forks of your organization's private repositories, but may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
+- Removed members will lose access to private forks of your organization's private repositories, but may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 - Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization in your enterprise.
- - Any organization invitations sent by the removed user, that have not been accepted, are canceled and will not be accessible.
+- Any organization invitations sent by the removed user, that have not been accepted, are canceled and will not be accessible.
 
 {% endwarning %}
 
@@ -57,13 +60,13 @@ To help the person you're removing from your organization transition and help en
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.people %}
-4. Select the member or members you'd like to remove from the organization.
+1. Select the member or members you'd like to remove from the organization.
 
-  ![Screenshot of the first two users in a list of organization members. To the left of each member, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/list-of-members-selected-bulk.png)
-5. Above the list of members, select the **X members selected...** dropdown menu, and click **Remove from organization**.
+   ![Screenshot of the first two users in a list of organization members. To the left of each member, a checkbox is checked and outlined in dark orange.](/assets/images/help/teams/list-of-members-selected-bulk.png)
+1. Above the list of members, select the **X members selected...** dropdown menu, and click **Remove from organization**.
 
    ![Screenshot of the list of organization members. Above the list, a dropdown menu, labeled "2 members selected..." is outlined in dark orange.](/assets/images/help/teams/user-bulk-management-options.png)
-6. Review the member or members who will be removed from the organization, then click **Remove members**.
+1. Review the member or members who will be removed from the organization, then click **Remove members**.
 
 ## Further reading
 

@@ -162,9 +162,9 @@ subprojects {
 {% data reusables.package_registry.authenticate-step %}
 2. After creating your package, you can publish the package.
 
-  ```shell
-   $ gradle publish
-  ```
+   ```shell
+    $ gradle publish
+   ```
 
 ## Using a published package
 
@@ -173,45 +173,45 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 {% data reusables.package_registry.authenticate-step %}
 2. Add the package dependencies to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
-  Example using Gradle Groovy:
-  ```shell
-  dependencies {
-      implementation 'com.example:package'
-  }
-  ```
-  Example using Kotlin DSL:
-  ```shell
-  dependencies {
-      implementation("com.example:package")
-  }
-  ```
+   Example using Gradle Groovy:
+   ```shell
+   dependencies {
+       implementation 'com.example:package'
+   }
+   ```
+   Example using Kotlin DSL:
+   ```shell
+   dependencies {
+       implementation("com.example:package")
+   }
+   ```
 
 3. Add the repository to your *build.gradle* file (Gradle Groovy) or *build.gradle.kts* file (Kotlin DSL) file.
 
-  Example using Gradle Groovy:
-  ```shell
-  repositories {
-      maven {
-          url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
-          credentials {
-              username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-              password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
-          }
+   Example using Gradle Groovy:
+   ```shell
+   repositories {
+       maven {
+           url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
+           credentials {
+               username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+               password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+           }
       }
-  }
-  ```
-  Example using Kotlin DSL:
-  ```shell
-  repositories {
-      maven {
-          url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
-          credentials {
-              username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
-              password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
-          }
-      }
-  }
-  ```
+   }
+   ```
+   Example using Kotlin DSL:
+   ```shell
+   repositories {
+       maven {
+           url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
+           credentials {
+               username = project.findProperty("gpr.user") as String? ?: System.getenv("USERNAME")
+               password = project.findProperty("gpr.key") as String? ?: System.getenv("TOKEN")
+           }
+       }
+   }
+   ```
 
 ## Further reading
 

@@ -24,29 +24,25 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - language: zh
+            language_dir: translations/zh-cn
+            language_repo: github/docs-internal.zh-cn
+
           - language: es
             language_dir: translations/es-es
             language_repo: github/docs-internal.es-es
-
-          - language: ja
-            language_dir: translations/ja-jp
-            language_repo: github/docs-internal.ja-jp
 
           - language: pt
             language_dir: translations/pt-br
             language_repo: github/docs-internal.pt-br
 
-          - language: zh
-            language_dir: translations/zh-cn
-            language_repo: github/docs-internal.zh-cn
-
           - language: ru
             language_dir: translations/ru-ru
             language_repo: github/docs-internal.ru-ru
 
-          - language: ko
-            language_dir: translations/ko-kr
-            language_repo: github/docs-internal.ko-kr
+          - language: ja
+            language_dir: translations/ja-jp
+            language_repo: github/docs-internal.ja-jp
 
           - language: fr
             language_dir: translations/fr-fr
@@ -56,12 +52,23 @@ jobs:
             language_dir: translations/de-de
             language_repo: github/docs-internal.de-de
 
+          - language: ko
+            language_dir: translations/ko-kr
+            language_repo: github/docs-internal.ko-kr
     steps:
       - name: Checkout the docs-internal repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+
+      - name: Clone docs-internal.popular-pages
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        with:
+          repository: github/docs-internal.popular-pages
+          # This works because user `docubot` has read access to that private repo.
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          path: popular-pages
 
       - name: Checkout the language-specific repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           repository: ${{ matrix.language_repo }}
           token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
@@ -75,6 +82,8 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Create translation health report
+        env:
+          POPULAR_PAGES_JSON: popular-pages/records/popular-pages.json
         run: |
           node script/i18n/create-translation-health-report.js \
             --language ${{ matrix.language }} \
@@ -85,14 +94,14 @@ jobs:
         run: cat $GITHUB_WORKSPACE/translation-health-report.json
 
       - name: Log in to Azure
-        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
         with:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 
       # https://learn.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload
       # https://github.com/marketplace/actions/azure-cli-action
       - name: Upload latest to Azure blob storage
-        uses: azure/CLI@61bb69d64d613b52663984bf12d6bac8fd7b3cc8
+        uses: azure/CLI@68f0d36771d0cba0ebbf26993275a8e0b74a541f
         with:
           inlineScript: |
             az storage blob upload \
@@ -104,7 +113,7 @@ jobs:
               --overwrite true
 
       - name: Upload date formatted to Azure blob storage
-        uses: azure/CLI@61bb69d64d613b52663984bf12d6bac8fd7b3cc8
+        uses: azure/CLI@68f0d36771d0cba0ebbf26993275a8e0b74a541f
         with:
           inlineScript: |
             # Write a date formatted for historical reference

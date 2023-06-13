@@ -1,8 +1,8 @@
 name: Triage new issues
 
-# **What it does**:
-# **Why we have it**:
-# **Who does it impact**:
+# **What it does**: Add the 'triage' label to new issues in the open source repository.
+# **Why we have it**: We want to make sure that new issues are triaged and assigned to the right team.
+# **Who does it impact**: Docs open source.
 
 on:
   issues:

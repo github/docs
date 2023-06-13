@@ -18,11 +18,12 @@ children:
   - /about-github-pages
   - /creating-a-github-pages-site
   - /configuring-a-publishing-source-for-your-github-pages-site
+  - /deleting-a-github-pages-site
+  - /unpublishing-a-github-pages-site
   - /changing-the-visibility-of-your-github-pages-site
   - /creating-a-custom-404-page-for-your-github-pages-site
   - /securing-your-github-pages-site-with-https
   - /using-submodules-with-github-pages
-  - /unpublishing-a-github-pages-site
 shortTitle: Get started
 ---
 

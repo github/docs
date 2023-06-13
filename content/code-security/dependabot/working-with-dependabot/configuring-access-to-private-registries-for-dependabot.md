@@ -29,7 +29,7 @@ shortTitle: Configure access to private registries
 In most ecosystems, private dependencies are usually published to private package registries. These private registries are similar to their public equivalents, but they require authentication.
 
 {% ifversion dependabot-private-registries %}
-For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to _only_ access private registries by removing calls to public registries. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
+For specific ecosystems, you can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
 {% endif %}
 
 ## Configuring private registries
@@ -98,7 +98,7 @@ When creating a secret in an organization, you can use a policy to limit which r
 1. From the **Repository access** dropdown list, choose an access policy.
 1. If you chose **Selected repositories**:
 
-   * Click {% octicon "gear" aria-label="The Gear icon" %}.
+   * Click {% octicon "gear" aria-label="selected repositories" %}.
    * In the dialog box, select the repositories that can access this secret.
    * Click **Update selection**.
 

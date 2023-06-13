@@ -19,6 +19,14 @@ versions:
 
 It's appropriate to lock a conversation when the entire conversation is not constructive or violates your community's code of conduct or {% data variables.product.prodname_dotcom %}'s [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines). You can also lock a conversation to prevent comments on a discussion you want to use as an announcement to the community. When you lock a conversation, people with write access to the repository, or source repository for organization discussions, will still be able to comment on the discussion. {% ifversion discussions-lock-allow-reactions %}You can also allow emoji reactions to a locked discussion.{% endif %}
 
+{% ifversion discussions-closable %}
+{% note %}
+
+**Note:** You can also close a discussion. For more information, see "[Closing a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#closing-a-discussion)."
+
+{% endnote %}
+{% endif %}
+
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 1. In the list of discussions, click the discussion you want to lock.
@@ -31,6 +39,7 @@ It's appropriate to lock a conversation when the entire conversation is not cons
 1. To lock the conversation, click **Lock conversation**.
 1. When you're ready to unlock the conversation, click **Unlock conversation** in the right margin of a discussion, then click **Unlock conversation**.
 
+{% ifversion converting-issues-to-discussions %}
 ## Converting an issue to a discussion
 
 When you convert an issue to a discussion, the discussion is automatically created using the content from the issue. People with write access to a repository, or source repository for organization discussions, can bulk convert issues based on labels. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions)."
@@ -41,6 +50,7 @@ When you convert an issue to a discussion, the discussion is automatically creat
 1. In the right margin of an issue, click **Convert to discussion**.
 1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
 1. Click **I understand, convert this issue to a discussion**.
+{% endif %}
 
 {% ifversion discussions-hide-comments-on-block %}
 ## Blocking a user from your organization

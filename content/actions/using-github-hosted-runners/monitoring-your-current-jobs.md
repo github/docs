@@ -5,8 +5,7 @@ intro: 'Monitor how {% data variables.product.prodname_dotcom %}-hosted runners 
 versions:
   feature: github-runner-dashboard
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Viewing active jobs in your organization or enterprise
@@ -16,8 +15,6 @@ You can get a list of all jobs currently running on {% data variables.product.pr
 {% data reusables.actions.github-hosted-runners-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.github-hosted-runners-table-entry %}
 1. Review the "Active jobs" section, which contains a list of all jobs currently running on {% data variables.product.prodname_dotcom %}-hosted runners.
-
-  ![Screenshot of the list of active jobs](/assets/images/help/settings/actions-runner-active-jobs.png)
 
 ## Viewing queued jobs in your organization or enterprise
 

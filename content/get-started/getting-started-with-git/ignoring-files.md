@@ -26,10 +26,10 @@ GitHub maintains an official list of recommended *.gitignore* files for many pop
 3. Create a *.gitignore* file for your repository.
    ```shell
    $ touch .gitignore
-  ```
+   ```
 
    If the command succeeds, there will be no output.
-   
+
 For an example *.gitignore* file, see "[Some common .gitignore configurations](https://gist.github.com/octocat/9257657)" in the Octocat repository.
 
 If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.
@@ -44,9 +44,9 @@ You can also create a global *.gitignore* file to define a list of rules for ign
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Configure Git to use the exclude file *~/.gitignore_global* for all Git repositories.
-  ```shell
-  $ git config --global core.excludesfile ~/.gitignore_global
-  ```
+   ```shell
+   $ git config --global core.excludesfile ~/.gitignore_global
+   ```
 
 ## Excluding local files without creating a *.gitignore* file
 

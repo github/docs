@@ -60,13 +60,13 @@ To migrate a repository, you must be an organization owner for the destination o
 You must also have required permissions and access to your Bitbucket Server instance:
 
 - Admin or super admin permissions
-- If your Bitbucket Server instance runs Linux, SSH access to the instance, using a supported private key (see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#required-permissions-for-bitbucket-server)")
+- If your Bitbucket Server instance runs Linux, SFTP access to the instance, using a supported SSH private key (see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer#required-permissions-for-bitbucket-server)")
 - If your Bitbucket Server instance runs Windows, file sharing (SMB) access to the instance
 
 1. Decide whether you want an organization owner of the destination organization to perform your migrations, or whether you need to grant the migrator role to someone else.
 {% data reusables.enterprise-migration-tool.grant-migrator-tasks %}
 {% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %}
-1. Confirm the migrator has admin or super admin permissions and SSH access for your Bitbucket Server instance.
+1. Confirm the migrator has admin or super admin permissions and SFTP access for your Bitbucket Server instance.
 
 ### What organizational structure do we want in {% data variables.product.prodname_dotcom %}?
 
