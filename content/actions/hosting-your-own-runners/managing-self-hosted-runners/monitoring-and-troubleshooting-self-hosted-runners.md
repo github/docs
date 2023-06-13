@@ -18,6 +18,16 @@ shortTitle: Monitor & troubleshoot
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
+{% ifversion actions-disable-repo-runners %}
+
+## Using repository-level self-hosted runners
+
+You may not be able to create a self-hosted runner for an organization-owned repository.
+
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+
+{% endif %}
+
 ## Checking the status of a self-hosted runner
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
