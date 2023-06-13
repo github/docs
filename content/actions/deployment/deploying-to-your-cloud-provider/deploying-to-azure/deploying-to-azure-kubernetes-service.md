@@ -51,7 +51,7 @@ Under the workflow `env` key, change the following values:
 
 This workflow uses the `helm` render engine for the [`azure/k8s-bake` action](https://github.com/Azure/k8s-bake). If you will use the `helm` render engine, change the value of `CHART_PATH` to the path to your helm file. Change `CHART_OVERRIDE_PATH` to an array of override file paths. If you use a different render engine, update the input parameters sent to the `azure/k8s-bake` action.
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}

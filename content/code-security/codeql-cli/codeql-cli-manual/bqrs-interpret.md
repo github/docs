@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql bqrs interpret --format=<format> --output=<output> -t=<String=String> [--threads=<num>] [--source-archive=<sourceArchive>] [--source-location-prefix=<sourceLocationPrefix>] <options>... -- <bqrs-file>
 ```
 

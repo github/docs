@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database finalize [--dbscheme=<file>] [--threads=<num>] [--ram=<MB>] [--mode=<mode>] <options>... -- <database>
 ```
 

@@ -1,6 +1,6 @@
 1. In the administrative shell, create a PGP key. Make note of the email address and key ID.
 
-   ```bash{:copy}
+   ```bash copy
    gpg --full-generate-key --pinentry-mode=loopback
    ```
     

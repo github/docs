@@ -49,7 +49,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-```yaml{:copy}
+```yaml copy
 name: Node.js Tests
 
 # **What it does**: Runs our tests.
@@ -214,7 +214,7 @@ jobs:
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 name: Node.js Tests
 ```
 </td>
@@ -226,7 +226,7 @@ name: Node.js Tests
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 on:
 ```
 </td>
@@ -238,7 +238,7 @@ The `on` keyword lets you define the events that trigger when the workflow is ru
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   workflow_dispatch:
 ```
 </td>
@@ -250,7 +250,7 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   pull_request:
 ```
 </td>
@@ -262,7 +262,7 @@ Add the `pull_request` event, so that the workflow runs automatically every time
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   push:
     branches:
       - main
@@ -276,7 +276,7 @@ Add the `push` event, so that the workflow runs automatically every time a commi
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 permissions:
   contents: read
   pull-requests: read
@@ -291,7 +291,7 @@ Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depen
 <td>
 
 
-```yaml{:copy}
+```yaml copy
 concurrency:
   group: {% raw %}'${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'{% endraw %}
 ```
@@ -304,7 +304,7 @@ Creates a concurrency group for specific events, and uses the `||` operator to d
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   cancel-in-progress: true
 ```
 </td>
@@ -316,7 +316,7 @@ Cancels any currently running job or workflow in the same concurrency group.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 jobs:
 ```
 </td>
@@ -328,7 +328,7 @@ Groups together all the jobs that run in the workflow file.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   test:
 ```
 </td>
@@ -340,7 +340,7 @@ Defines a job with the ID `test` that is stored within the `jobs` key.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     runs-on: {% raw %}${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}{% endraw %}
 ```
 </td>
@@ -352,7 +352,7 @@ Configures the job to run on a {% data variables.product.prodname_dotcom %}-host
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     timeout-minutes: 60
 ```
 </td>
@@ -364,7 +364,7 @@ Sets the maximum number of minutes to let the job run before it is automatically
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     strategy:
 ```
 </td>
@@ -375,7 +375,7 @@ Sets the maximum number of minutes to let the job run before it is automatically
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       fail-fast: false
 ```
 </td>
@@ -387,7 +387,7 @@ Setting `fail-fast` to `false` prevents {% data variables.product.prodname_dotco
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       matrix:
         test-group:
           [
@@ -410,7 +410,7 @@ Creates a matrix named `test-group`, with an array of test groups. These values 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     steps:
 ```
 </td>
@@ -422,7 +422,7 @@ Groups together all the steps that will run as part of the `test` job. Each job 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Check out repo
         uses: {% data reusables.actions.action-checkout %}
         with:
@@ -438,7 +438,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Figure out which docs-early-access branch to checkout, if internal repo
         if: {% raw %}${{ github.repository == 'github/docs-internal' }}{% endraw %}
         id: check-early-access
@@ -478,7 +478,7 @@ If the current repository is the `github/docs-internal` repository, this step us
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Check out docs-early-access too, if internal repo
         if: {% raw %}${{ github.repository == 'github/docs-internal' }}{% endraw %}
         uses: {% data reusables.actions.action-checkout %}
@@ -496,7 +496,7 @@ If the current repository is the `github/docs-internal` repository, this step ch
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Merge docs-early-access repo's folders
         if: {% raw %}${{ github.repository == 'github/docs-internal' }}{% endraw %}
         run: |
@@ -514,7 +514,7 @@ If the current repository is the `github/docs-internal` repository, this step us
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Checkout LFS objects
         run: git lfs checkout
 ```
@@ -528,7 +528,7 @@ This step runs a command to check out LFS objects from the repository.
 <td>
 
 
-```yaml{:copy}
+```yaml copy
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
         id: get_diff_files
@@ -546,7 +546,7 @@ This step uses the `trilom/file-changes-action` action to gather the files chang
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Insight into changed files
         run: |
           echo {% raw %}"${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt{% endraw %}
@@ -560,7 +560,7 @@ This step runs a shell command that uses an output from the previous step to cre
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Setup node
         uses: {% data reusables.actions.action-setup-node %}
         with:
@@ -576,7 +576,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Install dependencies
         run: npm ci
 ```
@@ -589,7 +589,7 @@ This step runs the `npm ci` shell command to install the npm software packages f
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Cache nextjs build
         uses: {% data reusables.actions.action-cache %}
         with:
@@ -606,7 +606,7 @@ This step uses the `actions/cache` action to cache the Next.js build, so that th
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Run build script
         run: npm run build
 ```
@@ -620,7 +620,7 @@ This step runs the build script.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt

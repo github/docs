@@ -10,7 +10,7 @@ If you do not set a `container`, all steps will run directly on the host specifi
 
 ### Example: Running a job within a container
 
-```yaml{:copy}
+```yaml copy
 name: CI
 on:
   push:

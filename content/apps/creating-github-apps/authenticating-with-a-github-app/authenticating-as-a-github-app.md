@@ -48,12 +48,12 @@ You can use {% data variables.product.company_short %}'s Octokit.js SDK to authe
 1. Generate a private key. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
 1. Import `App` from `octokit`.
 
-   ```javascript{:copy}
+   ```javascript copy
    import { App } from "octokit";
    ```
 1. Create a new instance of `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to the value of your app's private key.
 
-   ```javascript{:copy}
+   ```javascript copy
     const app = new App({
      appId: APP_ID,
      privateKey: PRIVATE_KEY,
@@ -62,6 +62,6 @@ You can use {% data variables.product.company_short %}'s Octokit.js SDK to authe
 
 1. Use an `octokit` method to make a request to a REST API endpoint that requires a JWT. For example:
 
-   ```javascript{:copy}
+   ```javascript copy
    await app.octokit.request("/app")
    ```

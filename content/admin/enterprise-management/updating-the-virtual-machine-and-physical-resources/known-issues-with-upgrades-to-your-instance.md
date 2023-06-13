@@ -85,14 +85,14 @@ The following instructions are only intended for  {% data variables.product.prod
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. To validate the current flushing method for InnoDB, run the following command.
    
-   ```shell{:copy}
+   ```shell copy
    ghe-config mysql.innodb-flush-no-fsync
    ```
 
    By default, the command returns `false`, indicating that your instance performs an `fsync()` system call after each write operation.
 1. To configure InnoDB to skip the `fsync()` system call after each write operation, run the following command.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config mysql.innodb-flush-no-fsync true
    ```
 {% data reusables.enterprise.apply-configuration %}

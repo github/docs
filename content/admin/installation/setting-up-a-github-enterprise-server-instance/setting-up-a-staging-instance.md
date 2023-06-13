@@ -82,7 +82,7 @@ Optionally, if you use {% data variables.product.prodname_actions %} on your pro
 {% data reusables.actions.configure-storage-provider %}
 1. To prepare to enable {% data variables.product.prodname_actions %} on the staging instance, enter the following command.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config app.actions.enabled true
    ```
 
@@ -103,14 +103,14 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
 1. Configure the external storage connection by entering the following commands, replacing the placeholder values with actual values for your connection.
    - Azure Blob Storage:
 
-     ```shell{:copy}
+     ```shell copy
      ghe-config secrets.packages.blob-storage-type "azure"
      ghe-config secrets.packages.azure-container-name "AZURE CONTAINER NAME"
      ghe-config secrets.packages.azure-connection-string "CONNECTION STRING"
      ```
    - Amazon S3:
 
-     ```shell{:copy}
+     ```shell copy
      ghe-config secrets.packages.blob-storage-type "s3"
      ghe-config secrets.packages.service-url "S3 SERVICE URL"
      ghe-config secrets.packages.s3-bucket "S3 BUCKET NAME"
@@ -119,7 +119,7 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
      ```
 1. To prepare to enable {% data variables.product.prodname_registry %} on the staging instance, enter the following command.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config app.packages.enabled true
    ```
 
