@@ -67748,6 +67748,18 @@
           "description": "<p>Those with bypass permission at the organization level can bypass.</p>"
         },
         {
+          "name": "ORGANIZATION_ALWAYS",
+          "description": "<p>Those with bypass permission at the organization level can always bypass.</p>"
+        },
+        {
+          "name": "ORGANIZATION_NONE",
+          "description": "<p>Bypassing is disabled.</p>"
+        },
+        {
+          "name": "ORGANIZATION_PRS_ONLY",
+          "description": "<p>Those with bypass permission at the organization level can bypass for pull requests only.</p>"
+        },
+        {
           "name": "REPOSITORY",
           "description": "<p>Those with bypass permission at the repository level can bypass.</p>"
         }

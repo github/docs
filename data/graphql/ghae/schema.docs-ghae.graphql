@@ -38109,6 +38109,21 @@ enum RuleBypassMode {
   ORGANIZATION
 
   """
+  Those with bypass permission at the organization level can always bypass
+  """
+  ORGANIZATION_ALWAYS
+
+  """
+  Bypassing is disabled
+  """
+  ORGANIZATION_NONE
+
+  """
+  Those with bypass permission at the organization level can bypass for pull requests only
+  """
+  ORGANIZATION_PRS_ONLY
+
+  """
   Those with bypass permission at the repository level can bypass
   """
   REPOSITORY
