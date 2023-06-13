@@ -1,3 +1,3 @@
 * Azure Active Directory (Azure AD)
 * Okta
-* PingFederate (private beta)
+* PingFederate (public beta)

@@ -942,6 +942,58 @@ Where table data is not truly binary (every value is either "Yes" or "No", for e
 ### Use footnotes sparingly
 See "[Footnotes](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#footnotes)."
 
+### Align table content consistently
+
+All columns in a table should be left-aligned, except for columns containing only octicons which should be center-aligned. If a column contains both text and octicons, use center alignment. 
+
+Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read "[Organizing information with tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table)" for more information.
+
+The following example shows part of a table from "[Configuration options for the dependabot.yml file](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)". 
+
+
+<table>
+<thead>
+<tr>
+<th align=left>Option</th>
+<th align=center>Required</th>
+<th align=center>Security Updates</th>
+<th align=center>Version Updates</th>
+<th align=left>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align=left><code>package-ecosystem</code></td>
+<td align=center>✅</td>
+<td align=center>❌</td>
+<td align=center>✅</td>
+<td align=left>Package manager to use</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>directory</code></td>
+<td align=center>✅</td>
+<td align=center>❌</td>
+<td align=center>✅</td>
+<td align=left>Location of package manifests</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>schedule.interval</code></td>
+<td align=center>✅</td>
+<td align=center>❌</td>
+<td align=center>✅</td>
+<td align=left>How often to check for updates</td>
+</tr>
+</tbody>
+</table>
+
+````
+| Option              | Required | Security Updates | Version Updates | Description                    |
+|---------------------|:--------:|:----------------:|:---------------:|--------------------------------|
+| `package-ecosystem` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Package manager to use         |
+| `directory`         |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Location of package manifests  |
+| `schedule.interval` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| How often to check for updates |
+````
+
 ## Titles
 
 Use quotation marks around article titles, whether the article is hosted on GitHub Docs or elsewhere. Do not include quotation marks around the names of external sites.

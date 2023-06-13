@@ -151,7 +151,7 @@
     "@jest/globals": "29.5.0",
     "@octokit/graphql": "5.0.4",
     "@octokit/rest": "^19.0.4",
-    "@playwright/test": "1.34.3",
+    "@playwright/test": "1.35.0",
     "@types/github-slugger": "^2.0.0",
     "@types/imurmurhash": "^0.1.1",
     "@types/js-cookie": "^3.0.2",
