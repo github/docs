@@ -31,6 +31,13 @@ function isJunkPath(path) {
     return true
   }
 
+  // We currently don't use next/image for any images.
+  // This could change in the future but right now can just 404 on these
+  // so we don't have to deal with any other errors.
+  if (path.startsWith('/_next/image')) {
+    return true
+  }
+
   return false
 }
 

@@ -12,8 +12,6 @@ redirect_from:
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About mannequins
 
 {% data reusables.enterprise-migration-tool.about-mannequins %}
