@@ -116,6 +116,12 @@ jobs:
         ...
 ```
 
+{% note %}
+
+**Note:** For iOS build targets, your provisioning profile should have the extension `.mobileprovision`. For macOS build targets, the extension should be  `.provisionprofile`. The example workflow above should be updated to reflect your target platform.
+
+{% endnote %}
+
 ## Required clean-up on self-hosted runners
 
 {% data variables.product.prodname_dotcom %}-hosted runners are isolated virtual machines that are automatically destroyed at the end of the job execution. This means that the certificates and provisioning profile used on the runner during the job will be destroyed with the runner when the job is completed.
