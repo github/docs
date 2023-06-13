@@ -62,7 +62,7 @@ jobs:
             `
             console.log('Create a new pull request')
             try {
-              let { data: pull } = await github.rest.pulls.create({
+              var { data: pull } = await github.rest.pulls.create({
                 owner,
                 repo,
                 head,
