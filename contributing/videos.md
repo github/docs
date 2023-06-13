@@ -152,7 +152,7 @@ Videos must be hosted somewhere that GitHub owns and can grant the Docs team acc
 
 Add the following metadata for each video added to the GitHub Docs.
 
-```markdown{:copy}
+```markdown copy
 Title: Video title
 URL: YouTube.com/
 Description: One sentence

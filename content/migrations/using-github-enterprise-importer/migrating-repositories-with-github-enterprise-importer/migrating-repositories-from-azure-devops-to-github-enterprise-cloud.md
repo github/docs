@@ -148,7 +148,7 @@ If this is your first migration, you'll need to install the {% data variables.pr
 {% data reusables.enterprise-migration-tool.install-github-cli %}
 1. Install the {% data variables.product.prodname_ado2gh_cli_short %}.
 
-   ```shell{:copy}
+   ```shell copy
    gh extension install github/gh-ado2gh
    ```
 
@@ -158,7 +158,7 @@ If this is your first migration, you'll need to install the {% data variables.pr
 
 The {% data variables.product.prodname_ado2gh_cli %} is updated weekly. {% data reusables.enterprise-migration-tool.update-your-extension %}
 
-```shell{:copy}
+```shell copy
 gh extension upgrade github/gh-ado2gh
 ```
 
@@ -171,14 +171,14 @@ Before you can use the {% data variables.product.prodname_ado2gh_cli_short %} to
 
    - If you're using Terminal, use the `export` command.
 
-      ```shell{:copy}
+      ```shell copy
       export GH_PAT="TOKEN"
      export ADO_PAT="TOKEN"
       ```
 
    - If you're using PowerShell, use the `$env` command.
 
-      ```shell{:copy}
+      ```shell copy
       $env:GH_PAT="TOKEN"
      $env:ADO_PAT="TOKEN"
       ```
@@ -193,7 +193,7 @@ If you want to migrate a single repository, skip to the next step.
 
 To generate a migration script, run the `gh ado2gh generate-script` command.
 
-```shell{:copy}
+```shell copy
 gh ado2gh generate-script --ado-org SOURCE --github-org DESTINATION --output FILENAME
 ```
 
@@ -222,7 +222,7 @@ You can migrate multiple repositories with a migration script or a single reposi
 
 To migrate a single repository, use the `gh ado2gh migrate-repo` command.
 
-```shell{:copy}
+```shell copy
 gh ado2gh migrate-repo --ado-org SOURCE --ado-team-project TEAM-PROJECT --ado-repo CURRENT-NAME --github-org DESTINATION --github-repo NEW-NAME
 ```
 

@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack bundle [--output=<file.tgz>] [--threads=<num>] [--ram=<MB>] <options>... -- <dir>
 ```
 

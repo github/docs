@@ -66,7 +66,7 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
 {% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
 
-    ```shell{:copy}
+    ```shell copy
     gh gei generate-mannequin-csv --github-target-org DESTINATION --output FILENAME.csv
     ```
 {% indented_data_reference reusables.enterprise-migration-tool.edit-csv spaces=4 %}
@@ -74,13 +74,13 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
    {% data reusables.enterprise-migration-tool.reclaim-bulk-csv %}
 
-      ```shell{:copy}
+      ```shell copy
       gh gei reclaim-mannequin --github-target-org DESTINATION --csv FILENAME.csv
       ```
 
    {% data reusables.enterprise-migration-tool.reclaim-individual-mannequin %}
 
-      ```shell{:copy}
+      ```shell copy
       gh gei reclaim-mannequin --github-target-org DESTINATION --mannequin-user MANNEQUIN --target-user USERNAME
       ```
 {% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}
@@ -97,7 +97,7 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 
 {% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
 
-      ```shell{:copy}
+      ```shell copy
       gh ado2gh generate-mannequin-csv --github-org DESTINATION --output FILENAME.csv
       ```
 {% indented_data_reference reusables.enterprise-migration-tool.edit-csv spaces=4 %}
@@ -105,13 +105,13 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 
     {% data reusables.enterprise-migration-tool.reclaim-bulk-csv %}
 
-      ```shell{:copy}
+      ```shell copy
       gh ado2gh reclaim-mannequin --github-org DESTINATION --csv FILENAME.csv
       ```
 
    {% data reusables.enterprise-migration-tool.reclaim-individual-mannequin %}
 
-      ```shell{:copy}
+      ```shell copy
       gh ado2gh reclaim-mannequin --github-org DESTINATION --mannequin-user MANNEQUIN --target-user USERNAME
       ```
 {% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}

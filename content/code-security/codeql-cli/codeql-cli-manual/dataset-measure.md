@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql dataset measure --output=<file> [--threads=<num>] <options>... -- <dataset>
 ```
 

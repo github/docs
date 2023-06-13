@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack create [--output=<output>] [--threads=<num>] [--ram=<MB>] <options>... -- <dir>
 ```
 
