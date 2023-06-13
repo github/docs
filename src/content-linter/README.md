@@ -1,6 +1,19 @@
 # Content Linter
 
+## Linting Rules
+
+We are using the [markdownlint](https://github.com/DavidAnson/markdownlint) framework to implement custom and existing markdown linter rules to check the markdown content in our `content` and `data` directory files. Here is the list of our current rules implemented in our [markdownlint.js script](./scripts/markdownlint.js):
+
+| **Rule ID** | **Description** | **Severity** |
+|---|---|---|
+| [MD001](https://github.com/DavidAnson/markdownlint/blob/main/doc/md001.md) | Header levels can only increments by one level at a time. | error |
+| [MD002](https://github.com/DavidAnson/markdownlint/blob/main/doc/md002.md) | Ensure that headings start with an H2 heading. | error |
+| [MD111](./linting-rules/image-alt-text-length.js) | Images alternate text should be between 40-150 characters. | warning |
+| [MD112](./linting-rules/image-alt-text-end-punctuation.js) | Images alternate text should end with a punctuation. | error |
+| [MD115](./linting-rules/image-file-kebab.js) | Image file names should be lowercase kebab case. | error |
+
 ## Linting Tests
+
 - [lint-files](./tests/lint-files.js): Linter for `content`, `data/reusables`, `data/variables`, `data/glossaries`, `data/release-notes`, `data/learning-tracks`, and `data/features`. This lints markdown in the `content` and `data` directories, including early-access, GitHub Enterprise Server release notes, and yaml content. It checks for:
   - No placeholder strings
   - Hidden docs
