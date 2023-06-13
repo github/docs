@@ -788,9 +788,13 @@ You can pass specific files or entire directories for RuboCop to check. In this 
 
 ## Step 2.2. Clone the repository
 
-RuboCop is available as a command-line utility. That means your {% data variables.product.prodname_github_app %} will need to clone a local copy of the repository on the CI server so RuboCop can parse the files. To run Git operations in your Ruby app, you can use the [ruby-git](https://github.com/ruby-git/ruby-git) gem.
+RuboCop is available as a command-line utility. That means your {% data variables.product.prodname_github_app %} will need to clone a local copy of the repository on the CI server so RuboCop can parse the files. To do that, your code will need to be able to run Git operations, and your {% data variables.product.prodname_github_app %} will need to have the correct permissions to clone a repository.
 
-The `Gemfile` in the `building-a-checks-api-ci-server` repository already includes the ruby-git gem, and you installed it when you ran `bundle install` in the [prerequisite steps](#prerequisites). To use the gem, add this code to the top of your `server.rb` file:
+### Allow Git operations
+
+To run Git operations in your Ruby app, you can use the [ruby-git](https://github.com/ruby-git/ruby-git) gem. The `Gemfile` in the `building-a-checks-api-ci-server` repository already includes the ruby-git gem, and you installed it when you ran `bundle install` in the [prerequisite steps](#prerequisites).
+
+At the top of your `server.rb` file, below the other `require` items, add the following code:
 
 ``` ruby{:copy}
 require 'git'
@@ -806,7 +810,7 @@ Next you'll need to update your {% data variables.product.prodname_github_app %}
 
 ### Add code to clone a repository
 
-To clone a repository using your {% data variables.product.prodname_github_app %}'s permissions, your code will use the app's installation token (`x-access-token:<token>`), as shown in the example below:
+To clone a repository, the code will use your {% data variables.product.prodname_github_app %}'s permissions and the Octokit SDK to create an installation token for your app (`x-access-token:<token>`) and use it in the following clone command:
 
 ```shell
 git clone https://x-access-token:&lt;TOKEN&gt;@github.com/&lt;OWNER&gt;/&lt;REPO&gt;.git
@@ -843,8 +847,7 @@ Now you've got a method that clones a repository and checks out a ref. Next, you
 
 Under `helpers do`, in the `initiate_check_run` helper method where it says `# ***** RUN A CI TEST *****`, add the following code:
 
-``` ruby
-# ***** RUN A CI TEST *****
+``` ruby{:copy}
 full_repo_name = @payload['repository']['full_name']
 repository     = @payload['repository']['name']
 head_sha       = @payload['check_run']['head_sha']
@@ -854,13 +857,13 @@ clone_repository(full_repo_name, repository, head_sha)
 
 The code above gets the full repository name and the head SHA of the commit from the `check_run` webhook payload.
 
-## Step 2.3. Running RuboCop
+## Step 2.3. Run RuboCop
 
-Great! You're cloning the repository and creating check runs using your CI server. Now you'll get into the nitty gritty details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [Checks API annotations](/rest/checks#create-a-check-run).
+So far your code clones the repository and creates check runs using your CI server. Now you'll get into the details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [checks annotations](/rest/checks#create-a-check-run). First, add some code to run RuboCop and save the style code errors in JSON format.
 
-The following code runs RuboCop and saves the style code errors in JSON format. Add this code below the call to `clone_repository` you added in the [previous step](#step-22-cloning-the-repository) and above the code that updates the check run to complete.
+Under `clone_repository`, which you just added in the [previous step](#step-22-clone-the-repository), add the following code:
 
-``` ruby
+``` ruby{:copy}
 # Run RuboCop on all files in the repository
 @report = `rubocop '#{repository}' --format json`
 logger.debug @report
@@ -868,7 +871,7 @@ logger.debug @report
 @output = JSON.parse @report
 ```
 
-The code above runs RuboCop on all files in the repository's directory. The option `--format json` is a handy way to save a copy of the linting results in a machine-parsable format. See the [RuboCop docs](https://docs.rubocop.org/rubocop/formatters.html#json-formatter) for details and an example of the JSON format.
+The code above runs RuboCop on all files in the repository's directory. The option `--format json` saves a copy of the linting results in a machine-parsable format. For more information, and an example of the JSON format, see "[JSON Formatter](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)" in the RuboCop docs.
 
 Because this code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository. This code also parses the JSON so you can easily access the keys and values in your {% data variables.product.prodname_github_app %} using the `@output` variable.
 
@@ -876,69 +879,78 @@ Because this code stores the RuboCop results in a `@report` variable, it can saf
 
 **Note:** The command used to remove the repository (`rm -rf`) cannot be undone. See [Step 2.7. Security tips](#step-27-security-tips) to learn how to check webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. 😱 If for some reason you're _not_ using the method `verify_webhook_signature` (which is included in `server.rb`) to validate the sender of the webhook, make sure you check that the repository name is valid.
 
+TODOCS: If we remove the security tips section, update this note text.
+
 {% endnote %}
 
-You can test that this code works and see the errors reported by RuboCop in your server's debug output. Start up the `server.rb` server again and create a new pull request in the repository where you're testing your app:
+### Test the code
 
-```shell
-$ ruby server.rb
-```
+The following steps will show you how to test that the code works and view the errors reported by RuboCop.
 
-You should see the linting errors in the debug output, although they aren't printed with formatting. You can use a web tool like [JSON formatter](https://jsonformatter.org/) to format your JSON output like this formatted linting error output:
+1. Run the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
 
-```json
-{
-  "metadata": {
-    "rubocop_version": "0.60.0",
-    "ruby_engine": "ruby",
-    "ruby_version": "2.3.7",
-    "ruby_patchlevel": "456",
-    "ruby_platform": "universal.x86_64-darwin18"
-  },
-  "files": [
-    {
-      "path": "Octocat-breeds/octocat.rb",
-      "offenses": [
-        {
-          "severity": "convention",
-          "message": "Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.",
-          "cop_name": "Style/StringLiterals",
-          "corrected": false,
-          "location": {
-            "start_line": 17,
-            "start_column": 17,
-            "last_line": 17,
-            "last_column": 22,
-            "length": 6,
-            "line": 17,
-            "column": 17
-          }
-        },
-        {
-          "severity": "convention",
-          "message": "Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.",
-          "cop_name": "Style/StringLiterals",
-          "corrected": false,
-          "location": {
-            "start_line": 17,
-            "start_column": 25,
-            "last_line": 17,
-            "last_column": 29,
-            "length": 5,
-            "line": 17,
-            "column": 25
-          }
-        }
-      ]
-    }
-  ],
-  "summary": {
-    "offense_count": 2,
-    "target_file_count": 1,
-    "inspected_file_count": 1
-  }
-}
-```
+   ```shell{:copy}
+   ruby server.rb
+   ```
+
+2. In the repository where you installed your app, create a new pull request.
+3. In your terminal tab where the server is running, you should see debug output that contains linting errors. The linting errors are printed without any formatting. You can use a web tool like [JSON formatter](https://jsonformatter.org/) to format your JSON output like the following example, so it's easier to read.
+
+   ```json
+   {
+     "metadata": {
+       "rubocop_version": "0.60.0",
+       "ruby_engine": "ruby",
+       "ruby_version": "2.3.7",
+       "ruby_patchlevel": "456",
+       "ruby_platform": "universal.x86_64-darwin18"
+     },
+     "files": [
+       {
+         "path": "Octocat-breeds/octocat.rb",
+         "offenses": [
+           {
+             "severity": "convention",
+             "message": "Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.",
+             "cop_name": "Style/StringLiterals",
+             "corrected": false,
+             "location": {
+               "start_line": 17,
+               "start_column": 17,
+               "last_line": 17,
+               "last_column": 22,
+               "length": 6,
+               "line": 17,
+               "column": 17
+             }
+           },
+           {
+             "severity": "convention",
+             "message": "Style/StringLiterals: Prefer single-quoted strings when you don't need string interpolation or special symbols.",
+             "cop_name": "Style/StringLiterals",
+             "corrected": false,
+             "location": {
+               "start_line": 17,
+               "start_column": 25,
+               "last_line": 17,
+               "last_column": 29,
+               "length": 5,
+               "line": 17,
+               "column": 25
+             }
+           }
+         ]
+       }
+     ],
+     "summary": {
+       "offense_count": 2,
+       "target_file_count": 1,
+       "inspected_file_count": 1
+     }
+   }
+   ```
+
+TODOCS: This testing failed for me. It was unable to clone the repository ("Repository not found").
 
 ## Step 2.4. Collecting RuboCop errors
 
