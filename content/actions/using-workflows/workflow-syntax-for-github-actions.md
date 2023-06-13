@@ -14,8 +14,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About YAML syntax for workflows
@@ -360,9 +359,9 @@ You can use the `if` conditional to prevent a step from running unless a conditi
 
 ### Example: Using contexts
 
- This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
 
- ```yaml
+```yaml
 steps:
   - name: My first step
     if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
@@ -690,6 +689,8 @@ For built-in shell keywords, we provide the following defaults that are executed
 ## `jobs.<job_id>.steps[*].with`
 
 A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. Input parameters are set as environment variables. The variable is prefixed with `INPUT_` and converted to upper case.
+
+Input parameters defined for a Docker container must use `args`. For more information, see "[`jobs.<job_id>.steps[*].with.args`](#jobsjob_idstepswithargs)."
 
 ### Example of `jobs.<job_id>.steps[*].with`
 

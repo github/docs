@@ -6,8 +6,6 @@ versions:
   feature: discussion-category-forms
 ---
 
-{% data reusables.discussions.discussion-category-forms-beta %}
-
 ## About discussion category forms
 
 You can encourage community members to include specific, structured information in their discussions by using discussion forms in your repository. With discussion category forms, you can create discussion templates that have customizable web form fields. Discussion forms are written in YAML using the {% data variables.product.prodname_dotcom %} form schema. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)." 
@@ -22,7 +20,7 @@ Discussion category forms are not supported for polls. For more information abou
 
 Here is the rendered version of the issue form.
 
-  ![Screenshot of a rendered discussion category form](/assets/images/help/discussions/discussion-category-form-sample.png)
+![Screenshot of a rendered discussion category form.](/assets/images/help/discussions/discussion-category-form-sample.png)
 
 ## Creating discussion category forms
 

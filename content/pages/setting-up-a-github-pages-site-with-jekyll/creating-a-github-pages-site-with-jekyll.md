@@ -44,20 +44,20 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. If you don't already have a local copy of your repository, navigate to the location where you want to store your site's source files, replacing PARENT-FOLDER with the folder you want to contain the folder for your repository.
-  ```shell
-  $ cd PARENT-FOLDER
-  ```
+   ```shell
+   $ cd PARENT-FOLDER
+   ```
 1. If you haven't already, initialize a local Git repository, replacing REPOSITORY-NAME with the name of your repository.
-  ```shell
-  $ git init REPOSITORY-NAME
-  > Initialized empty Git repository in /Users/octocat/my-site/.git/
-  # Creates a new folder on your computer, initialized as a Git repository
-  ```
-  4. Change directories to the repository.
-  ```shell
-  $ cd REPOSITORY-NAME
-  # Changes the working directory
-  ```
+   ```shell
+   $ git init REPOSITORY-NAME
+   > Initialized empty Git repository in /Users/octocat/my-site/.git/
+   # Creates a new folder on your computer, initialized as a Git repository
+   ```
+1. Change directories to the repository.
+   ```shell
+   $ cd REPOSITORY-NAME
+   # Changes the working directory
+   ```
 {% data reusables.pages.decide-publishing-source %}
 {% data reusables.pages.navigate-publishing-source %}
   For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
@@ -96,21 +96,21 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    domain: my-site.github.io       # if you want to force HTTPS, specify the domain without the http at the start, e.g. example.com
    url: https://my-site.github.io  # the base hostname and protocol for your site, e.g. http://example.com
    baseurl: /REPOSITORY-NAME/      # place folder name if the site is served in a subfolder
-  ```
+   ```
 1. Optionally, test your site locally. For more information, see "[Testing your {% data variables.product.prodname_pages %} site locally with Jekyll](/articles/testing-your-github-pages-site-locally-with-jekyll)."
 1. Add and commit your work.
-```shell
-git add .
-git commit -m 'Initial GitHub pages site with Jekyll'
-```
+   ```shell
+   git add .
+   git commit -m 'Initial GitHub pages site with Jekyll'
+   ```
 1. Add your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %} as a remote, replacing {% ifversion ghes or ghae %}HOSTNAME with your enterprise's hostname,{% endif %} USER with the account that owns the repository{% ifversion ghes or ghae %},{% endif %} and REPOSITORY with the name of the repository.
-```shell
-{% ifversion fpt or ghec %}
-$ git remote add origin https://github.com/USER/REPOSITORY.git
-{% else %}
-$ git remote add origin https://HOSTNAME/USER/REPOSITORY.git
-{% endif %}
-```
+   ```shell
+   {% ifversion fpt or ghec %}
+   $ git remote add origin https://github.com/USER/REPOSITORY.git
+   {% else %}
+   $ git remote add origin https://HOSTNAME/USER/REPOSITORY.git
+   {% endif %}
+   ```
 1. Push the repository to {% data variables.product.product_name %}, replacing BRANCH with the name of the branch you're working on.
    ```shell
    $ git push -u origin BRANCH

@@ -91,7 +91,7 @@ The `$GITHUB_VIA` variable is available in the pre-receive hook environment when
 | <pre>git refs update api</pre> | Update of a ref via the API | "[AUTOTITLE](/rest/git#update-a-reference)" in the REST API documentation |
 | <pre>git repo contents api</pre> | Change to a file's contents via the API | "[AUTOTITLE](/rest/repos#create-or-update-file-contents)" in the REST API documentation |
 {%- ifversion ghes %}
-| `merge ` | Merge of a pull request using auto-merge | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
+| `merge` | Merge of a pull request using auto-merge | "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)" |
 {%- endif %}
 | <pre>merge base into head</pre> | Update of the topic branch from the base branch when the base branch requires strict status checks (via **Update branch** in a pull request, for example) | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)" |
 | <pre>pull request branch delete button</pre> | Deletion of a topic branch from a pull request in the web interface | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/deleting-and-restoring-branches-in-a-pull-request#deleting-a-branch-used-for-a-pull-request)" |
@@ -259,4 +259,4 @@ You can test a pre-receive hook script locally before you create or update it on
    Notice that the push was rejected after executing the pre-receive hook and echoing the output from the script.
 
 ## Further reading
- - "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the *Pro Git website*
+- "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the *Pro Git website*

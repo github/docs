@@ -21,6 +21,8 @@ In order to authenticate as an app installation, you must generate an installati
 
 {% endnote %}
 
+You should keep your installation access token secure. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
+
 ## Generating an installation access token
 
 {% data reusables.apps.generate-installation-access-token %}

@@ -67,7 +67,7 @@ You can use security overview to see which repositories and teams are free from 
 {% data reusables.organizations.filter-security-overview %}
 {% ifversion security-overview-alert-views %}
 {% data reusables.organizations.security-overview-feature-specific-page %}
-  ![Screenshot of the {% data variables.product.prodname_code_scanning %} alerts page on the "Security" tab. Features apart from filters, dropdown menus, and sidebar are grayed out.](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png)
+   ![Screenshot of the {% data variables.product.prodname_code_scanning %} alerts page on the "Security" tab. Features apart from filters, dropdown menus, and sidebar are grayed out.](/assets/images/help/security-overview/security-overview-code-scanning-alerts.png)
 {% endif %}
 
 {% endif %}

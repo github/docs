@@ -15,6 +15,7 @@ const SectionToLabelMap: Record<string, string> = {
   changes: 'Changes',
   deprecations: 'Deprecations',
   backups: 'Backups',
+  errata: 'Errata',
 }
 
 type Props = {

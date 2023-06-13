@@ -14,6 +14,8 @@ topics:
 
 Code search is integrated with features in the search interface on {% data variables.product.prodname_dotcom_the_website %}, such as suggestions, completions, and the ability to save your searches. For more information, see "[AUTOTITLE](/search-github/github-code-search/using-github-code-search)."
 
+{% data reusables.search.code-search-login-requirement %}
+
 {% data reusables.search.non-code-search-explanation %}
 
 ## Limitations
@@ -21,11 +23,11 @@ Code search is integrated with features in the search interface on {% data varia
 We have indexed many public repositories for code search, and continue to index more. Additionally, the private repositories of {% data variables.product.prodname_dotcom%} users are indexed and searchable by those that already have access to those private repositories on {% data variables.product.prodname_dotcom_the_website %}. However, very large repositories may not be indexed at this time, and not all code is indexed.
 
 The current limitations on indexed code are:
-   - Vendored and generated code is excluded
-   - Empty files and files over 350 KiB are excluded
-   - Lines over 1,024 characters long are truncated
-   - Only UTF-8 encoded files are included
-   - Very large repositories may not be indexed
+- Vendored and generated code is excluded
+- Empty files and files over 350 KiB are excluded
+- Lines over 1,024 characters long are truncated
+- Only UTF-8 encoded files are included
+- Very large repositories may not be indexed
 
 We currently only support searching for code on the default branch of a repository.
 

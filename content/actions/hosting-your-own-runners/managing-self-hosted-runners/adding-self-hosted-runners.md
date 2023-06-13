@@ -14,7 +14,6 @@ type: tutorial
 shortTitle: Add self-hosted runners
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 You can add a self-hosted runner to a repository, an organization, or an enterprise.
@@ -36,6 +35,12 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managin
 {% ifversion fpt or ghec or ghes %}
 
 You can set up automation to scale the number of self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners)."
+
+{% endif %}
+
+{% ifversion actions-single-use-tokens %}
+
+You can register ephemeral runners that perform a single job before the registration is cleaned up by using just-in-time runner registration. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-just-in-time-runners)."
 
 {% endif %}
 

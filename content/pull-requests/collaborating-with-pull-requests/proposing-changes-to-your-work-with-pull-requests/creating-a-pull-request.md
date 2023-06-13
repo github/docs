@@ -145,11 +145,11 @@ gh pr create --web
 
 1. Confirm that the branch in the **base:** dropdown menu is the branch where you want to merge your changes.
 
-  ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
+   ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
 
-  {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
+   {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
 
-  ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline](/assets/images/help/desktop/preview-dialog-merge-status.png)
+   ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline.](/assets/images/help/desktop/preview-dialog-merge-status.png)
 
 1. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
 {% data reusables.repositories.pr-title-description %}
@@ -162,9 +162,9 @@ gh pr create --web
 {% codespaces %}
 
 1. Once you've committed changes to your local copy of the repository, click the **Create Pull Request** icon.
-![Source control side bar with staging button highlighted](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
+![Source control side bar with staging button highlighted.](/assets/images/help/codespaces/codespaces-commit-pr-button.png)
 1. Check that the local branch and repository you're merging from, and the remote branch and repository you're merging into, are correct. Then give the pull request a title and a description.
-![GitHub pull request side bar](/assets/images/help/codespaces/codespaces-commit-pr.png)
+![GitHub pull request side bar.](/assets/images/help/codespaces/codespaces-commit-pr.png)
 1. Click **Create**.
 
 For more information on creating pull requests in {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."

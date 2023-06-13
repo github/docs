@@ -41,4 +41,4 @@ Before enabling license synchronization on {% data variables.location.product_lo
 {% data reusables.enterprise-accounts.github-connect-tab %}
 1. To the right of "License sync", click **Enable**.
 
-  ![Screenshot of the "License sync" option on the GitHub Connect page. The "Enable" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/enable-user-license-drop-down.png)
+   ![Screenshot of the "License sync" option on the GitHub Connect page. The "Enable" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/enable-user-license-drop-down.png)

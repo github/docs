@@ -13,8 +13,7 @@ topics:
   - Enterprise
 shortTitle: Manually sync actions
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.actions.enterprise-no-internet-actions %}

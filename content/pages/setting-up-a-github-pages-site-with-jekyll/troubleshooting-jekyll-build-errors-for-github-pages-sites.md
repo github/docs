@@ -97,9 +97,9 @@ encoding: UTF-8
 
 ## Invalid highlighter language
 
-This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/) in your configuration file.
+This error means that you specified any syntax highlighter other than [Rouge](https://github.com/jneen/rouge) or [Pygments](https://pygments.org/) in your configuration file.
 
-To troubleshoot, update your *_config.yml* file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](http://pygments.org/). For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#syntax-highlighting)."
+To troubleshoot, update your *_config.yml* file to specify [Rouge](https://github.com/jneen/rouge) or [Pygments](https://pygments.org/). For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/about-github-pages-and-jekyll#syntax-highlighting)."
 
 ## Invalid post date
 

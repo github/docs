@@ -1,5 +1,6 @@
 ---
 title: Deleting a GitHub App
+shortTitle: Delete your app
 intro: 'You can delete {% data variables.product.prodname_github_app %}s that you own if you no longer want to use or maintain the app.'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/deleting-a-github-app
@@ -15,11 +16,17 @@ topics:
   - GitHub Apps
 ---
 
+{% note %}
+
+**Note**: If you want to remove a {% data variables.product.prodname_github_app %} that you use but do not own, see "[AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access)" instead.
+
+{% endnote %}
+
 ## About deleting {% data variables.product.prodname_github_app %}s
 
-If you own a {% data variables.product.prodname_github_app %} or are an app manager for a {% data variables.product.prodname_github_app %}, you can delete the {% data variables.product.prodname_github_app %}. For more information about {% data variables.product.prodname_github_app %} managers, see "[AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)."
+If you own a {% data variables.product.prodname_github_app %} or are an app manager for a {% data variables.product.prodname_github_app %}, you can delete the {% data variables.product.prodname_github_app %} registration. For more information about {% data variables.product.prodname_github_app %} managers, see "[AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)."
 
-When you delete a {% data variables.product.prodname_github_app %}, the app will be uninstalled from all accounts that the app is installed on.
+When you delete a {% data variables.product.prodname_github_app %} registration, the app will be uninstalled from all accounts that the app is installed on.
 
 {% note %}
 
@@ -37,3 +44,5 @@ When you delete a {% data variables.product.prodname_github_app %}, the app will
 6. Click **Delete GitHub App**.
 7. In the confirmation box, type the name of the GitHub App to confirm you want to delete it.
 8. Click **I understand the consequences, delete this GitHub App**.
+
+These steps only delete your {% data variables.product.prodname_github_app %} registration, and all of the organization and account installations it may have. They do not delete any code that you wrote for your app. However, any code that relies on your {% data variables.product.prodname_github_app %}'s credentials will no longer function.

@@ -77,8 +77,8 @@ The syntax of GHSA IDs follows this format: `GHSA-xxxx-xxxx-xxxx` where:
 
 - `x` is a letter or a number from the following set: `23456789cfghjmpqrvwx`. 
 - Outside the `GHSA` portion of the name:
-    - The numbers and letters are randomly assigned.
-    - All letters are lowercase.
+  - The numbers and letters are randomly assigned.
+  - All letters are lowercase.
 
 You can validate a GHSA ID using a regular expression.
 ```bash{:copy}

@@ -1,7 +1,10 @@
 import pick from 'lodash/pick'
 import { createContext, useContext } from 'react'
 import { LearningTrack } from './ArticleContext'
-import { FeaturedLink, getFeaturedLinksFromReq } from './ProductLandingContext'
+import {
+  FeaturedLink,
+  getFeaturedLinksFromReq,
+} from 'src/landings/components/ProductLandingContext'
 
 export type TocItem = {
   fullPath: string

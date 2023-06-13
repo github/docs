@@ -32,7 +32,7 @@ Some types of operations require that you take {% data variables.location.produc
 
 We recommend that you schedule a maintenance window for at least 30 minutes in the future to give users time to prepare. When a maintenance window is scheduled, all users will see a banner when accessing the site.
 
-When the instance is in maintenance mode, all normal HTTP and Git access is refused. Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable. In high availability configurations, Git replication will be paused. GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
+When the instance is in maintenance mode, all normal HTTP and Git access is refused. This includes web and API requests, for which the appliance responds with status code `503` (Service Unavailable). Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable. In high availability configurations, Git replication will be paused. GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
 
 {% ifversion ip-exception-list %}
 
@@ -55,6 +55,16 @@ You can perform initial validation of your maintenance operation by configuring 
 {% ifversion ip-exception-list %}
 
 ## Validating changes in maintenance mode using the IP exception list
+
+{% ifversion ghes = 3.4 %}
+
+{% note %}
+
+**Note**: To validate changes in maintenance mode using the IP exception list, your {% data variables.product.product_name %} instance must be running version 3.4.4 or later.
+
+{% endnote %}
+
+{% endif %}
 
 The IP exception list provides controlled and restricted access to {% data variables.location.product_location %}, which is ideal for initial validation of server health following a maintenance operation. Once enabled, {% data variables.location.product_location %} will be taken out of maintenance mode and available only to the configured IP addresses. The maintenance mode checkbox will be updated to reflect the change in state.
 

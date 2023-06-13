@@ -39,8 +39,8 @@ With {% data variables.product.prodname_free_user %}, your personal account incl
 - 120 {% data variables.product.prodname_github_codespaces %} core hours per month
 - 15 GB {% data variables.product.prodname_github_codespaces %} storage per month {% endif %}
 - {% data variables.product.prodname_actions %} features:
-   - 2,000 minutes per month
-   - Deployment protection rules for public repositories
+  - 2,000 minutes per month
+  - Deployment protection rules for public repositories
 
 ## {% data variables.product.prodname_pro %}
 

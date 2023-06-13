@@ -46,7 +46,7 @@ Dependency review is available when dependency graph is enabled for {% data vari
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Configure security and analysis features", check if the dependency graph is enabled.
 1. If dependency graph is enabled, click **Enable** next to "{% data variables.product.prodname_GH_advanced_security %}" to enable {% data variables.product.prodname_advanced_security %}, including dependency review. The enable button is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% ifversion ghes %}
-    ![Screenshot of "Code security and analysis" features"](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
+    ![Screenshot of "Code security and analysis features".](/assets/images/enterprise/3.4/repository/code-security-and-analysis-enable-ghas-3.4.png){% endif %}
 
 {% endif %}
 
@@ -89,22 +89,22 @@ Notice that all of the examples use a short version number for the action (`v3`)
 1. Add a new YAML workflow to your `.github/workflows` folder.
 
    {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
-  ```yaml{:copy}
-  name: 'Dependency Review'
-  on: [pull_request]
+   ```yaml{:copy}
+   name: 'Dependency Review'
+   on: [pull_request]
 
-  permissions:
-    contents: read
+   permissions:
+     contents: read
 
-  jobs:
-    dependency-review:
-     {% ifversion ghes %}runs-on: self-hosted
-       {% else %}runs-on: ubuntu-latest
-       {% endif %}steps:
-       - name: 'Checkout Repository'
-         uses: {% data reusables.actions.action-checkout %}
-       - name: Dependency Review
-         uses: actions/dependency-review-action@v3
+   jobs:
+     dependency-review:
+      {% ifversion ghes %}runs-on: self-hosted
+        {% else %}runs-on: ubuntu-latest
+        {% endif %}steps:
+        - name: 'Checkout Repository'
+          uses: {% data reusables.actions.action-checkout %}
+        - name: Dependency Review
+          uses: actions/dependency-review-action@v3
    ```
 1. Specify your settings.
 
@@ -178,7 +178,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
           # ([Token]) Use if your configuration file resides in a private external repository.
           # Possible values: Any GitHub token with read access to the private external repository.  
           external-repo-token: 'ghp_123456789abcde'
-  ```
+   ```
   
 1. Create the configuration file in the path you have specified.
 
@@ -211,7 +211,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
      fail-on-scopes:
        - development
        - runtime
-  {% endif %}
-  ```
+   {% endif %}
+   ```
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}

@@ -13,8 +13,7 @@ topics:
   - Teams
 shortTitle: Disable or limit actions
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About {% data variables.product.prodname_actions %} permissions for your organization
@@ -72,7 +71,7 @@ You can configure this behavior for an organization using the procedure below. M
 
 {% data reusables.actions.workflows.required-workflow-beta %}
 
-You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by pull requests and must pass before a pull request can be merged. For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."
+You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by {% ifversion actions-required-workflow-improvements %}`pull_request` and `pull_request_target` default events{% else %}pull requests{% endif %} and must pass before a pull request can be merged. For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."
 
 ### Prerequisites
 

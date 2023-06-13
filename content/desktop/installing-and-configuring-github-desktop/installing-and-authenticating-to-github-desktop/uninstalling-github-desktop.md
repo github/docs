@@ -24,7 +24,7 @@ shortTitle: Uninstalling
 
 1. Open Control Panel. For more information, see [Where is Control Panel?](https://support.microsoft.com/en-us/help/13764/windows-where-is-control-panel) in Windows Help.
 2. Under "Programs", click **Uninstall a program**.
-  ![Screenshot of a window labeled "Adjust your computer's settings". A link, labeled "Uninstall a program", is highlighted with an orange outline.](/assets/images/help/desktop/windows-uninstall-a-program.png)
+   ![Screenshot of a window labeled "Adjust your computer's settings". A link, labeled "Uninstall a program", is highlighted with an orange outline.](/assets/images/help/desktop/windows-uninstall-a-program.png)
 3. Right-click the entry named **{% data variables.product.prodname_desktop %}**, then click **Uninstall**.
 
 {% endwindows %}

@@ -12,7 +12,7 @@ children:
   - /installing-an-oauth-app-in-your-personal-account
   - /installing-an-oauth-app-in-your-organization
   - /authorizing-oauth-apps
-  - /reviewing-your-authorized-applications-oauth
+  - /reviewing-your-authorized-oauth-applications
   - /connecting-with-third-party-applications
 ---
 

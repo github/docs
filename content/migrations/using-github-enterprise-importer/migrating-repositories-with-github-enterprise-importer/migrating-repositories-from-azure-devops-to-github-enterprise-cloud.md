@@ -12,8 +12,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-azure-devops-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
 
 {% data reusables.enterprise-migration-tool.tool-options %}
@@ -229,6 +227,7 @@ gh ado2gh migrate-repo --ado-org SOURCE --ado-team-project TEAM-PROJECT --ado-re
 ```
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
+TEAM-PROJECT | Name of the team project of the repository you want to migrate
 
 ## Step 6: Validate your migration and check the error log
 

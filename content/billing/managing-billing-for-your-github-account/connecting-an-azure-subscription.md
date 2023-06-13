@@ -16,6 +16,12 @@ shortTitle: Connect an Azure subscription
 {% data reusables.enterprise-accounts.billing-azure-subscription %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)," "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)," and "[AUTOTITLE](/billing/managing-billing-for-github-copilot)."
 
 {% ifversion ghec %}
+If your organization is a part of an enterprise account, you can only connect your Azure subscription to the enterprise account, not the organization.
+{% endif %}
+
+{% data reusables.enterprise.ghec-trial-azure %}
+
+{% ifversion ghec %}
 {% note %}
 
 **Note:** If your enterprise account is on a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond the included amounts, or to use {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_copilot_business_short %} at all.

@@ -138,29 +138,29 @@ There are three steps to using variables:
 
 1. Define the variable outside the operation in a `variables` object:
 
-  ```graphql
-  variables {
-     "number_of_repos": 3
-  }
-  ```
+   ```graphql
+   variables {
+      "number_of_repos": 3
+   }
+   ```
 
-  The object must be valid JSON. This example shows a simple `Int` variable type, but it's possible to define more complex variable types, such as input objects. You can also define multiple variables here.
+   The object must be valid JSON. This example shows a simple `Int` variable type, but it's possible to define more complex variable types, such as input objects. You can also define multiple variables here.
 
 2. Pass the variable to the operation as an argument:
 
-  ```graphql
-  query($number_of_repos:Int!){
-  ```
+   ```graphql
+   query($number_of_repos:Int!){
+   ```
 
-  The argument is a key-value pair, where the key is the _name_ starting with `$` (e.g., `$number_of_repos`), and the value is the _type_ (e.g., `Int`). Add a `!` to indicate whether the type is required. If you've defined multiple variables, include them here as multiple arguments.
+   The argument is a key-value pair, where the key is the _name_ starting with `$` (e.g., `$number_of_repos`), and the value is the _type_ (e.g., `Int`). Add a `!` to indicate whether the type is required. If you've defined multiple variables, include them here as multiple arguments.
 
 3. Use the variable within the operation:
 
-  ```graphql
-  repositories(last: $number_of_repos) {
-  ```
+   ```graphql
+   repositories(last: $number_of_repos) {
+   ```
 
-  In this example, we substitute the variable for the number of repositories to retrieve. We specify a type in step 2 because GraphQL enforces strong typing.
+   In this example, we substitute the variable for the number of repositories to retrieve. We specify a type in step 2 because GraphQL enforces strong typing.
 
 This process makes the query argument dynamic. We can now simply change the value in the `variables` object and keep the rest of the query the same.
 
@@ -340,9 +340,9 @@ With the ID known, we can proceed with the mutation:
 
 * The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/graphql/reference/mutations#addreaction), which three possible return fields:
 
-    - `clientMutationId` (`String`)
-    - `reaction` (`Reaction!`)
-    - `subject` (`Reactable!`)
+  - `clientMutationId` (`String`)
+  - `reaction` (`Reaction!`)
+  - `subject` (`Reactable!`)
 
   In this example, we return the two required fields (`reaction` and `subject`), both of which have required subfields (respectively, `content` and `id`).
 

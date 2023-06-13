@@ -64,38 +64,38 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
    - For "Provider name", enter a name for the provider.
    - For "Issuer (URL)", enter the following URL, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
 
-      ```
-      https://HOSTNAME/_services/token
-      ```
+     ```
+     https://HOSTNAME/_services/token
+     ```
 
-      For example:
+     For example:
 
-      ```
-      https://my-ghes-host.example.com/_services/token
-      ```
-    - Under "Audiences", leave **Default audience** selected, but note the identity provider URL, as it is needed later. The identity provider URL is in the format `https://iam.googleapis.com/projects/PROJECT-NUMBER/locations/global/workloadIdentityPools/POOL-NAME/providers/PROVIDER-NAME`.
-    - Click **Continue**.
+     ```
+     https://my-ghes-host.example.com/_services/token
+     ```
+   - Under "Audiences", leave **Default audience** selected, but note the identity provider URL, as it is needed later. The identity provider URL is in the format `https://iam.googleapis.com/projects/PROJECT-NUMBER/locations/global/workloadIdentityPools/POOL-NAME/providers/PROVIDER-NAME`.
+   - Click **Continue**.
 1. Under "Configure provider attributes":
 
    - For the "OIDC 1" mapping, enter `assertion.sub`.
    - Under "Attribute Conditions", click **Add condition**.
    - For "Condition CEL", enter the following condition, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}:
 
-      ```
-      google.subject == "HOSTNAME"
-      ```
+     ```
+     google.subject == "HOSTNAME"
+     ```
 
-      For example:
+     For example:
 
-      ```
-      google.subject == "my-ghes-host.example.com"
-      ```
+     ```
+     google.subject == "my-ghes-host.example.com"
+     ```
 
-      {% note %}
+     {% note %}
 
-      **Note:** The hostname of {% data variables.location.product_location_enterprise %} used here _must not_ include the protocol.
+     **Note:** The hostname of {% data variables.location.product_location_enterprise %} used here _must not_ include the protocol.
 
-      {% endnote %}
+     {% endnote %}
    - Click **Save**.
 1. After creating the identity pool, at the top of the identity pool's page, click **Grant access**.
    - Under "Select service account", select the service account that you created in the previous procedure.

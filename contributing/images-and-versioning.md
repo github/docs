@@ -130,7 +130,7 @@ Use text or static images instead.
 - If your username and avatar appear, replace them with **Octocat's username and avatar**. [Find the Octocat avatar here.](https://avatars.githubusercontent.com/u/583231?v=4) Use the developer tools in your browser to replace your username with `@octocat` and to replace the URL of your avatar with the URL for Octocat's avatar, `https://avatars.githubusercontent.com/u/583231?v=4`.
 - Do not include a **cursor**.
 
- ![Screenshot of a comment box on a GitHub issue. A button labeled "Close issue" is outlined in dark orange.](./images/issue-comment-close-button.png)
+  ![Screenshot of a comment box on a GitHub issue. A button labeled "Close issue" is outlined in dark orange.](./images/issue-comment-close-button.png)
 
 #### Visual style for dropdown menus
 

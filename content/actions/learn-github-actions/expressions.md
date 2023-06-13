@@ -8,8 +8,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About expressions
@@ -105,6 +104,22 @@ env:
 * A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
 * {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
 * Objects and arrays are only considered equal when they are the same instance.
+
+{% data variables.product.prodname_dotcom %} offers ternary operator like behaviour that you can use in expressions. By using a ternary operator in this way, you can dynamically set the value of an environment variable based on a condition, without having to write separate if-else blocks for each possible option.
+
+#### Example
+
+{% raw %}
+
+```yaml
+env:
+  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
+```
+
+{% endraw %}
+
+In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`.
+It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned. 
 
 ## Functions
 

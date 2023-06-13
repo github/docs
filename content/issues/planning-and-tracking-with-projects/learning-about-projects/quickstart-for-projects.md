@@ -74,7 +74,7 @@ Now, create a custom field named `Priority` and containing the values: `High`, `
 
 Specify a priority for all issues in your project.
 
-![Example priorities](/assets/images/help/projects/priority_example.png)
+![Example priorities.](/assets/images/help/projects/priority_example.png)
 
 ## Grouping issues by priority
 
@@ -148,7 +148,7 @@ Next, configure the auto-add workflow to automatically add issues opened in a re
 Finally, add a built in workflow to set the status to **Todo** when an item is added to your project.
 
 1. In the top-right, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu.
-  ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
+   ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
 1. In the menu, click {% octicon "workflow" aria-hidden="true" %} **Workflows**.
 1. Under **Default workflows**, click **Item added to project**.
 1. Next to **When**, ensure that both `issues` and `pull requests` are selected.
