@@ -29,7 +29,7 @@ Secret gists don't show up in {% data variables.gists.discover_url %} and are no
 
 If your site administrator has disabled private mode, you can also use anonymous gists, which can be public or secret.
 
-{% data reusables.gist.anonymous-gists-cannot-be-deleted %}
+{% data reusables.gist.anonymous-gists-cannot-be-deleted %}.
 
 {% endif %}
 
