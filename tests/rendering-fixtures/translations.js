@@ -88,4 +88,27 @@ describe('translations', () => {
       expect(tds[1]).toBe('Present')
     }
   })
+
+  test('automatic correction of bad AUTOTITLE in reusables', async () => {
+    const $ = await getDOM('/ja/get-started/quickstart/hello-world')
+    const links = $('#article-contents a[href]')
+    const texts = links.map((i, element) => $(element).text()).get()
+    // That Japanese page uses AUTOTITLE links. Both in the main `.md` file
+    // but also inside a reusable.
+    // E.g. `["AUTOTITLE](/get-started/quickstart/hello-world)."`
+    // If we didn't do the necessary string corrections on translations'
+    // content and reusables what *would* remain is a HTML link that
+    // would look like this:
+    //
+    //    <a href="/ja/get-started/quickstart/hello-world">&quot;AUTOTITLE</a>
+    //
+    // This test makes sure no such string is left in any of the article
+    // content links.
+    // Note that, in English, it's not acceptable to have such a piece of
+    // Markdown. It would not be let into `main` by our CI checks. But
+    // by their nature, translations are not checked by CI in the same way.
+    // Its "flaws" have to be corrected at runtime.
+    const stillAutotitle = texts.filter((text) => /autotitle/i.test(text))
+    expect(stillAutotitle.length).toBe(0)
+  })
 })

@@ -97,3 +97,12 @@ describe('404 pages and their content-type', () => {
     expect(res.headers['content-type']).toMatch('text/html')
   })
 })
+
+describe('/_next/data/... paths', () => {
+  test('invalid build ID', async () => {
+    const res = await get('/_next/data/madeupbutnotvalid/en/free-pro-team%40latest/pages.json')
+    expect(res.statusCode).toBe(404)
+    expect(res.headers['content-type']).toMatch('text/plain')
+    expect(res.headers['cache-control']).toMatch('public')
+  })
+})
