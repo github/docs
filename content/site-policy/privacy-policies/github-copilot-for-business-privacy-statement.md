@@ -21,7 +21,7 @@ When you use Copilot for Business it will collect usage information about events
 GitHub Copilot transmits snippets of your code from your IDE to GitHub to provide Suggestions to you. Code snippets data is only transmitted in real-time to return Suggestions, and is discarded once a Suggestion is returned. Copilot for Business does not retain any Code Snippets Data.
 
 ## How is data in Copilot for Business used and shared?
-User Engagement Data is used by GitHub, Microsoft, and OpenAI to provide the service and to enable improvements.
+User Engagement Data is used by GitHub, and Microsoft to provide the service and to enable improvements.
 
 Such uses may include:
 - Evaluating GitHub Copilot, for example, by measuring the positive impact it has on the user
@@ -30,7 +30,7 @@ Such uses may include:
 - Conducting experiments and research related to developers and their use of developer tools and services.
 
 ## How can users of Copilot for Business control use of their data?
-User engagement data (which includes pseudonymous identifiers and general usage data), is required for the use of GitHub Copilot and will continue to be collected, processed, and shared with Microsoft and OpenAI when you use GitHub Copilot. 
+User engagement data (which includes pseudonymous identifiers and general usage data), is required for the use of GitHub Copilot and will continue to be collected, processed, and shared with Microsoft when you use GitHub Copilot. 
 
 
 For more information on how GitHub processes and uses personal data, please see the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
