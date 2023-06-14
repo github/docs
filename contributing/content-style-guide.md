@@ -964,23 +964,81 @@ The following example shows part of a table from "[Configuration options for the
 <tbody>
 <tr>
 <td align=left><code>package-ecosystem</code></td>
-<td align=center>✅</td>
-<td align=center>❌</td>
-<td align=center>✅</td>
+<td align=center>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+<td align=center>
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/15d24c0a-f400-4a3b-be33-e814bad5ff7d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/67a95612-2cc8-4c60-9973-ae7cd63193ba">
+      <img alt="Not supported">
+  </picture>
+</td>
+<td align=center>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>  
+</td>
 <td align=left>Package manager to use</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>directory</code></td>
-<td align=center>✅</td>
-<td align=center>❌</td>
-<td align=center>✅</td>
+<td align=center>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>  
+</td>  
+</td>
+<td align=center>
+      <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/15d24c0a-f400-4a3b-be33-e814bad5ff7d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/67a95612-2cc8-4c60-9973-ae7cd63193ba">
+      <img alt="Not supported">
+  </picture>
+</td>
+<td align=center>
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+</td>
 <td align=left>Location of package manifests</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>schedule.interval</code></td>
-<td align=center>✅</td>
-<td align=center>❌</td>
-<td align=center>✅</td>
+<td align=center>
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>    
+</td>
+</td>
+<td align=center>
+      <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/15d24c0a-f400-4a3b-be33-e814bad5ff7d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/67a95612-2cc8-4c60-9973-ae7cd63193ba">
+      <img alt="Not supported">
+  </picture>
+</td>
+<td align=center>
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+</td>
 <td align=left>How often to check for updates</td>
 </tr>
 </tbody>
