@@ -310,6 +310,7 @@ sections:
       GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
     - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
     - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
 
   deprecations:
     - heading: Changes to supported SSH algorithms
@@ -321,3 +322,6 @@ sections:
           {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
           
           You can adjust the cutoff date. For more information, see "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)." [Updated: 2023-01-31]
+
+  errata:
+    - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'

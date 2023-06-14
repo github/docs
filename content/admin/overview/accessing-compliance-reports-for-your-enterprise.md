@@ -22,7 +22,7 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. Under "Resources", to the right of the report you want to access, click {% octicon "download" aria-label="The Download icon" %} **Download** or {% octicon "link-external" aria-label="The external link icon" %} **View**.
+1. Under "Resources", to the right of the report you want to access, click {% octicon "download" aria-hidden="true" %} **Download** or {% octicon "link-external" aria-hidden="true" %} **View**.
 
    {% data reusables.security.compliance-report-screenshot %}
 

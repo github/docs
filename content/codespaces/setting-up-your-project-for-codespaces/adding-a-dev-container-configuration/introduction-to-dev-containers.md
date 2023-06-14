@@ -83,7 +83,7 @@ The following example uses four instructions:
 
 `RUN` updates package lists and runs a script. You can also use a `RUN` instruction to install software, as shown by the commented out instructions. To run multiple commands, use `&&` to combine the commands into a single `RUN` statement.
 
-```Dockerfile{:copy}
+```Dockerfile copy
 ARG VARIANT="16-buster"
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
@@ -104,7 +104,7 @@ For more information about Dockerfile instructions, see "[Dockerfile reference](
 
 To use a Dockerfile as part of a dev container configuration, reference it in your `devcontainer.json` file by using the `dockerfile` property.
 
-```json{:copy}
+```json copy
 {
   ...
   "build": { "dockerfile": "Dockerfile" },
@@ -169,8 +169,8 @@ If none of the predefined configurations meets your needs, you can create a cust
    {% note %}
 
    **Notes**:
-   - You can't locate your `devcontainer.json` files in directories more than one level below `.devcontainer`. For example, a file at `.devcontainer/teamA/devcontainer.json` will work, but `.devcontainer/teamA/testing/devcontainer.json` will not.
-   - {% data reusables.codespaces.configuration-choice-templates %} For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
+  - You can't locate your `devcontainer.json` files in directories more than one level below `.devcontainer`. For example, a file at `.devcontainer/teamA/devcontainer.json` will work, but `.devcontainer/teamA/testing/devcontainer.json` will not.
+  - {% data reusables.codespaces.configuration-choice-templates %} For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
 
    {% endnote %}
 
@@ -181,7 +181,7 @@ If none of the predefined configurations meets your needs, you can create a cust
 ### Adding a `devcontainer.json` file
 
 If you don't already have a `devcontainer.json` file in your repository, you can quickly add one from {% data variables.product.prodname_dotcom_the_website %}.
-1. Navigate to your repository and click the **{% octicon "code" aria-label="The code icon" %} Code** dropdown.
+1. Navigate to your repository and click the **{% octicon "code" aria-hidden="true" %} Code** dropdown.
 1. In the **Codespaces** tab, click the ellipsis (**...**), then select **Configure dev container**.
 
    ![Screenshot of the "Code" dropdown, and, within it, another dropdown with the "Configure dev container" option highlighted.](/assets/images/help/codespaces/configure-dev-container.png)

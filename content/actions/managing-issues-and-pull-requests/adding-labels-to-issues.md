@@ -14,8 +14,7 @@ topics:
   - Workflows
   - Project management
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -32,7 +31,7 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
 2. {% data reusables.actions.make-workflow-file %}
 3. Copy the following YAML contents into your workflow file.
   
-    ```yaml{:copy}
+    ```yaml copy
     name: Label issues
     on:
       issues:

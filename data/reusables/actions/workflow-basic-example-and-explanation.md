@@ -7,7 +7,7 @@ You can create an example workflow in your repository that automatically trigger
 1. In your repository, create the `.github/workflows/` directory to store your workflow files.
 1. In the `.github/workflows/` directory, create a new file called `learn-github-actions.yml` and add the following code.
 
-   ```yaml{:copy}
+   ```yaml copy
    name: learn-github-actions
    {%- ifversion actions-run-name %}
    run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions

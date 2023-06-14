@@ -16,6 +16,8 @@ intro: |-
   [Experimental] Download the set of qlpacks referenced by the query
   spec of the command line from the registry. Packs can be provided by
   name or implicitly inside of a query suite (.qls) file.
+redirect_from:
+  - /code-security/codeql-cli/manual/pack-download
 ---
 
 
@@ -25,7 +27,7 @@ intro: |-
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack download [--dir=<dir>] [--force] <options>... -- <scope/name[@version]|suite.qls>...
 ```
 

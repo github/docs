@@ -17,6 +17,12 @@ on:
   # unlike 'pull_request_target', these only have secrets if the pull
   # request creator has permission to access secrets.
   pull_request_target:
+    types:
+      # In case someone puts the 'preview-with-translations' label on the PR
+      - opened
+      - synchronize
+      - reopened
+      - labeled
   merge_group:
   workflow_dispatch:
     inputs:
@@ -28,7 +34,10 @@ on:
         description: 'The commit SHA to build'
         type: string
         required: true
-
+      WITH_TRANSLATIONS:
+        description: 'With translations'
+        required: true
+        type: boolean
 permissions:
   contents: read
   deployments: write
@@ -87,14 +96,14 @@ jobs:
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out main branch
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           ref: 'main'
           persist-credentials: 'false'
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Check out PR code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # pin @3.1.0
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # pin @3.5.2
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
@@ -142,7 +151,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Clone docs-early-access
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           repository: github/docs-early-access
           token: ${{ secrets.DOCUBOT_REPO_PAT }}
@@ -153,9 +162,29 @@ jobs:
         name: Merge docs-early-access repo's folders
         run: .github/actions-scripts/merge-early-access.sh
 
+      - name: Determine if we should include translations?
+        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
+        id: with-translations
+        with:
+          script: |
+            if (process.env.IS_INTERNAL_BUILD !== 'true') return false
+            if (context.eventName === "workflow_dispatch") {
+              return context.payload.inputs.WITH_TRANSLATIONS === 'true'
+            }
+            // This works for pull_request_target too
+            if (context.payload.pull_request?.labels) {
+              return context.payload.pull_request.labels.map(label => label.name).includes('preview-with-translations')
+            }
+            return false
+
+      - if: ${{ steps.with-translations.outputs.result == 'true' }}
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           path: ./user-code
           ref: ${{ env.COMMIT_REF }}
@@ -175,6 +204,10 @@ jobs:
           rsync -rptovR ./user-code/pages/./**/*.tsx ./pages
           rsync -rptovR ./user-code/stylesheets/./**/*.scss ./stylesheets
 
+      - uses: ./.github/actions/warmup-remotejson-cache
+        with:
+          restore-only: true
+
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'
         run: .github/actions-scripts/prune-for-preview-env.sh
@@ -184,7 +217,7 @@ jobs:
         with:
           context: .
           push: true
-          target: preview
+          target: ${{ steps.with-translations.outputs.result == 'true'  && 'production' || 'preview' }}
           tags: ${{ env.DOCKER_IMAGE }}
           # we only pull the `main` cache image
           cache-from: type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview

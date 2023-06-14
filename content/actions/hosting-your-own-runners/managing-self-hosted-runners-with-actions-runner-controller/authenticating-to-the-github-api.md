@@ -64,13 +64,13 @@ ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted r
 
     The following is the list of required {% data variables.product.pat_generic %} scopes for ARC runners.
     - Repository runners: `repo`
-    - Organization runners: `manage_runners:org`
+    - Organization runners: `admin:org`
     {% ifversion ghec or ghes %}
     - Enterprise runners: `manage_runners:enterprise`
     {% endif %}
 1. To create a Kubernetes secret with the value of your {% data variables.product.pat_v1 %}, use the following command.
 
-   ```bash{:copy}
+   ```bash copy
    kubectl create secret generic pre-defined-secret \
       --namespace=my_namespace \
       --from-literal=github_token='<YOUR PAT>'

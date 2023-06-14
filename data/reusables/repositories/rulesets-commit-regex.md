@@ -14,13 +14,13 @@ The negative lookahead assertion, denoted `?!`, is not supported. However, for c
 
 ### Useful regular expression patterns
 
-The following examples provide useful patterns for commit metadata.
+The following examples provide useful patterns for commit metadata. To use these patterns, set **Requirement** to "Must match a given regex pattern".
 
 #### Ensure branch names are compatible with Windows
 
 You can use the following pattern to ensure that branch names only include numbers, lowercase letters, and the characters `-` and `_`. This ensures branch names are compatible with operating systems that do not use case-sensitive file systems by default.
 
-```{:copy}
+```text copy
 \A[0-9a-z-_]$
 ```
 
@@ -32,7 +32,7 @@ Does not match: `myBranch`
 
 You can use the following pattern to ensure tag names conform to semantic versioning. For more information, see the documentation on [semver.org](https://semver.org/).
 
-```{:copy}
+```text copy
 ^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$
 ```
 
@@ -46,7 +46,7 @@ The [Pro Git book](https://git-scm.com/book/en/v2/Distributed-Git-Contributing-t
 
 You can use the following pattern to ensure the first line in a commit message contains 50 characters or fewer.
 
-```{:copy}
+```text copy
 \A.{1,50}$
 ```
 
@@ -54,7 +54,7 @@ You can use the following pattern to ensure the first line in a commit message c
 
 You can use the following pattern to ensure that commit messages contain the word `Resolves:` or `Fixes:`, followed by a string like `#1234`.
 
-```{:copy}
+```text copy
 ^(Resolves|Fixes): \#[0-9]+$
 ```
 
@@ -66,7 +66,7 @@ Does not match: `Add conditional logic to foo.bar`
 
 You can use the following pattern to ensure that commit messages conform to the Conventional Commits specification. For more information, see [conventionalcommits.org](https://www.conventionalcommits.org/).
 
-```{:copy}
+```text copy
 ^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test){1}(\([\w\-\.]+\))?(!)?: ([\w ])+([\s\S]*)
 ```
 

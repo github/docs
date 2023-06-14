@@ -169,8 +169,8 @@ This procedure demonstrates how to configure group permissions at the enterprise
 
 {% data reusables.actions.runner-groups-navigate-to-repo-org-enterprise %}
 {% data reusables.actions.settings-sidebar-actions-runner-groups-selection %}
-  - For runner groups in an enterprise: under **Organization access**, modify which organizations can access the runner group.
-  - For runner groups in an organization: under **Repository access**, modify which repositories can access the runner group.
+   - For runner groups in an enterprise: under **Organization access**, modify which organizations can access the runner group.
+   - For runner groups in an organization: under **Repository access**, modify which repositories can access the runner group.
 
 {% warning %}
 

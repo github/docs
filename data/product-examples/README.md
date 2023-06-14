@@ -27,7 +27,7 @@ At the moment, versioning is only supported in code examples. If an example bloc
     - Pull requests
   versions:
     fpt: '*'
-  ```
+```
 
 where the syntax for `versions` is the same as the [frontmatter `versions` property](content/README.md) and can support semver notation.
 

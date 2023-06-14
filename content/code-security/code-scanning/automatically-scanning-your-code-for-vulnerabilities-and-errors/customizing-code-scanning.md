@@ -58,10 +58,8 @@ With the advanced setup, you can edit workflows like {% data variables.product.p
 {% data variables.product.prodname_dotcom %} saves workflow files in the _.github/workflows_ directory of your repository. You can find a workflow you have added by searching for its file name. For example, by default, the workflow file for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} is called _codeql-analysis.yml_.
 
 1. In your repository, browse to the workflow file you want to edit.
-1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="The edit icon" %}.
-![Edit workflow file button](/assets/images/help/repository/code-scanning-edit-workflow-button.png)
+1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="Edit file" %}.
 1. After you have edited the file, click **Start commit** and complete the "Commit changes" form. You can choose to commit directly to the current branch, or create a new branch and start a pull request.
-![Commit update to codeql.yml workflow](/assets/images/help/repository/code-scanning-workflow-update.png)
 
 For more information about editing workflow files, see "[AUTOTITLE](/actions/learn-github-actions)."
 
@@ -89,21 +87,21 @@ If you scan pull requests, then the results appear as alerts in a pull request c
 
 Using the `pull_request` trigger, configured to scan the pull request's merge commit rather than the head commit, will produce more efficient and accurate results than scanning the head of the branch on each push. However, if you use a CI/CD system that cannot be configured to trigger on pull requests, you can still use the `on:push` trigger and {% data variables.product.prodname_code_scanning %} will map the results to open pull requests on the branch and add the alerts as annotations on the pull request. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#scanning-on-push)."
 
-### Defining the severities causing pull request check failure
+{% ifversion fpt or ghec %}
 
-By default, only alerts with the severity level of `Error` or security severity level of `Critical` or `High` will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities and of security severities that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+{% note %}
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code scanning", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.
-![Check failure setting](/assets/images/help/repository/code-scanning-check-failure-setting.png)
+**Note:** If your repository is configured with a merge queue, you need to include the `merge_group` event as an additional trigger for {% data variables.product.prodname_code_scanning %}. This will ensure that pull requests are also scanned when they are added to a merge queue. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)."
+
+{% endnote %}
+
+{% endif %}
 
 ### Avoiding unnecessary scans of pull requests
 
 You might want to avoid a code scan being triggered on specific pull requests targeted against the default branch, irrespective of which files have been changed. You can configure this by specifying `on:pull_request:paths-ignore` or `on:pull_request:paths` in the {% data variables.product.prodname_code_scanning %} workflow. For example, if the only changes in a pull request are to files with the file extensions `.md` or `.txt` you can use the following `paths-ignore` array.
 
-``` yaml{:copy}
+``` yaml copy
 on:
   push:
     branches: [main, protected]
@@ -140,7 +138,7 @@ If you use the default {% data variables.code-scanning.codeql_workflow %}, the w
 
 The following example shows a {% data variables.code-scanning.codeql_workflow %} for a particular repository that has a default branch called `main` and one protected branch called `protected`.
 
-``` yaml{:copy}
+``` yaml copy
 on:
   push:
     branches: [main, protected]
@@ -157,9 +155,17 @@ This workflow scans:
 
 ## Specifying an operating system
 
+{% ifversion codeql-swift-beta %}
+{% note %}
+
+**Note**: Code scanning of Swift code uses macOS runners by default. {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, so you should consider only scanning the build step. For more information about configuring code scanning for Swift, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#considerations-for-building-swift)." For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+
+{% endnote %}
+
+{% endif %}
 If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.code-scanning.codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
 
-``` yaml{:copy}
+``` yaml copy
 jobs:
   analyze:
     name: Analyze
@@ -168,7 +174,7 @@ jobs:
 
 If you choose to use a self-hosted runner for code scanning, you can specify an operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% endif %}
 
-``` yaml{:copy}
+``` yaml copy
 jobs:
   analyze:
     name: Analyze
@@ -185,7 +191,7 @@ For recommended specifications (RAM, CPU cores, and disk) for running {% data va
 
 In general, you do not need to worry about where the {% data variables.code-scanning.codeql_workflow %} places {% data variables.product.prodname_codeql %} databases since later steps will automatically find databases created by previous steps. However, if you are writing a custom workflow step that requires the {% data variables.product.prodname_codeql %} database to be in a specific disk location, for example to upload the database as a workflow artifact, you can specify that location using the `db-location` parameter under the `init` action.
 
-``` yaml{:copy}
+``` yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     db-location: {% raw %}'${{ github.workspace }}/codeql_dbs'{% endraw %}
@@ -207,7 +213,7 @@ The default {% data variables.code-scanning.codeql_workflow %} file contains a m
 
 If your workflow uses the `language` matrix then {% data variables.product.prodname_codeql %} is hardcoded to analyze only the languages in the matrix. To change the languages you want to analyze, edit the value of the matrix variable. You can remove a language to prevent it being analyzed or you can add a language that was not present in the repository when {% data variables.product.prodname_code_scanning %} was configured. For example, if the repository initially only contained JavaScript when {% data variables.product.prodname_code_scanning %} was configured, and you later added Python code, you will need to add `python` to the matrix.
 
-```yaml{:copy}
+```yaml copy
 jobs:
   analyze:
     name: Analyze
@@ -220,7 +226,7 @@ jobs:
 
 If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
 
-```yaml{:copy}
+```yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     languages: cpp, csharp, python
@@ -236,7 +242,7 @@ For GitHub-hosted runners that use Linux only, the {% data variables.code-scanni
 
 Alternatively, you can install Python dependencies manually on any operating system. You will need to add `setup-python-dependencies` and set it to `false`, as well as set `CODEQL_PYTHON` to the Python executable that includes the dependencies, as shown in this workflow extract:
 
-```yaml{:copy}
+```yaml copy
 jobs:
   CodeQL-Build:
     runs-on: ubuntu-latest
@@ -270,13 +276,23 @@ jobs:
 ```
 {% endif %}
 
+## Defining the alert severities that give a check failure for a pull request
+
+By default, only alerts with the severity level of `Error` or security severity level of `Critical` or `High` will cause a pull request check failure, and a check will still succeed with alerts of lower severities. You can change the levels of alert severities and of security severities that will cause a pull request check failure in your repository settings. For more information about severity levels, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %} {% ifversion fpt or ghec %}
+1. Under "{% data variables.product.prodname_code_scanning_caps %}", in the "Protection rules" section, use the drop-down menu to define which alerts should cause a check failure. Choose one level for alerts of type "Security" and one level for all other alerts.{% else %}
+1. Under "{% data variables.product.prodname_code_scanning_caps %}", to the right of "Check Failure", use the drop-down menu to select the level of severity you would like to cause a pull request check failure.{% endif %}
+
 ## Configuring a category for the analysis
 
 Use `category` to distinguish between multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. The category you specify in your workflow will be included in the SARIF results file.
 
 This parameter is particularly useful if you work with monorepos and have multiple SARIF files for different components of the monorepo.
 
-``` yaml{:copy}
+``` yaml copy
     - name: Perform CodeQL Analysis
       uses: {% data reusables.actions.action-codeql-action-analyze %}
       with:
@@ -317,7 +333,7 @@ In the example below, `scope` is the organization or personal account that publi
 - The latest version of `pack3` that is compatible with version 3.2.1 is downloaded and all queries are run.
 - Version 4.5.6 of `pack4` is downloaded and only the queries found in `path/to/queries` are run.
 
-``` yaml{:copy}
+``` yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     # Comma-separated list of packs to download
@@ -343,7 +359,7 @@ For more information about pack compatibility, see "[AUTOTITLE](/code-security/c
 
 If your workflow uses packs that are published on a {% data variables.product.prodname_ghe_server %} installation, you need to tell your workflow where to find them. You can do this by using the `registries` input of the {% data reusables.actions.action-codeql-action-init %} action. This input accepts a list of `url`, `packages`, and `token` properties as shown below.
 
-```yaml{:copy}
+```yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     registries: {% raw %}|
@@ -377,10 +393,10 @@ To add one or more queries, add a `with: queries:` entry within the `uses: {% da
 
 You can also specify query suites in the value of `queries`. Query suites are collections of queries, usually grouped by purpose or language.
 
-``` yaml{:copy}
+``` yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    # Comma-separated list of queries / packs / suites to run. 
+    # Comma-separated list of queries / packs / suites to run.
     # This may include paths or a built in suite, for example:
     # security-extended or security-and-quality.
     queries: security-extended
@@ -398,7 +414,7 @@ If you also use a configuration file for custom settings, any additional {% ifve
 
 In the following example, the `+` symbol ensures that the specified additional {% ifversion codeql-packs %}packs and {% endif %}queries are used together with any specified in the referenced configuration file.
 
-``` yaml{:copy}
+``` yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
@@ -419,7 +435,7 @@ A custom configuration file is an alternative way to specify additional {% ifver
 
 In the workflow file, use the `config-file` parameter of the `init` action to specify the path to the configuration file you want to use. This example loads the configuration file _./.github/codeql/codeql-config.yml_.
 
-``` yaml{:copy}
+``` yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     config-file: ./.github/codeql/codeql-config.yml
@@ -429,7 +445,7 @@ In the workflow file, use the `config-file` parameter of the `init` action to sp
 
 If the configuration file is located in an external private repository, use the `external-repository-token` parameter of the `init` action to specify a token that has access to the private repository.
 
-```yaml{:copy}
+```yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
     external-repository-token: {% raw %}${{ secrets.ACCESS_TOKEN }}{% endraw %}
@@ -445,7 +461,7 @@ The settings in the configuration file are written in YAML format.
 You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
 
 {% raw %}
-``` yaml{:copy}
+``` yaml copy
 packs:
   # Use the latest version of 'pack1' published by 'scope'
   - scope/pack1
@@ -467,7 +483,7 @@ The full format for specifying a query pack is `scope/name[@version][:path]`. Bo
 If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
 
 {% raw %}
-``` yaml{:copy}
+``` yaml copy
 packs:
   # Use these packs for JavaScript and TypeScript analysis
   javascript:
@@ -485,7 +501,7 @@ packs:
 
 You specify additional queries in a `queries` array. Each element of the array contains a `uses` parameter with a value that identifies a single query file, a directory containing query files, or a query suite definition file.
 
-``` yaml{:copy}
+``` yaml copy
 queries:
   - uses: ./my-basic-queries/example-query.ql
   - uses: ./my-advanced-queries
@@ -510,7 +526,7 @@ This is useful if you want to exclude, for example:
 
 You can use `exclude` filters similar to those in the configuration file below to exclude queries that you want to remove from the default analysis. In the example of configuration file below, both the `js/redundant-assignment` and the `js/useless-assignment-to-local` queries are excluded from analysis.
 
-```yaml{:copy}
+```yaml copy
 query-filters:
   - exclude:
       id: js/redundant-assignment
@@ -537,7 +553,7 @@ For more information about using `exclude` and `include` filters in your custom 
 
 For the interpreted languages that {% data variables.product.prodname_codeql %} supports (Python, Ruby, and JavaScript/TypeScript), you can restrict {% data variables.product.prodname_code_scanning %} to files in specific directories by adding a `paths` array to the configuration file. You can exclude the files in specific directories from analysis by adding a `paths-ignore` array.
 
-``` yaml{:copy}
+``` yaml copy
 paths:
   - src
 paths-ignore:
@@ -563,9 +579,51 @@ You can quickly analyze small portions of a monorepo when you modify code in spe
 
 {% data reusables.code-scanning.example-configuration-files %}
 
+{% ifversion code-scanning-config-input %}
+## Specifying configuration details using the `config` input
+
+If you'd prefer to specify additional configuration details in the workflow file, you can use the `config` input of the `init` command of the {% data variables.product.prodname_codeql %} action. The value of this input must be a YAML string that follows the configuration file format documented at "[Using a custom configuration file](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-a-custom-configuration-file)" above.
+
+### Example configuration
+
+This step in a {% data variables.product.prodname_actions %} workflow file uses a `config` input to disable the default queries, add the `security-extended` query suite, and exclude queries that are tagged with `cwe-020`.
+
+```yaml
+- uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    languages: {% raw %}${{ matrix.language }}{% endraw %}
+    config: |
+      disable-default-queries: true
+      queries:
+        - uses: security-extended
+      query-filters:
+        - exclude:
+          tags: /cwe-020/
+```
+
+You can use the same approach to specify any valid configuration options in the workflow file.
+
+{% tip %}
+
+**Tip:**
+
+You can share one configuration across multiple repositories using  {% data variables.product.prodname_actions %} variables. One benefit of this approach is that you can update the configuration in a single place without editing the workflow file.
+
+In the following example, `vars.CODEQL_CONF` is a {% data variables.product.prodname_actions %} variable. Its value can be the contents of any valid configuration file. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+
+```yaml
+- uses: {% data reusables.actions.action-codeql-action-init %}
+  with:
+    languages: {% raw %}${{ matrix.language }}{% endraw %}
+    config: {% raw %}${{ vars.CODEQL_CONF }}{% endraw %}
+```
+
+{% endtip %}
+{% endif %}
+
 ## Configuring {% data variables.product.prodname_code_scanning %} for compiled languages
 
-{% data reusables.code-scanning.autobuild-compiled-languages %} {% data reusables.code-scanning.analyze-go %}
+{% data reusables.code-scanning.autobuild-compiled-languages %}
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For more information about how to configure {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for compiled languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages)."
 

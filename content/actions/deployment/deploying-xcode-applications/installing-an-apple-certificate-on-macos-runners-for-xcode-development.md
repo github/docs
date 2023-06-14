@@ -15,8 +15,7 @@ topics:
   - CI
   - Xcode
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -74,7 +73,7 @@ Create secrets in your repository or organization for the following items:
 
 This example workflow includes a step that imports the Apple certificate and provisioning profile from the {% data variables.product.prodname_dotcom %} secrets, and installs them on the runner.
 
-```yaml{:copy}
+```yaml copy
 name: App build
 on: push
 
@@ -116,6 +115,12 @@ jobs:
       - name: Build app
         ...
 ```
+
+{% note %}
+
+**Note:** For iOS build targets, your provisioning profile should have the extension `.mobileprovision`. For macOS build targets, the extension should be  `.provisionprofile`. The example workflow above should be updated to reflect your target platform.
+
+{% endnote %}
 
 ## Required clean-up on self-hosted runners
 

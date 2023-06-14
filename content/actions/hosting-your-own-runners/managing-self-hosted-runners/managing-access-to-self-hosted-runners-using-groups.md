@@ -1,10 +1,12 @@
 ---
 title: Managing access to self-hosted runners using groups
 shortTitle: Manage access with runner groups
-intro: You can use policies to limit access to self-hosted runners that have been added to an organization or enterprise.
+intro: You can use policies to limit access to self-hosted runners that have been added to an organization{% ifversion ghec or ghes or ghae %} or enterprise{% endif %}.
+permissions: 'Enterprise accounts, organizations owned by enterprise accounts, and organizations using {% data variables.product.prodname_team %} can create and manage additional runner groups.'
 redirect_from:
   - /actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners
   - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners
+  - /actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups
 versions:
   fpt: '*'
   ghes: '*'
@@ -12,29 +14,24 @@ versions:
   ghec: '*'
 type: tutorial
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
-{% ifversion target-runner-groups %}
-For information on how to route jobs to runners in a specific group, see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job#choosing-runners-in-a-group)."
-{% endif %}
 
 ## About runner groups
 
-{% data reusables.actions.about-runner-groups %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
-
-{% ifversion ghec or ghes or ghae %}
+{% data reusables.actions.about-runner-groups %}
 
 ## Creating a self-hosted runner group for an organization
 
-{%- ifversion ghec or ghes %}
+{%- ifversion fpt or ghec or ghes %}
 
 {% data reusables.actions.self-hosted-runner-security-admonition %}
 
 {%- endif %}
 
 {% data reusables.actions.creating-a-runner-group-for-an-organization %}
+
+{% ifversion ghec or ghes or ghae %}
 
 ## Creating a self-hosted runner group for an enterprise
 
@@ -62,7 +59,6 @@ For information on how to route jobs to runners in a specific group, see "[AUTOT
 
 {% data reusables.actions.changing-the-name-of-a-runner-group %}
 
-{% ifversion ghec or ghes or ghae %}
 ## Automatically adding a self-hosted runner to a group
 
 {% data reusables.actions.automatically-adding-a-runner-to-a-group %}
@@ -74,7 +70,5 @@ For information on how to route jobs to runners in a specific group, see "[AUTOT
 ## Removing a self-hosted runner group
 
 {% data reusables.actions.removing-a-runner-group %}
-
-{% endif %}
 
 {% data reusables.actions.section-using-unique-names-for-runner-groups %}

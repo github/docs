@@ -60,7 +60,11 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
+{% ifversion dependabot-alerts-ghes-enablement %}
+{% data reusables.dependabot.dependabot-alerts-enterprise-server-repo-org-enablement %}
+{% else %}
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
+{% endif %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts){% ifversion fpt or ghec %}" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account){% endif %}."
 
@@ -111,9 +115,9 @@ You can configure {% data variables.product.prodname_code_scanning %} to automat
 
 {% ifversion code-scanning-without-workflow %}
 
-1. From the main page of your repository, click {% octicon "gear" aria-label="The gear icon" %} **Settings**.
-1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-label="The shield-lock icon" %} Code security and analysis**.
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %}, then click **Default**.
+1. From the main page of your repository, click {% octicon "gear" aria-hidden="true" %} **Settings**.
+1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-hidden="true" %} Code security and analysis**.
+1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Default**.
 1. In the pop-up window that appears, review the default configuration settings for your repository, then click **Enable {% data variables.product.prodname_codeql %}**.
 
 Alternatively, you can use the advanced setup, which generates a workflow file you can edit to customize your {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."

@@ -369,7 +369,7 @@ Header name | Description
 `x-ratelimit-limit` | The maximum number of requests you're permitted to make per hour.
 `x-ratelimit-remaining` | The number of requests remaining in the current rate limit window.
 `x-ratelimit-used` | The number of requests you've made in the current rate limit window.
-`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+`x-ratelimit-reset` | The time at which the current rate limit window resets in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
 
 #### Checking your rate limit status with the REST API
 
@@ -439,7 +439,7 @@ If your application triggers an additional rate limit, you'll receive an informa
 > }
 ```
 
-You should wait and try your request again after a few minutes. If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed. Otherwise, you should not retry your request until the time, in UTC epoch seconds, specified by the `x-ratelimit-reset` header.
+You should wait and try your request at a later time. If the `retry-after` response header is present, you should not retry your request until after that many seconds has elapsed. If the `x-ratelimit-remaining` header is `0`, you should not retry your request until after the time, in UTC epoch seconds, specified by the `x-ratelimit-reset` header. Otherwise, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 {% ifversion fpt or ghec %}
 
@@ -653,7 +653,7 @@ These timestamps look something like `2014-02-27T15:05:06+01:00`. Also see [this
 It is possible to supply a `Time-Zone` header which defines a timezone according to the [list of names from the Olson database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
 
 ```shell
-$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github/linguist/contents/new_file.md
+$ curl -H "Time-Zone: Europe/Amsterdam" -X POST {% data variables.product.api_url_pre %}/repos/github-linguist/linguist/contents/new_file.md
 ```
 
 This means that we generate a timestamp for the moment your API call is made in the timezone this header defines. For example, the API to manage contents generates a git commit for each addition or change and uses the current time as the timestamp. For more information, see "[AUTOTITLE](/rest/repos#contents)." This header will determine the timezone used for generating that current timestamp.

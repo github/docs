@@ -137,11 +137,11 @@ In this example the `closed` action is checked first before calling the `process
 
 The {% data variables.product.company_short %} API rate limit ensures that the API is fast and available for everyone.
 
-If you hit a rate limit, it's expected that you stop making requests until after the time specified by the `x-ratelimit-reset` header. Failure to do so may result in the banning of your app. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+If you hit a rate limit, you should stop making requests until after the time specified by the `x-ratelimit-reset` header. Failure to do so may result in the banning of your integration. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
-## Dealing with secondary rate limits
+### Dealing with secondary rate limits
 
-{% data variables.product.company_short %} may use secondary rate limits to ensure API availability. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)."
+{% data variables.product.company_short %} may also use secondary rate limits to ensure API availability. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)."
 
 To avoid hitting this limit, you should ensure your application follows the guidelines below.
 
@@ -152,11 +152,12 @@ To avoid hitting this limit, you should ensure your application follows the guid
 * If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
   or client ID, wait at least one second between each request.
 * When you have been limited, wait before retrying your request.
-   * If the `Retry-After` response header is present, retry your request after the time specified in the header. The value of the
+  * If the `Retry-After` response header is present, retry your request after the time specified in the header. The value of the
   `Retry-After` header will always be an integer, representing the number of seconds you should wait
   before making requests again. For example, `Retry-After: 30` means you should wait 30 seconds
   before sending more requests.
-   * Otherwise, retry your request after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header will always be an integer representing the time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+  * If the `x-ratelimit-remaining` header is `0`, retry your request after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header will always be an integer representing the time at which the current rate limit window resets in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+  * Otherwise, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 {% data variables.product.company_short %} reserves the right to change these guidelines as needed to ensure availability.
 
@@ -170,4 +171,4 @@ Rather than ignore repeated `4xx` and `5xx` status codes, you should ensure that
 
 Intentionally ignoring repeated validation errors may result in the suspension of your app for abuse.
 
-[event-types]: /webhooks/event-payloads
+[event-types]: /webhooks-and-events/webhooks/webhook-events-and-payloads

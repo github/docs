@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Enable OAuth App
+shortTitle: Restrict OAuth Apps
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}

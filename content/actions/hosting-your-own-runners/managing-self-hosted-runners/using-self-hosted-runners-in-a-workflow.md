@@ -13,8 +13,7 @@ versions:
 type: tutorial
 shortTitle: Use runners in a workflow
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 You can target self-hosted runners for use in a workflow based on the labels assigned to the runners{% ifversion target-runner-groups %}, or their group membership, or a combination of these{% endif %}.
@@ -36,10 +35,6 @@ For self-hosted runners defined at the organization {% ifversion ghec or ghes or
 To specify a self-hosted runner group for your job, configure `runs-on.group` in your workflow file.
 
 For information on creating and managing runner groups, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
-
-{% ifversion fpt %}
-{% data reusables.actions.runner-groups-ent-note %}
-{% endif %}
 
 {% endif %}
 

@@ -54,3 +54,8 @@ The code frequency graph displays the content additions and deletions for each w
 {% data reusables.repositories.accessing-repository-graphs %}
 3. In the left sidebar, click **Code frequency**.
 ![Screenshot of the left sidebar. The "Code frequency" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/code_frequency_tab.png)
+
+{% ifversion repository-activity-view %}
+{% data reusables.repositories.activity-view %}
+For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
+{% endif %}

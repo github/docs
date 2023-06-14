@@ -60,8 +60,8 @@ For example:
 
 ```shell
 curl --request POST \
---url "{% data variables.product.api_url_code %}/authorizations"
---user CLIENT_ID:CLIENT_SECRET{% ifversion api-date-versioning %} \
+--url "{% data variables.product.api_url_code %}/authorizations" \
+--user "<YOUR_CLIENT_ID>:<YOUR_CLIENT_SECRET>"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
@@ -79,7 +79,7 @@ If you want to use the API in a {% data variables.product.prodname_actions %} wo
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_code %}/user"
+--url "{% data variables.product.api_url_code %}/user" \
 --user USERNAME:PASSWORD{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
@@ -89,3 +89,7 @@ curl --request GET \
 Authentication with username and password is not supported. If you try to authenticate with user name and password, you will receive a 4xx error.
 
 {% endif %}
+
+## Further reading
+
+- "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."

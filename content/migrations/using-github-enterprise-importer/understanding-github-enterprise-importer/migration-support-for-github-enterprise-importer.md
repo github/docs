@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About migration support for {% data variables.product.prodname_importer_proper_name %}
 
 {% data variables.product.prodname_importer_proper_name %} can migrate to {% data variables.product.prodname_ghe_cloud %} from any of our supported migration sources. The data included in each migration depends on the source.
@@ -29,12 +27,12 @@ You can only use {% data variables.product.prodname_importer_proper_name %} to m
 
 We currently only support migrating the following repository data from Azure DevOps to {% data variables.product.prodname_ghe_cloud %}.
 
-  - Git source (including commit history)
-  - Pull requests
-  - User history for pull requests
-  - Work item links on pull requests
-  - Attachments on pull requests
-  - Branch protections for the repository (user-scoped branch protections not included)
+- Git source (including commit history)
+- Pull requests
+- User history for pull requests
+- Work item links on pull requests
+- Attachments on pull requests
+- Branch protections for the repository (user-scoped branch protections not included)
 
 If you want to migrate Azure Pipelines to {% data variables.product.prodname_actions %}, contact your {% data variables.product.prodname_dotcom %} account manager.
 
@@ -47,10 +45,11 @@ Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitb
 If your migration source is Bitbucket Server, you can migrate repositories. We currently only support migrating the following repository data from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %}.
 
 - Git source (including commit history)
-- Pull requests (including pull request reviews, required reviewers, comments and attachments)
+- Pull requests (including pull request reviews, required reviewers, comments and attachments, but excluding file-level comments)
 
 Currently, the following data is **not** migrated.
 
+- File-level comments on pull requests
 - Branch permissions
 - Commit comments
 - Repository settings
@@ -82,29 +81,29 @@ Team membership is **not** migrated. After the migration, you'll need to add mem
 
 When you migrate a repository, either directly or as part of an organization migration, only the following data is migrated.
 
-  - Git source (including commit history)
-  - Pull requests
-  - Issues
-  - Milestones
-  - Wikis
-  - Projects (classic) at the repository level
-  - {% data variables.product.prodname_actions %} workflows
-  - Commit comments
-  - Active webhooks
-  - Repository topics
-  - Repository settings
-     - Branch protections (see ["Branch protections"](#branch-protections) for more details)
-     - {% data variables.product.prodname_pages %} settings
-     - Autolink references
-     - {% data variables.product.prodname_GH_advanced_security %} settings
-     - Pull request settings
-       - Automatically delete head branches
-       - Allow auto-merge
-       - Allow merge commits (commit message setting is reset to the default message)
-       - Allow squash merging (commit message setting is reset to the default message)
-       - Allow rebase merging
-  - Releases (up to 10 GB per repository)
-  - User history for the above data
+- Git source (including commit history)
+- Pull requests
+- Issues
+- Milestones
+- Wikis
+- Projects (classic) at the repository level
+- {% data variables.product.prodname_actions %} workflows
+- Commit comments
+- Active webhooks
+- Repository topics
+- Repository settings
+  - Branch protections (see ["Branch protections"](#branch-protections) for more details)
+  - {% data variables.product.prodname_pages %} settings
+  - Autolink references
+  - {% data variables.product.prodname_GH_advanced_security %} settings
+  - Pull request settings
+    - Automatically delete head branches
+    - Allow auto-merge
+    - Allow merge commits (commit message setting is reset to the default message)
+    - Allow squash merging (commit message setting is reset to the default message)
+    - Allow rebase merging
+- Releases (up to 10 GB per repository)
+- User history for the above data
 
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
 - User access to the repository

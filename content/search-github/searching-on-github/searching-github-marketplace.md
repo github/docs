@@ -21,9 +21,8 @@ You can find apps and actions on {% data variables.product.prodname_marketplace 
 ## Searching in {% data variables.product.prodname_marketplace %}
 
 1. At the top of any page, click **Marketplace**.
-  ![Marketplace link](/assets/images/help/search/marketplace-link.png)
+   ![Screenshot of the top level menu of {% data variables.product.prodname_dotcom_the_website %}. The "Marketplace" link is outlined in dark orange.](/assets/images/help/search/marketplace-link.png)
 2. Type any keywords and press **Enter**.
-  ![Search for linter on {% data variables.product.prodname_marketplace %}](/assets/images/help/search/marketplace-apps-and-actions-search-field.png)
 3. Optionally, filter your results by clicking one or more options in the left sidebar.
 
 ## Searching across {% data variables.product.prodname_dotcom_the_website %}
@@ -32,11 +31,13 @@ Anytime you search across all of {% data variables.product.prodname_dotcom_the_w
 
 1. Navigate to https://github.com/search.
 2. Type any keywords and press **Enter**.
-  ![search field](/assets/images/help/search/search-field.png)
 3. In the left sidebar, click **Marketplace**.
-  ![Search results for linter with Marketplace side-menu option highlighted](/assets/images/help/search/marketplace-left-side-navigation.png)
+   ![Screenshot of the search results for 'linter'. The "Marketplace" option in the left-side menu is outlined in dark orange.](/assets/images/help/search/marketplace-left-side-navigation.png)
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/exploring-integrations/about-github-marketplace)"
 - "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)"
+- "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)"
+- "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations)"
+- "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-personal-account)"
+- "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-organization)"

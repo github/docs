@@ -74,9 +74,9 @@ You can create {% data variables.product.prodname_codeql %} debugging artifacts 
 
 If your {% data variables.product.prodname_code_scanning %} results are different than you expected, your repository may have both default and advanced {% data variables.product.prodname_code_scanning %} setups. When you enable default setup, this disables the existing {% data variables.product.prodname_codeql %} workflow file and blocks any {% data variables.product.prodname_codeql %} API analysis from uploading results.
 
-To check if default setup is enabled, navigate to the main page of the repository, then click {% octicon "gear" aria-label="The gear icon" %} **Settings**. In the "Security" section of the sidebar, click {% octicon "codescan" aria-label="The {% data variables.product.prodname_code_scanning %} icon" %} **Code security and analysis**. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}. If there is a {% octicon "workflow" aria-label="The workflow icon" %} **Switch to advanced** option, you are currently using the default setup.
+To check if default setup is enabled, navigate to the main page of the repository, then click {% octicon "gear" aria-hidden="true" %} **Settings**. In the "Security" section of the sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," click {% octicon "kebab-horizontal" aria-label="Menu" %}. If there is a {% octicon "workflow" aria-hidden="true" %} **Switch to advanced** option, you are currently using the default setup.
 
-If you want to return to using advanced setup and get {% data variables.product.prodname_code_scanning %} results from your custom workflow file, click {% octicon "stop" aria-label="The stop icon" %} **Disable {% data variables.product.prodname_codeql %}** to disable default setup. Then you should re-enable your pre-existing workflows to start triggering and uploading results from advanced setup. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)" and  "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+If you want to return to using advanced setup and get {% data variables.product.prodname_code_scanning %} results from your custom workflow file, click {% octicon "stop" aria-hidden="true" %} **Disable {% data variables.product.prodname_codeql %}** to disable default setup. Then you should re-enable your pre-existing workflows to start triggering and uploading results from advanced setup. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)" and  "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
 
 {% ifversion remove-code-scanning-configurations %}
 {% data reusables.code-scanning.troubleshooting-multiple-configurations %}
@@ -89,7 +89,7 @@ If an automatic build of code for a compiled language within your project fails,
 
 - Remove the `autobuild` step from your {% data variables.product.prodname_code_scanning %} workflow and add specific build steps. For information about editing the workflow, see  "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#editing-a-code-scanning-workflow)." For more information about replacing the `autobuild` step, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."
 
-- If your workflow doesn't explicitly specify the languages to analyze, {% data variables.product.prodname_codeql %} implicitly detects the supported languages in your code base. In this configuration, out of the compiled languages C/C++, C#,{% ifversion codeql-go-autobuild %} Go,{% endif %} and Java, {% data variables.product.prodname_codeql %} only analyzes the language with the most source files. Edit the workflow and add a matrix specifying the languages you want to analyze. The default {% data variables.product.prodname_codeql %} analysis workflow uses such a matrix.
+- If your workflow doesn't explicitly specify the languages to analyze, {% data variables.product.prodname_codeql %} implicitly detects the supported languages in your code base. In this configuration, out of the compiled languages {% data variables.code-scanning.compiled_languages %}, {% data variables.product.prodname_codeql %} only analyzes the language with the most source files. Edit the workflow and add a matrix specifying the languages you want to analyze. The default {% data variables.product.prodname_codeql %} analysis workflow uses such a matrix.
 
   The following extracts from a workflow show how you can use a matrix within the job strategy to specify languages, and then reference each language within the "Initialize {% data variables.product.prodname_codeql %}" step:
 
@@ -123,14 +123,14 @@ If your workflow fails with an error `No source code was seen during the build` 
 
 1. Automatic language detection identified a supported language, but there is no analyzable code of that language in the repository. A typical example is when our language detection service finds a file associated with a particular programming language like a `.h`, or `.gyp` file, but no corresponding executable code is present in the repository. To solve the problem, you can manually define the languages you want to analyze by updating the list of languages in the `language` matrix. For example, the following configuration will analyze only Go, and JavaScript.
 
-  ```yaml
-  strategy:
-    fail-fast: false
-    matrix:
-      # Override automatic language detection by changing the list below.
-      # Supported options are listed in a comment in the default workflow.
-      language: ['go', 'javascript']
-  ```
+   ```yaml
+   strategy:
+     fail-fast: false
+     matrix:
+       # Override automatic language detection by changing the list below.
+       # Supported options are listed in a comment in the default workflow.
+       language: ['go', 'javascript']
+   ```
 
    For more information, see the workflow extract in "[Automatic build for a compiled language fails](#automatic-build-for-a-compiled-language-fails)" above.
 

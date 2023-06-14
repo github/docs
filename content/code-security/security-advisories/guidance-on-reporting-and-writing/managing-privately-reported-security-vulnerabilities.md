@@ -12,8 +12,6 @@ topics:
 shortTitle: Manage vulnerability reports
 ---
 
-{% data reusables.security-advisory.private-vulnerability-reporting-beta %}
-
 {% data reusables.security-advisory.private-vulnerability-reporting-enable %}
 
 ## About privately reporting a security vulnerability
@@ -24,7 +22,9 @@ When a security researcher reports a vulnerability privately, you are notified a
 
 ## Managing security vulnerabilities that are privately reported
 
-{% data variables.product.prodname_dotcom %} notifies repository maintainers when security researchers privately report vulnerabilities in their repository, and sends notifications if maintainers watch the repository or if they have notifications enabled for the repository. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+{% data reusables.security-advisory.private-vulnerability-reporting-configure-notifications %}
+
+For more information about configuring notification preferences, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository#configuring-notifications-for-private-vulnerability-reporting)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

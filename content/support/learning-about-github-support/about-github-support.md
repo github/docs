@@ -50,9 +50,9 @@ If you're a member of an organization that uses {% data variables.product.prodna
 {% ifversion ghes %}
 
 You can contact {% data variables.contact.enterprise_support %} through the {% data variables.contact.contact_enterprise_portal %} for help with:
- - Installing and using {% data variables.product.product_name %}
- - Identifying and verifying the causes of suspected errors
- - Installing and using {% data variables.product.prodname_advanced_security %}
+- Installing and using {% data variables.product.product_name %}
+- Identifying and verifying the causes of suspected errors
+- Installing and using {% data variables.product.prodname_advanced_security %}
 
 {% endif %}
 

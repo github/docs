@@ -97,7 +97,6 @@ The recommended formats explicitly define which versions are used for all direct
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
-
 {% note %}
 
 **Notes:** 

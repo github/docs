@@ -16,8 +16,7 @@ topics:
   - PowerShell
 shortTitle: Build & test PowerShell
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -71,9 +70,7 @@ jobs:
 * `run: Test-Path resultsfile.log` - Check whether a file called `resultsfile.log` is present in the repository's root directory.
 * `Should -Be $true` - Uses Pester to define an expected result. If the result is unexpected, then {% data variables.product.prodname_actions %} flags this as a failed test. For example:
 
-
   ![Screenshot of a workflow run failure for a Pester test. Test reports "Expected $true, but got $false" and "Error: Process completed with exit code 1."](/assets/images/help/repository/actions-failed-pester-test-updated.png)
-
 
 * `Invoke-Pester Unit.Tests.ps1 -Passthru` - Uses Pester to execute tests defined in a file called `Unit.Tests.ps1`. For example, to perform the same test described above, the `Unit.Tests.ps1` will contain the following:
   ```

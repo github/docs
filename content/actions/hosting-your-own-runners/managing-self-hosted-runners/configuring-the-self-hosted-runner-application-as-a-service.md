@@ -13,8 +13,7 @@ versions:
 type: tutorial
 defaultPlatform: linux
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}
@@ -77,9 +76,9 @@ You can manage the runner service in the Windows **Services** application, or yo
 
 1. Alternatively, the command takes an optional `user` argument to install the service as a different user.
 
-  ```shell
-  ./svc.sh install USERNAME
-  ```
+   ```shell
+   ./svc.sh install USERNAME
+   ```
 
 {% endlinux %}
 

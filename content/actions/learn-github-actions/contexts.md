@@ -14,8 +14,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About contexts
@@ -114,7 +113,7 @@ You can print the contents of contexts to the log for debugging. The [`toJSON` f
 {% data reusables.actions.github-context-warning %}
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 name: Context testing
 on: push
 
@@ -123,18 +122,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Dump GitHub context
-        id: github_context_step
-        run: echo '${{ toJSON(github) }}'
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo '$GITHUB_CONTEXT'
       - name: Dump job context
-        run: echo '${{ toJSON(job) }}'
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo '$JOB_CONTEXT'
       - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo '$STEPS_CONTEXT'
       - name: Dump runner context
-        run: echo '${{ toJSON(runner) }}'
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo '$RUNNER_CONTEXT'
       - name: Dump strategy context
-        run: echo '${{ toJSON(strategy) }}'
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo '$STRATEGY_CONTEXT'
       - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo '$MATRIX_CONTEXT'
 ```
 {% endraw %}
 
@@ -189,7 +199,7 @@ The `github` context contains information about the workflow run and the event t
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
 {%- endif %}
-| `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`, `Dependabot`, or `Codespaces`. |
+| `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`{% ifversion fpt or ghec %}, `Codespaces`{% endif %}, or `Dependabot`. |
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} |
 | `github.token` | `string` | A token to authenticate on behalf of the GitHub App installed on your repository. This is functionally equivalent to the `GITHUB_TOKEN` secret. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."  <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |{% ifversion actions-stable-actor-ids %}
@@ -249,7 +259,7 @@ The following example context is from a workflow run triggered by the `push` eve
 
 This example workflow uses the `github.event_name` context to run a job only if the workflow run was triggered by the `pull_request` event.
 
-```yaml{:copy}
+```yaml copy
 name: Run CI
 on: [push, pull_request]
 
@@ -301,7 +311,7 @@ This example workflow shows how the `env` context can be configured at the workf
 {% data reusables.repositories.actions-env-var-note %}
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 name: Hi Mascot
 on: push
 env:
@@ -393,7 +403,7 @@ This example `job` context uses a PostgreSQL service container with mapped ports
 
 This example workflow configures a PostgreSQL service container, and automatically maps port 5432 in the service container to a randomly chosen available port on the host. The `job` context is used to access the number of the port that was assigned on the host.
 
-```yaml{:copy}
+```yaml copy
 name: PostgreSQL Service Example
 on: push
 jobs:
@@ -447,7 +457,7 @@ This example `jobs` context contains the result and outputs of a job from a reus
 This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 name: Reusable workflow
 
 on:
@@ -522,7 +532,7 @@ This example `steps` context shows two previous steps that had an [`id`](/action
 
 This example workflow generates a random number as an output in one step, and a later step uses the `steps` context to read the value of that output.
 
-```yaml{:copy}
+```yaml copy
 name: Generate random failure
 on: push
 jobs:
@@ -584,7 +594,7 @@ The following example context is from a Linux {% data variables.product.prodname
 
 This example workflow uses the `runner` context to set the path to the temporary directory to write logs, and if the workflow fails, it uploads those logs as artifact.
 
-```yaml{:copy}
+```yaml copy
 name: Build
 on: push
 
@@ -664,7 +674,7 @@ The following example contents of the `strategy` context is from a matrix with f
 
 This example workflow uses the `strategy.job-index` property to set a unique name for a log file for each job in a matrix.
 
-```yaml{:copy}
+```yaml copy
 name: Test matrix
 on: push
 
@@ -711,7 +721,7 @@ The following example contents of the `matrix` context is from a job in a matrix
 
 This example workflow creates a matrix with `os` and `node` keys. It uses the `matrix.os` property to set the runner type for each job, and uses the `matrix.node` property to set the Node.js version for each job.
 
-```yaml{:copy}
+```yaml copy
 name: Test matrix
 on: push
 
@@ -768,7 +778,7 @@ The following example contents of the `needs` context shows information for two 
 
 This example workflow has three jobs: a `build` job that does a build, a `deploy` job that requires the `build` job, and a `debug` job that requires both the `build` and `deploy` jobs and runs only if there is a failure in the workflow. The `deploy` job also uses the `needs` context to access an output from the `build` job.
 
-```yaml{:copy}
+```yaml copy
 name: Build and deploy
 on: push
 
@@ -832,7 +842,7 @@ The following example contents of the `inputs` context is from a workflow that h
 This example reusable workflow uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the reusable workflow from the caller workflow.
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 name: Reusable deploy workflow
 on:
   workflow_call:
@@ -863,7 +873,7 @@ jobs:
 This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 on:
   workflow_dispatch:
     inputs:

@@ -18,8 +18,7 @@ topics:
   - Node
   - JavaScript
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -47,7 +46,7 @@ When a local *.npmrc* file exists and has a `registry` value specified, the `npm
 
 You can specify the Node.js version installed on the runner using the `setup-node` action.
 
-If you add steps in your workflow to configure the `publishConfig` fields in your *package.json* file, you don't need to specify the registry-url using the `setup-node` action, but you will be limited to publishing the package to one registry. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
+If you add steps in your workflow to configure the `publishConfig` fields in your *package.json* file, you don't need to specify the registry-url using the `setup-node` action, but you will be limited to publishing the package to one registry. For more information, see "[publishConfig](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#publishconfig)" in the npm documentation.
 
 ## Publishing packages to the npm registry
 
@@ -61,7 +60,7 @@ If you're publishing a package that includes a scope prefix, include the scope i
 
 This example stores the `NPM_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
-```yaml{:copy}
+```yaml copy
 name: Publish Package to npmjs
 on:
   release:
@@ -121,7 +120,7 @@ If you want to publish your package to a different repository, you must use a {%
 
 This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
-```yaml{:copy}
+```yaml copy
 name: Publish package to GitHub Packages
 on:
   release:
@@ -159,7 +158,7 @@ always-auth=true
 
 If you use the Yarn package manager, you can install and publish packages using Yarn.
 
-```yaml{:copy}
+```yaml copy
 name: Publish Package to npmjs
 on:
   release:

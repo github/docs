@@ -12,6 +12,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/sarif-output
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -19,11 +21,11 @@ topics:
 ## About SARIF output
 
 SARIF is designed to represent the output of a broad range of static analysis tools, and there are many features in the SARIF specification that are
-considered "optional". This document details the output produced when using the format type `sarifv2.1.0`, which corresponds to the SARIF v2.1.0.csd1 specification. For more information on selecting a file format for your analysis results, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze/)."
+considered "optional". This document details the output produced when using the format type `sarifv2.1.0`, which corresponds to the SARIF v2.1.0.csd1 specification. For more information on selecting a file format for your analysis results, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze)."
 
 ## SARIF specification and schema
 
-This article is intended to be read alongside the detailed SARIF specification. For more information on the specification and the SARIF schema, see the [SARIF specification documentation](https://github.com/oasis-tcs/sarif-spec/blob/main/Schemata/sarif-schema-2.1.0.json).
+This article is intended to be read alongside the detailed SARIF specification. For more information on the specification and the SARIF schema, see the [SARIF specification documentation](https://github.com/oasis-tcs/sarif-spec/blob/123e95847b13fbdd4cbe2120fa5e33355d4a042b/Schemata/sarif-schema-2.1.0.json).
 
 ## Change notes
 
@@ -53,7 +55,7 @@ This details each SARIF component that may be generated, along with any specific
 
 | JSON property name| Always generated?| Notes|
 |-------------------|------------------------|---------|
-| `$schema`| {% octicon "check" aria-label="Always" %}| Provides a link to the [SARIF schema](https://github.com/oasis-tcs/sarif-spec/blob/main/Schemata/sarif-schema-2.1.0.json).|
+| `$schema`| {% octicon "check" aria-label="Always" %}| Provides a link to the [SARIF schema](https://github.com/oasis-tcs/sarif-spec/blob/123e95847b13fbdd4cbe2120fa5e33355d4a042b/Schemata/sarif-schema-2.1.0.json).|
 | `version`| {% octicon "check" aria-label="Always" %}| The version of the SARIF used to generate the output.|
 | `runs`| {% octicon "check" aria-label="Always" %}| An array containing a single run object, for one language.|
 ### `run` object

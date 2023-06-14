@@ -18,7 +18,7 @@ import dotenv from 'dotenv'
 import { retryOnErrorTest } from '../../../script/helpers/retry-on-error-test.js'
 import { languageKeys } from '../../../lib/languages.js'
 import { allVersions } from '../../../lib/all-versions.js'
-import statsd from '../../../lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 
 // Now you can optionally have set the ELASTICSEARCH_URL in your .env file.
 dotenv.config()

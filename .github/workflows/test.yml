@@ -22,9 +22,6 @@ env:
   # Setting this will activate the jest tests that depend on actually
   # sending real search queries to Elasticsearch
   ELASTICSEARCH_URL: http://localhost:9200/
-  # Hopefully the name is clear enough. By enabling this, we're testing
-  # the future code.
-  ENABLE_SEARCH_RESULTS_PAGE: true
 
 jobs:
   figureOutMatrix:
@@ -41,23 +38,30 @@ jobs:
             // we're on the private docs-internal repo because only that
             // one has ability to clone the remote (private) translations
             // repos.
+            // You can run multiple paths per suite as space-separated in `path`.
             return [
-              { name: 'content', path: 'tests/content', },
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
+              { name: 'content', path: 'tests/content', },
+              // { name: 'content-linter', path: 'src/content-linter/tests', },
               { name: 'events', path: 'src/events/tests', },
+              { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
+              { name: 'github-apps', path: 'src/github-apps/tests', },
               { name: 'graphql', path: 'src/graphql/tests', },
-              { name: 'rest', path: 'src/rest/tests', },
-              { name: 'webhooks', path: 'src/webhooks/tests', },
-              { name: 'linting', path: 'tests/linting', },
+              { name: 'landings', path: 'src/landings/tests', },
+              { name: 'linting', path: 'src/content-linter/tests', },
               { name: 'meta', path: 'tests/meta', },
-              { name: 'routing', path: 'tests/routing', },
+              { name: 'observability', path: 'src/observability/tests' },
+              { name: 'pageinfo', path: 'src/pageinfo/tests', },
               { name: 'rendering', path: 'tests/rendering', },
               { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
+              { name: 'rest', path: 'src/rest/tests', },
+              { name: 'routing', path: 'tests/routing', },
               { name: 'search', path: 'src/search/tests', },
-              { name: 'pageinfo', path: 'src/pageinfo/tests', },
+              { name: 'shielding', path: 'src/shielding/tests', },
               context.payload.repository.full_name === 'github/docs-internal' &&
                 { name: 'translations', path: 'tests/translations', },
               { name: 'unit', path: 'tests/unit', },
+              { name: 'webhooks', path: 'src/webhooks/tests', },
             ].filter(Boolean)
 
   test:
@@ -75,7 +79,7 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
@@ -141,13 +145,13 @@ jobs:
           echo $DIFF
 
           # So that becomes a string like `foo.js path/bar.md`
-          # Must to do this because the list of files can be HUGE. Especially
+          # Must do this because the list of files can be HUGE. Especially
           # in a repo-sync when there are lots of translation files involved.
           echo __ format, write to get_diff_files.txt __
           echo $DIFF | tr '\n' ' ' > get_diff_files.txt
 
       - name: Cache nextjs build
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -155,14 +159,10 @@ jobs:
       - name: Run build script
         run: npm run build
 
-      - name: Disk cache used by getRemoteJSON function in middleware
-        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7
-        with:
-          path: .remotejson-cache
-          # Very liberal cache key. Note, for this to become populated
-          # for other branches, you have to manually run this workflow
-          # at least once using the "Run workflow" button.
-          key: ${{ runner.os }}-remotejson
+      - uses: ./.github/actions/warmup-remotejson-cache
+        # Only the 'routing' tests include end-to-end tests about
+        # archived enterprise server URLs.
+        if: ${{ matrix.name == 'routing' }}
 
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the group
@@ -178,5 +178,6 @@ jobs:
           # tests run only in English. The exception is the
           # `tests/translations/` suite which needs all languages to be set up.
           ENABLED_LANGUAGES: ${{ matrix.name == 'translations' && 'all' || '' }}
-          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures' || ''}}
+          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures' || '' }}
+          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures/translations' || '' }}
         run: npm test -- ${{ matrix.path }}/

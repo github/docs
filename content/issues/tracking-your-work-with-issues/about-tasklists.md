@@ -31,8 +31,11 @@ The issues you add to your tasklists will be automatically populated to show the
 
 Tasklists do not currently support: 
 
-* Indented tasks.
-* Extra new lines between or after the list of tasks.
+* Duplicate issue or pull request links.
+* Indented tasks (i.e, nested tasklist).
+* Empty tasks (i.e, `- [ ]` on a line by itself).
+* Stray newlines.
+* Draft tasks that exceed 512 characters.
 
 {% endnote %}
 

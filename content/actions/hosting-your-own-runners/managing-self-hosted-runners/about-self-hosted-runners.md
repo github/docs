@@ -12,8 +12,7 @@ versions:
   ghec: '*'
 type: overview
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About self-hosted runners
@@ -178,6 +177,7 @@ You must ensure that the machine has the appropriate network access to communica
 ```
 github.com
 api.github.com
+*.actions.githubusercontent.com
 ```
 
 **Needed for downloading actions:**
@@ -283,6 +283,14 @@ Untrusted workflows running on your self-hosted runner pose significant security
 * Persisting unwanted or dangerous data on the machine.
 
 For more information about security hardening for self-hosted runners, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
+
+{% ifversion actions-disable-repo-runners %}
+
+### Restricting the use of self-hosted runners
+
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+
+{% endif %}
 
 {% ifversion ghec or ghes or ghae %}
 

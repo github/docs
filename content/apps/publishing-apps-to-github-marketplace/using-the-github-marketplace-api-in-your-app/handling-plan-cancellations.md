@@ -14,6 +14,9 @@ topics:
   - Marketplace
 shortTitle: Plan cancellations
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 For more information about cancelling as it relates to billing, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/selling-your-app-on-github-marketplace/billing-customers)."
 
 ## Step 1. Cancellation event

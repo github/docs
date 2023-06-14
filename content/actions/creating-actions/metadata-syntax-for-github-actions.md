@@ -14,8 +14,7 @@ versions:
   ghec: '*'
 type: reference
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About YAML syntax for {% data variables.product.prodname_actions %}
@@ -269,9 +268,9 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#gi
 
 **Example: Using contexts**
 
- This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
 
- ```yaml
+```yaml
 steps:
   - run: echo This event is a pull request that had an assignee removed.
     if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}

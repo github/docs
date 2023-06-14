@@ -20,7 +20,7 @@ shortTitle: Docker registry
 <!-- Main versioning block. Short page for dotcom -->
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_dotcom %}'s Docker registry (which used the namespace `docker.pkg.github.com`) has been replaced by the {% data variables.product.prodname_container_registry %} (which uses the namespace `https://ghcr.io`). The {% data variables.product.prodname_container_registry %} offers benefits such as granular permissions and storage optimization for Docker images.
+{% data variables.product.prodname_dotcom %}'s Docker registry (which used the namespace `docker.pkg.github.com`) has been replaced by the {% data variables.product.prodname_container_registry %} (which uses the namespace `https://ghcr.io`). The {% data variables.product.prodname_container_registry %} offers benefits such as granular permissions and storage optimizations for Docker images.
 
 Docker images previously stored in the Docker registry are being automatically migrated into the {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry)" and "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 
@@ -52,9 +52,9 @@ To keep your credentials secure, we recommend you save your {% data variables.pr
 
 {% ifversion fpt or ghec %}
 {% raw %}
-  ```shell
-  $ cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
-  ```
+```shell
+$ cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
+```
 {% endraw %}
 {% endif %}
 
@@ -63,16 +63,16 @@ To keep your credentials secure, we recommend you save your {% data variables.pr
 If your instance has subdomain isolation enabled:
 {% endif %}
 {% raw %}
- ```shell
- $ cat ~/TOKEN.txt | docker login docker.HOSTNAME -u USERNAME --password-stdin
+```shell
+$ cat ~/TOKEN.txt | docker login docker.HOSTNAME -u USERNAME --password-stdin
 ```
 {% endraw %}
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
 {% raw %}
- ```shell
- $ cat ~/TOKEN.txt | docker login HOSTNAME -u USERNAME --password-stdin
+```shell
+$ cat ~/TOKEN.txt | docker login HOSTNAME -u USERNAME --password-stdin
 ```
 {% endraw %}
 {% endif %}
@@ -98,74 +98,74 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 {% data reusables.package_registry.viewing-packages %}
 
 1. Determine the image name and ID for your docker image using `docker images`.
-  ```shell
-  $ docker images
-  > <&nbsp>
-  > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
-  > IMAGE_NAME        VERSION    IMAGE_ID       4 weeks ago  1.11MB
-  ```
+   ```shell
+   $ docker images
+   > <&nbsp>
+   > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
+   > IMAGE_NAME        VERSION    IMAGE_ID       4 weeks ago  1.11MB
+   ```
 2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the personal account or organization that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *VERSION* with package version at build time.
-  {% ifversion fpt or ghec %}
-  ```shell
-  $ docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
-  ```
-  {% else %}
-  {% ifversion ghes %}
-  If your instance has subdomain isolation enabled:
-  {% endif %}
-  ```shell
-  $ docker tag IMAGE_ID docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
-  ```
-  {% ifversion ghes %}
-  If your instance has subdomain isolation disabled:
-  ```shell
-  $ docker tag IMAGE_ID HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
-  ```
-  {% endif %}
-  {% endif %}
+   {% ifversion fpt or ghec %}
+   ```shell
+   $ docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   ```
+   {% else %}
+   {% ifversion ghes %}
+   If your instance has subdomain isolation enabled:
+   {% endif %}
+   ```shell
+   $ docker tag IMAGE_ID docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   ```
+   {% ifversion ghes %}
+   If your instance has subdomain isolation disabled:
+   ```shell
+   $ docker tag IMAGE_ID HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   ```
+   {% endif %}
+   {% endif %}
 3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the personal account or organization that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
-  {% ifversion fpt or ghec %}
-  ```shell
-  $ docker build -t docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
-  ```
-  {% else %}
-  {% ifversion ghes %}
-  If your instance has subdomain isolation enabled:
-  {% endif %}
-  ```shell
-  $ docker build -t docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
-  ```
-  {% ifversion ghes %}
-  If your instance has subdomain isolation disabled:
-  ```shell
-  $ docker build -t HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
-  ```
-  {% endif %}
-  {% endif %}
+   {% ifversion fpt or ghec %}
+   ```shell
+   $ docker build -t docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
+   ```
+   {% else %}
+   {% ifversion ghes %}
+   If your instance has subdomain isolation enabled:
+   {% endif %}
+   ```shell
+   $ docker build -t docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
+   ```
+   {% ifversion ghes %}
+   If your instance has subdomain isolation disabled:
+   ```shell
+   $ docker build -t HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
+   ```
+   {% endif %}
+   {% endif %}
 4. Publish the image to {% data variables.product.prodname_registry %}.
-  {% ifversion fpt or ghec %}
-  ```shell
-  $ docker push docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
-  ```
-  {% else %}
-  {% ifversion ghes %}
-  If your instance has subdomain isolation enabled:
-  {% endif %}
-  ```shell
-  $ docker push docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
-  ```
-  {% ifversion ghes %}
-  If your instance has subdomain isolation disabled:
-  ```shell
-  $ docker push HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
-  ```
-  {% endif %}
-  {% endif %}
-  {% note %}
+   {% ifversion fpt or ghec %}
+   ```shell
+   $ docker push docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   ```
+   {% else %}
+   {% ifversion ghes %}
+   If your instance has subdomain isolation enabled:
+   {% endif %}
+   ```shell
+   $ docker push docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   ```
+   {% ifversion ghes %}
+   If your instance has subdomain isolation disabled:
+   ```shell
+   $ docker push HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   ```
+   {% endif %}
+   {% endif %}
+   {% note %}
 
-  **Note:** You must push your image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
+   **Note:** You must push your image using `IMAGE_NAME:VERSION` and not using `IMAGE_NAME:SHA`.
 
-  {% endnote %}
+   {% endnote %}
 
 ### Example publishing a Docker image
 

@@ -15,6 +15,9 @@ topics:
   - Marketplace
 shortTitle: View listing metrics
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
 
 {% note %}

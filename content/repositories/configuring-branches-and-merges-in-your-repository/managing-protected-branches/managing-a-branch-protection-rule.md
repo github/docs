@@ -44,11 +44,11 @@ To create an exception to an existing branch rule, you can create a new branch p
 For more information about each of the available branch protection settings, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 {% ifversion repo-rules %}
-{% tip %}
+{% note %}
 
-**Tip:** Only a single branch protection rule can apply at a time, which means it can be difficult to know how which rule will apply when multiple versions of a rule target the same branch. {% ifversion repo-rules-enterprise %}Additionally, you may want to create a single set of rules that applies to multiple repositories in an organization. {% endif %}For information about an alternative to branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+**Note:** Only a single branch protection rule can apply at a time, which means it can be difficult to know how which rule will apply when multiple versions of a rule target the same branch. {% ifversion repo-rules-enterprise %}Additionally, you may want to create a single set of rules that applies to multiple repositories in an organization. {% endif %}For information about an alternative to branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
-{% endtip %}
+{% endnote %}
 {% endif %}
 
 ## Creating a branch protection rule
@@ -60,6 +60,9 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 {% data reusables.repositories.repository-branches %}
 {% data reusables.repositories.add-branch-protection-rules %}
 1. Optionally, enable required pull requests.
+{% ifversion pull-request-mergeability-security-changes %}
+{% indented_data_reference reusables.pull_requests.security-changes-mergeability spaces=3 %}
+{% endif %}
    - Under "Protect matching branches", select **Require a pull request before merging**.
    - Optionally, to require approvals before a pull request can be merged, select **Require approvals**.
 
@@ -69,7 +72,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
    - Optionally, to allow specific actors to push code to the branch without creating pull requests when they're required, select **Allow specified actors to bypass required pull requests**. Then, search for and select the actors who should be allowed to skip creating a pull request.
    - Optionally, if the repository is part of an organization, select **Restrict who can dismiss pull request reviews**. Then, in the search field, search for and select the actors who are allowed to dismiss pull request reviews. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 {% ifversion last-pusher-require-approval %}
-   - Optionally, to require someone other than the last person to push to a branch to approve a pull request prior to merging, select **Require approval from someone other than the last pusher**. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)."
+   - Optionally, to require someone other than the last person to push to a branch to approve a pull request prior to merging, select **Require approval of the most recent reviewable push**. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-pull-request-reviews-before-merging)."
 {% endif %}
 1. Optionally, enable required status checks. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
    - Select **Require status checks to pass before merging**.

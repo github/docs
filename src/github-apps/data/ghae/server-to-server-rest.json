@@ -1177,7 +1177,7 @@
       "requestPath": "/repos/{owner}/{repo}/git/commits"
     },
     {
-      "slug": "get-a-commit",
+      "slug": "get-a-commit-object",
       "subcategory": "commits",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/git/commits/{commit_sha}"
@@ -1717,6 +1717,24 @@
       "subcategory": "outside-collaborators",
       "verb": "delete",
       "requestPath": "/orgs/{org}/outside_collaborators/{username}"
+    },
+    {
+      "slug": "list-organization-memberships-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs"
+    },
+    {
+      "slug": "get-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs/{org}"
+    },
+    {
+      "slug": "update-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "patch",
+      "requestPath": "/user/memberships/orgs/{org}"
     },
     {
       "slug": "list-organizations-for-a-user",

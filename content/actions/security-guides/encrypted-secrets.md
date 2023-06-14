@@ -14,13 +14,12 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About encrypted secrets
 
-Secrets are encrypted variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to help ensure that secrets are encrypted before they reach {% data variables.product.prodname_dotcom %} and remain encrypted until you use them in a workflow.
+Secrets are variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_actions %} can only read a secret if you explicitly include the secret in a workflow.
 
 {% data reusables.actions.secrets-org-level-overview %}
 
@@ -62,7 +61,11 @@ You can also manage secrets using the REST API. For more information, see "[AUTO
 
 ### Limiting credential permissions
 
-When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible. When generating a {% data variables.product.pat_v1 %}, select the fewest scopes necessary.{% ifversion pat-v2 %} When generating a {% data variables.product.pat_v2 %}, select the minimum repository access required.{% endif %}
+When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible.
+
+When generating a {% data variables.product.pat_v1 %}, select the fewest scopes necessary.{% ifversion pat-v2 %} When generating a {% data variables.product.pat_v2 %}, select the minimum permissions and repository access required.{% endif %}
+
+Instead of using a {% data variables.product.pat_generic %}, consider using a {% data variables.product.prodname_github_app %}, which uses fine-grained permissions and short lived tokens{% ifversion pat-v2 %}, similar to a {% data variables.product.pat_v2 %}{% endif %}. Unlike a {% data variables.product.pat_generic %}, a {% data variables.product.prodname_github_app %} is not tied to a user, so the workflow will continue to work even if the user who installed the app leaves your organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
 
 {% note %}
 
@@ -212,9 +215,7 @@ You can check which access policies are being applied to a secret in your organi
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.actions.sidebar-secrets-and-variables %}
-1. The list of secrets includes any configured permissions and policies. For example:
-   ![Secrets list](/assets/images/help/settings/actions-org-secrets-list.png)
-1. For more details on the configured permissions for each secret, click **Update**.
+1. The list of secrets includes any configured permissions and policies. For more details about the configured permissions for each secret, click **Update**.
 
 ## Using encrypted secrets in a workflow
 

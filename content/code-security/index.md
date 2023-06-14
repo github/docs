@@ -14,9 +14,7 @@ featuredLinks:
     - '{% ifversion fpt or ghec or ghes %}/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates{% endif %}'
     - '{% ifversion fpt or ghec or ghes %}/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates{% endif %}'
     - '{% ifversion fpt or ghec or ghes %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository{% endif %}'
-    - '{% ifversion ghes < 3.3 %}/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository{% endif %}'
-    - '{% ifversion ghes < 3.3 %}/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/configuring-notifications-for-vulnerable-dependencies{% endif %}'
-    - '{% ifversion ghes < 3.3 or ghae %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
+    - '{% ifversion ghae %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
     - '{% ifversion ghae %}/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github{% endif %}'
     - '{% ifversion ghae %}/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system{% endif %}'
     - /code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview
@@ -29,9 +27,9 @@ featuredLinks:
     - /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
     - '{% ifversion ghae %}/code-security/secret-scanning/about-secret-scanning{% endif %}'
     - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
-    - '{% ifversion ghes < 3.3 or ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages{% endif %}'
-    - '{% ifversion ghes < 3.3 or ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow{% endif %}'
-    - '{% ifversion ghes < 3.3 or ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container{% endif %}'
+    - '{% ifversion ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages{% endif %}'
+    - '{% ifversion ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow{% endif %}'
+    - '{% ifversion ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container{% endif %}'
 changelog:
   label: security-and-compliance
   versions:
@@ -59,4 +57,3 @@ children:
   - /security-overview
   - /guides
 ---
-

@@ -23,7 +23,9 @@ When you make API requests with a user access token, the rate limits for user ac
 
 By default, the user access token expires after 8 hours. You can use a refresh token to regenerate a user access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)."
 
-Users can revoke their authorization of a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)." If a user revokes their authorization of a {% data variables.product.prodname_github_app %}, the app will receive the `github_app_authorization` webhook. {% data variables.product.prodname_github_apps %} cannot unsubscribe from this event. If your app receives this webhook, you should stop calling the API on behalf of the user who revoked the token. If your app continues to use a revoked access token, it will receive the `401 Bad Credentials` error. For more information about this webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#github_app_authorization)"
+Users can revoke their authorization of a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)." If a user revokes their authorization of a {% data variables.product.prodname_github_app %}, the app will receive the `github_app_authorization` webhook. {% data variables.product.prodname_github_apps %} cannot unsubscribe from this event. If your app receives this webhook, you should stop calling the API on behalf of the user who revoked the token. If your app continues to use a revoked access token, it will receive the `401 Bad Credentials` error. For more information about this webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#github_app_authorization)."
+
+You should keep user access tokens and refresh tokens secure. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
 
 ## Using the web application flow to generate a user access token
 
@@ -57,7 +59,7 @@ If your app runs in the browser, you should use the web application flow to gene
 
 {% endnote %}
 
-If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow.
+If your app is headless or does not have access to a browser, you should use the device flow to generate a user access token. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. For a tutorial that uses device flow, see "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-cli-with-a-github-app)."
 
 {% ifversion device-flow-is-opt-in %}Before you can use the device flow, you must first enable it in your app's settings. For more information on enabling device flow, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)." {% endif %}
 
@@ -88,6 +90,7 @@ The device flow uses the OAuth 2.0 Device Authorization Grant.
    `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}.
    `device_code` | `string` | **Required.** The device verification code you received in the previous step.
    `grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
+   `repository_id` | `string` | The ID of a single repository that the user access token can access. If the {% data variables.product.prodname_github_app %} or user cannot access the repository, this will be ignored. Use this parameter to restrict the access of the user access token further.
 
    Do not poll this endpoint at a higher frequency than the frequency indicated by `interval`. If you do, you will hit the rate limit and receive a `slow_down` error. The `slow_down` error response adds 5 seconds to the last `interval`.
 
@@ -131,7 +134,7 @@ You can generate a user access token with this method regardless of whether the 
 
 By default, user access tokens expires after 8 hours. If you receive a user access token with an expiration, you will also receive a refresh token. The refresh token expire after 6 months. You can use this refresh token to regenerate a user access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)."
 
-{% data variables.product.company_short %} strongly encourages you to use user access tokens that expire. If you previously opted out of using user access tokens that expire but want to reenable this feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-apps)".
+{% data variables.product.company_short %} strongly encourages you to use user access tokens that expire. If you previously opted out of using user access tokens that expire but want to reenable this feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)".
 
 ## Supported endpoints for user access tokens
 
@@ -553,17 +556,17 @@ By default, user access tokens expires after 8 hours. If you receive a user acce
 * [List reactions for an issue comment](/rest/reactions#list-reactions-for-an-issue-comment)
 * [Create reaction for an issue comment](/rest/reactions#create-reaction-for-an-issue-comment)
 * [List reactions for a pull request review comment](/rest/reactions#list-reactions-for-a-pull-request-review-comment)
-* [Create reaction for a pull request review comment](/rest/reactions#create-reaction-for-a-pull-request-review-comment)
+* [Create reaction for a pull request review comment](/rest/reactions#create-reaction-for-a-pull-request-review-comment){% ifversion team-discussions %}
 * [List reactions for a team discussion comment](/rest/reactions#list-reactions-for-a-team-discussion-comment)
 * [Create reaction for a team discussion comment](/rest/reactions#create-reaction-for-a-team-discussion-comment)
 * [List reactions for a team discussion](/rest/reactions#list-reactions-for-a-team-discussion)
-* [Create reaction for a team discussion](/rest/reactions#create-reaction-for-a-team-discussion)
+* [Create reaction for a team discussion](/rest/reactions#create-reaction-for-a-team-discussion){% endif %}
 * [Delete a commit comment reaction](/rest/reactions#delete-a-commit-comment-reaction)
 * [Delete an issue reaction](/rest/reactions#delete-an-issue-reaction)
 * [Delete a reaction to a commit comment](/rest/reactions#delete-an-issue-comment-reaction)
-* [Delete a pull request comment reaction](/rest/reactions#delete-a-pull-request-comment-reaction)
+* [Delete a pull request comment reaction](/rest/reactions#delete-a-pull-request-comment-reaction){% ifversion team-discussions %}
 * [Delete team discussion reaction](/rest/reactions#delete-team-discussion-reaction)
-* [Delete team discussion comment reaction](/rest/reactions#delete-team-discussion-comment-reaction)
+* [Delete team discussion comment reaction](/rest/reactions#delete-team-discussion-comment-reaction){% endif %}
 
 ### Repositories
 
@@ -777,6 +780,7 @@ By default, user access tokens expires after 8 hours. If you receive a user acce
 * [List commit statuses for a reference](/rest/commits#list-commit-statuses-for-a-reference)
 * [Create a commit status](/rest/commits#create-a-commit-status)
 
+{% ifversion team-discussions %}
 ### Team Discussions
 
 * [List discussions](/rest/teams#list-discussions)
@@ -789,6 +793,7 @@ By default, user access tokens expires after 8 hours. If you receive a user acce
 * [Get a discussion comment](/rest/teams#get-a-discussion-comment)
 * [Update a discussion comment](/rest/teams#update-a-discussion-comment)
 * [Delete a discussion comment](/rest/teams#delete-a-discussion-comment)
+{% endif %}
 
 ### Topics
 

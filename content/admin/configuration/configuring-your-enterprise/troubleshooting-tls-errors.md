@@ -25,13 +25,13 @@ shortTitle: Troubleshoot TLS errors
 If you have a Linux machine with OpenSSL installed, you can remove your passphrase.
 
 1. Rename your original key file.
-  ```shell
-  $ mv yourdomain.key yourdomain.key.orig
-  ```
+   ```shell
+   $ mv yourdomain.key yourdomain.key.orig
+   ```
 2. Generate a new key without a passphrase.
-  ```shell
-  $ openssl rsa -in yourdomain.key.orig -out yourdomain.key
-  ```
+   ```shell
+   $ openssl rsa -in yourdomain.key.orig -out yourdomain.key
+   ```
 
 You'll be prompted for the key's passphrase when you run this command.
 
@@ -69,17 +69,17 @@ If your {% data variables.product.prodname_ghe_server %} appliance interacts wit
 
 1. Obtain the CA's root certificate from your local certificate authority and ensure it is in PEM format.
 2. Copy the file to your {% data variables.product.prodname_ghe_server %} appliance over SSH as the "admin" user on port 122.
-  ```shell
-  $ scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
-  ```
+   ```shell
+   $ scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
+   ```
 3. Connect to the {% data variables.product.prodname_ghe_server %} administrative shell over SSH as the "admin" user on port 122.
-  ```shell
-  $ ssh -p 122 admin@HOSTNAME
-  ```
+   ```shell
+   $ ssh -p 122 admin@HOSTNAME
+   ```
 4. Import the certificate into the system-wide certificate store.
-  ```shell
-  $ ghe-ssl-ca-certificate-install -c rootCA.crt
-  ```
+   ```shell
+   $ ghe-ssl-ca-certificate-install -c rootCA.crt
+   ```
 
 ## Updating a TLS certificate
 

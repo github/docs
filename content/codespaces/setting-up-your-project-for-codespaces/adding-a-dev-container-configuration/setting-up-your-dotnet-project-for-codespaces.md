@@ -98,7 +98,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 {% data reusables.codespaces.add-comma-after-features %}
 
-   ```json{:copy}
+   ```json copy
      "features": {
        "ghcr.io/devcontainers/features/dotnet:1": {}
      },
@@ -109,14 +109,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `forwardPorts` property and change its value to port `5000` only.
 
-   ```json{:copy}
+   ```json copy
    // Use 'forwardPorts' to make a list of ports inside the container available locally.
    "forwardPorts": [5000],
    ```
 
 1. Uncomment the `postCreateCommand` property.
 
-   ```json{:copy}
+   ```json copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "dotnet restore",
    ```

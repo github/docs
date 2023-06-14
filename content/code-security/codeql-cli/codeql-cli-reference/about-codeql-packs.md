@@ -8,6 +8,8 @@ topics:
   - Advanced Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/codeql-cli/about-codeql-packs
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -94,6 +96,7 @@ The following properties are supported in `qlpack.yml` files.
   ```yaml
   dependencies:
     codeql/cpp-all: ^0.0.2`
+  ```
 
 #### `defaultSuiteFile`
 
@@ -112,7 +115,7 @@ The following properties are supported in `qlpack.yml` files.
     queries: .
     exclude:
       precision: medium
-  ```    
+  ```
   
 #### `library`
 
@@ -145,8 +148,8 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `authors`
- - Optional.
- - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For example:
+- Optional.
+- Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For example:
   ```yaml
   authors: author1@github.com,author2@github.com 
   ```

@@ -20,6 +20,10 @@ redirect_from:
 
 ## About {% data variables.product.prodname_github_codespaces %} pricing
 
+{% ifversion billing-auth-and-capture %}
+{% data reusables.billing.authorization-charge %}
+{% endif %}
+
 {% data reusables.codespaces.codespaces-free-for-personal-intro %}
 
 Charges are billed to an organization or enterprise when all of the following are true:
@@ -31,6 +35,10 @@ Charges are billed to an organization or enterprise when all of the following ar
 Otherwise use of {% data variables.product.prodname_github_codespaces %} applies to the personal account of the person who created the codespace, and either consumes some of the monthly included usage for their personal account, or their account is billed according to their usage in excess of their included quotas.
 
 For information about how to configure an organization to be billed for codespace usage, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." The Free, Team, and Enterprise plans for organization and enterprise accounts do not include any free use of {% data variables.product.prodname_github_codespaces %}.
+
+{% ifversion ghec %}
+{% data reusables.codespaces.codespaces-unavailable-for-emus %}
+{% endif %}
 
 {% ifversion fpt %}
 

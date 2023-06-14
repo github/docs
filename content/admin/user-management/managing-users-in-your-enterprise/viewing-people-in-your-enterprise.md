@@ -140,7 +140,7 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can view
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. Under "People", click **Suspended**. 
+1. Under "People", click **Suspended**.
 
 {% endif %}
 
@@ -160,7 +160,7 @@ You can view a list of all dormant users {% ifversion ghes or ghae %} who have n
 
    ![Screenshot of the tabs above an organization name. The "People" tab is highlighted with an orange outline.](/assets/images/help/enterprises/emu-organization-people-tab.png)
 4. Above the list of members, click **Type**, then select the type of members you want to view.
-   ![Screenshot of the "Type" button](/assets/images/help/enterprises/filter-by-member-type.png)
+   ![Screenshot of the "Type" button.](/assets/images/help/enterprises/filter-by-member-type.png)
 
 {% endif %}
 
@@ -172,7 +172,7 @@ You can view a list of members in your enterprise who don't have an email addres
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
-1. Under "Notification preferences", click the {% octicon "eye" aria-label="The github eye icon" %} **View enterprise members without an approved or verified domain email** link.
+1. Under "Notification preferences", click the {% octicon "eye" aria-hidden="true" %} **View enterprise members without an approved or verified domain email** link.
 {% endif %}
 
 ## Further reading

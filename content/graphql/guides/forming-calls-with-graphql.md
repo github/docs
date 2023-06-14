@@ -16,18 +16,15 @@ shortTitle: Form calls with GraphQL
 
 ## Authenticating with GraphQL
 
-{% note %}
+You can authenticate to the GraphQL API using a {% data variables.product.pat_generic %}, {% data variables.product.prodname_github_app %}, or {% data variables.product.prodname_oauth_app %}.
 
-**Note**: You need to create a {% data variables.product.pat_v1 %}, {% data variables.product.prodname_github_app %}, or {% data variables.product.prodname_oauth_app %} to authenticate to the GraphQL API. The GraphQL API does not support authentication with {% data variables.product.pat_v2 %}s.
+### Authenticating with a {% data variables.product.pat_generic %}
 
-{% endnote %}
+To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes or permissions you will need. For example, select the "issues:read" permission to read all of the issues in the repos your token has access to.
 
+All {% data variables.product.pat_v2 %}s include read access to public repositories. To access public repositories with a {% data variables.product.pat_v1 %}, select the "public_repo" scope.
 
-### Authenticating with a {% data variables.product.pat_v1_caps %}
-
-To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" to create a {% data variables.product.pat_v1 %}. The data that you are requesting will dictate which scopes you will need. For example, select the "read:user" scope to request data about users. Select the "public_repo" scope to request data about public repositories.
-
-If your token does not have the required scopes to access a resource, the API will return an error message that states what scopes your token needs.
+If your token does not have the required scopes or permissions to access a resource, the API will return an error message that states the scopes or permissions your token needs.
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
@@ -141,29 +138,29 @@ There are three steps to using variables:
 
 1. Define the variable outside the operation in a `variables` object:
 
-  ```graphql
-  variables {
-     "number_of_repos": 3
-  }
-  ```
+   ```graphql
+   variables {
+      "number_of_repos": 3
+   }
+   ```
 
-  The object must be valid JSON. This example shows a simple `Int` variable type, but it's possible to define more complex variable types, such as input objects. You can also define multiple variables here.
+   The object must be valid JSON. This example shows a simple `Int` variable type, but it's possible to define more complex variable types, such as input objects. You can also define multiple variables here.
 
 2. Pass the variable to the operation as an argument:
 
-  ```graphql
-  query($number_of_repos:Int!){
-  ```
+   ```graphql
+   query($number_of_repos:Int!){
+   ```
 
-  The argument is a key-value pair, where the key is the _name_ starting with `$` (e.g., `$number_of_repos`), and the value is the _type_ (e.g., `Int`). Add a `!` to indicate whether the type is required. If you've defined multiple variables, include them here as multiple arguments.
+   The argument is a key-value pair, where the key is the _name_ starting with `$` (e.g., `$number_of_repos`), and the value is the _type_ (e.g., `Int`). Add a `!` to indicate whether the type is required. If you've defined multiple variables, include them here as multiple arguments.
 
 3. Use the variable within the operation:
 
-  ```graphql
-  repositories(last: $number_of_repos) {
-  ```
+   ```graphql
+   repositories(last: $number_of_repos) {
+   ```
 
-  In this example, we substitute the variable for the number of repositories to retrieve. We specify a type in step 2 because GraphQL enforces strong typing.
+   In this example, we substitute the variable for the number of repositories to retrieve. We specify a type in step 2 because GraphQL enforces strong typing.
 
 This process makes the query argument dynamic. We can now simply change the value in the `variables` object and keep the rest of the query the same.
 
@@ -343,9 +340,9 @@ With the ID known, we can proceed with the mutation:
 
 * The rest of the call is composed of the payload object. This is where we specify the data we want the server to return after we've performed the mutation. These lines come from the [`addReaction` docs](/graphql/reference/mutations#addreaction), which three possible return fields:
 
-    - `clientMutationId` (`String`)
-    - `reaction` (`Reaction!`)
-    - `subject` (`Reactable!`)
+  - `clientMutationId` (`String`)
+  - `reaction` (`Reaction!`)
+  - `subject` (`Reactable!`)
 
   In this example, we return the two required fields (`reaction` and `subject`), both of which have required subfields (respectively, `content` and `id`).
 

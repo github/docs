@@ -22,7 +22,10 @@ test('view the for-playwright article', async ({ page }) => {
   await expect(page).toHaveTitle(/For Playwright - GitHub Docs/)
 
   // This is the right-hand sidebar mini-toc link
-  await page.getByRole('link', { name: 'Second heading' }).click()
+  await page
+    .getByTestId('minitoc')
+    .getByRole('link', { name: 'Second heading', exact: true })
+    .click()
   await expect(page).toHaveURL(/for-playwright#second-heading/)
 })
 
@@ -152,7 +155,7 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // the category, you'll be able to see the map-topic and the article
   // within.
   await page.goto('/')
-  await page.getByRole('link', { name: 'GitHub Actions' }).click()
+  await page.getByTestId('sidebar').getByRole('link', { name: 'GitHub Actions' }).click()
   await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
   await page.getByText('Map & Topic').click()
   await page.getByRole('link', { name: '<article>' }).click()
@@ -189,7 +192,10 @@ test('hovercards', async ({ page }) => {
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the secondary minitoc sidebar don't have a hovercard
-  await page.getByRole('link', { name: 'Regular internal link' }).hover()
+  await page
+    .getByTestId('minitoc')
+    .getByRole('link', { name: 'Regular internal link', exact: true })
+    .hover()
   await expect(page.getByTestId('popover')).not.toBeVisible()
 
   // links in the article intro have a hovercard
@@ -202,7 +208,10 @@ test('hovercards', async ({ page }) => {
   ).toBeVisible()
 
   // same page anchor links have a hovercard
-  await page.locator('#article-contents').getByRole('link', { name: 'introduction' }).hover()
+  await page
+    .locator('#article-contents')
+    .getByRole('link', { name: 'introduction', exact: true })
+    .hover()
   await expect(page.getByText('You can use GitHub Pages to showcase')).toBeVisible()
 
   // links with formatted text need to work too
@@ -212,61 +221,287 @@ test('hovercards', async ({ page }) => {
   await expect(page.getByText("This page doesn't really have an intro")).toBeVisible()
 })
 
-test('x-large viewports - 1280+', async ({ page }) => {
-  page.setViewportSize({
-    width: 1300,
-    height: 700,
-  })
-  await page.goto('/get-started/foo/bar')
-
-  // in article breadcrumbs at xl viewport should remove last breadcrumb so
-  // for this page we should only have 'Get Started / Foo'
-  expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
-  await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
-  await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
-})
-
-test('large -> x-large viewports - 1012+', async ({ page }) => {
-  page.setViewportSize({
-    width: 1013,
-    height: 700,
-  })
-  await page.goto('/get-started/foo/bar')
-
-  // version picker should be visible
-  await page
-    .getByRole('button', {
-      name: 'Select GitHub product version: current version is free-pro-team@latest',
+test.describe('test nav at different viewports', () => {
+  test('x-large viewports - 1280+', async ({ page }) => {
+    page.setViewportSize({
+      width: 1300,
+      height: 700,
     })
-    .click()
-  expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
-  await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
+    await page.goto('/get-started/foo/bar')
 
-  // language picker is visible
-  // TODO: currently no languages enabled for headless tests
-  // await page.getByRole('button', { name: 'Select language: current language is English' }).click()
-  // await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+    // in article breadcrumbs at xl viewport should remove last breadcrumb so
+    // for this page we should only have 'Get Started / Foo'
+    expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
+    await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
+    await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
+  })
 
-  // header sign up button is visible
-  await expect(page.getByTestId('header-signup')).toBeVisible()
+  test('large -> x-large viewports - 1012+', async ({ page }) => {
+    page.setViewportSize({
+      width: 1013,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+
+    // version picker should be visible
+    await page
+      .getByRole('button', {
+        name: 'Select GitHub product version: current version is free-pro-team@latest',
+      })
+      .click()
+    expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
+    await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
+
+    // language picker is visible
+    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+
+    // header sign up button is visible
+    await expect(page.getByTestId('header-signup')).toBeVisible()
+  })
+
+  test('large viewports - 1012-1279', async ({ page }) => {
+    page.setViewportSize({
+      width: 1013,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+
+    // breadcrumbs show up in the header, for this page we should have
+    // 3 items 'Get Started / Foo / Bar'
+    // in-article breadcrumbs don't show up
+    await expect(page.getByTestId('breadcrumbs-header')).toBeVisible()
+    expect(await page.getByTestId('breadcrumbs-header').getByRole('link').all()).toHaveLength(3)
+    await expect(page.getByTestId('breadcrumbs-in-article')).not.toBeVisible()
+
+    // hamburger button for sidebar overlay is visible
+    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+    await page.getByTestId('sidebar-hamburger').click()
+    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+  })
+
+  test('medium viewports - 768-1011', async ({ page }) => {
+    page.setViewportSize({
+      width: 1000,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+
+    // version picker is visible
+    await page
+      .getByRole('button', {
+        name: 'Select GitHub product version: current version is free-pro-team@latest',
+      })
+      .click()
+    expect((await page.getByRole('menuitemradio').all()).length).toBeGreaterThan(0)
+    await expect(page.getByRole('menuitemradio', { name: 'Enterprise Cloud' })).toBeVisible()
+
+    // language picker is in mobile menu
+    await page.getByTestId('mobile-menu').click()
+    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+
+    // sign up button is in mobile menu
+    await expect(page.getByTestId('mobile-signup')).toBeVisible()
+
+    // hamburger button for sidebar overlay is visible
+    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+    await page.getByTestId('sidebar-hamburger').click()
+    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+  })
+
+  test('small viewports - 544-767', async ({ page }) => {
+    page.setViewportSize({
+      width: 500,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+
+    // header sign-up button is not visible
+    await expect(page.getByTestId('header-signup')).not.toBeVisible()
+
+    // language picker is not visible
+    await expect(page.getByTestId('language-picker')).not.toBeVisible()
+
+    // version picker is not visible
+    await expect(
+      page.getByRole('button', {
+        name: 'Select GitHub product version: current version is free-pro-team@latest',
+      })
+    ).not.toBeVisible()
+
+    // version picker is in mobile menu
+    await expect(page.getByTestId('version-picker')).not.toBeVisible()
+    await page.getByTestId('mobile-menu').click()
+    await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
+
+    // language picker is in mobile menu
+    await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
+
+    // sign up button is in mobile menu
+    await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
+
+    // hamburger button for sidebar overlay is visible
+    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+    await page.getByTestId('sidebar-hamburger').click()
+    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+  })
+
+  test('do a search when the viewport is x-small', async ({ page }) => {
+    test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+    page.setViewportSize({
+      width: 500,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+    await page.getByRole('button', { name: 'Open Search Bar' }).click()
+    await page.getByTestId('site-search-input').click()
+    await page.getByTestId('site-search-input').fill('serve playwright')
+    await page.getByTestId('site-search-input').press('Enter')
+    await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+    await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+  })
+
+  test('do a search when the viewport is medium', async ({ page }) => {
+    test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+    page.setViewportSize({
+      width: 1000,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+    await page.getByTestId('site-search-input').click()
+    await page.getByTestId('site-search-input').fill('serve playwright')
+    await page.getByTestId('site-search-input').press('Enter')
+    await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+    await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+  })
 })
 
-test('large viewports - 1012-1279', async ({ page }) => {
-  page.setViewportSize({
-    width: 1013,
-    height: 700,
+test.describe('survey', () => {
+  test('happy path, thumbs up and enter email', async ({ page }) => {
+    await page.goto('/get-started/foo/for-playwright')
+
+    let fulfilled = 0
+    await page.route('**/api/events', (route, request) => {
+      route.fulfill({})
+      expect(request.method()).toBe('POST')
+      fulfilled++
+      // At the time of writing you can't get the posted payload
+      // when you use `navigator.sendBeacon(url, data)`.
+      // So we can't make assertions about the payload.
+      // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    // The label is visually an SVG. Finding it by its `for` value feels easier.
+    await page.locator('[for=survey-yes]').click()
+    await page.getByPlaceholder('email@example.com').click()
+    await page.getByPlaceholder('email@example.com').fill('test@example.com')
+
+    await page.getByRole('button', { name: 'Send' }).click()
+    // Because it sent one about the thumbs and then another with the email.
+    expect(fulfilled).toBe(2)
+    await expect(page.getByTestId('survey-end')).toBeVisible()
   })
-  await page.goto('/get-started/foo/bar')
 
-  // breadcrumbs show up in the header, for this page we should have
-  // 3 items 'Get Started / Foo / Bar'
-  // in-article breadcrumbs don't show up
-  await expect(page.getByTestId('breadcrumbs-header')).toBeVisible()
-  expect(await page.getByTestId('breadcrumbs-header').getByRole('link').all()).toHaveLength(3)
-  await expect(page.getByTestId('breadcrumbs-in-article')).not.toBeVisible()
+  test('thumbs down without filling in the form sends an API POST', async ({ page }) => {
+    await page.goto('/get-started/foo/for-playwright')
 
-  // hamburger button for sidebar overlay is visible
-  await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
-  await page.getByTestId('sidebar-hamburger').click()
-  await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+    let fulfilled = 0
+    await page.route('**/api/events', (route, request) => {
+      route.fulfill({})
+      expect(request.method()).toBe('POST')
+      fulfilled++
+      // At the time of writing you can't get the posted payload
+      // when you use `navigator.sendBeacon(url, data)`.
+      // So we can't make assertions about the payload.
+      // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    await page.locator('[for=survey-yes]').click()
+    expect(fulfilled).toBe(1)
+
+    await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
+    await page.getByRole('button', { name: 'Cancel' }).click()
+    await expect(page.getByRole('button', { name: 'Send' })).not.toBeVisible()
+  })
+})
+
+test.describe('rest API reference pages', () => {
+  test('REST code-scanning', async ({ page }) => {
+    await page.goto('/rest')
+    await page.getByRole('treeitem', { name: 'Code Scanning' }).locator('svg').click()
+    await page.getByText('Code Scanning').click()
+    await page.getByTestId('sidebar').getByRole('link', { name: 'About code scanning' }).click()
+    await expect(page).toHaveURL(/\/en\/rest\/code-scanning\?apiVersion=/)
+    await expect(page).toHaveTitle(/Code Scanning - GitHub Docs/)
+  })
+  test('REST actions', async ({ page }) => {
+    await page.goto('/rest')
+    await page.getByTestId('sidebar').getByText('Actions').click()
+    await page.getByTestId('rest-subcategory').getByRole('link', { name: 'Artifacts' }).click()
+    await page
+      .getByTestId('rest-subcategory')
+      .getByRole('link', { name: 'About artifacts in GitHub Actions' })
+      .click()
+    await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
+    await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
+  })
+})
+
+test.describe('translations', () => {
+  test('view Japanese home page', async ({ page }) => {
+    await page.goto('/ja')
+    await expect(page.getByRole('heading', { name: '日本 GitHub Docs' })).toBeVisible()
+  })
+
+  test('switch to English from Japanese using banner on home page', async ({ page }) => {
+    await page.goto('/ja')
+    await page.getByRole('link', { name: 'English documentation' }).click()
+    await expect(page).toHaveURL('/en')
+    await expect(page.getByRole('heading', { name: 'GitHub Docs' })).toBeVisible()
+  })
+
+  test('switch to Japanese from English using widget on home page', async ({ page }) => {
+    await page.goto('/en')
+    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await page.getByRole('menuitemradio', { name: '日本語' }).click()
+    await expect(page).toHaveURL('/ja')
+    await expect(page.getByRole('heading', { name: '日本 GitHub Docs' })).toBeVisible()
+
+    // Having done this once, should now use a cookie to redirect back to Japanese
+    await page.goto('/')
+    await expect(page).toHaveURL('/ja')
+  })
+
+  test('switch to English from Japanese using banner on article', async ({ page }) => {
+    await page.goto('/ja/get-started/quickstart/hello-world')
+    await expect(page.getByRole('heading', { name: 'こんにちは World' })).toBeVisible()
+    await page.getByRole('link', { name: 'English documentation' }).click()
+    await expect(page).toHaveURL('/en/get-started/quickstart/hello-world')
+    await expect(page.getByRole('heading', { name: 'Hello World' })).toBeVisible()
+  })
+
+  test('switch to Japanese from English using widget on article', async ({ page }) => {
+    await page.goto('/get-started/quickstart/hello-world')
+    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await page.getByRole('menuitemradio', { name: '日本語' }).click()
+    await expect(page).toHaveURL('/ja/get-started/quickstart/hello-world')
+    await expect(page.getByRole('heading', { name: 'こんにちは World' })).toBeVisible()
+
+    // Having done this once, should now use a cookie to redirect
+    // back to Japanese.
+    // Playwright will cache this redirect, so we need to add something
+    // to "cache bust" the URL
+    const cb = `?cb=${Math.random()}`
+    await page.goto('/get-started/quickstart/hello-world' + cb)
+    await expect(page).toHaveURL('/ja/get-started/quickstart/hello-world' + cb)
+
+    // If you go, with the Japanese cookie, to the English page directly,
+    // it will offer a link to the Japanese URL in a banner.
+    await page.goto('/en/get-started/quickstart/hello-world')
+    await page.getByRole('link', { name: 'Japanese' }).click()
+    await expect(page).toHaveURL('/ja/get-started/quickstart/hello-world')
+  })
 })

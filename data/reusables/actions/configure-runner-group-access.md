@@ -1,6 +1,3 @@
-{% data reusables.actions.configure-runner-group %}
-1. Modify your policy options.
-
    {% ifversion not ghae %}
    {% warning %}
 

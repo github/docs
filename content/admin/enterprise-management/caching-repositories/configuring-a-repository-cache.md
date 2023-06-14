@@ -97,9 +97,9 @@ Data location policies affect only Git content. Content in the database, such as
 
 You can configure a policy to replicate all networks with the `--default` flag. For example, this command will create a policy to replicate a single copy of every repository network to the set of repository caches whose `cache_location` is "kansas".
 
- ```
- $ ghe-spokesctl cache-policy set --default 1 kansas
- ```
+```
+$ ghe-spokesctl cache-policy set --default 1 kansas
+```
 
 To configure replication for a repository network, specify the repository that is the root of the network. A repository network includes a repository and all of the repository's forks. You cannot replicate part of a network without replicating the whole network.
 

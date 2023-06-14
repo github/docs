@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import { UnderlineNav } from '@primer/react'
-import { sendEvent, EventType } from 'src/events/browser'
+import { sendEvent, EventType } from 'src/events/components/events'
 import { useRouter } from 'next/router'
 
 type Option = {
@@ -130,11 +130,7 @@ export const InArticlePicker = ({
       preference_value: value,
     })
 
-    Cookies.set(cookieKey, value, {
-      sameSite: 'strict',
-      secure: document.location.protocol !== 'http:',
-      expires: 365,
-    })
+    Cookies.set(cookieKey, value)
   }
 
   const sharedContainerProps = {

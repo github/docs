@@ -2,8 +2,7 @@
 title: Syntax for issue forms
 intro: 'You can define different input types, validations, default assignees, and default labels for your issue forms.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: issue-forms
 topics:
   - Community
 ---
@@ -32,7 +31,7 @@ This example YAML configuration file defines an issue form using several inputs 
 
 All issue form configuration files must begin with `name`, `description`, and `body` key-value pairs.
 
-```YAML{:copy}
+```YAML copy
 name:
 description:
 body:
@@ -46,7 +45,7 @@ You can set the following top-level keys for each issue form.
 | `description` | A description for the issue form template, which appears in the template chooser interface. | Required | String |
 | `body` | Definition of the input types in the form. | Required | Array |
 | `assignees` | People who will be automatically assigned to issues created with this template. | Optional | Array or comma-delimited string |
-| `labels` | Labels that will automatically be added to issues created with this template. | Optional | Array or comma-delimited string |
+| `labels` | Labels that will automatically be added to issues created with this template. If a label does not already exist in the repository, it will not be automatically added to the issue. | Optional | Array or comma-delimited string |
 | `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |
 
 For the available `body` input types and their syntaxes, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
@@ -61,7 +60,7 @@ An example of a Markdown issue template and a corresponding YAML issue form temp
 
 ### Markdown issue template
 
-```markdown{:copy}
+```markdown copy
 ---
 name: 🐞 Bug
 about: File a bug/issue
@@ -106,7 +105,7 @@ Links? References? Anything that will give us more context about the issue that 
 
 ### YAML issue form template
 
-```yaml{:copy}
+```yaml copy
 name: 🐞 Bug
 description: File a bug/issue
 title: "[BUG] <title>"

@@ -27,8 +27,8 @@ redirect_from:
 {% data reusables.repositories.sidebar-pr %}
 
 1. In the list of pull requests, click the pull request you'd like to open in {% data variables.product.prodname_codespaces %}.
-1. On the right-hand side of your screen, click **{% octicon "code" aria-label="The code icon" %} Code**. 
-1. In the {% data variables.product.prodname_codespaces %} tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %})
+1. On the right-hand side of your screen, click **{% octicon "code" aria-hidden="true" %} Code**.
+1. In the {% data variables.product.prodname_codespaces %} tab, click {% octicon "plus" aria-label="Create a codespace on BRANCH" %}.
 
    ![Screenshot of the "Code" dropdown with the "{% data variables.product.prodname_codespaces %}" tab selected. The message "No codespaces" is displayed. The plus button is highlighted.](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 
@@ -67,4 +67,4 @@ For more information on reviewing a pull request, see "[AUTOTITLE](/pull-request
 
 ## View comments from a review in {% data variables.product.prodname_codespaces %}
 
-Once you have received feedback on a pull request, you can [open it in a codespace](#opening-a-pull-request-in-codespaces) in your web browser, or in {% data variables.product.prodname_vscode_shortname %}, to see the [review comments](#reviewing-a-pull-request-in-codespaces). From there you can respond to comments, add reactions, or dismiss the review. 
+Once you have received feedback on a pull request, you can [open it in a codespace](#opening-a-pull-request-in-codespaces) in your web browser, or in {% data variables.product.prodname_vscode_shortname %}, to see the [review comments](#reviewing-a-pull-request-in-codespaces). From there you can respond to comments, add reactions, or dismiss the review.

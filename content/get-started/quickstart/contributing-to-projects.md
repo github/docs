@@ -27,17 +27,17 @@ You can contribute by submitting pull requests from your fork to the upstream re
 This tutorial uses [the Spoon-Knife project](https://github.com/octocat/Spoon-Knife), a test repository that's hosted on {% data variables.product.prodname_dotcom_the_website %} that lets you test the fork and pull request workflow.
 
 1. Navigate to the `Spoon-Knife` project at https://github.com/octocat/Spoon-Knife.
-1. Click **Fork**.
+1. In the top-right corner of the page, click **Fork**.
 
    ![Screenshot of the main page of repository. A button, labeled with a fork icon and "Fork 59.3k," is outlined in dark orange.](/assets/images/help/repository/fork_button.png)
 {%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 1. Under "Owner," select the dropdown menu and click an owner for the forked repository.
-1. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
-1. Optionally, in the "Description" field, type a description of your fork.
-1. Optionally, select **Copy the DEFAULT branch only**.
+2. By default, forks are named the same as their upstream repositories. Optionally, to further distinguish your fork, in the "Repository name" field, type a name.
+3. Optionally, in the "Description" field, type a description of your fork.
+4. Optionally, select **Copy the DEFAULT branch only**.
 
     For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. If you do not select this option, all branches will be copied into the new fork.
-1. Click **Create fork**.
+5. Click **Create fork**.
 
 {% note %}
 
@@ -59,19 +59,19 @@ You can clone your fork with the command line, {% data variables.product.prodnam
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
 4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
-  ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
-  ```
+   ```shell
+   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
+   ```
 
 5. Press **Enter**. Your local clone will be created.
-  ```shell
-  $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
-  > Cloning into `Spoon-Knife`...
-  > remote: Counting objects: 10, done.
-  > remote: Compressing objects: 100% (8/8), done.
-  > remove: Total 10 (delta 1), reused 10 (delta 1)
-  > Unpacking objects: 100% (10/10), done.
-  ```
+   ```shell
+   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
+   > Cloning into `Spoon-Knife`...
+   > remote: Counting objects: 10, done.
+   > remote: Compressing objects: 100% (8/8), done.
+   > remove: Total 10 (delta 1), reused 10 (delta 1)
+   > Unpacking objects: 100% (10/10), done.
+   ```
 
 {% endwebui %}
 
@@ -121,7 +121,7 @@ git checkout BRANCH-NAME
 
 {% desktop %}
 
-For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches)."
+For more information about how to create and manage branches in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)."
 
 {% enddesktop %}
 
@@ -151,7 +151,7 @@ git commit -m "a short description of the change"
 
 {% desktop %}
 
-For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project#selecting-changes-to-include-in-a-commit)."
+For more information about how to stage and commit changes in {% data variables.product.prodname_desktop %}, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop#selecting-changes-to-include-in-a-commit)."
 
 {% enddesktop %}
 

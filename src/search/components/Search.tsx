@@ -5,8 +5,8 @@ import { SearchIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
-import { useQuery } from 'components/hooks/useQuery'
-import { useBreakpoint } from 'components/hooks/useBreakpoint'
+import { useQuery } from 'src/search/components/useQuery'
+import { useBreakpoint } from 'src/search/components/useBreakpoint'
 
 export function Search() {
   const router = useRouter()

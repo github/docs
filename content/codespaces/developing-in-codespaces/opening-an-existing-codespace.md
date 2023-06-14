@@ -34,7 +34,7 @@ You can view all your codespaces on the "Your codespaces" page at [github.com/co
 
 You can quickly resume a codespace when you're viewing a repository on {% data variables.product.prodname_dotcom_the_website %}.
 
-1. With the repository displayed on {% data variables.product.prodname_dotcom_the_website %}, press <kbd>,</kbd>.
+1. With the repository displayed on {% data variables.product.prodname_dotcom_the_website %}, press <kbd>,</kbd> (the comma key).
 
    The "Resume codespace" page is displayed. This allows you to resume your most recently used codespace for the currently selected branch of the repository or, if you were viewing a pull request, for the topic branch of the pull request.
 
@@ -109,7 +109,7 @@ You can also access the commands listed above by navigating to the Remote Explor
 1. In a terminal, enter one of the following {% data variables.product.prodname_cli %} commands.
    - To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace code
      ```
 
@@ -121,13 +121,13 @@ You can also access the commands listed above by navigating to the Remote Explor
 
    - To open a codespace in the browser, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace code --web
      ```
 
    - To open a codespace in JupyterLab, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace jupyter
      ```
 
@@ -139,7 +139,7 @@ You can also access the commands listed above by navigating to the Remote Explor
 
    - To access a codespace from the command line, over SSH, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace ssh
      ```
 

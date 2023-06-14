@@ -44,7 +44,7 @@ You decide how to generate {% data variables.product.prodname_code_scanning %} a
 
 {% ifversion code-scanning-tool-status-page %}
 
-The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)".
+The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)."
 
 {% endif %}
 
@@ -71,13 +71,13 @@ Try default setup if you don't need to run extra queries, change the scan schedu
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.user-settings.security-analysis %}
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %}, then click **Default**.
+1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Default**.
 
-  ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "Code security and analysis" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
+   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "Code security and analysis" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
 
 1. Optionally, in the "Query suites" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select the **Default** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the {% data variables.product.prodname_codeql %} query suite you would like to use.
 
-  ![Screenshot of the default setup modal for {% data variables.product.prodname_code_scanning %}. A button labeled "Default", with an arrow indicating a dropdown menu, is outlined in dark orange.](/assets/images/help/security/default-setup-query-suite-dropdown.png)
+   ![Screenshot of the default setup modal for {% data variables.product.prodname_code_scanning %}. A button labeled "Default", with an arrow indicating a dropdown menu, is outlined in dark orange.](/assets/images/help/security/default-setup-query-suite-dropdown.png)
 
   If you choose the **Extended** query suite, your {% data variables.product.prodname_code_scanning %} configuration will run lower severity and precision queries in addition to the queries included in the **Default** query suite.
 
@@ -94,7 +94,7 @@ Try default setup if you don't need to run extra queries, change the scan schedu
   **Notes:**
      - The {% data variables.product.prodname_codeql %} default configuration window displays the details of the default setup, including the languages to analyze, the query suites to run, and the events that trigger a new scan. If you would like to change which events will trigger a new scan or customize other {% data variables.product.prodname_code_scanning %} features, you need to use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
      - If you are switching to the default setup from the advanced setup, you will see a warning informing you that the default setup will override existing configurations. {% data variables.product.prodname_codeql %} default setup will disable the existing workflow file, and block any {% data variables.product.prodname_codeql %} analysis API uploads.
-     - If you would like to see your default {% data variables.product.prodname_codeql %} setup after configuration, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click {% octicon "gear" aria-label="The gear icon" %} **View {% data variables.product.prodname_codeql %} configuration**.
+     - If you would like to see your default {% data variables.product.prodname_codeql %} setup after configuration, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click {% octicon "gear" aria-hidden="true" %} **View {% data variables.product.prodname_codeql %} configuration**.
 
   {% endnote %}
 
@@ -117,7 +117,7 @@ The advanced setup for {% data variables.product.prodname_code_scanning %} is he
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 1. If the repository has already at least one workflow configured and running, click **New workflow** to display starter workflows. If there are currently no workflows configured for the repository, go to the next step.
-   ![Screenshot of the Actions tab for a repository. The "New workflow" button is highlighted with an orange outline](/assets/images/help/security/actions-new-workflow-button.png)
+   ![Screenshot of the Actions tab for a repository. The "New workflow" button is highlighted with an orange outline.](/assets/images/help/security/actions-new-workflow-button.png)
 2. In the "Choose a workflow" or "Get started with {% data variables.product.prodname_actions %}" view, scroll down to the "Security" category and click **Configure** under the workflow you want to configure. You may need to click **View all** to find the security workflow you want to configure.
    ![Screenshot of the Security category of starter workflows. The Configure button and "View all" link are highlighted with an orange outline.](/assets/images/help/security/actions-workflows-security-section.png)
 3. Follow any instructions in the workflow to customize it to your needs. For more general assistance about workflows, click **Documentation** on the right pane of the workflow page.
@@ -143,27 +143,29 @@ You can customize your {% data variables.product.prodname_code_scanning %} by cr
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.user-settings.security-analysis %}
-1. Scroll down to the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %}, then click **Advanced**.
+1. Scroll down to the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Advanced**.
 
-  {% note %}
+   {% note %}
 
-  **Note:** If you are switching to the advanced {% data variables.product.prodname_code_scanning %} setup from the default setup, in the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click {% octicon "workflow" aria-label="The workflow icon" %} **Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
+   **Note:** If you are switching to the advanced {% data variables.product.prodname_code_scanning %} setup from the default setup, in the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click {% octicon "workflow" aria-hidden="true" %} **Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
 
-  {% endnote %}
+   {% endnote %}
 
-  ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "Code security and analysis" settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup.png)
+   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "Code security and analysis" settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup.png)
 
 1. To customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow.
 
    Generally, you can commit the {% data variables.code-scanning.codeql_workflow %} without making any changes to it. However, many of the third-party workflows require additional configuration, so read the comments in the workflow before committing.
 
    For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
-1. Click **Commit changes...**
+
+1. Click **Commit changes...** to display the commit changes form.
 
    ![Screenshot of the form to create a new file. To the right of the file name, a green button, labeled "Commit changes...", is outlined in dark orange.](/assets/images/help/repository/start-commit-commit-new-file.png)
 1. In the commit message field, type a commit message.
-1. Select whether you'd like to commit directly to the default branch, or create a new branch and start a pull request.
-1. Click **Commit new file** or **Propose new file**.
+1. Choose whether you'd like to commit directly to the default branch, or create a new branch and start a pull request.
+1. Click **Commit new file** to commit the workflow file to the default branch or click **Propose new file** to commit the file to a new branch.
+1. If you created a new branch, click **Create pull request** and open a pull request to merge your change into the default branch.
 
 In the suggested {% data variables.code-scanning.codeql_workflow %}, {% data variables.product.prodname_code_scanning %} is configured to analyze your code each time you either push a change to the default branch or any protected branches, or raise a pull request against the default branch. As a result, {% data variables.product.prodname_code_scanning %} will now commence.
 
@@ -176,16 +178,19 @@ The `on:pull_request` and `on:push` triggers for code scanning are each useful f
 {% data reusables.repositories.sidebar-security %}
 1. To the right of "{% data variables.product.prodname_code_scanning_caps %} alerts", click **Set up {% data variables.product.prodname_code_scanning %}**.{% ifversion ghec or ghes or ghae %} If "{% data variables.product.prodname_code_scanning %} alerts" is missing, you need to ask an organization owner or repository administrator to enable {% data variables.product.prodname_GH_advanced_security %}.{% endif %} For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)" or "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
 1. Under "Get started with {% data variables.product.prodname_code_scanning %}", click **Set up this workflow** on the {% data variables.code-scanning.codeql_workflow %} or on a third-party workflow.
- !["Set up this workflow" button under "Get started with {% data variables.product.prodname_code_scanning %}" heading](/assets/images/help/repository/code-scanning-set-up-this-workflow.png)Workflows are only displayed if they are relevant for the programming languages detected in the repository. The {% data variables.code-scanning.codeql_workflow %} is always displayed, but the "Set up this workflow" button is only enabled if {% data variables.product.prodname_codeql %} analysis supports the languages present in the repository.
+
+   Workflows are only displayed if they are relevant for the programming languages detected in the repository. The {% data variables.code-scanning.codeql_workflow %} is always displayed, but the "Set up this workflow" button is only enabled if {% data variables.product.prodname_codeql %} analysis supports the languages present in the repository.
+
 1. To customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow.
 
    Generally, you can commit the {% data variables.code-scanning.codeql_workflow %} without making any changes to it. However, many of the third-party workflows require additional configuration, so read the comments in the workflow before committing.
 
    For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
-1. Click **Commit changes...**
+
+1. Click **Commit changes...** to display the commit changes form.
 
    ![Screenshot of the form to create a new file. To the right of the file name, a green button, labeled "Commit changes...", is outlined in dark orange.](/assets/images/help/repository/start-commit-commit-new-file.png)
-1. In the text field, type a commit message.
+1. In the commit message field, type a commit message.
 1. Choose whether you'd like to commit directly to the default branch, or create a new branch and start a pull request.
 1. Click **Commit new file** or **Propose new file**.
 
@@ -213,27 +218,19 @@ After configuring {% data variables.product.prodname_code_scanning %} for your r
 
 {% data reusables.repositories.actions-tab %}
 
-  You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
+   You'll see a list that includes an entry for running the {% data variables.product.prodname_code_scanning %} workflow. The text of the entry is the title you gave your commit message.
 
-  ![Actions list showing {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-actions-list.png)
+   ![Screenshot of the "All workflows" page. In the list of workflow runs is a run labeled "Create .github/workflows/codeql.yml."](/assets/images/help/repository/code-scanning-actions-list.png)
 
-1. Click the entry for the {% data variables.product.prodname_code_scanning %} workflow.
+1. Click the entry for the run of the {% data variables.product.prodname_code_scanning %} workflow.
 
 1. Click the job name on the left. For example, **Analyze (LANGUAGE)**.
 
-  ![Log output from the {% data variables.product.prodname_code_scanning %} workflow](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
+   ![Screenshot of the log output for the "Analyze (go)" job. In the left sidebar, under the "Jobs" heading, "Analyze (go)" is listed.](/assets/images/help/repository/code-scanning-logging-analyze-action.png)
 
 1. Review the logging output from the actions in this workflow as they run.
 
 1. Once all jobs are complete, you can view the details of any {% data variables.product.prodname_code_scanning %} alerts that were identified. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
-
-{% note %}
-
-**Note:** If you raised a pull request to add the {% data variables.product.prodname_code_scanning %} workflow to the repository, alerts from that pull request aren't displayed directly on the {% data variables.product.prodname_code_scanning_caps %} page until the pull request is merged. If any alerts were found you can view these, before the pull request is merged, by clicking the **NUMBER alerts found** link in the banner on the {% data variables.product.prodname_code_scanning_caps %} page.
-
-![Click the "n alerts found" link](/assets/images/help/repository/code-scanning-alerts-found-link.png)
-
-{% endnote %}
 
 ## Understanding the pull request checks
 
@@ -241,21 +238,20 @@ Each {% data variables.product.prodname_code_scanning %} workflow you set to run
 
 The names of the {% data variables.product.prodname_code_scanning %} analysis checks take the form: "TOOL NAME / JOB NAME (TRIGGER)." For example, for {% data variables.product.prodname_codeql %}, analysis of C++ code has the entry "{% data variables.product.prodname_codeql %} / Analyze (cpp) (pull_request)." You can click **Details** on a {% data variables.product.prodname_code_scanning %} analysis entry to see logging data. This allows you to debug a problem if the analysis job failed. For example, for {% data variables.product.prodname_code_scanning %} analysis of compiled languages, this can happen if the action can't build the code.
 
-  ![{% data variables.product.prodname_code_scanning %} pull request checks](/assets/images/help/repository/code-scanning-pr-checks.png)
+![Screenshot showing an example of {% data variables.product.prodname_code_scanning %} pull request checks. Failure of CodeQL analysis for C++ is shown with a red cross.](/assets/images/help/repository/code-scanning-pr-checks.png)
 
 When the {% data variables.product.prodname_code_scanning %} jobs complete, {% data variables.product.prodname_dotcom %} works out whether any alerts were added by the pull request and adds the "{% data variables.product.prodname_code_scanning_caps %} results / TOOL NAME" entry to the list of checks. After {% data variables.product.prodname_code_scanning %} has been performed at least once, you can click **Details** to view the results of the analysis.
 
-{% ifversion ghes < 3.5 or ghae %}
+{% ifversion ghes < 3.5 %}
 If you used a pull request to add {% data variables.product.prodname_code_scanning %} to the repository, you will initially see an "Analysis not found" message when you click **Details** on the "{% data variables.product.prodname_code_scanning_caps %} results / TOOL NAME" check.
 
-  ![Analysis not found for commit message](/assets/images/enterprise/3.4/repository/code-scanning-analysis-not-found.png)
+![Screenshot of the details for a code scanning result. Under "GitHub Code Scanning / CodeQL" is the heading "1 analysis not found."](/assets/images/enterprise/3.4/repository/code-scanning-analysis-not-found.png)
 
 The table lists one or more categories. Each category relates to specific analyses, for the same tool and commit, performed on a different language or a different part of the code. For each category, the table shows the two analyses that {% data variables.product.prodname_code_scanning %} attempted to compare to determine which alerts were introduced or fixed in the pull request.
 
 For example, in the screenshot above, {% data variables.product.prodname_code_scanning %} found an analysis for the merge commit of the pull request, but no analysis for the head of the main branch.
 
 ### Reasons for the "Analysis not found" message
-
 
 After {% data variables.product.prodname_code_scanning %} has analyzed the code in a pull request, it needs to compare the analysis of the topic branch (the branch you used to create the pull request) with the analysis of the base branch (the branch into which you want to merge the pull request). This allows {% data variables.product.prodname_code_scanning %} to compute which alerts are newly introduced by the pull request, which alerts were already present in the base branch, and whether any existing alerts are fixed by the changes in the pull request. Initially, if you use a pull request to add {% data variables.product.prodname_code_scanning %} to a repository, the base branch has not yet been analyzed, so it's not possible to compute these details. In this case, when you click through from the results check on the pull request you will see the "Analysis not found" message.
 
@@ -265,7 +261,7 @@ There are other situations where there may be no analysis for the latest commit 
 
   To check whether a branch has been scanned, go to the {% data variables.product.prodname_code_scanning_caps %} page, click the **Branch** drop-down and select the relevant branch.
 
-  ![Choose a branch from the Branch drop-down menu](/assets/images/help/repository/code-scanning-branch-dropdown.png)
+  ![Choose a branch from the Branch drop-down menu.](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 
   The solution in this situation is to add the name of the base branch to the `on:push` and `on:pull_request` specification in the {% data variables.product.prodname_code_scanning %} workflow on that branch and then make a change that updates the open pull request that you want to scan.
 

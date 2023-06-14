@@ -1,8 +1,8 @@
 name: Triage new issue comments
 
-# **What it does**:
-# **Why we have it**:
-# **Who does it impact**:
+# **What it does**: Adds label triage to new issue comments in the open source repository.
+# **Why we have it**: Update open source project board for review.
+# **Who does it impact**: Docs open source.
 
 on:
   issue_comment:

@@ -118,15 +118,15 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   ```shell
   $ curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
   ```
-  
+
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. The GraphQL API only supports authentication using a {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." 
+  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token.  If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.
 
   {% endnote %}
-  
+
   The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
-  
+
   Alternatively, you can pass the `idl` media type to return the results in IDL format, which is a condensed version of the schema:
 
   ```shell

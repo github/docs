@@ -141,60 +141,7 @@ gh actions-importer audit azure-devops --output-dir tmp/audit
 
 ### Inspecting the audit results
 
-The files in the specified output directory contain the results of the audit. See the `audit_summary.md` file for a summary of the audit results.
-
-The audit summary has the following sections.
-
-#### Pipelines
-
-The "Pipelines" section contains high-level statistics regarding the conversion rate done by {% data variables.product.prodname_actions_importer %}.
-
-Listed below are some key terms that can appear in the "Pipelines" section:
-
-- **Successful** pipelines had 100% of the pipeline constructs and individual items converted automatically to their {% data variables.product.prodname_actions %} equivalent.
-- **Partially successful** pipelines had all of the pipeline constructs converted, however, there were some individual items that were not converted automatically to their {% data variables.product.prodname_actions %} equivalent.
-- **Unsupported** pipelines are definition types that are not supported by {% data variables.product.prodname_actions_importer %}.
-- **Failed** pipelines encountered a fatal error when being converted. This can occur for one of three reasons:
-  - The pipeline was misconfigured and not valid in Azure DevOps.
-  - {% data variables.product.prodname_actions_importer %} encountered an internal error when converting it.
-  - There was an unsuccessful network response that caused the pipeline to be inaccessible, which is often due to invalid credentials.
-
-#### Build steps
-
-The "Build steps" section contains an overview of individual build steps that are used across all pipelines, and how many were automatically converted by {% data variables.product.prodname_actions_importer %}.
-
-Listed below are some key terms that can appear in the "Build steps" section:
-
-- A **known** build step is a step that was automatically converted to an equivalent action.
-- An **unknown** build step is a step that was not automatically converted to an equivalent action.
-- An **unsupported** build step is a step that is either:
-  - Fundamentally not supported by {% data variables.product.prodname_actions %}.
-  - Configured in a way that is incompatible with {% data variables.product.prodname_actions %}.
-- An **action** is a list of the actions that were used in the converted workflows. This can be important for:
-  - Gathering the list of actions to sync to your instance if you use {% data variables.product.prodname_ghe_server %}.
-  - Defining an organization-level allowlist of actions that are used. This list of actions is a comprehensive list of actions that your security or compliance teams may need to review.
-
-#### Manual tasks
-
-The "Manual tasks" section contains an overview of tasks that {% data variables.product.prodname_actions_importer %} is not able to complete automatically, and that you must complete manually.
-
-Listed below are some key terms that can appear in the "Manual tasks" section:
-
-- A **secret** is a repository or organization-level secret that is used in the converted pipelines. These secrets must be created manually in {% data variables.product.prodname_actions %} for these pipelines to function properly. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
-- A **self-hosted runner** refers to a label of a runner that is referenced in a converted pipeline that is not a {% data variables.product.prodname_dotcom %}-hosted runner. You will need to manually define these runners for these pipelines to function properly.
-
-#### Files
-
-The final section of the audit report provides a manifest of all the files that were written to disk during the audit.
-
-Each pipeline file has a variety of files included in the audit, including:
-
-- The original pipeline as it was defined in {% data variables.product.prodname_dotcom %}.
-- Any network responses used to convert the pipeline.
-- The converted workflow file.
-- Stack traces that can be used to troubleshoot a failed pipeline conversion.
-
-Additionally, the `workflow_usage.csv` file contains a comma-separated list of all actions, secrets, and runners that are used by each successfully converted pipeline. This can be useful for determining which workflows use which actions, secrets, or runners, and can be useful for performing security reviews.
+{% data reusables.actions.gai-inspect-audit %}
 
 ## Forecast potential {% data variables.product.prodname_actions %} usage
 
@@ -228,7 +175,7 @@ Additionally, these metrics are defined for each queue of runners in Azure DevOp
 
 You can use the `dry-run` command to convert an Azure DevOps pipeline to an equivalent {% data variables.product.prodname_actions %} workflow. A dry run creates the output files in a specified directory, but does not open a pull request to migrate the pipeline.
 
-If there is anything that {% data variables.product.prodname_actions_importer %} was not able to convert automatically, such as unknown build steps or a partially successful pipeline, you might want to create custom transformers to further customize the conversion process. For more information, see "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/extending-github-actions-importer-with-custom-transformers)."
+{% data reusables.actions.gai-custom-transformers-rec %}
 
 ### Running the dry-run command for a build pipeline
 
@@ -286,16 +233,7 @@ $ gh actions-importer migrate azure-devops release --target-url https://github.c
 [2022-08-20 22:08:20] Pull request: 'https://github.com/octo-org/octo-repo/pull/1'
 ```
 
-### Inspecting the pull request
-
-The output from a successful run of the `migrate` command contains a link to the new pull request that adds the converted workflow to your repository.
-
-Some important elements of the pull request include:
-
-- In the pull request description, a section called **Manual steps**, which lists steps that you must manually complete before you can finish migrating your pipelines to {% data variables.product.prodname_actions %}. For example, this section might tell you to create any secrets used in your workflows.
-- The converted workflows file. Select the **Files changed** tab in the pull request to view the workflow file that will be added to your {% data variables.product.product_name %} repository.
-
-When you are finished inspecting the pull request, you can merge it to add the workflow to your {% data variables.product.product_name %} repository.
+{% data reusables.actions.gai-inspect-pull-request %}
 
 ## Reference
 
@@ -303,7 +241,7 @@ This section contains reference information on environment variables, optional a
 
 ### Configuration environment variables
 
-We recommend maintaining the inputs to {% data variables.product.prodname_actions_importer %} with environment variables. You can set these variables by following the configuration process using the `configure` command. For more information, see the "[Configuring credentials](#configuring-credentials)" section.
+{% data reusables.actions.gai-config-environment-variables %}
 
 {% data variables.product.prodname_actions_importer %} uses the following environment variables to connect to your Azure DevOps instance:
 
@@ -325,7 +263,7 @@ These environment variables can be specified in a `.env.local` file that is load
 
 ### Optional arguments
 
-There are optional arguments you can use with the {% data variables.product.prodname_actions_importer %} subcommands to customize your migration.
+{% data reusables.actions.gai-optional-arguments-intro %}
 
 #### `--source-file-path`
 
@@ -344,6 +282,8 @@ gh actions-importer dry-run azure-devops --output-dir ./output/ --source-file-pa
 You can use the `--config-file-path` argument with the `audit`, `dry-run`, and `migrate` subcommands.
 
 By default, {% data variables.product.prodname_actions_importer %} fetches pipeline contents from source control. The `--config-file-path` argument tells {% data variables.product.prodname_actions_importer %} to use the specified source files instead.
+
+The `--config-file-path` argument can also be used to specify which repository a converted reusable workflow or composite action should be migrated to.
 
 ##### Audit example
 
@@ -373,6 +313,36 @@ The pipeline is selected by matching the `repository_slug` in the configuration 
 
 ```bash
 gh actions-importer dry-run azure-devops pipeline --output-dir ./output/ --config-file-path ./path/to/azure_devops/config.yml 
+```
+
+##### Specify the repository of converted reusable workflows and composite actions
+
+{% data variables.product.prodname_actions_importer %} uses the YAML file provided to the `--config-file-path` argument to determine the repository that converted reusable workflows and composite actions are migrated to.
+
+To begin, you should run an audit without the `--config-file-path` argument:
+
+```bash
+gh actions-importer audit azure-devops --output-dir ./output/
+```
+
+The output of this command will contain a file named `config.yml` that contains a list of all the reusable workflows and composite actions that were converted by {% data variables.product.prodname_actions_importer %}. For example, the `config.yml` file may have the following contents:
+
+```yaml
+reusable_workflows:
+  - name: my-reusable-workflow.yml
+    target_url: https://github.com/octo-org/octo-repo
+    ref: main
+
+composite_actions:
+  - name: my-composite-action.yml
+    target_url: https://github.com/octo-org/octo-repo
+    ref: main
+```
+
+You can use this file to specify which repository and ref a reusable workflow or composite action should be added to. You can then use the `--config-file-path` argument to provide the `config.yml` file to {% data variables.product.prodname_actions_importer %}. For example, you can use this file when running a `migrate` command to open a pull request for each unique repository defined in the config file:
+
+```bash
+gh actions-importer migrate azure-devops pipeline  --config-file-path config.yml --target-url https://github.com/my-org/my-repo
 ```
 
 ### Supported syntax for Azure DevOps pipelines

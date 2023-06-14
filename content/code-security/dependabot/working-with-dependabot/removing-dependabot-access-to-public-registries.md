@@ -15,9 +15,19 @@ redirect_from:
 
 ## About configuring {% data variables.product.prodname_dependabot %} to only access private registries
 
-{% data variables.product.prodname_dependabot %} can access public registries and you can configure {% data variables.product.prodname_dependabot %} to also access private registries. For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
+{% data reusables.dependabot.private-registry-support %} For more information about private registry support and configuration, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot)."
 
-You can configure {% data variables.product.prodname_dependabot %} to _only_ access private registries by removing calls to public registries. This can only be configured for the ecosystems listed in this article.
+You can configure {% data variables.product.prodname_dependabot %} to access _only_ private registries by removing calls to public registries. This can only be configured for the ecosystems listed in this article.
+
+{% ifversion dependabot-ghes-no-public-internet %}
+
+{% note %}
+
+**Note:** Before you remove access to public registries from your configuration for {% data variables.product.prodname_dependabot_updates %}, check that your site administrator has set up the {% data variables.product.prodname_dependabot %} runners with access to the private registries you need. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/configuring-dependabot-to-work-with-limited-internet-access)."
+
+{% endnote %}
+
+{% endif %}
 
 ## Bundler
 
@@ -45,15 +55,15 @@ Define the private registry configuration in a `dependabot.yml` file without `re
 
 {% endnote %}
 
-  ```yaml
-  version: 2
-  registries:
-    azuretestregistry: # Define access for a private registry
-     type: docker-registry
-     url: firewallregistrydep.azurecr.io
-     username: firewallregistrydep
-     password: {% raw %}${{ secrets.AZUREHUB_PASSWORD }}{% endraw %}
-  ```
+```yaml
+version: 2
+registries:
+  azuretestregistry: # Define access for a private registry
+    type: docker-registry
+    url: firewallregistrydep.azurecr.io
+    username: firewallregistrydep
+    password: {% raw %}${{ secrets.AZUREHUB_PASSWORD }}{% endraw %}
+```
 
 In the `Dockerfile` file, add the image name in the format of `IMAGE[:TAG]`, where `IMAGE` consists of your username and the name of the repository.
 
@@ -164,14 +174,15 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 {% endnote %}
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the `resolved` field to include the private registry URL.
-  ```yaml
-  encoding@^0.1.11:
-    version "0.1.13"
-    resolved "https://private_registry_url/encoding/-/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
-    integrity sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==
-    dependencies:
-      iconv-lite "^0.6.2"
-  ```
+
+```yaml
+encoding@^0.1.11:
+  version "0.1.13"
+  resolved "https://private_registry_url/encoding/-/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
+  integrity sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==
+  dependencies:
+    iconv-lite "^0.6.2"
+```
 
 **Option 2**
 
@@ -207,15 +218,16 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 {% endnote %}
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the `resolved` field to include the private registry URL.
-  {% raw %}
-  ```yaml
-  encoding@^0.1.11:
-    version "0.1.13"
-    resolved "https://private_registry_url/encoding/-/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
-    integrity sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==
-    dependencies:
-      iconv-lite "^0.6.2"
-  ```
+  
+{% raw %}
+```yaml
+encoding@^0.1.11:
+  version "0.1.13"
+  resolved "https://private_registry_url/encoding/-/encoding-0.1.13.tgz#56574afdd791f54a8e9b2785c0582a2d26210fa9"
+  integrity sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==
+  dependencies:
+    iconv-lite "^0.6.2"
+```
 {% endraw %}
 
 **Option 2**
@@ -263,6 +275,27 @@ This is an example of adding key `nuget.org` as true to the `disabledPackageSour
     <add key="nuget.org" value="true" />
   </disabledPackageSources>
 </configuration>
+```
+
+To configure {% data variables.product.prodname_dependabot %} to access both private _and_ public feeds, view the following `dependabot.yml` example which includes the configured `public` feed under `registries`:
+
+```yaml
+version: 2
+registries:
+  nuget-example:
+    type: nuget-feed
+    url: https://nuget.example.com/v3/index.json
+    username: ${{ secrets.USERNAME }}
+    password: ${{ secrets.PASSWORD }}
+  public:
+    type: nuget-feed
+    url: https://api.nuget.org/v3/index.json
+updates:
+  - package-ecosystem: nuget
+    directory: "/"
+    registries: "*"
+    schedule:
+      interval: daily
 ```
 
 ## Python

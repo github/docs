@@ -18,6 +18,7 @@ children:
   - /about-dependabot-alerts
   - /configuring-dependabot-alerts
   - /viewing-and-updating-dependabot-alerts
+  - /using-alert-rules-to-prioritize-dependabot-alerts
   - /configuring-notifications-for-dependabot-alerts
 ---
 

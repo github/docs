@@ -16,8 +16,7 @@ topics:
   - Google Kubernetes Engine
 shortTitle: Deploy to Google Kubernetes Engine
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -50,7 +49,7 @@ To create the GKE cluster, you will first need to authenticate using the `gcloud
 For example:
 
 {% raw %}
-```bash{:copy}
+```bash copy
 $ gcloud container clusters create $GKE_CLUSTER \
 	--project=$GKE_PROJECT \
 	--zone=$GKE_ZONE
@@ -62,7 +61,7 @@ $ gcloud container clusters create $GKE_CLUSTER \
 Enable the Kubernetes Engine and Container Registry APIs. For example:
 
 {% raw %}
-```bash{:copy}
+```bash copy
 $ gcloud services enable \
 	containerregistry.googleapis.com \
 	container.googleapis.com
@@ -74,44 +73,44 @@ $ gcloud services enable \
 This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
 
 1. Create a new service account:
-  {% raw %}
-  ```
-  $ gcloud iam service-accounts create $SA_NAME
-  ```
+   {% raw %}
+   ```
+   $ gcloud iam service-accounts create $SA_NAME
+   ```
   {% endraw %}
 1. Retrieve the email address of the service account you just created:
-  {% raw %}
-  ```
-  $ gcloud iam service-accounts list
-  ```
+   {% raw %}
+   ```
+   $ gcloud iam service-accounts list
+   ```
   {% endraw %}
 1. Add roles to the service account. Note: Apply more restrictive roles to suit your requirements.
-  {% raw %}
-  ```
-  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-  	--member=serviceAccount:$SA_EMAIL \
-  	--role=roles/container.admin
-  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-  	--member=serviceAccount:$SA_EMAIL \
-  	--role=roles/storage.admin
-  $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
-  	--member=serviceAccount:$SA_EMAIL \
-  	--role=roles/container.clusterViewer
-  ```
-  {% endraw %}
+   {% raw %}
+   ```
+   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+  	 --member=serviceAccount:$SA_EMAIL \
+  	 --role=roles/container.admin
+   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+  	 --member=serviceAccount:$SA_EMAIL \
+  	 --role=roles/storage.admin
+   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+  	 --member=serviceAccount:$SA_EMAIL \
+  	 --role=roles/container.clusterViewer
+   ```
+   {% endraw %}
 1. Download the JSON keyfile for the service account:
-  {% raw %}
-  ```
-  $ gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
-  ```
-  {% endraw %}
+   {% raw %}
+   ```
+   $ gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
+   ```
+   {% endraw %}
 1. Store the service account key as a secret named `GKE_SA_KEY`:
-  {% raw %}
-  ```
-  $ export GKE_SA_KEY=$(cat key.json | base64)
-  ```
-  {% endraw %}
-  For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+   {% raw %}
+   ```
+   $ export GKE_SA_KEY=$(cat key.json | base64)
+   ```
+   {% endraw %}
+   For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### Storing your project name
 
@@ -134,7 +133,7 @@ Under the `env` key, change the value of `GKE_CLUSTER` to the name of your clust
 
 {% data reusables.actions.delete-env-key %}
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}

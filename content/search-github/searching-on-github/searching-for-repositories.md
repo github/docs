@@ -37,7 +37,7 @@ With the `in` qualifier you can restrict your search to the repository name, rep
 
 You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
-Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[AUTOTITLE](/search-github/searching-on-github/finding-files-on-github)" and "[AUTOTITLE](/search-github/searching-on-github/searching-code)."
+Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[AUTOTITLE](/search-github/searching-on-github/finding-files-on-github)" and "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}."
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -193,7 +193,7 @@ You can search for repositories that have a minimum number of issues labeled `he
 
 | Qualifier  | Example
 | ------------- | -------------
-| `good-first-issues:>n` | [**`good-first-issues:&gt;2 javascript`**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) matches repositories with more than two issues labeled `good-first-issue` and that contain the word "javascript."
+| `good-first-issues:>n` | [**good-first-issues:&gt;2 javascript**](https://github.com/search?utf8=%E2%9C%93&q=javascript+good-first-issues%3A%3E2&type=) matches repositories with more than two issues labeled `good-first-issue` and that contain the word "javascript."
 | `help-wanted-issues:>n`|[**help-wanted-issues:&gt;4 react**](https://github.com/search?utf8=%E2%9C%93&q=react+help-wanted-issues%3A%3E4&type=) matches repositories with more than four issues labeled `help-wanted` and that contain the word "React."
 
 ## Search based on ability to sponsor

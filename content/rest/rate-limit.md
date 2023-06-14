@@ -21,11 +21,17 @@ The REST API for searching items has a custom rate limit that is separate from t
 
 * The `core` object provides your rate limit status for all non-search-related resources in the REST API.
 
-* The `search` object provides your rate limit status for the REST API for searching.
+* The `search` object provides your rate limit status for the REST API for searching (excluding code searches). For more information, see "[AUTOTITLE](/rest/search)."
+
+* The `code_search` object provides your rate limit status for the REST API for searching code. For more information, see "[AUTOTITLE](/rest/search#search-code)."
 
 * The `graphql` object provides your rate limit status for the GraphQL API.
 
 * The `integration_manifest` object provides your rate limit status for the `POST /app-manifests/{code}/conversions` operation. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration)."
+
+{% ifversion fpt or ghec or ghes > 3.5 %}* The `dependency_snapshots` object provides your rate limit status for submitting snapshots to the dependency graph. For more information, see "[AUTOTITLE](/rest/dependency-graph)."{% endif %}
+
+* The `code_scanning_upload` object provides your rate limit status for uploading SARIF results to code scanning. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
 
 For more information on the headers and values in the rate limit response, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
 

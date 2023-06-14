@@ -15,6 +15,12 @@ shortTitle: Billing for GitHub Actions
 ---
 ## About billing for {% data variables.product.prodname_actions %}
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 {% data reusables.actions.actions-billing %}
 
 {% data reusables.actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
@@ -27,7 +33,7 @@ Minutes reset every month, while storage usage does not.
 
 {% note %}
 
-**Note**: Entitlement minutes cannot be used for Windows and Ubuntu runners over 2-cores. These runners will always be charged for, including in public repos. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+**Note**: Entitlement minutes cannot be used for larger runners. These runners will always be charged for, including in public repos. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
 {% endnote %}
 

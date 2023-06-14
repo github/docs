@@ -12,8 +12,7 @@ topics:
   - Java
   - Azure App Service
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -40,7 +39,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    For example, you can use the Azure CLI to create an Azure App Service web app with a Java runtime:
 
-   ```bash{:copy}
+   ```bash copy
    az webapp create \
        --name MY_WEBAPP_NAME \
        --plan MY_APP_SERVICE_PLAN \
@@ -64,7 +63,7 @@ Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of
 
 {% data reusables.actions.delete-env-key %}
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
@@ -117,7 +116,7 @@ jobs:
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@05ac4e98bfa0f856e6669624239291c73ca27698
+        uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
         with:
           app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}

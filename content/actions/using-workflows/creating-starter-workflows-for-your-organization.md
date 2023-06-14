@@ -16,8 +16,7 @@ topics:
   - Workflows
   - CI
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -50,7 +49,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
 
    For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
 
-   ```yaml{:copy}
+   ```yaml copy
    name: Octo Organization CI
 
    on:
@@ -70,7 +69,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
            run: echo Hello from Octo Organization
    ```
 4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
-   ```json{:copy}
+   ```json copy
    {
        "name": "Octo Organization Workflow",
        "description": "Octo Organization CI starter workflow.",
@@ -92,7 +91,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
      * An icon from {% data variables.product.prodname_dotcom %}'s set of [Octicons](https://primer.style/octicons/). To reference an octicon, the value must be `octicon <icon name>`. For example, `octicon smiley`.
    * `categories` - **Optional.** Defines the categories that the workflow is shown under. You can use category names from the following lists:
      * General category names from the [starter-workflows](https://github.com/actions/starter-workflows/blob/main/README.md#categories) repository.
-     * Linguist languages from the list in the [linguist](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml) repository.
+     * Linguist languages from the list in the [linguist](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) repository.
      * Supported tech stacks from the list in the [starter-workflows](https://github.com/github-starter-workflows/repo-analysis-partner/blob/main/tech_stacks.yml) repository.
 
    * `filePatterns` - **Optional.** Allows the workflow to be used if the user's repository has a file in its root directory that matches a defined regular expression.
