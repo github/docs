@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import { GlobeIcon } from '@primer/octicons-react'
 
 import { useLanguages } from 'components/context/LanguagesContext'
@@ -18,10 +18,7 @@ function rememberPreferredLanguage(value: string) {
     // need this in the client-side which is used to determine
     // the UI about displaying notifications about preferred
     // language if your cookie doesn't match the current URL.
-    Cookies.set(USER_LANGUAGE_COOKIE_NAME, value, {
-      expires: 365,
-      secure: document.location.protocol !== 'http:',
-    })
+    Cookies.set(USER_LANGUAGE_COOKIE_NAME, value)
   } catch (err) {
     // You can never be too careful because setting a cookie
     // can fail. For example, some browser

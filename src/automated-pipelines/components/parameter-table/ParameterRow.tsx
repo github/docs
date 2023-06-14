@@ -135,7 +135,13 @@ export function ParameterRow({
         <ChildBodyParametersRows
           slug={slug}
           parentName={rowParams.name}
-          parentType={Array.isArray(rowParams.type) ? rowParams.type.join(' or ') : rowParams.type}
+          parentType={
+            rowParams.type
+              ? Array.isArray(rowParams.type)
+                ? rowParams.type.join(' or ')
+                : rowParams.type
+              : undefined
+          }
           childParamsGroups={rowParams.childParamsGroups}
           open={rowParams.name === clickedBodyParameterName}
           oneOfObject={rowParams.oneOfObject}
