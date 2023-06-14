@@ -187,6 +187,7 @@
     "jest-fail-on-console": "^3.0.1",
     "jest-github-actions-reporter": "^1.0.3",
     "jest-slow-test-reporter": "^1.0.0",
+    "json-schema-merge-allof": "^0.8.1",
     "kill-port": "2.0.1",
     "lint-staged": "^13.0.1",
     "make-promises-safe": "^5.1.0",
