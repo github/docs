@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 
 const COOKIE_NAME = '_docs-events'
@@ -46,11 +46,7 @@ export function getUserEventsId() {
   cookieValue = Cookies.get(COOKIE_NAME)
   if (cookieValue) return cookieValue
   cookieValue = uuidv4()
-  Cookies.set(COOKIE_NAME, cookieValue, {
-    secure: document.location.protocol !== 'http:',
-    sameSite: 'strict',
-    expires: 365,
-  })
+  Cookies.set(COOKIE_NAME, cookieValue)
   return cookieValue
 }
 
