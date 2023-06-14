@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migrating-from-azure-devops-with-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About migrations from Azure DevOps
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %} on a repository-by-repository basis. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)".

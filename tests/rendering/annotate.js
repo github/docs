@@ -1,9 +1,7 @@
 import renderContent from '../../lib/render-content/index.js'
 
 const example = `
-{% annotate %}
-
-\`\`\`yaml
+\`\`\`yaml annotate
 # The name of the workflow as it will appear in the "Actions" tab of the GitHub repository.
 name: Post welcome comment
 
@@ -13,8 +11,6 @@ on:
   pull_request:
     types: [opened]
 \`\`\`
-
-{% endannotate %}
 `
 
 describe('annotate', () => {

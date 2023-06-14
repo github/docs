@@ -74,6 +74,67 @@ You can use the organization settings page for "Code security and analysis" to e
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-repo %}
 
+{% ifversion secret-scanning-push-protection %}
+
+## Enabling push protection for a custom pattern
+
+You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at {% ifversion ghec or ghes or ghae %}the enterprise, organization, or repository level{% else%} the organization or repository level{% endif %}.
+
+{% ifversion ghec or ghes or ghae %}
+### Enabling push protection for a custom pattern stored in an enterprise
+
+{% data reusables.secret-scanning.push-protection-enterprise-note %}
+
+Before enabling push protection for a custom pattern at enterprise level, you must also{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %} test your custom patterns using dry runs. {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}{% else %} test your custom patterns in a repository before defining them for your entire enterprise, as there is no dry-run functionality. That way, you can avoid creating excess false-positive {% data variables.secret-scanning.alerts %}.{% endif %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
+{% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
+1. Under "Code security and analysis", click **Security features**.{% else %}
+{% data reusables.enterprise-accounts.advanced-security-policies %}
+{% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
+{% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
+{% ifversion secret-scanning-custom-enterprise-36 or custom-pattern-dry-run-ga %}
+   {% note %}
+
+   **Note**: At the enterprise level, you can only edit and enable push protection for custom patterns that you created.
+
+   {% endnote %}
+{%- endif %}
+1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
+
+   ![Screenshot of the custom pattern page with the button to enable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
+
+{% endif %}
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in an organization for a custom pattern 
+
+Before enabling push protection for a custom pattern at organization level, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+{% data reusables.organizations.security-and-analysis %}
+{% data reusables.repositories.navigate-to-ghas-settings %}
+{% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
+1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
+{% indented_data_reference reusables.secret-scanning.push-protection-org-notes spaces=3 %}
+
+   ![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
+
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in a repository for a custom pattern 
+
+Before enabling push protection for a custom pattern at repository level, you must define the custom pattern for the repository, and test it in the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+{% data reusables.repositories.navigate-to-ghas-settings %}
+{% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
+1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**. 
+
+   ![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
+
+{% endif %}
+
 ## Using secret scanning as a push protection from the command line
 
 {% data reusables.secret-scanning.push-protection-command-line-choice %}

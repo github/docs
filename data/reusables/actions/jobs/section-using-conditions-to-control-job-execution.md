@@ -6,7 +6,7 @@ You can use the `jobs.<job_id>.if` conditional to prevent a job from running unl
 
 This example uses `if` to control when the `production-deploy` job can run. It will only run if the repository is named `octo-repo-prod` and is within the `octo-org` organization. Otherwise, the job will be marked as _skipped_.
 
-```yaml{:copy}
+```yaml copy
 name: example-workflow
 on: [push]
 jobs:

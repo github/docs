@@ -58,6 +58,5 @@ If you cancel a free trial on a paid plan, your subscription is immediately canc
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/exploring-integrations/about-github-marketplace)"
 - "[AUTOTITLE](/apps/using-github-apps)"
 - "[AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)"

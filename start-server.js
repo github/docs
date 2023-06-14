@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import './lib/check-node-version.js'
-import './lib/handle-exceptions.js'
+import '#src/observability/lib/handle-exceptions.js'
 import portUsed from 'port-used'
 import createApp from './lib/app.js'
 import warmServer from './lib/warm-server.js'

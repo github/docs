@@ -76,13 +76,13 @@ The `git remote set-url` command takes two arguments:
 * An existing remote name. For example, `origin` or `upstream` are two common choices.
 * A new URL for the remote. For example:
   * If you're updating to use HTTPS, your URL might look like:
-```shell
-https://{% data variables.command_line.backticks %}/OWNER/REPOSITORY.git
-```
+  ```shell
+  https://{% data variables.command_line.backticks %}/OWNER/REPOSITORY.git
+  ```
   * If you're updating to use SSH, your URL might look like:
-```shell
-git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git
-```
+  ```shell
+  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git
+  ```
 
 ### Switching remote URLs from SSH to HTTPS
 

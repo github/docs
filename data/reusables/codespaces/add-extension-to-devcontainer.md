@@ -1,6 +1,6 @@
 1. Uncomment the `customizations` property and edit it as follows to install the "Code Spell Checker" {% data variables.product.prodname_vscode_shortname %} extension.
 
-   ```json{:copy}
+   ```json copy
    // Configure tool-specific properties.
    "customizations": {
      // Configure properties specific to VS Code.

@@ -1,12 +1,12 @@
 1. At the bottom of a table, group of items, or a column in board layout, click {% octicon "plus" aria-label="plus icon" %}.
 
-  ![Screenshot showing the bottom row of a table view. The "+" button is highlighted with an orange outline.](/assets/images/help/projects-v2/omnibar-add.png)
+   ![Screenshot showing the bottom row of a table view. The "+" button is highlighted with an orange outline.](/assets/images/help/projects-v2/omnibar-add.png)
 
 1. Click **Create new issue**.
 
 1. At the top of the "Create new issue" dialog, select the repository where you want the new issue to be created.
   
-  ![Screenshot showing the "Create new issue" dialog.](/assets/images/help/projects-v2/issue-create-form.png)
+   ![Screenshot showing the "Create new issue" dialog.](/assets/images/help/projects-v2/issue-create-form.png)
   
 1. Below the repository dropdown, type a title for the new issue.
   

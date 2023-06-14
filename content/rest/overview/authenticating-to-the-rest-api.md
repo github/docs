@@ -89,3 +89,7 @@ curl --request GET \
 Authentication with username and password is not supported. If you try to authenticate with user name and password, you will receive a 4xx error.
 
 {% endif %}
+
+## Further reading
+
+- "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."

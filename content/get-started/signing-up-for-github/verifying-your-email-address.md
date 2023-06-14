@@ -19,18 +19,18 @@ shortTitle: Verify your email address
 You can verify your email address after signing up for a new account, or when you add a new email address. If an email address is undeliverable or bouncing, it will be unverified.
 
 If you do not verify your email address, you will not be able to:
-  - Create or fork repositories
-  - Create issues or pull requests
-  - Comment on issues, pull requests, or commits
-  - Authorize {% data variables.product.prodname_oauth_app %} applications
-  - Generate {% data variables.product.pat_generic %}s
-  - Receive email notifications
-  - Star repositories
-  - Create or update project boards, including adding cards
-  - Create or update gists
-  - Create or use {% data variables.product.prodname_actions %}
-  - Sponsor developers with {% data variables.product.prodname_sponsors %}
-  - Accept organization invitations
+- Create or fork repositories
+- Create issues or pull requests
+- Comment on issues, pull requests, or commits
+- Authorize {% data variables.product.prodname_oauth_app %} applications
+- Generate {% data variables.product.pat_generic %}s
+- Receive email notifications
+- Star repositories
+- Create or update project boards, including adding cards
+- Create or update gists
+- Create or use {% data variables.product.prodname_actions %}
+- Sponsor developers with {% data variables.product.prodname_sponsors %}
+- Accept organization invitations
 
 {% warning %}
 

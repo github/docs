@@ -38,6 +38,8 @@ You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secr
 
 {% data reusables.actions.actions-do-not-trigger-workflows %}
 
+{% data reusables.actions.actions-do-not-trigger-pages-rebuilds %}
+
 ### Example 1: passing the `GITHUB_TOKEN` as an input
 
 {% data reusables.actions.github_token-input-example %}

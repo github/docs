@@ -102,7 +102,7 @@ In the detailed view for an alert, some {% data variables.product.prodname_code_
 {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 ![Screenshot showing the description for a {% data variables.product.prodname_code_scanning %} alert. A link labeled "Show more" is highlighted with a dark orange outline.](/assets/images/help/repository/code-scanning-pr-alert.png)
 {% else %}
-![Alert description and link to show more information](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
+![Alert description and link to show more information.](/assets/images/enterprise/3.4/repository/code-scanning-pr-alert.png)
 {% endif %}
 
 {% ifversion code-scanning-pr-conversations-tab %}
@@ -122,7 +122,7 @@ An alternative way of closing an alert is to dismiss it. You can dismiss an aler
 {% ifversion comment-dismissed-code-scanning-alert %}
 ![Screenshot of the check failure for a code scanning alert in a pull request. The "Dismiss alert" button in the check failure is highlighted in dark orange. The "Dismiss alert" drop-down is displayed.](/assets/images/help/repository/code-scanning-alert-dropdown-reason.png)
 {% else %}
-![Choosing a reason for dismissing an alert](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
+![Choosing a reason for dismissing an alert.](/assets/images/help/repository/code-scanning-alert-close-drop-down.png)
 {% endif %}
 {% data reusables.code-scanning.choose-alert-dismissal-reason %}
 

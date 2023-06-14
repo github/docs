@@ -53,9 +53,9 @@ If an image is showing up in your browser but not on {% data variables.product.p
 4. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
 
 If your content type is not supported by Camo, you can try several actions:
-  * If you own the server that's hosting the image, modify it so that it returns a correct content type for images.
-  * If you're using an external service for hosting images, contact support for that service.
-  * Make a pull request to Camo to add your content type to the list.
+* If you own the server that's hosting the image, modify it so that it returns a correct content type for images.
+* If you're using an external service for hosting images, contact support for that service.
+* Make a pull request to Camo to add your content type to the list.
 
 ### An image that changed recently is not updating
 
@@ -73,8 +73,8 @@ If you changed an image recently and it's showing up in your browser but not {% 
    ```
 
 Check the value of `Cache-Control`. In this example, there's no `Cache-Control`. In that case:
-  * If you own the server that's hosting the image, modify it so that it returns a `Cache-Control` of `no-cache` for images.
-  * If you're using an external service for hosting images, contact support for that service.
+* If you own the server that's hosting the image, modify it so that it returns a `Cache-Control` of `no-cache` for images.
+* If you're using an external service for hosting images, contact support for that service.
 
  If `Cache-Control` *is* set to `no-cache`, contact {% data variables.contact.contact_support %} or search the {% data variables.contact.community_support_forum %}.
 

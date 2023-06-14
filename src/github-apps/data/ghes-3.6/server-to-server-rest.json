@@ -2199,6 +2199,24 @@
       "requestPath": "/orgs/{org}/public_members/{username}"
     },
     {
+      "slug": "list-organization-memberships-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs"
+    },
+    {
+      "slug": "get-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs/{org}"
+    },
+    {
+      "slug": "update-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "patch",
+      "requestPath": "/user/memberships/orgs/{org}"
+    },
+    {
       "slug": "list-organizations-for-a-user",
       "subcategory": "orgs",
       "verb": "get",

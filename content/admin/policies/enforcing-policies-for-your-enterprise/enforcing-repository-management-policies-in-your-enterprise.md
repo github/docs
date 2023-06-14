@@ -87,7 +87,7 @@ Across all organizations owned by your enterprise, you can allow members to crea
 If you allow members to create repositories in your organizations, you can choose which types of repositories (public, private, and internal) that members can create.
 
 {% ifversion enterprise-namespace-repo-setting %}
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can also prevent users from creating repositories owned by their user accounts.
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can also prevent users from creating repositories owned by their user accounts. {% ifversion emu-owned-repos %}If you allow users to create repositories owned by their user accounts, you can view and temporarily access those repositories at any time. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/viewing-user-owned-repositories-in-your-enterprise)" and "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}
 {% endif %}
 
 {% data reusables.repositories.internal-repo-default %} For more information about internal repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."

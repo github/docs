@@ -73,7 +73,7 @@ Create secrets in your repository or organization for the following items:
 
 This example workflow includes a step that imports the Apple certificate and provisioning profile from the {% data variables.product.prodname_dotcom %} secrets, and installs them on the runner.
 
-```yaml{:copy}
+```yaml copy
 name: App build
 on: push
 

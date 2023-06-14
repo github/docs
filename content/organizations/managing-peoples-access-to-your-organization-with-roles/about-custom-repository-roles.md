@@ -132,6 +132,6 @@ If a person is given different levels of access through different avenues, such 
 {% data reusables.organizations.mixed-roles-warning %}
 
 To resolve conflicting access, you can adjust your organization's base permissions or the team's access, or edit the custom role. For more information, see:
-  - "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"
-  - "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
-  - "[Editing a repository role](#editing-a-repository-role)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)"
+- "[Editing a repository role](#editing-a-repository-role)"

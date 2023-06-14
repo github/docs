@@ -41,7 +41,7 @@ On {% data variables.product.prodname_dotcom %}, you can also restore an entire 
 
 {% data reusables.package_registry.packages-classic-pat-only %}
 
-{% ifversion fpt or ghec %}
+{% ifversion packages-rest-api %}
 
 You can use the REST API to manage your packages. For more information, see the "[AUTOTITLE](/rest/packages)."
 
@@ -88,7 +88,7 @@ To delete a version of a {% ifversion packages-registries-v2 %}repository-scoped
 {% ifversion fpt or ghec or ghes %}
 ### Deleting a version of a {% ifversion packages-registries-v2 %}repository-scoped{% endif %} package with GraphQL
 
-{% data reusables.package_registry.about-graphql-support %}{% ifversion fpt or ghec %} For information on using the REST API instead, see the "[AUTOTITLE](/rest/packages)."{% endif %}
+{% data reusables.package_registry.about-graphql-support %}{% ifversion packages-rest-api %} For information on using the REST API instead, see the "[AUTOTITLE](/rest/packages)."{% endif %}
 
 Use the `deletePackageVersion` mutation in the GraphQL API. You must use a {% data variables.product.pat_v1 %} with the `read:packages`, `delete:packages`, and `repo` scopes. For more information about {% data variables.product.pat_v1_plural %}, see "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#authenticating-to-github-packages)."
 
@@ -185,9 +185,9 @@ For example, if you're the user `octocat`, and you have a deleted RubyGems packa
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
-  - For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
-  - For user-account scoped packages: The deleted package is scoped to your personal account.
-  - For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
+- For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
+- For user-account scoped packages: The deleted package is scoped to your personal account.
+- For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
 {% endif %}
 
 {% ifversion ghae or ghes %}

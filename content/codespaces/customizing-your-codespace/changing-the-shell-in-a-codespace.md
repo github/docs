@@ -42,7 +42,7 @@ If the shell you install isn't detected automatically, you can add a new termina
 {% data reusables.codespaces.access-user-settings %}
 1. In the `settings.json` file, inside the JSON object, add a new property like the following. Replace `OPERATING-SYSTEM` with the relevant operating system (such as `linux`, `windows`, or `osx`) and `SHELL` with the shell you have installed.
 
-   ```json{:copy}
+   ```json copy
    "terminal.integrated.profiles.OPERATING-SYSTEM": {
      "SHELL": {
        "path": "SHELL"
@@ -83,7 +83,7 @@ You can set a default terminal profile to choose the default shell used for all 
 
    For example:
 
-   ```json{:copy}
+   ```json copy
    {
       "terminal.integrated.defaultProfile.osx": "zsh",
       "terminal.integrated.defaultProfile.linux": "bash",
@@ -100,13 +100,13 @@ When you connect to a codespace from the command line over SSH, you connect to a
 
 If you have enabled a dotfiles repository for {% data variables.product.prodname_github_codespaces %}, you can change the default shell you connect to by adding a command to an installation script such as `install.sh` in your dotfiles. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli#ssh-into-a-codespace)" and "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)." For example, the following command changes the default shell to `zsh`.
 
-```shell{:copy}
+```shell copy
 sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
 ```
 
 If you want to use a default shell that isn't installed in your codespace by default, or ensure you have the latest version of the shell, you can install the shell first.
 
-```shell{:copy}
+```shell copy
 sudo apt-get update -y
 sudo apt-get install -y csh
 sudo chsh "$(id -un)" --shell "/usr/bin/csh"

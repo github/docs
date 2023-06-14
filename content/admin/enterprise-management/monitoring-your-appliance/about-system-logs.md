@@ -26,11 +26,14 @@ Listed below are the main logs used by the {% data variables.product.product_nam
 | Path | Description​ |
 |------|-------------|
 | `/var/log/github/audit.log` | Audited user, repository and system events.
-| `/var/log/github/unicorn.log` | API and web interface traffic.
+| `/var/log/github/resqued.log` | Details about background jobs{% ifversion opentelemetry-and-otel-log-migration-phase-1 %}, including jobs that involve authentication{% endif %}.
+| `/var/log/github/unicorn.log` | API and web interface traffic{% ifversion opentelemetry-and-otel-log-migration-phase-1 %}, including authentication attempts{% endif %}.
 | `/var/log/github/exceptions.log` | Application-level errors.
 | `/var/log/haproxy.log` | All IP traffic reaching the appliance.
 | `/var/log/hookshot/resqued.log` | Webhook delivery and failures.
+{%- ifversion ghes < 3.9 %}
 | `/var/log/github/auth.log` | Authentication requests, whether through built in, LDAP, CAS or SAML methods.
+{%- endif %}
 | `/var/log/github/gitauth.log` | All Git authentication requests.
 
 Git activity and authentication requests are processed by the `babeld` service.

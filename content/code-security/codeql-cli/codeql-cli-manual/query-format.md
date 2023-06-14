@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql query format [--output=<file>] [--in-place] [--backup=<ext>] <options>... -- <file>...
 ```
 

@@ -62,9 +62,9 @@ For example, if you and another person both edited the file _styleguide.md_ on t
    ```
 {% data reusables.pull_requests.decide-how-to-resolve-competing-line-change-merge-conflict %} In this example, both changes are incorporated into the final merge:
 
-  ```shell
-  If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
-  ```
+   ```shell
+   If you have questions, please open an issue or ask in our IRC channel if it's more urgent.
+   ```
 7. Add or stage your changes.
    ```shell
    $ git add .
@@ -105,7 +105,7 @@ For example, if you edited a file, such as *README.md*, and another person remov
    > # no changes added to commit (use "git add" and/or "git commit -a")
    ```
 3. Open your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), and navigate to the file that has merge conflicts.
-6. Decide if you want keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
+6. Decide if you want to keep the removed file. You may want to view the latest changes made to the removed file in your text editor.
 
    To add the removed file back to your repository:
    ```shell

@@ -151,6 +151,12 @@
       "requestPath": "/orgs/{org}/actions/runners/downloads"
     },
     {
+      "slug": "create-configuration-for-a-just-in-time-runner-for-an-organization",
+      "subcategory": "self-hosted-runners",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/runners/generate-jitconfig"
+    },
+    {
       "slug": "create-a-registration-token-for-an-organization",
       "subcategory": "self-hosted-runners",
       "verb": "post",
@@ -479,6 +485,12 @@
       "subcategory": "self-hosted-runners",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/runners/downloads"
+    },
+    {
+      "slug": "create-configuration-for-a-just-in-time-runner-for-a-repository",
+      "subcategory": "self-hosted-runners",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/runners/generate-jitconfig"
     },
     {
       "slug": "create-a-registration-token-for-a-repository",
@@ -2323,54 +2335,6 @@
       "requestPath": "/organizations"
     },
     {
-      "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
-      "subcategory": "personal-access-tokens",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/personal-access-token-requests"
-    },
-    {
-      "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
-      "subcategory": "personal-access-tokens",
-      "verb": "post",
-      "requestPath": "/organizations/{org}/personal-access-token-requests"
-    },
-    {
-      "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
-      "subcategory": "personal-access-tokens",
-      "verb": "post",
-      "requestPath": "/organizations/{org}/personal-access-token-requests/{pat_request_id}"
-    },
-    {
-      "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
-      "subcategory": "personal-access-tokens",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/personal-access-token-requests/{pat_request_id}/repositories"
-    },
-    {
-      "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
-      "subcategory": "personal-access-tokens",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/personal-access-tokens"
-    },
-    {
-      "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
-      "subcategory": "personal-access-tokens",
-      "verb": "post",
-      "requestPath": "/organizations/{org}/personal-access-tokens"
-    },
-    {
-      "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
-      "subcategory": "personal-access-tokens",
-      "verb": "post",
-      "requestPath": "/organizations/{org}/personal-access-tokens/{pat_id}"
-    },
-    {
-      "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
-      "subcategory": "personal-access-tokens",
-      "verb": "get",
-      "requestPath": "/organizations/{org}/personal-access-tokens/{pat_id}/repositories"
-    },
-    {
       "slug": "get-an-organization",
       "subcategory": "orgs",
       "verb": "get",
@@ -2569,6 +2533,54 @@
       "requestPath": "/orgs/{org}/outside_collaborators/{username}"
     },
     {
+      "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-token-requests"
+    },
+    {
+      "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}"
+    },
+    {
+      "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories"
+    },
+    {
+      "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-tokens"
+    },
+    {
+      "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
+      "subcategory": "personal-access-tokens",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}"
+    },
+    {
+      "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
+      "subcategory": "personal-access-tokens",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories"
+    },
+    {
       "slug": "list-public-organization-members",
       "subcategory": "members",
       "verb": "get",
@@ -2633,6 +2645,24 @@
       "subcategory": "orgs",
       "verb": "post",
       "requestPath": "/orgs/{org}/{security_product}/{enablement}"
+    },
+    {
+      "slug": "list-organization-memberships-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs"
+    },
+    {
+      "slug": "get-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "get",
+      "requestPath": "/user/memberships/orgs/{org}"
+    },
+    {
+      "slug": "update-an-organization-membership-for-the-authenticated-user",
+      "subcategory": "members",
+      "verb": "patch",
+      "requestPath": "/user/memberships/orgs/{org}"
     },
     {
       "slug": "list-organizations-for-a-user",

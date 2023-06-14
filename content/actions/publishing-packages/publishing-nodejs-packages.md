@@ -60,7 +60,7 @@ If you're publishing a package that includes a scope prefix, include the scope i
 
 This example stores the `NPM_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
-```yaml{:copy}
+```yaml copy
 name: Publish Package to npmjs
 on:
   release:
@@ -120,7 +120,7 @@ If you want to publish your package to a different repository, you must use a {%
 
 This example stores the `GITHUB_TOKEN` secret in the `NODE_AUTH_TOKEN` environment variable. When the `setup-node` action creates an *.npmrc* file, it references the token from the `NODE_AUTH_TOKEN` environment variable.
 
-```yaml{:copy}
+```yaml copy
 name: Publish package to GitHub Packages
 on:
   release:
@@ -158,7 +158,7 @@ always-auth=true
 
 If you use the Yarn package manager, you can install and publish packages using Yarn.
 
-```yaml{:copy}
+```yaml copy
 name: Publish Package to npmjs
 on:
   release:

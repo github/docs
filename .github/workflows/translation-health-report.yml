@@ -101,7 +101,7 @@ jobs:
       # https://learn.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload
       # https://github.com/marketplace/actions/azure-cli-action
       - name: Upload latest to Azure blob storage
-        uses: azure/CLI@61bb69d64d613b52663984bf12d6bac8fd7b3cc8
+        uses: azure/CLI@68f0d36771d0cba0ebbf26993275a8e0b74a541f
         with:
           inlineScript: |
             az storage blob upload \
@@ -113,7 +113,7 @@ jobs:
               --overwrite true
 
       - name: Upload date formatted to Azure blob storage
-        uses: azure/CLI@61bb69d64d613b52663984bf12d6bac8fd7b3cc8
+        uses: azure/CLI@68f0d36771d0cba0ebbf26993275a8e0b74a541f
         with:
           inlineScript: |
             # Write a date formatted for historical reference

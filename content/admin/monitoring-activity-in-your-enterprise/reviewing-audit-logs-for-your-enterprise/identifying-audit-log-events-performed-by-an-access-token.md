@@ -26,7 +26,7 @@ For MacOS and Linux, you can use `echo -n TOKEN | openssl dgst -sha256 -binary |
 
 For Powershell, you can use the following script to return a SHA-256 hash for a given string.
 
-```shell{:copy}
+```shell copy
 Param (
     [Parameter(Mandatory=$true)]
     [string]
