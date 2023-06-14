@@ -68,6 +68,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
     > GITHUB-PAGES-SERVER .         22      IN      A       192.0.2.1
 ```
 {% data reusables.pages.build-locally-download-cname %}
+{% data reusables.pages.build-remotely-verify-subdomain %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
 ## Configuring an apex domain
