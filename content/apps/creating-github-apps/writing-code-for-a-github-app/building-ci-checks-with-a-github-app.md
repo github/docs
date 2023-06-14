@@ -950,9 +950,7 @@ The following steps will show you how to test that the code works and view the e
    }
    ```
 
-TODOCS: This testing failed for me. It was unable to clone the repository ("Repository not found").
-
-## Step 2.4. Collecting RuboCop errors
+## Step 2.4. Collect RuboCop errors
 
 The `@output` variable contains the parsed JSON results of the RuboCop report. As shown above, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
 
@@ -1027,7 +1025,7 @@ This code also iterates through each error in the `offenses` array and collects 
 
 This code doesn't yet create an annotation for the check run. You'll add that code in the next section.
 
-## Step 2.5. Updating the check run with CI test results
+## Step 2.5. Update the check run with CI test results
 
 Each check run from {% data variables.product.prodname_dotcom %} contains an `output` object that includes a `title`, `summary`, `text`, `annotations`, and `images`. The `summary` and `title` are the only required parameters for the `output`, but those alone don't offer much detail, so this tutorial adds `text` and `annotations` too. The code here doesn't add an image, but feel free to add one if you'd like!
 
@@ -1090,7 +1088,7 @@ The annotations will show up in the **Checks** tab. Also notice the "Fix this" b
 
 If the annotations are related to a file already included in the PR, the annotations will also show up in the **Files changed** tab.
 
-## Step 2.6. Automatically fixing RuboCop errors
+## Step 2.6. Automatically fix RuboCop errors
 
 If you've made it this far, kudos! 👏 You've already created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in the [previous section](#step-25-updating-the-check-run-with-ci-test-results). Now you'll add the code to handle the `requested_action` check run event triggered when someone clicks the "Fix this" button.
 
