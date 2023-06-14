@@ -32,9 +32,11 @@ You can edit wikis directly on {% data variables.product.product_name %}, or you
 {% endnote %}
 
 ## Further reading
+##Wiki's template
 
 - "[AUTOTITLE](/communities/documenting-your-project-with-wikis/adding-or-editing-wiki-pages)"
 - "[AUTOTITLE](/communities/documenting-your-project-with-wikis/creating-a-footer-or-sidebar-for-your-wiki)"
 - "[AUTOTITLE](/communities/documenting-your-project-with-wikis/editing-wiki-content)"
 - "[AUTOTITLE](/communities/documenting-your-project-with-wikis/viewing-a-wikis-history-of-changes)"
 - "[AUTOTITLE](/search-github/searching-on-github/searching-wikis)"
+ ##Wiki's template
