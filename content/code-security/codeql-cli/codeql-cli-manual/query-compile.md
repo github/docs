@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql query compile [--check-only] [--keep-going] [--threads=<num>] [--ram=<MB>] <options>... -- <file>...
 ```
 

@@ -28,7 +28,7 @@ To restore a backup of {% data variables.location.product_location %} with {% da
 1. Manually configure network settings on the replacement {% data variables.product.prodname_ghe_server %} instance. Network settings are excluded from the backup snapshot, and are not overwritten by `ghe-restore`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings)."
 1. SSH into the destination instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
-   ```shell{:copy}
+   ```shell copy
    $ ssh -p 122 admin@HOSTNAME
    ```
 1. Configure the destination instance to use the same external storage service for {% data variables.product.prodname_actions %} as the source instance by entering one of the following commands.
@@ -36,7 +36,7 @@ To restore a backup of {% data variables.location.product_location %} with {% da
 {% data reusables.actions.configure-storage-provider %}
 1. To prepare to enable {% data variables.product.prodname_actions %} on the destination instance, enter the following command.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config app.actions.enabled true
    ```
 {% data reusables.actions.apply-configuration-and-enable %}

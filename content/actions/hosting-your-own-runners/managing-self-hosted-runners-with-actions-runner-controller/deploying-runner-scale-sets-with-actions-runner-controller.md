@@ -47,7 +47,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
     - Set the `GITHUB_CONFIG_URL` value to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
     - This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you want to install. You can find the list of releases in the [`actions-runner-controller`](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set) repository.
 
-      ```bash{:copy}
+      ```bash copy
       INSTALLATION_NAME="arc-runner-set"
       NAMESPACE="arc-runners"
       GITHUB_CONFIG_URL="https://github.com/<your_enterprise/org/repo>"
@@ -64,7 +64,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 
 2. To check your installation, run the following command in your terminal.
 
-    ```bash{:copy}
+    ```bash copy
     helm list -A
     ```
 
@@ -78,7 +78,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 
 3. To check the manager pod, run the following command in your terminal.
 
-    ```bash{:copy}
+    ```bash copy
     kubectl get pods -n arc-systems
     ```
 
@@ -218,7 +218,7 @@ proxy:
 
 ARC supports using anonymous or authenticated proxies. If you use authenticated proxies, you will need to set the `credentialSecretRef` value to reference a Kubernetes secret. You can create a secret with your proxy credentials with the following command.
 
-```bash{:copy}
+```bash copy
   kubectl create secret generic proxy-auth \
     --namespace=my_namespace \
     --from-literal=username=proxyUsername \

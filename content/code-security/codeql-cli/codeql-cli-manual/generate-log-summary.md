@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql generate log-summary <options>... -- <input> <result>
 ```
 

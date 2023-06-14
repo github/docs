@@ -45,13 +45,13 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 1. From your terminal, change directories into your new repository.
 
-   ```shell{:copy}
+   ```shell copy
    cd hello-world-javascript-action
    ```
 
 1. From your terminal, initialize the directory with npm to generate a `package.json` file.
 
-   ```shell{:copy}
+   ```shell copy
    npm init -y
    ```
 
@@ -59,7 +59,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
-```yaml{:copy}
+```yaml copy
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
@@ -89,7 +89,7 @@ The toolkit offers more than the `core` and `github` packages. For more informat
 
 At your terminal, install the actions toolkit `core` and `github` packages.
 
-```shell{:copy}
+```shell copy
 npm install @actions/core
 npm install @actions/github
 ```
@@ -105,7 +105,7 @@ GitHub Actions provide context information about the webhook event, Git refs, wo
 Add a new file called `index.js`, with the following code.
 
 {% raw %}
-```javascript{:copy}
+```javascript copy
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -139,7 +139,7 @@ In your `hello-world-javascript-action` directory, create a `README.md` file tha
 - Environment variables the action uses.
 - An example of how to use your action in a workflow.
 
-````markdown{:copy}
+````markdown copy
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
@@ -173,7 +173,7 @@ From your terminal, commit your `action.yml`, `index.js`, `node_modules`, `packa
 
 It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
 
-```shell{:copy}
+```shell copy
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1.1
@@ -202,7 +202,7 @@ Checking in your `node_modules` directory can cause problems. As an alternative,
 
 1. From your terminal, commit the updates to your `action.yml`, `dist/index.js`, and `node_modules` files.
 
-   ```shell{:copy}
+   ```shell copy
    git add action.yml dist/index.js node_modules/*
    git commit -m "Use vercel/ncc"
    git tag -a -m "My first action release" v1.1
@@ -224,7 +224,7 @@ This example demonstrates how your new public action can be run from within an e
 Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 on: [push]
 
 jobs:
@@ -250,7 +250,7 @@ When this workflow is triggered, the runner will download the `hello-world-javas
 Copy the workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
 
 **.github/workflows/main.yml**
-```yaml{:copy}
+```yaml copy
 on: [push]
 
 jobs:

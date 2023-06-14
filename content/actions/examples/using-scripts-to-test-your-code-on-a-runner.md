@@ -45,7 +45,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-```yaml{:copy}
+```yaml copy
 name: 'Link Checker: All English'
 
 # **What it does**: Renders the content of every page and check all internal links.
@@ -130,7 +130,7 @@ jobs:
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 name: 'Link Checker: All English'
 ```
 </td>
@@ -142,7 +142,7 @@ name: 'Link Checker: All English'
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 on:
 ```
 </td>
@@ -154,7 +154,7 @@ The `on` keyword lets you define the events that trigger when the workflow is ru
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   workflow_dispatch:
 ```
 </td>
@@ -166,7 +166,7 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   push:
     branches:
       - main
@@ -180,7 +180,7 @@ Add the `push` event, so that the workflow runs automatically every time a commi
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   pull_request:
 ```
 </td>
@@ -192,7 +192,7 @@ Add the `pull_request` event, so that the workflow runs automatically every time
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 permissions:
   contents: read
   pull-requests: read
@@ -207,7 +207,7 @@ Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depen
 <td>
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
 ```
@@ -221,7 +221,7 @@ Creates a concurrency group for specific events, and uses the `||` operator to d
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   cancel-in-progress: true
 ```
 </td>
@@ -233,7 +233,7 @@ Cancels any currently running job or workflow in the same concurrency group.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 jobs:
 ```
 </td>
@@ -245,7 +245,7 @@ Groups together all the jobs that run in the workflow file.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   check-links:
 ```
 </td>
@@ -258,7 +258,7 @@ Defines a job with the ID `check-links` that is stored within the `jobs` key.
 <td>
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
 ```
 {% endraw %}
@@ -271,7 +271,7 @@ Configures the job to run on a {% data variables.product.prodname_dotcom %}-host
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     steps:
 ```
 </td>
@@ -283,7 +283,7 @@ Groups together all the steps that will run as part of the `check-links` job. Ea
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Checkout
         uses: {% data reusables.actions.action-checkout %}
 ```
@@ -296,7 +296,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Setup node
         uses: {% data reusables.actions.action-setup-node %}
         with:
@@ -313,7 +313,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Install
         run: npm ci
 ```
@@ -327,7 +327,7 @@ The `run` keyword tells the job to execute a command on the runner. In this case
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
         with:
@@ -343,7 +343,7 @@ Uses the `trilom/file-changes-action` action to gather all the changed files. Th
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Show files changed
         run: cat $HOME/files.json
 ```
@@ -356,7 +356,7 @@ Lists the contents of `files.json`. This will be visible in the workflow run's l
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Link check (warnings, changed files)
         run: |
           ./script/rendered-content-link-checker.mjs \
@@ -376,7 +376,7 @@ This step uses `run` command to execute a script that is stored in the repositor
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Link check (critical, all files)
         run: |
           ./script/rendered-content-link-checker.mjs \

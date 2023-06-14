@@ -1,6 +1,6 @@
 1. Run the following command, replacing KEY-ID with your PGP key ID.
 
-   ```bash{:copy}
+   ```bash copy
    gpg --armor --export KEY-ID
    ```
 1. Copy your PGP key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.

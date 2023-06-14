@@ -54,7 +54,7 @@ Migration logs are available to download for 24 hours after the migration is com
 
 If your migration source is Azure DevOps, you can download the latest migration log for an individual repository with the `gh ado2gh download-logs` command. {% data reusables.enterprise-migration-tool.download-logs-placeholders %}
 
-```shell{:copy}
+```shell copy
 gh ado2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
@@ -66,7 +66,7 @@ gh ado2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY
 
 If your migration source is Bitbucket Server, you can download the latest migration log for an individual repository with the `gh bbs2gh download-logs` command. {% data reusables.enterprise-migration-tool.download-logs-placeholders %}
 
-```shell{:copy}
+```shell copy
 gh bbs2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
@@ -76,7 +76,7 @@ gh bbs2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY
 
 If your migration source is a {% data variables.product.prodname_dotcom %} product, you can download the latest migration log for an individual repository with the `gh gei download-logs` command. {% data reusables.enterprise-migration-tool.download-logs-placeholders %}
 
-```shell{:copy}
+```shell copy
 gh gei download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 

@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database run-queries [--threads=<num>] [--ram=<MB>] <options>... -- <database> <query|dir|suite|pack>...
 ```
 

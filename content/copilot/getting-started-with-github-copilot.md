@@ -123,7 +123,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 
 {% data reusables.copilot.create-java-file %}
 1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
-    ```java{:copy}
+    ```java copy
     // find all images without alternate text
     // and give them a red border
     void process () {
@@ -197,7 +197,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-   ```csharp{:copy}
+   ```csharp copy
    int CalculateDaysBetweenDates(
    ```
 
@@ -208,10 +208,10 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will show you a suggestion.
 
-   ```csharp{:copy}
+   ```csharp copy
    int CalculateDaysBetweenDates(
    ```
-1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>]</kbd> (or <kbd>Alt</kbd>+<kbd>[</kbd>).
+1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>.</kbd> (or <kbd>Alt</kbd>+<kbd>,</kbd>).
 1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
@@ -221,7 +221,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
-   ```csharp{:copy}
+   ```csharp copy
    using System.Xml.Linq;
 
    var doc = XDocument.Load("index.xhml");
@@ -277,7 +277,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
-   ```javascript{:copy}
+   ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
 
@@ -289,7 +289,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
-   ```javascript{:copy}
+   ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
 {% data reusables.copilot.see-alternative-suggestions %}
@@ -308,7 +308,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
-   ```javascript{:copy}
+   ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
 1. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
@@ -320,7 +320,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
-   ```javascript{:copy}
+   ```javascript copy
    // find all images without alternate text
    // and give them a red border
    function process() {
@@ -332,11 +332,11 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
-   ```javascript{:copy}
+   ```javascript copy
    // Express server on port 3000
 1. To accept each line, press <kbd>Tab</kbd>, then <kbd>Enter</kbd>.
 1. Type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation for the default handler.
-   ```javascript{:copy}
+   ```javascript copy
    // Return the current time
    ```
 1. To accept each line, press <kbd>Tab</kbd>.
@@ -350,54 +350,70 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
 {% endvscode %}
 
-{% neovim %}
+{% vimneovim %}
 
-## About {% data variables.product.prodname_copilot %} and Neovim
+## About {% data variables.product.prodname_copilot %} and Vim/Neovim
 
 {% data reusables.copilot.procedural-intro %}
 
-If you use Neovim, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor.
+If you use Vim/Neovim, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor.
 
 ## Prerequisites
 
 {% data reusables.copilot.subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot %} in Neovim you must have Neovim version 0.6 or above and Node.js version 17 or below installed. For more information, see the [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
+- To use {% data variables.product.prodname_copilot %} in Vim/Neovim you must have Vim version 9.0.0185 / Neovim version 0.6 or above and Node.js version 17 or below installed. For more information, see the [Vim](https://vimhelp.org/) / [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
 
-## Installing the Neovim extension on macOS
+## Installing the Vim/Neovim extension on macOS
 
-{% data reusables.copilot.install-copilot-in-neovim %}
+{% data reusables.copilot.install-copilot-in-vimneovim %}
+   - To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command in Terminal:
+
+         git clone https://github.com/github/copilot.vim \
+            ~/.vim/pack/github/start/copilot.vim
+
+
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Terminal:
 
          git clone https://github.com/github/copilot.vim \
             ~/.config/nvim/pack/github/start/copilot.vim
 
-{% data reusables.copilot.config-enable-copilot-in-neovim %}
+{% data reusables.copilot.config-enable-copilot-in-vimneovim %}
 
 
-## Installing the Neovim extension on Windows
+## Installing the Vim/Neovim extension on Windows
 
-{% data reusables.copilot.install-copilot-in-neovim %}
+{% data reusables.copilot.install-copilot-in-vimneovim %}
+   - To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command in Git Bash:
+
+           git clone https://github.com/github/copilot.vim.git \
+            $HOME/vimfiles/pack/github/start/copilot.vim
+
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Git Bash:
 
            git clone https://github.com/github/copilot.vim.git \
             $HOME/AppData/Local/nvim/pack/github/start/copilot.vim
 
-{% data reusables.copilot.config-enable-copilot-in-neovim %}
+{% data reusables.copilot.config-enable-copilot-in-vimneovim %}
 
-## Installing the Neovim extension on Linux
+## Installing the Vim/Neovim extension on Linux
 
-{% data reusables.copilot.install-copilot-in-neovim %}
+{% data reusables.copilot.install-copilot-in-vimneovim %}
+   - To install {% data variables.product.prodname_copilot %} with Vim's built-in plugin manager, enter the following command:
+
+         git clone https://github.com/github/copilot.vim \
+            ~/.vim/pack/github/start/copilot.vim
+
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command:
 
          git clone https://github.com/github/copilot.vim \
             ~/.config/nvim/pack/github/start/copilot.vim
 
-{% data reusables.copilot.config-enable-copilot-in-neovim %}
+{% data reusables.copilot.config-enable-copilot-in-vimneovim %}
 
-## Learning to use {% data variables.product.prodname_copilot %} in Neovim
+## Learning to use {% data variables.product.prodname_copilot %} in Vim/Neovim
 
-For guidance on using {% data variables.product.prodname_copilot %} in Neovim, you can view the plugin documentation. To see the documentation, open Neovim and run the following command:
+For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovim, you can view the plugin documentation. To see the documentation, open Vim/Neovim and run the following command:
 
 ```
 :help copilot
@@ -408,5 +424,5 @@ For guidance on using {% data variables.product.prodname_copilot %} in Neovim, y
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
 
 
-{% endneovim %}
+{% endvimneovim %}
 

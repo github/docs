@@ -81,7 +81,7 @@ The syntax of GHSA IDs follows this format: `GHSA-xxxx-xxxx-xxxx` where:
   - All letters are lowercase.
 
 You can validate a GHSA ID using a regular expression.
-```bash{:copy}
+```bash copy
 /GHSA(-[23456789cfghjmpqrvwx]{4}){3}/
 ```
 

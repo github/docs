@@ -1002,5 +1002,6 @@
   "/rest/enterprise-admin#get-scim-provisioning-information-for-an-enterprise-user": "/rest/enterprise-admin/scim#get-scim-provisioning-information-for-an-enterprise-user",
   "/rest/enterprise-admin#set-scim-information-for-a-provisioned-enterprise-user": "/rest/enterprise-admin/scim#set-scim-information-for-a-provisioned-enterprise-user",
   "/rest/enterprise-admin#update-an-attribute-for-a-scim-enterprise-user": "/rest/enterprise-admin/scim#update-an-attribute-for-a-scim-enterprise-user",
-  "/rest/enterprise-admin#delete-a-scim-user-from-an-enterprise": "/rest/enterprise-admin/scim#delete-a-scim-user-from-an-enterprise"
+  "/rest/enterprise-admin#delete-a-scim-user-from-an-enterprise": "/rest/enterprise-admin/scim#delete-a-scim-user-from-an-enterprise",
+  "/rest/enterprise-admin#manage-ghes": "/rest/enterprise-admin/manage-ghes"
 }

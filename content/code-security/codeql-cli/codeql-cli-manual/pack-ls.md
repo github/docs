@@ -27,7 +27,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack ls <options>... -- <dir>
 ```
 

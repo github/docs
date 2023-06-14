@@ -95,7 +95,7 @@ Create a new workflow file in your repository (such as `.github/workflows/deploy
 
 {% else %}
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
@@ -514,7 +514,7 @@ Using the `GITHUB_TOKEN`, instead of a {% data variables.product.pat_v1 %} with 
 
 For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
 
-```yaml{:copy}
+```yaml copy
 name: Demo Push
 
 on:

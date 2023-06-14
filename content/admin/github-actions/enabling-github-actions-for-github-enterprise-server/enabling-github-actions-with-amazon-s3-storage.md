@@ -51,7 +51,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 1. Get the thumbprint for {% data variables.location.product_location_enterprise %}.
    1. Use the following OpenSSL command to get the SHA1 thumbprint for {% data variables.location.product_location_enterprise %}, replacing `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}
 
-      ```shell{:copy}
+      ```shell copy
       openssl s_client -connect HOSTNAME:443 < /dev/null 2>/dev/null | openssl x509 -fingerprint -noout -sha1 -in /dev/stdin
       ```
 
@@ -75,7 +75,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
       ```
 1. Using the AWS CLI, use the following command to create an OIDC provider for {% data variables.location.product_location_enterprise %}. Replace `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}, and `THUMBPRINT` with the thumbprint value from the previous step.
 
-   ```shell{:copy}
+   ```shell copy
    aws iam create-open-id-connect-provider \
      --url https://HOSTNAME/_services/token \
      --client-id-list "sts.amazonaws.com" \
@@ -84,7 +84,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 
    For example:
 
-   ```shell{:copy}
+   ```shell copy
    aws iam create-open-id-connect-provider \
      --url https://my-ghes-host.example.com/_services/token \
      --client-id-list "sts.amazonaws.com" \

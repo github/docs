@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql execute query-server2 [--threads=<num>] <options>...
 ```
 

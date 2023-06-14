@@ -8,3 +8,6 @@ codeql_workflow: 'CodeQL analysis workflow'
 
 # The tool status page
 tool_status_page: 'tool status page'
+
+# List of compiled languages
+compiled_languages: 'C/C++, C#, {% ifversion codeql-go-autobuild %} Go,{% endif %} {% ifversion codeql-swift-beta %} Java, and Swift{% else %} and Java{% endif %}'

@@ -236,7 +236,7 @@ You could also use a `curl` command to request the JWT, using the following envi
 
 For example:
 
-```shell{:copy}
+```shell copy
 curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://AzureADTokenExchange"
 ```
 

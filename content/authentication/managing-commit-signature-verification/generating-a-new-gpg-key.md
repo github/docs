@@ -28,11 +28,11 @@ topics:
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Generate a GPG key pair. Since there are multiple versions of GPG, you may need to consult the relevant [_man page_](https://en.wikipedia.org/wiki/Man_page) to find the appropriate key generation command.
     - If you are on version 2.1.17 or greater, paste the text below to generate a GPG key pair.
-      ```shell{:copy}
+      ```shell copy
       gpg --full-generate-key
       ```
     - If you are not on version 2.1.17 or greater, the `gpg --full-generate-key` command doesn't work. Paste the text below and skip to step 6.
-      ```shell{:copy}
+      ```shell copy
       gpg --default-new-key-algo rsa4096 --gen-key
       ```
 4. At the prompt, specify the kind of key you want, or press `Enter` to accept the default.

@@ -41,7 +41,7 @@ The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-
 - The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`.
 - The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`.
 
-```yaml{:copy}
+```yaml copy
 name: Run commands on different operating systems
 on:
   push:

@@ -1152,6 +1152,15 @@ jobs:
         run: echo $MESSAGE
 ```
 
+{% note %}
+
+**Notes**: 
+
+- The maximum number of top-level properties in `client_payload` is 10.
+- The payload can contain a maximum of 65,535 characters.
+
+{% endnote %}
+
 ## `schedule`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |

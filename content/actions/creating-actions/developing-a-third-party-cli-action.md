@@ -36,7 +36,7 @@ The following script demonstrates how you can get a user-specified version as in
 {% data variables.product.prodname_dotcom %} provides [`actions/toolkit`](https://github.com/actions/toolkit), which is a set of packages that helps you create actions. This example uses the [`actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) and [`actions/tool-cache`](https://github.com/actions/toolkit/tree/main/packages/tool-cache) packages.
 
 {% raw %}
-```javascript{:copy}
+```javascript copy
 const core = require('@actions/core');
 const tc = require('@actions/tool-cache');
 

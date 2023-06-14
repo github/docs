@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database interpret-results --format=<format> --output=<output> [--threads=<num>] <options>... -- <database> <file|dir|suite>...
 ```
 

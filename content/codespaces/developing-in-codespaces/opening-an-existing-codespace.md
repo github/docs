@@ -109,7 +109,7 @@ You can also access the commands listed above by navigating to the Remote Explor
 1. In a terminal, enter one of the following {% data variables.product.prodname_cli %} commands.
    - To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace code
      ```
 
@@ -121,13 +121,13 @@ You can also access the commands listed above by navigating to the Remote Explor
 
    - To open a codespace in the browser, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace code --web
      ```
 
    - To open a codespace in JupyterLab, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace jupyter
      ```
 
@@ -139,7 +139,7 @@ You can also access the commands listed above by navigating to the Remote Explor
 
    - To access a codespace from the command line, over SSH, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace ssh
      ```
 

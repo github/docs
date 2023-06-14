@@ -1,6 +1,6 @@
 1. Install the {% data variables.product.prodname_actions_importer %} CLI extension:
 
-   ```bash{:copy}
+   ```bash copy
    gh extension install github/gh-actions-importer
    ```
 1. Verify that the extension is installed:

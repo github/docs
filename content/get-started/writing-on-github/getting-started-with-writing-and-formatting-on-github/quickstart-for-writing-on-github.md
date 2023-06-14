@@ -61,7 +61,7 @@ By using the HTML `<picture>` element with the `prefers-color-scheme` media feat
 
 1. Copy and paste the following markup into your {% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %} file.
 
-   ```HTML{:copy}
+   ```HTML copy
    <picture>
     <source media="(prefers-color-scheme: dark)" srcset="YOUR-DARKMODE-IMAGE">
     <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
@@ -100,7 +100,7 @@ You can use Markdown tables to organize information. Here, you'll use a table to
    ```
 1. Two lines below this paragraph, insert a table by copying and pasting the following markup.
 
-   ```Markdown{:copy}
+   ```Markdown copy
    | Rank | THING-TO-RANK |
    |-----:|---------------|
    |     1|               |
@@ -136,7 +136,7 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 
 1. To create a collapsed section for the table you created, wrap your table in `<details>` tags like in the following example.
 
-   ```HTML{:copy}
+   ```HTML copy
    <details>
    <summary>My top THINGS-TO-RANK</summary>
 

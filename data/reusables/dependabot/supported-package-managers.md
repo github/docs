@@ -22,7 +22,8 @@ npm            | `npm`            | v6, v7, v8       | {% octicon "check" aria-l
 {% ifversion dependabot-PEP621-support %}[pip](#pip-and-pip-compile){% else %}pip{% endif %} | `pip`            | v21.1.2          | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 pipenv         | `pip`            | <= 2021-05-29    | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 {% ifversion dependabot-PEP621-support %}[pip-compile](#pip-and-pip-compile){% else %}pip-compile{% endif %}   | `pip`            | 6.1.0            | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
-poetry         | `pip`            | v1               | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion dependabot-updates-pnpm-support %}[pnpm](#pnpm)   | `npm`            | v7, v8          | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
+{% endif %}poetry         | `pip`            | v1               | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |{% ifversion fpt or ghec or ghes > 3.4 %}
 [pub](#pub)           | `pub`            | v2  | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |{% endif %}
 Terraform      | `terraform`      | >= 0.13, <= 1.3.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 {% ifversion dependabot-yarn-v3-update %}[yarn](#yarn)           | `npm`            | v1, v2, v3       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}|{% else %}yarn           | `npm`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |  |
@@ -69,6 +70,11 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 {% ifversion dependabot-PEP621-support %}
 #### pip and pip-compile
 In addition to supporting updates to `requirements.txt` files, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard.
+{% endif %}
+
+{% ifversion dependabot-updates-pnpm-support %}
+#### pnpm
+pnpm is supported for {% data variables.product.prodname_dependabot_version_updates %} only. {% data variables.product.prodname_dependabot_security_updates %} are not currently supported.
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
