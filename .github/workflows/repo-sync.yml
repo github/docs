@@ -42,7 +42,7 @@ jobs:
           result-encoding: string
           script: |
             const { owner, repo } = context.repo
-            const head = 'repo-sync'
+            const head = 'github:repo-sync'
             const base = 'main'
 
             async function closePullRequest(prNumber) {
@@ -58,10 +58,10 @@ jobs:
             }
 
             console.log('Close any existing pull requests')
-            let { data: existingPulls } = await github.rest.pulls.list({ owner, repo, head, base })
+            const { data: existingPulls } = await github.rest.pulls.list({ owner, repo, head, base })
             if (existingPulls.length) {
               console.log('Found existing pull requests', existingPulls.map(pull => pull.number))
-              for (let pull of existingPulls) {
+              for (const pull of existingPulls) {
                 await closePullRequest(pull.number)
               }
               console.log('Closed existing pull requests')
