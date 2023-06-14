@@ -29,7 +29,7 @@ In the tutorial, you will first make a workflow file that uses the [`imjohnbo/is
 2. {% data reusables.actions.make-workflow-file %}
 3. Copy the following YAML contents into your workflow file.
 
-    ```yaml{:copy}
+    ```yaml copy
 {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
 
 {% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}

@@ -36,7 +36,7 @@ To create codespaces with custom permissions defined, you must use one of the fo
 
 1. Edit the `devcontainer.json` file, adding the repository name and permissions needed to the `repositories` object:
 
-   ```json{:copy}
+   ```json copy
    {
      "customizations": {
        "codespaces": {

@@ -51,7 +51,7 @@ You can use the `services` keyword to create service containers that are part of
 This example creates a service called `redis` in a job called `container-job`. The Docker host in this example is the `node:16-bullseye` container.
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 name: Redis container example
 on: push
 
@@ -93,7 +93,7 @@ When you specify the Docker host port but not the container port, the container 
 This example maps the service container `redis` port 6379 to the Docker host port 6379.
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 name: Redis Service Example
 on: push
 

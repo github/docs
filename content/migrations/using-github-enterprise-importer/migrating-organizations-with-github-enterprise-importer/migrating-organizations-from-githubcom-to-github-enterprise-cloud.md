@@ -146,14 +146,14 @@ Before you can use the {% data variables.product.prodname_gei_cli_short %} to mi
 
    - If you're using Terminal, use the `export` command.
 
-     ```shell{:copy}
+     ```shell copy
      export GH_PAT="TOKEN"
      export GH_SOURCE_PAT="TOKEN"
      ```
 
    - If you're using PowerShell, use the `$env` command.
 
-     ```shell{:copy}
+     ```shell copy
      $env:GH_PAT="TOKEN"
      $env:GH_SOURCE_PAT="TOKEN"
      ```
@@ -162,7 +162,7 @@ Before you can use the {% data variables.product.prodname_gei_cli_short %} to mi
 
 To migrate an organization, use the `gh gei migrate-org` command.
 
-```shell{:copy}
+```shell copy
 gh gei migrate-org --github-source-org SOURCE --github-target-org DESTINATION --github-target-enterprise ENTERPRISE
 ```
 

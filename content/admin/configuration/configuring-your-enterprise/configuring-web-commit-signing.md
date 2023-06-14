@@ -30,12 +30,12 @@ You can enable web commit signing, rotate the private key used for web commit si
 {% data reusables.enterprise_site_admin_settings.update-commit-signing-service %}
 1. Enable web commit signing.
 
-    ```bash{:copy}
+    ```bash copy
     ghe-config app.github.web-commit-signing-enabled true
     ```
 1. Apply the configuration, then wait for the configuration run to complete.
 
-   ```bash{:copy}
+   ```bash copy
    ghe-config-apply
    ```
 1. Create a new user on {% data variables.location.product_location %} via built-in authentication or external authentication. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)."
@@ -68,11 +68,11 @@ You can disable web commit signing for {% data variables.location.product_locati
 
 1. In the administrative shell, run the following command.
 
-   ```bash{:copy}
+   ```bash copy
    ghe-config app.github.web-commit-signing-enabled false
    ```
 1. Apply the configuration.
 
-   ```bash{:copy}
+   ```bash copy
    ghe-config-apply
    ```

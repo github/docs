@@ -85,7 +85,7 @@ If you're migrating from Bitbucket Server and receive an error like `cipher name
 
 To generate a new, compatible SSH keypair, run the following command:
 
-```shell{:copy}
+```shell copy
 ssh-keygen -t ed25519 -Z aes256-cbc -C "your_email@example.com"
 ```
 

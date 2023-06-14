@@ -61,14 +61,22 @@ jobs:
             To preserve continuity across repos, _do not squash_ this pull request.
             `
             console.log('Create a new pull request')
-            let { data: pull } = await github.rest.pulls.create({
-              owner,
-              repo,
-              head,
-              base,
-              title: 'Repo sync',
-              body,
-            })
+            try {
+              let { data: pull } = await github.rest.pulls.create({
+                owner,
+                repo,
+                head,
+                base,
+                title: 'Repo sync',
+                body,
+              })
+            } catch (err) {
+              if (err.message?.includes('No commits')) {
+                console.log(err.message)
+                return
+              }
+              throw err
+            }
 
             console.log('Add label', label)
             await github.rest.issues.addLabels({

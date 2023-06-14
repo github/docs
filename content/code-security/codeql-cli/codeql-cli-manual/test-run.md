@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql test run [--threads=<num>] [--ram=<MB>] <options>... -- <test|dir>...
 ```
 

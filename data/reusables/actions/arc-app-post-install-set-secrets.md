@@ -2,7 +2,7 @@
 
    To create a Kubernetes secret with the values of your {% data variables.product.prodname_github_app %}, run the following command.
 
-   ```bash{:copy}
+   ```bash copy
    kubectl create secret generic pre-defined-secret \
       --namespace=my_namespace \
       --from-literal=github_app_id=123456 \

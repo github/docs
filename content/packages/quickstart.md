@@ -26,7 +26,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     ```
 3. Create an `index.js` file and add a basic alert to say "Hello world!"
     {% raw %}
-    ```javascript{:copy}
+    ```javascript copy
     console.log("Hello, World!");
     ```
     {% endraw %}
@@ -50,7 +50,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     ```
 6. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
 7. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.
-    ```yaml{:copy}
+    ```yaml copy
     name: Node.js Package
 
     on:

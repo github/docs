@@ -30,7 +30,7 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
 3. {% data reusables.actions.make-workflow-file %}
 4. Copy the following YAML contents into your workflow file.
 
-    ```yaml{:copy}
+    ```yaml copy
     name: Remove a label
     on:
       project_card:

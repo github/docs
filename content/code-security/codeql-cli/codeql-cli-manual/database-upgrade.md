@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database upgrade [--threads=<num>] [--ram=<MB>] <options>... -- <database>
 ```
 
