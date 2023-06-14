@@ -86,7 +86,8 @@ export async function convertContentToDocs(content, frontmatterDefaults = {}) {
   visitParents(ast, matcher, (node, ancestors) => {
     // Add the copy button to the example command
     if (node.type === 'code' && node.value.startsWith(`codeql ${frontmatter.title}`)) {
-      node.lang = 'shell{:copy}'
+      node.lang = 'shell'
+      node.meta = 'copy'
     }
 
     // This is the beginning of a secondary options section. For example,

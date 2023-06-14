@@ -29,7 +29,7 @@ The following example shows you how {% data variables.product.prodname_actions %
 1. In the `.github/workflows` directory, create a file named `github-actions-demo.yml`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
 1. Copy the following YAML contents into the `github-actions-demo.yml` file:
 
-   ```yaml{:copy}
+   ```yaml copy
    name: GitHub Actions Demo
    {%- ifversion actions-run-name %}
    run-name: {% raw %}${{ github.actor }}{% endraw %} is testing out GitHub Actions 🚀

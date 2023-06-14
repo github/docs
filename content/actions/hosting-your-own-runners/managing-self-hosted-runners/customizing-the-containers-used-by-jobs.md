@@ -89,7 +89,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 
 #### Example input for `prepare_job`
 
-```json{:copy}
+```json copy
 {
   "command": "prepare_job",
   "responseFile": "/users/octocat/runner/_work/{guid}.json",
@@ -176,7 +176,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 
 This example output is the contents of the `responseFile` defined in the input above.
 
-```json{:copy}
+```json copy
 {
   "state": {
     "network": "example_network_53269bd575972817b43f7733536b200c",
@@ -220,7 +220,7 @@ No arguments are provided for `cleanup_job`.
 
 #### Example input for `cleanup_job`
 
-```json{:copy}
+```json copy
 {
   "command": "cleanup_job",
   "responseFile": null,
@@ -276,7 +276,7 @@ The `run_container_step` command is called once for each container action in you
 
 If you're using a Docker image, you can specify the image name in the `"image":` parameter.
 
-```json{:copy}
+```json copy
 {
   "command": "run_container_step",
   "responseFile": null,
@@ -352,7 +352,7 @@ If you're using a Docker image, you can specify the image name in the `"image":`
 
 If your container is defined by a Dockerfile, this example demonstrates how to specify the path to a `Dockerfile` in your input, using the `"dockerfile":` parameter.
 
-```json{:copy}
+```json copy
 {
   "command": "run_container_step",
   "responseFile": null,
@@ -445,7 +445,7 @@ No output is expected for `run_container_step`.
 
 #### Example input for `run_script_step`
 
-```json{:copy}
+```json copy
 {
   "command": "run_script_step",
   "responseFile": null,

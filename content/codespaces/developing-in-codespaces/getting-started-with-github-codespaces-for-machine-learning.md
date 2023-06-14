@@ -66,7 +66,7 @@ Some software requires you to install NVIDIA CUDA to use your codespace’s GPU.
 1. Within the codespace, open the `.devcontainer/devcontainer.json` file in the editor.
 1. Add a top-level `features` object with the following contents:
 
-   ```json{:copy}
+   ```json copy
      "features": {
        "ghcr.io/devcontainers/features/nvidia-cuda:1": {
          "installCudnn": true

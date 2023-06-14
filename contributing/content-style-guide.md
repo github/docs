@@ -157,10 +157,9 @@ If you must use footnotes:
 
 ## Headers
 
-Headers must adequately describe the content under it. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
+Headers must adequately describe the content under them. Follow the same guidelines we use for writing titles. Each header on a page must be unique.
 
 Use H2 for headers, and H3 for subheaders. If the article has headers, the headers must start with an H2 level header and cannot skip header levels. There must be content between a header and subheader, such as an introduction. When referring to headers, surround the header name with quotation marks.
-- **Use:** Under "User licenses," view your total licenses.
 
 For more information, see the [content model](/contributing/content-model.md#titles).
 
@@ -176,11 +175,11 @@ Every image must include alt text providing a textual equivalent of the visual i
 
 - Express the core idea or meaning of the image, rather than describing it literally.
 - Use 40–150 characters.
-- End with a period.
+- End with a punctuation mark. This should generally be a period unless the alt text is describing an image of text that ends with other punctuation, such as a question mark or exclamation point.
 - Don't start with "Image..." or "Graphic...". Screen readers say this automatically.
 - Do begin with the _type_ of graphic: "Screenshot of..." or "Diagram that shows..."
 - Follow standard language used to describe UI elements in article text.
-- Put multi-word titles, e.g. names of menu items, in double quotation marks ("").
+- Put multi-word titles, e.g. names of menu items, in double quotation marks (""). When using punctuation after multi-word titles, place it outside of the quotation marks so that the string in quotation marks exactly matches the title as it appears in context.
 - If an area of the image is visually highlighted, describe how. This enables screen-reader users to understand and describe to a sighted friend/colleague what to look for from a visual language standpoint.
 
 #### Alt text for screenshots
@@ -198,15 +197,15 @@ Alt text provides a short description of a screenshot's content to benefit peopl
 - Use a variable for the word `GitHub` as we do in running copy: `{% data variables.product.prodname_dotcom %}`
 - Describe UI elements consistently with written documentation.
 - Be flexible with word order when needed for clarity.
-  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu...," to avoid multiple nouns in a row.
+  - For example, write "Screenshot of the Debug menu in Visual Studio Code..." rather than "Screenshot of the Visual Studio Code Debug menu..." to avoid multiple nouns in a row.
 
 ##### Examples
 
 > Screenshot of the {% data variables.product.prodname_dotcom %} committers by repository table. The horizontal kebab icon and "Download CSV report" button are outlined in dark orange.
 
-> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.
+> Screenshot of file options in a {% data variables.product.prodname_dotcom %} repository. A button with an arrow indicating a dropdown menu, labeled "Code", is outlined in dark orange.
 
-![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](./images/repository-code-button.png)
+![Screenshot of file options in a GitHub repository. A button with an arrow indicating a dropdown menu, labeled "Code", is outlined in dark orange.](./images/repository-code-button.png)
 
 #### Alt text for diagrams and graphs
 
@@ -609,7 +608,10 @@ For more information about GitHub's personal access tokens, see "[Creating a per
 
 ## Punctuation
 
-Follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
+When referencing a UI element in quotation marks, place any subsequent punctuation outside of the quotation marks so that the label in quotation marks exactly matches the UI.
+- **Use:** Under "User licenses", view your total licenses.
+
+Otherwise, follow standard American English punctuation rules. For more guidance, see “[Punctuation](https://docs.microsoft.com/style-guide/punctuation)” in the Microsoft Style Guide.
 
 ## Release notes
 
@@ -939,6 +941,116 @@ Where table data is not truly binary (every value is either "Yes" or "No", for e
 
 ### Use footnotes sparingly
 See "[Footnotes](https://github.com/github/docs/blob/main/contributing/content-style-guide.md#footnotes)."
+
+### Align table content consistently
+
+All columns in a table should be left-aligned, except for columns containing only octicons which should be center-aligned. If a column contains both text and octicons, use center alignment. 
+
+Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read "[Organizing information with tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table)" for more information.
+
+The following example shows part of a table from "[Configuration options for the dependabot.yml file](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)". 
+
+
+<table>
+<thead>
+<tr>
+<th align=left>Option</th>
+<th align=center>Required</th>
+<th align=center>Security Updates</th>
+<th align=center>Version Updates</th>
+<th align=left>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align=left><code>package-ecosystem</code></td>
+<td align=center>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+<td align=center>
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/15d24c0a-f400-4a3b-be33-e814bad5ff7d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/67a95612-2cc8-4c60-9973-ae7cd63193ba">
+      <img alt="Not supported">
+  </picture>
+</td>
+<td align=center>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>  
+</td>
+<td align=left>Package manager to use</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>directory</code></td>
+<td align=center>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>  
+</td>  
+</td>
+<td align=center>
+      <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/15d24c0a-f400-4a3b-be33-e814bad5ff7d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/67a95612-2cc8-4c60-9973-ae7cd63193ba">
+      <img alt="Not supported">
+  </picture>
+</td>
+<td align=center>
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+</td>
+<td align=left>Location of package manifests</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>schedule.interval</code></td>
+<td align=center>
+<picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>    
+</td>
+</td>
+<td align=center>
+      <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/15d24c0a-f400-4a3b-be33-e814bad5ff7d">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/67a95612-2cc8-4c60-9973-ae7cd63193ba">
+      <img alt="Not supported">
+  </picture>
+</td>
+<td align=center>
+    <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
+      <img alt="Supported">
+  </picture>
+</td>
+</td>
+<td align=left>How often to check for updates</td>
+</tr>
+</tbody>
+</table>
+
+````
+| Option              | Required | Security Updates | Version Updates | Description                    |
+|---------------------|:--------:|:----------------:|:---------------:|--------------------------------|
+| `package-ecosystem` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Package manager to use         |
+| `directory`         |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Location of package manifests  |
+| `schedule.interval` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| How often to check for updates |
+````
 
 ## Titles
 

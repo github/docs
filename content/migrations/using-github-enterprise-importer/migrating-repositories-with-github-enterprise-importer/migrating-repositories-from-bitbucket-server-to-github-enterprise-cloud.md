@@ -32,7 +32,7 @@ If this is your first migration, you'll need to install the {% data variables.pr
 {% data reusables.enterprise-migration-tool.install-github-cli %}
 1. Install the {% data variables.product.prodname_bbs2gh_cli_short %}.
 
-   ```shell{:copy}
+   ```shell copy
    gh extension install github/gh-bbs2gh
    ```
 
@@ -42,7 +42,7 @@ If this is your first migration, you'll need to install the {% data variables.pr
 
 The {% data variables.product.prodname_bbs2gh_cli %} is updated weekly. {% data reusables.enterprise-migration-tool.update-your-extension %}
 
-```shell{:copy}
+```shell copy
 gh extension upgrade github/gh-bbs2gh
 ```
 
@@ -57,7 +57,7 @@ You'll also need to set environment variables for your Bitbucket Server username
 
    - If you're using Terminal, use the `export` command.
 
-      ```shell{:copy}
+      ```shell copy
       export GH_PAT="TOKEN"
      export BBS_USERNAME="USERNAME"
      export BBS_PASSWORD="PASSWORD"
@@ -67,7 +67,7 @@ You'll also need to set environment variables for your Bitbucket Server username
 
    - If you're using PowerShell, use the `$env` command.
 
-      ```shell{:copy}
+      ```shell copy
       $env:GH_PAT="TOKEN"
      $env:BBS_USERNAME="USERNAME"
      $env:BBS_PASSWORD="PASSWORD"
@@ -120,7 +120,7 @@ To migrate a single repository, use the `gh bbs2gh migrate-repo` command.
 
 {% data reusables.enterprise-migration-tool.bitbucket-server-migrate-repo-access %}
 
-```shell{:copy}
+```shell copy
 gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --bbs-project PROJECT --bbs-repo CURRENT-NAME \
   --github-org DESTINATION --github-repo NEW-NAME \
@@ -162,7 +162,7 @@ You must follow this step from a computer that can access:
 
 First, use the `gh bbs2gh migrate-repo` command with only the following arguments:
 
-```shell{:copy}
+```shell copy
 gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --bbs-project PROJECT \
   --bbs-repo CURRENT-NAME
@@ -186,7 +186,7 @@ Download the migration archive from your Bitbucket Server instance, and store th
 
 To import your migration archive into {% data variables.product.prodname_dotcom %}, use the `gh bbs2gh migrate-repo` command again, with a different set of arguments:
 
-```shell{:copy}
+```shell copy
 gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
   --github-org DESTINATION --github-repo NEW-NAME \
   # Use the following option if you're using AWS S3 as your blob storage provider
@@ -213,7 +213,7 @@ You must follow this step from a computer that can access your Bitbucket Server 
 
 To generate a migration script, run the `gh bbs2gh generate-script` command.
 
-```shell{:copy}
+```shell copy
 gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
   --github-org DESTINATION \
   --output FILENAME \

@@ -156,7 +156,9 @@ describe('server', () => {
   })
 
   test('renders a 404 page', async () => {
-    const $ = await getDOM('/not-a-real-page', { allow404: true })
+    // Important to use the prefix /en/ on the failing URL or else
+    // it will render a very basic plain text 404 response.
+    const $ = await getDOM('/en/not-a-real-page', { allow404: true })
     expect($('h1').first().text()).toBe('Ooops!')
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
     expect(

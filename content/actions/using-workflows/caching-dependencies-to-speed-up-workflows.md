@@ -119,7 +119,7 @@ For a more detailed explanation of the cache matching process, see "[Matching a 
 
 This example creates a new cache when the packages in `package-lock.json` file change, or when the runner's operating system changes. The cache key uses contexts and expressions to generate a key that includes the runner's operating system and a SHA-256 hash of the `package-lock.json` file.
 
-```yaml{:copy}
+```yaml copy
 name: Caching with npm
 on: push
 jobs:

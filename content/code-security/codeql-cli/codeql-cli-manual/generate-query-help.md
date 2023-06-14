@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql generate query-help --format=<format> [--output=<dir|file>] <options>... -- <qhelp|query|dir|suite>...
 ```
 

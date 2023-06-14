@@ -1,6 +1,6 @@
 import path from 'path'
 import slash from 'slash'
-import statsd from '../lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 import {
   firstVersionDeprecatedOnNewSite,
   lastVersionWithoutArchivedRedirectsFile,

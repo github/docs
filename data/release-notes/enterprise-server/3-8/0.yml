@@ -476,3 +476,6 @@ sections:
         # https://github.com/github/releases/issues/2621
         - |
           For integrators who wish to receive webhooks for Dependabot alerts activity, the `dependabot_alert` webhook replaces the `repository_vulnerability_alert` webhook. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#dependabot_alert)."
+
+  errata:
+    - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'

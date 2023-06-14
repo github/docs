@@ -28,7 +28,7 @@ When you copy a project, the new project will contain the same views and custom 
 1. In the menu, click {% octicon "copy" aria-hidden="true" %} **Make a copy**.  
 1. Optionally, if you want all draft issues to be copied with the project, in the "Make a copy" dialog, select **Draft issues will be copied if selected**.
   
-  ![Screenshot showing the "Make a copy" form.](/assets/images/help/projects-v2/copy-project-form.png)
+   ![Screenshot showing the "Make a copy" form.](/assets/images/help/projects-v2/copy-project-form.png)
   
 1. Under "Owner", select either the organization that will own the new project or your personal account.
 1. Under "New project name", type the name of the new project.

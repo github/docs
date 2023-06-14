@@ -1,0 +1,5 @@
+# Reference: Issue #10063 - Dependabot: pnpm supported for version updates (not security updates)
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.9'

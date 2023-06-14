@@ -47,7 +47,7 @@ Alternatively, for secrets that the owner of the repository or organization can 
 {% data reusables.codespaces.edit-devcontainer-json %}
 1. Edit the `devcontainer.json` file, adding the `secrets` property at the top level of the file, within the enclosing JSON object. For example:
 
-   ```json{:copy}
+   ```json copy
    "secrets": {
      "NAME_OF_SECRET_1": {
        "description": "This is the description of the secret.",

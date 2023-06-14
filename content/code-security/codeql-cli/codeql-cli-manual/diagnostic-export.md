@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql diagnostic export --format=<format> [--output=<output>] <options>...
 ```
 

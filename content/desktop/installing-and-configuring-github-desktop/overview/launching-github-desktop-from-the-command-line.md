@@ -15,16 +15,16 @@ versions:
 2. Open Terminal.
 3. {% data reusables.desktop.launch-desktop-from-command-line %}
 
-  ```shell
-  $ github /PATH/TO/REPO
-  ```
+   ```shell
+   $ github /PATH/TO/REPO
+   ```
 
-  You can also change to your repository path and then type `github .` to open that repository.
+   You can also change to your repository path and then type `github .` to open that repository.
 
-  ```shell
-  $ cd /PATH/TO/REPO
-  [repo]$ github .
-  ```
+   ```shell
+   $ cd /PATH/TO/REPO
+   [repo]$ github .
+   ```
 
 {% endmac %}
 
@@ -33,15 +33,15 @@ versions:
 1. Open a command prompt.
 2. {% data reusables.desktop.launch-desktop-from-command-line %}
 
-  ```shell
-  C:\Users\octocat> github PATH\TO\REPO
-  ```
+   ```shell
+   C:\Users\octocat> github PATH\TO\REPO
+   ```
 
- You can also change to your repository path and then type `github .` to open that repository.
+   You can also change to your repository path and then type `github .` to open that repository.
 
-  ```shell
-  C:\Users\octocat> cd REPO\MY-REPO
-  C:\Users\octocat\repo\myrepo> github .
-  ```
+   ```shell
+   C:\Users\octocat> cd REPO\MY-REPO
+   C:\Users\octocat\repo\myrepo> github .
+   ```
 
 {% endwindows %}

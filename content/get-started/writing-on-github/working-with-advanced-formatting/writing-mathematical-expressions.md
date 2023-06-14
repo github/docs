@@ -26,14 +26,14 @@ To include a math expression inline within your text, delimit the expression wit
 This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 ```
 
-![Screenshot of rendered Markdown showing how a mathematical expression displays on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared](/assets/images/help/writing/inline-math-markdown-rendering.png)
+![Screenshot of rendered Markdown showing how a mathematical expression displays on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared.](/assets/images/help/writing/inline-math-markdown-rendering.png)
 
 {% ifversion math-backtick-syntax %}
 ````
 This sentence uses $\` and \`$ delimiters to show math inline:  $`\sqrt{3x-1}+(1+x)^2`$
 ````
 
-![Screenshot of rendered Markdown showing how a mathematical expression displays inline on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared](/assets/images/help/writing/inline-backtick-math-markdown-rendering.png)
+![Screenshot of rendered Markdown showing how a mathematical expression displays inline on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared.](/assets/images/help/writing/inline-backtick-math-markdown-rendering.png)
 {% endif %}
 
 ## Writing expressions as blocks
@@ -45,7 +45,7 @@ To add a math expression as a block, start a new line and delimit the expression
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
 ```
 
-![Screenshot of rendered Markdown showing how a complex equation displays on {% data variables.product.prodname_dotcom %}. The bolded text reads "The Cauchy-Schwarz Inequality". Below the text, there is an equation showing open paren the sum from k equals 1 to n of a sub k b sub k close paren squared is less than or equal to open paren the sum from k equals 1 to n of a sub k squared close paren times open paren the sum from k equals 1 to n of b sub k squared close paren](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
+![Screenshot of rendered Markdown showing how a complex equation displays on {% data variables.product.prodname_dotcom %}. The bolded text reads "The Cauchy-Schwarz Inequality". Below the text, there is an equation showing open paren the sum from k equals 1 to n of a sub k b sub k close paren squared is less than or equal to open paren the sum from k equals 1 to n of a sub k squared close paren times open paren the sum from k equals 1 to n of b sub k squared close paren.](/assets/images/help/writing/math-expression-as-a-block-rendering.png)
 
 {% ifversion math-fenced-blocks %}
 
@@ -64,7 +64,7 @@ Alternatively, you can use the <code>\`\`\`math</code> code block syntax to disp
 
 To display a dollar sign as a character in the same line as a mathematical expression, you need to escape the non-delimiter `$` to ensure the line renders correctly.
   
-  - Within a math expression, add a `\` symbol before the explicit `$`.
+- Within a math expression, add a `\` symbol before the explicit `$`.
 
   ```
   This expression uses `\$` to display a dollar sign: $\sqrt{\$4}$
@@ -72,7 +72,7 @@ To display a dollar sign as a character in the same line as a mathematical expre
 
   ![Screenshot of rendered Markdown showing how a backslash before a dollar sign displays the sign as part of a mathematical expression.](/assets/images/help/writing/dollar-sign-within-math-expression.png)
 
-  - Outside a math expression, but on the same line, use span tags around the explicit `$`.
+- Outside a math expression, but on the same line, use span tags around the explicit `$`.
 
   ```
   To split <span>$</span>100 in half, we calculate $100/2$

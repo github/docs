@@ -42,7 +42,7 @@ If you have configured environment protection rules that control whether softwar
 
 1. Navigate to the workflow run. For more information about navigating to a workflow run, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
 1. To the right of **Deployment protection rules**, click **Start all waiting jobs**.
-   ![Screenshot of the "Deployment protection rules" section with the "Start all waiting jobs" button outlined in orange](/assets/images/actions-bypass-env-protection-rules.png)
+   ![Screenshot of the "Deployment protection rules" section with the "Start all waiting jobs" button outlined in orange.](/assets/images/actions-bypass-env-protection-rules.png)
 1. In the pop-up window, select the environments for which you want to bypass environment protection rules.
 1. Under **Leave a comment**, enter a description for bypassing the environment protection rules.
 1. Click **I understand the consequences, start deploying**.

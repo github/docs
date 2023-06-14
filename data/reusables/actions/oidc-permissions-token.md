@@ -7,7 +7,7 @@ The `id-token: write` setting allows the JWT to be requested from {% data variab
 
 If you need to fetch an OIDC token for a workflow, then the permission can be set at the workflow level. For example:
 
-```yaml{:copy}
+```yaml copy
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read  # This is required for actions/checkout
@@ -15,7 +15,7 @@ permissions:
 
 If you only need to fetch an OIDC token for a single job, then this permission can be set within that job. For example:
 
-```yaml{:copy}
+```yaml copy
 permissions:
   id-token: write # This is required for requesting the JWT
 ```

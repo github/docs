@@ -136,7 +136,7 @@ For compiled languages, {% data variables.product.prodname_codeql %} needs to in
 
 {% data reusables.code-scanning.beta-kotlin-or-swift-support %}
 
-The {% data variables.product.prodname_codeql_cli %} includes autobuilders for C/C++, C#, Go, {% ifversion codeql-swift-beta %} Java, and Swift{% else %} and Java{% endif %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database.
+The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.compiled_languages %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database.
 
 An autobuilder is invoked automatically when you execute `codeql database create` for a compiled `--language` if don’t include a
 `--command` option. For example, for a Java codebase, you would simply run:
@@ -151,8 +151,8 @@ If a codebase uses a standard build system, relying on an autobuilder is often t
 
    **Notes:**
 
-   - If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
-   - The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
+- If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
+- The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
 
    {% endnote %}
 

@@ -207,7 +207,7 @@ describe('pageinfo api', () => {
       const res = await get(makeURL('/ja/get-started/quickstart/hello-world'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
-      expect(info.product).toBe('Get started')
+      expect(info.product).toBe('はじめに')
       expect(info.title).toBe('こんにちは World')
       expect(info.intro).toBe('この Hello World 演習に従って、GitHub の使用を開始します。')
     })

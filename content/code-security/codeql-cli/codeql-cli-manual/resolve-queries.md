@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql resolve queries <options>... -- <query|dir|suite|pack>...
 ```
 

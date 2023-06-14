@@ -32,7 +32,6 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 ## Authenticating an account on {% data variables.product.prodname_ghe_server %}
 
-
 {% data reusables.desktop.mac-select-desktop-menu %}
 1. In the "Preferences" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_enterprise %}".
 
@@ -42,7 +41,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 {% data reusables.desktop.sign-in-browser %}
 1. To authenticate to {% data variables.location.product_location_enterprise %} account, type your account credentials and click **Sign in**.
 
-  Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating.
+   Alternatively, if you were already signed in to {% data variables.location.product_location_enterprise %} account, follow the prompts to return to {% data variables.product.prodname_desktop %} to finish authenticating.
 
 {% endmac %}
 
@@ -183,8 +182,8 @@ This error can be caused by multiple events.
 If the `Command Processor` registry entries are modified, {% data variables.product.prodname_desktop %} will respond with an `Authentication failed` error. To check if these registry entries have been modified, follow these steps.
 
 1. Open the Registry Editor (`regedit.exe`) and navigate to the following locations.
-  `HKEY_CURRENT_USER\Software\Microsoft\Command Processor\`
-  `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
+   `HKEY_CURRENT_USER\Software\Microsoft\Command Processor\`
+   `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
 2. Check to see if there is an `Autorun` value in either location.
 3. If there is an `Autorun` value, delete it.
 
