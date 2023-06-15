@@ -47,7 +47,7 @@ To get started quickly, you can choose the preconfigured Gradle starter workflow
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
@@ -96,7 +96,7 @@ The starter workflow will run the `build` task by default. In the default Gradle
 
 If you use different commands to build your project, or you want to use a different task, you can specify those. For example, you may want to run the `package` task that's configured in your _ci.gradle_ file.
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
@@ -127,7 +127,7 @@ After your build has succeeded and your tests have passed, you may want to uploa
 
 Gradle will usually create output files like JARs, EARs, or WARs in the `build/libs` directory. You can upload the contents of that directory using the `upload-artifact` action.
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}

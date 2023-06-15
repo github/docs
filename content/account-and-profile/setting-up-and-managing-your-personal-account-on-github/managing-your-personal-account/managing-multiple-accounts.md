@@ -48,7 +48,7 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
    {% data reusables.git.no-credential-manager %}
    - If the output is `osxkeychain`, you're using the macOS keychain. To clear the credentials, enter the following command.
 
-     ```shell{:copy}
+     ```shell copy
      git credential-osxkeychain erase https://github.com
      ```
    {% data reusables.git.clear-stored-gcm-credentials %}
@@ -67,7 +67,7 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
    {% data reusables.git.clear-stored-gcm-credentials %}
    - If the output is `wincred`, you're using the Windows Credential Manager. To clear the credentials, enter the following command.
 
-     ```shell{:copy}
+     ```shell copy
      cmdkey /delete:LegacyGeneric:target=git:https://github.com
      ```
 {% data reusables.git.cache-on-repository-path %}

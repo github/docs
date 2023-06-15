@@ -86,7 +86,7 @@ To fetch paginated results with Octokit.js, you can use `octokit.paginate()`. `o
 
 For example, this script gets all of the issues from the `octocat/Spoon-Knife` repository. Although it requests 100 issues at a time, the function won't return until the last page of data is reached.
 
-```javascript{:copy}
+```javascript copy
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes or ghae %}
@@ -113,7 +113,7 @@ If you are using another language or library that doesn't have a pagination meth
 
 The `getPaginatedData` function makes a request to an endpoint with `octokit.request()`. The data from the response is processed by `parseData`, which handles cases where no data is returned or cases where the data that is returned is an object instead of an array. The processed data is then appended to a list that contains all of the paginated data collected so far. If the response includes a link header and if the link header includes a link for the next page, then the function uses a RegEx pattern (`nextPattern`) to get the URL for the next page. The function then repeats the previous steps, now using this new URL. Once the link header no longer includes a link to the next page, all of the results are returned.
 
-```javascript{:copy}
+```javascript copy
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes or ghae %}

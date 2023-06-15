@@ -204,14 +204,6 @@ The same principles described above for using third-party actions also apply to 
 You can use {% data variables.product.prodname_dependabot_version_updates %} to ensure that references to actions{% ifversion dependabot-updates-actions-reusable-workflows %} and reusable workflows{% endif %} used in your repository are kept up to date. Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. {% data variables.product.prodname_dependabot_version_updates %} take the effort out of maintaining your dependencies as {% data variables.product.prodname_dependabot %} does this automatically for you. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)."
 {% endif %}
 
-{% ifversion required-workflows %}
-
-## Required workflows
-
-Required workflows allow you to specify workflows to run on selected repositories or all repositories in your organization, providing the ability to enforce organization-wide security policies while only maintaining a single workflow. Required workflows appear as required status checks on pull requests and the checks must succeed before the pull request can be merged. For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."
-
-{% endif %}
-
 {% ifversion internal-actions %}
 ## Allowing workflows to access internal {% ifversion private-actions %}and private {% endif %}repositories
 
@@ -314,6 +306,12 @@ SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate
 {% ifversion fpt or ghec %}**Self-hosted**{% elsif ghes or ghae %}Self-hosted{% endif %} runners for {% data variables.product.product_name %} do not have guarantees around running in ephemeral clean virtual machines, and can be persistently compromised by untrusted code in a workflow.
 
 {% ifversion fpt or ghec %}As a result, self-hosted runners should almost [never be used for public repositories](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security) on {% data variables.product.product_name %}, because any user can open pull requests against the repository and compromise the environment. Similarly, be{% elsif ghes or ghae %}Be{% endif %} cautious when using self-hosted runners on private or internal repositories, as anyone who can fork the repository and open a pull request (generally those with read access to the repository) are able to compromise the self-hosted runner environment, including gaining access to secrets and the `GITHUB_TOKEN` which, depending on its settings, can grant write access to the repository. Although workflows can control access to environment secrets by using environments and required reviews, these workflows are not run in an isolated environment and are still susceptible to the same risks when run on a self-hosted runner.
+
+{% ifversion actions-disable-repo-runners %}
+
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+
+{% endif %}
 
 When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.product_name %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups)."
 

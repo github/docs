@@ -99,7 +99,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. In the `devcontainer.json` file, add a comma after the `features` property.
 
-   ```json{:copy}
+   ```json copy
    "features": {
      "ghcr.io/devcontainers/features/java:1": {
        "version": "none",
@@ -112,14 +112,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `postCreateCommand` property and change its value to `echo \"This file was added by the postCreateCommand.\" > TEMP.md`.
 
-   ```json{:copy}
+   ```json copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "echo \"This file was added by the postCreateCommand.\" > TEMP.md",
    ```
 
 1. Uncomment the `customizations` property and edit it as follows to install the "Code Spell Checker" extension and the "Extension Pack for Java."
 
-   ```json{:copy}
+   ```json copy
    // Configure tool-specific properties.
    "customizations": {
      // Configure properties specific to VS Code.
@@ -186,7 +186,7 @@ With your dev container configuration added and a basic understanding of what ev
 1. Run the application by pressing `F5`.
 1. If a "toast" notification message is displayed at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, asking whether you want to switch to standard mode, click **Yes**.
 
-   ![Screenshot of a popup message: "Run/Debug feature requires Java language server to run in Standard mode. Do you want to switch it to Standard mode now?".](/assets/images/help/codespaces/switch-to-standard-mode.png)
+   ![Screenshot of a popup message: "Run/Debug feature requires Java language server to run in Standard mode. Do you want to switch it to Standard mode now?"](/assets/images/help/codespaces/switch-to-standard-mode.png)
 
 1. When the project files have been imported, click the **Debug Console** tab to see the program output.
 

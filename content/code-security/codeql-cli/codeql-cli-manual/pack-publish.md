@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack publish [--dry-run] [--threads=<num>] [--ram=<MB>] [--pack=<folder> | <package.tgz>] <options>... -- <dir>
 ```
 

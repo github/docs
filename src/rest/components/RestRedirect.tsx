@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 
 import { useVersion } from 'components/hooks/useVersion'
 import { useMainContext } from 'components/context/MainContext'

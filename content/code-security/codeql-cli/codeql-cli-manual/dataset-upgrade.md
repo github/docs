@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql dataset upgrade [--threads=<num>] [--ram=<MB>] <options>... -- <dataset>
 ```
 

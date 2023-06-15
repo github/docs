@@ -18,7 +18,7 @@ When you create a codespace, a Docker container is automatically created on a re
 
 You can choose which image you want to use for your codespaces by specifying it in the dev container configuration for a repository. You can do this, for example, by using the `image` property in the `devcontainer.json` file.
 
-```json{:copy}
+```json copy
 "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18",
 ```
 
@@ -67,9 +67,11 @@ For example, you could create an organization-wide policy that restricts the bas
 
 1. Click {% octicon "plus" aria-label="Add button" %} to add the value.
 1. If required, repeat the previous two steps to add more image URLs.
+1. Click outside of the dialog box to close it.
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
    * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)"
    * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
    * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
    * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"

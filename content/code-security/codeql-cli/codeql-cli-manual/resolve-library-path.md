@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql resolve library-path (--query=<qlfile> | --dir=<dir> | --root-pack=<pkgname>) <options>...
 ```
 

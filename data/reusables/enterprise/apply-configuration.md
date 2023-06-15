@@ -6,7 +6,7 @@
 
    {% endnote %}
 
-    ```shell{:copy}
+    ```shell copy
     ghe-config-apply
     ```
 1. Wait for the configuration run to complete.

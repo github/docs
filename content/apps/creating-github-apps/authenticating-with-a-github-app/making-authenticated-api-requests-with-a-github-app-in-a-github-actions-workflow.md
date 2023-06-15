@@ -35,7 +35,7 @@ In order to use a {% data variables.product.prodname_github_app %} to make authe
 
    In the following workflow, replace `APP_ID` with the name of the secret where you stored your app ID. Replace `APP_PRIVATE_KEY` with the name of the secret where you stored your app private key.
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}

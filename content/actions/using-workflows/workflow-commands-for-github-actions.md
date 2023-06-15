@@ -30,7 +30,7 @@ Most workflow commands use the `echo` command in a specific format, while others
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 ```
 
@@ -38,7 +38,7 @@ echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 Write-Output "::workflow-command parameter1={data},parameter2={data}::{command value}"
 ```
 
@@ -63,7 +63,7 @@ The [actions/toolkit](https://github.com/actions/toolkit) includes a number of f
 {%- ifversion actions-save-state-set-output-envs %}
 For example, instead of using code to create an error annotation, as below:
 
-```javascript{:copy}
+```javascript copy
 core.error('Missing semicolon', {file: 'app.js', startLine: 1})
 ```
 
@@ -73,7 +73,7 @@ You can use the `error` command in your workflow to create the same error annota
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
       - name: Create annotation for build error
         run: echo "::error file=app.js,line=1::Missing semicolon"
 ```
@@ -82,7 +82,7 @@ You can use the `error` command in your workflow to create the same error annota
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
       - name: Create annotation for build error
         run: Write-Output "::error file=app.js,line=1::Missing semicolon"
 ```
@@ -91,7 +91,7 @@ You can use the `error` command in your workflow to create the same error annota
 {%- else %}
 For example, instead of using code to set an output, as below:
 
-```javascript{:copy}
+```javascript copy
 core.setOutput('SELECTED_COLOR', 'green');
 ```
 
@@ -101,7 +101,7 @@ You can use the `set-output` command in your workflow to set the same value:
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
       - name: Set selected color
         run: echo '::set-output name=SELECTED_COLOR::green'
         id: random-color-generator
@@ -115,7 +115,7 @@ You can use the `set-output` command in your workflow to set the same value:
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
       - name: Set selected color
         run: Write-Output "::set-output name=SELECTED_COLOR::green"
         id: random-color-generator
@@ -158,7 +158,7 @@ The following table shows which toolkit functions are available within a workflo
 
 Sets an action's output parameter.
 
-```{:copy}
+```text copy
 ::set-output name={name}::{value}
 ```
 
@@ -170,7 +170,7 @@ You can escape multiline strings for setting an output parameter by creating an 
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "::set-output name=action_fruit::strawberry"
 ```
 
@@ -178,7 +178,7 @@ echo "::set-output name=action_fruit::strawberry"
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 Write-Output "::set-output name=action_fruit::strawberry"
 ```
 
@@ -189,7 +189,7 @@ Write-Output "::set-output name=action_fruit::strawberry"
 
 Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_DEBUG` with the value `true` to see the debug messages set by this command in the log. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/enabling-debug-logging)."
 
-```{:copy}
+```text copy
 ::debug::{message}
 ```
 
@@ -197,7 +197,7 @@ Prints a debug message to the log. You must create a secret named `ACTIONS_STEP_
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "::debug::Set the Octocat variable"
 ```
 
@@ -205,7 +205,7 @@ echo "::debug::Set the Octocat variable"
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 Write-Output "::debug::Set the Octocat variable"
 ```
 
@@ -215,7 +215,7 @@ Write-Output "::debug::Set the Octocat variable"
 
 Creates a notice message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-```{:copy}
+```text copy
 ::notice file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -225,7 +225,7 @@ Creates a notice message and prints the message to the log. {% data reusables.ac
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -233,7 +233,7 @@ echo "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -243,7 +243,7 @@ Write-Output "::notice file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 Creates a warning message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-```{:copy}
+```text copy
 ::warning file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -253,14 +253,14 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 {% endbash %}
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -270,7 +270,7 @@ Write-Output "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 Creates an error message and prints the message to the log. {% data reusables.actions.message-annotation-explanation %}
 
-```{:copy}
+```text copy
 ::error file={name},line={line},endLine={endLine},title={title}::{message}
 ```
 
@@ -280,7 +280,7 @@ Creates an error message and prints the message to the log. {% data reusables.ac
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -288,7 +288,7 @@ echo "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
 
@@ -298,7 +298,7 @@ Write-Output "::error file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 
 Creates an expandable group in the log. To create a group, use the `group` command and specify a `title`. Anything you print to the log between the `group` and `endgroup` commands is nested inside an expandable entry in the log.
 
-```{:copy}
+```text copy
 ::group::{title}
 ::endgroup::
 ```
@@ -307,7 +307,7 @@ Creates an expandable group in the log. To create a group, use the `group` comma
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
 jobs:
   bash-example:
     runs-on: ubuntu-latest
@@ -323,7 +323,7 @@ jobs:
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
 jobs:
   powershell-example:
     runs-on: windows-latest
@@ -341,7 +341,7 @@ jobs:
 
 ## Masking a value in a log
 
-```{:copy}
+```text copy
 ::add-mask::{value}
 ```
 
@@ -353,7 +353,7 @@ When you print `"Mona The Octocat"` in the log, you'll see `"***"`.
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "::add-mask::Mona The Octocat"
 ```
 
@@ -361,7 +361,7 @@ echo "::add-mask::Mona The Octocat"
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 Write-Output "::add-mask::Mona The Octocat"
 ```
 
@@ -379,7 +379,7 @@ When you print the variable `MY_NAME` or the value `"Mona The Octocat"` in the l
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
 jobs:
   bash-example:
     runs-on: ubuntu-latest
@@ -394,7 +394,7 @@ jobs:
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
 jobs:
   powershell-example:
     runs-on: windows-latest
@@ -427,7 +427,7 @@ If you do not need to pass your secret from one job to another job, you can:
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
 on: push
 jobs:
   generate-a-secret-output:
@@ -449,7 +449,7 @@ jobs:
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
 on: push
 jobs:
   generate-a-secret-output:
@@ -489,7 +489,7 @@ If you want to pass a masked secret between jobs or workflows, you should store 
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
 on: push
 
 jobs:
@@ -528,7 +528,7 @@ jobs:
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
 on: push
 
 jobs:
@@ -569,7 +569,7 @@ jobs:
 
 Stops processing any workflow commands. This special command allows you to log anything without accidentally running a workflow command. For example, you could stop logging to output an entire script that has comments.
 
-```{:copy}
+```text copy
 ::stop-commands::{endtoken}
 ```
 
@@ -581,7 +581,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 {% endwarning %}
 
-```{:copy}
+```text copy
 ::{endtoken}::
 ```
 
@@ -589,7 +589,7 @@ To stop the processing of workflow commands, pass a unique token to `stop-comman
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
 jobs:
   workflow-command-job:
     runs-on: ubuntu-latest
@@ -607,7 +607,7 @@ jobs:
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
 jobs:
   workflow-command-job:
     runs-on: windows-latest
@@ -629,7 +629,7 @@ jobs:
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
 
-```{:copy}
+```text copy
 ::echo::on
 ::echo::off
 ```
@@ -644,7 +644,7 @@ You can also enable command echoing globally by turning on step debug logging us
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
 jobs:
   workflow-command-job:
     runs-on: ubuntu-latest
@@ -662,7 +662,7 @@ jobs:
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
 jobs:
   workflow-command-job:
     runs-on: windows-latest
@@ -680,7 +680,7 @@ jobs:
 
 The example above prints the following lines to the log:
 
-```{:copy}
+```text copy
 ::set-output name=action_echo::enabled
 ::echo::off
 ```
@@ -700,7 +700,7 @@ If you have multiple `pre:` or `post:` actions, you can only access the saved va
 {% ifversion actions-save-state-set-output-envs %}
 This example uses JavaScript to write to the `GITHUB_STATE` file. The resulting environment variable is named `STATE_processID` with the value of `12345`:
 
-```javascript{:copy}
+```javascript copy
 import * as fs from 'fs'
 import * as os from 'os'
 
@@ -712,14 +712,14 @@ fs.appendFileSync(process.env.GITHUB_STATE, `processID=12345${os.EOL}`, {
 {% else %}
 This example uses JavaScript to run the `save-state` command. The resulting environment variable is named `STATE_processID` with the value of `12345`:
 
-```javascript{:copy}
+```javascript copy
 console.log('::save-state name=processID::12345')
 ```
 {% endif %}
 
 The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
 
-```javascript{:copy}
+```javascript copy
 console.log("The running PID from the main action is: " +  process.env.STATE_processID);
 ```
 
@@ -735,7 +735,7 @@ Most commands in the following examples use double quotes for echoing strings, w
 
 **Note:** PowerShell versions 5.1 and below (`shell: powershell`) do not use UTF-8 by default, so you must specify the UTF-8 encoding. For example:
 
-```yaml{:copy}
+```yaml copy
 jobs:
   legacy-powershell-example:
     runs-on: windows-latest
@@ -747,7 +747,7 @@ jobs:
 
 PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
 
-```yaml{:copy}
+```yaml copy
 jobs:
   powershell-core-example:
     runs-on: windows-latest
@@ -765,7 +765,7 @@ jobs:
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 ```
 
@@ -775,13 +775,13 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 - Using PowerShell version 6 and higher:
 
-  ```pwsh{:copy}
+  ```pwsh copy
   "{environment_variable_name}={value}" >> $env:GITHUB_ENV
   ```
 
 - Using PowerShell version 5.1 and below:
 
-  ```powershell{:copy}
+  ```powershell copy
   "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
   ```
 
@@ -793,7 +793,7 @@ You can make an environment variable available to any subsequent steps in a work
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
 steps:
   - name: Set the value
     id: step_one
@@ -811,7 +811,7 @@ steps:
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
 steps:
   - name: Set the value
     id: step_one
@@ -831,7 +831,7 @@ steps:
 
 For multiline strings, you may use a delimiter with the following syntax.
 
-```{:copy}
+```text copy
 {name}<<{delimiter}
 {value}
 {delimiter}
@@ -849,7 +849,7 @@ This example selects a random value for `$EOF` as a delimiter, and sets the `JSO
 
 {% bash %}
 
-```yaml{:copy}
+```yaml copy
 steps:
   - name: Set the value in bash
     id: step_one
@@ -864,7 +864,7 @@ steps:
 
 {% powershell %}
 
-```yaml{:copy}
+```yaml copy
 steps:
   - name: Set the value in pwsh
     id: step_one
@@ -885,14 +885,14 @@ Sets a step's output parameter. Note that the step will need an `id` to be defin
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "{name}={value}" >> "$GITHUB_OUTPUT"
 ```
 {% endbash %}
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 "{name}=value" >> $env:GITHUB_OUTPUT
 ```
 
@@ -904,7 +904,7 @@ echo "{name}={value}" >> "$GITHUB_OUTPUT"
 
 This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
 
-```yaml{:copy}
+```yaml copy
       - name: Set color
         id: random-color-generator
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
@@ -920,7 +920,7 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 This example demonstrates how to set the `SELECTED_COLOR` output parameter and later retrieve it:
 
-```yaml{:copy}
+```yaml copy
       - name: Set color
         id: random-color-generator
         run: |
@@ -940,7 +940,7 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 ```
 
@@ -948,7 +948,7 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 "{markdown content}" >> $env:GITHUB_STEP_SUMMARY
 ```
 
@@ -964,7 +964,7 @@ When a job finishes, the summaries for all steps in a job are grouped together i
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 ```
 
@@ -972,7 +972,7 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 "### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
 ```
 
@@ -1084,14 +1084,14 @@ Prepends a directory to the system `PATH` variable and automatically makes it av
 
 {% bash %}
 
-```bash{:copy}
+```bash copy
 echo "{path}" >> $GITHUB_PATH
 ```
 {% endbash %}
 
 {% powershell %}
 
-```pwsh{:copy}
+```pwsh copy
 "{path}" >> $env:GITHUB_PATH
 ```
 
@@ -1103,7 +1103,7 @@ echo "{path}" >> $GITHUB_PATH
 
 This example demonstrates how to add the user `$HOME/.local/bin` directory to `PATH`:
 
-```bash{:copy}
+```bash copy
 echo "$HOME/.local/bin" >> $GITHUB_PATH
 ```
 
@@ -1113,7 +1113,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
-```pwsh{:copy}
+```pwsh copy
 "$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH
 ```
 

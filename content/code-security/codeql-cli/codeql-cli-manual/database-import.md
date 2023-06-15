@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database import [--dbscheme=<file>] [--threads=<num>] [--ram=<MB>] <options>... -- <database> <additionalDbs>...
 ```
 
