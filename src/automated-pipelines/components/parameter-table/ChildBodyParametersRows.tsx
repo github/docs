@@ -11,7 +11,7 @@ type Props = {
   slug: string
   childParamsGroups: ChildParameter[]
   parentName: string
-  parentType: string
+  parentType?: string
   oneOfObject?: boolean
 }
 
