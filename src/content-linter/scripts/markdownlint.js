@@ -7,6 +7,7 @@ import { readFile, writeFile } from 'fs/promises'
 import walkFiles from '../../../script/helpers/walk-files.js'
 
 import { incorrectAltTextLength } from '../lib/linting-rules/image-alt-text-length.js'
+import { internalLinksLang } from '../lib/linting-rules/internal-links-lang.js'
 import { internalLinksSlash } from '../lib/linting-rules/internal-links-slash.js'
 import { imageAltTextEndPunctuation } from '../lib/linting-rules/image-alt-text-end-punctuation.js'
 import { imageFileKebab } from '../lib/linting-rules/image-file-kebab.js'
@@ -30,6 +31,7 @@ async function main() {
     MD111: true,
     MD112: true,
     MD113: true,
+    MD114: true,
     MD115: true,
   }
 
@@ -39,6 +41,7 @@ async function main() {
     customRules: [
       incorrectAltTextLength,
       imageAltTextEndPunctuation,
+      internalLinksLang,
       internalLinksSlash,
       imageFileKebab,
     ],

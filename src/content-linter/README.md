@@ -10,7 +10,8 @@ We are using the [markdownlint](https://github.com/DavidAnson/markdownlint) fram
 | [MD002](https://github.com/DavidAnson/markdownlint/blob/main/doc/md002.md) | Ensure that headings start with an H2 heading. | error |
 | [MD111](./linting-rules/image-alt-text-length.js) | Images alternate text should be between 40-150 characters. | warning |
 | [MD112](./linting-rules/image-alt-text-end-punctuation.js) | Images alternate text should end with a punctuation. | error |
-| [MD114](./linting-rules/internal-links-slash.js) | Internal links must start with a `/`. | error |
+| [MD113](./linting-rules/internal-links-slash.js) | Internal links must start with a `/`. | error |
+| [MD114](./linting-rules/internal-links-lang.js) | Internal links must not have a hardcoded language code. | error |
 | [MD115](./linting-rules/image-file-kebab.js) | Image file names should be lowercase kebab case. | error |
 
 ## Linting Tests
