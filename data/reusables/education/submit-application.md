@@ -1,5 +1,4 @@
-8. Verify your application details, then click **Process my application**.
- ![Process my application button](/assets/images/help/education/submit-your-information-button.png)
+1. Verify your application details, then click **Process my application**.
 
     {% note %}
 

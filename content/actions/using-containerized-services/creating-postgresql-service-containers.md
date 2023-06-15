@@ -16,8 +16,7 @@ topics:
   - Containers
   - Docker
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -32,7 +31,7 @@ This guide shows you workflow examples that configure a service container using 
 
 You may also find it helpful to have a basic understanding of YAML, the syntax for {% data variables.product.prodname_actions %}, and PostgreSQL. For more information, see:
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
+- "[AUTOTITLE](/actions/learn-github-actions)"
 - "[PostgreSQL tutorial](https://www.postgresqltutorial.com/)" in the PostgreSQL documentation
 
 ## Running jobs in containers
@@ -41,7 +40,7 @@ You may also find it helpful to have a basic understanding of YAML, the syntax f
 
 {% data reusables.actions.copy-workflow-file %}
 
-```yaml{:copy}
+```yaml copy
 name: PostgreSQL service example
 on: push
 
@@ -91,13 +90,13 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-### Configuring the runner job
+### Configuring the runner job for jobs in containers
 
 {% data reusables.actions.service-container-host %}
 
 {% data reusables.actions.postgres-label-description %}
 
-```yaml{:copy}
+```yaml copy
 jobs:
   # Label of the container job
   container-job:
@@ -123,11 +122,11 @@ jobs:
           --health-retries 5
 ```
 
-### Configuring the steps
+### Configuring the steps for jobs in containers
 
 {% data reusables.actions.service-template-steps %}
 
-```yaml{:copy}
+```yaml copy
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -161,7 +160,7 @@ When you run a job directly on the runner machine, you'll need to map the ports 
 
 {% data reusables.actions.copy-workflow-file %}
 
-```yaml{:copy}
+```yaml copy
 name: PostgreSQL Service Example
 on: push
 
@@ -213,15 +212,15 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-### Configuring the runner job
+### Configuring the runner job for jobs directly on the runner machine
 
 {% data reusables.actions.service-container-host-runner %}
 
 {% data reusables.actions.postgres-label-description %}
 
-The workflow maps port 5432 on the PostgreSQL service container to the Docker host. For more information about the `ports` keyword, see "[About service containers](/actions/automating-your-workflow-with-github-actions/about-service-containers#mapping-docker-host-and-service-container-ports)."
+The workflow maps port 5432 on the PostgreSQL service container to the Docker host. For more information about the `ports` keyword, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers#mapping-docker-host-and-service-container-ports)."
 
-```yaml{:copy}
+```yaml copy
 jobs:
   # Label of the runner job
   runner-job:
@@ -248,11 +247,11 @@ jobs:
           - 5432:5432
 ```
 
-### Configuring the steps
+### Configuring the steps for jobs directly on the runner machine
 
 {% data reusables.actions.service-template-steps %}
 
-```yaml{:copy}
+```yaml copy
 steps:
   # Downloads a copy of the code in your repository before running CI tests
   - name: Check out repository code
@@ -288,7 +287,7 @@ You can modify *client.js* to include any PostgreSQL operations needed by your w
 
 {% data reusables.actions.service-container-add-script %}
 
-```javascript{:copy}
+```javascript copy
 const { Client } = require('pg');
 
 const pgclient = new Client({

@@ -12,9 +12,23 @@ import path from 'path'
 import { program } from 'commander'
 import walk from 'walk-sync'
 
+import walkFiles from './helpers/walk-files.js'
+import languages from '../lib/languages.js'
+
 const EXCEPTIONS = new Set([
   'assets/images/site/favicon.ico',
   'assets/images/site/apple-touch-icon.png',
+  'assets/images/site/apple-touch-icon-114x114.png',
+  'assets/images/site/apple-touch-icon-120x120.png',
+  'assets/images/site/apple-touch-icon-144x144.png',
+  'assets/images/site/apple-touch-icon-152x152.png',
+  'assets/images/site/apple-touch-icon-180x180.png',
+  'assets/images/site/apple-touch-icon-192x192.png',
+  'assets/images/site/apple-touch-icon-512x512.png',
+  'assets/images/site/apple-touch-icon-57x57.png',
+  'assets/images/site/apple-touch-icon-60x60.png',
+  'assets/images/site/apple-touch-icon-72x72.png',
+  'assets/images/site/apple-touch-icon-76x76.png',
 ])
 
 function isExceptionPath(imagePath) {
@@ -48,19 +62,48 @@ async function main(opts) {
     includeBasePath: true,
   }
   const sourceFiles = []
+  const englishFiles = []
+  englishFiles.push(...walkFiles(path.join(languages.en.dir, 'content'), ['.md']))
+  englishFiles.push(...walkFiles(path.join(languages.en.dir, 'data'), ['.md', '.yml']))
+  sourceFiles.push(...englishFiles)
+
+  if (!excludeTranslations) {
+    // Need to have this so we can filter the translations files and avoid
+    // including orphans. Because translations generally don't delete files.
+    // When the English content renames something, you later end up with
+    // 2 files in each translation repo.
+    const englishRelativeFiles = new Set(
+      englishFiles.map((englishFile) => path.relative(languages.en.dir, englishFile))
+    )
+    for (const [language, { dir }] of Object.entries(languages)) {
+      if (language !== 'en') {
+        if (!fs.existsSync(dir)) {
+          throw new Error(
+            `${dir} does not exist. ` +
+              'Get around this by using the flag `--exclude-translations`. Or set up the TRANSLATION_ROOT.'
+          )
+        }
+        const languageFiles = []
+        languageFiles.push(...walkFiles(path.join(dir, 'content'), ['.md']))
+        languageFiles.push(...walkFiles(path.join(dir, 'data'), ['.md', '.yml']))
+        sourceFiles.push(
+          ...languageFiles.filter((languageFile) =>
+            englishRelativeFiles.has(path.relative(dir, languageFile))
+          )
+        )
+      }
+    }
+  }
+
   const roots = [
-    'content',
-    'data',
     'tests',
     'components',
     'script',
     'stylesheets',
     'contributing',
     'pages',
+    '.github/actions-scripts',
   ]
-  if (!excludeTranslations) {
-    roots.push('translations')
-  }
 
   for (const root of roots) {
     sourceFiles.push(
@@ -111,7 +154,9 @@ async function main(opts) {
     console.log(JSON.stringify([...allImages], undefined, 2))
   } else {
     for (const imagePath of [...allImages].sort((a, b) => a.localeCompare(b))) {
-      console.log(imagePath)
+      // It's important to escape spaces if we're ever going to pipe this
+      // to xargs.
+      console.log(`"${imagePath}"`)
     }
   }
 

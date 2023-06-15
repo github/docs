@@ -20,24 +20,24 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-scripts-ci-example.png)
+![Diagram of an event triggering a workflow that uses scripts to test code.](/assets/images/help/actions/overview-actions-using-scripts-ci-example.png)
 
 ## Features used in this example
 
 {% data reusables.actions.example-table-intro %}
 
 | **Feature**  | **Implementation** |
-| --- | --- | 
+| --- | --- |
 {% data reusables.actions.push-table-entry %}
 {% data reusables.actions.pull-request-table-entry %}
 {% data reusables.actions.workflow-dispatch-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+| Running the job on different runners, depending on the repository | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Using a third-party action: | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)|
-| Running a script on the runner: | Using `./script/rendered-content-link-checker.mjs` |
+| Using a third-party action | [`trilom/file-changes-action`](https://github.com/trilom/file-changes-action)|
+| Running a script on the runner | Using `./script/rendered-content-link-checker.mjs` |
 
 ## Example workflow
 
@@ -45,17 +45,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="table-layout: fixed;">
-<thead>
-  <tr>
-    <th style="width:100%"></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-```yaml{:copy}
+```yaml copy
 name: 'Link Checker: All English'
 
 # **What it does**: Renders the content of every page and check all internal links.
@@ -124,10 +114,6 @@ jobs:
             --check-images \
             --level critical
 ```
-</tr>
-</td>
-</tbody>
-</table>
 
 ## Understanding the example
 
@@ -136,15 +122,15 @@ jobs:
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Code</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:60%"><b>Code</b></th>
+    <th scope="col" style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 name: 'Link Checker: All English'
 ```
 </td>
@@ -156,19 +142,19 @@ name: 'Link Checker: All English'
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 on:
 ```
 </td>
 <td>
 
-The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
+The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   workflow_dispatch:
 ```
 </td>
@@ -180,7 +166,7 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   push:
     branches:
       - main
@@ -194,7 +180,7 @@ Add the `push` event, so that the workflow runs automatically every time a commi
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   pull_request:
 ```
 </td>
@@ -206,7 +192,7 @@ Add the `pull_request` event, so that the workflow runs automatically every time
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 permissions:
   contents: read
   pull-requests: read
@@ -214,14 +200,14 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
 </td>
 </tr>
 <tr>
 <td>
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
 ```
@@ -229,13 +215,13 @@ concurrency:
 </td>
 <td>
 
-Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[Using concurrency](/actions/using-jobs/using-concurrency)."
+Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   cancel-in-progress: true
 ```
 </td>
@@ -247,7 +233,7 @@ Cancels any currently running job or workflow in the same concurrency group.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 jobs:
 ```
 </td>
@@ -259,7 +245,7 @@ Groups together all the jobs that run in the workflow file.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   check-links:
 ```
 </td>
@@ -272,20 +258,20 @@ Defines a job with the ID `check-links` that is stored within the `jobs` key.
 <td>
 
 {% raw %}
-```yaml{:copy}
+```yaml copy
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
 ```
 {% endraw %}
 </td>
 <td>
 
-Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
+Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job)."
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     steps:
 ```
 </td>
@@ -297,7 +283,7 @@ Groups together all the steps that will run as part of the `check-links` job. Ea
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Checkout
         uses: {% data reusables.actions.action-checkout %}
 ```
@@ -310,7 +296,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Setup node
         uses: {% data reusables.actions.action-setup-node %}
         with:
@@ -327,7 +313,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Install
         run: npm ci
 ```
@@ -341,7 +327,7 @@ The `run` keyword tells the job to execute a command on the runner. In this case
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
         with:
@@ -357,7 +343,7 @@ Uses the `trilom/file-changes-action` action to gather all the changed files. Th
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Show files changed
         run: cat $HOME/files.json
 ```
@@ -370,7 +356,7 @@ Lists the contents of `files.json`. This will be visible in the workflow run's l
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Link check (warnings, changed files)
         run: |
           ./script/rendered-content-link-checker.mjs \
@@ -390,7 +376,7 @@ This step uses `run` command to execute a script that is stored in the repositor
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Link check (critical, all files)
         run: |
           ./script/rendered-content-link-checker.mjs \

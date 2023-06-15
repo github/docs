@@ -49,7 +49,7 @@ describe('enterprise deprecation', () => {
     expect(enterpriseServerReleases.deprecated.includes('2.13')).toBe(true)
     const $ = await getDOM('/en/enterprise/2.13/user/articles/about-branches')
     expect($.res.statusCode).toBe(200)
-    expect($('h1').text()).toBe('About branches')
+    expect($('h1').first().text()).toBe('About branches')
   })
 
   test('sets the expected headers for deprecated Enterprise pages', async () => {
@@ -95,8 +95,11 @@ describe('recently deprecated redirects', () => {
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe('/en/enterprise-server@3.0')
     expect(res.headers['set-cookie']).toBeUndefined()
-    // Deliberately no cache control because it is user-dependent
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    // language specific caching
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers.vary).toContain('accept-language')
+    expect(res.headers.vary).toContain('x-user-language')
   })
 
   test('already languaged enterprise 3.0 redirects', async () => {
@@ -108,14 +111,18 @@ describe('recently deprecated redirects', () => {
     expect(res.headers['cache-control']).toContain('public')
     expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
   })
+
   test('redirects enterprise-server 3.0 with actual redirect without language', async () => {
     const res = await get(
       '/enterprise-server@3.0/github/getting-started-with-github/githubs-products'
     )
     expect(res.statusCode).toBe(302)
     expect(res.headers['set-cookie']).toBeUndefined()
-    // Deliberately no cache control because it is user-dependent
-    expect(res.headers['cache-control']).toBe('private, no-store')
+    // language specific caching
+    expect(res.headers['cache-control']).toContain('public')
+    expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(res.headers.vary).toContain('accept-language')
+    expect(res.headers.vary).toContain('x-user-language')
     // This is based on
     // https://github.com/github/help-docs-archived-enterprise-versions/blob/master/3.0/redirects.json
     expect(res.headers.location).toBe(
@@ -207,7 +214,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
   })
 
-  it('returns the expected JS file > 2.18', async () => {
+  it('returns the expected JS file > 2.18 by using Referrer', async () => {
     const result = await get('/enterprise/2.18/dist/index.js', {
       headers: {
         Referrer: '/en/enterprise/2.18',
@@ -216,6 +223,24 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(200)
     expect(result.headers['x-is-archived']).toBe('true')
     expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
+  })
+
+  it("can not return the archived asset if there's no Referrer", async () => {
+    const result = await get('/enterprise/2.18/dist/index.js', {
+      headers: {
+        // No Referrer header set at all.
+      },
+    })
+    expect(result.statusCode).toBe(404)
+  })
+
+  it('can not return the archived asset if empty Referrer', async () => {
+    const result = await get('/enterprise/2.18/dist/index.js', {
+      headers: {
+        Referrer: '',
+      },
+    })
+    expect(result.statusCode).toBe(404)
   })
 
   it('returns the expected JS file', async () => {

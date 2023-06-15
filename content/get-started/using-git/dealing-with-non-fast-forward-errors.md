@@ -25,7 +25,7 @@ $ git push origin main
 > 'Note about fast-forwards' section of 'git push --help' for details.
 ```
 
-You can fix this by [fetching and merging](/github/getting-started-with-github/getting-changes-from-a-remote-repository) the changes made on the remote branch with the changes that you have made locally:
+You can fix this by [fetching and merging](/get-started/using-git/getting-changes-from-a-remote-repository) the changes made on the remote branch with the changes that you have made locally:
 
 ```shell
 $ git fetch origin

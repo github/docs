@@ -16,10 +16,9 @@ jobs:
 
     steps:
       - name: Check out repo
-        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
-      - name: Install dependencies
-        run: npm ci
+      - uses: ./.github/actions/node-npm-setup
 
       - name: Soft-purge Fastly cache
         env:

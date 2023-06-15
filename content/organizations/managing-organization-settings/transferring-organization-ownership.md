@@ -22,10 +22,10 @@ shortTitle: Transfer ownership
 
 {% endnote %}{% endif %}
 
-1. If you're the only member with *owner* privileges, give another organization member the owner role. For more information, see "[Appointing an organization owner](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."
-2. Contact the new owner and make sure they are able to [access the organization's settings](/articles/accessing-your-organization-s-settings).
+1. If you're the only member with *owner* privileges, give another organization member the owner role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization#appointing-an-organization-owner)."
+2. Contact the new owner and make sure they are able to [access the organization's settings](/organizations/collaborating-with-groups-in-organizations/accessing-your-organizations-settings).
 {% ifversion fpt or ghec %}
-3. If you are currently responsible for paying for GitHub in your organization, you'll also need to have the new owner or a [billing manager](/articles/adding-a-billing-manager-to-your-organization/) update the organization's payment information. For more information, see "[Adding or editing a payment method](/articles/adding-or-editing-a-payment-method)."
+3. If you are currently responsible for paying for GitHub in your organization, you'll also need to have the new owner or a [billing manager](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization) update the organization's payment information. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)."
 
   {% warning %}
 
@@ -34,4 +34,4 @@ shortTitle: Transfer ownership
   {% endwarning %}
 
 {% endif %}
-4. [Remove yourself](/articles/removing-yourself-from-an-organization) from the organization.
+4. [Remove yourself](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization) from the organization.

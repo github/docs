@@ -3,7 +3,6 @@ title: Managing GitHub Codespaces for your organization
 allowTitleToDifferFromFilename: true
 shortTitle: Managing your organization
 intro: 'You can manage and review how users in your organization can use  {% data variables.product.prodname_github_codespaces %}.'
-product: '{% data reusables.gated-features.codespaces %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -21,5 +20,6 @@ children:
   - /restricting-the-visibility-of-forwarded-ports
   - /restricting-the-idle-timeout-period
   - /restricting-the-retention-period-for-codespaces
+product: '{% data reusables.gated-features.codespaces-org %}'
 ---
  

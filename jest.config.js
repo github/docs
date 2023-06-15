@@ -1,16 +1,10 @@
 // https://jestjs.io/docs/en/configuration.html
 
-const isBrowser = process.env.BROWSER
 const isActions = Boolean(process.env.GITHUB_ACTIONS)
-const testTranslation = Boolean(process.env.TEST_TRANSLATION)
 
-let reporters = ['default']
+const reporters = ['default']
 
-if (testTranslation) {
-  // only use custom reporter if we are linting translations
-  // Remove this when removing translations directory B504EDD0
-  reporters = ['<rootDir>/tests/helpers/lint-translation-reporter.js']
-} else if (isActions) {
+if (isActions) {
   reporters.push('jest-github-actions-reporter')
 }
 
@@ -23,22 +17,20 @@ export default {
       statements: -5,
     },
   },
-  preset: isBrowser ? 'jest-puppeteer' : undefined,
   moduleNameMapper: {
     // fix for "Unexpected token 'export'" error when running jest
     '@primer/behaviors': '<rootDir>/node_modules/@primer/behaviors/dist/cjs/index.js',
   },
   reporters,
   modulePathIgnorePatterns: ['assets/'],
-  setupFilesAfterEnv: ['./jest.setup.js', '@alex_neo/jest-expect-message'],
-  ...(isBrowser ? {} : { testEnvironment: 'node' }),
+  setupFilesAfterEnv: ['./jest.setup.js', 'jest-expect-message'],
+  testEnvironment: 'node',
   testPathIgnorePatterns: [
     'node_modules/',
     'vendor/',
     'tests/fixtures/',
     'tests/helpers/',
     'tests/javascripts/',
-    ...(isBrowser ? [] : ['tests/browser/browser.js']),
   ],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,

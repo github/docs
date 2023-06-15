@@ -19,12 +19,12 @@ You can choose to join an organization owned by your enterprise as a member or a
 {% ifversion ghec %}
 {% warning %}
 
-**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. For more information, see "[About SCIM for organizations](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
+**Warning**: If an organization uses SCIM to provision users, joining the organization this way could have unintended consequences. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)."
 
 {% endwarning %}
 {% endif %}
 
-For information about managing other people's roles in an organization, see "[Managing membership in your organization](/organizations/managing-membership-in-your-organization)" and "[Managing people's access to your organization with roles](/organizations/managing-peoples-access-to-your-organization-with-roles)."
+For information about managing other people's roles in an organization, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization)" and "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles)."
 
 ## Managing your role with the enterprise settings
 
@@ -37,9 +37,9 @@ If an organization enforces SAML single sign-on (SSO), you cannot use the enterp
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. On the **Organizations** tab, to the right of the organization you want to manage your role in, select the {% octicon "gear" aria-label="The gear icon" %} dropdown menu and click the action you want to take.
+1. Next to the organization you want to manage your role in, select the {% octicon "gear" aria-label="Organization settings" %} dropdown menu and click **Join as an organization owner** or **Join as an organization member**.
 
-   ![Screenshot of the dropdown menu for the gear icon for an organization](/assets/images/help/business-accounts/change-role-in-org.png)
+   {% data reusables.enterprise-accounts.organization-settings-dropdown %}
 
 {% ifversion ghec %}
 

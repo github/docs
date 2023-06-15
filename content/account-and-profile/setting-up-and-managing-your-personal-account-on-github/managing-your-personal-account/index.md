@@ -14,6 +14,7 @@ children:
   - /merging-multiple-personal-accounts
   - /converting-a-user-into-an-organization
   - /best-practices-for-leaving-your-company
+  - /unlinking-your-email-address-from-a-locked-account
   - /deleting-your-personal-account
 ---
 

@@ -22,7 +22,7 @@ If you have a specific requirement that isn't met by this environment, such as s
 
 ## Creating a pre-receive hook environment using Docker
 
-You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](http://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
+You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](https://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
 
 {% data reusables.linux.ensure-docker %}
 2. Create the file `Dockerfile.alpine-3.3` that contains this information:
@@ -74,23 +74,18 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 
    {% endnote %}
 
-For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the *Ubuntu Community Help Wiki*, or "[Installing Alpine Linux in a chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the *Alpine Linux Wiki*.
+For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the *Ubuntu Community Help Wiki*, or "[Installing Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the *Alpine Linux Wiki*.
 
 ## Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-5. Click **Manage environments**.
-![Manage Environments](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
-6. Click **Add environment**.
-![Add Environment](/assets/images/enterprise/site-admin-settings/add-pre-receive-environment.png)
-7. Enter the desired name in the **Environment name** field.
-![Environment name](/assets/images/enterprise/site-admin-settings/pre-receive-environment-name.png)
-8. Enter the URL of the `*.tar.gz` file that contains your environment.
-![Upload environment from a URL](/assets/images/enterprise/site-admin-settings/upload-environment-from-url.png)
-9. Click **Add environment**.
-![Add environment button](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
+1. Click **Manage environments**.
+1. Click **Add environment**.
+1. In the "Environment name" field, enter the desired name.
+1. In the "Upload environment from a URL" field, enter the URL of the `*.tar.gz` file that contains your environment.
+1. Click **Add environment**.
 
 ## Uploading a pre-receive hook environment via the administrative shell
 1. Upload a readable `*.tar.gz` file that contains your environment to a web host and copy the URL or transfer the file to the {% data variables.product.prodname_ghe_server %} appliance via `scp`. When using `scp`, you may need to adjust the `*.tar.gz` file permissions so that the file is world readable.

@@ -4,4 +4,4 @@ Hotpatch upgrades to GitHub Enterprise Server {% ifversion ghes = 3.4 %}3.4.9{% 
 echo "grub-pc grub-pc/install_devices_empty boolean true" | sudo debconf-set-selections
 ```
 
-If you're unable to upgrade, or if you need further assistance, contact GitHub Support. For more information, see "[Creating a support ticket](/support/contacting-github-support/creating-a-support-ticket)." [Updated: 2022-10-14]
+If you're unable to upgrade, or if you need further assistance, contact GitHub Support. For more information, see "[AUTOTITLE](/support/contacting-github-support/creating-a-support-ticket)." [Updated: 2022-10-14]

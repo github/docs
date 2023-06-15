@@ -20,7 +20,7 @@ topics:
 
 {% data reusables.actions.example-diagram-intro %}
 
-![Overview diagram of workflow steps](/assets/images/help/images/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
+![Diagram of an event triggering a workflow that uses a test matrix.](/assets/images/help/actions/overview-actions-using-concurrency-expressions-and-a-test-matrix.png)
 
 ## Features used in this example
 
@@ -33,13 +33,15 @@ topics:
 {% data reusables.actions.cron-table-entry %}
 {% data reusables.actions.permissions-table-entry %}
 {% data reusables.actions.concurrency-table-entry %}
-| Running the job on different runners, depending on the repository: | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
+| Running the job on different runners, depending on the repository | [`runs-on`](/actions/using-jobs/choosing-the-runner-for-a-job)|
 {% data reusables.actions.if-conditions-table-entry %}
-| Using a matrix to create different test configurations: | [`matrix`](/actions/using-jobs/using-a-build-matrix-for-your-jobs)|
+| Using a matrix to create different test configurations | [`matrix`](/actions/using-jobs/using-a-matrix-for-your-jobs)|
 {% data reusables.actions.checkout-action-table-entry %}
 {% data reusables.actions.setup-node-table-entry %}
-| Caching dependencies: | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)|
-| Running tests on the runner: | `npm test`|
+{%- ifversion actions-caching %}
+| Caching dependencies | [`actions/cache`](/actions/advanced-guides/caching-dependencies-to-speed-up-workflows)|
+{%- endif %}
+| Running tests on the runner | `npm test`|
 
 ## Example workflow
 
@@ -47,17 +49,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-<table style="table-layout: fixed;">
-<thead>
-  <tr>
-    <th style="width:100%"></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-```yaml{:copy}
+```yaml copy
 name: Node.js Tests
 
 # **What it does**: Runs our tests.
@@ -206,10 +198,6 @@ jobs:
           CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
         run: npm test -- {% raw %}tests/${{ matrix.test-group }}/{% endraw %}
 ```
-</tr>
-</td>
-</tbody>
-</table>
 
 ## Understanding the example
 
@@ -218,15 +206,15 @@ jobs:
 <table style="table-layout: fixed;">
 <thead>
   <tr>
-    <th style="width:60%"><b>Code</b></th>
-    <th style="width:40%"><b>Explanation</b></th>
+    <th scope="col" style="width:60%"><b>Code</b></th>
+    <th scope="col" style="width:40%"><b>Explanation</b></th>
   </tr>
 </thead>
 <tbody>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 name: Node.js Tests
 ```
 </td>
@@ -238,31 +226,31 @@ name: Node.js Tests
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 on:
 ```
 </td>
 <td>
 
-The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[Triggering a workflow](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
+The `on` keyword lets you define the events that trigger when the workflow is run. You can define multiple events here. For more information, see "[AUTOTITLE](/actions/using-workflows/triggering-a-workflow#using-events-to-trigger-workflows)."
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   workflow_dispatch:
 ```
 </td>
 <td>
 
-Add the `workflow_dispatch` event if you want to be able to manually run this workflow in the UI. For more information, see [`workflow_dispatch`](/actions/reference/events-that-trigger-workflows#workflow_dispatch).
+Add the `workflow_dispatch` event if you want to be able to manually run this workflow in the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   pull_request:
 ```
 </td>
@@ -274,7 +262,7 @@ Add the `pull_request` event, so that the workflow runs automatically every time
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   push:
     branches:
       - main
@@ -288,7 +276,7 @@ Add the `push` event, so that the workflow runs automatically every time a commi
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 permissions:
   contents: read
   pull-requests: read
@@ -296,27 +284,27 @@ permissions:
 </td>
 <td>
 
-Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[Assigning permissions to jobs](/actions/using-jobs/assigning-permissions-to-jobs)."
+Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depending on the needs of your workflow. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
 </td>
 </tr>
 <tr>
 <td>
 
 
-```yaml{:copy}
+```yaml copy
 concurrency:
   group: {% raw %}'${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'{% endraw %}
 ```
 </td>
 <td>
 
-Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[Using concurrency](/actions/using-jobs/using-concurrency)."
+Creates a concurrency group for specific events, and uses the `||` operator to define fallback values. For more information, see "[AUTOTITLE](/actions/using-jobs/using-concurrency)."
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   cancel-in-progress: true
 ```
 </td>
@@ -328,7 +316,7 @@ Cancels any currently running job or workflow in the same concurrency group.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 jobs:
 ```
 </td>
@@ -340,7 +328,7 @@ Groups together all the jobs that run in the workflow file.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   test:
 ```
 </td>
@@ -352,19 +340,19 @@ Defines a job with the ID `test` that is stored within the `jobs` key.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     runs-on: {% raw %}${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}{% endraw %}
 ```
 </td>
 <td>
 
-Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[Choosing the runner for a job](/actions/using-jobs/choosing-the-runner-for-a-job)."
+Configures the job to run on a {% data variables.product.prodname_dotcom %}-hosted runner or a self-hosted runner, depending on the repository running the workflow. In this example, the job will run on a self-hosted runner if the repository is named `docs-internal` and is within the `github` organization. If the repository doesn't match this path, then it will run on an `ubuntu-latest` runner hosted by {% data variables.product.prodname_dotcom %}. For more information on these options see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job)."
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     timeout-minutes: 60
 ```
 </td>
@@ -376,7 +364,7 @@ Sets the maximum number of minutes to let the job run before it is automatically
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     strategy:
 ```
 </td>
@@ -387,7 +375,7 @@ Sets the maximum number of minutes to let the job run before it is automatically
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       fail-fast: false
 ```
 </td>
@@ -399,7 +387,7 @@ Setting `fail-fast` to `false` prevents {% data variables.product.prodname_dotco
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       matrix:
         test-group:
           [
@@ -422,7 +410,7 @@ Creates a matrix named `test-group`, with an array of test groups. These values 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     steps:
 ```
 </td>
@@ -434,7 +422,7 @@ Groups together all the steps that will run as part of the `test` job. Each job 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Check out repo
         uses: {% data reusables.actions.action-checkout %}
         with:
@@ -450,7 +438,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Figure out which docs-early-access branch to checkout, if internal repo
         if: {% raw %}${{ github.repository == 'github/docs-internal' }}{% endraw %}
         id: check-early-access
@@ -490,7 +478,7 @@ If the current repository is the `github/docs-internal` repository, this step us
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Check out docs-early-access too, if internal repo
         if: {% raw %}${{ github.repository == 'github/docs-internal' }}{% endraw %}
         uses: {% data reusables.actions.action-checkout %}
@@ -508,7 +496,7 @@ If the current repository is the `github/docs-internal` repository, this step ch
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Merge docs-early-access repo's folders
         if: {% raw %}${{ github.repository == 'github/docs-internal' }}{% endraw %}
         run: |
@@ -526,7 +514,7 @@ If the current repository is the `github/docs-internal` repository, this step us
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Checkout LFS objects
         run: git lfs checkout
 ```
@@ -540,7 +528,7 @@ This step runs a command to check out LFS objects from the repository.
 <td>
 
 
-```yaml{:copy}
+```yaml copy
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
         id: get_diff_files
@@ -558,7 +546,7 @@ This step uses the `trilom/file-changes-action` action to gather the files chang
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Insight into changed files
         run: |
           echo {% raw %}"${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt{% endraw %}
@@ -572,7 +560,7 @@ This step runs a shell command that uses an output from the previous step to cre
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Setup node
         uses: {% data reusables.actions.action-setup-node %}
         with:
@@ -588,7 +576,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Install dependencies
         run: npm ci
 ```
@@ -601,7 +589,7 @@ This step runs the `npm ci` shell command to install the npm software packages f
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Cache nextjs build
         uses: {% data reusables.actions.action-cache %}
         with:
@@ -611,18 +599,20 @@ This step runs the `npm ci` shell command to install the npm software packages f
 </td>
 <td>
 
-This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+{% ifversion actions-caching %}
+This step uses the `actions/cache` action to cache the Next.js build, so that the workflow will attempt to retrieve a cache of the build, and not rebuild it from scratch every time. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Run build script
         run: npm run build
 ```
 </td>
 <td>
+{% endif %}
 
 This step runs the build script.
 </td>
@@ -630,7 +620,7 @@ This step runs the build script.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt

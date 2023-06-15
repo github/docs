@@ -17,7 +17,7 @@ jobs:
     if: github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
           github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
           script: |
@@ -30,7 +30,7 @@ jobs:
             const titleWordCountMin = 3
 
             try {
-              await github.teams.getMembershipForUserInOrg({
+              await github.rest.teams.getMembershipForUserInOrg({
                 org: 'github',
                 team_slug: 'employees',
                 username: context.payload.sender.login,
@@ -54,7 +54,7 @@ jobs:
             //
 
             // Close the issue and add the invalid label
-            await github.issues.update({
+            await github.rest.issues.update({
               owner: owner,
               repo: repo,
               issue_number: issue.number,
@@ -63,7 +63,7 @@ jobs:
             });
 
             // Comment on the issue
-            await github.issues.createComment({
+            await github.rest.issues.createComment({
               owner: owner,
               repo: repo,
               issue_number: issue.number,
@@ -72,7 +72,7 @@ jobs:
 
             // Add the issue to the Done column on the triage board
             try {
-              await github.projects.createCard({
+              await github.rest.projects.createCard({
                 column_id: 11167427,
                 content_id: context.payload.issue.id,
                 content_type: "Issue"

@@ -2,7 +2,6 @@
 title: Configuring OpenID Connect in Amazon Web Services
 shortTitle: OpenID Connect in AWS
 intro: Use OpenID Connect within your workflows to authenticate with Amazon Web Services.
-miniTocMaxHeadingLevel: 3
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,8 +10,7 @@ type: tutorial
 topics:
   - Security
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -40,7 +38,7 @@ To configure the role and trust in IAM, see the AWS documentation for ["Assuming
 
 Edit the trust policy to add the `sub` field to the validation conditions. For example:
 
-```json{:copy}
+```json copy
 "Condition": {
   "StringEquals": {
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
@@ -49,9 +47,9 @@ Edit the trust policy to add the `sub` field to the validation conditions. For e
 }
 ```
 
-In the following example, `ForAllValues` is used to match on multiple condition keys, and `StringLike` is used to match any ref in the specified repository. Note that `ForAllValues` is [overly permissive](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) and should not be used on its own in an `Allow` effect. For this example, the inclusion of `StringLike` means that an empty set in `ForAllValues` will still not pass the condition:
+In the following example, `StringLike` is used with a wildcard operator (`*`) to allow any branch, pull request merge branch, or environment from the `octo-org/octo-repo` organization and repository to assume a role in AWS.
 
-```json{:copy}
+```json copy
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -65,8 +63,7 @@ In the following example, `ForAllValues` is used to match on multiple condition 
                 "StringLike": {
                     "token.actions.githubusercontent.com:sub": "repo:octo-org/octo-repo:*"
                 },
-                "ForAllValues:StringEquals": {
-                    "token.actions.githubusercontent.com:iss": "https://token.actions.githubusercontent.com",
+                "StringEquals": {
                     "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
                 }
             }
@@ -94,7 +91,7 @@ The `aws-actions/configure-aws-credentials` action receives a JWT from the {% da
 - `<role-to-assume>`: Replace the example with your AWS role.
 - `<example-aws-region>`: Add the name of your AWS region here.
 
-```yaml{:copy}
+```yaml copy
 # Sample workflow to access AWS resources when workflow is tied to branch
 # The workflow Creates static website using aws s3
 name: AWS example workflow
@@ -114,7 +111,7 @@ jobs:
       - name: Git clone the repository
         uses: {% data reusables.actions.action-checkout %}
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::1234567890:role/example-role
           role-session-name: samplerolesession

@@ -17,7 +17,7 @@ enum NotificationType {
 
 type Notif = {
   content: string
-  type: NotificationType
+  type?: NotificationType
 }
 export const HeaderNotifications = () => {
   const router = useRouter()
@@ -30,7 +30,7 @@ export const HeaderNotifications = () => {
 
   const translationNotices: Array<Notif> = []
   if (router.locale === 'en') {
-    if (userLanguage && userLanguage !== 'en') {
+    if (userLanguage && userLanguage !== 'en' && languages[userLanguage]) {
       let href = `/${userLanguage}`
       if (currentPathWithoutLanguage !== '/') {
         href += currentPathWithoutLanguage
@@ -90,7 +90,7 @@ export const HeaderNotifications = () => {
             className={cx(
               'flash flash-banner',
               styles.container,
-              'text-center f5 color-fg-default py-4 px-6',
+              'text-center f5 color-fg-default py-4 px-6 z-1',
               type === NotificationType.TRANSLATION && 'color-bg-accent',
               type === NotificationType.RELEASE && 'color-bg-accent',
               type === NotificationType.EARLY_ACCESS && 'color-bg-danger',

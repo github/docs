@@ -25,10 +25,10 @@ redirect_from:
 
 ## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
 
-You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[Enforcing GitHub Actions policies for your enterprise](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)."
+You can use policies to manage access to {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)."
 
 ## Adding runners
 
-You must configure and host your own machines to run jobs for your enterprise on {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} For more information, see "[Getting started with self-hosted runners for your enterprise](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)" and "[Hosting your own runners](/actions/hosting-your-own-runners)."
+You must configure and host your own machines to run jobs for your enterprise on {% data variables.product.product_name %}. {% data reusables.actions.about-self-hosted-runners %} For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-self-hosted-runners-for-your-enterprise)" and "[AUTOTITLE](/actions/hosting-your-own-runners)."
 
 {% data reusables.actions.general-security-hardening %}

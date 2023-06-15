@@ -11,8 +11,7 @@ topics:
   - CD
   - Azure App Service
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -23,7 +22,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 
@@ -39,7 +38,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    For example, you can use the Azure CLI to create an Azure App Service web app with a .NET runtime:
 
-   ```bash{:copy}
+   ```bash copy
    az webapp create \
        --name MY_WEBAPP_NAME \
        --plan MY_APP_SERVICE_PLAN \
@@ -63,7 +62,7 @@ Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of
 
 {% data reusables.actions.delete-env-key %}
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
@@ -127,7 +126,7 @@ jobs:
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
+        uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
         with:
           app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}

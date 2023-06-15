@@ -9,6 +9,7 @@ topics:
   - Projects
 children:
   - /creating-a-project
+  - /copying-an-existing-project
   - /migrating-from-projects-classic
 allowTitleToDifferFromFilename: true
 ---
