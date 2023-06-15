@@ -32,6 +32,8 @@ async function main() {
     MD009: true,
     MD011: true,
     MD012: true,
+    MD018: true,
+    MD019: true,
     MD014: true,
     MD024: true,
     MD111: true,

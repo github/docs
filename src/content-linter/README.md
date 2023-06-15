@@ -12,6 +12,8 @@ We are using the [markdownlint](https://github.com/DavidAnson/markdownlint) fram
 | [MD009](https://github.com/DavidAnson/markdownlint/blob/main/doc/md009.md) | No unnecessary whitespace from the end of the line. | warning |
 | [MD012](https://github.com/DavidAnson/markdownlint/blob/main/doc/md012.md) | No unnecessary blank lines. | warning |
 | [MD014](https://github.com/DavidAnson/markdownlint/blob/main/doc/md014.md) | Dollar signs should not be used before commands without showing output. | error |
+| [MD018](https://github.com/DavidAnson/markdownlint/blob/main/doc/md018.md) | Must have one space after a hash style heading. | error |
+| [MD019](https://github.com/DavidAnson/markdownlint/blob/main/doc/md019.md) | Must not have spaces after a hash style heading. | error |
 | [MD024](https://github.com/DavidAnson/markdownlint/blob/main/doc/md024.md) | Disallow headings with the same content. | error |
 | [MD011](https://github.com/DavidAnson/markdownlint/blob/main/doc/md011.md) | Make sure that link syntax is not reversed. | error |
 | [MD111](./linting-rules/image-alt-text-length.js) | Images alternate text should be between 40-150 characters. | warning |
