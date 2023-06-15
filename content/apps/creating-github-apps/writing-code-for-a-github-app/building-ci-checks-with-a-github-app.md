@@ -172,7 +172,7 @@ Make sure that you are on a secure machine before performing these steps since y
 1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your app's credentials.
 1. Add the following contents to your `.env` file. {% ifversion ghes or ghae %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
 
-   ```{:copy}
+   ```ini copy
    GITHUB_APP_IDENTIFIER="YOUR_APP_ID"
    GITHUB_WEBHOOK_SECRET="YOUR_WEBHOOK_SECRET"
    GITHUB_PRIVATE_KEY="YOUR_PRIVATE_KEY"
@@ -188,7 +188,7 @@ Make sure that you are on a secure machine before performing these steps since y
 
    Here is an example .env file:
 
-   ```
+   ```ini
    GITHUB_APP_IDENTIFIER=12345
    GITHUB_WEBHOOK_SECRET=your webhook secret
    GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
@@ -802,7 +802,7 @@ require 'git'
 
 ### Update your app permissions
 
-Next you'll need to update your {% data variables.product.prodname_github_app %}'s permissions. Your app will need read permission for "Repository contents" to clone a repository. And later in this tutorial, it will need write permission to push contents to {% data variables.product.prodname_dotcom %}. To update your app's permissions:
+Next you'll need to update your {% data variables.product.prodname_github_app %}'s permissions. Your app will need read permission for "Contents" to clone a repository. And later in this tutorial, it will need write permission to push contents to {% data variables.product.prodname_dotcom %}. To update your app's permissions:
 
 1. Select your app from the [app settings page](https://github.com/settings/apps), and click **Permissions & events** in the sidebar.
 1. Under "Repository permissions," next to "Contents," select **Read & write**.
@@ -952,17 +952,19 @@ The following steps will show you how to test that the code works and view the e
 
 ## Step 2.4. Collect RuboCop errors
 
-The `@output` variable contains the parsed JSON results of the RuboCop report. As shown above, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
+The `@output` variable contains the parsed JSON results of the RuboCop report. As shown in the example output in the previous step, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
 
-The Checks API allows you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this tutorial you are [updating the check run](/rest/checks#update-a-check-run) with annotations.
+The REST API checks endpoints allow you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this tutorial you will update the check run with annotations, using the "[Update a check run](/rest/checks#update-a-check-run)" endpoint.
 
-The Checks API limits the number of annotations to a maximum of 50 per API request. To create more than 50 annotations, you have to make multiple requests to the [AUTOTITLE](/rest/checks#update-a-check-run) endpoint. For example, to create 105 annotations you'd need to call the [AUTOTITLE](/rest/checks#update-a-check-run) endpoint three times. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
+The API limits the number of annotations to a maximum of 50 per request. To create more than 50 annotations, you will have to make multiple requests to the "Update a check run" endpoint. For example, to create 105 annotations you would need to make three separate requests to the API. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
 
-A check run expects annotations as an array of objects. Each annotation object must include the `path`, `start_line`, `end_line`, `annotation_level`, and `message`. RuboCop provides the `start_column` and `end_column` too, so you can include those optional parameters in the annotation. Annotations only support `start_column` and `end_column` on the same line. See the [`annotations` object](/rest/checks#annotations-object-1) reference documentation for details.
+A check run expects annotations as an array of objects. Each annotation object must include the `path`, `start_line`, `end_line`, `annotation_level`, and `message`. RuboCop provides the `start_column` and `end_column` too, so you can include those optional parameters in the annotation. Annotations only support `start_column` and `end_column` on the same line. For more information, see the `annotations` object in "[AUTOTITLE](/rest/checks/runs#create-a-check-run)."
 
-You'll extract the required information from RuboCop needed to create each annotation. Append the following code to the code you added in the [previous section](#step-23-running-rubocop):
+Now you'll add code to extract the required information from RuboCop that's needed to create each annotation.
 
-``` ruby
+In the [previous step](#step-23-run-rubocop), you added code under `clone_repository` that runs RuboCop on all files in the repository and outputs the linting results as JSON. Immediately under that code block, below `@output = JSON.parse @report`, add the following code:
+
+``` ruby{:copy}
 annotations = []
 # You can create a maximum of 50 annotations per request to the Checks
 # API. To add more than 50 annotations, use the "Update a check run" API
@@ -1027,17 +1029,33 @@ This code doesn't yet create an annotation for the check run. You'll add that co
 
 ## Step 2.5. Update the check run with CI test results
 
-Each check run from {% data variables.product.prodname_dotcom %} contains an `output` object that includes a `title`, `summary`, `text`, `annotations`, and `images`. The `summary` and `title` are the only required parameters for the `output`, but those alone don't offer much detail, so this tutorial adds `text` and `annotations` too. The code here doesn't add an image, but feel free to add one if you'd like!
+Each check run from {% data variables.product.prodname_dotcom %} contains an `output` object that includes a `title`, `summary`, `text`, `annotations`, and `images`. The `summary` and `title` are the only required parameters for the `output`, but those alone don't offer much detail, so this tutorial also adds `text` and `annotations`.
 
-For the `summary`, this example uses the summary information from RuboCop and adds some newlines (`\n`) to format the output. You can customize what you add to the `text` parameter, but this example sets the `text` parameter to the RuboCop version. To set the `summary` and `text`, append this code to the code you added in the [previous section](#step-24-collecting-rubocop-errors):
+For the `summary`, this example uses the summary information from RuboCop and adds newlines (`\n`) to format the output. You can customize what you add to the `text` parameter, but this example sets the `text` parameter to the RuboCop version. The following code sets the `summary` and `text`.
 
-``` ruby
+In the [previous step](#step-24-collect-rubocop-errors), you appended code to an existing code block in your `server.rb` file. The end of that code block should look like this:
+
+```ruby
+      # Annotations only support start and end columns on the same line
+      if start_line == end_line
+        annotation.merge({start_column: start_column, end_column: end_column})
+      end
+
+      annotations.push(annotation)
+    end
+  end
+end
+```
+
+Below the final `end`, add the following code:
+
+``` ruby{:copy}
 # Updated check run summary and text parameters
 summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_count']}\n-File count: #{@output['summary']['target_file_count']}\n-Target file count: #{@output['summary']['inspected_file_count']}"
 text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 ```
 
-Now you've got all the information you need to update your check run. In the [first half of this tutorial](#step-14-updating-a-check-run), you added this code to set the status of the check run to `success`:
+Now your code should have all the information it needs to update your check run. In [Part 1 of this tutorial](#step-13-updating-a-check-run), you added code to set the status of the check run to `success`. You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). Here's the code you added previously to your `server.rb` file:
 
 ``` ruby
 # Mark the check run as complete!
@@ -1050,9 +1068,9 @@ Now you've got all the information you need to update your check run. In the [fi
 )
 ```
 
-You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). You can update the code with the following:
+Replace that code with the following code:
 
-``` ruby
+``` ruby{:copy}
 # Mark the check run as complete! And if there are warnings, share them.
 @installation_client.update_check_run(
   @payload['repository']['full_name'],
@@ -1074,34 +1092,46 @@ You'll need to update that code to use the `conclusion` variable you set based o
 )
 ```
 
-Now that you're setting a conclusion based on the status of the CI test and you've added the output from the RuboCop results, you've created a CI test! Congratulations. 🙌
+Now that your code sets a conclusion based on the status of the CI test, and adds the output from the RuboCop results, you've created a CI test.
 
 The code above also adds a feature to your CI server called [requested actions](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) via the `actions` object. {% ifversion fpt or ghec %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}Requested actions add a button in the **Checks** tab on {% data variables.product.prodname_dotcom %} that allows someone to request the check run to take additional action. The additional action is completely configurable by your app. For example, because RuboCop has a feature to automatically fix the errors it finds in Ruby code, your CI server can use a requested actions button to allow people to request automatic error fixes. When someone clicks the button, the app receives the `check_run` event with a `requested_action` action. Each requested action has an `identifier` that the app uses to determine which button was clicked.
 
-The code above doesn't have RuboCop automatically fix errors yet. You'll add that in the next section. But first, take a look at the CI test that you just created by starting up the `server.rb` server again and creating a new pull request:
+The code above doesn't have RuboCop automatically fix errors yet. You'll add that later in the tutorial.
 
-```shell
-$ ruby server.rb
-```
+### Test the code
 
-The annotations will show up in the **Checks** tab. Also notice the "Fix this" button that you created by adding a requested action.
+The following steps will show you how to test that the code works, and view the CI test that you just created.
+
+1. Run the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
+
+   ```shell{:copy}
+   ruby server.rb
+   ```
+
+2. In the repository where you installed your app, create a new pull request.
+3. In the pull request you just created, navigate to the **Checks** tab.
+
+You should see annotations for each of the errors that RuboCop found. Also notice the "Fix this" button that you created by adding a requested action.
 
 If the annotations are related to a file already included in the PR, the annotations will also show up in the **Files changed** tab.
 
 ## Step 2.6. Automatically fix RuboCop errors
 
-If you've made it this far, kudos! 👏 You've already created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in the [previous section](#step-25-updating-the-check-run-with-ci-test-results). Now you'll add the code to handle the `requested_action` check run event triggered when someone clicks the "Fix this" button.
+So far you've created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in the [previous section](#step-25-update-the-check-run-with-ci-test-results). Now you'll add the code to handle the `requested_action` check run event that's triggered when someone clicks the "Fix this" button.
 
-The RuboCop tool [offers](https://docs.rubocop.org/rubocop/usage/basic_usage.html#auto-correcting-offenses) the `--auto-correct` command-line option to automatically fix errors it finds. When you use the `--auto-correct` feature, the updates are applied to the local files on the server. You'll need to push the changes to {% data variables.product.prodname_dotcom %} after RuboCop does its magic.
+The RuboCop tool offers the `--auto-correct` command-line option to automatically fix the errors it finds. For more information, see "[Autocorrecting offenses](https://docs.rubocop.org/rubocop/usage/basic_usage.html#autocorrecting-offenses)" in the RuboCop documentation. When you use the `--auto-correct` feature, the updates are applied to the local files on the server. You'll need to push the changes to {% data variables.product.prodname_dotcom %} after RuboCop makes the fixes.
 
-To push to a repository, your app must have write permissions for "Repository contents." You set that permission back in [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) to **Read & write**, so you're all set.
+To push to a repository, your app must have write permissions for "Contents" in a repository. You already set that permission to **Read & write** back in [Step 2.2. Cloning the repository](#step-22-clone-the-repository).
 
-In order to commit files, Git must know which [username](/get-started/getting-started-with-git/setting-your-username-in-git) and [email](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address) to associate with the commit. Add two more environment variables in your `.env` file to store the name (`GITHUB_APP_USER_NAME`) and email (`GITHUB_APP_USER_EMAIL`) settings. Your name can be the name of your app and the email can be any email you'd like for this example. For example:
+To commit files, Git must know which username and email address to associate with the commit. Next you'll add environment variables to store the name (`GITHUB_APP_USER_NAME`) and email (`GITHUB_APP_USER_EMAIL`) that your app will use when it makes Git commits.
 
-```ini
-GITHUB_APP_USER_NAME=Octoapp
-GITHUB_APP_USER_EMAIL=octoapp@octo-org.com
-```
+1. Open the `.env` file you created earlier in this tutorial.
+2. Add the following environment variables to your `.env` file. Replace `APP_NAME` with the name of your app, and `EMAIL_ADDRESS` with any email you'd like to use for this example.
+
+   ```ini code
+   GITHUB_APP_USER_NAME="APP_NAME"
+   GITHUB_APP_USER_EMAIL="EMAIL_ADDRESS"
+   ```
 
 Once you've updated your `.env` file with the name and email of the author and committer, you'll be ready to add code to read the environment variables and set the Git configuration. You'll add that code soon.
 
