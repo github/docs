@@ -12,6 +12,7 @@ We are using the [markdownlint](https://github.com/DavidAnson/markdownlint) fram
 | [MD009](https://github.com/DavidAnson/markdownlint/blob/main/doc/md009.md) | No unnecessary whitespace from the end of the line. | warning |
 | [MD014](https://github.com/DavidAnson/markdownlint/blob/main/doc/md014.md) | Dollar signs should not be used before commands without showing output. | error |
 | [MD024](https://github.com/DavidAnson/markdownlint/blob/main/doc/md024.md) | Disallow headings with the same content. | error |
+| [MD011](https://github.com/DavidAnson/markdownlint/blob/main/doc/md011.md) | Make sure that link syntax is not reversed. | error |
 | [MD111](./linting-rules/image-alt-text-length.js) | Images alternate text should be between 40-150 characters. | warning |
 | [MD112](./linting-rules/image-alt-text-end-punctuation.js) | Images alternate text should end with a punctuation. | error |
 | [MD113](./linting-rules/internal-links-slash.js) | Internal links must start with a `/`. | error |
