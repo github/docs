@@ -23,7 +23,7 @@ Gists can be {% ifversion ghae %}internal{% else %}public{% endif %} or secret. 
 
 Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable unless you are logged in and are the author of the secret gist. Secret gists aren't private. If you send the URL of a secret gist to {% ifversion ghae %}another enterprise member{% else %}a friend{% endif %}, they'll be able to see it. However, if {% ifversion ghae %}any other enterprise member{% else %}someone you don't know{% endif %} discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) instead.
 
-{% data reusables.gist.cannot-convert-public-gists-to-secret %}
+{% data reusables.gist.cannot-convert-public-gists-to-secret %}. However, a secret gist can be made public by editing the gist and updating the visibility to public.
 
 {% ifversion ghes %}
 
