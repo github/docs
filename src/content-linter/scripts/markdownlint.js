@@ -31,6 +31,7 @@ async function main() {
     MD004: { style: 'dash' },
     MD009: true,
     MD011: true,
+    MD012: true,
     MD014: true,
     MD024: true,
     MD111: true,
