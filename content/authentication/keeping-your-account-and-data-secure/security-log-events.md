@@ -119,7 +119,8 @@ topics:
 
 | Action | Description
 |------------------|-------------------
-| `access` | Triggered when you [change the visibility of a repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
+| `access` | Triggered when you [change the visibility of a repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).{% ifversion emu-owned-repos %}
+ | `temporary_access_granted` | Triggered when an enterprise owner enables temporary access to a repository. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}
 | `add_member` | Triggered when a {% data variables.product.product_name %} user is {% ifversion fpt or ghec %}[invited to have collaboration access](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
 | `add_topic` | Triggered when a repository owner [adds a topic](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) to a repository.
 | `archived` | Triggered when a repository owner [archives a repository](/repositories/archiving-a-github-repository/archiving-repositories).{% ifversion ghes %}
@@ -135,7 +136,7 @@ topics:
 | `remove_member` | Triggered when a {% data variables.product.product_name %} user is [removed from a repository as a collaborator](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository).
 | `remove_topic` | Triggered when a repository owner removes a topic from a repository.
 | `rename` | Triggered when [a repository is renamed](/repositories/creating-and-managing-repositories/renaming-a-repository).
-| `staff_unlock` | Triggered when an enterprise owner or {% data variables.contact.github_support %} (with permission from a repository administrator) temporarily unlocked the repository. The visibility of the repository isn't changed.
+| `staff_unlock` | Triggered when an enterprise owner or {% data variables.contact.github_support %} (with permission from a repository administrator) temporarily unlocks the repository. The visibility of the repository isn't changed.
 | `transfer` | Triggered when [a repository is transferred](/repositories/creating-and-managing-repositories/transferring-a-repository).
 | `transfer_start` | Triggered when a repository transfer is about to occur.
 | `unarchived` | Triggered when a repository owner unarchives a repository.

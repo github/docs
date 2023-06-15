@@ -1086,7 +1086,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repo.access`         | The visibility of a repository changed.
+| `repo.access`         | The visibility of a repository changed.{% ifversion emu-owned-repos %}
+| `repo.temporary_access_granted` | Triggered when an enterprise owner temporarily enables access to a repository. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}
 | `repo.actions_enabled` | {% data variables.product.prodname_actions %} was enabled for a repository.
 | `repo.add_member`     | A collaborator was added to a repository.
 | `repo.add_topic`     | A topic was added to a repository.

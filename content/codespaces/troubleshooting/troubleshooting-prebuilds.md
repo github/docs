@@ -26,7 +26,7 @@ Similarly, if your editor preference is "{% data variables.product.prodname_vsco
 
 After you have created a codespace you can check whether it was created from a prebuild by running the following {% data variables.product.prodname_cli %} command in the terminal:
 
-```shell{:copy}
+```shell copy
 gh api /user/codespaces/$CODESPACE_NAME --jq .prebuild
 ```
 
@@ -34,7 +34,7 @@ This returns `true` if the codespace was created using a prebuild.
 
 Alternatively, if {% data variables.product.prodname_cli %} (`gh`) is not installed, you can use the following command, which returns `createFromPrebuild` if the codespace was created from a prebuild:
 
-```shell{:copy}
+```shell copy
 cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME'
 ```
 

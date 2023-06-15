@@ -4,6 +4,27 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'MarkProjectV2AsTemplateInput' was added</p>",
+          "<p>Type 'MarkProjectV2AsTemplatePayload' was added</p>",
+          "<p>Type 'UnmarkProjectV2AsTemplateInput' was added</p>",
+          "<p>Type 'UnmarkProjectV2AsTemplatePayload' was added</p>",
+          "<p>Field 'markProjectV2AsTemplate<code>was added to object type</code>Mutation'</p>",
+          "<p>Field 'unmarkProjectV2AsTemplate<code>was added to object type</code>Mutation'</p>",
+          "<p>Enum value 'ORGANIZATION_ALWAYS<code>was added to enum</code>RuleBypassMode'</p>",
+          "<p>Enum value 'ORGANIZATION_NONE<code>was added to enum</code>RuleBypassMode'</p>",
+          "<p>Enum value 'ORGANIZATION_PRS_ONLY<code>was added to enum</code>RuleBypassMode'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-06-13"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>WorkflowRunFile</code> was added</p>",
           "<p>Field <code>file</code> was added to object type <code>WorkflowRun</code></p>"
         ]

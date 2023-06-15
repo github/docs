@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import { InfoIcon } from '@primer/octicons-react'
 
 import { useMainContext } from 'components/context/MainContext'
@@ -15,10 +15,7 @@ function rememberApiVersion(apiVersion: string) {
     // We use this cookie to remember which API Version a user chooses
     // when they navigate the REST docs.
     const apiVersionNormalized = apiVersion.replace(API_VERSION_SUFFIX, '')
-    Cookies.set(API_VERSION_COOKIE_NAME, apiVersionNormalized, {
-      expires: 365,
-      secure: document.location.protocol !== 'http:',
-    })
+    Cookies.set(API_VERSION_COOKIE_NAME, apiVersionNormalized)
   } catch (err) {
     // You can never be too careful because setting a cookie
     // can fail. For example, some browser

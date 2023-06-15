@@ -31,7 +31,7 @@ This example YAML configuration file defines an issue form using several inputs 
 
 All issue form configuration files must begin with `name`, `description`, and `body` key-value pairs.
 
-```YAML{:copy}
+```YAML copy
 name:
 description:
 body:
@@ -60,7 +60,7 @@ An example of a Markdown issue template and a corresponding YAML issue form temp
 
 ### Markdown issue template
 
-```markdown{:copy}
+```markdown copy
 ---
 name: 🐞 Bug
 about: File a bug/issue
@@ -105,7 +105,7 @@ Links? References? Anything that will give us more context about the issue that 
 
 ### YAML issue form template
 
-```yaml{:copy}
+```yaml copy
 name: 🐞 Bug
 description: File a bug/issue
 title: "[BUG] <title>"

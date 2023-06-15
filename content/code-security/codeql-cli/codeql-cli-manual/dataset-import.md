@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql dataset import --dbscheme=<file> [--threads=<num>] <options>... -- <dataset> <trap>...
 ```
 

@@ -131,7 +131,7 @@ Make sure that you are on a secure machine before performing these steps since y
 1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your app's credentials.
 1. Add the following contents to your `.env` file. {% ifversion ghes or ghae %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
 
-   ```{:copy}
+   ```text copy
    APP_ID="YOUR_APP_ID"
    WEBHOOK_SECRET="YOUR_WEBHOOK_SECRET"
    PRIVATE_KEY_PATH="YOUR_PRIVATE_KEY_PATH"{% ifversion ghes or ghae %}
@@ -154,7 +154,7 @@ These steps lead you through writing code to make an API request in response to 
 1. At the top level of this directory, create a JavaScript file to hold the code for your app. This tutorial will name the file `app.js`.
 1. To the `scripts` object in your `package.json` file, add a script called `server` that runs `node app.js`. For example:
 
-   ```json{:copy}
+   ```json copy
    "scripts": {
      "server": "node app.js"
    }
@@ -187,7 +187,7 @@ These steps lead you through writing code to make an API request in response to 
 
 1. At the top of `app.js`, add these dependencies:
 
-   ```javascript{:copy}
+   ```javascript copy
    import dotenv from "dotenv";
    import {App} from "octokit";
    import {createNodeMiddleware} from "@octokit/webhooks";
@@ -199,13 +199,13 @@ These steps lead you through writing code to make an API request in response to 
 
 1. Add the following code to `app.js`. This will read your `.env` file and add the variables from that file to the `process.env` object in Node.js.
 
-   ```javascript{:copy}
+   ```javascript copy
    dotenv.config();
    ```
 
 1. Add the following code to `app.js` to read the values of your environment variables.
 
-   ```javascript{:copy}
+   ```javascript copy
    const appId = process.env.APP_ID;
    const webhookSecret = process.env.WEBHOOK_SECRET;
    const privateKeyPath = process.env.PRIVATE_KEY_PATH;{% ifversion ghes or ghae %}
@@ -214,13 +214,13 @@ These steps lead you through writing code to make an API request in response to 
 
 1. Add the following code to `app.js` to read the contents of your private key file.
 
-   ```javascript{:copy}
+   ```javascript copy
    const privateKey = fs.readFileSync(privateKeyPath, "utf8");
    ```
 
 1. Add the following code to `app.js` to create a new instance of the Octokit App class.
 
-   ```javascript{:copy}
+   ```javascript copy
    const app = new App({
      appId: appId,
      privateKey: privateKey,
@@ -236,7 +236,7 @@ These steps lead you through writing code to make an API request in response to 
 1. Optionally, check your progress:
    1. Add the following code to `app.js` to make an API request and log the app's name:
 
-      ```javascript{:copy}
+      ```javascript copy
       try {
         const {data} = await app.octokit.request("/app");
         console.log(`Authenticated as '${data.name}'`);
@@ -250,7 +250,7 @@ These steps lead you through writing code to make an API request in response to 
 
    1. Verify that `app.js` now looks like this:
 
-      ```javascript{:copy}
+      ```javascript copy
       import dotenv from "dotenv";
       import {App} from "octokit";
       import {createNodeMiddleware} from "@octokit/webhooks";
@@ -297,7 +297,7 @@ These steps lead you through writing code to make an API request in response to 
 
    1. Delete the following code from `app.js`, which you added for testing purposes:
 
-      ```javascript{:copy}
+      ```javascript copy
       try {
         const {data} = await app.octokit.request("/app");
         console.log(`Authenticated as '${data.name}'`);
@@ -311,7 +311,7 @@ These steps lead you through writing code to make an API request in response to 
 
 1. Add the following code to `app.js` to define the message that your app will post to pull requests.
 
-   ```javascript{:copy}
+   ```javascript copy
    const messageForNewPRs = "Thanks for opening a new PR! Please follow our contributing guidelines to make your PR easier to review.";
    ```
 
@@ -319,7 +319,7 @@ These steps lead you through writing code to make an API request in response to 
 
    This code adds an event handler that you will call later. When this event handler is called, it will log the event to the console. Then, it will use {% data variables.product.company_short %}'s REST API to add a comment to the pull request that triggered the event.
 
-   ```javascript{:copy}
+   ```javascript copy
    async function handlePullRequestOpened({octokit, payload}) {
      console.log(`Received a pull request event for #${payload.pull_request.number}`);
 
@@ -346,13 +346,13 @@ These steps lead you through writing code to make an API request in response to 
 
    This code sets up a webhook event listener. When your app receives a webhook event from {% data variables.product.company_short %} with a `X-GitHub-Event` header value of `pull_request` and an `action` payload value of `opened`, it calls the `handlePullRequestOpened` event handler that you added in the previous step.
 
-   ```javascript{:copy}
+   ```javascript copy
    app.webhooks.on("pull_request.opened", handlePullRequestOpened);
    ```
 
 1. Add the following code to `app.js` to handle errors.
 
-   ```javascript{:copy}
+   ```javascript copy
    app.webhooks.onError((error) => {
      if (error.name === "AggregateError") {
        console.error(`Error processing request: ${error.event}`);
@@ -364,7 +364,7 @@ These steps lead you through writing code to make an API request in response to 
 
 1. Add the following code to `app.js` to determine where your server will listen:
 
-   ```javascript{:copy}
+   ```javascript copy
    const port = 3000;
    const host = 'localhost';
    const path = "/api/webhook";
@@ -375,7 +375,7 @@ These steps lead you through writing code to make an API request in response to 
 
 1. Add the following code to `app.js` to set up a middleware function to handle incoming webhook events:
 
-   ```javascript{:copy}
+   ```javascript copy
    const middleware = createNodeMiddleware(app.webhooks, {path});
    ```
 
@@ -387,7 +387,7 @@ These steps lead you through writing code to make an API request in response to 
 
 1. Add the following code to `app.js`:
 
-   ```javascript{:copy}
+   ```javascript copy
    http.createServer(middleware).listen(port, () => {
      console.log(`Server is listening for events at: ${localWebhookUrl}`);
      console.log('Press Ctrl + C to quit.')
@@ -402,7 +402,7 @@ These steps lead you through writing code to make an API request in response to 
 
 This is the full code example that was outlined in the previous section. In addition to this code, you must also create a `.env` file with your app's credentials. For more information, see "[Store your app's identifying information and credentials](#store-your-apps-identifying-information-and-credentials)."
 
-```javascript{:copy}
+```javascript copy
 import dotenv from "dotenv";
 import {App} from "octokit";
 import {createNodeMiddleware} from "@octokit/webhooks";
@@ -551,7 +551,7 @@ When you deploy your app, you will want to change the host and port where your s
 
 For example, you can set a `PORT` environment variable on your server to indicate the port where your server should listen. You can set a `NODE_ENV` environment variable on your server to `production`. Then, you can update the place where your code defines the `port` and `host` constants so that your server listens to all available network interfaces (`0.0.0.0`) instead of the local network interface (`localhost`) on your deployment port:
 
-```javascript{:copy}
+```javascript copy
 const port = process.env.PORT || 3000;
 const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
 ```

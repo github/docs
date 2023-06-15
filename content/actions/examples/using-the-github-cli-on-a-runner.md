@@ -47,7 +47,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-```yaml{:copy}
+```yaml copy
 name: Check all English links
 
 # **What it does**: This script once a day checks all English links and reports in issues.
@@ -178,7 +178,7 @@ jobs:
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 name: Check all English links
 ```
 </td>
@@ -190,7 +190,7 @@ name: Check all English links
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 on:
   workflow_dispatch:
   schedule:
@@ -208,7 +208,7 @@ Defines the `workflow_dispatch` and `scheduled` as triggers for the workflow:
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 permissions:
   contents: read
   issues: write
@@ -222,7 +222,7 @@ Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depen
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 jobs:
 ```
 </td>
@@ -234,7 +234,7 @@ Groups together all the jobs that run in the workflow file.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   check_all_english_links:
     name: Check all links
 ```
@@ -247,7 +247,7 @@ Defines a job with the ID `check_all_english_links`, and the name `Check all lin
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 if: github.repository == 'github/docs-internal'
 ```
 </td>
@@ -259,7 +259,7 @@ Only run the `check_all_english_links` job if the repository is named `docs-inte
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 runs-on: ubuntu-latest
 ```
 </td>
@@ -271,7 +271,7 @@ Configures the job to run on an Ubuntu Linux runner. This means that the job wil
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     env:
       GITHUB_TOKEN: {% raw %}${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}{% endraw %}
       REPORT_AUTHOR: docubot
@@ -287,7 +287,7 @@ Creates custom environment variables, and redefines the built-in `GITHUB_TOKEN` 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     steps:
 ```
 </td>
@@ -299,7 +299,7 @@ Groups together all the steps that will run as part of the `check_all_english_li
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Check out repo's default branch
         uses: {% data reusables.actions.action-checkout %}
 ```
@@ -312,7 +312,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
@@ -328,7 +328,7 @@ This step uses the `actions/setup-node` action to install the specified version 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Run the "npm ci" command
         run: npm ci
       - name: Run the "npm run build" command
@@ -343,7 +343,7 @@ The `run` keyword tells the job to execute a command on the runner. In this case
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Run script
         run: |
           script/check-english-links.js > broken_links.md
@@ -357,7 +357,7 @@ This `run` command executes a script that is stored in the repository at `script
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
@@ -376,7 +376,7 @@ If the `check-english-links.js` script detects broken links and returns a non-ze
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
@@ -398,7 +398,7 @@ Uses the `peter-evans/create-issue-from-file` action to create a new {% data var
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Close and/or comment on old issues
         env:
@@ -428,7 +428,7 @@ Uses [`gh issue list`](https://cli.github.com/manual/gh_issue_list) to locate th
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
           for issue_url in $(gh list-reports \
                                   --json assignees,url \
                                   --jq '.[] | select (.assignees != []) | .url'); do
@@ -446,7 +446,7 @@ If an issue from a previous run is open and assigned to someone, then use [`gh i
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
           for issue_url in $(gh list-reports \
                                   --search 'no:assignee' \
                                   --json url \

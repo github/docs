@@ -47,7 +47,7 @@ To get started quickly, you can choose the preconfigured Ant starter workflow wh
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
-```yaml{:copy}
+```yaml copy
 name: Java CI
 
 on: [push]
@@ -87,7 +87,7 @@ The starter workflow will run the default target specified in your _build.xml_ f
 
 If you use different commands to build your project, or you want to run a different target, you can specify those. For example, you may want to run the `jar` target that's configured in your `_build-ci.xml_` file.
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
@@ -104,7 +104,7 @@ After your build has succeeded and your tests have passed, you may want to uploa
 
 Ant will usually create output files like JARs, EARs, or WARs in the `build/jar` directory. You can upload the contents of that directory using the `upload-artifact` action.
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}

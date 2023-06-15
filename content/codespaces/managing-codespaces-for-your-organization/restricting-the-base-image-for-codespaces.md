@@ -18,7 +18,7 @@ When you create a codespace, a Docker container is automatically created on a re
 
 You can choose which image you want to use for your codespaces by specifying it in the dev container configuration for a repository. You can do this, for example, by using the `image` property in the `devcontainer.json` file.
 
-```json{:copy}
+```json copy
 "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18",
 ```
 

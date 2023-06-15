@@ -39,7 +39,7 @@ During a workflow run, {% data variables.product.prodname_dotcom %}'s OIDC provi
 
 For example, the following OIDC token is for a job that was part of a called workflow. The `workflow`, `ref`, and other attributes describe the caller workflow, while `job_workflow_ref` refers to the called workflow:
 
-```yaml{:copy}
+```yaml copy
 {
   "typ": "JWT",
   "alg": "RS256",
