@@ -126,30 +126,6 @@ jobs:
             }
             console.log('No detected merge conflicts')
 
-            // Temporary, what does this prevent?
-            // console.log('Checking mergeable')
-            // if (pull.mergeable) {
-            //   console.log('Pull request is mergeable')
-            // } else {
-            //   console.log('Pull request is not mergeable, closing')
-            //   await closePullRequest(pull_number)
-            //   return
-            // }
-
-            console.log('Approving pull request')
-            try {
-              await github.rest.pulls.createReview({
-                owner,
-                repo,
-                pull_number,
-                event: 'APPROVE',
-              })
-              console.log('Approved pull request')
-            } catch (error) {
-              console.error('Failed to approve the pull request.', error)
-              // Don't fail the workflow
-            }
-
             console.log('Merging the pull request')
             // Admin merge pull request to avoid squash
             await github.rest.pulls.merge({
