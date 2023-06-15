@@ -28,6 +28,7 @@ async function main() {
     default: false,
     MD001: true,
     MD002: { level: 2 },
+    MD014: true,
     MD111: true,
     MD112: true,
     MD113: true,
