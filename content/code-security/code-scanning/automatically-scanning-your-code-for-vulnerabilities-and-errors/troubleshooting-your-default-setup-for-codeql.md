@@ -14,6 +14,20 @@ topics:
   - Troubleshooting
 ---
 
+{% ifversion code-scanning-without-workflow-310 %}
+## A particular language is causing the default setup to fail
+
+When you enable the default setup, all languages selected for analysis must be successfully analyzed, or the configuration of the default setup will fail. To enable the default setup when a language previously failed, you must reconfigure the default setup, deselecting all failing languages for analysis.
+
+1. If the default setup fails, navigate to the main page of your repository, then click {% octicon "gear" aria-hidden="true" %} **Settings**.
+1. In the "Security" section of the sidebar, click {% octicon "codescan" aria-hidden="true" %} **Code security and analysis**.
+1. Navigate to the "{% data variables.product.prodname_code_scanning_caps %}" section. Then, in the error message reading "{% data variables.product.prodname_codeql %} default configuration **failed**", click **failed**.
+1. In the "Jobs" section of the workflow run summary for the default setup, identify any failing jobs associated with specific languages. These jobs will be labeled {% octicon "x-circle-fill" aria-label="failed" %} **Analyze (LANGUAGE)**.
+1. Once you have determined which language-specific jobs are failing, configure the default setup once more and deselect the failing languages for analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
+
+  Alternatively, if you would like to analyze every language in your repository, you can create an advanced {% data variables.product.prodname_code_scanning %} setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+{% endif %}
+
 ## A pre-existing {% data variables.product.prodname_codeql %} workflow is disabled
 
 If you see two workflows named **{% data variables.product.prodname_codeql %}**, one workflow may be a pre-existing {% data variables.product.prodname_codeql %} workflow file which has been disabled by default setup. Default setup overrides existing {% data variables.product.prodname_codeql %} setups by disabling any existing {% data variables.product.prodname_codeql %} workflows, and blocking any {% data variables.product.prodname_codeql %} analysis API uploads. This behavior stops you using {% data variables.product.prodname_actions %} minutes to run workflows for {% data variables.product.prodname_codeql %} advanced setup when only the results from default setup will be used. For more information about switching between advanced and default setups, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow#results-are-different-than-expected)."

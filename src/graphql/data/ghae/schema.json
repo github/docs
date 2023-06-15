@@ -10476,7 +10476,7 @@
         },
         {
           "name": "changedFiles",
-          "description": "<p>We recommend using the <code>changedFielsIfAvailable</code> field instead of\n<code>changedFiles</code>, as <code>changedFiles</code> will cause your request to return an error\nif GitHub is unable to calculate the number of changed files.</p>",
+          "description": "<p>We recommend using the <code>changedFilesIfAvailable</code> field instead of\n<code>changedFiles</code>, as <code>changedFiles</code> will cause your request to return an error\nif GitHub is unable to calculate the number of changed files.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
