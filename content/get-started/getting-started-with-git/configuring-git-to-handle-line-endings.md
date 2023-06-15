@@ -109,6 +109,7 @@ After you set the `core.autocrlf` option or commit a `.gitattributes` file, Git 
 
 To ensure that all the line endings in your repository match your new configuration, back up your files with Git, then remove and restore all of the files to normalize the line endings.
 
+1. Before adding or committing any changes, verify that Git has applied the configuration correctly. For example, Git automatically determines whether files in a repository are text or binary files. To avoid corruption of binary files in your repository, we recommend that you explicitly mark files as binary in `.gitattributes`. For more information, see [gitattributes - Defining attributes per path](https://www.git-scm.com/docs/gitattributes#_marking_files_as_binary) in the Git documentation.
 1. To avoid losing any local changes to files in the repository, add and commit any outstanding changes by running the following commands.
 
    ```shell{:copy}
