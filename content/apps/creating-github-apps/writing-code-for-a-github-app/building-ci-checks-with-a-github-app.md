@@ -172,7 +172,7 @@ Make sure that you are on a secure machine before performing these steps since y
 1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your app's credentials.
 1. Add the following contents to your `.env` file. {% ifversion ghes or ghae %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
 
-   ```ini copy
+   ```{:copy}
    GITHUB_APP_IDENTIFIER="YOUR_APP_ID"
    GITHUB_WEBHOOK_SECRET="YOUR_WEBHOOK_SECRET"
    GITHUB_PRIVATE_KEY="YOUR_PRIVATE_KEY"
@@ -188,7 +188,7 @@ Make sure that you are on a secure machine before performing these steps since y
 
    Here is an example .env file:
 
-   ```ini
+   ```
    GITHUB_APP_IDENTIFIER=12345
    GITHUB_WEBHOOK_SECRET=your webhook secret
    GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
@@ -1128,12 +1128,12 @@ To commit files, Git must know which username and email address to associate wit
 1. Open the `.env` file you created earlier in this tutorial.
 2. Add the following environment variables to your `.env` file. Replace `APP_NAME` with the name of your app, and `EMAIL_ADDRESS` with any email you'd like to use for this example.
 
-   ```ini code
+   ```{:copy}
    GITHUB_APP_USER_NAME="APP_NAME"
    GITHUB_APP_USER_EMAIL="EMAIL_ADDRESS"
    ```
 
-Once you've updated your `.env` file with the name and email of the author and committer, you'll be ready to add code to read the environment variables and set the Git configuration. You'll add that code soon.
+Next you'll need to add code to read the environment variables and set the Git configuration. You'll add that code soon.
 
 When someone clicks the "Fix this" button, your app receives the [check run webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) with the `requested_action` action type.
 
