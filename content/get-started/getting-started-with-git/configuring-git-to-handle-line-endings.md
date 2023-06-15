@@ -109,7 +109,7 @@ After you set the `core.autocrlf` option or commit a `.gitattributes` file, Git 
 
 To ensure that all the line endings in your repository match your new configuration, back up your files with Git, then remove and restore all of the files to normalize the line endings.
 
-1. To ensure that none of your work is lost, add and commit any changes by running the following commands.
+1. To avoid losing any local changes to files in the repository, add and commit any outstanding changes by running the following commands.
 
    ```shell{:copy}
    git add . -u
