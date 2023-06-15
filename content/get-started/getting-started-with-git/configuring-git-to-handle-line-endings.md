@@ -63,11 +63,11 @@ $ git config --global core.autocrlf input
 
 ## Per-repository settings
 
-Optionally, you can configure a *.gitattributes* file to manage how Git reads line endings in a specific repository. When you commit this file to a repository, it overrides the `core.autocrlf` setting for all repository contributors. This ensures consistent behavior for all users, regardless of their Git settings and environment.
+Optionally, you can configure a `.gitattributes` file to manage how Git reads line endings in a specific repository. When you commit this file to a repository, it overrides the `core.autocrlf` setting for all repository contributors. This ensures consistent behavior for all users, regardless of their Git settings and environment.
 
-The *.gitattributes* file must be created in the root of the repository and committed like any other file.
+The `.gitattributes` file must be created in the root of the repository and committed like any other file.
 
-A *.gitattributes* file looks like a table with two columns:
+A `.gitattributes` file looks like a table with two columns:
 
 * On the left is the file name for Git to match.
 * On the right is the line ending configuration that Git should use for those files.
@@ -105,7 +105,7 @@ You'll notice that files are matched—`*.c`, `*.sln`, `*.png`—, separated by 
 
 ## Refreshing a repository after changing line endings
 
-When you set the `core.autocrlf` option or commit a *.gitattributes* file, you may find that Git reports changes to files that you have not modified. Git has changed line endings to match your new configuration.
+When you set the `core.autocrlf` option or commit a `.gitattributes` file, you may find that Git reports changes to files that you have not modified. Git has changed line endings to match your new configuration.
 
 To ensure that all the line endings in your repository match your new configuration, backup your files with Git, then remove/restore the files all at once with renormalized line endings.
 
