@@ -497,7 +497,7 @@ jobs:
   secret-generator:
     runs-on: ubuntu-latest
     outputs:
-      handle: ${{ steps.generate-secret.handle }}
+      handle: ${{ steps.generate-secret.outputs.handle }}
     steps:
     - uses: some/secret-store@v1
       with:{% raw %}
