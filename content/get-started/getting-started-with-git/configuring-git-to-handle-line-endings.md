@@ -105,7 +105,7 @@ You'll notice that files are matched—`*.c`, `*.sln`, `*.png`—, separated by 
 
 ## Refreshing a repository after changing line endings
 
-When you set the `core.autocrlf` option or commit a `.gitattributes` file, you may find that Git reports changes to files that you have not modified. Git has changed line endings to match your new configuration.
+After you set the `core.autocrlf` option or commit a `.gitattributes` file, Git automatically changes line endings to match your new configuration. You may find that Git reports changes to files that you have not modified.
 
 To ensure that all the line endings in your repository match your new configuration, back up your files with Git, then remove and restore all of the files to normalize the line endings.
 
