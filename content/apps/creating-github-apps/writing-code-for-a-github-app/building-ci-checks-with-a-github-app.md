@@ -63,6 +63,10 @@ Each time new code is pushed to a repository, {% data variables.product.prodname
 
 ## Prerequisites
 
+This tutorial assumes you have a basic understanding of the [Ruby programming language](https://www.ruby-lang.org/en/).
+
+This tutorial requires your computer or codespace to run Node.js version 12 or greater and npm version 6.12.0 or greater. For more information, see [Node.js](https://nodejs.org/en). TODOCS: Is this true? Grabbed it from other tutorial.
+
 Before you get started, you may want to familiarize yourself with the following concepts:
 
 - [{% data variables.product.prodname_github_apps %}](/apps)
@@ -71,11 +75,7 @@ Before you get started, you may want to familiarize yourself with the following 
 
 The Checks endpoints are also available to use in GraphQL, but this tutorial focuses on REST. For more information about the GraphQL objects, see [Checks Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) in the GraphQL documentation.
 
-You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](https://octokit.github.io/octokit.rb/) for the {% data variables.product.prodname_dotcom %} REST API, and the [Sinatra web framework](https://sinatrarb.com/) to create your Checks API CI server app.
-
-TODOCS: Add blurb about node.js? ([Example](https://docs.github.com/en/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events#prerequisites))
-
-TODOCS: Incorporate any additional prerequisites from the [dev environment tutorial](https://docs.github.com/en/apps/creating-github-apps/writing-code-for-a-github-app/setting-up-your-development-environment-to-create-a-github-app#prerequisites)?
+This tutorial also uses the [Smee](https://smee.io/) webhook payload delivery service, the [Octokit.rb Ruby library](https://octokit.github.io/octokit.rb/) for the {% data variables.product.prodname_dotcom %} REST API, and the [Sinatra web framework](https://sinatrarb.com/).
 
 ## Setup
 
@@ -205,10 +205,10 @@ This section will show you how to add some basic template code for your {% data 
 Add the following template code to your `server.rb` file:
 
 ```ruby{:copy}
-require 'sinatra'
-require 'octokit'
+require 'sinatra'     # Uses the Sinatra web framework
+require 'octokit'     # Uses the Octokit Ruby library to interact with GitHub's REST API
 require 'dotenv/load' # Manages environment variables
-require 'json'
+require 'json'        # Allows your app to manipulate JSON data
 require 'openssl'     # Verifies the webhook signature
 require 'jwt'         # Authenticates a GitHub App
 require 'time'        # Gets ISO 8601 representation of a Time object
@@ -217,24 +217,17 @@ require 'logger'      # Logs debug statements
 set :port, 3000
 set :bind, '0.0.0.0'
 
-
-# This is template code to create a GitHub App server.
-# You can read more about GitHub Apps here: https://docs.github.com/en/apps
-#
-# On its own, this app does absolutely nothing, except that it can be installed.
-# This tutorial will show you how to add more functionality.
-#
 # This code is a Sinatra app, for two reasons:
 #   1. Because the app will require a landing page for installation.
 #   2. To easily handle webhook events.
-#
 
 class GHAapp < Sinatra::Application
 
-  # Expects that the private key in PEM format. Converts the newlines
+  # Expects that the private key has been set as an environment
+  # variable in PEM format. Converts the newlines.
   PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
 
-  # Your registered app must have a secret set. The secret is used to verify
+  # Your registered app must have a webhook secret. The secret is used to verify
   # that webhooks are sent by GitHub.
   WEBHOOK_SECRET = ENV['GITHUB_WEBHOOK_SECRET']
 
@@ -247,10 +240,21 @@ class GHAapp < Sinatra::Application
   end
 
 
-  # Before each request to the `/event_handler` route
+  # Executed before each request to the `/event_handler` route
   before '/event_handler' do
     get_payload_request(request)
     verify_webhook_signature
+
+    # This tutorial example uses the repository name in the webhook with
+    # command line utilities. For security reasons, you should validate the
+    # repository name to ensure that a bad actor isn't attempting to execute
+    # arbitrary commands or inject false repository names. If a repository name
+    # is provided in the webhook, validate that it consists only of latin
+    # alphabetic characters, `-`, and `_`.
+    unless @payload['repository'].nil?
+      halt 400 if (@payload['repository']['name'] =~ /[0-9A-Za-z\-\_]+/).nil?
+    end
+
     authenticate_app
     # Authenticate the app installation in order to run API operations
     authenticate_installation(@payload)
@@ -396,24 +400,35 @@ end
 
 #### Define a before filter
 
-Sinatra uses [before filters](https://github.com/sinatra/sinatra#filters) that allow you to execute code before the route handler. The `before` block in the template calls four [helper methods](https://github.com/sinatra/sinatra#helpers). The template app defines those helper methods in a [later section](#define-the-helper-methods).
+Sinatra uses [before filters](https://github.com/sinatra/sinatra#filters) that allow you to execute code before the route handler. The `before` block in the template calls four [helper methods](https://github.com/sinatra/sinatra#helpers): `get_payload_request`, `verify_webhook_signature`, `authenticate_app`, and `authenticate_installation`. The template app defines those helper methods in a `helpers do` block later on in the code. For more information, see "[Define the helper methods](#define-the-helper-methods)."
 
 ``` ruby
-# Before each request to the `/event_handler` route
-before '/event_handler' do
-  get_payload_request(request)
-  verify_webhook_signature
-  authenticate_app
-  # Authenticate the app installation in order to run API operations
-  authenticate_installation(@payload)
-end
+  # Executed before each request to the `/event_handler` route
+  before '/event_handler' do
+    get_payload_request(request)
+    verify_webhook_signature
+
+    # This tutorial example uses the repository name in the webhook with
+    # command line utilities. For security reasons, this code validates the
+    # repository name to ensure that a bad actor isn't attempting to execute
+    # arbitrary commands or inject false repository names. If a repository name
+    # is provided in the webhook, validate that it consists only of latin
+    # alphabetic characters, `-`, and `_`.
+    unless @payload['repository'].nil?
+      halt 400 if (@payload['repository']['name'] =~ /[0-9A-Za-z\-\_]+/).nil?
+    end
+
+    authenticate_app
+    # Authenticate the app installation in order to run API operations
+    authenticate_installation(@payload)
+  end
 ```
+
+Under `verify_webhook_signature`, the code that starts with `unless @payload` is an additional security measure. If a repository name is provided with a webhook payload, this code validates that the repository name only contains Latin alphabetic characters, hyphens, and underscores. This helps ensure that a bad actor isn't attempting to execute arbitrary commands or inject false repository names. The `verify_webhook_signature` helper method also validates incoming webhook payloads. For more information, see "[Define the helper methods](#verifying-the-webhook-signature)."
 
 #### Define a route handler
 
 An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You will add more code to this later.
-
-TODOCS: Make sure we talk about adding more code to this later in the tutorial.
 
 ``` ruby
 post '/event_handler' do
@@ -767,6 +782,8 @@ You can pass specific files or entire directories for RuboCop to check. In this 
 3. Add the following content to `myfile.rb`:
 
    ```ruby{:copy}
+   # frozen_string_literal: true
+
    # The Octocat class tells you about different breeds of Octocat
    class Octocat
      def initialize(name, *breeds)
@@ -1123,7 +1140,7 @@ The RuboCop tool offers the `--auto-correct` command-line option to automaticall
 
 To push to a repository, your app must have write permissions for "Contents" in a repository. You already set that permission to **Read & write** back in [Step 2.2. Cloning the repository](#step-22-clone-the-repository).
 
-To commit files, Git must know which username and email address to associate with the commit. Next you'll add environment variables to store the name (`GITHUB_APP_USER_NAME`) and email (`GITHUB_APP_USER_EMAIL`) that your app will use when it makes Git commits.
+To commit files, Git must know which username and email address to associate with the commit. Next you'll add environment variables to store the name and email address that your app will use when it makes Git commits.
 
 1. Open the `.env` file you created earlier in this tutorial.
 2. Add the following environment variables to your `.env` file. Replace `APP_NAME` with the name of your app, and `EMAIL_ADDRESS` with any email you'd like to use for this example.
@@ -1137,7 +1154,7 @@ Next you'll need to add code to read the environment variables and set the Git c
 
 When someone clicks the "Fix this" button, your app receives the [check run webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) with the `requested_action` action type.
 
-In [Step 1.4. Updating a check run](#step-14-updating-a-check-run) you updated the your `event_handler` to handle look for actions in the `check_run` event. You already have a case statement to handle the `created` and `rerequested` action types:
+In [Step 1.3. Updating a check run](#step-13-updating-a-check-run) you updated the `event_handler` in your `server.rb` file to look for actions in the `check_run` event. You already have a case statement to handle the `created` and `rerequested` action types:
 
 ``` ruby
 when 'check_run'
@@ -1152,16 +1169,18 @@ when 'check_run'
 end
 ```
 
-Add another `when` statement after the `rerequested` case to handle the `rerequested_action` event:
+After the `rerequested` case, add the following `when` statement to handle the `rerequested_action` event:
 
-``` ruby
+``` ruby{:copy}
 when 'requested_action'
   take_requested_action
 ```
 
-This code calls a new method that will handle all `requested_action` events for your app. Add the following method to the helper methods section of your code:
+This code calls a new method that will handle all `requested_action` events for your app.
 
-``` ruby
+Under `helpers do`, add the following helper method:
+
+``` ruby{:copy}
 # Handles the check run `requested_action` event
 # See /webhooks/event-payloads/#check_run
 def take_requested_action
@@ -1194,55 +1213,36 @@ def take_requested_action
 end
 ```
 
-The code above clones a repository just like the code you added in [Step 2.2. Cloning the repository](#step-22-cloning-the-repository). An `if` statement checks that the requested action's identifier matches the RuboCop button identifier (`fix_rubocop_notices`). When they match, the code clones the repository, sets the Git username and email, and runs RuboCop with the option `--auto-correct`. The `--auto-correct` option applies the changes to the local CI server files automatically.
+The code above clones a repository, just like the code you added in [Step 2.2. Clone the repository](#step-22-clone-the-repository). An `if` statement checks that the requested action's identifier matches the RuboCop button identifier (`fix_rubocop_notices`). When they match, the code clones the repository, sets the Git username and email, and runs RuboCop with the option `--auto-correct`. The `--auto-correct` option applies the changes to the local CI server files automatically.
 
-The files are changed locally, but you'll still need to push them to {% data variables.product.prodname_dotcom %}. You'll use the handy `ruby-git` gem again to commit all of the files. Git has a single command that stages all modified or deleted files and commits them: `git commit -a`. To do the same thing using `ruby-git`, the code above uses the `commit_all` method. Then the code pushes the committed files to {% data variables.product.prodname_dotcom %} using the installation token, using the same authentication method as the Git `clone` command. Finally, it removes the repository directory to ensure the working directory is prepared for the next event.
+The files are changed locally, but you'll still need to push them to {% data variables.product.prodname_dotcom %}. You'll use the `ruby-git` gem to commit all of the files. Git has a single command that stages all modified or deleted files and commits them: `git commit -a`. To do the same thing using `ruby-git`, the code above uses the `commit_all` method. Then the code pushes the committed files to {% data variables.product.prodname_dotcom %} using the installation token, using the same authentication method as the Git `clone` command. Finally, it removes the repository directory to ensure the working directory is prepared for the next event.
 
-That's it! The code you have written now completes your Checks API CI server. 💪 Restart your `server.rb` server again and create a new pull request:
+That's it! The code you have written now completes your continuous integration server that you built using a {% data variables.product.prodname_github_app %} and checks. To see the full final code for your app, see "[Full code example](#full-code-example)."
 
-```shell
-$ ruby server.rb
-```
+### Test the code
 
-{% note %}
+The following steps will show you how to test that RuboCop can automatically fix the errors it finds.
 
-**Note:** You'll need to restart the Sinatra server before you can test changes. Enter `Ctrl-C` to stop the server, and then run `ruby server.rb` again. If you don't want to do this every time you change your app code, you can look into [reloading](http://sinatrarb.com/faq.html#reloading).
+1. Run the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
 
-{% endnote %}
+   ```shell{:copy}
+   ruby server.rb
+   ```
 
-This time, click the "Fix this" button to automatically fix the errors RuboCop found from the **Checks** tab.
-
-In the **Commits** tab, you'll see a brand new commit by the username you set in your Git configuration. You may need to refresh your browser to see the update.
-
-Because a new commit was pushed to the repo, you'll see a new check suite for Octo RuboCop in the **Checks** tab. But this time there are no errors because RuboCop fixed them all.
-
-To see the full final code for the app you just built, see "[Full code example](#full-code-example)."
-
-## Step 2.7. Security tips
-
-The template {% data variables.product.prodname_github_app %} code already has a method to verify incoming webhook payloads to ensure they are from a trusted source. If you are not validating webhook payloads, you'll need to ensure that when repository names are included in the webhook payload, the webhook does not contain arbitrary commands that could be used maliciously. The code below validates that the repository name only contains Latin alphabetic characters, hyphens, and underscores. To provide you with a complete example, the complete `server.rb` code available in the [companion repository](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) for this tutorial includes both the method of validating incoming webhook payloads and this check to verify the repository name.
-
-``` ruby
-# This tutorial example uses the repository name in the webhook with
-# command-line utilities. For security reasons, you should validate the
-# repository name to ensure that a bad actor isn't attempting to execute
-# arbitrary commands or inject false repository names. If a repository name
-# is provided in the webhook, validate that it consists only of latin
-# alphabetic characters, `-`, and `_`.
-unless @payload['repository'].nil?
-  halt 400 if (@payload['repository']['name'] =~ /[0-9A-Za-z\-\_]+/).nil?
-end
-```
+1. In the repository where you installed your app, create a new pull request.
+1. In the new pull request you created, navigate to the **Checks** tab, and click the "Fix this" button to automatically fix the errors RuboCop found.
+1. Navigate to the **Commits** tab. You should see a new commit by the username you set in your Git configuration. You may need to refresh your browser to see the update.
+1. Navigate to the **Checks** tab. You should see a new check suite for Octo RuboCop. But this time there should be no errors, because RuboCop fixed them all.
 
 ## Full code example
 
 This is what the final code in `server.rb` should look like, after you've followed all of the steps in this tutorial. There are also comments throughout the code that provide additional context.
 
 ```ruby{:copy}
-require 'sinatra'
-require 'octokit'
+require 'sinatra'     # Uses the Sinatra web framework
+require 'octokit'     # Uses the Octokit Ruby library to interact with GitHub's REST API
 require 'dotenv/load' # Manages environment variables
-require 'json'
+require 'json'        # Allows your app to manipulate JSON data
 require 'openssl'     # Verifies the webhook signature
 require 'jwt'         # Authenticates a GitHub App
 require 'time'        # Gets ISO 8601 representation of a Time object
@@ -1252,13 +1252,17 @@ require 'git'
 set :port, 3000
 set :bind, '0.0.0.0'
 
+# This code is a Sinatra app, for two reasons:
+#   1. Because the app will require a landing page for installation.
+#   2. To easily handle webhook events.
+
 class GHAapp < Sinatra::Application
 
-  # Converts the newlines. Expects that the private key has been set as an
-  # environment variable in PEM format.
+  # Expects that the private key has been set as an environment
+  # variable in PEM format. Converts the newlines.
   PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
 
-  # Your registered app must have a secret set. The secret is used to verify
+  # Your registered app must have a webhook secret. The secret is used to verify
   # that webhooks are sent by GitHub.
   WEBHOOK_SECRET = ENV['GITHUB_WEBHOOK_SECRET']
 
@@ -1322,52 +1326,34 @@ class GHAapp < Sinatra::Application
 
   helpers do
 
-    # Create a new check run with the status queued
+    # Create a new check run with status "queued"
     def create_check_run
-      # At the time of writing, Octokit does not support the Checks API, but
-      # it does provide generic HTTP methods you can use:
-      # https://developer.github.com/v3/checks/runs/#create-a-check-run
-      check_run = @installation_client.post(
-        "repos/#{@payload['repository']['full_name']}/check-runs",
-        {
-          # This header allows for beta access to Checks API
-          accept: 'application/vnd.github.antiope-preview+json',
-          # The name of your check run.
-          name: 'Octo RuboCop',
-          # The payload structure differs depending on whether a check run or a check suite event occurred.
-          head_sha: @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha']
-        }
+      @installation_client.create_check_run(
+        # [String, Integer, Hash, Octokit Repository object] A GitHub repository.
+        @payload['repository']['full_name'],
+        # [String] The name of your check run.
+        'Octo RuboCop',
+        # [String] The SHA of the commit to check
+        # The payload structure differs depending on whether a check run or a check suite event occurred.
+        @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
+        # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
+        accept: 'application/vnd.github+json'
       )
-
-      # You requested the creation of a check run from GitHub. Now, you'll wait
-      # to get confirmation from GitHub, in the form of a webhook, that it was
-      # created before starting CI. Equivalently, a 201 response from
-      # POST /repos/:owner/:repo/check-runs could also be used as confirmation.
     end
-
     # Start the CI process
     def initiate_check_run
       # Once the check run is created, you'll update the status of the check run
       # to 'in_progress' and run the CI process. When the CI finishes, you'll
       # update the check run status to 'completed' and add the CI results.
 
-      # At the time of writing, Octokit doesn't support the Checks API, but
-      # it does provide generic HTTP methods you can use:
-      # https://developer.github.com/v3/checks/runs/#update-a-check-run
-      updated_check_run = @installation_client.patch(
-        "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-        {
-          accept: 'application/vnd.github.antiope-preview+json',
-          name: 'Octo RuboCop',
-          status: 'in_progress',
-          started_at: Time.now.utc.iso8601
-        }
+      @installation_client.update_check_run(
+        @payload['repository']['full_name'],
+        @payload['check_run']['id'],
+        status: 'in_progress',
+        accept: 'application/vnd.github+json'
       )
 
       # ***** RUN A CI TEST *****
-      # Ideally this would be performed async, so you could return immediately.
-      # But for now you'll do a simulated CI process syncronously, and update
-      # the check run right here.
       full_repo_name = @payload['repository']['full_name']
       repository     = @payload['repository']['name']
       head_sha       = @payload['check_run']['head_sha']
@@ -1383,7 +1369,7 @@ class GHAapp < Sinatra::Application
       # You can create a maximum of 50 annotations per request to the Checks
       # API. To add more than 50 annotations, use the "Update a check run" API
       # endpoint. This example code limits the number of annotations to 50.
-      # See https://developer.github.com/v3/checks/runs/#update-a-check-run
+      # See https://docs.github.com/en/rest/checks/runs#update-a-check-run
       # for details.
       max_annotations = 50
 
@@ -1415,6 +1401,8 @@ class GHAapp < Sinatra::Application
               path: file_path,
               start_line: start_line,
               end_line: end_line,
+              start_column: start_column,
+              end_column: end_column,
               annotation_level: annotation_level,
               message: message
             }
@@ -1429,32 +1417,31 @@ class GHAapp < Sinatra::Application
       end
 
       # Updated check run summary and text parameters
-      summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_count']}\n-File count: #{@output['summary']['target_file_count']}\n-Target file count: #{@output['summary']['inspected_file_count']}"
+      summary = "Octo RuboCop summary\n-Offense count:
+#{@output['summary']['offense_count']}\n-File count:
+#{@output['summary']['target_file_count']}\n-Target file count:
+#{@output['summary']['inspected_file_count']}"
       text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
       # Mark the check run as complete! And if there are warnings, share them.
-      updated_check_run = @installation_client.patch(
-        "repos/#{@payload['repository']['full_name']}/check-runs/#{@payload['check_run']['id']}",
-        {
-          accept: 'application/vnd.github.antiope-preview+json',
-          name: 'Octo RuboCop',
-          status: 'completed',
-          conclusion: conclusion,
-          completed_at: Time.now.utc.iso8601,
-          output: {
-            title: 'Octo RuboCop',
-            summary: summary,
-            text: text,
-            annotations: annotations
-          },
-          actions: [{
-            label: 'Fix this',
-            description: 'Automatically fix all linter notices.',
-            identifier: 'fix_rubocop_notices'
-          }]
-        }
+      @installation_client.update_check_run(
+        @payload['repository']['full_name'],
+        @payload['check_run']['id'],
+        status: 'completed',
+        conclusion: conclusion,
+        output: {
+          title: 'Octo RuboCop',
+          summary: summary,
+          text: text,
+          annotations: annotations
+        },
+        actions: [{
+          label: 'Fix this',
+          description: 'Automatically fix all linter notices.',
+          identifier: 'fix_rubocop_notices'
+        }],
+        accept: 'application/vnd.github+json'
       )
-
     end
 
     # Handles the check run `requested_action` event
@@ -1584,43 +1571,51 @@ class GHAapp < Sinatra::Application
 end
 ```
 
-## Troubleshooting
-
-Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data reusables.support.prodname_support_forum_with_url %}.
-
-* **Q:** My app isn't pushing code to {% data variables.product.prodname_dotcom %}. I don't see the fixes that RuboCop automatically makes!
-
-    **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
-
-* **Q:** I see an error in the `server.rb` debug output related to cloning my repository.
-
-    **A:** If you see the following error, you haven't deleted the checkout of the repository in one or both of the `initiate_check_run` or `take_requested_action` methods:
-
-    ```shell
-    2018-11-26 16:55:13 - Git::GitExecuteError - git  clone '--' 'https://x-access-token:ghs_9b2080277016f797074c4dEbD350745f4257@github.com/codertocat/octocat-breeds.git' 'Octocat-breeds'  2>&1:fatal: destination path 'Octocat-breeds' already exists and is not an empty directory.:
-    ```
-
-    Compare your code to the `server.rb` file to ensure you have the same code in your `initiate_check_run` and `take_requested_action` methods.
-
-* **Q:** New check runs are not showing up in the "Checks" tab on {% data variables.product.prodname_dotcom %}.
-
-    **A:** Restart Smee and re-run your `server.rb` server.
-
-* **Q:** I do not see the "Re-run all" button in the "Checks" tab on {% data variables.product.prodname_dotcom %}.
-
-    **A:** Restart Smee and re-run your `server.rb` server.
-
-## Conclusion
-
-After walking through this guide, you've learned the basics of using the Checks API to create a CI server! To review, you:
-
-* Configured your server to receive Checks API events and create check runs.
-* Used RuboCop to check code in repositories and create annotations for the errors.
-* Implemented a requested action that automatically fixes linter errors.
-
 ## Next steps
 
-Here are some ideas for what you can do next:
+You should now have an app that receives API events, creates check runs, uses RuboCop to find Ruby errors and create annotations in a pull request, and automatically fix linter errors. Next you might want to expand your app's code, deploy your app, and make your app public.
 
-* Currently, the "Fix this" button is always displayed. Update the code you wrote to display the "Fix this" button only when RuboCop finds errors.
-* If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to [create a pull request](/rest/pulls#create-a-pull-request) with a new branch based on the head branch.
+### Modify the app code
+
+This tutorial demonstrated how to create a "Fix this" button that is always displayed in pull requests. You can update the code to display the "Fix this" button only when RuboCop finds errors.
+
+If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to instead create a pull request with a new branch that's based on the head branch.
+
+If you have any questions or run into any trouble, you can ask for help or advice on GitHub Community, in the "[API and Webhooks discussions](https://github.com/orgs/community/discussions/categories/api-and-webhooks)."
+
+### Deploy your app
+
+This tutorial demonstrated how to develop your app locally. When you are ready to deploy your app, you need to make changes to serve your app and keep your app's credential secure. The steps you take depend on the server that you use, but the following sections offer general guidance.
+
+#### Host your app on a server
+
+This tutorial used your computer or codespace as a server. Once the app is ready for production use, you should deploy your app to a dedicated server. For example, you can use [Azure App Service](https://azure.microsoft.com/products/app-service/).
+
+#### Update the webhook URL
+
+Once you have a server that is set up to receive webhook traffic from {% data variables.product.company_short %}, update the webhook URL in your app settings. You should not use Smee.io to forward your webhooks in production.
+
+#### Update the `port` and `host` constants
+
+When you deploy your app, you will want to change the host and port where your server is listening.
+
+For example, you can set a `PORT` environment variable on your server to indicate the port where your server should listen. You can set a `NODE_ENV` environment variable on your server to `production`. Then, you can update the place where your code defines the `port` and `host` constants so that your server listens to all available network interfaces (`0.0.0.0`) instead of the local network interface (`localhost`) on your deployment port:
+
+```javascript copy
+const port = process.env.PORT || 3000;
+const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
+```
+
+#### Secure your app's credentials
+
+You should never publicize your app's private key or webhook secret. This tutorial stored your app's credentials in a gitignored `.env` file. When you deploy your app, you should choose a secure way to store the credentials and update your code to get the value accordingly. For example, you can store the credentials with a secret management service like [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault). When your app runs, it can retrieve the credentials and store them in environment variables on the server where your app is deployed.
+
+For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
+
+### Share your app
+
+If you want to share your app with other users and organizations, make your app public. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private)."
+
+### Follow best practices
+
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
