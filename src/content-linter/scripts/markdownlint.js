@@ -29,6 +29,7 @@ async function main() {
     MD001: true,
     MD002: { level: 2 },
     MD004: { style: 'dash' },
+    MD009: true,
     MD014: true,
     MD024: true,
     MD111: true,
