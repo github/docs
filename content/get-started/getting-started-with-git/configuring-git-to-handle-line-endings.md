@@ -123,10 +123,12 @@ To ensure that all the line endings in your repository match your new configurat
    git reset --hard HEAD
    ```
 1. To display the rewritten, normalized files, run the following command.
+
    ```shell{:copy}
    git status
    ```
 1. Optionally, to commit the changes to your repository, run the following command.
+
    ```shell{:copy}
    git commit -m "Normalize all the line endings"
    ```
