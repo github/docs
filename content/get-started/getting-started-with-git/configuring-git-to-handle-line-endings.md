@@ -127,7 +127,7 @@ To ensure that all the line endings in your repository match your new configurat
    ```shell{:copy}
    git status
    ```
-1. Optionally, to commit the changes to your repository, run the following command.
+1. Optionally, to commit any outstanding changes in your repository, run the following command.
 
    ```shell{:copy}
    git commit -m "Normalize all the line endings"
