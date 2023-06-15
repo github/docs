@@ -24,7 +24,7 @@ Creating a webhook is a two-step process. You'll first need to set up what event
 
 For the purposes of this tutorial, we're going to use a local server to receive webhook events from {% data variables.product.prodname_dotcom %}.
 
-First of all, we need to expose our local development environment to the internet so {% data variables.product.prodname_dotcom %} can deliver events. We'll use [`ngrok`](https://ngrok.com) to do this.
+First of all, we need to expose our local development environment to the internet so {% data variables.product.prodname_dotcom %} can deliver events. We'll use [`Tunnelmole`](https://tunnelmole.com) to do this.
 
 {% ifversion cli-webhook-forwarding %}
 {% note %}
@@ -34,15 +34,35 @@ First of all, we need to expose our local development environment to the interne
 {% endnote %}
 {% endif %}
 
-`ngrok` is available, free of charge, for all major operating systems. For more information, see [the `ngrok` download page](https://ngrok.com/download).
+`tunnelmole` is free and open source (FOSS), you can [fork it on GitHub here](https://github.com/robbie-cahill/tunnelmole-client). You can install it with one of the following ways:
 
-After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. `4567` is the port number on which our server will listen for messages. You should see a line that looks something like this:
-
-```shell
-$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+npm, if you have NodeJS installed on your system:
+```
+npm install -g tunnelmole
 ```
 
-Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
+Linux:
+```
+curl -s https://tunnelmole.com/sh/install-linux.sh | sudo bash 
+```
+
+Mac:
+```
+curl -s https://tunnelmole.com/sh/install-mac.sh --output install-mac.sh && sudo bash install-mac.sh 
+```
+
+Windows: 
+download the exe file for Windows [here](https://tunnelmole.com/downloads/tmole.exe) and put it somewhere in your PATH.
+
+After installing `tunnelmole`, you can expose your localhost by running `tmole 4567` on the command line. `4567` is the port number on which our server will listen for messages. Here is a full example with output:
+
+```shell
+$ tmole 4567
+http://tecok0-ip-157-211-241-249.tunnelmole.com is forwarding to localhost:4567
+https://tecok0-ip-157-211-241-249.tunnelmole.com is forwarding to localhost:4567
+```
+
+Make a note of the `*.tunnelmole.com` URL. We'll use it to set up our webhook.
 
 ## Setting up a webhook
 
@@ -62,7 +82,7 @@ Webhooks require a few configuration options before you can make use of them. We
 
 {% data reusables.webhooks.payload_url %}
 
-Since we're developing locally for our tutorial, we'll set it to the `*.ngrok.io` URL, followed by `/payload`. For example, `http://7e9ea9dc.ngrok.io/payload`.
+Since we're developing locally for our tutorial, we'll set it to the HTTPs `*.tunnelmole.com` URL, followed by `/payload`. For example, `https://tecok0-ip-157-211-241-249.tunnelmole.com/payload`. You can use also the `http` url, but its less secure and not recommended for that reason. Your private data could be intercepted over plain `http`.
 
 ## Content type
 
