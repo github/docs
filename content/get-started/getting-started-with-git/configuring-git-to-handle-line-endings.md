@@ -116,7 +116,7 @@ To ensure that all the line endings in your repository match your new configurat
    git add . -u
    git commit -m "Saving files before refreshing line endings"
    ```
-2. Add/re-add any new/changed files and normalize the line endings.  
+1. Add/re-add any new/changed files and normalize the line endings.  
    ```shell
    $ git add --renormalize .
    ```  
@@ -130,11 +130,11 @@ To ensure that all the line endings in your repository match your new configurat
    $ git reset --hard HEAD
    ```  
    (In that case, if no further changes to the repo are required, steps 3 & 4 can be skipped.)
-3. To display the rewritten, normalized files, run the following command.
+1. To display the rewritten, normalized files, run the following command.
    ```shell{:copy}
    git status
    ```
-4. To commit the changes to your repository, run the following command.
+1. To commit the changes to your repository, run the following command.
    ```shell{:copy}
    git commit -m "Normalize all the line endings"
    ```
