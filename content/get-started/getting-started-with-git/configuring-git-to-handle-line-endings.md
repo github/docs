@@ -116,25 +116,17 @@ To ensure that all the line endings in your repository match your new configurat
    git add . -u
    git commit -m "Saving files before refreshing line endings"
    ```
-1. Add/re-add any new/changed files and normalize the line endings.  
-   ```shell
-   $ git add --renormalize .
-   ```  
-   Or, alternatively, if you just need to convert all files in the HEAD of an existing checked-out repository to the new git line-ending configuration:  
-   a) Remove existing cached file-entries for current checked out branch.  
-   ```shell
-   $ git rm -rf --cached .
-   ```  
-   b) Reset the repository HEAD to the last commit, overwriting the existing files using the git repository's new line-endings.  
-   ```shell
-   $ git reset --hard HEAD
-   ```  
-   (In that case, if no further changes to the repo are required, steps 3 & 4 can be skipped.)
+1. To update all files on the current branch to reflect the new configuration, run the following commands.
+
+   ```shell{:copy}
+   git rm -rf --cached .
+   git reset --hard HEAD
+   ```
 1. To display the rewritten, normalized files, run the following command.
    ```shell{:copy}
    git status
    ```
-1. To commit the changes to your repository, run the following command.
+1. Optionally, to commit the changes to your repository, run the following command.
    ```shell{:copy}
    git commit -m "Normalize all the line endings"
    ```
