@@ -2155,7 +2155,7 @@
       "requestPath": "/repos/{owner}/{repo}/git/commits"
     },
     {
-      "slug": "get-a-commit",
+      "slug": "get-a-commit-object",
       "subcategory": "commits",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/git/commits/{commit_sha}"
