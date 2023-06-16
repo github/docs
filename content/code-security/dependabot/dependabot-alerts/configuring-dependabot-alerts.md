@@ -24,10 +24,10 @@ topics:
 {% data variables.product.prodname_dependabot %} scans code when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or the dependency graph for a repository changes. When vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} are detected, {% data variables.product.prodname_dependabot_alerts %} are generated. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
 You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for:
-* Your personal account
-* Your repository
-* Your organization{% ifversion dependabot-alerts-enterprise-enablement or ghes > 3.8 %}
-* Your enterprise{% endif %}
+- Your personal account
+- Your repository
+- Your organization{% ifversion dependabot-alerts-enterprise-enablement or ghes > 3.8 %}
+- Your enterprise{% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your personal account
 

@@ -79,4 +79,4 @@ Any issues that are referenced in a task list specify that they are tracked by t
 ## Further reading
 
 {% ifversion code-scanning-task-lists %}
-* "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}
+- "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists)"{% endif %}

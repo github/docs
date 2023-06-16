@@ -280,5 +280,5 @@ Click **Hello world action step**, and you should see "Hello Mona the Octocat" o
 
 {% data variables.product.prodname_dotcom %} provides template repositories for creating JavaScript and TypeScript actions. You can use these templates to quickly get started with creating a new action that includes tests, linting, and other recommended practices.
 
-* [`javascript-action` template repository](https://github.com/actions/javascript-action)
-* [`typescript-action` template repository](https://github.com/actions/typescript-action)
+- [`javascript-action` template repository](https://github.com/actions/javascript-action)
+- [`typescript-action` template repository](https://github.com/actions/typescript-action)

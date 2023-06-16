@@ -29,8 +29,8 @@ For information about merge methods, see "[AUTOTITLE](/pull-requests/collaborati
 
 **Notes:**
 
-* A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
-* A merge queue will wait for required checks to be reported before it can proceed with merging. You must update your CI configuration to trigger and report on merge group events when requiring a merge queue.
+- A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
+- A merge queue will wait for required checks to be reported before it can proceed with merging. You must update your CI configuration to trigger and report on merge group events when requiring a merge queue.
 
 {% endnote %}
 
@@ -83,5 +83,5 @@ Once you have enabled "require merge queue," you can also access the following s
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
-* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)"
+- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
+- "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)"

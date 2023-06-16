@@ -35,9 +35,9 @@ There are a few differences, and this guide will show you the important differen
 
 Jobs in GitLab CI/CD are very similar to jobs in {% data variables.product.prodname_actions %}. In both systems, jobs have the following characteristics:
 
-* Jobs contain a series of steps or scripts that run sequentially.
-* Jobs can run on separate machines or in separate containers.
-* Jobs run in parallel by default, but can be configured to run sequentially.
+- Jobs contain a series of steps or scripts that run sequentially.
+- Jobs can run on separate machines or in separate containers.
+- Jobs run in parallel by default, but can be configured to run sequentially.
 
 You can run a script or a shell command in a job. In GitLab CI/CD, script steps are specified using the `script` key. In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key.
 

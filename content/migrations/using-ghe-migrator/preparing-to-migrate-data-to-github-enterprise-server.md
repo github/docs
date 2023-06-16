@@ -37,8 +37,8 @@ shortTitle: Prepare to migrate data
     ghe-migrator prepare /home/admin/MIGRATION-GUID.tar.gz
     ```
 
-    * To start a new import attempt, run `ghe-migrator prepare` again and get a new Migration GUID.
-    * {% data reusables.enterprise_migrations.specify-staging-path %}
+    - To start a new import attempt, run `ghe-migrator prepare` again and get a new Migration GUID.
+    - {% data reusables.enterprise_migrations.specify-staging-path %}
 
 ## Generating a list of migration conflicts
 

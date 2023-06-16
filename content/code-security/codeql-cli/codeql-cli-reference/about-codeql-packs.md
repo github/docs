@@ -39,9 +39,9 @@ A {% data variables.product.prodname_codeql %} pack must contain a file called `
 
 The other files and directories within the pack should be logically organized. For example, typically:
 
-* Queries are organized into directories for specific categories.
+- Queries are organized into directories for specific categories.
 
-* Queries for specific products, libraries, and frameworks are organized into
+- Queries for specific products, libraries, and frameworks are organized into
 their own top-level directories.
 
 {% ifversion query-pack-compatibility %}
@@ -49,9 +49,9 @@ their own top-level directories.
 
 When a pack is published for use in analyses, the `codeql pack create` or `codeql pack publish` command verifies that the content is complete and also adds some additional pieces of content to it:
  
-* For query packs, a copy of each of the library packs it depends on, in the precise versions it has been developed with. Users of the query pack won't need to download these library packs separately.
+- For query packs, a copy of each of the library packs it depends on, in the precise versions it has been developed with. Users of the query pack won't need to download these library packs separately.
 
-* For query packs, precompiled representations of each of the queries. These are faster to execute than it would be to compile the QL source for the query at each analysis.
+- For query packs, precompiled representations of each of the queries. These are faster to execute than it would be to compile the QL source for the query at each analysis.
 
 Most of this data is located in a directory named `.codeql` in the published pack, but precompiled queries are in files with a `.qlx` suffix next to the `.ql` source for each query. When analyzing a database with a query from a published pack, {% data variables.product.prodname_codeql %} will load these files instead of the `.ql` source. If you need to modify the content of a _published_ pack, be sure to remove all of the `.qlx` files, since they may prevent modifications in the `.ql` files from taking effect.
 {% endif %}
@@ -268,15 +268,15 @@ For more information about running tests, see "[Testing custom queries](/code-se
 
 Each of the languages in the {% data variables.product.prodname_codeql %} repository has four main {% data variables.product.prodname_codeql %} packs:
 
-* Core library pack for the language, with the database schema
+- Core library pack for the language, with the database schema
 used by the language, and {% data variables.product.prodname_codeql %} libraries, and queries at `<language>/ql/lib`
 
-* Core query pack for the language that includes the default queries for the language, along
+- Core query pack for the language that includes the default queries for the language, along
 with their query suites at `<language>/ql/src`
 
-* Tests for the core language libraries and queries at `<language>/ql/test`
+- Tests for the core language libraries and queries at `<language>/ql/test`
 
-* Example queries for the language at `<language>/ql/examples`
+- Example queries for the language at `<language>/ql/examples`
 
 ### Core library pack
 
@@ -293,9 +293,9 @@ upgrades: upgrades
 
 Some extra notes on the following properties:
 
-* `library`: Indicates that this is a library pack with no executable queries. It is only meant to be used as a dependency for other packs.
+- `library`: Indicates that this is a library pack with no executable queries. It is only meant to be used as a dependency for other packs.
 
-* `dbscheme` and `upgrades`: These properties are internal to the {% data variables.product.prodname_codeql_cli %} and should only be defined in the core QL pack for a language.
+- `dbscheme` and `upgrades`: These properties are internal to the {% data variables.product.prodname_codeql_cli %} and should only be defined in the core QL pack for a language.
 
 ### Core query pack
 
@@ -314,11 +314,11 @@ defaultSuiteFile: codeql-suites/cpp-code-scanning.qls
 
 Some extra notes on the following properties:
 
-* `dependencies`: This query pack depends on `codeql/cpp-all` and `codeql/suite-helpers`. Since these dependencies are resolved from source, it does not matter what version of the {% data variables.product.prodname_codeql %} pack they are compatible with. For more information about resolving dependencies from source, see "[Source Dependencies](/code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces#source-dependencies)."
+- `dependencies`: This query pack depends on `codeql/cpp-all` and `codeql/suite-helpers`. Since these dependencies are resolved from source, it does not matter what version of the {% data variables.product.prodname_codeql %} pack they are compatible with. For more information about resolving dependencies from source, see "[Source Dependencies](/code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces#source-dependencies)."
 
-* `suites`: Indicates the directory containing "well-known" query suites.
+- `suites`: Indicates the directory containing "well-known" query suites.
 
-* `defaultSuiteFile`: The name of the default query suite file that is used when no query suite is specified.
+- `defaultSuiteFile`: The name of the default query suite file that is used when no query suite is specified.
 
 ### Tests for the core {% data variables.product.prodname_codeql %} pack
 
@@ -336,11 +336,11 @@ tests: .
 
 Some extra notes on the following properties:
 
-* `dependencies`: This pack depends on the core {% data variables.product.prodname_codeql %} query and library packs for C++.
+- `dependencies`: This pack depends on the core {% data variables.product.prodname_codeql %} query and library packs for C++.
 
-* `extractor`: This specifies that all the tests will use the same C++ extractor to create the database for the tests.
+- `extractor`: This specifies that all the tests will use the same C++ extractor to create the database for the tests.
 
-* `tests`: This specifies the location of the tests. In this case, the tests are in the root folder (and all sub-folders) of the pack.
+- `tests`: This specifies the location of the tests. In this case, the tests are in the root folder (and all sub-folders) of the pack.
 
-* `version`: There is no `version` property for the tests pack. This prevents test packs from accidentally being published.
+- `version`: There is no `version` property for the tests pack. This prevents test packs from accidentally being published.
 

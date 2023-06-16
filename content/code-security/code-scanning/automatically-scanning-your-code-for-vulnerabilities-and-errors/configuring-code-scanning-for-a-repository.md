@@ -272,7 +272,7 @@ After {% data variables.product.prodname_code_scanning %} has analyzed the code 
 
 There are other situations where there may be no analysis for the latest commit to the base branch for a pull request. These include:
 
-* The pull request has been raised against a branch other than the default branch, and this branch hasn't been analyzed.
+- The pull request has been raised against a branch other than the default branch, and this branch hasn't been analyzed.
 
   To check whether a branch has been scanned, go to the {% data variables.product.prodname_code_scanning_caps %} page, click the **Branch** drop-down and select the relevant branch.
 
@@ -280,11 +280,11 @@ There are other situations where there may be no analysis for the latest commit 
 
   The solution in this situation is to add the name of the base branch to the `on:push` and `on:pull_request` specification in the {% data variables.product.prodname_code_scanning %} workflow on that branch and then make a change that updates the open pull request that you want to scan.
 
-* The latest commit on the base branch for the pull request is currently being analyzed and analysis is not yet available.
+- The latest commit on the base branch for the pull request is currently being analyzed and analysis is not yet available.
 
   Wait a few minutes and then push a change to the pull request to retrigger {% data variables.product.prodname_code_scanning %}.
 
-* An error occurred while analyzing the latest commit on the base branch and analysis for that commit isn't available.
+- An error occurred while analyzing the latest commit on the base branch and analysis for that commit isn't available.
 
   Merge a trivial change into the base branch to trigger {% data variables.product.prodname_code_scanning %} on this latest commit, then push a change to the pull request to retrigger {% data variables.product.prodname_code_scanning %}.
 

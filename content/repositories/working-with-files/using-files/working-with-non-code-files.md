@@ -79,10 +79,10 @@ You can visually compare images in three different modes: [2-up](#2-up), [swipe]
 
 When looking directly at an STL file on {% data variables.product.product_name %} you can:
 
-* Click and drag to spin the model.
-* Right click and drag to translate the view.
-* Scroll to zoom in and out.
-* Click the different view modes to change the view.
+- Click and drag to spin the model.
+- Right click and drag to translate the view.
+- Scroll to zoom in and out.
+- Click the different view modes to change the view.
 
 ### Diffs
 
@@ -154,9 +154,9 @@ Occasionally, you may discover that your CSV or TSV file isn't rendering. In tho
 
 Common errors include:
 
-* Mismatched column counts. You must have the same number of separators in each row, even if the cell is blank
-* Exceeding the file size. Our rendering only works for files up to 512KB. Anything bigger than that slows down the browser.
-* Using unsupported delimiters, such as semicolons instead of commas.
+- Mismatched column counts. You must have the same number of separators in each row, even if the cell is blank
+- Exceeding the file size. Our rendering only works for files up to 512KB. Anything bigger than that slows down the browser.
+- Using unsupported delimiters, such as semicolons instead of commas.
 
 ## Rendering PDF documents
 
@@ -174,15 +174,15 @@ this might be the difference between showing `**bold**` in Markdown, and **bold*
 
 Prose rendering is supported for rendered documents supported by [github/markup](https://github.com/github/markup):
 
-* Markdown
-* AsciiDoc
-* Textile
-* ReStructuredText
-* Rdoc
-* Org
-* Creole
-* MediaWiki
-* Pod
+- Markdown
+- AsciiDoc
+- Textile
+- ReStructuredText
+- Rdoc
+- Org
+- Creole
+- MediaWiki
+- Pod
 
 To see the changes made to the document as part of a commit, click {% octicon "file" aria-label="Display the rich diff" %}.
 
@@ -240,14 +240,14 @@ Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafle
 
 You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the GeoJSON object's properties. The options are:
 
-* `marker-size` - `small`, `medium`, or `large`
-* `marker-color` - valid RGB hex color
-* `marker-symbol` - an icon ID from [the Maki project](http://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
-* `stroke` - color of a polygon edge or line (RGB)
-* `stroke-opacity` - opacity of a polygon edge or line (0.0 - 1.0)
-* `stroke-width` - width of a polygon edge or line
-* `fill` - the color of the interior of a polygon (GRB)
-* `fill-opacity` - the opacity of the interior of a polygon (0.0-1.0)
+- `marker-size` - `small`, `medium`, or `large`
+- `marker-color` - valid RGB hex color
+- `marker-symbol` - an icon ID from [the Maki project](http://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
+- `stroke` - color of a polygon edge or line (RGB)
+- `stroke-opacity` - opacity of a polygon edge or line (0.0 - 1.0)
+- `stroke-width` - width of a polygon edge or line
+- `fill` - the color of the interior of a polygon (GRB)
+- `fill-opacity` - the opacity of the interior of a polygon (0.0-1.0)
 
 See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simplestyle-spec/tree/master/1.1.0) for more information.
 {% endif %}
@@ -301,12 +301,12 @@ It may still be possible to render the data by converting the `.geojson` file to
 ### Further reading about GeoJSON/TopoJSON
 
 {% ifversion geoJSON-with-MapBox %}
-* [Leaflet.js documentation](https://leafletjs.com/)
-* [MapBox marker-styling documentation](http://www.mapbox.com/developers/simplestyle/)
+- [Leaflet.js documentation](https://leafletjs.com/)
+- [MapBox marker-styling documentation](http://www.mapbox.com/developers/simplestyle/)
 {%- else %}
-* [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
+- [Azure Maps documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
 {%- endif %}
-* [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
+- [TopoJSON Wiki](https://github.com/mbostock/topojson/wiki)
 
 ## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
 
@@ -359,9 +359,9 @@ If the chart displays, but does not appear as you'd expect, you can create a new
 
 #### Known issues
 
-* Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
-* Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
-* Not all charts are a11y compliant. This may affect users who rely on a screen reader.
+- Sequence diagram charts frequently render with additional padding below the chart, with more padding added as the chart size increases. This is a known issue with the Mermaid library.
+- Actor nodes with popover menus do not work as expected within sequence diagram charts. This is due to a discrepancy in how JavaScript events are added to a chart when the Mermaid library's API is used to render a chart.
+- Not all charts are a11y compliant. This may affect users who rely on a screen reader.
 
 ### Mermaid in Markdown
 
@@ -369,6 +369,6 @@ You can embed Mermaid syntax directly in Markdown. For more information, see "[A
 
 ### Further reading about Mermaid
 
-* [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
-* [Mermaid.js live editor](https://mermaid.live/edit)
+- [Mermaid.js documentation](https://mermaid-js.github.io/mermaid/#/)
+- [Mermaid.js live editor](https://mermaid.live/edit)
 {% endif %}

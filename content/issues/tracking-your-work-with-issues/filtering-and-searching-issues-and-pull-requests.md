@@ -201,13 +201,13 @@ Filters can be sorted to provide better information during a specific time perio
 
 You can sort any filtered view by:
 
-* The newest created issues or pull requests
-* The oldest created issues or pull requests
-* The most commented issues or pull requests
-* The least commented issues or pull requests
-* The newest updated issues or pull requests
-* The oldest updated issues or pull requests
-* The most added reaction on issues or pull requests
+- The newest created issues or pull requests
+- The oldest created issues or pull requests
+- The most commented issues or pull requests
+- The least commented issues or pull requests
+- The newest updated issues or pull requests
+- The oldest updated issues or pull requests
+- The most added reaction on issues or pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}

@@ -24,13 +24,13 @@ These Supplemental Terms apply to the following GitHub Offerings, as further def
 
 These GitHub Supplemental Terms include the following Sections and Exhibits, each of which is incorporated by reference herein:
 
-* SECTION 1: GitHub Enterprise Server License Terms;
+- SECTION 1: GitHub Enterprise Server License Terms;
 
-* SECTION 2: GitHub Enterprise Cloud Terms of Service;
+- SECTION 2: GitHub Enterprise Cloud Terms of Service;
 
-* SECTION 3: General Provisions; and
+- SECTION 3: General Provisions; and
 
-* EXHIBIT A: Definitions.
+- EXHIBIT A: Definitions.
 
 
 

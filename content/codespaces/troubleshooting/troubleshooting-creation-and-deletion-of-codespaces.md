@@ -75,9 +75,9 @@ If you create a codespace and the creation fails:
 ## Deleting codespaces
 
 A codespace can only be deleted by:
-* The person who created the codespace.
-* An organization owner for an organization-owned codespace.
-* Automatic deletion at the end of a retention period.
+- The person who created the codespace.
+- An organization owner for an organization-owned codespace.
+- Automatic deletion at the end of a retention period.
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace)" and "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
 

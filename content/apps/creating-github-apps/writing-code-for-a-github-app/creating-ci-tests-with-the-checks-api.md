@@ -39,14 +39,14 @@ The Checks API sends the [`check_suite` webhook event](/webhooks-and-events/webh
 
 **In this guide, you’ll learn how to:**
 
-* Part 1: Set up the framework for a CI server using the Checks API.
-  * Configure a GitHub App as a server that receives Checks API events.
-  * Create new check runs for CI tests when a repository receives newly pushed commits.
-  * Re-run check runs when a user requests that action on GitHub.
-* Part 2: Build on the CI server framework you created by adding a linter CI test.
-  * Update a check run with a `status`, `conclusion`, and `output` details.
-  * Create annotations on lines of code that GitHub displays in the **Checks** and **Files Changed** tab of a pull request.
-  * Automatically fix linter recommendations by exposing a "Fix this" button in the **Checks** tab of the pull request.
+- Part 1: Set up the framework for a CI server using the Checks API.
+  - Configure a GitHub App as a server that receives Checks API events.
+  - Create new check runs for CI tests when a repository receives newly pushed commits.
+  - Re-run check runs when a user requests that action on GitHub.
+- Part 2: Build on the CI server framework you created by adding a linter CI test.
+  - Update a check run with a `status`, `conclusion`, and `output` details.
+  - Create annotations on lines of code that GitHub displays in the **Checks** and **Files Changed** tab of a pull request.
+  - Automatically fix linter recommendations by exposing a "Fix this" button in the **Checks** tab of the pull request.
 
 ## Prerequisites
 
@@ -250,9 +250,9 @@ Head over to your open pull request and click the **Checks** tab. Click the "Re-
 
 [RuboCop](https://rubocop.readthedocs.io/en/latest/) is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the "[Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide)." RuboCop has three primary functions:
 
-* Linting to check code style
-* Code formatting
-* Replaces the native Ruby linting capabilities using `ruby -w`
+- Linting to check code style
+- Code formatting
+- Replaces the native Ruby linting capabilities using `ruby -w`
 
 Now that you've got the interface created to receive Checks API events and create check runs, you can create a check run that implements a CI test.
 
@@ -698,11 +698,11 @@ end
 
 Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data reusables.support.prodname_support_forum_with_url %}.
 
-* **Q:** My app isn't pushing code to GitHub. I don't see the fixes that RuboCop automatically makes!
+- **Q:** My app isn't pushing code to GitHub. I don't see the fixes that RuboCop automatically makes!
 
     **A:** Make sure you have **Read & write** permissions for "Repository contents," and that you are cloning the repository with your installation token. See [Step 2.2. Cloning the repository](#step-22-cloning-the-repository) for details.
 
-* **Q:** I see an error in the `template_server.rb` debug output related to cloning my repository.
+- **Q:** I see an error in the `template_server.rb` debug output related to cloning my repository.
 
     **A:** If you see the following error, you haven't deleted the checkout of the repository in one or both of the `initiate_check_run` or `take_requested_action` methods:
 
@@ -712,11 +712,11 @@ Here are a few common problems and some suggested solutions. If you run into any
 
     Compare your code to the `server.rb` file to ensure you have the same code in your `initiate_check_run` and `take_requested_action` methods.
 
-* **Q:** New check runs are not showing up in the "Checks" tab on GitHub.
+- **Q:** New check runs are not showing up in the "Checks" tab on GitHub.
 
     **A:** Restart Smee and re-run your `template_server.rb` server.
 
-* **Q:** I do not see the "Re-run all" button in the "Checks" tab on GitHub.
+- **Q:** I do not see the "Re-run all" button in the "Checks" tab on GitHub.
 
     **A:** Restart Smee and re-run your `template_server.rb` server.
 
@@ -724,13 +724,13 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 After walking through this guide, you've learned the basics of using the Checks API to create a CI server! To review, you:
 
-* Configured your server to receive Checks API events and create check runs.
-* Used RuboCop to check code in repositories and create annotations for the errors.
-* Implemented a requested action that automatically fixes linter errors.
+- Configured your server to receive Checks API events and create check runs.
+- Used RuboCop to check code in repositories and create annotations for the errors.
+- Implemented a requested action that automatically fixes linter errors.
 
 ## Next steps
 
 Here are some ideas for what you can do next:
 
-* Currently, the "Fix this" button is always displayed. Update the code you wrote to display the "Fix this" button only when RuboCop finds errors.
-* If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to [create a pull request](/rest/pulls#create-a-pull-request) with a new branch based on the head branch.
+- Currently, the "Fix this" button is always displayed. Update the code you wrote to display the "Fix this" button only when RuboCop finds errors.
+- If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to [create a pull request](/rest/pulls#create-a-pull-request) with a new branch based on the head branch.
