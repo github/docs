@@ -109,20 +109,20 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 1. If you're using macOS Sierra 10.12.2 or later, you will need to modify your `~/.ssh/config` file to automatically load keys into the ssh-agent and store passphrases in your keychain.
 
-   * First, check to see if your `~/.ssh/config` file exists in the default location.
+   - First, check to see if your `~/.ssh/config` file exists in the default location.
 
      ```shell
      $ open ~/.ssh/config
      > The file /Users/YOU/.ssh/config does not exist.
      ```
 
-   * If the file doesn't exist, create the file.
+   - If the file doesn't exist, create the file.
 
      ```shell
      $ touch ~/.ssh/config
      ```
 
-   * Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
+   - Open your `~/.ssh/config` file, then modify the file to contain the following lines. If your SSH key file has a different name or path than the example code, modify the filename or path to match your current setup.
 
      ```
      Host {% ifversion ghes or ghae %}HOSTNAME{% else %}github.com{% endif %}

@@ -14,7 +14,7 @@ export function Search() {
   const [localQuery, setLocalQuery] = useState(query)
   const { t } = useTranslation('search')
   const { currentVersion } = useVersion()
-  const upToMediumViewport = useBreakpoint('medium')
+  const atMediumViewport = useBreakpoint('medium')
 
   function redirectSearch() {
     let asPath = `/${router.locale}`
@@ -57,7 +57,7 @@ export function Search() {
               onInput={(e) => (e.target as HTMLInputElement).setCustomValidity('')}
               data-testid="site-search-input"
               // This adds focus in particular for iOS to focus and bring up the keyboard when you touch the search input text area
-              ref={(inputRef) => upToMediumViewport && inputRef && inputRef.focus()}
+              ref={(inputRef) => !atMediumViewport && inputRef && inputRef.focus()}
               type="search"
               placeholder={t`placeholder`}
               autoComplete={localQuery ? 'on' : 'off'}

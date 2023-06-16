@@ -134,6 +134,14 @@ products:
       actions_api_title: Actions
     versioning:
       about_versions: About REST API versions
+    overview:
+      permissions:
+        access: Access
+        endpoints: Endpoint
+        tokens: Token types
+        additionalPermissions: Additional permissions
+        uat: UAT
+        iat: IAT
     reference:
       in: In
       description: Description

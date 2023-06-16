@@ -47,9 +47,9 @@ You will receive details on the {% data variables.product.prodname_secret_scanni
 
 To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
 
-* A unique, human readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
-* A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
-* The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
+- A unique, human readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
+- A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
+- The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
 
 Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
@@ -72,26 +72,26 @@ Create a public, internet accessible HTTP endpoint at the URL you provided to us
 
 The message body is a JSON array that contains one or more objects, with each object representing a single secret match. Your endpoint should be able to handle requests with a large number of matches without timing out. The keys for each secret match are:
 
-* **token**: The value of the secret match.
-* **type**: The unique name you provided to identify your regular expression.
-* **url**: The public URL where the match was found (may be empty)
-* **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
+- **token**: The value of the secret match.
+- **type**: The unique name you provided to identify your regular expression.
+- **url**: The public URL where the match was found (may be empty)
+- **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
 
 The list of valid values for `source` are:
 
-* content
-* commit
-* pull_request_description
-* pull_request_comment
-* issue_description
-* issue_comment
-* discussion_body
-* discussion_comment
-* commit_comment
-* gist_content
-* gist_comment
-* npm_package
-* unknown
+- content
+- commit
+- pull_request_description
+- pull_request_comment
+- issue_description
+- issue_comment
+- discussion_body
+- discussion_comment
+- commit_comment
+- gist_content
+- gist_comment
+- npm_package
+- unknown
 
 ### Implement signature verification in your secret alert service
 
@@ -100,8 +100,8 @@ to validate the messages you receive are genuinely from {% data variables.produc
 
 The two HTTP headers to look for are:
 
-* `GITHUB-PUBLIC-KEY-IDENTIFIER`: Which `key_identifier` to use from our API
-* `GITHUB-PUBLIC-KEY-SIGNATURE`: Signature of the payload
+- `GITHUB-PUBLIC-KEY-IDENTIFIER`: Which `key_identifier` to use from our API
+- `GITHUB-PUBLIC-KEY-SIGNATURE`: Signature of the payload
 
 You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm. The endpoint
 will provide several `key_identifier` and public keys. You can determine which public

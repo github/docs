@@ -17,6 +17,7 @@ topics:
 children:
   - /about-github-pages
   - /creating-a-github-pages-site
+  - /using-custom-workflows-with-github-pages
   - /configuring-a-publishing-source-for-your-github-pages-site
   - /deleting-a-github-pages-site
   - /unpublishing-a-github-pages-site

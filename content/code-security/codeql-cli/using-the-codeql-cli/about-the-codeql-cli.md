@@ -21,7 +21,7 @@ redirect_from:
 ## About the {% data variables.product.prodname_codeql_cli %}
 
 Software developers and security researchers can secure their code
-using the {% data variables.product.prodname_codeql_cli %}.
+using {% data variables.product.prodname_codeql %} analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)."
 
 The {% data variables.product.prodname_codeql_cli %} is a command-line tool used to run {% data variables.product.prodname_codeql %} processes locally on
 open source software projects. You can use the {% data variables.product.prodname_codeql_cli %} to:

@@ -6,6 +6,13 @@ if (!process.env.GITHUB_TOKEN) {
   dotenv.config()
 }
 
+// check for required PAT
+if (!process.env.GITHUB_TOKEN) {
+  throw new Error(
+    'Error! You must have a GITHUB_TOKEN set in an .env file to use the GitHub REST API.'
+  )
+}
+
 // this module needs to work in development, production, and GitHub Actions
 //
 // GITHUB_TOKEN comes from one of the following sources:

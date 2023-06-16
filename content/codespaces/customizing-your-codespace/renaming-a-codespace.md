@@ -35,12 +35,12 @@ In addition to the display name, when you create a codespace, a permanent name i
 
 To find the permanent name of a codespace:
 
-* On {% data variables.product.product_name %}, the permanent name is shown in a pop-up when you hover over the display name of a codespace on https://github.com/codespaces.
+- On {% data variables.product.product_name %}, the permanent name is shown in a pop-up when you hover over the display name of a codespace on https://github.com/codespaces.
 
    ![Screenshot of the mouse pointer positioned over a display name, with the corresponding codespace name shown at the bottom of the browser page.](/assets/images/help/codespaces/find-codespace-name-github.png)
 
-* In a codespace, use this command in the terminal: `echo $CODESPACE_NAME`.
-* In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
+- In a codespace, use this command in the terminal: `echo $CODESPACE_NAME`.
+- In a terminal window on your local machine, use this {% data variables.product.prodname_cli %} command: `gh codespace list`.
 
 ## Renaming a codespace
 

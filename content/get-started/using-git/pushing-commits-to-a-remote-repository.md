@@ -17,8 +17,8 @@ shortTitle: Push commits to a remote
 ## About `git push`
 The `git push` command takes two arguments:
 
-* A remote name, for example, `origin`
-* A branch name, for example, `main`
+- A remote name, for example, `origin`
+- A branch name, for example, `main`
 
 For example:
 

@@ -40,19 +40,19 @@ If you are over the age of 13 but are under 18, you can give and receive Sponsor
 
 You will not under any circumstances allow payments or raise funds involving:
 
-* fraud, ransom, violations of intellectual property, or other illegal purposes;
+- fraud, ransom, violations of intellectual property, or other illegal purposes;
 
-* misrepresentation or deception related to the reasons you're raising funds or requesting sponsorship;
+- misrepresentation or deception related to the reasons you're raising funds or requesting sponsorship;
 
-* the purchase or sale of ICOs, utility tokens, or other types of cryptocurrency;
+- the purchase or sale of ICOs, utility tokens, or other types of cryptocurrency;
 
-* the purchase or sale of securities, equity, or other types of investment offers;
+- the purchase or sale of securities, equity, or other types of investment offers;
 
-* the sale of personal information, or the processing of personal information in violation of any laws;
+- the sale of personal information, or the processing of personal information in violation of any laws;
 
-* lotteries, raffles, gambling, pyramid schemes, self-dealing, "get rich quick schemes", deceptive marketing schemes, "donation for donation" schemes, or any attempts to game GitHub's or third parties' systems or services; and,
+- lotteries, raffles, gambling, pyramid schemes, self-dealing, "get rich quick schemes", deceptive marketing schemes, "donation for donation" schemes, or any attempts to game GitHub's or third parties' systems or services; and,
 
-* activities with, in, or involving countries, regions, governments, persons, or entities that are not permitted under U.S. and other economic sanctions under applicable law.
+- activities with, in, or involving countries, regions, governments, persons, or entities that are not permitted under U.S. and other economic sanctions under applicable law.
 
 ### 2.2. GitHub Sponsors Matching Fund
 The GitHub Sponsors Matching Fund aims to encourage the community that participates in the Open Source Software (OSS) ecosystem to contribute sustainable funding to qualifying individuals with Sponsored Developer Accounts. All individuals who applied to the Program before January 1, 2020, will be reviewed for eligibility for the Matching Fund, but not all eligible individual Sponsored Developer Accounts will receive matching. Organizations cannot participate in the GitHub Sponsors Matching Fund, and Sponsorship from an organization to a qualifying Sponsored Developer Account will not be matched. See below for additional rules.
@@ -60,25 +60,25 @@ The GitHub Sponsors Matching Fund aims to encourage the community that participa
 #### 2.2.1. Matching Fund Terms.
 Eligibility for the GitHub Sponsors Matching Fund is evaluated on a case-by-case basis and is subject to the following limitations:
 
-* You must have a GitHub account, be accepted into the Program as an individual, and be actively contributing to OSS. Please note, GitHub does not allow operating more than one free personal account. As such, matching is available on an individual basis and will not be approved across multiple accounts.
+- You must have a GitHub account, be accepted into the Program as an individual, and be actively contributing to OSS. Please note, GitHub does not allow operating more than one free personal account. As such, matching is available on an individual basis and will not be approved across multiple accounts.
 
-* Your use of GitHub and your Sponsored Developer Account must be, based on our determination, in our sole discretion, in accordance with the GitHub Sponsors mission to expand the opportunities to contribute to open source that upholds the [GitHub Community Guidelines](/site-policy/github-terms/github-community-guidelines).
+- Your use of GitHub and your Sponsored Developer Account must be, based on our determination, in our sole discretion, in accordance with the GitHub Sponsors mission to expand the opportunities to contribute to open source that upholds the [GitHub Community Guidelines](/site-policy/github-terms/github-community-guidelines).
 
-* You cannot receive matching for any sponsorship that originates from a user or organization account with a published GitHub Sponsors profile.
+- You cannot receive matching for any sponsorship that originates from a user or organization account with a published GitHub Sponsors profile.
 
-* GitHub reserves the right to withhold or rescind Matching Fund money and block any user from participation in the GitHub Sponsors Matching Fund for any reason, including but not limited to posting content or projects that GitHub determines are offensive or otherwise objectionable.
+- GitHub reserves the right to withhold or rescind Matching Fund money and block any user from participation in the GitHub Sponsors Matching Fund for any reason, including but not limited to posting content or projects that GitHub determines are offensive or otherwise objectionable.
 
 #### 2.2.2. Matching Period.
 The matching period begins after GitHub accepts an individual Sponsored Developer Account into GitHub Sponsors. For each individual Sponsored Developer Account eligible for the GitHub Sponsors Matching Fund, GitHub can match community sponsorship up to $5,000 USD total during the Sponsored Developer Account's first 12 months in the Program. The matching period cannot be extended for any reason. During the matching period, GitHub will not charge any fees, so 100% of sponsorships will go to the sponsored developer. In the future, we may charge a nominal processing fee.
 
-* If a Sponsorship or Sponsoring Subscription stops for any reason, the associated matching will stop as well. Funds that are charged back to the Sponsor before the Sponsored Developer Payment date are not eligible for matching.
+- If a Sponsorship or Sponsoring Subscription stops for any reason, the associated matching will stop as well. Funds that are charged back to the Sponsor before the Sponsored Developer Payment date are not eligible for matching.
 
-* If you leave GitHub Sponsors and rejoin later, the gap between your participation periods may count toward your matching period or your matching period may expire.
+- If you leave GitHub Sponsors and rejoin later, the gap between your participation periods may count toward your matching period or your matching period may expire.
 
 
-* If GitHub discovers a potential policy violation, prior to payment of any matching funds granted during the matching period, GitHub may disable payouts until an investigation has been completed, and matched funds contributed to the sponsored developer may be revoked if they are found to be in violation of this policy.
+- If GitHub discovers a potential policy violation, prior to payment of any matching funds granted during the matching period, GitHub may disable payouts until an investigation has been completed, and matched funds contributed to the sponsored developer may be revoked if they are found to be in violation of this policy.
 
-* {% data reusables.sponsors.github-contact-applicants %}
+- {% data reusables.sponsors.github-contact-applicants %}
 
 ## 3. Sponsored Developer Obligations.
 
@@ -161,13 +161,13 @@ We use Stripe to make payouts to Sponsored Developer Accounts. The [Stripe Recip
 ### 5.1. By Sponsored Developer.
 Sponsored Developer represents and warrants that:
 
-* you have the authority to enter into and fully perform these Additional Terms;
+- you have the authority to enter into and fully perform these Additional Terms;
 
-* your execution and performance of these Additional Terms will not violate any other agreement or obligation between you and any third party;
+- your execution and performance of these Additional Terms will not violate any other agreement or obligation between you and any third party;
 
-* Sponsored Developer Content does not infringe, violate, or misappropriate any third-party right, including any copyright, trademark, patent, trade secret, moral right, privacy right, right of publicity, or any other intellectual property;
+- Sponsored Developer Content does not infringe, violate, or misappropriate any third-party right, including any copyright, trademark, patent, trade secret, moral right, privacy right, right of publicity, or any other intellectual property;
 
-* you will comply with all laws and regulations, and your Sponsored Developer Content is not illegal and does not violate any laws or regulations.
+- you will comply with all laws and regulations, and your Sponsored Developer Content is not illegal and does not violate any laws or regulations.
 
 ### 5.2. Disclaimer of Warranties; Limitation of Liability; Indemnification.
 YOU EXPLICITLY AGREE THAT SECTIONS O (DISCLAIMER OF WARRANTIES), P (LIMITATION OF LIABILITY), AND Q (RELEASE AND INDEMNIFICATION) OF THE AGREEMENT APPLY TO THESE ADDITIONAL TERMS.

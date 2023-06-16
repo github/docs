@@ -50,7 +50,7 @@ You set up {% data variables.product.prodname_dotcom %} to run {% data variables
 
 If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
 
-##  About `autobuild` for {% data variables.product.prodname_codeql %}
+## About `autobuild` for {% data variables.product.prodname_codeql %}
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 

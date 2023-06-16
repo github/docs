@@ -50,6 +50,9 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Sync the REST, Webhooks, and GitHub Apps schemas
+        env:
+          # Needed for gh
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
         run: |
           src/rest/scripts/update-files.js --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
           git status

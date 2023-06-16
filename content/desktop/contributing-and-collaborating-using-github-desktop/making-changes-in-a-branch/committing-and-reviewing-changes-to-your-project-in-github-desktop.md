@@ -44,14 +44,14 @@ As you make changes to files in your text editor and save them locally, you will
 
 In the "Changes" tab in the left sidebar:
 
-* The red {% octicon "diff-removed" aria-label="The diff removed icon color-red" %} icon indicates removed files.
-* The yellow {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} icon indicates modified files.
-* The green {% octicon "diff-added" aria-label="The diff added icon color-green" %} icon indicates added files.
-* To access stashed changes, click **Stashed Changes**.
-* {% data reusables.desktop.commit-all-desc %}
+- The red {% octicon "diff-removed" aria-label="The diff removed icon color-red" %} icon indicates removed files.
+- The yellow {% octicon "diff-modified" aria-label="The diff modified icon color-yellow" %} icon indicates modified files.
+- The green {% octicon "diff-added" aria-label="The diff added icon color-green" %} icon indicates added files.
+- To access stashed changes, click **Stashed Changes**.
+- {% data reusables.desktop.commit-all-desc %}
 
   ![Screenshot of the "Changes" tab. Above the list of changed files, next to the text "3 changed files", a selected checkbox is outlined in orange.](/assets/images/help/desktop/commit-all.png)
-* {% data reusables.desktop.commit-some-desc %}
+- {% data reusables.desktop.commit-some-desc %}
 
 ### Creating a partial commit
 

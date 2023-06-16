@@ -28,8 +28,8 @@ topics:
 
 There are three main ways to use {% data variables.product.prodname_codeql %} analysis for {% data variables.product.prodname_code_scanning %}:
 
-- Use default setup to automatically configure {% data variables.product.prodname_codeql %} analysis for {% data variables.product.prodname_code_scanning %} on your repository. The default setup chooses the languages to analyze, query suites to run, and events that trigger scans, then displays a summary of the analysis settings. After you enable {% data variables.product.prodname_codeql %}, {% data variables.product.prodname_actions %} will execute workflow runs to scan your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
-- Use advanced setup to add the {% data variables.product.prodname_codeql %} workflow to your repository. This generates a customizable workflow file which uses the [github/codeql-action](https://github.com/github/codeql-action/) to run the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+- Use the default setup to quickly configure {% data variables.product.prodname_codeql %} analysis for {% data variables.product.prodname_code_scanning %} on your repository. The default setup automatically chooses the languages to analyze, query suite to run, and events that trigger scans. If you prefer, you can manually select the query suite to run{% ifversion code-scanning-without-workflow-310 %} and languages to analyze{% endif %}. After you enable {% data variables.product.prodname_codeql %}, {% data variables.product.prodname_actions %} will execute workflow runs to scan your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
+- Use an advanced setup to add the {% data variables.product.prodname_codeql %} workflow to your repository. This generates a customizable workflow file which uses the [github/codeql-action](https://github.com/github/codeql-action/) to run the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
 
 {% else %}
 
@@ -49,6 +49,7 @@ On {% data variables.product.product_name %} {% ifversion ghes %}{{ allVersions[
 
 {% endif %}
 
+For information about {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
 
 ## About {% data variables.product.prodname_codeql %}
 

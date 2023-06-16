@@ -331,10 +331,10 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 ## Troubleshooting
 
-* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
-* "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-* "[Device flow errors](#error-codes-for-the-device-flow)"
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
+- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
+- "[Device flow errors](#error-codes-for-the-device-flow)"
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
 
 ## Further reading
 

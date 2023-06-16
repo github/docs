@@ -3,6 +3,7 @@ import renderContent from '../../../../lib/render-content/index.js'
 
 export const incorrectAltTextLength = {
   names: ['MD111', 'incorrect-alt-text-length'],
+  severity: 'warning',
   description: 'Images alternate text should be between 40-150 characters',
   tags: ['accessibility', 'images'],
   function: function MD111(params, onError) {
