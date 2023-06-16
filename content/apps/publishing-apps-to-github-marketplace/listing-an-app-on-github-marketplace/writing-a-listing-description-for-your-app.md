@@ -166,7 +166,7 @@ You can add more information in the optional "Detailed description" field. You s
 
 - For each value proposition, include a title followed by a paragraph of description. Format the title as a [level-three header](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#headings) using Markdown. For example:
 
-  ### Learn the skills you need
+### Learn the skills you need
 
   {% data variables.product.prodname_learning %} can help you learn how to use {% data variables.product.company_short %}, communicate more effectively with Markdown, handle merge conflicts, and more.
 
