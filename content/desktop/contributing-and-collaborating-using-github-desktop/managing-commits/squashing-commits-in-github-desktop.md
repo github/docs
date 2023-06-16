@@ -1,6 +1,6 @@
 ---
 title: Squashing commits in GitHub Desktop
-shortTitle: Squashing commmits
+shortTitle: Squashing commits
 intro: 'You can use {% data variables.product.prodname_desktop %} to squash commits in your branch''s history.'
 versions:
   fpt: '*'
