@@ -4,7 +4,7 @@
 
    To map authors from the original repository to an email address and name, create a new CSV file with the columns `ID,(ignored),GIT_EMAIL,GIT_NAME`, which replaces the author information for anything by "ID" with "GIT_EMAIL" and "GIT_NAME".
 
-   #### Example:
+#### Example:
 
    - Original author ID: `octocat@111111-2222-3333-4444-55555555555`
    - New email address: `octocat@github.com`
