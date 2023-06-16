@@ -4,6 +4,26 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type 'ProjectV2Actor' was added</p>",
+          "<p>Type 'ProjectV2ActorConnection' was added</p>",
+          "<p>Type 'ProjectV2ActorEdge' was added</p>",
+          "<p>Type 'ProjectV2Collaborator' was added</p>",
+          "<p>Type 'ProjectV2Roles' was added</p>",
+          "<p>Type 'UpdateProjectV2CollaboratorsInput' was added</p>",
+          "<p>Type 'UpdateProjectV2CollaboratorsPayload' was added</p>",
+          "<p>Field 'updateProjectV2Collaborators<code>was added to object type</code>Mutation'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-06-16"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'MarkProjectV2AsTemplateInput' was added</p>",
           "<p>Type 'MarkProjectV2AsTemplatePayload' was added</p>",
           "<p>Type 'UnmarkProjectV2AsTemplateInput' was added</p>",
