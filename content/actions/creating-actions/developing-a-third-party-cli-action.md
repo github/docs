@@ -66,7 +66,7 @@ For a full example of how to set up this action, see [example-setup-gh](https://
 
 This pattern is employed in several actions. For more examples, see:
 
-* [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)
-* [`google-github-actions/setup-gcloud`](https://github.com/google-github-actions/setup-gcloud)
-* [`hashicorp/setup-terraform`](https://github.com/hashicorp/setup-terraform)
+- [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)
+- [`google-github-actions/setup-gcloud`](https://github.com/google-github-actions/setup-gcloud)
+- [`hashicorp/setup-terraform`](https://github.com/hashicorp/setup-terraform)
 

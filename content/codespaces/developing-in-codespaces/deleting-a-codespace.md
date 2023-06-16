@@ -127,8 +127,8 @@ For more information, click the "{% data variables.product.prodname_cli %}" tab 
 {% cli %}
 
 1. Enter one of these commands to display a list of codespaces.
-   * `gh codespace delete --org ORGANIZATION` - Lists the current codespaces in the specified organization.
-   * `gh codespace delete --org ORGANIZATION --user USER` - Lists only those codespaces created by the specified user.
+   - `gh codespace delete --org ORGANIZATION` - Lists the current codespaces in the specified organization.
+   - `gh codespace delete --org ORGANIZATION --user USER` - Lists only those codespaces created by the specified user.
    You must be an owner of the specified organization.
 1. In the list of codespaces, navigate to the codespace you want to delete.
 1. To delete the selected codespace press <kbd>Enter</kbd>.

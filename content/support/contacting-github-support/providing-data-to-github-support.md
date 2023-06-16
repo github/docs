@@ -30,19 +30,19 @@ To help you troubleshoot issues with a {% data variables.product.prodname_ghe_se
 
 Authentication tokens, keys, and secrets are removed from log files in the following log directories contained within a support bundle or diagnostics file:
 
-* `alambic-logs`
-* `babeld-logs`
-* `codeload-logs`
-* `enterprise-manage-logs`
-* `github-logs`
-* `hookshot-logs`
-* `lfs-server-logs`
-* `semiotic-logs`
-* `task-dispatcher-logs`
-* `pages-logs`
-* `registry-logs`
-* `render-logs`
-* `svn-bridge-logs`
+- `alambic-logs`
+- `babeld-logs`
+- `codeload-logs`
+- `enterprise-manage-logs`
+- `github-logs`
+- `hookshot-logs`
+- `lfs-server-logs`
+- `semiotic-logs`
+- `task-dispatcher-logs`
+- `pages-logs`
+- `registry-logs`
+- `render-logs`
+- `svn-bridge-logs`
 
 ## Creating and sharing diagnostic files
 

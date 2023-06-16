@@ -107,8 +107,8 @@ If you want to run the call in the Explorer, enter the `query` segment in the ma
 
 Because GraphQL is [introspective](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), the Explorer supports:
 
-* Intelligent typeaheads aware of the current schema
-* Validation error previews as you type
+- Intelligent typeaheads aware of the current schema
+- Validation error previews as you type
 
 If you enter a query that is not well-formed or does not pass [schema validation](/graphql/guides/introduction-to-graphql#schema), a popup warns you of an error. If you run the query, the error returns in the response pane.
 

@@ -141,10 +141,10 @@ TLS connection started
 
 This log shows that the appliance:
 
-* Opened a connection with the SMTP server (`Connection opened: smtp.yourdomain.com:587`).
-* Successfully made a connection and chose to use TLS (`TLS connection started`).
-* The `login` authentication type was performed (`<- "AUTH LOGIN\r\n"`).
-* The SMTP Server rejected the authentication as invalid (`-> "535-5.7.1 Username and Password not accepted.`).
+- Opened a connection with the SMTP server (`Connection opened: smtp.yourdomain.com:587`).
+- Successfully made a connection and chose to use TLS (`TLS connection started`).
+- The `login` authentication type was performed (`<- "AUTH LOGIN\r\n"`).
+- The SMTP Server rejected the authentication as invalid (`-> "535-5.7.1 Username and Password not accepted.`).
 
 ### Check {% data variables.location.product_location %} logs
 

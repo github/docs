@@ -190,8 +190,8 @@ However, you can set an enterprise policy to customize both the default total ca
 
 The policy settings for {% data variables.product.prodname_actions %} cache storage can currently only be modified using the REST API:
 
-* To view the current enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
-* To change the enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+- To view the current enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
+- To change the enterprise policy settings, see "[AUTOTITLE](/rest/actions/cache#get-github-actions-cache-usage-policy-for-an-enterprise)."
 
 {% data reusables.actions.cache-no-org-policy %}
 

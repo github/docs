@@ -80,4 +80,4 @@ If you have temporary files that you want to be available the next time you star
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"
+- "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"

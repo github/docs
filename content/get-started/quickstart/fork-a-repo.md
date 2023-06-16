@@ -227,10 +227,10 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
 
-* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[AUTOTITLE](/get-started/quickstart/set-up-git)."
+- For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[AUTOTITLE](/get-started/quickstart/set-up-git)."
 
-* You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
+- You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}"
 
-* {% data reusables.getting-started.being-social %}
+- {% data reusables.getting-started.being-social %}
 
-* {% data reusables.support.connect-in-the-forum-bootcamp %}
+- {% data reusables.support.connect-in-the-forum-bootcamp %}
