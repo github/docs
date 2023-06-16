@@ -1,4 +1,7 @@
-**Maintaining this template:** If you notice that any of these steps become out-of-date, open a pull request to update this [issue template](https://github.com/github/docs-internal/blob/main/.github/actions-scripts/enterprise-server-issue-templates/release-issue.md).
+<!-- gh project="4375" update-field="Size" value="L" -->
+<!-- gh project="4375" update-field="Story points" value="8" -->
+
+**Maintaining this template:** If you notice that any of these steps become out-of-date, open a pull request to update this [issue template](https://github.com/github/docs-internal/blob/main/src/ghes-releases/lib/release-steps.md).
 
 ## To enable the new version
 

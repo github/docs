@@ -1,8 +1,8 @@
-import renderContent from './render-content/index.js'
+import renderContent from '../../../lib/render-content/index.js'
 import getLinkData from './get-link-data.js'
-import getApplicableVersions from './get-applicable-versions.js'
-import { getDataByLanguage } from './get-data.js'
-import { executeWithFallback } from './render-with-fallback.js'
+import getApplicableVersions from '../../../lib/get-applicable-versions.js'
+import { getDataByLanguage } from '../../../lib/get-data.js'
+import { executeWithFallback } from '../../../lib/render-with-fallback.js'
 
 const renderOpts = { textOnly: true }
 
