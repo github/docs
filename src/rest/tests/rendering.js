@@ -2,7 +2,7 @@ import { jest, test } from '@jest/globals'
 import { slug } from 'github-slugger'
 
 import { getDOM } from '../../../tests/helpers/e2etest.js'
-import getRest from '../lib/index.js'
+import getRest from '#src/rest/lib/index.js'
 import { isApiVersioned, allVersions } from '../../../lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
 
