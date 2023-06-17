@@ -97,7 +97,7 @@ The table below describes the locations for various PowerShell modules in each {
 
 {% note %}
 
-**Note**: On Ubuntu runners, Azure PowerShell modules are stored in `/usr/share/` instead of the default location of **Powershell add-on modules** (i.e. `/usr/local/share/powershell/Modules/`).
+**Note**: On Ubuntu runners, Azure PowerShell modules are stored in `/usr/share/` instead of the default location of **PowerShell add-on modules** (i.e. `/usr/local/share/powershell/Modules/`).
 
 {% endnote %}
 
