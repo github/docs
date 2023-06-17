@@ -205,8 +205,8 @@ This section will show you how to add some basic template code for your {% data 
 Add the following template code to your `server.rb` file:
 
 ```ruby{:copy}
-require 'sinatra'     # Uses the Sinatra web framework
-require 'octokit'     # Uses the Octokit Ruby library to interact with GitHub's REST API
+require 'sinatra'     # Use the Sinatra web framework
+require 'octokit'     # Use the Octokit Ruby library to interact with GitHub's REST API
 require 'dotenv/load' # Manages environment variables
 require 'json'        # Allows your app to manipulate JSON data
 require 'openssl'     # Verifies the webhook signature
@@ -263,7 +263,7 @@ class GHAapp < Sinatra::Application
 
   post '/event_handler' do
 
-    # ADD YOUR CODE HERE #
+    # ADD EVENT HANDLING HERE #
 
     200 # success status
   end
@@ -271,7 +271,13 @@ class GHAapp < Sinatra::Application
 
   helpers do
 
-    # ADD YOUR HELPER METHODS HERE #
+    # ADD CREATE_CHECK_RUN HELPER METHOD HERE #
+
+    # ADD INITIATE_CHECK_RUN HELPER METHOD HERE #
+
+    # ADD CLONE_REPOSITORY HELPER METHOD HERE #
+
+    # ADD TAKE_REQUESTED_ACTION HELPER METHOD HERE #
 
     # Saves the raw payload and converts the payload to JSON format
     def get_payload_request(request)
@@ -601,22 +607,25 @@ Open the `server.rb` file that you created in "[Add code for your {% data variab
 ``` ruby
   post '/event_handler' do
 
-    # ADD YOUR CODE HERE  #
+    # ADD EVENT HANDLING HERE #
 
     200 # success status
   end
 ```
 
-This route will handle the `check_suite` event. Under `post '/event_handler' do`, where it says `# ADD YOUR CODE HERE  #`, add the following code:
+Under `post '/event_handler' do`, where it says `# ADD EVENT HANDLING HERE  #`, add the following code. This route will handle the `check_suite` event.
 
 ``` ruby{:copy}
 # Get the event type from the HTTP_X_GITHUB_EVENT header
 case request.env['HTTP_X_GITHUB_EVENT']
+
 when 'check_suite'
   # A new check_suite has been created. Create a new check run with status queued
   if @payload['action'] == 'requested' || @payload['action'] == 'rerequested'
     create_check_run
   end
+
+  # ADD CHECK_RUN METHOD HERE #
 end
 ```
 
@@ -628,7 +637,7 @@ The `requested` action requests a check run each time code is pushed to the repo
 
 You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too.
 
-Under `helpers do`, where it says `# ADD YOUR HELPER METHODS HERE #`, add this `create_check_run` method:
+Under `helpers do`, where it says `# ADD CREATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
 
 ``` ruby{:copy}
 # Create a new check run with status "queued"
@@ -675,9 +684,9 @@ So far you've told {% data variables.product.prodname_dotcom %} to create a chec
 
 When your `create_check_run` method runs, it asks {% data variables.product.prodname_dotcom %} to create a new check run. When {% data variables.product.prodname_dotcom %} finishes creating the check run, you'll receive the `check_run` webhook event with the `created` action. That event is your signal to begin running the check.
 
-You'll want to update your event handler to look for the `created` action. While you're updating the event handler, you can add a conditional for the `rerequested` action. When someone re-runs a single test on {% data variables.product.prodname_dotcom %} by clicking the "Re-run" button, {% data variables.product.prodname_dotcom %} sends the `rerequested` check run event to your app. When a check run is `rerequested`, you'll want to start the process all over and create a new check run.
+You'll update your event handler to look for the `created` action. While you're updating the event handler, you can add a conditional for the `rerequested` action. When someone re-runs a single test on {% data variables.product.prodname_dotcom %} by clicking the "Re-run" button, {% data variables.product.prodname_dotcom %} sends the `rerequested` check run event to your app. When a check run is `rerequested`, you'll start the process all over and create a new check run. To do that, you'll include a condition for the `check_run` event in the `post '/event_handler'` route.
 
-To do that, you'll include a condition for the `check_run` event in the `post '/event_handler'` route. Under `post '/event_handler' do`, add the following code below `case request.env['HTTP_X_GITHUB_EVENT']`:
+Under `post '/event_handler' do`, where it says `# ADD CHECK_RUN METHOD HERE #`, add the following code:
 
 ``` ruby{:copy}
 when 'check_run'
@@ -688,6 +697,7 @@ when 'check_run'
       initiate_check_run
     when 'rerequested'
       create_check_run
+    # ADD requested_action METHOD HERE #
     end
   end
 ```
@@ -700,7 +710,7 @@ In this section, you're not going to kick off the CI test yet, but you'll walk t
 
 Let's create the `initiate_check_run` method and update the status of the check run. Add the following code to the helpers section:
 
-Under `helpers do`, add the following code:
+Under `helpers do`, where it says `# ADD INITIATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
 
 ``` ruby{:copy}
 # Start the CI process
@@ -726,6 +736,7 @@ def initiate_check_run
     conclusion: 'success',
     accept: 'application/vnd.github+json'
   )
+
 end
 ```
 
@@ -735,15 +746,21 @@ Here's what this code is doing. First, it updates the check run's status to `in_
 
 You'll notice in the "[AUTOTITLE](/rest/checks#update-a-check-run)" docs that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `skipped`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
 
-You could also provide more details about what your check is doing, but you'll get to that in the next section. Let's test this code again. If your server is currently running, enter `Ctrl-C` in your terminal to stop the server. Run the following command to restart the server:
+You could also provide more details about what your check is doing, but you'll get to that in the next section.
 
-```shell{:copy}
-ruby server.rb
-```
+### Test the code
 
-Head over to your open pull request and click the **Checks** tab. Click the "Re-run all" button in the upper right corner. You should see the check run move from `pending` to `in_progress` and end with `success`.
+The following steps will show you how to test that the code works, and that the new "Re-run all" button you created works.
 
-[TODOCS: I had to push another commit first, before the PR would update to show the "Re-run" button. But pushing another commit already re-runs the test. So it maybe feels weird to also tell them to click the re-run all button... but maybe not? Is there another way to get the re-run all button to show up?]
+1. Run the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
+
+   ```shell{:copy}
+   ruby server.rb
+   ```
+
+1. In the repository where you installed your app, create a new pull request.
+1. In the pull request you just created, navigate to the **Checks** tab. You should see a "Re-run all" button.
+1. Click the "Re-run all" button in the upper right corner. The test should run again, and end with `success`.
 
 ## Part 2. Creating the Octo RuboCop CI test
 
@@ -777,7 +794,7 @@ Let's get started! These are the steps you'll complete in this section:
 
 You can pass specific files or entire directories for RuboCop to check. In this tutorial, you'll run RuboCop on an entire directory. RuboCop only checks Ruby code. You'll need to add a Ruby file in your repository that contains errors for RuboCop to find.
 
-1. Navigate to the directory where your app is installed.
+1. On {% data variables.product.prodname_dotcom %}, navigate to the repository where your app is installed.
 2. Create a new file named `myfile.rb`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
 3. Add the following content to `myfile.rb`:
 
@@ -830,14 +847,14 @@ Next you'll need to update your {% data variables.product.prodname_github_app %}
 To clone a repository, the code will use your {% data variables.product.prodname_github_app %}'s permissions and the Octokit SDK to create an installation token for your app (`x-access-token:<token>`) and use it in the following clone command:
 
 ```shell
-git clone https://x-access-token:&lt;TOKEN&gt;@github.com/&lt;OWNER&gt;/&lt;REPO&gt;.git
+git clone https://x-access-token:TOKEN@github.com/OWNER/REPO.git
 ```
 
 The command above clones a repository over HTTP. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
 
 After your app clones the repository, it needs to pull the latest code changes and check out a specific Git ref. The code to do all of this will fit nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag.
 
-Open your `server.rb` file. Under `helpers do`, add the following code:
+Open your `server.rb` file. Under `helpers do`, where it says `# ADD CLONE_REPOSITORY HELPER METHOD HERE #`, add the following code:
 
 ``` ruby{:copy}
 # Clones the repository to the current working directory, updates the
@@ -870,15 +887,17 @@ repository     = @payload['repository']['name']
 head_sha       = @payload['check_run']['head_sha']
 
 clone_repository(full_repo_name, repository, head_sha)
+
+# ADD CODE HERE TO RUN RUBOCOP #
 ```
 
 The code above gets the full repository name and the head SHA of the commit from the `check_run` webhook payload.
 
 ## Step 2.3. Run RuboCop
 
-So far your code clones the repository and creates check runs using your CI server. Now you'll get into the details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [checks annotations](/rest/checks#create-a-check-run). First, add some code to run RuboCop and save the style code errors in JSON format.
+So far your code clones the repository and creates check runs using your CI server. Now you'll get into the details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [checks annotations](/rest/checks#create-a-check-run). First, add code to run RuboCop and save the style code errors in JSON format.
 
-Under `clone_repository`, which you just added in the [previous step](#step-22-clone-the-repository), add the following code:
+Under `clone_repository`, where it says `# ADD CODE HERE TO RUN RUBOCOP #`, add the following code:
 
 ``` ruby{:copy}
 # Run RuboCop on all files in the repository
@@ -886,19 +905,16 @@ Under `clone_repository`, which you just added in the [previous step](#step-22-c
 logger.debug @report
 `rm -rf #{repository}`
 @output = JSON.parse @report
+
+# ADD ANNOTATIONS CODE HERE #
 ```
 
-The code above runs RuboCop on all files in the repository's directory. The option `--format json` saves a copy of the linting results in a machine-parsable format. For more information, and an example of the JSON format, see "[JSON Formatter](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)" in the RuboCop docs.
+The code above runs RuboCop on all files in the repository's directory. The option `--format json` saves a copy of the linting results in a machine-parsable format. For more information, and an example of the JSON format, see "[JSON Formatter](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)" in the RuboCop docs. This code also parses the JSON so you can easily access the keys and values in your {% data variables.product.prodname_github_app %} using the `@output`  variable.
 
-Because this code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository. This code also parses the JSON so you can easily access the keys and values in your {% data variables.product.prodname_github_app %} using the `@output` variable.
+After running RuboCop and saving the linting results, this code runs the command `rm -rf` to remove the checkout of the repository. Because the code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository.
 
-{% note %}
+The `rm -rf` command cannot be undone. To keep your app secure, the code in this tutorial checks incoming webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. The `verify_webhook_signature` method validates the sender of the webhook. The `verify_webhook_signature` event handler also checks that the repository name is valid. For more information, see "[Define a before filter](#define-a-before-filter)."
 
-**Note:** The command used to remove the repository (`rm -rf`) cannot be undone. See [Step 2.7. Security tips](#step-27-security-tips) to learn how to check webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. 😱 If for some reason you're _not_ using the method `verify_webhook_signature` (which is included in `server.rb`) to validate the sender of the webhook, make sure you check that the repository name is valid.
-
-TODOCS: If we remove the security tips section, update this note text.
-
-{% endnote %}
 
 ### Test the code
 
@@ -911,7 +927,7 @@ The following steps will show you how to test that the code works and view the e
    ```
 
 2. In the repository where you installed your app, create a new pull request.
-3. In your terminal tab where the server is running, you should see debug output that contains linting errors. The linting errors are printed without any formatting. You can use a web tool like [JSON formatter](https://jsonformatter.org/) to format your JSON output like the following example, so it's easier to read.
+3. In your terminal tab where the server is running, you should see debug output that contains linting errors. The linting errors are printed without any formatting. You can copy and paste your debug output into a web tool like [JSON formatter](https://jsonformatter.org/), to format your JSON output like the following example:
 
    ```json
    {
@@ -979,7 +995,7 @@ A check run expects annotations as an array of objects. Each annotation object m
 
 Now you'll add code to extract the required information from RuboCop that's needed to create each annotation.
 
-In the [previous step](#step-23-run-rubocop), you added code under `clone_repository` that runs RuboCop on all files in the repository and outputs the linting results as JSON. Immediately under that code block, below `@output = JSON.parse @report`, add the following code:
+Under the code you added in the previous step, where it says `# ADD ANNOTATIONS CODE HERE #`, add the following code:
 
 ``` ruby{:copy}
 annotations = []
@@ -1032,6 +1048,8 @@ else
     end
   end
 end
+
+# ADD CODE HERE TO UPDATE CHECK RUN SUMMARY #
 ```
 
 This code limits the total number of annotations to 50. But you can modify this code to update the check run for each batch of 50 annotations. The code above includes the variable `max_annotations` that sets the limit to 50, which is used in the loop that iterates through the offenses.
@@ -1050,21 +1068,7 @@ Each check run from {% data variables.product.prodname_dotcom %} contains an `ou
 
 For the `summary`, this example uses the summary information from RuboCop and adds newlines (`\n`) to format the output. You can customize what you add to the `text` parameter, but this example sets the `text` parameter to the RuboCop version. The following code sets the `summary` and `text`.
 
-In the [previous step](#step-24-collect-rubocop-errors), you appended code to an existing code block in your `server.rb` file. The end of that code block should look like this:
-
-```ruby
-      # Annotations only support start and end columns on the same line
-      if start_line == end_line
-        annotation.merge({start_column: start_column, end_column: end_column})
-      end
-
-      annotations.push(annotation)
-    end
-  end
-end
-```
-
-Below the final `end`, add the following code:
+Under the code you added in the previous step, where it says `# ADD CODE HERE TO UPDATE CHECK RUN SUMMARY #`, add the following code:
 
 ``` ruby{:copy}
 # Updated check run summary and text parameters
@@ -1165,11 +1169,12 @@ when 'check_run'
       initiate_check_run
     when 'rerequested'
       create_check_run
+    # ADD requested_action METHOD HERE #
   end
 end
 ```
 
-After the `rerequested` case, add the following `when` statement to handle the `rerequested_action` event:
+After the `rerequested` case, where it says `# ADD requested_action METHOD HERE #`, add the following code:
 
 ``` ruby{:copy}
 when 'requested_action'
@@ -1178,7 +1183,7 @@ when 'requested_action'
 
 This code calls a new method that will handle all `requested_action` events for your app.
 
-Under `helpers do`, add the following helper method:
+Under `helpers do`, where it says `# ADD TAKE_REQUESTED_ACTION HELPER METHOD HERE #`, add the following helper method:
 
 ``` ruby{:copy}
 # Handles the check run `requested_action` event
@@ -1239,8 +1244,8 @@ The following steps will show you how to test that RuboCop can automatically fix
 This is what the final code in `server.rb` should look like, after you've followed all of the steps in this tutorial. There are also comments throughout the code that provide additional context.
 
 ```ruby{:copy}
-require 'sinatra'     # Uses the Sinatra web framework
-require 'octokit'     # Uses the Octokit Ruby library to interact with GitHub's REST API
+require 'sinatra'     # Use the Sinatra web framework
+require 'octokit'     # Use the Octokit Ruby library to interact with GitHub's REST API
 require 'dotenv/load' # Manages environment variables
 require 'json'        # Allows your app to manipulate JSON data
 require 'openssl'     # Verifies the webhook signature
@@ -1274,7 +1279,6 @@ class GHAapp < Sinatra::Application
     set :logging, Logger::DEBUG
   end
 
-
   # Executed before each request to the `/event_handler` route
   before '/event_handler' do
     get_payload_request(request)
@@ -1295,14 +1299,14 @@ class GHAapp < Sinatra::Application
     authenticate_installation(@payload)
   end
 
-
   post '/event_handler' do
+
     # Get the event type from the HTTP_X_GITHUB_EVENT header
     case request.env['HTTP_X_GITHUB_EVENT']
 
     when 'check_suite'
       # A new check_suite has been created. Create a new check run with status queued
-      if @payload['action'] === 'requested' || @payload['action'] === 'rerequested'
+      if @payload['action'] == 'requested' || @payload['action'] == 'rerequested'
         create_check_run
       end
 
@@ -1318,11 +1322,12 @@ class GHAapp < Sinatra::Application
           take_requested_action
         end
       end
+
     end
+
 
     200 # success status
   end
-
 
   helpers do
 
@@ -1340,6 +1345,7 @@ class GHAapp < Sinatra::Application
         accept: 'application/vnd.github+json'
       )
     end
+
     # Start the CI process
     def initiate_check_run
       # Once the check run is created, you'll update the status of the check run
@@ -1353,7 +1359,6 @@ class GHAapp < Sinatra::Application
         accept: 'application/vnd.github+json'
       )
 
-      # ***** RUN A CI TEST *****
       full_repo_name = @payload['repository']['full_name']
       repository     = @payload['repository']['name']
       head_sha       = @payload['check_run']['head_sha']
@@ -1365,15 +1370,16 @@ class GHAapp < Sinatra::Application
       logger.debug @report
       `rm -rf #{repository}`
       @output = JSON.parse @report
+
       annotations = []
       # You can create a maximum of 50 annotations per request to the Checks
       # API. To add more than 50 annotations, use the "Update a check run" API
       # endpoint. This example code limits the number of annotations to 50.
-      # See https://docs.github.com/en/rest/checks/runs#update-a-check-run
+      # See /rest/reference/checks#update-a-check-run
       # for details.
       max_annotations = 50
 
-      # RuboCop reports the number of errors found in 'offense_count'
+      # RuboCop reports the number of errors found in "offense_count"
       if @output['summary']['offense_count'] == 0
         conclusion = 'success'
       else
@@ -1416,11 +1422,39 @@ class GHAapp < Sinatra::Application
         end
       end
 
+      # Handles the check run `requested_action` event
+      # See /webhooks/event-payloads/#check_run
+      def take_requested_action
+        full_repo_name = @payload['repository']['full_name']
+        repository     = @payload['repository']['name']
+        head_branch    = @payload['check_run']['check_suite']['head_branch']
+
+        if (@payload['requested_action']['identifier'] == 'fix_rubocop_notices')
+          clone_repository(full_repo_name, repository, head_branch)
+
+          # Sets your commit username and email address
+          @git.config('user.name', ENV['GITHUB_APP_USER_NAME'])
+          @git.config('user.email', ENV['GITHUB_APP_USER_EMAIL'])
+
+          # Automatically correct RuboCop style errors
+          @report = `rubocop '#{repository}/*' --format json --auto-correct`
+
+          pwd = Dir.getwd()
+          Dir.chdir(repository)
+          begin
+            @git.commit_all('Automatically fix Octo RuboCop notices.')
+            @git.push("https://x-access-token:#{@installation_token.to_s}@github.com/#{full_repo_name}.git", head_branch)
+          rescue
+            # Nothing to commit!
+            puts 'Nothing to commit'
+          end
+          Dir.chdir(pwd)
+          `rm -rf '#{repository}'`
+        end
+      end
+
       # Updated check run summary and text parameters
-      summary = "Octo RuboCop summary\n-Offense count:
-#{@output['summary']['offense_count']}\n-File count:
-#{@output['summary']['target_file_count']}\n-Target file count:
-#{@output['summary']['inspected_file_count']}"
+      summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_count']}\n-File count: #{@output['summary']['target_file_count']}\n-Target file count: #{@output['summary']['inspected_file_count']}"
       text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
       # Mark the check run as complete! And if there are warnings, share them.
@@ -1442,37 +1476,7 @@ class GHAapp < Sinatra::Application
         }],
         accept: 'application/vnd.github+json'
       )
-    end
 
-    # Handles the check run `requested_action` event
-    # See https://developer.github.com/v3/activity/events/types/#checkrunevent
-    def take_requested_action
-      full_repo_name = @payload['repository']['full_name']
-      repository     = @payload['repository']['name']
-      head_branch    = @payload['check_run']['check_suite']['head_branch']
-
-      if (@payload['requested_action']['identifier'] == 'fix_rubocop_notices')
-        clone_repository(full_repo_name, repository, head_branch)
-
-        # Sets your commit username and email address
-        @git.config('user.name', ENV['GITHUB_APP_USER_NAME'])
-        @git.config('user.email', ENV['GITHUB_APP_USER_EMAIL'])
-
-        # Automatically correct RuboCop style errors
-        @report = `rubocop '#{repository}/*' --format json --auto-correct`
-
-        pwd = Dir.getwd()
-        Dir.chdir(repository)
-        begin
-          @git.commit_all('Automatically fix Octo RuboCop notices.')
-          @git.push("https://x-access-token:#{@installation_token.to_s}@github.com/#{full_repo_name}.git", head_branch)
-        rescue
-          # Nothing to commit!
-          puts 'Nothing to commit'
-        end
-        Dir.chdir(pwd)
-        `rm -rf '#{repository}'`
-      end
     end
 
     # Clones the repository to the current working directory, updates the
@@ -1490,6 +1494,8 @@ class GHAapp < Sinatra::Application
       Dir.chdir(pwd)
     end
 
+
+
     # Saves the raw payload and converts the payload to JSON format
     def get_payload_request(request)
       # request.body is an IO or StringIO object
@@ -1500,7 +1506,7 @@ class GHAapp < Sinatra::Application
       begin
         @payload = JSON.parse @payload_raw
       rescue => e
-        fail  "Invalid JSON (#{e}): #{@payload_raw}"
+        fail  'Invalid JSON (#{e}): #{@payload_raw}'
       end
     end
 
@@ -1573,15 +1579,15 @@ end
 
 ## Next steps
 
-You should now have an app that receives API events, creates check runs, uses RuboCop to find Ruby errors and create annotations in a pull request, and automatically fix linter errors. Next you might want to expand your app's code, deploy your app, and make your app public.
+You should now have an app that receives API events, creates check runs, and uses RuboCop to find Ruby errors, create annotations in a pull request, and automatically fix linter errors. Next you might want to expand your app's code, deploy your app, and make your app public.
+
+If you have any questions, you can ask for help or advice on GitHub Community, in the "[API and Webhooks discussions](https://github.com/orgs/community/discussions/categories/api-and-webhooks)."
 
 ### Modify the app code
 
-This tutorial demonstrated how to create a "Fix this" button that is always displayed in pull requests. You can update the code to display the "Fix this" button only when RuboCop finds errors.
+This tutorial demonstrated how to create a "Fix this" button that is always displayed in pull requests in the repository. Try updating the code to display the "Fix this" button only when RuboCop finds errors.
 
-If you'd prefer that RuboCop doesn't commit files directly to the head branch, you can update the code to instead create a pull request with a new branch that's based on the head branch.
-
-If you have any questions or run into any trouble, you can ask for help or advice on GitHub Community, in the "[API and Webhooks discussions](https://github.com/orgs/community/discussions/categories/api-and-webhooks)."
+If you'd prefer that RuboCop doesn't commit files directly to the head branch, update the code to instead create a pull request with a new branch that's based on the head branch.
 
 ### Deploy your app
 
