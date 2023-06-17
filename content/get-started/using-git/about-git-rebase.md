@@ -16,9 +16,9 @@ versions:
 ---
 Typically, you would use `git rebase` to:
 
-* Edit previous commit messages
-* Combine multiple commits into one
-* Delete or revert commits that are no longer necessary
+- Edit previous commit messages
+- Combine multiple commits into one
+- Delete or revert commits that are no longer necessary
 
 {% warning %}
 

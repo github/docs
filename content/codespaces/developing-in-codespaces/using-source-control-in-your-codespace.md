@@ -36,11 +36,11 @@ Source control in the {% data variables.product.prodname_vscode %} web client us
 
 A typical workflow for updating a file using {% data variables.product.prodname_github_codespaces %} would be:
 
-* From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
-* In your codespace, create a new branch to work on.
-* Make your changes and save them.
-* Commit the change.
-* Raise a pull request.
+- From the default branch of your repository on {% data variables.product.prodname_dotcom %}, create a codespace. See "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+- In your codespace, create a new branch to work on.
+- Make your changes and save them.
+- Commit the change.
+- Raise a pull request.
 
 {% note %}
 

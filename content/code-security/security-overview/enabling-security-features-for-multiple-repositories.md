@@ -22,7 +22,7 @@ topics:
 
 ## About enabling security features
 
-If you're a security manager, repository administrator, or organization owner, you can use security overview to enable or disable security features for multiple repositories at the same time. You can enable or disable security features for all repositories visible on the "Security coverage" view in security overview. You can also use the search bar to narrow down to a specific subset of repositories, and enable or disable security features for that group.
+If you're a security manager, repository administrator, or organization owner, you can use security overview to enable or disable security features for multiple repositories at the same time. You can enable or disable security features for all repositories visible on the "Security coverage" view in security overview for an organization. You can also use the search bar to narrow down to a specific subset of repositories, and enable or disable security features for that group.
 
 ## Enabling security features for multiple repositories
 
@@ -41,13 +41,13 @@ If you're a security manager, repository administrator, or organization owner, y
 
 The security features that you can enable and disable in this view are:
 
-* Dependency graph
-* {% data variables.product.prodname_dependabot_alerts %}
-* {% data variables.product.prodname_dependabot_security_updates %} 
-* {% data variables.product.prodname_GH_advanced_security %} 
-* {% data variables.product.prodname_code_scanning_caps %} default setup
-* {% data variables.secret-scanning.alerts_caps %}
-* {% data variables.product.prodname_secret_scanning_caps %} as a push protection
+- Dependency graph
+- {% data variables.product.prodname_dependabot_alerts %}
+- {% data variables.product.prodname_dependabot_security_updates %} 
+- {% data variables.product.prodname_GH_advanced_security %} 
+- {% data variables.product.prodname_code_scanning_caps %} default setup
+- {% data variables.secret-scanning.alerts_caps %}
+- {% data variables.product.prodname_secret_scanning_caps %} as a push protection
 
 If you're blocked from enabling a security feature due to an enterprise policy, you will still be able to see the affected repository in the "Security Coverage" view and access the side panel from the **{% octicon "gear" aria-hidden="true" %} Security settings** button. However, you will see a message in the side panel indicating that the functionality is not available. For more information about enterprise policies, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 

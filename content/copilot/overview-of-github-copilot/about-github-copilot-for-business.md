@@ -53,10 +53,10 @@ You have the ability to manage and make choices regarding the collection, retent
 
 User Engagement Data is used by {% data variables.product.company_short %} and Microsoft to provide the service and to enable improvements.
 
-* Evaluating {% data variables.product.prodname_copilot %}: The impact of {% data variables.product.prodname_copilot %} on users is assessed by measuring its positive effects and benefits.
-* Fine-tuning ranking and sorting algorithms: The data helps in the optimization and improvement of algorithms used for ranking and sorting suggestions, thereby enhancing the overall user experience.
-* Detecting abuse and policy violations: The data is examined to investigate and identify any potential misuse or violation of the Acceptable Use Policies associated with {% data variables.product.prodname_copilot %}.
-* Conducting experiments and research: The data is used for conducting experiments and research related to developers and their utilization of developer tools and services. This aids in gaining valuable insights into user behavior and preferences.
+- Evaluating {% data variables.product.prodname_copilot %}: The impact of {% data variables.product.prodname_copilot %} on users is assessed by measuring its positive effects and benefits.
+- Fine-tuning ranking and sorting algorithms: The data helps in the optimization and improvement of algorithms used for ranking and sorting suggestions, thereby enhancing the overall user experience.
+- Detecting abuse and policy violations: The data is examined to investigate and identify any potential misuse or violation of the Acceptable Use Policies associated with {% data variables.product.prodname_copilot %}.
+- Conducting experiments and research: The data is used for conducting experiments and research related to developers and their utilization of developer tools and services. This aids in gaining valuable insights into user behavior and preferences.
 
 ### How can users of {% data variables.product.prodname_copilot_for_business %} control use of their data?
 

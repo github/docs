@@ -44,9 +44,9 @@ When migrating from Azure Pipelines, consider the following differences:
 
 Jobs and steps in Azure Pipelines are very similar to jobs and steps in {% data variables.product.prodname_actions %}. In both systems, jobs have the following characteristics:
 
-* Jobs contain a series of steps that run sequentially.
-* Jobs run on separate virtual machines or in separate containers.
-* Jobs run in parallel by default, but can be configured to run sequentially.
+- Jobs contain a series of steps that run sequentially.
+- Jobs run on separate virtual machines or in separate containers.
+- Jobs run in parallel by default, but can be configured to run sequentially.
 
 ## Migrating script steps
 

@@ -7,6 +7,8 @@ import { readFile, writeFile } from 'fs/promises'
 import walkFiles from '../../../script/helpers/walk-files.js'
 
 import { incorrectAltTextLength } from '../lib/linting-rules/image-alt-text-length.js'
+import { internalLinksLang } from '../lib/linting-rules/internal-links-lang.js'
+import { internalLinksSlash } from '../lib/linting-rules/internal-links-slash.js'
 import { imageAltTextEndPunctuation } from '../lib/linting-rules/image-alt-text-end-punctuation.js'
 import { imageFileKebab } from '../lib/linting-rules/image-file-kebab.js'
 
@@ -26,16 +28,33 @@ async function main() {
     default: false,
     MD001: true,
     MD002: { level: 2 },
+    MD004: { style: 'dash' },
+    MD009: true,
+    MD011: true,
+    MD012: true,
+    MD018: true,
+    MD019: true,
+    MD014: true,
+    MD022: true,
+    MD023: true,
+    MD024: true,
     MD111: true,
     MD112: true,
-    // MD113: true,
+    MD113: true,
+    MD114: true,
     MD115: true,
   }
 
   const files = walkFiles(path, ['.md'], { includeBasePath: true })
   const options = {
     files,
-    customRules: [incorrectAltTextLength, imageAltTextEndPunctuation, imageFileKebab],
+    customRules: [
+      incorrectAltTextLength,
+      imageAltTextEndPunctuation,
+      internalLinksLang,
+      internalLinksSlash,
+      imageFileKebab,
+    ],
     config,
   }
 

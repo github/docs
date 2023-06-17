@@ -29,7 +29,7 @@ When you add a {% data variables.actions.hosted_runner %} to an organization, yo
 
 Compared to standard {% data variables.product.prodname_dotcom %}-hosted, {% data variables.actions.hosted_runner %}s have the following additional features:
 
-* For Ubuntu runners, hardware acceleration for the Android SDK tools is enabled. This makes running Android tests much faster and consume fewer minutes. For more information on Android hardware acceleration, see the [Android Developer documentation](https://developer.android.com/studio/run/emulator-acceleration).
+- For Ubuntu runners, hardware acceleration for the Android SDK tools is enabled. This makes running Android tests much faster and consume fewer minutes. For more information on Android hardware acceleration, see the [Android Developer documentation](https://developer.android.com/studio/run/emulator-acceleration).
 
 For a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
 

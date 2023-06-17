@@ -49,8 +49,8 @@ Organization owners and billing managers can view {% data variables.product.prod
    {% note %}
 
    **Notes**:
-   * The costs shown here are the cumulative costs within the current monthly billing period. The metered costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each monthly billing period. Outstanding costs from previous months are not shown.
-   * The figures on this page are updated every hour.
+   - The costs shown here are the cumulative costs within the current monthly billing period. The metered costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each monthly billing period. Outstanding costs from previous months are not shown.
+   - The figures on this page are updated every hour.
 
    {% endnote %}
 

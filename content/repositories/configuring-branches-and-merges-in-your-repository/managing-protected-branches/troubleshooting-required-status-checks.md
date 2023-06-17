@@ -100,8 +100,8 @@ Now the checks will always pass whenever someone sends a pull request that doesn
 {% note %}
 
 **Notes:**
-* Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)".
-* The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
+- Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)".
+- The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
 
 {% endnote %}
 

@@ -31,8 +31,8 @@ Additionally, anyone who has access to run a workflow can enable runner diagnost
 
 Runner diagnostic logging provides additional log files that contain information about how a runner is executing a job. Two extra log files are added to the log archive:
 
-* The runner process log, which includes information about coordinating and setting up runners to execute jobs.
-* The worker process log, which logs the execution of a job.
+- The runner process log, which includes information about coordinating and setting up runners to execute jobs.
+- The worker process log, which logs the execution of a job.
 
 1. To enable runner diagnostic logging, set the following secret{% ifversion actions-configuration-variables %} or variable{% endif %} in the repository that contains the workflow: `ACTIONS_RUNNER_DEBUG` to `true`.{% ifversion actions-configuration-variables %} If both the secret and variable are set, the value of the secret takes precedence over the variable.{% endif %}
 1. To download runner diagnostic logs, download the log archive of the workflow run. The runner diagnostic logs are contained in the `runner-diagnostic-logs` folder. For more information on downloading logs, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#downloading-logs)."

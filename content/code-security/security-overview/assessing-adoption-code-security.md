@@ -24,25 +24,45 @@ You can use security overview to see which repositories and teams have already e
 
 ![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, and search field.](/assets/images/help/security-overview/security-coverage-view-summary.png)
 
-## Viewing the enablement of code security features across repositories
+## Viewing the enablement of code security features for an organization
 
-{% data reusables.security-overview.information-varies-GHAS %} For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview)."
+{% data reusables.security-overview.information-varies-GHAS %}
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 1. To display the "Security coverage" view, in the sidebar, click **{% octicon "meter" aria-hidden="true"  %} Coverage**.
-1. Use options in the page summary to filter results to show the repositories you want to assess. The list of repositories and metrics displayed on the page automatically update to match your current selection. For more information on filtering, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
-    - Use the **Teams** dropdown to show information only for the repositories owned by one or more teams. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
-    - Click **NUMBER enabled** or **NUMBER not enabled** in the header for any feature to show only the repositories with that feature enabled or not enabled.
-    - At the top of the list of repositories, click **NUMBER Archived** to show only repositories that are archived.
-    - Click in the search box to add further filters to the repositories displayed.
+{% data reusables.code-scanning.using-security-overview-coverage %}
 
-    ![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, archived repositories, and search field.](/assets/images/help/security-overview/security-coverage-view-highlights.png)
-
+   ![Screenshot of the header section of the "Security coverage" view on the "Security" tab for an organization. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, archived repositories, and search field.](/assets/images/help/security-overview/security-coverage-view-highlights.png)
+   
 1. Optionally, click **{% octicon "gear" aria-hidden="true" %} Security settings** to enable code security features for a repository and click **Save security settings** to confirm the changes. If a feature is not shown, it has more complex configuration requirements and you need to use the repository settings dialog. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
 {% ifversion code-security-multi-repo-enablement %}
 1. Optionally, select some or all of the repositories that match your current search and click **Security settings** in the table header to display a side panel where you can enable security features for the selected repositories. When you've finished, click **Apply changes** to confirm the changes. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
 {% endif %}
+
+{% ifversion security-overview-org-risk-coverage-enterprise %}
+
+## Viewing the enablement of code security features for an enterprise
+
+You can view data to assess the enablement of code security features across organizations in an enterprise. {% data reusables.security-overview.information-varies-GHAS %}
+
+In the enterprise-level view, you can view data about the enablement of features, but you cannot enable or disable features. For more information about enabling features, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+
+{% tip %}
+
+**Tip:** You can use the `org:` filter in the search field to filter the data by organization. For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+
+{% endtip %}
+
+{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% data reusables.code-scanning.click-code-security-enterprise %}
+1. To display the "Security coverage" view, in the sidebar, click **Coverage**.
+{% data reusables.code-scanning.using-security-overview-coverage %}
+
+   ![Screenshot of the header section of the "Security coverage" view for an enterprise. The options for filtering are outlined in dark orange, including "enabled" and "not enabled" links, "Teams" selector, archived repositories, and search field.](/assets/images/help/security-overview/security-coverage-view-highlights-enterprise.png)
+
+{% endif %}
+
 ## Interpreting and acting on the enablement data
 
 Some code security features can and should be enabled on all repositories. For example, secret scanning alerts and push protection. These features reduce the risk of a security leak no matter what information is stored in the repository. If you see repositories that don't already use these features, you should either enable them or discuss an enablement plan with the team who owns the repository. For information on enabling features for a whole organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."

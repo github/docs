@@ -44,6 +44,8 @@ You can disable all use of {% data variables.product.prodname_github_codespaces 
 
 {% data reusables.codespaces.codespaces-disabling-org-billing %}
 
+You can limit the number of codespaces that people can create, where the organization will be billed for the codespace. This can help to reduce codespace storage charges for your organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)."
+
 You can configure which repositories can be accessed from codespaces created for a particular repository. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
 
 You can limit the choice of types of machine that are available for codespaces created from repositories owned by your organization. This allows you to prevent people using overly resourced machines for their codespaces, and incurring unnecessary charges. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
