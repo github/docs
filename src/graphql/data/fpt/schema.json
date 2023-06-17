@@ -32282,7 +32282,7 @@
         },
         {
           "name": "applicationUrl",
-          "description": "<p>The application URL of the OAuth Application.</p>",
+          "description": "<p>The application URL of the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -32290,7 +32290,7 @@
         },
         {
           "name": "callbackUrl",
-          "description": "<p>The callback URL of the OAuth Application.</p>",
+          "description": "<p>The callback URL of the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -32306,7 +32306,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -32314,7 +32314,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -32322,7 +32322,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -32370,7 +32370,7 @@
         },
         {
           "name": "rateLimit",
-          "description": "<p>The rate limit of the OAuth Application.</p>",
+          "description": "<p>The rate limit of the OAuth application.</p>",
           "type": "Int",
           "id": "int",
           "kind": "scalars",
@@ -32378,7 +32378,7 @@
         },
         {
           "name": "state",
-          "description": "<p>The state of the OAuth Application.</p>",
+          "description": "<p>The state of the OAuth application.</p>",
           "type": "OauthApplicationCreateAuditEntryState",
           "id": "oauthapplicationcreateauditentrystate",
           "kind": "enums",
@@ -34946,7 +34946,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -34954,7 +34954,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -34962,7 +34962,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -35137,7 +35137,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -35145,7 +35145,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -35153,7 +35153,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -35328,7 +35328,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -35336,7 +35336,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -35344,7 +35344,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -75062,7 +75062,7 @@
       "fields": [
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -75070,7 +75070,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -75078,7 +75078,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -79484,19 +79484,19 @@
       "kind": "enums",
       "id": "oauthapplicationcreateauditentrystate",
       "href": "/graphql/reference/enums#oauthapplicationcreateauditentrystate",
-      "description": "<p>The state of an OAuth Application when it was created.</p>",
+      "description": "<p>The state of an OAuth application when it was created.</p>",
       "values": [
         {
           "name": "ACTIVE",
-          "description": "<p>The OAuth Application was active and allowed to have OAuth Accesses.</p>"
+          "description": "<p>The OAuth application was active and allowed to have OAuth Accesses.</p>"
         },
         {
           "name": "PENDING_DELETION",
-          "description": "<p>The OAuth Application was in the process of being deleted.</p>"
+          "description": "<p>The OAuth application was in the process of being deleted.</p>"
         },
         {
           "name": "SUSPENDED",
-          "description": "<p>The OAuth Application was suspended from generating OAuth Accesses due to abuse or security concerns.</p>"
+          "description": "<p>The OAuth application was suspended from generating OAuth Accesses due to abuse or security concerns.</p>"
         }
       ]
     },
