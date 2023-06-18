@@ -1,4 +1,4 @@
-import getLinkData from '../../../lib/get-link-data.js'
+import getLinkData from '#src/learning-track/lib/get-link-data.js'
 import renderContent from '../../../lib/render-content/index.js'
 
 // this middleware adds properties to the context object

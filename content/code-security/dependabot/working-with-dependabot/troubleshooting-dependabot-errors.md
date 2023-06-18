@@ -130,13 +130,13 @@ If {% data variables.product.prodname_dependabot %} attempts to check whether de
 
 Similarly, if {% data variables.product.prodname_dependabot %} can't access a private package registry in which a dependency is located, one of the following errors is generated:
 
-*	"Dependabot can't reach a dependency in a private package registry"<br>
+-	"Dependabot can't reach a dependency in a private package registry"<br>
    (API error type: `private_source_not_reachable`)
-*	"Dependabot can't authenticate to a private package registry"<br>
+-	"Dependabot can't authenticate to a private package registry"<br>
    (API error type:`private_source_authentication_failure`)
-*	"Dependabot timed out while waiting for a private package registry"<br>
+-	"Dependabot timed out while waiting for a private package registry"<br>
    (API error type:`private_source_timed_out`)
-*	"Dependabot couldn't validate the certificate for a private package registry"<br>
+-	"Dependabot couldn't validate the certificate for a private package registry"<br>
    (API error type:`private_source_certificate_failure`)
 
 To allow {% data variables.product.prodname_dependabot %} to update the dependency references successfully, make sure that all of the referenced dependencies are hosted at accessible locations.

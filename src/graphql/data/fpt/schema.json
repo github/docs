@@ -8245,6 +8245,40 @@
       ]
     },
     {
+      "name": "updateProjectV2Collaborators",
+      "kind": "mutations",
+      "id": "updateprojectv2collaborators",
+      "href": "/graphql/reference/mutations#updateprojectv2collaborators",
+      "description": "<p>Update the collaborators on a team or a project.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateProjectV2CollaboratorsInput!",
+          "id": "updateprojectv2collaboratorsinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateprojectv2collaboratorsinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "collaborators",
+          "type": "ProjectV2ActorConnection",
+          "id": "projectv2actorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2actorconnection",
+          "description": "<p>The collaborators granted a role.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateProjectV2DraftIssue",
       "kind": "mutations",
       "id": "updateprojectv2draftissue",
@@ -12785,7 +12819,7 @@
         },
         {
           "name": "changedFiles",
-          "description": "<p>We recommend using the <code>changedFielsIfAvailable</code> field instead of\n<code>changedFiles</code>, as <code>changedFiles</code> will cause your request to return an error\nif GitHub is unable to calculate the number of changed files.</p>",
+          "description": "<p>We recommend using the <code>changedFilesIfAvailable</code> field instead of\n<code>changedFiles</code>, as <code>changedFiles</code> will cause your request to return an error\nif GitHub is unable to calculate the number of changed files.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -32248,7 +32282,7 @@
         },
         {
           "name": "applicationUrl",
-          "description": "<p>The application URL of the OAuth Application.</p>",
+          "description": "<p>The application URL of the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -32256,7 +32290,7 @@
         },
         {
           "name": "callbackUrl",
-          "description": "<p>The callback URL of the OAuth Application.</p>",
+          "description": "<p>The callback URL of the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -32272,7 +32306,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -32280,7 +32314,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -32288,7 +32322,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -32336,7 +32370,7 @@
         },
         {
           "name": "rateLimit",
-          "description": "<p>The rate limit of the OAuth Application.</p>",
+          "description": "<p>The rate limit of the OAuth application.</p>",
           "type": "Int",
           "id": "int",
           "kind": "scalars",
@@ -32344,7 +32378,7 @@
         },
         {
           "name": "state",
-          "description": "<p>The state of the OAuth Application.</p>",
+          "description": "<p>The state of the OAuth application.</p>",
           "type": "OauthApplicationCreateAuditEntryState",
           "id": "oauthapplicationcreateauditentrystate",
           "kind": "enums",
@@ -34912,7 +34946,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -34920,7 +34954,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -34928,7 +34962,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -35103,7 +35137,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -35111,7 +35145,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -35119,7 +35153,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -35294,7 +35328,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -35302,7 +35336,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -35310,7 +35344,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -43680,6 +43714,72 @@
               }
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ActorConnection",
+      "kind": "objects",
+      "id": "projectv2actorconnection",
+      "href": "/graphql/reference/objects#projectv2actorconnection",
+      "description": "<p>The connection type for ProjectV2Actor.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ProjectV2ActorEdge]",
+          "id": "projectv2actoredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#projectv2actoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[ProjectV2Actor]",
+          "id": "projectv2actor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2actor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2ActorEdge",
+      "kind": "objects",
+      "id": "projectv2actoredge",
+      "href": "/graphql/reference/objects#projectv2actoredge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "ProjectV2Actor",
+          "id": "projectv2actor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#projectv2actor"
         }
       ]
     },
@@ -74962,7 +75062,7 @@
       "fields": [
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -74970,7 +75070,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -74978,7 +75078,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -79384,19 +79484,19 @@
       "kind": "enums",
       "id": "oauthapplicationcreateauditentrystate",
       "href": "/graphql/reference/enums#oauthapplicationcreateauditentrystate",
-      "description": "<p>The state of an OAuth Application when it was created.</p>",
+      "description": "<p>The state of an OAuth application when it was created.</p>",
       "values": [
         {
           "name": "ACTIVE",
-          "description": "<p>The OAuth Application was active and allowed to have OAuth Accesses.</p>"
+          "description": "<p>The OAuth application was active and allowed to have OAuth Accesses.</p>"
         },
         {
           "name": "PENDING_DELETION",
-          "description": "<p>The OAuth Application was in the process of being deleted.</p>"
+          "description": "<p>The OAuth application was in the process of being deleted.</p>"
         },
         {
           "name": "SUSPENDED",
-          "description": "<p>The OAuth Application was suspended from generating OAuth Accesses due to abuse or security concerns.</p>"
+          "description": "<p>The OAuth application was suspended from generating OAuth Accesses due to abuse or security concerns.</p>"
         }
       ]
     },
@@ -80406,6 +80506,31 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>The project's date and time of update.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2Roles",
+      "kind": "enums",
+      "id": "projectv2roles",
+      "href": "/graphql/reference/enums#projectv2roles",
+      "description": "<p>The possible roles of a collaborator on a project.</p>",
+      "values": [
+        {
+          "name": "ADMIN",
+          "description": "<p>The collaborator can view, edit, and maange the settings of the project.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>The collaborator has no direct access to the project.</p>"
+        },
+        {
+          "name": "READER",
+          "description": "<p>The collaborator can view the project.</p>"
+        },
+        {
+          "name": "WRITER",
+          "description": "<p>The collaborator can view and edit the project.</p>"
         }
       ]
     },
@@ -84636,6 +84761,25 @@
           "name": "PullRequest",
           "id": "pullrequest",
           "href": "/graphql/reference/objects#pullrequest"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2Actor",
+      "kind": "unions",
+      "id": "projectv2actor",
+      "href": "/graphql/reference/unions#projectv2actor",
+      "description": "<p>Possible collaborators for a project.</p>",
+      "possibleTypes": [
+        {
+          "name": "Team",
+          "id": "team",
+          "href": "/graphql/reference/objects#team"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
         }
       ]
     },
@@ -92348,6 +92492,41 @@
       ]
     },
     {
+      "name": "ProjectV2Collaborator",
+      "kind": "inputObjects",
+      "id": "projectv2collaborator",
+      "href": "/graphql/reference/input-objects#projectv2collaborator",
+      "description": "<p>A collaborator to update on a project. Only one of the userId or teamId should be provided.</p>",
+      "inputFields": [
+        {
+          "name": "role",
+          "description": "<p>The role to grant the collaborator.</p>",
+          "type": "ProjectV2Roles!",
+          "id": "projectv2roles",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#projectv2roles"
+        },
+        {
+          "name": "teamId",
+          "description": "<p>The ID of the team as a collaborator.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "userId",
+          "description": "<p>The ID of the user as a collaborator.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "ProjectV2FieldOrder",
       "kind": "inputObjects",
       "id": "projectv2fieldorder",
@@ -97077,6 +97256,40 @@
           "id": "projectstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#projectstate"
+        }
+      ]
+    },
+    {
+      "name": "UpdateProjectV2CollaboratorsInput",
+      "kind": "inputObjects",
+      "id": "updateprojectv2collaboratorsinput",
+      "href": "/graphql/reference/input-objects#updateprojectv2collaboratorsinput",
+      "description": "<p>Autogenerated input type of UpdateProjectV2Collaborators.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "collaborators",
+          "description": "<p>The collaborators to update.</p>",
+          "type": "[ProjectV2Collaborator!]!",
+          "id": "projectv2collaborator",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#projectv2collaborator"
+        },
+        {
+          "name": "projectId",
+          "description": "<p>The ID of the project to update the collaborators for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },

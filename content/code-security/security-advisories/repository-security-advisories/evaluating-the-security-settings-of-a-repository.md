@@ -22,7 +22,7 @@ If you have admin permissions to the repository, and the repository is owned by 
 
  If a repository is private, you can only see the security settings if you have admin permissions to the repository or have been granted special security permissions covering the repository, for example, as an organization-wide security manager.
 
- ## Suggesting a security policy for a repository 
+## Suggesting a security policy for a repository 
 
  If you do not have admin or security permissions for a public repository, you can still suggest a security policy to the repository maintainers if one doesn't already exist. The repository maintainers can then choose to accept or reject your suggestion. If the repository maintainers accept your suggestion, the security policy will be associated with the repository. 
 

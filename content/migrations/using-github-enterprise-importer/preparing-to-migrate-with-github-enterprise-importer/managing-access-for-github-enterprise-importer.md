@@ -123,8 +123,8 @@ To configure IP allow lists correctly, please read the following sections carefu
 
 You need to configure IP allow lists on {% data variables.product.prodname_dotcom_the_website %} if **both** of the following apply to your migration:
 
-* The source or destination of your migration is {% data variables.product.prodname_dotcom_the_website %}
-* The source or destination uses an IP allow list, either {% data variables.product.company_short %}'s IP allow list feature or your identity provider's (IdP) IP allow list restrictions (such as Azure CAP)
+- The source or destination of your migration is {% data variables.product.prodname_dotcom_the_website %}
+- The source or destination uses an IP allow list, either {% data variables.product.company_short %}'s IP allow list feature or your identity provider's (IdP) IP allow list restrictions (such as Azure CAP)
 
 If you use {% data variables.product.company_short %}'s IP allow list feature, you must add the {% data variables.product.prodname_dotcom %} IP ranges below to the allow list for the source and/or destination organizations.
 

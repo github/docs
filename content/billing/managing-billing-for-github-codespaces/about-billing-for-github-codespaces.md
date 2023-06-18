@@ -203,6 +203,10 @@ If a machine type that has more resources is chosen, this will affect the per-ho
 
 Organization owners can create a policy to limit the choice of machine types available to users for codespaces that are billed to an organization or enterprise account. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
+## Limiting the number of organization-owned codespaces
+
+Organization owners can limit the number of codespaces that people can create, where the organization will be billed for the codespace. This can help to reduce storage charges for the organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)."
+
 ## How billing is handled for forked repositories
 
 Usage of codespaces created from a forked repository will be billed to your personal account unless the upstream (or parent) repository is in an organization that has allowed you - as a member, or outside collaborator, of the organization - to use codespaces at the organization's expense.

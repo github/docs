@@ -16,6 +16,7 @@ children:
   - /configuring-git-large-file-storage-for-your-enterprise
   - /migrating-to-internal-repositories
   - /disabling-git-ssh-access-on-your-enterprise
+  - /locking-a-repository
   - /restoring-a-deleted-repository
   - /troubleshooting-service-hooks
 shortTitle: Manage repositories

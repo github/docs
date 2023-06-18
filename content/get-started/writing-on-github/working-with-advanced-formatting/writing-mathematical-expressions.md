@@ -82,6 +82,6 @@ To display a dollar sign as a character in the same line as a mathematical expre
 
 ## Further reading
 
-* [The MathJax website](http://mathjax.org)
-* [Getting started with writing and formatting on GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
-* [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+- [The MathJax website](http://mathjax.org)
+- [Getting started with writing and formatting on GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
+- [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)

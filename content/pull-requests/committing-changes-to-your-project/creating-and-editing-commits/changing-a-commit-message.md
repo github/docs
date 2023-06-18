@@ -121,4 +121,4 @@ If you have included sensitive information in a commit message, force pushing a 
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"

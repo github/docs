@@ -76,9 +76,9 @@ Anyone with write permissions in the repository, can then [merge the changes](/p
 
 A pull request can be merged automatically if its head branch is directly or indirectly merged into the base branch externally. In other words, if the head branch's tip commit becomes reachable from the tip of the target branch. For example:
 
-* Branch `main` is at commit **C**.
-* Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
-* Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
+- Branch `main` is at commit **C**.
+- Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
+- Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
 
 If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged *automatically* because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark *both* pull requests as merged.
 

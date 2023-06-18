@@ -50,8 +50,8 @@ admin@ghe-data-node-0:~$ ghe-cluster-status | grep error
 You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables.product.prodname_ghe_server %}. In addition to monitoring basic connectivity to each of the cluster nodes, you can check the cluster status by configuring Nagios to use the `ghe-cluster-status -n` command. This returns output in a format that Nagios understands.
 
 ### Prerequisites
-* Linux host running Nagios.
-* Network access to the {% data variables.product.prodname_ghe_server %} cluster.
+- Linux host running Nagios.
+- Network access to the {% data variables.product.prodname_ghe_server %} cluster.
 
 ### Configuring the Nagios host
 1. Generate an SSH key with a blank passphrase. Nagios uses this to authenticate to the {% data variables.product.prodname_ghe_server %} cluster.

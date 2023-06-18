@@ -12,10 +12,10 @@ versions:
 
 To apply for internships, you must meet the following requirements:
 
-* You have been accepted to {% data variables.product.prodname_global_campus %}. For more information, including how to apply, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
-* You are at least 18 years old.
-* You have an active {% data variables.product.prodname_dotcom %} account.
-* You are a resident of one of the countries where {% data variables.product.prodname_octernships %} is available.
+- You have been accepted to {% data variables.product.prodname_global_campus %}. For more information, including how to apply, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
+- You are at least 18 years old.
+- You have an active {% data variables.product.prodname_dotcom %} account.
+- You are a resident of one of the countries where {% data variables.product.prodname_octernships %} is available.
 
 You can find and apply for internships at [education.github.com/students/octernships](https://education.github.com/students/octernships). You can apply for up to four internships at any one time. In other words, you can always have up to four applications simultaneously, as many times as you would like, as long as you are an eligible student.
 

@@ -47,13 +47,13 @@ To use `gh` to work with {% data variables.product.prodname_github_codespaces %}
 
 As an example of a series of commands you might use to work with {% data variables.product.prodname_github_codespaces %}, you could:
 
-* List your current codespaces, to check whether you have a codespace for a particular repository:<br>
+- List your current codespaces, to check whether you have a codespace for a particular repository:<br>
   `gh codespace list`
-* Create a new codespace for the required repository branch:<br>
+- Create a new codespace for the required repository branch:<br>
   `gh codespace create -r github/docs -b main`
-* SSH into the new codespace:<br>
+- SSH into the new codespace:<br>
   `gh codespace ssh -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
-* Forward a port to your local machine:<br>
+- Forward a port to your local machine:<br>
   `gh codespace ports forward 8000:8000 -c octocat-literate-space-parakeet-7gwrqp9q9jcx4vq`
 
 ## `gh` commands for {% data variables.product.prodname_github_codespaces %}
@@ -166,31 +166,31 @@ The location of files and directories on the codespace is relative to the home d
 
 #### Examples
 
-* Copy a file from the local machine to the `$HOME` directory of a codespace:
+- Copy a file from the local machine to the `$HOME` directory of a codespace:
 
    `gh codespace cp myfile.txt remote:`
 
-* Copy a file to the directory in which a repository is checked out in a codespace:
+- Copy a file to the directory in which a repository is checked out in a codespace:
 
    `gh codespace cp myfile.txt remote:/workspaces/REPOSITORY-NAME`
 
-* Copy a file from a codespace to the current directory on the local machine:
+- Copy a file from a codespace to the current directory on the local machine:
 
    `gh codespace cp remote:myfile.txt .`
 
-* Copy three local files to the `$HOME/temp` directory of a codespace:
+- Copy three local files to the `$HOME/temp` directory of a codespace:
 
    `gh codespace cp a1.txt a2.txt a3.txt remote:temp`
 
-* Copy three files from a codespace to the current working directory on the local machine:
+- Copy three files from a codespace to the current working directory on the local machine:
 
    `gh codespace cp remote:a1.txt remote:a2.txt remote:a3.txt .`
 
-* Copy a local directory into the `$HOME` directory of a codespace:
+- Copy a local directory into the `$HOME` directory of a codespace:
 
    `gh codespace cp -r mydir remote:`
 
-* Copy a directory from a codespace to the local machine, changing the directory name:
+- Copy a directory from a codespace to the local machine, changing the directory name:
 
    `gh codespace cp -r remote:mydir mydir-localcopy`
 

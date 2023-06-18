@@ -4,16 +4,16 @@
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
 1. Navigate to where your runner is registered:
-   * **In an organization or repository**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-   * **If using an enterprise-level runner**:
+   - **In an organization or repository**: navigate to the main page and click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+   - **If using an enterprise-level runner**:
 
 {% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}
 2. Navigate to the {% data variables.product.prodname_actions %} settings:
-   * **In an organization or repository**:
+   - **In an organization or repository**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runners spaces=5 %}
    {%- ifversion ghec or ghae or ghes %}
-   * **If using an enterprise-level runner**:
+   - **If using an enterprise-level runner**:
 
 {% indented_data_reference reusables.enterprise-accounts.policies-tab spaces=5 %}
 {% indented_data_reference reusables.enterprise-accounts.actions-tab spaces=5 %}
