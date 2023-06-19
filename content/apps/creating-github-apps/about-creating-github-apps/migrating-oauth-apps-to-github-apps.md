@@ -1,5 +1,5 @@
 ---
-title: Migrating OAuth Apps to GitHub Apps
+title: Migrating OAuth apps to GitHub Apps
 intro: 'Learn about the advantages of migrating your {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, and learn how to migrate your {% data variables.product.prodname_oauth_app %}.'
 redirect_from:
   - /apps/migrating-oauth-apps-to-github-apps

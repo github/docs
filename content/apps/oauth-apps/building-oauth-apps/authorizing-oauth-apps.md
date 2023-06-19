@@ -1,5 +1,5 @@
 ---
-title: Authorizing OAuth Apps
+title: Authorizing OAuth apps
 intro: '{% data reusables.shortdesc.authorizing_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps
@@ -16,7 +16,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 ---
 
 {% note %}
@@ -33,9 +33,9 @@ Both {% data variables.product.prodname_oauth_app %}s and {% data variables.prod
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
 
-To authorize your OAuth app, consider which authorization flow best fits your app.
+To authorize your {% data variables.product.prodname_oauth_app %}, consider which authorization flow best fits your app.
 
-- [web application flow](#web-application-flow): Used to authorize users for standard OAuth apps that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
+- [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
 - [device flow](#device-flow):  Used for headless apps, such as CLI tools.
 
 ## Web application flow
@@ -274,7 +274,7 @@ Non-web authentication is available for limited situations like testing. If you 
 ## Redirect URLs
 
 The `redirect_uri` parameter is optional. If left out, GitHub will
-redirect users to the callback URL configured in the OAuth Application
+redirect users to the callback URL configured in the {% data variables.product.prodname_oauth_app %}
 settings. If provided, the redirect URL's host (excluding sub-domains) and port must exactly
 match the callback URL. The redirect URL's path must reference a
 subdirectory of the callback URL.
@@ -303,11 +303,11 @@ http://127.0.0.1:1234/path
 
 Note that OAuth RFC [recommends not to use `localhost`](https://datatracker.ietf.org/doc/html/rfc8252#section-7.3), but instead to use loopback literal `127.0.0.1` or IPv6 `::1`.
 
-## Creating multiple tokens for OAuth Apps
+## Creating multiple tokens for {% data variables.product.prodname_oauth_apps %}
 
 You can create multiple tokens for a user/application/scope combination to create tokens for specific use cases.
 
-This is useful if your OAuth App supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your OAuth App can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your OAuth App access to their private repositories.
+This is useful if your {% data variables.product.prodname_oauth_app %} supports one workflow that uses GitHub for sign-in and only requires basic user information. Another workflow may require access to a user's private repositories. Using multiple tokens, your {% data variables.product.prodname_oauth_app %} can perform the web flow for each use case, requesting only the scopes needed. If a user only uses your application to sign in, they are never required to grant your {% data variables.product.prodname_oauth_app %} access to their private repositories.
 
 {% data reusables.apps.oauth-token-limit %}
 
@@ -315,9 +315,9 @@ This is useful if your OAuth App supports one workflow that uses GitHub for sign
 
 ## Directing users to review their access
 
-You can link to authorization information for an OAuth App so that users can review and revoke their application authorizations.
+You can link to authorization information for an {% data variables.product.prodname_oauth_app %} so that users can review and revoke their application authorizations.
 
-To build this link, you'll need your OAuth Apps `client_id` that you received from GitHub when you registered the application.
+To build this link, you'll need your {% data variables.product.prodname_oauth_app %}'s `client_id` that you received from GitHub when you registered the application.
 
 ```
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
@@ -325,7 +325,7 @@ To build this link, you'll need your OAuth Apps `client_id` that you received fr
 
 {% tip %}
 
-**Tip:** To learn more about the resources that your OAuth App can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
+**Tip:** To learn more about the resources that your {% data variables.product.prodname_oauth_app %} can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
 
 {% endtip %}
 

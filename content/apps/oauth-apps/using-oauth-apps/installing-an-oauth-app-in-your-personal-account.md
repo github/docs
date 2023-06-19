@@ -1,5 +1,5 @@
 ---
-title: Installing an OAuth App in your personal account
+title: Installing an OAuth app in your personal account
 intro: 'You can install {% data variables.product.prodname_oauth_apps %} from {% data variables.product.prodname_marketplace %} to use in your personal account.'
 versions:
   fpt: '*'

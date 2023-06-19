@@ -5,7 +5,7 @@ permissions: Organization owners can control programmatic access in their organi
 topics:
   - Organizations
   - GitHub Apps
-  - OAuth Apps
+  - OAuth apps
   - API
 shortTitle: About programmatic access
 versions:
