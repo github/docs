@@ -176,7 +176,7 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
       - run: yarn
-      - run: yarn publish
+      - run: yarn npm publish // for Yarn version 1, use `yarn publish` instead
         env:
           NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
