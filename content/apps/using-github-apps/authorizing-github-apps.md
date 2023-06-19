@@ -28,6 +28,14 @@ When authorizing the {% data variables.product.prodname_github_app %}, you shoul
 
 You can review and revoke your authorization at any time. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
 
+{% ifversion ghec %}
+{% note %}
+
+**Note**: If your organization uses SAML SSO and you cannot see your organization's resources after you authorize a {% data variables.product.prodname_github_app %}, you may need to reauthorize the app after starting an active SAML session for your organization. For more information, see "[AUTOTITLE](/apps/using-github-apps/saml-and-github-apps)."
+
+{% endnote %}
+{% endif %}
+
 ## About {% data variables.product.prodname_github_app %}s acting on your behalf
 
 Once you authorize a {% data variables.product.prodname_github_app %}, the app can act on your behalf. The situations in which a {% data variables.product.prodname_github_app %} acts on your behalf vary according to the purpose of the {% data variables.product.prodname_github_app %} and the context in which it is being used. For example, an integrated development environment (IDE) may use a {% data variables.product.prodname_github_app %} to interact on your behalf in order to push changes you have authored through the IDE back to repositories on {% data variables.product.company_short %}.

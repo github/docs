@@ -64,6 +64,8 @@ After an enterprise or organization owner enables or enforces SAML SSO for an or
 
 To see the {% data variables.product.prodname_oauth_apps %} you've authorized, visit your [{% data variables.product.prodname_oauth_apps %} page](https://github.com/settings/applications). To see the {% data variables.product.prodname_github_apps %} you've authorized, visit your [{% data variables.product.prodname_github_apps %} page](https://github.com/settings/apps/authorizations).
 
+For more information, see "[AUTOTITLE](/apps/using-github-apps/saml-and-github-apps)."
+
 {% endif %}
 
 ## Further reading
