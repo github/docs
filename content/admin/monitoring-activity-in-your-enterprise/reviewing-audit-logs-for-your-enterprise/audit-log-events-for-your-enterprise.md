@@ -664,32 +664,30 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `oauth_application.create`           | An [OAuth application][] was created for a user or organization account.
-| `oauth_application.destroy`          | An [OAuth application][] was deleted from a user or organization account.
+| `oauth_application.create`           | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) was created for a user or organization account.
+| `oauth_application.destroy`          | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) was deleted from a user or organization account.
 {%- ifversion fpt or ghec %}
-| `oauth_application.generate_client_secret`   | An [OAuth application][]'s secret key was generated.
-| `oauth_application.remove_client_secret`     | An [OAuth application][]'s secret key was deleted.
+| `oauth_application.generate_client_secret`   | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app)'s secret key was generated.
+| `oauth_application.remove_client_secret`     | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app)'s secret key was deleted.
 {%- endif %}
-| `oauth_application.reset_secret`      | An [OAuth application][]'s secret key was reset.
+| `oauth_application.reset_secret`      | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app)'s secret key was reset.
 {%- ifversion fpt or ghec %}
-| `oauth_application.revoke_all_tokens` | All user tokens for an [OAuth application][] were requested to be revoked.
+| `oauth_application.revoke_all_tokens` | All user tokens for an [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) were requested to be revoked.
 {%- endif %}
-| `oauth_application.revoke_tokens`     | Token(s) for an [OAuth application][] were revoked.
-| `oauth_application.transfer`          | An [OAuth application][] was transferred from one user or organization account to another.
+| `oauth_application.revoke_tokens`     | Token(s) for an [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) were revoked.
+| `oauth_application.transfer`          | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) was transferred from one user or organization account to another.
 {%- ifversion ghes or ghae %}
-| `oauth_application.unsuspend`         | An [OAuth application][] was unsuspended for a user or organization account.
+| `oauth_application.unsuspend`         | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) was unsuspended for a user or organization account.
 {%- endif %}
-
-  [OAuth application]: /apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app
 
 {%- ifversion fpt or ghec %}
 ## `oauth_authorization` category actions
 
 | Action | Description
 |--------|-------------
-| `oauth_authorization.create`          | An authorization for an OAuth application was created. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
-| `oauth_authorization.destroy`          | An authorization for an OAuth application was deleted. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
-| `oauth_authorization.update`          | An authorization for an OAuth application was updated. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+| `oauth_authorization.create`          | An authorization for an {% data variables.product.prodname_oauth_app %} was created. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+| `oauth_authorization.destroy`          | An authorization for an {% data variables.product.prodname_oauth_app %} was deleted. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+| `oauth_authorization.update`          | An authorization for an {% data variables.product.prodname_oauth_app %} was updated. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
 {%- endif %}
 
 ## `org` category actions

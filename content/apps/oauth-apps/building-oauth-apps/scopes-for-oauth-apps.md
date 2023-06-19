@@ -1,5 +1,5 @@
 ---
-title: Scopes for OAuth Apps
+title: Scopes for OAuth apps
 intro: '{% data reusables.shortdesc.understanding_scopes_for_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/about-scopes-for-oauth-apps
@@ -13,7 +13,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 ---
 
 {% note %}
@@ -22,7 +22,7 @@ topics:
 
 {% endnote %}
 
-When setting up an OAuth App on GitHub, requested scopes are displayed to the user on the authorization form.
+When setting up an {% data variables.product.prodname_oauth_app %} on GitHub, requested scopes are displayed to the user on the authorization form.
 
 {% note %}
 
@@ -65,7 +65,7 @@ Name | Description
 **`admin:public_key`** | Fully manage public keys.
 &emsp;`write:public_key`| Create, list, and view details for public keys.
 &emsp;`read:public_key`| List and view details for public keys.
-**`admin:org_hook`** | Grants read, write, ping, and delete access to organization hooks. **Note:** OAuth tokens will only be able to perform these actions on organization hooks which were created by the OAuth App. {% data variables.product.pat_generic_caps %}s will only be able to perform these actions on organization hooks created by a user.
+**`admin:org_hook`** | Grants read, write, ping, and delete access to organization hooks. **Note:** OAuth tokens will only be able to perform these actions on organization hooks which were created by the {% data variables.product.prodname_oauth_app %}. {% data variables.product.pat_generic_caps %}s will only be able to perform these actions on organization hooks created by a user.
 **`gist`** | Grants write access to gists.
 **`notifications`** | Grants: <br/>* read access to a user's notifications <br/>* mark as read access to threads <br/>* watch and unwatch access to a repository, and <br/>* read, write, and delete access to thread subscriptions.
 **`user`** | Grants read/write access to profile info only.  Note that this scope includes `user:email` and `user:follow`.
@@ -92,7 +92,7 @@ Name | Description
 **`read:audit_log`** | Read audit log data.{% endif %}
 {% note %}
 
-**Note:** Your OAuth App can request the scopes in the initial redirection. You
+**Note:** Your {% data variables.product.prodname_oauth_app %} can request the scopes in the initial redirection. You
 can specify multiple scopes by separating them with a space using `%20`:
 
     https://github.com/login/oauth/authorize?

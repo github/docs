@@ -67941,6 +67941,10 @@
         {
           "name": "RUST",
           "description": "<p>Rust crates.</p>"
+        },
+        {
+          "name": "SWIFT",
+          "description": "<p>Swift packages.</p>"
         }
       ]
     },
