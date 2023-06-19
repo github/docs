@@ -39,11 +39,11 @@ Here are the steps you'll take to configure the template GitHub App:
 
 You may find it helpful to have a basic understanding of the following:
 
-* [GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)
-* [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
-* [The Ruby programming language](https://www.ruby-lang.org/en/)
-* [REST APIs](/rest)
-* [Sinatra](https://sinatrarb.com/)
+- [GitHub Apps](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)
+- [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
+- [The Ruby programming language](https://www.ruby-lang.org/en/)
+- [REST APIs](/rest)
+- [Sinatra](https://sinatrarb.com/)
 
 But you can follow along at any experience level. We'll link out to information you need along the way!
 
@@ -102,14 +102,14 @@ You'll see a form where you can enter details about your app. See "[AUTOTITLE](/
 
 {% endnote %}
 
-* For the "Homepage URL", use the domain issued by Smee.
-* For the "Webhook URL", again use the domain issued by Smee.
+- For the "Homepage URL", use the domain issued by Smee.
+- For the "Webhook URL", again use the domain issued by Smee.
 
-* For the "Webhook secret", create a password to secure your webhook endpoints. This should be something that only you (and GitHub, via this form) know. The secret is important because you will be receiving payloads from the public internet, and you'll use this secret to verify the webhook sender. Note that the GitHub App settings say the webhook secret is optional, which is true in most cases, but for the template app code to work, you must set a webhook secret.
+- For the "Webhook secret", create a password to secure your webhook endpoints. This should be something that only you (and GitHub, via this form) know. The secret is important because you will be receiving payloads from the public internet, and you'll use this secret to verify the webhook sender. Note that the GitHub App settings say the webhook secret is optional, which is true in most cases, but for the template app code to work, you must set a webhook secret.
 
-* On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions" section, scroll down to "Metadata" and select `Access: Read-only`. If you decide to extend this template app, you can update these permissions later.
+- On the Permissions & Webhooks page, you can specify a set of permissions for your app, which determines how much data your app has access to. Under the "Repository permissions" section, scroll down to "Metadata" and select `Access: Read-only`. If you decide to extend this template app, you can update these permissions later.
 
-* At the bottom of the Permissions & Webhooks page, under "Where can this {% data variables.product.prodname_github_app %} be installed?", specify whether this is a private app or a public app.
+- At the bottom of the Permissions & Webhooks page, under "Where can this {% data variables.product.prodname_github_app %} be installed?", specify whether this is a private app or a public app.
 
   This refers to who can install it: just you, or anyone in the world? For now, leave the app as private by selecting **Only on this account**.
 
@@ -119,9 +119,9 @@ Click **Create GitHub App** to create your app!
 
 After you create your app, you'll be taken back to the app settings page. You have two more things to do here:
 
-* **Note the app ID GitHub has assigned your app**, which is displayed in the "About" section. You'll need this to prepare your runtime environment.
+- **Note the app ID GitHub has assigned your app**, which is displayed in the "About" section. You'll need this to prepare your runtime environment.
 
-* **Generate a private key for your app**. This is necessary to authenticate your app later on. Scroll down to the "Private keys" section and click **Generate a private key**. Save the resulting `PEM` file (called something like  _`app-name`_-_`date`_-`private-key.pem`) in a directory where you can find it again.
+- **Generate a private key for your app**. This is necessary to authenticate your app later on. Scroll down to the "Private keys" section and click **Generate a private key**. Save the resulting `PEM` file (called something like  _`app-name`_-_`date`_-`private-key.pem`) in a directory where you can find it again.
 
 ## Step 4. Prepare the runtime environment
 
@@ -131,9 +131,9 @@ The template code you downloaded in the [Prerequisites section](#prerequisites) 
 
 You need to add these variables to the `.env` file:
 
-* _`GITHUB_PRIVATE_KEY`_: Add the private key you [generated and saved previously](#step-3-save-your-private-key-and-app-id). Open the `.pem` file with a text editor or use the command line to display the contents of the file: `cat path/to/your/private-key.pem`. Copy the entire contents of the file as the value of `GITHUB_PRIVATE_KEY` in your `.env` file. **Note:** Because the PEM file is more than one line you'll need to add quotes around the value like the example below.
-* _`GITHUB_APP_IDENTIFIER`_: Use the app ID you noted in the previous section.
-* _`GITHUB_WEBHOOK_SECRET`_: Add your webhook secret.
+- _`GITHUB_PRIVATE_KEY`_: Add the private key you [generated and saved previously](#step-3-save-your-private-key-and-app-id). Open the `.pem` file with a text editor or use the command line to display the contents of the file: `cat path/to/your/private-key.pem`. Copy the entire contents of the file as the value of `GITHUB_PRIVATE_KEY` in your `.env` file. **Note:** Because the PEM file is more than one line you'll need to add quotes around the value like the example below.
+- _`GITHUB_APP_IDENTIFIER`_: Use the app ID you noted in the previous section.
+- _`GITHUB_WEBHOOK_SECRET`_: Add your webhook secret.
 
 Here is an example `.env` file:
 
@@ -158,11 +158,11 @@ At the top of the file you'll see `set :port 3000`, which sets the port used whe
 The next code you'll see is the `class GHApp < Sinatra::Application` declaration. You'll write all of the code for your GitHub App inside this class.
 
 Out of the box, the class in the template does the following things:
-* [Read the environment variables](#read-the-environment-variables)
-* [Turn on logging](#turn-on-logging)
-* [Define a before filter](#define-a-before-filter)
-* [Define the route handler](#define-a-route-handler)
-* [Define the helper methods](#define-the-helper-methods)
+- [Read the environment variables](#read-the-environment-variables)
+- [Turn on logging](#turn-on-logging)
+- [Define a before filter](#define-a-before-filter)
+- [Define the route handler](#define-a-route-handler)
+- [Define the helper methods](#define-the-helper-methods)
 
 ### Read the environment variables
 
@@ -239,8 +239,8 @@ You'll learn about authenticating as an installation in the [next section](#auth
 
 Authenticating as a GitHub App lets you do a couple of things:
 
-* You can retrieve high-level management information about your GitHub App.
-* You can request access tokens for an installation of the app.
+- You can retrieve high-level management information about your GitHub App.
+- You can request access tokens for an installation of the app.
 
 For example, you would authenticate as a GitHub App to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a GitHub App first to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
@@ -290,8 +290,8 @@ end
 
 The [`create_app_installation_access_token`](https://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method) Octokit method creates an installation token. This method accepts two arguments:
 
-* Installation (integer): The ID of a GitHub App installation
-* Options (hash, defaults to `{}`): A customizable set of options
+- Installation (integer): The ID of a GitHub App installation
+- Options (hash, defaults to `{}`): A customizable set of options
 
 Any time a GitHub App receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a GitHub App, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. The response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
 
@@ -368,7 +368,7 @@ If you're wondering where the Terminal output above is coming from, it's written
 
 Here are a few common problems and some suggested solutions. If you run into any other trouble, you can ask for help or advice in the {% data reusables.support.prodname_support_forum_with_url %}.
 
-* **Q:** When I try to install the Smee command-line client, I get the following error:
+- **Q:** When I try to install the Smee command-line client, I get the following error:
 
     ```shell
     > npm: command not found
@@ -376,7 +376,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
     **A:** Looks like you don't have npm installed. The best way to install it is to download the Node.js package at https://nodejs.org and follow the installation instructions for your system. npm will be installed alongside Node.js.
 
-* **Q:** When I run the server, I get the following error:
+- **Q:** When I run the server, I get the following error:
 
     ```shell
     > server.rb:38:in `initialize': Neither PUB key nor PRIV key: header too long (OpenSSL::PKey::RSAError)
@@ -394,7 +394,7 @@ Here are a few common problems and some suggested solutions. If you run into any
 
     Double-check that you've copied the correct public key into your `.env` file.
 
-* **Q:** When I run the server, it crashes with this error:
+- **Q:** When I run the server, it crashes with this error:
 
     ```shell
     > Octokit::Unauthorized ... 401 - Bad credentials`
@@ -402,11 +402,11 @@ Here are a few common problems and some suggested solutions. If you run into any
 
     **A:** You may be authenticated as a GitHub App but not as an installation. Make sure you follow all the steps under "[Authenticate as an installation](#authenticating-as-an-installation)," and use the `@installation_client` instance variable (authenticated with an installation access token) for your API operations, not the `@app_client` instance variable (authenticated with a JWT). The `@app_client` can only retrieve high-level information about your app and obtain installation access tokens. It can't do much else in the API.
 
-* **Q:** My server isn't listening to events! The Smee client is running in a Terminal window, and I'm installing the app on a repository on GitHub, but I don't see any output in the Terminal window where I'm running the server.
+- **Q:** My server isn't listening to events! The Smee client is running in a Terminal window, and I'm installing the app on a repository on GitHub, but I don't see any output in the Terminal window where I'm running the server.
 
     **A:** You may not be running the Smee client, running the Smee command with the wrong parameters or you may not have the correct Smee domain in your GitHub App settings. First check to make sure the Smee client is running in a Terminal tab. If that's not the problem, visit your [app settings page](https://github.com/settings/apps) and check the fields shown in "[Step 2. Register a new GitHub App](#step-2-register-a-new-github-app)." Make sure the domain in those fields matches the domain you used in your `smee -u <unique_channel>` command in "[Step 1. Start a new Smee channel](#step-1-start-a-new-smee-channel)." If none of the above work, check that you are running the full Smee command including the `--path` and `--port` options, for example: `smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000` (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own Smee domain).
 
-* **Q:** I'm getting an `Octokit::NotFound` 404 error in my debug output:
+- **Q:** I'm getting an `Octokit::NotFound` 404 error in my debug output:
     ```
     2018-12-06 15:00:56 - Octokit::NotFound - POST {% data variables.product.api_url_code %}/app/installations/500991/access_tokens: 404 - Not Found // See: /v3/apps/#create-a-new-installation-token:
     ```
@@ -422,11 +422,11 @@ Here are a few common problems and some suggested solutions. If you run into any
 
 After walking through this guide, you've learned the basic building blocks for developing GitHub Apps! To review, you:
 
-* Registered a new GitHub App
-* Used Smee to receive webhook payloads
-* Ran a simple web server via Sinatra
-* Authenticated as a GitHub App
-* Authenticated as an installation
+- Registered a new GitHub App
+- Used Smee to receive webhook payloads
+- Ran a simple web server via Sinatra
+- Authenticated as a GitHub App
+- Authenticated as an installation
 
 ## Next steps
 

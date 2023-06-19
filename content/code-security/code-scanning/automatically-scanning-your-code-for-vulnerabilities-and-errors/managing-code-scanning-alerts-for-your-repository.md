@@ -86,7 +86,7 @@ You can prefix the `tag` filter with `-` to exclude results with that tag. For e
 
 ### Restricting results to application code only
 
-You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. For more information, see "[About labels for alerts not in application code](#about-labels-for-alerts-that-are-not-found-in-application-code)" above for more information about the types of code that are not application code.
+You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. For more information about the types of code that are automatically labeled as not application code, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-labels-for-alerts-that-are-not-found-in-application-code)."
 
 {% ifversion fpt or ghes or ghec %}
 

@@ -64,10 +64,10 @@ For more information about installing and using self-hosted runners, see "[AUTOT
 
 You can use any machine as a self-hosted runner as long at it meets these requirements:
 
-* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
-* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
-* The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
-* If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
+- You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
+- The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
+- The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
+- If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
 ## Autoscaling your self-hosted runners
 
@@ -277,10 +277,10 @@ This is not an issue with {% data variables.product.prodname_dotcom %}-hosted ru
 
 Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
 
-* Malicious programs running on the machine.
-* Escaping the machine's runner sandbox.
-* Exposing access to the machine's network environment.
-* Persisting unwanted or dangerous data on the machine.
+- Malicious programs running on the machine.
+- Escaping the machine's runner sandbox.
+- Exposing access to the machine's network environment.
+- Persisting unwanted or dangerous data on the machine.
 
 For more information about security hardening for self-hosted runners, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 

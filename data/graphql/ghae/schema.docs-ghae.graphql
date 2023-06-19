@@ -20264,17 +20264,17 @@ Metadata for an audit entry with action oauth_application.*
 """
 interface OauthApplicationAuditEntryData {
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 }
@@ -20319,12 +20319,12 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   actorUrl: URI
 
   """
-  The application URL of the OAuth Application.
+  The application URL of the OAuth application.
   """
   applicationUrl: URI
 
   """
-  The callback URL of the OAuth Application.
+  The callback URL of the OAuth application.
   """
   callbackUrl: URI
 
@@ -20335,17 +20335,17 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -20375,12 +20375,12 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   organizationUrl: URI
 
   """
-  The rate limit of the OAuth Application.
+  The rate limit of the OAuth application.
   """
   rateLimit: Int
 
   """
-  The state of the OAuth Application.
+  The state of the OAuth application.
   """
   state: OauthApplicationCreateAuditEntryState
 
@@ -20406,21 +20406,21 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
 }
 
 """
-The state of an OAuth Application when it was created.
+The state of an OAuth application when it was created.
 """
 enum OauthApplicationCreateAuditEntryState {
   """
-  The OAuth Application was active and allowed to have OAuth Accesses.
+  The OAuth application was active and allowed to have OAuth Accesses.
   """
   ACTIVE
 
   """
-  The OAuth Application was in the process of being deleted.
+  The OAuth application was in the process of being deleted.
   """
   PENDING_DELETION
 
   """
-  The OAuth Application was suspended from generating OAuth Accesses due to abuse or security concerns.
+  The OAuth application was suspended from generating OAuth Accesses due to abuse or security concerns.
   """
   SUSPENDED
 }
@@ -21970,17 +21970,17 @@ type OrgOauthAppAccessApprovedAuditEntry implements AuditEntry & Node & OauthApp
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -22076,17 +22076,17 @@ type OrgOauthAppAccessDeniedAuditEntry implements AuditEntry & Node & OauthAppli
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -22182,17 +22182,17 @@ type OrgOauthAppAccessRequestedAuditEntry implements AuditEntry & Node & OauthAp
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 

@@ -26,9 +26,9 @@ For more information, see "[AUTOTITLE](/codespaces/codespaces-reference/security
 ## Prerequisites
 
 To create codespaces with custom permissions defined, you must use one of the following:
-* The {% data variables.product.prodname_dotcom %} web UI
-* [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 or later
-* [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 or later
+- The {% data variables.product.prodname_dotcom %} web UI
+- [{% data variables.product.prodname_dotcom %} CLI](https://github.com/cli/cli/releases/latest) 2.5.2 or later
+- [{% data variables.product.prodname_github_codespaces %} {% data variables.product.prodname_vscode %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) 1.5.3 or later
 
 ## Setting additional repository permissions
 
@@ -59,18 +59,18 @@ To create codespaces with custom permissions defined, you must use one of the fo
    {% endnote %}
 
    You can grant as many or as few of the following permissions for each repository listed:
-   * `actions` - read / write
-   * `checks` - read / write
-   * `contents` - read / write
-   * `deployments` - read / write
-   * `discussions` - read / write
-   * `issues` - read / write
-   * `packages` - read
-   * `pages` - read / write
-   * `pull_requests` - read / write
-   * `repository_projects` - read / write
-   * `statuses` - read / write
-   * `workflows` - write
+   - `actions` - read / write
+   - `checks` - read / write
+   - `contents` - read / write
+   - `deployments` - read / write
+   - `discussions` - read / write
+   - `issues` - read / write
+   - `packages` - read
+   - `pages` - read / write
+   - `pull_requests` - read / write
+   - `repository_projects` - read / write
+   - `statuses` - read / write
+   - `workflows` - write
 
    To set a permission for a repository in an organization, you must explicitly add that repository name in the `repositories` object.
 

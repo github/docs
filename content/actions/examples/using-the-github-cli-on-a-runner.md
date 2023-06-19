@@ -201,8 +201,8 @@ on:
 
 Defines the `workflow_dispatch` and `scheduled` as triggers for the workflow:
 
-* The `workflow_dispatch` lets you manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
-* The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. For more information, see [`schedule`](/actions/using-workflows/events-that-trigger-workflows#schedule).
+- The `workflow_dispatch` lets you manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
+- The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. For more information, see [`schedule`](/actions/using-workflows/events-that-trigger-workflows#schedule).
 </td>
 </tr>
 <tr>
@@ -463,9 +463,9 @@ If an issue from a previous run is open and assigned to someone, then use [`gh i
 
 If an issue from a previous run is open and is not assigned to anyone, then:
 
-* Use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
-* Use [`gh issue close`](https://cli.github.com/manual/gh_issue_close) to close the old issue.
-* Use [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit) to edit the old issue to remove it from a specific {% data variables.product.prodname_dotcom %} project board.
+- Use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
+- Use [`gh issue close`](https://cli.github.com/manual/gh_issue_close) to close the old issue.
+- Use [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit) to edit the old issue to remove it from a specific {% data variables.product.prodname_dotcom %} project board.
 </td>
 </tr>
 </tbody>

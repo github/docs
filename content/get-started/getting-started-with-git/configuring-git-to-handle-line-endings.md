@@ -69,8 +69,8 @@ The `.gitattributes` file must be created in the root of the repository and comm
 
 A `.gitattributes` file looks like a table with two columns:
 
-* On the left is the file name for Git to match.
-* On the right is the line ending configuration that Git should use for those files.
+- On the left is the file name for Git to match.
+- On the right is the line ending configuration that Git should use for those files.
 
 ### Example
 

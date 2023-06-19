@@ -1,18 +1,30 @@
 ---
-title: Searching code
-intro: 'You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination.'
+title: Searching code {% ifversion code-search-code-view %}(legacy){% endif %}
+intro: '{% ifversion code-search-code-view %}You only need to use the legacy code search syntax if you are using the code search API{% else %}You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination{% endif %}.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
   - /github/searching-for-information-on-github/searching-code-for-exact-matches
   - /github/searching-for-information-on-github/searching-code
   - /github/searching-for-information-on-github/searching-on-github/searching-code
+allowTitleToDifferFromFilename: true  
 versions:
+  fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
 topics:
   - GitHub search
 ---
+{% ifversion code-search-code-view %}
+{% note %}
+
+**Note:** This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search#search-code).
+
+For information on the code search syntax that you can use on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
+
+{% endnote %}
+{% endif %}
 
 {% data reusables.search.you-can-search-globally %} For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
 

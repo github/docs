@@ -92,16 +92,16 @@ This Agreement applies to the following GitHub offerings, as further defined bel
 ## B. Account Terms
 
 ### 1. Account Controls.
-  * _Users._ Customer acknowledges that Users retain ultimate administrative control over their individual accounts and the Content within them. [GitHub's Standard Terms of Service](/site-policy/github-terms/github-terms-of-service) govern Users' use of the Service, except with respect to Users' activities under this Section B.
+  - _Users._ Customer acknowledges that Users retain ultimate administrative control over their individual accounts and the Content within them. [GitHub's Standard Terms of Service](/site-policy/github-terms/github-terms-of-service) govern Users' use of the Service, except with respect to Users' activities under this Section B.
 
-  *	_Organizations._ Customer retains ultimate administrative control over any Organization created on Customer’s behalf and User-Generated Content posted to the repositories within its Organization(s), subject to this Section B. This Section B will govern the use of Customer’s Organization(s).
+  -	_Organizations._ Customer retains ultimate administrative control over any Organization created on Customer’s behalf and User-Generated Content posted to the repositories within its Organization(s), subject to this Section B. This Section B will govern the use of Customer’s Organization(s).
 
 ### 2. Account Requirements
 In order to create an account, Customer must adhere to the following:
 
-* Customer must not create an account for use of any person under the age of 13. If GitHub learns of any User under the age of 13, it will terminate that User's account immediately. If Customer or its User(s) are located in a country outside the United States, that country's minimum age may be older; in such a case, Customer is responsible for complying with that country's laws.
+- Customer must not create an account for use of any person under the age of 13. If GitHub learns of any User under the age of 13, it will terminate that User's account immediately. If Customer or its User(s) are located in a country outside the United States, that country's minimum age may be older; in such a case, Customer is responsible for complying with that country's laws.
 
-*	A User’s login may not be shared by multiple people.
+-	A User’s login may not be shared by multiple people.
 
 - Customer must not use the Products (a) in violation of export control or sanctions laws of the United States or any other applicable jurisdiction; (b) if it is located in or ordinarily resident in a country or territory subject to comprehensive to comprehensive sanctions administered by the U.S. Office of Foreign Assets Control (OFAC); or (c) if it is or is working on behalf of a [Specially Designated National (SDN)](https://www.treasury.gov/resource-center/sanctions/SDN-List/Pages/default.aspx) or a person subject to similar blocking or denied party prohibitions. For more information, please see our [Export Controls policy](/site-policy/other-site-policies/github-and-trade-controls).
 

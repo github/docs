@@ -182,15 +182,15 @@ This means that a compromise of a single action within a workflow can be very si
 
 You can help mitigate this risk by following these good practices:
 
-* **Pin actions to a full length commit SHA**
+- **Pin actions to a full length commit SHA**
 
   Pinning an action to a full length commit SHA is currently the only way to use an action as an immutable release. Pinning to a particular SHA helps mitigate the risk of a bad actor adding a backdoor to the action's repository, as they would need to generate a SHA-1 collision for a valid Git object payload. {% data reusables.actions.actions-pin-commit-sha %}
 
-* **Audit the source code of the action**
+- **Audit the source code of the action**
 
   Ensure that the action is handling the content of your repository and secrets as expected. For example, check that secrets are not sent to unintended hosts, or are not inadvertently logged.
 
-* **Pin actions to a tag only if you trust the creator**
+- **Pin actions to a tag only if you trust the creator**
 
   Although pinning to a commit SHA is the most secure option, specifying a tag is more convenient and is widely used. If you’d like to specify a tag, then be sure that you trust the action's creators. The ‘Verified creator’ badge on {% data variables.product.prodname_marketplace %} is a useful signal, as it indicates that the action was written by a team whose identity has been verified by {% data variables.product.prodname_dotcom %}. Note that there is risk to this approach even if you trust the author, because a tag can be moved or deleted if a bad actor gains access to the repository storing the action.
 

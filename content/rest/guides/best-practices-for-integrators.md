@@ -145,19 +145,19 @@ If you hit a rate limit, you should stop making requests until after the time sp
 
 To avoid hitting this limit, you should ensure your application follows the guidelines below.
 
-* Make authenticated requests, or use your application's client ID and secret. Unauthenticated
+- Make authenticated requests, or use your application's client ID and secret. Unauthenticated
   requests are subject to more aggressive secondary rate limiting.
-* Make requests for a single user or client ID serially. Do not make requests for a single user
+- Make requests for a single user or client ID serially. Do not make requests for a single user
   or client ID concurrently.
-* If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
+- If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
   or client ID, wait at least one second between each request.
-* When you have been limited, wait before retrying your request.
-  * If the `Retry-After` response header is present, retry your request after the time specified in the header. The value of the
+- When you have been limited, wait before retrying your request.
+  - If the `Retry-After` response header is present, retry your request after the time specified in the header. The value of the
   `Retry-After` header will always be an integer, representing the number of seconds you should wait
   before making requests again. For example, `Retry-After: 30` means you should wait 30 seconds
   before sending more requests.
-  * If the `x-ratelimit-remaining` header is `0`, retry your request after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header will always be an integer representing the time at which the current rate limit window resets in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
-  * Otherwise, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
+  - If the `x-ratelimit-remaining` header is `0`, retry your request after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header will always be an integer representing the time at which the current rate limit window resets in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+  - Otherwise, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 {% data variables.product.company_short %} reserves the right to change these guidelines as needed to ensure availability.
 

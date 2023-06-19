@@ -36,12 +36,12 @@ If you use an LDAP directory for centralized authentication, you can configure L
 
 {% data variables.product.prodname_ghe_server %} integrates with these LDAP services:
 
-* Active Directory
-* FreeIPA
-* Oracle Directory Server Enterprise Edition
-* OpenLDAP
-* Open Directory
-* 389-ds
+- Active Directory
+- FreeIPA
+- Oracle Directory Server Enterprise Edition
+- OpenLDAP
+- Open Directory
+- 389-ds
 
 ## Username considerations with LDAP
 
@@ -194,9 +194,9 @@ You can view the full list of LDAP users who have access to your instance and pr
 
 Unless [LDAP Sync is enabled](#enabling-ldap-sync), changes to LDAP accounts are not automatically synchronized with {% data variables.product.prodname_ghe_server %}.
 
-* To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
-* To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
-* To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
+- To use a new LDAP admin group, users must be manually promoted and demoted on {% data variables.product.prodname_ghe_server %} to reflect changes in LDAP.
+- To add or remove LDAP accounts in LDAP admin groups, [promote or demote the accounts on {% data variables.product.prodname_ghe_server %}](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
+- To remove LDAP accounts, [suspend the {% data variables.product.prodname_ghe_server %} accounts](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ### Manually syncing LDAP accounts
 
