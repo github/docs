@@ -157,6 +157,14 @@ async function getProgAccessData(progAccessSource) {
   let progActorResources
   const progAccessFilepath = 'config/access_control/programmatic_access.yaml'
   const progActorFilepath = 'config/locales/programmatic_actor_fine_grained_resources.en.yml'
+
+  // check for required PAT
+  if (!process.env.GITHUB_TOKEN) {
+    throw new Error(
+      'Error! You must have the GITHUB_TOKEN environment variable set to access the programmatic access and resource files via the GitHub REST API.'
+    )
+  }
+
   if (progAccessSource) {
     progAccessDataRaw = yaml.load(
       await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8')
