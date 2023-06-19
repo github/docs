@@ -27,7 +27,7 @@ With {% data variables.product.prodname_actions %}, you can use OpenID Connect (
 
 The following diagram gives an overview of this solution's architecture:
 
-![A diagram of an OIDC gateway architecture, starting with a {% data variables.product.prodname_actions %} runner and ending with a private network's private service.](/assets/images/help/actions/actions-oidc-gateway.png)
+![Diagram of an OIDC gateway architecture, starting with a {% data variables.product.prodname_actions %} runner and ending with a private network's private service.](/assets/images/help/actions/actions-oidc-gateway.png)
 
 It's important that you authenticate not just that the OIDC token came from {% data variables.product.prodname_actions %}, but that it came specifically from your expected workflows, so that other {% data variables.product.prodname_actions %} users aren't able to access services in your private network. You can use OIDC claims to create these conditions. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#defining-trust-conditions-on-cloud-roles-using-oidc-claims)."
 

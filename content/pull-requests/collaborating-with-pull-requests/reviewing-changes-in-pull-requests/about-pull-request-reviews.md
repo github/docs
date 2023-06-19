@@ -36,7 +36,7 @@ A review has three possible statuses:
 
 You can view all of the reviews a pull request has received in the Conversation timeline, and you can see reviews by repository owners and collaborators in the pull request's merge box.
 
-![Image of reviews in a merge box.](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
+![Screenshot of the merge box for a pull request. A review by Octocat with requested changes is listed.](/assets/images/help/pull_requests/merge_box/pr-reviews-in-merge-box.png)
 
 {% data reusables.search.requested_reviews_search_tip %}
 
