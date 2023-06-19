@@ -65,7 +65,7 @@ You can use the organization settings page for "Code security and analysis" to e
 
 {% ifversion secret-scanning-push-protection %}
 1. Optionally, if you want to enable push protection, click **Enable** to the right of "Push protection." {% data reusables.secret-scanning.push-protection-overview %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-   ![Enable push protection for your repository.](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
+   ![Screenshot of the "{% data variables.product.prodname_secret_scanning_caps %}" section. Next to an indented item marked "Push protection," the "Enable" button is highlighted in a dark orange outline.](/assets/images/help/repository/secret-scanning-enable-push-protection.png)
 {% endif %}
 {% ifversion ghae %}
 1. Before you can enable {% data variables.product.prodname_secret_scanning %}, you need to enable {% data variables.product.prodname_GH_advanced_security %} first. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.

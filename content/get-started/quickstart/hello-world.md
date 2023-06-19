@@ -54,7 +54,7 @@ This diagram shows:
 - A new branch called `feature`
 - The journey that `feature` takes before it's merged into `main`
 
-![branching diagram.](/assets/images/help/repository/branching.png)
+![Diagram of the two branches. The "feature" branch diverges from the "main" branch, goes through stages for "Commit changes," "Submit pull request," and "Discuss proposed changes," and is then merged back into main.](/assets/images/help/repository/branching.png)
 
 Have you ever saved different versions of a file? Something like:
 

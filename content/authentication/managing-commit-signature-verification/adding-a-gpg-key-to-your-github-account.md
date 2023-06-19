@@ -30,7 +30,7 @@ You can add multiple public keys to your account on {% data variables.product.pr
 {% ifversion upload-expired-or-revoked-gpg-key %}
 To verify as many of your commits as possible, you can add expired and revoked keys. If the key meets all other verification requirements, commits that were previously signed by any of the corresponding private keys will show as verified and indicate that their signing key is expired or revoked.
 
-![A verified commit whose key expired.](/assets/images/help/settings/gpg-verified-with-expired-key.png)
+![Screenshot of a list of commits. One commit is marked with a "Verified" label. Below the label, a dropdown explains that the commit was signed, but the key has now expired.](/assets/images/help/settings/gpg-verified-with-expired-key.png)
 {% endif %}
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}

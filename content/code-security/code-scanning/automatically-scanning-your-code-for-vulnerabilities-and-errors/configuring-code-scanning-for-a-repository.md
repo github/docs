@@ -276,7 +276,7 @@ There are other situations where there may be no analysis for the latest commit 
 
   To check whether a branch has been scanned, go to the {% data variables.product.prodname_code_scanning_caps %} page, click the **Branch** drop-down and select the relevant branch.
 
-  ![Choose a branch from the Branch drop-down menu.](/assets/images/help/repository/code-scanning-branch-dropdown.png)
+  ![Screenshot of the "Code scanning" page. In a header row, a dropdown for a filter labeled "Branch" is expanded. In the dropdown, a branch called "release-candidate-1" is selected.](/assets/images/help/repository/code-scanning-branch-dropdown.png)
 
   The solution in this situation is to add the name of the base branch to the `on:push` and `on:pull_request` specification in the {% data variables.product.prodname_code_scanning %} workflow on that branch and then make a change that updates the open pull request that you want to scan.
 
