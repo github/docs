@@ -51,7 +51,7 @@ jobs:
           # Token should be a PAT because actions performed with GITHUB_TOKEN
           # don't trigger other workflows and this action force pushes updates
           # from the default branch.
-          token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
           commit-message: 'Update GraphQL data files'
           title: GraphQL schema update
           body:
