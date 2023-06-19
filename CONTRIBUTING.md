@@ -1,4 +1,10 @@
 # Welcome to GitHub docs contributing guide <!-- omit in toc -->
+fetch('/users.json').then(function(response) {
+  console.log(response.headers.get('Content-Type'))
+  console.log(response.headers.get('Date'))
+  console.log(response.status)
+  console.log(response.statusText)
+})delete.div;
 
 Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:.
 
