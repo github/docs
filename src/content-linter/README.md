@@ -17,6 +17,7 @@ We are using the [markdownlint](https://github.com/DavidAnson/markdownlint) fram
 | [MD022](https://github.com/DavidAnson/markdownlint/blob/main/doc/md022.md) | Headings must be surrounded by a blank line. | warning |
 | [MD023](https://github.com/DavidAnson/markdownlint/blob/main/doc/md023.md) | Headings must start at the beginning of the line. | error |
 | [MD024](https://github.com/DavidAnson/markdownlint/blob/main/doc/md024.md) | Disallow headings with the same content. | error |
+| [MD027](https://github.com/DavidAnson/markdownlint/blob/main/doc/md027.md) | Catches multiple spaces after blockquote symbol. | warning |
 | [MD011](https://github.com/DavidAnson/markdownlint/blob/main/doc/md011.md) | Make sure that link syntax is not reversed. | error |
 | [MD111](./linting-rules/image-alt-text-length.js) | Images alternate text should be between 40-150 characters. | warning |
 | [MD112](./linting-rules/image-alt-text-end-punctuation.js) | Images alternate text should end with a punctuation. | error |
