@@ -28,17 +28,17 @@ jobs:
       - name: Sync repo to branch
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
         env:
-          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
         with:
           source_repo: ${{ secrets.SOURCE_REPO }} # https://${access_token}@github.com/github/the-other-repo.git
           source_branch: main
           destination_branch: repo-sync
-          github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          github_token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
 
       - name: Ship pull request
         uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
         with:
-          github-token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
           result-encoding: string
           script: |
             const { owner, repo } = context.repo
