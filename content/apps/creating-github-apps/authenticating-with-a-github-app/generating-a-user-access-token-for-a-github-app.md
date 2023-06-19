@@ -27,6 +27,12 @@ Users can revoke their authorization of a {% data variables.product.prodname_git
 
 You should keep user access tokens and refresh tokens secure. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
 
+{% note %}
+
+**Note**: {% data reusables.apps.github_app_auth_saml %}
+
+{% endnote %}
+
 ## Using the web application flow to generate a user access token
 
 If your app runs in the browser, you should use the web application flow to generate a user access token. For a tutorial about using the web application flow, see "[AUTOTITLE](/apps/creating-github-apps/guides/using-the-web-application-flow-to-generate-a-user-access-token-for-a-github-app)."
