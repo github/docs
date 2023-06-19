@@ -38,7 +38,7 @@ The dependency graph shows the dependencies{% ifversion fpt or ghec %} and depen
 {% ifversion fpt or ghec %}
 1. Optionally, to view the repositories and packages that depend on your repository, under "Dependency graph", click **Dependents**.
 
-   ![Screenshot of the "Dependents" tab on the dependency graph page.](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
+   ![Screenshot of the "Dependency graph" page. The "Dependents" tab is highlighted with an orange outline.](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
 {% ifversion ghes %}
 Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."

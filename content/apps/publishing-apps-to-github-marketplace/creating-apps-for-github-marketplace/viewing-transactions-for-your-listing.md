@@ -38,7 +38,7 @@ You can view or download the transaction data to keep track of your subscription
 - **region:** The name of the region present in billing address.
 - **postal_code:** The postal code value present in billing address.
 
-![Screenshot of the {% data variables.product.prodname_marketplace %} Insights.](/assets/images/marketplace/marketplace-transactions.png)
+![Screenshot of the "Transactions" tab in the {% data variables.product.prodname_marketplace %} listing for an app. Transactions from the past week are listed in a table layout, with a search bar labeled "Search this file...".](/assets/images/marketplace/marketplace-transactions.png)
 
 ## Accessing {% data variables.product.prodname_marketplace %} transactions
 

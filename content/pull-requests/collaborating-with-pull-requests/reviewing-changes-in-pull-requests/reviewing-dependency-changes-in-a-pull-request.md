@@ -49,7 +49,7 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 
 1. If the pull request contains many files, use the **File filter** drop-down menu to collapse all files that don't record dependencies. This will make it easier to focus your review on the dependency changes.
 
-   ![The file filter menu.](/assets/images/help/pull_requests/file-filter-menu-json.png)
+   ![Screenshot of the "Changed files" tab. A dropdown labeled "File filter" is expanded, displaying a list of file types with checkboxes.](/assets/images/help/pull_requests/file-filter-menu-json.png)
    The dependency review provides a clearer view of what has changed in large lock files, where the source diff is not rendered by default.
 
   {% note %}
