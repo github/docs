@@ -39,7 +39,7 @@ To use your certificate and provisioning profile on a runner, we strongly recomm
 
 Create secrets in your repository or organization for the following items:
 
-* Your Apple signing certificate.
+- Your Apple signing certificate.
 
   - This is your `p12` certificate file. For more information on exporting your signing certificate from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/dev154b28f09).
   
@@ -50,10 +50,10 @@ Create secrets in your repository or organization for the following items:
     ```shell
     base64 -i BUILD_CERTIFICATE.p12 | pbcopy
     ```
-* The password for your Apple signing certificate.
+- The password for your Apple signing certificate.
   - In this example, the secret is named `P12_PASSWORD`.
 
-* Your Apple provisioning profile.
+- Your Apple provisioning profile.
 
   - For more information on exporting your provisioning profile from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/deva899b4fe5).
 
@@ -65,7 +65,7 @@ Create secrets in your repository or organization for the following items:
     base64 -i PROVISIONING_PROFILE.mobileprovision | pbcopy
     ```
 
-* A keychain password.
+- A keychain password.
 
   - A new keychain will be created on the runner, so the password for the new keychain can be any new random string. In this example, the secret is named `KEYCHAIN_PASSWORD`.
 

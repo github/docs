@@ -65,7 +65,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `org_credential_authorization` | Contains all activities related to authorizing credentials for use with SAML single sign-on.{% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 | `org_secret_scanning_custom_pattern` | Contains organization-level activities related to {% data variables.product.prodname_secret_scanning %} custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)." {% endif %}
 | `organization_default_label` | Contains all activities related to default labels for repositories in your organization.
-| `oauth_application` | Contains all activities related to OAuth Apps.
+| `oauth_application` | Contains all activities related to {% data variables.product.prodname_oauth_app %}s.
 | `packages` | Contains all activities related to {% data variables.product.prodname_registry %}.{% ifversion fpt or ghec %}
 | `payment_method` | Contains all activities related to how your organization pays for GitHub.{% endif %}{% ifversion pat-v2%}
 | `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s in your organization. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."{% endif %}
@@ -92,13 +92,13 @@ To search for specific events, use the `action` qualifier in your query. Actions
 
 You can search for specific sets of actions using these terms. For example:
 
-* `action:team` finds all events grouped within the team category.
-* `-action:hook` excludes all events in the webhook category.
+- `action:team` finds all events grouped within the team category.
+- `-action:hook` excludes all events in the webhook category.
 
 Each category has a set of associated actions that you can filter on. For example:
 
-* `action:team.create` finds all events where a team was created.
-* `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
+- `action:team.create` finds all events where a team was created.
+- `-action:hook.events_changed` excludes all events where the events on a webhook have been altered.
 
 ### Search based on time of action
 
@@ -108,10 +108,10 @@ Use the `created` qualifier to filter events in the audit log based on when they
 
 For example:
 
-* `created:2014-07-08` finds all events that occurred on July 8th, 2014.
-* `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
-* `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
-* `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
+- `created:2014-07-08` finds all events that occurred on July 8th, 2014.
+- `created:>=2014-07-08` finds all events that occurred on or after July 8th, 2014.
+- `created:<=2014-07-08` finds all events that occurred on or before July 8th, 2014.
+- `created:2014-07-01..2014-07-31` finds all events that occurred in the month of July 2014.
 
 {% note %}
 
@@ -123,9 +123,9 @@ For example:
 
 Using the qualifier `country`, you can filter events in the audit log based on the originating country. You can use a country's two-letter short code or its full name. Keep in mind that countries with spaces in their name will need to be wrapped in quotation marks. For example:
 
-* `country:de` finds all events that occurred in Germany.
-* `country:Mexico` finds all events that occurred in Mexico.
-* `country:"United States"` all finds events that occurred in the United States.
+- `country:de` finds all events that occurred in Germany.
+- `country:Mexico` finds all events that occurred in Mexico.
+- `country:"United States"` all finds events that occurred in the United States.
 
 {% ifversion fpt or ghec %}
 ## Exporting the audit log

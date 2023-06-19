@@ -123,7 +123,11 @@ async function main() {
 
   if (pipelines.includes('github-apps')) {
     console.log(`\n▶️  Generating GitHub Apps data files...\n`)
-    await syncGitHubAppsData(TEMP_OPENAPI_DIR, restSchemas)
+    await syncGitHubAppsData(
+      TEMP_OPENAPI_DIR,
+      restSchemas,
+      sourceRepo === 'github' && GITHUB_REP_DIR
+    )
   }
 
   if (pipelines.includes('rest-redirects')) {

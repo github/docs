@@ -93,14 +93,14 @@ If your app only works with specific languages, select up to 10 programming lang
 ### Listing URLs
 
 **Required URLs**
-* **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
-* **Privacy policy URL:** The web page that displays your app's privacy policy.
-* **Installation URL:** This field is shown for {% data variables.product.prodname_oauth_apps %} only. ({% data variables.product.prodname_github_apps %} don't use this URL because they use the optional Setup URL from the {% data variables.product.prodname_github_app %}'s settings page instead.) When a customer purchases your {% data variables.product.prodname_oauth_app %}, {% data variables.product.company_short %} will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/handling-new-purchases-and-free-trials)" for more details. Skip this field if you're listing a {% data variables.product.prodname_github_app %}.
+- **Customer support URL:** The URL of a web page that your customers will go to when they have technical support, product, or account inquiries.
+- **Privacy policy URL:** The web page that displays your app's privacy policy.
+- **Installation URL:** This field is shown for {% data variables.product.prodname_oauth_apps %} only. ({% data variables.product.prodname_github_apps %} don't use this URL because they use the optional Setup URL from the {% data variables.product.prodname_github_app %}'s settings page instead.) When a customer purchases your {% data variables.product.prodname_oauth_app %}, {% data variables.product.company_short %} will redirect customers to the installation URL after they install the app. You will need to redirect customers to `https://github.com/login/oauth/authorize` to begin the OAuth authorization flow. See "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/using-the-github-marketplace-api-in-your-app/handling-new-purchases-and-free-trials)" for more details. Skip this field if you're listing a {% data variables.product.prodname_github_app %}.
 
 **Optional URLs**
-* **Company URL:** A link to your company's website.
-* **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
-* **Documentation URL:** A link to documentation that teaches customers how to use your app.
+- **Company URL:** A link to your company's website.
+- **Status URL:** A link to a web page that displays the status of your app. Status pages can include current and historical incident reports, web application uptime status, and scheduled maintenance.
+- **Documentation URL:** A link to documentation that teaches customers how to use your app.
 
 ## Logo and feature card
 
@@ -110,7 +110,7 @@ If your app only works with specific languages, select up to 10 programming lang
 
 A feature card consists of your app's logo, name, and a custom background image that captures your brand personality. {% data variables.product.prodname_marketplace %} displays this card if your app is one of the four randomly featured apps at the top of the [homepage](https://github.com/marketplace). Each app's very short description is displayed below its feature card.
 
-![Screenshot of the feature card.](/assets/images/marketplace/marketplace-feature-card.png)
+![Screenshot of a feature card for OctocatApp. The app's name and an icon of Mona are displayed on a pink background, above the description "United we code."](/assets/images/marketplace/marketplace-feature-card.png)
 
 As you upload images and select colors, your {% data variables.product.prodname_marketplace %} draft listing will display a preview of your logo and feature card.
 
@@ -166,7 +166,7 @@ You can add more information in the optional "Detailed description" field. You s
 
 - For each value proposition, include a title followed by a paragraph of description. Format the title as a [level-three header](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#headings) using Markdown. For example:
 
-  ### Learn the skills you need
+### Learn the skills you need
 
   {% data variables.product.prodname_learning %} can help you learn how to use {% data variables.product.company_short %}, communicate more effectively with Markdown, handle merge conflicts, and more.
 

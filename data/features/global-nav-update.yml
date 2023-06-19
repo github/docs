@@ -1,0 +1,8 @@
+# Reference: #10533.
+# Documentation for the global navigation opt-out public beta
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.10'
+  ghae: '>3.10'

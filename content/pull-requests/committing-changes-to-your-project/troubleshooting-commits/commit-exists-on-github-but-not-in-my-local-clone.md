@@ -27,9 +27,9 @@ However, when you view the commit on {% data variables.location.product_location
 
 There are several possible explanations:
 
-* The local repository is out of date.
-* The branch that contains the commit was deleted, so the commit is no longer referenced.
-* Someone force pushed over the commit.
+- The local repository is out of date.
+- The branch that contains the commit was deleted, so the commit is no longer referenced.
+- Someone force pushed over the commit.
 
 ## The local repository is out of date
 

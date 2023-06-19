@@ -51,10 +51,12 @@ Yes, the dependency graph has {% ifversion dependency-graph-repository-view-upda
     By default, {% data variables.product.prodname_dotcom %} will not process more than {% ifversion fpt or ghec %}150{% else %}600{% endif %} manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit. If you need to increase the limit, contact {% data variables.contact.contact_support %}.
 
     Manifest files stored in directories with names that are typically used for vendored dependencies will not be processed. A directory whose name matches the following regular expressions is considered a vendored dependencies directory:
+      <!-- markdownlint-disable MD011 -->
       - <code>(3rd|[Tt]hird)[-_]?[Pp]arty/</code>
       - <code>(^|/)vendors?/</code>
       - <code>(^|/)[Ee]xtern(als?)?/</code>
       - <code>(^|/)[Vv]+endor/</code>
+      <!-- markdownlint-enable MD011 -->
 
       Examples:
       - third-party/dependencies/dependency1

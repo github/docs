@@ -37,7 +37,7 @@ make sure that you also update the MS short link: https://aka.ms/code-scanning-d
 
 You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see "[AUTOTITLE](/actions/learn-github-actions)" or "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
 
-{% ifversion code-scanning-without-workflow %}Both the default and advanced setups for {% data variables.product.prodname_code_scanning %} run on {% data variables.product.prodname_actions %}. The default setup automatically detects the best {% data variables.product.prodname_code_scanning %} configuration for your repository, while you can use the advanced setup to customize a {% data variables.product.prodname_code_scanning %} workflow. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#options-for-setting-up-code-scanning)."{% endif %} This article is about {% ifversion code-scanning-without-workflow %}configuring your advanced setup for {% data variables.product.prodname_code_scanning %}.{% else %}running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.{% endif %}
+{% ifversion code-scanning-without-workflow %}Both the default and advanced setups for {% data variables.product.prodname_code_scanning %} run on {% data variables.product.prodname_actions %}. The default setup automatically chooses the languages to analyze, query suite to run, and events that trigger scans. If you prefer, you can manually select the query suite the default setup will run{% ifversion code-scanning-without-workflow-310 %} and the languages the default setup will analyze{% endif %}. Alternatively, you can use the advanced setup to further customize a {% data variables.product.prodname_code_scanning %} workflow. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#options-for-setting-up-code-scanning)."{% endif %} This article is about {% ifversion code-scanning-without-workflow %}customizing your advanced setup for {% data variables.product.prodname_code_scanning %}.{% else %}running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.{% endif %}
 
 {% ifversion code-scanning-without-workflow %}{% else %}Before you can customize {% data variables.product.prodname_code_scanning %} for a repository, you must configure {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."{% endif %}
 
@@ -116,8 +116,8 @@ on:
 
 **Notes**
 
-* `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."{% ifversion code-scanning-alerts-in-pr-diff %}{% else %}
-* For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. For accurate results, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} needs to be able to compare new changes with the analysis of the previous commit.
+- `on:pull_request:paths-ignore` and `on:pull_request:paths` set conditions that determine whether the actions in the workflow will run on a pull request. They don't determine what files will be analyzed when the actions _are_ run. When a pull request contains any files that are not matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, the workflow runs the actions and scans all of the files changed in the pull request, including those matched by `on:pull_request:paths-ignore` or `on:pull_request:paths`, unless the files have been excluded. For information on how to exclude files from analysis, see "[Specifying directories to scan](#specifying-directories-to-scan)."{% ifversion code-scanning-alerts-in-pr-diff %}{% else %}
+- For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} workflow files, don't use the `paths-ignore` or `paths` keywords with the `on:push` event as this is likely to cause missing analyses. For accurate results, {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} needs to be able to compare new changes with the analysis of the previous commit.
 {% endif %}
 
 {% endnote %}
@@ -149,9 +149,9 @@ on:
 ```
 
 This workflow scans:
-* Every push to the default branch and the protected branch
-* Every pull request to the default branch
-* The default branch every Monday at 14:20 UTC
+- Every push to the default branch and the protected branch
+- Every pull request to the default branch
+- The default branch every Monday at 14:20 UTC
 
 ## Specifying an operating system
 
@@ -565,9 +565,9 @@ paths-ignore:
 
 **Note**:
 
-* The `paths` and `paths-ignore` keywords, used in the context of the {% data variables.product.prodname_code_scanning %} configuration file, should not be confused with the same keywords when used for `on.<push|pull_request>.paths` in a workflow. When they are used to modify `on.<push|pull_request>` in a workflow, they determine whether the actions will be run when someone modifies code in the specified directories. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
-* The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
-* `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. For example, `foo/**`, `**/foo`, and `foo/**/bar` are all allowed syntax, but `**foo` isn't. However you can use single stars along with other characters, as shown in the example. You'll need to quote anything that contains a `*` character.
+- The `paths` and `paths-ignore` keywords, used in the context of the {% data variables.product.prodname_code_scanning %} configuration file, should not be confused with the same keywords when used for `on.<push|pull_request>.paths` in a workflow. When they are used to modify `on.<push|pull_request>` in a workflow, they determine whether the actions will be run when someone modifies code in the specified directories. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore)."
+- The filter pattern characters `?`, `+`, `[`, `]`, and `!` are not supported and will be matched literally.
+- `**` characters can only be at the start or end of a line, or surrounded by slashes, and you can't mix `**` and other characters. For example, `foo/**`, `**/foo`, and `foo/**/bar` are all allowed syntax, but `**foo` isn't. However you can use single stars along with other characters, as shown in the example. You'll need to quote anything that contains a `*` character.
 
 {% endnote %}
 

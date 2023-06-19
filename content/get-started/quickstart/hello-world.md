@@ -20,10 +20,10 @@ This tutorial teaches you {% data variables.product.product_name %} essentials l
 
 In this quickstart guide, you will:
 
-* Create and use a repository
-* Start and manage a new branch
-* Make changes to a file and push them to {% data variables.product.product_name %} as commits
-* Open and merge a pull request
+- Create and use a repository
+- Start and manage a new branch
+- Make changes to a file and push them to {% data variables.product.product_name %} as commits
+- Open and merge a pull request
 
 To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
 
@@ -50,17 +50,17 @@ When you create a branch off the `main` branch, you're making a copy, or snapsho
 
 This diagram shows:
 
-* The `main` branch
-* A new branch called `feature`
-* The journey that `feature` takes before it's merged into `main`
+- The `main` branch
+- A new branch called `feature`
+- The journey that `feature` takes before it's merged into `main`
 
-![branching diagram.](/assets/images/help/repository/branching.png)
+![Diagram of the two branches. The "feature" branch diverges from the "main" branch, goes through stages for "Commit changes," "Submit pull request," and "Discuss proposed changes," and is then merged back into main.](/assets/images/help/repository/branching.png)
 
 Have you ever saved different versions of a file? Something like:
 
-* `story.txt`
-* `story-edit.txt`
-* `story-edit-reviewed.txt`
+- `story.txt`
+- `story-edit.txt`
+- `story-edit-reviewed.txt`
 
 Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
 
@@ -142,10 +142,10 @@ By completing this tutorial, you've learned to create a project and make a pull 
 
 Here's what you accomplished in this tutorial:
 
-* Created an open source repository
-* Started and managed a new branch
-* Changed a file and committed those changes to {% data variables.product.product_name %}
-* Opened and merged a pull request
+- Created an open source repository
+- Started and managed a new branch
+- Changed a file and committed those changes to {% data variables.product.product_name %}
+- Opened and merged a pull request
 
 Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
 

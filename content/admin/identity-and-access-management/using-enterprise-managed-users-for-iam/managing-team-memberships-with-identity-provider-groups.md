@@ -31,9 +31,9 @@ When a change to an IdP group or a new team connection results in a {% data vari
 {% endnote %}
 
 When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.prodname_dotcom_the_website %} according to the schedule determined by your IdP, so change may not be immediate. Any requests that change team or organization membership will register in the audit log as changes made by the account used to configure user provisioning.
+{% data variables.product.prodname_dotcom %} also scans each mapped team and syncs membership with the group on your IdP daily. If a user is not already a member of the organization that contains the team, {% data variables.product.prodname_dotcom %} will add the user to the organization automatically.
 
 Teams connected to IdP groups cannot be parents of other teams nor a child of another team. If the team you want to connect to an IdP group is a parent or child team, we recommend creating a new team or removing the nested relationships that make your team a parent team.
-
 To manage repository access for any team in your enterprise, including teams connected to an IdP group, you must make changes on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
 
 ## Requirements for connecting IdP groups with teams

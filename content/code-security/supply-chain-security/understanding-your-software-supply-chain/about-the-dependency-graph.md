@@ -95,22 +95,25 @@ The recommended formats explicitly define which versions are used for all direct
 {%- endif %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
+{%- ifversion supply-chain-features-swift-support %}
+| Swift Package Manager | Swift | `Package.resolved` | `Package.resolved` |
+{%- endif %}
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% note %}
 
 **Notes:** 
 
-* If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
+- If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 
 {% ifversion ghes = 3.5 %}
 
-* Support for {% data variables.product.prodname_actions %} workflows is available from GitHub Enterprise Server 3.5.4 onward. The feature is not available in 3.5.0, 3.5.1, 3.5.2, and 3.5.3. For information about determining the version of {% data variables.product.product_name %} you're using, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
+- Support for {% data variables.product.prodname_actions %} workflows is available from GitHub Enterprise Server 3.5.4 onward. The feature is not available in 3.5.0, 3.5.1, 3.5.2, and 3.5.3. For information about determining the version of {% data variables.product.product_name %} you're using, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
 
 {% endif %}{% ifversion github-actions-in-dependency-graph %}
-* {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
+- {% data variables.product.prodname_actions %} workflows must be located in the `.github/workflows/` directory of a repository to be recognized as manifests. Any actions or workflows referenced using the syntax `jobs[*].steps[*].uses` or `jobs.<job_id>.uses` will be parsed as dependencies. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
-* {% data variables.product.prodname_actions %} workflow dependencies are displayed in the dependency graph for informational purposes. Dependabot alerts are not currently supported for {% data variables.product.prodname_actions %} workflows.
+- {% data variables.product.prodname_actions %} workflow dependencies are displayed in the dependency graph for informational purposes. Dependabot alerts are not currently supported for {% data variables.product.prodname_actions %} workflows.
 
 {% endif %}
 

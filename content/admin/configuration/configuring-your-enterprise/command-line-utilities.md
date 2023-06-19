@@ -53,10 +53,10 @@ This utility displays information on background jobs, both active and in the que
 
 This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
 
-* The number of background jobs is increasing, while the active jobs remain the same.
-* The event feeds are not updating.
-* Webhooks are not being triggered.
-* The web interface is not updating after a Git push.
+- The number of background jobs is increasing, while the active jobs remain the same.
+- The event feeds are not updating.
+- Webhooks are not being triggered.
+- The web interface is not updating after a Git push.
 
 If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
 
@@ -860,7 +860,7 @@ You can add the optional `--prune` argument to remove unreachable Git objects th
 
 {% warning %}
 
-**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.location.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.location.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)" and "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository)."
 
 {% endwarning %}
 

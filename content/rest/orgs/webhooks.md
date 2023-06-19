@@ -23,8 +23,8 @@ All actions against organization webhooks require the authenticated user to be a
 
 In order to protect sensitive data which may be present in webhook configurations, we also enforce the following access control rules:
 
-- OAuth applications cannot list, view, or edit webhooks which they did not create.
-- Users cannot list, view, or edit webhooks which were created by OAuth applications.
+- {% data variables.product.prodname_oauth_app %}s cannot list, view, or edit webhooks which they did not create.
+- Users cannot list, view, or edit webhooks which were created by {% data variables.product.prodname_oauth_app %}s.
 
 ### Receiving Webhooks
 

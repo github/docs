@@ -36,8 +36,8 @@ Only organization owners and maintainers of a parent team can create a new child
 {% data reusables.organizations.create-team-choose-parent %}
 {% ifversion ghec %}
 1. Optionally, if your organization or enterprise account uses team synchronization or your enterprise uses {% data variables.product.prodname_emus %}, connect an identity provider group to your team.
-    * If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
-    * If your organization or enterprise account uses team synchronization, under "Identity Provider Groups", select the **Select Groups** dropdown menu, and click up to five identity provider groups to connect to the new team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
+    - If your enterprise uses {% data variables.product.prodname_emus %}, use the "Identity Provider Groups" drop-down menu, and select a single identity provider group to connect to the new team. For more information, "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+    - If your organization or enterprise account uses team synchronization, under "Identity Provider Groups", select the **Select Groups** dropdown menu, and click up to five identity provider groups to connect to the new team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 {% endif %}
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.team-notifications %}

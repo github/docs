@@ -1,8 +1,8 @@
 import path from 'path'
-import findPage from './find-page.js'
-import nonEnterpriseDefaultVersion from './non-enterprise-default-version.js'
-import removeFPTFromPath from './remove-fpt-from-path.js'
-import renderContent from './render-content/index.js'
+import findPage from '../../../lib/find-page.js'
+import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
+import removeFPTFromPath from '../../../lib/remove-fpt-from-path.js'
+import renderContent from '../../../lib/render-content/index.js'
 
 // rawLinks is an array of paths: [ '/foo' ]
 // we need to convert it to an array of localized objects: [ { href: '/en/foo', title: 'Foo', intro: 'Description here' } ]

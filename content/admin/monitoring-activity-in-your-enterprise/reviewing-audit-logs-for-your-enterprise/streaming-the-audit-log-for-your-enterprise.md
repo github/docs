@@ -33,9 +33,9 @@ To help protect your intellectual property and maintain compliance for your orga
 
 The benefits of streaming audit data include:
 
-* **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
-* **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
-* **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
+- **Data exploration**. You can examine streamed events using your preferred tool for querying large quantities of data. The stream contains both audit events and Git events across the entire enterprise account.{% ifversion pause-audit-log-stream %}
+- **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
+- **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
 
 Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
@@ -70,8 +70,8 @@ You can set up streaming to S3 with access keys or, to avoid storing long-lived 
 {% endif %}
 
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
-* Your AWS access key ID
-* Your AWS secret key
+- Your AWS access key ID
+- Your AWS secret key
 
 For information on creating or accessing your access key ID and secret key, see [Understanding and getting your AWS credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html) in the AWS documentation.
 
@@ -175,8 +175,8 @@ You need two pieces of information about your event hub: its instance name and t
 1. Select the **Configure stream** dropdown menu and click **Azure Event Hubs**.
 
 2. On the configuration page, enter:
-   * The name of the Azure Event Hubs instance.
-   * The connection string.
+   - The name of the Azure Event Hubs instance.
+   - The connection string.
 
 3. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
 
@@ -232,19 +232,19 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 1. Select the **Configure stream** dropdown menu and click **Splunk**.
 
 2. On the configuration page, enter:
-   * The domain on which the application you want to stream to is hosted.
+   - The domain on which the application you want to stream to is hosted.
 
      If you're using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example, `http-inputs-mycompany.splunkcloud.com`.
 
      If you're using the free trial version of Splunk Cloud, `Domain` should be `inputs.<host>`, where `host` is the domain you use in Splunk Cloud. For example, `inputs.mycompany.splunkcloud.com`.
 
-   * The port on which the application accepts data.<br>
+   - The port on which the application accepts data.<br>
 
      If you're using Splunk Cloud and haven't changed the port configration, `Port` should be `443`.
 
      If you're using the free trial version of Splunk Cloud, `Port` should be `8088`.
 
-   * A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
+   - A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
 
 3. Leave the **Enable SSL verification** check box selected.
 

@@ -50,9 +50,9 @@ With the prebuild set to be updated on each push, it means that if there are ver
 
 For example, let's imagine 5 pushes are made, in quick succession, against a branch that has a prebuild configuration. In this situation:
 
-* A workflow run is started for the first push, to update the prebuild.
-* If the 4 remaining pushes do not affect the dev container configuration, the workflow runs for these are queued in a "pending" state.
+- A workflow run is started for the first push, to update the prebuild.
+- If the 4 remaining pushes do not affect the dev container configuration, the workflow runs for these are queued in a "pending" state.
 
   If any of the remaining 4 pushes change the dev container configuration, then the service will not skip that one and will immediately run the prebuild creation workflow, updating the prebuild accordingly if it succeeds.
 
-* Once the first run completes, workflow runs for pushes 2, 3, and 4 will be canceled, and the last queued workflow (for push 5) will run and update the prebuild.
+- Once the first run completes, workflow runs for pushes 2, 3, and 4 will be canceled, and the last queued workflow (for push 5) will run and update the prebuild.

@@ -94,7 +94,7 @@ For supported languages, {% data variables.product.prodname_dependabot %} automa
 
 {% endnote %}
 
-![Screenshot showing an alert with the "Vulnerable call" label.](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
+![Screenshot showing an alert with the "Vulnerable call" label. The label is outlined in orange.](/assets/images/help/repository/dependabot-alerts-vulnerable-call-label.png)
 
 You can filter the view to show only alerts where {% data variables.product.prodname_dependabot %} detected at least one call to a vulnerable function using the `has:vulnerable-calls` filter in the search field.
 
@@ -196,7 +196,7 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 4. Optionally, at the top of the list of alerts, select all alerts on the page.
    ![Screenshot of the header section of the {% data variables.product.prodname_dependabot_alerts %} view. The "Select all" checkbox is highlighted with a dark orange outline.](/assets/images/help/graphs/select-all-alerts.png)
 5. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts.
-   ![Screenshot of open alerts page with "Dismiss alerts" drop-down emphasized.](/assets/images/help/graphs/dismiss-multiple-alerts.png)
+   ![Screenshot of a list of alerts. Below the "Dismiss alerts" button, a dropdown labeled "Select a reason to dismiss" is expanded. The dropdown contains radio buttons for various options.](/assets/images/help/graphs/dismiss-multiple-alerts.png)
 
 {% endif %}
 

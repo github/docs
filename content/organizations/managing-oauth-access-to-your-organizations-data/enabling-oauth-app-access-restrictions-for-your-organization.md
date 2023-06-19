@@ -1,5 +1,5 @@
 ---
-title: Enabling OAuth App access restrictions for your organization
+title: Enabling OAuth app access restrictions for your organization
 intro: 'Organization owners can enable {% data variables.product.prodname_oauth_app %} access restrictions to prevent untrusted apps from accessing the organization''s resources while allowing organization members to use {% data variables.product.prodname_oauth_apps %} for their personal accounts.'
 redirect_from:
   - /articles/enabling-third-party-application-restrictions-for-your-organization
@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Restrict OAuth Apps
+shortTitle: Restrict {% data variables.product.prodname_oauth_app %}s
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}

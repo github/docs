@@ -1,5 +1,5 @@
 ---
-title: GitHub Codespaces Documentation
+title: GitHub Codespaces documentation
 shortTitle: GitHub Codespaces
 intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
 introLinks:

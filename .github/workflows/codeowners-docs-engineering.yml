@@ -20,6 +20,7 @@ on:
       - '**.tsx'
       - '**.scss'
       - 'src/**'
+      - '!src/**.json' # So that Docs Engineering isn't reviewing OpenAPI PRs
       - '.github/**'
       - '**Dockerfile'
       - 'package*.json'

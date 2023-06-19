@@ -46,10 +46,10 @@ codeql pack init <scope>/<pack>
 You must specify:
 
 
-* `<scope>`: the name of the {% data variables.product.prodname_dotcom %} organization or user account that you will publish to.
+- `<scope>`: the name of the {% data variables.product.prodname_dotcom %} organization or user account that you will publish to.
 
 
-* `<pack>`: the name for the pack that you are creating.
+- `<pack>`: the name for the pack that you are creating.
 
 The `codeql pack init` command creates the directory structure and configuration files for a {% data variables.product.prodname_codeql %} pack. By default, the command creates a query pack. If you want to create a library pack, you must edit the `qlpack.yml` file to explicitly declare the file as a library pack by including the `library:true` property.
 

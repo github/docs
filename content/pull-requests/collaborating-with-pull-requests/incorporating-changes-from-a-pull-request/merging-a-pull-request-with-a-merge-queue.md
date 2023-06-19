@@ -103,6 +103,8 @@ You can view the merge queue for a base branch in various places on {% data vari
 
   ![Screenshot of the merge queue.](/assets/images/help/pull_requests/merge-queue-view.png)
 
-## Handling pull requests removed from the merge queue
+## Understanding why your pull request was removed from the merge queue
 
 {% data reusables.pull_requests.merge-queue-reject %}
+
+{% data reusables.pull_requests.merge-queue-removal-reasons %}

@@ -124,18 +124,18 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 
 If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard editor using your preferred keyboard shortcuts for each specific command.
 
-1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
+1. In the {% data variables.product.prodname_vs %} menu bar, under **Tools**, click **Options**.
 
-   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar.](/assets/images/help/copilot/vs-toolbar-options.png)
+   ![Screenshot of the {% data variables.product.prodname_vs %} menu bar. The "Tools" menu is expanded, and the "Options" item is highlighted with an orange outline.](/assets/images/help/copilot/vs-toolbar-options.png)
 
 1. In the "Options" dialog, under **Environment**, click **Keyboard**.
 1. Under "Show commands containing:", search for the command you want to rebind.
 
-   ![Screenshot of the show commands containing search bar.](/assets/images/help/copilot/vs-show-commands-containing.png)
+   ![Screenshot of the "Show commands containing" search bar. The string "tools.next" is entered in the search field.](/assets/images/help/copilot/vs-show-commands-containing.png)
 
 1. Under "Press shortcut keys," type the shortcut you want to assign to the command, then click **Assign**.
 
-   ![Screenshot of the keyboard shortcut assignment.](/assets/images/help/copilot/vs-rebind-shortcut.png)
+   ![Screenshot of the fields for entering a new keyboard shortcut assignment.](/assets/images/help/copilot/vs-rebind-shortcut.png)
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
@@ -143,8 +143,8 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
-1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
-   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar.](/assets/images/help/copilot/vs-toolbar-options.png)
+1. In the {% data variables.product.prodname_vs %} menu bar, under **Tools**, click **Options**.
+   ![Screenshot of {% data variables.product.prodname_vs %} menu bar. In the "Tools" menu, the "Options" item is highlighted with an orange outline.](/assets/images/help/copilot/vs-toolbar-options.png)
 1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**.
 1. Under "General" select **{% data variables.product.prodname_vs %}** and then click **Save**.
 
@@ -209,14 +209,14 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 ### Rebinding keyboard shortcuts for macOS
 
-1. Click **Code**, click **Preferences**, then click **Keyboard Shortcuts**.
+1. In the menu bar, click **Code**, click **Preferences**, then click **Keyboard Shortcuts**.
 
-   ![Screenshot of Visual Studio Code keyboard shortcuts.](/assets/images/help/copilot/vsc-keyboard-shortcuts-mac.png)
+   ![Screenshot of the menu bar in {% data variables.product.prodname_vscode %}, with the "Code" menu expanded. In the "Preferences" sub-menu, the "Keyboard Shortcuts" option is highlighted in blue.](/assets/images/help/copilot/vsc-keyboard-shortcuts-mac.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 1. Next to the command you want to change, click the pencil icon.
 
-   ![Screenshot of Keyboard shortcut editor.](/assets/images/help/copilot/vsc-edit-shortcuts-mac.png)
+   ![Screenshot of the "Keyboard Shortcuts" editor. Next to a command labeled "Accept Inline Suggestion," a pencil icon is highlighted with an orange outline.](/assets/images/help/copilot/vsc-edit-shortcuts-mac.png)
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
@@ -224,12 +224,12 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. Click the **File** menu, click **Preferences**, then click **Keyboard Shortcuts**.
 
-   ![Screenshot of Visual Studio Code keyboard shortcuts.](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
+   ![Screenshot of the menu bar in {% data variables.product.prodname_vscode %}, with the "File" menu expanded. In the "Preferences" sub-menu, the "Keyboard Shortcuts" option is highlighted with an orange outline.](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 1. Next to the command you want to change, click the pencil icon.
 
-   ![Screenshot of Keyboard shortcut editor.](/assets/images/help/copilot/vsc-edit-shortcuts.png)
+   ![Screenshot of "Keyboard Shortcuts" editor. Next to a command labeled "Accept Inline Suggestion," a pencil icon is highlighted with an orange outline.](/assets/images/help/copilot/vsc-edit-shortcuts.png)
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
@@ -237,12 +237,12 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. Click the **File** menu, click **Preferences**, then click **Keyboard Shortcuts**.
 
-   ![Screenshot of Visual Studio Code keyboard shortcuts.](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
+   ![Screenshot of the menu bar in {% data variables.product.prodname_vscode %}, with the "File" menu expanded. In the "Preferences" sub-menu, the "Keyboard Shortcuts" option is highlighted with an orange outline.](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 1. Next to the command you want to change, click the pencil icon.
 
-   ![Screenshot of Keyboard shortcut editor.](/assets/images/help/copilot/vsc-edit-shortcuts.png)
+   ![Screenshot of "Keyboard Shortcuts" editor. Next to a command labeled "Accept Inline Suggestion," a pencil icon is highlighted with an orange outline.](/assets/images/help/copilot/vsc-edit-shortcuts.png)
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 

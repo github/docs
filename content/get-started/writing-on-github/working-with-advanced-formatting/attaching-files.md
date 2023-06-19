@@ -62,18 +62,18 @@ The maximum file size is:
 
 We support these files:
 
-* PNG (*.png*)
-* GIF (*.gif*)
-* JPEG (*.jpg*, *.jpeg*)
+- PNG (*.png*)
+- GIF (*.gif*)
+- JPEG (*.jpg*, *.jpeg*)
 {%- ifversion svg-support %}
-* SVG (*.svg*)
+- SVG (*.svg*)
 {%- endif %}
-* Log files (*.log*)
-* Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
-* Text files (*.txt*)
-* PDFs (*.pdf*)
-* ZIP (*.zip*, *.gz*, *.tgz*){% ifversion fpt or ghec or ghes %}
-* Video (*.mp4*, *.mov*, *.webm*){% endif %}
+- Log files (*.log*)
+- Microsoft Word (*.docx*), Powerpoint (*.pptx*), and Excel (*.xlsx*) documents
+- Text files (*.txt*)
+- PDFs (*.pdf*)
+- ZIP (*.zip*, *.gz*, *.tgz*){% ifversion fpt or ghec or ghes %}
+- Video (*.mp4*, *.mov*, *.webm*){% endif %}
 
 {% ifversion fpt or ghec or ghes %}{% note %}
 

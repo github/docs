@@ -82,7 +82,7 @@ You can only invite an individual user to collaborate on your organization-level
 
    You can use the **Type** and **Role** drop-down menus to filter the access list.
    
-   ![Screenshot showing a collaborator.](/assets/images/help/projects-v2/access-find-member.png)
+   ![Screenshot of the "Manage access" section. The octocat is listed as a collaborator.](/assets/images/help/projects-v2/access-find-member.png)
 
 1. Edit the role for the collaborator(s).
 1. Optionally, click **Remove** to remove the collaborator(s).

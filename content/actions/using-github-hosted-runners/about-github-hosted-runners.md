@@ -124,13 +124,13 @@ For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-w
 
 For the overall list of included tools for each runner operating system, see the links below:
 
-* [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
-* [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
-* [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
-* [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
-* [macOS 13](https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md)
-* [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
-* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
+- [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
+- [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
+- [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
+- [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
+- [macOS 13](https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md)
+- [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
+- [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 

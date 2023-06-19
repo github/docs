@@ -44,6 +44,18 @@ To perform an exact search for a single repository, use the `repo` qualifier. If
 | -------- | -------- |
 | `repo:REPOSITORY-NAME` | Displays data for the specified repository. |
 
+{% ifversion security-overview-org-risk-coverage-enterprise %}
+
+## Filter by organization
+
+In the enterprise-level views, you can filter the data by organization.
+
+| Qualifier | Description |
+| -------- | -------- |
+| `org:ORGANIZATION-NAME` | Displays data for the specified organization. |
+
+{% endif %}
+
 ## Filter by whether security features are enabled
 
 In the examples below, replace `:enabled` with `:not-enabled` to see repositories where security features are not enabled. These qualifiers are available in the main summary views.
@@ -83,7 +95,7 @@ These qualifiers are available in the main summary views.
 | `archived:true` | Display archived repositories. |
 | `archived:false` | Omit archived repositories. |
 
-{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion security-overview-org-risk-coverage-enterprise %}{% else %}
 ## Filter by level of risk for repositories
 
 The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk.
@@ -103,7 +115,15 @@ These qualifiers are available in the enterprise-level view.
 
 ## Filter by number of alerts
 
-{% ifversion security-overview-org-risk-coverage %}These qualifiers are available in the enterprise-level "Overview" and in the organization-level "Security risk" view.{% else %}These qualifiers are available in the main summary views.{% endif %}
+{% ifversion security-overview-org-risk-coverage %}
+
+These qualifiers are available in the{% ifversion security-overview-org-risk-coverage-enterprise %}{% else %} enterprise-level "Overview" and in the organization-level{% endif %} "Security risk" view.
+
+{% else %}
+
+These qualifiers are available in the main summary views.
+
+{% endif %}
 
 | Qualifier | Description |
 | -------- | -------- |

@@ -30,6 +30,9 @@ For example, you can change the name and description of your app, the permission
 
 You can also choose to test new optional features for your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
 
+<!-- Anchor to maintain links to this heading -->
+<a name="navigating-to-your-github-app-settings"></a>
+
 ## Navigating to your {% data variables.product.prodname_github_app %} settings
 
 To modify a {% data variables.product.prodname_github_app %}, first navigate to the app settings page.

@@ -1,5 +1,5 @@
 ---
-title: Activating optional features for OAuth Apps
+title: Activating optional features for OAuth apps
 intro: 'You can test new optional features for your {% data variables.product.prodname_oauth_apps %}.'
 versions:
   fpt: '*'
@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 shortTitle: Activate optional features
 ---
 {% warning %}

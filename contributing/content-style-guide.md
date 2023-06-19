@@ -386,7 +386,7 @@ Some best practices for using links:
 - Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurance.)
 
 For accessibility and readability, avoid inline or midsentence links.
-- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization)."
+- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
 - **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
@@ -1247,13 +1247,36 @@ Spell out acronyms the first time they’re used in an article, except in titles
 
 ### Apps
 
-Use "apps" or "applications" in general content.
+Use "app" or "application" in general content.
 - **Use:** Publish and list your apps in GitHub Marketplace
 
-Use "Apps" when referring to specific apps or types of apps.
-- **Use:** GitHub App, OAuth App
+Use "app" when referring to OAuth apps since these are not a product.
+- **Use:** Register an OAuth app
+- **Use:** Register an {% data variables.product.prodname_oauth_app %}
+- **Avoid:** Register an OAuth App
 
-GitHub Apps is always capitalized, because it’s a feature name.
+Use "App" when referring to GitHub Apps since this is a product.
+- **Use:** Register a GitHub App
+- **Use:** Register a {% data variables.product.prodname_github_app %}
+
+GitHub Apps and OAuth apps consist of two parts: the app registration, and the code that makes the app do something.
+
+- To refer to just the GitHub App settings/configuration in the GitHub UI, use terminology like "register" and "GitHub App registration".
+   - **Use:** Register a GitHub App
+   - **Use:** Update a GitHub App registration
+   - **Avoid:** Create a GitHub App
+   - **Avoid:** Modify a GitHub App
+
+- To refer to just the code for the app, use terminology like "code for your app" or "your app's code".
+   - **Use:** code for your app
+   - **Use:** code for your GitHub App
+   - **Use:** your app's code
+   - **Avoid:** Your GitHub App
+   - **Avoid:** Your OAuth app
+
+- To refer to the whole app collectively (registration + code), refer to it as a GitHub App or OAuth app.
+
+GitHub Apps can be installed on organization and user accounts. To refer to an installation of the app, use "GitHub App installation" instead of "GitHub App".
 
 ### Currency
 
