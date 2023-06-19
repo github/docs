@@ -39,7 +39,7 @@ Note that even with a background job running, GitHub still expects your server t
 
 Every webhook has its own "Recent Deliveries" section, which lists whether a deployment was successful or not.
 
-![Screenshot of the "Recent Deliveries" tab on the "Manage webhook" page.](/assets/images/help/webhooks/webhooks_recent_deliveries.png)
+![Screenshot of the "Recent Deliveries" tab on the "Manage webhook" page.](/assets/images/help/webhooks/webhooks-recent-deliveries.png)
 
 You should make use of proper HTTP status codes in order to inform users. You can use codes like `201` or `202` to acknowledge receipt of payload that won't be processed (for example, a payload delivered by a branch that's not the default). Reserve the `500` error code for catastrophic failures.
 
@@ -47,7 +47,7 @@ You should make use of proper HTTP status codes in order to inform users. You ca
 
 Users can dig into the server responses you send back to GitHub. Ensure that your messages are clear and informative.
 
-![Screenshot of the "Response" tab of a webhook delivery, including the "Headers" and "Body" sections.](/assets/images/help/webhooks/payload_response_tab.png)
+![Screenshot of the "Response" tab of a webhook delivery, including the "Headers" and "Body" sections.](/assets/images/help/webhooks/payload-response-tab.png)
 
 ## Follow any redirects that the API sends you
 
