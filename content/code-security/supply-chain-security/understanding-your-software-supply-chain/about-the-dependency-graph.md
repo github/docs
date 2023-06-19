@@ -95,6 +95,9 @@ The recommended formats explicitly define which versions are used for all direct
 {%- endif %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
+{%- ifversion supply-chain-features-swift-support %}
+| Swift Package Manager | Swift | `Package.resolved` | `Package.resolved` |
+{%- endif %}
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% note %}

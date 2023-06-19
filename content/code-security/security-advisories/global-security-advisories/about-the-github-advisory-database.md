@@ -51,7 +51,8 @@ Generally, we name our supported ecosystems after the software programming langu
 - pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
 - pub (registry: https://pub.dev/packages/registry){% endif %}
 - RubyGems (registry: https://rubygems.org/)
-- Rust (registry: https://crates.io/)
+- Rust (registry: https://crates.io/){% ifversion supply-chain-features-swift-support %}
+- Swift (registry: N/A){% endif %}
 
 If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
 
