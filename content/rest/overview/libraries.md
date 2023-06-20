@@ -14,7 +14,12 @@ topics:
 ---
 
 ## Official {% data variables.product.company_short %} Octokit libraries
-_If you have a specific Octokit issue, please open an `issue` in the corresponding Octokit repo. While `Official` repos are maintained by GitHub, they are open-source and community contributions are welcome 👍._
+
+{% note %}
+
+**Note:** If you have a specific Octokit issue, please open an issue in the corresponding Octokit repository. Although the official Octokit repositories are maintained by {% data variables.product.company_short %}, they are open source and community contributions are welcome.
+
+{% endnote %}
 
 - JavaScript: [octokit.js](https://github.com/octokit/octokit.js). For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
 - Ruby: [octokit.rb](https://github.com/octokit/octokit.rb)
