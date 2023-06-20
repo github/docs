@@ -53,6 +53,8 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 
 {% data variables.product.prodname_dependabot_alerts %} are generated when {% data variables.product.prodname_dotcom %} identifies a dependency in the dependency graph with a vulnerability. {% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for any repository.{% endif %}
 
+{% data reusables.dependabot.quickstart-link %}
+
 {% ifversion fpt or ghec %}
 1. Click your profile photo, then click **Settings**.
 1. Click **Security & analysis**.
@@ -67,6 +69,7 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 {% endif %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts){% ifversion fpt or ghec %}" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account){% endif %}."
+
 
 ## Managing dependency review
 

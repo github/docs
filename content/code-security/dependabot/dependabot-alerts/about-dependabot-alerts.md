@@ -36,6 +36,8 @@ If your code depends on a package with a security vulnerability, this can cause 
 
 {% data reusables.security-advisory.link-browsing-advisory-db %}
 
+{% data reusables.dependabot.quickstart-link %}
+
 ## Detection of insecure dependencies
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
