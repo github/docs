@@ -260,6 +260,24 @@ If a task list item description begins with a parenthesis, you'll need to escape
 
 For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
 
+## Tables
+
+Tables can also be rendered
+
+```
+| Heading 1  | Heading 2  |
+|--          |--          |
+| Content A1 | Content A2 |
+| Content B1 | Content B2 |
+```
+
+which appears as
+
+| Heading 1  | Heading 2  |
+|--          |--          |
+| Content A1 | Content A2 |
+| Content B1 | Content B2 |
+
 ## Mentioning people and teams
 
 You can mention a person or [team](/organizations/organizing-members-into-teams) on {% data variables.product.product_name %} by typing <kbd>@</kbd> plus their username or team name. This will trigger a notification and bring their attention to the conversation. People will also receive a notification if you edit a comment to mention their username or team name. For more information about notifications, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
