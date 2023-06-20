@@ -7,6 +7,8 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Disable & enable a workflow
+redirect_from:
+  - /actions/managing-workflow-runs/disabling-and-enabling-a-workflow
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
