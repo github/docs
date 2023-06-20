@@ -95,6 +95,12 @@ The table below describes the locations for various PowerShell modules in each {
 
 {% endrowheaders %}
 
+{% note %}
+
+**Note:** On Ubuntu runners, Azure PowerShell modules are stored in `/usr/share/` instead of the default location of PowerShell add-on modules (i.e. `/usr/local/share/powershell/Modules/`).
+
+{% endnote %}
+
 ## Installing dependencies
 
 {% data variables.product.prodname_dotcom %}-hosted runners have PowerShell 7 and Pester installed. You can use `Install-Module` to install additional dependencies from the PowerShell Gallery before building and testing your code.
