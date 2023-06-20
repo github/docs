@@ -7,8 +7,10 @@ versions:
   ghae: '*'
   ghec: '*'
 shortTitle: Manually run a workflow
+redirect_from:
+  - /actions/managing-workflow-runs/manually-running-a-workflow
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Configuring a workflow to run manually
