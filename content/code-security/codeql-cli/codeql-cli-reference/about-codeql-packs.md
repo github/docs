@@ -188,6 +188,13 @@ The following properties are supported in `qlpack.yml` files.
   upgrades: .
   ```
 
+#### `warnOnImplicitThis`
+- Optional. Defaults to `false` if the `warnOnImplicitThis` property is not defined.
+- Defines a boolean that specifies whether or not the compiler should emit warnings about member predicate calls with implicit `this` call receivers, that is, without an explicit receiver. Supported from {% data variables.product.prodname_codeql_cli %} version 2.13.2 and onwards. For example:
+  ```yaml
+  warnOnImplicitThis: true
+  ```
+
 ## About `codeql-pack.lock.yml` files
 
 `codeql-pack.lock.yml` files store the versions of the resolved transitive dependencies of a {% data variables.product.prodname_codeql %} pack. This file is created by the `codeql pack install` command if it does not already exist and should be added to your version control system. The `dependencies` section of the `qlpack.yml` file contains version ranges that are compatible with the pack. The `codeql-pack.lock.yml` file locks the versions to precise dependencies. This ensures that running `codeql pack install` on this the pack will always retrieve the same versions of dependencies even if newer compatible versions exist.
