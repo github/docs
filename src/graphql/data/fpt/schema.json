@@ -38991,7 +38991,7 @@
             },
             {
               "name": "includeParents",
-              "defaultValue": false,
+              "defaultValue": true,
               "description": "<p>Return rulesets configured at higher levels that apply to this organization.</p>",
               "type": {
                 "name": "Boolean",
@@ -45327,7 +45327,19 @@
           "type": "[ProjectV2SingleSelectFieldOption!]!",
           "id": "projectv2singleselectfieldoption",
           "kind": "objects",
-          "href": "/graphql/reference/objects#projectv2singleselectfieldoption"
+          "href": "/graphql/reference/objects#projectv2singleselectfieldoption",
+          "arguments": [
+            {
+              "name": "names",
+              "description": "<p>Filter returned options to only those matching these names, case insensitive.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "project",
@@ -59330,6 +59342,17 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "includeParents",
+              "defaultValue": true,
+              "description": "<p>Include rulesets configured at higher levels that apply to this repository.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
             }
           ]
         },
@@ -59373,7 +59396,7 @@
             },
             {
               "name": "includeParents",
-              "defaultValue": false,
+              "defaultValue": true,
               "description": "<p>Return rulesets configured at higher levels that apply to this repository.</p>",
               "type": {
                 "name": "Boolean",
@@ -78041,6 +78064,10 @@
         {
           "name": "RUST",
           "description": "<p>Rust crates.</p>"
+        },
+        {
+          "name": "SWIFT",
+          "description": "<p>Swift packages.</p>"
         }
       ]
     },
@@ -82029,6 +82056,10 @@
         {
           "name": "RUST",
           "description": "<p>Rust crates.</p>"
+        },
+        {
+          "name": "SWIFT",
+          "description": "<p>Swift packages.</p>"
         }
       ]
     },
