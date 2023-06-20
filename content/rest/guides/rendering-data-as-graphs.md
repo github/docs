@@ -25,9 +25,9 @@ guide before starting this example. You can find the complete source code for th
 
 Let's jump right in!
 
-## Setting up an OAuth application
+## Setting up an {% data variables.product.prodname_oauth_app %}
 
-First, [register a new application][new oauth application] on {% data variables.product.product_name %}. Set the main and callback
+First, [register a new application](https://github.com/settings/applications/new) on {% data variables.product.product_name %}. Set the main and callback
 URLs to `http://localhost:4567/`. As [before][basics-of-authentication], we're going to handle authentication for the API by
 implementing a Rack middleware using [sinatra-auth-github][sinatra auth github]:
 
@@ -376,4 +376,3 @@ arguments to `drawTreemap` above, to get all the information to show up properly
 [D3 treemap]: https://www.d3-graph-gallery.com/treemap.html
 [language api]: /rest/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
-[new oauth application]: https://github.com/settings/applications/new

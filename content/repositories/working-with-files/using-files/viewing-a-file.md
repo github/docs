@@ -56,7 +56,7 @@ Within the blame view, you can view the line-by-line revision history for an ent
 {% else %}
 1. In the upper-right corner of the file view, click **Blame** to open the blame view.
 
-   ![Screenshot showing the header for a file. The "Blame" button is emphasized.](/assets/images/enterprise/repository/blame-button.png)
+   ![Screenshot showing the header for a file. The "Blame" button is outlined in dark orange.](/assets/images/enterprise/repository/blame-button.png)
 1. To see earlier revisions of a specific line, or reblame, click {% octicon "versions" aria-label="View blame prior to this change" %} until you've found the changes you're interested in viewing.
 
    ![Screenshot of the "Blame" view of a file. To the right of a commit message, the versions icon is outlined in dark orange.](/assets/images/enterprise/repository/git-blame.png)

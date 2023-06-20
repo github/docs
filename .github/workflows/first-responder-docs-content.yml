@@ -42,8 +42,6 @@ jobs:
               `/orgs/github/teams/docs/members?per_page=100`
             )
             const teamLogins = teamMembers.data.map(member => member.login)
-            // ignore PRs opened by docs bot accounts
-            teamLogins.push('Octomerger', 'octoglot')
             if (teamLogins.some(login => login === updatedIssueInformation.data.user.login)) {
               console.log(`This issue or pull request was authored by a member of the github/docs team.`)
               return 'true'

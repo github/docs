@@ -53,10 +53,10 @@ This utility displays information on background jobs, both active and in the que
 
 This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
 
-* The number of background jobs is increasing, while the active jobs remain the same.
-* The event feeds are not updating.
-* Webhooks are not being triggered.
-* The web interface is not updating after a Git push.
+- The number of background jobs is increasing, while the active jobs remain the same.
+- The event feeds are not updating.
+- Webhooks are not being triggered.
+- The web interface is not updating after a Git push.
 
 If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
 

@@ -23,10 +23,10 @@ topics:
 
 Webhooks can be triggered whenever specific events occur on {% data variables.product.company_short %}. For example, you can configure a webhook to trigger whenever:
 
-* Code is pushed to a repository
-* A pull request is opened
-* A {% data variables.product.prodname_pages %} site is built
-* A new member is added to a team
+- Code is pushed to a repository
+- A pull request is opened
+- A {% data variables.product.prodname_pages %} site is built
+- A new member is added to a team
 
 You can add webhooks to{% ifversion ghes or ghae %} {% data variables.product.prodname_enterprise %},{% endif %} an organization, a repository, or a {% data variables.product.prodname_github_app %}.
 

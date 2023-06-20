@@ -401,7 +401,7 @@
   "/v3/activity/notifications": "/en/rest/activity/notifications",
   "/v3/activity/starring": "/en/rest/activity/starring",
   "/v3/activity/watching": "/en/rest/activity/watching",
-  "/v3/apps/available-endpoints": "/en/rest/overview/endpoints-available-for-github-apps",
+  "/v3/apps/available-endpoints": "/en/rest/overview/endpoints-available-for-github-app-installation-access-tokens",
   "/v3/apps": "/en/rest/apps",
   "/v3/apps/installations": "/en/rest/apps/installations",
   "/v3/apps/marketplace": "/en/rest/apps/marketplace",

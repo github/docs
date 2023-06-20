@@ -71,10 +71,10 @@ The tool status page will calculate the percentage of files that were scanned by
 
 For integrated tools such as {% data variables.product.prodname_codeql %}, you can download detailed reports from the {% data variables.code-scanning.tool_status_page %} in CSV format. This will show:
 
-* Which configuration was used to scan each file.
-* The file path.
-* The programming language of the file.
-* Whether the file was successfully extracted.
+- Which configuration was used to scan each file.
+- The file path.
+- The programming language of the file.
+- Whether the file was successfully extracted.
 
 To download a report, select a tool you're interested in. Then on the top right of the page, click the **{% octicon "download" aria-label="Download language CSV report" %}** button.
 
@@ -82,10 +82,10 @@ To download a report, select a tool you're interested in. Then on the top right 
 
 You can download the list of rules that {% data variables.product.prodname_code_scanning %} is checking against, in CSV format. This will show:
 
-* The configuration used.
-* The rule source.
-* The SARIF identifier.
-* How many alerts were found.
+- The configuration used.
+- The rule source.
+- The SARIF identifier.
+- How many alerts were found.
 
 To download a report, select a configuration you're interested in. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu"  %}** on the top right of the page, and select **{% octicon "download" aria-hidden="true"  %} Download list of rules used**.
 

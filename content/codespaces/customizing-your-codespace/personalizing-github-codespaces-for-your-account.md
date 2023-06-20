@@ -116,14 +116,14 @@ You can configure {% data variables.product.prodname_github_codespaces %} to use
 
 When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your selected dotfiles repository to the codespace environment, and looks for one of the following files to set up the environment.
 
-* _install.sh_
-* _install_
-* _bootstrap.sh_
-* _bootstrap_
-* _script/bootstrap_
-* _setup.sh_
-* _setup_
-* _script/setup_
+- _install.sh_
+- _install_
+- _bootstrap.sh_
+- _bootstrap_
+- _script/bootstrap_
+- _setup.sh_
+- _setup_
+- _script/setup_
 
 If none of these files are found, then any files or folders in your selected dotfiles repository starting with `.` are symlinked to the codespace's `~` or `$HOME` directory.
 
@@ -171,6 +171,6 @@ You can also personalize {% data variables.product.prodname_github_codespaces %}
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)"
-* "[AUTOTITLE](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)"
-* "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"
+- "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)"
+- "[AUTOTITLE](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)"
+- "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"

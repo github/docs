@@ -60,9 +60,9 @@ You should calculate a hash using your `SECRET_TOKEN`, and ensure that the resul
 
 Your language and server implementations may differ from the following examples. However, there are a number of very important things to point out:
 
-* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
+- No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
 
-* Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
+- Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
 ### Ruby example
 

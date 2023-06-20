@@ -87,7 +87,22 @@ You can also use a command-line utility to configure the IP exception list. For 
 
 You can schedule maintenance for different times or dates with the {% data variables.product.prodname_enterprise_api %}. For more information, see "[AUTOTITLE](/rest/enterprise-admin#enable-or-disable-maintenance-mode)."
 
-## Enabling or disabling maintenance mode for all nodes in a cluster
+## Enabling or disabling maintenance mode for {% data variables.product.prodname_ghe_server %} via the CLI
+
+With the `ghe-maintenance` utility, you can set or unset maintenance mode for a single instance of {% data variables.product.prodname_ghe_server %}.
+
+```shell
+$ ghe-maintenance -h
+# Shows options
+$ ghe-maintenance -q
+# Queries the current mode
+$ ghe-maintenance -s
+# Sets maintenance mode
+$ ghe-maintenance -u
+# Unsets maintenance mode
+```
+
+## Enabling or disabling maintenance mode for all nodes in a cluster via the CLI
 
 With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
 

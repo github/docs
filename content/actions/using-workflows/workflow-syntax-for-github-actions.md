@@ -560,14 +560,14 @@ Commands run using non-login shells by default. You can choose a different shell
 
 Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. For example:
 
-* A single-line command:
+- A single-line command:
 
   ```yaml
   - name: Install Dependencies
     run: npm install
   ```
 
-* A multi-line command:
+- A multi-line command:
 
   ```yaml
   - name: Clean install dependencies and build

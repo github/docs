@@ -352,10 +352,10 @@ You can search for an issue or pull request that has a locked conversation using
 
 You can narrow your search to issues and pull requests that are missing certain metadata, using the `no` qualifier. That metadata includes:
 
-* Labels
-* Milestones
-* Assignees
-* Projects
+- Labels
+- Milestones
+- Assignees
+- Projects
 
 | Qualifier        | Example
 | ------------- | -------------

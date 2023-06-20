@@ -88,7 +88,7 @@ shortTitle: Export from GHES
    $ ghe-migrator export -g MIGRATION-GUID
    > Archive saved to: /data/github/current/tmp/MIGRATION-GUID.tar.gz
    ```
-   * {% data reusables.enterprise_migrations.specify-staging-path %}
+   - {% data reusables.enterprise_migrations.specify-staging-path %}
 
 8. Close the connection to {% data variables.location.product_location %}:
    ```shell

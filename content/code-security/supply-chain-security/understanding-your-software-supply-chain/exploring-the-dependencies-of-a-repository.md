@@ -38,7 +38,7 @@ The dependency graph shows the dependencies{% ifversion fpt or ghec %} and depen
 {% ifversion fpt or ghec %}
 1. Optionally, to view the repositories and packages that depend on your repository, under "Dependency graph", click **Dependents**.
 
-   ![Screenshot of the "Dependents" tab on the dependency graph page.](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
+   ![Screenshot of the "Dependency graph" page. The "Dependents" tab is highlighted with an orange outline.](/assets/images/help/graphs/dependency-graph-dependents-tab.png){% endif %}
 
 {% ifversion ghes %}
 Enterprise owners can configure the dependency graph at an enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise)."
@@ -80,9 +80,9 @@ For public repositories, the dependents view shows how the repository is used by
 ## Changing the "Used by" package
 
 You may notice some repositories have a "Used by" section in the sidebar of the **Code** tab. Your repository will have a "Used by" section if:
-* The dependency graph is enabled for the repository (see the above section for more details).
-* Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems).
-* Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
+- The dependency graph is enabled for the repository (see the above section for more details).
+- Your repository contains a package that is published on a [supported package ecosystem](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems).
+- Within the ecosystem, your package has a link to a _public_ repository where the source is stored.
 
 The "Used by" section shows the number of public references to the package that were found, and displays the avatars of some of the owners of the dependent projects.
 

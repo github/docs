@@ -40,11 +40,7 @@ You can use {% data variables.product.company_short %}'s Octokit.js SDK to authe
 
 {% endnote %}
 
-1. On the settings page for your app, get the app's ID.
-   - For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`. 
-   - For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. 
-   
-   Replace `APP-SLUG` with the slugified name of your app and `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+1. Get the ID of your app. You can find your app's ID on the settings page for your {% data variables.product.prodname_github_app %}. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
 1. Generate a private key. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
 1. Import `App` from `octokit`.
 

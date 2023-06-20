@@ -24,7 +24,7 @@ Referring sites and popular content are ordered by views and unique visitors. Fu
 
 {% endtip %}
 
-![Repository traffic graphs with tooltip.](/assets/images/help/graphs/repo_traffic_graphs_tooltip_dotcom.png)
+![Screenshot showing two line graphs for repository traffic. The lines are marked with dots for specific dates.](/assets/images/help/graphs/repo_traffic_graphs_tooltip_dotcom.png)
 
 ## Accessing the traffic graph
 

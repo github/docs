@@ -19,7 +19,7 @@ Recovery codes should not be shared or distributed. We recommend saving them wit
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 5. Under "SAML single sign-on", in the note about recovery codes, click **Save your recovery codes**.
-   ![Screenshot of the "SAML single sign-on" section. A link, labeled "Save your recovery codes," is highlighted with an orange outline.](/assets/images/help/saml/saml_recovery_codes.png)
+   ![Screenshot of the "SAML single sign-on" section. A link, labeled "Save your recovery codes," is highlighted with an orange outline.](/assets/images/help/saml/saml-recovery-codes.png)
 6. To save your recovery codes, click **Download**, **Print**, or **Copy**.
 
   {% note %}
