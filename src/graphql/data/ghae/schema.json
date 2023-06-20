@@ -34080,7 +34080,7 @@
             },
             {
               "name": "includeParents",
-              "defaultValue": false,
+              "defaultValue": true,
               "description": "<p>Return rulesets configured at higher levels that apply to this organization.</p>",
               "type": {
                 "name": "Boolean",
@@ -49537,6 +49537,17 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "includeParents",
+              "defaultValue": true,
+              "description": "<p>Include rulesets configured at higher levels that apply to this repository.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
             }
           ]
         },
@@ -49580,7 +49591,7 @@
             },
             {
               "name": "includeParents",
-              "defaultValue": false,
+              "defaultValue": true,
               "description": "<p>Return rulesets configured at higher levels that apply to this repository.</p>",
               "type": {
                 "name": "Boolean",
