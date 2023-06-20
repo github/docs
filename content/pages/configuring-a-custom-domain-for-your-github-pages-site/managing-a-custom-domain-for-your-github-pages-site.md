@@ -48,11 +48,11 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 4. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow , no `CNAME` file is created. For more information about your publishing source, see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
 
   {% note %}
-  
+
   **Note:** If your custom domain is an internationalized domain name, you must enter the Punycode encoded version.
-  
+
   For more information on Punycodes, see [Internationalized domain name](https://en.wikipedia.org/wiki/Internationalized_domain_name).
-  
+
   {% endnote %}
 
 1. Navigate to your DNS provider and create a `CNAME` record that points your subdomain to the default domain for your site. For example, if you want to use the subdomain `www.example.com` for your user site, create a `CNAME` record that points `www.example.com` to `<user>.github.io`. If you want to use the subdomain `another.example.com` for your organization site, create a `CNAME` record that points `another.example.com` to `<organization>.github.io`. The `CNAME` record should always point to `<user>.github.io` or `<organization>.github.io`, excluding the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
@@ -138,12 +138,16 @@ After you configure the apex domain, you must configure a CNAME record with your
     > YOUR-USERNAME.github.io.      43192   IN      CNAME   GITHUB-PAGES-SERVER.
     > GITHUB-PAGES-SERVER.         22      IN      A       192.0.2.1
 ```
+
 ## Removing a custom domain
+
+If you get an error about a custom domain being taken, you may need to remove the custom domain from another repository.
 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-4. Under "Custom domain," click **Remove**.
+1. Under "Custom domain," click **Remove**.
+
    ![Screenshot of a settings box to save or remove a custom domain on {% data variables.product.prodname_pages %} . To the right of a text box reading "example.com" is a button labeled "Remove" in red type.](/assets/images/help/pages/remove-custom-domain.png)
 
 ## Securing your custom domain
