@@ -40,6 +40,7 @@ async function main() {
     MD024: true,
     MD027: true,
     MD030: true,
+    MD039: true,
     MD040: {
       allowed_languages: [
         'bash',
@@ -73,7 +74,7 @@ async function main() {
         'yml',
       ],
     },
-    MD039: true,
+    MD047: true,
     MD111: true,
     MD112: true,
     MD113: true,
