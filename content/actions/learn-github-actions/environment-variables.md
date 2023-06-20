@@ -124,7 +124,7 @@ Any new environment variables you set that point to a location on the filesystem
 
 The default environment variables that {% data variables.product.prodname_dotcom %} sets are available to every step in a workflow. 
 
-{% data reusables.actions.environment-variables-are-fixed %}
+{% data reusables.actions.environment-variables-are-fixed %} For more information about setting environment variables, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-environment-variables-for-a-single-workflow)" and "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)."
 
 We strongly recommend that actions use environment variables to access the filesystem rather than using hardcoded file paths. {% data variables.product.prodname_dotcom %} sets environment variables for actions to use in all runner environments.
 
