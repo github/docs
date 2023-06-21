@@ -2312,6 +2312,40 @@
       ]
     },
     {
+      "name": "createRepositoryRuleset",
+      "kind": "mutations",
+      "id": "createrepositoryruleset",
+      "href": "/graphql/reference/mutations#createrepositoryruleset",
+      "description": "<p>Create a repository ruleset.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateRepositoryRulesetInput!",
+          "id": "createrepositoryrulesetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createrepositoryrulesetinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "ruleset",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset",
+          "description": "<p>The newly created Ruleset.</p>"
+        }
+      ]
+    },
+    {
       "name": "createTeamDiscussion",
       "kind": "mutations",
       "id": "createteamdiscussion",
@@ -2902,6 +2936,32 @@
           "id": "deleterefinput",
           "kind": "input-objects",
           "href": "/graphql/reference/input-objects#deleterefinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteRepositoryRuleset",
+      "kind": "mutations",
+      "id": "deleterepositoryruleset",
+      "href": "/graphql/reference/mutations#deleterepositoryruleset",
+      "description": "<p>Delete a repository ruleset.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteRepositoryRulesetInput!",
+          "id": "deleterepositoryrulesetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleterepositoryrulesetinput"
         }
       ],
       "returnFields": [
@@ -6356,6 +6416,40 @@
       ]
     },
     {
+      "name": "updateRepositoryRuleset",
+      "kind": "mutations",
+      "id": "updaterepositoryruleset",
+      "href": "/graphql/reference/mutations#updaterepositoryruleset",
+      "description": "<p>Update a repository ruleset.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateRepositoryRulesetInput!",
+          "id": "updaterepositoryrulesetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updaterepositoryrulesetinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "ruleset",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset",
+          "description": "<p>The newly created Ruleset.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateRepositoryWebCommitSignoffSetting",
       "kind": "mutations",
       "id": "updaterepositorywebcommitsignoffsetting",
@@ -7847,6 +7941,47 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "BranchNamePatternParameters",
+      "kind": "objects",
+      "id": "branchnamepatternparameters",
+      "href": "/graphql/reference/objects#branchnamepatternparameters",
+      "description": "<p>Parameters to be used for the branch_name_pattern rule.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -10968,6 +11103,47 @@
       ]
     },
     {
+      "name": "CommitAuthorEmailPatternParameters",
+      "kind": "objects",
+      "id": "commitauthoremailpatternparameters",
+      "href": "/graphql/reference/objects#commitauthoremailpatternparameters",
+      "description": "<p>Parameters to be used for the commit_author_email_pattern rule.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "CommitComment",
       "kind": "objects",
       "id": "commitcomment",
@@ -11728,6 +11904,88 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "CommitMessagePatternParameters",
+      "kind": "objects",
+      "id": "commitmessagepatternparameters",
+      "href": "/graphql/reference/objects#commitmessagepatternparameters",
+      "description": "<p>Parameters to be used for the commit_message_pattern rule.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "CommitterEmailPatternParameters",
+      "kind": "objects",
+      "id": "committeremailpatternparameters",
+      "href": "/graphql/reference/objects#committeremailpatternparameters",
+      "description": "<p>Parameters to be used for the committer_email_pattern rule.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -33763,6 +34021,87 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "ruleset",
+          "description": "<p>Returns a single ruleset from the current organization by ID.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset",
+          "arguments": [
+            {
+              "name": "databaseId",
+              "description": "<p>The ID of the ruleset to be returned.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "rulesets",
+          "description": "<p>A list of rulesets for this organization.</p>",
+          "type": "RepositoryRulesetConnection",
+          "id": "repositoryrulesetconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrulesetconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "includeParents",
+              "defaultValue": true,
+              "description": "<p>Return rulesets configured at higher levels that apply to this organization.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "samlIdentityProvider",
           "description": "<p>The Organization's SAML identity provider. Visible to (1) organization owners,\n(2) organization owners' personal access tokens (classic) with read:org or\nadmin:org scope, (3) GitHub App with an installation token with read or write\naccess to members.</p>",
           "type": "OrganizationIdentityProvider",
@@ -39069,6 +39408,55 @@
       ]
     },
     {
+      "name": "PullRequestParameters",
+      "kind": "objects",
+      "id": "pullrequestparameters",
+      "href": "/graphql/reference/objects#pullrequestparameters",
+      "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
+      "fields": [
+        {
+          "name": "dismissStaleReviewsOnPush",
+          "description": "<p>New, reviewable commits pushed will dismiss previous pull request review approvals.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requireCodeOwnerReview",
+          "description": "<p>Require an approving review in pull requests that modify files that have a designated code owner.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiredApprovingReviewCount",
+          "description": "<p>The number of approving reviews that are required before a pull request can be merged.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "requiredReviewThreadResolution",
+          "description": "<p>All conversations on code must be resolved before a pull request can be merged.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "PullRequestReview",
       "kind": "objects",
       "id": "pullrequestreview",
@@ -41882,6 +42270,31 @@
           "id": "ref",
           "kind": "objects",
           "href": "/graphql/reference/objects#ref"
+        }
+      ]
+    },
+    {
+      "name": "RefNameConditionTarget",
+      "kind": "objects",
+      "id": "refnameconditiontarget",
+      "href": "/graphql/reference/objects#refnameconditiontarget",
+      "description": "<p>Parameters to be used for the ref_name condition.</p>",
+      "fields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of ref names or patterns to include. One of these patterns must match\nfor the condition to pass. Also accepts <code>~DEFAULT_BRANCH</code> to include the\ndefault branch or <code>~ALL</code> to include all branches.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -49108,6 +49521,98 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "ruleset",
+          "description": "<p>Returns a single ruleset from the current repository by ID.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset",
+          "arguments": [
+            {
+              "name": "databaseId",
+              "description": "<p>The ID of the ruleset to be returned.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "includeParents",
+              "defaultValue": true,
+              "description": "<p>Include rulesets configured at higher levels that apply to this repository.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
+        },
+        {
+          "name": "rulesets",
+          "description": "<p>A list of rulesets for this repository.</p>",
+          "type": "RepositoryRulesetConnection",
+          "id": "repositoryrulesetconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrulesetconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "includeParents",
+              "defaultValue": true,
+              "description": "<p>Return rulesets configured at higher levels that apply to this repository.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "securityPolicyUrl",
           "description": "<p>The security policy URL.</p>",
           "type": "URI",
@@ -50135,6 +50640,39 @@
       ]
     },
     {
+      "name": "RepositoryNameConditionTarget",
+      "kind": "objects",
+      "id": "repositorynameconditiontarget",
+      "href": "/graphql/reference/objects#repositorynameconditiontarget",
+      "description": "<p>Parameters to be used for the repository_name condition.</p>",
+      "fields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of repository names or patterns to include. One of these patterns must\nmatch for the condition to pass. Also accepts <code>~ALL</code> to include all repositories.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "protected",
+          "description": "<p>Target changes that match these patterns will be prevented except by those with bypass permissions.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "RepositoryRule",
       "kind": "objects",
       "id": "repositoryrule",
@@ -50145,6 +50683,477 @@
           "name": "Node",
           "id": "node",
           "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "parameters",
+          "description": "<p>The parameters for this rule.</p>",
+          "type": "RuleParameters",
+          "id": "ruleparameters",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#ruleparameters"
+        },
+        {
+          "name": "type",
+          "description": "<p>The type of rule.</p>",
+          "type": "RepositoryRuleType!",
+          "id": "repositoryruletype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryruletype"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRuleConditions",
+      "kind": "objects",
+      "id": "repositoryruleconditions",
+      "href": "/graphql/reference/objects#repositoryruleconditions",
+      "description": "<p>Set of conditions that determine if a ruleset will evaluate.</p>",
+      "fields": [
+        {
+          "name": "refName",
+          "description": "<p>Configuration for the ref_name condition.</p>",
+          "type": "RefNameConditionTarget",
+          "id": "refnameconditiontarget",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#refnameconditiontarget"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>Configuration for the repository_name condition.</p>",
+          "type": "RepositoryNameConditionTarget",
+          "id": "repositorynameconditiontarget",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositorynameconditiontarget"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRuleConnection",
+      "kind": "objects",
+      "id": "repositoryruleconnection",
+      "href": "/graphql/reference/objects#repositoryruleconnection",
+      "description": "<p>The connection type for RepositoryRule.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[RepositoryRuleEdge]",
+          "id": "repositoryruleedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[RepositoryRule]",
+          "id": "repositoryrule",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrule"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRuleEdge",
+      "kind": "objects",
+      "id": "repositoryruleedge",
+      "href": "/graphql/reference/objects#repositoryruleedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "RepositoryRule",
+          "id": "repositoryrule",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrule"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRuleset",
+      "kind": "objects",
+      "id": "repositoryruleset",
+      "href": "/graphql/reference/objects#repositoryruleset",
+      "description": "<p>A repository ruleset.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "bypassActors",
+          "description": "<p>The actors that can bypass this ruleset.</p>",
+          "type": "RepositoryRulesetBypassActorConnection",
+          "id": "repositoryrulesetbypassactorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrulesetbypassactorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "bypassMode",
+          "description": "<p>The bypass mode of this ruleset.</p>",
+          "type": "RuleBypassMode!",
+          "id": "rulebypassmode",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#rulebypassmode"
+        },
+        {
+          "name": "conditions",
+          "description": "<p>The set of conditions that must evaluate to true for this ruleset to apply.</p>",
+          "type": "RepositoryRuleConditions!",
+          "id": "repositoryruleconditions",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleconditions"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "databaseId",
+          "description": "<p>Identifies the primary key from the database.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "enforcement",
+          "description": "<p>The enforcement level of this ruleset.</p>",
+          "type": "RuleEnforcement!",
+          "id": "ruleenforcement",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ruleenforcement"
+        },
+        {
+          "name": "name",
+          "description": "<p>Name of the ruleset.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "rules",
+          "description": "<p>List of rules.</p>",
+          "type": "RepositoryRuleConnection",
+          "id": "repositoryruleconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "type",
+              "description": "<p>The type of rule.</p>",
+              "type": {
+                "name": "RepositoryRuleType",
+                "id": "repositoryruletype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryruletype"
+              }
+            }
+          ]
+        },
+        {
+          "name": "source",
+          "description": "<p>Source of ruleset.</p>",
+          "type": "RuleSource!",
+          "id": "rulesource",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#rulesource"
+        },
+        {
+          "name": "target",
+          "description": "<p>Target of the ruleset.</p>",
+          "type": "RepositoryRulesetTarget",
+          "id": "repositoryrulesettarget",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryrulesettarget"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRulesetBypassActor",
+      "kind": "objects",
+      "id": "repositoryrulesetbypassactor",
+      "href": "/graphql/reference/objects#repositoryrulesetbypassactor",
+      "description": "<p>A team or app that has the ability to bypass a rules defined on a ruleset.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>The actor that can bypass rules.</p>",
+          "type": "BypassActor",
+          "id": "bypassactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#bypassactor"
+        },
+        {
+          "name": "repositoryRuleset",
+          "description": "<p>Identifies the ruleset associated with the allowed actor.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRulesetBypassActorConnection",
+      "kind": "objects",
+      "id": "repositoryrulesetbypassactorconnection",
+      "href": "/graphql/reference/objects#repositoryrulesetbypassactorconnection",
+      "description": "<p>The connection type for RepositoryRulesetBypassActor.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[RepositoryRulesetBypassActorEdge]",
+          "id": "repositoryrulesetbypassactoredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrulesetbypassactoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[RepositoryRulesetBypassActor]",
+          "id": "repositoryrulesetbypassactor",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrulesetbypassactor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRulesetBypassActorEdge",
+      "kind": "objects",
+      "id": "repositoryrulesetbypassactoredge",
+      "href": "/graphql/reference/objects#repositoryrulesetbypassactoredge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "RepositoryRulesetBypassActor",
+          "id": "repositoryrulesetbypassactor",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrulesetbypassactor"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRulesetConnection",
+      "kind": "objects",
+      "id": "repositoryrulesetconnection",
+      "href": "/graphql/reference/objects#repositoryrulesetconnection",
+      "description": "<p>The connection type for RepositoryRuleset.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[RepositoryRulesetEdge]",
+          "id": "repositoryrulesetedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryrulesetedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[RepositoryRuleset]",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRulesetEdge",
+      "kind": "objects",
+      "id": "repositoryrulesetedge",
+      "href": "/graphql/reference/objects#repositoryrulesetedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset"
         }
       ]
     },
@@ -50865,6 +51874,23 @@
       ]
     },
     {
+      "name": "RequiredDeploymentsParameters",
+      "kind": "objects",
+      "id": "requireddeploymentsparameters",
+      "href": "/graphql/reference/objects#requireddeploymentsparameters",
+      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
+      "fields": [
+        {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The environments that must be successfully deployed to before branches can be merged.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "RequiredStatusCheckDescription",
       "kind": "objects",
       "id": "requiredstatuscheckdescription",
@@ -50886,6 +51912,31 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "RequiredStatusChecksParameters",
+      "kind": "objects",
+      "id": "requiredstatuschecksparameters",
+      "href": "/graphql/reference/objects#requiredstatuschecksparameters",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
+      "fields": [
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>Status checks that are required.</p>",
+          "type": "[StatusCheckConfiguration!]!",
+          "id": "statuscheckconfiguration",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#statuscheckconfiguration"
+        },
+        {
+          "name": "strictRequiredStatusChecksPolicy",
+          "description": "<p>Whether pull requests targeting a matching branch must be tested with the\nlatest code. This setting will not take effect unless at least one status\ncheck is enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -52689,6 +53740,31 @@
       ]
     },
     {
+      "name": "StatusCheckConfiguration",
+      "kind": "objects",
+      "id": "statuscheckconfiguration",
+      "href": "/graphql/reference/objects#statuscheckconfiguration",
+      "description": "<p>Required status check.</p>",
+      "fields": [
+        {
+          "name": "context",
+          "description": "<p>The status check context name that must be present on the commit.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "integrationId",
+          "description": "<p>The optional integration ID that this status check must originate from.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "StatusCheckRollup",
       "kind": "objects",
       "id": "statuscheckrollup",
@@ -53315,6 +54391,47 @@
           "id": "gitobject",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#gitobject"
+        }
+      ]
+    },
+    {
+      "name": "TagNamePatternParameters",
+      "kind": "objects",
+      "id": "tagnamepatternparameters",
+      "href": "/graphql/reference/objects#tagnamepatternparameters",
+      "description": "<p>Parameters to be used for the tag_name_pattern rule.</p>",
+      "fields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -57452,6 +58569,23 @@
           "id": "subscribable",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#subscribable"
+        }
+      ]
+    },
+    {
+      "name": "UpdateParameters",
+      "kind": "objects",
+      "id": "updateparameters",
+      "href": "/graphql/reference/objects#updateparameters",
+      "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
+      "fields": [
+        {
+          "name": "updateAllowsFetchAndMerge",
+          "description": "<p>Branch can pull changes from its upstream repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -66415,6 +67549,88 @@
       ]
     },
     {
+      "name": "RepositoryRuleType",
+      "kind": "enums",
+      "id": "repositoryruletype",
+      "href": "/graphql/reference/enums#repositoryruletype",
+      "description": "<p>The rule types supported in rulesets.</p>",
+      "values": [
+        {
+          "name": "BRANCH_NAME_PATTERN",
+          "description": "<p>Branch name pattern.</p>"
+        },
+        {
+          "name": "COMMITTER_EMAIL_PATTERN",
+          "description": "<p>Committer email pattern.</p>"
+        },
+        {
+          "name": "COMMIT_AUTHOR_EMAIL_PATTERN",
+          "description": "<p>Commit author email pattern.</p>"
+        },
+        {
+          "name": "COMMIT_MESSAGE_PATTERN",
+          "description": "<p>Commit message pattern.</p>"
+        },
+        {
+          "name": "CREATION",
+          "description": "<p>Only allow users with bypass permission to create matching refs.</p>"
+        },
+        {
+          "name": "DELETION",
+          "description": "<p>Only allow users with bypass permissions to delete matching refs.</p>"
+        },
+        {
+          "name": "NON_FAST_FORWARD",
+          "description": "<p>Prevent users with push access from force pushing to branches.</p>"
+        },
+        {
+          "name": "PULL_REQUEST",
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>"
+        },
+        {
+          "name": "REQUIRED_DEPLOYMENTS",
+          "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>"
+        },
+        {
+          "name": "REQUIRED_LINEAR_HISTORY",
+          "description": "<p>Prevent merge commits from being pushed to matching branches.</p>"
+        },
+        {
+          "name": "REQUIRED_SIGNATURES",
+          "description": "<p>Commits pushed to matching branches must have verified signatures.</p>"
+        },
+        {
+          "name": "REQUIRED_STATUS_CHECKS",
+          "description": "<p>Choose which status checks must pass before branches can be merged into a\nbranch that matches this rule. When enabled, commits must first be pushed to\nanother branch, then merged or pushed directly to a branch that matches this\nrule after status checks have passed.</p>"
+        },
+        {
+          "name": "TAG_NAME_PATTERN",
+          "description": "<p>Tag name pattern.</p>"
+        },
+        {
+          "name": "UPDATE",
+          "description": "<p>Only allow users with bypass permission to update matching refs.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRulesetTarget",
+      "kind": "enums",
+      "id": "repositoryrulesettarget",
+      "href": "/graphql/reference/enums#repositoryrulesettarget",
+      "description": "<p>The targets supported for rulesets.</p>",
+      "values": [
+        {
+          "name": "BRANCH",
+          "description": "<p>Branch.</p>"
+        },
+        {
+          "name": "TAG",
+          "description": "<p>Tag.</p>"
+        }
+      ]
+    },
+    {
       "name": "RepositoryVisibility",
       "kind": "enums",
       "id": "repositoryvisibility",
@@ -66524,6 +67740,60 @@
         {
           "name": "UNAFFILIATED",
           "description": "<p>A user who is unaffiliated with the organization.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RuleBypassMode",
+      "kind": "enums",
+      "id": "rulebypassmode",
+      "href": "/graphql/reference/enums#rulebypassmode",
+      "description": "<p>The bypass mode for a rule or ruleset.</p>",
+      "values": [
+        {
+          "name": "NONE",
+          "description": "<p>Bypassing is disabled.</p>"
+        },
+        {
+          "name": "ORGANIZATION",
+          "description": "<p>Those with bypass permission at the organization level can bypass.</p>"
+        },
+        {
+          "name": "ORGANIZATION_ALWAYS",
+          "description": "<p>Those with bypass permission at the organization level can always bypass.</p>"
+        },
+        {
+          "name": "ORGANIZATION_NONE",
+          "description": "<p>Bypassing is disabled.</p>"
+        },
+        {
+          "name": "ORGANIZATION_PRS_ONLY",
+          "description": "<p>Those with bypass permission at the organization level can bypass for pull requests only.</p>"
+        },
+        {
+          "name": "REPOSITORY",
+          "description": "<p>Those with bypass permission at the repository level can bypass.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RuleEnforcement",
+      "kind": "enums",
+      "id": "ruleenforcement",
+      "href": "/graphql/reference/enums#ruleenforcement",
+      "description": "<p>The level of enforcement for a rule or ruleset.</p>",
+      "values": [
+        {
+          "name": "ACTIVE",
+          "description": "<p>Rules will be enforced.</p>"
+        },
+        {
+          "name": "DISABLED",
+          "description": "<p>Do not evaluate or enforce rules.</p>"
+        },
+        {
+          "name": "EVALUATE",
+          "description": "<p>Allow admins to test rules before enforcing them. Admins can view insights on\nthe Rule Insights page (<code>evaluate</code> is only available with GitHub Enterprise).</p>"
         }
       ]
     },
@@ -67238,6 +68508,25 @@
           "name": "User",
           "id": "user",
           "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "BypassActor",
+      "kind": "unions",
+      "id": "bypassactor",
+      "href": "/graphql/reference/unions#bypassactor",
+      "description": "<p>Types that can represent a repository ruleset bypass actor.</p>",
+      "possibleTypes": [
+        {
+          "name": "App",
+          "id": "app",
+          "href": "/graphql/reference/objects#app"
+        },
+        {
+          "name": "Team",
+          "id": "team",
+          "href": "/graphql/reference/objects#team"
         }
       ]
     },
@@ -68692,6 +69981,79 @@
       ]
     },
     {
+      "name": "RuleParameters",
+      "kind": "unions",
+      "id": "ruleparameters",
+      "href": "/graphql/reference/unions#ruleparameters",
+      "description": "<p>Types which can be parameters for <code>RepositoryRule</code> objects.</p>",
+      "possibleTypes": [
+        {
+          "name": "BranchNamePatternParameters",
+          "id": "branchnamepatternparameters",
+          "href": "/graphql/reference/objects#branchnamepatternparameters"
+        },
+        {
+          "name": "CommitAuthorEmailPatternParameters",
+          "id": "commitauthoremailpatternparameters",
+          "href": "/graphql/reference/objects#commitauthoremailpatternparameters"
+        },
+        {
+          "name": "CommitMessagePatternParameters",
+          "id": "commitmessagepatternparameters",
+          "href": "/graphql/reference/objects#commitmessagepatternparameters"
+        },
+        {
+          "name": "CommitterEmailPatternParameters",
+          "id": "committeremailpatternparameters",
+          "href": "/graphql/reference/objects#committeremailpatternparameters"
+        },
+        {
+          "name": "PullRequestParameters",
+          "id": "pullrequestparameters",
+          "href": "/graphql/reference/objects#pullrequestparameters"
+        },
+        {
+          "name": "RequiredDeploymentsParameters",
+          "id": "requireddeploymentsparameters",
+          "href": "/graphql/reference/objects#requireddeploymentsparameters"
+        },
+        {
+          "name": "RequiredStatusChecksParameters",
+          "id": "requiredstatuschecksparameters",
+          "href": "/graphql/reference/objects#requiredstatuschecksparameters"
+        },
+        {
+          "name": "TagNamePatternParameters",
+          "id": "tagnamepatternparameters",
+          "href": "/graphql/reference/objects#tagnamepatternparameters"
+        },
+        {
+          "name": "UpdateParameters",
+          "id": "updateparameters",
+          "href": "/graphql/reference/objects#updateparameters"
+        }
+      ]
+    },
+    {
+      "name": "RuleSource",
+      "kind": "unions",
+      "id": "rulesource",
+      "href": "/graphql/reference/unions#rulesource",
+      "description": "<p>Types which can have <code>RepositoryRule</code> objects.</p>",
+      "possibleTypes": [
+        {
+          "name": "Organization",
+          "id": "organization",
+          "href": "/graphql/reference/objects#organization"
+        },
+        {
+          "name": "Repository",
+          "id": "repository",
+          "href": "/graphql/reference/objects#repository"
+        }
+      ]
+    },
+    {
       "name": "SearchResultItem",
       "kind": "unions",
       "id": "searchresultitem",
@@ -69504,6 +70866,47 @@
       ]
     },
     {
+      "name": "BranchNamePatternParametersInput",
+      "kind": "inputObjects",
+      "id": "branchnamepatternparametersinput",
+      "href": "/graphql/reference/input-objects#branchnamepatternparametersinput",
+      "description": "<p>Parameters to be used for the branch_name_pattern rule.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "ChangeUserStatusInput",
       "kind": "inputObjects",
       "id": "changeuserstatusinput",
@@ -70161,6 +71564,47 @@
       ]
     },
     {
+      "name": "CommitAuthorEmailPatternParametersInput",
+      "kind": "inputObjects",
+      "id": "commitauthoremailpatternparametersinput",
+      "href": "/graphql/reference/input-objects#commitauthoremailpatternparametersinput",
+      "description": "<p>Parameters to be used for the commit_author_email_pattern rule.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "CommitContributionOrder",
       "kind": "inputObjects",
       "id": "commitcontributionorder",
@@ -70211,6 +71655,47 @@
       ]
     },
     {
+      "name": "CommitMessagePatternParametersInput",
+      "kind": "inputObjects",
+      "id": "commitmessagepatternparametersinput",
+      "href": "/graphql/reference/input-objects#commitmessagepatternparametersinput",
+      "description": "<p>Parameters to be used for the commit_message_pattern rule.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "CommittableBranch",
       "kind": "inputObjects",
       "id": "committablebranch",
@@ -70237,6 +71722,47 @@
           "name": "repositoryNameWithOwner",
           "description": "<p>The nameWithOwner of the repository to commit to.</p>",
           "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "CommitterEmailPatternParametersInput",
+      "kind": "inputObjects",
+      "id": "committeremailpatternparametersinput",
+      "href": "/graphql/reference/input-objects#committeremailpatternparametersinput",
+      "description": "<p>Parameters to be used for the committer_email_pattern rule.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -71739,6 +73265,88 @@
       ]
     },
     {
+      "name": "CreateRepositoryRulesetInput",
+      "kind": "inputObjects",
+      "id": "createrepositoryrulesetinput",
+      "href": "/graphql/reference/input-objects#createrepositoryrulesetinput",
+      "description": "<p>Autogenerated input type of CreateRepositoryRuleset.</p>",
+      "inputFields": [
+        {
+          "name": "bypassActorIds",
+          "description": "<p>A list of Team or App IDs allowed to bypass rules in this ruleset.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "bypassMode",
+          "description": "<p>The bypass mode for this ruleset.</p>",
+          "type": "RuleBypassMode",
+          "id": "rulebypassmode",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#rulebypassmode"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "conditions",
+          "description": "<p>The set of conditions for this ruleset.</p>",
+          "type": "RepositoryRuleConditionsInput!",
+          "id": "repositoryruleconditionsinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositoryruleconditionsinput"
+        },
+        {
+          "name": "enforcement",
+          "description": "<p>The enforcement level for this ruleset.</p>",
+          "type": "RuleEnforcement!",
+          "id": "ruleenforcement",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ruleenforcement"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the ruleset.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "rules",
+          "description": "<p>The list of rules for this ruleset.</p>",
+          "type": "[RepositoryRuleInput!]",
+          "id": "repositoryruleinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositoryruleinput"
+        },
+        {
+          "name": "sourceId",
+          "description": "<p>The global relay id of the source in which a new ruleset should be created in.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "target",
+          "description": "<p>The target of the ruleset.</p>",
+          "type": "RepositoryRulesetTarget",
+          "id": "repositoryrulesettarget",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryrulesettarget"
+        }
+      ]
+    },
+    {
       "name": "CreateTeamDiscussionCommentInput",
       "kind": "inputObjects",
       "id": "createteamdiscussioncommentinput",
@@ -72246,6 +73854,32 @@
         {
           "name": "refId",
           "description": "<p>The Node ID of the Ref to be deleted.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "DeleteRepositoryRulesetInput",
+      "kind": "inputObjects",
+      "id": "deleterepositoryrulesetinput",
+      "href": "/graphql/reference/input-objects#deleterepositoryrulesetinput",
+      "description": "<p>Autogenerated input type of DeleteRepositoryRuleset.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repositoryRulesetId",
+          "description": "<p>The global relay id of the repository ruleset to be deleted.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -73858,6 +75492,55 @@
       ]
     },
     {
+      "name": "PullRequestParametersInput",
+      "kind": "inputObjects",
+      "id": "pullrequestparametersinput",
+      "href": "/graphql/reference/input-objects#pullrequestparametersinput",
+      "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
+      "inputFields": [
+        {
+          "name": "dismissStaleReviewsOnPush",
+          "description": "<p>New, reviewable commits pushed will dismiss previous pull request review approvals.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requireCodeOwnerReview",
+          "description": "<p>Require an approving review in pull requests that modify files that have a designated code owner.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requireLastPushApproval",
+          "description": "<p>Whether the most recent reviewable push must be approved by someone other than the person who pushed it.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "requiredApprovingReviewCount",
+          "description": "<p>The number of approving reviews that are required before a pull request can be merged.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "requiredReviewThreadResolution",
+          "description": "<p>All conversations on code must be resolved before a pull request can be merged.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "ReactionOrder",
       "kind": "inputObjects",
       "id": "reactionorder",
@@ -73879,6 +75562,31 @@
           "id": "reactionorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#reactionorderfield"
+        }
+      ]
+    },
+    {
+      "name": "RefNameConditionTargetInput",
+      "kind": "inputObjects",
+      "id": "refnameconditiontargetinput",
+      "href": "/graphql/reference/input-objects#refnameconditiontargetinput",
+      "description": "<p>Parameters to be used for the ref_name condition.</p>",
+      "inputFields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of ref names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of ref names or patterns to include. One of these patterns must match\nfor the condition to pass. Also accepts <code>~DEFAULT_BRANCH</code> to include the\ndefault branch or <code>~ALL</code> to include all branches.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -74385,6 +76093,39 @@
       ]
     },
     {
+      "name": "RepositoryNameConditionTargetInput",
+      "kind": "inputObjects",
+      "id": "repositorynameconditiontargetinput",
+      "href": "/graphql/reference/input-objects#repositorynameconditiontargetinput",
+      "description": "<p>Parameters to be used for the repository_name condition.</p>",
+      "inputFields": [
+        {
+          "name": "exclude",
+          "description": "<p>Array of repository names or patterns to exclude. The condition will not pass if any of these patterns match.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "include",
+          "description": "<p>Array of repository names or patterns to include. One of these patterns must\nmatch for the condition to pass. Also accepts <code>~ALL</code> to include all repositories.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "protected",
+          "description": "<p>Target changes that match these patterns will be prevented except by those with bypass permissions.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "RepositoryOrder",
       "kind": "inputObjects",
       "id": "repositoryorder",
@@ -74406,6 +76147,65 @@
           "id": "repositoryorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryorderfield"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRuleConditionsInput",
+      "kind": "inputObjects",
+      "id": "repositoryruleconditionsinput",
+      "href": "/graphql/reference/input-objects#repositoryruleconditionsinput",
+      "description": "<p>Specifies the conditions required for a ruleset to evaluate.</p>",
+      "inputFields": [
+        {
+          "name": "refName",
+          "description": "<p>Configuration for the ref_name condition.</p>",
+          "type": "RefNameConditionTargetInput",
+          "id": "refnameconditiontargetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#refnameconditiontargetinput"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>Configuration for the repository_name condition.</p>",
+          "type": "RepositoryNameConditionTargetInput",
+          "id": "repositorynameconditiontargetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositorynameconditiontargetinput"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRuleInput",
+      "kind": "inputObjects",
+      "id": "repositoryruleinput",
+      "href": "/graphql/reference/input-objects#repositoryruleinput",
+      "description": "<p>Specifies the attributes for a new or updated rule.</p>",
+      "inputFields": [
+        {
+          "name": "id",
+          "description": "<p>Optional ID of this rule when updating.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "parameters",
+          "description": "<p>The parameters for the rule.</p>",
+          "type": "RuleParametersInput",
+          "id": "ruleparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#ruleparametersinput"
+        },
+        {
+          "name": "type",
+          "description": "<p>The type of rule to create.</p>",
+          "type": "RepositoryRuleType!",
+          "id": "repositoryruletype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryruletype"
         }
       ]
     },
@@ -74462,6 +76262,23 @@
       ]
     },
     {
+      "name": "RequiredDeploymentsParametersInput",
+      "kind": "inputObjects",
+      "id": "requireddeploymentsparametersinput",
+      "href": "/graphql/reference/input-objects#requireddeploymentsparametersinput",
+      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
+      "inputFields": [
+        {
+          "name": "requiredDeploymentEnvironments",
+          "description": "<p>The environments that must be successfully deployed to before branches can be merged.</p>",
+          "type": "[String!]!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
       "name": "RequiredStatusCheckInput",
       "kind": "inputObjects",
       "id": "requiredstatuscheckinput",
@@ -74483,6 +76300,31 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "RequiredStatusChecksParametersInput",
+      "kind": "inputObjects",
+      "id": "requiredstatuschecksparametersinput",
+      "href": "/graphql/reference/input-objects#requiredstatuschecksparametersinput",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
+      "inputFields": [
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>Status checks that are required.</p>",
+          "type": "[StatusCheckConfigurationInput!]!",
+          "id": "statuscheckconfigurationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#statuscheckconfigurationinput"
+        },
+        {
+          "name": "strictRequiredStatusChecksPolicy",
+          "description": "<p>Whether pull requests targeting a matching branch must be tested with the\nlatest code. This setting will not take effect unless at least one status\ncheck is enabled.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     },
@@ -74620,6 +76462,87 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "RuleParametersInput",
+      "kind": "inputObjects",
+      "id": "ruleparametersinput",
+      "href": "/graphql/reference/input-objects#ruleparametersinput",
+      "description": "<p>Specifies the parameters for a <code>RepositoryRule</code> object. Only one of the fields should be specified.</p>",
+      "inputFields": [
+        {
+          "name": "branchNamePattern",
+          "description": "<p>Parameters used for the <code>branch_name_pattern</code> rule type.</p>",
+          "type": "BranchNamePatternParametersInput",
+          "id": "branchnamepatternparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#branchnamepatternparametersinput"
+        },
+        {
+          "name": "commitAuthorEmailPattern",
+          "description": "<p>Parameters used for the <code>commit_author_email_pattern</code> rule type.</p>",
+          "type": "CommitAuthorEmailPatternParametersInput",
+          "id": "commitauthoremailpatternparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#commitauthoremailpatternparametersinput"
+        },
+        {
+          "name": "commitMessagePattern",
+          "description": "<p>Parameters used for the <code>commit_message_pattern</code> rule type.</p>",
+          "type": "CommitMessagePatternParametersInput",
+          "id": "commitmessagepatternparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#commitmessagepatternparametersinput"
+        },
+        {
+          "name": "committerEmailPattern",
+          "description": "<p>Parameters used for the <code>committer_email_pattern</code> rule type.</p>",
+          "type": "CommitterEmailPatternParametersInput",
+          "id": "committeremailpatternparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#committeremailpatternparametersinput"
+        },
+        {
+          "name": "pullRequest",
+          "description": "<p>Parameters used for the <code>pull_request</code> rule type.</p>",
+          "type": "PullRequestParametersInput",
+          "id": "pullrequestparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#pullrequestparametersinput"
+        },
+        {
+          "name": "requiredDeployments",
+          "description": "<p>Parameters used for the <code>required_deployments</code> rule type.</p>",
+          "type": "RequiredDeploymentsParametersInput",
+          "id": "requireddeploymentsparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requireddeploymentsparametersinput"
+        },
+        {
+          "name": "requiredStatusChecks",
+          "description": "<p>Parameters used for the <code>required_status_checks</code> rule type.</p>",
+          "type": "RequiredStatusChecksParametersInput",
+          "id": "requiredstatuschecksparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#requiredstatuschecksparametersinput"
+        },
+        {
+          "name": "tagNamePattern",
+          "description": "<p>Parameters used for the <code>tag_name_pattern</code> rule type.</p>",
+          "type": "TagNamePatternParametersInput",
+          "id": "tagnamepatternparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#tagnamepatternparametersinput"
+        },
+        {
+          "name": "update",
+          "description": "<p>Parameters used for the <code>update</code> rule type.</p>",
+          "type": "UpdateParametersInput",
+          "id": "updateparametersinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateparametersinput"
         }
       ]
     },
@@ -74839,6 +76762,31 @@
       ]
     },
     {
+      "name": "StatusCheckConfigurationInput",
+      "kind": "inputObjects",
+      "id": "statuscheckconfigurationinput",
+      "href": "/graphql/reference/input-objects#statuscheckconfigurationinput",
+      "description": "<p>Required status check.</p>",
+      "inputFields": [
+        {
+          "name": "context",
+          "description": "<p>The status check context name that must be present on the commit.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "integrationId",
+          "description": "<p>The optional integration ID that this status check must originate from.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
       "name": "SubmitPullRequestReviewInput",
       "kind": "inputObjects",
       "id": "submitpullrequestreviewinput",
@@ -74886,6 +76834,47 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "TagNamePatternParametersInput",
+      "kind": "inputObjects",
+      "id": "tagnamepatternparametersinput",
+      "href": "/graphql/reference/input-objects#tagnamepatternparametersinput",
+      "description": "<p>Parameters to be used for the tag_name_pattern rule.</p>",
+      "inputFields": [
+        {
+          "name": "name",
+          "description": "<p>How this rule will appear to users.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "negate",
+          "description": "<p>If true, the rule will fail if the pattern matches.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "operator",
+          "description": "<p>The operator to use for matching.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "pattern",
+          "description": "<p>The pattern to match with.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -76868,6 +78857,23 @@
       ]
     },
     {
+      "name": "UpdateParametersInput",
+      "kind": "inputObjects",
+      "id": "updateparametersinput",
+      "href": "/graphql/reference/input-objects#updateparametersinput",
+      "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
+      "inputFields": [
+        {
+          "name": "updateAllowsFetchAndMerge",
+          "description": "<p>Branch can pull changes from its upstream repository.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
       "name": "UpdateProjectCardInput",
       "kind": "inputObjects",
       "id": "updateprojectcardinput",
@@ -77383,6 +79389,88 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        }
+      ]
+    },
+    {
+      "name": "UpdateRepositoryRulesetInput",
+      "kind": "inputObjects",
+      "id": "updaterepositoryrulesetinput",
+      "href": "/graphql/reference/input-objects#updaterepositoryrulesetinput",
+      "description": "<p>Autogenerated input type of UpdateRepositoryRuleset.</p>",
+      "inputFields": [
+        {
+          "name": "bypassActorIds",
+          "description": "<p>A list of Team or App IDs allowed to bypass rules in this ruleset.</p>",
+          "type": "[ID!]",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "bypassMode",
+          "description": "<p>The bypass mode for this ruleset.</p>",
+          "type": "RuleBypassMode",
+          "id": "rulebypassmode",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#rulebypassmode"
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "conditions",
+          "description": "<p>The list of conditions for this ruleset.</p>",
+          "type": "RepositoryRuleConditionsInput",
+          "id": "repositoryruleconditionsinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositoryruleconditionsinput"
+        },
+        {
+          "name": "enforcement",
+          "description": "<p>The enforcement level for this ruleset.</p>",
+          "type": "RuleEnforcement",
+          "id": "ruleenforcement",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#ruleenforcement"
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the ruleset.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repositoryRulesetId",
+          "description": "<p>The global relay id of the repository ruleset to be updated.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "rules",
+          "description": "<p>The list of rules for this ruleset.</p>",
+          "type": "[RepositoryRuleInput!]",
+          "id": "repositoryruleinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositoryruleinput"
+        },
+        {
+          "name": "target",
+          "description": "<p>The target of the ruleset.</p>",
+          "type": "RepositoryRulesetTarget",
+          "id": "repositoryrulesettarget",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryrulesettarget"
         }
       ]
     },
