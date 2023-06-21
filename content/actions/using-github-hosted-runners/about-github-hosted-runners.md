@@ -108,6 +108,12 @@ Hardware specification for macOS XL virtual machines:
 - 30 GB of RAM
 - 14 GB of SSD space
 
+{% note %}
+
+**Note:** macOS XL runners are considered {% data variables.actions.hosted_runner %}s and are billed in the same way. This means macOS XL runners are not eligible for the use of entitlement minutes on private repositories. For both private and public repositories, when macOS XL runners are in use, they will always be billed at the per-minute rate. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners#understanding-billing)."
+
+{% endnote %}
+
 {% data reusables.actions.supported-github-runners %}
 
 Workflow logs list the runner used to run a job. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."

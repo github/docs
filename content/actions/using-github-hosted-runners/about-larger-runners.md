@@ -35,6 +35,12 @@ Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners
 | 32             | 128 GB        | 1200 GB       | Ubuntu, Windows       |
 | 64             | 256 GB        | 2040 GB       | Ubuntu, Windows       |
 
+{% note %}
+
+**Note**: macOS runners are also available in larger sizes and are billed the same way as {% data variables.actions.hosted_runner %}s. For information on how to access macOS runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+
+{% endnote %}
+
 ### Additional features for {% data variables.actions.hosted_runner %}s
 
 Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.actions.hosted_runner %}s have the following additional features:
