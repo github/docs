@@ -1,1 +1,0 @@
-If you would like to use more than 10 static IP address ranges for your larger runners, please contact {% data variables.contact.contact_support %}.
