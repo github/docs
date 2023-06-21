@@ -48,13 +48,13 @@ The root directory of the package.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `--mode=<mode>`
 
 Specifies how to resolve dependencies:
 
-`minimal-update` *(default)*: Update or create the codeql-pack.lock.yml
+`minimal-update` _(default)_: Update or create the codeql-pack.lock.yml
 based on the existing contents of the qlpack.yml file. If any existing
 codeql-pack.lock.yml does not satisfy the current dependencies in the
 qlpack.yml, the lock file will be updated as necessary.

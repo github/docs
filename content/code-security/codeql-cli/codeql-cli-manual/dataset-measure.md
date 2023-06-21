@@ -56,7 +56,7 @@ typically with a '.dbscheme.stats' extension.
 The number of concurrent threads to use.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 ### Common options

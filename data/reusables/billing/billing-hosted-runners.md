@@ -1,4 +1,4 @@
-| Operating system | Cores | Per-minute rate (USD) |
+| Operating system | vCPUs | Per-minute rate (USD) |
 |--------- | -----| -----------|
 |  Linux   |  2   |   $0.008   |
 |  Linux   |  4   |   $0.016   |

@@ -54,7 +54,7 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 4. Click **Generate token**.
 5. To copy the token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
 
-   ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal_access_tokens.png)
+   ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens.png)
 6. To save the token for use later, store the new token securely in a password manager.
 
 ## Configuring provisioning for {% data variables.product.prodname_emus %}

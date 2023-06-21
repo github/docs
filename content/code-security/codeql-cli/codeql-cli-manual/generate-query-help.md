@@ -72,7 +72,7 @@ path.
 If no output path is provided, only a single .qhelp or .ql file will be
 accepted, and the output will be written to stdout.
 
-If an output directory is used, filenames *within* the output directory
+If an output directory is used, filenames _within_ the output directory
 will be derived from the .qhelp file names.
 
 #### `--warnings=<mode>`
@@ -81,7 +81,7 @@ How to handle warnings from the query help renderer. One of:
 
 `hide`: Suppress warnings.
 
-`show` *(default)*: Print warnings but continue with rendering.
+`show` _(default)_: Print warnings but continue with rendering.
 
 `error`: Treat warnings as errors.
 

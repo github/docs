@@ -37,6 +37,8 @@ You can create a default security policy that will display in any of your organi
 
 {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} detects vulnerabilities in public repositories and displays the dependency graph. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all public repositories owned by your organization. You can enable or disable {% data variables.product.prodname_dependabot_alerts %} and the dependency graph for all private repositories owned by your organization.
 
+{% data reusables.dependabot.quickstart-link %}
+
 1. Click your profile photo, then click **Organizations**.
 2. Click **Settings** next to your organization.
 3. Click **Security & analysis**.
@@ -78,7 +80,7 @@ For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-secu
 
 You can enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 
-To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a *dependabot.yml* configuration file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
+To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a _dependabot.yml_ configuration file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
 
 {% endif %}
 

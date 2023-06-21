@@ -15,7 +15,7 @@ We offer this private information removal process as an exceptional service only
 
 ## What is Private Information?
 
-For the purposes of this document, “private information” refers to content that (i) should have been kept confidential, *and* (ii) whose public availability poses a specific or targeted security risk to you or your organization. 
+For the purposes of this document, “private information” refers to content that (i) should have been kept confidential, _and_ (ii) whose public availability poses a specific or targeted security risk to you or your organization. 
 
 "Security risk" refers to a situation involving exposure to physical danger, identity theft, or increased likelihood of unauthorized access to physical or network facilities.
 

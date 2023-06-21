@@ -32,7 +32,7 @@ Treat GitHub Community with respect. We are a shared resource — a place to sha
 
 The following are not hard and fast rules, merely aids to the human judgment of our community. Use these guidelines to keep this a clean, well-lighted place for civilized public discourse.
 
-### *Best Practices for Maintaining a Strong Community*
+### _Best Practices for Maintaining a Strong Community_
 
 The primary purpose of the GitHub community is to collaborate on software projects. We are committed to maintaining a community where users are free to express themselves and challenge one another's ideas, both technical and otherwise. At the same time, it's important that users remain respectful and allow space for others to contribute openly. In order to foster both a safe and productive environment, we encourage our community members to look to these guidelines to inform how they interact on our platform. Below, you’ll find some suggestions for how to have successful interactions as a valued member of the GitHub community.
 
@@ -67,7 +67,7 @@ The primary purpose of the GitHub community is to collaborate on software projec
 - Be trustworthy.
   - **Always be honest.** Don’t knowingly share incorrect information or intentionally mislead other GitHub Community participants. If you don’t know the answer to someone’s question but still want to help, you can try helping them research or find resources instead. GitHub staff will also be active in GitHub Community, so if you’re unsure of an answer, it’s likely a moderator will be able to help.
 
-### *What is not Allowed*
+### _What is not Allowed_
 
 GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), which are part of GitHub's [Terms of Service](/site-policy/github-terms/github-terms-of-service), set a baseline for what is not allowed on GitHub. Since GitHub Community is on GitHub.com, these terms and restrictions apply to GitHub Community, including the following restrictions:
 
@@ -81,7 +81,7 @@ GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-a
 
 ## Enforcement
 
-### *What GitHub Community Participants Can Do*
+### _What GitHub Community Participants Can Do_
 
 - **If you see a problem, report it.** Moderators have special authority; they are responsible for this GitHub Community. But so are you. With your help, moderators can be community facilitators, not just janitors or police.
 

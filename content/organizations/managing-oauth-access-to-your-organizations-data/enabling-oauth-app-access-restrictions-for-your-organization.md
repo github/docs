@@ -21,7 +21,7 @@ shortTitle: Restrict {% data variables.product.prodname_oauth_app %}s
 
 **Warnings**:
 - Enabling {% data variables.product.prodname_oauth_app %} access restrictions will revoke organization access for all previously authorized {% data variables.product.prodname_oauth_apps %} and SSH keys. For more information, see "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)."
-- Once you've set up {% data variables.product.prodname_oauth_app %} access restrictions, make sure to re-authorize any {% data variables.product.prodname_oauth_app %} that require access to the organization's private data on an ongoing basis. All organization members will need to create new SSH keys, and the organization will need to create new deploy keys as needed.
+- Once you've set up {% data variables.product.prodname_oauth_app %} access restrictions, make sure to reauthorize any {% data variables.product.prodname_oauth_app %} that require access to the organization's private data on an ongoing basis. All organization members will need to create new SSH keys, and the organization will need to create new deploy keys as needed.
 - When {% data variables.product.prodname_oauth_app %} access restrictions are enabled, applications can use an OAuth token to access information about {% data variables.product.prodname_marketplace %} transactions.
 
 {% endwarning %}

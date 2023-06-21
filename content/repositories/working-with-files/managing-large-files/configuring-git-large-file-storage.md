@@ -36,15 +36,15 @@ If there are existing files in your repository that you'd like to use {% data va
    $ git {% data variables.large_files.command_name %} track "*.psd"
    > Adding path *.psd
    ```
-   Every file type you want to associate with {% data variables.large_files.product_name_short %} will need to be added with `git {% data variables.large_files.command_name %} track`. This command amends your repository's *.gitattributes* file and associates large files with {% data variables.large_files.product_name_short %}.
+   Every file type you want to associate with {% data variables.large_files.product_name_short %} will need to be added with `git {% data variables.large_files.command_name %} track`. This command amends your repository's _.gitattributes_ file and associates large files with {% data variables.large_files.product_name_short %}.
 
    {% note %}
 
-   **Note:** We strongly suggest that you commit your local *.gitattributes* file into your repository.
+   **Note:** We strongly suggest that you commit your local _.gitattributes_ file into your repository.
 
-   - Relying on a global *.gitattributes* file associated with {% data variables.large_files.product_name_short %} may cause conflicts when contributing to other Git projects.
-   - Including the *.gitattributes* file in the repository allows people creating forks or fresh clones to more easily collaborate using {% data variables.large_files.product_name_short %}.
-   - Including the *.gitattributes* file in the repository allows {% data variables.large_files.product_name_short %} objects to optionally be included in ZIP file and tarball archives.
+   - Relying on a global _.gitattributes_ file associated with {% data variables.large_files.product_name_short %} may cause conflicts when contributing to other Git projects.
+   - Including the _.gitattributes_ file in the repository allows people creating forks or fresh clones to more easily collaborate using {% data variables.large_files.product_name_short %}.
+   - Including the _.gitattributes_ file in the repository allows {% data variables.large_files.product_name_short %} objects to optionally be included in ZIP file and tarball archives.
 
    {% endnote %}
 

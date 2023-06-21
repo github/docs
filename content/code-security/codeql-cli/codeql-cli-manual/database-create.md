@@ -40,10 +40,10 @@ one of the CodeQL products.
 #### `<database>`
 
 \[Mandatory] Path to the CodeQL database to create. This directory will
-be created, and *must not* already exist (but its parent must).
+be created, and _must not_ already exist (but its parent must).
 
 If the `--db-cluster` option is given, this will not be a database
-itself, but a directory that will *contain* databases for several
+itself, but a directory that will _contain_ databases for several
 languages built from the same source root.
 
 It is important that this directory is not in a location that the build
@@ -107,7 +107,7 @@ Use this many threads for the import operation, and pass it as a hint to
 any invoked build commands.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`
@@ -126,7 +126,7 @@ If no build command is specified, the command attempts to figure out
 automatically how to build the source tree, based on heuristics from the
 selected language pack.
 
-Beware that some combinations of multiple languages *require* an
+Beware that some combinations of multiple languages _require_ an
 explicit build command to be specified.
 
 #### `--no-cleanup`
@@ -230,7 +230,7 @@ Select how aggressively to trim the cache. Choices include:
 `brutal`: Remove the entire cache, trimming down to the state of a
 freshly extracted dataset
 
-`normal` *(default)*: Trim everything except explicitly "cached"
+`normal` _(default)_: Trim everything except explicitly "cached"
 predicates.
 
 `light`: Simply make sure the defined size limits for the disk cache are

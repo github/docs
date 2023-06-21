@@ -35,14 +35,14 @@ You can create default contribution guidelines for your organization{% ifversion
 
 {% endtip %}
 
-## Adding a *CONTRIBUTING* file
+## Adding a _CONTRIBUTING_ file
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 3. Decide whether to store your contributing guidelines in your repository's root, `docs`, or `.github` directory. Then, in the filename field, type the name and extension for the file. Contributing guidelines filenames are not case sensitive. Files are rendered in rich text format if the file extension is in a supported format. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#rendering-differences-in-prose-documents)."
-    - To make your contributing guidelines visible in the repository's root directory, type *CONTRIBUTING*.
-    - To make your contributing guidelines visible in the repository's `docs` directory, type *docs/* to create the new directory, then *CONTRIBUTING*.
-    - If a repository contains more than one *CONTRIBUTING* file, then the file shown in links is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
+    - To make your contributing guidelines visible in the repository's root directory, type _CONTRIBUTING_.
+    - To make your contributing guidelines visible in the repository's `docs` directory, type _docs/_ to create the new directory, then _CONTRIBUTING_.
+    - If a repository contains more than one _CONTRIBUTING_ file, then the file shown in links is chosen from locations in the following order: the `.github` directory, then the repository's root directory, and finally the `docs` directory.
 4. In the new file, add contribution guidelines. These could include:
     - Steps for creating good issues or pull requests.
     - Links to external documentation, mailing lists, or a code of conduct.

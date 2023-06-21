@@ -56,7 +56,7 @@ The directory to be searched.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 ### Options for limiting the set of collected files
 

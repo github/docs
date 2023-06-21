@@ -49,6 +49,13 @@ There are costs associated with storing codespaces. You should therefore delete 
 
 {% endwebui %}
 
+{% note %}
+
+**Note**: You may have prebuild codespaces that are consuming additional storage which are not displayed on this dashboard. To delete them, follow the steps for “[Deleting a prebuild configuration](/codespaces/prebuilding-your-codespaces/managing-prebuilds#deleting-a-prebuild-configuration).”
+
+{% endnote %}
+
+
 {% vscode %}
 
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}

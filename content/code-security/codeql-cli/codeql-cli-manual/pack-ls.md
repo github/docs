@@ -53,7 +53,7 @@ then this operation will run on all CodeQL packages in the workspace.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `--groups=[-]<group>[,[-]<group>...]`
 

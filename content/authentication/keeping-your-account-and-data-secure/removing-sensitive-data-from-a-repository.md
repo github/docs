@@ -26,11 +26,11 @@ You can remove the file from the latest commit with `git rm`. For information on
 
 **Warning**: This article tells you how to make commits with sensitive data unreachable from any branches or tags in your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. However, those commits may still be accessible in any clones or forks of your repository, directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}, and through any pull requests that reference them. You cannot remove sensitive data from other users' clones of your repository, but you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}. 
 
-If the commit that introduced the sensitive data exists in any forks of your repository, it will continue to be accessible, unless the fork owner removes the sensitive data from their fork or deletes the fork entirely. 
-
 Once you have pushed a commit to {% data variables.product.product_name %}, you should consider any sensitive data in the commit compromised. If you have committed a password, you should change it. If you have committed a key, generate a new one. Removing the compromised data doesn't resolve its initial exposure, especially in existing clones or forks of your repository. 
 
-Consider these limitations in your decision to rewrite your repository's history.
+If the commit that introduced the sensitive data exists in any forks of your repository, it will continue to be accessible unless the fork owner also removes the sensitive data from their fork or deletes the fork entirely. You will need to coordinate with the owners of any forks of your repository, asking them to take the appropriate actions.{% ifversion fpt or ghec %} Please note that {% data variables.product.company_short %} cannot provide contact information for these owners. {% endif %}
+
+Consider these limitations and challenges in your decision to rewrite your repository's history.
 
 {% endwarning %}
 
@@ -82,7 +82,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
    ```
    brew install git-filter-repo
    ```
-  For more information, see [*INSTALL.md*](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
+  For more information, see [_INSTALL.md_](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
 
 2. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/repositories/creating-and-managing-repositories/cloning-a-repository) to your local computer.
    ```shell
@@ -101,7 +101,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
 4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
     - Force Git to process, but not check out, the entire history of every branch and tag
     - Remove the specified file, as well as any empty commits generated as a result
-    - Remove some configurations, such as the remote URL, stored in the *.git/config* file. You may want to back up this file in advance for restoration later.
+    - Remove some configurations, such as the remote URL, stored in the _.git/config_ file. You may want to back up this file in advance for restoration later.
     - **Overwrite your existing tags**
       ```shell
         $ git filter-repo --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
@@ -163,7 +163,7 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 
 1. Contact {% data variables.contact.contact_support %}, asking them to remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %}. Please provide the name of the repository and/or a link to the commit you need removed.{% ifversion ghes %} For more information about how site administrators can remove unreachable Git objects, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)."{% endif %}
 
-2. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), *not* merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
+2. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
 3. After some time has passed and you're confident that the BFG tool / `git filter-repo` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
    ```shell

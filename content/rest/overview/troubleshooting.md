@@ -49,7 +49,7 @@ pagination. If you're making requests and receiving an incomplete set of results
 probably only seeing the first page. You'll need to request the remaining pages
 in order to get more results.
 
-It's important to *not* try and guess the format of the pagination URL. Not every
+It's important to _not_ try and guess the format of the pagination URL. Not every
 API call uses the same structure. Instead, extract the pagination information from
 the link header, which is returned with every request. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 

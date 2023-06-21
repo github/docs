@@ -276,6 +276,7 @@ var a = 1
     const html = await renderContent(template)
     const $ = cheerio.load(html)
     const el = $('button.js-btn-copy')
-    expect(el.data('clipboard-text')).toBe('var a = 1\n')
+    expect(el.data('clipboard')).toBe(2967273189)
+    // Generates a murmurhash based ID that matches a <pre>
   })
 })

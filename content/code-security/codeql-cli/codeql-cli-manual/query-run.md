@@ -99,7 +99,7 @@ If no timeout is specified, or is given as 0, no timeout will be set
 Use this many threads to evaluate queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `--[no-]save-cache`
@@ -158,17 +158,17 @@ evaluation using xterm control sequences. Possible values are:
 
 `no`: Never produce fancy progress; assume a dumb terminal.
 
-`auto` *(default)*: Autodetect whether the command is running in an
+`auto` _(default)_: Autodetect whether the command is running in an
 appropriate terminal.
 
 `yes`: Assume the terminal can understand xterm control sequences. The
-feature still depends on being able to autodetect the *size* of the
+feature still depends on being able to autodetect the _size_ of the
 terminal, and will also be disabled if `-q` is given.
 
 `25x80` (or similar): Like `yes`, and also explicitly give the size of
 the terminal.
 
-`25x80:/dev/pts/17` (or similar): show fancy progress on a *different*
+`25x80:/dev/pts/17` (or similar): show fancy progress on a _different_
 terminal than stderr. Mostly useful for internal testing.
 
 ### Options for controlling outputting of structured evaluator logs
@@ -203,7 +203,7 @@ How to handle warnings from the QL compiler. One of:
 
 `hide`: Suppress warnings.
 
-`show` *(default)*: Print warnings but continue with compilation.
+`show` _(default)_: Print warnings but continue with compilation.
 
 `error`: Treat warnings as errors.
 

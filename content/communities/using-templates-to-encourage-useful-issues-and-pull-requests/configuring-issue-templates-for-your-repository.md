@@ -72,13 +72,13 @@ You can encourage contributors to use issue templates by setting `blank_issues_e
 
 {% note %}
 
-**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your *config.yml* file, the template in `issue_template.md` will be used when people chose to open a blank issue. If you disable blank issues, the template will never be used.
+**Note:** If you used the legacy workflow to manually create an `issue_template.md` file in the `.github` folder and enable blank issues in your _config.yml_ file, the template in `issue_template.md` will be used when people chose to open a blank issue. If you disable blank issues, the template will never be used.
 
 {% endnote %}
 
 If you prefer to receive certain reports outside of {% data variables.product.product_name %}, you can direct people to external sites with `contact_links`.
 
-Here is an example *config.yml* file.
+Here is an example _config.yml_ file.
 
 ```yaml copy
 blank_issues_enabled: false

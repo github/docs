@@ -225,7 +225,7 @@ codeql github upload-results \
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
-| <nobr>`--repository`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the *OWNER/NAME* of the repository to upload data to. The owner must be an organization within an enterprise that has a license for {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_GH_advanced_security %} must be enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+| <nobr>`--repository`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the _OWNER/NAME_ of the repository to upload data to. The owner must be an organization within an enterprise that has a license for {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_GH_advanced_security %} must be enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
 | <nobr>`--ref`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the name of the `ref` you checked out and analyzed so that the results can be matched to the correct code. For a branch use: `refs/heads/BRANCH-NAME`, for the head commit of a pull request use `refs/pull/NUMBER/head`, or for the {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request use `refs/pull/NUMBER/merge`.
 | <nobr>`--commit`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the full SHA of the commit you analyzed.
 | <nobr>`--sarif`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the SARIF file to load.{% ifversion ghes or ghae %}
@@ -314,7 +314,7 @@ For more information about pack compatibility, see "[AUTOTITLE](/code-security/c
 This example runs the `codeql database analyze` command with the `--download` option to:
 
 1. Download the latest version of the `octo-org/security-queries` pack.
-2. Download a version of the `octo-org/optional-security-queries` pack that is *compatible* with version 1.0.1 (in this case, it is version 1.0.2). For more information on semver compatibility, see [npm's semantic version range documentation](https://github.com/npm/node-semver#ranges).
+2. Download a version of the `octo-org/optional-security-queries` pack that is _compatible_ with version 1.0.1 (in this case, it is version 1.0.2). For more information on semver compatibility, see [npm's semantic version range documentation](https://github.com/npm/node-semver#ranges).
 3. Run all the default queries in `octo-org/security-queries`.
 4. Run only the query `queries/csrf.ql` from `octo-org/optional-security-queries`
 

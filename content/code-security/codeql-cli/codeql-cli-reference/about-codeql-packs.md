@@ -95,7 +95,7 @@ The following properties are supported in `qlpack.yml` files.
 - Defines a map from pack references to the semantic version range that is compatible with this pack. Supported for {% data variables.product.prodname_codeql_cli %} versions v2.6.0 and later. For example:
   ```yaml
   dependencies:
-    codeql/cpp-all: ^0.0.2`
+    codeql/cpp-all: ^0.0.2
   ```
 
 #### `defaultSuiteFile`
@@ -186,6 +186,13 @@ The following properties are supported in `qlpack.yml` files.
 - Defines the path to a directory within the pack that contains database upgrade scripts, defined relative to the pack directory. Database upgrades are used internally to ensure that a database created with a different version of the {% data variables.product.prodname_codeql_cli %} is compatible with the current version of the CLI. For example:
   ```yaml
   upgrades: .
+  ```
+
+#### `warnOnImplicitThis`
+- Optional. Defaults to `false` if the `warnOnImplicitThis` property is not defined.
+- Defines a boolean that specifies whether or not the compiler should emit warnings about member predicate calls with implicit `this` call receivers, that is, without an explicit receiver. Supported from {% data variables.product.prodname_codeql_cli %} version 2.13.2 and onwards. For example:
+  ```yaml
+  warnOnImplicitThis: true
   ```
 
 ## About `codeql-pack.lock.yml` files
