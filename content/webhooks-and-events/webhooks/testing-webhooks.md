@@ -28,7 +28,7 @@ Every webhook has its own "Recent Deliveries" section, which lists, at a glance 
 
 ## Digging into results
 
-By expanding an individual delivery, you'll be able to witness *precisely*
+By expanding an individual delivery, you'll be able to witness _precisely_
 what information GitHub is attempting to send to your server. This includes
 both the HTTP Request and Response.
 

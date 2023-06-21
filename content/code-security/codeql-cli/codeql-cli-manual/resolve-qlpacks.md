@@ -92,7 +92,7 @@ when the kind is `library`.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `--no-recursive`
 

@@ -1,5 +1,5 @@
 The following table shows, for each package manager:
-- The YAML value to use in the *dependabot.yml* file
+- The YAML value to use in the _dependabot.yml_ file
 - The supported versions of the package manager
 - Whether dependencies in private {% data variables.product.prodname_dotcom %} repositories or registries are supported
 - Whether vendored dependencies are supported
@@ -31,7 +31,7 @@ Terraform      | `terraform`      | >= 0.13, <= 1.3.x  | {% octicon "check" aria
 
 {% tip %}
 
-**Tip:** For package managers such as `pipenv` and `poetry`, you need to use the `pip` YAML value. For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your *dependabot.yml* file.
+**Tip:** For package managers such as `pipenv` and `poetry`, you need to use the `pip` YAML value. For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your _dependabot.yml_ file.
 
 {% endtip %}
 

@@ -71,7 +71,7 @@ absolute. It is considered relative to the root of the CodeQL pack.
 
 Select output format. Choices include:
 
-`text` *(default)*: A line-oriented list of pathnames.
+`text` _(default)_: A line-oriented list of pathnames.
 
 `json`: A plain list of pathnames as strings.
 

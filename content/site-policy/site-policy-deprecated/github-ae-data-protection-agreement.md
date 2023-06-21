@@ -79,15 +79,15 @@ Upon Customer’s reasonable request, unless prohibited by law, GitHub will retu
 #### 3.4 Data Processing.
 GitHub provides the following information, required by Article 28(3) of the GDPR, regarding its processing of Customer’s Protected Data:
 
-a.  *The subject matter and duration of the processing* of Customer Personal Data are set out in the Agreement and the DPA.
+a.  _The subject matter and duration of the processing_ of Customer Personal Data are set out in the Agreement and the DPA.
 
-b.  *The nature and purpose of the processing* of Customer Personal Data is described in Section 3.1 of the DPA.
+b.  _The nature and purpose of the processing_ of Customer Personal Data is described in Section 3.1 of the DPA.
 
-c.  *The types of Customer Personal Data to be processed* are described in the Agreement, and include Customer Personal Data; or any type of Personal Data that Customer elects to include in Customer Personal Data. Customer may choose to supply GitHub with additional Customer Personal Data, such as in Customer’s profile settings or by uploading Customer Personal Data to its GitHub repositories.
+c.  _The types of Customer Personal Data to be processed_ are described in the Agreement, and include Customer Personal Data; or any type of Personal Data that Customer elects to include in Customer Personal Data. Customer may choose to supply GitHub with additional Customer Personal Data, such as in Customer’s profile settings or by uploading Customer Personal Data to its GitHub repositories.
 
-d.   *The categories of Data Subject to whom the Customer Personal Data relates* are the Customer itself and its End Users.
+d.   _The categories of Data Subject to whom the Customer Personal Data relates_ are the Customer itself and its End Users.
 
-e.   *The obligations and rights of Customer* are set out in the Agreement and the DPA.
+e.   _The obligations and rights of Customer_ are set out in the Agreement and the DPA.
 
 ### 4. Security and Audit Obligations.
 

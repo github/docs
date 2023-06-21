@@ -47,8 +47,8 @@ Each argument is one of:
 
 #### `--slice=<N/M>`
 
-\[Advanced] Divide the test cases into *M* roughly equal-sized slices
-and process only the *N*th of them. This can be used for manual
+\[Advanced] Divide the test cases into _M_ roughly equal-sized slices
+and process only the _N_th of them. This can be used for manual
 parallelization of the testing process.
 
 #### `--[no-]strict-test-discovery`
@@ -71,7 +71,7 @@ files even though a `.qlref` file cannot really be a non-test.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 ### Common options
 

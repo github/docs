@@ -39,19 +39,19 @@ Actions and any elements of the Actions product or service may not be used in vi
 
 In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.
 
-*Use for Development and Testing*
+_Use for Development and Testing_
 
 You may only access and use GitHub Actions to develop and test your application(s). Only one licensed user may access a virtual machine provided by Actions at any time.
 
-*Authorized Developer*
+_Authorized Developer_
 
 You appoint GitHub as your authorized developer with respect to Apple software included in Actions. GitHub is responsible for complying with the terms for any such software included in Actions and will keep confidential any confidential information of Apple accessed as part of Actions.
 
-*Third Party Repository Service Access*
+_Third Party Repository Service Access_
 
 If you grant GitHub access to your third-party repository service account(s), you authorize GitHub to scan the account(s), including the contents of your Public and Private Repositories, for purposes of providing GitHub Actions.
 
-*Self-Hosted Runners on GitHub Actions*
+_Self-Hosted Runners on GitHub Actions_
 
 If you use self-hosted runners, you have the ability to turn off automatic updates but GitHub reserves the right to override your choice for critical security updates.
 

@@ -238,7 +238,7 @@ Resources may also send custom validation errors (where `code` is `custom`). Cus
 ## HTTP redirects
 
 The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
-request may result in a redirection. Receiving an HTTP redirection is *not* an
+request may result in a redirection. Receiving an HTTP redirection is _not_ an
 error and clients should follow that redirect. Redirect responses will have a
 `Location` header field which contains the URI of the resource to which the
 client should repeat the requests.

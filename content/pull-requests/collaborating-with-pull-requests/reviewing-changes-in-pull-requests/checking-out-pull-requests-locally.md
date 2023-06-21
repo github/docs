@@ -94,7 +94,7 @@ Anyone can work with a previously opened pull request to continue working on it,
 
 ## Error: Failed to push some refs
 
-The remote `refs/pull/` namespace is *read-only*. If you try to push any commits there, you'll see this error:
+The remote `refs/pull/` namespace is _read-only_. If you try to push any commits there, you'll see this error:
 ```shell
 ! [remote rejected] HEAD -> refs/pull/1/head (deny updating a hidden ref)
 error: failed to push some refs to 'git@github.local:USERNAME/REPOSITORY.git'
