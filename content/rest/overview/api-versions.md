@@ -2,7 +2,10 @@
 title: API Versions
 shortTitle: API Versions
 intro: You must specify which REST API version to use whenever you make a request to the REST API.
-versions:
+versions:curl --request GET \
+--url "https://api.github.com/octocat" \
+--header "Authorization: Bearer YOUR-TOKEN" \
+--header "X-GitHub-Api-Version: 2022-11-28"
   feature: api-date-versioning
 ---
 
