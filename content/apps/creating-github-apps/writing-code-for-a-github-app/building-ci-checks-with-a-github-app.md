@@ -81,7 +81,7 @@ The following sections will lead you through setting up the following components
 1. Create a Ruby file named `server.rb`. This file will contain all the code for your app. You will add content to this file later.
 1. If the directory doesn't already include a `.gitignore` file, add a `.gitignore` file. You will add content to this file later. For more information about `.gitignore` files, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."
 1. Create a file named `Gemfile`. This file will describe the gem dependencies that your Ruby code needs. Add the following contents to your `Gemfile`:
-   ```ruby{:copy}
+   ```ruby copy
    source 'http://rubygems.org'
 
    gem 'sinatra', '~> 2.0'
@@ -93,7 +93,7 @@ The following sections will lead you through setting up the following components
    gem 'git'
    ```
 1. Create a file named `config.ru`. This file will configure your Sinatra server to run. Add the following contents to your `config.ru` file:
-   ```ruby{:copy}
+   ```ruby copy
    require './server'
    run GHAapp
    ```
@@ -106,11 +106,11 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
 1. Click **Start a new channel**.
 1. Copy the full URL under "Webhook Proxy URL." You will use this URL in a following step, and during the app registration steps later in the tutorial.
 1. In a terminal, run the following command to install the Smee client:
-   ```shell{:copy}
+   ```shell copy
    npm install --global smee-client
    ```
 1. In the terminal, run the following command to start the Smee client. Replace `https://smee.io/YOUR_DOMAIN` with the Webhook Proxy URL you copied in the previous step.
-   ```shell{:copy}
+   ```shell copy
    smee --url https://smee.io/YOUR_DOMAIN --path /event_handler --port 3000
    ```
    You should see output like the following:
@@ -160,7 +160,7 @@ Make sure that you are on a secure machine before performing these steps, since 
 1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your app's credentials.
 1. Add the following contents to your `.env` file. {% ifversion ghes or ghae %}Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}. You will update the other values in a later step.{% else %}You will update the values in a later step.{% endif %}
 
-   ```{:copy}
+   ```shell copy
    GITHUB_APP_IDENTIFIER="YOUR_APP_ID"
    GITHUB_WEBHOOK_SECRET="YOUR_WEBHOOK_SECRET"
    GITHUB_PRIVATE_KEY="YOUR_PRIVATE_KEY"
@@ -176,7 +176,7 @@ Make sure that you are on a secure machine before performing these steps, since 
 
    Here is an example .env file:
 
-   ```
+   ```shell
    GITHUB_APP_IDENTIFIER=12345
    GITHUB_WEBHOOK_SECRET=your webhook secret
    GITHUB_PRIVATE_KEY="-----BEGIN RSA PRIVATE KEY-----
@@ -192,7 +192,7 @@ This section will show you how to add some basic template code for your {% data 
 
 Add the following template code to your `server.rb` file:
 
-```ruby{:copy}
+```ruby copy
 require 'sinatra'     # Use the Sinatra web framework
 require 'octokit'     # Use the Octokit Ruby library to interact with GitHub's REST API
 require 'dotenv/load' # Manages environment variables
@@ -364,7 +364,7 @@ The class in the template does the following things:
 
 First, this class reads the three environment variables you set in "[Store your app's identifying information and credentials](#store-your-apps-identifying-information-and-credentials)," and stores them in variables to use later:
 
-``` ruby
+```ruby
 # Expects the private key in PEM format. Converts the newlines.
 PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
 
@@ -380,7 +380,7 @@ APP_IDENTIFIER = ENV['GITHUB_APP_IDENTIFIER']
 
 Next is a code block that enables logging during development, which is the default environment in Sinatra. This code turns on logging at the `DEBUG` level to show useful output in the terminal while you are developing the app.
 
-``` ruby
+```ruby
 # Turn on Sinatra's verbose logging during development
 configure :development do
   set :logging, Logger::DEBUG
@@ -391,7 +391,7 @@ end
 
 Sinatra uses [before filters](https://github.com/sinatra/sinatra#filters) that allow you to execute code before the route handler. The `before` block in the template calls four [helper methods](https://github.com/sinatra/sinatra#helpers): `get_payload_request`, `verify_webhook_signature`, `authenticate_app`, and `authenticate_installation`. The template app defines those helper methods in a `helpers do` block later on in the code. For more information, see "[Define the helper methods](#define-the-helper-methods)."
 
-``` ruby
+```ruby
   # Executed before each request to the `/event_handler` route
   before '/event_handler' do
     get_payload_request(request)
@@ -415,7 +415,7 @@ Under `verify_webhook_signature`, the code that starts with `unless @payload` is
 
 An empty route is included in the template code. This code handles all `POST` requests to the `/event_handler` route. You will add more code to this later.
 
-``` ruby
+```ruby
 post '/event_handler' do
 
 end
@@ -453,7 +453,7 @@ For example, you would authenticate as a {% data variables.product.prodname_gith
 
 Before you can use the Octokit.rb library to make API calls, you'll need to initialize an [Octokit client](https://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as a {% data variables.product.prodname_github_app %}, using the `authenticate_app` helper method.
 
-``` ruby
+```ruby
 # Instantiate an Octokit client authenticated as a GitHub App.
 # GitHub App authentication requires that you construct a
 # JWT (https://jwt.io/introduction/) signed with the app's private key,
@@ -487,7 +487,7 @@ The fourth and final helper method `authenticate_installation` initializes an [O
 
 An _installation_ refers to any user or organization account that has installed the app. Even if someone installs the app on more than one repository, it only counts as one installation because it's within the same account.
 
-``` ruby
+```ruby
 # Instantiate an Octokit client authenticated as an installation of a
 # GitHub App to run API operations.
 def authenticate_installation(payload)
@@ -512,19 +512,19 @@ Your app doesn't do anything yet, but at this point, you can get it running on t
 
 Keep Smee running in the current tab in your terminal. Open a new tab and `cd` into the directory where you [cloned the repository you created](#create-a-repository-to-store-code-for-your--data-variablesproductprodname_github_app). The Ruby code in this repository will start up a [Sinatra](https://sinatrarb.com/) web server. This code has a few dependencies. You can install these by running:
 
-```shell{:copy}
+```shell copy
 gem install bundler
 ```
 
 Followed by:
 
-```shell{:copy}
+```shell copy
 bundle install
 ```
 
 With the dependencies installed, you can start the server:
 
-```shell{:copy}
+```shell copy
 bundle exec ruby server.rb
 ```
 
@@ -585,7 +585,7 @@ Because your app is subscribed to the **Check suite** and **Check run** events, 
 
 Open the `server.rb` file that you created in "[Add code for your {% data variables.product.prodname_github_app %}](#add-code-for-your--data-variablesproductprodname_github_app)," and look for the following code. An empty `post '/event_handler'` route is already included in the template code. The empty route looks like this:
 
-``` ruby
+```ruby
   post '/event_handler' do
 
     # ADD EVENT HANDLING HERE #
@@ -596,7 +596,7 @@ Open the `server.rb` file that you created in "[Add code for your {% data variab
 
 Under `post '/event_handler' do`, where it says `# ADD EVENT HANDLING HERE  #`, add the following code. This route will handle the `check_suite` event.
 
-``` ruby{:copy}
+```ruby copy
 # Get the event type from the HTTP_X_GITHUB_EVENT header
 case request.env['HTTP_X_GITHUB_EVENT']
 
@@ -620,7 +620,7 @@ You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sina
 
 Under `helpers do`, where it says `# ADD CREATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
 
-``` ruby{:copy}
+```ruby copy
 # Create a new check run with status "queued"
 def create_check_run
   @installation_client.create_check_run(
@@ -653,7 +653,7 @@ The following steps will show you how to test that the code works, and that it s
 
 1. Run the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
 
-   ```shell{:copy}
+   ```shell copy
    ruby server.rb
    ```
 
@@ -672,7 +672,7 @@ You'll update your event handler to look for the `created` action. While you're 
 
 Under `post '/event_handler' do`, where it says `# ADD CHECK_RUN METHOD HERE #`, add the following code:
 
-``` ruby{:copy}
+```ruby copy
 when 'check_run'
   # Check that the event is being sent to this app
   if @payload['check_run']['app']['id'].to_s === APP_IDENTIFIER
@@ -696,7 +696,7 @@ Let's create the `initiate_check_run` method and update the status of the check 
 
 Under `helpers do`, where it says `# ADD INITIATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
 
-``` ruby{:copy}
+```ruby copy
 # Start the CI process
 def initiate_check_run
   # Once the check run is created, you'll update the status of the check run
@@ -738,7 +738,7 @@ The following steps will show you how to test that the code works, and that the 
 
 1. Run the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
 
-   ```shell{:copy}
+   ```shell copy
    ruby server.rb
    ```
 
@@ -781,7 +781,7 @@ You can pass specific files or entire directories for RuboCop to check. In this 
 2. Create a new file named `myfile.rb`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
 3. Add the following content to `myfile.rb`:
 
-   ```ruby{:copy}
+   ```ruby copy
    # frozen_string_literal: true
 
    # The Octocat class tells you about different breeds of Octocat
@@ -813,7 +813,7 @@ To run Git operations in your Ruby app, you can use the [ruby-git](https://githu
 
 At the top of your `server.rb` file, below the other `require` items, add the following code:
 
-``` ruby{:copy}
+```ruby copy
 require 'git'
 ```
 
@@ -839,7 +839,7 @@ After your app clones the repository, it needs to pull the latest code changes a
 
 Open your `server.rb` file. Under `helpers do`, where it says `# ADD CLONE_REPOSITORY HELPER METHOD HERE #`, add the following code:
 
-``` ruby{:copy}
+```ruby copy
 # Clones the repository to the current working directory, updates the
 # contents using Git pull, and checks out the ref.
 #
@@ -864,7 +864,7 @@ Now you've got a method that clones a repository and checks out a ref. Next, you
 
 Under `helpers do`, in the `initiate_check_run` helper method where it says `# ***** RUN A CI TEST *****`, add the following code:
 
-``` ruby{:copy}
+```ruby copy
 full_repo_name = @payload['repository']['full_name']
 repository     = @payload['repository']['name']
 head_sha       = @payload['check_run']['head_sha']
@@ -882,7 +882,7 @@ So far your code clones the repository and creates check runs using your CI serv
 
 Under `clone_repository`, where it says `# ADD CODE HERE TO RUN RUBOCOP #`, add the following code:
 
-``` ruby{:copy}
+```ruby copy
 # Run RuboCop on all files in the repository
 @report = `rubocop '#{repository}' --format json`
 logger.debug @report
@@ -905,7 +905,7 @@ The following steps will show you how to test that the code works and view the e
 
 1. Run the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
 
-   ```shell{:copy}
+   ```shell copy
    ruby server.rb
    ```
 
@@ -980,7 +980,7 @@ Now you'll add code to extract the required information from RuboCop that's need
 
 Under the code you added in the previous step, where it says `# ADD ANNOTATIONS CODE HERE #`, add the following code:
 
-``` ruby{:copy}
+```ruby copy
 annotations = []
 # You can create a maximum of 50 annotations per request to the Checks
 # API. To add more than 50 annotations, use the "Update a check run" API
@@ -1053,7 +1053,7 @@ For the `summary`, this example uses the summary information from RuboCop and ad
 
 Under the code you added in the previous step, where it says `# ADD CODE HERE TO UPDATE CHECK RUN SUMMARY #`, add the following code:
 
-``` ruby{:copy}
+``` ruby copy
 # Updated check run summary and text parameters
 summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_count']}\n-File count: #{@output['summary']['target_file_count']}\n-Target file count: #{@output['summary']['inspected_file_count']}"
 text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
@@ -1061,7 +1061,7 @@ text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 
 Now your code should have all the information it needs to update your check run. In [Part 1 of this tutorial](#step-13-update-a-check-run), you added code to set the status of the check run to `success`. You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). Here's the code you added previously to your `server.rb` file:
 
-``` ruby
+```ruby
 # Mark the check run as complete!
 @installation_client.update_check_run(
   @payload['repository']['full_name'],
@@ -1074,7 +1074,7 @@ Now your code should have all the information it needs to update your check run.
 
 Replace that code with the following code:
 
-``` ruby{:copy}
+```ruby copy
 # Mark the check run as complete! And if there are warnings, share them.
 @installation_client.update_check_run(
   @payload['repository']['full_name'],
@@ -1108,7 +1108,7 @@ The following steps will show you how to test that the code works and view the C
 
 1. Run the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
 
-   ```shell{:copy}
+   ```shell copy
    ruby server.rb
    ```
 
@@ -1128,7 +1128,7 @@ To commit files, Git must know which username and email address to associate wit
 1. Open the `.env` file you created earlier in this tutorial.
 2. Add the following environment variables to your `.env` file. Replace `APP_NAME` with the name of your app, and `EMAIL_ADDRESS` with any email you'd like to use for this example.
 
-   ```{:copy}
+   ```shell copy
    GITHUB_APP_USER_NAME="APP_NAME"
    GITHUB_APP_USER_EMAIL="EMAIL_ADDRESS"
    ```
@@ -1139,7 +1139,7 @@ When someone clicks the "Fix this" button, your app receives the [check run webh
 
 In [Step 1.3. Updating a check run](#step-13-updating-a-check-run) you updated the `event_handler` in your `server.rb` file to look for actions in the `check_run` event. You already have a case statement to handle the `created` and `rerequested` action types:
 
-``` ruby
+```ruby
 when 'check_run'
   # Check that the event is being sent to this app
   if @payload['check_run']['app']['id'].to_s === APP_IDENTIFIER
@@ -1155,7 +1155,7 @@ end
 
 After the `rerequested` case, where it says `# ADD REQUESTED_ACTION METHOD HERE #`, add the following code:
 
-``` ruby{:copy}
+```ruby copy
 when 'requested_action'
   take_requested_action
 ```
@@ -1164,7 +1164,7 @@ This code calls a new method that will handle all `requested_action` events for 
 
 Under `helpers do`, where it says `# ADD TAKE_REQUESTED_ACTION HELPER METHOD HERE #`, add the following helper method:
 
-``` ruby{:copy}
+```ruby copy
 # Handles the check run `requested_action` event
 # See /webhooks/event-payloads/#check_run
 def take_requested_action
@@ -1209,7 +1209,7 @@ The following steps will show you how to test that the code works, and that Rubo
 
 1. Run the following command to restart the server from your terminal. If the server is already running, first enter `Ctrl-C` in your terminal to stop the server, and then run the following command to start the server again.
 
-   ```shell{:copy}
+   ```shell copy
    ruby server.rb
    ```
 
@@ -1222,7 +1222,7 @@ The following steps will show you how to test that the code works, and that Rubo
 
 This is what the final code in `server.rb` should look like, after you've followed all of the steps in this tutorial. There are also comments throughout the code that provide additional context.
 
-```ruby{:copy}
+```ruby copy
 require 'sinatra'     # Use the Sinatra web framework
 require 'octokit'     # Use the Octokit Ruby library to interact with GitHub's REST API
 require 'dotenv/load' # Manages environment variables
