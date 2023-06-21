@@ -238,3 +238,7 @@ div.annotate-header > header > nav > a {
     font-size: 14px;
   }
 }
+
+.subnav-item[aria-current]:not([aria-current="false"]) {
+  z-index: 0;
+}
