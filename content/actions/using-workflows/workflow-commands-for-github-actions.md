@@ -800,9 +800,7 @@ steps:
   - name: Use the value
     id: step_two
     run: |
-{% raw %}
       printf '%s\n' "$action_state" # This will output 'yellow'
-{% endraw %}
 ```
 
 {% endbash %}
@@ -818,9 +816,7 @@ steps:
   - name: Use the value
     id: step_two
     run: |
-{% raw %}
       Write-Output "$env:action_state" # This will output 'yellow'
-{% endraw %}
 ```
 
 {% endpowershell %}
@@ -908,10 +904,10 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
       - name: Get color
         env:
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
 {% raw %}
-        run: echo "The selected color is $SELECTED_COLOR"
+          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
 {% endraw %}
+        run: echo "The selected color is $SELECTED_COLOR"
 ```
 
 {% endbash %}
@@ -927,10 +923,10 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
             "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
       - name: Get color
         env:
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
 {% raw %}
-        run: Write-Output "The selected color is $env:SELECTED_COLOR"
+          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
 {% endraw %}
+        run: Write-Output "The selected color is $env:SELECTED_COLOR"
 ```
 
 {% endpowershell %}
