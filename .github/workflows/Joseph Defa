@@ -1,4 +1,4 @@
-name: First responder docs-content
+name: First responder docontent
 
 # **What it does**: New pull requests automatically add to the content first responder board.
 # **Why we have it**: So we don't lose track of new pull reuqests for docs-content to review.
