@@ -95,7 +95,7 @@ The following properties are supported in `qlpack.yml` files.
 - Defines a map from pack references to the semantic version range that is compatible with this pack. Supported for {% data variables.product.prodname_codeql_cli %} versions v2.6.0 and later. For example:
   ```yaml
   dependencies:
-    codeql/cpp-all: ^0.0.2`
+    codeql/cpp-all: ^0.0.2
   ```
 
 #### `defaultSuiteFile`
