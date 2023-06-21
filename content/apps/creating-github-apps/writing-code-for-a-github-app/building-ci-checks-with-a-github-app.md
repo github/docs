@@ -33,7 +33,7 @@ This tutorial is broken into two parts:
 
 CI is a software practice that requires frequently committing code to a shared repository. Committing code more often raises errors sooner and reduces the amount of code a developer needs to debug when finding the source of an error. Frequent code updates also make it easier to merge changes from different members of a software development team. This is great for developers, who can spend more time writing code and less time debugging errors or resolving merge conflicts.
 
-A CI server hosts code that runs CI tests such as code linters (which check style formatting), security checks, code coverage, and other checks against new code commits in a repository. CI servers can even build and deploy code to staging or production servers. For some examples of the types of CI tests you can create with a {% data variables.product.prodname_github_app %}, check out the [continuous integration apps](https://github.com/marketplace/category/continuous-integration) available in {% data variables.product.prodname_marketplace %}.
+A CI server hosts code that runs CI tests such as code linters (which check style formatting), security checks, code coverage, and other checks against new code commits in a repository. CI servers can even build and deploy code to staging or production servers. For examples of the types of CI tests you can create with a {% data variables.product.prodname_github_app %}, see the [continuous integration apps](https://github.com/marketplace/category/continuous-integration) that are available in {% data variables.product.prodname_marketplace %}.
 
 ### About checks
 
@@ -43,15 +43,15 @@ Checks include check runs, check suites, and commit statuses.
 
 - A _check run_ is an individual CI test that runs on a commit.
 - A _check suite_ is a group of check runs.
-- A _commit status_ marks the state of a commit, for example `error`, `failure`, `pending`, or `success`, and is visible in a pull request on {% data variables.product.prodname_dotcom %}.
+- A _commit status_ marks the state of a commit, for example `error`, `failure`, `pending`, or `success`, and is visible in a pull request on {% data variables.product.prodname_dotcom %}. Both check suites and check runs contain commit statuses.
 
-Both check suites and check runs contain commit statuses. For more information about checks, see "[AUTOTITLE](/rest/checks)" and "[AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks)."
+{% data variables.product.prodname_dotcom %} automatically creates `check_suite` events for new code commits in a repository using the default flow, although you can change the default settings. For more information, see "[AUTOTITLE](/rest/checks/suites#update-repository-preferences-for-check-suites)." Here's how the default flow works:
 
-Each time new code is pushed to a repository, {% data variables.product.prodname_dotcom %} sends the [`check_suite` webhook event](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) to all {% data variables.product.prodname_github_apps %} installed on the repository. To receive all checks event actions, the app must have the `checks:write` permission. {% data variables.product.prodname_dotcom %} automatically creates `check_suite` events for new code commits in a repository using the default flow, although you can change the default settings. For more information, see "[AUTOTITLE](/rest/checks#update-repository-preferences-for-check-suites)." Here's how the default flow works:
+1. When someone pushes code to the repository, {% data variables.product.prodname_dotcom %} automatically sends the `check_suite` event with an action of `requested` to all {% data variables.product.prodname_github_apps %} installed on the repository that have the `checks:write` permission. This event lets the apps know that code was pushed to the repository, and that {% data variables.product.prodname_dotcom %} has automatically created a new check suite.
+1. When your app receives this event, it can add check runs to that suite.
+1. Your check runs can include annotations that are displayed on specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab. For more information, see the `annotations` object in the "[AUTOTITLE](/rest/checks/runs#create-a-check-run)" documentation.
 
-1. Whenever someone pushes code to the repository, {% data variables.product.prodname_dotcom %} sends the `check_suite` event with an action of `requested` to all {% data variables.product.prodname_github_apps %} installed on the repository that have the `checks:write` permission. This event lets the apps know that code was pushed and that {% data variables.product.prodname_dotcom %} has automatically created a new check suite.
-1. When your app receives this event, it can [add check runs](/rest/checks#create-a-check-run) to that suite.
-1. Your check runs can include [annotations](/rest/checks#annotations-object) that are displayed on specific lines of code. Annotations are visible in the **Checks** tab. When you create an annotation for a file that is part of the pull request, the annotations are also shown in the **Files changed** tab.
+For more information about checks, see "[AUTOTITLE](/rest/checks)" and "[AUTOTITLE](/rest/guides/using-the-rest-api-to-interact-with-checks)."
 
 ## Prerequisites
 
@@ -140,10 +140,10 @@ The following steps will guide you through configuring a {% data variables.produ
 1. Click **New GitHub App**.
 1. Under "GitHub App name," enter a name for your app. For example, `USERNAME-ci-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
 1. Under "Homepage URL," enter a URL for your app. For example, you can use the URL of the repository that you created to store the code for your app.
-1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial. For more information about these settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial.
 1. Make sure that **Active** is selected under "Webhooks."
 1. Under "Webhook URL," enter your webhook proxy URL from earlier. For more information, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)."
-1. Under "Webhook secret," enter a random string. This secret is used to verify that webhooks are sent by {% data variables.product.prodname_dotcom %}. You will use this string later.
+1. Under "Webhook secret," enter a random string. This secret is used to verify that webhooks are sent by {% data variables.product.prodname_dotcom %}. Save this string; You will use it later.
 1. Under "Repository permissions," next to "Checks," select **Read & write**.
 1. Under "Subscribe to events," select **Check suite** and **Check run**.
 1. Under "Where can this GitHub App be installed?," select **Only on this account**. You can change this later if you want to publish your app.
@@ -351,18 +351,17 @@ Open up the `server.rb` file in a text editor. You'll see comments throughout th
 
 At the top of the file you'll see `set :port 3000`, which sets the port used when starting the web server to match the port you redirected your webhook payloads to in "[Get a Webhook Proxy URL](#get-a-webhook-proxy-url)."
 
-The next code you'll see is the `class GHApp < Sinatra::Application` declaration. You'll write all of the code for your {% data variables.product.prodname_github_app %} inside this class.
+The next code you'll see is the `class GHApp < Sinatra::Application` declaration. You'll write all of the code for your {% data variables.product.prodname_github_app %} inside this class. The following sections explain in detail what the code does inside this class.
 
-The class in the template does the following things:
-* [Read the environment variables](#read-the-environment-variables)
-* [Turn on logging](#turn-on-logging)
-* [Define a before filter](#define-a-before-filter)
-* [Define the route handler](#define-a-route-handler)
-* [Define the helper methods](#define-the-helper-methods)
+- [Read the environment variables](#read-the-environment-variables)
+- [Turn on logging](#turn-on-logging)
+- [Define a before filter](#define-a-before-filter)
+- [Define the route handler](#define-a-route-handler)
+- [Define the helper methods](#define-the-helper-methods)
 
 #### Read the environment variables
 
-First, this class reads the three environment variables you set in "[Store your app's identifying information and credentials](#store-your-apps-identifying-information-and-credentials)," and stores them in variables to use later:
+First, this class reads the three environment variables you set in "[Store your app's identifying information and credentials](#store-your-apps-identifying-information-and-credentials)," and stores them in variables to use later.
 
 ```ruby
 # Expects the private key in PEM format. Converts the newlines.
@@ -389,7 +388,7 @@ end
 
 #### Define a before filter
 
-Sinatra uses [before filters](https://github.com/sinatra/sinatra#filters) that allow you to execute code before the route handler. The `before` block in the template calls four [helper methods](https://github.com/sinatra/sinatra#helpers): `get_payload_request`, `verify_webhook_signature`, `authenticate_app`, and `authenticate_installation`. The template app defines those helper methods in a `helpers do` block later on in the code. For more information, see "[Define the helper methods](#define-the-helper-methods)."
+Sinatra uses before filters that allow you to execute code before the route handler. The `before` block in the template calls four helper methods: `get_payload_request`, `verify_webhook_signature`, `authenticate_app`, and `authenticate_installation`. For more information, see "[Filters](https://github.com/sinatra/sinatra#filters)" and "[Helpers](https://github.com/sinatra/sinatra#helpers)" in the Sinatra documentation.
 
 ```ruby
   # Executed before each request to the `/event_handler` route
@@ -409,7 +408,9 @@ Sinatra uses [before filters](https://github.com/sinatra/sinatra#filters) that a
   end
 ```
 
-Under `verify_webhook_signature`, the code that starts with `unless @payload` is an additional security measure. If a repository name is provided with a webhook payload, this code validates that the repository name contains only Latin alphabetic characters, hyphens, and underscores. This helps ensure that a bad actor isn't attempting to execute arbitrary commands or inject false repository names. As an additional security measure, the `verify_webhook_signature` helper method also validates incoming webhook payloads. For more information, see "[Define the helper methods](#verifying-the-webhook-signature)."
+Each of these helper methods are defined later in the code, in the `helpers do` code block. For more information, see "[Define the helper methods](#define-the-helper-methods)."
+
+Under `verify_webhook_signature`, the code that starts with `unless @payload` is a security measure. If a repository name is provided with a webhook payload, this code validates that the repository name contains only Latin alphabetic characters, hyphens, and underscores. This helps ensure that a bad actor isn't attempting to execute arbitrary commands or inject false repository names. Later in the code, under `helpers do`, the `verify_webhook_signature` helper method also validates incoming webhook payloads as an additional security measure.
 
 #### Define a route handler
 
@@ -437,12 +438,14 @@ The second helper method `verify_webhook_signature` performs verification of the
 
 The third helper method `authenticate_app` allows your {% data variables.product.prodname_github_app %} to authenticate, so it can request an installation token.
 
-To make API calls, you'll be using the [Octokit library](https://octokit.github.io/octokit.rb/). Doing anything interesting with this library will require your {% data variables.product.prodname_github_app %} to authenticate. {% data variables.product.prodname_github_apps %} have two methods of authentication:
+To make API calls, you'll be using the Octokit library. Doing anything interesting with this library will require your {% data variables.product.prodname_github_app %} to authenticate. For more information about the Octokit library, see the [Octokit documentation](https://octokit.github.io/octokit.rb/).
+
+{% data variables.product.prodname_github_apps %} have two methods of authentication:
 
 - Authenticating as a {% data variables.product.prodname_github_app %} using a [JSON Web Token (JWT)](https://jwt.io/introduction).
 - Authenticating as a specific installation of a {% data variables.product.prodname_github_app %} using an installation access token.
 
-You'll learn about authenticating as an installation in the [next section](#authenticating-as-an-installation).
+You'll learn about authenticating as an installation in the next section, "[Authenticating as an installation](#authenticating-as-an-installation)."
 
 Authenticating as a {% data variables.product.prodname_github_app %} lets you do a couple of things:
 
@@ -497,7 +500,9 @@ def authenticate_installation(payload)
 end
 ```
 
-The [`create_app_installation_access_token`](https://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method) Octokit method creates an installation token. This method accepts two arguments:
+The `create_app_installation_access_token` Octokit method creates an installation token. For more information, see "[create_installation_access_token](https://octokit.github.io/octokit.rb/Octokit/Client/Apps.html#create_app_installation_access_token-instance_method)" in the Octokit documentation.
+
+This method accepts two arguments:
 
 * Installation (integer): The ID of a {% data variables.product.prodname_github_app %} installation
 * Options (hash, defaults to `{}`): A customizable set of options
