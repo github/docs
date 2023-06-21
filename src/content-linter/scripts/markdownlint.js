@@ -76,6 +76,7 @@ async function main() {
     },
     MD047: true,
     MD049: { style: 'underscore' },
+    MD050: { style: 'asterisk' },
     MD111: true,
     MD112: true,
     MD113: true,
