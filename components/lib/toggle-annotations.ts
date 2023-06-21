@@ -30,7 +30,7 @@ export default function toggleAnnotation() {
   if (!subNavElements.length) return
 
   const cookie = validateMode(Cookies.get('annotate-mode')) // will default to beside
-  displayAnnotationMode(setActive(subNavElements, cookie), subNavElements, cookie)
+  displayAnnotationMode(subNavElements, cookie)
 
   // this loop adds event listeners for both the annotation buttons
   for (const subnav of subNavElements) {
@@ -44,46 +44,39 @@ export default function toggleAnnotation() {
 
       Cookies.set('annotate-mode', validMode!)
 
-      getActive(subNavElements).removeAttribute('aria-current')
       setActive(subNavElements, validMode)
-      displayAnnotationMode(subnav, subNavElements, validMode)
+      displayAnnotationMode(subNavElements, validMode)
     })
   }
 }
 
-// returns the active element via its aria-current attribute, errors if it can't find it
-function getActive(subnavItems: Array<Element>) {
-  const currentlyActive = subnavItems.find((el) => el.ariaCurrent === 'true')
-
-  if (!currentlyActive) setActive(subnavItems)
-
-  return currentlyActive!
-}
-
 // sets the active element's aria-current, if no targetMode is set we default to "Beside", errors if it can't set either Beside or the passed in targetMode
 function setActive(subNavElements: Array<Element>, targetMode?: string) {
+  const activeElements: Array<Element> = []
   targetMode = validateMode(targetMode)
-  const targetActiveElement = subNavElements.find((el) => el.getAttribute('href') === targetMode)
 
-  if (!targetActiveElement) {
-    throw new Error('No subnav item is active for code annotation.')
-  }
+  subNavElements.forEach((el) => {
+    if (el.getAttribute('href') === targetMode) {
+      el.ariaCurrent = 'true'
+      activeElements.push(el)
+    } else el.removeAttribute('aria-current')
+  })
 
-  targetActiveElement.ariaCurrent = 'true'
+  if (!activeElements.length) throw new Error('No subnav item is active for code annotation.')
 
-  return targetActiveElement
+  return activeElements
 }
 
 // displays the chosen annotation mode
-function displayAnnotationMode(
-  activeElement: Element,
-  subNavItems: Array<Element>,
-  targetMode?: string
-) {
+function displayAnnotationMode(subNavItems: Array<Element>, targetMode?: string) {
   if (!targetMode || targetMode === annotationMode.Beside)
-    activeElement.closest('.annotate')?.classList.replace('inline', 'beside')
+    subNavItems.forEach((el) => {
+      el.closest('.annotate')?.classList.replace('inline', 'beside')
+    })
   else if (targetMode === annotationMode.Inline)
-    activeElement.closest('.annotate')?.classList.replace('beside', 'inline')
+    subNavItems.forEach((el) => {
+      el.closest('.annotate')?.classList.replace('beside', 'inline')
+    })
   else throw new Error('Invalid target mode set for annotation.')
 
   setActive(subNavItems, targetMode)
