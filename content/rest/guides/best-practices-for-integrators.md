@@ -172,3 +172,28 @@ Rather than ignore repeated `4xx` and `5xx` status codes, you should ensure that
 Intentionally ignoring repeated validation errors may result in the suspension of your app for abuse.
 
 [event-types]: /webhooks-and-events/webhooks/webhook-events-and-payloads
+
+## Common Pitfalls and How to Avoid Them
+When integrating with the GitHub API, developers often encounter similar challenges. Here are some common pitfalls and strategies to avoid them:
+
+**Ignoring Rate Limits**
+- Pitfall: Developers sometimes overlook the rate limits imposed by the GitHub API, leading to a 429 Too Many Requests response. This can disrupt the functionality of your integration.
+
+- Solution: Always monitor the x-ratelimit-reset and x-ratelimit-remaining headers in the API response. These headers tell you when the rate limit will be reset and how many requests you can still make, respectively. If you're close to hitting the rate limit, consider implementing a backoff strategy to pause requests until the rate limit is reset.
+
+**Not Handling API Errors**
+- Pitfall: API errors, if not handled correctly, can lead to unexpected behavior in your integration. For example, a 403 Forbidden error might indicate a permission issue, while a 404 Not Found error might mean that the requested resource doesn't exist.
+
+- Solution: Implement robust error handling in your code. Check the HTTP status code in the API response and handle each type of error appropriately. For instance, if you receive a 403 error, you might need to check your app's permissions or the user's access rights.
+
+**Parsing URLs Manually**
+- Pitfall: Some developers attempt to parse or construct GitHub API URLs manually. This can lead to errors, especially if GitHub changes the URL structure in the future.
+
+- Solution: Always use the URLs provided by the GitHub API directly. For example, when paginating through results, use the URLs provided in the Link header of the API response instead of constructing the URLs manually.
+
+**Not Securing Payloads**
+- Pitfall: If payloads delivered from GitHub are not secured, it can lead to potential security risks, such as data leakage.
+
+- Solution: Always secure the payloads delivered from GitHub. Use an HTTPS connection for your server, validate the payloads using the provided secret token, and consider adding GitHub's IP addresses to your server's allow list.
+
+By being aware of these common pitfalls and implementing the suggested solutions, you can create a more robust and reliable integration with the GitHub API.
