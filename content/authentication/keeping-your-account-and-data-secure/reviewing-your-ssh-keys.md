@@ -40,7 +40,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. The SSH keys on {% data variables.product.product_name %} _should_ match the same keys on your computer.
 
 {% endmac %}
 
@@ -68,7 +68,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. The SSH keys on {% data variables.product.product_name %} _should_ match the same keys on your computer.
 
 {% endwindows %}
 
@@ -94,7 +94,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. The SSH keys on {% data variables.product.product_name %} _should_ match the same keys on your computer.
 
 {% endlinux %}
 

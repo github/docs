@@ -24,7 +24,7 @@ shortTitle: Marketing emails
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.emails %}
-3. Under *Email preferences*, select **Only receive account related emails, and those I subscribe to**.
+3. Under _Email preferences_, select **Only receive account related emails, and those I subscribe to**.
 4. Click **Save email preferences**.
 
 ## Further reading

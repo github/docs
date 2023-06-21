@@ -74,7 +74,7 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 
    {% endnote %}
 
-For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the *Ubuntu Community Help Wiki*, or "[Installing Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the *Alpine Linux Wiki*.
+For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the _Debian Wiki_, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the _Ubuntu Community Help Wiki_, or "[Installing Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the _Alpine Linux Wiki_.
 
 ## Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
 

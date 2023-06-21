@@ -14,7 +14,7 @@ topics:
 shortTitle: Add a billing manager
 ---
 
-Members of your organization's Owners team can give *billing manager* permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
+Members of your organization's Owners team can give _billing manager_ permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
 
 {% note %}
 

@@ -23,7 +23,7 @@ If you haven't already set up an external `collectd` server, you will need to do
 1. Log into your `collectd` server.
 2. Create or edit the `collectd` configuration file to load the network plugin and populate the server and port directives with the proper values. On most distributions, this is located at `/etc/collectd/collectd.conf`
 
-An example *collectd.conf* to run a `collectd` server:
+An example _collectd.conf_ to run a `collectd` server:
 
     LoadPlugin network
     ...

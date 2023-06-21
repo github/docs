@@ -38,7 +38,7 @@ To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `do
 
 Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
-For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
+For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for _.js_ files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to _.js_ files is opened between the head branch and `gh-pages`.
 
 ## CODEOWNERS file size
 
@@ -50,7 +50,7 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 
 {% warning %}
 
-**Warning:** There are some syntax rules for gitignore files that *do not work* in CODEOWNERS files:
+**Warning:** There are some syntax rules for gitignore files that _do not work_ in CODEOWNERS files:
 - Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
 - Using `!` to negate a pattern
 - Using `[ ]` to define a character range

@@ -24,7 +24,7 @@ People with write permissions for a repository can set the Markdown processor fo
 You can use {% data variables.product.prodname_dotcom %} Flavored Markdown with either processor, but only our GFM processor will always match the results you see on {% data variables.product.product_name %}.
 
 {% data reusables.pages.navigate-site-repo %}
-2. In your repository, browse to the *_config.yml* file.
+2. In your repository, browse to the __config.yml_ file.
 {% data reusables.repositories.edit-file %}
 4. Find the line that starts with `markdown:` and change the value to `kramdown` or `GFM`. The full line should read `markdown: kramdown` or `markdown: GFM`.
 {% data reusables.files.write_commit_message %}

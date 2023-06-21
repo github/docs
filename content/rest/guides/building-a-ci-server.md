@@ -77,7 +77,7 @@ Great! Click on **Let me select individual events**, and select the following:
 - Pull Request
 
 These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
-occurs. Let's update our server to *just* handle the Pull Request scenario right now:
+occurs. Let's update our server to _just_ handle the Pull Request scenario right now:
 
 ``` ruby
 post '/event_handler' do

@@ -94,11 +94,11 @@ You can enable {% data variables.secret-scanning.user_alerts %} for all of your 
 
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
-You can configure a *secret_scanning.yml* file to exclude directories from {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %}, including when you use push protection{% endif %}. For example, you can exclude directories that contain tests or randomly generated content.
+You can configure a _secret_scanning.yml_ file to exclude directories from {% data variables.product.prodname_secret_scanning %}{% ifversion secret-scanning-push-protection %}, including when you use push protection{% endif %}. For example, you can exclude directories that contain tests or randomly generated content.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field, type *.github/secret_scanning.yml*.
+3. In the file name field, type _.github/secret_scanning.yml_.
 4. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
     ``` yaml
     paths-ignore:

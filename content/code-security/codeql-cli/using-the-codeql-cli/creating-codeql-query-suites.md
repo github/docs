@@ -210,7 +210,7 @@ and `@precision high` from the `my-custom-queries` directory, use:
     precision: very-high
 ```
 
-Note that the following query suite definition behaves differently from the definition above. This definition selects queries that are `@kind problem` *or*
+Note that the following query suite definition behaves differently from the definition above. This definition selects queries that are `@kind problem` _or_
 are `@precision very-high`:
 
 ```

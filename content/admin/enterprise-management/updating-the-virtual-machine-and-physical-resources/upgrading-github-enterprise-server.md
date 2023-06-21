@@ -142,7 +142,7 @@ If the upgrade target you're presented with is a feature release instead of a pa
 {% data reusables.enterprise_installation.download-note %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (*.hpkg* file).
+1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (_.hpkg_ file).
 {% data reusables.enterprise_installation.download-package %}
 1. Run the `ghe-upgrade` command using the package file name:
    ```shell
@@ -183,7 +183,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 {% data reusables.enterprise_installation.download-note %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Select the appropriate platform and copy the URL for the upgrade package (*.pkg* file).
+1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Select the appropriate platform and copy the URL for the upgrade package (_.pkg_ file).
 {% data reusables.enterprise_installation.download-package %}
 1. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
