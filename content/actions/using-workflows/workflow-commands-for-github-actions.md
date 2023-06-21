@@ -903,10 +903,8 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
         id: random-color-generator
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
       - name: Get color
-        env:
-{% raw %}
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
-{% endraw %}
+        env:{% raw %}
+          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
         run: echo "The selected color is $SELECTED_COLOR"
 ```
 
@@ -922,10 +920,8 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
         run: |
             "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
       - name: Get color
-        env:
-{% raw %}
-          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}
-{% endraw %}
+        env:{% raw %}
+          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
         run: Write-Output "The selected color is $env:SELECTED_COLOR"
 ```
 
