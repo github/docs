@@ -46,4 +46,3 @@ The dependency review action is included in your installation of {% data variabl
 {% data reusables.dependency-review.dependency-review-action-overview %}
 
 Users run the dependency review action using a {% data variables.product.prodname_actions %} workflow. If you have not already set up runners for {% data variables.product.prodname_actions %}, you must do this to enable users to run workflows. You can provision self-hosted runners at the repository, organization, or enterprise account level. For information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
-

@@ -125,7 +125,6 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
 
      {% endtip %}
 
-
 ## Committing your changes
 
 1. At the right side of the navigation bar, click the check mark.

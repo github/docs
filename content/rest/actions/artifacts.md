@@ -21,5 +21,4 @@ You can use the REST API to download, delete, and retrieve information about wor
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
-
 <!-- Content after this section is automatically generated -->

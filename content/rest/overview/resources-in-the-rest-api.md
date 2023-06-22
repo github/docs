@@ -313,7 +313,6 @@ Different types of API requests to {% data variables.location.product_location %
 
 {% data reusables.enterprise.rate_limit %}
 
-
 #### Rate limits for requests from personal accounts
 
 You can make direct API requests that you authenticate with a {% data variables.product.pat_generic %}. An {% data variables.product.prodname_oauth_app %} or {% data variables.product.prodname_github_app %} can also make a request on your behalf after you authorize the app. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)," "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)," and "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
@@ -394,7 +393,6 @@ If you exceed the rate limit, the response will have a `403` status and the `x-r
 ```
 
 If you are rate limited, you should not try your request until after the time specified by the `x-ratelimit-reset` time.
-
 
 ### Increasing the unauthenticated rate limit for {% data variables.product.prodname_oauth_apps %}
 

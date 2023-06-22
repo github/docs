@@ -468,7 +468,6 @@ You can transform Azure DevOps templates with {% data variables.product.prodname
 | Iterative insertion           | Not applicable                        | Partially supported |
 | Templates with parameters     | Varies                                | Partially supported |
 
-
 #### Template file path names
 
 {% data variables.product.prodname_actions_importer %} can extract templates with relative or dynamic file paths with variable, parameter, and iterative expressions in the file name. However, there must be a default value set.
@@ -534,7 +533,6 @@ steps:
 | deploymentList        | `job`                                       | Partially supported |
 | stage                 | `job`                                       | Partially supported |
 | stageList             | `job`                                       | Partially supported |
-
 
 {% note %}
 

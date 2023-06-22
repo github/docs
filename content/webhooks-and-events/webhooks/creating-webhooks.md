@@ -17,7 +17,6 @@ Now that we understand [the basics of webhooks][webhooks-overview], let's go thr
 
 Creating a webhook is a two-step process. You'll first need to set up what events your webhook should listen to. After that, you'll set up your server to receive and manage the payload.
 
-
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 ## Exposing localhost to the internet

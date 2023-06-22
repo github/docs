@@ -80,7 +80,6 @@ An administrator needs to register your LMS instance with classroom before you c
 
 Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
 
-
 ## Importing a roster from your LMS
 
 To import your roster from your LMS:

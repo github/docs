@@ -164,7 +164,6 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Click **Add variable**.
 {%- endif %}
 
-
 You can also create and configure environments through the REST API. For more information, see "[AUTOTITLE](/rest/deployments/environments)," "[AUTOTITLE](/rest/actions/secrets),"{% ifversion actions-configuration-variables %} "[AUTOTITLE](/rest/actions/variables),"{% endif %} and "[AUTOTITLE](/rest/deployments/branch-policies)."
 
 Running a workflow that references an environment that does not exist will create an environment with the referenced name. The newly created environment will not have any protection rules or secrets configured. Anyone that can edit workflows in the repository can create environments via a workflow file, but only repository admins can configure the environment.

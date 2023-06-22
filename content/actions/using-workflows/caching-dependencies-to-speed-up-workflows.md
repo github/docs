@@ -66,7 +66,6 @@ If there is an exact match to the provided `key`, this is considered a cache hit
 
 You cannot change the contents of an existing cache. Instead, you can create a new cache with a new key.
 
-
 ### Input parameters for the `cache` action
 
 - `key`: **Required** The key created when saving a cache and the key used to search for a cache. It can be any combination of variables, context values, static strings, and functions. Keys have a maximum length of 512 characters, and keys longer than the maximum length will cause the action to fail.

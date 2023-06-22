@@ -42,7 +42,6 @@ Restoring a repository will not restore release attachments or team permissions.
 
 ## Restoring a deleted repository that was owned by an organization
 
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.deleted-repos %}

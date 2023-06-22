@@ -43,4 +43,3 @@ You can filter email notifications you receive for pushes to a repository. For m
 
 ## Further reading
 - "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)"
-

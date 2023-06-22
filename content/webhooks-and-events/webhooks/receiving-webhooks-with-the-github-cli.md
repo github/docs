@@ -41,7 +41,6 @@ Webhook forwarding in the {% data variables.product.prodname_cli %} only works w
 
 1. To set up webhooks to be delivered to your application, run the `webhook forward` subcommand. Replace `REPOSITORY` with the name of your repository. For example, `monalisa/octocat`. Replace `EVENTS` with a comma-separated list of the events that you want to receive. For example, `issues,pull_request`. Replace `URL` with the local URL where your application expects to receive webhooks. For example, `"http://localhost:3000/webhook"`.  To listen for organization webhooks instead of repository webhooks, replace the `--repo` flag with the `--org` flag. For example `--org="octo-org"`.
 
-
    ```sh
    gh webhook forward --repo=REPOSITORY --events=EVENTS --url=URL
    ```

@@ -350,4 +350,3 @@ Some extra notes on the following properties:
 - `tests`: This specifies the location of the tests. In this case, the tests are in the root folder (and all sub-folders) of the pack.
 
 - `version`: There is no `version` property for the tests pack. This prevents test packs from accidentally being published.
-

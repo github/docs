@@ -75,7 +75,6 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managin
 
 You can add self-hosted runners at the organization level, where they can be used to process jobs for multiple repositories in an organization. To add a self-hosted runner to an organization, you must be an organization owner. For information about how to add a self-hosted runner with the REST API, see "[AUTOTITLE](/rest/actions#self-hosted-runners)."
 
-
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}

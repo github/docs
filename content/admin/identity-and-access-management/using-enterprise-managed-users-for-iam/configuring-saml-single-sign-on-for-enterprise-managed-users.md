@@ -27,7 +27,6 @@ With {% data variables.product.prodname_emus %}, your enterprise uses your corpo
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your identity provider is unavailable.
 
-
 {% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 {% note %}
@@ -107,7 +106,6 @@ After you install and configure the {% data variables.product.prodname_emu_idp_a
     {% endnote %}
 
 {% data reusables.enterprise-accounts.download-recovery-codes %}
-
 
 ### Enabling provisioning
 

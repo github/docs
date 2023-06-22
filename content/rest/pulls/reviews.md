@@ -19,5 +19,4 @@ Pull Request Reviews are groups of pull request review comments on a pull reques
 
 {% data reusables.pull_requests.issues-media-types %}
 
-
 <!-- Content after this section is automatically generated -->

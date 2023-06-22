@@ -162,7 +162,6 @@ For example:
 gh actions-importer forecast bamboo --project PAN --output-dir tmp/forecast_reports
 ```
 
-
 ### Inspecting the forecast report
 
 The `forecast_report.md` file in the specified output directory contains the results of the forecast.
@@ -372,7 +371,6 @@ For more information about supported Bamboo concept and plugin mappings, see the
 | `bamboo.shortJobName`                            | {% raw %}`${{ github.job }}`{% endraw %}
 | `bamboo.shortPlanKey`                            | {% raw %}`${{ github.workflow }}`{% endraw %}
 | `bamboo.shortPlanName`                           | {% raw %}`${{ github.workflow }}`{% endraw %}
-
 
 {% note %}
 

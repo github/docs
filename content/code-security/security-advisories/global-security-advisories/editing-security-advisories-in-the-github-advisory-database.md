@@ -32,7 +32,6 @@ If we accept and publish the improvement, the person who submitted the improveme
 {% ifversion fpt or ghec %}
 Only repository owners and administrators can edit repository-level security advisories. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)."{% endif %}
 
-
 1. Navigate to https://github.com/advisories.
 1. Select the security advisory you would like to contribute to.
 1. On the right-hand side of the page, click the **Suggest improvements for this vulnerability** link.

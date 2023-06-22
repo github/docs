@@ -50,7 +50,6 @@ If you use a JetBrains IDE, you can view and incorporate suggestions from {% dat
 
   For more information, see the [JetBrains IDEs](https://www.jetbrains.com/products/) tool finder.
 
-
 ## Installing the {% data variables.product.prodname_copilot %} extension in your JetBrains IDE
 
 To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} extension. The following procedure will guide you through installation of the {% data variables.product.prodname_copilot %} plugin in IntelliJ IDEA. Steps to install the plugin in another supported IDE may differ.
@@ -143,7 +142,6 @@ You can enable or disable {% data variables.product.prodname_copilot %} for all 
    
    ![Screenshot of option to disable {% data variables.product.prodname_copilot %} globally or for the current language.](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
-
 ## Further reading
 
 - [The {% data variables.product.prodname_copilot %} website](https://copilot.github.com/)
@@ -230,13 +228,11 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ```
 {% data reusables.copilot.accept-suggestion %}
 
-
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
 ## Further reading
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
-
 
 {% endvisualstudio %}
 
@@ -267,7 +263,6 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**.
 1. To confirm the authentication, in {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialog box, click **Open**.
-
 
 ## Seeing your first suggestion
 
@@ -347,7 +342,6 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
 
-
 {% endvscode %}
 
 {% vimneovim %}
@@ -372,14 +366,12 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
          git clone https://github.com/github/copilot.vim \
             ~/.vim/pack/github/start/copilot.vim
 
-
    - To install {% data variables.product.prodname_copilot %} with Neovim's built-in plugin manager, enter the following command in Terminal:
 
          git clone https://github.com/github/copilot.vim \
             ~/.config/nvim/pack/github/start/copilot.vim
 
 {% data reusables.copilot.config-enable-copilot-in-vimneovim %}
-
 
 ## Installing the Vim/Neovim extension on Windows
 
@@ -423,6 +415,4 @@ For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovi
 
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
 
-
 {% endvimneovim %}
-

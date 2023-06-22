@@ -20,7 +20,6 @@ When an upgrade package is automatically downloaded for {% data variables.locati
 
 If a hotpatch is available for an upgrade, the `.hpkg` will download automatically. In the management console you can choose to install the hotpatch immediately or schedule installation for a later time. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)."
 
-
 ## Enabling automatic update checks
 
 {% tip %}

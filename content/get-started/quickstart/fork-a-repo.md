@@ -70,7 +70,6 @@ You might fork a project to propose changes to the upstream repository. In this 
 {%- endif %}
 1. Click **Create fork**.
 
-
 {% note %}
 
 **Note:** If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."{% endnote %}{% endif %}

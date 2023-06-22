@@ -81,5 +81,4 @@ You now have Git and {% data variables.product.prodname_dotcom %} all set up. Yo
 
 - {% data reusables.getting-started.being-social %}
 
-
 - {% data reusables.support.connect-in-the-forum-bootcamp %}

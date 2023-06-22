@@ -118,7 +118,6 @@ on:
 ```
 {% endraw %}
 
-
 ### Checking out submodules
 
 Travis CI and {% data variables.product.prodname_actions %} both allow you to control whether submodules are included in the repository clone.

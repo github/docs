@@ -19,5 +19,4 @@ You can use the REST API to specify custom name patterns that branches must matc
 
 For more information about restricting environment deployments to certain branches, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-branches)."
 
-
 <!-- Content after this section is automatically generated -->

@@ -95,7 +95,6 @@ Key            | Value
 `user_id`      | ID of the user affected by the action.{% endif %}
 `user`         | Name of the user affected by the action.
 
-
 To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
 
 For a full list of actions in your enterprise audit log, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)."

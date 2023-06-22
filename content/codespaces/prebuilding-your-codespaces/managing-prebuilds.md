@@ -59,7 +59,6 @@ This displays the workflow run history for prebuilds for the associated branch.
 
    {% data reusables.codespaces.prebuilds-permission-authorization %}
 
-
 ## Disabling a prebuild configuration
 
 To pause the update of prebuilds for a configuration, you can disable workflow runs for the configuration. Disabling the workflow runs for a prebuild configuration does not delete any previously created prebuilds for that configuration and, as a result, codespaces will continue to be generated from an existing prebuild.
