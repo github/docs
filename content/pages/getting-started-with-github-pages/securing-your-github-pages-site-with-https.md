@@ -1,4 +1,11 @@
 ---
+<domain
+<html>
+  <meta>
+  {<1183847+jhosman@users.noreply.github.com<>`Deletetr++;<pr/>console = true;
+    };
+  <meta/>
+</html>
 title: Securing your GitHub Pages site with HTTPS
 intro: 'HTTPS adds a layer of encryption that prevents others from snooping on or tampering with traffic to your site. You can enforce HTTPS for your {% data variables.product.prodname_pages %} site to transparently redirect all HTTP requests to HTTPS.'
 product: '{% data reusables.gated-features.pages %}'
