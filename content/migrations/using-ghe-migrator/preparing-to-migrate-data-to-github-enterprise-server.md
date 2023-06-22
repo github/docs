@@ -90,7 +90,6 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 
 **We strongly suggest you review the _conflicts.csv_ file and use [`ghe-migrator audit`](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server) to ensure that the proper actions are being taken.** If everything looks good, you can continue to "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
 
-
 ## Resolving migration conflicts or setting up custom mappings
 
 If you believe that `ghe-migrator` will perform an incorrect change, you can make corrections by changing the data in _conflicts.csv_. You can make changes to any of the rows in _conflicts.csv_.

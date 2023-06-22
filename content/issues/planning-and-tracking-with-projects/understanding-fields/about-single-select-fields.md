@@ -44,7 +44,6 @@ You can set descriptions and colors for each of your single select options.
 1. Optionally, under **Description**, type a description for this option.
 1. Click **Save** to save your changes.
 
-
 {% else %}
 
 {% data reusables.projects.project-settings %}

@@ -87,5 +87,4 @@ You can also read the current version by calling the [meta endpoint](/rest/meta)
 
 ## Endpoints
 
-
 <!-- Content after this section is automatically generated -->

@@ -31,9 +31,6 @@ There are currently two methods of accessing resources on a private network with
 
 The {% data variables.product.prodname_cli %} extension allows you to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. The codespace uses your local machine as a network gateway to reach those resources. For more information, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
 
-   
-   
-
 ### Using a VPN to access resources behind a private network
 
 As an alternative to the {% data variables.product.prodname_cli %} extension, you can use a VPN to access resources behind a private network from within your codespace.

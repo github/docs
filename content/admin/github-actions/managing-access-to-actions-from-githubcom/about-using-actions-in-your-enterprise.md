@@ -62,7 +62,6 @@ The recommended approach is to enable automatic access to all actions from {% da
 
 **Note:** Before you can configure access to actions on {% data variables.product.prodname_dotcom_the_website %}, you must configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 
-
 {% endnote %}
 {% endif %}
 

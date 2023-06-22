@@ -65,4 +65,3 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 {% endif %}
 
 {% endif %}
-

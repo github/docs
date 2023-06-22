@@ -383,7 +383,6 @@ This event is available for the following issue types.
 
 {% endrowheaders %}
 
-
 ### Properties for disconnected
 
 {% data reusables.issue-events.issue-event-common-properties %}

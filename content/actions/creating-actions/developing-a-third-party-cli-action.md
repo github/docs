@@ -69,4 +69,3 @@ This pattern is employed in several actions. For more examples, see:
 - [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)
 - [`google-github-actions/setup-gcloud`](https://github.com/google-github-actions/setup-gcloud)
 - [`hashicorp/setup-terraform`](https://github.com/hashicorp/setup-terraform)
-

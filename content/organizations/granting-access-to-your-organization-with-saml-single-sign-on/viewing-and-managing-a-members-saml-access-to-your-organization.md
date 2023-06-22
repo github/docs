@@ -35,7 +35,6 @@ When available, the entry will include SCIM data. For more information, see "[AU
 
 {% endwarning %}
 
-
 {% data reusables.identity-and-permissions.revoking-identity-team-sync %}
 
 {% data reusables.profile.access_org %}

@@ -44,12 +44,9 @@ Starring a repository is a simple two-step process.
 
 ## Viewing who has starred a repository
 
-
 You can view everyone who has starred a public repository or a private repository you have access to. 
 
-
 To view everyone who has starred a repository, add `/stargazers` to the end of the URL of a repository. For example, to view stargazers for the github/docs repository, visit https://github.com/github/docs/stargazers.
-
 
 ## Organizing starred repositories with lists
 
@@ -68,7 +65,6 @@ If you add a private repository to a list, then the private repository will only
 You can add a repository to an existing or new list wherever you see a repository's **Star** or **Starred** dropdown menu, whether on a repository page or in a list of starred repositories. 
 
 ![Screenshot of a repository page. The "Star" dropdown menu is expanded, with a list options highlighted with a dark orange outline.](/assets/images/help/stars/stars-dropdown-on-repo.png)
-
 
 ### Creating a list
 
@@ -123,7 +119,6 @@ You can use sorting or filtering to customize how you see starred repositories a
 1. To sort stars, select the **Sort by:** dropdown menu, then select **Recently starred**, **Recently active**, or **Most stars**.
 1. To filter your list of stars based on their language, click on the desired language under the **Language** dropdown menu.
 1. To filter your list of stars based on repository type, click on the desired option under the **Type:** dropdown menu.
-
 
 ## Further reading
 

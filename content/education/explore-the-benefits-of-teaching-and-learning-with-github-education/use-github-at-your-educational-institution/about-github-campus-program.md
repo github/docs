@@ -43,4 +43,3 @@ To read more about {% data variables.product.prodname_dotcom %}'s privacy practi
 For more information, see the [official {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) page.
 
 If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_campus_program %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. To apply for the Student Developer Pack, [see the application form](https://education.github.com/pack/join).
-

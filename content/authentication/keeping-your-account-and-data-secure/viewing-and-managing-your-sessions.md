@@ -29,4 +29,3 @@ You can view a list of devices that have logged into your account, and revoke an
     {% endnote %}
     
 {% endif %}
-

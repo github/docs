@@ -19,7 +19,6 @@ topics:
 <!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/configuring-ghes.-->
 
-
 {% data reusables.code-scanning.beta %}
 
 ## About {% data variables.product.prodname_code_scanning %}

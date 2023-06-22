@@ -72,7 +72,6 @@ In the following example, `StringLike` is used with a wildcard operator (`*`) to
 }
 ```
 
-
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:

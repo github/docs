@@ -8,10 +8,3 @@
 {% data variables.product.prodname_dependabot_alerts %} are free to use for repositories (user-owned and organization-owned) on {% data variables.product.prodname_ghe_managed %}. 
 
 {% endif %}
-
-
-
-
-
-
-

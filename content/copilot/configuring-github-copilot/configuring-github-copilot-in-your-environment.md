@@ -150,7 +150,6 @@ If you use ReSharper, {% data variables.product.prodname_copilot %} may work bes
 
 {% data reusables.copilot.dotcom-settings %}
 
-
 {% endvisualstudio %}
 
 {% vscode %}
@@ -246,7 +245,6 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
-
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
 ## Enabling or disabling inline suggestions
@@ -329,10 +327,8 @@ You can configure {% data variables.product.prodname_copilot %} to connect throu
 
 For guidance on configuring {% data variables.product.prodname_copilot %} in Vim/Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Vim/Neovim by running the following command:
 
-
     :help copilot
 
 {% data reusables.copilot.dotcom-settings %}
 
 {% endvimneovim %}
-

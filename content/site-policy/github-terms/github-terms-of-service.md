@@ -42,7 +42,6 @@ Thank you for using GitHub! We're happy you're here. Please read this Terms of S
 ## The GitHub Terms of Service
 Effective date: November 16, 2020
 
-
 ## A. Definitions
 **Short version:** _We use these basic terms throughout the agreement, and they have specific meanings. You should know what we mean when we use each of the terms. There's not going to be a test on it, but it's still useful information._
 

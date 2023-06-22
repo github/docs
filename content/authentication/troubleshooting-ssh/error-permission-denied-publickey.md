@@ -92,7 +92,6 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
    > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
    ```
   
-
 {% endlinux %}
 
 The `ssh-add` command _should_ print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.

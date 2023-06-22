@@ -79,7 +79,6 @@ Across all organizations owned by your enterprise, you can set a base repository
 4. Under "Base permissions", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 5. Under "Base permissions", select the dropdown menu and click a policy.
 
-
 ## Enforcing a policy for repository creation
 
 Across all organizations owned by your enterprise, you can allow members to create repositories, restrict repository creation to organization owners, or allow owners to administer the setting on the organization level.
@@ -307,8 +306,6 @@ $ sudo ghe-config-apply
 Anonymous Git read access will be entirely removed in a future release of {% data variables.product.prodname_ghe_server %}. {% data variables.product.company_short %} recommends using SSH instead of the Git protocol. For more information about this change, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
 
 {% endif %}
-
-
 
 If necessary, you can prevent repository administrators from changing anonymous Git access settings for repositories on your enterprise by locking the repository's access settings. After you lock a repository's Git read access setting, only a site administrator can change the setting.
 

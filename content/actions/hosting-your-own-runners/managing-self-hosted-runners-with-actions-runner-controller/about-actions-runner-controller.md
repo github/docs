@@ -43,7 +43,6 @@ The following diagram illustrates the architecture of ARC's autoscaling runner s
 10. Throughout the job run execution, the runner continuously communicates the logs and job run status back to the {% data variables.product.prodname_actions %} Service.
 11. When the runner completes its job successfully, the EphemeralRunner Controller checks with the {% data variables.product.prodname_actions %} Service to see if runner can be deleted. If it can, the Ephemeral RunnerSet deletes the runner.
 
-
 ## {% data variables.product.prodname_actions_runner_controller %} components
 
 ARC consists of a set of custom resources. An ARC deployment applies these custom resources onto a Kubernetes cluster. Once applied, it creates a set of Pods that contain your self-hosted runners' containers. With ARC, {% data variables.product.company_short %} can treat these runner containers as self-hosted runners and allocate jobs to them as needed.

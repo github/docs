@@ -30,5 +30,4 @@ Any member of the team's [organization](/rest/orgs) can create and read comments
 {% data reusables.organizations.team-api %}
 {% endif %}
 
-
 <!-- Content after this section is automatically generated -->

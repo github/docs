@@ -19,5 +19,4 @@ You can use the REST API to view logs and workflow jobs in {% data variables.pro
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
-
 <!-- Content after this section is automatically generated -->

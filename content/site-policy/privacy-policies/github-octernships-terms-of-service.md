@@ -14,7 +14,6 @@ GITHUB HAS INVITED YOU TO PARTICIPATE IN THE GITHUB OCTERNSHIPS PROGRAM (“THE 
 
 When you click "I agree", “I accept”, or similar buttons, you accept all the terms and conditions of this Agreement. 
 
-
 ## 1. Compensation or benefits
 The Program is offered to verified students on GitHub Global Campus in countries where the program is available. As a participant, you will not be considered an employee or intern of GitHub. You will be entitled to 1 (minimum) to 6 (maximum)  months internship along with stipend of 500 USD/month by the partner organization (“Partner Organization”). GitHub and the Partner Organization are collectively referred to as the “Octernships Partners.” You will not be entitled to any compensation or benefits paid or made available by the Octernships Partner to their respective employees, including, without limitation, any vacation or illness payments, or to participate in any plans, arrangements or distributions made by the Octernship Partners pertaining to any bonus, stock option, profit sharing, insurance or similar benefits.
 
@@ -68,4 +67,3 @@ Performance of any obligations required by a party hereunder may be waived only 
 
 ### 7.8 Entire Agreement
 These Terms and Conditions represent the entire understanding and agreement between the parties with respect to the subject matter hereof and will supersede all prior agreements and communications of the parties, oral or written.
-

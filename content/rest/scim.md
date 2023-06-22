@@ -56,5 +56,4 @@ GET /scim/v2/organizations/{org}/Users/{scim_user_id}
 
 {% endnote %}
 
-
 <!-- Content after this section is automatically generated -->

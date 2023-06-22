@@ -36,7 +36,6 @@ You can access any advisory in the {% data variables.product.prodname_advisory_d
    {% endtip %}
 3. Click an advisory to view details. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. {% ifversion GH-advisory-db-supports-malware %}To show malware advisories, use `type:malware` in the search bar.{% endif %}
 
-
 {% note %}
 
 The database is also accessible using the GraphQL API. {% ifversion GH-advisory-db-supports-malware %}By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`.{% endif %} For more information, see the "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#security_advisory)."

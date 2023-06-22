@@ -39,5 +39,3 @@ You can purchase other features and products with your existing {% data variable
 **Tip:** {% data variables.product.prodname_dotcom %} has programs for verified students and academic faculty, which include academic discounts. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
 
 {% endtip %}
-
-

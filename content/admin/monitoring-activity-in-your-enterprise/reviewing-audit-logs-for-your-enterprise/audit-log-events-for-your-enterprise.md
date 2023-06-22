@@ -1239,7 +1239,6 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repository_secret_scanning_custom_pattern_push_protection.enabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was enabled for your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
 | `repository_secret_scanning_custom_pattern_push_protection.disabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was disabled for your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{%- endif %}
 
-
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## `repository_secret_scanning_push_protection` category actions
 

@@ -38,7 +38,6 @@ Projects also have a limit on the number of archived items they can contain. You
 1. To save your changes and enable the workflow, click **Save and turn on workflow**.{% else %}
 1. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.{% endif %}
    
-
 ## Further reading
 
 - "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project)"

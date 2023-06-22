@@ -46,7 +46,6 @@ The peak quantity of connected runners without performance loss depends on such 
 
 {% endif %}
 
-
 {%- ifversion ghes = 3.4 %}
 
 {% data reusables.actions.hardware-requirements-3.4 %}

@@ -206,5 +206,4 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 1. Click **Allow secret**.
 
-
 {% endif %}

@@ -40,7 +40,6 @@ The auto-add workflow is limited per plan.
 
 {% endif %}
 
-
 ## Configuring the auto-add workflow in your project
 
 {% data reusables.projects.access-workflows %}

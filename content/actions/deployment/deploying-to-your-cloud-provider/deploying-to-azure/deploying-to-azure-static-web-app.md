@@ -14,7 +14,6 @@ topics:
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a web app to [Azure Static Web Apps](https://azure.microsoft.com/services/app-service/static/).

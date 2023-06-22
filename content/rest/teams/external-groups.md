@@ -28,5 +28,4 @@ To use these endpoints, the authenticated user must be a team maintainer or an o
 {% endnote %}
 {% endif %}
 
-
 <!-- Content after this section is automatically generated -->

@@ -152,7 +152,6 @@ If a project communicates with an external service, it might use a token or priv
 
 As you audit your repositories and speak to security and developer teams, build a list of the secret types that you will later use to configure custom patterns for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
 
-
 {% note %}
 
 For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-3-pilot-programs)."

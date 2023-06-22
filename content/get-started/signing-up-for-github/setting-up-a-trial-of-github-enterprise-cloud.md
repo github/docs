@@ -16,7 +16,6 @@ shortTitle: Enterprise Cloud trial
 
 {% data reusables.enterprise.ghec-cta-button %}
 
-
 ## About {% data variables.product.prodname_ghe_cloud %}
 
 {% data reusables.enterprise.about-ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."

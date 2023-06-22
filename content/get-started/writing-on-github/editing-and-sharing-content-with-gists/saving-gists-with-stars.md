@@ -22,7 +22,6 @@ You can star a gist to add it to the "Starred" page. Starring makes it easy to f
 
 Starring makes it easy to find a gist again later. You can see all the gists starred by going to your {% data variables.gists.gist_starred %}.
 
-
 ## Further reading
 
 - "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)"

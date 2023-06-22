@@ -18,6 +18,7 @@ We are using the [markdownlint](https://github.com/DavidAnson/markdownlint) fram
 | [MD023](https://github.com/DavidAnson/markdownlint/blob/main/doc/md023.md) | Headings must start at the beginning of the line. | error |
 | [MD024](https://github.com/DavidAnson/markdownlint/blob/main/doc/md024.md) | Disallow headings with the same content. | error |
 | [MD027](https://github.com/DavidAnson/markdownlint/blob/main/doc/md027.md) | Catches multiple spaces after blockquote symbol. | warning |
+| [MD029](https://github.com/DavidAnson/markdownlint/blob/main/doc/md029.md) | All ordered lists should be prefixed with `1.`. | error |
 | [MD030](https://github.com/DavidAnson/markdownlint/blob/main/doc/md030.md) | Only allow one space after list markers. | error |
 | [MD039](https://github.com/DavidAnson/markdownlint/blob/main/doc/md039.md) | Remove spacing around image text. | warning |
 | [MD040](https://github.com/DavidAnson/markdownlint/blob/main/doc/md040.md) | Code fences must have a language specified. | warning |
