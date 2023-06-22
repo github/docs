@@ -495,12 +495,6 @@
       "requestPath": "/feeds"
     },
     {
-      "slug": "list-notifications-for-the-authenticated-user",
-      "subcategory": "notifications",
-      "verb": "get",
-      "requestPath": "/notifications"
-    },
-    {
       "slug": "list-repository-events",
       "subcategory": "events",
       "verb": "get",
@@ -579,18 +573,6 @@
       "subcategory": "apps",
       "verb": "get",
       "requestPath": "/apps/{app_slug}"
-    },
-    {
-      "slug": "list-app-installations-accessible-to-the-user-access-token",
-      "subcategory": "installations",
-      "verb": "get",
-      "requestPath": "/user/installations"
-    },
-    {
-      "slug": "list-repositories-accessible-to-the-user-access-token",
-      "subcategory": "installations",
-      "verb": "get",
-      "requestPath": "/user/installations/{installation_id}/repositories"
     }
   ],
   "branches": [
