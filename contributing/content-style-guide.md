@@ -56,6 +56,7 @@ Style your CTAs using the following format.
 Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[Code sample syntax highlighting](./content-markup-reference.md#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
+- Specify the language of the sample after the first code fence. For a list of all supported languages, see [Code languages](/Users/ethanpalm/docs-internal/contributing/content-markup-reference.md).
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
   - If you show a command and the command's output, do not make the code block copyable.
@@ -63,13 +64,13 @@ Within code blocks:
 - If your code example includes content that should be parsed (for example, HTML tags to format text), wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
   - **Use**:
 
-    ```
+    ``` YAML
     GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
   - **Avoid**:
 
-    ```
+    ``` YAML
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
 
