@@ -99,7 +99,7 @@ Code annotations only work in articles with the `layout: inline` frontmatter pro
 
 ## Code sample syntax highlighting
 
-To render syntax highlighting in command line instructions, we use triple backticks followed by the term `shell`.
+To render syntax highlighting in command line instructions, we use triple backticks followed by the language of the sample. For a list of all supported languages, see the [Code languages](https://github.com/github/docs/blob/main/data/variables/code-languages.yml) file.
 
 ### Usage
 
@@ -107,9 +107,7 @@ To render syntax highlighting in command line instructions, we use triple backti
     git init YOUR_REPO
     ```
 
-This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
-
-Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content (for example, to italicize text within `<em>` tags instead of passing the tags through literally), wrap the codeblock in `<pre>` `</pre>` tags.
+Within the code sample syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content (for example, to italicize text within `<em>` tags instead of passing the tags through literally), wrap the codeblock in `<pre>` `</pre>` tags.
 
 **Copy-able code blocks**
 
