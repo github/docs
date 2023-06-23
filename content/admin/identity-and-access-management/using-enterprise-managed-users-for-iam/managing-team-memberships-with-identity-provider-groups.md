@@ -61,7 +61,7 @@ Any member of an organization can create a new team and connect the team to an I
 
 ## Managing the connection between an existing team and an IdP group
 
-Organization owners and team maintainers can manage the existing connection between an IdP group and a team.
+Organization owners can manage the existing connection between an IdP group and a team. If your enterprise does not use {% data variables.enterprise.prodname_managed_users %}, team maintainers can also manage the connection.
 
 {% note %}
 
