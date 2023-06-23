@@ -148,6 +148,8 @@ For repositories that are not eligible for default setup, you can configure adva
 1. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_code_scanning_caps %}.
 1. In the "Enable {% data variables.product.prodname_code_scanning %} for eligible repositories" or "Disable {% data variables.product.prodname_code_scanning %}" dialog box displayed, click **Enable for eligible repositories** or **Disable {% data variables.product.prodname_code_scanning %}** to confirm the change.
 
+{% data reusables.code-scanning.limitation-org-enable-all %}
+
 {% else %}
 {% data variables.product.prodname_code_scanning_caps %} is configured at the repository level. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
 {% endif %}
