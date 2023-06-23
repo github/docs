@@ -18,10 +18,6 @@ topics:
 ---
 ## Introduction
 
-```bash
-git init YOUR_REPO
-```
-
 This tutorial demonstrates how to build a continuous integration (CI) server that runs tests on new code that's pushed to a repository. The tutorial shows how to build and configure a {% data variables.product.prodname_github_app %} to act as a server that receives and responds to Checks webhook events using {% data variables.product.prodname_dotcom %}'s REST API.
 
 In this tutorial, you will use your computer or codespace as a server while you develop your app. Once the app is ready for production use, you should deploy your app to a dedicated server.
