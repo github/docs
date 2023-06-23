@@ -90,7 +90,7 @@ You can use security overview to find a set of repositories and enable or disabl
 
 1. When you are ready to make the changes, click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
 
-{% data reusables.code-scanning.beta-org-enable-all %}
+{% data reusables.code-scanning.limitation-org-enable-all %}
 
 {% data reusables.security.displayed-information %}
 
