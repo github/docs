@@ -65,7 +65,7 @@ jobs:
   track_pr:
     runs-on: ubuntu-latest
     steps:
-    # Uses the [tibdex/github-app-token](https://github.com/tibdex/github-app-token) action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as ${{ steps.generate_token.outputs.token }}.
+    # Uses the [tibdex/github-app-token](https://github.com/tibdex/github-app-token) action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}`.
     #
     #Replace `APP_ID` with the name of the secret that contains your app ID.
     #
