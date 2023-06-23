@@ -2,6 +2,7 @@
 title: Creating custom deployment protection rules
 shortTitle: Create custom protection rules
 intro: Use {% data variables.product.prodname_github_apps %} to automate protecting deployments with third-party systems.
+product: '{% data reusables.actions.custom-deployment-protection-rules-availability %}'
 versions:
   fpt: '*'
   ghec: '*'
