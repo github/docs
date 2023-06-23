@@ -56,7 +56,7 @@ You can add self-hosted runners to a single repository. To add a self-hosted run
 
 {% note %}
 
-**Note**: {% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+**Note**: {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% endnote %}
 

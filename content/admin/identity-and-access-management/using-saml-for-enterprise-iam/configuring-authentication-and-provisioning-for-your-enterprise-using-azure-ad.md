@@ -69,7 +69,7 @@ In your Azure AD tenant, add the application for {% data variables.product.produ
 
 {% endif %}
 
-## Managing enterprise owners 
+## Managing enterprise owners
 
 The steps to make a person an enterprise owner depend on whether you only use SAML or also use SCIM. For more information about enterprise owners, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
 

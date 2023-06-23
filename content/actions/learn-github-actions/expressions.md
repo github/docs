@@ -119,7 +119,7 @@ env:
 {% endraw %}
 
 In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`.
-It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned. 
+It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned.
 
 ## Functions
 
@@ -317,7 +317,7 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled. 
+Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled.
 
 {% note %}
 

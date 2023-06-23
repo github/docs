@@ -84,7 +84,7 @@ This command downloads all dependencies to the shared cache on the local disk.
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 
 - Running the `codeql pack add` and `codeql pack install` commands will generate or update the `codeql-pack.lock.yml` file. This file should be checked-in to version control. The `codeql-pack.lock.yml` file contains the precise version numbers used by the pack. For more information, see "[About codeql-pack.lock.yml files](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#about-codeql-pack-lock)."
 

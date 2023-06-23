@@ -31,7 +31,7 @@ When you squash and merge, {% data variables.product.prodname_dotcom %} generate
 When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
 
 Number of commits | Summary | Description |
------------------ | ------- | ----------- |	
+----------------- | ------- | ----------- |
 One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
 More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
 {% endif %}

@@ -1,5 +1,5 @@
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", under "Push protection", click **Enable all**.
-   
+
    ![Screenshot of the "Push protection" section of the "Code security and analysis" page. Two buttons, labeled "Enable all" and "Disable all", are highlighted with a dark orange outline.](/assets/images/enterprise/security/secret-scanning-enable-push-protection-enterprise.png)
 
 2. Optionally, click "Automatically enable for repositories added to {% data variables.product.prodname_secret_scanning %}."{% ifversion secret-scanning-custom-link-on-block %}

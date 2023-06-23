@@ -289,7 +289,7 @@ For more information about security hardening for self-hosted runners, see "[AUT
 
 ### Restricting the use of self-hosted runners
 
-{% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% endif %}
 

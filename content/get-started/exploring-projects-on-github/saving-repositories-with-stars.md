@@ -62,7 +62,7 @@ Curate repositories that you've starred with public lists. You can create public
 
 If you add a private repository to a list, then the private repository will only appear in your list for people with `read` access to the repository.
 
-You can add a repository to an existing or new list wherever you see a repository's **Star** or **Starred** dropdown menu, whether on a repository page or in a list of starred repositories. 
+You can add a repository to an existing or new list wherever you see a repository's **Star** or **Starred** dropdown menu, whether on a repository page or in a list of starred repositories.
 
 ![Screenshot of a repository page. The "Star" dropdown menu is expanded, with a list options highlighted with a dark orange outline.](/assets/images/help/stars/stars-dropdown-on-repo.png)
 
@@ -104,7 +104,7 @@ You can add a repository to an existing or new list wherever you see a repositor
 
 ## Searching starred repositories and topics
 
-You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred. 
+You can use the search bar on your {% data variables.explore.your_stars_page %} to quickly find repositories and topics you've starred.
 
 {% data reusables.stars.stars-page-navigation %}
 1. Use the search bar to find your starred repositories or topics by their name.

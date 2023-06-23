@@ -109,7 +109,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     $ git push
     ```
 10.  The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
-    
+
     To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
 
 ## Viewing your published package

@@ -32,7 +32,7 @@ We do not allow content or activity on GitHub that:
 
 - [harasses or abuses](/site-policy/acceptable-use-policies/github-bullying-and-harassment) another individual or group, including our employees, officers, and agents, or other users;
 
-- [threatens or incites violence](/site-policy/acceptable-use-policies/github-threats-of-violence-and-gratuitously-violent-content) toward any individual or group, especially on the basis of who they are; 
+- [threatens or incites violence](/site-policy/acceptable-use-policies/github-threats-of-violence-and-gratuitously-violent-content) toward any individual or group, especially on the basis of who they are;
 
 - [gratuitously depicts or glorifies violence](/site-policy/acceptable-use-policies/github-threats-of-violence-and-gratuitously-violent-content), including violent images; or
 
@@ -78,7 +78,7 @@ You may use information from our Service for the following reasons, regardless o
 -  Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
 -  Archivists may use public information from the Service for archival purposes.
 
-Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. Please see Section H of our [Terms of Service](/site-policy/github-terms/github-terms-of-service#h-api-terms) for our API Terms. 
+Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. Please see Section H of our [Terms of Service](/site-policy/github-terms/github-terms-of-service#h-api-terms) for our API Terms.
 
 You may not use information from the Service (whether scraped, collected through our API, or obtained otherwise) for spamming purposes, including for the purposes of sending unsolicited emails to users or selling personal information, such as to recruiters, headhunters, and job boards.
 
@@ -102,7 +102,7 @@ You may not promote or distribute content or activity that is illegal or otherwi
 If you decide to post any promotional materials in your Account, you are solely responsible for complying with all applicable laws and regulations, including without limitation the U.S. Federal Trade Commission's Guidelines on Endorsements and Testimonials. We reserve the right to remove any promotional materials or advertisements that, in our sole discretion, violate any GitHub terms or policies.
 
 ## 11. User Protection
-You must not engage in activity that significantly harms other users.   
+You must not engage in activity that significantly harms other users.
   
 We will interpret our policies and resolve disputes in favor of protecting users as a whole.
 

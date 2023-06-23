@@ -51,11 +51,11 @@ Before you can enable Git events in the audit log, you must configure a retentio
 1. Under "Git event opt-in", select or deselect **Enable git events in the audit-log**.
 
    {% note %}
-   
+
    **Note:** The retention policy must be set to something other than infinite for this option to display.
 
    {% endnote %}
-   
+
    ![Screenshot of the audit log. The checkbox to enable Git events in the audit log is highlighted with an orange outline.](/assets/images/help/enterprises/enable-git-events-checkbox.png)
 2. Click **Save**.
 

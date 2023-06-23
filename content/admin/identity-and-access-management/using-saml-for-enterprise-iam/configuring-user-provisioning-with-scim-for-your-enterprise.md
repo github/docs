@@ -151,7 +151,7 @@ After you enable SCIM on a {% data variables.product.product_name %} instance, a
        --header 'Content-Type: application/scim' \
        --header 'Authorization: Bearer $GHES_PAT'
    ```
-   
+
    The command should return an empty array.
 {%- endif %}
 {%- ifversion ghae %}

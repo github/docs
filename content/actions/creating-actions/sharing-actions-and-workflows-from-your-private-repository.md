@@ -12,13 +12,13 @@ shortTitle: Share from your private repository
 
 ## About {% data variables.product.prodname_actions %} access to private repositories
 
-You can share actions and reusable workflows from your private repository, without making them public, by allowing {% data variables.product.prodname_actions %} workflows to access a private repository that contains the action or reusable workflow. 
+You can share actions and reusable workflows from your private repository, without making them public, by allowing {% data variables.product.prodname_actions %} workflows to access a private repository that contains the action or reusable workflow.
 
 Any actions or reusable workflows stored in the private repository can be used in workflows defined in other private repositories owned by the same organization or user. Actions and reusable workflows stored in private repositories cannot be used in public repositories.
 
 {% warning %}
 
-**Warning**: 
+**Warning**:
 - If you make a private repository accessible to {% data variables.product.prodname_actions %} workflows in other repositories, outside collaborators on the other repositories can indirectly access the private repository, even though they do not have direct access to these repositories. The outside collaborators can view logs for workflow runs when actions or workflows from the private repository are used.
 - {% data reusables.actions.scoped-token-note %}
 

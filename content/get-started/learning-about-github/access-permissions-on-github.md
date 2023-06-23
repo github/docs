@@ -21,7 +21,7 @@ shortTitle: Access permissions
 
 ## About access permissions on {% data variables.product.prodname_dotcom %}
 
-{% data reusables.organizations.about-roles %} 
+{% data reusables.organizations.about-roles %}
 
 Roles work differently for different types of accounts. For more information about accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
@@ -40,7 +40,7 @@ Organization members can have _owner_{% ifversion fpt or ghec %}, _billing manag
 ## Enterprise accounts
 
 {% ifversion fpt %}
-{% data reusables.gated-features.enterprise-accounts %} 
+{% data reusables.gated-features.enterprise-accounts %}
 
 For more information about permissions for enterprise accounts, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/get-started/learning-about-github/access-permissions-on-github).
 {% else %}

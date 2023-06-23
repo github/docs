@@ -47,7 +47,7 @@ If no email addresses found in these attributes match the primary email address 
 
 ## Fields in the consumed license files
 
-The {% data variables.product.prodname_dotcom_the_website %} license usage report and {% data variables.product.prodname_ghe_server %} exported license usage file include a variety of fields to help you troubleshoot license usage for your enterprise. 
+The {% data variables.product.prodname_dotcom_the_website %} license usage report and {% data variables.product.prodname_ghe_server %} exported license usage file include a variety of fields to help you troubleshoot license usage for your enterprise.
 
 ### {% data variables.product.prodname_dotcom_the_website %} license usage report (CSV file)
 
@@ -83,7 +83,7 @@ Your {% data variables.product.prodname_ghe_server %} license usage is a JSON fi
 | ----- | -----------
 | Features | The {% data variables.product.prodname_github_connect %} features that are enabled on your {% data variables.product.prodname_ghe_server %} instance, and the date and time of enablement.
 | Host name | The hostname of your {% data variables.product.prodname_ghe_server %} instance.
-| HTTP only | Whether Transport Layer Security (TLS) is enabled and configured on your {% data variables.product.prodname_ghe_server %} instance. Can be one of: `True` or `False`. 
+| HTTP only | Whether Transport Layer Security (TLS) is enabled and configured on your {% data variables.product.prodname_ghe_server %} instance. Can be one of: `True` or `False`.
 | License | A hash of your {% data variables.product.prodname_ghe_server %} license.
 | Public key | The public key portion of your {% data variables.product.prodname_ghe_server %} license.
 | Server ID | UUID generated for your {% data variables.product.prodname_ghe_server %} instance.
