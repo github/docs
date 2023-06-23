@@ -59,7 +59,7 @@ You can also configure and manage team synchronization for an individual organiz
 8. To disable team synchronization, under "Team synchronization", click **Disable team synchronization**.
 
 {% ifversion team-sync-manage-org-invites %}
-## Managing whether team synchronization can re-send invites to non-members to organizations
+## Managing whether team synchronization can re-invite non-members to organizations
 Disabling this setting will let Team Sync re-send invites to non-members if they are in a synced identity group and were previously an organization member removed by an organization owner. 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
