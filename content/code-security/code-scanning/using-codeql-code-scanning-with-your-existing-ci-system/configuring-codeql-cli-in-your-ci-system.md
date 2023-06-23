@@ -205,7 +205,7 @@ Before you can upload results to {% data variables.product.product_name %}, you 
 - Saving the secret in the environment variable `GITHUB_TOKEN` and running the CLI without including the `--github-auth-stdin` option.
 - For testing purposes you can pass the `--github-auth-stdin` command-line option and supply a temporary token via standard input.
 
-When you have decided on the most secure and reliable method for your CI server, run `codeql github upload-results` on each SARIF results file and include `--github-auth-stdin` unless the token is available in the environment variable `GITHUB_TOKEN`. 
+When you have decided on the most secure and reliable method for your CI server, run `codeql github upload-results` on each SARIF results file and include `--github-auth-stdin` unless the token is available in the environment variable `GITHUB_TOKEN`.
 
 ```shell
 # {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available from a secret store

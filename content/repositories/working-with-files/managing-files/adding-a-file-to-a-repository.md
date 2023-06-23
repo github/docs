@@ -34,7 +34,7 @@ Files that you add to a repository via a browser are limited to {% data variable
 
 {% data reusables.repositories.navigate-to-repo %}
 1. Above the list of files, select the **Add file** dropdown menu and click **Upload files**. Alternatively, you can drag and drop files into your browser.
-   
+
    ![Screenshot of the main page of the repository. Above the list of a files, a button, labeled "Add file," is outlined in dark orange.](/assets/images/help/repository/upload-files-button.png)
 1. To select the files you want to upload, drag and drop the file or folder, or click **choose your files**.
 {% data reusables.files.commit-message %}

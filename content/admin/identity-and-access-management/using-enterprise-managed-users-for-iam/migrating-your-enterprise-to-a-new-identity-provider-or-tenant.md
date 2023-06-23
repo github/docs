@@ -43,15 +43,15 @@ To migrate to a new IdP or tenant, you cannot edit your existing SAML configurat
 
 1. Deactivate SAML for the {% data variables.enterprise.prodname_emu_enterprise %}.
    -  From your profile, click **Your enterprises**, and then click the appropriate enterprise.
-   - Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**, and then click **Authentication security**. 
-   - Under "SAML single sign-on", deselect **Require SAML authentication**, and then click **Save**. 
-   
+   - Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**, and then click **Authentication security**.
+   - Under "SAML single sign-on", deselect **Require SAML authentication**, and then click **Save**.
+
 1. Wait for all users in the enterprise to show as suspended.
 
 1. While still signed in as the setup user, configure SAML and SCIM for the new IdP or tenant with a new {% data variables.product.prodname_emus %} application.
-   
+
    After you configure provisioning for the new application, the {% data variables.enterprise.prodname_managed_users %} will be unsuspended, and your developers will be able to sign into their existing accounts again.
-   
+
    By default, this process can take up to 40 minutes for Azure AD. To expedite the process for an individual user, click the **Provision on Demand** button in the "Provisioning" tab of the application for {% data variables.product.prodname_emus %}.
 
 ## Migrating when the normalized SCIM `userName` values will change

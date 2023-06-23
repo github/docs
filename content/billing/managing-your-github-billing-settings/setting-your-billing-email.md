@@ -78,7 +78,7 @@ Only enterprise members with the owner or billing manager role can access or cha
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Billing emails**. 
+1. Click **Billing emails**.
 1. Under "Email recipients", to the right of the billing email address, click **Edit**.
    ![Screenshot of the "Email recipients" list. Next to an email address, a button, labeled "Edit", is highlighted with an orange outline.](/assets/images/help/billing/billing-change-email.png)
 1. Type a valid email address, then click **Update**.
@@ -104,7 +104,7 @@ Only enterprise members with the owner or billing manager role can access or cha
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Billing emails**. 
+1. Click **Billing emails**.
 1. Under "Email recipients", find the email address you want to remove.
 1. To the right of the email address, select "Edit", then click **Remove**.
    ![Screenshot of the "Email recipients" section. Next to an email address, under the "Edit" dropdown, "Remove" is highlighted with an orange outline.](/assets/images/help/billing/billing-remove-email-recipient.png)

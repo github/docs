@@ -14,15 +14,15 @@ shortTitle: View Advanced Security committers
 
 ## About the "Advanced Security Committers" dashboard
 
-You can estimate the number of licenses your enterprise might need for {% data variables.product.prodname_GH_advanced_security %} with the "Advanced Security Committers" section of the site admin dashboard. 
+You can estimate the number of licenses your enterprise might need for {% data variables.product.prodname_GH_advanced_security %} with the "Advanced Security Committers" section of the site admin dashboard.
 
 If you currently use {% data variables.product.prodname_GH_advanced_security %}, this tool helps you understand how many committers are currently using licenses. It also helps you estimate how many additional licenses would be used if you enable {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories.
 
-If you're considering using {% data variables.product.prodname_GH_advanced_security %}, you can use this tool to estimate potential costs to enable {% data variables.product.prodname_GH_advanced_security %}. 
+If you're considering using {% data variables.product.prodname_GH_advanced_security %}, you can use this tool to estimate potential costs to enable {% data variables.product.prodname_GH_advanced_security %}.
 
 For more information about billing for {% data variables.product.prodname_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 
-## Viewing committer information 
+## Viewing committer information
 
 1. In the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %}.
 1. In the left sidebar, click **Advanced Security Committers**.

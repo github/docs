@@ -21,7 +21,7 @@ Your existing GitHub Classroom repls will remain private forever and you can sub
 
 While you can no longer create private repls from within Classroom, you can continue to create private repls in Replit until September 30th.
 
-We know cloud IDE integrations are important to your classroom and are working hard to bring you more options. 
+We know cloud IDE integrations are important to your classroom and are working hard to bring you more options.
 
 ## Further reading
 

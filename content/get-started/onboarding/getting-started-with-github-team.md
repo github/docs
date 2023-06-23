@@ -71,7 +71,7 @@ You can help to make your organization more secure by recommending or requiring 
 ### 3. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. Publishing and managing {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
 
 ## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community

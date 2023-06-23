@@ -19,13 +19,13 @@ By default, your codespaces have access to all resources on the public internet,
 
 There are currently two methods of accessing resources on a private network within {% data variables.product.prodname_github_codespaces %}.
 - Using a {% data variables.product.prodname_cli %} extension to configure your local machine as a gateway to remote resources.
-- Using a VPN. 
+- Using a VPN.
 
 ### Using the GitHub CLI extension to access remote resources
 
 {% note %}
 
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change. 
+**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change.
 
 {% endnote %}
 

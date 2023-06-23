@@ -85,5 +85,5 @@ To add comments to a pull request, leave a review, or merge the pull request, yo
 
 1. In the {% data variables.product.prodname_desktop %} menu bar, click **Branch**.
 1. Select **View Pull Request on {% data variables.product.prodname_dotcom %}**.
-   
+
    ![Screenshot of the menu bar on a Mac. The "Branch" dropdown menu is expanded, and the cursor hovers over "View Pull Request on {% data variables.product.prodname_dotcom %}".](/assets/images/help/desktop/view-pr-on-github.png)

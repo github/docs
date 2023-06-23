@@ -309,7 +309,7 @@ SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate
 
 {% ifversion actions-disable-repo-runners %}
 
-{% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% endif %}
 

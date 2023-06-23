@@ -25,7 +25,7 @@ You can retrieve and update {% data variables.product.prodname_code_scanning %} 
 
 ### Custom media type for {% data variables.product.prodname_code_scanning %}
 
-There is one supported custom media type for {% data variables.product.prodname_code_scanning %} endpoints. 
+There is one supported custom media type for {% data variables.product.prodname_code_scanning %} endpoints.
 
     application/sarif+json
 

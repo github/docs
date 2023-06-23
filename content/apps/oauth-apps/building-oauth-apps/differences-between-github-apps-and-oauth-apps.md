@@ -32,7 +32,7 @@ The rate limit for {% data variables.product.prodname_github_app %}s using an in
 
 There is one case where an {% data variables.product.prodname_oauth_app %} is preferred over a {% data variables.product.prodname_github_app %}. If your app needs to access enterprise-level resources such as the enterprise object itself, you should use an {% data variables.product.prodname_oauth_app %} because a {% data variables.product.prodname_github_app %} cannot yet be given permissions against an enterprise. {% data variables.product.prodname_github_app %}s can still access enterprise-owned organization and repository resources.
 
-For more information about {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)." 
+For more information about {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
 

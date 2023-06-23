@@ -29,7 +29,7 @@ The issues you add to your tasklists will be automatically populated to show the
 
 **Note:** If {% data variables.product.product_name %} cannot render your tasklist, make sure it is formatted like the example below.
 
-Tasklists do not currently support: 
+Tasklists do not currently support:
 
 - Duplicate issue or pull request links.
 - Indented tasks (i.e, nested tasklist).

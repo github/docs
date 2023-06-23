@@ -84,7 +84,7 @@ The following instructions are only intended for  {% data variables.product.prod
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. To validate the current flushing method for InnoDB, run the following command.
-   
+
    ```shell copy
    ghe-config mysql.innodb-flush-no-fsync
    ```
@@ -101,7 +101,7 @@ The following instructions are only intended for  {% data variables.product.prod
 
 You can reduce pending operations, increase IOPS, and improve performance by provisioning faster storage for your instance's nodes. To upgrade your instance's storage, back up your instance and restore the backup to a new replacement instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)."
 
-### Sharing data with {% data variables.product.company_short %} 
+### Sharing data with {% data variables.product.company_short %}
 
 Finally, if you're willing to help {% data variables.product.company_short %}  understand the real-world impact of the upgrade to MySQL 8, you can provide the data you've collected to {% data variables.contact.github_support %}. Provide the baseline and post-upgrade observations from the monitor dashboard, along with a support bundle that covers the period when you collected data. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)" and "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
 

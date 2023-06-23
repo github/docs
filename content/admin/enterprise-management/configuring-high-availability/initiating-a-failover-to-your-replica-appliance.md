@@ -29,12 +29,12 @@ The time required to failover depends on how long it takes to manually promote t
        $ ghe-maintenance -s
        ```
 
-   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
+   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
 
      {% note %}
 
      **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
-    
+
      {% endnote %}
 
    - To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
