@@ -1,6 +1,5 @@
 When you **install** a {% data variables.product.prodname_github_app %} on your account or organization, you grant the app permission to access the organization and repository resources that it requested. You also specify which repositories the app can access. During the installation process, the {% data variables.product.prodname_github_app %} will indicate which repository and organization permissions you are granting. For more information about what different permissions enable a {% data variables.product.prodname_github_app %} to do, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
 
-
 For example, you might grant the {% data variables.product.prodname_github_app %} permission to read repository metadata and write issues, and you might grant the {% data variables.product.prodname_github_app %} access to all of your repositories.
 
 ![Screenshot of the page to install a GitHub App. The app is requesting read access to metadata and write access to issues. The app can also request user authorization for read access to emails and write access to gists.](/assets/images/github-apps/install-app.png)

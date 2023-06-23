@@ -35,7 +35,6 @@ The root site administrator can unlock access to the {% data variables.enterpris
 {% data reusables.enterprise_site_admin_settings.click-user-management %}
 1. Locked user accounts will appear as "State: blocked". To unblock the user and allow authentication, to the right of the user's details, click {% octicon "law" aria-label="Unblock user" %}.
 
-
 {%- endif %}
 
 ## Troubleshooting failed connections to the {% data variables.enterprise.management_console %}

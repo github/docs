@@ -914,7 +914,6 @@ This command disables replication on an existing replica node and converts the r
 ghe-repl-promote
 ```
 
-
 ### ghe-repl-setup
 
 Run this utility on an existing node to begin enabling a high availability configuration. The utility puts the node in standby mode before you begin replication with [`ghe-repl-start`](#ghe-repl-start). For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)."
@@ -1016,8 +1015,6 @@ This utility rewrites the imported repository. This gives you a chance to rename
 git-import-rewrite
 ```
 
-
-
 ## Security
 
 ### ghe-find-insecure-git-operations
@@ -1027,8 +1024,6 @@ This utility searches your instance's logs and identifies Git operations over SS
 ```shell
 ghe-find-insecure-git-operations
 ```
-
-
 
 ## Support
 

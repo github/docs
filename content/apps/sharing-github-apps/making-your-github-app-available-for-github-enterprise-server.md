@@ -80,7 +80,7 @@ Disadvantages:
 
 ## The app code must be aware of feature differences
 
-New REST API endpoints, GraphQL objects, and webhooks are released to {% data variables.product.prodname_ghe_server %} at a later date than {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %}. Additionally, there are multiple versions of {% data variables.product.prodname_ghe_server %}, and older versions may have different REST API endpoints, GraphQL objects, and webhooks. 
+New REST API endpoints, GraphQL objects, and webhooks are released to {% data variables.product.prodname_ghe_server %} at a later date than {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, and {% data variables.product.prodname_ghe_cloud %}. Additionally, there are multiple versions of {% data variables.product.prodname_ghe_server %}, and older versions may have different REST API endpoints, GraphQL objects, and webhooks.
 
 Therefore, the app code needs to be aware of these differences. API responses and webhook payloads include a `x-github-enterprise-version` header for {% data variables.product.prodname_ghe_server %} payloads to help you determine what version you are handling.
 

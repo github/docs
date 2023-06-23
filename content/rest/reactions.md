@@ -21,5 +21,4 @@ You can create and manage reactions to comments, issues, pull requests, and disc
 
 {% data reusables.repositories.reaction_list %}
 
-
 <!-- Content after this section is automatically generated -->

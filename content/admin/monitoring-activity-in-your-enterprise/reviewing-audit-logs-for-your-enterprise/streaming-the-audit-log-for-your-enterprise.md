@@ -221,7 +221,6 @@ To set up streaming to Google Cloud Storage, you must create a service account i
 
 4. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Google Cloud Storage bucket, click **Check endpoint**.
 
-
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 ### Setting up streaming to Splunk

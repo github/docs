@@ -204,7 +204,6 @@ GitHub reserves the right, at its sole discretion, to amend this Agreement at an
 
 If any provision of this Agreement is deemed by a court of competent jurisdiction to be illegal, invalid, or unenforceable, the Parties will modify or reform this Agreement to give as much effect as possible to that provision. Any provision that cannot be modified or reformed in this way will be deemed deleted and the remaining provisions of this Agreement will continue in full force and effect.
 
-
 ## SECTION 2: GITHUB ENTERPRISE SERVER LICENSE TERMS
 
 This Section 2 details terms applicable to Customer’s use of the Software.
@@ -238,7 +237,6 @@ GitHub will only Support a given Release of the Software for one (1) year from t
 ### 2.6 Data Protection Considerations for Use of GitHub Insights and Learning Lab for Enterprise Server.
 
 If Customer’s planned use of GitHub Insights or Learning Lab for Enterprise Server involves processing personal data, Customer is solely responsible for determining whether or not to complete a data protection impact assessment or otherwise secure formal legal analysis of Customer’s planned use. It is in Customer’s sole discretion whether to use GitHub Insights or Learning Lab for Enterprise Server to process Customer’s employees’ and/or users’ data, and if Customer does so, Customer is solely responsible for conducting such processing in compliance with applicable law.
-
 
 ### SECTION 3: GITHUB ENTERPRISE CLOUD TERMS OF SERVICE
 

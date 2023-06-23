@@ -60,7 +60,7 @@ If you make a commit from the command line, you will see a prompt asking if you 
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 
 - If you delete your fork repository, then any codespaces linked to the fork are deleted, even if you originally created them from the upstream repository.
 - If you make a commit from the command line and refuse the new fork by entering `n`, you should push your changes from the command line rather than from {% data variables.product.prodname_vscode_shortname %}'s Source Control view. If you use the Source Control view, {% data variables.product.prodname_vscode_shortname %} will still try to create a fork for you on push.
@@ -124,7 +124,6 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
      **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace.
 
      {% endtip %}
-
 
 ## Committing your changes
 

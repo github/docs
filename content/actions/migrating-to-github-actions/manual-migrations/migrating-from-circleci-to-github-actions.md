@@ -54,7 +54,6 @@ CircleCI can reuse pieces of workflows with YAML anchors and aliases. {% data va
 
 ## Using Docker images
 
-
 Both CircleCI and {% data variables.product.prodname_actions %} support running steps inside of a Docker image.
 
 CircleCI provides a set of pre-built images with common dependencies. These images have the `USER` set to `circleci`, which causes permissions to conflict with {% data variables.product.prodname_actions %}.

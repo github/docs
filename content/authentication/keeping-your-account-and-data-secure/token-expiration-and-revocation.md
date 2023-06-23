@@ -31,7 +31,7 @@ When you create a {% data variables.product.pat_generic %}, we recommend that yo
 {% ifversion fpt or ghec %}
 ## Token revoked when pushed to a public repository or public gist
 
-If a valid OAuth token, {% data variables.product.prodname_github_app %} token, or {% data variables.product.pat_generic %} is pushed to a public repository or public gist, the token will be automatically revoked. 
+If a valid OAuth token, {% data variables.product.prodname_github_app %} token, or {% data variables.product.pat_generic %} is pushed to a public repository or public gist, the token will be automatically revoked.
 
 {% endif %}
 

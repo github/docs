@@ -64,5 +64,4 @@ Note that the `reason` is modified on a per-thread basis, and can change, if the
 
 For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
 
-
 <!-- Content after this section is automatically generated -->

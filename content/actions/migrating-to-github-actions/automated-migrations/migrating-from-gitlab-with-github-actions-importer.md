@@ -414,7 +414,6 @@ For information about supported GitLab constructs, see the [`github/gh-actions-i
 | `CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_NAME` | {% raw %}`${{ github.event.pull_request.base.ref }}`{% endraw %}                                           |
 | `CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA`  | {% raw %}`${{ github.event.pull_request.base.sha }}`{% endraw %}                                           |
 
-
 ## Legal notice
 
 {% data reusables.actions.actions-importer-legal-notice %}

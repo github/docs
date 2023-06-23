@@ -17,5 +17,4 @@ The data returned in the `public_key` response field is not a GPG formatted key.
 
 {% data reusables.user-settings.user-api %}
 
-
 <!-- Content after this section is automatically generated -->

@@ -76,7 +76,6 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 {% endif %}
 5. Click the issue you want to link to the pull request.
 
-
 {% ifversion link-existing-branches-to-issue %}
 
 ## Manually linking a pull request or branch to an issue using the issue sidebar

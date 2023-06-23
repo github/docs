@@ -22,7 +22,6 @@ Thanks for entrusting GitHub, Inc. or GitHub B.V. (“GitHub”, “we”, "us" 
 
 All capitalized terms have their definition in [GitHub’s Terms of Service](/site-policy/github-terms/github-terms-of-service), unless otherwise noted here.
 
-
 ## The short version
 
 We use your personal information as this Privacy Statement describes. No matter where you are, where you live, or what your citizenship is, you have the same high standard of privacy protection when using GitHub's products as all our users around the world, regardless of their country of origin or location.

@@ -33,7 +33,7 @@ paths-ignore:
 
 {% ifversion code-scanning-exclude-queries-from-analysis %}
 
-The following configuration file only runs queries that generate alerts of severity error. The configuration first selects all the default queries, all queries in `./my-queries`, and the default suite in `codeql/java-queries`, then excludes all the queries that generate warnings or recommendations. 
+The following configuration file only runs queries that generate alerts of severity error. The configuration first selects all the default queries, all queries in `./my-queries`, and the default suite in `codeql/java-queries`, then excludes all the queries that generate warnings or recommendations.
 
 ``` yaml
 queries:

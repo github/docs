@@ -2,7 +2,6 @@ If a configuration variable has not been set, the return value of a context refe
 
 The following example shows using configuration variables with the `vars` context across a workflow. Each of the following configuration variables have been defined at the repository, organization, or environment levels.
 
-
 {% raw %}
 ```yaml copy
 on:

@@ -48,7 +48,7 @@ For more information on workflow run artifacts, see "[AUTOTITLE](/actions/using-
 
 ## Restrictions for accessing a cache
 
-Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags. 
+Access restrictions provide cache isolation and security by creating a logical boundary between different branches or tags.
 Workflow runs can restore caches created in either the current branch or the default branch (usually `main`). If a workflow run is triggered for a pull request, it can also restore caches created in the base branch, including base branches of forked repositories. For example, if the branch `feature-b` has the base branch `feature-a`, a workflow run triggered on a pull request would have access to caches created in the default `main` branch, the base `feature-a` branch, and the current `feature-b` branch.
 
 Workflow runs cannot restore caches created for child branches or sibling branches. For example, a cache created for the child `feature-b` branch would not be accessible to a workflow run triggered on the parent `main` branch. Similarly, a cache created for the `feature-a` branch with the base `main` would not be accessible to its sibling `feature-c` branch with the base `main`. Workflow runs also cannot restore caches created for different tag names. For example, a cache created for the tag `release-a` with the base `main` would not be accessible to a workflow run triggered for the tag `release-b` with the base `main`.
@@ -65,7 +65,6 @@ You can optionally provide a list of `restore-keys` to use in case the `key` doe
 If there is an exact match to the provided `key`, this is considered a cache hit. If no cache exactly matches the provided `key`, this is considered a cache miss. On a cache miss, the action automatically creates a new cache if the job completes successfully. The new cache will use the `key` you provided and contains the files you specify in `path`. For more information about how this is handled, see "[Cache hits and misses](#cache-hits-and-misses)."
 
 You cannot change the contents of an existing cache. Instead, you can create a new cache with a new key.
-
 
 ### Input parameters for the `cache` action
 
@@ -247,7 +246,7 @@ For example, if a pull request contains a `feature` branch and targets the defau
 
 ## Usage limits and eviction policy
 
-{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %} 
+{% data variables.product.prodname_dotcom %} will remove any cache entries that have not been accessed in over 7 days. There is no limit on the number of caches you can store, but the total size of all caches in a repository is limited{% ifversion actions-cache-policy-apis %}. By default, the limit is 10 GB per repository, but this limit might be different depending on policies set by your enterprise owners or repository administrators.{% else %} to 10 GB.{% endif %}
 
 {% data reusables.actions.cache-eviction-process %} {% ifversion actions-cache-ui %}The cache eviction process may cause cache thrashing, where caches are created and deleted at a high frequency. To reduce this, you can review the caches for a repository and take corrective steps, such as removing caching from specific workflows. For more information, see "[Managing caches](#managing-caches)."{% endif %}{% ifversion actions-cache-admin-ui %} You can also increase the cache size limit for a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-cache-storage-for-a-repository)."
 
@@ -307,7 +306,7 @@ Users with `write` access to a repository can use the {% data variables.product.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.actions-cache-list %}
-1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="Delete cache" %}. 
+1. To the right of the cache entry you want to delete, click {% octicon "trash" aria-label="Delete cache" %}.
 
    ![Screenshot of the list of cache entries. A trash can icon, used to delete a cache, is highlighted with a dark orange outline.](/assets/images/help/repository/actions-cache-delete.png)
 
@@ -319,7 +318,7 @@ Users with `write` access to a repository can use the {% data variables.product.
 
 ### Force deleting cache entries
 
-Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency. 
+Caches have branch scope restrictions in place, which means some caches have limited usage options. For more information on cache scope restrictions, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows#restrictions-for-accessing-a-cache)." If caches limited to a specific branch are using a lot of storage quota, it may cause caches from the `default` branch to be created and deleted at a high frequency.
 
 For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. Once a repository has reached its maximum cache storage, the cache eviction policy will create space by deleting the oldest caches in the repository. In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the [`gh-actions-cache`](https://github.com/actions/gh-actions-cache/) CLI extension to delete caches for specific branches.
 

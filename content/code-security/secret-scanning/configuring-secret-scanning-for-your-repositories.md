@@ -50,7 +50,6 @@ You can also use the organization settings page for "Code security and analysis"
 You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all public repositories in an organization:
 {% endif %}
 
-
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghec or ghes or ghae %}

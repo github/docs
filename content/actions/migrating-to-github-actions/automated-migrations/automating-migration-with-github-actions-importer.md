@@ -166,7 +166,7 @@ For more information about setting up self-serve migrations with IssueOps, see t
 
 ## Using the {% data variables.product.prodname_actions_importer %} labs repository
 
-The {% data variables.product.prodname_actions_importer %} labs repository contains platform-specific learning paths that teach you how to use {% data variables.product.prodname_actions_importer %} and how to approach migrations to {% data variables.product.prodname_actions %}. You can use this repository to learn how to use {% data variables.product.prodname_actions_importer %} to help plan, forecast, and automate your migration to {% data variables.product.prodname_actions %}. 
+The {% data variables.product.prodname_actions_importer %} labs repository contains platform-specific learning paths that teach you how to use {% data variables.product.prodname_actions_importer %} and how to approach migrations to {% data variables.product.prodname_actions %}. You can use this repository to learn how to use {% data variables.product.prodname_actions_importer %} to help plan, forecast, and automate your migration to {% data variables.product.prodname_actions %}.
 
 To learn more, see the [GitHub Actions Importer labs repository](https://github.com/actions/importer-labs/tree/main#readme).
 

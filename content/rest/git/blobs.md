@@ -29,5 +29,4 @@ These are the supported media types for blobs.
 
 For more information, see "[AUTOTITLE](/rest/overview/media-types)."
 
-
 <!-- Content after this section is automatically generated -->

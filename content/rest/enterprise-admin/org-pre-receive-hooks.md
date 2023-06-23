@@ -28,5 +28,4 @@ Possible values for `enforcement` are `enabled`, `disabled` and`testing`. `disab
 
 `configuration_url` may be a link to this endpoint or this hook's global configuration. Only site admins are able to access the global configuration.
 
-
 <!-- Content after this section is automatically generated -->

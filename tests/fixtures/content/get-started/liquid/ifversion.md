@@ -67,7 +67,7 @@ condition-l
 
 {% ifversion ghes %}
 condition-m
-  {% ifversion ghes = 3.4 %}
+  {% ifversion ghes = 3.5 %}
   condition-n
   {% endif %}
 {% endif %}

@@ -45,8 +45,6 @@ After a required workflow has run at least once in a repository, you can view it
 
    ![Screenshot of the sidebar on the "Actions" page. A subsection, labeled "Required workflows", contains an entry called "Test required workflow" and is outlined in dark orange.](/assets/images/help/settings/view-required-workflows.png)
 
-
-
 ## Adding a required workflow to an organization
 
 Organization owners can configure required workflows in their organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#adding-a-required-workflow-to-an-organization)."

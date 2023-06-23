@@ -1154,7 +1154,7 @@ jobs:
 
 {% note %}
 
-**Notes**: 
+**Notes**:
 
 - The maximum number of top-level properties in `client_payload` is 10.
 - The payload can contain a maximum of 65,535 characters.

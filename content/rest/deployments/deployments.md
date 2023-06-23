@@ -61,5 +61,4 @@ When you set the state of a deployment to `success`, then all prior non-transien
 
 You can communicate that a transient environment no longer exists by setting its `state` to `inactive`.  Setting the `state` to `inactive` shows the deployment as `destroyed` in {% data variables.product.prodname_dotcom %} and removes access to it.
 
-
 <!-- Content after this section is automatically generated -->

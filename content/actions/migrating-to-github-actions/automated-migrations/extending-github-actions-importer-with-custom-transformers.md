@@ -26,7 +26,7 @@ shortTitle: 'Extending GitHub Actions Importer'
 
 ## Using custom transformers with {% data variables.product.prodname_actions_importer %}
 
-A custom transformer contains mapping logic that {% data variables.product.prodname_actions_importer %} can use to transform your plugins, tasks, runner labels, or environment variables to work with {% data variables.product.prodname_actions %}. Custom transformers are written with a domain-specific language (DSL) built on top of Ruby, and are defined within a file with the `.rb` file extension. 
+A custom transformer contains mapping logic that {% data variables.product.prodname_actions_importer %} can use to transform your plugins, tasks, runner labels, or environment variables to work with {% data variables.product.prodname_actions %}. Custom transformers are written with a domain-specific language (DSL) built on top of Ruby, and are defined within a file with the `.rb` file extension.
 
 You can use the `--custom-transformers` CLI option to specify which custom transformer files to use with the `audit`, `dry-run`, and `migrate` commands.
 

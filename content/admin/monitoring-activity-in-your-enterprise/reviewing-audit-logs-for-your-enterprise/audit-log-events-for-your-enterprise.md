@@ -573,7 +573,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `management_console.slack_app_generate` | An app for the Slack integration was generated. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
 | `management_console.slack_app_update` | The app-level token for the Slack integration was updated. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
 | `management_console.smtp_test` | An SMTP configuration was tested while enabling email notifications for the instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#testing-email-delivery)." |
-| `management_console.ssh_command` | A command was run using the administrative shell (SSH). For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)." 
+| `management_console.ssh_command` | A command was run using the administrative shell (SSH). For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 | `management_console.storage_actions_test` | A storage configuration for {% data variables.product.prodname_actions %} was tested. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server)." |
 | `management_console.storage_migrations_test` | A storage configuration for {% data variables.product.prodname_importer_proper_name %} was tested. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud)." |
 | `management_console.storage_packages_test` | A storage configuration for {% data variables.product.prodname_registry %} was tested. For more information, see "[AUTOTITLE](/admin/packages)." |
@@ -1238,7 +1238,6 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 |------------------|-------------------
 | `repository_secret_scanning_custom_pattern_push_protection.enabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was enabled for your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
 | `repository_secret_scanning_custom_pattern_push_protection.disabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was disabled for your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{%- endif %}
-
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 ## `repository_secret_scanning_push_protection` category actions

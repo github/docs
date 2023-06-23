@@ -35,7 +35,6 @@ Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketp
 Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 
-
 For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency submission API.
 
 ```yaml

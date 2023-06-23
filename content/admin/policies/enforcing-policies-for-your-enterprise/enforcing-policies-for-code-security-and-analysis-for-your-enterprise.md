@@ -34,7 +34,7 @@ You can enforce policies to manage the use of code security and analysis feature
 
 {% ifversion ghes or ghec %}If you purchase a license for {% data variables.product.prodname_GH_advanced_security %}, any{% else %}Any{% endif %} organization{% ifversion ghec %} owned by your enterprise{% endif %} on {% data variables.location.product_location %} can use {% data variables.product.prodname_advanced_security %} features. You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} use {% data variables.product.prodname_advanced_security %}.
 
-{% ifversion security-feature-enablement-policies %}
+{% ifversion security-feature-enablement-policies-dependabot %}
 ## Enforcing a policy to manage the use of {% data variables.product.prodname_dependabot_alerts %} in your enterprise
 
 Across all organizations owned by your enterprise, you can allow members with admin permissions for repositories to enable or disable {% data variables.product.prodname_dependabot_alerts %} and change {% data variables.product.prodname_dependabot_alerts %} settings.

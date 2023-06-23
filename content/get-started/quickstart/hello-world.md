@@ -74,7 +74,7 @@ Here at {% data variables.product.product_name %}, our developers, writers, and 
 
 3. Type a branch name, `readme-edits`, into the text box.
 4. Click **Create branch: readme-edits from main**.
-   
+
    ![Screenshot of the branch dropdown for a repository. "Create branch: readme-edits from 'main'" is outlined in dark orange.](/assets/images/help/repository/new-branch.png)
 Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
 
@@ -90,7 +90,7 @@ You can make and save changes to the files in your repository. On {% data variab
 {% ifversion code-search-code-view %}
 1. Click **Commit changes...**.
 1. In the "Propose changes" box, write a commit message that describes your changes.
-1. Click **Propose changes**. 
+1. Click **Propose changes**.
 {% else %}
 1. In the "Commit changes" box, write a commit message that describes your changes.
 1. Click **Commit changes**.

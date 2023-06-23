@@ -17,7 +17,7 @@ For more experienced users, code annotations can help them understand a code exa
 
 An annotated code example must start with a single line annotation. You can start with a blank annotation if you do not want to add an annotation to the first line of code.
 
-You must use the comment tag for the language that the code sample is written in. For example, `#` for YAML and `//` for Ruby.
+You must use the comment tag for the language that the code sample is written in. For example, `#` for YAML and `//` for JavaScript.
 
 To enable code sample annotations, you must specify a language followed by the word `annotate` after the starting triple backtick code tag.
 

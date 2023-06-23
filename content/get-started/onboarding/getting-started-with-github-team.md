@@ -25,7 +25,6 @@ Your organization's billing settings page allows you to manage settings like you
 
 Only organization members with the _owner_ or _billing manager_ role can access or change billing settings for your organization. A billing manager is someone  who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
 
-
 ## Part 2: Adding members and setting up teams
 After creating your organization, you can invite members and set permissions and roles. You can also create different levels of teams and set customized levels of permissions for your organization's repositories, project boards, and apps.
 
@@ -72,7 +71,7 @@ You can help to make your organization more secure by recommending or requiring 
 ### 3. Building {% data variables.product.prodname_actions %}
 {% data reusables.getting-started.actions %}
 
-### 4. Publishing and managing {% data variables.product.prodname_registry %} 
+### 4. Publishing and managing {% data variables.product.prodname_registry %}
 {% data reusables.getting-started.packages %}
 
 ## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community

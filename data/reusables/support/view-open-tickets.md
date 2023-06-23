@@ -1,5 +1,5 @@
 {% data reusables.support.navigate-to-my-tickets %}
-1. Optionally, to view tickets associated with an organization or enterprise account, select the **My Tickets** drop-down menu and click the name of the organization or enterprise account. 
+1. Optionally, to view tickets associated with an organization or enterprise account, select the **My Tickets** drop-down menu and click the name of the organization or enterprise account.
 
 {% indented_data_reference reusables.support.entitlements-note spaces=3 %}
 

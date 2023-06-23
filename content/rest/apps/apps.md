@@ -22,5 +22,4 @@ This page lists endpoints that you can access while authenticated as a {% data v
 
 See "[AUTOTITLE](/rest/apps#installations)" for a list of endpoints that require authentication as a {% data variables.product.prodname_github_app %} installation.
 
-
 <!-- Content after this section is automatically generated -->

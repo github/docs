@@ -72,7 +72,6 @@ Security overview allows you to review security configurations and alerts, makin
 Security overview shows which security features are enabled for the repository, and lets you configure any available security features that are not already enabled.
 {% endif %}
 
-
 {% ifversion fpt or ghec %}
 ## Available for free public repositories
 

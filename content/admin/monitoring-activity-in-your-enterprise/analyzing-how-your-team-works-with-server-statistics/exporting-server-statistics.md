@@ -8,9 +8,9 @@ redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/exploring-server-statistics
 ---
 
-You can download up to the last 365 days of {% data variables.product.prodname_server_statistics %} data in a CSV or JSON file. This data, which includes aggregate metrics on repositories, issues, and pull requests, can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}. 
+You can download up to the last 365 days of {% data variables.product.prodname_server_statistics %} data in a CSV or JSON file. This data, which includes aggregate metrics on repositories, issues, and pull requests, can help you anticipate the needs of your organization, understand how your team works, and show the value you get from {% data variables.product.prodname_ghe_server %}.
 
-Before you can download this data, you must enable {% data variables.product.prodname_server_statistics %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)." 
+Before you can download this data, you must enable {% data variables.product.prodname_server_statistics %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise)."
 
 To preview the metrics available to download, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
 
