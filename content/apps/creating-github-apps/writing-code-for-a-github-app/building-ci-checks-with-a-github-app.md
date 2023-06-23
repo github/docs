@@ -18,6 +18,10 @@ topics:
 ---
 ## Introduction
 
+```bash
+git init YOUR_REPO
+```
+
 This tutorial demonstrates how to build a continuous integration (CI) server that runs tests on new code that's pushed to a repository. The tutorial shows how to build and configure a {% data variables.product.prodname_github_app %} to act as a server that receives and responds to Checks webhook events using {% data variables.product.prodname_dotcom %}'s REST API.
 
 In this tutorial, you will use your computer or codespace as a server while you develop your app. Once the app is ready for production use, you should deploy your app to a dedicated server.
@@ -515,41 +519,44 @@ With this method in place, each time your app receives a new webhook payload, it
 
 Your app doesn't do anything yet, but at this point, you can get it running on the server.
 
-Keep Smee running in the current tab in your terminal. Open a new tab and `cd` into the directory where you [cloned the repository you created](#create-a-repository-to-store-code-for-your--data-variablesproductprodname_github_app). The Ruby code in this repository will start up a [Sinatra](https://sinatrarb.com/) web server. This code has a few dependencies. You can install these by running:
+1. In your terminal, make sure that Smee is still running. For more information, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)."
+1. Open a new tab in your terminal, and `cd` into the directory where you cloned the repository that you created earlier in the tutorial. For more information, see "[Create a repository to store code for your GitHub App](#create-a-repository-to-store-code-for-your-github-app)." The Ruby code in this repository will start up a [Sinatra](https://sinatrarb.com/) web server.
 
-```shell copy
-gem install bundler
-```
+1. Install the dependencies by running the following two commands one after the other:
 
-Followed by:
+   ```shell copy
+   gem install bundler
+   ```
 
-```shell copy
-bundle install
-```
+   ```shell copy
+   bundle install
+   ```
 
-With the dependencies installed, you can start the server:
+1. After installing the dependencies, start the server by running this command:
 
-```shell copy
-bundle exec ruby server.rb
-```
+   ```shell copy
+   bundle exec ruby server.rb
+   ```
 
-You should see a response like:
+   You should see a response like this:
 
-```shell
-> == Sinatra (v2.2.3) has taken the stage on 3000 for development with backup from Puma
-> Puma starting in single mode...
-> * Puma version: 6.3.0 (ruby 3.1.2-p20) ("Mugi No Toki Itaru")
-> *  Min threads: 0
-> *  Max threads: 5
-> *  Environment: development
-> *          PID: 14915
-> * Listening on http://0.0.0.0:3000
-> Use Ctrl-C to stop
-```
+   ```shell
+   > == Sinatra (v2.2.3) has taken the stage on 3000 for development with backup from Puma
+   > Puma starting in single mode...
+   > * Puma version: 6.3.0 (ruby 3.1.2-p20) ("Mugi No Toki Itaru")
+   > *  Min threads: 0
+   > *  Max threads: 5
+   > *  Environment: development
+   > *          PID: 14915
+   > * Listening on http://0.0.0.0:3000
+   > Use Ctrl-C to stop
+   ```
 
-If you see an error, make sure you've created the `.env` file in the directory that contains `server.rb`.
+   If you see an error, make sure you've created the `.env` file in the directory that contains `server.rb`.
 
-Once the server is running, test it by going to `http://localhost:3000` in your browser. If you see an error page that says "Sinatra doesn't know this ditty," the app is working as expected. Even though it's an error page, it's a Sinatra error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
+1. To test the server, navigate in your browser to `http://localhost:3000`.
+
+   If you see an error page that says "Sinatra doesn't know this ditty," the app is working as expected. Even though it's an error page, it's a Sinatra error page, which means your app is connected to the server as expected. You're seeing this message because you haven't given the app anything else to show.
 
 ## Test that the server is listening to your app
 
@@ -566,15 +573,15 @@ You can test that the server is listening to your app by triggering an event for
 
    If you see output like this, it means your app received a notification that it was installed on your {% data variables.product.prodname_dotcom %} account. The app is running on the server as expected.
 
-If you don't see this output, make sure Smee is running correctly in another terminal tab. If you need to restart Smee, note that you'll also need to _uninstall_ and _reinstall_ the app to send the `installation` event to your app again and see the output in terminal.
+   If you don't see this output, make sure Smee is running correctly in another terminal tab. If you need to restart Smee, note that you'll also need to _uninstall_ and _reinstall_ the app to send the `installation` event to your app again and see the output in terminal.
 
 If you're wondering where the terminal output above is coming from, it's written in the app template code you added to `server.rb` in "[Add code for your {% data variables.product.prodname_github_app %}](#add-code-for-your-github-app)."
 
 ## Part 1. Creating the Checks API interface
 
-In this part, you will add the code necessary to receive `check_suite` webhook events and create and update check runs. You'll also learn how to create check runs when a check was re-requested on {% data variables.product.prodname_dotcom %}. At the end of this section, you'll be able to view the check run you created in a {% data variables.product.prodname_dotcom %} pull request.
+In this part, you will add the code necessary to receive `check_suite` webhook events, and create and update check runs. You'll also learn how to create check runs when a check was re-requested on {% data variables.product.prodname_dotcom %}. At the end of this section, you'll be able to view the check run you created in a {% data variables.product.prodname_dotcom %} pull request.
 
-Your check run will not perform any checks on the code in this section. You'll add that functionality in [Part 2: Creating the Octo RuboCop CI test](#part-2-creating-the-octo-rubocop-ci-test).
+Your check run will not perform any checks on the code in this section. You'll add that functionality in "[Part 2: Creating the Octo RuboCop CI test](#part-2-creating-the-octo-rubocop-ci-test)."
 
 You should already have a Smee channel configured that is forwarding webhook payloads to your local server. Your server should be running and connected to the {% data variables.product.prodname_github_app %} you registered and installed on a test repository.
 
@@ -588,7 +595,7 @@ These are the steps you'll complete in Part 1:
 
 Because your app is subscribed to the **Check suite** and **Check run** events, it will receive the [`check_suite`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_suite) and [`check_run`](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) webhooks. {% data variables.product.prodname_dotcom %} sends webhook payloads as `POST` requests. Because you forwarded your Smee webhook payloads to `http://localhost:3000/event_handler`, your server will receive the `POST` request payloads at the `post '/event_handler'` route.
 
-Open the `server.rb` file that you created in "[Add code for your {% data variables.product.prodname_github_app %}](#add-code-for-your--data-variablesproductprodname_github_app)," and look for the following code. An empty `post '/event_handler'` route is already included in the template code. The empty route looks like this:
+Open the `server.rb` file that you created in "[Add code for your {% data variables.product.prodname_github_app %}](#add-code-for-your-github-app)," and look for the following code. An empty `post '/event_handler'` route is already included in the template code. The empty route looks like this:
 
 ```ruby
   post '/event_handler' do
@@ -644,13 +651,13 @@ end
 
 This code calls the "[AUTOTITLE](/rest/checks#create-a-check-run)" endpoint using the Octokit [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method).
 
-To create a check run, only two input parameters are required: `name` and `head_sha`. We will use [RuboCop](https://rubocop.readthedocs.io/en/latest/) to implement the CI test later in this tutorial, which is why the name "Octo RuboCop" is used here, but you can choose any name you'd like for the check run.
+To create a check run, only two input parameters are required: `name` and `head_sha`. In this code, we name the check run "Octo RuboCop," because we'll use RuboCop to implement the CI test later in the tutorial. But you can choose any name you'd like for the check run. For more information about RuboCop, see the [RuboCop documentation](https://rubocop.readthedocs.io/en/latest/).
 
 You're only supplying the required parameters now to get the basic functionality working, but you'll update the check run later as you collect more information about the check run. By default, {% data variables.product.prodname_dotcom %} sets the `status` to `queued`.
 
 {% data variables.product.prodname_dotcom %} creates a check run for a specific commit SHA, which is why `head_sha` is a required parameter. You can find the commit SHA in the webhook payload. Although you're only creating a check run for the `check_suite` event right now, it's good to know that the `head_sha` is included in both the `check_suite` and `check_run` objects in the event payloads.
 
-In the code above, you're using the [ternary operator](https://ruby-doc.org/core-2.3.0/doc/syntax/control_expressions_rdoc.html#label-Ternary+if), which works like an `if/else` statement, to check if the payload contains a `check_run` object. If it does, you read the `head_sha` from the `check_run` object, otherwise you read it from the `check_suite` object.
+The code above uses a [ternary operator](https://ruby-doc.org/core-2.3.0/doc/syntax/control_expressions_rdoc.html#label-Ternary+if), which works like an `if/else` statement, to check if the payload contains a `check_run` object. If it does, you read the `head_sha` from the `check_run` object, otherwise you read it from the `check_suite` object.
 
 ### Test the code
 
@@ -729,11 +736,11 @@ def initiate_check_run
 end
 ```
 
-The code above calls the "[AUTOTITLE](/rest/checks#update-a-check-run)" API endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method) to update the check run that you already created.
+The code above calls the "[Update a check run](/rest/checks#update-a-check-run)" endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method), and updates the check run that you already created.
 
 Here's what this code is doing. First, it updates the check run's status to `in_progress` and implicitly sets the `started_at` time to the current time. In Part 2 of this tutorial, you'll add code that kicks off a real CI test under `***** RUN A CI TEST *****`. For now, you'll leave that section as a placeholder, so the code that follows it will just simulate that the CI process succeeds and all tests pass. Finally, the code updates the status of the check run again to `completed`.
 
-You'll notice in the "[AUTOTITLE](/rest/checks#update-a-check-run)" documentation that when you provide a status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `skipped`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
+When you use the REST API to provide a check run status of `completed`, the `conclusion` and `completed_at` parameters are required. The `conclusion` summarizes the outcome of a check run and can be `success`, `failure`, `neutral`, `cancelled`, `timed_out`, `skipped`, or `action_required`. You'll set the conclusion to `success`, the `completed_at` time to the current time, and the status to `completed`.
 
 You could also provide more details about what your check is doing, but you'll get to that in the next section.
 
@@ -753,17 +760,19 @@ The following steps will show you how to test that the code works, and that the 
 
 ## Part 2. Creating the Octo RuboCop CI test
 
-[RuboCop](https://rubocop.readthedocs.io/en/latest/) is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the "[Ruby Style Guide](https://github.com/rubocop-hq/ruby-style-guide)." RuboCop has three primary functions:
+RuboCop is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the Ruby Style Guide. For more information, see the [RuboCop documentation](https://rubocop.readthedocs.io/en/latest/).
+
+RuboCop has three primary functions:
 
 * Linting to check code style
 * Code formatting
 * Replaces the native Ruby linting capabilities using `ruby -w`
 
-Now that you've got the interface created to receive Checks API events and create check runs, you can create a check run that implements a CI test.
+Now that you've got the interface created to receive API events and create check runs, you can create a check run that implements a CI test.
 
 Your app will run RuboCop on the CI server, and create check runs (CI tests in this case) that report the results that RuboCop reports to {% data variables.product.prodname_dotcom %}.
 
-The Checks API allows you to report rich details about each check run, including statuses, images, summaries, annotations, and requested actions.
+The checks API endpoints allow you to report rich details about each check run, including statuses, images, summaries, annotations, and requested actions.
 
 Annotations are information about specific lines of code in a repository. An annotation allows you to pinpoint and visualize the exact parts of the code you'd like to show additional information for. For example, you could show that information as a comment, error, or warning on a specific line of code. This tutorial uses annotations to visualize RuboCop errors.
 
@@ -814,9 +823,9 @@ RuboCop is available as a command-line utility. That means your {% data variable
 
 ### Allow Git operations
 
-To run Git operations in your Ruby app, you can use the [ruby-git](https://github.com/ruby-git/ruby-git) gem. The `Gemfile` in the `building-a-checks-api-ci-server` repository already includes the ruby-git gem, and you installed it when you ran `bundle install` in the [prerequisite steps](#prerequisites).
+To run Git operations in your Ruby app, you can use the [ruby-git](https://github.com/ruby-git/ruby-git) gem. The `Gemfile` you created in "[Setup](#setup)" already includes the ruby-git gem, and you installed it when you ran `bundle install` in "[Start the server](#start-the-server)."
 
-At the top of your `server.rb` file, below the other `require` items, add the following code:
+Now, at the top of your `server.rb` file, below the other `require` items, add the following code:
 
 ```ruby copy
 require 'git'
@@ -883,7 +892,9 @@ The code above gets the full repository name and the head SHA of the commit from
 
 ## Step 2.3. Run RuboCop
 
-So far your code clones the repository and creates check runs using your CI server. Now you'll get into the details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [checks annotations](/rest/checks#create-a-check-run). First, add code to run RuboCop and save the style code errors in JSON format.
+So far, your code clones the repository and creates check runs using your CI server. Now you'll get into the details of the [RuboCop linter](https://docs.rubocop.org/rubocop/usage/basic_usage.html#code-style-checker) and [checks annotations](/rest/checks#create-a-check-run).
+
+First, you'll add code to run RuboCop and save the style code errors in JSON format.
 
 Under `clone_repository`, where it says `# ADD CODE HERE TO RUN RUBOCOP #`, add the following code:
 
@@ -1064,7 +1075,7 @@ summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_c
 text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 ```
 
-Now your code should have all the information it needs to update your check run. In [Part 1 of this tutorial](#step-13-update-a-check-run), you added code to set the status of the check run to `success`. You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). Here's the code you added previously to your `server.rb` file:
+Now your code should have all the information it needs to update your check run. In "[Step 1.3. Update a check run](#step-13-update-a-check-run)," you added code to set the status of the check run to `success`. You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). Here's the code you added previously to your `server.rb` file:
 
 ```ruby
 # Mark the check run as complete!
@@ -1103,7 +1114,7 @@ Replace that code with the following code:
 
 Now that your code sets a conclusion based on the status of the CI test, and adds the output from the RuboCop results, you've created a CI test.
 
-The code above also adds a feature to your CI server called [requested actions](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/) via the `actions` object. {% ifversion fpt or ghec %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}Requested actions add a button in the **Checks** tab on {% data variables.product.prodname_dotcom %} that allows someone to request the check run to take additional action. The additional action is completely configurable by your app. For example, because RuboCop has a feature to automatically fix the errors it finds in Ruby code, your CI server can use a requested actions button to allow people to request automatic error fixes. When someone clicks the button, the app receives the `check_run` event with a `requested_action` action. Each requested action has an `identifier` that the app uses to determine which button was clicked.
+The code above also adds a feature called requested actions to your CI server, via the `actions` object. {% ifversion fpt or ghec %}(Note this is not related to [GitHub Actions](/actions).) {% endif %}For more information, see "[Request further actions from a check run](https://developer.github.com/changes/2018-05-23-request-actions-on-checks/)." Requested actions add a button in the **Checks** tab on {% data variables.product.prodname_dotcom %} that allows someone to request the check run to take additional action. The additional action is completely configurable by your app. For example, because RuboCop has a feature to automatically fix the errors it finds in Ruby code, your CI server can use a requested actions button to allow people to request automatic error fixes. When someone clicks the button, the app receives the `check_run` event with a `requested_action` action. Each requested action has an `identifier` that the app uses to determine which button was clicked.
 
 The code above doesn't have RuboCop automatically fix errors yet. You'll add that later in the tutorial.
 
@@ -1122,11 +1133,11 @@ The following steps will show you how to test that the code works and view the C
 
 ## Step 2.6. Automatically fix RuboCop errors
 
-So far you've created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in the [previous section](#step-25-update-the-check-run-with-ci-test-results). Now you'll add the code to handle the `requested_action` check run event that's triggered when someone clicks the "Fix this" button.
+So far you've created a CI test. In this section, you'll add one more feature that uses RuboCop to automatically fix the errors it finds. You already added the "Fix this" button in "[Step 2.5. Update the check run with CI test results](#step-25-update-the-check-run-with-ci-test-results)." Now you'll add the code to handle the `requested_action` check run event that's triggered when someone clicks the "Fix this" button.
 
 The RuboCop tool offers the `--auto-correct` command-line option to automatically fix the errors it finds. For more information, see "[Autocorrecting offenses](https://docs.rubocop.org/rubocop/usage/basic_usage.html#autocorrecting-offenses)" in the RuboCop documentation. When you use the `--auto-correct` feature, the updates are applied to the local files on the server. You'll need to push the changes to {% data variables.product.prodname_dotcom %} after RuboCop makes the fixes.
 
-To push to a repository, your app must have write permissions for "Contents" in a repository. You already set that permission to **Read & write** back in [Step 2.2. Cloning the repository](#step-22-clone-the-repository).
+To push to a repository, your app must have write permissions for "Contents" in a repository. You already set that permission to **Read & write** back in "[Step 2.2. Cloning the repository](#step-22-clone-the-repository)."
 
 To commit files, Git must know which username and email address to associate with the commit. Next you'll add environment variables to store the name and email address that your app will use when it makes Git commits.
 
@@ -1142,7 +1153,7 @@ Next you'll need to add code to read the environment variables and set the Git c
 
 When someone clicks the "Fix this" button, your app receives the [check run webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#check_run) with the `requested_action` action type.
 
-In [Step 1.3. Updating a check run](#step-13-updating-a-check-run) you updated the `event_handler` in your `server.rb` file to look for actions in the `check_run` event. You already have a case statement to handle the `created` and `rerequested` action types:
+In "[Step 1.3. Updating a check run](#step-13-updating-a-check-run)" you updated the `event_handler` in your `server.rb` file to look for actions in the `check_run` event. You already have a case statement to handle the `created` and `rerequested` action types:
 
 ```ruby
 when 'check_run'
@@ -1202,7 +1213,7 @@ def take_requested_action
 end
 ```
 
-The code above clones a repository, just like the code you added in [Step 2.2. Clone the repository](#step-22-clone-the-repository). An `if` statement checks that the requested action's identifier matches the RuboCop button identifier (`fix_rubocop_notices`). When they match, the code clones the repository, sets the Git username and email, and runs RuboCop with the option `--auto-correct`. The `--auto-correct` option applies the changes to the local CI server files automatically.
+The code above clones a repository, just like the code you added in "[Step 2.2. Clone the repository](#step-22-clone-the-repository)." An `if` statement checks that the requested action's identifier matches the RuboCop button identifier (`fix_rubocop_notices`). When they match, the code clones the repository, sets the Git username and email, and runs RuboCop with the option `--auto-correct`. The `--auto-correct` option applies the changes to the local CI server files automatically.
 
 The files are changed locally, but you'll still need to push them to {% data variables.product.prodname_dotcom %}. You'll use the `ruby-git` gem to commit all of the files. Git has a single command that stages all modified or deleted files and commits them: `git commit -a`. To do the same thing using `ruby-git`, the code above uses the `commit_all` method. Then the code pushes the committed files to {% data variables.product.prodname_dotcom %} using the installation token, using the same authentication method as the Git `clone` command. Finally, it removes the repository directory to ensure the working directory is prepared for the next event.
 
