@@ -37,5 +37,4 @@ The REST API for searching items has a custom rate limit that is separate from t
 
 For more information on the headers and values in the rate limit response, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
 
-
 <!-- Content after this section is automatically generated -->

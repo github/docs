@@ -24,7 +24,7 @@ shortTitle: Monitor & troubleshoot
 
 You may not be able to create a self-hosted runner for an organization-owned repository.
 
-{% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% endif %}
 

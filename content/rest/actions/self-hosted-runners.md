@@ -19,5 +19,4 @@ You can use the REST API to register, view, and delete self-hosted runners in {%
 
 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories and the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises to use these endpoints.
 
-
 <!-- Content after this section is automatically generated -->

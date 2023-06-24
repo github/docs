@@ -112,7 +112,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Finding the node ID of a user project 
+### Finding the node ID of a user project
 
 To update your project through the API, you will need to know the node ID of the project.
 
@@ -273,9 +273,9 @@ The response will look similar to the following example:
 }
 ```
 
-Each field has an ID and name. Single select fields are returned as a `ProjectV2SingleSelectField` object and have an `options` field where you can find the ID of each option for the single select. Iteration fields are returned as a `ProjectV2IterationField` object and have a `configuration` field which includes an `iterations` field containing the ID and information about each iteration. 
+Each field has an ID and name. Single select fields are returned as a `ProjectV2SingleSelectField` object and have an `options` field where you can find the ID of each option for the single select. Iteration fields are returned as a `ProjectV2IterationField` object and have a `configuration` field which includes an `iterations` field containing the ID and information about each iteration.
 
-If you just need the name and ID of a field, and do not need information about iterations or a single select field's options, you can make use of the `ProjectV2FieldCommon` object. 
+If you just need the name and ID of a field, and do not need information about iterations or a single select field's options, you can make use of the `ProjectV2FieldCommon` object.
 
 {% curl %}
 ```shell
@@ -341,7 +341,7 @@ The response when using the `ProjectV2FieldCommon` object will look similar to t
 }
 ```
 
-### Finding information about items in a project 
+### Finding information about items in a project
 
 You can query the API to find information about items in your project.
 
@@ -425,7 +425,7 @@ gh api graphql -f query='
 
 A project may contain items that a user does not have permission to view. In this case, the item type will be returned as `REDACTED`.
 
-## Updating projects 
+## Updating projects
 
 Use mutations to update projects. For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-mutations)."
 
@@ -517,7 +517,7 @@ The response will contain the node ID of the newly created draft issue.
 }
 ```
 
-### Updating a project's settings 
+### Updating a project's settings
 
 The following example will update your project's settings. Replace `PROJECT_ID` with the node ID of your project. Set `public` to `true` to make your project public on {% data variables.product.product_name %}. Modify `readme` to make changes to your project's README.
 
@@ -554,7 +554,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-### Updating a custom text, number, or date field 
+### Updating a custom text, number, or date field
 
 The following example will update the value of a text field for an item. Replace `PROJECT_ID` with the node ID of your project. Replace `ITEM_ID` with the node ID of the item you want to update. Replace `FIELD_ID` with the ID of the field that you want to update.
 
@@ -712,7 +712,7 @@ gh api graphql -f query='
 ```
 {% endcli %}
 
-## Managing projects 
+## Managing projects
 
 ### Creating projects
 

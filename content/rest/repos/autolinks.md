@@ -19,5 +19,4 @@ To help streamline your workflow, you can use the REST API to add autolinks to e
 
 {% data variables.product.prodname_github_apps %} require repository administration permissions with read or write access to use these endpoints.
 
-
 <!-- Content after this section is automatically generated -->

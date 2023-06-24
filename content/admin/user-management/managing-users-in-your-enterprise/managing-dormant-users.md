@@ -67,5 +67,4 @@ The report includes both enterprise members and outside collaborators.
 1. Optionally, to generate a new report, next to "Dormant Users", click **New report**.
 1. Under "Recent reports", next to the report you want to download, click {% octicon "download" aria-hidden="true" %} **Download**.
 
-
 {% endif %}

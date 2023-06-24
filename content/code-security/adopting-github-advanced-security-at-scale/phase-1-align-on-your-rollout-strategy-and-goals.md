@@ -36,7 +36,6 @@ GHAS takes a developer-centered approach to software security by integrating sea
 
 Involving development groups earlier, ideally from the time of purchase, helps companies utilize GHAS to address security concerns earlier in the development process. When both groups work together, they achieve alignment early in the process, remove silos, build and strengthen their working relationships, and take more responsibility for the rollout.
 
-
 ## Learn about GHAS
 
 To set realistic expectations for the rollout, ensure that all stakeholders understand the following key facts about how GHAS works.

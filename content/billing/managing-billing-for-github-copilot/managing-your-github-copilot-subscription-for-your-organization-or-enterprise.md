@@ -71,7 +71,6 @@ You can configure {% data variables.product.prodname_copilot %} in your organiza
 
 You can either disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise or for a specific organization.
 
-
 ### Canceling your {% data variables.product.prodname_copilot_business_short %} subscription for your enterprise account
 
 {% note %}

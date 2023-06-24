@@ -157,6 +157,7 @@ function validateIfversionConditionals(conds) {
         // allows us to deprecate the version before removing
         // the old liquid content.
         if (
+          version !== 'ghae' &&
           !(
             supported.includes(release) ||
             release === next ||

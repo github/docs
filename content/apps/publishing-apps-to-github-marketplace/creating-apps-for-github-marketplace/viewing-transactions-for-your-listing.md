@@ -21,7 +21,6 @@ shortTitle: View listing transactions
 
 {% endnote %}
 
-
 You can view or download the transaction data to keep track of your subscription activity. Click the **Export CSV** button to download a `.csv` file. You can also select a period of time to view and search within the transaction page.
 
 ## Transaction data fields

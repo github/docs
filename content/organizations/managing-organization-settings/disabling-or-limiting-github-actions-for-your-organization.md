@@ -54,7 +54,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 ## Limiting the use of self-hosted runners
 
-{% data reusables.actions.disable-selfhosted-runners-overview %} 
+{% data reusables.actions.disable-selfhosted-runners-overview %}
 
 {% ifversion ghec or ghes %}
 
@@ -70,7 +70,7 @@ If a repository already has self-hosted runners when you disable their use, thes
 
 ![Screenshot of the "Runners" list showing a self-hosted runner with the status "Disabled."](/assets/images/help/actions/actions-runners-disabled.png)
 
-{% data reusables.actions.disable-selfhosted-runners-note %} 
+{% data reusables.actions.disable-selfhosted-runners-note %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

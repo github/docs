@@ -181,7 +181,6 @@ If you added the IP ranges for {% data variables.product.prodname_importer_prope
 
 For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
 
-
 ### Managing {% data variables.product.prodname_GH_advanced_security %}
 
 If you enabled {% data variables.product.prodname_GH_advanced_security %} for the destination organization before migrating repositories, the settings for individual features were migrated. If not, you'll need to re-enable individual features after the migration. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."

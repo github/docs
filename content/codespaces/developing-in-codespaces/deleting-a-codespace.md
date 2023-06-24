@@ -92,7 +92,6 @@ You can use {% data variables.product.prodname_cli %} to delete several or all o
 
 {% endvscode %}
 
-
 {% cli %}
 
 You can delete several or all of your codespaces with a single command, using `gh codespace delete` followed by one of these flags:

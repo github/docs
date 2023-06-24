@@ -54,7 +54,7 @@ Organizations owners and billing managers can manage the spending limit for {% d
    **Note:** If {% data variables.product.prodname_github_codespaces %} is enabled for your organization, scroll to "Actions & Packages", then choose to limit spending or allow unlimited spending.
 
    {% endnote %}
-   
+
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 {% ifversion ghec %}

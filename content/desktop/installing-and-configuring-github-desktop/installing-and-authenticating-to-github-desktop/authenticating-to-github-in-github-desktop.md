@@ -64,7 +64,6 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 ## Authenticating an account on {% data variables.product.prodname_enterprise %}
 
-
 {% data reusables.desktop.windows-choose-options %}
 1. In the "Options" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_enterprise %}".
 

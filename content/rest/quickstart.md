@@ -83,7 +83,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    ```yaml
   {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-   
+
    on:
      workflow_dispatch:
    jobs:
@@ -96,7 +96,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-   
+
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
@@ -228,7 +228,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    ```yaml
   {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-   
+
    on:
      workflow_dispatch:
    jobs:
@@ -237,7 +237,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Check out repo content
            uses: {% data reusables.actions.action-checkout %}
-   
+
          - name: Setup Node
            uses: {% data reusables.actions.action-setup-node %}
            with:
@@ -355,7 +355,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    ```yaml
   {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-   
+
    on:
      workflow_dispatch:
    jobs:
@@ -368,7 +368,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-   
+
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}

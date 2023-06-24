@@ -81,7 +81,6 @@ You can change the name and email address used to author commits in a specific r
 
 {% endwindows %}
 
-
 ## Configuring your default branch for new repositories
 
 You can configure the default branch that will be used when you create a new repository in {% data variables.product.prodname_desktop %}. For more information about the default branch, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."

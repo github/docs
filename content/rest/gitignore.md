@@ -21,5 +21,4 @@ When you create a new repository on {% ifversion ghae %}{% data variables.produc
 
 You can use the `application/vnd.github.raw` custom media type when getting a gitignore template. For more information, see "[AUTOTITLE](/rest/overview/media-types)."
 
-
 <!-- Content after this section is automatically generated -->

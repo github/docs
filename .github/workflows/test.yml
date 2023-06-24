@@ -49,7 +49,6 @@ jobs:
               { name: 'graphql', path: 'src/graphql/tests', },
               { name: 'landings', path: 'src/landings/tests', },
               { name: 'linting', path: 'src/content-linter/tests', },
-              { name: 'meta', path: 'tests/meta', },
               { name: 'observability', path: 'src/observability/tests' },
               { name: 'pageinfo', path: 'src/pageinfo/tests', },
               { name: 'rendering', path: 'tests/rendering', },

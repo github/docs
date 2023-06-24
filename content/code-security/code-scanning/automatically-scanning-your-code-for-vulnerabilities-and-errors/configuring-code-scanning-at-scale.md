@@ -51,6 +51,8 @@ A repository must meet all the following criteria to be eligible for default set
    {%- elsif ghec %}Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.
    {%- elsif ghes or ghae %}{% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
 
+{% data reusables.code-scanning.limitation-org-enable-all %}
+
 For more information about default setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)." For information on editing security and analysis settings for an organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
 {% ifversion security-overview-org-risk-coverage %}

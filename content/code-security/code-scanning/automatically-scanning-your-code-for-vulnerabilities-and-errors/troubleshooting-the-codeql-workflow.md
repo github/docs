@@ -196,7 +196,6 @@ The extraction diagnostics information gives an indication of overall database h
 
 However, if you see extractor errors in the overwhelming majority of files that were compiled during database creation, you should look into the errors in more detail to try to understand why some source files weren't extracted properly.
 
-
 ## The build takes too long
 
 If your build with {% data variables.product.prodname_codeql %} analysis takes too long to run, there are several approaches you can try to reduce the build time.

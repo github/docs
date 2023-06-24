@@ -100,7 +100,7 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
 
    ```shell
    ./bin/ghe-host-check
-   ```		  
+   ```
 1. To create an initial full backup, run the following command.
 
    ```shell
@@ -244,7 +244,7 @@ Optionally, to validate the restore, configure an IP exception list to allow acc
 
 {% note %}
 
-**Note:** 
+**Note:**
 
 - The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
 

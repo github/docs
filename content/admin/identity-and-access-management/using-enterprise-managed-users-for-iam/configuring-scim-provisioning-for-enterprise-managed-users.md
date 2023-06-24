@@ -17,7 +17,7 @@ topics:
 
 ## About provisioning for {% data variables.product.prodname_emus %}
 
-You must configure provisioning for {% data variables.product.prodname_emus %} to create, manage, and deactivate user accounts for your enterprise members. 
+You must configure provisioning for {% data variables.product.prodname_emus %} to create, manage, and deactivate user accounts for your enterprise members.
 
 After you configure provisioning for {% data variables.product.prodname_emus %}, users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your identity provider are provisioned as new {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom %} via SCIM, and the {% data variables.enterprise.prodname_managed_users %} are added to your enterprise. If you assign a group to the application, all users within the group will be provisioned as new {% data variables.enterprise.prodname_managed_users %}.
 
@@ -59,7 +59,7 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 
 ## Configuring provisioning for {% data variables.product.prodname_emus %}
 
-After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your identity provider. 
+After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your identity provider.
 
 {% data reusables.scim.emu-scim-rate-limit %}
 

@@ -38,4 +38,3 @@ versions:
 ## Setting container resource options
 
 {% data reusables.actions.jobs.section-running-jobs-in-a-container-options %}
-

@@ -19,5 +19,4 @@ You can use the REST API to view workflows for a repository in {% data variables
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
-
 <!-- Content after this section is automatically generated -->

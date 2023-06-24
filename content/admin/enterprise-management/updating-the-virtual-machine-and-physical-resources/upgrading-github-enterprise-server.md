@@ -149,7 +149,7 @@ If the upgrade target you're presented with is a feature release instead of a pa
    admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
    *** verifying upgrade package signature...
    ```
-1. If at least one service or system component requires a reboot, the hotpatch upgrade script notifies you. For example, updates to the kernel, MySQL, or Elasticsearch may require a reboot. 
+1. If at least one service or system component requires a reboot, the hotpatch upgrade script notifies you. For example, updates to the kernel, MySQL, or Elasticsearch may require a reboot.
 
 ### Upgrading an instance with multiple nodes using a hotpatch
 

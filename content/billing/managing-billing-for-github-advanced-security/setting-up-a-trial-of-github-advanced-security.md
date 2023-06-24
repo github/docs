@@ -21,7 +21,7 @@ shortTitle: Set up an Advanced Security trial
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Start free trial**. 
+1. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Start free trial**.
 2. Click **Start trial**.
 
 ## Finishing your trial

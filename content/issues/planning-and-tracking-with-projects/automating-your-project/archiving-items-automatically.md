@@ -37,7 +37,6 @@ Projects also have a limit on the number of archived items they can contain. You
 1. In the "Filters" field, type the filter criteria you want to use to automatically archive items. You can only use the `is`, `reason`, and `updated` filters.{% ifversion projects-v2-workflows-ui-refresh %}
 1. To save your changes and enable the workflow, click **Save and turn on workflow**.{% else %}
 1. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.{% endif %}
-   
 
 ## Further reading
 

@@ -34,7 +34,6 @@ The audit log lists events triggered by activities that affect your organization
 
 To search for specific events, use the `action` qualifier in your query. Actions listed in the audit log are grouped in different categories. For the full list of events in each category, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)."
 
-
 | Category name | Description
 |------------------|-------------------{% ifversion fpt or ghec %}
 | `account` | Contains all activities related to your organization account.{% endif %}{% ifversion fpt or ghec %}

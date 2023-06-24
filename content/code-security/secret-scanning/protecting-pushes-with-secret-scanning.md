@@ -106,7 +106,7 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
    ![Screenshot of the custom pattern page with the button to enable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
 {% endif %}
-### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in an organization for a custom pattern 
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in an organization for a custom pattern
 
 Before enabling push protection for a custom pattern at organization level, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
@@ -120,7 +120,7 @@ Before enabling push protection for a custom pattern at organization level, you 
 
    ![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
-### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in a repository for a custom pattern 
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in a repository for a custom pattern
 
 Before enabling push protection for a custom pattern at repository level, you must define the custom pattern for the repository, and test it in the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
 
@@ -129,7 +129,7 @@ Before enabling push protection for a custom pattern at repository level, you mu
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
-1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**. 
+1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
 
    ![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
@@ -205,6 +205,5 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 1. In dialog box that appeared when {% data variables.product.prodname_dotcom %} blocked your commit, review the name and location of the secret.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 1. Click **Allow secret**.
-
 
 {% endif %}

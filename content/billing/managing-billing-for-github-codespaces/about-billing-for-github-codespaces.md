@@ -177,7 +177,7 @@ If you delete a prebuild configuration, all the associated prebuilds are deleted
 
 {% note %}
 
-**Notes**: 
+**Notes**:
 - Prebuilds may be updated several times during a billing month. Newer versions of a prebuild may be larger or smaller than the previous versions. This will affect the storage charges. For details of how storage is calculated during a billing month, see "[About billing for storage usage](#about-billing-for-storage-usage)" earlier in this article.
 - As with deleting codespaces, deleting prebuilds does not reduce your used storage amount for the current billing month as this is a cumulative figure.
 
