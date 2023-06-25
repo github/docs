@@ -1085,7 +1085,7 @@ on:
 
 {% note %}
 
-**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable _and_ pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
 
 {% endnote %}
 
@@ -1154,7 +1154,7 @@ jobs:
 
 {% note %}
 
-**Notes**: 
+**Notes**:
 
 - The maximum number of top-level properties in `client_payload` is 10.
 - The payload can contain a maximum of 65,535 characters.

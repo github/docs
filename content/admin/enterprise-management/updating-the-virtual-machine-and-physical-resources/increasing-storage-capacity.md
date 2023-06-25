@@ -77,7 +77,7 @@ As more users join {% data variables.location.product_location %}, you may need 
    ```shell
    $ ghe-repl-stop
    ```
-   
+
 1. To install the {% data variables.product.prodname_ghe_server %} software on the newly partitioned disk, run the `ghe-upgrade` command. You must replace **PACKAGE-NAME.pkg** with the path to a platform-specific upgrade package that matches the version of {% data variables.product.prodname_ghe_server %} already running on the appliance. You cannot use a universal hotpatch upgrade package, such as `github-enterprise-2.11.9.hpkg`. After the `ghe-upgrade` command completes, application services will automatically terminate.
 
    ```shell

@@ -45,7 +45,6 @@ You will use your personal account to set up the organization. You'll also need 
 
 ## Step 3: Upgrade the organization to a yearly paid subscription
 
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans %}

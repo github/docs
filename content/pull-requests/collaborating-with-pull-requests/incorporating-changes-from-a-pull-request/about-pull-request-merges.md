@@ -31,7 +31,7 @@ When you squash and merge, {% data variables.product.prodname_dotcom %} generate
 When you squash and merge, {% data variables.product.prodname_dotcom %} generates a default commit message, which you can edit. The default message depends on the number of commits in the pull request, not including merge commits.
 
 Number of commits | Summary | Description |
------------------ | ------- | ----------- |	
+----------------- | ------- | ----------- |
 One commit | The title of the commit message for the single commit, followed by the pull request number | The body text of the commit message for the single commit
 More than one commit | The pull request title, followed by the pull request number | A list of the commit messages for all of the squashed commits, in date order
 {% endif %}
@@ -80,7 +80,7 @@ A pull request can be merged automatically if its head branch is directly or ind
 - Branch `feature` has been branched off of `main` and is currently at commit **D**. This branch has a pull request targeting `main`.
 - Branch `feature_2` is branched off of `feature` and is now at commit **E**. This branch also has a pull request targeting `main`.
 
-If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged *automatically* because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark *both* pull requests as merged.
+If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged _automatically_ because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark _both_ pull requests as merged.
 
 Pull requests in this situation will be marked as `merged` even if [branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#about-branch-protection-rules) have not been satisfied.
 

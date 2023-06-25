@@ -55,7 +55,7 @@ You must specify:
 | Java{% ifversion codeql-kotlin-beta %}/Kotlin{% endif %} | `java`
 | JavaScript/TypeScript | `javascript`
 | Python | `python`
-| Ruby | `ruby` {% ifversion codeql-swift-beta %} 
+| Ruby | `ruby` {% ifversion codeql-swift-beta %}
 | Swift | `swift` {% endif %}
 
 {% data reusables.code-scanning.beta-kotlin-or-swift-support %}
@@ -213,7 +213,7 @@ The following examples are designed to give you an idea of some of the build com
 
 {% ifversion codeql-swift-beta %}
 - Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
-	
+
 	   It's a good idea to ensure that the project is in a clean state and that there are no build artefacts available.
 	
 	   ```
@@ -233,7 +233,7 @@ The following examples are designed to give you an idea of some of the build com
       codeql database create -l swift -c "xcodebuild build -target your-target" swift-database
    ```
 
-   You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that CodeQL requires for a successful scan. 
+   You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that CodeQL requires for a successful scan.
 
 - Swift project built using a custom build script:
 

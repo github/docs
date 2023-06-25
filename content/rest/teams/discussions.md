@@ -30,5 +30,4 @@ You can use team discussions to have conversations that are not specific to a re
 {% data reusables.organizations.team-api %}
 {% endif %}
 
-
 <!-- Content after this section is automatically generated -->

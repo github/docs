@@ -492,7 +492,7 @@ SSL-Session:
     Verify return code: 0 (ok)
 ```
 
-If, on the other hand, the remote server's SSL certificate can *not* be verified, your `SSL-Session` should have a nonzero return code:
+If, on the other hand, the remote server's SSL certificate can _not_ be verified, your `SSL-Session` should have a nonzero return code:
 
 ```
 SSL-Session:
@@ -634,7 +634,7 @@ $ ghe-cluster-status
 
 This utility creates a support bundle tarball containing important logs from each of the nodes in either a Geo-replication or Clustering configuration.
 
-By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to {% data variables.product.prodname_enterprise %} support.
+By default, the command creates the tarball in _/tmp_, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from _/setup/support_ doesn't work. You must use this command if you want to generate an _extended_ bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
 {% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
 
@@ -914,7 +914,6 @@ This command disables replication on an existing replica node and converts the r
 ghe-repl-promote
 ```
 
-
 ### ghe-repl-setup
 
 Run this utility on an existing node to begin enabling a high availability configuration. The utility puts the node in standby mode before you begin replication with [`ghe-repl-start`](#ghe-repl-start). For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)."
@@ -1016,8 +1015,6 @@ This utility rewrites the imported repository. This gives you a chance to rename
 git-import-rewrite
 ```
 
-
-
 ## Security
 
 ### ghe-find-insecure-git-operations
@@ -1027,8 +1024,6 @@ This utility searches your instance's logs and identifies Git operations over SS
 ```shell
 ghe-find-insecure-git-operations
 ```
-
-
 
 ## Support
 
@@ -1047,7 +1042,7 @@ ghe-diagnostics
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 This utility creates a support bundle tarball containing important logs from your instance.
 
-By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the support bundle directly to {% data variables.product.prodname_enterprise %} support.
+By default, the command creates the tarball in _/tmp_, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from _/setup/support_ doesn't work. You must use this command if you want to generate an _extended_ bundle, containing older logs. You can also use this command to upload the support bundle directly to {% data variables.product.prodname_enterprise %} support.
 
 {% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
 
@@ -1133,9 +1128,9 @@ ghe-migrations -refresh_rate SECONDS
 
 ### ghe-update-check
 
-This utility will check to see if a new patch release of {% data variables.product.prodname_enterprise %} is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to */var/lib/ghe-updates*. An administrator can then [perform the upgrade](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources).
+This utility will check to see if a new patch release of {% data variables.product.prodname_enterprise %} is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to _/var/lib/ghe-updates_. An administrator can then [perform the upgrade](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources).
 
-A file containing the status of the download is available at */var/lib/ghe-updates/ghe-update-check.status*.
+A file containing the status of the download is available at _/var/lib/ghe-updates/ghe-update-check.status_.
 
 To check for the latest {% data variables.product.prodname_enterprise %} release, use the `-i` switch.
 

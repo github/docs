@@ -26,5 +26,4 @@ These are the supported media types for gist comments.
 
 For more information about media types, see "[AUTOTITLE](/rest/overview/media-types)."
 
-
 <!-- Content after this section is automatically generated -->

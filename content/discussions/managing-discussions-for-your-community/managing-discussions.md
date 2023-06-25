@@ -58,7 +58,6 @@ This is what it looks like when you have a globally pinned discussion and a disc
 
 You can pin up to four important discussions above the list of discussions for the repository or organization.
 
-
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}

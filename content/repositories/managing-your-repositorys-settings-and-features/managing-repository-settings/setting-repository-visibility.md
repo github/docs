@@ -92,6 +92,5 @@ For information about improving repository security, see "[AUTOTITLE](/code-secu
 1. To verify that you're changing the correct repository's visibility, type the name of the repository you want to change the visibility of.
 1. Click **I understand, change repository visibility**.
 
-
 ## Further reading
 - "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"

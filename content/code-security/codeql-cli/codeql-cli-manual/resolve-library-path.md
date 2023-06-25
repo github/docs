@@ -59,7 +59,7 @@ on by default.
 
 Select output format. Choices include:
 
-`lines` *(default)*: Print command line arguments on one line each.
+`lines` _(default)_: Print command line arguments on one line each.
 
 `json`: Print a JSON object with all the data.
 
@@ -185,7 +185,7 @@ The root directory of the pack containing queries to compile.
 resolution.
 
 This is used when the pack can be found by name somewhere in the search
-path. If you know the *disk location* of your desired root package,
+path. If you know the _disk location_ of your desired root package,
 pretend it contains a .ql file and use `--query` instead.
 
 ### Common options

@@ -21,7 +21,7 @@ allowTitleToDifferFromFilename: true
 
 {% note %}
 
-**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)." 
+**Note:** {% data reusables.project-management.cascading-permissions %} For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
 
 {% endnote %}
 

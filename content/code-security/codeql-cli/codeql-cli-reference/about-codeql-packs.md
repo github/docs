@@ -75,7 +75,7 @@ The following properties are supported in `qlpack.yml` files.
 
 #### `name`
 
-- Required by all packs. 
+- Required by all packs.
 - Defines the scope of the pack, where the {% data variables.product.prodname_codeql %} pack is published, and the name of the pack defined using alphanumeric characters and hyphens. It must be unique as {% data variables.product.prodname_codeql %} cannot differentiate between {% data variables.product.prodname_codeql %} packs with identical names. Use the pack name to specify queries to run using `database analyze` and to define dependencies between {% data variables.product.prodname_codeql %} packs (see examples below). For example:
   ```yaml
   name: octo-org/security-queries
@@ -155,7 +155,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `license`
-- Optional. 
+- Optional.
 - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For a list of allowed licenses, see [SPDX License List](https://spdx.org/licenses/) in the SPDX Specification. For example:
   ```yaml
   license: MIT
@@ -169,7 +169,7 @@ The following properties are supported in `qlpack.yml` files.
   ```
 
 #### `libraryPathDependencies`
-- Optional, deprecated. Use the `dependencies` property instead. 
+- Optional, deprecated. Use the `dependencies` property instead.
 - Previously used to define the names of any {% data variables.product.prodname_codeql %} packs that this {% data variables.product.prodname_codeql %} pack depends on, as an array. This gives the pack access to any libraries, database schema, and query suites defined in the dependency. For example:
   ```yaml
   libraryPathDependencies: codeql/javascript-all 
@@ -350,4 +350,3 @@ Some extra notes on the following properties:
 - `tests`: This specifies the location of the tests. In this case, the tests are in the root folder (and all sub-folders) of the pack.
 
 - `version`: There is no `version` property for the tests pack. This prevents test packs from accidentally being published.
-

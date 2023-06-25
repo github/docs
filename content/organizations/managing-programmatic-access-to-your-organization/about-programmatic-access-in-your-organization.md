@@ -37,7 +37,6 @@ Organization managers can restrict {% data variables.product.prodname_oauth_app 
 
 {% endif %}
 
-
 ## {% data variables.product.pat_generic_caps %}s
 
 {% ifversion pat-v2%}

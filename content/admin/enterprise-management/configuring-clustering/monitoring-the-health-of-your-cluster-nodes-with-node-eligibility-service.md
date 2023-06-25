@@ -68,7 +68,7 @@ By default, {% data variables.product.prodname_nes %} is disabled. You can enabl
    nomad status nes
    ```
 
-## Configuring TTL settings for {% data variables.product.prodname_nes %} 
+## Configuring TTL settings for {% data variables.product.prodname_nes %}
 
 To determine how {% data variables.product.prodname_nes %} notifies you, you can configure TTL settings for `fail` and `warn` states. The TTL for the `fail` state must be higher than the TTL for the `warn` state.
 
@@ -137,7 +137,7 @@ After {% data variables.product.prodname_nes %} detects that a node has exceeded
    ```shell copy
    nomad node status
    ```
-   
+
    - If the node's status is `ineligible`, make the node eligible by connecting to the node via SSH and running the following command.
 
      ```shell copy
@@ -165,14 +165,14 @@ You can view logs for {% data variables.product.prodname_nes %} from any node in
    nomad alloc logs -job nes
    ```
 1. Alternatively, you can view logs for {% data variables.product.prodname_nes %} on the node that runs the service. The service writes logs to the systemd journal.
-   
+
    - To determine which node runs {% data variables.product.prodname_nes %}, run the following command.
 
      ```shell copy
      nomad job status "nes" | grep running | grep "${nomad_node_id}" | awk 'NR==2{ print $1 }' | xargs nomad alloc status | grep "Node Name"
      ```
    - To view logs on the node, connect to the node via SSH, then run the following command.
-     
+
      ```shell copy
      journalctl -t nes
      ```

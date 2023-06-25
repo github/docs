@@ -181,7 +181,7 @@ For more tips and tricks about why `autobuild` won't build your code, see "[AUTO
 
 If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
 
-{% ifversion codeql-swift-beta %} 
+{% ifversion codeql-swift-beta %}
 ### Considerations for building Swift
 
 {% data reusables.code-scanning.beta-swift-support %}

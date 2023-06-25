@@ -39,4 +39,3 @@ When you reorder commits, you may see one of the following notifications or erro
       ![Screenshot of a notification about conflicts. At the end of the message, a link, labeled "View commits", is highlighted with an orange outline.](/assets/images/help/desktop/reorder-resolve-conflicts.png)
     {% data reusables.desktop.resolve-merge-conflicts %}
    3. When all conflicts are resolved, you can reorder your commits.
-

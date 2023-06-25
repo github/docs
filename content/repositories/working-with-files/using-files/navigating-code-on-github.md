@@ -47,7 +47,7 @@ You do not need to configure anything in your repository to enable code navigati
 
 To learn more about these approaches, see "[Precise and search-based navigation](#precise-and-search-based-navigation)."
 
-Future releases will add *precise code navigation* for more languages, which is a code navigation approach that can give more accurate results.
+Future releases will add _precise code navigation_ for more languages, which is a code navigation approach that can give more accurate results.
 
 {% ifversion code-search-code-view %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
 
@@ -85,7 +85,7 @@ You can find all references for a function or method within the same repository 
 
 ## Precise and search-based navigation
 
-Certain languages supported by {% data variables.product.prodname_dotcom %} have access to *precise code navigation*, which uses an algorithm (based on the open source [`stack-graphs`](https://github.com/github/stack-graphs) library) that resolves definitions and references based on the set of classes, functions, and imported definitions that are visible at any given point in your code. Other languages use *search-based code navigation*, which searches all definitions and references across a repository to find entities with a given name. Both strategies are effective at finding results and both make sure to avoid inappropriate results such as comments, but precise code navigation can give more accurate results, especially when a repository contains multiple methods or functions with the same name.
+Certain languages supported by {% data variables.product.prodname_dotcom %} have access to _precise code navigation_, which uses an algorithm (based on the open source [`stack-graphs`](https://github.com/github/stack-graphs) library) that resolves definitions and references based on the set of classes, functions, and imported definitions that are visible at any given point in your code. Other languages use _search-based code navigation_, which searches all definitions and references across a repository to find entities with a given name. Both strategies are effective at finding results and both make sure to avoid inappropriate results such as comments, but precise code navigation can give more accurate results, especially when a repository contains multiple methods or functions with the same name.
 
 If you don't see the results you expect from a precise code navigation query, you can click on the "search-based" link in the displayed popover to perform search-based navigation.
 

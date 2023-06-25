@@ -178,7 +178,6 @@ Both Azure Pipelines and {% data variables.product.prodname_actions %} allow you
 
 Below is an example of the syntax for each system. The workflows start a first job named `initial`, and when that job completes, two jobs named `fanout1` and `fanout2` will run. Finally, when those jobs complete, the job `fanin` will run.
 
-
 ### Azure Pipelines syntax for dependencies between jobs
 
 {% raw %}

@@ -35,7 +35,7 @@ For example, if you and another person both edited the file _styleguide.md_ on t
    ```shell
    cd REPOSITORY-NAME
    ```
-3. Generate a list of the files affected by the merge conflict. In this example, the file *styleguide.md* has a merge conflict.
+3. Generate a list of the files affected by the merge conflict. In this example, the file _styleguide.md_ has a merge conflict.
    ```shell
    $ git status
    > # On branch branch-b
@@ -80,14 +80,14 @@ You can now merge the branches on the command line or [push your changes to your
 
 To resolve a merge conflict caused by competing changes to a file, where a person deletes a file in one branch and another person edits the same file, you must choose whether to delete or keep the removed file in a new commit.
 
-For example, if you edited a file, such as *README.md*, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
+For example, if you edited a file, such as _README.md_, and another person removed the same file in another branch in the same Git repository, you'll get a merge conflict error when you try to merge these branches. You must resolve this merge conflict with a new commit before you can merge these branches.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigate into the local Git repository that has the merge conflict.
    ```shell
    cd REPOSITORY-NAME
    ```
-2. Generate a list of the files affected by the merge conflict. In this example, the file *README.md* has a merge conflict.
+2. Generate a list of the files affected by the merge conflict. In this example, the file _README.md_ has a merge conflict.
    ```shell
    $ git status
    > # On branch main

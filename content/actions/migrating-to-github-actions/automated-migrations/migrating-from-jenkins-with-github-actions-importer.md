@@ -77,7 +77,7 @@ The `configure` CLI command is used to set required credentials and options for 
   Enter the following values (leave empty to omit):
   ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
   ✔ Base url of the GitHub instance: https://github.com
-  ✔ {% data variables.product.pat_generic_caps %} for Jenkins: *************** 
+  ✔ {% data variables.product.pat_generic_caps %} for Jenkins: ***************
   ✔ Username of Jenkins user: admin
   ✔ Base url of the Jenkins instance: https://localhost
   Environment variables successfully updated.

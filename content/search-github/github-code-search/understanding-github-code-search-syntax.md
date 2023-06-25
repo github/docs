@@ -15,7 +15,7 @@ The search syntax in this article only applies to searching code with {% data va
 
 Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.
 
-A bare term with no qualifiers will match either the content of a file or the file's path. 
+A bare term with no qualifiers will match either the content of a file or the file's path.
 
 For example, the following query:
 
@@ -23,9 +23,9 @@ For example, the following query:
 http-push
 ```
 
-The above query will match the file `docs/http-push.txt`, even if it doesn't contain the term `http-push`. It will also match a file called `example.txt` if it contains the term `http-push`. 
+The above query will match the file `docs/http-push.txt`, even if it doesn't contain the term `http-push`. It will also match a file called `example.txt` if it contains the term `http-push`.
 
-You can enter multiple terms separated by whitespace to search for documents that satisfy both terms. 
+You can enter multiple terms separated by whitespace to search for documents that satisfy both terms.
 
 For example, the following query:
 
@@ -140,7 +140,7 @@ user:octocat
 
 ### Language qualifier
 
-To narrow down to a specific languages, use the `language:` qualifier. For example: 
+To narrow down to a specific languages, use the `language:` qualifier. For example:
 
 ```
 language:ruby OR language:cpp OR language:csharp
@@ -156,7 +156,7 @@ To search within file paths, use the `path:` qualifier. This will match files co
 path:unit_tests
 ```
 
-The above query will match both `src/unit_tests/my_test.py` and `src/docs/unit_tests.md` since they both contain `unit_test` somewhere in their path. 
+The above query will match both `src/unit_tests/my_test.py` and `src/docs/unit_tests.md` since they both contain `unit_test` somewhere in their path.
 
 To match only a specific filename (and not part of the path), you could use a regular expression:
 
@@ -206,7 +206,7 @@ To search for a filename which contains a special character like `*` or `?`, jus
 path:"file?"
 ```
 
-Glob expressions are disabled for quoted strings, so the above query will only match paths containing the literal string `file?`. 
+Glob expressions are disabled for quoted strings, so the above query will only match paths containing the literal string `file?`.
 
 ### Symbol qualifier
 
@@ -226,7 +226,7 @@ You can also use regular expressions with the symbol qualifier. For example, the
 language:rust symbol:/^String::to_.*/
 ```
 
-Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages. 
+Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages.
 
 - C#
 - Python
@@ -249,7 +249,7 @@ By default, bare terms search both paths and file content. To restrict a search 
 content:README.md
 ```
 
-This query would only match files containing the term `README.md`, rather than matching files named `README.md`. 
+This query would only match files containing the term `README.md`, rather than matching files named `README.md`.
 
 ### Is qualifier
 
@@ -273,7 +273,7 @@ log4j NOT is:fork
 
 ## Using regular expressions
 
-Code search supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex in slashes. 
+Code search supports regular expressions to search for patterns in your code. You can use regular expressions in bare search terms as well as within many qualifiers, by surrounding the regex in slashes.
 
 For example, to search for the regular expression `sparse.*index`, you would use:
 

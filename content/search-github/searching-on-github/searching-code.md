@@ -104,8 +104,8 @@ The `filename` qualifier matches code files with a certain filename. You can als
 | Qualifier  | Example
 | ------------- | -------------
 | <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) matches files named "linguist."
-| <code>filename:<em>FILENAME</em></code> | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
-| <code>filename:<em>FILENAME</em></code> | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named *test_helper* within the *test* directory.
+| <code>filename:<em>FILENAME</em></code> | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches _.vimrc_ files with the word "commands."
+| <code>filename:<em>FILENAME</em></code> | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named _test_helper_ within the _test_ directory.
 
 ## Search by file extension
 

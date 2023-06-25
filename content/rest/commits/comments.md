@@ -28,5 +28,4 @@ about the use of media types in the API [here](/rest/overview/media-types).
 
 For more information, see "[AUTOTITLE](/rest/overview/media-types)."
 
-
 <!-- Content after this section is automatically generated -->

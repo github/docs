@@ -90,7 +90,7 @@ For supported languages, {% data variables.product.prodname_dependabot %} automa
 
 {% note %}
 
-**Note:** During the beta release, this feature is available only for new Python advisories created *after* April 14, 2022, and for a subset of historical Python advisories. {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. Vulnerable calls are highlighted only on the {% data variables.product.prodname_dependabot_alerts %} pages.
+**Note:** During the beta release, this feature is available only for new Python advisories created _after_ April 14, 2022, and for a subset of historical Python advisories. {% data variables.product.prodname_dotcom %} is working to backfill data across additional historical Python advisories, which are added on a rolling basis. Vulnerable calls are highlighted only on the {% data variables.product.prodname_dependabot_alerts %} pages.
 
 {% endnote %}
 
@@ -234,7 +234,6 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 4. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened.
 
 {% endif %}
-
 
 ## Reviewing the audit logs for {% data variables.product.prodname_dependabot_alerts %}
 

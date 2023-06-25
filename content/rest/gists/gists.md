@@ -40,5 +40,4 @@ These are the supported media types for fetching gist contents.
 
 For more information, see "[AUTOTITLE](/rest/overview/media-types)."
 
-
 <!-- Content after this section is automatically generated -->

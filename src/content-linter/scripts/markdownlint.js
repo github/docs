@@ -39,7 +39,10 @@ async function main() {
     MD023: true,
     MD024: true,
     MD027: true,
+    MD029: { style: 'one' },
     MD030: true,
+    MD031: true,
+    MD037: true,
     MD039: true,
     MD040: {
       allowed_languages: [
@@ -76,6 +79,7 @@ async function main() {
     },
     MD047: true,
     MD049: { style: 'underscore' },
+    MD050: { style: 'asterisk' },
     MD111: true,
     MD112: true,
     MD113: true,

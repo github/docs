@@ -22,5 +22,4 @@ A {% data variables.product.prodname_github_app %} installation refers to any us
 
 To list all GitHub App installations for an organization, see "[AUTOTITLE](/rest/orgs/orgs#list-app-installations-for-an-organization)."
 
-
 <!-- Content after this section is automatically generated -->

@@ -55,7 +55,6 @@ For more information about managing identity and access for your enterprise on {
 
 ## Adding the {% data variables.product.product_name %} application in Okta
 
-
 {% data reusables.saml.okta-ae-applications-menu %}
 {% data reusables.saml.okta-browse-app-catalog %}
 {%- ifversion ghae %}
