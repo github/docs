@@ -19,7 +19,7 @@ permissions:
 jobs:
   first-responder-triage-pr:
     name: Triage PR to FR project board
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]'
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]' && github.actor != 'docs-bot'
     runs-on: ubuntu-latest
 
     steps:
@@ -42,8 +42,6 @@ jobs:
               `/orgs/github/teams/docs/members?per_page=100`
             )
             const teamLogins = teamMembers.data.map(member => member.login)
-            // ignore PRs opened by docs bot accounts
-            teamLogins.push('Octomerger', 'octoglot')
             if (teamLogins.some(login => login === updatedIssueInformation.data.user.login)) {
               console.log(`This issue or pull request was authored by a member of the github/docs team.`)
               return 'true'

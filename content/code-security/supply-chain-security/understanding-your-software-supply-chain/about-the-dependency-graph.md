@@ -39,8 +39,6 @@ Repository administrators can also set up the dependency graph for private repos
 
 {% endif %}
 
-{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
-
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
 {% ifversion ghes %}
@@ -95,11 +93,14 @@ The recommended formats explicitly define which versions are used for all direct
 {%- endif %}
 | Python Poetry | Python                    | `poetry.lock` | `poetry.lock`, `pyproject.toml` |
 | RubyGems             | Ruby           | `Gemfile.lock` | `Gemfile.lock`, `Gemfile`, `*.gemspec` |
+{%- ifversion supply-chain-features-swift-support %}
+| Swift Package Manager | Swift | `Package.resolved` | `Package.resolved` |
+{%- endif %}
 | Yarn | JavaScript | `yarn.lock` | `package.json`, `yarn.lock` |
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 
 - If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 

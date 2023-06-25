@@ -65,7 +65,7 @@ curl --request POST \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
-You can find the client ID and generate a client secret on the settings page for your app. For user-owned {% data variables.product.prodname_github_app %}s, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned {% data variables.product.prodname_github_app %}s, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the sluggified name of your app and `ORGANIZATION` with the sluggified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+You can find the client ID and generate a client secret on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
 
 ## Authenticating in a {% data variables.product.prodname_actions %} workflow
 

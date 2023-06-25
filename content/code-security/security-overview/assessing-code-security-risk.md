@@ -103,4 +103,3 @@ You can view data for security alerts across organizations in an enterprise. {% 
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}
 {% endif %}
-

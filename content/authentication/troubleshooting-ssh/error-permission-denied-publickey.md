@@ -16,7 +16,7 @@ shortTitle: Permission denied (publickey)
 ---
 ## Should the `sudo` command or elevated privileges be used with Git?
 
-You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git. If you have a *very good reason* you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/authentication/connecting-to-github-with-ssh) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
+You should not be using the `sudo` command or elevated privileges, such as administrator permissions, with Git. If you have a _very good reason_ you must use `sudo`, then ensure you are using it with every command (it's probably just better to use `su` to get a shell as root at that point). If you [generate SSH keys](/authentication/connecting-to-github-with-ssh) without `sudo` and then try to use a command like `sudo git push`, you won't be using the same keys that you generated.
 
 ## Check that you are connecting to the correct server
 
@@ -57,7 +57,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. 
+2. Verify that you have a private key generated and loaded into SSH.
    ```shell
    # start the ssh-agent in the background
    $ eval "$(ssh-agent -s)"
@@ -75,7 +75,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-2. Verify that you have a private key generated and loaded into SSH. 
+2. Verify that you have a private key generated and loaded into SSH.
    ```shell
    $ ssh-add -l -E sha256
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
@@ -86,16 +86,15 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% linux %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Verify that you have a private key generated and loaded into SSH. 
+2. Verify that you have a private key generated and loaded into SSH.
    ```shell
    $ ssh-add -l -E sha256
    > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
    ```
   
-
 {% endlinux %}
 
-The `ssh-add` command *should* print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
+The `ssh-add` command _should_ print out a long string of numbers and letters. If it does not print anything, you will need to [generate a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) and associate it with {% data variables.product.product_name %}.
 
 {% tip %}
 
@@ -147,7 +146,7 @@ You must provide your public key to {% data variables.product.product_name %} to
    $ eval "$(ssh-agent -s)"
    > Agent pid 59566
    ```
-3. Find and take a note of your public key fingerprint. 
+3. Find and take a note of your public key fingerprint.
    ```shell
    $ ssh-add -l -E sha256
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
@@ -167,7 +166,7 @@ You must provide your public key to {% data variables.product.product_name %} to
    $ ssh-agent -s
    > Agent pid 59566
    ```
-3. Find and take a note of your public key fingerprint. 
+3. Find and take a note of your public key fingerprint.
    ```shell
    $ ssh-add -l -E sha256
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)

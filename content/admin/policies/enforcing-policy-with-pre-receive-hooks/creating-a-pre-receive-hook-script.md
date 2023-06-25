@@ -35,7 +35,7 @@ This string represents the following arguments.
 | `<new-value>` | New object name to be stored in the ref.<br> When you delete a ref, the value is 40 zeroes. |
 | `<ref-name>`  | The full name of the ref. |
 
-For more information about `git-receive-pack`, see "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" in the Git documentation. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in *Pro Git*.
+For more information about `git-receive-pack`, see "[git-receive-pack](https://git-scm.com/docs/git-receive-pack)" in the Git documentation. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in _Pro Git_.
 
 ### Output (`stdout`)
 
@@ -259,4 +259,4 @@ You can test a pre-receive hook script locally before you create or update it on
    Notice that the push was rejected after executing the pre-receive hook and echoing the output from the script.
 
 ## Further reading
-- "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the *Pro Git website*
+- "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the _Pro Git website_

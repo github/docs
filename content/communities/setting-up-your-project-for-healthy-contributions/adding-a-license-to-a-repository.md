@@ -24,7 +24,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 {% ifversion fpt or ghec %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-1. In the file name field, type *LICENSE* or *LICENSE.md* (with all caps).
+1. In the file name field, type _LICENSE_ or _LICENSE.md_ (with all caps).
 1. Under the file name, click **Choose a license template**.
 
    ![Screenshot of the new file form, with "LICENSE" entered in the file name field. A button, labeled "Choose a license template," is outlined in dark orange.](/assets/images/help/repository/license-tool.png)
@@ -42,7 +42,7 @@ Open source licenses enable others to freely use, change, and distribute the pro
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field, type *LICENSE* or *LICENSE.md* (with all caps).
+3. In the file name field, type _LICENSE_ or _LICENSE.md_ (with all caps).
 4. On the **Edit new file** tab, paste the full text of the license you want to use.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}

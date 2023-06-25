@@ -15,17 +15,17 @@ shortTitle: Integrator best practices
 ---
 
 
-Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users *and* ensure that it's reliably interacting with the API.
+Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users _and_ ensure that it's reliably interacting with the API.
 
 ## Secure payloads delivered from GitHub
 
-It's very important that you secure [the payloads sent from GitHub][event-types]. Although no personal information (like passwords) is ever transmitted in a payload, leaking *any* information is not good. Some information that might be sensitive include committer email address or the names of private repositories.
+It's very important that you secure [the payloads sent from GitHub][event-types]. Although no personal information (like passwords) is ever transmitted in a payload, leaking _any_ information is not good. Some information that might be sensitive include committer email address or the names of private repositories.
 
 There are several steps you can take to secure receipt of payloads delivered by GitHub:
 
 1. Ensure that your receiving server is on an HTTPS connection. By default, GitHub will verify SSL certificates when delivering payloads.{% ifversion fpt or ghec %}
 1. You can add [the IP address we use when delivering hooks](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses) to your server's allow list. To ensure that you're always checking the right IP address, you can [use the `/meta` endpoint](/rest/meta#meta) to find the address we use.{% endif %}
-1. Provide [a secret token](/webhooks-and-events/webhooks/securing-your-webhooks) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token *per user* of your service. That way, if one token is compromised, no other user would be affected.
+1. Provide [a secret token](/webhooks-and-events/webhooks/securing-your-webhooks) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token _per user_ of your service. That way, if one token is compromised, no other user would be affected.
 
 ## Favor asynchronous work over synchronous
 
@@ -39,7 +39,7 @@ Note that even with a background job running, GitHub still expects your server t
 
 Every webhook has its own "Recent Deliveries" section, which lists whether a deployment was successful or not.
 
-![Screenshot of the "Recent Deliveries" tab on the "Manage webhook" page.](/assets/images/help/webhooks/webhooks_recent_deliveries.png)
+![Screenshot of the "Recent Deliveries" tab on the "Manage webhook" page.](/assets/images/help/webhooks/webhooks-recent-deliveries.png)
 
 You should make use of proper HTTP status codes in order to inform users. You can use codes like `201` or `202` to acknowledge receipt of payload that won't be processed (for example, a payload delivered by a branch that's not the default). Reserve the `500` error code for catastrophic failures.
 
@@ -47,7 +47,7 @@ You should make use of proper HTTP status codes in order to inform users. You ca
 
 Users can dig into the server responses you send back to GitHub. Ensure that your messages are clear and informative.
 
-![Screenshot of the "Response" tab of a webhook delivery, including the "Headers" and "Body" sections.](/assets/images/help/webhooks/payload_response_tab.png)
+![Screenshot of the "Response" tab of a webhook delivery, including the "Headers" and "Body" sections.](/assets/images/help/webhooks/payload-response-tab.png)
 
 ## Follow any redirects that the API sends you
 

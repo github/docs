@@ -238,7 +238,7 @@ Resources may also send custom validation errors (where `code` is `custom`). Cus
 ## HTTP redirects
 
 The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. Clients should assume that any
-request may result in a redirection. Receiving an HTTP redirection is *not* an
+request may result in a redirection. Receiving an HTTP redirection is _not_ an
 error and clients should follow that redirect. Redirect responses will have a
 `Location` header field which contains the URI of the resource to which the
 client should repeat the requests.
@@ -312,7 +312,6 @@ The {% data variables.product.product_name %} REST API uses rate limiting to con
 Different types of API requests to {% data variables.location.product_location %} are subject to different rate limits. Additionally, the Search endpoints have dedicated limits. For more information, see "[AUTOTITLE](/rest/search#rate-limit)" in the REST API documentation.
 
 {% data reusables.enterprise.rate_limit %}
-
 
 #### Rate limits for requests from personal accounts
 
@@ -394,7 +393,6 @@ If you exceed the rate limit, the response will have a `403` status and the `x-r
 ```
 
 If you are rate limited, you should not try your request until after the time specified by the `x-ratelimit-reset` time.
-
 
 ### Increasing the unauthenticated rate limit for {% data variables.product.prodname_oauth_apps %}
 

@@ -102,7 +102,6 @@ Each time a user sees a mandatory message, an audit log event is created. The ev
 
 {% endif %}
 
-
 ## Creating a global announcement banner
 
 You can set a global announcement banner to be displayed to all users at the top of every page{% ifversion ghec %} within your enterprise{% endif %}.

@@ -97,5 +97,4 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 > }
 ```
 
-
 <!-- Content after this section is automatically generated -->

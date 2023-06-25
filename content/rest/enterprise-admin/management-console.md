@@ -52,5 +52,4 @@ $ curl -L -u "YOUR_USER_NAME:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/a
 
 {% endif %}
 
-
 <!-- Content after this section is automatically generated -->

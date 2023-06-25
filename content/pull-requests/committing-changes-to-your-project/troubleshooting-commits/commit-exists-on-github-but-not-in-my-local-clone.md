@@ -75,7 +75,7 @@ $ git push upstream B:recover-B
 # Push local B to new upstream branch, creating new reference to commit
 ```
 
-Now, *you* can run:
+Now, _you_ can run:
 
 ```shell
 $ git fetch upstream recover-B

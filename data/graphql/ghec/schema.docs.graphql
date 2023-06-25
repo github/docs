@@ -9579,6 +9579,11 @@ enum DependencyGraphEcosystem {
   Rust crates
   """
   RUST
+
+  """
+  Swift packages
+  """
+  SWIFT
 }
 
 """
@@ -27702,7 +27707,7 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     """
     Return rulesets configured at higher levels that apply to this organization
     """
-    includeParents: Boolean = false
+    includeParents: Boolean = true
 
     """
     Returns the last _n_ elements from the list.
@@ -32756,7 +32761,12 @@ type ProjectV2SingleSelectField implements Node & ProjectV2FieldCommon {
   """
   Options for the single select field
   """
-  options: [ProjectV2SingleSelectFieldOption!]!
+  options(
+    """
+    Filter returned options to only those matching these names, case insensitive.
+    """
+    names: [String!]
+  ): [ProjectV2SingleSelectFieldOption!]!
 
   """
   The project that contains this field.
@@ -42754,6 +42764,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     The ID of the ruleset to be returned.
     """
     databaseId: Int!
+
+    """
+    Include rulesets configured at higher levels that apply to this repository
+    """
+    includeParents: Boolean = true
   ): RepositoryRuleset
 
   """
@@ -42778,7 +42793,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     """
     Return rulesets configured at higher levels that apply to this repository
     """
-    includeParents: Boolean = false
+    includeParents: Boolean = true
 
     """
     Returns the last _n_ elements from the list.
@@ -46452,6 +46467,11 @@ enum SecurityAdvisoryEcosystem {
   Rust crates
   """
   RUST
+
+  """
+  Swift packages
+  """
+  SWIFT
 }
 
 """

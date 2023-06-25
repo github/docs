@@ -1,5 +1,5 @@
 ---
-title: Deleting an OAuth App
+title: Deleting an OAuth app
 intro: '{% data reusables.shortdesc.deleting_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/deleting-an-oauth-app
@@ -12,7 +12,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}

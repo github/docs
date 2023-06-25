@@ -23,7 +23,7 @@ shortTitle: Configure a remote repository
    > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (fetch)
    > origin  https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_FORK.git (push)
    ```
-3. Specify a new remote *upstream* repository that will be synced with the fork.
+3. Specify a new remote _upstream_ repository that will be synced with the fork.
    ```shell
    $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
    ```

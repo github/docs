@@ -12,7 +12,7 @@ shortTitle: Manage multiple accounts
 
 ## About management of multiple accounts
 
-In some cases, you may need to use multiple accounts on {% data variables.location.product_location %}. For example, you may have a personal account for open source contributions, and your employer may also create and manage a user account for you within an enterprise. 
+In some cases, you may need to use multiple accounts on {% data variables.location.product_location %}. For example, you may have a personal account for open source contributions, and your employer may also create and manage a user account for you within an enterprise.
 
 You cannot use your {% data variables.enterprise.prodname_managed_user %} to contribute to public projects on {% data variables.location.product_location %}, so you must contribute to those resources using your personal account. For more information, see "[About  {% data variables.product.prodname_emus %}]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#abilities-and-restrictions-of-managed-user-accounts){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% elsif ghec %}."{% endif %}
 
@@ -28,7 +28,7 @@ If you aren't required to use a {% data variables.enterprise.prodname_managed_us
 
 ## Contributing to two accounts using HTTPS and SSH
 
-If you contribute with two accounts from one workstation, you can access repositories by using a different protocol and credentials for each account. 
+If you contribute with two accounts from one workstation, you can access repositories by using a different protocol and credentials for each account.
 
 Git can use either the HTTPS or SSH protocol to access and update data in repositories on {% data variables.location.product_location %}. The protocol you use to clone a repository determines which credentials your workstation will use to authenticate when you access the repository. With this approach to account management, you store the credentials for one account to use for HTTPS connections and upload an SSH key to the other account to use for SSH connections.
 

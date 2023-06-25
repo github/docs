@@ -27,5 +27,4 @@ To test with stubbed data, use a stubbed endpoint in place of its production cou
 
 Make sure to replace stubbed endpoints with production endpoints before deploying your {% data variables.product.prodname_github_app %}.
 
-
 <!-- Content after this section is automatically generated -->

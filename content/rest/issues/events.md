@@ -21,5 +21,4 @@ You can use the REST API to view different types of events triggered by activity
 
 {% data reusables.pull_requests.issues-pr-shared-api %}
 
-
 <!-- Content after this section is automatically generated -->

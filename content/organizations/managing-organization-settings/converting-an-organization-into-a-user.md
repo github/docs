@@ -30,7 +30,6 @@ shortTitle: Convert organization to user
 6. [Rename the user](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username) to the organization's name.
 7. [Delete the organization](/organizations/managing-organization-settings/deleting-an-organization-account).
 
-
 {% else %}
 
 1. Sign up for a new GitHub Enterprise personal account.

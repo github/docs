@@ -290,7 +290,6 @@ Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depen
 <tr>
 <td>
 
-
 ```yaml copy
 concurrency:
   group: {% raw %}'${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'{% endraw %}
@@ -526,7 +525,6 @@ This step runs a command to check out LFS objects from the repository.
 </tr>
 <tr>
 <td>
-
 
 ```yaml copy
       - name: Gather files changed

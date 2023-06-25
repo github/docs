@@ -24,5 +24,4 @@ You can manage {% data variables.product.product_name %} team members through yo
 
 {% endnote %}
 
-
 <!-- Content after this section is automatically generated -->

@@ -23,5 +23,4 @@ Organization owners can temporarily restrict which type of user can comment, ope
 
 Setting the interaction limit at the organization level will overwrite any interaction limits that are set for individual repositories owned by the organization. To set different interaction limits for individual repositories owned by the organization, use the [Repository](#repository) interactions endpoints instead.
 
-
 <!-- Content after this section is automatically generated -->

@@ -49,7 +49,7 @@ pagination. If you're making requests and receiving an incomplete set of results
 probably only seeing the first page. You'll need to request the remaining pages
 in order to get more results.
 
-It's important to *not* try and guess the format of the pagination URL. Not every
+It's important to _not_ try and guess the format of the pagination URL. Not every
 API call uses the same structure. Instead, extract the pagination information from
 the link header, which is returned with every request. For more information about pagination, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
 
@@ -76,7 +76,7 @@ curl -H 'Authorization: Bearer YOUR-TOKEN' https://api.github.com/user/repos
 
 For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-For OAuth Apps, you should use the [web application flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow) to generate an OAuth token to use in the API call's header:
+For {% data variables.product.prodname_oauth_app %}s, you should use the [web application flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#web-application-flow) to generate an OAuth token to use in the API call's header:
 
 ```bash
 curl -H 'Authorization: Bearer YOUR-OAUTH-TOKEN' https://api.github.com/user/repos

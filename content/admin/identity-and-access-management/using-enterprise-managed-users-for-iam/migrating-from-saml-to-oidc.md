@@ -32,7 +32,6 @@ If you're new to {% data variables.product.prodname_emus %} and haven't yet conf
 
 To migrate your enterprise from SAML to OIDC, you will disable your existing {% data variables.product.prodname_emu_idp_application %} application on Azure AD, prepare and begin the migration as the setup user for your enterprise on {% data variables.location.product_location %}, then install and configure the new application for OIDC on Azure AD. After the migration is complete and Azure AD provisions your users, the users can authenticate to access your enterprise's resources on {% data variables.location.product_location %} using OIDC.
 
-
 {% warning %}
 
 **Warning**: Migration of your enterprise from SAML to OIDC can take up to an hour. During the migration, users cannot access your enterprise on {% data variables.location.product_location %}.

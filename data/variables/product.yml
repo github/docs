@@ -117,8 +117,8 @@ pat_v1_caps_plural: >-
 prodname_marketplace: 'GitHub Marketplace'
 prodname_github_app: 'GitHub App'
 prodname_github_apps: 'GitHub Apps'
-prodname_oauth_app: 'OAuth App'
-prodname_oauth_apps: 'OAuth Apps'
+prodname_oauth_app: 'OAuth app'
+prodname_oauth_apps: 'OAuth apps'
 
 # API and developer docs
 prodname_enterprise_api: '{% ifversion ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% endif %} APIs'

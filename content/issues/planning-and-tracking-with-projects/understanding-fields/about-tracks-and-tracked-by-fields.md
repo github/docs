@@ -33,7 +33,6 @@ You can enable the Tracked by field to see which issues are tracking an item in 
 
 1. Under "Hidden fields", click **Tracked by**.
 
-
 ## Enabling the Tracks field
 
 You can enable the Tracks field to see what other issues an item in your project is tracking.

@@ -38,5 +38,4 @@ GitHub is a lot of things, but it’s not a law firm. As such, {% data variables
 
 {% endwarning %}
 
-
 <!-- Content after this section is automatically generated -->

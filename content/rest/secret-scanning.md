@@ -24,5 +24,4 @@ You can use the API to:
 
 For more information about {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 
-
 <!-- Content after this section is automatically generated -->

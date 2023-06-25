@@ -55,19 +55,19 @@ You can use [{% data variables.product.prodname_github_codespaces %}](/codespace
 1. Open the pull request in a codespace, as described in "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces)."
 2. In the Activity Bar, click the **GitHub Pull Request** view. This view only appears when you open a pull request in a codespace.
 
-   ![Option to open PR in a codespace.](/assets/images/help/codespaces/github-pr-view.png)
+   ![Screenshot of the {% data variables.product.prodname_vscode_shortname %} Activity Bar. The mouse pointer is hovering over an icon displaying the tooltip "{% data variables.product.prodname_dotcom %} Pull Request."](/assets/images/help/codespaces/github-pr-view.png)
 
 3. To review a specific file, click the **Open File** icon in the Side Bar.
 
-   ![Option to open PR in a codespace.](/assets/images/help/codespaces/changes-in-files.png)
+   ![Screenshot of the "{% data variables.product.prodname_dotcom %} Pull Request" side bar. A file name is highlighted with a dark orange outline.](/assets/images/help/codespaces/changes-in-files.png)
 
 4. To add review comments, click the **+** icon next to the line number. Type your review comment and then click **Start Review**.
 
-   ![Option to open PR in a codespace.](/assets/images/help/codespaces/start-review.png)
+   ![Screenshot of a comment being added, reading "Yes, I agree, this is clearer." The "Start Review" button is shown below the comment.](/assets/images/help/codespaces/start-review.png)
 
 5. When you are finished adding review comments, from the Side Bar you can choose to either submit the comments, approve the changes, or request changes.
 
-   ![Option to open PR in a codespace.](/assets/images/help/codespaces/submit-review.png)
+   ![Screenshot of the side bar showing the dropdown options "Comment and Submit," "Approve and Submit," and "Request Changes and Submit."](/assets/images/help/codespaces/submit-review.png)
 
 For more information on reviewing pull requests in {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests)."
 
@@ -83,7 +83,7 @@ If the pull request contains changes to dependencies you can use the dependency 
 
 1. On the right of the header for a manifest or lock file, display the dependency review by clicking the **{% octicon "file" aria-label="The rich diff icon" %}** rich diff button.
 
-   ![The rich diff button.](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
+   ![Screenshot of the "Files changed" tab of a pull request. The button to display the rich diff, labeled with a file icon, is outlined in dark orange.](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
 {% data reusables.repositories.return-to-source-diff %}
 {% endif %}

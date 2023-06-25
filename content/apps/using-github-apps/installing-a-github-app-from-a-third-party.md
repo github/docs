@@ -48,6 +48,15 @@ The "app manager" role in an organization does not give a person the ability to 
 During the installation process, the app owner will direct you to a {% data variables.product.company_short %} URL to install the {% data variables.product.prodname_github_app %}. The URL will look something like `{% data variables.product.oauth_host_code %}/{% ifversion ghes or ghae %}github-apps{% else %}apps{% endif %}/APP-NAME/installations/new`, where `APP-NAME` is the name of the {% data variables.product.prodname_github_app %}.
 
 1. Select the location where you want to install the {% data variables.product.prodname_github_app %}. You can select your personal account or an organization that you are a member of.
+
+   {% ifversion ghec %}
+   {% note %}
+
+   **Note**: {% data reusables.apps.github_app_install_saml %}
+
+   {% endnote %}
+   {% endif %}
+
 1. If the app requires repository permissions, select **All repositories** or **Only select repositories**. The app will always have at least read-only access to all public repositories on {% data variables.product.company_short %}.
 
    If the app does not require repository permissions, these options will be omitted.

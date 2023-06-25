@@ -18,7 +18,7 @@ You can customize your organization's Overview page to show a README and pinned 
 
 Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
 
-![Image of an organization's profile page. In the right sidebar, a dropdown menu, labeled "View as: Public", is outlined in dark orange.](/assets/images/help/organizations/profile_view_switcher_public.png)
+![Screenshot of an organization's profile page. In the right sidebar, a dropdown menu, labeled "View as: Public", is outlined in dark orange.](/assets/images/help/organizations/profile_view_switcher_public.png)
 
 The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
 

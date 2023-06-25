@@ -42,7 +42,7 @@ To draft a new release and publish the action to {% data variables.product.prodn
 1. Under "Release Action", select **Publish this Action to the {% data variables.product.prodname_marketplace %}**.
 
    {% note %}
-   
+
    **Note**: The "Publish" checkbox is disabled if the account that owns the repository has not yet accepted the {% data variables.product.prodname_marketplace %} Developer Agreement. If you own the repository or are an organization owner, click the link to "accept the GitHub Marketplace Developer Agreement", then accept the agreement. If there is no link, send the organization owner a link to this "Release Action" page and ask them to accept the agreement.
 
    {% endnote %}
@@ -68,4 +68,3 @@ To remove a published action from {% data variables.product.prodname_marketplace
 Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
 
 ![Screenshot of {% data variables.product.prodname_actions %} with the verified creator badge.](/assets/images/marketplace/verified-creator-badge-for-actions.png)
-

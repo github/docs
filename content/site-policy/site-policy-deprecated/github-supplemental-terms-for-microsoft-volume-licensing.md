@@ -32,8 +32,6 @@ These GitHub Supplemental Terms include the following Sections and Exhibits, eac
 
 - EXHIBIT A: Definitions.
 
-
-
 ## SECTION 1: GITHUB ENTERPRISE SERVER LICENSE TERMS
 
 This Section 1 details terms applicable to Customer’s use of the Software.

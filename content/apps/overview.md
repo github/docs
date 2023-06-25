@@ -21,6 +21,6 @@ For more information about using {% data variables.product.prodname_github_app %
 
 For more information about building {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
-## {% data variables.product.prodname_github_app %}s and OAuth Apps
+## {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_apps %}
 
-{% data variables.product.company_short %} also supports OAuth Apps. In general, {% data variables.product.prodname_github_app %}s are preferred over {% data variables.product.prodname_oauth_app %}s. {% data variables.product.prodname_github_app %}s use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. These properties can harden the security of the app by limiting the damage that could be done if the app's credentials were leaked. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)."
+{% data variables.product.company_short %} also supports {% data variables.product.prodname_oauth_apps %}. In general, {% data variables.product.prodname_github_app %}s are preferred over {% data variables.product.prodname_oauth_apps %}. {% data variables.product.prodname_github_app %}s use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. These properties can harden the security of the app by limiting the damage that could be done if the app's credentials were leaked. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)."

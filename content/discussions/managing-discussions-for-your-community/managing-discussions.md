@@ -58,7 +58,6 @@ This is what it looks like when you have a globally pinned discussion and a disc
 
 You can pin up to four important discussions above the list of discussions for the repository or organization.
 
-
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
@@ -116,7 +115,7 @@ You can unpin a globally pinned discussion. This will not delete the discussion,
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "pin" aria-hidden="true" %} **Unpin discussion**.
 
-   ![Screenshot of the "Unpin discussion" option in right sidebar for discussion.](/assets/images/help/discussions/click-unpin-discussion.png)
+   ![Screenshot of the right sidebar of a discussion. The "Unpin discussion" option is highlighted with an orange outline.](/assets/images/help/discussions/click-unpin-discussion.png)
 
 1. Read the warning, then click **Unpin discussion**.
 

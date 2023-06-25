@@ -39,6 +39,8 @@ View alerts about dependencies that are known to contain security vulnerabilitie
 and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 {% endif %}
 
+{% data reusables.dependabot.quickstart-link %}
+
 {% ifversion ghae %}
 ### {% data variables.product.prodname_dependabot_alerts %}
 
@@ -69,7 +71,6 @@ Security overview allows you to review security configurations and alerts, makin
 ### Security overview for repositories
 Security overview shows which security features are enabled for the repository, and lets you configure any available security features that are not already enabled.
 {% endif %}
-
 
 {% ifversion fpt or ghec %}
 ## Available for free public repositories

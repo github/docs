@@ -23,7 +23,7 @@ Your action should:
 - Work across {% data variables.product.product_name %}-hosted and self-hosted runners
 - Leverage community tooling when possible
 
-This article will demonstrate how to write an action that retrieves a specific version of your CLI, installs it, adds it to the path, and (optionally) caches it. This type of action (an action that sets up a tool) is often named `setup-$TOOL`. 
+This article will demonstrate how to write an action that retrieves a specific version of your CLI, installs it, adds it to the path, and (optionally) caches it. This type of action (an action that sets up a tool) is often named `setup-$TOOL`.
 
 ## Prerequisites
 
@@ -69,4 +69,3 @@ This pattern is employed in several actions. For more examples, see:
 - [`ruby/setup-ruby`](https://github.com/ruby/setup-ruby)
 - [`google-github-actions/setup-gcloud`](https://github.com/google-github-actions/setup-gcloud)
 - [`hashicorp/setup-terraform`](https://github.com/hashicorp/setup-terraform)
-

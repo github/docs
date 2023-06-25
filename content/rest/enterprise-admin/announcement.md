@@ -15,5 +15,4 @@ You can use the REST API to manage the global announcement banner in your enterp
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-
 <!-- Content after this section is automatically generated -->

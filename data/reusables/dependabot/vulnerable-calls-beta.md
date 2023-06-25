@@ -2,7 +2,7 @@
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 
 - The detection of calls to vulnerable functions by {% data variables.product.prodname_dependabot %} is in beta and subject to change.
 

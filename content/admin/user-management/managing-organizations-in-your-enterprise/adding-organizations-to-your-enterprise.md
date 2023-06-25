@@ -56,7 +56,7 @@ Enterprise owners who create an organization owned by the enterprise account aut
 
 ## Inviting an organization to join your enterprise account
 
-Enterprise owners can invite existing organizations to join their enterprise account. 
+Enterprise owners can invite existing organizations to join their enterprise account.
 
 If the organization you want to invite is already owned by another enterprise account, you must be an owner of both enterprise accounts. If you're not, you can ask an owner of the enterprise account that currently owns the organization to transfer the organization to your enterprise account instead. For more information, see "[Transferring an organization between enterprise accounts](#transferring-an-organization-between-enterprise-accounts)."
 

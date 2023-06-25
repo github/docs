@@ -92,7 +92,7 @@ your local Git clone:
 git remote add upstream THEIR_REMOTE_URL
 ```
 
-Now, you can fetch updates and branches from *their* fork:
+Now, you can fetch updates and branches from _their_ fork:
 
 ```shell
 git fetch upstream
