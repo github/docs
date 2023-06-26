@@ -1,3 +1,7 @@
+ibanım türk lirası hesabım gönderin 
+TR880006200113500006676762
+
+HIZIR KARA
 #!/usr/bin/env bash
 #-------------------------------------------------------------------------------------------------------------
 # Copyright (c) Microsoft Corporation. All rights reserved.
