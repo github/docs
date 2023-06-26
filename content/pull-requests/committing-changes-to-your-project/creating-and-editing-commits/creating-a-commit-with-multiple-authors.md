@@ -81,6 +81,7 @@ After you've made changes in a file using the web editor on {% data variables.pr
 The new commit and message will appear on {% data variables.location.product_location %}.
 
 ## Further reading
+
 {% ifversion ghes or ghae %}
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)"{% endif %}

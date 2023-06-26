@@ -41,6 +41,7 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 {% endif %}
 
 {% endif %}
+
 ## Reviewing dependencies in a pull request
 
 {% data reusables.repositories.sidebar-pr %}

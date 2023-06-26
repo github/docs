@@ -33,6 +33,7 @@ You can enable automatic security updates for any repository that uses {% data v
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ## About updates for vulnerable dependencies in your repository
 
 {% data variables.product.product_name %} generates {% data variables.product.prodname_dependabot_alerts %} when we detect that your codebase is using dependencies with known security risks. For repositories where {% data variables.product.prodname_dependabot_security_updates %} are enabled, when {% data variables.product.product_name %} detects a vulnerable dependency in the default branch, {% data variables.product.prodname_dependabot %} creates a pull request to fix it. The pull request will upgrade the dependency to the minimum possible secure version needed to avoid the vulnerability.
@@ -65,6 +66,7 @@ The search bar also allows for full text searching of alerts and related securit
 You can select a filter in a dropdown menu at the top of the list, then click the filter that you would like to apply.{% endif %}
 
 {% ifversion dependabot-alerts-development-label %}
+
 ## Supported ecosystems and manifests for dependency scope
 
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}
@@ -80,6 +82,7 @@ The alert details page of alerts on development-scoped packages shows a "Tags" s
 {% endif %}
 
 {% ifversion dependabot-alerts-vulnerable-calls %}
+
 ## About the detection of calls to vulnerable functions
 
 {% data reusables.dependabot.vulnerable-calls-beta %}

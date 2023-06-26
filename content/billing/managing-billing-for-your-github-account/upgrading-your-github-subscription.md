@@ -98,6 +98,7 @@ If you'd like additional users to have access to your {% data variables.product.
 {% data reusables.dotcom_billing.finish_upgrade %}
 
 {% ifversion ghec %}
+
 ## Adding seats to your enterprise account
 
 {% data reusables.enterprise-accounts.billing-perms %}

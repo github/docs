@@ -298,6 +298,7 @@ For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-ent
 To roll back from a feature release, restore from a VM snapshot to ensure that root and data partitions are in a consistent state. For more information, see "[Taking a snapshot](#taking-a-snapshot)."
 
 {% ifversion ghes %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"

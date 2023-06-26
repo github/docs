@@ -67,6 +67,7 @@ For information about {% data variables.product.prodname_advanced_security %} fe
 {% endif %}
 
 {% ifversion ghes or ghec or ghae %}
+
 ## Deploying GitHub Advanced Security in your enterprise
 
 To learn about what you need to know to plan your {% data variables.product.prodname_GH_advanced_security %} deployment at a high level and to review the rollout phases we recommended, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale)."
@@ -74,6 +75,7 @@ To learn about what you need to know to plan your {% data variables.product.prod
 {% endif %}
 
 {% ifversion not fpt %}
+
 ## Enabling {% data variables.product.prodname_advanced_security %} features
 
 {%- ifversion ghes %}
@@ -98,6 +100,7 @@ If you have an enterprise account, license use for the entire enterprise is show
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## About starter workflows for {% data variables.product.prodname_advanced_security %}
 
 {% data reusables.advanced-security.starter-workflows-beta %}
@@ -108,6 +111,7 @@ For more information on starter workflows, see "[AUTOTITLE](/code-security/code-
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)"

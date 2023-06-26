@@ -52,6 +52,7 @@ An administrator needs to register your LMS instance with classroom before you c
 8. Clicking the **GitHub Classroom** link will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
 
 Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
+
 ## Linking a Moodle course with a classroom
 
 You can link your Moodle course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Moodle, see the [Moodle website](https://moodle.org).
@@ -66,6 +67,7 @@ You must be using Moodle version 3.0 or greater.
 3. Clicking the **GitHub Classroom** button will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
 
 Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
+
 ## Linking a Sakai course with a classroom
 
 You can link your Sakai course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Sakai, see the [Sakai website](https://www.sakailms.org/).

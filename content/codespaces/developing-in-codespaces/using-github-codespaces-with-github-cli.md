@@ -231,6 +231,7 @@ gh codespace logs -c CODESPACE-NAME
 For more information about the creation log, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
 
 ### Access remote resources
+
 You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
 
 {% note %}

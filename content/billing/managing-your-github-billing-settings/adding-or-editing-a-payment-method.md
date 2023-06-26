@@ -52,6 +52,7 @@ If your organization is outside of the US or if you're using a corporate checkin
 {% data reusables.dotcom_billing.enter-payment-info %}
 
 {% ifversion ghec %}
+
 ## Updating your enterprise account's payment method
 
 {% data reusables.enterprise-accounts.billing-perms %}

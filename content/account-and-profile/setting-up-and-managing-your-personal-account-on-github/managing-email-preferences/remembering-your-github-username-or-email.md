@@ -70,6 +70,7 @@ origin	https://{% data variables.command_line.codeblock %}/YOUR_USERNAME/YOUR_RE
 Your user name is what immediately follows the `https://{% data variables.command_line.backticks %}/`.
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
 
 - "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)"

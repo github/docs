@@ -22,4 +22,5 @@ If you opt out of the {% data variables.product.prodname_archive %} for a reposi
 1. Under "Features", select or deselect **Preserve this repository**.
 
 ## Further reading
+
 - [{% data variables.product.prodname_archive %} FAQ](https://archiveprogram.github.com/faq/)

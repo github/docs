@@ -204,6 +204,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.accept-suggestion %}
 
 ## Seeing alternative suggestions
+
 {% data reusables.copilot.alternative-suggestions %}
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will show you a suggestion.

@@ -135,6 +135,7 @@ The `autobuild` process tries to determine the build system for Java codebases b
 1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
 
 {% ifversion codeql-swift-beta %}
+
 ### `autobuild` for Swift
 
 | Supported system type | System name |
@@ -182,6 +183,7 @@ For more tips and tricks about why `autobuild` won't build your code, see "[AUTO
 If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
 
 {% ifversion codeql-swift-beta %}
+
 ### Considerations for building Swift
 
 {% data reusables.code-scanning.beta-swift-support %}

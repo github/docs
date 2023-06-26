@@ -158,6 +158,7 @@ ghe-dbconsole
 ```
 
 ### ghe-es-index-status
+
 This utility returns a summary of Elasticsearch indexes in CSV format.
 
 Print an index summary with a header row to `STDOUT`:

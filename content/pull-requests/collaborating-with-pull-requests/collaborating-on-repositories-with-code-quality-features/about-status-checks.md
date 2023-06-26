@@ -79,6 +79,7 @@ Alternatively, to skip or request _all_ checks for your commit, add one of the f
   ```
 
 {% ifversion status-check-retention %}
+
 ### Retention of status checks
 
 {% data reusables.pull_requests.retention-checks-data %}

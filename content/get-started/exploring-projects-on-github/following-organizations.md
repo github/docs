@@ -33,6 +33,7 @@ You can unfollow an organization if you do not wish to see their {% ifversion fp
    ![Screenshot of the sidebar of @octocat's profile page. A link, labeled "9 following", is outlined in dark orange.](/assets/images/help/profile/user-profile-following.png)
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
 
 - "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)"

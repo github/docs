@@ -18,9 +18,11 @@ shortTitle: Pre-receive hook scripts
 {% data reusables.enterprise_site_admin_settings.pre-receive-hook-examples %}
 
 ## Writing a pre-receive hook script
+
 A pre-receive hook script executes in a pre-receive hook environment on {% data variables.location.product_location %}. When you create a pre-receive hook script, consider the available input, output, exit status, and environment variables.
 
 ### Input (`stdin`)
+
 After a push occurs and before any refs are updated for the remote repository, the `git-receive-pack` process on {% data variables.location.product_location %} invokes the pre-receive hook script. Standard input for the script, `stdin`, is a string containing a line for each ref to update. Each line contains the old object name for the ref, the new object name for the ref, and the full name of the ref.
 
 ```
@@ -149,6 +151,7 @@ We recommend consolidating hooks to a single repository. If the consolidated hoo
 3. [Create the pre-receive hook](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
 
 ## Testing pre-receive scripts locally
+
 You can test a pre-receive hook script locally before you create or update it on {% data variables.location.product_location %}. One method is to create a local Docker environment to act as a remote repository that can execute the pre-receive hook.
 
 {% data reusables.linux.ensure-docker %}
@@ -260,4 +263,5 @@ You can test a pre-receive hook script locally before you create or update it on
    Notice that the push was rejected after executing the pre-receive hook and echoing the output from the script.
 
 ## Further reading
+
 - "[Customizing Git - An Example Git-Enforced Policy](https://git-scm.com/book/en/v2/Customizing-Git-An-Example-Git-Enforced-Policy)" from the _Pro Git website_

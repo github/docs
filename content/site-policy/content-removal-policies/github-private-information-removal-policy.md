@@ -20,12 +20,14 @@ For the purposes of this document, “private information” refers to content t
 "Security risk" refers to a situation involving exposure to physical danger, identity theft, or increased likelihood of unauthorized access to physical or network facilities.
 
 ### Private information removal requests are appropriate for:
+
 - Access credentials, such as user names combined with passwords, access tokens, or other sensitive secrets that can grant access to your organization's server, network, or domain.
 - AWS tokens and other similar access credentials that grant access to a third party on your behalf. You must be able to show that the token does belong to you.
 - Documentation (such as network diagrams or architecture) that poses a specific security risk for an organization.
 - [Information](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy) related to, and posing a security risk to, you as an individual (such as social security numbers or other government identification numbers).
 
 ### Private information removal requests are _not_ appropriate for:
+
 - Internal server names, IP addresses, and URLs, on their own. You must be able to show that their use in a particular file or piece of code poses a security threat.
 - Mere mentions of your company's identity, name, brand, domain name, or other references to your company in files on GitHub. You must be able to articulate why a use of your company's identity is a threat to your company's security posture.
 - Entire files or repositories that do not pose a specific security risk, but you believe are otherwise objectionable.
@@ -63,6 +65,7 @@ For the purposes of this document, “private information” refers to content t
 7. **User May Request an Additional Window to Make Changes.** If the user missed their opportunity to remove the private information specified in the notice, we may allow them an additional window of approximately 1 business day, upon request, to make those changes. In that event, GitHub will notify the complainant.
 
 ### What About Forks? (or What's a Fork?)
+
 One of the best features of GitHub is the ability for users to "fork" one another's repositories. What does that mean? In essence, it means that users can make a copy of a project on GitHub into their own repositories. As the license or the law allows, users can then make changes to that fork to either push back to the main project or just keep as their own variation of a project. Each of these copies is a "[AUTOTITLE](/get-started/quickstart/github-glossary#fork)" of the original repository, which in turn may also be called the "parent" of the fork.
 
 GitHub will not automatically disable forks when disabling a parent repository. This is because forks belong to different users and may have been altered in significant ways. GitHub does not conduct any independent investigation into forks. We expect those sending private information removal requests to conduct that investigation and, if they believe that the forks also contain private information, expressly include forks in their request.

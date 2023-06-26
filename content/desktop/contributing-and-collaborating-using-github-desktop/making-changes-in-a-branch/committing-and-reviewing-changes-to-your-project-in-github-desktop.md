@@ -62,6 +62,7 @@ To exclude changed lines from your commit, click one or more changed lines so th
 ![Screenshot of the diff view of a text file. Next to the text "I don't want to include this line", the background color behind the line numbers is green, not blue.](/assets/images/help/desktop/partial-commit.png)
 
 ## Discarding changes
+
 If you have uncommitted changes that you don't want to keep, you can discard the changes. This will remove the changes from the files on your computer. You can discard all uncommitted changes in one or more files, or you can discard specific lines you added.
 
 Discarded changes are saved in a dated file in the Trash. You can recover discarded changes until the Trash is emptied.
@@ -75,6 +76,7 @@ Discarded changes are saved in a dated file in the Trash. You can recover discar
 {% data reusables.desktop.confirm-discard-files %}
 
 ### Discarding changes in one or more lines
+
 You can discard one or more changed lines that are uncommitted.
 
 {% note %}

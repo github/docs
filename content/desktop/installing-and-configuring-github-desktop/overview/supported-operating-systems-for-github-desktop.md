@@ -16,6 +16,7 @@ The following operating systems are supported for {% data variables.product.prod
 - {% data variables.desktop.windows-versions %}. You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
 
 ## Troubleshooting problems on macOS
+
 If you're encountering problems using {% data variables.product.prodname_desktop %} on macOS, here are resolutions to try. For more information, see [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
 
 ### `The username or passphrase you entered is not correct` error after signing into your account
@@ -44,6 +45,7 @@ To troubleshoot this error, follow these steps.
 6. Open {% data variables.product.prodname_desktop %} and check for updates.
 
 ## Troubleshooting problems on Windows
+
 If you're encountering problems using {% data variables.product.prodname_desktop %} on Windows, here are resolutions to try. For more information, see [`known-issues`](https://github.com/desktop/desktop/blob/development/docs/known-issues.md).
 
 ### `The revocation function was unable to check revocation for the certificate.` error

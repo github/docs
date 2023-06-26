@@ -136,6 +136,7 @@ apps/ @octocat
 ```
 
 ## CODEOWNERS and branch protection
+
 Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 ## Further reading

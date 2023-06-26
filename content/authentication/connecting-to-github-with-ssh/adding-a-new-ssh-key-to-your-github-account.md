@@ -81,6 +81,7 @@ gh ssh-key add ~/.ssh/id_ed25519.pub
 {% endcli %}
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
 
 - "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"

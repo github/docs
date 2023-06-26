@@ -56,6 +56,7 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 {% endif %}
 
 {% ifversion ghes %}
+
 ## Testing email delivery
 
 1. At the top of the **Email** section, click **Test email settings**.
@@ -73,6 +74,7 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 {% ifversion require-tls-for-smtp %}
+
 ## Enforcing TLS for SMTP connections
 
 You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
@@ -185,6 +187,7 @@ If {% data variables.location.product_location %} is behind a firewall or is bei
 {% endif %}
 
 ### Contact support
+
 {% ifversion ghes %}
 If you're still unable to resolve the problem, contact {% data variables.contact.contact_ent_support %}. Please attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email to help us troubleshoot your problem.
 {% elsif ghae %}

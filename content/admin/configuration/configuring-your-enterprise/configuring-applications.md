@@ -23,7 +23,9 @@ You can choose the amount of time that {% data variables.location.product_locati
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion status-check-retention %}
+
 ## Enabling retention policy for checks
+
 You can enable a retention policy for checks, actions, and associated data by setting thresholds for archival and deletion. For more information about configuring actions, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -36,6 +38,7 @@ You can enable a retention policy for checks, actions, and associated data by se
 {% endif %}
 
 {% ifversion azure-maps %}
+
 ## Enabling interactive maps
 
 You can allow users to create interactive maps using GeoJSON or TopoJSON syntax. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."

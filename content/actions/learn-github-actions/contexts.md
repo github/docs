@@ -878,6 +878,7 @@ jobs:
 {% endraw %}
 
 {% ifversion actions-unified-inputs %}
+
 ### Example usage of the `inputs` context in a manually triggered workflow
 
 This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.

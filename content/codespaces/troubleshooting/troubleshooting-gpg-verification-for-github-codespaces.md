@@ -109,5 +109,6 @@ fi
 ```
 
 ## Further reading
+
 - "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
 - [`git config`](https://git-scm.com/docs/git-config) in the official Git documentation

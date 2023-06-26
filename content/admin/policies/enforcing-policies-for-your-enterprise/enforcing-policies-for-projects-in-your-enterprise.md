@@ -40,6 +40,7 @@ Across all organizations owned by your enterprise, you can enable or disable org
 5. Under "Organization projects", select the dropdown menu and click a policy.
 
 {% ifversion project-visibility-policy %}
+
 ## Enforcing a policy for visibility changes to projects
 
 Across all organizations owned by your enterprise, you can enable or disable the ability for people with admin access to a project to change the visibility of the project, or you can allow owners to administer the setting on the organization level.
@@ -52,6 +53,7 @@ Across all organizations owned by your enterprise, you can enable or disable the
 {% endif %}
 
 {% ifversion projects-v1 %}
+
 ## Enforcing policies for {% data variables.product.prodname_projects_v1 %}
 
 Some policies apply only to {% data variables.product.prodname_projects_v1 %}.

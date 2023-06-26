@@ -244,6 +244,7 @@ curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOK
 {% data reusables.actions.oidc-permissions-token %}
 
 {% ifversion actions-oidc-hardening-config %}
+
 ## Customizing the token claims
 
 You can security harden your OIDC configuration by customizing the claims that are included with the JWT. These customisations allow you to define more granular trust conditions on your cloud roles when allowing your workflows to access resources hosted in the cloud:

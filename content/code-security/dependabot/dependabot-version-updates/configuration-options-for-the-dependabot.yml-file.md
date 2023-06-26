@@ -992,6 +992,7 @@ registries:
 {% endraw %}
 
 {% ifversion dependabot-hex-self-hosted-support %}
+
 ### `hex-repository`
 
 The `hex-repository` type supports an authentication key.
@@ -1248,6 +1249,7 @@ registries:
 {% endraw %}
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
+
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`

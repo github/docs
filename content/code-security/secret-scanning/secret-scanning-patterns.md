@@ -19,6 +19,7 @@ redirect_from:
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
+
 ## About {% data variables.product.prodname_secret_scanning %} patterns
 
 {% data variables.product.product_name %} maintains these different sets of default {% data variables.product.prodname_secret_scanning %} patterns:
@@ -62,6 +63,7 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 {% endif %}
 
 {% ifversion secret-scanning-push-protection %}
+
 ## About push protection alerts
 
 Push protection alerts are user alerts that are reported by push protection. {% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by some service providers.

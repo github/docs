@@ -67,6 +67,7 @@ You can set up streaming to S3 with access keys or, to avoid storing long-lived 
 - [Integrating with AWS CloudTrail Lake](#integrating-with-aws-cloudtrail-lake)
 
 #### Setting up streaming to S3 with access keys
+
 {% endif %}
 
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
@@ -89,6 +90,7 @@ For information on creating or accessing your access key ID and secret key, see 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-oidc-s3 %}
+
 #### Setting up streaming to S3 with OpenID Connect
 
 1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
@@ -131,6 +133,7 @@ Then, set up streaming with access keys until the vulnerability is resolved. For
 {% endif %}
 
 #### Integrating with AWS CloudTrail Lake
+
 You can consolidate your audit logs from {% data variables.product.product_name %} with AWS activity logs by integrating audit log streaming to S3 with AWS CloudTrail Lake. For additional information, see the [AWS CloudTrail Documentation](https://docs.aws.amazon.com/cloudtrail/) or the [GitHub Audit Log to CloudTrail Open Audit](https://github.com/aws-samples/aws-cloudtrail-lake-github-audit-log) in the `aws-samples/aws-cloudtrail-lake-github-audit-log` repository.
 
 ### Setting up streaming to Azure Blob Storage
@@ -185,6 +188,7 @@ You need two pieces of information about your event hub: its instance name and t
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-datadog %}
+
 ### Setting up streaming to Datadog
 
 To set up streaming to Datadog, you must create a client token or an  API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
@@ -254,6 +258,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion pause-audit-log-stream %}
+
 ## Pausing audit log streaming
 
 Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.location.product_location %} and are then exported when you unpause the stream.
@@ -278,6 +283,7 @@ When the application is ready to receive audit logs again, click **Resume stream
 1. A confirmation message is displayed. Click **Delete stream** to confirm.
 
 {% ifversion ghec %}
+
 ## Enabling audit log streaming of API requests
 
 {% note %}

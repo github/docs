@@ -23,6 +23,7 @@ shortTitle: npm registry
 
 {% ifversion packages-npm-v2 %}
 {% else %}
+
 ## Limits for published npm versions
 
 If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
@@ -37,6 +38,7 @@ If you reach this limit, consider deleting package versions or contact Support f
 {% data reusables.package_registry.authenticate-packages %}
 
 {% ifversion packages-npm-v2 %}
+
 ### Authenticating in a {% data variables.product.prodname_actions %} workflow
 
 This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
@@ -245,6 +247,7 @@ If your instance has subdomain isolation disabled:
 {% endif %}
 
 {% ifversion ghes %}
+
 ## Using the official npm registry
 
 {% data variables.product.prodname_registry %} allows you to access the official npm registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official npm registry](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise#connecting-to-the-official-npm-registry).

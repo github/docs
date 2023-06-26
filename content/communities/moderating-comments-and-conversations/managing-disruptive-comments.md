@@ -97,6 +97,8 @@ Deleting a comment creates a timeline event that is visible to anyone with read 
 3. Optionally, write a comment noting that you deleted a comment and why.
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
+
 - "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
 {% endif %}

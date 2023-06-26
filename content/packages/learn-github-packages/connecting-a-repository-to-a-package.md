@@ -27,6 +27,7 @@ When you publish a package that is scoped to a personal account or an organizati
 {% data reusables.package_registry.repository_connection_steps %}
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
+
 ## Connecting a repository to a container image using the command line
 
 {% data reusables.package_registry.auto-inherit-permissions-note %}

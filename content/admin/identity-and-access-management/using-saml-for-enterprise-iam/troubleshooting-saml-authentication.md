@@ -17,6 +17,7 @@ topics:
 ---
 
 {% ifversion ghes %}
+
 ## About problems with SAML authentication
 
 {% data variables.product.product_name %} logs error messages for failed SAML authentication in the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% elsif ghes < 3.9 %}authentication log{% endif %} at {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %}. You can review responses in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}these log files{% elsif ghes < 3.9 %}this log file{% endif %}, and you can also configure more verbose logging.

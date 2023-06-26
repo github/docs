@@ -17,6 +17,7 @@ shortTitle: Secure your organization
 ---
 
 ## Introduction
+
 This guide shows you how to configure security features for an organization. Your organization's security needs are unique and you may not need to enable every security feature. For more information, see "[AUTOTITLE](/code-security/getting-started/github-security-features)."
 
 {% data reusables.advanced-security.security-feature-availability %}
@@ -64,6 +65,7 @@ Dependency review is an {% data variables.product.prodname_advanced_security %} 
 {% elsif ghes or ghae %}Dependency review is available when dependency graph is enabled for {% data variables.location.product_location %} and you enable {% data variables.product.prodname_advanced_security %} for the organization (see below).{% endif %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ## Managing {% data variables.product.prodname_dependabot_security_updates %}
 
 For any repository that uses {% data variables.product.prodname_dependabot_alerts %}, you can enable {% data variables.product.prodname_dependabot_security_updates %} to raise pull requests with security updates when vulnerabilities are detected. You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all repositories across your organization.
@@ -85,6 +87,7 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 {% endif %}
 
 {% ifversion ghes or ghae or ghec %}
+
 ## Managing {% data variables.product.prodname_GH_advanced_security %}
 
 {% ifversion ghes or ghec %}
@@ -101,6 +104,7 @@ You can enable or disable {% data variables.product.prodname_advanced_security %
 
 For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 {% endif %}
+
 ## Configuring {% data variables.product.prodname_secret_scanning %}
 
 {% ifversion fpt or ghec %}{% data variables.product.prodname_secret_scanning_caps %} is available for all public repositories, as well as public npm packages. Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable {% data variables.product.prodname_secret_scanning %} for private and internal repositories.{% endif %} {% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/securing-your-organization#configuring-secret-scanning).{% endif %}
@@ -155,6 +159,7 @@ For repositories that are not eligible for default setup, you can configure adva
 {% endif %}
 
 ## Next steps
+
 You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts),"{% endif %} {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)," {% endif %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)," and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
 You can also monitor responses to security alerts within your organization. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".
@@ -165,6 +170,7 @@ You can also monitor responses to security alerts within your organization. For 
 {% ifversion ghes or ghec or ghae %}You{% elsif fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% endif %} can view, filter, and sort security alerts for repositories owned by {% ifversion ghes or ghec or ghae %}your{% elsif fpt %}their{% endif %} organization in security overview. For more information, see{% ifversion ghes or ghec or ghae %} "[AUTOTITLE](/code-security/security-overview/about-security-overview)."{% elsif fpt %} "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/about-security-overview)" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% ifversion ghec %}
+
 ## Further reading
 
 "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"

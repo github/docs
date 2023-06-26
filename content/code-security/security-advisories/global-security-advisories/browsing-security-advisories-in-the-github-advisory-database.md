@@ -43,6 +43,7 @@ The database is also accessible using the GraphQL API. {% ifversion GH-advisory-
 {% endnote %}
 
 ## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
+
 You can suggest improvements to any advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database)."
 
 ## Searching the {% data variables.product.prodname_advisory_database %}
@@ -87,6 +88,7 @@ For any {% data variables.product.company_short %}-reviewed advisory in the {% d
 5. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
 {% ifversion security-advisories-ghes-ghae %}
+
 ## Accessing the local advisory database on {% data variables.location.product_location %}
 
 If your site administrator has enabled {% data variables.product.prodname_github_connect %} for {% data variables.location.product_location %}, you can also browse reviewed advisories locally. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect)".

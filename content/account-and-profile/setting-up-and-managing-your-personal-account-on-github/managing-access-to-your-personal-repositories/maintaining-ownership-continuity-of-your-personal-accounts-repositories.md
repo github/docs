@@ -28,6 +28,7 @@ An appointed successor can manage your public repositories after presenting a de
 To request access to manage repositories as a successor, contact [GitHub Support](https://support.github.com/contact?tags=docs-accounts).
 
 ## Inviting a successor
+
 The person you invite to be your successor must have a {% data variables.product.company_short %} account.
 
 {% data reusables.user-settings.access_settings %}

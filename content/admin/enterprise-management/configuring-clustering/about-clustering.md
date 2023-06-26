@@ -29,6 +29,7 @@ The cluster topology for {% data variables.product.prodname_ghe_server %} provid
 In a cluster, the instance provides services and distributes data across multiple virtual machines (VMs) that run the {% data variables.product.product_name %}  software. Each VM is called a node. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)."
 
 <a name="is-clustering-right-for-my-organization"></a>
+
 ## Is clustering right for my environment?
 
 {% data reusables.enterprise_clustering.clustering-scalability %} However, setting up a redundant and scalable cluster requires careful planning. Compared to other topologies like high availability (HA), additional complexity affects installation, configuration, disaster recovery, and upgrades.

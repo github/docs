@@ -62,7 +62,9 @@ For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/abou
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ### Choosing self-hosted runners
+
 {% endif %}
 
 {% data reusables.actions.self-hosted-runner-labels-runs-on %}

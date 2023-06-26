@@ -67,6 +67,7 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 1. Add your configuration settings.
 
 ## LDAP attributes
+
 Use these attributes to finish configuring LDAP for {% data variables.location.product_location %}.
 
 | Attribute name           | Required     | Description |

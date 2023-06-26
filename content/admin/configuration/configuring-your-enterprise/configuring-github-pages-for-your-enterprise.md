@@ -82,6 +82,7 @@ You can add or override response headers for {% data variables.product.prodname_
 {% endif %}
 
 {% ifversion ghes %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"

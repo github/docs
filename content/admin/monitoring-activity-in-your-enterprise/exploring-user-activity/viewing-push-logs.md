@@ -41,6 +41,7 @@ For more information, see "[Using the activity view to see changes to your repos
 1. In the left sidebar, click **Push Log**.
 
 {% ifversion ghes %}
+
 ## Viewing a repository's push logs on the command-line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}

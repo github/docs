@@ -33,6 +33,7 @@ shortTitle: User into an organization
 {% endwarning %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ## Keep your personal account and create a new organization manually
 
 If you want your organization to have the same name that you are currently using for your personal account, or if you want to keep your personal account's information intact, then you must create a new organization and transfer your repositories to it instead of converting your personal account into an organization.
@@ -62,6 +63,7 @@ When you convert a personal account into an organization, we'll add collaborator
 1. Sign in to the new personal account you created earlier, then use the context switcher to access your new organization.
 
 ## Further reading
+
 - "[AUTOTITLE](/organizations/organizing-members-into-teams)"
 {% ifversion fpt or ghec %}
 - "[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"

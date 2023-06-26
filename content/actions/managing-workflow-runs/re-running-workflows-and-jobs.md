@@ -68,6 +68,7 @@ gh run watch
 {% endcli %}
 
 {% ifversion re-run-jobs %}
+
 ## Re-running failed jobs in a workflow
 
 If any jobs in a workflow run failed, you can re-run just the jobs that failed. When you re-run failed jobs in a workflow, a new workflow run will start for all failed jobs and their dependents. Any outputs for any successful jobs in the previous workflow run will be used for the re-run. Any artifacts that were created in the initial run will be available in the re-run. Any environment protection rules that passed in the previous run will automatically pass in the re-run.
@@ -147,6 +148,7 @@ gh run rerun --job JOB_ID --debug
 {% endif %}
 
 {% ifversion fpt or ghes > 3.4 or ghae or ghec %}
+
 ## Reviewing previous workflow runs
 
 You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see "[AUTOTITLE](/rest/actions#get-a-workflow-run)."

@@ -87,6 +87,7 @@ If a repository already has self-hosted runners when you disable their use, thes
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Configuring required approval for workflows from public forks
 
 {% data reusables.actions.workflow-run-approve-public-fork %}
@@ -147,6 +148,7 @@ Note the following restrictions and behaviors for the target repositories:
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
+
 ## Enabling workflows for private repository forks
 
 {% data reusables.actions.private-repository-forks-overview %}
@@ -185,6 +187,7 @@ By default, when you create a new organization,{% ifversion ghec or ghes or ghae
 1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr %}
+
 ### Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}

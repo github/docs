@@ -191,4 +191,5 @@ If your Windows username has extended Unicode characters, it may cause an AskPas
 {% endwindows %}
 
 ## Further reading
+
 - "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"

@@ -94,6 +94,7 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 {% data reusables.desktop.push-origin %}
 
 ## Further Reading
+
 - "[AUTOTITLE](/get-started/quickstart/github-glossary#pull)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[AUTOTITLE](/get-started/quickstart/github-glossary#merge)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[AUTOTITLE](/get-started/quickstart/github-glossary#rebase)" in the {% data variables.product.prodname_dotcom %} glossary

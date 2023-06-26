@@ -109,6 +109,7 @@ When creating a secret in an organization, you can use a policy to limit which r
    The name of the secret is listed on the {% data variables.product.prodname_dependabot %} secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
 
 {% ifversion fpt or ghec %}
+
 ## Configuring firewall IP rules
 
 You can add {% data variables.product.prodname_dependabot %} to your registries IP allow list.

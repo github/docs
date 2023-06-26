@@ -67,6 +67,7 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
 {% ifversion ghes %}
+
 ## Configuring Git Large File Storage to use a third party server
 
 {% data reusables.large_files.storage_assets_location %}

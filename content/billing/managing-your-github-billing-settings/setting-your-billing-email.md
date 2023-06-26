@@ -69,6 +69,7 @@ One address must always be designated as the primary recipient. The address with
 1. Review the confirmation prompt, then click **Remove**.
 
 {% ifversion ghec %}
+
 ## Setting your enterprise's billing email
 
 Your enterprise's billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication. The email address does not need to be unique to the enterprise account.

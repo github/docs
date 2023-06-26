@@ -186,6 +186,7 @@ on:
 ```
 
 {% ifversion discussions %}
+
 ## `discussion`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -409,6 +410,7 @@ on:
 ```
 
 {% endif %}
+
 ## `milestone`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |

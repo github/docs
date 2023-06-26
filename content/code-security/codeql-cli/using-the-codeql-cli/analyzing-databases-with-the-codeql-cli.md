@@ -185,6 +185,7 @@ You can see the sources for these query suites in the [{% data variables.product
 The following examples show how to run `database analyze` using {% data variables.product.prodname_codeql %} packs, and how to use a local checkout of the {% data variables.product.prodname_codeql %} repository. These examples assume your {% data variables.product.prodname_codeql %} databases have been created in a directory that is a sibling of your local copies of the {% data variables.product.prodname_codeql %} repository.
 
 {% ifversion codeql-packs %}
+
 ### Running a {% data variables.product.prodname_codeql %} query pack
 
 {% note %}
@@ -270,6 +271,7 @@ that the results are formatted according to the most recent SARIF specification
 supported by {% data variables.product.prodname_codeql %}.
 
 {% ifversion codeql-packs %}
+
 ### Running a subset of queries in a {% data variables.product.prodname_codeql %} pack
 
 If you are using {% data variables.product.prodname_codeql_cli %} v2.8.1 or later, you can include a path at the end of a pack specification to run a subset of queries inside the pack. This applies to any command that locates or runs queries within a pack.

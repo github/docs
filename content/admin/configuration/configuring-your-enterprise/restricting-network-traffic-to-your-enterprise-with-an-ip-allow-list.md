@@ -59,6 +59,7 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 ## Using {% data variables.product.company_short %}'s IP allow list
 
 ### Enabling {% data variables.product.company_short %}'s IP allow list
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}

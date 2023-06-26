@@ -9,6 +9,7 @@ versions:
   fpt: '*'
 ---
 ## Introduction
+
 {% data variables.product.prodname_desktop %} extends and simplifies your {% data variables.product.prodname_dotcom_the_website %} workflow, using a visual interface instead of text commands on the command line. By the end of this guide, you'll have used {% data variables.product.prodname_desktop %} to create a repository, make changes to the repository, and publish the changes to {% data variables.product.product_name %}.
 
 After installing {% data variables.product.prodname_desktop %} and signing into {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} you can create and clone a tutorial repository. The tutorial will introduce the basics of working with Git and {% data variables.product.prodname_dotcom %}, including installing a text editor, creating a branch, making a commit, pushing to {% data variables.product.prodname_dotcom_the_website %}, and opening a pull request. The tutorial is available if you do not have any repositories on {% data variables.product.prodname_desktop %} yet.
@@ -16,22 +17,26 @@ After installing {% data variables.product.prodname_desktop %} and signing into 
 We recommend completing the tutorial, but if you want to explore {% data variables.product.prodname_desktop %} by creating a new repository, this guide will walk you through using {% data variables.product.prodname_desktop %} to work on a Git repository.
 
 ## Part 1: Installing {% data variables.product.prodname_desktop %} and authenticating your account
+
 You can install {% data variables.product.prodname_desktop %} on any supported operating system. After you install the app, you will need to sign in and authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} before you can create and clone a tutorial repository.
 
 For more information on installing and authenticating, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/setting-up-github-desktop)."
 
 ## Part 2: Creating a new repository
+
 If you do not have any repositories associated with {% data variables.product.prodname_desktop %}, you will see a "Let's get started!" view, where you can choose to create and clone a tutorial repository, clone an existing repository from the Internet, create a new repository, or add an existing repository from your hard drive.
 
 ![Screenshot of the "Let's get started!" view in GitHub Desktop.](/assets/images/help/desktop/lets-get-started.png)
 
 ### Creating and cloning a tutorial repository
+
 We recommend that you create and clone a tutorial repository as your first project to practice using {% data variables.product.prodname_desktop %}.
 
 1. Click **Create a Tutorial Repository...**.
 2. Follow the prompts in the tutorial to install a text editor, create a branch, edit a file, make a commit, publish to {% data variables.product.prodname_dotcom %}, and open a pull request.
 
 ### Creating a new repository
+
 If you do not wish to create and clone a tutorial repository, you can create a new repository.
 
 1. Click **Create a New Repository on your Hard Drive...**.
@@ -45,9 +50,11 @@ If you do not wish to create and clone a tutorial repository, you can create a n
 3. Click **Create repository**.
 
 ## Part 3: Exploring {% data variables.product.prodname_desktop %}
+
 In the file menu at the top of the screen, you can access settings and actions that you can perform in {% data variables.product.prodname_desktop %}. Most actions also have keyboard shortcuts to help you work more efficiently. For a full list of keyboard shortcuts, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/overview/github-desktop-keyboard-shortcuts)."
 
 ### The {% data variables.product.prodname_desktop %} repository bar
+
 At the top of the {% data variables.product.prodname_desktop %} app, you will see a bar that shows the current state of your repository.
 
 ![Screenshot of the GitHub Desktop app. A bar displaying details for the "hello-world" repository spans the top of the window, and is outlined in orange.](/assets/images/help/desktop/explore-github-desktop.png)
@@ -57,6 +64,7 @@ At the top of the {% data variables.product.prodname_desktop %} app, you will se
 - **Publish repository** appears because you haven't published your repository to {% data variables.product.product_name %} yet, which you'll do later in the next step. This section of the bar will change based on the status of your current branch and repository. Different context dependent actions will be available that let you exchange data between your local and remote repositories.
 
 ### Changes and History
+
 In the left sidebar, you'll find the **Changes** and **History** views.
 
 ![Screenshot of the GitHub Desktop app. A sidebar on the left-hand side, with tabs labeled "Changes" and "History", is highlighted with an orange outline.](/assets/images/help/desktop/changes-and-history.png)
@@ -65,6 +73,7 @@ In the left sidebar, you'll find the **Changes** and **History** views.
 - The **History** view shows the previous commits on the current branch of your repository. You should see an "Initial commit" that was created by {% data variables.product.prodname_desktop %} when you created your repository. To the right of the commit, depending on the options you selected while creating your repository, you may see _.gitattributes_, _.gitignore_, LICENSE, or README files. You can click each file to see a diff for that file, which is the changes made to the file in that commit. The diff only shows the parts of the file that have changed, not the entire contents of the file
 
 ## Part 4: Publishing your repository to {% data variables.product.product_name %}
+
 When you create a new repository, it only exists on your computer and you are the only one who can access the repository. You can publish your repository to {% data variables.product.product_name %} to keep it synchronized across multiple computers and allow other people to access it. To publish your repository, push your local changes to {% data variables.product.product_name %}.
 
 1. In the repository bar, click **Publish repository**.
@@ -77,6 +86,7 @@ When you create a new repository, it only exists on your computer and you are th
    1. You can access the repository on {% data variables.product.prodname_dotcom_the_website %} from within {% data variables.product.prodname_desktop %}. In the file menu, click **Repository**, then click **View on GitHub**. This will take you directly to the repository in your default browser.
 
 ## Part 5: Making, committing, and pushing changes
+
 Now that you've created and published your repository, you're ready to make changes to your project and start crafting your first commit to your repository.
 
 1. To launch your external editor from within {% data variables.product.prodname_desktop %}, in the "{% data variables.product.prodname_desktop %}" menu bar, select **Repository**, then click **Open in EDITOR**. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor-in-github-desktop)."
@@ -100,9 +110,11 @@ Now that you've created and published your repository, you're ready to make chan
    ![Screenshot of the repository page on GitHub. Above the list of files and next to a clock icon, a link, labeled "2 commits", is outlined in orange.](/assets/images/help/desktop/click-two-commits.png)
 
 ## Conclusion
+
 You've now created a repository, published the repository to {% data variables.product.product_name %}, made a commit, and pushed your changes to {% data variables.product.product_name %}. You can follow this same workflow when contributing to other projects that you create or collaborate on.
 
 ## Further reading
+
 - "[AUTOTITLE](/get-started/getting-started-with-git)"
 - "[AUTOTITLE](/get-started/learning-about-github)"
 - "[AUTOTITLE](/get-started)"

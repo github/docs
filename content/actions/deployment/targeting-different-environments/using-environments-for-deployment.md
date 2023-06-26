@@ -85,6 +85,7 @@ Use deployment branches to restrict which branches can deploy to the environment
 {% endnote %}{% endif %}
 
 {% ifversion actions-break-glass %}
+
 ### Allow administrators to bypass configured protection rules
 
 By default, administrators can bypass the protection rules and force deployments to specific environments. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules)."
@@ -138,6 +139,7 @@ Secrets stored in an environment are only available to workflow jobs that refere
 {% endif %}
 
 {% ifversion actions-configuration-variables %}
+
 ## Environment variables
 
 Variables stored in an environment are only available to workflow jobs that reference the environment. These variables are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
