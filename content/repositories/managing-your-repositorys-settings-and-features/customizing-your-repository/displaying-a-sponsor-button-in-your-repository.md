@@ -44,6 +44,7 @@ PHP | `packagist`
 C# | `nuget`
 
 Here's an example `FUNDING.yml` file:
+
 ```
 github: [octocat, surftocat]
 patreon: octocat

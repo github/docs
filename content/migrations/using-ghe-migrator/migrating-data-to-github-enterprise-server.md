@@ -103,6 +103,7 @@ ghe-migrator audit -m RECORD_TYPE -s STATE -g MIGRATION-GUID
 ```
 
 For example, to view every successfully imported organization and team, you would enter:
+
 ```shell
 $ ghe-migrator audit -m organization,team -s mapped,renamed -g MIGRATION-GUID
 > model_name,source_url,target_url,state
@@ -110,6 +111,7 @@ $ ghe-migrator audit -m organization,team -s mapped,renamed -g MIGRATION-GUID
 ```
 
 **We strongly recommend auditing every import that failed.** To do that, you will enter:
+
 ```shell
 $ ghe-migrator audit -s failed_import,failed_map,failed_rename,failed_merge -g MIGRATION-GUID
 > model_name,source_url,target_url,state
@@ -146,6 +148,7 @@ curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
 ### Deleting repositories from an organization on {% data variables.product.prodname_dotcom_the_website %}
 
 After unlocking the {% data variables.product.prodname_dotcom_the_website %} organization's repositories, you should delete every repository you previously migrated using [the repository delete endpoint](/rest/repos#delete-a-repository). You'll need your access token for authentication:
+
 ```shell
 curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" -X DELETE \
   https://api.github.com/repos/ORG-NAME/REPO_NAME

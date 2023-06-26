@@ -21,11 +21,13 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 2. Change the current working directory to the location where you want to create your new repository.
 
 4. Clone the repository that contains the subfolder.
+
    ```shell
    git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME
    ```
 
 4. Change the current working directory to your cloned repository.
+
    ```shell
    cd REPOSITORY-NAME
    ```
@@ -65,11 +67,13 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    {% endtip %}
 
 8. Add a new remote name with the URL you copied for your repository. For example, `origin` or `upstream` are two common choices.
+
    ```shell
    git remote add origin https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME.git
    ```
 
 9. Verify that the remote URL was added with your new repository name.
+
     ```shell
     $ git remote -v
     # Verify new remote URL
@@ -78,6 +82,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
     ```
 
 10. Push your changes to the new repository on {% data variables.product.product_name %}.
+
     ```shell
     git push -u origin BRANCH-NAME
     ```

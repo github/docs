@@ -33,6 +33,7 @@ $ ghe-announce -u
 
 {% ifversion ghe-announce-dismiss %}
 To allow each user to dismiss the announcement for themselves, use the `-d` flag.
+
 ```shell
 # Sets a user-dismissible message that's visible to everyone
 $ ghe-announce -d -s MESSAGE
@@ -41,6 +42,7 @@ $ ghe-announce -d -s MESSAGE
 $ ghe-announce -u
 > Removed the announcement message, which was user dismissible: MESSAGE
 ```
+
 {% endif %}
 
 You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
@@ -88,6 +90,7 @@ This utility cleans up a variety of caches that might potentially take up extra 
 ```shell
 ghe-cleanup-caches
 ```
+
 ### ghe-cleanup-settings
 
 This utility wipes all existing {% data variables.enterprise.management_console %} settings.
@@ -114,6 +117,7 @@ $ ghe-config core.github-hostname URL
 $ ghe-config -l
 # Lists all the configuration values
 ```
+
 Allows you to find the universally unique identifier (UUID) of your node in `cluster.conf`.
 
 ```shell
@@ -157,6 +161,7 @@ ghe-dbconsole
 This utility returns a summary of Elasticsearch indexes in CSV format.
 
 Print an index summary with a header row to `STDOUT`:
+
 ```shell
 $ ghe-es-index-status -do
 > warning: parser/current is loading parser/ruby23, which recognizes
@@ -424,12 +429,14 @@ ghe-ssh-check-host-keys
 ```
 
 If a leaked host key is found the utility exits with status `1` and a message:
+
 ```shell
 > One or more of your SSH host keys were found in the blacklist.
 > Please reset your host keys using ghe-ssh-roll-host-keys.
 ```
 
 If a leaked host key was not found, the utility exits with status `0` and a message:
+
 ```shell
 > The SSH host keys were not found in the SSH host key blacklist.
 > No additional steps are needed/recommended at this time.
@@ -568,6 +575,7 @@ ghe-webhook-logs -f -a YYYY-MM-DD
 The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
 
 To show the full hook payload, result, and any exceptions for the delivery:
+
 ```shell
 ghe-webhook-logs -g DELIVERY_GUID
 ```
@@ -639,21 +647,25 @@ By default, the command creates the tarball in _/tmp_, but you can also have it 
 {% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
 
 To create a standard bundle:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 3 hours:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 2 days:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 4 days and 8 hours:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
@@ -665,11 +677,13 @@ ssh -p 122 admin@HOSTNAME -- ghe-cluster-support-bundle -x -o' > cluster-support
 ```
 
 To send a bundle to {% data variables.contact.github_support %}:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -u'
 ```
 
 To send a bundle to {% data variables.contact.github_support %} and associate the bundle with a ticket:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
@@ -683,11 +697,13 @@ ghe-dpages
 ```
 
 To show a summary of repository location and health:
+
 ```shell
 ghe-dpages status
 ```
 
 To evacuate a {% data variables.product.prodname_pages %} storage service before evacuating a cluster node:
+
 ```shell
 ghe-dpages evacuate pages-server-UUID
 ```
@@ -709,6 +725,7 @@ ghe-spokesctl routes
 ```
 
 To evacuate storage services on a cluster node:
+
 ```shell
 ghe-spokesctl server set evacuating git-server-UUID
 ```
@@ -983,6 +1000,7 @@ For more information, please see our guides on [migrating data to and from your 
 ### git-import-detect
 
 Given a URL, detect which type of source control management system is at the other end. During a manual import this is likely already known, but this can be very useful in automated scripts.
+
 ```shell
 git-import-detect
 ```
@@ -990,6 +1008,7 @@ git-import-detect
 ### git-import-hg-raw
 
 This utility imports a Mercurial repository to this Git repository. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
+
 ```shell
 git-import-hg-raw
 ```
@@ -997,6 +1016,7 @@ git-import-hg-raw
 ### git-import-svn-raw
 
 This utility imports Subversion history and file data into a Git branch. This is a straight copy of the tree, ignoring any trunk or branch distinction. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
+
 ```shell
 git-import-svn-raw
 ```
@@ -1004,6 +1024,7 @@ git-import-svn-raw
 ### git-import-tfs-raw
 
 This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell))."
+
 ```shell
 git-import-tfs-raw
 ```
@@ -1011,6 +1032,7 @@ git-import-tfs-raw
 ### git-import-rewrite
 
 This utility rewrites the imported repository. This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
+
 ```shell
 git-import-rewrite
 ```
@@ -1047,31 +1069,37 @@ By default, the command creates the tarball in _/tmp_, but you can also have it 
 {% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
 
 To create a standard bundle:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 3 hours:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 2 days:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 4 days and 8 hours:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -x -o' > support-bundle.tgz
 ```
 
 To send a bundle to {% data variables.contact.github_support %}:
+
 ```shell
 ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -u'
 ```
@@ -1087,11 +1115,13 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -t TICKET_ID'
 This utility sends information from your appliance to {% data variables.product.prodname_enterprise %} support. You can either specify a local file, or provide a stream of up to 100MB of data via `STDIN`. The uploaded data can optionally be associated with a support ticket.
 
 To send a file to {% data variables.contact.github_support %} and associate the file with a ticket:
+
 ```shell
 ghe-support-upload -f FILE_PATH -t TICKET_ID
 ```
 
 To upload data via `STDIN` and associating the data with a ticket:
+
 ```shell
 ghe-repl-status -vv | ghe-support-upload -t TICKET_ID -d "Verbose Replication Status"
 ```
@@ -1143,11 +1173,13 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
 This utility installs or verifies an upgrade package. You can also use this utility to roll back a patch release if an upgrade fails or is interrupted. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
 To verify an upgrade package:
+
 ```shell
 ghe-upgrade --verify UPGRADE-PACKAGE-FILENAME
 ```
 
 To install an upgrade package:
+
 ```shell
 ghe-upgrade UPGRADE-PACKAGE-FILENAME
 ```
@@ -1161,17 +1193,20 @@ This utility manages scheduled installation of upgrade packages. You can show, c
 The `ghe-upgrade-scheduler` utility is best suited for scheduling hotpatch upgrades, which do not require maintenance mode or a reboot in most cases. This utility is not practical for full package upgrades, which require an administrator to manually set maintenance mode, reboot the instance, and unset maintenance mode. For more information about the different types of upgrades, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package)"
 
 To schedule a new installation for a package:
+
 ```shell
 ghe-upgrade-scheduler -c "0 2 15 12 *" UPGRADE-PACKAGE-FILENAME
 ```
 
 To show scheduled installations for a package:
+
 ```shell
 $ ghe-upgrade-scheduler -s UPGRADE PACKAGE FILENAME
 > 0 2 15 12 * /usr/local/bin/ghe-upgrade -y -s UPGRADE-PACKAGE-FILENAME > /data/user/common/UPGRADE-PACKAGE-FILENAME.log 2>&1
 ```
 
 To remove scheduled installations for a package:
+
 ```shell
 ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 ```

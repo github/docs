@@ -90,6 +90,7 @@ For example, if the global `.gitconfig` file on your local machine contains a `g
    ```Shell
    git config --global --unset gpg.program
    ```
+
 3. Push the change to your dotfiles repository on {% data variables.product.prodname_dotcom %}.
 4. Optionally, to keep your local configuration, set the value again in a Git configuration file that you do not push to your dotfiles repository.
 

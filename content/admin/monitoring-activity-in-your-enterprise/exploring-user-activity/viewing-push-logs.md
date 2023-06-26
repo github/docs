@@ -45,7 +45,9 @@ For more information, see "[Using the activity view to see changes to your repos
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. In the appropriate Git repository, open the audit log file:
+
    ```shell
    ghe-repo OWNER/REPOSITORY -c "cat audit_log"
    ```
+
 {% endif %}

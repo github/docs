@@ -61,13 +61,16 @@ You can also skip workflow runs triggered by the `push` and `pull_request` event
 Alternatively, to skip or request _all_ checks for your commit, add one of the following trailer lines to the end of your commit message:
 
 - To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
+
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
+
 - To _request_ checks for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
+
   ```shell
   $ git commit -m "Refactor usability tests
   >

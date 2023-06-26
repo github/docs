@@ -132,6 +132,7 @@ We recommend consolidating hooks to a single repository. If the consolidated hoo
    ```shell
    sudo chmod +x SCRIPT_FILE.sh
    ```
+
    For Windows users, ensure the scripts have execute permissions:
 
    ```shell

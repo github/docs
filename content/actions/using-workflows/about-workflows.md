@@ -62,6 +62,7 @@ If your workflows use sensitive data, such as passwords or certificates, you can
 This example job demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
 
 {% raw %}
+
 ```yaml
 jobs:
   example-job:
@@ -73,6 +74,7 @@ jobs:
         run: |
           example-command "$super_secret"
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."

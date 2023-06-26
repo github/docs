@@ -132,6 +132,7 @@ $
 
 1. Create a {% data variables.product.prodname_codeql %} database (see above).
 2. Run `codeql database analyze` on the database and specify which {% ifversion codeql-packs %}packs and/or {% endif %}queries to use.
+
    ```shell
    codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
        --output=&lt;output&gt;  {% ifversion codeql-packs %}--download &lt;packs,queries&gt;{% else %}&lt;queries&gt;{% endif %}
@@ -146,6 +147,7 @@ codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
     --sarif-category=&lt;language-specifier&gt; --output=&lt;output&gt; \
     {% ifversion codeql-packs %}&lt;packs,queries&gt;{% else %}&lt;queries&gt;{% endif %}
 ```
+
 {% endnote %}
 
 | Option | Required | Usage |

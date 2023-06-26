@@ -25,6 +25,7 @@ The time required to failover depends on how long it takes to manually promote t
      - To use the management console, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)"
 
      - You can also use the `ghe-maintenance -s` command.
+
        ```shell
        ghe-maintenance -s
        ```
@@ -44,6 +45,7 @@ The time required to failover depends on how long it takes to manually promote t
      ```
 
 4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
+
    ```shell
    ghe-repl-promote
    ```
@@ -59,10 +61,13 @@ The time required to failover depends on how long it takes to manually promote t
 7. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)."
 8. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
     - On the former appliances, get their UUID via `cat /data/user/common/uuid`.
+
       ```shell
       cat /data/user/common/uuid
       ```
+
     - On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace *`UUID`* with a UUID you retrieved in the previous step.
+
       ```shell
       ghe-repl-teardown -u  UUID
       ```

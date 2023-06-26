@@ -38,10 +38,12 @@ steps:
 ### Example setting an environment variable
 
 {% raw %}
+
 ```yaml
 env:
   MY_ENV_VAR: ${{ <expression> }}
 ```
+
 {% endraw %}
 
 ## Literals
@@ -184,9 +186,11 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 #### Example of `format`
 
 {% raw %}
+
 ```js
 format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns 'Hello Mona the Octocat'.
@@ -194,9 +198,11 @@ Returns 'Hello Mona the Octocat'.
 #### Example escaping braces
 
 {% raw %}
+
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns '{Hello Mona the Octocat!}'.
@@ -232,6 +238,7 @@ Returns a JSON object or JSON data type for `value`. You can use this function t
 This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
 
 {% raw %}
+
 ```yaml
 name: build
 on: push
@@ -255,6 +262,7 @@ jobs:
     steps:
       - run: build
 ```
+
 {% endraw %}
 
 #### Example returning a JSON data type
@@ -262,6 +270,7 @@ jobs:
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
 {% raw %}
+
 ```yaml
 name: print
 on: push
@@ -276,6 +285,7 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.time) }}
         run: echo ...
 ```
+
 {% endraw %}
 
 ### hashFiles

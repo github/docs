@@ -57,6 +57,7 @@ You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [
 You don't need to be an expert in any of these tools or concepts to complete this project. This guide will walk you through all the required steps. Before you begin creating CI tests with the Checks API, you'll need to do the following:
 
 1. Clone the [Creating CI tests with the Checks API](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) repository.
+
    ```shell
    git clone https://github.com/github-developer/creating-ci-tests-with-the-checks-api.git
    ```

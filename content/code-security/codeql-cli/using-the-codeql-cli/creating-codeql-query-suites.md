@@ -51,6 +51,7 @@ files:
   ```
   - query: <path-to-query>
   ```
+
   The argument must be one or more file paths, relative to the {% data variables.product.prodname_codeql %} pack containing
   the suite definition.
 

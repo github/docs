@@ -114,6 +114,7 @@ You can print the contents of contexts to the log for debugging. The [`toJSON` f
 {% data reusables.actions.github-context-warning %}
 
 {% raw %}
+
 ```yaml copy
 name: Context testing
 on: push
@@ -147,6 +148,7 @@ jobs:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo '$MATRIX_CONTEXT'
 ```
+
 {% endraw %}
 
 ## `github` context
@@ -312,6 +314,7 @@ This example workflow shows how the `env` context can be configured at the workf
 {% data reusables.repositories.actions-env-var-note %}
 
 {% raw %}
+
 ```yaml copy
 name: Hi Mascot
 on: push
@@ -334,6 +337,7 @@ jobs:
     steps:
       - run: echo 'Hi ${{ env.mascot }}'  # Hi Tux
 ```
+
 {% endraw %}
 
 {% ifversion actions-configuration-variables %}
@@ -458,6 +462,7 @@ This example `jobs` context contains the result and outputs of a job from a reus
 This example reusable workflow uses the `jobs` context to set outputs for the reusable workflow. Note how the outputs flow up from the steps, to the job, then to the `workflow_call` trigger. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow)."
 
 {% raw %}
+
 ```yaml copy
 name: Reusable workflow
 
@@ -494,6 +499,7 @@ jobs:
         run: echo "::set-output name=secondword::world"
 {%- endif %}{% raw %}
 ```
+
 {% endraw %}
 
 ## `steps` context
@@ -813,6 +819,7 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - run: ./debug
 ```
+
 ## `inputs` context
 
 The `inputs` context contains input properties passed to an action{% ifversion actions-unified-inputs %},{% else %} or{% endif %} to a reusable workflow{% ifversion actions-unified-inputs %}, or to a manually triggered workflow{% endif %}. {% ifversion actions-unified-inputs %}For reusable workflows, the{% else %}The{% endif %} input names and types are defined in the [`workflow_call` event configuration](/actions/using-workflows/events-that-trigger-workflows#workflow-reuse-events) of a reusable workflow, and the input values are passed from [`jobs.<job_id>.with`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idwith) in an external workflow that calls the reusable workflow. {% ifversion actions-unified-inputs %}For manually triggered workflows, the inputs are defined in the [`workflow_dispatch` event configuration](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch) of a workflow.{% endif %}
@@ -843,6 +850,7 @@ The following example contents of the `inputs` context is from a workflow that h
 This example reusable workflow uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the reusable workflow from the caller workflow.
 
 {% raw %}
+
 ```yaml copy
 name: Reusable deploy workflow
 on:
@@ -866,6 +874,7 @@ jobs:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
+
 {% endraw %}
 
 {% ifversion actions-unified-inputs %}
@@ -874,6 +883,7 @@ jobs:
 This example workflow triggered by a `workflow_dispatch` event uses the `inputs` context to get the values of the `build_id`, `deploy_target`, and `perform_deploy` inputs that were passed to the workflow.
 
 {% raw %}
+
 ```yaml copy
 on:
   workflow_dispatch:
@@ -896,5 +906,6 @@ jobs:
       - name: Deploy build to target
         run: deploy --build ${{ inputs.build_id }} --target ${{ inputs.deploy_target }}
 ```
+
 {% endraw %}
 {% endif %}

@@ -63,6 +63,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
         --name MY_WEBAPP_NAME \
         --resource-group MY_RESOURCE_GROUP \
         --settings DOCKER_REGISTRY_SERVER_URL=https://ghcr.io DOCKER_REGISTRY_SERVER_USERNAME=MY_REPOSITORY_OWNER DOCKER_REGISTRY_SERVER_PASSWORD=MY_PERSONAL_ACCESS_TOKEN
+
 ```
 
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}

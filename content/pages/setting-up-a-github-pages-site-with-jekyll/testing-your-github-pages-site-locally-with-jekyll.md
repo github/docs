@@ -35,6 +35,7 @@ Before you can use Jekyll to test a site, you must:
 {% data reusables.pages.navigate-publishing-source %}
 3. Run `bundle install`.
 3. Run your Jekyll site locally.
+
    ```shell
    $ bundle exec jekyll serve
    > Configuration file: /Users/octocat/my-site/_config.yml
@@ -48,6 +49,7 @@ Before you can use Jekyll to test a site, you must:
    >    Server address: http://127.0.0.1:4000/
    >  Server running... press ctrl-c to stop.
    ```
+
    {% note %}
 
    **Note:** If you've installed Ruby 3.0 or later (which you may have if you installed the default version via Homebrew), you might get an error at this step. That's because these versions of Ruby no longer come with `webrick` installed.

@@ -28,6 +28,7 @@ Subversion checkouts are different: they mix the repository data in the working 
 {% data reusables.repositories.copy-clone-url %}
 
 3. Make an empty checkout of the repository:
+
    ```shell
    $ svn co --depth empty https://github.com/USER/REPO
    > Checked out revision 1.
@@ -35,6 +36,7 @@ Subversion checkouts are different: they mix the repository data in the working 
    ```
 
 4. Get the `trunk` branch. The Subversion bridge maps trunk to the Git HEAD branch.
+
    ```shell
    $ svn up trunk
    > A    trunk
@@ -44,6 +46,7 @@ Subversion checkouts are different: they mix the repository data in the working 
    ```
 
 5. Get an empty checkout of the `branches` directory.  This is where all of the non-`HEAD` branches live, and where you'll be making feature branches.
+
    ```shell
    $ svn up --depth empty branches
    Updated to revision 1.
@@ -54,12 +57,14 @@ Subversion checkouts are different: they mix the repository data in the working 
 You can also create branches using the Subversion bridge to GitHub.
 
 From your svn client, make sure the default branch is current by updating `trunk`:
+
 ```shell
 $ svn up trunk
 > At revision 1.
 ```
 
 Next, you can use `svn copy` to create a new branch:
+
 ```shell
 $ svn copy trunk branches/more_awesome
 > A    branches/more_awesome

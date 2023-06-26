@@ -95,6 +95,7 @@ The following instructions are only intended for  {% data variables.product.prod
    ```shell copy
    ghe-config mysql.innodb-flush-no-fsync true
    ```
+
 {% data reusables.enterprise.apply-configuration %}
 
 #### Upgrade your instance's storage

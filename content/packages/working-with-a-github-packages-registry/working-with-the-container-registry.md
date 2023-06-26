@@ -90,17 +90,20 @@ To connect a repository when publishing an image from the command line, and to e
 To ensure you're always using the same image, you can specify the exact container image version you want to pull by the `digest` SHA value.
 
 1. To find the digest SHA value, use `docker inspect` or `docker pull` and copy the SHA value after `Digest:`
+
    ```shell
    docker inspect {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME
    ```
 
    Replace `NAMESPACE` with the name of the personal account or organization to which the image is scoped.
 2. Remove image locally as needed.
+
    ```shell
    docker rmi  {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
    ```
 
 3. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
+
    ```shell
    docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
    ```
@@ -153,6 +156,7 @@ docker build -t hello_docker .
 ## Tagging container images
 
 1. Find the ID for the Docker image you want to tag.
+
    ```shell
    $ docker images
    > REPOSITORY                                            TAG                 IMAGE ID            CREATED             SIZE
@@ -161,6 +165,7 @@ docker build -t hello_docker .
    ```
 
 2. Tag your Docker image using the image ID and your desired image name and hosting destination.
+
    ```shell
    docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:latest
    ```

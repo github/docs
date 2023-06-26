@@ -108,6 +108,7 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
      ghe-config secrets.packages.azure-container-name "AZURE CONTAINER NAME"
      ghe-config secrets.packages.azure-connection-string "CONNECTION STRING"
      ```
+
    - Amazon S3:
 
      ```shell copy
@@ -117,6 +118,7 @@ Optionally, if you use {% data variables.product.prodname_registry %} on your pr
      ghe-config secrets.packages.aws-access-key "S3 ACCESS KEY ID"
      ghe-config secrets.packages.aws-secret-key "S3 ACCESS SECRET"
      ```
+
 1. To prepare to enable {% data variables.product.prodname_registry %} on the staging instance, enter the following command.
 
    ```shell copy

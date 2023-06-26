@@ -63,6 +63,7 @@ To upgrade to the latest version of {% data variables.product.prodname_enterpris
 
 10. On the backup host, run the `ghe-backup` command to take a final backup snapshot. This ensures that all data from the old instance is captured.
 11. On the backup host, run the `ghe-restore` command you copied on the new instance's restore status screen to restore the latest snapshot.
+
    ```shell
    $ ghe-restore 169.254.1.1
    The authenticity of host '169.254.1.1:122' can't be established.

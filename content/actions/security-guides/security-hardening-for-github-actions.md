@@ -75,6 +75,7 @@ The following sections explain how you can help mitigate the risk of script inje
 A script injection attack can occur directly within a workflow's inline script. In the following example, an action uses an expression to test the validity of a pull request title, but also adds the risk of script injection:
 
 {% raw %}
+
 ```
       - name: Check PR title
         run: |
@@ -87,6 +88,7 @@ A script injection attack can occur directly within a workflow's inline script. 
           exit 1
           fi
 ```
+
 {% endraw %}
 
 This example is vulnerable to script injection because the `run` command executes within a temporary shell script on the runner. Before the shell script is run, the expressions inside {% raw %}`${{ }}`{% endraw %} are evaluated and then substituted with the resulting values, which can make it vulnerable to shell command injection.
@@ -113,11 +115,13 @@ There are a number of different approaches available to help you mitigate the ri
 The recommended approach is to create an action that processes the context value as an argument. This approach is not vulnerable to the injection attack, as the context value is not used to generate a shell script, but is instead passed to the action as an argument:
 
 {% raw %}
+
 ```
 uses: fakeaction/checktitle@v3
 with:
     title: ${{ github.event.pull_request.title }}
 ```
+
 {% endraw %}
 
 ### Using an intermediate environment variable
@@ -127,6 +131,7 @@ For inline scripts, the preferred approach to handling untrusted input is to set
 The following example uses Bash to process the `github.event.pull_request.title` value as an environment variable:
 
 {% raw %}
+
 ```
       - name: Check PR title
         env:
@@ -140,6 +145,7 @@ The following example uses Bash to process the `github.event.pull_request.title`
           exit 1
           fi
 ```
+
 {% endraw %}
 
 In this example, the attempted script injection is unsuccessful, which is reflected by the following lines in the log:
@@ -244,11 +250,13 @@ Workflows triggered using the `pull_request` event have read-only permissions an
 - For a custom action, the risk can vary depending on how a program is using the secret it obtained from the argument:
 
   {% raw %}
+
   ```
   uses: fakeaction/publish@v3
   with:
       key: ${{ secrets.PUBLISH_KEY }}
   ```
+
   {% endraw %}
 
 Although {% data variables.product.prodname_actions %} scrubs secrets from memory that are not referenced in the workflow (or an included action), the `GITHUB_TOKEN` and any referenced secrets can be harvested by a determined attacker.

@@ -101,6 +101,7 @@ For information on creating or accessing your access key ID and secret key, see 
 
    - Add the permissions policy you created above to allow writes to the bucket.
    - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+
      ```
      "Condition": {
         "StringEquals": {
@@ -109,6 +110,7 @@ For information on creating or accessing your access key ID and secret key, see 
          }
       }
       ```
+
    - Make note of the Amazon Resource Name (ARN) of the created role.
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}

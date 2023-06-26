@@ -161,11 +161,13 @@ variables {
   "slug": "<enterprise-account-name>"
 }
 ```
+
 {% endif %}
 
 The next GraphQL query example shows how challenging it is to retrieve the number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
 
 {% ifversion not ghae %}
+
 ```graphql
 # Each organization is queried separately
 {
@@ -187,7 +189,9 @@ fragment repositories on Organization {
   }
 }
 ```
+
 {% else %}
+
 ```graphql
 # Each organization is queried separately
 {
@@ -209,6 +213,7 @@ fragment repositories on Organization {
   }
 }
 ```
+
 {% endif %}
 
 ## Query each organization separately

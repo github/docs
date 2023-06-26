@@ -90,6 +90,7 @@ Before you can sync your fork with an upstream repository, you must configure a 
    ```
 
    If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
+
    ```shell
    $ git merge upstream/main
    > Updating 34e91da..16c56ad
@@ -97,6 +98,7 @@ Before you can sync your fork with an upstream repository, you must configure a 
    >  README.md                 |    5 +++--
    >  1 file changed, 3 insertions(+), 2 deletions(-)
    ```
+
    If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
 {% tip %}

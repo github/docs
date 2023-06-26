@@ -48,13 +48,17 @@ If you don't have private mode enabled, the migration script will have no effect
 
 {% else %}
 2. Navigate to the `/data/github/current` directory.
+
    ```shell
    cd /data/github/current
    ```
+
 3. Run the migration command.
+
    ```shell
    sudo bin/safe-ruby lib/github/transitions/20191210220630_convert_public_ghes_repos_to_internal.rb --verbose -w | tee -a /tmp/convert_public_ghes_repos_to_internal.log
    ```
+
 {% endif %}
 
 Log output will appear in the terminal and `/tmp/convert_public_ghes_repos_to_internal.log`.

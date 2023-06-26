@@ -50,6 +50,7 @@ For information about promoting a user to an organization owner, see the `ghe-or
 
 1. [SSH](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) into your appliance.
 2. Run [ghe-user-promote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-promote) with the username to promote.
+
    ```shell
    ghe-user-promote USERNAME
    ```
@@ -58,6 +59,7 @@ For information about promoting a user to an organization owner, see the `ghe-or
 
 1. [SSH](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) into your appliance.
 2. Run [ghe-user-demote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-demote) with the username to demote.
+
    ```shell
    ghe-user-demote USERNAME
    ```

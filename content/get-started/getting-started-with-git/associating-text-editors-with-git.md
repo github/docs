@@ -24,6 +24,7 @@ shortTitle: Associate text editors
 1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
+
    ```shell
    git config --global core.editor "code --wait"
    ```
@@ -35,6 +36,7 @@ shortTitle: Associate text editors
 1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
+
    ```shell
    git config --global core.editor "code --wait"
    ```
@@ -46,6 +48,7 @@ shortTitle: Associate text editors
 1. Install [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/) ({% data variables.product.prodname_vscode_shortname %}). For more information, see "[Setting up {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/Docs/setup/setup-overview)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
+
    ```shell
    git config --global core.editor "code --wait"
    ```
@@ -59,6 +62,7 @@ shortTitle: Associate text editors
 1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
+
    ```shell
    git config --global core.editor "subl -n -w"
    ```
@@ -70,6 +74,7 @@ shortTitle: Associate text editors
 1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
+
    ```shell
    git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
    ```
@@ -81,6 +86,7 @@ shortTitle: Associate text editors
 1. Install [Sublime Text](https://www.sublimetext.com/). For more information, see "[Installation](https://docs.sublimetext.io/guide/getting-started/installation.html)" in the Sublime Text documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
+
    ```shell
    git config --global core.editor "subl -n -w"
    ```
@@ -95,6 +101,7 @@ shortTitle: Associate text editors
 1. Install TextMate's `mate` shell utility. For more information, see "[`mate` and `rmate`](https://macromates.com/blog/2011/mate-and-rmate/)" in the TextMate documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
+
    ```shell
    git config --global core.editor "mate -w"
    ```
@@ -108,6 +115,7 @@ shortTitle: Associate text editors
 1. Install Notepad++ from https://notepad-plus-plus.org/. For more information, see "[Getting started](https://npp-user-manual.org/docs/getting-started/)" in the Notepad++ documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
+
    ```shell
    git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
    ```

@@ -35,6 +35,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 {% data reusables.command_line.start_ssh_agent %}
 
 6. Find and take a note of your public key fingerprint.
+
    ```shell
    $ ssh-add -l -E sha256
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
@@ -63,6 +64,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
 6. Find and take a note of your public key fingerprint.
+
    ```shell
    $ ssh-add -l -E sha256
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
@@ -89,6 +91,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 {% data reusables.command_line.start_ssh_agent %}
 
 6. Find and take a note of your public key fingerprint.
+
    ```shell
    $ ssh-add -l -E sha256
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)

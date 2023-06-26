@@ -40,6 +40,7 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
 {% data reusables.enterprise_installation.create-ghe-instance %}
 
 1. Find the most recent {% data variables.product.prodname_ghe_server %} appliance image. For more information about the `vm image list` command, see "[`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list)" in the Microsoft documentation.
+
    ```shell
    az vm image list --all -f GitHub-Enterprise | grep '"urn":' | sort -V
    ```
@@ -83,6 +84,7 @@ To configure the instance, you must confirm the instance's status, upload a lice
 {% data reusables.enterprise_installation.new-instance-attack-vector-warning %}
 
 1. Before configuring the VM, you must wait for it to enter ReadyRole status. Check the status of the VM with the `vm list` command. For more information, see "[`az vm list`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list)" in the Microsoft documentation.
+
    ```shell
    $ az vm list -d -g RESOURCE_GROUP -o table
    > Name    ResourceGroup    PowerState    PublicIps     Fqdns    Location    Zones
@@ -90,6 +92,7 @@ To configure the instance, you must confirm the instance's status, upload a lice
    > VM_NAME RESOURCE_GROUP   VM running    40.76.79.202           eastus
   
    ```
+
    {% note %}
   
    **Note:** Azure does not automatically create a FQDNS entry for the VM. For more information, see Azure's guide on how to "[Create a fully qualified domain name in the Azure portal for a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)."

@@ -57,6 +57,7 @@ The [`azure/login`](https://github.com/Azure/login) action receives a JWT from t
 The following example exchanges an OIDC ID token with Azure to receive an access token, which can then be used to access cloud resources.
 
 {% raw %}
+
 ```yaml copy
 name: Run Azure Login with OIDC
 on: [push]
@@ -80,4 +81,5 @@ jobs:
           az account show
           az group list
 ```
+
  {% endraw %}

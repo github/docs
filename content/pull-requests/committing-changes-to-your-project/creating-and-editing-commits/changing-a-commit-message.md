@@ -52,6 +52,7 @@ We strongly discourage force pushing, since this changes the history of your rep
 
 1. Follow the [steps above](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
 2. Use the `push --force-with-lease` command to force push over the old commit.
+
    ```shell
    git push --force-with-lease origin EXAMPLE-BRANCH
    ```
@@ -67,6 +68,7 @@ If you need to amend the message for multiple commits or an older commit, you ca
    # Displays a list of the last 3 commits on the current branch
    $ git rebase -i HEAD~3
    ```
+
    The list will look similar to the following:
 
    ```shell
@@ -92,15 +94,19 @@ If you need to amend the message for multiple commits or an older commit, you ca
    #
    # Note that empty commits are commented out
    ```
+
 3. Replace `pick` with `reword` before each commit message you want to change.
+
    ```shell
    pick e499d89 Delete CNAME
    reword 0c39034 Better README
    reword f7fde4a Change the commit message but push the same commit.
    ```
+
 4. Save and close the commit list file.
 5. In each resulting commit file, type the new commit message, save the file, and close it.
 6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+
    ```shell
    git push --force origin EXAMPLE-BRANCH
    ```

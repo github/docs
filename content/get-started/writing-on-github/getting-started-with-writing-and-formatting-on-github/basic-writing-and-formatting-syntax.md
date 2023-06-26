@@ -51,6 +51,7 @@ Text that is not a quote
 
 > Text that is a quote
 ```
+
 Quoted text is indented, with a different type color.
 
 ![Screenshot of rendered GitHub Markdown showing sample quoted text. The quote is indented with a vertical line on the left, and its text is dark gray rather than black.](/assets/images/help/writing/quoted-text-rendered.png)

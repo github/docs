@@ -45,24 +45,30 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. To verify the connection to the primary and enable replica mode for the repository cache, run `ghe-repl-setup` again.
    - If the repository cache is your only additional node, no arguments are required.
+
       ```shell
       ghe-repl-setup PRIMARY-IP
       ```
+
    - If you're configuring a repository cache in addition to one or more existing replicas, use the `-a` or `--add` argument.
+
       ```
       ghe-repl-setup -a PRIMARY-IP
       ```
+
 {% ifversion ghes < 3.6 %}
 1. If you haven't already, set the datacenter name on the primary and any replica appliances, replacing DC-NAME with a datacenter name.
 
    ```
    ghe-repl-node --datacenter DC-NAME
    ```
-1. Set a `cache-location` for the repository cache, replacing _CACHE-LOCATION_ with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
+ 
+1. Set a `cache-location` for the repository cache, replacing CACHE-LOCATION with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
 
    ```shell
    ghe-repl-node --cache CACHE-LOCATION --datacenter REPLICA-DC-NAME
    ```
+
 {% else %}
 1. To configure the repository cache, use the `ghe-repl-node` command and include the necessary parameters.
     - Set a `cache-location` for the repository cache, replacing _CACHE-LOCATION_ with an alphanumeric identifier, such as the region where the cache is deployed.  The _CACHE-LOCATION_ value must not be any of the subdomains reserved for use with subdomain isolation, such as `assets` or `media`.  For a list of reserved names, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)."
@@ -72,11 +78,13 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
       ```
       ghe-repl-node --datacenter DC-NAME
       ```
-    - New caches will attempt to seed from another cache in the same datacenter. Set a `datacenter` for the repository cache, replacing _REPLICA-DC-NAME_ with the name of the datacenter where you're deploying the node.
+
+    - New caches will attempt to seed from another cache in the same datacenter. Set a `datacenter` for the repository cache, replacing REPLICA-DC-NAME with the name of the datacenter where you're deploying the node.
 
     ```shell
     ghe-repl-node --cache CACHE-LOCATION --cache-domain EXTERNAL-CACHE-DOMAIN --datacenter REPLICA-DC-NAME
     ```
+
 {% endif %}
 
 {% data reusables.enterprise_installation.replication-command %}

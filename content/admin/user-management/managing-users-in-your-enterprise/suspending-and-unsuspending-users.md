@@ -64,6 +64,7 @@ As when suspending a user, unsuspending a user takes effect immediately. The use
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Run [ghe-user-suspend](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-suspend) with the username to suspend.
+
    ```shell
    ghe-user-suspend USERNAME
    ```
@@ -86,6 +87,7 @@ You can create a custom message that suspended users will see when attempting to
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. Run [ghe-user-unsuspend](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-unsuspend) with the username to unsuspend.
+
    ```shell
    ghe-user-unsuspend USERNAME
    ```

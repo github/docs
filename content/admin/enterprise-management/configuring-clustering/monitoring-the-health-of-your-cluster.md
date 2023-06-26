@@ -39,6 +39,7 @@ admin@ghe-data-node-0:~$ ghe-cluster-status | grep error
 > mysql-replication ghe-data-node-0: error Stopped
 > mysql cluster: error
 ```
+
 {% note %}
 
 **Note:** If there are no failing tests, this command produces no output. This indicates the cluster is healthy.
@@ -55,6 +56,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
 
 ### Configuring the Nagios host
 1. Generate an SSH key with a blank passphrase. Nagios uses this to authenticate to the {% data variables.product.prodname_ghe_server %} cluster.
+
    ```shell
    nagiosuser@nagios:~$ ssh-keygen -t ed25519
    > Generating public/private ed25519 key pair.
@@ -64,6 +66,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    > Your identification has been saved in /home/nagiosuser/.ssh/id_ed25519.
    > Your public key has been saved in /home/nagiosuser/.ssh/id_ed25519.pub.
    ```
+
    {% danger %}
 
    **Security Warning:** An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
@@ -72,12 +75,14 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    {% note %}
 
    **Note:** If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:
+
    ```shell
    nagiosuser@nagios:~$ ssh-keygen -t rsa -b 4096
    ```
 
    {% endnote %}
 2. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
+
    ```shell
    nagiosuser@nagios:~$ sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/
    nagiosuser@nagios:~$ sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519
@@ -95,6 +100,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    ```
 
 5. To test that the Nagios plugin can successfully execute the command, run it interactively from Nagios host.
+
    ```shell
    nagiosuser@nagios:~$ /usr/lib/nagios/plugins/check_by_ssh -l admin -p 122 -H HOSTNAME -C "ghe-cluster-status -n" -t 30
    > OK - No errors detected
@@ -110,6 +116,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
         command_line    $USER1$/check_by_ssh -H $HOSTADDRESS$ -C "ghe-cluster-status -n" -l admin -p 122 -t 30
    }
    ```
+
 7. Add this command to a service definition for a node in the {% data variables.product.prodname_ghe_server %} cluster.
 
    **Example definition**

@@ -68,12 +68,14 @@ AMIs for {% data variables.product.prodname_ghe_server %} are available in the A
 ### Using the AWS CLI to select an AMI
 
 1. Using the AWS CLI, get a list of {% data variables.product.prodname_ghe_server %} images published by {% data variables.product.prodname_dotcom %}'s AWS owner IDs (`025577942450` for GovCloud, and `895557238572` for other regions). For more information, see "[describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)" in the AWS documentation.
+
    ```shell
    aws ec2 describe-images \
    --owners OWNER_ID \
    --query 'sort_by(Images,&Name)[*].{Name:Name,ImageID:ImageId}' \
    --output=text
    ```
+
 2. Take note of the AMI ID for the latest {% data variables.product.prodname_ghe_server %} image.
 
 ## Creating a security group
@@ -81,6 +83,7 @@ AMIs for {% data variables.product.prodname_ghe_server %} are available in the A
 If you're setting up your AMI for the first time, you will need to create a security group and add a new security group rule for each port in the table below. For more information, see the AWS guide "[Using Security Groups](https://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-sg.html)."
 
 1. Using the AWS CLI, create a new security group. For more information, see "[create-security-group](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)" in the AWS documentation.
+
    ```shell
    aws ec2 create-security-group --group-name SECURITY_GROUP_NAME --description "SECURITY GROUP DESCRIPTION"
    ```
@@ -88,9 +91,11 @@ If you're setting up your AMI for the first time, you will need to create a secu
 2. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
 
 3. Create a security group rule for each of the ports in the table below. For more information, see "[authorize-security-group-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html)" in the AWS documentation.
+
    ```shell
    aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE
    ```
+
   This table identifies what each port is used for.
 
   {% data reusables.enterprise_installation.necessary_ports %}

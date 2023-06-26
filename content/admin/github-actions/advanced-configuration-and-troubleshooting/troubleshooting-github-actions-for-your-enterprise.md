@@ -150,6 +150,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
      }
    }
    ```
+
 1. Save and exit the file.
 1. Run `ghe-config-apply` to apply the changes.
 
@@ -175,13 +176,17 @@ There are three ways to resolve this problem:
 
 1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 1. To remove the limitations on workflows triggered by {% data variables.product.prodname_dependabot %} on {% data variables.location.product_location %}, use the following command.
+
     ``` shell
     ghe-config app.actions.disable-dependabot-enforcement true
     ```
+
 1. Apply the configuration.
+
     ```shell
     ghe-config-apply
     ```
+
 1. Return to {% data variables.product.prodname_ghe_server %}.
 
 {% endif %}
@@ -204,18 +209,25 @@ To install the official bundled actions and starter workflows within a designate
 
 1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 1. To designate your organization as the location to store the bundled actions, use the `ghe-config` command, replacing `ORGANIZATION` with the name of your organization.
+
     ```shell
     ghe-config app.actions.actions-org ORGANIZATION
     ```
+
     and:
+
     ```shell
     ghe-config app.actions.github-org ORGANIZATION
     ```
+
 1.  To add the bundled actions to your organization, unset the SHA.
+
     ```shell
     ghe-config --unset 'app.actions.actions-repos-sha1sum'
     ```
+
 1. Apply the configuration.
+
     ```shell
     ghe-config-apply
     ```

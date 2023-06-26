@@ -174,12 +174,15 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 2. Add the package dependencies to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file.
 
    Example using Gradle Groovy:
+
    ```shell
    dependencies {
        implementation 'com.example:package'
    }
    ```
+
    Example using Kotlin DSL:
+
    ```shell
    dependencies {
        implementation("com.example:package")
@@ -189,6 +192,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 3. Add the repository to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file.
 
    Example using Gradle Groovy:
+
    ```shell
    repositories {
        maven {
@@ -200,7 +204,9 @@ To use a published package from {% data variables.product.prodname_registry %}, 
       }
    }
    ```
+
    Example using Kotlin DSL:
+
    ```shell
    repositories {
        maven {

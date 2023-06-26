@@ -79,12 +79,15 @@ See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documen
 To illustrate how `git filter-repo` works, we'll show you how to remove your file with sensitive data from the history of your repository and add it to `.gitignore` to ensure that it is not accidentally re-committed.
 
 1. Install the latest release of the [git filter-repo](https://github.com/newren/git-filter-repo) tool. You can install `git-filter-repo` manually or by using a package manager. For example, to install the tool with HomeBrew, use the `brew install` command.
+
    ```
    brew install git-filter-repo
    ```
+
   For more information, see [_INSTALL.md_](https://github.com/newren/git-filter-repo/blob/main/INSTALL.md) in the `newren/git-filter-repo` repository.
 
 2. If you don't already have a local copy of your repository with sensitive data in its history, [clone the repository](/repositories/creating-and-managing-repositories/cloning-a-repository) to your local computer.
+
    ```shell
    $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY
    > Initialized empty Git repository in /Users/YOUR-FILE-PATH/YOUR-REPOSITORY/.git/
@@ -94,15 +97,19 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
    > Receiving objects: 100% (1301/1301), 164.39 KiB, done.
    > Resolving deltas: 100% (724/724), done.
    ```
+
 3. Navigate into the repository's working directory.
+
    ```shell
    cd YOUR-REPOSITORY
    ```
+
 4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
     - Force Git to process, but not check out, the entire history of every branch and tag
     - Remove the specified file, as well as any empty commits generated as a result
     - Remove some configurations, such as the remote URL, stored in the _.git/config_ file. You may want to back up this file in advance for restoration later.
     - **Overwrite your existing tags**
+
       ```shell
         $ git filter-repo --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
         Parsed 197 commits
@@ -133,8 +140,10 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
    > [main 051452f] Add YOUR-FILE-WITH-SENSITIVE-DATA to .gitignore
    >  1 files changed, 1 insertions(+), 0 deletions(-)
    ```
+
 6. Double-check that you've removed everything you wanted to from your repository's history, and that all of your branches are checked out.
 7. Once you're happy with the state of your repository, force-push your local changes to overwrite your repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}, as well as all the branches you've pushed up. A force push is required to remove sensitive data from your commit history.
+
    ```shell
    $ git push origin --force --all
    > Counting objects: 1074, done.
@@ -145,7 +154,9 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
    > To https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY.git
    >  + 48dc599...051452f main -> main (forced update)
    ```
+
 8. In order to remove the sensitive file from [your tagged releases](/repositories/releasing-projects-on-github/about-releases), you'll also need to force-push against your Git tags:
+
    ```shell
    $ git push origin --force --tags
    > Counting objects: 321, done.
@@ -166,6 +177,7 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
 2. Tell your collaborators to [rebase](https://git-scm.com/book/en/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.
 
 3. After some time has passed and you're confident that the BFG tool / `git filter-repo` had no unintended side effects, you can force all objects in your local repository to be dereferenced and garbage collected with the following commands (using Git 1.8.5 or newer):
+
    ```shell
    $ git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
    $ git reflog expire --expire=now --all
@@ -176,6 +188,7 @@ After using either the BFG tool or `git filter-repo` to remove the sensitive dat
    > Writing objects: 100% (2437/2437), done.
    > Total 2437 (delta 1461), reused 1802 (delta 1048)
    ```
+
    {% note %}
 
    **Note:** You can also achieve this by pushing your filtered history to a new or empty repository and then making a fresh clone from {% data variables.product.product_name %}.

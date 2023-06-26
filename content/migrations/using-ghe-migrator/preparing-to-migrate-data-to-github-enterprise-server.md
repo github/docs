@@ -43,14 +43,19 @@ shortTitle: Prepare to migrate data
 ## Generating a list of migration conflicts
 
 1. Using the `ghe-migrator conflicts` command with the Migration GUID, generate a _conflicts.csv_ file:
+    
     ```shell
     ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
     ```
+
     - If no conflicts are reported, you can safely import the data by following the steps in "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
+
 2. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy _conflicts.csv_ to your local computer:
+   
    ```shell
    scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
    ```
+
 3. Continue to "[Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
 
 ## Reviewing migration conflicts

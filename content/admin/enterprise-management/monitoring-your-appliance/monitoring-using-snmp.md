@@ -28,6 +28,7 @@ SNMP is a common standard for monitoring devices over a network. We strongly rec
 4. In the **Community string** field, enter a new community string. If left blank, this defaults to `public`.
 {% data reusables.enterprise_management_console.save-settings %}
 5. Test your SNMP configuration by running the following command on a separate workstation with SNMP support in your network:
+
    ```shell
    # community-string is your community string
    # hostname is the IP or domain of your Enterprise instance
@@ -87,6 +88,7 @@ Of the available MIBs for SNMP, the most useful is `HOST-RESOURCES-MIB` (1.3.6.1
 | hrStorageAllocationUnits.1 | 1.3.6.1.2.1.25.2.3.1.4.1 | The size, in bytes, of an hrStorageAllocationUnit |
 
 For example, to query for `hrMemorySize` with SNMP v3, run the following command on a separate workstation with SNMP support in your network:
+
 ```shell
 # username is the unique username of your SNMP v3 user
 # auth password is the authentication password
@@ -99,6 +101,7 @@ $ snmpget -v 3 -u USERNAME -l authPriv \
 ```
 
 With SNMP v2c, to query for `hrMemorySize`, run the following command on a separate workstation with SNMP support in your network:
+
 ```shell
 # community-string is your community string
 # hostname is the IP or domain of your Enterprise instance

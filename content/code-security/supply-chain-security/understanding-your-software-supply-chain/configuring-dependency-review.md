@@ -89,6 +89,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
 1. Add a new YAML workflow to your `.github/workflows` folder.
 
    {% ifversion ghes %}For `runs-on`, the default label is `self-hosted`. You can replace the default label with the label of any of your runners.{% endif %}
+
    ```yaml copy
    name: 'Dependency Review'
    on: [pull_request]
@@ -106,9 +107,11 @@ Notice that all of the examples use a short version number for the action (`v3`)
         - name: Dependency Review
           uses: actions/dependency-review-action@v3
    ```
+
 1. Specify your settings.
 
    This {% data variables.dependency-review.action_name %} example file illustrates how you can use the available configuration options.
+
    ```yaml copy
    name: 'Dependency Review'
    on: [pull_request]
@@ -146,6 +149,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
            # Possible values: "development", "runtime", "unknown"
            fail-on-scopes: development, runtime
   {% endif %}
+
    ```
 ### Using a configuration file to set up {% data variables.dependency-review.action_name %}
 
@@ -183,6 +187,7 @@ Notice that all of the examples use a short version number for the action (`v3`)
 1. Create the configuration file in the path you have specified.
 
    This YAML example file illustrates how you can use the available configuration options.
+
    ```yaml copy
      # Possible values: "critical", "high", "moderate", "low"
      fail-on-severity: critical
@@ -213,5 +218,6 @@ Notice that all of the examples use a short version number for the action (`v3`)
        - runtime
    {% endif %}
    ```
+
 For further details about the configuration options, see [`dependency-review-action`](https://github.com/actions/dependency-review-action#readme).
 {% endif %}

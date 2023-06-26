@@ -70,16 +70,21 @@ Anyone can work with a previously opened pull request to continue working on it,
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 5. Fetch the reference to the pull request based on its ID number, creating a new branch in the process.
+
    ```shell
    git fetch origin pull/ID/head:BRANCH_NAME
    ```
+
 6. Switch to the new branch that's based on this pull request:
+
    ```shell
    [main] $ git checkout BRANCH_NAME
    > Switched to a new branch 'BRANCH_NAME'
    ```
+
 7. At this point, you can do anything you want with this branch. You can run some local tests, or merge other branches into the branch.
 8. When you're ready, you can push the new branch up:
+
    ```shell
    [pull-inactive-pull-request] $ git push origin BRANCH_NAME
    > Counting objects: 32, done.
@@ -90,11 +95,13 @@ Anyone can work with a previously opened pull request to continue working on it,
    > To https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
    >  * [new branch]      BRANCH_NAME -> BRANCH_NAME
    ```
+
 9. [Create a new pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) with your new branch.
 
 ## Error: Failed to push some refs
 
 The remote `refs/pull/` namespace is _read-only_. If you try to push any commits there, you'll see this error:
+
 ```shell
 ! [remote rejected] HEAD -> refs/pull/1/head (deny updating a hidden ref)
 error: failed to push some refs to 'git@github.local:USERNAME/REPOSITORY.git'

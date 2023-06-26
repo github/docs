@@ -145,10 +145,12 @@ If the upgrade target you're presented with is a feature release instead of a pa
 1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (_.hpkg_ file).
 {% data reusables.enterprise_installation.download-package %}
 1. Run the `ghe-upgrade` command using the package file name:
+
    ```shell
    admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
    *** verifying upgrade package signature...
    ```
+
 1. If at least one service or system component requires a reboot, the hotpatch upgrade script notifies you. For example, updates to the kernel, MySQL, or Elasticsearch may require a reboot.
 
 ### Upgrading an instance with multiple nodes using a hotpatch
@@ -194,11 +196,14 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   {% endnote %}
 
 1. Run the `ghe-upgrade` command using the package file name:
+
    ```shell
    admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.pkg
    *** verifying upgrade package signature...
    ```
+
 1. Confirm that you'd like to continue with the upgrade and restart after the package signature verifies. The new root filesystem writes to the secondary partition and the instance automatically restarts in maintenance mode:
+
   ```shell
   *** applying update...
   This package will upgrade your installation to version VERSION-NUMBER
@@ -206,6 +211,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+
 {%- ifversion ghe-migrations-cli-utility %}
 1. Optionally, during an upgrade to a feature release, you can monitor the status of database migrations using the `ghe-migrations` utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-migrations)."
 {%- endif %}
@@ -214,6 +220,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    ```shell
    tail -f /data/user/common/ghe-config.log
    ```
+
 {% ifversion ip-exception-list %}
 1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 {% endif %}
@@ -262,6 +269,7 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
    ```
    CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
    ```
+
    {% endnote %}
 
    {%- ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}

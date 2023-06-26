@@ -73,17 +73,20 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
    ```
    git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
    ```
+
 1. To change into the local repository directory, run the following command.
 
    ```
    cd backup-utils
    ```
+
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 1. To copy the included `backup.config-example` file to `backup.config`, run the following command.
 
    ```shell
    cp backup.config-example backup.config
    ```
+
 1. To customize your configuration, edit `backup.config` in a text editor.
    1. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
 
@@ -101,6 +104,7 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
    ```shell
    ./bin/ghe-host-check
    ```
+
 1. To create an initial full backup, run the following command.
 
    ```shell
@@ -168,11 +172,13 @@ If your backup host has internet connectivity and you previously used a compress
    ```
    git clone https://github.com/github/backup-utils.git
    ```
+
 1. To change into the cloned repository, run the following command.
 
    ```
    cd backup-utils
    ```
+
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 1. To restore your backup configuration from earlier, copy your existing backup configuration file to the local repository directory. Replace the path in the command with the location of the file saved in step 2.
 

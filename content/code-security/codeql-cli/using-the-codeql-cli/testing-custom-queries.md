@@ -158,6 +158,7 @@ which is declared as a dependency for `my-query-tests`. Therefore, `EmptyThen.ql
 8. Create a code snippet to test. The following Java code contains an empty `if` statement on the third line. Save it in `custom-queries/java/tests/EmptyThen/Test.java`.
 
    ```java
+
 class Test {
   public void problem(String arg) {
     if (arg.isEmpty())
@@ -173,6 +174,7 @@ class Test {
     }
   }
 }
+
    ```
 
 ### Execute the test
@@ -211,7 +213,9 @@ query.
 In this case, the failure was expected and is easy to fix. If you open the `EmptyThen.actual` file, you can see the results of the test:
 
 ```
+
 | Test.java:3:5:3:22 | stmt | This if statement has an empty then. |
+
 ```
 
 This file contains a table, with a column for the location of the result,
