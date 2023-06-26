@@ -17,4 +17,3 @@ children:
   - /viewing-and-managing-your-active-saml-sessions
 shortTitle: Authenticate with SAML
 ---
-

@@ -35,18 +35,16 @@ If private mode is enabled on your enterprise, the public cannot access {% data 
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
 4. Select **Public Pages**.
-  ![Checkbox to enable Public Pages](/assets/images/enterprise/management-console/public-pages-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Disabling {% data variables.product.prodname_pages %} for your enterprise
 
-If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[Enabling subdomain isolation](/admin/configuration/enabling-subdomain-isolation)."
+If subdomain isolation is disabled for your enterprise, you should also disable {% data variables.product.prodname_pages %} to protect yourself from potential security vulnerabilities. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
-4. Unselect **Enable Pages**.
-  ![Checkbox to disable {% data variables.product.prodname_pages %}](/assets/images/enterprise/management-console/pages-select-button.png)
+1. Deselect **Enable Pages**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
@@ -56,14 +54,35 @@ If subdomain isolation is disabled for your enterprise, you should also disable 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.pages-tab %}
-5. Under "Pages policies", deselect **Enable {% data variables.product.prodname_pages %}**.
-  ![Checkbox to disable {% data variables.product.prodname_pages %}](/assets/images/enterprise/business-accounts/enable-github-pages-checkbox.png)
+1. Under "Pages policies", deselect **Enable {% data variables.product.prodname_pages %}**.
 {% data reusables.enterprise-accounts.pages-policies-save %}
+
+{% endif %}
+
+{% ifversion ghes > 3.4 %}
+
+## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
+
+You can add or override response headers for {% data variables.product.prodname_pages %} sites hosted by {% data variables.location.product_location %}.
+
+{% warning %}
+
+**Warning:** Ensure that your response headers are properly configured before saving. Improper configurations may negatively impact the security of {% data variables.location.product_location %}.
+
+{% endwarning %}
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+{% data reusables.enterprise_site_admin_settings.management-console %}
+{% data reusables.enterprise_management_console.pages-tab %}
+1. Under "Http Header Name," type the header name. The length of header name should less than 128 characters.
+1. Under "Http Header Value," type the header value. The length of header value should less than 300 characters.
+1. Click **Add headers**.
+{% data reusables.enterprise_management_console.save-settings %}
 
 {% endif %}
 
 {% ifversion ghes %}
 ## Further reading
 
-- "[Enabling private mode](/admin/configuration/enabling-private-mode)"
+- "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"
 {% endif %}

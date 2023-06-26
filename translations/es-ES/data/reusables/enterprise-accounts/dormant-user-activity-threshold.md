@@ -1,1 +1,0 @@
-A user account is considered to be dormant if it has not been active for {% ifversion ghec %}90 days{% else %}at least a month{% endif %}.{% ifversion ghes %} You may choose to suspend dormant users to release user licenses.{% endif %}

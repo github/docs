@@ -3,8 +3,16 @@
   "ignore": [
     "assets",
     "script",
-    "translations",
     "stylesheets",
-    "tests"
+    "tests",
+    "content",
+    "translations",
+    "data/reusables",
+    "data/variables",
+    "data/glossaries",
+    "data/product-examples",
+    "data/learning-tracks",
+    "rest-api-description",
+    "semmle-code"
   ]
 }

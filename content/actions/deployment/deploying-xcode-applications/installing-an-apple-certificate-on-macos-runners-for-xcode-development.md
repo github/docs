@@ -1,5 +1,6 @@
 ---
 title: Installing an Apple certificate on macOS runners for Xcode development
+shortTitle: Sign Xcode applications
 intro: 'You can sign Xcode apps within your continuous integration (CI) workflow by installing an Apple code signing certificate on {% data variables.product.prodname_actions %} runners.'
 redirect_from:
   - /actions/guides/installing-an-apple-certificate-on-macos-runners-for-xcode-development
@@ -13,10 +14,8 @@ type: tutorial
 topics:
   - CI
   - Xcode
-shortTitle: Sign Xcode applications
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -27,8 +26,8 @@ This guide shows you how to add a step to your continuous integration (CI) workf
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
 
-- "[Learn {% data variables.product.prodname_actions %}](/actions/learn-github-actions)"
-- "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)"
+- "[AUTOTITLE](/actions/learn-github-actions)"
+- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 
 You should have an understanding of Xcode app building and signing. For more information, see the [Apple developer documentation](https://developer.apple.com/documentation/).
 
@@ -36,11 +35,11 @@ You should have an understanding of Xcode app building and signing. For more inf
 
 The signing process involves storing certificates and provisioning profiles, transferring them to the runner, importing them to the runner's keychain, and using them in your build.
 
-To use your certificate and provisioning profile on a runner, we strongly recommend that you use {% data variables.product.prodname_dotcom %} secrets. For more information on creating secrets and using them in a workflow, see "[Encrypted secrets](/actions/reference/encrypted-secrets)."
+To use your certificate and provisioning profile on a runner, we strongly recommend that you use {% data variables.product.prodname_dotcom %} secrets. For more information on creating secrets and using them in a workflow, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 Create secrets in your repository or organization for the following items:
 
-* Your Apple signing certificate.
+- Your Apple signing certificate.
 
   - This is your `p12` certificate file. For more information on exporting your signing certificate from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/dev154b28f09).
   
@@ -49,12 +48,12 @@ Create secrets in your repository or organization for the following items:
   - Use the following command to convert your certificate to Base64 and copy it to your clipboard:
 
     ```shell
-    base64 <em>build_certificate</em>.p12 | pbcopy
+    base64 -i BUILD_CERTIFICATE.p12 | pbcopy
     ```
-* The password for your Apple signing certificate.
+- The password for your Apple signing certificate.
   - In this example, the secret is named `P12_PASSWORD`.
 
-* Your Apple provisioning profile.
+- Your Apple provisioning profile.
 
   - For more information on exporting your provisioning profile from Xcode, see the [Xcode documentation](https://help.apple.com/xcode/mac/current/#/deva899b4fe5).
 
@@ -63,10 +62,10 @@ Create secrets in your repository or organization for the following items:
   - Use the following command to convert your provisioning profile to Base64 and copy it to your clipboard:
   
     ```shell
-    base64 <em>provisioning_profile.mobileprovision</em> | pbcopy
+    base64 -i PROVISIONING_PROFILE.mobileprovision | pbcopy
     ```
 
-* A keychain password.
+- A keychain password.
 
   - A new keychain will be created on the runner, so the password for the new keychain can be any new random string. In this example, the secret is named `KEYCHAIN_PASSWORD`.
 
@@ -74,8 +73,7 @@ Create secrets in your repository or organization for the following items:
 
 This example workflow includes a step that imports the Apple certificate and provisioning profile from the {% data variables.product.prodname_dotcom %} secrets, and installs them on the runner.
 
-{% raw %}
-```yaml{:copy}
+```yaml copy
 name: App build
 on: push
 
@@ -85,13 +83,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
       - name: Install the Apple certificate and provisioning profile
         env:
-          BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-          P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
-          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
-          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+          BUILD_CERTIFICATE_BASE64: {% raw %}${{ secrets.BUILD_CERTIFICATE_BASE64 }}{% endraw %}
+          P12_PASSWORD: {% raw %}${{ secrets.P12_PASSWORD }}{% endraw %}
+          BUILD_PROVISION_PROFILE_BASE64: {% raw %}${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}{% endraw %}
+          KEYCHAIN_PASSWORD: {% raw %}${{ secrets.KEYCHAIN_PASSWORD }}{% endraw %}
         run: |
           # create variables
           CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
@@ -99,8 +97,8 @@ jobs:
           KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
 
           # import certificate and provisioning profile from secrets
-          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode --output $CERTIFICATE_PATH
-          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode --output $PP_PATH
+          echo -n "$BUILD_CERTIFICATE_BASE64" | base64 --decode -o $CERTIFICATE_PATH
+          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH
 
           # create temporary keychain
           security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
@@ -117,7 +115,12 @@ jobs:
       - name: Build app
         ...
 ```
-{% endraw %}
+
+{% note %}
+
+**Note:** For iOS build targets, your provisioning profile should have the extension `.mobileprovision`. For macOS build targets, the extension should be  `.provisionprofile`. The example workflow above should be updated to reflect your target platform.
+
+{% endnote %}
 
 ## Required clean-up on self-hosted runners
 

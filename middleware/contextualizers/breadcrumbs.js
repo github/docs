@@ -1,6 +1,7 @@
-export default async function breadcrumbs(req, res, next) {
+export default function breadcrumbs(req, res, next) {
   if (!req.context.page) return next()
-  if (req.context.page.hidden) return next()
+  const isEarlyAccess = req.context.page.relativePath.startsWith('early-access')
+  if (req.context.page.hidden && !isEarlyAccess) return next()
 
   req.context.breadcrumbs = []
 
@@ -9,95 +10,81 @@ export default async function breadcrumbs(req, res, next) {
     return next()
   }
 
-  const currentSiteTree =
-    req.context.siteTree[req.context.currentLanguage][req.context.currentVersion]
-  const fallbackSiteTree = req.context.siteTree.en[req.context.currentVersion]
-
-  req.context.breadcrumbs = await getBreadcrumbs(
-    // Array of child pages on the root, i.e., the product level.
-    currentSiteTree.childPages,
-    fallbackSiteTree.childPages,
-    req.context.currentPath.slice(3),
-    req.context.currentLanguage
-  )
+  req.context.breadcrumbs = getBreadcrumbs(req, isEarlyAccess)
 
   return next()
 }
 
-async function getBreadcrumbs(
-  pageArray,
-  fallbackPageArray,
-  currentPathWithoutLanguage,
-  intendedLanguage
-) {
-  // Find the page that starts with the requested path
-  let childPage = findPageWithPath(currentPathWithoutLanguage, pageArray)
+const earlyAccessExceptions = ['insights', 'enterprise-importer']
 
-  // Find the page in the fallback page array (likely the English sub-tree)
-  const fallbackChildPage =
-    findPageWithPath(currentPathWithoutLanguage, fallbackPageArray || []) || childPage
-
-  // No matches, we bail
-  if (!childPage && !fallbackChildPage) {
-    return []
+function getBreadcrumbs(req, isEarlyAccess) {
+  let cutoff = 0
+  // When in Early access docs consider the "root" be much higher.
+  // E.g. /en/early-access/github/migrating/understanding/about
+  // we only want it start at /migrating/understanding/about
+  // Essentially, we're skipping "/early-access" and its first
+  // top-level like "/github"
+  if (isEarlyAccess) {
+    const split = req.context.currentPath.split('/')
+    // There are a few exceptions to this rule for the
+    // /{version}/early-access/<product-name>/... URLs because they're a
+    // bit different.
+    // If there are more known exceptions, add them to the array above.
+    if (earlyAccessExceptions.some((product) => split.includes(product))) {
+      cutoff = 1
+    } else {
+      cutoff = 2
+    }
   }
 
-  // Didn't find the intended page, but found the fallback
-  if (!childPage) {
-    childPage = fallbackChildPage
-  }
+  const breadcrumbs = traverseTreeTitles(
+    req.context.currentPath,
+    req.context.currentProductTreeTitles
+  )
+  ;[...Array(cutoff)].forEach(() => breadcrumbs.shift())
 
-  const breadcrumb = {
-    documentType: childPage.page.documentType,
-    // give the breadcrumb the intendedLanguage, so nav through breadcrumbs doesn't inadvertantly change the user's selected language
-    href: `/${intendedLanguage}/${childPage.href.slice(4)}`,
-    title: childPage.renderedShortTitle || childPage.renderedFullTitle,
-  }
-
-  // Recursively loop through the childPages and create each breadcrumb, until we reach the
-  // point where the current siteTree page is the same as the requested page. Then stop.
-  if (childPage.childPages && currentPathWithoutLanguage !== childPage.href.slice(3)) {
-    return [
-      breadcrumb,
-      ...(await getBreadcrumbs(
-        childPage.childPages,
-        fallbackChildPage.childPages,
-        currentPathWithoutLanguage,
-        intendedLanguage
-      )),
-    ]
-  } else {
-    return [breadcrumb]
-  }
+  return breadcrumbs
 }
 
-// Finds the page that starts with or equals the requested path in the array of
-// pages e.g. if the current page is /actions/learn-github-actions/understanding-github-actions,
-// depending on the pages in the pageArray agrument, would find:
+// Return an array as if you'd traverse down a tree. Imagine a tree like
 //
-// * /actions
-// * /actions/learn-github-actions
-// * /actions/learn-github-actions/understanding-github-actions
-function findPageWithPath(pageToFind, pageArray) {
-  return pageArray.find((page) => {
-    const pageWithoutLanguage = page.href.slice(3)
-    const numPathSegments = pageWithoutLanguage.split('/').length
-    const pageToFindNumPathSegments = pageToFind.split('/').length
-
-    if (pageToFindNumPathSegments > numPathSegments) {
-      // if the current page to find has more path segments, add a trailing
-      // slash to the page comparison to avoid an overlap like:
-      //
-      // * /github-cli/github-cli/about-github-cli with /github
-      return pageToFind.startsWith(`${pageWithoutLanguage}/`)
-    } else if (pageToFindNumPathSegments === numPathSegments) {
-      // if the current page has the same number of path segments, only match
-      // if the paths are the same to avoid an overlap like:
-      //
-      // * /get-started/using-github with /get-started/using-git
-      return pageToFind === pageWithoutLanguage
-    } else {
-      return false
+//            (root /)
+//           /       \
+//        (/foo)     (/bar)
+//       /      \
+//    (/foo/bar)  (/foo/buzz)
+//
+// If the "currentPath" is `/foo/buzz` what you want to return is:
+//
+//  [
+//    {href: /, title: TITLE},
+//    {href: /foo, title: TITLE}
+//    {href: /foo/buzz, title: TITLE}
+//  ]
+//
+function traverseTreeTitles(currentPath, tree) {
+  const { href, title, shortTitle } = tree
+  const crumbs = [
+    {
+      href,
+      title: shortTitle || title,
+    },
+  ]
+  const currentPathSplit = Array.isArray(currentPath) ? currentPath : currentPath.split('/')
+  for (const child of tree.childPages) {
+    if (isParentOrEqualArray(child.href.split('/'), currentPathSplit)) {
+      crumbs.push(...traverseTreeTitles(currentPathSplit, child))
+      // Only ever going down 1 of the children
+      break
     }
-  })
+  }
+  return crumbs
+}
+
+// Return true if an array is part of another array or equal.
+// Like `/foo/bar` is part of `/foo/bar/buzz`.
+// But also include `/foo/bar/buzz`.
+// Don't include `/foo/ba` if the final path is `/foo/baring`.
+function isParentOrEqualArray(base, final) {
+  return base.every((part, i) => part === final[i])
 }

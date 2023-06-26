@@ -1,13 +1,13 @@
 1. In the **File** menu, click **Clone Repository**.
 
-  {% mac %}
+   {% mac %}
 
-  ![Clone menu option in the Mac app](/assets/images/help/desktop/clone-file-menu-mac.png)
+   ![Screenshot of the menu bar on a Mac. The "File" dropdown menu is expanded, and the "Clone Repository" option is highlighted with an orange outline.](/assets/images/help/desktop/clone-file-menu-mac.png)
 
-  {% endmac %}
+   {% endmac %}
 
-  {% windows %}
+   {% windows %}
 
-  ![Clone menu option in the Windows app](/assets/images/help/desktop/clone-file-menu-windows.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. The "File" dropdown menu is expanded, and the "Clone Repository" option is highlighted with an orange outline.](/assets/images/help/desktop/clone-file-menu-windows.png)
 
-  {% endwindows %}
+   {% endwindows %}

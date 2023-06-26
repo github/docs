@@ -14,12 +14,11 @@ shortTitle: Run code in IDE
 
 If you configure an integrated development environment (IDE) for an assignment, you can run the code within the IDE. You don't need to clone the assignment repository to your computer.
 
-For more information about IDEs, see "[Integrate {% data variables.product.prodname_classroom %} with an IDE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+For more information about IDEs, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
 
-## Running student code in the IDE 
+## Running student code in the IDE
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
 {% data reusables.classroom.click-assignment-in-list %}
 1. To the right of the submission, click **View IDE**.
-  !["View IDE" button for submission using an online IDE](/assets/images/help/classroom/assignments-click-view-ide.png)

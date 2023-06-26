@@ -1,6 +1,5 @@
-1. Under your organization name, click {% octicon "project" aria-label="The Projects icon" %} **Projects**.
-  {% ifversion fpt or ghes > 3.2 or ghec %}
-  ![Projects tab for your organization](/assets/images/help/organizations/organization-projects-tab-with-overview-tab.png)
-  {% else %}
-  ![Projects tab for your organization](/assets/images/help/organizations/organization-projects-tab.png)
-  {% endif %}
+1. Under your organization name, click {% ifversion projects-v2 %}{% octicon "table" aria-hidden="true" %}{% else %}{% octicon "project" aria-hidden="true" %}{% endif %} **Projects**.
+
+   {% ifversion projects-v2 %}
+   ![Screenshot of the horizontal navigation bar for an organization. A tab, labeled with a table icon and "Projects," is outlined in dark orange.](/assets/images/help/organizations/organization-projects-tab-table.png)
+   {% endif %}

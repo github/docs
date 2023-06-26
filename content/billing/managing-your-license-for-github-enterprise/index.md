@@ -23,5 +23,6 @@ children:
   - /uploading-a-new-license-to-github-enterprise-server
   - /viewing-license-usage-for-github-enterprise
   - /syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud
+  - /troubleshooting-license-usage-for-github-enterprise
 ---
 

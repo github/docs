@@ -27,19 +27,16 @@ If you have SSH access to the administrative shell, you can run {% data variable
 
 ## Enabling access to the administrative shell via SSH
 
-To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys.
+To enable administrative SSH access, you must add your SSH public key to your instance's list of authorized keys. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."
 
 {% tip %}
 
-**Tip:** Changes to authorized SSH keys take effect immediately.
 
 {% endtip %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-3. Under "SSH access", paste your key into the text box, then click **Add key**.
-  ![Text box and button for adding an SSH key](/assets/images/enterprise/settings/add-authorized-ssh-key-admin-shell.png)
-{% data reusables.enterprise_management_console.save-settings %}
+1. Under "SSH access", paste your key into the "Add new SSH key" text box, then click **Add key**. The change takes effect immediately, so you do not need to click **Save settings**.
 
 ## Connecting to the administrative shell over SSH
 
@@ -53,18 +50,18 @@ admin@github-example-com:~$ █
 
 ### Troubleshooting SSH connection problems
 
-If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.product.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
+If you encounter the `Permission denied (publickey)` error when you try to connect to {% data variables.location.product_location %} via SSH, confirm that you are connecting over port 122. You may need to explicitly specify which private SSH key to use.
 
 To specify a private SSH key using the command line, run `ssh` with the `-i` argument.
 
 ```shell
-ssh -i /path/to/ghe_private_key -p 122 admin@<em>hostname</em>
+ssh -i /path/to/ghe_private_key -p 122 admin@HOSTNAME
 ```
 
 You can also specify a private SSH key using the SSH configuration file (`~/.ssh/config`).
 
 ```shell
-Host <em>hostname</em>
+Host HOSTNAME
   IdentityFile /path/to/ghe_private_key
   User admin
   Port 122

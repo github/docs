@@ -1,11 +1,9 @@
 import { SimpleHeader, SimpleFooter } from 'components/GenericError'
 import Head from 'next/head'
 import { CommentDiscussionIcon } from '@primer/octicons-react'
-import { useVersion } from 'components/hooks/useVersion'
 import { Lead } from 'components/ui/Lead'
 
 const Custom404 = () => {
-  const { isEnterprise } = useVersion()
   return (
     <div className="min-h-screen d-flex flex-column">
       <Head>
@@ -23,15 +21,7 @@ const Custom404 = () => {
             We track these errors automatically, but if the problem persists please feel free to
             contact us.
           </p>
-          <a
-            id="contact-us"
-            href={
-              isEnterprise
-                ? 'https://enterprise.github.com/support'
-                : 'https://support.github.com/contact'
-            }
-            className="btn btn-outline mt-2"
-          >
+          <a id="support" href="https://support.github.com" className="btn btn-outline mt-2">
             <CommentDiscussionIcon size="small" className="octicon mr-1" />
             Contact support
           </a>

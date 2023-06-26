@@ -1,3 +1,0 @@
-Una vez que hayas hecho cambios a tu codespace, ya sea de código nuevo o de cambios de configuración, necesitarás confirmar tus cambios. El confirmar los cambios en tu repositorio garantiza que cualquiera que cree un codespace desde este repositorio tendrá la misma configuración. Esto también significa que cualquier personalización que hagas, tal como agregar extensiones de {% data variables.product.prodname_vscode %}, aparecerá para todos los usuarios.
-
-Para obtener más información, consulta la sección "[Utilizar el control de código fuente en tu codespace](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#committing-your-changes)"

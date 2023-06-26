@@ -1,2 +1,0 @@
-1. Acima da lista de arquivos, clique em {% octicon "download" aria-label="The download icon" %} **código**. ![Botão de "Código"](/assets/images/help/repository/code-button.png)
-1. Click {% octicon "desktop-download" aria-label="The GitHub Desktop download icon" %} **Open with {% data variables.product.prodname_desktop %}** to clone and open the repository with {% data variables.product.prodname_desktop %}. !["Abrir com o botão {% data variables.product.prodname_desktop %}"](/assets/images/help/repository/open-with-desktop.png)

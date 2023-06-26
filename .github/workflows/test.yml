@@ -1,6 +1,4 @@
-# NOTE: Changes to this file should also be applied to './test-windows.yml'
-
-name: Node.js Tests
+name: Test
 
 # **What it does**: Runs our tests.
 # **Why we have it**: We want our tests to pass before merging code.
@@ -8,11 +6,11 @@ name: Node.js Tests
 
 on:
   workflow_dispatch:
+  merge_group:
   pull_request:
 
 permissions:
   contents: read
-  # Needed for the 'trilom/file-changes-action' action
   pull-requests: read
 
 # This allows a subsequently queued workflow run to interrupt previous runs
@@ -21,71 +19,138 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  CI: true
+  # Setting this will activate the jest tests that depend on actually
+  # sending real search queries to Elasticsearch
+  ELASTICSEARCH_URL: http://localhost:9200/
 
 jobs:
+  figureOutMatrix:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.result }}
+    steps:
+      - uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        id: set-matrix
+        with:
+          script: |
+            // We only want to run the 'translations' suite when we know
+            // we're on the private docs-internal repo because only that
+            // one has ability to clone the remote (private) translations
+            // repos.
+            // You can run multiple paths per suite as space-separated in `path`.
+            return [
+              { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
+              { name: 'content', path: 'tests/content', },
+              // { name: 'content-linter', path: 'src/content-linter/tests', },
+              { name: 'events', path: 'src/events/tests', },
+              { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
+              { name: 'github-apps', path: 'src/github-apps/tests', },
+              { name: 'graphql', path: 'src/graphql/tests', },
+              { name: 'landings', path: 'src/landings/tests', },
+              { name: 'linting', path: 'src/content-linter/tests', },
+              { name: 'observability', path: 'src/observability/tests' },
+              { name: 'pageinfo', path: 'src/pageinfo/tests', },
+              { name: 'rendering', path: 'tests/rendering', },
+              { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
+              { name: 'rest', path: 'src/rest/tests', },
+              { name: 'routing', path: 'tests/routing', },
+              { name: 'search', path: 'src/search/tests', },
+              { name: 'shielding', path: 'src/shielding/tests', },
+              context.payload.repository.full_name === 'github/docs-internal' &&
+                { name: 'translations', path: 'tests/translations', },
+              { name: 'unit', path: 'tests/unit', },
+              { name: 'webhooks', path: 'src/webhooks/tests', },
+            ].filter(Boolean)
+
   test:
-    # Run on self-hosted if the private repo or ubuntu-latest if the public repo
+    name: ${{ matrix.name }}
+    needs: figureOutMatrix
+    # Run on ubuntu-20.04-xl if the private repo or ubuntu-latest if the public repo
     # See pull # 17442 in the private repo for context
-    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
-        # The same array lives in test-windows.yml, so make any updates there too.
-        test-group:
-          [
-            content,
-            graphql,
-            meta,
-            rendering,
-            routing,
-            unit,
-            linting,
-            translations,
-          ]
+        include: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+
+      - uses: ./.github/actions/setup-elasticsearch
+        if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          # Enables cloning the Early Access repo later with the relevant PAT
-          persist-credentials: 'false'
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+
+      - name: Check the test fixture data (if applicable)
+        if: ${{ matrix.name == 'rendering-fixtures' }}
+        run: ./script/copy-fixture-data.js --check
+
+      # This keeps our fixture content/data in check
+      - name: Check the test fixture content (if applicable)
+        if: ${{ matrix.name == 'rendering-fixtures' }}
+        env:
+          ROOT: tests/fixtures
+        run: |
+          # If either of these fail, it means our fixture content's internal
+          # links can and should be updated.
+          ./script/update-internal-links.js --dry-run --check --strict \
+            tests/fixtures/content \
+            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md \
+            --exclude tests/fixtures/content/get-started/foo/anchor-autotitling.md
+          ./script/update-internal-links.js --dry-run --check --strict \
+            tests/fixtures/data
+
+      - name: Clone all translations
+        if: ${{ matrix.name == 'translations' }}
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCUBOT_REPO_PAT }}
 
       - name: Gather files changed
-        uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-        id: get_diff_files
-        with:
-          # So that `steps.get_diff_files.outputs.files` becomes
-          # a string like `foo.js path/bar.md`
-          output: ' '
-
-      - name: Insight into changed files
-        run: |
-
-          # Must to do this because the list of files can be HUGE. Especially
-          # in a repo-sync when there are lots of translation files involved.
-          echo "${{ steps.get_diff_files.outputs.files }}" > get_diff_files.txt
-
-      - name: Setup node
-        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458
-        with:
-          node-version: 16.13.x
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Clone early access
-        if: ${{ github.repository == 'github/docs-internal' }}
-        run: script/early-access/clone-for-build.js
+        if: ${{ matrix.name == 'linting' }}
         env:
-          DOCUBOT_REPO_PAT: ${{ secrets.DOCUBOT_REPO_PAT }}
-          GIT_BRANCH: ${{ github.head_ref || github.ref }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
+        run: |
+          # Find the file diff in the pull request or merge group
+          # If its a pull request, use the faster call to the GitHub API
+          # For push, workflow_dispatch, and merge_group, use git diff
+          if [ -n "$PR" ]
+          then
+            echo __ running gh pr diff __
+            DIFF=`gh pr diff $PR --name-only`
+          elif [ -n "$HEAD" ]
+          then
+            echo __ running git fetch main __
+            git fetch origin main --depth 1
+            echo __ running git diff __
+            DIFF=`git diff --name-only origin/main`
+          else
+            echo __ no head, empty diff __
+            DIFF=''
+          fi
+          # So we can inspect the output
+          echo __ DIFF found __
+          echo $DIFF
+
+          # So that becomes a string like `foo.js path/bar.md`
+          # Must do this because the list of files can be HUGE. Especially
+          # in a repo-sync when there are lots of translation files involved.
+          echo __ format, write to get_diff_files.txt __
+          echo $DIFF | tr '\n' ' ' > get_diff_files.txt
 
       - name: Cache nextjs build
-        uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353
+        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
         with:
           path: .next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
@@ -93,7 +158,25 @@ jobs:
       - name: Run build script
         run: npm run build
 
+      - uses: ./.github/actions/warmup-remotejson-cache
+        # Only the 'routing' tests include end-to-end tests about
+        # archived enterprise server URLs.
+        if: ${{ matrix.name == 'routing' }}
+
+      - name: Index fixtures into the local Elasticsearch
+        # For the sake of saving time, only run this step if the group
+        # is one that will run tests against an Elasticsearch on localhost.
+        if: ${{ matrix.name == 'search' || matrix.name == 'translations' }}
+        run: npm run index-test-fixtures
+
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
-        run: npm run test tests/${{ matrix.test-group }}/
+          CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
+          # By default, when `process.env.NODE_ENV === 'test'` it forces the
+          # tests run only in English. The exception is the
+          # `tests/translations/` suite which needs all languages to be set up.
+          ENABLED_LANGUAGES: ${{ matrix.name == 'translations' && 'all' || '' }}
+          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures' || '' }}
+          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures/translations' || '' }}
+        run: npm test -- ${{ matrix.path }}/

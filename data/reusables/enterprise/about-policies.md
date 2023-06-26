@@ -1,0 +1,1 @@
+Each enterprise policy controls the options available for a policy at the organization level. You can choose to not enforce a policy, which allows organization owners to configure the policy for the organization, or you can choose from a set of options to enforce for all organizations owned by your enterprise.

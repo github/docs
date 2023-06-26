@@ -1,0 +1,7 @@
+# This flag is required for the site to not error for enterprise-only articles. Refer to data/features/pat-v2.yml for the full feature.
+# Issue 7942
+# PAT v2
+versions:
+  ghec: '*'
+  ghes: '>=3.10'
+  ghae: '>=3.10'

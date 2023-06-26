@@ -1,27 +1,24 @@
 import path from 'path'
-import { jest, beforeAll } from '@jest/globals'
+
+import { jest } from '@jest/globals'
 
 import { loadPages } from '../../lib/page-data.js'
 import Permalink from '../../lib/permalink.js'
 
 describe('redirect orphans', () => {
-  let pageList
-
   // Because calling `loadPages` will trigger a warmup, this can potentially
   // be very slow in CI. So we need a timeout.
   jest.setTimeout(60 * 1000)
 
-  beforeAll(async () => {
+  test('no page is a redirect in another file', async () => {
     // Only doing English because they're the only files we do PRs for.
-    pageList = (await loadPages()).filter((page) => page.languageCode === 'en')
-  })
+    const pageList = await loadPages(undefined, ['en'])
 
-  test('no page is a redirect in another file', () => {
     const redirectFroms = new Map()
     for (const page of pageList) {
       for (const redirectFrom of page.redirect_from || []) {
         if (redirectFrom.endsWith('/') && redirectFrom.startsWith('/')) {
-          console.warn(
+          throw new Error(
             `In ${path.join(
               'content',
               page.relativePath

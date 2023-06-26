@@ -1,1 +1,0 @@
-1. If the person you're inviting has never been a member of the organization or if you cleared their privileges, choose an organization role for the user. ![将用户设为会员或所有者的选项](/assets/images/help/organizations/choose-new-member-role.png)

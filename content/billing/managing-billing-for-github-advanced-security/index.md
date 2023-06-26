@@ -8,10 +8,15 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-licensing-for-github-advanced-security
 versions:
   fpt: '*'
-  ghes: '>=3.1'
+  ghes: '*'
   ghec: '*'
 children:
+  - /setting-up-a-trial-of-github-advanced-security
   - /about-billing-for-github-advanced-security
+  - /signing-up-for-github-advanced-security
+  - /viewing-committer-information-for-github-advanced-security
+  - /managing-your-github-advanced-security-licensing
   - /viewing-your-github-advanced-security-usage
+
 ---
 

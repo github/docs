@@ -1,1 +1,0 @@
-Cuando incrementas tus recursos de CPU, te recomendamos agregar por lo menos 6.5 GB de memoria para cada vCPU (hasta 16 vCPU) que aprovisiones para la instancia. Cuando utilizas más de 16 CPU, no necesitas agregar 6.5 GB de memoria para cada uno, pero debes monitorear tu instancia para garantizar que tenga memoria suficiente.

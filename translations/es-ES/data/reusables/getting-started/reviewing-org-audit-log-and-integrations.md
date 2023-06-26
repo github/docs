@@ -1,3 +1,0 @@
-The audit log for your organization allows you, as an organization owner, to review the actions performed by members of the organization within the current month and previous six months. Para obtener más información, consulta la sección "[Revisar la bitácora de auditoría de tu organización](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)".
-
-También puedes revisar y configurar los niveles de permiso de las integraciones instaladas en tu organización. Para obtener más información, consulta la sección "[Revisar las integraciones autorizadas de tu organización](/organizations/keeping-your-organization-secure/reviewing-your-organizations-installed-integrations)".

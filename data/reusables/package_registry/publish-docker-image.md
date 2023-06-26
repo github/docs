@@ -1,5 +1,7 @@
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Create and publish a Docker image
 
@@ -8,22 +10,22 @@ on:
     branches: ['release']
 
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: {% data reusables.package_registry.container-registry-hostname %}
   IMAGE_NAME: {% raw %}${{ github.repository }}{% endraw %}
 
 jobs:
   build-and-push-image:
-    runs-on: ubuntu-latest
+    runs-on: {% ifversion ghes %}[self-hosted]{% else %}ubuntu-latest{% endif %}
     permissions:
       contents: read
       packages: write
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: {% data reusables.actions.action-checkout %}
 
       - name: Log in to the Container registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+        uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
         with:
           registry: {% raw %}${{ env.REGISTRY }}{% endraw %}
           username: {% raw %}${{ github.actor }}{% endraw %}
@@ -31,16 +33,15 @@ jobs:
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
-        uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
           images: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}{% endraw %}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: .
           push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
-

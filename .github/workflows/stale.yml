@@ -1,0 +1,32 @@
+name: Stale
+
+# **What it does**: Close issues and pull requests after no updates for 365 days.
+# **Why we have it**: We want to manage our queue of issues and pull requests.
+# **Who does it impact**: Everyone that works on docs or docs-internal.
+
+on:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@1160a2240286f5da8ec72b1c0816ce2481aabf84
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          stale-issue-message: 'This issue is stale because there have been no updates in 365 days.'
+          stale-pr-message: 'This PR is stale because there have been no updates in 365 days.'
+          days-before-stale: 365
+          days-before-close: 0
+          stale-issue-label: 'stale'
+          stale-pr-label: 'stale'
+          exempt-pr-labels: 'never-stale,waiting for review'
+          exempt-issue-labels: 'never-stale,help wanted,waiting for review'
+          operations-per-run: 1000
+          close-issue-reason: not_planned

@@ -11,20 +11,18 @@ topics:
   - CD
   - Azure App Service
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
 
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a PHP project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghae-issue-4856 %}
+{% ifversion fpt or ghec or ghes > 3.4 %}
 
 {% note %}
 
-**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[Configuring OpenID Connect in Azure](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
+**Note**: {% data reusables.actions.about-oidc-short-overview %} and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)."
 
 {% endnote %}
 
@@ -40,7 +38,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    For example, you can use the Azure CLI to create an Azure App Service web app with a PHP runtime:
 
-   ```bash{:copy}
+   ```bash copy
    az webapp create \
        --name MY_WEBAPP_NAME \
        --plan MY_APP_SERVICE_PLAN \
@@ -52,9 +50,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-{% ifversion fpt or ghes > 3.0 or ghae or ghec %}
 5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
-{% endif %}
 
 ## Creating the workflow
 
@@ -66,8 +62,10 @@ Ensure that you set `AZURE_WEBAPP_NAME` in the workflow `env` key to the name of
 
 {% data reusables.actions.delete-env-key %}
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+{% data reusables.actions.actions-use-sha-pinning-comment %}
 
 name: Build and deploy PHP app to Azure Web App
 
@@ -86,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: {% data reusables.actions.action-checkout %}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -95,7 +93,7 @@ jobs:
 
       - name: Check if composer.json exists
         id: check_files
-        uses: andstor/file-existence-action@v1
+        uses: andstor/file-existence-action@v2
         with:
           files: 'composer.json'
 
@@ -103,10 +101,14 @@ jobs:
         id: composer-cache
         if: steps.check_files.outputs.files_exists == 'true'
         run: |
+{%- ifversion actions-save-state-set-output-envs %}
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+{%- else %}
           echo "::set-output name=dir::$(composer config cache-files-dir)"
+{%- endif %}
 
       - name: Set up dependency caching for faster installs
-        uses: actions/cache@v2
+        uses: {% data reusables.actions.action-cache %}
         if: steps.check_files.outputs.files_exists == 'true'
         with:
           path: {% raw %}${{ steps.composer-cache.outputs.dir }}{% endraw %}
@@ -119,7 +121,7 @@ jobs:
         run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: php-app
           path: .
@@ -133,13 +135,13 @@ jobs:
 
     steps:
       - name: Download artifact from build job
-        uses: actions/download-artifact@v2
+        uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: php-app
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@0b651ed7546ecfc75024011f76944cb9b381ef1e
+        uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
         with:
           app-name: {% raw %}${{ env.AZURE_WEBAPP_NAME }}{% endraw %}
           publish-profile: {% raw %}${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}{% endraw %}
@@ -150,6 +152,6 @@ jobs:
 
 The following resources may also be useful:
 
-* For the original starter workflow, see [`azure-webapps-php.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-php.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+- For the original starter workflow, see [`azure-webapps-php.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-php.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+- The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
+- For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

@@ -1,6 +1,6 @@
 ---
 title: Reviewing your SSH keys
-intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.product.product_location %}{% endif %}.'
+intro: 'To keep your credentials secure, you should regularly audit your SSH keys, deploy keys, and review authorized applications that access your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}.'
 redirect_from:
   - /articles/keeping-your-application-access-tokens-safe
   - /articles/keeping-your-ssh-keys-and-application-access-tokens-safe
@@ -20,10 +20,9 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
 {% mac %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
-3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
-	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
+3. Under "SSH keys", take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
 
   {% tip %}
 
@@ -35,22 +34,21 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. Find and take a note of your public key fingerprint. 
-  ```shell
-  $ ssh-add -l -E sha256
-  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
+6. Find and take a note of your public key fingerprint.
+   ```shell
+   $ ssh-add -l -E sha256
+   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
+   ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. The SSH keys on {% data variables.product.product_name %} _should_ match the same keys on your computer.
 
 {% endmac %}
 
 {% windows %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
-3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
-	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
+3. Under "SSH keys", take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
 
   {% tip %}
 
@@ -58,28 +56,27 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
   {% endtip %}
 
-4. Open Git Bash. 
+4. Open Git Bash.
 
 5. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
-6. Find and take a note of your public key fingerprint. 
-  ```shell
-  $ ssh-add -l -E sha256
-  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
+6. Find and take a note of your public key fingerprint.
+   ```shell
+   $ ssh-add -l -E sha256
+   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
+   ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. The SSH keys on {% data variables.product.product_name %} _should_ match the same keys on your computer.
 
 {% endwindows %}
 
 {% linux %}
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.ssh %}
-3. On the SSH Settings page, take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
-	![SSH key list](/assets/images/help/settings/settings-ssh-key-review.png)
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.ssh %}
+3. Under "SSH keys", take note of the SSH keys associated with your account. For those that you don't recognize, or that are out-of-date, click **Delete**. If there are valid SSH keys you'd like to keep, click **Approve**.
 
   {% tip %}
 
@@ -91,13 +88,13 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
 {% data reusables.command_line.start_ssh_agent %}
 
-6. Find and take a note of your public key fingerprint. 
-  ```shell
-  $ ssh-add -l -E sha256
-  > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
-  ```
+6. Find and take a note of your public key fingerprint.
+   ```shell
+   $ ssh-add -l -E sha256
+   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
+   ```
 
-7. The SSH keys on {% data variables.product.product_name %} *should* match the same keys on your computer.
+7. The SSH keys on {% data variables.product.product_name %} _should_ match the same keys on your computer.
 
 {% endlinux %}
 

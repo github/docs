@@ -1,0 +1,1 @@
+If students use {% data variables.product.prodname_github_codespaces %} in their assignment repositories for {% data variables.product.prodname_classroom %}, the usage will be charged to the organization that owns the classroom, and will not affect the usage for a student's personal account.

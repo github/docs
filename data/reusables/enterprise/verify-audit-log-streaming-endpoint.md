@@ -1,1 +1,1 @@
-1. Verify the endpoint, then click **Save**.
+1. After you have successfully verified the endpoint, click **Save**.

@@ -1,1 +1,0 @@
-1. ダウングレードしたいアプリケーションの隣の**Edit（編集）**ドロップダウンを使い、**Change plan（プランを変更）**もしくは**Cancel plan（プランをキャンセル）**をクリックしてください。 ![個人アカウントの支払い設置中のMarketplaceの購入セクション内にあるEditリンク](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

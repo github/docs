@@ -1,1 +1,0 @@
-1. Para salvar as alterações, clique em **Atualizar lembrete**. Opcionalmente, para testar suas alterações durante a atualização das alterações, clique em **Atualizar e testar o lembrete**. ![Botões de Atualização](/assets/images/help/settings/scheduled-reminders-update-buttons.png)

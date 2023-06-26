@@ -1,0 +1,86 @@
+---
+upcoming_changes:
+  - location: LegacyMigration.uploadUrlTemplate
+    description: '`uploadUrlTemplate` will be removed. Use `uploadUrl` instead.'
+    reason:
+      '`uploadUrlTemplate` is being removed because it is not a standard URL and
+      adds an extra user step.'
+    date: '2019-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - location: AssignedEvent.user
+    description: '`user` will be removed. Use the `assignee` field instead.'
+    reason: Assignees can now be mannequins.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - location: UnassignedEvent.user
+    description: '`user` will be removed. Use the `assignee` field instead.'
+    reason: Assignees can now be mannequins.
+    date: '2020-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: tambling
+  - location: Issue.timeline
+    description: '`timeline` will be removed. Use Issue.timelineItems instead.'
+    reason: '`timeline` will be removed'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - location: PullRequest.timeline
+    description: '`timeline` will be removed. Use PullRequest.timelineItems instead.'
+    reason: '`timeline` will be removed'
+    date: '2020-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: mikesea
+  - location: MergeStateStatus.DRAFT
+    description: '`DRAFT` will be removed. Use PullRequest.isDraft instead.'
+    reason:
+      DRAFT state will be removed from this enum and `isDraft` should be used
+      instead
+    date: '2021-01-01T00:00:00+00:00'
+    criticality: breaking
+    owner: nplasterer
+  - location: PackageType.DOCKER
+    description: '`DOCKER` will be removed.'
+    reason:
+      DOCKER will be removed from this enum as this type will be migrated to only
+      be used by the Packages REST API.
+    date: '2021-06-21'
+    criticality: breaking
+    owner: reybard
+  - location: ReactionGroup.users
+    description: '`users` will be removed. Use the `reactors` field instead.'
+    reason: Reactors can now be mannequins, bots, and organizations.
+    date: '2021-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: synthead
+  - location: Repository.defaultMergeQueue
+    description: '`defaultMergeQueue` will be removed. Use `Repository.mergeQueue` instead.'
+    reason: '`defaultMergeQueue` will be removed.'
+    date: '2022-04-01'
+    criticality: breaking
+    owner: colinshum
+  - location: AddPullRequestToMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are added to the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones
+  - location: Enterprise.userAccounts
+    description:
+      '`userAccounts` will be removed. Use the `Enterprise.members` field
+      instead.'
+    reason: The `Enterprise.userAccounts` field is being removed.
+    date: '2022-07-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jdennes
+  - location: RemovePullRequestFromMergeQueueInput.branch
+    description: '`branch` will be removed.'
+    reason:
+      PRs are removed from the merge queue for the base branch, the `branch` argument
+      is now a no-op
+    date: '2022-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: jhunschejones

@@ -1,0 +1,19 @@
+.parameterTable {
+  table {
+    table-layout: fixed !important;
+  }
+  th:first-of-type {
+    width: 56% !important;
+  }
+  th:last-of-type {
+    width: 20% !important;
+  }
+  td {
+    padding-left: 0.3rem !important;
+    padding-right: 0.3rem !important;
+  }
+}
+
+.codeBlock code:not(td *) {
+  word-break: break-word;
+}

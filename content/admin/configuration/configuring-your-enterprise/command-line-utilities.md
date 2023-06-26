@@ -7,7 +7,6 @@ redirect_from:
   - /enterprise/admin/installation/command-line-utilities
   - /enterprise/admin/configuration/command-line-utilities
   - /admin/configuration/command-line-utilities
-miniTocMaxHeadingLevel: 3
 versions:
   ghes: '*'
 type: reference
@@ -15,17 +14,13 @@ topics:
   - Enterprise
   - SSH
 ---
-You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see "[Accessing the administrative shell (SSH)](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-administrative-shell-ssh/)."
+You can execute these commands from anywhere on the VM after signing in as an SSH admin user. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 ## General
 
 ### ghe-announce
 
 This utility sets a banner at the top of every {% data variables.product.prodname_enterprise %} page. You can use it to broadcast a message to your users.
-
-{% ifversion ghes %}
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[Customizing user messages on your instance](/enterprise/admin/user-management/customizing-user-messages-on-your-instance#creating-a-global-announcement-banner)."
-{% endif %}
 
 ```shell
 # Sets a message that's visible to everyone
@@ -36,7 +31,20 @@ $ ghe-announce -u
 > Removed the announcement message
 ```
 
-{% ifversion ghes > 3.1 %}
+{% ifversion ghe-announce-dismiss %}
+To allow each user to dismiss the announcement for themselves, use the `-d` flag.
+```shell
+# Sets a user-dismissible message that's visible to everyone
+$ ghe-announce -d -s MESSAGE
+> Announcement message set.
+# Removes a previously set message
+$ ghe-announce -u
+> Removed the announcement message, which was user dismissible: MESSAGE
+```
+{% endif %}
+
+You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
 
 ### ghe-aqueduct
@@ -45,10 +53,10 @@ This utility displays information on background jobs, both active and in the que
 
 This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
 
-* The number of background jobs is increasing, while the active jobs remain the same.
-* The event feeds are not updating.
-* Webhooks are not being triggered.
-* The web interface is not updating after a Git push.
+- The number of background jobs is increasing, while the active jobs remain the same.
+- The event feeds are not updating.
+- Webhooks are not being triggered.
+- The web interface is not updating after a Git push.
 
 If you suspect Aqueduct is failing, contact {% data variables.contact.contact_ent_support %} for help.
 
@@ -57,14 +65,13 @@ With this command, you can also pause or resume jobs in the queue.
 ```shell
 $ ghe-aqueduct status
 # lists queues and the number of currently queued jobs for all queues
-$ ghe-aqueduct queue_depth --queue <em>QUEUE</em>
+$ ghe-aqueduct queue_depth --queue QUEUE
 # lists the number of currently queued jobs for the specified queue
-$ ghe-aqueduct pause --queue <em>QUEUE</em>
+$ ghe-aqueduct pause --queue QUEUE
 # pauses the specified queue
-$ ghe-aqueduct resume --queue <em>QUEUE</em>
+$ ghe-aqueduct resume --queue QUEUE
 # resumes the specified queue
 ```
-{% endif %}
 
 ### ghe-check-disk-usage
 
@@ -97,34 +104,32 @@ ghe-cleanup-settings
 
 ### ghe-config
 
-With this utility, you can both retrieve and modify the configuration settings of {% data variables.product.product_location %}.
+With this utility, you can both retrieve and modify the configuration settings of {% data variables.location.product_location %}.
 
 ```shell
-$ ghe-config <em>core.github-hostname</em>
+$ ghe-config core.github-hostname
 # Gets the configuration value of `core.github-hostname`
-$ ghe-config <em>core.github-hostname</em> <em>'example.com'</em>
-# Sets the configuration value of `core.github-hostname` to `example.com`
+$ ghe-config core.github-hostname URL
+# Sets the configuration value of `core.github-hostname` to the specified URL
 $ ghe-config -l
 # Lists all the configuration values
 ```
 Allows you to find the universally unique identifier (UUID) of your node in `cluster.conf`.
 
 ```shell
-  $ ghe-config <em>HOSTNAME</em>.uuid
+  $ ghe-config HOSTNAME.uuid
 ```
 
-{% ifversion ghes %}
-Allows you to exempt a list of users from API rate limits. For more information, see "[Resources in the REST API](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
 ``` shell
-$ ghe-config app.github.rate-limiting-exempt-users "<em>hubot</em> <em>github-actions</em>"
-# Exempts the users hubot and github-actions from rate limits
+$ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
+# Exempts the users hubot and github-actions[bot] from rate limits. Usernames are case-sensitive.
 ```
-{% endif %}
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/enterprise/{{ currentVersion }}/user/rest/reference/enterprise-admin#management-console).
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to [the `/setup/api/configure` endpoint](/rest/enterprise-admin#management-console).
 
 You will probably never need to run this manually, but it's available if you want to automate the process of saving your settings via SSH.
 
@@ -192,7 +197,7 @@ $ ghe-es-index-status -do | column -ts,
 
 ### ghe-legacy-github-services-report
 
-This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[Replacing {% data variables.product.prodname_dotcom %} Services](/developers/overview/replacing-github-services)." For more information about this command or for additional options, use the `-h` flag.
+This utility lists repositories on your appliance that use {% data variables.product.prodname_dotcom %} Services, an integration method that will be discontinued on October 1, 2018. Users on your appliance may have set up {% data variables.product.prodname_dotcom %} Services to create notifications for pushes to certain repositories. For more information, see "[Announcing the deprecation of {% data variables.product.prodname_dotcom %} Services](https://developer.github.com/changes/2018-04-25-github-services-deprecation/)" on {% data variables.product.prodname_blog %} or "[AUTOTITLE](/webhooks-and-events/webhooks/replacing-github-services)." For more information about this command or for additional options, use the `-h` flag.
 
 ```shell
 ghe-legacy-github-services-report
@@ -209,7 +214,7 @@ ghe-logs-tail
 
 ### ghe-maintenance
 
-This utility allows you to control the state of the installation's maintenance mode. It's designed to be used primarily by the {% data variables.enterprise.management_console %} behind-the-scenes, but it can be used directly.
+This utility allows you to control the state of the installation's maintenance mode. It's designed to be used primarily by the {% data variables.enterprise.management_console %} behind-the-scenes, but it can be used directly. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 ```shell
 ghe-maintenance -h
@@ -225,10 +230,10 @@ ghe-motd
 
 ### ghe-nwo
 
-This utility returns a repository's name and owner based on the repository ID.  
+This utility returns a repository's name and owner based on the repository ID.
 
 ```shell
-ghe-nwo <em>REPOSITORY_ID</em>
+ghe-nwo REPOSITORY_ID
 ```
 
 ### ghe-org-admin-promote
@@ -247,19 +252,19 @@ This utility cannot promote a non-site admin to be an owner of all organizations
 Give organization owner privileges in a specific organization to a specific site admin
 
 ```shell
-ghe-org-admin-promote -u <em>USERNAME</em> -o <em>ORGANIZATION</em>
+ghe-org-admin-promote -u USERNAME -o ORGANIZATION
 ```
 
 Give organization owner privileges in all organizations to a specific site admin
 
 ```shell
-ghe-org-admin-promote -u <em>USERNAME</em>
+ghe-org-admin-promote -u USERNAME
 ```
 
 Give organization owner privileges in a specific organization to all site admins
 
 ```shell
-ghe-org-admin-promote -o <em>ORGANIZATION</em>
+ghe-org-admin-promote -o ORGANIZATION
 ```
 
 Give organization owner privileges in all organizations to all site admins
@@ -270,57 +275,43 @@ ghe-org-admin-promote -a
 
 ### ghe-reactivate-admin-login
 
-Use this command to immediately unlock the {% data variables.enterprise.management_console %} after 10 failed login attempts in the span of 10 minutes.
+Use this command to immediately unlock the {% data variables.enterprise.management_console %} after {% ifversion enterprise-authentication-rate-limits %}an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits)".{% else %}10 failed login attempts in the span of 10 minutes.{% endif %}
 
 ```shell
 $ ghe-reactivate-admin-login
 ```
 
-{% ifversion ghes < 3.2 %}
-<!--For more recent releases of GHES, see the replacement service `ghe-aqueduct`-->
-
-### ghe-resque-info
-
-This utility displays information on background jobs, both active and in the queue. It provides the same job count numbers as the admin stats bar at the top of every page.
-
-This utility can help identify whether the Resque server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Resque:
-
-* The number of background jobs is increasing, while the active jobs remain the same.
-* The event feeds are not updating.
-* Webhooks are not being triggered.
-* The web interface is not updating after a Git push.
-
-If you suspect Resque is failing, contact {% data variables.contact.contact_ent_support %} for help.
-
-With this command, you can also pause or resume jobs in the queue.
-
-```shell
-$ ghe-resque-info
-# lists queues and the number of currently queued jobs
-$ ghe-resque-info -p <em>QUEUE</em>
-# pauses the specified queue
-$ ghe-resque-info -r <em>QUEUE</em>
-# resumes the specified queue
-```
-{% endif %}
-
 ### ghe-saml-mapping-csv
 
-This utility can help map SAML records.
+This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
 
-To create a CSV file containing all the SAML mapping for your {% data variables.product.product_name %} users:
+To output a CSV file containing a list of all user SAML `NameID` mappings on the instance, run the following command.
+
 ```shell
-$ ghe-saml-mapping-csv -d
+ghe-saml-mapping-csv -d
 ```
 
-To perform a dry run of updating SAML mappings with new values:
+{% ifversion ghes < 3.9 %}
+
+After output completes, the utility displays the path to the file. The default path for output depends on the patch release of {% data variables.product.product_name %} {% ifversion ghes = 3.4 %}3.4{% elsif ghes = 3.5 %}3.5{% elsif ghes = 3.6 %}3.6{% elsif ghes = 3.7%}3.7{% endif %} your instance is running.
+
+- In version 3.{% ifversion ghes = 3.4 %}4.17{% elsif ghes = 3.5 %}5.14{% elsif ghes = 3.6 %}6.10{% elsif ghes = 3.7%}7.7{% elsif ghes = 3.8 %}8.0{% endif %}{% ifversion ghes < 3.8 %} and earlier{% endif %}, the utility writes the file to `/tmp`.
+- In version 3.{% ifversion ghes = 3.4 %}4.18{% elsif ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later,
+
+{%- elsif ghes > 3.8 %}By default,{% endif %} the utility writes the file to `/data/user/tmp`.
+
+If you plan to update mappings, to ensure that the utility can access the file, we recommend that you keep the file in the default location.
+
+To prepare to update mappings, edit the file and make the desired changes. To see the result of updating the mappings using the new values in your edited CSV file, perform a dry run. Run the following command, replacing /PATH/TO/FILE with the actual path to the file you edited.
+
 ```shell
-$ ghe-saml-mapping-csv -u -n -f /path/to/file
+ghe-saml-mapping-csv -u -n -f /PATH/TO/FILE
 ```
 
-To update SAML mappings with new values:
+To update SAML mappings on the instance with new values from the file, run the following command, replacing /PATH/TO/FILE with the actual path to the file you edited.
+
 ```shell
-$ ghe-saml-mapping-csv -u -f /path/to/file
+ghe-saml-mapping-csv -u -f /PATH/TO/FILE
 ```
 
 ### ghe-service-list
@@ -329,6 +320,60 @@ This utility lists all of the services that have been started or stopped (are ru
 
 ```shell
 $ ghe-service-list
+{% ifversion viewscreen-and-notebooks %}
+active
+  - alambic
+  - alive
+  - aqueduct-lite
+  - authzd
+  - babeld
+  - codeload
+  - consul, process 17114
+  - consul-template, process 19493
+  - driftwood
+  - elasticsearch
+  - enterprise-manage-unicorn, process 9359
+  - ghe-user-disk, process 2545
+  - git-daemon
+  - github-env
+  - github-gitauth
+  - github-resqued
+  - github-stream-processors
+  - github-timerd
+  - github-unicorn
+  - gitrpcd
+  - governor
+  - gpgverify
+  - grafana-server, process 19314
+  - graphite-web, process 20189
+  - hookshot-go
+  - kafka-lite
+  - kredz
+  - lfs-server
+  - mail-replies
+  - memcached
+  - minio
+  - mysql
+  - nginx
+  - nomad, process 19562
+  - pages
+  - postfix
+  - redis
+  - spokesd
+  - spokes-sweeper
+  - svnbridge
+  - token-scanning-api
+  - token-scanning-backfill-worker
+  - token-scanning-hydro-consumer
+  - token-scanning-incremental-worker
+  - token-scanning-udp-backfill-worker
+  - treelights
+  - turboscan
+  - viewscreen
+
+inactive
+  - wireguard
+{% else %}
 start/running
   - github-resqued, process 12711
   - github-unicorn, process 12726
@@ -345,18 +390,30 @@ start/running
   - ghe-storage, process 2012
   - enterprise-manage-unicorn, process 2024
   - enterprise-manage-resque, process 2053
-
 stop/waiting
   - ghe-replica-mode
+  {% endif %}
 ```
 
 ### ghe-set-password
 
-With `ghe-set-password`, you can set a new password to authenticate into the [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console).
+With `ghe-set-password`, you can set a new password to authenticate into the [{% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console).
 
 ```shell
 ghe-set-password <new_password>
 ```
+
+### ghe-setup-network
+
+This utility allows you to configure the primary network interface.
+
+To enter visual mode, which will guide you through configuration of network settings:
+
+```shell
+$ ghe-setup-network -v
+```
+
+Use the -h flag for additional options.
 
 ### ghe-ssh-check-host-keys
 
@@ -394,7 +451,7 @@ existing keys in /etc/ssh/ssh_host_* and generate new ones. [y/N]
 
 ### ghe-ssh-weak-fingerprints
 
-This utility returns a report of known weak SSH keys stored on the {% data variables.product.prodname_enterprise %} appliance. You can optionally revoke user keys as a bulk action. The utility will report weak system keys, which you must manually revoke in the [{% data variables.enterprise.management_console %}](/enterprise/{{ currentVersion }}/admin/guides/installation/accessing-the-management-console).
+This utility returns a report of known weak SSH keys stored on the {% data variables.product.prodname_enterprise %} appliance. You can optionally revoke user keys as a bulk action. The utility will report weak system keys, which you must manually revoke in the [{% data variables.enterprise.management_console %}](/admin/configuration/administering-your-instance-from-the-management-console).
 
 ```shell
 # Print a report of weak user and system SSH keys
@@ -406,7 +463,7 @@ $ ghe-ssh-weak-fingerprints --revoke
 
 ### ghe-ssl-acme
 
-This utility allows you to install a Let's Encrypt certificate on your {% data variables.product.prodname_enterprise %} appliance. For more information, see "[Configuring TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)."
+This utility allows you to install a Let's Encrypt certificate on your {% data variables.product.prodname_enterprise %} appliance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)."
 
 You can use the `-x` flag to remove the ACME configuration.
 
@@ -418,9 +475,9 @@ ghe-ssl-acme -e
 
 This utility allows you to install a custom root CA certificate on your {% data variables.product.prodname_enterprise %} server. The certificate must be in PEM format. Furthermore, if your certificate provider includes multiple CA certificates in a single file, you must separate them into individual files that you then pass to `ghe-ssl-ca-certificate-install` one at a time.
 
-Run this utility to add a certificate chain for S/MIME commit signature verification. For more information, see "[About commit signature verification](/enterprise/{{ currentVersion }}/user/articles/about-commit-signature-verification/)."
+Run this utility to add a certificate chain for S/MIME commit signature verification. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
 
-Run this utility when {% data variables.product.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.product.product_location %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
+Run this utility when {% data variables.location.product_location %} is unable to connect to another server because the latter is using a self-signed SSL certificate or an SSL certificate for which it doesn't provide the necessary CA bundle. One way to confirm this is to run `openssl s_client -connect host:port -verify 0 -CApath /etc/ssl/certs` from {% data variables.location.product_location %}. If the remote server's SSL certificate can be verified, your `SSL-Session` should have a return code of 0, as shown below.
 
 ```
 SSL-Session:
@@ -435,7 +492,7 @@ SSL-Session:
     Verify return code: 0 (ok)
 ```
 
-If, on the other hand, the remote server's SSL certificate can *not* be verified, your `SSL-Session` should have a nonzero return code:
+If, on the other hand, the remote server's SSL certificate can _not_ be verified, your `SSL-Session` should have a nonzero return code:
 
 ```
 SSL-Session:
@@ -455,12 +512,22 @@ You can use these additional options with the utility:
 - The `-h` flag displays more usage information.
 
 ```shell
-ghe-ssl-ca-certificate-install -c <em>/path/to/certificate</em>
+ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
+```
+
+### ghe-ssl-certificate-setup
+
+This utility allows you to update an SSL certificate for {% data variables.location.product_location %}.
+
+For more information about this command or for additional options, use the `-h` flag.
+
+```shell
+ghe-ssl-certificate-setup
 ```
 
 ### ghe-ssl-generate-csr
 
-This utility allows you to generate a private key and certificate signing request (CSR), which you can share with a commercial or private certificate authority to get a valid certificate to use with your instance. For more information, see "[Configuring TLS](/enterprise/{{ currentVersion }}/admin/guides/installation/configuring-tls)."
+This utility allows you to generate a private key and certificate signing request (CSR), which you can share with a commercial or private certificate authority to get a valid certificate to use with your instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)."
 
 For more information about this command or for additional options, use the `-h` flag.
 
@@ -470,7 +537,7 @@ ghe-ssl-generate-csr
 
 ### ghe-storage-extend
 
-Some platforms require this script to expand the user volume. For more information, see "[Increasing Storage Capacity](/enterprise/admin/guides/installation/increasing-storage-capacity/)".
+Some platforms require this script to expand the user volume. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity)".
 
 ```shell
 $ ghe-storage-extend
@@ -478,7 +545,7 @@ $ ghe-storage-extend
 
 ### ghe-version
 
-This utility prints the version, platform, and build of {% data variables.product.product_location %}.
+This utility prints the version, platform, and build of {% data variables.location.product_location %}.
 
 ```shell
 $ ghe-version
@@ -493,30 +560,67 @@ ghe-webhook-logs
 ```
 
 To show all failed hook deliveries in the past day:
-{% ifversion ghes %}
+
 ```shell
-ghe-webhook-logs -f -a <em>YYYY-MM-DD</em>
+ghe-webhook-logs -f -a YYYY-MM-DD
 ```
 
 The date format should be `YYYY-MM-DD`, `YYYY-MM-DD HH:MM:SS`, or `YYYY-MM-DD HH:MM:SS (+/-) HH:M`.
-{% else %}
-```shell
-ghe-webhook-logs -f -a <em>YYYYMMDD</em>
-```
-{% endif %}
 
 To show the full hook payload, result, and any exceptions for the delivery:
-{% ifversion ghes %}
 ```shell
-ghe-webhook-logs -g <em>delivery-guid</em>
+ghe-webhook-logs -g DELIVERY_GUID
 ```
-{% else %}
-```shell
-ghe-webhook-logs -g <em>delivery-guid</em> -v
-```
-{% endif %}
 
 ## Clustering
+
+{% ifversion cluster-rebalancing %}
+
+### ghe-cluster-balance
+
+This utility allows you to enforce an even distribution of allocations across your cluster nodes by checking the status of your cluster's allocations, then rebalancing problematic allocations. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads)."
+
+To output a list of balanceable jobs and their associated allocation spread:
+
+```shell
+$ ghe-cluster-balance status
+```
+
+To output allocation counts for a given job or comma-delimited list of jobs:
+
+```shell
+$ ghe-cluster-balance -j JOB
+```
+
+To rebalance problematic allocations for a given job or comma-delimited list of jobs:
+
+```shell
+$ ghe-cluster-balance rebalance -j JOB
+```
+
+You can use the following flags with `ghe-cluster-balance rebalance`.
+
+Flag | Description
+---- | ----------
+`-j/--job-names` | Specify the jobs to rebalance. Accepts a job name or comma-delimited list of names.
+`-n/--dry-run` | Output the Nomad operations that the utility will run, without actually running them. Can be used in tandem with `-j/--job-name`.
+`-y/--yes` | Skip the user prompt.
+`w/--workers` | Specify the maximum number of simultaneous jobs to stop and wait for reallocation to complete on. Defaults to 4.
+`-t/--timeout` | Specify how many seconds to wait for a stopped allocation for a job to be replaced. Defaults to 300 seconds.
+
+To output completion scripts for the given shell:
+
+```shell
+$ ghe-cluster-balance completion
+```
+
+To display a short description of the utility and any valid subcommands:
+
+```shell
+$ ghe-cluster-balance help
+```
+
+{% endif %}
 
 ### ghe-cluster-status
 
@@ -530,37 +634,45 @@ $ ghe-cluster-status
 
 This utility creates a support bundle tarball containing important logs from each of the nodes in either a Geo-replication or Clustering configuration.
 
-By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to {% data variables.product.prodname_enterprise %} support.
+By default, the command creates the tarball in _/tmp_, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from _/setup/support_ doesn't work. You must use this command if you want to generate an _extended_ bundle, containing older logs. You can also use this command to upload the cluster support bundle directly to {% data variables.product.prodname_enterprise %} support.
+
+{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
 
 To create a standard bundle:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
 
-To create an extended bundle:
+To create a standard bundle including data from the last 3 hours:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
+```
+
+To create a standard bundle including data from the last 2 days:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
+```
+
+To create a standard bundle including data from the last 4 days and 8 hours:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
+```
+
+To create an extended bundle including data from the last 8 days:
+
+```shell
+$ ssh -p 122 admin@HOSTNAME -- ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
 ```
 
 To send a bundle to {% data variables.contact.github_support %}:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -u'
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -u'
 ```
 
 To send a bundle to {% data variables.contact.github_support %} and associate the bundle with a ticket:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-cluster-support-bundle -t <em>ticket-id</em>'
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
-
-{% ifversion ghes %}
-### ghe-cluster-failover
-
-Fail over from active cluster nodes to passive cluster nodes. For more information, see "[Initiating a failover to your replica cluster](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster)."
-
-```shell
-ghe-cluster-failover
-```
-{% endif %}
 
 ### ghe-dpages
 
@@ -577,12 +689,35 @@ ghe-dpages status
 
 To evacuate a {% data variables.product.prodname_pages %} storage service before evacuating a cluster node:
 ```shell
-ghe-dpages evacuate pages-server-<em>UUID</em>
+ghe-dpages evacuate pages-server-UUID
 ```
+
+{% ifversion ghe-spokes-deprecation-phase-1 %}
+
+### ghe-spokesctl
+
+This utility allows you to manage replication of repositories on the distributed Git servers.
+
+```shell
+ghe-spokesctl
+```
+
+To show the servers where the repository is stored:
+
+```shell
+ghe-spokesctl routes
+```
+
+To evacuate storage services on a cluster node:
+```shell
+ghe-spokesctl server set evacuating git-server-UUID
+```
+
+{% else %}
 
 ### ghe-spokes
 
-This utility allows you to manage the three copies of each repository on the distributed git servers.
+This utility allows you to manage the three copies of each repository on the distributed Git servers.
 
 ```shell
 ghe-spokes
@@ -603,16 +738,76 @@ ghe-spokes route
 To evacuate storage services on a cluster node:
 
 ```shell
-ghe-spokes server evacuate git-server-<em>UUID</em>
+ghe-spokes server evacuate git-server-UUID
 ```
+
+{% endif %}
 
 ### ghe-storage
 
 This utility allows you to evacuate all storage services before evacuating a cluster node.
 
 ```shell
-ghe-storage evacuate storage-server-<em>UUID</em>
+ghe-storage evacuate storage-server-UUID
 ```
+
+{% ifversion node-eligibility-service %}
+
+### nes
+
+This utility allows you to monitor the health of cluster nodes using {% data variables.product.prodname_nes %}. By default, {% data variables.product.prodname_nes %} is disabled. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service)."
+
+To view the health of the cluster's nodes:
+
+```shell
+nes get-cluster-health
+```
+
+To verify TTL settings:
+
+```shell
+nes get-node-ttl all
+```
+
+To set the TTL for the `fail` state in minutes:
+
+```shell
+nes set-node-ttl fail MINUTES
+```
+
+The TTL for the `fail` state must be higher than the TTL for the `warn` state.
+
+To set the TTL for the `warn` state in minutes:
+
+```shell
+nes set-node-ttl warn TIME
+```
+
+To review whether {% data variables.product.prodname_nes %} can take administrative action when a node with the hostname HOSTNAME goes offline:
+
+```shell
+nes get-node-adminaction HOSTNAME
+```
+
+To allow {% data variables.product.prodname_nes %} to automatically take administrative action when a node with the hostname HOSTNAME goes offline:
+
+```shell
+nes set-node-adminaction approved HOSTNAME
+```
+
+To revoke {% data variables.product.prodname_nes %}'s ability to take the node with hostname HOSTNAME offline:
+
+```shell
+nes set-node-adminaction approved HOSTNAME
+```
+
+To manually update a node's eligibility for re-addition to the cluster:
+
+```shell
+nes set-node-eligibility eligible HOSTNAME
+```
+
+{% endif %}
 
 ## Git
 
@@ -626,7 +821,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_gcf %}.
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -654,17 +849,127 @@ Try ghe-governor <subcommand> --help for more information on the arguments each 
 This utility allows you to change to a repository's directory and open an interactive shell as the `git` user. You can perform manual inspection or maintenance of a repository via commands like `git-*` or `git-nw-*`.
 
 ```shell
-ghe-repo <em>username</em>/<em>reponame</em>
+ghe-repo USERNAME/REPONAME
 ```
 
 ### ghe-repo-gc
 
 This utility manually repackages a repository network to optimize pack storage. If you have a large repository, running this command may help reduce its overall size. {% data variables.product.prodname_enterprise %} automatically runs this command throughout your interaction with a repository network.
 
-You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/enterprise/user/articles/remove-sensitive-data/).
+You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
+
+{% warning %}
+
+**Warning**: Before using the `--prune` argument to remove unreachable Git objects, put {% data variables.location.product_location %} into maintenance mode, or ensure all repositories within the same repository network are locked. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)" and "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository)."
+
+{% endwarning %}
 
 ```shell
-ghe-repo-gc <em>username</em>/<em>reponame</em>
+ghe-repo-gc USERNAME/REPONAME
+```
+
+## {% data variables.product.prodname_actions %}
+
+### ghe-actions-check
+
+This utility checks that all services for {% data variables.product.prodname_actions %} are healthy. For more information, see  "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)" and "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/troubleshooting-github-actions-for-your-enterprise)."
+
+```shell
+ghe-actions-check
+```
+
+### ghe-actions-precheck
+
+This utility tests the blob storage configuration for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %}. You can use the utility to verify your storage configuration before you enable {% data variables.product.prodname_actions %} for your instance.
+
+For more information about the configuration of {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
+
+{% ifversion ghes-actions-storage-oidc %}
+{% note %}
+
+**Note:** This utility only works with configurations that use a credentials-based connection to the storage provider. It does not work with OpenID Connect (OIDC) configurations.
+
+{% endnote %}
+{% endif %}
+
+```shell
+ghe-actions-precheck -p [PROVIDER] -cs ["CONNECTION-STRING"]
+```
+
+If your storage system is configured correctly, you'll see the following output.
+
+```
+All Storage tests passed
+```
+
+## High availability
+
+### ghe-repl-promote
+
+This command disables replication on an existing replica node and converts the replica node to a primary node using the same settings as the original primary node. All replication services are enabled. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance)."
+
+{% data reusables.enterprise_installation.promoting-a-replica %}
+
+```shell
+ghe-repl-promote
+```
+
+### ghe-repl-setup
+
+Run this utility on an existing node to begin enabling a high availability configuration. The utility puts the node in standby mode before you begin replication with [`ghe-repl-start`](#ghe-repl-start). For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)."
+
+After running the utility, the following configuration occurs on the node.
+
+- An encrypted WireGuard VPN tunnel is established for communication between the nodes.
+- Database services are configured for replication and started.
+- Application services are disabled. Attempts to access the replica node over HTTP or HTTPS, Git, or other supported protocols will display "Server in replication mode" message, a maintenance page, or an error message.
+
+When running this utility, replace PRIMARY-NODE-IP with the IP address of your instance's primary node.
+
+```shell
+ghe-repl-setup PRIMARY-NODE-IP
+```
+
+### ghe-repl-start
+
+This utility begins replication of all datastores on a node. Run this utility after running [`ghe-repl-setup`](#ghe-repl-setup). For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica)."
+
+```shell
+ghe-repl-start
+```
+
+### ghe-repl-status
+
+This utility displays the status of replication on a node, returning an `OK`, `WARNING` or `CRITICAL` status for each datastore's replication stream. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration)."
+
+- If any of the replication channels are in a `WARNING` state, the command will exit with code `1`.
+- If any of the channels are in a `CRITICAL` state, the command will exit with code `2`.
+- The output conforms to the expectations of Nagios' check_by_ssh plugin. For more information, see the [check_by_ssh plugin](https://nagios-plugins.org/doc/man/check_by_ssh.html) on the official Nagios plugins page.
+
+```shell
+ghe-repl-status
+```
+
+The `-v` and `-vv` options provide additional details about each datastore's replication state.
+
+```shell
+ghe-repl-status -v
+```
+
+### ghe-repl-stop
+
+This command temporarily disables replication for all datastores on an existing replica node. All replication services are stopped. To resume replication, use [`ghe-repl-start`](#ghe-repl-start).
+
+```shell
+ghe-repl-stop
+```
+
+### ghe-repl-teardown
+
+This utility completely disables replication on an existing replica node, removing the replica configuration. You can run the following command from a replica node, but if the replica node is unreachable, you can also run the command from the primary node.
+
+```
+ghe-repl-teardown
 ```
 
 ## Import and export
@@ -673,7 +978,7 @@ ghe-repo-gc <em>username</em>/<em>reponame</em>
 
 `ghe-migrator` is a hi-fidelity tool to help you migrate from one GitHub instance to another. You can consolidate your instances or move your organization, users, teams, and repositories from GitHub.com to {% data variables.product.prodname_enterprise %}.
 
-For more information, please see our guide on [migrating user, organization, and repository data](/enterprise/admin/guides/migrations/).
+For more information, please see our guides on [migrating data to and from your enterprise](/migrations/using-ghe-migrator).
 
 ### git-import-detect
 
@@ -684,30 +989,40 @@ git-import-detect
 
 ### git-import-hg-raw
 
-This utility imports a Mercurial repository to this Git repository. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+This utility imports a Mercurial repository to this Git repository. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
 ```shell
 git-import-hg-raw
 ```
 
 ### git-import-svn-raw
 
-This utility imports Subversion history and file data into a Git branch. This is a straight copy of the tree, ignoring any trunk or branch distinction. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+This utility imports Subversion history and file data into a Git branch. This is a straight copy of the tree, ignoring any trunk or branch distinction. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
 ```shell
 git-import-svn-raw
 ```
 
 ### git-import-tfs-raw
 
-This utility imports from Team Foundation Version Control (TFVC). For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+This utility imports from Team Foundation Version Control (TFVC). For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell))."
 ```shell
 git-import-tfs-raw
 ```
 
 ### git-import-rewrite
 
-This utility rewrites the imported repository. This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. For more information, see "[Importing data from third party version control systems](/enterprise/admin/guides/migrations/importing-data-from-third-party-version-control-systems/)."
+This utility rewrites the imported repository. This gives you a chance to rename authors and, for Subversion and TFVC, produces Git branches based on folders. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-from-other-version-control-systems-with-the-administrative-shell)."
 ```shell
 git-import-rewrite
+```
+
+## Security
+
+### ghe-find-insecure-git-operations
+
+This utility searches your instance's logs and identifies Git operations over SSH that use insecure algorithms or hash functions, including DSA, RSA-SHA-1, HMAC-SHA-1, and CBC ciphers. You can use the output to support each client's transition to a more secure SSH connection. For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server){% ifversion ghes < 3.6 %}.{% elsif ghes > 3.5 %} and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)."{% endif %}
+
+```shell
+ghe-find-insecure-git-operations
 ```
 
 ## Support
@@ -716,7 +1031,7 @@ git-import-rewrite
 
 This utility performs a variety of checks and gathers information about your installation that you can send to support to help diagnose problems you're having.
 
-Currently, this utility's output is similar to downloading the diagnostics info in the {% data variables.enterprise.management_console %}, but may have additional improvements added to it over time that aren't available in the web UI. For more information, see "[Creating and sharing diagnostic files](/enterprise/admin/guides/enterprise-support/providing-data-to-github-support#creating-and-sharing-diagnostic-files)."
+Currently, this utility's output is similar to downloading the diagnostics info in the {% data variables.enterprise.management_console %}, but may have additional improvements added to it over time that aren't available in the web UI. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-diagnostic-files)."
 
 ```shell
 ghe-diagnostics
@@ -727,27 +1042,44 @@ ghe-diagnostics
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 This utility creates a support bundle tarball containing important logs from your instance.
 
-By default, the command creates the tarball in */tmp*, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from */setup/support* doesn't work. You must use this command if you want to generate an *extended* bundle, containing older logs. You can also use this command to upload the support bundle directly to {% data variables.product.prodname_enterprise %} support.
+By default, the command creates the tarball in _/tmp_, but you can also have it `cat` the tarball to `STDOUT` for easy streaming over SSH. This is helpful in the case where the web UI is unresponsive or downloading a support bundle from _/setup/support_ doesn't work. You must use this command if you want to generate an _extended_ bundle, containing older logs. You can also use this command to upload the support bundle directly to {% data variables.product.prodname_enterprise %} support.
+
+{% data reusables.enterprise.bundle-utility-period-argument-availability-note %}
 
 To create a standard bundle:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -o' > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
 
-To create an extended bundle:
+To create a standard bundle including data from the last 3 hours:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -x -o' > support-bundle.tgz
+$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
+```
+
+To create a standard bundle including data from the last 2 days:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
+```
+
+To create a standard bundle including data from the last 4 days and 8 hours:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
+```
+
+To create an extended bundle including data from the last 8 days:
+```shell
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -x -o' > support-bundle.tgz
 ```
 
 To send a bundle to {% data variables.contact.github_support %}:
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -u'
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -u'
 ```
 
 To send a bundle to {% data variables.contact.github_support %} and associate the bundle with a ticket:
 
 ```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-support-bundle -t <em>ticket-id</em>'
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -t TICKET_ID'
 ```
 
 ### ghe-support-upload
@@ -756,30 +1088,68 @@ This utility sends information from your appliance to {% data variables.product.
 
 To send a file to {% data variables.contact.github_support %} and associate the file with a ticket:
 ```shell
-ghe-support-upload -f <em>path/to/your/file</em> -t <em>ticket-id</em>
+ghe-support-upload -f FILE_PATH -t TICKET_ID
 ```
 
 To upload data via `STDIN` and associating the data with a ticket:
 ```shell
-<em>ghe-repl-status -vv</em> | ghe-support-upload -t <em>ticket-id</em> -d "<em>Verbose Replication Status</em>"
+ghe-repl-status -vv | ghe-support-upload -t TICKET_ID -d "Verbose Replication Status"
 ```
 
 In this example, `ghe-repl-status -vv` sends verbose status information from a replica appliance. You should replace `ghe-repl-status -vv` with the specific data you'd like to stream to `STDIN`, and `Verbose Replication Status` with a brief description of the data. {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
 
 ## Upgrading {% data variables.product.prodname_ghe_server %}
 
+{% ifversion ghe-migrations-cli-utility %}
+
+### ghe-migrations
+
+During an upgrade to a feature release, this utility displays the status of active database migrations on {% data variables.location.product_location %}. The output includes a version identifier for the migration, the migration's name, the migration's status, and the current duration of the migration.
+
+To display the list of migrations:
+
+```shell
+ghe-migrations
+```
+
+By default, the utility outputs a table with 10 lines. To adjust the height of the table in lines:
+
+```shell
+ghe-migrations -height LINES
+```
+
+By default, the visualizer refreshes every second. To specify the duration in seconds to refresh the visualizer:
+
+```shell
+ghe-migrations -refresh_rate SECONDS
+```
+
+{% endif %}
+
+### ghe-update-check
+
+This utility will check to see if a new patch release of {% data variables.product.prodname_enterprise %} is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to _/var/lib/ghe-updates_. An administrator can then [perform the upgrade](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources).
+
+A file containing the status of the download is available at _/var/lib/ghe-updates/ghe-update-check.status_.
+
+To check for the latest {% data variables.product.prodname_enterprise %} release, use the `-i` switch.
+
+```shell
+$ ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
+```
+
 ### ghe-upgrade
 
-This utility installs or verifies an upgrade package. You can also use this utility to roll back a patch release if an upgrade fails or is interrupted. For more information, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/enterprise/{{ currentVersion }}/admin/guides/installation/upgrading-github-enterprise-server/)."
+This utility installs or verifies an upgrade package. You can also use this utility to roll back a patch release if an upgrade fails or is interrupted. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
 To verify an upgrade package:
 ```shell
-ghe-upgrade --verify <em>UPGRADE-PACKAGE-FILENAME</em>
+ghe-upgrade --verify UPGRADE-PACKAGE-FILENAME
 ```
 
 To install an upgrade package:
 ```shell
-ghe-upgrade <em>UPGRADE-PACKAGE-FILENAME</em>
+ghe-upgrade UPGRADE-PACKAGE-FILENAME
 ```
 
 {% data reusables.enterprise_installation.command-line-utilities-ghe-upgrade-rollback %}
@@ -788,39 +1158,29 @@ ghe-upgrade <em>UPGRADE-PACKAGE-FILENAME</em>
 
 This utility manages scheduled installation of upgrade packages. You can show, create new, or remove scheduled installations. You must create schedules using cron expressions. For more information, see the [Cron Wikipedia entry](https://en.wikipedia.org/wiki/Cron#Overview).
 
+The `ghe-upgrade-scheduler` utility is best suited for scheduling hotpatch upgrades, which do not require maintenance mode or a reboot in most cases. This utility is not practical for full package upgrades, which require an administrator to manually set maintenance mode, reboot the instance, and unset maintenance mode. For more information about the different types of upgrades, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package)"
+
 To schedule a new installation for a package:
 ```shell
-$ ghe-upgrade-scheduler -c "0 2 15 12 *" <em>UPGRADE-PACKAGE-FILENAME</em>
+$ ghe-upgrade-scheduler -c "0 2 15 12 *" UPGRADE-PACKAGE-FILENAME
 ```
 
 To show scheduled installations for a package:
 ```shell
-$ ghe-upgrade-scheduler -s <em>UPGRADE PACKAGE FILENAME</em>
-> 0 2 15 12 * /usr/local/bin/ghe-upgrade -y -s <em>UPGRADE-PACKAGE-FILENAME</em> > /data/user/common/<em>UPGRADE-PACKAGE-FILENAME</em>.log 2>&1
+$ ghe-upgrade-scheduler -s UPGRADE PACKAGE FILENAME
+> 0 2 15 12 * /usr/local/bin/ghe-upgrade -y -s UPGRADE-PACKAGE-FILENAME > /data/user/common/UPGRADE-PACKAGE-FILENAME.log 2>&1
 ```
 
 To remove scheduled installations for a package:
 ```shell
-$ ghe-upgrade-scheduler -r <em>UPGRADE PACKAGE FILENAME</em>
-```
-
-### ghe-update-check
-
-This utility will check to see if a new patch release of {% data variables.product.prodname_enterprise %} is available. If it is, and if space is available on your instance, it will download the package. By default, it's saved to */var/lib/ghe-updates*. An administrator can then [perform the upgrade](/enterprise/admin/guides/installation/updating-the-virtual-machine-and-physical-resources/).
-
-A file containing the status of the download is available at */var/lib/ghe-updates/ghe-update-check.status*.
-
-To check for the latest {% data variables.product.prodname_enterprise %} release, use the `-i` switch.
-
-```shell
-$ ssh -p 122 admin@<em>hostname</em> -- 'ghe-update-check'
+$ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 ```
 
 ## User management
 
 ### ghe-license-usage
 
-This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[Connecting your enterprise account to {% data variables.product.prodname_ghe_cloud %} ](/admin/configuration/managing-connections-between-your-enterprise-accounts/connecting-your-enterprise-account-to-github-enterprise-cloud)."
+This utility exports a list of the installation's users in JSON format. If your instance is connected to {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} uses this information for reporting licensing information to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect)."
 
 By default, the list of users in the resulting JSON file is encrypted. Use the `-h` flag for more options.
 
@@ -830,13 +1190,13 @@ ghe-license-usage
 
 ### ghe-org-membership-update
 
-This utility will enforce the default organization membership visibility setting on all members in your instance. For more information, see "[Configuring visibility for organization membership](/enterprise/{{ currentVersion }}/admin/guides/user-management/configuring-visibility-for-organization-membership)." Setting options are `public` or `private`.
+This utility will enforce the default organization membership visibility setting on all members in your instance. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/configuring-visibility-for-organization-membership)." Setting options are `public` or `private`.
 
 ```shell
-ghe-org-membership-update --visibility=<em>SETTING</em>
+ghe-org-membership-update --visibility=SETTING
 ```
 
-### ghe-user-csv
+### `ghe-user-csv`
 
 This utility exports a list of all the users in the installation into CSV format. The CSV file includes the email address, which type of user they are (e.g., admin, user), how many repositories they have, how many SSH keys, how many organization memberships, last logged IP address, etc. Use the `-h` flag for more options.
 
@@ -849,7 +1209,7 @@ ghe-user-csv -o > users.csv
 This utility demotes the specified user from admin status to that of a regular user. We recommend using the web UI to perform this action, but provide this utility in case the `ghe-user-promote` utility is run in error and you need to demote a user again from the CLI.
 
 ```shell
-ghe-user-demote <em>some-user-name</em>
+ghe-user-demote USERNAME
 ```
 
 ### ghe-user-promote
@@ -857,7 +1217,7 @@ ghe-user-demote <em>some-user-name</em>
 This utility promotes the specified user account to a site administrator.
 
 ```shell
-ghe-user-promote <em>some-user-name</em>
+ghe-user-promote USERNAME
 ```
 
 ### ghe-user-suspend
@@ -865,7 +1225,7 @@ ghe-user-promote <em>some-user-name</em>
 This utility suspends the specified user, preventing them from logging in, pushing, or pulling from your repositories.
 
 ```shell
-ghe-user-suspend <em>some-user-name</em>
+ghe-user-suspend USERNAME
 ```
 
 ### ghe-user-unsuspend
@@ -873,5 +1233,5 @@ ghe-user-suspend <em>some-user-name</em>
 This utility unsuspends the specified user, granting them access to login, push, and pull from your repositories.
 
 ```shell
-ghe-user-unsuspend <em>some-user-name</em>
+ghe-user-unsuspend USERNAME
 ```

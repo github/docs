@@ -1,14 +1,12 @@
 import timeout from 'express-timeout-handler'
 
-import statsd from '../lib/statsd.js'
-
-// Heroku router requests timeout after 30 seconds. We should stop them earlier!
-const maxRequestTimeout = parseInt(process.env.REQUEST_TIMEOUT, 10) || 10000
+import statsd from '#src/observability/lib/statsd.js'
+import { MAX_REQUEST_TIMEOUT } from '../lib/constants.js'
 
 export default timeout.handler({
   // Default timeout for all endpoints
   // To override for a given router/endpoint, use `xExpressTimeoutHandler.set(...)`
-  timeout: maxRequestTimeout,
+  timeout: MAX_REQUEST_TIMEOUT,
 
   // IMPORTANT:
   // We cannot allow the middleware to disable the `res` object's methods like

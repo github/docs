@@ -26,8 +26,8 @@ Could not apply fa39187f3c3dfd2ab5faa38ac01cf3de7ce2e841... Change fake file
 
 Here, Git is telling you which commit is causing the conflict (`fa39187`). You're given three choices:
 
-* You can run `git rebase --abort` to completely undo the rebase. Git will return you to your branch's state as it was before `git rebase` was called.
-* You can run `git rebase --skip` to completely skip the commit. That means that none of the changes introduced by the problematic commit will be included. It is very rare that you would choose this option.
-* You can fix the conflict.
+- You can run `git rebase --abort` to completely undo the rebase. Git will return you to your branch's state as it was before `git rebase` was called.
+- You can run `git rebase --skip` to completely skip the commit. That means that none of the changes introduced by the problematic commit will be included. It is very rare that you would choose this option.
+- You can fix the conflict.
 
-To fix the conflict, you can follow [the standard procedures for resolving merge conflicts from the command line](/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line). When you're finished, you'll need to call `git rebase --continue` in order for Git to continue processing the rest of the rebase.
+To fix the conflict, you can follow [the standard procedures for resolving merge conflicts from the command line](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line). When you're finished, you'll need to call `git rebase --continue` in order for Git to continue processing the rest of the rebase.

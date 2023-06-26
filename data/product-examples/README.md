@@ -2,18 +2,15 @@
 
 Pages that use the `product-landing` layout may optionally include an `Examples` section. Currently, we support three types of examples:
 
-1. Code examples
-  See https://docs.github.com/en/actions#code-examples.
-
-2. Community examples
+1. Community examples
   See https://docs.github.com/en/discussions#community-examples.
 
-3. User examples
+2. User examples
   See https://docs.github.com/en/sponsors#community-examples.
 
 ## How it works
 
-Example data for each product is defined in `data/product-landing-examples`, in a subdirectory named for the **product** and a YML file named for the **example type** (e.g., `data/product-examples/sponsors/user-examples.yml` or `data/product-examples/actions/code-examples.yml`). We currently only support one type of example per product.
+Example data for each product is defined in `data/product-landing-examples`, in a subdirectory named for the **product** and a YML file named for the **example type** (e.g., `data/product-examples/sponsors/user-examples.yml` or `data/product-examples/discussions/community-examples.yml`). We currently only support one type of example per product.
 
 ### Versioning
 
@@ -30,7 +27,7 @@ At the moment, versioning is only supported in code examples. If an example bloc
     - Pull requests
   versions:
     fpt: '*'
-  ```
+```
 
 where the syntax for `versions` is the same as the [frontmatter `versions` property](content/README.md) and can support semver notation.
 

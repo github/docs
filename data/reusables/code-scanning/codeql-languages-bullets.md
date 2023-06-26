@@ -2,16 +2,24 @@
 - C/C++
 - C#
 - Go
-- Java
+- Java{% ifversion codeql-kotlin-beta %}/Kotlin{% endif %}
 - JavaScript/TypeScript
-- Python{% ifversion fpt or ghes > 3.3 or ghae-issue-5017 %}
+- Python
 - Ruby
+{% ifversion codeql-swift-beta %}- Swift{% endif %}
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_codeql %} analysis for Ruby is currently in beta. During the beta, analysis of Ruby will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.
+**Notes**:
+
+{% ifversion ghes < 3.8 or ghae < 3.8 %}
+- {% data variables.product.prodname_codeql %} analysis for Ruby is currently in beta. During the beta, analysis of Ruby will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.{% endif %}{% ifversion codeql-swift-beta %}
+- {% data variables.product.prodname_codeql %} analysis for Swift is currently in beta. During the beta, analysis of Swift will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages. Additionally, Swift 5.8 is not yet supported.{% endif %}
+{% ifversion codeql-kotlin-beta %}
+- {% data variables.product.prodname_codeql %} analysis for Kotlin is currently in beta. During the beta, analysis of Kotlin will be less comprehensive than {% data variables.product.prodname_codeql %} analysis of other languages.
+- Use `java` to analyze code written in Java, Kotlin or both.{% endif %}
+- Use `javascript` to analyze code written in JavaScript, TypeScript or both.
 
 {% endnote %}
 
 For more information, see the documentation on the {% data variables.product.prodname_codeql %} website: "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/)."
-{% endif %}

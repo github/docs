@@ -1,1 +1,0 @@
-You can view whether your organization members have two-factor authentication enabled and choose to require two-factor authentication in your organization. 更多信息请参阅“[您的组织中需要双重身份验证](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)”。

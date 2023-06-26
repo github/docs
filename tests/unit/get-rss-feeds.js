@@ -18,7 +18,16 @@ describe('getChangelogItems module', () => {
 
     changelog = await getChangelogItems(
       'GitHub Actions:',
-      'https://github.blog/changelog/label/packages'
+      'https://github.blog/changelog/label/packages',
+      // This means: Don't use the cache even if it's present.
+      // The reason we're doing this is because all other tests, the
+      // cache is prepopulated from a file from the test fixtures. But
+      // in this particular file, we really do want to execute that code
+      // that executes on a cache miss. But this particular file special
+      // because it explicitly uses nock() to mock the HTTP socket.
+      // So even if we say "Don't use the cache" here, it still won't
+      // depend on Internet access because we're using `nock` here.
+      true
     )
   })
 

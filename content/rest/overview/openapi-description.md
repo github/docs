@@ -23,8 +23,8 @@ We provide the description in two formats. The bundled version works for most ca
 
 There are many uses for an OpenAPI description. For example, you could:
 
-* Generate your own API client.
-* Validate and test a {% data variables.product.company_short %} REST API integration.
-* Explore and interact with the {% data variables.product.product_name %} REST API using third-party tools, such as Insomnia or Postman.
+- Generate your own API client.
+- Validate and test a {% data variables.product.company_short %} REST API integration.
+- Explore and interact with the {% data variables.product.product_name %} REST API using third-party tools, such as Insomnia or Postman.
 
-For example, {% data variables.product.company_short %} uses the REST OpenAPI description to generate the {% data variables.product.product_name %} [REST API reference documentation](/rest/reference).
+For example, {% data variables.product.company_short %} uses the REST OpenAPI description to generate the {% data variables.product.product_name %} [REST API reference documentation](/rest).

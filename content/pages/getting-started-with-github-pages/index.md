@@ -17,13 +17,14 @@ topics:
 children:
   - /about-github-pages
   - /creating-a-github-pages-site
-  - /adding-a-theme-to-your-github-pages-site-with-the-theme-chooser
+  - /using-custom-workflows-with-github-pages
   - /configuring-a-publishing-source-for-your-github-pages-site
+  - /deleting-a-github-pages-site
+  - /unpublishing-a-github-pages-site
   - /changing-the-visibility-of-your-github-pages-site
   - /creating-a-custom-404-page-for-your-github-pages-site
   - /securing-your-github-pages-site-with-https
   - /using-submodules-with-github-pages
-  - /unpublishing-a-github-pages-site
+  - /troubleshooting-404-errors-for-github-pages-sites
 shortTitle: Get started
 ---
-

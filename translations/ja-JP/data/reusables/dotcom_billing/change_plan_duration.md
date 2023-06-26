@@ -1,1 +1,0 @@
-1. "Current monthly bill（現在の月間支払額）"あるいは"Current yearly bill（現在の年間支払額）"の下で、**Switch to yearly billing（年間の支払いへの変更）**もしくは**Switch to monthly billing（月間の支払いへの変更）**をクリックしてください。 ![[Billing overview] の [Change plan] ボタン](/assets/images/help/billing/change-plan-duration-link.png)

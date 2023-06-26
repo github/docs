@@ -1,8 +1,8 @@
 name: Triage new issue comments
 
-# **What it does**:
-# **Why we have it**:
-# **Who does it impact**:
+# **What it does**: Adds label triage to new issue comments in the open source repository.
+# **Why we have it**: Update open source project board for review.
+# **Who does it impact**: Docs open source.
 
 on:
   issue_comment:
@@ -11,7 +11,6 @@ on:
 
 permissions:
   issues: write
-  repository-projects: write
 
 jobs:
   triage-issue-comments:
@@ -20,7 +19,7 @@ jobs:
 
     steps:
       - name: Check if the event originated from a team member
-        uses: actions/github-script@2b34a689ec86a68d8ab9478298f91d5401337b7d
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: is-internal-contributor
         with:
           result-encoding: string
@@ -47,9 +46,3 @@ jobs:
         with:
           add-labels: 'triage'
           ignore-if-labeled: true
-      - name: Triage to project board
-        uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
-        with:
-          action-token: ${{ secrets.GITHUB_TOKEN }}
-          project-url: 'https://github.com/github/docs/projects/1'
-          column-name: 'Triage'

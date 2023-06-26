@@ -1,1 +1,0 @@
-Code review settings are available with {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_server %} 2.20+,{% ifversion ghae %} {% data variables.product.prodname_ghe_managed %},{% endif %} and {% data variables.product.prodname_ghe_cloud %}. Para obter mais informações, consulte os "[Produtos do GitHub](/articles/githubs-products)".

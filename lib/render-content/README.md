@@ -30,24 +30,19 @@ Liquid will be looking for includes in `${process.cwd()}/includes`.
 
 Options:
 
-- `encodeEntities`: Encode html entities. Default: `false`.
 - `fileName`: File name for debugging purposes.
 - `textOnly`: Output text instead of html using [cheerio](https://ghub.io/cheerio).
 
 ### .liquid
 
-The [Liquid](https://ghub.io/liquid) instance used internally.
+The [Liquid](https://ghub.io/liquidjs) instance used internally.
 
 ### Code block headers
 
-You can add a header to code blocks by adding the `{:copy}` annotation after the code fences:
+You can add a header to code blocks by adding the ` copy` annotation after the code fences, and a specified language:
 
-    ```js{:copy}
+    ```js copy
     const copyMe = true
     ```
-
-This renders:
-
-![image](https://user-images.githubusercontent.com/10660468/95881747-e96c6900-0d46-11eb-9abf-1e8ad16c7646.png)
 
 The un-highlighted text is available as `button.js-btn-copy`'s `data-clipboard-text` attribute.

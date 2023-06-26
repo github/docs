@@ -1,1 +1,0 @@
-{% data variables.product.prodname_codeql %} also runs a build for Go projects to set up the project. However, in contrast to the other compiled languages, all Go files in the repository are extracted, not just those that are built. You can use custom build commands to skip extracting Go files that are not touched by the build.

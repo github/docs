@@ -19,9 +19,9 @@ shortTitle: About billing
 
 {% data reusables.dotcom_billing.view-all-subscriptions %}
 
-{% data reusables.user_settings.context_switcher %}
+{% data reusables.user-settings.context_switcher %}
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_sponsors %}](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
-- "[Sponsoring open source contributors](/sponsors/sponsoring-open-source-contributors)"
+- "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)"
+- "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors)"

@@ -1,0 +1,1 @@
+{% data variables.actions.hosted_runner_caps %}s are only billed at the per-minute rate for the amount of time workflows are executed on them. There is no cost associated with creating a {% data variables.actions.hosted_runner %} that is not being used by a workflow.

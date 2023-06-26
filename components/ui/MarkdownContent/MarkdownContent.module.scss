@@ -4,6 +4,11 @@
 @import "./stylesheets/table.scss";
 
 .markdownBody {
+  :not(h1, h2, h3, h4, h5, h6) > a {
+    text-decoration: underline;
+    text-underline-offset: 25%;
+  }
+
   summary {
     outline: none;
 
@@ -21,31 +26,6 @@
         margin: 0;
         padding: 0;
       }
-    }
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    &:hover {
-      [class~="octicon-link"] {
-        visibility: visible !important;
-      }
-    }
-    & > a[class~="doctocat-link"] {
-      padding: 0.5rem;
-      margin-left: -2rem;
-      color: var(--color-fg-muted);
-      &:active,
-      &:focus {
-        outline: none;
-      }
-    }
-    &:target {
-      scroll-margin-top: 75px;
     }
   }
 

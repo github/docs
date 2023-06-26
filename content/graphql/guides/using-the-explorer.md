@@ -18,37 +18,32 @@ topics:
 
 [GraphQL Explorer](/graphql/overview/explorer) is an instance of [GraphiQL](https://github.com/graphql/graphiql), which is a "graphical interactive in-browser GraphQL IDE."
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_dotcom %} has disabled [mutations](/graphql/reference/mutations) in the Explorer, but you can use them in your own GraphiQL instance.
-
-{% endnote %}
-
 {% else %}
 
 [GraphiQL](https://github.com/graphql/graphiql), also referred to in this documentation as the GraphQL Explorer, is a "graphical interactive in-browser GraphQL IDE."
 
 {% endif %}
 
-## Using GraphiQL
+## Using the Altair GraphQL Client IDE
 
-To use the GraphiQL app, download and install it from https://github.com/skevy/graphiql-app.
+There are many open source GraphQL client IDEs. For example, you can use Altair to access {% data variables.product.company_short %}'s GraphQL API. To access the GraphQL API with Altair, download and install it from [altair-graphql/altair](https://github.com/altair-graphql/altair). Then, follow the configuration steps below.
 
-### Configuring GraphiQL
+### Configuring Altair
 
-1. Get an [OAuth token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
-1. Launch GraphiQL.
-1. In the upper-right corner of GraphiQL, click **Edit HTTP Headers**.
-1. In the **Key** field, enter `Authorization`. In the **Value** field, enter `Bearer <token>`, where `<token>` is your generated OAuth token.
-![graphiql headers](/assets/images/developer/graphiql-headers.png)
-1. Click the checkmark to the right of the token to save it.
-1. To return to the editor, click outside of the **Edit HTTP Headers** modal.
-1. In the **GraphQL Endpoint** field, enter `{% data variables.product.graphql_url_pre %}`.
-1. In the **Method** dropdown menu, select **POST**.
+1. Get an [access token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
+2. Launch Altair.
+3. In the left sidebar, below the Altair logo, click **Set Headers**. A new window will open.
+4. In the "Header key" field, enter `Authorization`.
+5. In the "Header value" field, enter `Bearer TOKEN`, replacing `TOKEN` with your token from the first step.
+6. Click **Save** in the bottom right corner of the window to save your authorization header.
+8. In the "GraphQL Endpoint" field, enter `{% data variables.product.graphql_url_pre %}`.
+9. To load the {% data variables.product.company_short %} GraphQL schema, download the [public schema](/graphql/overview/public-schema).
+10. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
+11. Select the file public schema that you downloaded in an earlier step.
 
 {% note %}
 
-**Note**: For more information about why `POST` is the method, see "[Communicating with GraphQL](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
+**Note**: For more information about why `POST` is the method, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
 
 {% endnote %}
 
@@ -70,7 +65,7 @@ All types in a GraphQL schema include a `description` field compiled into docume
 
 {% note %}
 
-The **Docs** sidebar contains the same content that is automatically generated from the schema under "[Reference](/graphql)," though it is formatted differently in places.
+The **Docs** sidebar contains the same content that is automatically generated from the schema under "[AUTOTITLE](/graphql)," though it is formatted differently in places.
 
 {% endnote %}
 
@@ -94,7 +89,7 @@ variables {
 }
 ```
 
-This is the correct format to submit the call via a cURL `POST` (as long as you [escape newlines](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
+This is the correct format to submit the call using a `POST` request in a `curl` command (as long as you [escape newlines](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
 
 If you want to run the call in the Explorer, enter the `query` segment in the main pane and the variables in the **Query Variables** pane below it. Omit the word `variables` from the Explorer:
 
@@ -112,8 +107,8 @@ If you want to run the call in the Explorer, enter the `query` segment in the ma
 
 Because GraphQL is [introspective](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), the Explorer supports:
 
-* Intelligent typeaheads aware of the current schema
-* Validation error previews as you type
+- Intelligent typeaheads aware of the current schema
+- Validation error previews as you type
 
 If you enter a query that is not well-formed or does not pass [schema validation](/graphql/guides/introduction-to-graphql#schema), a popup warns you of an error. If you run the query, the error returns in the response pane.
 

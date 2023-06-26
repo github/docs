@@ -1,0 +1,8 @@
+# Reference: github/docs-content#6709
+# Initial docs for showing SSH signed commits as verified and
+# uploading SSH signing keys
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.7'
+  ghae: '>= 3.7'

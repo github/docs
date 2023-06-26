@@ -15,29 +15,28 @@ topics:
   - Pull requests
 shortTitle: Transfer an issue
 ---
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[Repository roles for an organization](/organizations/managing-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
-You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}You can't transfer an issue from a private repository to a public repository.{% endif %}
+{% note %}
 
-When you transfer an issue, comments and assignees are retained. The issue's labels and milestones are not retained. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[About project boards](/articles/about-project-boards)."
+**Note**: You can only transfer issues between repositories owned by the same user or organization account. {% ifversion fpt or ghes or ghec %}A private repository issue cannot be transferred to a public repository.{% endif %}
+
+{% endnote %}
+
+When you transfer an issue, comments and assignees are retained. Labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. This issue will stay on any user-owned or organization-wide project boards and be removed from any repository project boards. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
 
 People or teams who are mentioned in the issue will receive a notification letting them know that the issue has been transferred to a new repository. The original URL redirects to the new issue's URL. People who don't have read permissions in the new repository will see a banner letting them know that the issue has been transferred to a new repository that they can't access.
 
 ## Transferring an open issue to another repository
 
-{% include tool-switcher %}
-
 {% webui %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue you'd like to transfer.
-4. In the right sidebar, click **Transfer issue**.
-![Button to transfer issue](/assets/images/help/repository/transfer-issue.png)
-5. Use the **Choose a repository** drop-down menu, and select the repository you want to transfer the issue to.
-![Choose a repository selection](/assets/images/help/repository/choose-a-repository.png)
-6. Click **Transfer issue**.
-![Transfer issue button](/assets/images/help/repository/transfer-issue-button.png)
+1. In the list of issues, click the issue you'd like to transfer.
+1. In the right sidebar, click **Transfer issue**.
+1. Select the **Choose a repository** dropdown menu, and click the repository you want to transfer the issue to.
+1. Click **Transfer issue**.
 
 {% endwebui %}
 
@@ -48,13 +47,11 @@ People or teams who are mentioned in the issue will receive a notification letti
 To transfer an issue, use the `gh issue transfer` subcommand. Replace the `issue` parameter with the number or URL of the issue. Replace the `{% ifversion ghes %}hostname/{% endif %}owner/repo` parameter with the {% ifversion ghes %}URL{% else %}name{% endif %} of the repository that you want to transfer the issue to, such as `{% ifversion ghes %}https://ghe.io/{% endif %}octocat/octo-repo`.
 
 ```shell
-gh issue transfer <em>issue</em> <em>{% ifversion ghes %}hostname/{% endif %}owner/repo</em>
+gh issue transfer ISSUE {% ifversion ghes %}HOSTNAME/{% endif %}OWNER/REPO
 ```
 
 {% endcli %}
 
 ## Further reading
 
-- "[About issues](/articles/about-issues)"
-- "[Reviewing your security log](/articles/reviewing-your-security-log)"
-- "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/reviewing-the-audit-log-for-your-organization)"
+- "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)"

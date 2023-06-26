@@ -1,1 +1,0 @@
-1. Revise as informações sobre a cobrança e data de cobrança e clique em **Upgrade my account** (Atualizar minha conta) ou **Upgrade my organization's account** (Atualizar a conta da minha organização).

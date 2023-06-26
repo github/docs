@@ -1,28 +1,23 @@
 ## Tests
 
-It's not strictly necessary to run tests locally while developing: You can
+It's not strictly necessary to run tests locally while developing. You can
 always open a pull request and rely on the CI service to run tests for you,
-but sometimes it's helpful to run tests locally before pushing your changes to
+but it's helpful to run tests locally before pushing your changes to
 GitHub.
 
-Test are written using [jest](https://ghub.io/jest), a framework maintained
-by Facebook and used by many teams at GitHub. Jest is convenient in that it
-provides everything: a test runner, an assertion library, code coverage analysis,
+Tests are written using [jest](https://ghub.io/jest), a framework maintained
+by Facebook and used by many teams at GitHub.
+Jest provides everything: a test runner, an assertion library, code coverage analysis,
 custom reporters for different types of test output, etc.
 
 ### Install optional dependencies
 
-We typically rely on CI to run our tests, so we consider some large test-only
-dependencies **optional** (for example, puppeteer). In order to run the tests locally you'll
+We typically rely on CI to run our tests, so some large test-only
+dependencies are considered **optional**. To run the tests locally, you'll
 need to make sure optional dependencies are installed by running:
 
 ```sh
 npm ci --include=optional
-```
-
-If you run into the error "Could not find expected browser (chrome) locally" you may need to manually install the expected chromium version with:
-```
-node node_modules/puppeteer/install.js
 ```
 
 ### Running all the tests
@@ -36,10 +31,10 @@ script/test # or `npm test`
 
 ### Watching all the tests
 
-You can also run a script that will continually watch for changes and
-re-run the tests any time a change is made. This command will notify you
-when tests change to and from a passing or failing state, and will also print
-out a test coverage report, so you can see what files are in need of tests.
+You can run a script that continually watches for changes and
+re-runs the tests whenever a change is made. This command notifies you
+when tests change to and from a passing or failing state, and it prints
+out a test coverage report so you can see what files need testing.
 
 ```sh
 npm run test-watch
@@ -47,7 +42,7 @@ npm run test-watch
 
 ### Running individual tests
 
-You can run specific tests in one of these two ways:
+You can run specific tests in two ways:
 
 ```sh
 # The TEST_NAME can be a filename, partial filename, or path to a file or directory
@@ -76,3 +71,51 @@ run the linter:
 ```sh
 npm run lint
 ```
+
+### Keeping the server running
+
+When you run `jest` tests that depend on making real HTTP requests
+to `localhost:4000`, the `jest` tests have a hook that starts the
+server before running all/any tests and stops the server when done.
+
+You can disable this, which might make it easier when debugging tests
+since the server won't need to start and stop every time you run tests.
+
+In one terminal, type:
+
+```sh
+NODE_ENV=test PORT=4000 node server.js
+```
+
+In another terminal, type:
+
+```sh
+START_JEST_SERVER=false jest tests/rendering/foo/bar.js
+```
+
+Or whatever the testing command you use is.
+
+The `START_JEST_SERVER` environment variable needs to be set to `false`, or else `jest` will try to start
+a server on `:4000` too.
+
+### Debugging middleware errors
+
+By default, errors handled by the middleware are dealt with just like
+any error in production. It's common to have end-to-end tests that expect
+a page to throw a 500 Internal Server Error response.
+
+If you don't expect that and you might struggle to see exactly where the
+error is happening, set `$DEBUG_MIDDLEWARE_TESTS` to `true`. For example:
+
+```sh
+export DEBUG_MIDDLEWARE_TESTS=true
+jest tests/rendering/ -b
+```
+
+### Fixture based testing
+
+See [Fixture content](./fixtures/README.md).
+
+### Headless tests with Playwright
+
+See [Headless tests with Playwright](./PLAYWRIGHT.md)

@@ -1,0 +1,1 @@
+You can clone a repository from {% data variables.location.product_location %} to your local computer to make it easier to fix merge conflicts, add or remove files, and push larger commits. When you clone a repository, you copy the repository from {% data variables.location.product_location %} to your local machine.

@@ -1,8 +1,10 @@
-{% ifversion ghes > 3.2 %}
+{% ifversion ghes %}
 
 {% note %}
 
-**Note:** Your site administrator must set up {% data variables.product.prodname_dependabot %} updates for {% data variables.product.product_location %} before you can use this feature. For more information, see "[Setting up {% data variables.product.prodname_dependabot %} security and version updates on your enterprise](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/setting-up-dependabot-updates)."
+**Note:** Your site administrator must set up {% data variables.product.prodname_dependabot_updates %} for {% data variables.location.product_location %} before you can use this feature. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+
+{% ifversion security-feature-enablement-policies-dependabot %} You may not be able to enable or disable {% data variables.product.prodname_dependabot_updates %} if an enterprise owner has set a policy at the enterprise level. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."{% endif %}
 
 {% endnote %}
 

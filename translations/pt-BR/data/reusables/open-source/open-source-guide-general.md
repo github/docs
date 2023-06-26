@@ -1,1 +1,0 @@
-Para mais informações sobre código aberto, especificamente como criar e crescer um projeto de código aberto, criamos [Guias em Código Aberto](https://opensource.guide/) que ajudarão você a fomentar uma comunidade de código aberto saudável.

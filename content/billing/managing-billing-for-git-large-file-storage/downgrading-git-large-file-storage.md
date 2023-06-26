@@ -18,12 +18,12 @@ topics:
   - User account
 shortTitle: Downgrade Git LFS storage
 ---
-When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[About billing for {% data variables.large_files.product_name_long %}](/articles/about-billing-for-git-large-file-storage)."
+When you downgrade your number of data packs, your change takes effect on your next billing date. For more information, see "[AUTOTITLE](/billing/managing-billing-for-git-large-file-storage/about-billing-for-git-large-file-storage)."
 
 ## Downgrading storage and bandwidth for a personal account
 
-{% data reusables.user_settings.access_settings %}
-{% data reusables.user_settings.billing_plans %}
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.billing_plans %}
 {% data reusables.dotcom_billing.lfs-remove-data %}
 {% data reusables.large_files.downgrade_data_packs %}
 

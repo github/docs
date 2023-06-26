@@ -1,6 +1,6 @@
 ---
 title: Unblocking a user from your organization
-intro: 'Organization owners can unblock a user who was previously blocked, restoring their access to the organization''s repositories.'
+intro: 'Organization owners and moderators can unblock a user who was previously blocked, restoring their access to the organization''s repositories.'
 redirect_from:
   - /articles/unblocking-a-user-from-your-organization
   - /github/building-a-strong-community/unblocking-a-user-from-your-organization
@@ -14,7 +14,7 @@ shortTitle: Unblock from your org
 
 After unblocking a user from your organization, they'll be able to contribute to your organization's repositories.
 
-If you selected a specific amount of time to block the user, they will be automatically unblocked when that period of time ends. For more information, see "[Blocking a user from your organization](/articles/blocking-a-user-from-your-organization)."
+If you selected a specific amount of time to block the user, they will be automatically unblocked when that period of time ends. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)."
 
 {% tip %}
 
@@ -25,22 +25,22 @@ If you selected a specific amount of time to block the user, they will be automa
 ## Unblocking a user in a comment
 
 1. Navigate to the comment whose author you would like to unblock.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Unblock user**.
-![The horizontal kebab icon and comment moderation menu showing the unblock user option](/assets/images/help/repository/comment-menu-unblock-user.png)
-3. To confirm you would like to unblock the user, click **Okay**.
+1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="Show options" %}, then click **Unblock user**.
+
+   ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Unblock user" is outlined in orange.](/assets/images/help/repository/comment-menu-unblock-user.png)
+
+1. To confirm you would like to unblock the user, click **OK**.
 
 ## Unblocking a user in the organization settings
 
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% data reusables.organizations.moderation-settings %}
-5. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**.
-![Unblock user button](/assets/images/help/organizations/org-unblock-user-button.png)
+{% data reusables.organizations.block_users %}
+1. Under "Blocked users", next to the user you'd like to unblock, click **Unblock**.
 
 ## Further reading
 
-- "[Blocking a user from your organization](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-- "[Blocking a user from your personal account](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-- "[Unblocking a user from your personal account](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-- "[Reporting abuse or spam](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
+- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"

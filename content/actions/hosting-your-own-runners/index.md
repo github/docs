@@ -1,5 +1,6 @@
 ---
 title: Hosting your own runners
+shortTitle: Self-hosted runners
 intro: You can create self-hosted runners to run workflows in a highly customizable environment.
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/hosting-your-own-runners
@@ -16,17 +17,8 @@ versions:
   ghae: '*'
   ghec: '*'
 children:
-  - /about-self-hosted-runners
-  - /adding-self-hosted-runners
-  - /autoscaling-with-self-hosted-runners
-  - /configuring-the-self-hosted-runner-application-as-a-service
-  - /using-a-proxy-server-with-self-hosted-runners
-  - /using-labels-with-self-hosted-runners
-  - /using-self-hosted-runners-in-a-workflow
-  - /managing-access-to-self-hosted-runners-using-groups
-  - /monitoring-and-troubleshooting-self-hosted-runners
-  - /removing-self-hosted-runners
+  - /managing-self-hosted-runners
+  - /managing-self-hosted-runners-with-actions-runner-controller
 ---
-{% data reusables.actions.ae-self-hosted-runners-notice %}
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}

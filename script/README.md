@@ -32,23 +32,44 @@ Runs tests. Equivalent of `npm test`.
 
 ### [`anonymize-branch.js`](anonymize-branch.js)
 
-Flatten all the commits in the current branch into a single anonymized @Octomerger commit
+Flatten all the commits in the current branch into a single anonymized @docs-bot commit
 
 Usage: script/anonymize-branch.js <new-commit-message> [base-branch] Example: script/anonymize-branch.js "nothing to see here" If the optional [base-branch] argument is omitted, it will default to `main`
 
 ---
 
 
-### [`backfill-missing-localizations.js`](backfill-missing-localizations.js)
+### [`bookmarklets/add-pr-links.js`](bookmarklets/add-pr-links.js)
 
-This script copies any English files that are missing from the translations directory into the translations directory. We only need to run this if problems occur with Crowdin's automatic sync.
+
 
 ---
 
 
-### [`check-english-links.js`](check-english-links.js)
+### [`bookmarklets/open-in-vscode.js`](bookmarklets/open-in-vscode.js)
 
-This script runs once per day via a scheduled GitHub Action to check all links in English content, not including deprecated Enterprise Server content. It opens an issue if it finds broken links. To exclude a link path, add it to `lib/excluded-links.js`.
+
+
+---
+
+
+### [`bookmarklets/pr-link-source.js`](bookmarklets/pr-link-source.js)
+
+
+
+---
+
+
+### [`bookmarklets/view-in-development.js`](bookmarklets/view-in-development.js)
+
+
+
+---
+
+
+### [`bookmarklets/view-in-production.js`](bookmarklets/view-in-production.js)
+
+
 
 ---
 
@@ -60,21 +81,56 @@ This script is run automatically when you run the server locally. It checks whet
 ---
 
 
-### [`check-internal-links.js`](check-internal-links.js)
+### [`check-github-github-links.js`](check-github-github-links.js)
 
-This script runs in CI via GitHub Action to check all *internal* links in English content, not including deprecated Enterprise Server content. This is different from script/check-english-links.js, which checks *all* links in the site, both internal and external, and is much slower.
-
----
-
-
-### [`content-migrations/extended-markdown-tags.js`](content-migrations/extended-markdown-tags.js)
-
-
+Run this script to get all broken docs.github.com links in github/github
 
 ---
 
 
-### [`content-migrations/octicon-tag.js`](content-migrations/octicon-tag.js)
+### [`content-migrations/add-early-access-tocs.js`](content-migrations/add-early-access-tocs.js)
+
+
+
+---
+
+
+### [`content-migrations/add-ghec-to-schema.js`](content-migrations/add-ghec-to-schema.js)
+
+A one-time use script to add GHEC to the REST schema on github/github.
+
+---
+
+
+### [`content-migrations/add_mini_toc_frontmatter.js`](content-migrations/add_mini_toc_frontmatter.js)
+
+Run this one time script to add max mini toc to rest reference documentation
+
+---
+
+
+### [`content-migrations/comment-on-open-prs.js`](content-migrations/comment-on-open-prs.js)
+
+This script finds all open PRs from active branches that touch content files, and adds a comment with steps to run some commands. The idea is to help writers and other Hubbers update their open branches and mitigate conflicts with the main branch.
+
+---
+
+
+### [`content-migrations/convert-if-to-ifversion.js`](content-migrations/convert-if-to-ifversion.js)
+
+Run this one-time script to convert `if <feature name>` Liquid tags to `ifversion <feature name>`.
+
+---
+
+
+### [`content-migrations/create-csv-of-short-titles.js`](content-migrations/create-csv-of-short-titles.js)
+
+
+
+---
+
+
+### [`content-migrations/move-unique-image-assets.js`](content-migrations/move-unique-image-assets.js)
 
 
 
@@ -88,7 +144,7 @@ This script runs in CI via GitHub Action to check all *internal* links in Englis
 ---
 
 
-### [`content-migrations/site-data-tag.js`](content-migrations/site-data-tag.js)
+### [`content-migrations/topics-upcase.js`](content-migrations/topics-upcase.js)
 
 
 
@@ -102,6 +158,34 @@ This script runs in CI via GitHub Action to check all *internal* links in Englis
 ---
 
 
+### [`content-migrations/update-headers.js`](content-migrations/update-headers.js)
+
+Run this one time script to update headers for accessibility Changing H3 to H2, H4 to H3, H5 to H4, and H6 to H5
+
+---
+
+
+### [`content-migrations/update-versioning-in-files.js`](content-migrations/update-versioning-in-files.js)
+
+
+
+---
+
+
+### [`content-migrations/use-short-versions.js`](content-migrations/use-short-versions.js)
+
+Run this script to convert long form Liquid conditionals (e.g., {% if currentVersion == "free-pro-team" %}) to the new custom tag (e.g., {% ifversion fpt %}) and also use the short names in versions frontmatter.
+
+---
+
+
+### [`copy-to-test-repo.sh`](copy-to-test-repo.sh)
+
+
+
+---
+
+
 ### [`create-glossary-from-spreadsheet.js`](create-glossary-from-spreadsheet.js)
 
 This script turns a Google Sheets CSV spreadsheet into a YAML file.
@@ -109,18 +193,37 @@ This script turns a Google Sheets CSV spreadsheet into a YAML file.
 ---
 
 
-### [`deploy.js`](deploy.js)
+### [`deployment/purge-edge-cache.js`](deployment/purge-edge-cache.js)
 
-This script enables us to execute both staging and production deployments from our local machine (in case GitHub Actions is unavailable). :rocket:
 
-:warning: Deploy to production only with maximum caution!
 
 ---
 
 
-### [`early-access/clone-for-build.js`](early-access/clone-for-build.js)
+### [`dev-toc/generate.js`](dev-toc/generate.js)
 
-This script is run as a postbuild script during staging and deployments on Heroku. It clones a branch in the early-access repo that matches the current branch in the docs repo; if one can't be found, it clones the `main` branch.
+
+
+---
+
+
+### [`dev-toc/index.js`](dev-toc/index.js)
+
+
+
+---
+
+
+### [`dev-toc/layout.html`](dev-toc/layout.html)
+
+
+
+---
+
+
+### [`domwaiter.js`](domwaiter.js)
+
+
 
 ---
 
@@ -153,58 +256,9 @@ This script is run on a writer's machine while developing Early Access content l
 ---
 
 
-### [`enterprise-server-deprecations/archive-version.js`](enterprise-server-deprecations/archive-version.js)
+### [`find-orphaned-assets.js`](find-orphaned-assets.js)
 
-Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
-
----
-
-
-### [`enterprise-server-deprecations/remove-static-files.js`](enterprise-server-deprecations/remove-static-files.js)
-
-This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
-
----
-
-
-### [`enterprise-server-deprecations/remove-version-markup.js`](enterprise-server-deprecations/remove-version-markup.js)
-
-Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
-
----
-
-
-### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
-
-This script creates the static GraphQL files for a new version.
-
----
-
-
-### [`enterprise-server-releases/create-rest-files.js`](enterprise-server-releases/create-rest-files.js)
-
-This script creates new static openAPI files for a new version and modifies the info.version.
-
----
-
-
-### [`enterprise-server-releases/create-webhook-files.js`](enterprise-server-releases/create-webhook-files.js)
-
-This script creates new static webhook payload files for a new version.
-
----
-
-
-### [`enterprise-server-releases/ghes-to-ghae-versioning.js`](enterprise-server-releases/ghes-to-ghae-versioning.js)
-
-Run this script to add versions frontmatter and Liquid conditionals for GitHub AE, based on anything currently versioned for the provided release of Enterprise Server. This script should be run as part of the Enterprise Server release process.
-
----
-
-
-### [`enterprise-server-releases/release-banner.js`](enterprise-server-releases/release-banner.js)
-
-This script creates or removes a release candidate banner for a specified version.
+Print a list of all the asset files that can't be found mentioned in any of the source files (content & code).
 
 ---
 
@@ -212,19 +266,6 @@ This script creates or removes a release candidate banner for a specified versio
 ### [`get-new-dotcom-path.js`](get-new-dotcom-path.js)
 
 Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it will output the new path in the content/github directory.
-
----
-
-
-### [`get-new-version-path.js`](get-new-version-path.js)
-
-Helper script that returns a "new" versioned path given an "old" versioned path.
-
-Examples:
-
-Given: /github/getting-started-with-github/using-github Returns: /free-pro-team@latest/github/getting-started-with-github/using-github
-
-Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /enterprise-server@2.22/admin/installation/upgrading-github-enterprise
 
 ---
 
@@ -250,13 +291,6 @@ Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /ente
 ---
 
 
-### [`graphql/utils/prerender-objects.js`](graphql/utils/prerender-objects.js)
-
-
-
----
-
-
 ### [`graphql/utils/process-previews.js`](graphql/utils/process-previews.js)
 
 
@@ -274,10 +308,79 @@ Given: /enterprise/admin/installation/upgrading-github-enterprise Returns: /ente
 ### [`graphql/utils/process-upcoming-changes.js`](graphql/utils/process-upcoming-changes.js)
 
 
+
 ---
 
 
 ### [`graphql/utils/schema-helpers.js`](graphql/utils/schema-helpers.js)
+
+
+
+---
+
+
+### [`helpers/action-injections.js`](helpers/action-injections.js)
+
+
+
+---
+
+
+### [`helpers/add-redirect-to-frontmatter.js`](helpers/add-redirect-to-frontmatter.js)
+
+
+
+---
+
+
+### [`helpers/get-liquid-conditionals.js`](helpers/get-liquid-conditionals.js)
+
+
+
+---
+
+
+### [`helpers/git-utils.js`](helpers/git-utils.js)
+
+
+
+---
+
+
+### [`helpers/github.js`](helpers/github.js)
+
+
+
+---
+
+
+
+### [`helpers/retry-on-error-test.js`](helpers/retry-on-error-test.js)
+
+Return a function that you can use to run any code within and if it throws you get a chance to say whether to sleep + retry. Example:
+
+async function mainFunction() {     if (Math.random() > 0.9) throw new Error('too large')     return 'OK'   }
+
+const errorTest = (err) => err instanceof Error && err.message.includes('too large')   const config = {  // all optional     attempts: 3,     sleepTime: 800,     onError: (err, attempts) => console.warn(`Failed ${attempts} attempts`)   }   const ok = await retry(errorTest, mainFunction, config)
+
+---
+
+
+### [`helpers/walk-files.js`](helpers/walk-files.js)
+
+A helper that returns an array of files for a given path and file extension.
+
+---
+
+
+### [`i18n/test-html-pages.js`](i18n/test-html-pages.js)
+
+
+
+---
+
+
+### [`kill-server-for-jest.js`](kill-server-for-jest.js)
 
 
 
@@ -293,14 +396,14 @@ This script lists all local image files, sorted by their dimensions.
 
 ### [`move-category-to-product.js`](move-category-to-product.js)
 
-Pass this script three arguments: 1. current category path (e.g., `github/automating-your-workflows-with-github-actions`) 2. new product ID (e.g., `actions`) 3. new product name in quotes (e.g., `"GitHub Actions"`) and it does everything that needs to be done to make the category into a new product.
+Move the files from a category directory to a top-level product and add redirects.
 
 ---
 
 
-### [`move-reusables-to-markdown.js`](move-reusables-to-markdown.js)
+### [`move-content.js`](move-content.js)
 
-This script moves reusables out of YAML files into individual Markdown files.
+Helps you move (a.k.a. rename) a file or a folder and does what's needed with frontmatter redirect_from.
 
 ---
 
@@ -312,23 +415,9 @@ This is a temporary script to visualize which pages have liquid (and conditional
 ---
 
 
-### [`ping-staging-apps.js`](ping-staging-apps.js)
-
-This script finds all Heroku staging apps and pings them to make sure they're always "warmed" and responsive to requests.
-
----
-
-
 ### [`prevent-pushes-to-main.js`](prevent-pushes-to-main.js)
 
 This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccessfully and prevent the push.
-
----
-
-
-### [`prevent-translation-commits.js`](prevent-translation-commits.js)
-
-This script is run as a git precommit hook (installed by husky after npm install). It detects changes to files the in the translations folder and prevents the commit if any changes exist.
 
 ---
 
@@ -367,37 +456,23 @@ An automated test checks for discrepancies between filenames and [autogenerated 
 ---
 
 
-### [`remove-stale-staging-apps.js`](remove-stale-staging-apps.js)
+### [`rendered-content-link-checker.js`](rendered-content-link-checker.js)
 
-This script removes all stale Heroku staging apps that outlasted the closure of their corresponding pull requests, or correspond to spammy pull requests.
-
----
-
-
-### [`remove-unused-assets.js`](remove-unused-assets.js)
-
-Run this script to remove reusables and image files that exist in the repo but are not used in content files. It also displays a list of unused variables. Set the `--dry-run` to flag to print results without deleting any files. For images you don't want to delete, add them to `ignoreList` in `lib/find-unused-assets.js`
+This script goes through all content and renders their HTML and from there can analyze for various flaws (e.g. broken links)
 
 ---
 
 
-### [`reset-translated-file.js`](reset-translated-file.js)
+### [`rest/openapi-check.js`](rest/openapi-check.js)
 
-This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
+Run this script to check if OpenAPI files can be decorated successfully.
 
-It's intended to be a workaround to temporarily bypass Crowdin parser bugs while we wait for translators to fix them.
+---
 
-Usage: script/i18n/reset-translated-file.js <filename>
 
-Examples:
+### [`rest/test-open-api-schema.js`](rest/test-open-api-schema.js)
 
-reset a single translated file using a relative path: $ script/i18n/reset-translated-file.js translations/es-XL/content/actions/index.md
-
-reset a single translated file using a full path: $ script/i18n/reset-translated-file.js /Users/z/git/github/docs-internal/translations/es-XL/content/actions/index.md
-
-reset all language variants of a single English file (using a relative path): $ script/i18n/reset-translated-file.js content/actions/index.md $ script/i18n/reset-translated-file.js data/ui.yml
-
-reset all language variants of a single English file (using a full path): $ script/i18n/reset-translated-file.js /Users/z/git/github/docs-internal/content/desktop/index.md $ script/i18n/reset-translated-file.js /Users/z/git/github/docs-internal/data/ui.yml
+Run this script to check if OpenAPI operations match versions in content/rest operations
 
 ---
 
@@ -409,7 +484,21 @@ Run this script to pull openAPI files from github/github, dereference them, and 
 ---
 
 
-### [`rest/utils/create-code-samples.js`](rest/utils/create-code-samples.js)
+### [`rest/utils/create-rest-examples.js`](rest/utils/create-rest-examples.js)
+
+
+
+---
+
+
+### [`rest/utils/decorator.js`](rest/utils/decorator.js)
+
+
+
+---
+
+
+### [`rest/utils/get-body-params.js`](rest/utils/get-body-params.js)
 
 
 
@@ -437,7 +526,87 @@ Run this script to pull openAPI files from github/github, dereference them, and 
 ---
 
 
-### [`sample-unix-commands.md`](sample-unix-commands.md)
+### [`rest/utils/webhook-schema.js`](rest/utils/webhook-schema.js)
+
+
+
+---
+
+
+### [`rest/utils/webhook.js`](rest/utils/webhook.js)
+
+
+
+---
+
+
+### [`search/analyze-text.js`](search/analyze-text.js)
+
+See how a piece of text gets turned into tokens by the different analyzers. Requires that the index exists in Elasticsearch.
+
+Example:
+
+   ./src/scripts/search/analyze-text.js my words to tokenize
+
+---
+
+
+### [`search/build-records.js`](search/build-records.js)
+
+
+
+---
+
+
+### [`search/find-indexable-pages.js`](search/find-indexable-pages.js)
+
+
+
+---
+
+
+### [`search/index-elasticsearch.js`](search/index-elasticsearch.js)
+
+Creates Elasticsearch index, populates from records, moves the index alias, deletes old indexes.
+
+---
+
+
+### [`search/parse-page-sections-into-records.js`](search/parse-page-sections-into-records.js)
+
+
+
+---
+
+
+### [`search/popular-pages.js`](search/popular-pages.js)
+
+
+
+---
+
+
+### [`search/search-index-records.js`](search/search-index-records.js)
+
+
+---
+
+
+### [`search/sync-search-indices.js`](search/sync-search-indices.js)
+
+This script is run automatically via GitHub Actions on every push to `main` to generate searchable data. It can also be run manually. For more info see [contributing/search.md](contributing/search.md)
+
+---
+
+
+### [`search/sync.js`](search/sync.js)
+
+
+
+---
+
+
+### [`search/validate-records.js`](search/validate-records.js)
 
 
 
@@ -451,6 +620,13 @@ Starts the local development server with all of the available languages enabled.
 ---
 
 
+### [`server-for-jest.js`](server-for-jest.js)
+
+
+
+---
+
+
 ### [`standardize-frontmatter-order.js`](standardize-frontmatter-order.js)
 
 Run this script to standardize frontmatter fields in all content files, per the order: - title - intro - product callout - productVersion - map topic status - hidden status - layout - redirect
@@ -458,9 +634,9 @@ Run this script to standardize frontmatter fields in all content files, per the 
 ---
 
 
-### [`sync-search-indices.js`](sync-search-indices.js)
+### [`start-server-for-jest.js`](start-server-for-jest.js)
 
-This script is run on a schedule very four hours to generate searchable data. It can also be run manually. To run it manually, click "Run workflow" button in the [Actions tab](https://github.com/github/docs-internal/actions/workflows/sync-search-indices.yml). For more info see [contributing/search.md](contributing/search.md)
+
 
 ---
 
@@ -472,9 +648,18 @@ List all the TODOs in our JavaScript files and stylesheets.
 ---
 
 
-### [`update-enterprise-dates.js`](update-enterprise-dates.js)
+### [`toggle-ghae-feature-flags.js`](toggle-ghae-feature-flags.js)
 
-This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
+Find and replace lightweight feature flags for GitHub AE content.
+
+---
+
+
+### [`update-internal-links.js`](update-internal-links.js)
+
+Run this script to find internal links in all content and data Markdown files, check if either the title or link (or both) are outdated, and automatically update them if so.
+
+Exceptions: * Links with fragments (e.g., [Bar](/foo#bar)) will get their root links updated if necessary, but the fragment and title will be unchanged (e.g., [Bar](/noo#bar)). * Links with hardcoded versions (e.g., [Foo](/enterprise-server/baz)) will get their root links updated if necessary, but the hardcoded versions will be preserved (e.g., [Foo](/enterprise-server/qux)). * Links with Liquid in the titles will have their root links updated if necessary, but the titles will be preserved.
 
 ---
 
@@ -482,12 +667,5 @@ This script fetches data from https://github.com/github/enterprise-releases/blob
 ### [`update-readme.js`](update-readme.js)
 
 This script crawls the script directory, hooks on special comment markers in each script, and adds the comment to `script/README.md`.
-
----
-
-
-### [`update-versioning-in-files.js`](update-versioning-in-files.js)
-
-
 
 ---

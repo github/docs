@@ -1,0 +1,5 @@
+# Reference: #5244
+# Documentation for moderation setting to limit who can approve or request changes on a PR.
+versions:
+  fpt: '*'
+  ghec: '*'

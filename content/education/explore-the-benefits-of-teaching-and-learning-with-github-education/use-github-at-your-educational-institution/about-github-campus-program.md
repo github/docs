@@ -7,6 +7,7 @@ redirect_from:
   - /articles/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-campus-program
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/about-campus-advisors
 versions:
   fpt: '*'
 shortTitle: GitHub Campus Program
@@ -15,11 +16,11 @@ shortTitle: GitHub Campus Program
 
 - No-cost access to {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} for all of your technical and academic departments
 - 50,000 {% data variables.product.prodname_actions %} minutes and 50 GB {% data variables.product.prodname_registry %} storage
-- Teacher training to master Git and {% data variables.product.prodname_dotcom %} with our [Campus Advisor program](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-campus-advisors)
+- Teacher training to master Git and {% data variables.product.prodname_dotcom %}
 - Exclusive access to new features, GitHub Education-specific swag, and free developer tools from {% data variables.product.prodname_dotcom %} partners
 - Automated access to premium {% data variables.product.prodname_education %} features, like the {% data variables.product.prodname_student_pack %}
 
-To read about how GitHub is used by educators, see [GitHub Education stories.](https://education.github.com/stories)
+To read about how GitHub is used by educators, see [GitHub Education stories](https://education.github.com/stories).
 
 ## {% data variables.product.prodname_campus_program %} terms and conditions
 
@@ -29,10 +30,9 @@ To read about how GitHub is used by educators, see [GitHub Education stories.](h
 
 - You must offer {% data variables.product.prodname_dotcom %} to all of your technical and academic departments and your school’s logo will be shared on the GitHub Education website as a {% data variables.product.prodname_campus_program %} Partner.
 
-- New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact [GitHub Education Support](https://support.github.com/contact/education). For more information about administrating your enterprise, see the [enterprise administrators documentation](/admin). New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact GitHub Education Support. 
+- New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact [GitHub Education Support](https://support.github.com/contact/education). For more information about administrating your enterprise, see the [enterprise administrators documentation](/admin). New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact GitHub Education Support.
 
-
-To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see ["Global Privacy Practices"](/github/site-policy/global-privacy-practices)
+To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement)."
 
 ## {% data variables.product.prodname_campus_program %} Application Eligibility
 
@@ -43,4 +43,3 @@ To read more about {% data variables.product.prodname_dotcom %}'s privacy practi
 For more information, see the [official {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) page.
 
 If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_campus_program %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. To apply for the Student Developer Pack, [see the application form](https://education.github.com/pack/join).
-

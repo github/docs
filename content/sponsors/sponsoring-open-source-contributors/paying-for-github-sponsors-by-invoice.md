@@ -1,7 +1,7 @@
 ---
 title: Paying for GitHub Sponsors by invoice
 shortTitle: Paying by invoice
-intro: 'If your company pays {% data variables.product.company_short %} by invoice, you can join the Sponsors for Companies service.'
+intro: 'Organizations can set up invoicing to sponsor accounts.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -13,10 +13,16 @@ redirect_from:
   - /sponsors/sponsoring-open-source-contributors/paying-for-github-sponsors-via-invoice
 ---
 
-{% data reusables.sponsors.beta-note-sponsors-for-companies %}
+Organizations can use an invoice method to participate in the {% data variables.product.prodname_sponsors %} program. A minimum spend of 5,000 US dollars per year on sponsoring is required to be invoiced for sponsorships.
 
-Companies can use an invoice method to participate in the {% data variables.product.prodname_sponsors %} program. This can be particularly convenient if your company has an existing invoiced billing relationship with {% data variables.product.company_short %}. Companies paying by invoice get access to a {% data variables.product.product_name %} dashboard that measures open source contributions and activity across the public projects on {% data variables.product.prodname_dotcom_the_website %} they're interested in.
+When an organization pays by invoice, they will not be charged the 3% credit card processing fee that applies to sponsorships from organization accounts. For more information about sponsorship fees, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor#sponsorship-fees)."
 
-You can join this beta program by talking to your sales representative, or by [contacting us](https://support.github.com/contact/org-sponsors-waitlist).
+Sign up to pay by invoice by contacting {% data variables.contact.contact_support %}.
 
-For information about receiving payments from the Sponsors for Companies service, see "[Receiving payments from Sponsors for Companies](/sponsors/receiving-sponsorships-through-github-sponsors/sponsors-for-companies)."
+Organizations paying by invoice will be invoiced separately for their {% data variables.product.prodname_sponsors %} payments and their other payments to {% data variables.product.company_short %}. Organizations can be invoiced for sponsorships and pay via credit card for other payments to {% data variables.product.company_short %}.
+
+## Understanding your Sponsors invoice
+
+Payments to {% data variables.product.prodname_sponsors %} are invoiced through Stripe.
+
+Sponsors will receive an invoice by email from Stripe, Inc. This invoice is separate from the one you receive for {% data variables.product.product_name %} services, and may have a different payment date.

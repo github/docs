@@ -1,1 +1,0 @@
-{% ifversion fpt or ghes or ghae or ghec %}如果你的仓库中有需要线性提交历史记录的受保护分支规则，必须允许压缩合并和/或变基合并。 更多信息请参阅“[关于受保护分支](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)”。{% endif %}

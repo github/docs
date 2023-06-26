@@ -1,4 +1,4 @@
 {
   "presets": ["next/babel"],
-  "plugins": [["styled-components", { "ssr": true }], "@babel/plugin-syntax-top-level-await"]
+  "plugins": ["styled-components"]
 }

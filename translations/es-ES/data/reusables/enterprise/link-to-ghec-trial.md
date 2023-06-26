@@ -1,1 +1,0 @@
-Para obtener más información sobre cómo puedes probar {% data variables.product.prodname_ghe_cloud %} gratis, consulta la sección "[Configurar una prueba de {% data variables.product.prodname_ghe_cloud %}](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)".

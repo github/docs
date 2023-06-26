@@ -1,5 +1,0 @@
-Puedes administrar permisos y políticas para varias acciones y características diferentes de tu organización.
-
-Por ejemplo, para proteger los datos y la cantidad de licencias de pago de tu organización, puedes elegir solo permitir a los propietarios de las organizaciones invitar colaboradores a los repositorios organizacionales. También puedes elegir permitir o prevenir la bifurcación de los repositorios privados que pertenecen a tu organización. Para obtener más información, consulta las secciones "[Configurar permisos para agregar colaboradores externos](/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators)" y "[Administrar la política de bifurcación de tu organización](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)".
-
-Para obtener la lista completa de ajustes que puedes configurar para tu organización, consulta la sección "[Administrar los ajustes de una organización](/organizations/managing-organization-settings)".
