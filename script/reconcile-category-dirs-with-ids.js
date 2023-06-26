@@ -19,7 +19,7 @@ import walk from 'walk-sync'
 import slash from 'slash'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
-import renderContent from '../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 
 const slugger = new GithubSlugger()
 

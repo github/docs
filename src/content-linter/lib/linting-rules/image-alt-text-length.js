@@ -1,5 +1,5 @@
 import { addError, forEachInlineChild } from 'markdownlint-rule-helpers'
-import renderContent from '../../../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 
 export const incorrectAltTextLength = {
   names: ['MD111', 'incorrect-alt-text-length'],

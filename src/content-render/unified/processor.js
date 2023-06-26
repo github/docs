@@ -14,19 +14,19 @@ import erb from 'highlight.js/lib/languages/erb'
 import powershell from 'highlight.js/lib/languages/powershell'
 import graphql from 'highlight.js/lib/languages/graphql'
 import html from 'rehype-stringify'
-import codeHeader from './plugins/code-header.js'
-import rewriteLocalLinks from './plugins/rewrite-local-links.js'
-import rewriteImgSources from './plugins/rewrite-asset-urls.js'
-import rewriteAssetImgTags from './plugins/rewrite-asset-img-tags.js'
-import useEnglishHeadings from './plugins/use-english-headings.js'
-import headingLinks from './plugins/heading-links.js'
-import rewriteTheadThScope from './plugins/rewrite-thead-th-scope.js'
-import rewriteForRowheaders from './plugins/rewrite-for-rowheaders.js'
-import wrapProceduralImages from './plugins/wrap-procedural-images.js'
-import parseInfoString from './plugins/parse-info-string.js'
-import annotate from './plugins/annotate.js'
+import codeHeader from './code-header.js'
+import rewriteLocalLinks from './rewrite-local-links.js'
+import rewriteImgSources from './rewrite-asset-urls.js'
+import rewriteAssetImgTags from './rewrite-asset-img-tags.js'
+import useEnglishHeadings from './use-english-headings.js'
+import headingLinks from './heading-links.js'
+import rewriteTheadThScope from './rewrite-thead-th-scope.js'
+import rewriteForRowheaders from './rewrite-for-rowheaders.js'
+import wrapProceduralImages from './wrap-procedural-images.js'
+import parseInfoString from './parse-info-string.js'
+import annotate from './annotate.js'
 
-export default function createProcessor(context) {
+export function createProcessor(context) {
   return (
     unified()
       .use(process.env.COMMONMARK ? markdownNext : markdown)

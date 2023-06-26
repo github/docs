@@ -1,5 +1,5 @@
 import cheerio from 'cheerio'
-import renderContent from '../../lib/render-content/renderContent.js'
+import { renderContent } from '#src/content-render/index.js'
 import { EOL } from 'os'
 
 // Use platform-specific line endings for realistic tests when templates have

@@ -1,4 +1,4 @@
-import { allTools } from '../all-tools.js'
+import { allTools } from '../../../lib/all-tools.js'
 
 // we do this to get an object that combines all possible liquid tags
 const toolTags = Object.fromEntries(Object.keys(allTools).map((tool) => [tool, '']))

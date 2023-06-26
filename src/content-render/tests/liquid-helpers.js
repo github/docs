@@ -1,7 +1,7 @@
 import { afterAll, jest, beforeAll, expect } from '@jest/globals'
-import { liquid } from '../../lib/render-content/index.js'
-import languages from '../../lib/languages.js'
-import { DataDirectory } from '../helpers/data-directory.js'
+import { liquid } from '#src/content-render/index.js'
+import languages from '../../../lib/languages.js'
+import { DataDirectory } from '../../../tests/helpers/data-directory.js'
 
 describe('liquid helper tags', () => {
   jest.setTimeout(60 * 1000)
