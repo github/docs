@@ -1,10 +1,10 @@
 import { jest } from '@jest/globals'
 
-import { liquid } from '../../lib/render-content/index.js'
-import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
-import featureVersionsMiddleware from '../../middleware/contextualizers/features.js'
-import { allVersions } from '../../lib/all-versions.js'
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
+import { liquid } from '#src/content-render/index.js'
+import shortVersionsMiddleware from '../../../middleware/contextualizers/short-versions.js'
+import featureVersionsMiddleware from '../../../middleware/contextualizers/features.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import enterpriseServerReleases from '../../../lib/enterprise-server-releases.js'
 
 // Setup these variables so we don't need to manually update tests as GHES
 // versions continually get deprecated.  For example, if we deprecate GHES 3.0,

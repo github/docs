@@ -8,6 +8,7 @@ import {
 } from '../../../automated-pipelines/lib/update-markdown.js'
 import { getDocsVersion } from '../../../../lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
+import { deprecated } from '../../../../lib/enterprise-server-releases.js'
 
 const { frontmatterDefaults, targetDirectory } = JSON.parse(
   await readFile('src/rest/lib/config.json', 'utf-8')
@@ -28,9 +29,12 @@ export async function updateRestFiles() {
 // The data files are split up by version, so all files must be
 // read to get a complete list of versions.
 async function getDataFrontmatter(dataDirectory, schemaFilename) {
-  const fileList = walk(dataDirectory, { includeBasePath: true }).filter(
-    (file) => path.basename(file) === schemaFilename
-  )
+  const fileList = walk(dataDirectory, { includeBasePath: true })
+    .filter((file) => path.basename(file) === schemaFilename)
+    // Ignore any deprecated versions. This allows us to stop supporting
+    // the most recent deprecated version but still allow data to exist.
+    // This makes the deprecation steps easier.
+    .filter((file) => !deprecated.some((depVersion) => file.includes(`ghes-${depVersion}`)))
 
   const restVersions = {}
 

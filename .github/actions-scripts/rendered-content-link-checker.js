@@ -14,7 +14,7 @@ import contextualize from '../../middleware/context.js'
 import features from '../../middleware/contextualizers/features.js'
 import getRedirect from '../../lib/get-redirect.js'
 import warmServer from '../../lib/warm-server.js'
-import liquid from '../../lib/render-content/liquid.js'
+import { liquid } from '../../src/content-render/index.js'
 import { deprecated } from '../../lib/enterprise-server-releases.js'
 import excludedLinks from '../../lib/excluded-links.js'
 import { getEnvInputs, boolEnvVar } from './lib/get-env-inputs.js'
@@ -22,7 +22,7 @@ import { debugTimeEnd, debugTimeStart } from './lib/debug-time-taken.js'
 import { uploadArtifact as uploadArtifactLib } from './lib/upload-artifact.js'
 import github from '../../script/helpers/github.js'
 import { getActionContext } from './lib/action-context.js'
-import { createMinimalProcessor } from '../../lib/render-content/create-processor.js'
+import { createMinimalProcessor } from '../../src/content-render/unified/processor.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),

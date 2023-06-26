@@ -1,5 +1,5 @@
 import { Tag, isTruthy, Value, TokenizationError } from 'liquidjs'
-import versionSatisfiesRange from '../version-satisfies-range.js'
+import versionSatisfiesRange from '../../../lib/version-satisfies-range.js'
 import supportedOperators from './ifversion-supported-operators.js'
 
 const SyntaxHelp =

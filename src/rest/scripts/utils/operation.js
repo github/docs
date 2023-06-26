@@ -6,7 +6,7 @@ import { parseTemplate } from 'url-template'
 import path from 'path'
 import mergeAllOf from 'json-schema-merge-allof'
 
-import renderContent from '../../../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 import getCodeSamples from './create-rest-examples.js'
 import operationSchema from './operation-schema.js'
 import { validateData } from './validate-data.js'
