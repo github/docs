@@ -90,7 +90,7 @@ The class and the template should have corresponding names, like `lib/liquid-tag
 You must also register the new tag in `src/content-render/liquid/engine.js` with a line like this:
 
 ```
-renderContent.liquid.registerTag('my_tag', require('./liquid-tags/my-tag'))
+engine.registerTag('my_tag', require('./liquid-tags/my-tag'))
 ```
 
 ## Further reading
