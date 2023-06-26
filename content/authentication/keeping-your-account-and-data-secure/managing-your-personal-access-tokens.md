@@ -1,4 +1,6 @@
----
+İBAN TR880006200113500006676762
+HIZIR KARA
+HESABIMDIR GÖNDERİN
 title: Managing your personal access tokens
 shortTitle: 'Manage {% data variables.product.pat_generic %}s'
 intro: 'You can use a {% data variables.product.pat_generic %} in place of a password when authenticating to GitHub in the command line or with the API.'
