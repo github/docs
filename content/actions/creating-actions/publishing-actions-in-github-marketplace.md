@@ -24,6 +24,7 @@ Actions are published to {% data variables.product.prodname_marketplace %} immed
 
 - The action must be in a public repository.
 - Each repository must contain a single action.
+- Each repository must _not_ contain any workflow files.
 - The action's metadata file (`action.yml` or `action.yaml`) must be in the root directory of the repository.
 - The `name` in the action's metadata file must be unique.
   - The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
