@@ -158,7 +158,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  linkReports {boolean} - When createReport is true, link the issue report to previous report(s) via comments
  *  reportRepository {string} - Repository in form of "owner/repo-name" that report issue will be created in
  *  reportLabel {string} - Label assigned to report issue,
- *  reportAuthor {string} - Expected author of previous report issue for linking reports (a bot user like Docubot)
+ *  reportAuthor {string} - Expected author of previous report issue for linking reports (a bot user like docs-bot)
  *  actionUrl {string} - Used to link report or comment to the action instance for debugging
  *  actionContext {object} - Event payload context when run from action or injected. Should include { repo, owner }
  *  verbose {boolean} - Set to true for more verbose logging
