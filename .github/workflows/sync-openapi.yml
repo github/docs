@@ -52,7 +52,7 @@ jobs:
       - name: Sync the REST, Webhooks, and GitHub Apps schemas
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
           src/rest/scripts/update-files.js --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
           git status
@@ -73,7 +73,7 @@ jobs:
       - name: Create pull request
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
@@ -82,8 +82,8 @@ jobs:
             exit 0
           fi
 
-          git config --global user.name "docubot"
-          git config --global user.email "67483024+docubot@users.noreply.github.com"
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
           branchname=openapi-update-${{ steps.rest-api-description.outputs.OPENAPI_COMMIT_SHA }}
 
