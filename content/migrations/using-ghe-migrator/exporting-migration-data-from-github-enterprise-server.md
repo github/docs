@@ -37,7 +37,7 @@ shortTitle: Export from GHES
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. To prepare a repository for export, use the `ghe-migrator add` command with the repository's URL:
-    * If you're locking the repository, append the command with `--lock`. If you're performing a trial run, `--lock` is not needed.
+    *If you're locking the repository, append the command with `--lock`. If you're performing a trial run, `--lock` is not needed.
       ```shell
       $ ghe-migrator add https://HOSTNAME/USERNAME/REPO-NAME --lock
       ```

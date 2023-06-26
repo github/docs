@@ -31,7 +31,7 @@ You add dependencies directly to your supply chain when you specify them in a ma
 The supply chain features on {% data variables.product.product_name %} are:
 - **Dependency graph**
 - **Dependency review**
-- **{% data variables.product.prodname_dependabot_alerts %} **
+- **{% data variables.product.prodname_dependabot_alerts %}**
 {% ifversion fpt or ghec or ghes %}- **{% data variables.product.prodname_dependabot_updates %}**
   - **{% data variables.product.prodname_dependabot_security_updates %}**
   - **{% data variables.product.prodname_dependabot_version_updates %}**{% endif %}
