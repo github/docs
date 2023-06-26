@@ -66,7 +66,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 ```
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+1. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 
 ## Creating the workflow
 

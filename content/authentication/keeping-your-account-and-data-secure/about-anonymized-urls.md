@@ -51,8 +51,8 @@ If an image is showing up in your browser but not on {% data variables.product.p
    > Content-Length: 6507
    ```
 
-3. Check the value of `Content-Type`. In this case, it's `image/x-png`.
-4. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
+1. Check the value of `Content-Type`. In this case, it's `image/x-png`.
+1. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
 
 If your content type is not supported by Camo, you can try several actions:
 - If you own the server that's hosting the image, modify it so that it returns a correct content type for images.

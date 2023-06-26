@@ -198,7 +198,7 @@ Variables stored in an environment are only available to workflow jobs that refe
    1. Enter the secret value.
    1. Click **Add secret**.
 {%- ifversion actions-configuration-variables %}
-6. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[Environment variables](#environment-variables)."
+1. Optionally, add environment variables. These variables are only available to workflow jobs that use the environment, and are only accessible using the [`vars`](/actions/learn-github-actions/contexts#vars-context) context. For more information, see "[Environment variables](#environment-variables)."
    1. Under **Environment variables**, click **Add Variable**.
    1. Enter the variable name.
    1. Enter the variable value.
@@ -227,7 +227,7 @@ Deleting an environment will delete all secrets and protection rules associated 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-environment %}
 1. Next to the environment that you want to delete, click {% octicon "trash" aria-label="Delete environment" %}.
-2. Click **I understand, delete this environment**.
+1. Click **I understand, delete this environment**.
 
 You can also delete environments through the REST API. For more information, see "[AUTOTITLE](/rest/repos#environments)."
 

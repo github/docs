@@ -33,11 +33,12 @@ The person you invite to be your successor must have a {% data variables.product
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
-3. Under "Successor settings", to invite a successor, begin typing a username, full name, or email address, then click their name when it appears.
+
+1. Under "Successor settings", to invite a successor, begin typing a username, full name, or email address, then click their name when it appears.
 
    ![Screenshot of the "Successor settings" section. The string "octocat" is entered in a search field, and Octocat's profile is listed in a dropdown below.](/assets/images/help/settings/settings-invite-successor-search-field.png)
 
-4. Click **Add successor**.
+1. Click **Add successor**.
 {% data reusables.user-settings.sudo-mode-popup %}
 
 The user you've invited will be listed as "Pending" until they agree to become your successor.

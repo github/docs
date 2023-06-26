@@ -30,7 +30,7 @@ If you have a Linux machine with OpenSSL installed, you can remove your passphra
    mv yourdomain.key yourdomain.key.orig
    ```
 
-2. Generate a new key without a passphrase.
+1. Generate a new key without a passphrase.
 
    ```shell
    openssl rsa -in yourdomain.key.orig -out yourdomain.key
@@ -71,19 +71,19 @@ You should be able to download a certificate bundle (for example, `bundle-certif
 If your {% data variables.product.prodname_ghe_server %} appliance interacts with other machines on your network that use a self-signed or untrusted certificate, you will need to import the signing CA's root certificate into the system-wide certificate store in order to access those systems over HTTPS.
 
 1. Obtain the CA's root certificate from your local certificate authority and ensure it is in PEM format.
-2. Copy the file to your {% data variables.product.prodname_ghe_server %} appliance over SSH as the "admin" user on port 122.
+1. Copy the file to your {% data variables.product.prodname_ghe_server %} appliance over SSH as the "admin" user on port 122.
 
    ```shell
    scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
    ```
 
-3. Connect to the {% data variables.product.prodname_ghe_server %} administrative shell over SSH as the "admin" user on port 122.
+1. Connect to the {% data variables.product.prodname_ghe_server %} administrative shell over SSH as the "admin" user on port 122.
 
    ```shell
    ssh -p 122 admin@HOSTNAME
    ```
 
-4. Import the certificate into the system-wide certificate store.
+1. Import the certificate into the system-wide certificate store.
 
    ```shell
    ghe-ssl-ca-certificate-install -c rootCA.crt

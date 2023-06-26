@@ -67,7 +67,7 @@ You can create a diagnostic file from the {% data variables.enterprise.managemen
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
-5. Click **Download diagnostics info**.
+1. Click **Download diagnostics info**.
 
 ### Creating a diagnostic file using SSH
 
@@ -112,7 +112,7 @@ You can use these steps to create and share a support bundle if you can access t
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.support-link %}
-5. Click **Download support bundle**.
+1. Click **Download support bundle**.
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 

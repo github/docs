@@ -90,8 +90,8 @@ The `git remote set-url` command takes two arguments:
 ### Switching remote URLs from SSH to HTTPS
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
+1. Change the current working directory to your local project.
+1. List your existing remotes in order to get the name of the remote you want to change.
 
    ```shell
    $ git remote -v
@@ -99,13 +99,13 @@ The `git remote set-url` command takes two arguments:
    > origin  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git (push)
    ```
 
-4. Change your remote's URL from SSH to HTTPS with the `git remote set-url` command.
+1. Change your remote's URL from SSH to HTTPS with the `git remote set-url` command.
 
    ```shell
    git remote set-url origin https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git
    ```
 
-5. Verify that the remote URL has changed.
+1. Verify that the remote URL has changed.
 
    ```shell
    $ git remote -v
@@ -121,8 +121,8 @@ You can [use a credential helper](/get-started/getting-started-with-git/caching-
 ### Switching remote URLs from HTTPS to SSH
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
+1. Change the current working directory to your local project.
+1. List your existing remotes in order to get the name of the remote you want to change.
 
    ```shell
    $ git remote -v
@@ -130,13 +130,13 @@ You can [use a credential helper](/get-started/getting-started-with-git/caching-
    > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (push)
    ```
 
-4. Change your remote's URL from HTTPS to SSH with the `git remote set-url` command.
+1. Change your remote's URL from HTTPS to SSH with the `git remote set-url` command.
 
    ```shell
    git remote set-url origin git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git
    ```
 
-5. Verify that the remote URL has changed.
+1. Verify that the remote URL has changed.
 
    ```shell
    $ git remote -v

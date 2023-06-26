@@ -27,7 +27,7 @@ redirect_from:
 
    ![Screenshot of the "Marketplace" tab with "Terra" in the search box and the Terraform feature listed in the search results.](/assets/images/help/codespaces/feature-marketplace.png)
 
-3. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
+1. Under "Installation," click the code snippet to copy it to your clipboard, then paste the snippet into the `features` object in your `devcontainer.json` file.
 
    ![Screenshot of the "Marketplace" tab showing the installation code snippet for Terraform.](/assets/images/help/codespaces/feature-installation-code.png)
 

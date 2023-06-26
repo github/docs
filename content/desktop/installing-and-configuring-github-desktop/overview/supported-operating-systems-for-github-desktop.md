@@ -26,9 +26,9 @@ This error can occur when {% data variables.product.prodname_desktop %} can't ac
 To troubleshoot this error, follow these steps.
 
 1. Open the "Keychain Access" app.
-2. In the left sidebar, in the list of keychains, right-click **login** and then click **Lock Keychain "login"**.
-3. Right-click **login** and click **Unlock Keychain "login"**. Follow any onscreen prompts to finish unlocking the Keychain "login."
-4. Re-authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}.
+1. In the left sidebar, in the list of keychains, right-click **login** and then click **Lock Keychain "login"**.
+1. Right-click **login** and click **Unlock Keychain "login"**. Follow any onscreen prompts to finish unlocking the Keychain "login."
+1. Re-authenticate your account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}.
 
 ### `Could not create temporary directory: Permission denied` error after checking for updates
 
@@ -37,12 +37,12 @@ This error can be caused by missing permissions for the `~/Library/Caches/com.gi
 To troubleshoot this error, follow these steps.
 
 1. Close {% data variables.product.prodname_desktop %}.
-2. Open "Finder" and navigate to `~/Library/Caches/`.
-3. Right-click `com.github.GitHubClient.ShipIt` and then click **Get Info**.
-4. Click the arrow to the left of "Sharing & Permissions."
-5. If the Privilege to the right of your user account does not say "Read & Write," click the text and then click **Read & Write**.
+1. Open "Finder" and navigate to `~/Library/Caches/`.
+1. Right-click `com.github.GitHubClient.ShipIt` and then click **Get Info**.
+1. Click the arrow to the left of "Sharing & Permissions."
+1. If the Privilege to the right of your user account does not say "Read & Write," click the text and then click **Read & Write**.
    ![Screenshot of the info window on a Mac. Under "Sharing and permissions", a context menu is open, with "Read & Write" marked by a checkmark.](/assets/images/help/desktop/mac-adjust-permissions.png)
-6. Open {% data variables.product.prodname_desktop %} and check for updates.
+1. Open {% data variables.product.prodname_desktop %} and check for updates.
 
 ## Troubleshooting problems on Windows
 

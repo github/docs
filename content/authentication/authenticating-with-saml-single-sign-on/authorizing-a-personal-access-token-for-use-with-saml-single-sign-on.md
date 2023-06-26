@@ -21,11 +21,11 @@ You must authorize your {% data variables.product.pat_v1 %} after creation befor
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.personal_access_tokens %}
-3. Next to the token you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
+1. Next to the token you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
 
    ![Screenshot of a list entry for a {% data variables.product.pat_v1 %}. A dropdown menu, labeled "Configure SSO", is outlined in orange.](/assets/images/help/settings/sso-allowlist-button.png)
 
-4. In the dropdown menu, to the right of the organization you'd like to authorize the token for, click **Authorize**.
+1. In the dropdown menu, to the right of the organization you'd like to authorize the token for, click **Authorize**.
 
 ## Further reading
 

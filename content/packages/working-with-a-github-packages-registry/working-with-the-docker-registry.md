@@ -112,7 +112,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
    > IMAGE_NAME        VERSION    IMAGE_ID       4 weeks ago  1.11MB
    ```
 
-2. Using the Docker image ID, tag the docker image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image,{% ifversion ghes or ghae %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and VERSION with package version at build time.
+1. Using the Docker image ID, tag the docker image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image,{% ifversion ghes or ghae %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and VERSION with package version at build time.
    {% ifversion fpt or ghec %}
 
    ```shell
@@ -137,7 +137,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
    {% endif %}
    {% endif %}
-3. If you haven't already built a docker image for the package, build the image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image, VERSION with package version at build time,{% ifversion ghes or ghae %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and PATH to the image if it isn't in the current working directory.
+1. If you haven't already built a docker image for the package, build the image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image, VERSION with package version at build time,{% ifversion ghes or ghae %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and PATH to the image if it isn't in the current working directory.
    {% ifversion fpt or ghec %}
 
    ```shell
@@ -162,7 +162,7 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 
    {% endif %}
    {% endif %}
-4. Publish the image to {% data variables.product.prodname_registry %}.
+1. Publish the image to {% data variables.product.prodname_registry %}.
    {% ifversion fpt or ghec %}
 
    ```shell

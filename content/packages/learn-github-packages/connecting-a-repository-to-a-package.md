@@ -50,13 +50,13 @@ When you publish a package that is scoped to a personal account or an organizati
 
    For more information, see "[LABEL](https://docs.docker.com/engine/reference/builder/#label)" in the official Docker documentation and "[Pre-defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys)" in the `opencontainers/image-spec` repository.
 
-2. Build your container image. This example builds an image from the Dockerfile in the current directory and assigns the image name `hello_docker`.
+1. Build your container image. This example builds an image from the Dockerfile in the current directory and assigns the image name `hello_docker`.
 
    ```shell
    docker build -t hello_docker .
    ```
 
-3. Optionally, review the details of the Docker image you just created.
+1. Optionally, review the details of the Docker image you just created.
 
    ```shell
    $ docker images
@@ -66,7 +66,7 @@ When you publish a package that is scoped to a personal account or an organizati
    > alpine              latest      a6215f271958   5 months ago    5.29MB
    ```
 
-4. Assign a name and hosting destination to your Docker image.
+1. Assign a name and hosting destination to your Docker image.
 
    ```shell
    docker tag IMAGE_NAME {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:TAG
@@ -80,7 +80,7 @@ When you publish a package that is scoped to a personal account or an organizati
    docker tag 38f737a91f39 {% ifversion fpt or ghec %}ghcr.io{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
    ```
 
-5. If you haven't already, authenticate to the {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
+1. If you haven't already, authenticate to the {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
    {% raw %}
 
    ```shell
@@ -89,7 +89,7 @@ When you publish a package that is scoped to a personal account or an organizati
    ```
 
    {% endraw %}
-6. Push your container image to the {% data variables.product.prodname_container_registry %}.
+1. Push your container image to the {% data variables.product.prodname_container_registry %}.
 
    ```shell
    docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE-NAME:TAG

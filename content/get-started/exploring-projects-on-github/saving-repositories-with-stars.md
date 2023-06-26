@@ -69,36 +69,36 @@ You can add a repository to an existing or new list wherever you see a repositor
 ### Creating a list
 
 {% data reusables.stars.stars-page-navigation %}
-2. Next to "Lists", click **Create list**.
-3. Enter a name and description for your list and click **Create**.
+1. Next to "Lists", click **Create list**.
+1. Enter a name and description for your list and click **Create**.
 
 ### Adding a repository to a list
 
 {% data reusables.stars.stars-page-navigation %}
-2. Find the repository you want to add to your list by typing it into the search bar.
-3. Next to the repository you want to add, use the **Starred** dropdown menu and select your list.
+1. Find the repository you want to add to your list by typing it into the search bar.
+1. Next to the repository you want to add, use the **Starred** dropdown menu and select your list.
    ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
 
 ### Removing a repository from your list
 
 {% data reusables.stars.stars-page-navigation %}
-2. Select your list.
-3. Next to the repository you want to remove, use the **Starred** drop-down menu and deselect your list.
+1. Select your list.
+1. Next to the repository you want to remove, use the **Starred** drop-down menu and deselect your list.
    ![Screenshot of a list of repositories on the "Stars" page. Next to a repository, under the "Starred" button, a dropdown menu is outlined in orange.](/assets/images/help/stars/add-repo-to-list.png)
 
 ### Editing a list name or description
 
 {% data reusables.stars.stars-page-navigation %}
 1. Select the list you want to edit.
-2. Click **Edit list**.
-3. Update the name or description and click **Save list**.
+1. Click **Edit list**.
+1. Update the name or description and click **Save list**.
 
 ### Deleting a list
 
 {% data reusables.stars.stars-page-navigation %}
-2. Select the list you want to delete.
-3. Click **Delete list**.
-4. To confirm, click **Delete**.
+1. Select the list you want to delete.
+1. Click **Delete list**.
+1. To confirm, click **Delete**.
 
 {% endif %}
 

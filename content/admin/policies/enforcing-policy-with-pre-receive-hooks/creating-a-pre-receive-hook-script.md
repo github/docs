@@ -141,14 +141,14 @@ We recommend consolidating hooks to a single repository. If the consolidated hoo
    git update-index --chmod=+x SCRIPT_FILE.sh
    ```
 
-2. Commit and push to the designated repository for pre-receive hooks on {% data variables.location.product_location %}.
+1. Commit and push to the designated repository for pre-receive hooks on {% data variables.location.product_location %}.
 
    ```shell
    git commit -m "YOUR COMMIT MESSAGE"
    git push
    ```
 
-3. [Create the pre-receive hook](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
+1. [Create the pre-receive hook](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
 
 ## Testing pre-receive scripts locally
 
@@ -156,7 +156,7 @@ You can test a pre-receive hook script locally before you create or update it on
 
 {% data reusables.linux.ensure-docker %}
 
-2. Create a file called `Dockerfile.dev` containing:
+1. Create a file called `Dockerfile.dev` containing:
 
    ```dockerfile
    FROM gliderlabs/alpine:3.3
@@ -178,7 +178,7 @@ You can test a pre-receive hook script locally before you create or update it on
    CMD ["/usr/sbin/sshd", "-D"]
    ```
 
-3. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
+1. Create a test pre-receive script called `always_reject.sh`. This example script will reject all pushes, which is useful for locking a repository:
 
    ```
    #!/usr/bin/env bash
@@ -187,13 +187,13 @@ You can test a pre-receive hook script locally before you create or update it on
    exit 1
    ```
 
-4. Ensure the `always_reject.sh` scripts has execute permissions:
+1. Ensure the `always_reject.sh` scripts has execute permissions:
 
    ```shell
    chmod +x always_reject.sh
    ```
 
-5. From the directory containing `Dockerfile.dev`, build an image:
+1. From the directory containing `Dockerfile.dev`, build an image:
 
    ```shell
    $ docker build -f Dockerfile.dev -t pre-receive.dev .
@@ -216,32 +216,32 @@ You can test a pre-receive hook script locally before you create or update it on
    > Successfully built dd8610c24f82
    ```
 
-6. Run a data container that contains a generated SSH key:
+1. Run a data container that contains a generated SSH key:
 
    ```shell
    docker run --name data pre-receive.dev /bin/true
    ```
 
-7. Copy the test pre-receive hook `always_reject.sh` into the data container:
+1. Copy the test pre-receive hook `always_reject.sh` into the data container:
 
    ```shell
    docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
    ```
 
-8. Run an application container that runs `sshd` and executes the hook. Take note of the container id that is returned:
+1. Run an application container that runs `sshd` and executes the hook. Take note of the container id that is returned:
 
    ```shell
    $ docker run -d -p 52311:22 --volumes-from data pre-receive.dev
    > 7f888bc700b8d23405dbcaf039e6c71d486793cad7d8ae4dd184f4a47000bc58
    ```
 
-9. Copy the generated SSH key from the data container to the local machine:
+1. Copy the generated SSH key from the data container to the local machine:
 
    ```shell
    docker cp data:/home/git/.ssh/id_ed25519 .
    ```
 
-10. Modify the remote of a test repository and push to the `test.git` repo within the Docker container. This example uses `git@github.com:octocat/Hello-World.git` but you can use any repository you want. This example assumes your local machine (127.0.0.1) is binding port 52311, but you can use a different IP address if docker is running on a remote machine.
+1. Modify the remote of a test repository and push to the `test.git` repo within the Docker container. This example uses `git@github.com:octocat/Hello-World.git` but you can use any repository you want. This example assumes your local machine (127.0.0.1) is binding port 52311, but you can use a different IP address if docker is running on a remote machine.
 
    ```shell
    $ git clone git@github.com:octocat/Hello-World.git

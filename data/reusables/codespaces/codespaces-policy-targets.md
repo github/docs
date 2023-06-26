@@ -13,7 +13,7 @@
 
       ![Screenshot of the settings icon (a gear symbol) to the left of a button labeled "Selected repositories."](/assets/images/help/codespaces/policy-edit.png)
 
-   2. Select the repositories you want this policy to apply to.
-   3. At the bottom of the repository list, click **Select repositories**.
+   1. Select the repositories you want this policy to apply to.
+   1. At the bottom of the repository list, click **Select repositories**.
 
       ![Screenshot of a list of repositories, each with a checkbox. Three repositories are selected.](/assets/images/help/codespaces/policy-select-repos.png)

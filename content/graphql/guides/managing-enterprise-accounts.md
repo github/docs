@@ -51,7 +51,7 @@ For some example queries, see "[An example query using the Enterprise Accounts A
 
 1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-2. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of your enterprise you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
+1. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of your enterprise you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
     - `repo`
     - `admin:org`
     - `user`
@@ -63,7 +63,7 @@ For some example queries, see "[An example query using the Enterprise Accounts A
     - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
     - `read:enterprise`: Read enterprise profile data.
 
-3. Copy your {% data variables.product.pat_generic %} and keep it in a secure place until you add it to your GraphQL client.
+1. Copy your {% data variables.product.pat_generic %} and keep it in a secure place until you add it to your GraphQL client.
 
 ### 2. Choose a GraphQL client
 

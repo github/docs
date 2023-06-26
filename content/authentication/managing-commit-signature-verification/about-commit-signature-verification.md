@@ -82,11 +82,11 @@ You can use GPG to sign commits with a GPG key that you generate yourself.
 To sign commits using GPG and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
 1. [Check for existing GPG keys](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)
-2. [Generate a new GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
-3. [Add a GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
-4. [Tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
-5. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
-6. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
+1. [Generate a new GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+1. [Add a GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
+1. [Tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+1. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
+1. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
 
 {% ifversion ssh-commit-verification %}
 
@@ -102,11 +102,11 @@ you can also upload that same key again for use as a signing key. There's no lim
 To sign commits using SSH and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
 1. [Check for existing SSH keys](/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
-2. [Generate a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
-3. [Add a SSH signing key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
-4. [Tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
-5. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
-6. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
+1. [Generate a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+1. [Add a SSH signing key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+1. [Tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+1. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
+1. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
 
 {% endif %}
 
@@ -121,8 +121,8 @@ You can use S/MIME to sign commits with an X.509 key issued by your organization
 To sign commits using S/MIME and have those commits verified on {% data variables.product.product_name %}, follow these steps:
 
 1. [Tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
-2. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
-3. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
+1. [Sign commits](/authentication/managing-commit-signature-verification/signing-commits)
+1. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
 
 You don't need to upload your public key to {% data variables.product.product_name %}.
 

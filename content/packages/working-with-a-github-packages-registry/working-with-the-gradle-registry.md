@@ -160,7 +160,7 @@ subprojects {
 {% data reusables.package_registry.viewing-packages %}
 
 {% data reusables.package_registry.authenticate-step %}
-2. After creating your package, you can publish the package.
+1. After creating your package, you can publish the package.
 
    ```shell
     gradle publish
@@ -171,7 +171,7 @@ subprojects {
 To use a published package from {% data variables.product.prodname_registry %}, add the package as a dependency and add the repository to your project. For more information, see "[Declaring dependencies](https://docs.gradle.org/current/userguide/declaring_dependencies.html)" in the Gradle documentation.
 
 {% data reusables.package_registry.authenticate-step %}
-2. Add the package dependencies to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file.
+1. Add the package dependencies to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file.
 
    Example using Gradle Groovy:
 
@@ -189,7 +189,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
    }
    ```
 
-3. Add the repository to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file.
+1. Add the repository to your _build.gradle_ file (Gradle Groovy) or _build.gradle.kts_ file (Kotlin DSL) file.
 
    Example using Gradle Groovy:
 

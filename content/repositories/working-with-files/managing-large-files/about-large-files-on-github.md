@@ -80,14 +80,14 @@ If the file was added with your most recent commit, and you have not pushed to {
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
-3. To remove the file, enter `git rm --cached`:
+1. To remove the file, enter `git rm --cached`:
 
    ```shell
    $ git rm --cached GIANT_FILE
    # Stage our giant file for removal, but leave it on disk
    ```
 
-4. Commit this change using `--amend -CHEAD`:
+1. Commit this change using `--amend -CHEAD`:
 
    ```shell
    $ git commit --amend -CHEAD
@@ -96,7 +96,7 @@ If the file was added with your most recent commit, and you have not pushed to {
    # to remove the file from the unpushed history as well
    ```
 
-5. Push your commits to {% data variables.location.product_location %}:
+1. Push your commits to {% data variables.location.product_location %}:
 
    ```shell
    $ git push

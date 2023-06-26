@@ -27,7 +27,7 @@ Subversion checkouts are different: they mix the repository data in the working 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.copy-clone-url %}
 
-3. Make an empty checkout of the repository:
+1. Make an empty checkout of the repository:
 
    ```shell
    $ svn co --depth empty https://github.com/USER/REPO
@@ -35,7 +35,7 @@ Subversion checkouts are different: they mix the repository data in the working 
    $ cd REPO
    ```
 
-4. Get the `trunk` branch. The Subversion bridge maps trunk to the Git HEAD branch.
+1. Get the `trunk` branch. The Subversion bridge maps trunk to the Git HEAD branch.
 
    ```shell
    $ svn up trunk
@@ -45,7 +45,7 @@ Subversion checkouts are different: they mix the repository data in the working 
    > Updated to revision 1.
    ```
 
-5. Get an empty checkout of the `branches` directory.  This is where all of the non-`HEAD` branches live, and where you'll be making feature branches.
+1. Get an empty checkout of the `branches` directory.  This is where all of the non-`HEAD` branches live, and where you'll be making feature branches.
 
    ```shell
    $ svn up --depth empty branches

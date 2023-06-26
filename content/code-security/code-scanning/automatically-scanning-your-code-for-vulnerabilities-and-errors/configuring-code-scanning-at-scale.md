@@ -19,7 +19,7 @@ There are multiple ways to configure {% data variables.product.prodname_code_sca
 The best method to use depends on the analysis needs of the repositories.
 
 1. The repositories are eligible for default setup for {% data variables.product.prodname_codeql %} and are owned by an organization.
-2. The group of repositories has similar configuration needs for {% data variables.product.prodname_codeql %} advanced setup.
+1. The group of repositories has similar configuration needs for {% data variables.product.prodname_codeql %} advanced setup.
 
 In addition, {% data variables.product.prodname_actions %} must be enabled for the {% ifversion fpt %}organization{% elsif ghec or ghae %}organization or enterprise{% elsif ghes %}site{% endif %}.
 
@@ -95,7 +95,7 @@ You can select all of the displayed repositories, or a subset of them, and enabl
 For repositories that are not eligible for default setup, you can use a bulk configuration script to configure advanced setup across multiple repositories.
 
 1. Identify a group of repositories that can be analyzed using the same {% data variables.product.prodname_code_scanning %} configuration. For example, all repositories that build Java artifacts using the production environment.
-2. Create and test a {% data variables.product.prodname_actions %} workflow to call the {% data variables.product.prodname_codeql %} action with the appropriate configuration. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
-3. Use one of the example scripts create a custom script to add the workflow to each repository in the group.
+1. Create and test a {% data variables.product.prodname_actions %} workflow to call the {% data variables.product.prodname_codeql %} action with the appropriate configuration. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+1. Use one of the example scripts create a custom script to add the workflow to each repository in the group.
    - PowerShell example: [`jhutchings1/Create-ActionsPRs`](https://github.com/jhutchings1/Create-ActionsPRs) repository
    - NodeJS example: [`nickliffen/ghas-enablement`](https://github.com/NickLiffen/ghas-enablement) repository

@@ -44,7 +44,7 @@ The time required to failover depends on how long it takes to manually promote t
      ghe-repl-status -vv
      ```
 
-4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
+1. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
 
    ```shell
    ghe-repl-promote
@@ -56,10 +56,10 @@ The time required to failover depends on how long it takes to manually promote t
 
    {% endnote %}
 
-5. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
-6. Notify users that they can resume normal operations.
-7. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)."
-8. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
+1. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
+1. Notify users that they can resume normal operations.
+1. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)."
+1. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
     - On the former appliances, get their UUID via `cat /data/user/common/uuid`.
 
       ```shell

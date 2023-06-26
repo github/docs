@@ -34,8 +34,8 @@ For more information about included usage for personal accounts, and setting a s
 If you create a codespace and it does not open:
 
 1. Try reloading the page in case there was a caching or reporting problem.
-2. Go to your {% data variables.product.prodname_github_codespaces %} page: https://github.com/codespaces and check whether the new codespace is listed there. The process may have successfully created the codespace but failed to report back to your browser. If the new codespace is listed, you can open it directly from that page.
-3. Retry creating the codespace for the repository to rule out a transient communication failure.
+1. Go to your {% data variables.product.prodname_github_codespaces %} page: https://github.com/codespaces and check whether the new codespace is listed there. The process may have successfully created the codespace but failed to report back to your browser. If the new codespace is listed, you can open it directly from that page.
+1. Retry creating the codespace for the repository to rule out a transient communication failure.
 
 If you still cannot create a codespace for a repository where {% data variables.product.prodname_github_codespaces %} is available, {% data reusables.codespaces.contact-support %}
 
@@ -71,7 +71,7 @@ If you create a codespace and the creation fails:
      Log messages are printed to the Terminal in {% data variables.product.prodname_vscode_shortname %}
 
     {% endnote %}
-2. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
+1. If you have a container that takes a long time to build, consider using prebuilds to speed up codespace creations. For more information, see "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds#configuring-prebuilds)."
 
 ## Deleting codespaces
 

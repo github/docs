@@ -52,14 +52,14 @@ This example configuration uses a primary and two replicas, which are located in
    (replica1)$ ghe-repl-start
    ```
 
-2. Create a second replica and use the `ghe-repl-setup --add` command. The `--add` flag prevents it from overwriting the existing replication configuration and adds the new replica to the configuration.
+1. Create a second replica and use the `ghe-repl-setup --add` command. The `--add` flag prevents it from overwriting the existing replication configuration and adds the new replica to the configuration.
 
    ```shell
    (replica2)$ ghe-repl-setup --add PRIMARY_IP
    (replica2)$ ghe-repl-start
    ```
 
-3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
+1. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
 
    On the primary:
 
@@ -84,7 +84,7 @@ This example configuration uses a primary and two replicas, which are located in
    **Tip:** You can set the `--datacenter` and `--active` options at the same time.
 
    {% endtip %}
-4. An active replica node will store copies of the appliance data and service end user requests. An inactive node will store copies of the appliance data but will be unable to service end user requests. Enable active mode using the `--active` flag or inactive mode using the `--inactive` flag.
+1. An active replica node will store copies of the appliance data and service end user requests. An inactive node will store copies of the appliance data but will be unable to service end user requests. Enable active mode using the `--active` flag or inactive mode using the `--inactive` flag.
 
    On the first replica:
 
@@ -98,8 +98,7 @@ This example configuration uses a primary and two replicas, which are located in
    (replica2)$ ghe-repl-node --active
    ```
 
-5. To apply the configuration, use the `ghe-config-apply` command on the primary.
-
+1. To apply the configuration, use the `ghe-config-apply` command on the primary.
    ```shell
    (primary)$ ghe-config-apply
    ```

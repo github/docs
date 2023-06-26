@@ -34,7 +34,7 @@ You can see which branch a commit is on by looking at the labels beneath the com
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-commit-page %}
 {% data reusables.repositories.navigate-to-commit %}
-2. To see what branch the commit is on, check the label below the commit message.
+1. To see what branch the commit is on, check the label below the commit message.
 
    ![Screenshot of a commit summary. A branch icon and "main" are highlighted with an orange outline.](/assets/images/help/commits/commit-branch-indicator.png)
 

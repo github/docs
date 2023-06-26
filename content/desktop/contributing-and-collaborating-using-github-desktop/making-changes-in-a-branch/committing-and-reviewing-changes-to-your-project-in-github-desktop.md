@@ -110,14 +110,14 @@ Once you're satisfied with the changes you've chosen to include in your commit, 
 
    ![Screenshot of the "Changes" tab. In the corner of the "Description" field, a "person with a plus sign" icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)
 {% data reusables.desktop.commit-button %}
-4. If the branch you're trying to commit to is protected, Desktop will warn you.
+1. If the branch you're trying to commit to is protected, Desktop will warn you.
     - To move your changes, click **switch branches**.
     - To commit your changes to the protected branch, click **Commit to BRANCH**.
 
   For more information about protected branches, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 {% data reusables.desktop.push-origin %}
 
-6. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request next to the "Current Branch" section of the repository bar. For more information about checks, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
+1. If you have a pull request based off the branch you are working on, {% data variables.product.prodname_desktop %} will display the status of the checks that have run for the pull request next to the "Current Branch" section of the repository bar. For more information about checks, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-and-re-running-checks-in-github-desktop)."
 
    If a pull request has not been created for the current branch, {% data variables.product.prodname_desktop %} will give you the option to preview the changes and create one. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop)."
 

@@ -25,8 +25,8 @@ You can access most objects in GitHub (users, issues, pull requests, etc.) using
 You can follow three steps to use global node IDs effectively:
 
 1. Call a REST endpoint that returns an object's `node_id`.
-2. Find the object's type in GraphQL.
-3. Use the ID and type to do a direct node lookup in GraphQL.
+1. Find the object's type in GraphQL.
+1. Use the ID and type to do a direct node lookup in GraphQL.
 
 Let's walk through an example.
 

@@ -96,7 +96,7 @@ The "Used by" section represents a single package from the repository. If you ha
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package.
+1. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package.
 
 {% endif %}
 

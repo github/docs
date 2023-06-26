@@ -46,7 +46,7 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 ## Creating a branch from a previous commit
 
 {% data reusables.desktop.history-tab %}
-2. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
+1. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
 
    ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the cursor hovers over the "Create Branch from Commit" option.](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
 
@@ -59,7 +59,7 @@ If you create a branch on {% data variables.product.product_name %}, you'll need
 
 1. In the repository bar, click {% octicon "git-branch" aria-hidden="true" %} **Current Branch**, then click the branch that you want to publish.
    ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
-2. Click **Publish branch**.
+1. Click **Publish branch**.
    ![Screenshot of the repository bar. On the right-hand side, a button, labeled "Publish branch", is highlighted with an orange outline.](/assets/images/help/desktop/publish-branch-button.png)
 
 ## Switching between branches

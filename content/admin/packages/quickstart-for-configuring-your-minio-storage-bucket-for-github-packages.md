@@ -39,7 +39,7 @@ For more information about your options, see the official [MinIO docs](https://d
     mkdir -p $MINIO_DIR
     ```
 
-2. Install MinIO.
+1. Install MinIO.
 
     ```shell
     docker pull minio/minio
@@ -47,7 +47,7 @@ For more information about your options, see the official [MinIO docs](https://d
 
     For more information, see the official "[MinIO Quickstart Guide](https://docs.min.io/docs/minio-quickstart-guide)."
 
-3. Sign in to MinIO using your MinIO access key and secret.
+1. Sign in to MinIO using your MinIO access key and secret.
 
     {% linux %}
 
@@ -76,7 +76,7 @@ For more information about your options, see the official [MinIO docs](https://d
     echo $MINIO_SECRET_KEY
     ```
 
-4. Run MinIO in your chosen mode.
+1. Run MinIO in your chosen mode.
 
    - Run MinIO using Docker on a single host:
 
@@ -100,7 +100,7 @@ For more information about your options, see the official [MinIO docs](https://d
     docker pull minio/mc
     ```
 
-2. Create a bucket with a host URL that {% data variables.product.prodname_ghe_server %} can access.
+1. Create a bucket with a host URL that {% data variables.product.prodname_ghe_server %} can access.
 
    - Local deployments example:
 

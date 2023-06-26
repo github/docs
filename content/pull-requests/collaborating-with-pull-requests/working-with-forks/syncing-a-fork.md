@@ -56,8 +56,8 @@ If the changes from the upstream repository cause conflict then the {% data vari
 Before you can sync your fork with an upstream repository, you must configure a remote that points to the upstream repository in Git. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-repository-for-a-fork)."
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
+1. Change the current working directory to your local project.
+1. Fetch the branches and their respective commits from the upstream repository. Commits to `BRANCHNAME` will be stored in the local branch `upstream/BRANCHNAME`.
 
    ```shell
    $ git fetch upstream
@@ -69,14 +69,14 @@ Before you can sync your fork with an upstream repository, you must configure a 
    >  * [new branch]      main     -> upstream/main
    ```
 
-4. Check out your fork's local default branch - in this case, we use `main`.
+1. Check out your fork's local default branch - in this case, we use `main`.
 
    ```shell
    $ git checkout main
    > Switched to branch 'main'
    ```
 
-5. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
+1. Merge the changes from the upstream default branch - in this case, `upstream/main` - into your local default branch. This brings your fork's default branch into sync with the upstream repository, without losing your local changes.
 
    ```shell
    $ git merge upstream/main

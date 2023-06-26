@@ -26,7 +26,7 @@ shortTitle: Export from GitHub.com
 
 1. Ensure that you have [owner permissions](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization) on the source organization's repositories.
 
-2. {% data reusables.enterprise_migrations.token-generation %} on {% data variables.product.prodname_dotcom_the_website %}.
+1. {% data reusables.enterprise_migrations.token-generation %} on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise_migrations.make-a-list %}
 
@@ -44,7 +44,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
 
 1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[AUTOTITLE](/migrations/using-ghe-migrator/about-ghe-migrator#types-of-migrations)."
 
-2. Start a migration by sending a `POST` request to [the migration endpoint](/free-pro-team@latest/rest/migrations#start-an-organization-migration). You'll need:
+1. Start a migration by sending a `POST` request to [the migration endpoint](/free-pro-team@latest/rest/migrations#start-an-organization-migration). You'll need:
     - Your access token for authentication.
     - A [list of the repositories](/free-pro-team@latest/rest/repos#list-organization-repositories) you want to migrate:
 
@@ -61,7 +61,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
 
   This request returns a unique `id` which represents your migration. You'll need it for subsequent calls to the Migrations API.
 
-3. Send a `GET` request to [the migration status endpoint](/free-pro-team@latest/rest/migrations#get-an-organization-migration-status) to fetch the status of a migration. You'll need:
+1. Send a `GET` request to [the migration status endpoint](/free-pro-team@latest/rest/migrations#get-an-organization-migration-status) to fetch the status of a migration. You'll need:
     - Your access token for authentication.
     - The unique `id` of the migration:
 
@@ -77,7 +77,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
     *`exported`, which means the migration finished successfully.
     * `failed`, which means the migration failed.
 
-4. After your migration has exported, download the migration archive by sending a `GET` request to [the migration download endpoint](/free-pro-team@latest/rest/migrations#download-an-organization-migration-archive). You'll need:
+1. After your migration has exported, download the migration archive by sending a `GET` request to [the migration download endpoint](/free-pro-team@latest/rest/migrations#download-an-organization-migration-archive). You'll need:
     - Your access token for authentication.
     - The unique `id` of the migration:
 
@@ -88,7 +88,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
       https://api.github.com/orgs/ORG_NAME/migrations/ID/archive
       ```
 
-5. The migration archive is automatically deleted after seven days. If you would prefer to delete it sooner, you can send a `DELETE` request to [the migration archive delete endpoint](/free-pro-team@latest/rest/migrations#delete-an-organization-migration-archive). You'll need:
+1. The migration archive is automatically deleted after seven days. If you would prefer to delete it sooner, you can send a `DELETE` request to [the migration archive delete endpoint](/free-pro-team@latest/rest/migrations#delete-an-organization-migration-archive). You'll need:
     - Your access token for authentication.
     - The unique `id` of the migration:
 

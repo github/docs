@@ -27,7 +27,7 @@ shortTitle: Caching credentials
 {% data variables.product.prodname_cli %} will automatically store your Git credentials for you when you choose `HTTPS` as your preferred protocol for Git operations and answer "yes" to the prompt asking if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials.
 
 1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
-2. In the command line, enter `gh auth login`, then follow the prompts.
+1. In the command line, enter `gh auth login`, then follow the prompts.
    - When prompted for your preferred protocol for Git operations, select `HTTPS`.
    - When asked if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials, enter `Y`.
 
@@ -45,7 +45,7 @@ For more information about authenticating with {% data variables.product.prodnam
    brew install git
    ```
 
-2. Install GCM using Homebrew:
+1. Install GCM using Homebrew:
 
    ```shell
    brew tap microsoft/git
@@ -92,9 +92,9 @@ For Linux, install Git and GCM, then configure Git to use GCM.
 
 1. Install Git from your distro's packaging system. Instructions will vary depending on the flavor of Linux you run.
 
-2. Install GCM. See the [instructions in the GCM repo](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md), as they'll vary depending on the flavor of Linux you run.
+1. Install GCM. See the [instructions in the GCM repo](https://github.com/git-ecosystem/git-credential-manager/blob/release/docs/install.md), as they'll vary depending on the flavor of Linux you run.
 
-3. Configure Git to use GCM. There are several backing stores that you may choose from, so see the GCM docs to complete your setup. For more information, see "[GCM Linux](https://aka.ms/gcmcore-linuxcredstores)."
+1. Configure Git to use GCM. There are several backing stores that you may choose from, so see the GCM docs to complete your setup. For more information, see "[GCM Linux](https://aka.ms/gcmcore-linuxcredstores)."
 
 {% data reusables.gcm-core.next-time-you-clone %}
 

@@ -52,11 +52,11 @@ We use the Candidate Personal Information for the following purposes:
 
 GitHub will share your Candidate Personal Information with those who have a legitimate business need for it. Whenever we permit a third party to access your Candidate Personal Information, we will make sure the information is used in a manner consistent with this policy. Your Candidate Personal Information may be shared with our affiliates (such as Microsoft) and other third parties (such as vendors) for the following purposes:
 1. In order to carry out the uses of Candidate Personal Information described above;
-2. To enable third parties to provide products or services to us or on our behalf (such as to facilitate the application process or conduct background checks).
-3. To comply with our legal obligations, regulations or contracts, or to respond to a court order, administrative or judicial process (such as subpoena, government audit or search warrant) or, in response to lawful requests by public authorities (such as national security or law enforcement);
-4. As necessary to establish, exercise, or defend against potential or pending litigation;
-5. Where necessary to protect GitHub, your vital interests (such as safety and security), or those of another person; or
-6. With your consent (such to contact your referees). It is your responsibility to obtain consent from referees before providing their personal information to GitHub.
+1. To enable third parties to provide products or services to us or on our behalf (such as to facilitate the application process or conduct background checks).
+1. To comply with our legal obligations, regulations or contracts, or to respond to a court order, administrative or judicial process (such as subpoena, government audit or search warrant) or, in response to lawful requests by public authorities (such as national security or law enforcement);
+1. As necessary to establish, exercise, or defend against potential or pending litigation;
+1. Where necessary to protect GitHub, your vital interests (such as safety and security), or those of another person; or
+1. With your consent (such to contact your referees). It is your responsibility to obtain consent from referees before providing their personal information to GitHub.
 
 ## Your rights to your Candidate Personal Information
 

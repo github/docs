@@ -85,14 +85,14 @@ For example, if the global `.gitconfig` file on your local machine contains a `g
 {% endnote %}
 
 1. On your local machine, open a terminal.
-2. To remove the conflicting value from `~/.gitconfig` (Mac/Linux) or `C:\Users\YOUR-USER\.gitconfig` (Windows), use the `git config --global --unset` command.
+1. To remove the conflicting value from `~/.gitconfig` (Mac/Linux) or `C:\Users\YOUR-USER\.gitconfig` (Windows), use the `git config --global --unset` command.
 
    ```Shell
    git config --global --unset gpg.program
    ```
 
-3. Push the change to your dotfiles repository on {% data variables.product.prodname_dotcom %}.
-4. Optionally, to keep your local configuration, set the value again in a Git configuration file that you do not push to your dotfiles repository.
+1. Push the change to your dotfiles repository on {% data variables.product.prodname_dotcom %}.
+1. Optionally, to keep your local configuration, set the value again in a Git configuration file that you do not push to your dotfiles repository.
 
    For example, you can use the `--system` flag to set the configuration in the system-level file at `PATH/etc/gitconfig`, where `PATH` is the directory in which Git is installed on your system.
 

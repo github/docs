@@ -24,7 +24,7 @@ shortTitle: Find your username or email
 {% mac %}
 
 1. In the **GitHub Desktop** menu, click **Preferences**.
-2. In the Preferences window, verify the following:
+1. In the Preferences window, verify the following:
     - To view your {% data variables.product.product_name %} username, click **Accounts**.
     - To view your Git email, click **Git**. Note that this email is not guaranteed to be [your primary {% data variables.product.product_name %} email](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
 
@@ -33,7 +33,7 @@ shortTitle: Find your username or email
 {% windows %}
 
 1. In the **File** menu, click **Options**.
-2. In the Options window, verify the following:
+1. In the Options window, verify the following:
     - To view your {% data variables.product.product_name %} username, click **Accounts**.
     - To view your Git email, click **Git**. Note that this email is not guaranteed to be [your primary {% data variables.product.product_name %} email](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
 

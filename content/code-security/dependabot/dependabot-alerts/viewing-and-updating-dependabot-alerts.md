@@ -193,12 +193,12 @@ If you schedule extensive work to upgrade a dependency, or decide that an alert 
 ### Dismissing multiple alerts at once
 
 1. View the open {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-dependabot-alerts)".
-2. Optionally, filter the list of alerts by selecting a dropdown menu, then clicking the filter that you would like to apply. You can also type filters into the search bar.
-3. To the left of each alert title, select the alerts that you want to dismiss.
+1. Optionally, filter the list of alerts by selecting a dropdown menu, then clicking the filter that you would like to apply. You can also type filters into the search bar.
+1. To the left of each alert title, select the alerts that you want to dismiss.
    ![Screenshot of the {% data variables.product.prodname_dependabot_alerts %} view. Two alerts are selected and these check boxes are highlighted with an orange outline.](/assets/images/help/graphs/select-multiple-alerts.png)
-4. Optionally, at the top of the list of alerts, select all alerts on the page.
+1. Optionally, at the top of the list of alerts, select all alerts on the page.
    ![Screenshot of the header section of the {% data variables.product.prodname_dependabot_alerts %} view. The "Select all" checkbox is highlighted with a dark orange outline.](/assets/images/help/graphs/select-all-alerts.png)
-5. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts.
+1. Select the "Dismiss alerts" dropdown, and click a reason for dismissing the alerts.
    ![Screenshot of a list of alerts. Below the "Dismiss alerts" button, a dropdown labeled "Select a reason to dismiss" is expanded. The dropdown contains radio buttons for various options.](/assets/images/help/graphs/dismiss-multiple-alerts.png)
 
 {% endif %}
@@ -231,10 +231,10 @@ You can view all open alerts, and you can reopen alerts that have been previousl
 ### Reopening multiple alerts at once
 
 1. View the closed {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#viewing-and-updating-closed-alerts)" (above).
-2. To the left of each alert title, select the alerts that you want to reopen by clicking the checkbox adjacent to each alert.
-3. Optionally, at the top of the list of alerts, select all closed alerts on the page.
+1. To the left of each alert title, select the alerts that you want to reopen by clicking the checkbox adjacent to each alert.
+1. Optionally, at the top of the list of alerts, select all closed alerts on the page.
    ![Screenshot of alerts in the "Closed" tab. The "Select all" checkbox is highlighted with a dark orange outline.](/assets/images/help/graphs/select-all-closed-alerts.png)
-4. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened.
+1. Click **Reopen** to reopen the alerts. Alerts that have already been fixed cannot be reopened.
 
 {% endif %}
 

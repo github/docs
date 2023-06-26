@@ -96,13 +96,13 @@ To ensure you're always using the same image, you can specify the exact containe
    ```
 
    Replace `NAMESPACE` with the name of the personal account or organization to which the image is scoped.
-2. Remove image locally as needed.
+1. Remove image locally as needed.
 
    ```shell
    docker rmi  {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
    ```
 
-3. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
+1. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
 
    ```shell
    docker pull {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME@sha256:82jf9a84u29hiasldj289498uhois8498hjs29hkuhs
@@ -164,7 +164,7 @@ docker build -t hello_docker .
    > hello-world                                           latest              fce289e99eb9        16 months ago       1.84kB
    ```
 
-2. Tag your Docker image using the image ID and your desired image name and hosting destination.
+1. Tag your Docker image using the image ID and your desired image name and hosting destination.
 
    ```shell
    docker tag 38f737a91f39 {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:latest

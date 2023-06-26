@@ -54,7 +54,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
 
   {% endtip %}
 
-3. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
+1. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
 
    If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
 

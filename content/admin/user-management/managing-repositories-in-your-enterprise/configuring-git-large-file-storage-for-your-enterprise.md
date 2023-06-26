@@ -75,7 +75,7 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
 
 1. Disable {% data variables.large_files.product_name_short %} on {% data variables.location.product_location %}. For more information, see "[Configuring {% data variables.large_files.product_name_long %} for your enterprise](#configuring-git-large-file-storage-for-your-enterprise)."
 
-2. Create a {% data variables.large_files.product_name_short %} configuration file that points to the third party server.
+1. Create a {% data variables.large_files.product_name_short %} configuration file that points to the third party server.
 
    ```shell
    # Show default configuration
@@ -99,14 +99,14 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
    lfsurl = https://THIRD-PARTY-LFS-SERVER/path/to/repo
    ```
 
-3. To keep the same {% data variables.large_files.product_name_short %} configuration for each user, commit a custom `.lfsconfig` file to the repository.
+1. To keep the same {% data variables.large_files.product_name_short %} configuration for each user, commit a custom `.lfsconfig` file to the repository.
 
    ```shell
    git add .lfsconfig
    git commit -m "Adding LFS config file"
    ```
 
-3. Migrate any existing {% data variables.large_files.product_name_short %} assets. For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
+1. Migrate any existing {% data variables.large_files.product_name_short %} assets. For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
 
 ## Migrating to a different Git Large File Storage server
 
@@ -125,7 +125,7 @@ Before migrating to a different {% data variables.large_files.product_name_long 
    > Endpoint (NEW-REMOTE)=https://NEW-REMOTE-HOSTNAME/path/to/repo/info/lfs (auth=none)
    ```
 
-2. Fetch all objects from the old remote.
+1. Fetch all objects from the old remote.
 
    ```shell
    $ git lfs fetch origin --all
@@ -135,7 +135,7 @@ Before migrating to a different {% data variables.large_files.product_name_long 
    > Git LFS: (16 of 16 files) 48.71 MB / 48.85 MB
    ```
 
-3. Push all objects to the new remote.
+1. Push all objects to the new remote.
 
    ```shell
    $ git lfs push NEW-REMOTE --all

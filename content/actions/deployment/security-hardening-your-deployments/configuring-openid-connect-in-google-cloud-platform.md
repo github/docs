@@ -30,8 +30,8 @@ This guide gives an overview of how to configure GCP to trust {% data variables.
 To configure the OIDC identity provider in GCP, you will need to perform the following configuration. For instructions on making these changes, refer to [the GCP documentation](https://github.com/google-github-actions/auth).
 
 1. Create a new identity pool.
-2. Configure the mapping and add conditions.
-3. Connect the new pool to a service account.
+1. Configure the mapping and add conditions.
+1. Connect the new pool to a service account.
 
 Additional guidance for configuring the identity provider:
 
@@ -43,7 +43,7 @@ Additional guidance for configuring the identity provider:
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the [`google-github-actions/auth`](https://github.com/google-github-actions/auth) action to exchange the OIDC token (JWT) for a cloud access token.
 
 ### Adding permissions settings
 

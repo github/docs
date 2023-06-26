@@ -1,4 +1,4 @@
-6. Press **Enter** to create your local clone.
+1. Press **Enter** to create your local clone.
 
    ```shell
    $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY

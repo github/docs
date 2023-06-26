@@ -61,8 +61,8 @@ To remove a published action from {% data variables.product.prodname_marketplace
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 {% data reusables.releases.edit-release %}
-4. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
-5. Click **Update release** at the bottom of the page.
+1. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
+1. Click **Update release** at the bottom of the page.
 
 ## About badges in {% data variables.product.prodname_marketplace %}
 

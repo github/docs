@@ -29,8 +29,8 @@ shortTitle: Install on Hyper-V
 
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **Hyper-V (VHD)**.
-5. Click **Download for Hyper-V (VHD)**.
+1. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **Hyper-V (VHD)**.
+1. Click **Download for Hyper-V (VHD)**.
 
 ## Creating the {% data variables.product.prodname_ghe_server %} instance
 
@@ -48,25 +48,25 @@ shortTitle: Install on Hyper-V
    PS C:\> New-VHD -Path PATH_TO_DATA_DISK -SizeBytes DISK_SIZE
    ```
 
-3. Attach the data disk to your instance. For more information, see "[Add-VMHardDiskDrive](https://docs.microsoft.com/powershell/module/hyper-v/add-vmharddiskdrive?view=win10-ps)" in the Microsoft documentation.
+1. Attach the data disk to your instance. For more information, see "[Add-VMHardDiskDrive](https://docs.microsoft.com/powershell/module/hyper-v/add-vmharddiskdrive?view=win10-ps)" in the Microsoft documentation.
 
    ```shell
    PS C:\> Add-VMHardDiskDrive -VMName VM_NAME -Path PATH_TO_DATA_DISK
    ```
 
-4. Start the VM. For more information, see "[Start-VM](https://docs.microsoft.com/powershell/module/hyper-v/start-vm?view=win10-ps)" in the Microsoft documentation.
+1. Start the VM. For more information, see "[Start-VM](https://docs.microsoft.com/powershell/module/hyper-v/start-vm?view=win10-ps)" in the Microsoft documentation.
 
    ```shell
    PS C:\> Start-VM -Name VM_NAME
    ```
 
-5. Get the IP address of your VM. For more information, see "[Get-VMNetworkAdapter](https://docs.microsoft.com/powershell/module/hyper-v/get-vmnetworkadapter?view=win10-ps)" in the Microsoft documentation.
+1. Get the IP address of your VM. For more information, see "[Get-VMNetworkAdapter](https://docs.microsoft.com/powershell/module/hyper-v/get-vmnetworkadapter?view=win10-ps)" in the Microsoft documentation.
 
    ```shell
    PS C:\> (Get-VMNetworkAdapter -VMName VM_NAME).IpAddresses
    ```
 
-6. Copy the VM's IP address and paste it into a web browser.
+1. Copy the VM's IP address and paste it into a web browser.
 
 ## Configuring the {% data variables.product.prodname_ghe_server %} instance
 

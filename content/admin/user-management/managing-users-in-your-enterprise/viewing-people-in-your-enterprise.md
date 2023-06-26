@@ -158,11 +158,11 @@ You can view a list of all dormant users {% ifversion ghes or ghae %} who have n
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Under "Organizations", in the search bar, begin typing the organization's name until it appears in the search results.
-2. Click the name of the organization.
-3. Above the organization name, click {% octicon "person" aria-hidden="true" %} **People**.
+1. Click the name of the organization.
+1. Above the organization name, click {% octicon "person" aria-hidden="true" %} **People**.
 
    ![Screenshot of the tabs above an organization name. The "People" tab is highlighted with an orange outline.](/assets/images/help/enterprises/emu-organization-people-tab.png)
-4. Above the list of members, click **Type**, then select the type of members you want to view.
+1. Above the list of members, click **Type**, then select the type of members you want to view.
    ![Screenshot of the list of members. A dropdown menu labeled "Type" is outlined in orange, and an expanded dropdown shows options for "All members," "Managed by IdP groups," and "Managed directly."](/assets/images/help/enterprises/filter-by-member-type.png)
 
 {% endif %}

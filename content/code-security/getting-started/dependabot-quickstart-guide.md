@@ -37,9 +37,9 @@ For the purpose of this guide, we're going to use a demo repository to illustrat
 You need to start by forking the demo repository.
 
 1. Navigate to [https://github.com/dependabot/demo](https://github.com/dependabot/demo).
-2. At the top of the page, on the right, click **{% octicon "repo-forked" aria-hidden="true" %} Fork**.
-3. Select an owner (you can select your {% data variables.product.prodname_dotcom %} personal account) and type a  repository name. For more information about forking repositories, see "[AUTOTITLE](/get-started/quickstart/fork-a-repo#forking-a-repository)."
-4. Click **Create fork**. 
+1. At the top of the page, on the right, click **{% octicon "repo-forked" aria-hidden="true" %} Fork**.
+1. Select an owner (you can select your {% data variables.product.prodname_dotcom %} personal account) and type a  repository name. For more information about forking repositories, see "[AUTOTITLE](/get-started/quickstart/fork-a-repo#forking-a-repository)."
+1. Click **Create fork**. 
 
 ## Enabling {% data variables.product.prodname_dependabot %} for your repository
 
@@ -49,7 +49,7 @@ You need to follow the steps below on the repository you forked in "[Prerequisit
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "Code security and analysis", to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Enable** for {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dependabot_security_updates %}, and {% data variables.product.prodname_dependabot_version_updates %}.
-2. Optionally, if you are interested in experimenting with {% data variables.product.prodname_dependabot_version_updates %}, click **.github/dependabot.yml**. This will create a default _dependabot.yml_ configuration file in the `/.github` directory of your repository. To enable {% data variables.product.prodname_dependabot_version_updates %} for your repository, you typically configure this file to suit your needs by editing the default file, and committing your changes. You can refer to the snippet provided in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file)" for an example.
+1. Optionally, if you are interested in experimenting with {% data variables.product.prodname_dependabot_version_updates %}, click **.github/dependabot.yml**. This will create a default _dependabot.yml_ configuration file in the `/.github` directory of your repository. To enable {% data variables.product.prodname_dependabot_version_updates %} for your repository, you typically configure this file to suit your needs by editing the default file, and committing your changes. You can refer to the snippet provided in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file)" for an example.
 
 {% note %}
 
@@ -72,7 +72,7 @@ If {% data variables.product.prodname_dependabot_alerts %} are enabled for a rep
 
    You can filter {% data variables.product.prodname_dependabot_alerts %} in the list, using a variety of filters or labels. For more infomation, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#prioritizing-dependabot-alerts)."{% ifversion dependabot-alert-rules-auto-dismissal-npm-dev-dependencies %} You can also use {% data variables.product.prodname_dependabot %} alert rules to filter out false positive alerts or alerts you're not interested in. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts)."{% endif %} 
 
-2. Click the "Command Injection in lodash" alert on the _javascript/package-lock.json_ file. The details page for the alert will show the following information (note that some information may not apply to all alerts):
+1. Click the "Command Injection in lodash" alert on the _javascript/package-lock.json_ file. The details page for the alert will show the following information (note that some information may not apply to all alerts):
    - Whether {% data variables.product.prodname_dependabot %} created a pull request that will fix the vulnerability. You can review the suggested security update by clicking **Review security update**.
    - Package involved
    - Affected versions
@@ -81,7 +81,7 @@ If {% data variables.product.prodname_dependabot_alerts %} are enabled for a rep
 
    ![Screenshot of the detailed page of an alert in the demo repository, showing the main information.](/assets/images/help/repository/alert-details-page-demo-repo.png)
 
-3. Optionally, you can also explore the information on the right-side of the page. Some of the information shown in the screenshot may not apply to every alert.
+1. Optionally, you can also explore the information on the right-side of the page. Some of the information shown in the screenshot may not apply to every alert.
    - Severity
    - CVSS metrics—we use CVSS levels to assign severity levels. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database#about-cvss-levels)."
    - Tags

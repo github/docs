@@ -95,7 +95,7 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-entry %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-ip %}
 {% data reusables.identity-and-permissions.ip-allow-lists-edit-description %}
-8. Click **Update**.
+1. Click **Update**.
 {% data reusables.identity-and-permissions.check-ip-address %}
 
 ### Checking if an IP address is permitted

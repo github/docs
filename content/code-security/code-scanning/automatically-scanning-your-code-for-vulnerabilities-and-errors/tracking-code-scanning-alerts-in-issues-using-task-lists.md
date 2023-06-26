@@ -69,10 +69,10 @@ The status of the tracked alert won't change if you change the checkbox state of
    {% data variables.product.prodname_dotcom %} prepopulates the issue:
    - The title contains the name of the {% data variables.product.prodname_code_scanning %} alert.
    - The body contains the task list item with the full URL to the {% data variables.product.prodname_code_scanning %} alert.
-2. Optionally, edit the title and the body of the issue.
+1. Optionally, edit the title and the body of the issue.
    {% warning %}
 
     **Warning:** You may want to edit the title of the issue as it may expose security information. You can also edit the body of the issue. Make sure that you keep the task list item with a link to the alert otherwise the issue will no longer track the alert.
    {% endwarning %}
 
-3. Click **Submit new issue**.
+1. Click **Submit new issue**.

@@ -40,7 +40,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
    {% endwindows %}
 
-2. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
+1. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
 
 {% note %}
 

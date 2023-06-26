@@ -13,13 +13,13 @@
 
    For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-2. Save your {% data variables.product.pat_v1 %}. We recommend saving your token as an environment variable.
+1. Save your {% data variables.product.pat_v1 %}. We recommend saving your token as an environment variable.
 
    ```shell
    export CR_PAT=YOUR_TOKEN
    ```
 
-3. Using the CLI for your container type, sign in to the {% data variables.product.prodname_container_registry %} service at `{% data reusables.package_registry.container-registry-hostname %}`.
+1. Using the CLI for your container type, sign in to the {% data variables.product.prodname_container_registry %} service at `{% data reusables.package_registry.container-registry-hostname %}`.
    {% raw %}
 
    ```shell

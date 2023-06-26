@@ -41,7 +41,7 @@ shortTitle: Manage pre-receive hooks
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-2. Next to the pre-receive hook that you want to delete, click **Delete**.
+1. Next to the pre-receive hook that you want to delete, click **Delete**.
 
 ## Configure pre-receive hooks for an organization
 
@@ -49,8 +49,8 @@ An organization owner can only configure hook permissions for an organization if
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. In the left sidebar, click **Hooks**.
-5. Next to the pre-receive hook that you want to configure, select the **Hook permissions** dropdown menu, then click an option.
+1. In the left sidebar, click **Hooks**.
+1. Next to the pre-receive hook that you want to configure, select the **Hook permissions** dropdown menu, then click an option.
 
 ## Configure pre-receive hooks for a repository
 

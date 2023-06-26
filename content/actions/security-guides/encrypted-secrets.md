@@ -124,10 +124,10 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-environment %}
 1. Click on the environment that you want to add a secret to.
-2. Under **Environment secrets**, click **Add secret**.
-3. Type a name for your secret in the **Name** input box.
-4. Enter the value for your secret.
-5. Click **Add secret**.
+1. Under **Environment secrets**, click **Add secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the value for your secret.
+1. Click **Add secret**.
 
 {% endwebui %}
 

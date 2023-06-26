@@ -19,7 +19,7 @@ topics:
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
-5. Click {% octicon "pin" aria-label="Pin this discussion" %} next to the team discussion you want to pin. You can also unpin a discussion by clicking the icon.
+1. Click {% octicon "pin" aria-label="Pin this discussion" %} next to the team discussion you want to pin. You can also unpin a discussion by clicking the icon.
 
 ## Further reading
 

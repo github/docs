@@ -61,9 +61,9 @@ AMIs for {% data variables.product.prodname_ghe_server %} are available in the A
 ### Using the {% data variables.product.prodname_ghe_server %} portal to select an AMI
 
 {% data reusables.enterprise_installation.download-appliance %}
-3. Under "{% data variables.product.prodname_dotcom %} in the Cloud", select the "Select your platform" dropdown menu, and click **Amazon Web Services**.
-4. Select the "Select your AWS region" drop-down menu, and click your desired region.
-5. Take note of the AMI ID that is displayed.
+1. Under "{% data variables.product.prodname_dotcom %} in the Cloud", select the "Select your platform" dropdown menu, and click **Amazon Web Services**.
+1. Select the "Select your AWS region" drop-down menu, and click your desired region.
+1. Take note of the AMI ID that is displayed.
 
 ### Using the AWS CLI to select an AMI
 
@@ -76,7 +76,7 @@ AMIs for {% data variables.product.prodname_ghe_server %} are available in the A
    --output=text
    ```
 
-2. Take note of the AMI ID for the latest {% data variables.product.prodname_ghe_server %} image.
+1. Take note of the AMI ID for the latest {% data variables.product.prodname_ghe_server %} image.
 
 ## Creating a security group
 
@@ -88,9 +88,9 @@ If you're setting up your AMI for the first time, you will need to create a secu
    aws ec2 create-security-group --group-name SECURITY_GROUP_NAME --description "SECURITY GROUP DESCRIPTION"
    ```
 
-2. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
+1. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
 
-3. Create a security group rule for each of the ports in the table below. For more information, see "[authorize-security-group-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html)" in the AWS documentation.
+1. Create a security group rule for each of the ports in the table below. For more information, see "[authorize-security-group-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html)" in the AWS documentation.
 
    ```shell
    aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE

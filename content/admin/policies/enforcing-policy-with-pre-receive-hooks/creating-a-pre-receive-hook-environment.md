@@ -25,14 +25,14 @@ If you have a specific requirement that isn't met by this environment, such as s
 You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](https://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
 
 {% data reusables.linux.ensure-docker %}
-2. Create the file `Dockerfile.alpine-3.3` that contains this information:
+1. Create the file `Dockerfile.alpine-3.3` that contains this information:
 
    ```
    FROM gliderlabs/alpine:3.3
    RUN apk add --no-cache git bash
    ```
 
-3. From the working directory that contains `Dockerfile.alpine-3.3`, build an image:
+1. From the working directory that contains `Dockerfile.alpine-3.3`, build an image:
 
    ```shell
    $ docker build -f Dockerfile.alpine-3.3 -t pre-receive.alpine-3.3 .
@@ -45,13 +45,13 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    > Successfully built 0250ab3be9c5
    ```
 
-4. Create a container:
+1. Create a container:
 
    ```shell
    docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
    ```
 
-5. Export the Docker container to a `gzip` compressed `tar` file:
+1. Export the Docker container to a `gzip` compressed `tar` file:
 
    ```shell
    docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
@@ -62,7 +62,7 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 ## Creating a pre-receive hook environment using chroot
 
 1. Create a Linux `chroot` environment.
-2. Create a `gzip` compressed `tar` file of the `chroot` directory.
+1. Create a `gzip` compressed `tar` file of the `chroot` directory.
 
    ```shell
    cd /path/to/chroot
@@ -95,7 +95,7 @@ For more information about creating a chroot environment see "[Chroot](https://w
 
 1. Upload a readable `*.tar.gz` file that contains your environment to a web host and copy the URL or transfer the file to the {% data variables.product.prodname_ghe_server %} appliance via `scp`. When using `scp`, you may need to adjust the `*.tar.gz` file permissions so that the file is world readable.
 1. Connect to the administrative shell.
-2. Use the `ghe-hook-env-create` command and type the name you want for the environment as the first argument and the full local path or URL of a `*.tar.gz` file that contains your environment as the second argument.
+1. Use the `ghe-hook-env-create` command and type the name you want for the environment as the first argument and the full local path or URL of a `*.tar.gz` file that contains your environment as the second argument.
 
    ```shell
    admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine-3.3.tar.gz

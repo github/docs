@@ -41,7 +41,7 @@ We're off to a great start. Let's set up SSH to allow agent forwarding to your s
 
 1. Using your favorite text editor, open up the file at `~/.ssh/config`. If this file doesn't exist, you can create it by entering `touch ~/.ssh/config` in the terminal.
 
-2. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
+1. Enter the following text into the file, replacing `example.com` with your server's domain name or IP:
 
         Host example.com
           ForwardAgent yes
