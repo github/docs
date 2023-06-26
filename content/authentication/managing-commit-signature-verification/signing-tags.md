@@ -24,7 +24,7 @@ topics:
    # Creates a signed tag
    ```
 
-2. Verify your signed tag by running `git tag -v [tag-name]`.
+1. Verify your signed tag by running `git tag -v [tag-name]`.
 
    ```shell
    $ git tag -v MYTAG

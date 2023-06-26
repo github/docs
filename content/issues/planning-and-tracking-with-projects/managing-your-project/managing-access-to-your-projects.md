@@ -41,7 +41,7 @@ The default base role is `write`, meaning that everyone in the organization can 
 
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
-2. Under **Base role**, select the default role.
+1. Under **Base role**, select the default role.
 
    ![Screenshot showing the "Who has access" settings. The dropdown for setting the base role is highlighted with an orange outline.](/assets/images/help/projects-v2/base-role.png)
 
@@ -64,15 +64,15 @@ You can only invite an individual user to collaborate on your organization-level
 
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
-2. Under **Invite collaborators**, search for the team or individual user that you want to invite.
+1. Under **Invite collaborators**, search for the team or individual user that you want to invite.
 
    ![Screenshot showing searching for a collaborator.](/assets/images/help/projects-v2/access-search.png)
 
-3. Select the role for the collaborator.
+1. Select the role for the collaborator.
    - **Read**: The team or individual can view the project.
    - **Write**: The team or individual can view and edit the project.
    - **Admin**: The team or individual can view, edit, and add new collaborators to the project.
-4. Click **Invite**.
+1. Click **Invite**.
 
 ### Managing access of an existing collaborator on your project
 
@@ -99,15 +99,15 @@ This only affects collaborators for your project, not for repositories in your p
 
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
-2. Under **Invite collaborators**, search for the user that you want to invite.
+1. Under **Invite collaborators**, search for the user that you want to invite.
 
    ![Screenshot showing searching for a collaborator.](/assets/images/help/projects-v2/access-search.png)
 
-3. Select the role for the collaborator.
+1. Select the role for the collaborator.
    - **Read**: The individual can view the project.
    - **Write**: The individual can view and edit the project.
    - **Admin**: The individual can view, edit, and add new collaborators to the project.
-4. Click **Invite**.
+1. Click **Invite**.
 
 ### Managing access of an existing collaborator on your project
 

@@ -32,7 +32,7 @@ After you prepare the data and resolve conflicts, you can apply the imported dat
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-2. Using the `ghe-migrator import` command, start the import process. You'll need:
+1. Using the `ghe-migrator import` command, start the import process. You'll need:
     - Your Migration GUID. For more information, see "[AUTOTITLE](/migrations/using-ghe-migrator/preparing-to-migrate-data-to-github-enterprise-server)."
     - Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 

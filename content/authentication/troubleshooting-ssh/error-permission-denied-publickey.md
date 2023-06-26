@@ -58,8 +58,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 {% mac %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-
-2. Verify that you have a private key generated and loaded into SSH.
+1. Verify that you have a private key generated and loaded into SSH.
 
    ```shell
    # start the ssh-agent in the background
@@ -78,8 +77,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-
-2. Verify that you have a private key generated and loaded into SSH.
+1. Verify that you have a private key generated and loaded into SSH.
 
    ```shell
    $ ssh-add -l -E sha256
@@ -92,7 +90,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. Verify that you have a private key generated and loaded into SSH.
+1. Verify that you have a private key generated and loaded into SSH.
 
    ```shell
    $ ssh-add -l -E sha256
@@ -148,14 +146,14 @@ You must provide your public key to {% data variables.product.product_name %} to
 {% mac %}
 
 1. Open Terminal.
-2. Start SSH agent in the background.
+1. Start SSH agent in the background.
 
    ```shell
    $ eval "$(ssh-agent -s)"
    > Agent pid 59566
    ```
 
-3. Find and take a note of your public key fingerprint.
+1. Find and take a note of your public key fingerprint.
 
    ```shell
    $ ssh-add -l -E sha256
@@ -164,21 +162,21 @@ You must provide your public key to {% data variables.product.product_name %} to
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command.
+1. Compare the list of SSH keys with the output from the `ssh-add` command.
 
 {% endmac %}
 
 {% windows %}
 
 1. Open the command line.
-2. Start SSH agent in the background.
+1. Start SSH agent in the background.
 
    ```shell
    $ ssh-agent -s
    > Agent pid 59566
    ```
 
-3. Find and take a note of your public key fingerprint.
+1. Find and take a note of your public key fingerprint.
 
    ```shell
    $ ssh-add -l -E sha256
@@ -187,21 +185,21 @@ You must provide your public key to {% data variables.product.product_name %} to
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command.
+1. Compare the list of SSH keys with the output from the `ssh-add` command.
 
 {% endwindows %}
 
 {% linux %}
 
 1. Open Terminal.
-2. Start SSH agent in the background.
+1. Start SSH agent in the background.
 
    ```shell
    $ eval "$(ssh-agent -s)"
    > Agent pid 59566
    ```
 
-3. Find and take a note of your public key fingerprint. If you're using OpenSSH 6.7 or older:
+1. Find and take a note of your public key fingerprint. If you're using OpenSSH 6.7 or older:
 
    ```shell
    $ ssh-add -l
@@ -217,7 +215,7 @@ You must provide your public key to {% data variables.product.product_name %} to
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-6. Compare the list of SSH keys with the output from the `ssh-add` command.
+1. Compare the list of SSH keys with the output from the `ssh-add` command.
 
 {% endlinux %}
 

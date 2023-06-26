@@ -36,8 +36,8 @@ Across all organizations owned by your enterprise, you can enable or disable org
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.projects-tab %}
-4. Under "Organization projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Organization projects", select the dropdown menu and click a policy.
+1. Under "Organization projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Organization projects", select the dropdown menu and click a policy.
 
 {% ifversion project-visibility-policy %}
 
@@ -65,6 +65,6 @@ Across all organizations owned by your enterprise, you can enable or disable rep
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.projects-tab %}
-4. Under "Repository projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Repository projects", select the dropdown menu and click a policy.
+1. Under "Repository projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Repository projects", select the dropdown menu and click a policy.
 {% endif %}

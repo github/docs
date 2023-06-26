@@ -38,13 +38,13 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    cd hello-world-composite-action
    ```
 
-2. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
+1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
 
    ```bash copy
    echo "Goodbye"
    ```
 
-3. From your terminal, make `goodbye.sh` executable.
+1. From your terminal, make `goodbye.sh` executable.
 
    ```shell copy
    chmod +x goodbye.sh

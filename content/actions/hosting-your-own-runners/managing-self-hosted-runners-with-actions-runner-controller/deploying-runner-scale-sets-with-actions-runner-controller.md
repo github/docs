@@ -62,7 +62,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 
       {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
-2. To check your installation, run the following command in your terminal.
+1. To check your installation, run the following command in your terminal.
 
     ```bash copy
     helm list -A
@@ -76,7 +76,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
     arc-runner-set  arc-systems     1               2023-04-12 11:46:13.451041354 +0000 UTC deployed        gha-runner-scale-set-0.4.0                  0.4.0
     ```
 
-3. To check the manager pod, run the following command in your terminal.
+1. To check the manager pod, run the following command in your terminal.
 
     ```bash copy
     kubectl get pods -n arc-systems

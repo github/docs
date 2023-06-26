@@ -35,32 +35,32 @@ As more users join {% data variables.location.product_location %}, you may need 
 
 1. Resize the existing user volume disk using your virtualization platform's tools.
 {% data reusables.enterprise_installation.ssh-into-instance %}
-3. Put the appliance in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
-4. Reboot the appliance to detect the new storage allocation:
+1. Put the appliance in maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+1. Reboot the appliance to detect the new storage allocation:
 
    ```shell
    sudo reboot
    ```
 
-5. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
+1. Run the `ghe-storage-extend` command to expand the `/data/user` filesystem:
 
    ```shell
    ghe-storage-extend
    ```
 
-6. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+1. Ensure system services are functioning correctly, then release maintenance mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
 ## Increasing the root partition size using a new appliance
 
 1. Set up a new {% data variables.product.prodname_ghe_server %} instance with a larger root disk using the same version as your current appliance. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
-2. Shut down the current appliance:
+1. Shut down the current appliance:
 
    ```shell
    sudo poweroff
    ```
 
-3. Detach the data disk from the current appliance using your virtualization platform's tools.
-4. Attach the data disk to the new appliance with the larger root disk.
+1. Detach the data disk from the current appliance using your virtualization platform's tools.
+1. Attach the data disk to the new appliance with the larger root disk.
 
 ## Increasing the root partition size using an existing appliance
 

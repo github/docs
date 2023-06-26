@@ -31,14 +31,14 @@ For purposes of demonstration, we'll use:
 {% endtip %}
 
 1. [Create a new repository on {% data variables.product.product_name %}](/repositories/creating-and-managing-repositories/creating-a-new-repository). You'll import your external Git repository to this new repository.
-2. On the command line, make a "bare" clone of the external repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
+1. On the command line, make a "bare" clone of the external repository using the external clone URL. This creates a full copy of the data, but without a working directory for editing files, and ensures a clean, fresh export of all the old data.
 
    ```shell
    $ git clone --bare https://external-host.com/EXTUSER/REPO.git
    # Makes a bare clone of the external repository in a local directory
    ```
 
-3. Push the locally cloned repository to {% data variables.product.product_name %} using the "mirror" option, which ensures that all references, such as branches and tags, are copied to the imported repository.
+1. Push the locally cloned repository to {% data variables.product.product_name %} using the "mirror" option, which ensures that all references, such as branches and tags, are copied to the imported repository.
 
    ```shell
    $ cd REPO.git
@@ -46,7 +46,7 @@ For purposes of demonstration, we'll use:
    # Pushes the mirror to the new repository on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}
    ```
 
-4. Remove the temporary local repository.
+1. Remove the temporary local repository.
 
    ```shell
    cd ..

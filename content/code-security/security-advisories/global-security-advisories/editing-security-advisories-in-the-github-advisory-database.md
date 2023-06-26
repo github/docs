@@ -50,7 +50,7 @@ You can also open a pull request directly on an advisory file in the [github/adv
 If you have {% data variables.product.prodname_github_connect %} enabled for {% data variables.location.product_location %}, you will be able to see advisories by adding `/advisories` to the instance url.
 
 1. Navigate to `https://HOSTNAME/advisories`.
-2. Select the security advisory you would like to contribute to.
-3. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on {% data variables.product.prodname_dotcom_the_website %}.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom_the_website %}.
-4. Edit the advisory, following steps four through six in "[Editing advisories in the GitHub Advisory Database](#editing-advisories-in-the-github-advisory-database)" above.
+1. Select the security advisory you would like to contribute to.
+1. On the right-hand side of the page, click the **Suggest improvements for this vulnerability on {% data variables.product.prodname_dotcom_the_website %}.** link. A new tab opens with the same security advisory on {% data variables.product.prodname_dotcom_the_website %}.
+1. Edit the advisory, following steps four through six in "[Editing advisories in the GitHub Advisory Database](#editing-advisories-in-the-github-advisory-database)" above.
 {% endif %}

@@ -22,7 +22,7 @@ shortTitle: Change the remote URL for a repository
 {% windows %}
 
 {% data reusables.desktop.windows-repository-settings-menu %}
-2. On the **Remote** pane, under "Primary remote repository", type the desired URL.
+1. On the **Remote** pane, under "Primary remote repository", type the desired URL.
 {% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}

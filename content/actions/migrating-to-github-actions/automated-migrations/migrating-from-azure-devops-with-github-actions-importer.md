@@ -78,7 +78,7 @@ The `configure` CLI command is used to set required credentials and options for 
    - Variable Groups: `Read`
 
    After creating the token, copy it and save it in a safe location for later use.
-2. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
 
    ```shell
    gh actions-importer configure
@@ -109,7 +109,7 @@ The `configure` CLI command is used to set required credentials and options for 
   Environment variables successfully updated.
 
    ```
-3. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
    ```shell
    gh actions-importer update

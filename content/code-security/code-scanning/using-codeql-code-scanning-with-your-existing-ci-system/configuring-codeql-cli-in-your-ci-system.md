@@ -35,8 +35,8 @@ You use three different commands to generate results and upload them to {% data 
 
 <!--Option to analyze multiple languages with one call-->
 1. `database create` to create a {% data variables.product.prodname_codeql %} database to represent the hierarchical structure of each supported programming language in the repository.
-2. `database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file.
-3. `github upload-results` to upload the resulting SARIF files to {% data variables.product.product_name %} where the results are matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts.
+1. `database analyze` to run queries to analyze each {% data variables.product.prodname_codeql %} database and summarize the results in a SARIF file.
+1. `github upload-results` to upload the resulting SARIF files to {% data variables.product.product_name %} where the results are matched to a branch or pull request and displayed as {% data variables.product.prodname_code_scanning %} alerts.
 
 You can display the command-line help for any command using the <nobr>`--help`</nobr> option.
 
@@ -47,9 +47,9 @@ You can display the command-line help for any command using the <nobr>`--help`</
 1. Check out the code that you want to analyze:
     - For a branch, check out the head of the branch that you want to analyze.
     - For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
-2. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#creating-databases-for-non-compiled-languages)" and "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#creating-databases-for-compiled-languages)."
-3. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
-4. Run `codeql database create` from the checkout root of your repository and build the codebase.
+1. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#creating-databases-for-non-compiled-languages)" and "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases#creating-databases-for-compiled-languages)."
+1. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
+1. Run `codeql database create` from the checkout root of your repository and build the codebase.
 
    ```shell
    # Single supported language - create one CodeQL database
@@ -131,7 +131,7 @@ $
 ## Analyzing a {% data variables.product.prodname_codeql %} database
 
 1. Create a {% data variables.product.prodname_codeql %} database (see above).
-2. Run `codeql database analyze` on the database and specify which {% ifversion codeql-packs %}packs and/or {% endif %}queries to use.
+1. Run `codeql database analyze` on the database and specify which {% ifversion codeql-packs %}packs and/or {% endif %}queries to use.
 
    ```shell
    codeql database analyze &lt;database&gt; --format=&lt;format&gt; \
@@ -319,9 +319,9 @@ For more information about pack compatibility, see "[AUTOTITLE](/code-security/c
 This example runs the `codeql database analyze` command with the `--download` option to:
 
 1. Download the latest version of the `octo-org/security-queries` pack.
-2. Download a version of the `octo-org/optional-security-queries` pack that is _compatible_ with version 1.0.1 (in this case, it is version 1.0.2). For more information on semver compatibility, see [npm's semantic version range documentation](https://github.com/npm/node-semver#ranges).
-3. Run all the default queries in `octo-org/security-queries`.
-4. Run only the query `queries/csrf.ql` from `octo-org/optional-security-queries`
+1. Download a version of the `octo-org/optional-security-queries` pack that is _compatible_ with version 1.0.1 (in this case, it is version 1.0.2). For more information on semver compatibility, see [npm's semantic version range documentation](https://github.com/npm/node-semver#ranges).
+1. Run all the default queries in `octo-org/security-queries`.
+1. Run only the query `queries/csrf.ql` from `octo-org/optional-security-queries`
 
 ```
 $ echo $OCTO-ORG_ACCESS_TOKEN | codeql database analyze --download /codeql-dbs/example-repo \

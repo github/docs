@@ -87,6 +87,6 @@ You can review a list of IdP groups, see any teams connected to an IdP group, an
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. To review a list of IdP groups, in the left sidebar, click {% octicon "key" aria-hidden="true" %} **Identity provider**.
 
-2. To see the members and teams connected to an IdP group, click the group's name.
+1. To see the members and teams connected to an IdP group, click the group's name.
 
-3. To view the teams connected to the IdP group, click **Teams**.
+1. To view the teams connected to the IdP group, click **Teams**.

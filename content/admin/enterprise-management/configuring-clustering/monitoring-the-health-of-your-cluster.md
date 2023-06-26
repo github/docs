@@ -83,16 +83,16 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    ```
 
    {% endnote %}
-2. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
+1. Copy the private key (`id_ed25519`) to the `nagios` home folder and set the appropriate ownership.
 
    ```shell
    nagiosuser@nagios:~$ sudo cp .ssh/id_ed25519 /var/lib/nagios/.ssh/
    nagiosuser@nagios:~$ sudo chown nagios:nagios /var/lib/nagios/.ssh/id_ed25519
    ```
 
-3. To authorize the public key to run _only_ the `ghe-cluster-status -n` command, use a `command=` prefix in the `/data/user/common/authorized_keys` file. From the administrative shell on any node, modify this file to add the public key generated in step 1. For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
+1. To authorize the public key to run _only_ the `ghe-cluster-status -n` command, use a `command=` prefix in the `/data/user/common/authorized_keys` file. From the administrative shell on any node, modify this file to add the public key generated in step 1. For example: `command="/usr/local/bin/ghe-cluster-status -n" ssh-ed25519 AAAA....`
 
-4. Validate and copy the configuration to each node in the cluster by running `ghe-cluster-config-apply` on the node where you modified the `/data/user/common/authorized_keys` file.
+1. Validate and copy the configuration to each node in the cluster by running `ghe-cluster-config-apply` on the node where you modified the `/data/user/common/authorized_keys` file.
 
    ```shell
    admin@ghe-data-node-0:~$ ghe-cluster-config-apply
@@ -101,14 +101,14 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    > Finished cluster configuration
    ```
 
-5. To test that the Nagios plugin can successfully execute the command, run it interactively from Nagios host.
+1. To test that the Nagios plugin can successfully execute the command, run it interactively from Nagios host.
 
    ```shell
    nagiosuser@nagios:~$ /usr/lib/nagios/plugins/check_by_ssh -l admin -p 122 -H HOSTNAME -C "ghe-cluster-status -n" -t 30
    > OK - No errors detected
    ```
 
-6. Create a command definition in your Nagios configuration.
+1. Create a command definition in your Nagios configuration.
 
    **Example definition**
 
@@ -119,7 +119,7 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    }
    ```
 
-7. Add this command to a service definition for a node in the {% data variables.product.prodname_ghe_server %} cluster.
+1. Add this command to a service definition for a node in the {% data variables.product.prodname_ghe_server %} cluster.
 
    **Example definition**
 

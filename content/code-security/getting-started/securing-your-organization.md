@@ -41,10 +41,10 @@ You can create a default security policy that will display in any of your organi
 {% data reusables.dependabot.quickstart-link %}
 
 1. Click your profile photo, then click **Organizations**.
-2. Click **Settings** next to your organization.
-3. Click **Security & analysis**.
-4. Click **Enable all** or **Disable all** next to the feature that you want to manage.
-5. Optionally, select **Automatically enable for new repositories**.
+1. Click **Settings** next to your organization.
+1. Click **Security & analysis**.
+1. Click **Enable all** or **Disable all** next to the feature that you want to manage.
+1. Optionally, select **Automatically enable for new repositories**.
 {% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
@@ -71,10 +71,10 @@ Dependency review is an {% data variables.product.prodname_advanced_security %} 
 For any repository that uses {% data variables.product.prodname_dependabot_alerts %}, you can enable {% data variables.product.prodname_dependabot_security_updates %} to raise pull requests with security updates when vulnerabilities are detected. You can also enable or disable {% data variables.product.prodname_dependabot_security_updates %} for all repositories across your organization.
 
 1. Click your profile photo, then click **Organizations**.
-2. Click **Settings** next to your organization.
-3. Click **Security & analysis**.
-4. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_dependabot_security_updates %}.
-5. Optionally, select **Automatically enable for new repositories**.
+1. Click **Settings** next to your organization.
+1. Click **Security & analysis**.
+1. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_dependabot_security_updates %}.
+1. Optionally, select **Automatically enable for new repositories**.
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
@@ -97,10 +97,10 @@ You can enable or disable {% data variables.product.prodname_advanced_security %
 {% endif %}
 
 1. Click your profile photo, then click **Organizations**.
-2. Click **Settings** next to your organization.
-3. Click **Security & analysis**.
-4. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_GH_advanced_security %}.
-5. Optionally, select **Automatically enable for new private repositories**.
+1. Click **Settings** next to your organization.
+1. Click **Security & analysis**.
+1. Click **Enable all** or **Disable all** next to {% data variables.product.prodname_GH_advanced_security %}.
+1. Optionally, select **Automatically enable for new private repositories**.
 
 For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 {% endif %}

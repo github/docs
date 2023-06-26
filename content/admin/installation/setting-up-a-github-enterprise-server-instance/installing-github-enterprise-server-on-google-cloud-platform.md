@@ -41,7 +41,7 @@ Before launching {% data variables.location.product_location %} on Google Cloud 
    gcloud compute images list --project github-enterprise-public --no-standard-images
    ```
 
-2. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
+1. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
 
 ## Configuring the firewall
 
@@ -53,7 +53,7 @@ GCE virtual machines are created as a member of a network, which has a firewall.
    gcloud compute networks create NETWORK-NAME --subnet-mode auto
    ```
 
-2. Create a firewall rule for each of the ports in the table below. For more information, see "[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" in the Google documentation.
+1. Create a firewall rule for each of the ports in the table below. For more information, see "[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" in the Google documentation.
 
    ```shell
    $ gcloud compute firewall-rules create RULE-NAME \
@@ -81,7 +81,7 @@ To create the {% data variables.product.prodname_ghe_server %} instance, you'll 
    gcloud compute disks create DATA-DISK-NAME --size DATA-DISK-SIZE --type DATA-DISK-TYPE --zone ZONE
    ```
 
-2. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see "[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" in the Google documentation.
+1. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see "[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" in the Google documentation.
 
    ```shell
    $ gcloud compute instances create INSTANCE-NAME \

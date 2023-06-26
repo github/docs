@@ -73,7 +73,7 @@ Next, go back to the Terminal and follow these steps to run the Smee command-lin
     npm install --global smee-client
     ```
 
-2. Run the client (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own domain):
+1. Run the client (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own domain):
 
     ```shell
     smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000

@@ -66,7 +66,7 @@ Anyone with write access to a repository can create a label.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. To the right of the search field, click **New label**.
+1. To the right of the search field, click **New label**.
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
 {% data reusables.project-management.label-color-randomizer %}

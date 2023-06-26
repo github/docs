@@ -31,7 +31,7 @@ shortTitle: Prepare to migrate data
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
-3. Use the `ghe-migrator prepare` command to prepare the archive for import on the target instance and generate a new Migration GUID for you to use in subsequent steps:
+1. Use the `ghe-migrator prepare` command to prepare the archive for import on the target instance and generate a new Migration GUID for you to use in subsequent steps:
 
     ```shell
     ghe-migrator prepare /home/admin/MIGRATION-GUID.tar.gz
@@ -50,18 +50,18 @@ shortTitle: Prepare to migrate data
 
     - If no conflicts are reported, you can safely import the data by following the steps in "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
 
-2. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy _conflicts.csv_ to your local computer:
-   
+1. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy _conflicts.csv_ to your local computer:
+
    ```shell
    scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
    ```
 
-3. Continue to "[Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
+1. Continue to "[Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
 
 ## Reviewing migration conflicts
 
 1. Using a text editor or [CSV-compatible spreadsheet software](https://en.wikipedia.org/wiki/Comma-separated_values#Application_support), open _conflicts.csv_.
-2. With guidance from the examples and reference tables below, review the _conflicts.csv_ file to ensure that the proper actions will be taken upon import.
+1. With guidance from the examples and reference tables below, review the _conflicts.csv_ file to ensure that the proper actions will be taken upon import.
 
 The _conflicts.csv_ file contains a _migration map_ of conflicts and recommended actions. A migration map lists out both what data is being migrated from the source, and how the data will be applied to the target.
 
@@ -147,10 +147,10 @@ The same process can be used to create mappings for each record that supports cu
     scp -P 122 ~/Desktop/conflicts.csv admin@HOSTNAME:/home/admin/
     ```
 
-2. Re-map the migration data using the `ghe-migrator map` command, passing in the path to your modified _.csv_ file and the Migration GUID:
+1. Re-map the migration data using the `ghe-migrator map` command, passing in the path to your modified _.csv_ file and the Migration GUID:
 
     ```shell
     ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID
     ```
 
-3. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.
+1. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.

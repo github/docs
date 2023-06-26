@@ -67,7 +67,7 @@ You must have a linked SAML identity. To create a linked identity, you must auth
 {% data reusables.identity-and-permissions.team-sync-confirm-saml %}
 {% data reusables.identity-and-permissions.enable-team-sync-azure %}
 {% data reusables.identity-and-permissions.team-sync-confirm %}
-6. Review the identity provider tenant information you want to connect to your organization, then click **Approve**.
+1. Review the identity provider tenant information you want to connect to your organization, then click **Approve**.
 
 ### Enabling team synchronization for Okta
 
@@ -109,4 +109,4 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-5. Under "Team synchronization", click **Disable team synchronization**.
+1. Under "Team synchronization", click **Disable team synchronization**.

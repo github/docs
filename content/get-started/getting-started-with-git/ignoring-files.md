@@ -22,10 +22,9 @@ To share the ignore rules with other users who clone the repository, commit the 
 GitHub maintains an official list of recommended _.gitignore_ files for many popular operating systems, environments, and languages in the `github/gitignore` public repository. You can also use gitignore.io to create a _.gitignore_ file for your operating system, programming language, or IDE. For more information, see "[github/gitignore](https://github.com/github/gitignore)" and the "[gitignore.io](https://www.gitignore.io/)" site.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navigate to the location of your Git repository.
+1. Navigate to the location of your Git repository.
+1. Create a _.gitignore_ file for your repository.
 
-3. Create a _.gitignore_ file for your repository.
-   
    ```shell
    touch .gitignore
    ```
@@ -46,8 +45,8 @@ You can also create a global _.gitignore_ file to define a list of rules for ign
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
-2. Configure Git to use the exclude file _~/.gitignore_global_ for all Git repositories.
-   
+1. Configure Git to use the exclude file _~/.gitignore_global_ for all Git repositories.
+
    ```shell
    git config --global core.excludesfile ~/.gitignore_global
    ```
@@ -59,8 +58,8 @@ If you don't want to create a _.gitignore_ file to share with others, you can cr
 Use your favorite text editor to open the file called _.git/info/exclude_ within the root of your Git repository. Any rule you add here will not be checked in, and will only ignore files for your local repository.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Navigate to the location of your Git repository.
-3. Using your favorite text editor, open the file _.git/info/exclude_.
+1. Navigate to the location of your Git repository.
+1. Using your favorite text editor, open the file _.git/info/exclude_.
 
 ## Further Reading
 

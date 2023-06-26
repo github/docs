@@ -24,7 +24,7 @@ topics:
 {% data reusables.enterprise_installation.hotpatching-explanation %} The hotpatch installation script installs the hotpatch on every node in the cluster and restarts the services in their proper sequence to avoid downtime.
 
 1. Back up your data with [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
-2. From the administrative shell of any node, use the `ghe-cluster-hotpatch` command to install the latest hotpatch. You can provide a URL for a hotpatch, or manually download the hotpatch and specify a local filename.
+1. From the administrative shell of any node, use the `ghe-cluster-hotpatch` command to install the latest hotpatch. You can provide a URL for a hotpatch, or manually download the hotpatch and specify a local filename.
 
    ```shell
    ghe-cluster-hotpatch https://HOTPATCH-URL/FILENAME.hpkg
@@ -37,10 +37,10 @@ Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_serve
 ### Preparing to upgrade
 
 1. Review [Cluster network configuration](/admin/enterprise-management/configuring-clustering/cluster-network-configuration) for the version you are upgrading to, and update your configuration as needed.
-2. Back up your data with [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
-3. Schedule a maintenance window for end users of your {% data variables.product.prodname_ghe_server %} cluster, as it will be unavailable for normal use during the upgrade. Maintenance mode blocks user access and prevents data changes while the cluster upgrade is in progress.
-4. On the [{% data variables.product.prodname_ghe_server %} Download Page](https://enterprise.github.com/download), copy the URL for the upgrade _.pkg_ file to the clipboard.
-5. From the administrative shell of any node, use the `ghe-cluster-each` command combined with `curl` to download the release package to each node in a single step. Use the URL you copied in the previous step as an argument.
+1. Back up your data with [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
+1. Schedule a maintenance window for end users of your {% data variables.product.prodname_ghe_server %} cluster, as it will be unavailable for normal use during the upgrade. Maintenance mode blocks user access and prevents data changes while the cluster upgrade is in progress.
+1. On the [{% data variables.product.prodname_ghe_server %} Download Page](https://enterprise.github.com/download), copy the URL for the upgrade _.pkg_ file to the clipboard.
+1. From the administrative shell of any node, use the `ghe-cluster-each` command combined with `curl` to download the release package to each node in a single step. Use the URL you copied in the previous step as an argument.
 
    ```shell
    $ ghe-cluster-each -- "cd /home/admin && curl -L -O  https://PACKAGE-URL.pkg"
@@ -61,12 +61,12 @@ Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_serve
    > 100  496M  100  496M    0     0  19.7M      0  0:00:25  0:00:25 --:--:-- 25.5M
    ```
 
-6. Identify the primary MySQL node, which is defined as `mysql-master = <hostname>` in `cluster.conf`. This node will be upgraded last.
+1. Identify the primary MySQL node, which is defined as `mysql-master = <hostname>` in `cluster.conf`. This node will be upgraded last.
 
 ### Upgrading the cluster nodes
 
 1. Enable maintenance mode according to your scheduled window by connecting to the administrative shell of any cluster node and running `ghe-cluster-maintenance -s`.
-2. **With the exception of the primary MySQL node**, connect to the administrative shell of each of the {% data variables.product.prodname_ghe_server %} nodes.
+1. **With the exception of the primary MySQL node**, connect to the administrative shell of each of the {% data variables.product.prodname_ghe_server %} nodes.
 Run the `ghe-upgrade` command, providing the package file name you downloaded in Step 4 of [Preparing to upgrade](#preparing-to-upgrade):
 
    ```shell
@@ -80,8 +80,8 @@ Run the `ghe-upgrade` command, providing the package file name you downloaded in
    > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
    ```
 
-3. The upgrade process will reboot the node once it completes. Verify that you can `ping` each node after it reboots.
-4. Connect to the administrative shell of the primary MySQL node. Run the `ghe-upgrade` command, providing the package file name you downloaded in Step 4 of [Preparing to upgrade](#preparing-to-upgrade):
+1. The upgrade process will reboot the node once it completes. Verify that you can `ping` each node after it reboots.
+1. Connect to the administrative shell of the primary MySQL node. Run the `ghe-upgrade` command, providing the package file name you downloaded in Step 4 of [Preparing to upgrade](#preparing-to-upgrade):
 
    ```shell
    $ ghe-upgrade PACKAGE-FILENAME.pkg
@@ -94,7 +94,7 @@ Run the `ghe-upgrade` command, providing the package file name you downloaded in
    > gpg: Good signature from "GitHub Enterprise (Upgrade Package Key) > <enterprise@github.com>"
    ```
 
-5. The upgrade process will reboot the primary MySQL node once it completes. Verify that you can `ping` each node after it reboots.{% ifversion ghes %}
-6. Connect to the administrative shell of the primary MySQL node and run the `ghe-cluster-config-apply` command.
-7. When `ghe-cluster-config-apply` is complete, check that the services are in a healthy state by running `ghe-cluster-status`.{% endif %}
-8. Exit maintenance mode from the administrative shell of any node by running `ghe-cluster-maintenance -u`.
+1. The upgrade process will reboot the primary MySQL node once it completes. Verify that you can `ping` each node after it reboots.{% ifversion ghes %}
+1. Connect to the administrative shell of the primary MySQL node and run the `ghe-cluster-config-apply` command.
+1. When `ghe-cluster-config-apply` is complete, check that the services are in a healthy state by running `ghe-cluster-status`.{% endif %}
+1. Exit maintenance mode from the administrative shell of any node by running `ghe-cluster-maintenance -u`.

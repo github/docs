@@ -50,7 +50,7 @@ Many files can be [moved directly on {% data variables.product.product_name %}](
 
 1. On your computer, move the file to a new location within the directory that was created locally on your computer when you cloned the repository.
 {% data reusables.command_line.open_the_multi_os_terminal %}
-3. Use `git status` to check the old and new file locations.
+1. Use `git status` to check the old and new file locations.
 
    ```shell
    $ git status
@@ -77,7 +77,7 @@ Many files can be [moved directly on {% data variables.product.product_name %}](
    # {% data reusables.git.unstage-codeblock %}
    ```
 
-5. Use `git status` to check the changes staged for commit.
+1. Use `git status` to check the changes staged for commit.
 
    ```shell
    $ git status

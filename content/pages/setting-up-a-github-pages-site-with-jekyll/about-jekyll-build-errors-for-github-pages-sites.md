@@ -81,7 +81,7 @@ You can configure a third-party service, such as [Travis CI](https://travis-ci.c
    gem `github-pages`
    ```
 
-2. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.com/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
+1. Configure your site's repository for the testing service of your choice. For example, to use [Travis CI](https://travis-ci.com/), add a file named _.travis.yml_ in the root of your publishing source, with the following content:
 
    ```yaml
    language: ruby
@@ -90,4 +90,4 @@ You can configure a third-party service, such as [Travis CI](https://travis-ci.c
    script: "bundle exec jekyll build"
    ```
 
-3. You may need to activate your repository with the third-party testing service. For more information, see your testing service's documentation.
+1. You may need to activate your repository with the third-party testing service. For more information, see your testing service's documentation.

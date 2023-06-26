@@ -58,7 +58,7 @@ Keep in mind that what's an acceptable amount can vary. For example, spending $5
 
 1. Generally speaking, for any expenses exceeding $150, you'll need approval (each time) from Legal in writing. And for any gifts you receive exceeding $150, you'll need to report that (each time) to Legal in writing. (Legal is just weighing in on the bribery question. You might still need to check with Finance for other reasons.)
 
-2. When you submit your expense report for reimbursement, please:
+1. When you submit your expense report for reimbursement, please:
      - Indicate the recipient and the purpose of the gift in the notes; and
      - Include a copy of the email approval
 

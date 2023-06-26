@@ -23,8 +23,8 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 1. Under "{% data variables.product.prodname_GH_advanced_security %} GitHub Advanced Security", click **Committers**.
 
    ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Committers" dropdown is highlighted with an orange line.](/assets/images/help/enterprises/ghas-committers-dropdown.png)
-2. Under "Committers", click **Manage committers**.
-3. Under "Total committers", click the plus or minus buttons to add or remove committers.
+1. Under "Committers", click **Manage committers**.
+1. Under "Total committers", click the plus or minus buttons to add or remove committers.
 
    ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} committers screen. A text box with the number 5, a minus button on its left, and a plus button on its right, are highlighted in an orange outline.](/assets/images/help/enterprises/ghas-add-committers.png)
 1. Click **Update committers**.
@@ -37,4 +37,4 @@ Each license for {% data variables.product.prodname_GH_advanced_security %} spec
 1. To the right of "GitHub Advanced Security", click **Manage**, then click **Cancel Subscription**.
 
    ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Cancel Subscription" button is highlighted with an orange outline.](/assets/images/help/enterprises/ghas-cancel-subscription.png)
-2. To confirm your cancellation, click **I understand, cancel Advanced Security**.
+1. To confirm your cancellation, click **I understand, cancel Advanced Security**.

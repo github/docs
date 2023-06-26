@@ -53,11 +53,11 @@ To archive all repositories in an organization at once, you can archive the enti
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Danger Zone", click **Archive this repository**
-4. Read the warnings.
-5. In the text field, type the name of the repository you want to archive.
+1. Under "Danger Zone", click **Archive this repository**
+1. Read the warnings.
+1. In the text field, type the name of the repository you want to archive.
    ![Screenshot showing the "Archive repository" dialog box.](/assets/images/help/repository/archive-repository-warnings.png)
-6. Click **I understand the consequences, archive this repository**.
+1. Click **I understand the consequences, archive this repository**.
 
 ## Unarchiving a repository
 

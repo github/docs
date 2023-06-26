@@ -23,7 +23,7 @@ shortTitle: Known issues with upgrades
 
 If you upgrade from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9 or later, an upgrade to the database software on your instance will increase I/O utilization. In some cases, this may affect your instance's performance.
 
-{% data variables.product.prodname_ghe_server %} includes a MySQL database server supported by the InnoDB storage engine. {% data variables.product.prodname_ghe_server %} 3.8 and earlier use MySQL 5.7. In October 2023, Oracle will end extended support for MySQL 5.7. For more information, see [Oracle Lifetime Support Policy](https://www.oracle.com/us/support/library/lifetime-support-technology-069183.pdf) on the Oracle Support website.
+{% data variables.product.prodname_ghe_server %} includes a MySQL database server supported by the InnoDB storage engine. {% data variables.product.prodname_ghe_server %} 3.8 and earlier use MySQL 5.7. In October 2023, Oracle will end extended support for MySQL 5.1. For more information, see [Oracle Lifetime Support Policy](https://www.oracle.com/us/support/library/lifetime-support-technology-069183.pdf) on the Oracle Support website.
 
 To future-proof {% data variables.product.prodname_ghe_server %} and provide the latest security updates, bug fixes, and performance improvements, {% data variables.product.prodname_ghe_server %} 3.9 and later use MySQL 8.0. MySQL 8.0 achieves a higher number of queries per second (QPS) due to a redesigned REDO log. For more information, see [MySQL Performance: 8.0 re-designed REDO log & ReadWrite Workloads Scalability](http://dimitrik.free.fr/blog/archives/2017/10/mysql-performance-80-redesigned-redo-log-readwrite-workloads-scalability.html) on DimitriK's (dim) Weblog.
 

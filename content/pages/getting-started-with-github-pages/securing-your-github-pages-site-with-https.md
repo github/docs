@@ -34,7 +34,7 @@ All {% data variables.product.prodname_pages %} sites, including sites that are 
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-3. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
+1. Under "{% data variables.product.prodname_pages %}," select **Enforce HTTPS**.
 
 ## Troubleshooting certificate provisioning ("Certificate not yet created" error)
 

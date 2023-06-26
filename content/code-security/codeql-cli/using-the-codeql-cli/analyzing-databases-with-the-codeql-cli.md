@@ -64,10 +64,10 @@ which you may want to do if you want to customize the {% data variables.product.
 When you run `database analyze`, it:
 
 1. Optionally downloads any referenced {% data variables.product.prodname_codeql %} packages that are not available locally.
-2. Executes one or more query files, by running them over a {% data variables.product.prodname_codeql %} database.
-3. Interprets the results, based on certain query metadata, so that alerts can be
+1. Executes one or more query files, by running them over a {% data variables.product.prodname_codeql %} database.
+1. Interprets the results, based on certain query metadata, so that alerts can be
 displayed in the correct location in the source code.
-4. Reports the results of any diagnostic and summary queries to standard output.
+1. Reports the results of any diagnostic and summary queries to standard output.
 
 You can analyze a database by running the following command:
 

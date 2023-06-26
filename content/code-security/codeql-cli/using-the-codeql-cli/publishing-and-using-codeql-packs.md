@@ -166,14 +166,14 @@ You can publish packs and download private packs by authenticating to the approp
 You can authenticate to the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %} in two ways:
 
 1. Pass the `--github-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} via standard input.
-2. Set the `GITHUB_TOKEN` environment variable to a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %}.
+1. Set the `GITHUB_TOKEN` environment variable to a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %}.
 
 {% ifversion ghes %}
 
 Similarly, you can authenticate to a {% data variables.product.prodname_ghe_server %} {% data variables.product.prodname_container_registry %}, or authenticate to multiple registries simultaneously (for example, to download or run private packs from multiple registries) in two ways:
 
 1. Pass the `--registries-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a registry authentication string via standard input.
-2. Set the `CODEQL_REGISTRIES_AUTH` environment variable to a registry authentication string.
+1. Set the `CODEQL_REGISTRIES_AUTH` environment variable to a registry authentication string.
 
 A registry authentication string is a comma-separated list of `<registry-url>=<token>` pairs, where `registry-url` is a {% data variables.product.prodname_container_registry %} URL, such as `https://containers.GHE_HOSTNAME/v2/`, and `token` is a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} for that {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}.
 This ensures that each token is only passed to the {% data variables.product.prodname_container_registry %} you specify.

@@ -29,6 +29,6 @@ For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-yo
 {% endwarning %}
 
 1. [Create a new team](/organizations/organizing-members-into-teams/creating-a-team).
-2. [Add each of the members](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team) of your legacy admin team to the new team.
-3. [Give the new team equivalent access](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository) to each of the repositories the legacy team could access.
-4. [Delete the legacy admin team](/organizations/organizing-members-into-teams/deleting-a-team).
+1. [Add each of the members](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team) of your legacy admin team to the new team.
+1. [Give the new team equivalent access](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository) to each of the repositories the legacy team could access.
+1. [Delete the legacy admin team](/organizations/organizing-members-into-teams/deleting-a-team).

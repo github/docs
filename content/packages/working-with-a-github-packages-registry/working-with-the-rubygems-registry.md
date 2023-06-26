@@ -157,7 +157,7 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   end
   ```
 
-3. For Bundler versions earlier than 1.7.0, you need to add a new global `source`. For more information on using Bundler, see the [bundler.io documentation](https://bundler.io/gemfile.html).
+1. For Bundler versions earlier than 1.7.0, you need to add a new global `source`. For more information on using Bundler, see the [bundler.io documentation](https://bundler.io/gemfile.html).
 
   ```ruby
   source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE"
@@ -167,11 +167,11 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   gem "GEM_NAME"
   ```
 
-4. Install the package:
+1. Install the package:
 
-   ```
-   gem install GEM_NAME --version "0.1.1"
-   ```
+  ```
+  gem install GEM_NAME --version "0.1.1"
+  ```
 
 ## Further reading
 

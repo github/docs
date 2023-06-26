@@ -198,7 +198,7 @@ receive request bodies:
 
         {"message":"Problems parsing JSON"}
 
-2. Sending the wrong type of JSON values will result in a `400 Bad
+1. Sending the wrong type of JSON values will result in a `400 Bad
    Request` response.
 
         HTTP/2 400
@@ -206,7 +206,7 @@ receive request bodies:
 
         {"message":"Body should be a JSON object"}
 
-3. Sending invalid fields will result in a `422 Unprocessable Entity`
+1. Sending invalid fields will result in a `422 Unprocessable Entity`
    response.
 
         HTTP/2 422

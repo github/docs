@@ -43,7 +43,7 @@ Organizations can use the `name@organization.com` email as a public point of con
 
   {% endtip %}
 
-2. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
+1. On the next line of the commit message, type `on-behalf-of: @org <name@organization.com>`, then a closing quotation mark.
 
    ```shell
    $ git commit -m "Refactor usability tests.

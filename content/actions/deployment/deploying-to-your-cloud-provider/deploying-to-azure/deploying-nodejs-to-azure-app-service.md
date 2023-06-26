@@ -40,7 +40,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 {% data reusables.actions.create-azure-app-plan %}
 
-2. Create a web app.
+1. Create a web app.
 
    For example, you can use the Azure CLI to create an Azure App Service web app with a Node.js runtime:
 
@@ -56,7 +56,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 {% data reusables.actions.create-azure-publish-profile %}
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+1. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 
 ## Creating the workflow
 

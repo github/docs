@@ -51,10 +51,10 @@ The `configure` CLI command is used to set required credentials and options for 
    Your token must have the `workflow` scope.
 
    After creating the token, copy it and save it in a safe location for later use.
-2. Create a Jenkins API token. For more information, see [Authenticating scripted clients](https://www.jenkins.io/doc/book/system-administration/authenticating-scripted-clients/) in the Jenkins documentation.
+1. Create a Jenkins API token. For more information, see [Authenticating scripted clients](https://www.jenkins.io/doc/book/system-administration/authenticating-scripted-clients/) in the Jenkins documentation.
 
    After creating the token, copy it and save it in a safe location for later use.
-3. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
 
    ```shell
    gh actions-importer configure

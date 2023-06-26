@@ -147,7 +147,7 @@ Email notifications from {% data variables.location.product_location %} contain 
 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
-3. On the notifications settings page, choose how you receive notifications when:
+1. On the notifications settings page, choose how you receive notifications when:
     - There are updates in repositories {% ifversion team-discussions %}or team discussions{% endif %} you're watching or in a conversation you're participating in. For more information, see "[About participating and watching notifications](#about-participating-and-watching-notifications)."
     - You gain access to a new repository or you've joined a new team. For more information, see "[Automatic watching](#automatic-watching)."
     - There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see "[{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options)."  {% ifversion fpt or ghec %}
@@ -275,16 +275,16 @@ You can also schedule when {% data variables.product.prodname_mobile %} will sen
 ### Managing your notification settings with {% data variables.product.prodname_ios %}
 
 1. In the bottom menu, tap **Profile**.
-2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
-4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
+1. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
+1. To update your notification settings, tap **Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+1. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
 
 ### Managing your notification settings with {% data variables.product.prodname_android %}
 
 1. In the bottom menu, tap **Profile**.
-2. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
-3. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
-4. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
+1. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
+1. To update your notification settings, tap **Configure Notifications** and then use the toggles to enable or disable your preferred types of push notifications.
+1. Optionally, to schedule when {% data variables.product.prodname_mobile %} will send push notifications to your mobile device, tap **Working Hours**, use the **Custom working hours** toggle, and then choose when you would like to receive push notifications.
 
 ## Configuring your watch settings for an individual repository with {% data variables.product.prodname_mobile %}
 
