@@ -82,14 +82,14 @@ If you're setting up your AMI for the first time, you will need to create a secu
 
 1. Using the AWS CLI, create a new security group. For more information, see "[create-security-group](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)" in the AWS documentation.
    ```shell
-   $ aws ec2 create-security-group --group-name SECURITY_GROUP_NAME --description "SECURITY GROUP DESCRIPTION"
+   aws ec2 create-security-group --group-name SECURITY_GROUP_NAME --description "SECURITY GROUP DESCRIPTION"
    ```
 
 2. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
 
 3. Create a security group rule for each of the ports in the table below. For more information, see "[authorize-security-group-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html)" in the AWS documentation.
    ```shell
-   $ aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE
+   aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE
    ```
   This table identifies what each port is used for.
 

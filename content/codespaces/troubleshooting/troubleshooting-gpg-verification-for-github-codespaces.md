@@ -88,7 +88,7 @@ For example, if the global `.gitconfig` file on your local machine contains a `g
 2. To remove the conflicting value from `~/.gitconfig` (Mac/Linux) or `C:\Users\YOUR-USER\.gitconfig` (Windows), use the `git config --global --unset` command.
 
    ```Shell
-   $ git config --global --unset gpg.program
+   git config --global --unset gpg.program
    ```
 3. Push the change to your dotfiles repository on {% data variables.product.prodname_dotcom %}.
 4. Optionally, to keep your local configuration, set the value again in a Git configuration file that you do not push to your dotfiles repository.
@@ -96,7 +96,7 @@ For example, if the global `.gitconfig` file on your local machine contains a `g
    For example, you can use the `--system` flag to set the configuration in the system-level file at `PATH/etc/gitconfig`, where `PATH` is the directory in which Git is installed on your system.
 
    ```Shell
-   $ git config --system gpg.program gpg2
+   git config --system gpg.program gpg2
    ```
 
 Alternatively, if your dotfiles repository contains an installation script in a recognized file such as `install.sh`, you can use the `$CODESPACES` environment variable to add conditional logic, such as only setting `gpg.program` when you are not in a codespace. In the following example, `-z "$CODESPACES"` returns `true` if you are not in a codespace.

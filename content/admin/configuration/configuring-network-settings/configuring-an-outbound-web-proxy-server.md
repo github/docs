@@ -63,6 +63,6 @@ Your instance validates the hostnames for proxy exclusion using the list of IANA
 1. Enter the following command, replacing COMMA-SEPARATED-TLD-LIST with a comma-separated list of TLDs.
 
    ```shell
-   $ ghe-config noproxy.exception-tld-list "COMMA-SEPARATED-TLD-LIST"
+   ghe-config noproxy.exception-tld-list "COMMA-SEPARATED-TLD-LIST"
    ```
 {% data reusables.enterprise.apply-configuration %}

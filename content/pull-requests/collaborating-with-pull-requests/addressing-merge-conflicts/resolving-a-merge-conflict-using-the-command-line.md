@@ -67,11 +67,11 @@ For example, if you and another person both edited the file _styleguide.md_ on t
    ```
 7. Add or stage your changes.
    ```shell
-   $ git add .
+   git add .
    ```
 8. Commit your changes with a comment.
    ```shell
-   $ git commit -m "Resolved merge conflict by incorporating both suggestions."
+   git commit -m "Resolved merge conflict by incorporating both suggestions."
    ```
 
 You can now merge the branches on the command line or [push your changes to your remote repository](/get-started/using-git/pushing-commits-to-a-remote-repository) on {% data variables.product.product_name %} and [merge your changes](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request) in a pull request.
@@ -109,7 +109,7 @@ For example, if you edited a file, such as _README.md_, and another person remov
 
    To add the removed file back to your repository:
    ```shell
-   $ git add README.md
+   git add README.md
    ```
    To remove this file from your repository:
    ```shell

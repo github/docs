@@ -30,8 +30,8 @@ The best way to explain subtree merges is to show by example. We will:
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Create a new directory and navigate to it.
    ```shell
-   $ mkdir test
-   $ cd test
+   mkdir test
+   cd test
    ```
 3. Initialize a new Git repository.
    ```shell
@@ -100,13 +100,13 @@ Although we've only added one subproject, any number of subprojects can be incor
 When a subproject is added, it is not automatically kept in sync with the upstream changes. You will need to update the subproject with the following command:
 
 ```shell
-$ git pull -s subtree REMOTE-NAME BRANCH-NAME
+git pull -s subtree REMOTE-NAME BRANCH-NAME
 ```
 
 For the example above, this would be:
 
 ```shell
-$ git pull -s subtree spoon-knife main
+git pull -s subtree spoon-knife main
 ```
 
 ## Further reading

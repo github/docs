@@ -211,7 +211,7 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 5. Install the package.
 
    ```shell
-   $ npm install
+   npm install
    ```
 
 ### Installing packages from other organizations

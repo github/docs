@@ -46,7 +46,7 @@ If the changes from the upstream repository cause conflicts, {% data variables.p
 To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
 
 ```shell
-$ gh repo sync owner/cli-fork -b BRANCH_NAME
+gh repo sync owner/cli-fork -b BRANCH_NAME
 ```
 
 If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.

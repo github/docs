@@ -33,7 +33,7 @@ To set your token on GitHub:
 Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:
 
 ```shell
-$ export SECRET_TOKEN=YOUR-TOKEN
+export SECRET_TOKEN=YOUR-TOKEN
 ```
 
 **Never** hardcode the token into your app!

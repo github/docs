@@ -114,7 +114,7 @@ Right now, you have a fork of the Spoon-Knife repository, but you do not have th
 {% data reusables.command_line.change-current-directory-clone %}
 4. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
    ```shell
-   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
+   git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/Spoon-Knife
    ```
 
 5. Press **Enter**. Your local clone will be created.
@@ -174,7 +174,7 @@ When you fork a project in order to propose changes to the upstream repository, 
 
 6. Type `git remote add upstream`, and then paste the URL you copied in Step 3 and press **Enter**. It will look like this:
    ```shell
-   $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
+   git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/Spoon-Knife.git
    ```
 
 7. To verify the new upstream repository you have specified for your fork, type `git remote -v` again. You should see the URL for your fork as `origin`, and the URL for the upstream repository as `upstream`.

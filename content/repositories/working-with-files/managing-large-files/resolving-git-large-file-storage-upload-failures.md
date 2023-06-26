@@ -19,9 +19,9 @@ To resolve the error message, you must reinstall your local {% data variables.la
 1. Open Terminal.
 2. Reinstall {% data variables.large_files.product_name_short %}.
    ```shell
-   $ git lfs install
+   git lfs install
    ```
 3. Push all referenced {% data variables.large_files.product_name_short %} files.
    ```shell
-   $ git lfs push --all origin
+   git lfs push --all origin
    ```

@@ -24,7 +24,7 @@ some of the problems you may be experiencing.
 You should use the `X-GitHub-Api-Version` header to specify an API version. For example:
 
 ```shell
-$ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
+curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 ```
 
 If you specify a version that does not exist, you will receive a `400` error.

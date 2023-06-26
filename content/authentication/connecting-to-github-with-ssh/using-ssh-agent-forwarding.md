@@ -148,7 +148,7 @@ ssh-add -L
 If the command says that no identity is available, you'll need to add your key:
 
 ```shell
-$ ssh-add YOUR-KEY
+ssh-add YOUR-KEY
 ```
 
 {% tip %}
@@ -156,7 +156,7 @@ $ ssh-add YOUR-KEY
 On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
 
 ```shell
-$ ssh-add --apple-use-keychain YOUR-KEY
+ssh-add --apple-use-keychain YOUR-KEY
 ```
 
 For MacOS versions prior to Monterey (12.0), use `-K` instead of `--apple-use-keychain`. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)."

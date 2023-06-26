@@ -1,6 +1,6 @@
 1. To start replication of the datastores, use the `ghe-repl-start` command.
    ```shell
-   $ ghe-repl-start
+   ghe-repl-start
    ```
    {% warning %}
 

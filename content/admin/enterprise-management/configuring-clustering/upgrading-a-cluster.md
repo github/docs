@@ -26,7 +26,7 @@ topics:
 1. Back up your data with [{% data variables.product.prodname_enterprise_backup_utilities %}](https://github.com/github/backup-utils#readme).
 2. From the administrative shell of any node, use the `ghe-cluster-hotpatch` command to install the latest hotpatch. You can provide a URL for a hotpatch, or manually download the hotpatch and specify a local filename.
    ```shell
-   $ ghe-cluster-hotpatch https://HOTPATCH-URL/FILENAME.hpkg
+   ghe-cluster-hotpatch https://HOTPATCH-URL/FILENAME.hpkg
    ```
 
 ## Upgrading with an upgrade package

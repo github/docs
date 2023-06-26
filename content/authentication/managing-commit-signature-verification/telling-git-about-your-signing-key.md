@@ -49,9 +49,9 @@ If you have multiple GPG keys, you need to tell Git which one to use.
    ```
 1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
    ```shell
-   $ brew install pinentry-mac
-   $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
-   $ killall gpg-agent
+   brew install pinentry-mac
+   echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+   killall gpg-agent
    ```
 
 {% endmac %}
@@ -97,7 +97,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.set-auto-sign %}
 1. To add your GPG key to your `.bashrc` startup file, run the following command:
    ```bash
-   $ [ -f ~/.bashrc ] && echo -e '\nexport GPG_TTY=\$(tty)' >> ~/.bashrc
+   [ -f ~/.bashrc ] && echo -e '\nexport GPG_TTY=\$(tty)' >> ~/.bashrc
    ```
 {% endlinux %}
 {% ifversion ssh-commit-verification %}

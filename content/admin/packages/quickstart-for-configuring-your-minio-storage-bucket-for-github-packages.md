@@ -34,14 +34,14 @@ For more information about your options, see the official [MinIO docs](https://d
 
     These examples use `MINIO_DIR`:
     ```shell
-    $ export MINIO_DIR=$(pwd)/minio
-    $ mkdir -p $MINIO_DIR
+    export MINIO_DIR=$(pwd)/minio
+    mkdir -p $MINIO_DIR
     ```
 
 2. Install MinIO.
 
     ```shell
-    $ docker pull minio/minio
+    docker pull minio/minio
     ```
     For more information, see the official "[MinIO Quickstart Guide](https://docs.min.io/docs/minio-quickstart-guide)."
 
@@ -66,8 +66,8 @@ For more information about your options, see the official [MinIO docs](https://d
     You can access your MinIO keys using the environment variables:
 
     ```shell
-    $ echo $MINIO_ACCESS_KEY
-    $ echo $MINIO_SECRET_KEY
+    echo $MINIO_ACCESS_KEY
+    echo $MINIO_SECRET_KEY
     ```
 
 4. Run MinIO in your chosen mode.
@@ -91,7 +91,7 @@ For more information about your options, see the official [MinIO docs](https://d
 1. Install the MinIO client.
 
     ```shell
-    $ docker pull minio/mc
+    docker pull minio/mc
     ```
 
 2. Create a bucket with a host URL that {% data variables.product.prodname_ghe_server %} can access.
@@ -99,8 +99,8 @@ For more information about your options, see the official [MinIO docs](https://d
    - Local deployments example:
 
      ```shell
-     $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
-     $ docker run minio/mc BUCKET-NAME
+     export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @localhost:9000"
+     docker run minio/mc BUCKET-NAME
      ```
 
      This example can be used for MinIO standalone.
@@ -108,8 +108,8 @@ For more information about your options, see the official [MinIO docs](https://d
    - Clustered deployments example:
 
      ```shell
-     $ export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @minioclustername.example.com:9000"
-     $ docker run minio/mc mb packages
+     export MC_HOST_minio="http://${MINIO_ACCESS_KEY}:${MINIO_SECRET_KEY} @minioclustername.example.com:9000"
+     docker run minio/mc mb packages
      ```
 
 ## Next steps

@@ -99,8 +99,8 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
 
 3. To keep the same {% data variables.large_files.product_name_short %} configuration for each user, commit a custom `.lfsconfig` file to the repository.
    ```shell
-   $ git add .lfsconfig
-   $ git commit -m "Adding LFS config file"
+   git add .lfsconfig
+   git commit -m "Adding LFS config file"
    ```
 3. Migrate any existing {% data variables.large_files.product_name_short %} assets. For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
 

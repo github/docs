@@ -81,7 +81,7 @@ shortTitle: Export from GHES
 
 6. To add more repositories to the same export, use the `ghe-migrator add` command with the `-g` flag. You'll pass in the new repository URL and the Migration GUID from Step 5:
    ```shell
-   $ ghe-migrator add https://HOSTNAME/USERNAME/OTHER-REPO-NAME -g MIGRATION-GUID --lock
+   ghe-migrator add https://HOSTNAME/USERNAME/OTHER-REPO-NAME -g MIGRATION-GUID --lock
    ```
 7. When you've finished adding repositories, generate the migration archive using the `ghe-migrator export` command with the `-g` flag and the Migration GUID from Step 5:
    ```shell
@@ -98,6 +98,6 @@ shortTitle: Export from GHES
    ```
 9. Copy the migration archive to your computer using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command. The archive file will be named with the Migration GUID:
    ```shell
-   $ scp -P 122 admin@HOSTNAME:/data/github/current/tmp/MIGRATION-GUID.tar.gz ~/Desktop
+   scp -P 122 admin@HOSTNAME:/data/github/current/tmp/MIGRATION-GUID.tar.gz ~/Desktop
    ```
 {% data reusables.enterprise_migrations.ready-to-import-migrations %}

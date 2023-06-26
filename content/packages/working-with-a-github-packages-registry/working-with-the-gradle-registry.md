@@ -163,7 +163,7 @@ subprojects {
 2. After creating your package, you can publish the package.
 
    ```shell
-    $ gradle publish
+    gradle publish
    ```
 
 ## Using a published package

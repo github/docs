@@ -50,7 +50,7 @@ But you can follow along at any experience level. We'll link out to information 
 Before you begin, you'll need to clone the repository with the template code used in this quickstart. Open your Terminal app and find a directory where you'd like to store the code. Run this command to clone the [GitHub App template](https://github.com/github-developer/github-app-template) repository:
 
 ```shell
-$ git clone https://github.com/github-developer/github-app-template.git
+git clone https://github.com/github-developer/github-app-template.git
 ```
 
 ## Step 1. Start a new Smee channel
@@ -70,13 +70,13 @@ Next, go back to the Terminal and follow these steps to run the Smee command-lin
 1. Install the client:
 
     ```shell
-    $ npm install --global smee-client
+    npm install --global smee-client
     ```
 
 2. Run the client (replacing `https://smee.io/qrfeVRbFbffd6vD` with your own domain):
 
     ```shell
-    $ smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000
+    smee --url https://smee.io/qrfeVRbFbffd6vD --path /event_handler --port 3000
     ```
 
     You should see output like the following:
@@ -306,19 +306,19 @@ Your app doesn't _do_ anything yet, but at this point, you can get it running on
 Keep Smee running in the current tab in your Terminal. Open a new tab and `cd` into the directory where you [cloned the template app code](#prerequisites). The Ruby code in this repository will start up a [Sinatra](https://sinatrarb.com/) web server. This code has a few dependencies. You can install these by running:
 
 ```shell
-$ gem install bundler
+gem install bundler
 ```
 
 Followed by:
 
 ```shell
-$ bundle install
+bundle install
 ```
 
 With the dependencies installed, you can start the server:
 
 ```shell
-$ bundle exec ruby template_server.rb
+bundle exec ruby template_server.rb
 ```
 
 You should see a response like:

@@ -30,11 +30,11 @@ shortTitle: Remove files
 1. Remove the files from the repository's Git history using either the `filter-repo` command or BFG Repo-Cleaner. For detailed information on using these, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 2. Optionally, to uninstall {% data variables.large_files.product_name_short %} in the repository, run:
    ```shell
-   $ git lfs uninstall
+   git lfs uninstall
    ```
    For {% data variables.large_files.product_name_short %} versions below 1.1.0, run:
    ```shell
-   $ git lfs uninit
+   git lfs uninit
    ```
 
 ## {% data variables.large_files.product_name_short %} objects in your repository

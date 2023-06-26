@@ -45,7 +45,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. If you don't already have a local copy of your repository, navigate to the location where you want to store your site's source files, replacing PARENT-FOLDER with the folder you want to contain the folder for your repository.
    ```shell
-   $ cd PARENT-FOLDER
+   cd PARENT-FOLDER
    ```
 1. If you haven't already, initialize a local Git repository, replacing REPOSITORY-NAME with the name of your repository.
    ```shell
@@ -113,7 +113,7 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    ```
 1. Push the repository to {% data variables.product.product_name %}, replacing BRANCH with the name of the branch you're working on.
    ```shell
-   $ git push -u origin BRANCH
+   git push -u origin BRANCH
    ```
 {% data reusables.pages.configure-publishing-source %}
 {% data reusables.pages.navigate-site-repo %}

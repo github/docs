@@ -68,11 +68,11 @@ We do not recommend customizing UFW as it can complicate some troubleshooting is
 1. Configure a custom firewall rule.
 2. Check the status of each new rule with the `status numbered` command.
    ```shell
-   $ sudo ufw status numbered
+   sudo ufw status numbered
    ```
 3. To back up your custom firewall rules, use the `cp`command to move the rules to a new file.
    ```shell
-   $ sudo cp -r /etc/ufw ~/ufw.backup
+   sudo cp -r /etc/ufw ~/ufw.backup
    ```
 
 After you upgrade {% data variables.location.product_location %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
@@ -90,11 +90,11 @@ If something goes wrong after you change the firewall rules, you can reset the r
 {% data reusables.enterprise_installation.ssh-into-instance %}
 2. To restore the previous backup rules, copy them back to the firewall with the `cp` command.
    ```shell
-   $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
+   sudo cp -f ~/ufw.backup/*rules /etc/ufw
    ```
 3. Restart the firewall with the `systemctl` command.
    ```shell
-   $ sudo systemctl restart ufw
+   sudo systemctl restart ufw
    ```
 4. Confirm that the rules are back to their defaults with the `ufw status` command.
    ```shell

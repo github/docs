@@ -110,13 +110,13 @@ $ svn commit -m 'Test coverage for problems'
 To switch between branches, you'll probably want to start with a checkout of `trunk`:
 
 ```shell
-$ svn co --depth empty https://github.com/USER/REPO/trunk
+svn co --depth empty https://github.com/USER/REPO/trunk
 ```
 
 Then, you can switch to another branch:
 
 ```shell
-$ svn switch https://github.com/USER/REPO/branches/more_awesome
+svn switch https://github.com/USER/REPO/branches/more_awesome
 ```
 
 ## Finding the Git commit SHA for a Subversion commit

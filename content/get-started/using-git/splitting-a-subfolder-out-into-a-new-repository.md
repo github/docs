@@ -22,12 +22,12 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
 4. Clone the repository that contains the subfolder.
    ```shell
-   $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME
+   git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY-NAME
    ```
 
 4. Change the current working directory to your cloned repository.
    ```shell
-   $ cd REPOSITORY-NAME
+   cd REPOSITORY-NAME
    ```
 
 5. To filter out the subfolder from the rest of the files in the repository, install [`git-filter-repo`](https://github.com/newren/git-filter-repo), then run `git filter-repo` with the following arguments.

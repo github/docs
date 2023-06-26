@@ -71,7 +71,7 @@ Anyone can work with a previously opened pull request to continue working on it,
 {% data reusables.command_line.open_the_multi_os_terminal %}
 5. Fetch the reference to the pull request based on its ID number, creating a new branch in the process.
    ```shell
-   $ git fetch origin pull/ID/head:BRANCH_NAME
+   git fetch origin pull/ID/head:BRANCH_NAME
    ```
 6. Switch to the new branch that's based on this pull request:
    ```shell

@@ -29,7 +29,7 @@ To restore a backup of {% data variables.location.product_location %} with {% da
 1. SSH into the destination instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
    ```shell copy
-   $ ssh -p 122 admin@HOSTNAME
+   ssh -p 122 admin@HOSTNAME
    ```
 1. Configure the destination instance to use the same external storage service for {% data variables.product.prodname_actions %} as the source instance by entering one of the following commands.
 {% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}

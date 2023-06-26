@@ -26,7 +26,7 @@ shortTitle: Prepare to migrate data
 1. Using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy the migration archive generated from your source instance or organization to your {% data variables.product.prodname_ghe_server %} target:
 
     ```shell
-    $ scp -P 122 PATH-TO-MIGRATION-GUID.tar.gz admin@HOSTNAME:/home/admin/
+    scp -P 122 PATH-TO-MIGRATION-GUID.tar.gz admin@HOSTNAME:/home/admin/
     ```
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
@@ -44,12 +44,12 @@ shortTitle: Prepare to migrate data
 
 1. Using the `ghe-migrator conflicts` command with the Migration GUID, generate a _conflicts.csv_ file:
     ```shell
-    $ ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
+    ghe-migrator conflicts -g MIGRATION-GUID > conflicts.csv
     ```
     - If no conflicts are reported, you can safely import the data by following the steps in "[AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server)".
 2. If there are conflicts, using the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command, copy _conflicts.csv_ to your local computer:
    ```shell
-   $ scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
+   scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
    ```
 3. Continue to "[Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
 
@@ -121,7 +121,7 @@ Given a list of usernames from the source and a list of usernames on the target,
 You can quickly generate a CSV of users being migrated in the CSV format needed to apply custom mappings by using the [`ghe-migrator audit`](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server) command:
 
 ```shell
-$ ghe-migrator audit -m user -g MIGRATION-GUID > users.csv
+ghe-migrator audit -m user -g MIGRATION-GUID > users.csv
 ```
 
 Now, you can edit that CSV and enter the new URL for each user you would like to map or rename, and then update the fourth column to have `map` or `rename` as appropriate.
@@ -139,13 +139,13 @@ The same process can be used to create mappings for each record that supports cu
 1. After making changes, use the [`scp`](https://acloudguru.com/blog/engineering/ssh-and-scp-howto-tips-tricks#scp) command to apply your modified _conflicts.csv_ (or any other mapping _.csv_ file in the correct format) to the target instance:
 
     ```shell
-    $ scp -P 122 ~/Desktop/conflicts.csv admin@HOSTNAME:/home/admin/
+    scp -P 122 ~/Desktop/conflicts.csv admin@HOSTNAME:/home/admin/
     ```
 
 2. Re-map the migration data using the `ghe-migrator map` command, passing in the path to your modified _.csv_ file and the Migration GUID:
 
     ```shell
-    $ ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID
+    ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID
     ```
 
 3. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.

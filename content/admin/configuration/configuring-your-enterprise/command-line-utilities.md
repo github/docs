@@ -117,7 +117,7 @@ $ ghe-config -l
 Allows you to find the universally unique identifier (UUID) of your node in `cluster.conf`.
 
 ```shell
-  $ ghe-config HOSTNAME.uuid
+  ghe-config HOSTNAME.uuid
 ```
 
 Allows you to exempt a list of users from REST API rate limits. A hard limit of 120,000 requests will still apply to these users. Usernames you provide for this command are case-sensitive. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
@@ -278,7 +278,7 @@ ghe-org-admin-promote -a
 Use this command to immediately unlock the {% data variables.enterprise.management_console %} after {% ifversion enterprise-authentication-rate-limits %}an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits)".{% else %}10 failed login attempts in the span of 10 minutes.{% endif %}
 
 ```shell
-$ ghe-reactivate-admin-login
+ghe-reactivate-admin-login
 ```
 
 ### ghe-saml-mapping-csv
@@ -410,7 +410,7 @@ This utility allows you to configure the primary network interface.
 To enter visual mode, which will guide you through configuration of network settings:
 
 ```shell
-$ ghe-setup-network -v
+ghe-setup-network -v
 ```
 
 Use the -h flag for additional options.
@@ -420,7 +420,7 @@ Use the -h flag for additional options.
 This utility checks the existing SSH host keys against the list of known leaked SSH host keys.
 
 ```shell
-$ ghe-ssh-check-host-keys
+ghe-ssh-check-host-keys
 ```
 
 If a leaked host key is found the utility exits with status `1` and a message:
@@ -540,7 +540,7 @@ ghe-ssl-generate-csr
 Some platforms require this script to expand the user volume. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity)".
 
 ```shell
-$ ghe-storage-extend
+ghe-storage-extend
 ```
 
 ### ghe-version
@@ -548,7 +548,7 @@ $ ghe-storage-extend
 This utility prints the version, platform, and build of {% data variables.location.product_location %}.
 
 ```shell
-$ ghe-version
+ghe-version
 ```
 
 ### ghe-webhook-logs
@@ -583,19 +583,19 @@ This utility allows you to enforce an even distribution of allocations across yo
 To output a list of balanceable jobs and their associated allocation spread:
 
 ```shell
-$ ghe-cluster-balance status
+ghe-cluster-balance status
 ```
 
 To output allocation counts for a given job or comma-delimited list of jobs:
 
 ```shell
-$ ghe-cluster-balance -j JOB
+ghe-cluster-balance -j JOB
 ```
 
 To rebalance problematic allocations for a given job or comma-delimited list of jobs:
 
 ```shell
-$ ghe-cluster-balance rebalance -j JOB
+ghe-cluster-balance rebalance -j JOB
 ```
 
 You can use the following flags with `ghe-cluster-balance rebalance`.
@@ -611,13 +611,13 @@ Flag | Description
 To output completion scripts for the given shell:
 
 ```shell
-$ ghe-cluster-balance completion
+ghe-cluster-balance completion
 ```
 
 To display a short description of the utility and any valid subcommands:
 
 ```shell
-$ ghe-cluster-balance help
+ghe-cluster-balance help
 ```
 
 {% endif %}
@@ -627,7 +627,7 @@ $ ghe-cluster-balance help
 Check the health of your nodes and services in a cluster deployment of {% data variables.product.prodname_ghe_server %}.
 
 ```shell
-$ ghe-cluster-status
+ghe-cluster-status
 ```
 
 ### ghe-cluster-support-bundle
@@ -640,38 +640,38 @@ By default, the command creates the tarball in _/tmp_, but you can also have it 
 
 To create a standard bundle:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 3 hours:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 2 days:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 4 days and 8 hours:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
 
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- ghe-cluster-support-bundle -x -o' > cluster-support-bundle.tgz
 ```
 
 To send a bundle to {% data variables.contact.github_support %}:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -u'
+ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -u'
 ```
 
 To send a bundle to {% data variables.contact.github_support %} and associate the bundle with a ticket:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
+ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
 
 ### ghe-dpages
@@ -1048,38 +1048,38 @@ By default, the command creates the tarball in _/tmp_, but you can also have it 
 
 To create a standard bundle:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 3 hours:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}3hours {% elsif ghes < 3.9 %}'3 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 2 days:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% elsif ghes < 3.9 %}'2 days' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create a standard bundle including data from the last 4 days and 8 hours:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}4days8hours {% elsif ghes < 3.9 %}'4 days 8 hours' {% endif %} -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -x -o' > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -x -o' > support-bundle.tgz
 ```
 
 To send a bundle to {% data variables.contact.github_support %}:
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -u'
+ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -u'
 ```
 
 To send a bundle to {% data variables.contact.github_support %} and associate the bundle with a ticket:
 
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -t TICKET_ID'
+ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -t TICKET_ID'
 ```
 
 ### ghe-support-upload
@@ -1135,7 +1135,7 @@ A file containing the status of the download is available at _/var/lib/ghe-updat
 To check for the latest {% data variables.product.prodname_enterprise %} release, use the `-i` switch.
 
 ```shell
-$ ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
+ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
 ```
 
 ### ghe-upgrade
@@ -1162,7 +1162,7 @@ The `ghe-upgrade-scheduler` utility is best suited for scheduling hotpatch upgra
 
 To schedule a new installation for a package:
 ```shell
-$ ghe-upgrade-scheduler -c "0 2 15 12 *" UPGRADE-PACKAGE-FILENAME
+ghe-upgrade-scheduler -c "0 2 15 12 *" UPGRADE-PACKAGE-FILENAME
 ```
 
 To show scheduled installations for a package:
@@ -1173,7 +1173,7 @@ $ ghe-upgrade-scheduler -s UPGRADE PACKAGE FILENAME
 
 To remove scheduled installations for a package:
 ```shell
-$ ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
+ghe-upgrade-scheduler -r UPGRADE PACKAGE FILENAME
 ```
 
 ## User management

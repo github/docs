@@ -41,13 +41,13 @@ For more information about authenticating with {% data variables.product.prodnam
 
 1. Install Git using [Homebrew](https://brew.sh/):
    ```shell
-   $ brew install git
+   brew install git
    ```
 
 2. Install GCM using Homebrew:
    ```shell
-   $ brew tap microsoft/git
-   $ brew install --cask git-credential-manager-core
+   brew tap microsoft/git
+   brew install --cask git-credential-manager-core
    ```
   For MacOS, you don't need to run `git config` because GCM automatically configures Git for you.
 

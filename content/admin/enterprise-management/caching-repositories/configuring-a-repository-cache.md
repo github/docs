@@ -38,7 +38,7 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 1. Connect to the repository cache's IP address using SSH.
 
    ```shell
-   $ ssh -p 122 admin@REPLICA-IP
+   ssh -p 122 admin@REPLICA-IP
    ```
 
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
@@ -46,22 +46,22 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
 1. To verify the connection to the primary and enable replica mode for the repository cache, run `ghe-repl-setup` again.
    - If the repository cache is your only additional node, no arguments are required.
       ```shell
-      $ ghe-repl-setup PRIMARY-IP
+      ghe-repl-setup PRIMARY-IP
       ```
    - If you're configuring a repository cache in addition to one or more existing replicas, use the `-a` or `--add` argument.
       ```
-      $ ghe-repl-setup -a PRIMARY-IP
+      ghe-repl-setup -a PRIMARY-IP
       ```
 {% ifversion ghes < 3.6 %}
 1. If you haven't already, set the datacenter name on the primary and any replica appliances, replacing DC-NAME with a datacenter name.
 
    ```
-   $ ghe-repl-node --datacenter DC-NAME
+   ghe-repl-node --datacenter DC-NAME
    ```
 1. Set a `cache-location` for the repository cache, replacing _CACHE-LOCATION_ with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
 
    ```shell
-   $ ghe-repl-node --cache CACHE-LOCATION --datacenter REPLICA-DC-NAME
+   ghe-repl-node --cache CACHE-LOCATION --datacenter REPLICA-DC-NAME
    ```
 {% else %}
 1. To configure the repository cache, use the `ghe-repl-node` command and include the necessary parameters.
@@ -70,12 +70,12 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
     - If you haven't already, set the datacenter name on the primary and any replica appliances, replacing DC-NAME with a datacenter name.
 
       ```
-      $ ghe-repl-node --datacenter DC-NAME
+      ghe-repl-node --datacenter DC-NAME
       ```
     - New caches will attempt to seed from another cache in the same datacenter. Set a `datacenter` for the repository cache, replacing _REPLICA-DC-NAME_ with the name of the datacenter where you're deploying the node.
 
     ```shell
-    $ ghe-repl-node --cache CACHE-LOCATION --cache-domain EXTERNAL-CACHE-DOMAIN --datacenter REPLICA-DC-NAME
+    ghe-repl-node --cache CACHE-LOCATION --cache-domain EXTERNAL-CACHE-DOMAIN --datacenter REPLICA-DC-NAME
     ```
 {% endif %}
 
@@ -98,19 +98,19 @@ Data location policies affect only Git content. Content in the database, such as
 You can configure a policy to replicate all networks with the `--default` flag. For example, this command will create a policy to replicate a single copy of every repository network to the set of repository caches whose `cache_location` is "kansas".
 
 ```
-$ ghe-spokesctl cache-policy set --default 1 kansas
+ghe-spokesctl cache-policy set --default 1 kansas
 ```
 
 To configure replication for a repository network, specify the repository that is the root of the network. A repository network includes a repository and all of the repository's forks. You cannot replicate part of a network without replicating the whole network.
 
 ```
-$ ghe-spokesctl cache-policy set <owner/repository> 1 kansas
+ghe-spokesctl cache-policy set <owner/repository> 1 kansas
 ```
 
 You can override a policy that replicates all networks and exclude specific networks by specifying a replica count of zero for the network. For example, this command specifies that any repository cache in location "kansas" cannot contain any copies of that network.
 
 ```
-$ ghe-spokesctl cache-policy set <owner/repository> 0 kansas
+ghe-spokesctl cache-policy set <owner/repository> 0 kansas
 ```
 
 Replica counts greater than one in a given cache location are not supported.

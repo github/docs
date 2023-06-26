@@ -24,13 +24,13 @@ shortTitle: Create HA replica
 {% data reusables.enterprise_installation.replica-steps %}
 1. Connect to the replica appliance's IP address using SSH.
    ```shell
-   $ ssh -p 122 admin@REPLICA_IP
+   ssh -p 122 admin@REPLICA_IP
    ```
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. To verify the connection to the primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
    ```shell
-   $ ghe-repl-setup PRIMARY_IP
+   ghe-repl-setup PRIMARY_IP
    ```
 {% data reusables.enterprise_installation.replication-command %}
 {% data reusables.enterprise_installation.verify-replication-channel %}

@@ -49,7 +49,7 @@ When you publish a package that is scoped to a personal account or an organizati
 2. Build your container image. This example builds an image from the Dockerfile in the current directory and assigns the image name `hello_docker`.
 
    ```shell
-   $ docker build -t hello_docker .
+   docker build -t hello_docker .
    ```
 
 3. Optionally, review the details of the Docker image you just created.
@@ -63,14 +63,14 @@ When you publish a package that is scoped to a personal account or an organizati
 
 4. Assign a name and hosting destination to your Docker image.
    ```shell
-   $ docker tag IMAGE_NAME {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:TAG
+   docker tag IMAGE_NAME {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/NEW_IMAGE_NAME:TAG
    ```
 
    Replace `NAMESPACE` with the name of the personal account or organization to which you want the package to be scoped.
 
    For example:
    ```shell
-   $ docker tag 38f737a91f39 {% ifversion fpt or ghec %}ghcr.io{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
+   docker tag 38f737a91f39 {% ifversion fpt or ghec %}ghcr.io{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
    ```
 
 5. If you haven't already, authenticate to the {% data variables.product.prodname_container_registry %}. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry#authenticating-to-the-container-registry)."
@@ -82,10 +82,10 @@ When you publish a package that is scoped to a personal account or an organizati
    {% endraw %}
 6. Push your container image to the {% data variables.product.prodname_container_registry %}.
    ```shell
-   $ docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE-NAME:TAG
+   docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE-NAME:TAG
    ```
    For example:
    ```shell
-   $ docker push {% ifversion fpt or ghec %}ghcr.io{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
+   docker push {% ifversion fpt or ghec %}ghcr.io{% elsif ghes > 3.4 %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/hello_docker:latest
    ```
 {% endif %}

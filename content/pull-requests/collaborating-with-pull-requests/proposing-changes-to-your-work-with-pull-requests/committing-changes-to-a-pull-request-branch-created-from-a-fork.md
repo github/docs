@@ -39,11 +39,11 @@ Only the user who created the pull request can give you permission to push commi
    {% endtip %}
 4. Change the current working directory to the location where you want to download the cloned directory.
    ```shell
-   $ cd open-source-projects
+   cd open-source-projects
    ```
 5. Type `git clone`, and then paste the URL you copied in Step 3.
    ```shell
-   $ git clone https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY
+   git clone https://{% data variables.command_line.codeblock %}/USERNAME/FORK-OF-THE-REPOSITORY
    ```
 6. Press **Enter**. Your local clone will be created.
    ```shell
@@ -61,13 +61,13 @@ Only the user who created the pull request can give you permission to push commi
    {% endtip %}
 7. Navigate into your new cloned repository.
    ```shell
-   $ cd FORK-OF-THE-REPOSITORY
+   cd FORK-OF-THE-REPOSITORY
    ```
 7. Switch branches to the compare branch of the pull request where the original changes were made. If you navigate to the original pull request, you'll see the compare branch at the top of the pull request.
 
    In this example, the compare branch is `test-branch`:
    ```shell
-   $ git checkout TEST-BRANCH
+   git checkout TEST-BRANCH
    ```
 
    {% tip %}

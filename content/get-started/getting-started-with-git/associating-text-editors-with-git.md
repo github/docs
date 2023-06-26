@@ -25,7 +25,7 @@ shortTitle: Associate text editors
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
    ```shell
-   $ git config --global core.editor "code --wait"
+   git config --global core.editor "code --wait"
    ```
 
 {% endmac %}
@@ -36,7 +36,7 @@ shortTitle: Associate text editors
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
    ```shell
-   $ git config --global core.editor "code --wait"
+   git config --global core.editor "code --wait"
    ```
 
 {% endwindows %}
@@ -47,7 +47,7 @@ shortTitle: Associate text editors
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
    ```shell
-   $ git config --global core.editor "code --wait"
+   git config --global core.editor "code --wait"
    ```
 
 {% endlinux %}
@@ -60,7 +60,7 @@ shortTitle: Associate text editors
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
    ```shell
-   $ git config --global core.editor "subl -n -w"
+   git config --global core.editor "subl -n -w"
    ```
 
 {% endmac %}
@@ -71,7 +71,7 @@ shortTitle: Associate text editors
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
    ```shell
-   $ git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
+   git config --global core.editor "'C:/Program Files (x86)/sublime text 3/subl.exe' -w"
    ```
 
 {% endwindows %}
@@ -82,7 +82,7 @@ shortTitle: Associate text editors
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
    ```shell
-   $ git config --global core.editor "subl -n -w"
+   git config --global core.editor "subl -n -w"
    ```
 
 {% endlinux %}
@@ -96,7 +96,7 @@ shortTitle: Associate text editors
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
    ```shell
-   $ git config --global core.editor "mate -w"
+   git config --global core.editor "mate -w"
    ```
 
 {% endmac %}
@@ -109,7 +109,7 @@ shortTitle: Associate text editors
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
    ```shell
-   $ git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+   git config --global core.editor "'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
    ```
 
 {% endwindows %}

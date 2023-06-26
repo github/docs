@@ -26,7 +26,7 @@ shortTitle: RubyGems registry
 - You must have RubyGems 2.4.1 or higher. To find your RubyGems version:
 
   ```shell
-  $ gem --version
+  gem --version
   ```
 
 - You must have bundler 1.6.4 or higher. To find your Bundler version:
@@ -82,7 +82,7 @@ gem sources --add https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg
 To authenticate with Bundler, configure Bundler to use your {% data variables.product.pat_v1 %}, replacing USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_generic %}, and NAMESPACE with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem is scoped{% else %}that owns the repository containing the gem{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace HOSTNAME with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace HOSTNAME with the hostname of {% data variables.location.product_location %}.{% endif %}
 
 ```shell
-$ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE USERNAME:TOKEN
+bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE USERNAME:TOKEN
 ```
 
 ## Publishing a package
@@ -165,7 +165,7 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
 
 4. Install the package:
    ```
-   $ gem install GEM_NAME --version "0.1.1"
+   gem install GEM_NAME --version "0.1.1"
    ```
 
 ## Further reading

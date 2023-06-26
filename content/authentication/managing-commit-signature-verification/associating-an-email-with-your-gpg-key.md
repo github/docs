@@ -26,11 +26,11 @@ If you're using a GPG key that matches your committer identity and your verified
 {% data reusables.gpg.copy-gpg-key-id %}
 4. Enter `gpg --edit-key GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
    ```shell
-   $ gpg --edit-key 3AA5C34371567BD2
+   gpg --edit-key 3AA5C34371567BD2
    ```
 5. Enter `gpg> adduid` to add the user ID details.
    ```shell
-   $ gpg> adduid
+   gpg> adduid
    ```
 6. Follow the prompts to supply your real name, email address, and any comments. You can modify your entries by choosing `N`, `C`, or `E`. {% data reusables.gpg.private-email %} {% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)."{% endif %}
    ```shell
@@ -43,7 +43,7 @@ If you're using a GPG key that matches your committer identity and your verified
 8. Enter your key's passphrase.
 9. Enter `gpg> save` to save the changes
    ```shell
-   $ gpg> save
+   gpg> save
    ```
 10. Enter `gpg --armor --export GPG key ID`, substituting in the GPG key ID you'd like to use. In the following example, the GPG key ID is `3AA5C34371567BD2`:
    ```shell

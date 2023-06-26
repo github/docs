@@ -21,8 +21,8 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 2. Clone the repository to your local machine.
     ```shell
-    $ git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
-    $ cd YOUR-REPOSITORY
+    git clone https://{% ifversion ghes or ghae %}YOUR-HOSTNAME{% else %}github.com{% endif %}/YOUR-USERNAME/YOUR-REPOSITORY.git
+    cd YOUR-REPOSITORY
     ```
 3. Create an `index.js` file and add a basic alert to say "Hello world!"
     {% raw %}
@@ -43,10 +43,10 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     {% endraw %}
 5. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
     ```shell
-    $ npm install
-    $ git add index.js package.json package-lock.json
-    $ git commit -m "initialize npm package"
-    $ git push
+    npm install
+    git add index.js package.json package-lock.json
+    git commit -m "initialize npm package"
+    git push
     ```
 6. Create a `.github/workflows` directory. In that directory, create a file named `release-package.yml`.
 7. Copy the following YAML content into the `release-package.yml` file{% ifversion ghes or ghae %}, replacing `YOUR-HOSTNAME` with the name of your enterprise{% endif %}.

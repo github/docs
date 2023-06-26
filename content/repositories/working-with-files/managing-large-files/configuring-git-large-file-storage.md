@@ -50,12 +50,12 @@ If there are existing files in your repository that you'd like to use {% data va
 
 4. Add a file to the repository matching the extension you've associated:
    ```shell
-   $ git add path/to/file.psd
+   git add path/to/file.psd
    ```
 5. Commit the file and push it to {% data variables.product.product_name %}:
    ```shell
-   $ git commit -m "add file.psd"
-   $ git push
+   git commit -m "add file.psd"
+   git push
    ```
    You should see some diagnostic information about your file upload:
    ```shell

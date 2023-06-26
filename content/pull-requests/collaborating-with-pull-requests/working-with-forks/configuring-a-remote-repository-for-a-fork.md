@@ -25,7 +25,7 @@ shortTitle: Configure a remote repository
    ```
 3. Specify a new remote _upstream_ repository that will be synced with the fork.
    ```shell
-   $ git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+   git remote add upstream https://{% data variables.command_line.codeblock %}/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
    ```
 4. Verify the new upstream repository you've specified for your fork.
    ```shell

@@ -29,7 +29,7 @@ The _username_ in the response is the account on {% ifversion ghae %}{% data var
 To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:
 
 ```shell
-$ ssh -v -o "IdentitiesOnly=yes" -i ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
+ssh -v -o "IdentitiesOnly=yes" -i ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
 ```
 
 ## Fixing the issue

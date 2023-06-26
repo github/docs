@@ -37,7 +37,7 @@ Before launching {% data variables.location.product_location %} on Google Cloud 
 
 1. Using the [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) command-line tool, list the public {% data variables.product.prodname_ghe_server %} images:
    ```shell
-   $ gcloud compute images list --project github-enterprise-public --no-standard-images
+   gcloud compute images list --project github-enterprise-public --no-standard-images
    ```
 
 2. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
@@ -48,7 +48,7 @@ GCE virtual machines are created as a member of a network, which has a firewall.
 
 1. Using the gcloud compute command-line tool, create the network. For more information, see "[gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)" in the Google documentation.
    ```shell
-   $ gcloud compute networks create NETWORK-NAME --subnet-mode auto
+   gcloud compute networks create NETWORK-NAME --subnet-mode auto
    ```
 2. Create a firewall rule for each of the ports in the table below. For more information, see "[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" in the Google documentation.
    ```shell
@@ -72,7 +72,7 @@ To create the {% data variables.product.prodname_ghe_server %} instance, you'll 
 
 1. Using the gcloud compute command-line tool, create a data disk to use as an attached storage volume for your instance data, and configure the size based on your user license count. For more information, see "[gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)" in the Google documentation.
    ```shell
-   $ gcloud compute disks create DATA-DISK-NAME --size DATA-DISK-SIZE --type DATA-DISK-TYPE --zone ZONE
+   gcloud compute disks create DATA-DISK-NAME --size DATA-DISK-SIZE --type DATA-DISK-TYPE --zone ZONE
    ```
 
 2. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see "[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" in the Google documentation.

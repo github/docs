@@ -51,19 +51,19 @@ The [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/) is a tool tha
 For example, to remove your file with sensitive data and leave your latest commit untouched, run:
 
 ```shell
-$ bfg --delete-files YOUR-FILE-WITH-SENSITIVE-DATA
+bfg --delete-files YOUR-FILE-WITH-SENSITIVE-DATA
 ```
 
 To replace all text listed in `passwords.txt` wherever it can be found in your repository's history, run:
 
 ```shell
-$ bfg --replace-text passwords.txt
+bfg --replace-text passwords.txt
 ```
 
 After the sensitive data is removed, you must force push your changes to {% data variables.product.product_name %}. Force pushing rewrites the repository history, which removes sensitive data from the commit history. If you force push, it may overwrite commits that other people have based their work on.
 
 ```shell
-$ git push --force
+git push --force
 ```
 
 See the [BFG Repo-Cleaner](https://rtyley.github.io/bfg-repo-cleaner/)'s documentation for full usage and download instructions.
@@ -96,7 +96,7 @@ To illustrate how `git filter-repo` works, we'll show you how to remove your fil
    ```
 3. Navigate into the repository's working directory.
    ```shell
-   $ cd YOUR-REPOSITORY
+   cd YOUR-REPOSITORY
    ```
 4. Run the following command, replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **path to the file you want to remove, not just its filename**. These arguments will:
     - Force Git to process, but not check out, the entire history of every branch and tag

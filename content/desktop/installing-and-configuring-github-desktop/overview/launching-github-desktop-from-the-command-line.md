@@ -16,7 +16,7 @@ versions:
 3. {% data reusables.desktop.launch-desktop-from-command-line %}
 
    ```shell
-   $ github /PATH/TO/REPO
+   github /PATH/TO/REPO
    ```
 
    You can also change to your repository path and then type `github .` to open that repository.

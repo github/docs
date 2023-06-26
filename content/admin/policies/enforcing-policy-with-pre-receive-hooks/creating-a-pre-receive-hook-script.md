@@ -130,7 +130,7 @@ We recommend consolidating hooks to a single repository. If the consolidated hoo
 1. For Mac users, ensure the scripts have execute permissions:
 
    ```shell
-   $ sudo chmod +x SCRIPT_FILE.sh
+   sudo chmod +x SCRIPT_FILE.sh
    ```
    For Windows users, ensure the scripts have execute permissions:
 
@@ -141,8 +141,8 @@ We recommend consolidating hooks to a single repository. If the consolidated hoo
 2. Commit and push to the designated repository for pre-receive hooks on {% data variables.location.product_location %}.
 
    ```shell
-   $ git commit -m "YOUR COMMIT MESSAGE"
-   $ git push
+   git commit -m "YOUR COMMIT MESSAGE"
+   git push
    ```
 
 3. [Create the pre-receive hook](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance#creating-pre-receive-hooks) on the {% data variables.product.prodname_ghe_server %} instance.
@@ -186,7 +186,7 @@ You can test a pre-receive hook script locally before you create or update it on
 4. Ensure the `always_reject.sh` scripts has execute permissions:
 
    ```shell
-   $ chmod +x always_reject.sh
+   chmod +x always_reject.sh
    ```
 
 5. From the directory containing `Dockerfile.dev`, build an image:
@@ -215,13 +215,13 @@ You can test a pre-receive hook script locally before you create or update it on
 6. Run a data container that contains a generated SSH key:
 
    ```shell
-   $ docker run --name data pre-receive.dev /bin/true
+   docker run --name data pre-receive.dev /bin/true
    ```
 
 7. Copy the test pre-receive hook `always_reject.sh` into the data container:
 
    ```shell
-   $ docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
+   docker cp always_reject.sh data:/home/git/test.git/hooks/pre-receive
    ```
 
 8. Run an application container that runs `sshd` and executes the hook. Take note of the container id that is returned:
@@ -234,7 +234,7 @@ You can test a pre-receive hook script locally before you create or update it on
 9. Copy the generated SSH key from the data container to the local machine:
 
    ```shell
-   $ docker cp data:/home/git/.ssh/id_ed25519 .
+   docker cp data:/home/git/.ssh/id_ed25519 .
    ```
 
 10. Modify the remote of a test repository and push to the `test.git` repo within the Docker container. This example uses `git@github.com:octocat/Hello-World.git` but you can use any repository you want. This example assumes your local machine (127.0.0.1) is binding port 52311, but you can use a different IP address if docker is running on a remote machine.

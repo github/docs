@@ -27,13 +27,13 @@ permissions: Site administrators can use the administrative shell to import data
 {% data reusables.enterprise_migrations.review-the-import-csv %}
 4. Rewrite the authors and branches using the CSV file:
    ```shell
-   $ git-import-rewrite --flavor hg --authors /PATH/AUTHORS-MAP-FILE.csv /PATH/REPO-NAME.git
+   git-import-rewrite --flavor hg --authors /PATH/AUTHORS-MAP-FILE.csv /PATH/REPO-NAME.git
    ```
 5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Push the imported repository to {% data variables.product.prodname_ghe_server %}:
    ```shell
-   $ git push --mirror PUSH-URL-ON-GITHUB-ENTERPRISE
+   git push --mirror PUSH-URL-ON-GITHUB-ENTERPRISE
    ```
 
 ## Importing projects from Subversion
@@ -47,13 +47,13 @@ permissions: Site administrators can use the administrative shell to import data
 {% data reusables.enterprise_migrations.review-the-import-csv %}
 4. Rewrite the authors and branches using the CSV file:
    ```shell
-   $ git-import-rewrite --flavor svn --authors /PATH/AUTHORS-MAP-FILE.csv /PATH/REPO-NAME.git
+   git-import-rewrite --flavor svn --authors /PATH/AUTHORS-MAP-FILE.csv /PATH/REPO-NAME.git
    ```
 5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Push the imported repository to {% data variables.product.prodname_ghe_server %}:
    ```shell
-   $ git push --mirror PUSH-URL-ON-GITHUB-ENTERPRISE
+   git push --mirror PUSH-URL-ON-GITHUB-ENTERPRISE
    ```
 
 ## Importing projects from Team Foundation Version Control
@@ -67,13 +67,13 @@ permissions: Site administrators can use the administrative shell to import data
 {% data reusables.enterprise_migrations.review-the-import-csv %}
 4. Rewrite the authors and branches using the CSV file:
    ```shell
-   $ git-import-rewrite --flavor tfs --authors /PATH/AUTHORS-MAP-FILE.csv /PATH/REPO_NAME.git
+   git-import-rewrite --flavor tfs --authors /PATH/AUTHORS-MAP-FILE.csv /PATH/REPO_NAME.git
    ```
 5. If you haven't yet, [create a new empty repository on {% data variables.product.prodname_ghe_server %}](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 {% data reusables.command_line.switching_directories_procedural %}
 7. Push the imported repository to {% data variables.product.prodname_ghe_server %}:
    ```shell
-   $ git push --mirror PUSH-URL-ON-GITHUB-ENTERPRISE
+   git push --mirror PUSH-URL-ON-GITHUB-ENTERPRISE
    ```
 
 ## Further reading

@@ -96,7 +96,7 @@ The `git remote set-url` command takes two arguments:
    ```
 4. Change your remote's URL from SSH to HTTPS with the `git remote set-url` command.
    ```shell
-   $ git remote set-url origin https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git
+   git remote set-url origin https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git
    ```
 5. Verify that the remote URL has changed.
    ```shell
@@ -122,7 +122,7 @@ You can [use a credential helper](/get-started/getting-started-with-git/caching-
    ```
 4. Change your remote's URL from HTTPS to SSH with the `git remote set-url` command.
    ```shell
-   $ git remote set-url origin git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git
+   git remote set-url origin git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git
    ```
 5. Verify that the remote URL has changed.
    ```shell

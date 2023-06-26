@@ -116,7 +116,7 @@ Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif 
 You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
 
 ```bash
-$ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
 ## {% data variables.product.prodname_github_app %} installation access tokens

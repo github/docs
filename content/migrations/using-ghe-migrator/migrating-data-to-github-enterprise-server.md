@@ -99,7 +99,7 @@ The record types match those found in the [migrated data](/migrations/using-ghe-
 With the `ghe-migrator audit` command, you can filter based on the record type using the `-m` flag. Similarly, you can filter on the import state using the `-s` flag. The command looks like this:
 
 ```shell
-$ ghe-migrator audit -m RECORD_TYPE -s STATE -g MIGRATION-GUID
+ghe-migrator audit -m RECORD_TYPE -s STATE -g MIGRATION-GUID
 ```
 
 For example, to view every successfully imported organization and team, you would enter:
