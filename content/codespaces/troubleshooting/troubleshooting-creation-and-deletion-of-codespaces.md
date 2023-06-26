@@ -102,6 +102,7 @@ Some more destructive options:
 ```
 This codespace is currently running in recovery mode due to a container error.
 ```
+
 Review the creation logs and update the dev container configuration as needed. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)."
 
 You can then try restarting the codespace, or rebuilding the container. For more information on rebuilding the container, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."

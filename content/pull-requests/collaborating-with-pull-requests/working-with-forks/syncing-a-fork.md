@@ -46,7 +46,7 @@ If the changes from the upstream repository cause conflicts, {% data variables.p
 To update the remote fork from its parent, use the `gh repo sync -b BRANCHNAME` subcommand and supply your fork and branch name as arguments.
 
 ```shell
-$ gh repo sync owner/cli-fork -b BRANCH_NAME
+gh repo sync owner/cli-fork -b BRANCH_NAME
 ```
 
 If the changes from the upstream repository cause conflict then the {% data variables.product.prodname_cli %} can't sync. You can set the `-force` flag to overwrite the destination branch.
@@ -90,6 +90,7 @@ Before you can sync your fork with an upstream repository, you must configure a 
    ```
 
    If your local branch didn't have any unique commits, Git will perform a fast-forward. For more information, see [Basic Branching and Merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging) in the Git documentation.
+
    ```shell
    $ git merge upstream/main
    > Updating 34e91da..16c56ad
@@ -97,6 +98,7 @@ Before you can sync your fork with an upstream repository, you must configure a 
    >  README.md                 |    5 +++--
    >  1 file changed, 3 insertions(+), 2 deletions(-)
    ```
+
    If your local branch had unique commits, you may need to resolve conflicts. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
 
 {% tip %}

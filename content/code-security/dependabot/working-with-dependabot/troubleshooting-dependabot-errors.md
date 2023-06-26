@@ -91,6 +91,7 @@ The best way to avoid this problem is to stay up to date with the most recently 
 **Security updates only.** {% data variables.product.prodname_dependabot %} updates explicitly defined transitive dependencies that are vulnerable for all ecosystems. For npm, {% data variables.product.prodname_dependabot %} will raise a pull request that also updates the parent dependency if it's the only way to fix the transitive dependency.
 
 For example, a project with a dependency on `A` version `~2.0.0` which has a transitive dependency on `B` version `~1.0.0` which has resolved to `1.0.1`.
+
 ```
 my project
 |
@@ -98,6 +99,7 @@ my project
        |
        --> B (1.0.1) [~1.0.0]
 ```
+
 If a security vulnerability is released for `B` versions `<2.0.0` and a patch is available at `2.0.0` then  {% data variables.product.prodname_dependabot %} will attempt to update `B` but will find that it's not possible due to the restriction in place by `A` which only allows lower vulnerable versions. To fix the vulnerability, {% data variables.product.prodname_dependabot %} will look for updates to dependency `A` which allow the fixed version of `B` to be used.
 
 {% data variables.product.prodname_dependabot %} automatically generates a pull request that upgrades both the locked parent and child transitive dependencies.{% endif %}

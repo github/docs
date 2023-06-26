@@ -36,6 +36,7 @@ The following script demonstrates how you can get a user-specified version as in
 {% data variables.product.prodname_dotcom %} provides [`actions/toolkit`](https://github.com/actions/toolkit), which is a set of packages that helps you create actions. This example uses the [`actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) and [`actions/tool-cache`](https://github.com/actions/toolkit/tree/main/packages/tool-cache) packages.
 
 {% raw %}
+
 ```javascript copy
 const core = require('@actions/core');
 const tc = require('@actions/tool-cache');
@@ -56,6 +57,7 @@ async function setup() {
 
 module.exports = setup
 ```
+
 {% endraw %}
 
 To use this script, replace `getDownloadURL` with a function that downloads your CLI. You will also need to create an actions metadata file (`action.yml`) that accepts a `version` input and that runs this script. For full details about how to create an action, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."

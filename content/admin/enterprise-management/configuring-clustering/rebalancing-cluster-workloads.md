@@ -31,6 +31,7 @@ In some cases, such as hardware failure, the underlying software that that manag
    ```shell copy
    ghe-cluster-balance status
    ```
+
 1. If a job is not properly distributed, inspect the allocations by running the following command. Replace JOB with a single job or comma-delimited list of jobs.
 
    ```shell copy
@@ -71,11 +72,13 @@ You can schedule rebalancing of jobs on your cluster by setting and applying con
    ```shell copy
    ghe-config app.cluster-rebalance.enabled true
    ```
+
 1. Optionally, you can override the default schedule by defining a cron expression. For example, run the following command to balance jobs every three hours.
 
    ```shell copy
    ghe-config app.cluster-rebalance.schedule '0 */3 * * *'
    ```
+
 {% data reusables.enterprise.apply-configuration %}
 
 ## Further reading

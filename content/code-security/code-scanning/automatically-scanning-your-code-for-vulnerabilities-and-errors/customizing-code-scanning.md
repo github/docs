@@ -231,6 +231,7 @@ If your workflow does not contain a matrix called `language`, then {% data varia
   with:
     languages: cpp, csharp, python
 ```
+
 {% ifversion fpt or ghec %}
 ## Analyzing Python dependencies
 
@@ -274,6 +275,7 @@ jobs:
           # to auto-install Python dependencies
           setup-python-dependencies: false
 ```
+
 {% endif %}
 
 ## Defining the alert severities that give a check failure for a pull request
@@ -461,6 +463,7 @@ The settings in the configuration file are written in YAML format.
 You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
 
 {% raw %}
+
 ``` yaml copy
 packs:
   # Use the latest version of 'pack1' published by 'scope'
@@ -476,6 +479,7 @@ packs:
   # Use pack6 and restrict it to the query suite 'path/to/suite.qls'
   - scope/pack6:path/to/suite.qls
 ```
+
 {% endraw %}
 
 The full format for specifying a query pack is `scope/name[@version][:path]`. Both `version` and `path` are optional. `version` is semver version range. If it is missing, the latest version is used. For more information about semver ranges, see the [semver docs on npm](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
@@ -483,6 +487,7 @@ The full format for specifying a query pack is `scope/name[@version][:path]`. Bo
 If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
 
 {% raw %}
+
 ``` yaml copy
 packs:
   # Use these packs for JavaScript and TypeScript analysis
@@ -494,6 +499,7 @@ packs:
     - scope/java-pack1
     - scope/java-pack2@v1.0.0
 ```
+
 {% endraw %}
 {% endif %}
 
@@ -533,6 +539,7 @@ query-filters:
   - exclude:
       id: js/useless-assignment-to-local
 ```
+
 To find the id of a query, you can click the alert in the list of alerts in the **Security** tab. This opens the alert details page. The `Rule ID` field contains the query id. For more information about the alert details page, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
 
 {% tip %}

@@ -66,6 +66,7 @@ If your instance has subdomain isolation disabled:
 ```shell
 //HOSTNAME/_registry/npm/:_authToken=TOKEN
 ```
+
 {% endif %}
 
 To authenticate by logging in to npm, use the `npm login` command, replacing USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_v1 %}, and PUBLIC-EMAIL-ADDRESS with your email address.
@@ -93,6 +94,7 @@ $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_r
 > Username: USERNAME
 > Password: TOKEN
 ```
+
 {% endif %}
 
 ## Publishing a package
@@ -150,18 +152,22 @@ You can use `publishConfig` element in the _package.json_ file to specify the re
    {% ifversion ghes %}
    If your instance has subdomain isolation enabled:
    {% endif %}
+
    ```shell
    "publishConfig": {
      "registry": "https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm. HOSTNAME/{% endif %}"
    },
    ```
+
    {% ifversion ghes %}
    If your instance has subdomain isolation disabled:
+
    ```shell
    "publishConfig": {
      "registry": "https://HOSTNAME/_registry/npm/"
    },
    ```
+
    {% endif %}
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
@@ -208,10 +214,11 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
      }
    }
    ```
+
 5. Install the package.
 
    ```shell
-   $ npm install
+   npm install
    ```
 
 ### Installing packages from other organizations
@@ -234,6 +241,7 @@ If your instance has subdomain isolation disabled:
 @NAMESPACE:registry=https://HOSTNAME/_registry/npm
 @NAMESPACE:registry=https://HOSTNAME/_registry/npm
 ```
+
 {% endif %}
 
 {% ifversion ghes %}

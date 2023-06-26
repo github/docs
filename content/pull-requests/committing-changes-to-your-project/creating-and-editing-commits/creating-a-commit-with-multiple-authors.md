@@ -41,11 +41,13 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
 1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+
    ```
    $ git commit -m "Refactor usability tests.
    >
    >
    ```
+
   {% tip %}
 
   **Tip:** If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `Co-authored-by:` commit trailer.
@@ -55,6 +57,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
 3. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
 
    If you're adding multiple co-authors, give each co-author their own line and `Co-authored-by:` commit trailer.
+
    ```
    $ git commit -m "Refactor usability tests.
    >

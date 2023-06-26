@@ -42,6 +42,7 @@ If {% data variables.location.product_location %} uses clustering, you cannot en
 1. In the administrative shell, enable the dependency graph on {% data variables.location.product_location %}:
     {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
+
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled true

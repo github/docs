@@ -37,9 +37,11 @@ This value can include expressions and can reference the [`github`](/actions/lea
 ### Example of `run-name`
 
 {% raw %}
+
 ```yaml
 run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 ```
+
 {% endraw %}
 {% endif %}
 
@@ -88,6 +90,7 @@ If a caller workflow passes an input that is not specified in the called workflo
 ### Example of `on.workflow_call.inputs`
 
 {% raw %}
+
 ```yaml
 on:
   workflow_call:
@@ -106,6 +109,7 @@ jobs:
       - name: Print the input name to STDOUT
         run: echo The username is ${{ inputs.username }}
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
@@ -123,6 +127,7 @@ In the example below, two outputs are defined for this reusable workflow: `workf
 ### Example of `on.workflow_call.outputs`
 
 {% raw %}
+
 ```yaml
 on:
   workflow_call:
@@ -135,6 +140,7 @@ on:
         description: "The second job output"
         value: ${{ jobs.my_job.outputs.job_output2 }}
 ```
+
 {% endraw %}
 
 For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
@@ -156,6 +162,7 @@ If a caller workflow passes a secret that is not specified in the called workflo
 ### Example of `on.workflow_call.secrets`
 
 {% raw %}
+
 ```yaml
 on:
   workflow_call:
@@ -181,6 +188,7 @@ jobs:
     secrets:
        token: ${{ secrets.access-token }}
 ```
+
 {% endraw %}
 
 ## `on.workflow_call.secrets.<secret_id>`
@@ -326,6 +334,7 @@ You can run an unlimited number of steps as long as you are within the workflow 
 ### Example of `jobs.<job_id>.steps`
 
 {% raw %}
+
 ```yaml
 name: Greeting from Mona
 
@@ -345,6 +354,7 @@ jobs:
         run: |
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
+
 {% endraw %}
 
 ## `jobs.<job_id>.steps[*].id`
@@ -388,6 +398,7 @@ Secrets cannot be directly referenced in `if:` conditionals. Instead, consider s
 If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
 
 {% raw %}
+
 ```yaml
 name: Run a step if a secret has been set
 on: push
@@ -402,6 +413,7 @@ jobs:
       - if: ${{ env.super_secret == '' }}
         run: echo 'This step will only run if the secret does not have a value set.'
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
@@ -513,6 +525,7 @@ jobs:
       - name: My first step
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
+
 {% endif %}
 ### Example: Using a Docker public registry action
 
@@ -714,6 +727,7 @@ A `string` that defines the inputs for a Docker container. {% data variables.pro
 ### Example of `jobs.<job_id>.steps[*].with.args`
 
 {% raw %}
+
 ```yaml
 steps:
   - name: Explain why this job ran
@@ -722,6 +736,7 @@ steps:
       entrypoint: /bin/echo
       args: The ${{ github.event_name }} event triggered this step.
 ```
+
 {% endraw %}
 
 The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
@@ -757,6 +772,7 @@ Public actions may specify expected variables in the README file. If you are set
 ### Example of `jobs.<job_id>.steps[*].env`
 
 {% raw %}
+
 ```yaml
 steps:
   - name: My first action
@@ -765,6 +781,7 @@ steps:
       FIRST_NAME: Mona
       LAST_NAME: Octocat
 ```
+
 {% endraw %}
 
 ## `jobs.<job_id>.steps[*].continue-on-error`
@@ -840,6 +857,7 @@ Prevents a workflow run from failing when a job fails. Set to `true` to allow a 
 You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
 
 {% raw %}
+
 ```yaml
 runs-on: ${{ matrix.os }}
 continue-on-error: ${{ matrix.experimental }}
@@ -854,6 +872,7 @@ strategy:
         os: ubuntu-latest
         experimental: true
 ```
+
 {% endraw %}
 
 ## `jobs.<job_id>.container`
@@ -927,6 +946,7 @@ The Docker image to use as the service container to run the action. The value ca
 ### Example of `jobs.<job_id>.services.<service_id>.credentials`
 
 {% raw %}
+
 ```yaml
 services:
   myservice1:
@@ -940,6 +960,7 @@ services:
       username: ${{ secrets.DOCKER_USER }}
       password: ${{ secrets.DOCKER_PASSWORD }}
 ```
+
 {% endraw %}
 
 ## `jobs.<job_id>.services.<service_id>.env`
@@ -1026,6 +1047,7 @@ Any secrets that you pass must match the names defined in the called workflow.
 ### Example of `jobs.<job_id>.secrets`
 
 {% raw %}
+
 ```yaml
 jobs:
   call-workflow:
@@ -1033,6 +1055,7 @@ jobs:
     secrets:
       access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
+
 {% endraw %}
 
 {% ifversion actions-inherit-secrets-reusable-workflows %}

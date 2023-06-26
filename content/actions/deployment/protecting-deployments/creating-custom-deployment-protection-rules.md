@@ -68,6 +68,7 @@ Once a workflow reaches a job that references an environment that has the custom
       } \
    }'
    ```
+
 1. Optionally, to add a status report without taking any other action to {% data variables.product.prodname_dotcom_the_website %}, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, omit the `state`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run)." You can post a status report on the same deployment up to 10 times. Status reports support Markdown formatting and can be up to 1024 characters long.
 
 1. To approve or reject a request, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, set the `state` property to either `approved` or `rejected`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run)."

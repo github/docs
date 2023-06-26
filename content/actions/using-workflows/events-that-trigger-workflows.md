@@ -1046,11 +1046,13 @@ on:
 **Note**: When pushing multi-architecture container images, this event occurs once per manifest, so you might observe your workflow triggering multiple times. To mitigate this, and only run your workflow job for the event that contains the actual image tag information, use a conditional:
 
 {% raw %}
+
 ```yaml
 jobs:
     job_name:
         if: ${{ github.event.registry_package.package_version.container_metadata.tag.name != '' }}
 ```
+
 {% endraw %}
 
 {% endnote %}

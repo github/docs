@@ -71,19 +71,22 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
 1. To clone the [{% data variables.product.prodname_enterprise_backup_utilities %} project repository](https://github.com/github/backup-utils/) to a local directory on your backup host, run the following command.
 
    ```
-   $ git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
+   git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
    ```
+
 1. To change into the local repository directory, run the following command.
 
    ```
    cd backup-utils
    ```
+
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 1. To copy the included `backup.config-example` file to `backup.config`, run the following command.
 
    ```shell
    cp backup.config-example backup.config
    ```
+
 1. To customize your configuration, edit `backup.config` in a text editor.
    1. Set the `GHE_HOSTNAME` value to your primary {% data variables.product.prodname_ghe_server %} instance's hostname or IP address.
 
@@ -101,6 +104,7 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
    ```shell
    ./bin/ghe-host-check
    ```
+
 1. To create an initial full backup, run the following command.
 
    ```shell
@@ -159,7 +163,7 @@ If your backup host has internet connectivity and you previously used a compress
 1. To back up your existing {% data variables.product.prodname_enterprise_backup_utilities %} configuration, copy your current `backup.config` file to a safe location, such as your home directory.
 
    ```
-   $ cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
+   cp backup.config $HOME/backup.config.saved-$(date +%Y%m%d-%H%M%S)
    ```
 
 1. Change to the local directory on your backup host where you want to install the {% data variables.product.prodname_enterprise_backup_utilities %} Git repository.
@@ -168,16 +172,18 @@ If your backup host has internet connectivity and you previously used a compress
    ```
    git clone https://github.com/github/backup-utils.git
    ```
+
 1. To change into the cloned repository, run the following command.
 
    ```
    cd backup-utils
    ```
+
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 1. To restore your backup configuration from earlier, copy your existing backup configuration file to the local repository directory. Replace the path in the command with the location of the file saved in step 2.
 
    ```
-   $ cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
+   cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
    ```
   
    {% note %}

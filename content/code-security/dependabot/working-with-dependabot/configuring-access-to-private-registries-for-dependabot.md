@@ -55,9 +55,11 @@ When you add a secret at the organization level, you can specify which repositor
 After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the _dependabot.yml_ configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. For example:
 
 {% raw %}
+
 ```yaml
 password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-private-registries)."

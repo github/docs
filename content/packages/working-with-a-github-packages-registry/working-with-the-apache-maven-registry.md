@@ -125,6 +125,7 @@ If your instance has subdomain isolation disabled:
   </servers>
 </settings>
 ```
+
 {% endif %}
 
 ## Publishing a package
@@ -138,6 +139,7 @@ For more information on creating a package, see the [maven.apache.org documentat
 1. Edit the `distributionManagement` element of the _pom.xml_ file located in your package directory, replacing {% ifversion ghes or ghae %}HOSTNAME with the host name of {% data variables.location.product_location %}, {% endif %}`OWNER` with the name of the personal account or organization that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% ifversion ghes %}
 
    If your instance has subdomain isolation enabled:{% endif %}
+
    ```xml
    <distributionManagement>
       <repository>
@@ -157,10 +159,12 @@ For more information on creating a package, see the [maven.apache.org documentat
       </repository>
    </distributionManagement>
    ```{% endif %}
+
 {% data reusables.package_registry.checksum-maven-plugin %}
 1. Publish the package.
+
    ```shell
-   $ mvn deploy
+   mvn deploy
    ```
 
 {% data reusables.package_registry.viewing-packages %}
@@ -181,11 +185,12 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
      </dependency>
    </dependencies>
    ```
+
 {% data reusables.package_registry.checksum-maven-plugin %}
 3. Install the package.
 
    ```shell
-   $ mvn install
+   mvn install
    ```
 
 ## Further reading

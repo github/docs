@@ -54,7 +54,7 @@ You can use {% data variables.product.prodname_actions_importer %} to migrate fr
 To ensure you're running the latest version of {% data variables.product.prodname_actions_importer %}, you should regularly run the `update` command:
 
 ```bash
-$ gh actions-importer update
+gh actions-importer update
 ```
 
 ### Authenticating at the command line
@@ -62,7 +62,7 @@ $ gh actions-importer update
 You must configure credentials that allow {% data variables.product.prodname_actions_importer %} to communicate with {% data variables.product.prodname_dotcom %} and your current CI server. You can configure these credentials using environment variables or a `.env.local` file. The environment variables can be configured in an interactive prompt, by running the following command:
 
 ```bash
-$ gh actions-importer configure
+gh actions-importer configure
 ```
 
 ## Using the {% data variables.product.prodname_actions_importer %} CLI

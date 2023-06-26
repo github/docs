@@ -51,6 +51,7 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
      ```shell copy
      git credential-osxkeychain erase https://github.com
      ```
+
    {% data reusables.git.clear-stored-gcm-credentials %}
 {% data reusables.git.cache-on-repository-path %}
 {% data reusables.accounts.create-personal-access-tokens %}
@@ -70,6 +71,7 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
      ```shell copy
      cmdkey /delete:LegacyGeneric:target=git:https://github.com
      ```
+
 {% data reusables.git.cache-on-repository-path %}
 {% data reusables.accounts.create-personal-access-tokens %}
 {% data reusables.git.provide-credentials %}

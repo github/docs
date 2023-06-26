@@ -64,6 +64,7 @@ When endpoints include `{enterprise}`, replace `{enterprise}` with the handle fo
 ```shell
 http(s)://HOSTNAME/
 ```
+
 {% endif %}
 {% ifversion ghae or ghes %}
 ## Authentication

@@ -125,7 +125,7 @@ kramdown:
 If your theme doesn't include CSS for syntax highlighting, you can generate {% data variables.product.prodname_dotcom %}'s syntax highlighting CSS and add it to your project's `style.css` file.
 
 ```shell
-$ rougify style github > style.css
+rougify style github > style.css
 ```
 
 ## Building your site locally

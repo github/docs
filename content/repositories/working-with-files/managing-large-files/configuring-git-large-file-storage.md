@@ -32,10 +32,12 @@ If there are existing files in your repository that you'd like to use {% data va
 3. To associate a file type in your repository with {% data variables.large_files.product_name_short %}, enter `git {% data variables.large_files.command_name %} track` followed by the name of the file extension you want to automatically upload to {% data variables.large_files.product_name_short %}.
 
    For example, to associate a _.psd_ file, enter the following command:
+
    ```shell
    $ git {% data variables.large_files.command_name %} track "*.psd"
    > Adding path *.psd
    ```
+
    Every file type you want to associate with {% data variables.large_files.product_name_short %} will need to be added with `git {% data variables.large_files.command_name %} track`. This command amends your repository's _.gitattributes_ file and associates large files with {% data variables.large_files.product_name_short %}.
 
    {% note %}
@@ -49,15 +51,20 @@ If there are existing files in your repository that you'd like to use {% data va
    {% endnote %}
 
 4. Add a file to the repository matching the extension you've associated:
+
    ```shell
-   $ git add path/to/file.psd
+   git add path/to/file.psd
    ```
+
 5. Commit the file and push it to {% data variables.product.product_name %}:
+
    ```shell
-   $ git commit -m "add file.psd"
-   $ git push
+   git commit -m "add file.psd"
+   git push
    ```
+
    You should see some diagnostic information about your file upload:
+
    ```shell
    > Sending file.psd
    > 44.74 MB / 81.04 MB  55.21 % 14s

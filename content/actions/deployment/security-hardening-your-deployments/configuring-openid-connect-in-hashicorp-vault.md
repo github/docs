@@ -63,6 +63,7 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
    }
    EOF
    ```
+
 3. Configure roles to group different policies together. If the authentication is successful, these policies are attached to the resulting Vault access token.
 
    ```sh copy

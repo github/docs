@@ -57,6 +57,7 @@ HTTP/2 200
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```
+
 ```json
 [
   {

@@ -55,6 +55,7 @@ You can also customize your automated release notes, using labels to create cust
 A configuration for a repository that labels semver releases
 
 {% raw %}
+
 ```yaml copy
 # .github/release.yml
 
@@ -77,11 +78,13 @@ changelog:
       labels:
         - "*"
 ```
+
 {% endraw %}
 
 A configuration for a repository that doesn't tag pull requests but where we want to separate out {% data variables.product.prodname_dependabot %} automated pull requests in release notes (`labels: '*'` is required to display a catchall category)
 
 {% raw %}
+
 ```yaml copy
 # .github/release.yml
 
@@ -97,6 +100,7 @@ changelog:
       labels:
         - dependencies
 ```
+
 {% endraw %}
 
 ## Further reading

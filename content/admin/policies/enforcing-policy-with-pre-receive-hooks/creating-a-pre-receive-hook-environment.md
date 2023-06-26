@@ -31,6 +31,7 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    FROM gliderlabs/alpine:3.3
    RUN apk add --no-cache git bash
    ```
+
 3. From the working directory that contains `Dockerfile.alpine-3.3`, build an image:
 
    ```shell
@@ -43,15 +44,17 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    >  ---> 0250ab3be9c5
    > Successfully built 0250ab3be9c5
    ```
+
 4. Create a container:
 
    ```shell
-   $ docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
+   docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
    ```
+
 5. Export the Docker container to a `gzip` compressed `tar` file:
 
    ```shell
-   $ docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
+   docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
    ```
 
    This file `alpine-3.3.tar.gz` is ready to be uploaded to the {% data variables.product.prodname_ghe_server %} appliance.
@@ -60,9 +63,10 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 
 1. Create a Linux `chroot` environment.
 2. Create a `gzip` compressed `tar` file of the `chroot` directory.
+
    ```shell
-   $ cd /path/to/chroot
-   $ tar -czf /path/to/pre-receive-environment.tar.gz .
+   cd /path/to/chroot
+   tar -czf /path/to/pre-receive-environment.tar.gz .
    ```
 
    {% note %}

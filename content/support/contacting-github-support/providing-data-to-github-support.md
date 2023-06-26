@@ -76,7 +76,7 @@ You can use this method without signing into the {% data variables.enterprise.ma
 Use the [ghe-diagnostics](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-diagnostics) command-line utility to retrieve the diagnostics for your instance.
 
 ```shell
-$ ssh -p122 admin@HOSTNAME -- 'ghe-diagnostics' > diagnostics.txt
+ssh -p122 admin@HOSTNAME -- 'ghe-diagnostics' > diagnostics.txt
 ```
 
 ## Creating and sharing support bundles
@@ -123,9 +123,11 @@ You can use these steps to create and share a support bundle if you have SSH acc
 {% data reusables.enterprise_enterprise_support.use_ghe_cluster_support_bundle %}
 
 1. Download the support bundle via SSH:
+
    ```shell
-   $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
+   ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
    ```
+
    For more information about the `ghe-support-bundle` command, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-support-bundle)".
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
@@ -149,8 +151,9 @@ You can directly upload a support bundle to our server if:
 - Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
 1. Upload the bundle to our support bundle server:
+
    ```shell
-   $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u'
+   ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u'
    ```
 
 ## Creating and sharing extended support bundles
@@ -164,9 +167,11 @@ To prevent bundles from becoming too large, bundles only contain logs that haven
 You can use these steps to create and share an extended support bundle if you have SSH access to {% data variables.location.product_location %} and you have outbound internet access.
 
 1. Download the extended support bundle via SSH by adding the `-x` flag to the `ghe-support-bundle` command:
+
    ```shell
-   $ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o -x' > support-bundle.tgz
+   ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o -x' > support-bundle.tgz
    ```
+
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
@@ -177,8 +182,9 @@ You can directly upload a support bundle to our server if:
 - Outbound HTTPS connections over TCP port 443 are allowed from {% data variables.location.product_location %} to _enterprise-bundles.github.com_ and _esbtoolsproduction.blob.core.windows.net_.
 
 1. Upload the bundle to our support bundle server:
+
    ```shell
-   $ ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u -x'
+   ssh -p122 admin@HOSTNAME -- 'ghe-support-bundle -u -x'
    ```
 
 ## Further reading

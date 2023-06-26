@@ -28,13 +28,17 @@ topics:
 {% data reusables.command_line.open_the_multi_os_terminal %}
 3. Generate a GPG key pair. Since there are multiple versions of GPG, you may need to consult the relevant [_man page_](https://en.wikipedia.org/wiki/Man_page) to find the appropriate key generation command.
     - If you are on version 2.1.17 or greater, paste the text below to generate a GPG key pair.
+
       ```shell copy
       gpg --full-generate-key
       ```
+
     - If you are not on version 2.1.17 or greater, the `gpg --full-generate-key` command doesn't work. Paste the text below and skip to step 6.
+
       ```shell copy
       gpg --default-new-key-algo rsa4096 --gen-key
       ```
+
 4. At the prompt, specify the kind of key you want, or press `Enter` to accept the default.
 5. At the prompt, specify the key size you want, or press `Enter` to accept the default.
 6. Enter the length of time the key should be valid. Press `Enter` to specify the default selection, indicating that the key doesn't expire. Unless you require an expiration date, we recommend accepting this default.
@@ -51,10 +55,12 @@ topics:
 {% data reusables.gpg.list-keys-with-note %}
 {% data reusables.gpg.copy-gpg-key-id %}
 10. Paste the text below, substituting in the GPG key ID you'd like to use. In this example, the GPG key ID is `3AA5C34371567BD2`:
+
  ```shell
  gpg --armor --export 3AA5C34371567BD2
  # Prints the GPG key ID, in ASCII armor format
  ```
+
 11. Copy your GPG key, beginning with `-----BEGIN PGP PUBLIC KEY BLOCK-----` and ending with `-----END PGP PUBLIC KEY BLOCK-----`.
 12. [Add the GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
 

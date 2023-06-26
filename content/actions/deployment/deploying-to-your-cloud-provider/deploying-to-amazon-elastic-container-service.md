@@ -47,6 +47,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
    aws ecr create-repository \
        --repository-name MY_ECR_REPOSITORY \
        --region MY_AWS_REGION
+
    ```{% endraw %}
 
    Ensure that you use the same Amazon ECR repository name (represented here by `MY_ECR_REPOSITORY`) for the `ECR_REPOSITORY` variable in the workflow below.
@@ -65,6 +66,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    {% raw %}```bash copy
    aws ecs register-task-definition --generate-cli-skeleton
+
    ```{% endraw %}
 
    Ensure that you set the `ECS_TASK_DEFINITION` variable in the workflow below as the path to the JSON file.

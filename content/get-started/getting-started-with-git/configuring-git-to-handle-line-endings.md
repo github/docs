@@ -116,17 +116,20 @@ To ensure that all the line endings in your repository match your new configurat
    git add . -u
    git commit -m "Saving files before refreshing line endings"
    ```
+
 1. To update all files on the current branch to reflect the new configuration, run the following commands.
 
    ```shell copy
    git rm -rf --cached .
    git reset --hard HEAD
    ```
+
 1. To display the rewritten, normalized files, run the following command.
 
    ```shell copy
    git status
    ```
+
 1. Optionally, to commit any outstanding changes in your repository, run the following command.
 
    ```shell copy

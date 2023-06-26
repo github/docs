@@ -64,6 +64,7 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
    ```
    gh codespace list
    ```
+
 1. Optionally, to find the current machine type for a codespace, enter the following command.
 
    ```

@@ -23,9 +23,11 @@ GitHub maintains an official list of recommended _.gitignore_ files for many pop
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Navigate to the location of your Git repository.
+
 3. Create a _.gitignore_ file for your repository.
+   
    ```shell
-   $ touch .gitignore
+   touch .gitignore
    ```
 
    If the command succeeds, there will be no output.
@@ -35,7 +37,7 @@ For an example _.gitignore_ file, see "[Some common .gitignore configurations](h
 If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.
 
 ```shell
-$ git rm --cached FILENAME
+git rm --cached FILENAME
 ```
 
 ## Configuring ignored files for all repositories on your computer
@@ -43,9 +45,11 @@ $ git rm --cached FILENAME
 You can also create a global _.gitignore_ file to define a list of rules for ignoring files in every Git repository on your computer. For example, you might create the file at _~/.gitignore_global_ and add some rules to it.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
+
 2. Configure Git to use the exclude file _~/.gitignore_global_ for all Git repositories.
+   
    ```shell
-   $ git config --global core.excludesfile ~/.gitignore_global
+   git config --global core.excludesfile ~/.gitignore_global
    ```
 
 ## Excluding local files without creating a _.gitignore_ file

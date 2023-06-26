@@ -23,6 +23,7 @@ When you test your connection, you'll need to authenticate this action using you
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 2. Enter the following:
+
    ```shell
    $ ssh -T git@{% data variables.command_line.codeblock %}
    # Attempts to ssh to {% data variables.product.product_name %}
@@ -37,6 +38,7 @@ When you test your connection, you'll need to authenticate this action using you
    ```
 
 3. Verify that the fingerprint in the message you see matches {% ifversion fpt or ghec %}[{% data variables.product.prodname_dotcom %}'s public key fingerprint](/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints){% else %} your enterprise's public key fingerprint{% endif %}. If it does, then type `yes`:
+
    ```shell
    > Hi USERNAME! You've successfully authenticated, but GitHub does not
    > provide shell access.
@@ -45,6 +47,7 @@ When you test your connection, you'll need to authenticate this action using you
    {% linux %}
 
    You may see this error message:
+
    ```shell
    ...
    Agent admitted failure to sign using the key.

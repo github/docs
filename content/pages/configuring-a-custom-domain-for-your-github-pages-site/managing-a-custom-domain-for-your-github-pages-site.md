@@ -60,6 +60,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 6. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your subdomain.
+
 ```shell
     $ dig WWW.EXAMPLE.COM +nostats +nocomments +nocmd
     > ;WWW.EXAMPLE.COM.                    IN      A
@@ -67,6 +68,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
     > YOUR-USERNAME.github.io.      43192   IN      CNAME   GITHUB-PAGES-SERVER .
     > GITHUB-PAGES-SERVER .         22      IN      A       192.0.2.1
 ```
+
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
@@ -131,6 +133,7 @@ After you configure the apex domain, you must configure a CNAME record with your
 
 1. Navigate to your DNS provider and create a `CNAME` record that points `www.example.com` to the default domain for your site: `<user>.github.io` or `<organization>.github.io`. Do not include the repository name. {% data reusables.pages.contact-dns-provider %} {% data reusables.pages.default-domain-information %}
 2. To confirm that your DNS record configured correctly, use the `dig` command, replacing _WWW.EXAMPLE.COM_ with your `www` subdomain variant.
+
 ```shell
     $ dig WWW.EXAMPLE.COM +nostats +nocomments +nocmd
     > ;WWW.EXAMPLE.COM                     IN      A

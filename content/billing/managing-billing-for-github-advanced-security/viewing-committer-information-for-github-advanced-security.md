@@ -40,4 +40,5 @@ Under "Calculate Additional Advanced Committers", you can calculate how many mor
    example-org
    octo-org/octo-repo
    ```
+
 1. Click **Recalculate**.

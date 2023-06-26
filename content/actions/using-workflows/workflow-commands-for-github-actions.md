@@ -256,6 +256,7 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 ```bash copy
 echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
+
 {% endbash %}
 
 {% powershell %}
@@ -524,6 +525,7 @@ jobs:
         echo "::add-mask::$RETRIEVED_SECRET"
         echo "We retrieved our masked secret: $RETRIEVED_SECRET"
 ```
+
 {% endbash %}
 
 {% powershell %}
@@ -563,6 +565,7 @@ jobs:
         echo "::add-mask::$Retrieved_Secret"
         echo "We retrieved our masked secret: $Retrieved_Secret"
 ```
+
 {% endpowershell %}
 
 ## Stopping and starting workflow commands
@@ -603,6 +606,7 @@ jobs:
           echo "::$stopMarker::"
           echo '::warning:: This is a warning again, because stop-commands has been turned off.'
 ```
+
 {% endbash %}
 
 {% powershell %}
@@ -715,6 +719,7 @@ This example uses JavaScript to run the `save-state` command. The resulting envi
 ```javascript copy
 console.log('::save-state name=processID::12345')
 ```
+
 {% endif %}
 
 The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
@@ -888,6 +893,7 @@ Sets a step's output parameter. Note that the step will need an `id` to be defin
 ```bash copy
 echo "{name}={value}" >> "$GITHUB_OUTPUT"
 ```
+
 {% endbash %}
 
 {% powershell %}
@@ -1087,6 +1093,7 @@ Prepends a directory to the system `PATH` variable and automatically makes it av
 ```bash copy
 echo "{path}" >> $GITHUB_PATH
 ```
+
 {% endbash %}
 
 {% powershell %}
