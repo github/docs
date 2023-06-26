@@ -250,6 +250,4 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**.
-
-Click **Hello world action step**, and you should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input printed in the log. Click **Get the output time** to see the timestamp.
+{% data reusables.actions.test-private-action-example %}
