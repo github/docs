@@ -39,11 +39,7 @@ The benefits of streaming audit data include:
 
 Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
 
-{% note %}
-
-**Note:** All audit logs are streamed in JSON format.
-
-{% endnote %}
+All streamed audit logs are sent as compressed JSON files. The filename format is in`YYYY/MM/HH/MM/<uuid>.json.gz`.
 
 ## Setting up audit log streaming
 

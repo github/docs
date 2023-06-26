@@ -159,6 +159,8 @@ If your installation is in a Git repository, you can install the latest version 
 
 If your backup host has internet connectivity and you previously used a compressed archive (`.tar.gz`) to install or upgrade {% data variables.product.prodname_enterprise_backup_utilities %}, we recommend using a Git repository for your installation instead. Upgrading using Git requires less work and preserves your backup configuration.
 
+To use Git instead of a compressed archive for upgrades, you must back up your existing configuration, clone the repository, copy your configuration into place, verify the installation, verify SSH connectivity, then delete the old installation.
+
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-directory %}
 1. To back up your existing {% data variables.product.prodname_enterprise_backup_utilities %} configuration, copy your current `backup.config` file to a safe location, such as your home directory.
 
@@ -185,7 +187,7 @@ If your backup host has internet connectivity and you previously used a compress
    ```
    cp PATH/TO/BACKUP/FROM/STEP/2 backup.config
    ```
-  
+
    {% note %}
 
    **Note:** You can choose where to restore your backup configuration file to after cloning. For more information about where configuration files can be located, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
@@ -194,6 +196,9 @@ If your backup host has internet connectivity and you previously used a compress
 
 1. To confirm that the paths to directories or scripts in your backup configuration file are correct, review the file in a text editor.
 {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-verify-upgrade %}
+
+1. Confirm that your backup data is not in the directory for the old installation.
+
 1. Delete your old GitHub Enterprise Server Backup Utilities directory from step 1 (where the compressed archive installation was located).
 
 ## Scheduling a backup
