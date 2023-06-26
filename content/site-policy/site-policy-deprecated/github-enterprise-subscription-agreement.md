@@ -14,13 +14,13 @@ _These terms apply to Customers who have executed agreements in place referencin
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **"Products"**):
 
--   GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud);
+- GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud);
 
--   Any Beta Previews;
+- Any Beta Previews;
 
--   Any related Support; and
+- Any related Support; and
 
--   Any related Professional Services.
+- Any related Professional Services.
 
 This Agreement includes the following Sections and Exhibits, each of which is incorporated by reference herein:
 

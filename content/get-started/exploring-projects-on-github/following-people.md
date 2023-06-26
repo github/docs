@@ -29,7 +29,7 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 ## Unfollowing a user on {% data variables.product.product_name %}
 
 {% data reusables.profile.navigate-to-user-profile %}
-1.  Under the user's profile picture, click **Unfollow**.
+1. Under the user's profile picture, click **Unfollow**.
 
 ## Viewing followed users on {% data variables.product.product_name %}
 

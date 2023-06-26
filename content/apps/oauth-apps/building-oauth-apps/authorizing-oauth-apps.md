@@ -145,7 +145,7 @@ Before you can use the device flow to authorize and identify users, you must fir
 
 1. Your app requests device and user verification codes and gets the authorization URL where the user will enter the user verification code.
 2. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
-3.  The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
+3. The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
 
 ### Step 1: App requests the device and user verification codes from GitHub
 

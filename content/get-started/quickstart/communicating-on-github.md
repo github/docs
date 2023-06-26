@@ -44,11 +44,11 @@ You can create and participate in issues, pull requests and team discussions, de
 
 {% ifversion fpt or ghec %}
 ### {% data variables.product.prodname_discussions %}
--  are like a forum, and are best used for open-form ideas and discussions where collaboration is important.
--  may span many repositories.
--  provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
--  often don’t have a clear owner.
--  often do not result in an actionable task.
+- are like a forum, and are best used for open-form ideas and discussions where collaboration is important.
+- may span many repositories.
+- provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base.
+- often don’t have a clear owner.
+- often do not result in an actionable task.
 {% endif %}
 
 {% ifversion team-discussions %}

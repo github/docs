@@ -282,7 +282,7 @@ We have [a plan on the {% data variables.product.prodname_dotcom %} roadmap](htt
 This list describes the recommended approaches for accessing repository data within a workflow, in descending order of preference:
 
 1. **The `GITHUB_TOKEN`**
-    -  This token is intentionally scoped to the single repository that invoked the workflow, and can have the same level of access as a write-access user on the repository. The token is created before each job begins and expires when the job is finished. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
+    - This token is intentionally scoped to the single repository that invoked the workflow, and can have the same level of access as a write-access user on the repository. The token is created before each job begins and expires when the job is finished. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
     - The `GITHUB_TOKEN` should be used whenever possible.
 2. **Repository deploy key**
     - Deploy keys are one of the only credential types that grant read or write access to a single repository, and can be used to interact with another repository within a workflow. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)."

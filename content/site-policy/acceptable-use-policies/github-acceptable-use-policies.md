@@ -75,8 +75,8 @@ You will not reproduce, duplicate, copy, sell, resell or exploit any portion of 
 ## 7. Information Usage Restrictions
 You may use information from our Service for the following reasons, regardless of whether the information was scraped, collected through our API, or obtained otherwise:
 
--  Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
--  Archivists may use public information from the Service for archival purposes.
+- Researchers may use public, non-personal information from the Service for research purposes, only if any publications resulting from that research are [open access](https://en.wikipedia.org/wiki/Open_access).
+- Archivists may use public information from the Service for archival purposes.
 
 Scraping refers to extracting information from our Service via an automated process, such as a bot or webcrawler. Scraping does not refer to the collection of information through our API. Please see Section H of our [Terms of Service](/site-policy/github-terms/github-terms-of-service#h-api-terms) for our API Terms.
 
