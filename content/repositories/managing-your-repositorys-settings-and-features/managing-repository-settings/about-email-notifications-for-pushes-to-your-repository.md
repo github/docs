@@ -42,4 +42,5 @@ You can filter email notifications you receive for pushes to a repository. For m
 7. Click **Setup notifications**.
 
 ## Further reading
+
 - "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)"

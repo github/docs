@@ -103,6 +103,7 @@ You cannot change the contents of an existing cache. Instead, you can create a n
 - `cache-hit`: A boolean value to indicate an exact match was found for the key.
 
 ### Cache hits and misses
+
 When `key` exactly matches an existing cache, it's called a _cache hit_, and the action restores the cached files to the `path` directory.
 
 When `key` doesn't match an existing cache, it's called a _cache miss_, and a new cache is automatically created if the job completes successfully.

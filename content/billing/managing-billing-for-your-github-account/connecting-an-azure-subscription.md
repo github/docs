@@ -61,6 +61,7 @@ To connect your Azure subscription, you must have owner permissions to the subsc
 1. Click **Connect**.
 
 {% ifversion ghec %}
+
 ## Connecting your Azure subscription to your enterprise account
 
 To connect your Azure subscription, you must have owner permissions to the subscription.
@@ -95,6 +96,7 @@ After you disconnect your Azure subscription from your organization account, you
 1. Review the prompt, then click **Remove**.
 
 {% ifversion ghec %}
+
 ## Disconnecting your Azure subscription from your enterprise account
 
 After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.

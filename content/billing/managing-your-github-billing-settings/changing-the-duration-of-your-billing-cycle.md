@@ -44,6 +44,7 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 5. At the top right corner, click **Switch to monthly billing** or **Switch to yearly billing**.
 
 {% ifversion ghec %}
+
 ## Changing the duration of your enterprise account's billing cycle
 
 {% data reusables.enterprise-accounts.billing-perms %}

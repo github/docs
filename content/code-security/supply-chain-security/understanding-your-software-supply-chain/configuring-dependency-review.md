@@ -23,7 +23,9 @@ topics:
 For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)" and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request)."
 
 {% ifversion fpt or ghec or ghes %}
+
 ## About configuring dependency review
+
 {% endif %}
 
 {% ifversion fpt %}
@@ -51,6 +53,7 @@ Dependency review is available when dependency graph is enabled for {% data vari
 {% endif %}
 
 {% ifversion dependency-review-action-configuration %}
+
 ## About configuring the {% data variables.dependency-review.action_name %}
 
 {% data reusables.dependency-review.dependency-review-action-overview %}
@@ -84,6 +87,7 @@ There are two methods of configuring the {% data variables.dependency-review.act
 - Referencing a configuration file in your workflow file.
 
 Notice that all of the examples use a short version number for the action (`v3`) instead of a semver release number (for example, `v3.0.8`). This ensures that you use the most recent minor version of the action.
+
 ### Using inline configuration to set up the {% data variables.dependency-review.action_name %}
 
 1. Add a new YAML workflow to your `.github/workflows` folder.

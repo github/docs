@@ -93,6 +93,7 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 1. Review the identity provider tenant information you want to connect to your organization, then click **Create**.
 
 {% ifversion team-sync-manage-org-invites %}
+
 ## Managing whether team sync can invite non-members to your organization
 
 {% data reusables.profile.access_org %}

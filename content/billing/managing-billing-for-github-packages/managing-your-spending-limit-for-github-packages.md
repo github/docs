@@ -58,6 +58,7 @@ Organizations owners and billing managers can manage the spending limit for {% d
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 {% ifversion ghec %}
+
 ## Managing the spending limit for {% data variables.product.prodname_registry %} for your enterprise account
 
 Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_registry %} for an enterprise account.
@@ -74,4 +75,5 @@ Enterprise owners and billing managers can manage the spending limit for {% data
 {% endif %}
 
 ## Managing usage and spending limit email notifications
+
 {% data reusables.billing.email-notifications %}

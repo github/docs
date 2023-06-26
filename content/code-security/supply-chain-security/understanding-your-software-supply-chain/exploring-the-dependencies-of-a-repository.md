@@ -69,6 +69,7 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ### Dependents view
 
 For public repositories, the dependents view shows how the repository is used by other repositories. To show only the repositories that contain a library in a package manager, click **NUMBER Packages** immediately above the list of dependent repositories. The dependent counts are approximate and may not always match the dependents listed.

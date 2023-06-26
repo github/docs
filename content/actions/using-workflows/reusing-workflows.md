@@ -214,6 +214,7 @@ You can call multiple workflows, referencing each in a separate job.
 {% data reusables.actions.pass-inputs-to-reusable-workflows%}
 
 {% ifversion actions-reusable-workflow-matrix %}
+
 ### Using a matrix strategy with a reusable workflow
 
 Jobs using the matrix strategy can call a reusable workflow.
@@ -300,6 +301,7 @@ jobs:
 {% endraw %}
 
 {% ifversion nested-reusable-workflow %}
+
 ## Nesting reusable workflows
 
 You can connect a maximum of four levels of workflows - that is, the top-level caller workflow and up to three levels of reusable workflows. For example: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_. Loops in the workflow tree are not permitted.

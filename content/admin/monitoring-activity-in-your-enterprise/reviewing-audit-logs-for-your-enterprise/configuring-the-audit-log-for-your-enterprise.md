@@ -32,6 +32,7 @@ You can configure a retention period for audit log data for {% data variables.lo
 2. Click **Save**.
 
 {% ifversion enable-git-events %}
+
 ## Managing Git events in the audit log
 
 You can enable or disable Git-related events, such as `git.clone` and `git.push`, from appearing in your audit log. For a list of the Git events are are logged, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#git-category-actions)."

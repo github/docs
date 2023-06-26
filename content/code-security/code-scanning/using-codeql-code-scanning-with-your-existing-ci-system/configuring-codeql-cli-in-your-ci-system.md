@@ -183,6 +183,7 @@ $ codeql database analyze /codeql-dbs/example-repo \
 ```
 
 {% ifversion code-scanning-tool-status-page %}
+
 ### Adding file coverage information to your results for monitoring
 
 You can optionally submit file coverage information to {% data variables.product.product_name %} for display on the tool status page for {% data variables.product.prodname_code_scanning %}. For more information about file coverage information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page#how-codeql-defines-scanned-files)."
@@ -197,6 +198,7 @@ $ codeql database analyze /codeql-dbs/example-repo \
 ```
 
 {% endif %}
+
 ## Uploading results to {% data variables.product.product_name %}
 
 {% data reusables.code-scanning.upload-sarif-alert-limit %}
@@ -251,6 +253,7 @@ codeql github upload-results \
 There is no output from this command unless the upload was unsuccessful. The command prompt returns when the upload is complete and data processing has begun. On smaller codebases, you should be able to explore the {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} shortly afterward. You can see alerts directly in the pull request or on the **Security** tab for branches, depending on the code you checked out. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
 
 {% ifversion code-scanning-tool-status-page %}
+
 ## Uploading diagnostic information to {% data variables.product.product_name %} if the analysis fails
 
 When {% data variables.product.prodname_codeql_cli %} finishes analyzing a database successfully, it gathers diagnostic information such as file coverage, warnings, and errors, and includes it in the SARIF file with the results. When you upload the SARIF file to {% data variables.product.company_short %} the diagnostic information is displayed on the {% data variables.product.prodname_code_scanning %} tool status page for the repository to make it easy to see how well {% data variables.product.prodname_codeql %} is working and debug any problems. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page)."
@@ -287,6 +290,7 @@ This is the same as the process for uploading SARIF files from successful analys
 {% endif %}
 
 {% ifversion codeql-packs %}
+
 ## Downloading and using {% data variables.product.prodname_codeql %} query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
@@ -408,6 +412,7 @@ By default, {% data variables.product.prodname_code_scanning %} expects one SARI
 If you want to upload more than one set of results to the {% data variables.product.prodname_code_scanning %} API for a commit in a repository, you must identify each set of results as a unique set. For repositories where you create more than one {% data variables.product.prodname_codeql %} database to analyze for each commit, use the `--sarif-category` option to specify a language or other unique category for each SARIF file that you generate for that repository.
 
 {% ifversion fpt or ghec or ghes > 3.7 or ghae > 3.7 %}
+
 ### Issues with Python extraction
 
 We are deprecating Python 2 support for the {% data variables.product.prodname_codeql_cli %}, more specifically for the CodeQL database generation phase (code extraction).

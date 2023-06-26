@@ -175,6 +175,7 @@ If you select the "Busy" option, when people @mention your username, assign you 
 7. Click **Set status**.
 
 {% ifversion fpt or ghec %}
+
 ## Displaying badges on your profile
 
 When you participate in certain programs, {% data variables.product.prodname_dotcom %} automatically displays a badge on your profile.

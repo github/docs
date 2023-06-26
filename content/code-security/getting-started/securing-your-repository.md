@@ -20,6 +20,7 @@ shortTitle: Secure your repository
 ---
 
 ## Introduction
+
 This guide shows you how to configure security features for a repository. You must be a repository administrator or organization owner to configure security settings for a repository.
 
 Your security needs are unique to your repository, so you may not need to enable every feature for your repository. For more information, see "[AUTOTITLE](/code-security/getting-started/github-security-features)."
@@ -151,6 +152,7 @@ If you are a repository maintainer, it's good practice to specify a security pol
 For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
 ## Next steps
+
 You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts),"{% endif %} {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)," {% endif %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)," and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)".
 
 You can also use {% data variables.product.prodname_dotcom %}'s tools to audit responses to security alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".

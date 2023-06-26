@@ -49,6 +49,7 @@ The {% data variables.code-scanning.tool_status_page %} shows useful information
 {% endif %}
 
 {% ifversion ghae %}
+
 ## Prerequisites
 
 Before configuring {% data variables.product.prodname_code_scanning %} for a repository, you must ensure that there is at least one self-hosted {% data variables.product.prodname_actions %} runner available to the repository.
@@ -117,6 +118,7 @@ Try default setup if you don't need to run extra queries, change the scan schedu
 The advanced setup for {% data variables.product.prodname_code_scanning %} is helpful when you need to customize your {% data variables.product.prodname_code_scanning %}. By creating and editing a workflow file, you can choose which queries to run, change the scan schedule, scan any {% data variables.product.prodname_codeql %}-supported language, use a matrix build, and more.
 
 {% ifversion fpt or ghec %}
+
 ### Configuring {% data variables.product.prodname_code_scanning %} using starter workflows
 
 {% data reusables.advanced-security.starter-workflows-beta %}
@@ -189,6 +191,7 @@ In the suggested {% data variables.code-scanning.codeql_workflow %}, {% data var
 The `on:pull_request` and `on:push` triggers for code scanning are each useful for different purposes. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#configuring-frequency)."
 
 {% else %}
+
 ## Configuring {% data variables.product.prodname_code_scanning %} manually
 
 {% data reusables.repositories.navigate-to-repo %}

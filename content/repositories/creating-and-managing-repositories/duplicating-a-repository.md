@@ -117,6 +117,7 @@ As with a bare clone, a mirrored clone includes all remote branches and tags, bu
    ```
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
 
 - "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github#pushing-changes-to-github)"

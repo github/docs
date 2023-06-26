@@ -52,7 +52,9 @@ Future releases will add _precise code navigation_ for more languages, which is 
 {% ifversion code-search-code-view %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
 
 {% ifversion code-search-code-view %}
+
 ## Using the symbols pane
+
 You can now quickly view and navigate between symbols such as functions or classes in your code with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
 
 Symbol search is a feature of code search. For more information, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
@@ -106,4 +108,5 @@ If code navigation is enabled for you but you don't see links to the definitions
 - Code navigation only works for repositories with fewer than 100,000 files.
 
 ## Further reading
+
 - "[AUTOTITLE]{% ifversion code-search-code-view %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}"

@@ -93,6 +93,7 @@ This command downloads all dependencies to the shared cache on the local disk.
 {% endnote %}
 
 {% ifversion query-pack-compatibility %}
+
 ## Customizing a downloaded {% data variables.product.prodname_codeql %} pack
 
 The recommended way to experiment with changes to a pack is to clone the repository containing its source code.

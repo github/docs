@@ -27,6 +27,7 @@ For more information about environments and required approvals, see "[AUTOTITLE]
    - To reject the job, click **Reject**. If a job is rejected, the workflow will fail.
 
 {% ifversion actions-break-glass %}
+
 ## Bypassing environment protection rules
 
 If you have configured environment protection rules that control whether software can be deployed to an environment, you can bypass these rules and force all pending jobs referencing the environment to proceed.

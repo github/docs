@@ -45,6 +45,7 @@ After verifying ownership of your organization's domain, you can restrict email 
 {% ifversion ghec %}You can also verify custom domains used for {% data variables.product.prodname_pages %} to prevent domain takeovers when a custom domain remains configured but your {% data variables.product.prodname_pages %} site is either disabled or no longer uses the domain. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."{% endif %}
 
 {% ifversion ghec or ghes %}
+
 ## About domain approval
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}

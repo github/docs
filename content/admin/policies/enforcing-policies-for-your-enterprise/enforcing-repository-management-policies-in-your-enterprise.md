@@ -104,6 +104,7 @@ If you allow members to create repositories in your organizations, you can choos
 {%- endif %}
 
 ## Enforcing a policy for forking private or internal repositories
+
 Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
 
 {% ifversion org-owners-limit-forks-creation %}

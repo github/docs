@@ -43,7 +43,9 @@ Organization owners, security managers, and repository administrators can enable
 Enterprise administrators can also enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for the enterprise via the API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis)" in the REST API documentation.{% endif %}
 
 {% ifversion secret-scanning-enterprise-level %}
+
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for your enterprise
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. In the left sidebar, click **Code security and analysis**.
@@ -81,6 +83,7 @@ You can use the organization settings page for "Code security and analysis" to e
 You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at {% ifversion ghec or ghes or ghae %}the enterprise, organization, or repository level{% else%} the organization or repository level{% endif %}.
 
 {% ifversion ghec or ghes or ghae %}
+
 ### Enabling push protection for a custom pattern stored in an enterprise
 
 {% data reusables.secret-scanning.push-protection-enterprise-note %}
@@ -106,6 +109,7 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
    ![Screenshot of the custom pattern page with the button to enable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
 {% endif %}
+
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in an organization for a custom pattern
 
 Before enabling push protection for a custom pattern at organization level, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
@@ -177,6 +181,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 1. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
 
 {% ifversion secret-scanning-push-protection-web-ui %}
+
 ## Using secret scanning as a push protection from the web UI
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}

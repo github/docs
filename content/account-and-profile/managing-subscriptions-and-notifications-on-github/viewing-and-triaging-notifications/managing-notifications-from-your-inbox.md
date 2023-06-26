@@ -139,6 +139,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 | `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
 
 {% ifversion fpt or ghec %}
+
 ### Supported `author:` queries
 
 To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.

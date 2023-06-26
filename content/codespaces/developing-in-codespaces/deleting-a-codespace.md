@@ -146,6 +146,7 @@ For more information, click the "{% data variables.product.prodname_cli %}" tab 
 You can also use the REST API to delete codespaces for your organization. For more information, see "[AUTOTITLE](/rest/codespaces/organizations#delete-a-codespace-from-the-organization)."
 
 ## Further reading
+
 - "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"
 - "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)"
 - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"

@@ -158,6 +158,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 1. After the configuration is applied, run `ghe-actions-check` to verify that the {% data variables.product.prodname_actions %} services are operational.
 
 {% ifversion fpt or ghec or ghes %}
+
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
 
 {% data reusables.dependabot.beta-security-and-version-updates %}

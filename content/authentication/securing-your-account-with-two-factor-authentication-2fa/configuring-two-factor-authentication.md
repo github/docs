@@ -138,6 +138,7 @@ Registering a security key for your account is available after enabling 2FA with
 {% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
 
 You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.

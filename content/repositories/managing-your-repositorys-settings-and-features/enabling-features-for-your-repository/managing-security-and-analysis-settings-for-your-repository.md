@@ -36,6 +36,7 @@ shortTitle: Security & analysis
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Enabling or disabling security and analysis features for public repositories
 
 You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and {% data variables.secret-scanning.partner_alerts %}.

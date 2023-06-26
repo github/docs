@@ -13,6 +13,7 @@ topics:
 ---
 
 {% ifversion api-date-versioning %}
+
 ## API version
 
 Available resources may vary between REST API versions. You should use the `X-GitHub-Api-Version` header to specify an API version. For more information, see "[AUTOTITLE](/rest/overview/api-versions)."
@@ -103,6 +104,7 @@ curl --request GET \
 If you try to use a REST API endpoint without a token or with a token that has insufficient permissions, you will receive a `404 Not Found` or `403 Forbidden` response.
 
 {% ifversion fpt or ghes or ghec %}
+
 ### OAuth2 key/secret
 
 {% data reusables.apps.deprecating_auth_with_query_parameters %}

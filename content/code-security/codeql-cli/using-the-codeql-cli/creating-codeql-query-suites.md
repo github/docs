@@ -380,6 +380,7 @@ This value is displayed when you run [AUTOTITLE](/code-security/codeql-cli/codeq
 directory. For more information, see "[Specifying well-known query suites](#specifying-well-known-query-suites)."
 
 {% ifversion codeql-packs %}
+
 ## Saving a query suite
 
 Save your query suite in a file with a `.qls` extension and add it to a CodeQL

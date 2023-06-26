@@ -49,11 +49,13 @@ Signing commits differs from signing off on a commit. For more information about
 {% endif %}
 
 ### Signature verification for rebase and merge
+
 {% data reusables.pull_requests.rebase_and_merge_verification %}
 
 For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github#rebasing-and-merging-your-commits)."
 
 {% ifversion fpt or ghec %}
+
 ### Statuses with vigilant mode enabled
 
 {% data reusables.identity-and-permissions.vigilant-mode-verification-statuses %}
@@ -87,6 +89,7 @@ To sign commits using GPG and have those commits verified on {% data variables.p
 6. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
 
 {% ifversion ssh-commit-verification %}
+
 ## SSH commit signature verification
 
 You can use SSH to sign commits with an SSH key that you generate yourself. For more information, see the [Git reference documentation](https://git-scm.com/docs/git-config#Documentation/git-config.txt-usersigningKey)  for `user.Signingkey`. If you already use an SSH key to authenticate with {% data variables.product.product_name %},
@@ -106,6 +109,7 @@ To sign commits using SSH and have those commits verified on {% data variables.p
 6. [Sign tags](/authentication/managing-commit-signature-verification/signing-tags)
 
 {% endif %}
+
 ## S/MIME commit signature verification
 
 You can use S/MIME to sign commits with an X.509 key issued by your organization.
@@ -123,6 +127,7 @@ To sign commits using S/MIME and have those commits verified on {% data variable
 You don't need to upload your public key to {% data variables.product.product_name %}.
 
 {% ifversion fpt or ghec %}
+
 ## Signature verification for bots
 
 Organizations and {% data variables.product.prodname_github_apps %} that require commit signing can use bots to sign commits. If a commit or tag has a bot signature that is cryptographically verifiable, {% data variables.product.product_name %} marks the commit or tag as verified.

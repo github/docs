@@ -34,6 +34,7 @@ Deployments to an environment can be approved or rejected based on the condition
 Alternatively, you can write your own protection rules for any of the above use cases or you can define any custom logic to safely approve or reject deployments from pre-production to production environments.
 
 ## Creating a custom deployment protection rule with {% data variables.product.prodname_github_apps %}
+
 1. Create a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)." Configure the {% data variables.product.prodname_github_app %} as follows.
    1. Optionally, in the **Callback URL** text field under "Identifying and authorizing users," enter the callback URL. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url)."
    1. Under "Permissions," select **Repository permissions**.

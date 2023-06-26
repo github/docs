@@ -31,6 +31,7 @@ topics:
    ```
 
 ## Upgrading with an upgrade package
+
 Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_server %} cluster to the latest feature release. For example, you can upgrade from `2.11` to `2.13`.
 
 ### Preparing to upgrade

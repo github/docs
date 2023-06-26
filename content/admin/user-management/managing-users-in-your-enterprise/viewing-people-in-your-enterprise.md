@@ -97,6 +97,7 @@ If you use {% data variables.product.prodname_emus %}, verify a domain, or confi
 {% endif %}
 
 {% ifversion enterprise-membership-view-improvements %}
+
 ## Viewing outside collaborators
 
 You can see all the current outside collaborators for your enterprise. You can see useful information about each collaborator and filter the list in useful ways, such as by organization. You can find a specific collaborator by searching for their username or display name.
@@ -109,6 +110,7 @@ You can view more information about the person's access to your enterprise, such
 {% endif %}
 
 {% ifversion ghec %}
+
 ## Viewing pending invitations
 
 You can see all the pending invitations to become members, administrators, or outside collaborators in your enterprise. You can filter the list in useful ways, such as by license, by organization, or by source. You can find a specific person by searching for their username or display name.
@@ -149,6 +151,7 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you can view
 You can view a list of all dormant users {% ifversion ghes or ghae %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)."
 
 {% ifversion filter-by-enterprise-member-type %}
+
 ## Filtering by member type{% ifversion ghec %} in an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}
 
 {% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes or ghae %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is mananaged in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#about-organization-membership-management)."{% endif %}
@@ -165,6 +168,7 @@ You can view a list of all dormant users {% ifversion ghes or ghae %} who have n
 {% endif %}
 
 {% ifversion ghec or ghes %}
+
 ## Viewing members without an email address from a verified domain
 
 You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account on {% data variables.product.prodname_dotcom_the_website %}.

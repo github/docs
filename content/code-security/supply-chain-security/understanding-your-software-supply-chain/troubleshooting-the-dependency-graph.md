@@ -71,6 +71,7 @@ Yes, the dependency graph has {% ifversion dependency-graph-repository-view-upda
 
 **Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
 {% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"

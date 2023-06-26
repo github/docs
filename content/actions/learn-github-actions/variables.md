@@ -159,6 +159,7 @@ The following rules apply to configuration variable names:
 1. Click **Add variable**.
 
 ### Limits for configuration variables
+
 {% ifversion ghes %}
 {% ifversion ghes > 3.8 %}
 

@@ -134,6 +134,7 @@ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
 ### Configuring health checks
+
 Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If a cluster node fails, health checks paired with redundant nodes provides high availability.
 
 {% data reusables.enterprise_clustering.health_checks %}

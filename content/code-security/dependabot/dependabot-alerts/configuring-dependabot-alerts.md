@@ -68,6 +68,7 @@ By default, we notify people with {% ifversion dependabot-alerts-permissions-wri
 An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.8 %}
+
 ### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -83,6 +84,7 @@ An enterprise owner must first set up {% data variables.product.prodname_dependa
 {% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your organization
+
 {% ifversion fpt or ghec or ghes > 3.8 %}You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your organization. Your changes affect all repositories.
 
 {% ifversion dependabot-alerts-ghes-enablement %}

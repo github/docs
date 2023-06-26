@@ -154,6 +154,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.warning`    | `warning` |
 
 {% ifversion actions-save-state-set-output-envs %}{% else %}
+
 ## Setting an output parameter
 
 Sets an action's output parameter.
@@ -477,6 +478,7 @@ jobs:
 If you want to pass a masked secret between jobs or workflows, you should store the secret in a store and then retrieve it in the subsequent job or workflow.
 
 #### Setup
+
 1. Set up a secret store to store the secret that you will generate during your workflow. For example, Vault.
 1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
@@ -629,6 +631,7 @@ jobs:
 {% endpowershell %}
 
 {% ifversion actions-save-state-set-output-envs %}{% else %}
+
 ## Echoing command outputs
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
@@ -884,6 +887,7 @@ steps:
 {% endpowershell %}
 
 {% ifversion actions-save-state-set-output-envs %}
+
 ## Setting an output parameter
 
 Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value. You can set multi-line output values with the same technique used in the "[Multiline strings](/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings)" section to define multi-line environment variables.

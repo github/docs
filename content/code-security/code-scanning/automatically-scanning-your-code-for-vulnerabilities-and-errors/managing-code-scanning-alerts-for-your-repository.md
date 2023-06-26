@@ -122,6 +122,7 @@ You can search the list of alerts. This is useful if there is a large number of 
 {% endif %}
 
 {% ifversion code-scanning-task-lists %}
+
 ## Tracking {% data variables.product.prodname_code_scanning %} alerts in issues
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
@@ -157,6 +158,7 @@ If you run {% data variables.product.prodname_code_scanning %} using multiple co
 {% endif %}
 {% endnote %}
 {% endif %}
+
 ## Dismissing {% ifversion delete-code-scanning-alerts %}or deleting{% endif %} alerts
 
 There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert. {% ifversion delete-code-scanning-alerts %}Alternatively, if you have admin permissions for the repository, you can delete alerts. Deleting alerts is useful in situations where you have set up a {% data variables.product.prodname_code_scanning %} tool and then decided to remove it, or where you have configured {% data variables.product.prodname_codeql %} analysis with a larger set of queries than you want to continue using, and you've then removed some queries from the tool. In both cases, deleting alerts allows you to clean up your {% data variables.product.prodname_code_scanning %} results. You can delete alerts from the summary list within the **Security** tab.{% endif %}
@@ -205,6 +207,7 @@ To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alert
 If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
 
 {% ifversion remove-code-scanning-configurations %}
+
 ## Removing stale configurations and alerts from a branch
 
 You may have multiple code scanning configurations on a single repository. When run, multiple configurations can generate the same alert. Additionally, if the configurations are run on different schedules, the alert statuses may become out-of-date for infrequent or stale configurations. For more information on alerts from multiple configurations, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alerts-from-multiple-configurations)."

@@ -83,6 +83,7 @@ You can configure version updates for repositories that contain a dependency man
 If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-integrations)."{% endif %}
 
 {% ifversion dependabot-updates-paused %}
+
 ## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
 
 {% data reusables.dependabot.automatically-pause-dependabot-updates %}

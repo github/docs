@@ -193,4 +193,5 @@ This means that you cannot automate the creation of accounts. But if you want to
 [team]: /organizations/organizing-members-into-teams/adding-organization-members-to-a-team
 
 ## Further reading
+
 - [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

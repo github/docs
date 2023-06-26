@@ -45,6 +45,7 @@ For {% ifversion ghes %}the {% data variables.product.prodname_container_registr
 {% endif %}
 
 {% ifversion packages-registries-v2 %}
+
 ## Visibility and access permissions for packages
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
@@ -105,6 +106,7 @@ For more conceptual background on {% data variables.product.prodname_actions %} 
 For more information about `GITHUB_TOKEN` used in {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow)."
 
 {% ifversion fpt or ghec %}
+
 ### {% data variables.product.prodname_actions %} access for packages with granular permissions
 
 To ensure your workflows have access to packages stored in registries that support granular permissions, you must give {% data variables.product.prodname_actions %} access to the repositories where your workflow is run. You can find this setting on your package's settings page. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)."

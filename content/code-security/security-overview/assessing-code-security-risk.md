@@ -95,6 +95,7 @@ You can view data for security alerts across organizations in an enterprise. {% 
 {% endif %}
 
 {% ifversion ghes < 3.7 or ghae < 3.7 %}
+
 ## Viewing security overview for a team
 
 {% data reusables.profile.access_org %}

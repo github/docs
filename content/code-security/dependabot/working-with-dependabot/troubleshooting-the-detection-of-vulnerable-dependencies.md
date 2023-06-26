@@ -69,6 +69,7 @@ Some third-party tools use uncurated CVE data that isn't checked or filtered by 
 Since {% data variables.product.prodname_dependabot %} uses curated data in the {% data variables.product.prodname_advisory_database %}, the volume of alerts may be lower, but the alerts you do receive will be accurate and relevant.
 
 {% ifversion fpt or ghec %}
+
 ## Does each insecure dependency generate a separate alert?
 
 When a dependency has multiple vulnerabilities, an alert is generated for each vulnerability at the level of advisory plus manifest.
@@ -85,6 +86,7 @@ The {% data variables.product.prodname_dependabot_alerts %} count in {% data var
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ## Can Dependabot ignore specific dependencies?
 
 You can configure {% data variables.product.prodname_dependabot %} to ignore specific dependencies in the configuration file, which will prevent security and version updates for those dependencies. If you only wish to use security updates, you will need to override the default behavior with a configuration file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#overriding-the-default-behavior-with-a-configuration-file)" to prevent version updates from being activated. For information about ignoring dependencies, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
