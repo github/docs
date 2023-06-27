@@ -1,3 +1,13 @@
+
+FALSE DECLARATIONS OF MICROSOFT !!!
+
+https://opensource.microsoft.com/
+https://privacy.microsoft.com/pl-pl/privacystatement
+
+INFORMATION SHOULD BE FREE !!! 
+#OPENSOURCE TRANBBSPARENCY OF MICROSOFT IS THE LIE!!!! they  used freedom words to trick you, in other context, they classified young poeples and gave them other policy statements.... future of my and my child is our privacy.. microsoft please  respect me, I want be open for all and free,.. and never change... this is privacy from my heart... use your knowlegde and check basic statements.. to guarAntee humanity rights for freedom and privacy, 
+
+
 ---
 title: Coordinated Disclosure of Security Vulnerabilities
 redirect_from:
