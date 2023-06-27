@@ -22,10 +22,11 @@ const tokenize = (str) => {
 // src/ghes-releases/tests/remove-liquid-statements.js.
 export default function removeLiquidStatements(content, release, nextOldestRelease, file) {
   let newContent = content
+  let contentChanged = false
 
   // Get an array of ifversion blocks with their content included.
   const blocks = getLiquidConditionalsWithContent(newContent, 'ifversion')
-  if (!blocks.length) return newContent
+  if (!blocks.length) return { newContent, contentChanged }
 
   // Decorate those blocks with more GHES versioning information.
   const versionBlocks = getVersionBlocks(blocks)
@@ -233,6 +234,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
   // in the general content and return the updated general content.
   versionBlocks.forEach((versionBlock) => {
     if (versionBlock.action !== 'none') {
+      contentChanged = true
       const newBlockContent = versionBlock.newContent.replaceAll(/\n\n\n+?/g, '\n\n')
 
       newContent = newContent
@@ -246,7 +248,7 @@ export default function removeLiquidStatements(content, release, nextOldestRelea
     }
   })
 
-  return newContent
+  return { newContent, contentChanged }
 }
 
 // Hack to use a regex with lastIndexOf.
