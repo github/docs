@@ -85,31 +85,8 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
 async function getMarkdownContent(versions) {
   const markdownUpdates = {}
 
-  for (const category of Object.keys(versions)) {
-    const subcategories = Object.keys(versions[category])
-    // When there is only a single subcategory and the name
-    // matches the category, this is an override due to a
-    // subcategory not being defined. In this case,
-    // the markdown file will be in the content/rest directory.
-    // The file path will be content/rest/<category>.md
-    if (subcategories.length === 1 && category === subcategories[0]) {
-      // this will be a file in the root of the rest directory
-      const filepath = path.join('content/rest', `${category}.md`)
-      markdownUpdates[filepath] = {
-        data: {
-          title: category,
-          shortTitle: category,
-          intro: '',
-          versions: await convertVersionsToFrontmatter(
-            versions[category][subcategories[0]].versions
-          ),
-          ...frontmatterDefaults,
-        },
-        content: '',
-      }
-      continue
-    }
-
+  for (const [category, subcategoryObject] of Object.entries(versions)) {
+    const subcategories = Object.keys(subcategoryObject)
     // The file path will be content/rest/<category>/<subcategory>.md
     for (const subcategory of subcategories) {
       const filepath = path.join('content/rest', category, `${subcategory}.md`)
