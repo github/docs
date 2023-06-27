@@ -39,7 +39,13 @@ Warnings and danger notices are rendered in red `{% warning %}` tags.
 
 For more information on formatting callouts, see “Callouts” in the [markup reference guide](content-markup-reference.md).
 
-## Call to action (CTA) buttons
+## Buttons
+
+Landing pages and some articles have buttons that take people to relevant content in other articles or on other GitHub webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[Setting up a trial of GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the Enterprise trial sign up page since that is the next step in the process of setting up a trial. The "[Migrations](https://docs.github.com/en/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
+
+If a button encourages people to navigate away from the GitHub Docs site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, open an issue in `docs-strategy` to share your use case for approval by Content Strategy.
+
+### Call to action (CTA) buttons
 
 CTA buttons emphasize a link that we expect or encourage readers to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to GitHub-owned domains. For example, the CTA in "[Getting started with GitHub Copilot in Visual Studio Code](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)" links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on github.com.
 
