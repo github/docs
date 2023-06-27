@@ -18,7 +18,7 @@ Anyone with admin permissions to a repository can enable or disable the automati
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or unselect **Automatically delete head branches**.
+1. Under {% ifversion fpt or ghec or ghes or ghae > 3.4 %}"Pull Requests"{% else %}"Merge button"{% endif %}, select or unselect **Automatically delete head branches**.
 
 ## Further reading
 

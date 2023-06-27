@@ -27,7 +27,7 @@ topics:
 {% endnote %}
 {% endif %}
 
-{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion ghec or ghes or ghae > 3.4 %}
 {% note %}
 
 **Note:** Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)."

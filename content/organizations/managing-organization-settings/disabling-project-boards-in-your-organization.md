@@ -29,7 +29,7 @@ When {% data variables.projects.projects_v1_boards %} are disabled, you will no 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.4 %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
 {% endif %}
 1. Decide whether to disable {% data variables.projects.projects_v2_and_v1 %} in your organization. Then, under **Projects{% ifversion ghes = 3.7 %} (classic){% endif %}**:
@@ -47,7 +47,7 @@ You can control whether organization members can create {% data variables.projec
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.4 %}
 1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
 {% endif %}
 1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under **{%ifversion ghes > 3.7 or ghae > 3.7 or ghec or fpt %}Projects (classic) only{% elsif ghes = 3.7 %}Repository projects{% else %}Projects{% endif %}**:

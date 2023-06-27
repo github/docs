@@ -7,7 +7,7 @@ versions:
   fpt: '*'
   ghae: '>= 3.5'
   ghec: '*'
-  ghes: '>3.4'
+  ghes: '*'
 ---
 
 {% note %}

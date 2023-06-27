@@ -46,7 +46,7 @@ You can send an invitation to collaborate in your repository directly to someone
 1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/signing-up-for-a-new-github-account)."{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4%}
+{% ifversion fpt or ghec or ghes or ghae > 3.4%}
 1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" %} Collaborators**.
 1. Click **Add people**.
 1. In the search field, start typing the name of person you want to invite, then click a name in the list of matches.

@@ -125,7 +125,7 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 
 {% else %}
 
-### Security overview for organizations{% ifversion ghes > 3.4 or ghae > 3.4 %}, enterprises,{% endif %} and teams
+### Security overview for organizations{% ifversion ghes or ghae > 3.4 %}, enterprises,{% endif %} and teams
 
 Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 {% endif %}

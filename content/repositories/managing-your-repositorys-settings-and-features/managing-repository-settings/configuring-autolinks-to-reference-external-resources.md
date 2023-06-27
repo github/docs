@@ -34,7 +34,7 @@ This procedure demonstrates how to configure autolinks to reference external res
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.4 %}
 1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-hidden="true" %} Autolink references**.
 {% else %}
 1. In the left sidebar, click **Autolink references**.

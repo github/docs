@@ -3,7 +3,7 @@ title: Creating a branch to work on an issue
 intro: You can create a branch to work on an issue directly from the issue page and get started right away.
 versions:
   fpt: '*'
-  ghes: '>=3.5'
+  ghes: '*'
   ghae: '>= 3.5'
   ghec: '*'
 allowTitleToDifferFromFilename: true

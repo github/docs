@@ -32,7 +32,7 @@ For more information about repository roles, see "[AUTOTITLE](/account-and-profi
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
@@ -43,7 +43,7 @@ For more information about repository roles, see "[AUTOTITLE](/account-and-profi
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
@@ -54,7 +54,7 @@ For more information about repository roles, see "[AUTOTITLE](/account-and-profi
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
@@ -67,7 +67,7 @@ For more information about repository roles, see "[AUTOTITLE](/account-and-profi
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
 {% else %}
 {% data reusables.repositories.navigate-to-manage-access %}
