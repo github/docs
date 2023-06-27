@@ -80,7 +80,6 @@ To ensure the protection of sensitive data such as user edit actions, source cod
 - Strict access control: Access to the data is tightly regulated and limited to specific individuals, including:
     - Named {% data variables.product.company_short %} personnel working on the {% data variables.product.prodname_copilot %} team or the {% data variables.product.company_short %} platform health team.
     - Microsoft personnel involved with the {% data variables.product.prodname_copilot %} team.
-    - OpenAI personnel actively contributing to {% data variables.product.prodname_copilot %}.
 - Role-based access controls and multi-factor authentication: People who require access to code snippet data must adhere to role-based access controls. Additionally, multi-factor authentication is implemented to add an extra layer of security, ensuring that only authorized individuals can access the data.
 
 ### How can users of {% data variables.product.prodname_copilot_for_individuals %} control use of their Code Snippets Data?
