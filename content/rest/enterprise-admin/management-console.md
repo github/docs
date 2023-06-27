@@ -29,13 +29,13 @@ You need to pass your [{% ifversion enterprise-management-console-multi-user-aut
 Use the `api_key` parameter to send this token with each request. For example:
 
 ```shell
-$ curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_PASSWORD'
+curl -L 'https://HOSTNAME:ADMIN-PORT/setup/api?api_key=YOUR_PASSWORD'
 ```
 
 You can also use standard HTTP authentication to send this token. For example:
 
 ```shell
-$ curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
+curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
 ```
 
 {% ifversion enterprise-management-console-multi-user-auth %}
@@ -47,10 +47,9 @@ $ curl -L -u "api_key:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
 To authenticate with the password for a {% data variables.enterprise.management_console %} user account, use standard HTTP authentication. In the following example, replace YOUR_USER_NAME and YOUR_PASSWORD with the account's user name and password.
 
 ```shell
-$ curl -L -u "YOUR_USER_NAME:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
+curl -L -u "YOUR_USER_NAME:YOUR_PASSWORD" 'https://HOSTNAME:ADMIN-PORT/setup/api'
 ```
 
 {% endif %}
-
 
 <!-- Content after this section is automatically generated -->

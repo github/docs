@@ -49,6 +49,7 @@ On {% data variables.product.product_name %} {% ifversion ghes %}{{ allVersions[
 
 {% endif %}
 
+For information about {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts)."
 
 ## About {% data variables.product.prodname_codeql %}
 

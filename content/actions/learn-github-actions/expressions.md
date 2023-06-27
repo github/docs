@@ -38,10 +38,12 @@ steps:
 ### Example setting an environment variable
 
 {% raw %}
+
 ```yaml
 env:
   MY_ENV_VAR: ${{ <expression> }}
 ```
+
 {% endraw %}
 
 ## Literals
@@ -92,7 +94,7 @@ env:
 
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 
-* If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
+- If the types do not match, {% data variables.product.prodname_dotcom %} coerces the type to a number. {% data variables.product.prodname_dotcom %} casts data types to a number using these conversions:
 
   | Type    | Result |
   | ---     | ---    |
@@ -101,9 +103,9 @@ env:
   | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
   | Array   | `NaN` |
   | Object  | `NaN` |
-* A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
-* {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
-* Objects and arrays are only considered equal when they are the same instance.
+- A comparison of one `NaN` to another `NaN` does not result in `true`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
+- {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
+- Objects and arrays are only considered equal when they are the same instance.
 
 {% data variables.product.prodname_dotcom %} offers ternary operator like behaviour that you can use in expressions. By using a ternary operator in this way, you can dynamically set the value of an environment variable based on a condition, without having to write separate if-else blocks for each possible option.
 
@@ -119,7 +121,7 @@ env:
 {% endraw %}
 
 In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`.
-It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned. 
+It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned.
 
 ## Functions
 
@@ -184,9 +186,11 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 #### Example of `format`
 
 {% raw %}
+
 ```js
 format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns 'Hello Mona the Octocat'.
@@ -194,9 +198,11 @@ Returns 'Hello Mona the Octocat'.
 #### Example escaping braces
 
 {% raw %}
+
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns '{Hello Mona the Octocat!}'.
@@ -232,6 +238,7 @@ Returns a JSON object or JSON data type for `value`. You can use this function t
 This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
 
 {% raw %}
+
 ```yaml
 name: build
 on: push
@@ -255,6 +262,7 @@ jobs:
     steps:
       - run: build
 ```
+
 {% endraw %}
 
 #### Example returning a JSON data type
@@ -262,6 +270,7 @@ jobs:
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
 {% raw %}
+
 ```yaml
 name: print
 on: push
@@ -276,6 +285,7 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.time) }}
         run: echo ...
 ```
+
 {% endraw %}
 
 ### hashFiles
@@ -317,7 +327,7 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled. 
+Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled.
 
 {% note %}
 

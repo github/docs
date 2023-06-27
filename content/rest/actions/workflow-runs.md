@@ -19,5 +19,4 @@ You can use the REST API to view, re-run, cancel, and view logs for workflow run
 
 {% data reusables.actions.actions-authentication %} {% data reusables.actions.actions-app-actions-permissions-api %}
 
-
 <!-- Content after this section is automatically generated -->

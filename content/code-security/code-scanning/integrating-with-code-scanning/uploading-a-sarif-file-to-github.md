@@ -43,7 +43,13 @@ You can upload the results using {% data variables.product.prodname_actions %}, 
 - The {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_code_scanning %} in your CI system, you can use the CLI to upload results to {% data variables.product.prodname_dotcom %} (for more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)").
 - A tool that generates results as an artifact outside of your repository, you can use the {% data variables.product.prodname_code_scanning %} API to upload the file (for more information, see "[AUTOTITLE](/rest/code-scanning#upload-an-analysis-as-sarif-data)").
 
-{% data reusables.code-scanning.not-available %}
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:** For private and internal repositories, {% data variables.product.prodname_code_scanning %} is available when {% data variables.product.prodname_GH_advanced_security %} features are enabled for the repository. If you see the error `Advanced Security must be enabled for this repository to use code scanning`, check that {% data variables.product.prodname_GH_advanced_security %} is enabled. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+
+{% endnote %}
+{% endif %}
 
 ## Uploading a {% data variables.product.prodname_code_scanning %} analysis with {% data variables.product.prodname_actions %}
 

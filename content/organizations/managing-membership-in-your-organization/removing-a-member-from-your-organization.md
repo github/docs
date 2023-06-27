@@ -28,7 +28,7 @@ permissions: Organization owners can remove members from an organization.
 - Removed members will lose access to private forks of your organization's private repositories, but they may still have local copies. However, they cannot sync local copies with your organization's repositories. Their private forks can be restored if the user is [reinstated as an organization member](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization) within three months of being removed from the organization. Ultimately, you are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 - When private repositories are forked to other organizations, those organizations are able to control access to the fork network. This means users may retain access to the forks even after losing access to the original organization because they will still have explicit access via a fork.
 {%- ifversion ghec %}
--  Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+- Removed members will also lose access to private forks of your organization's internal repositories, if the removed member is not a member of any other organization owned by the same enterprise account. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
 {%- endif %}
 - Any organization invitations sent by a removed member, that have not been accepted, are canceled and will not be accessible.
 

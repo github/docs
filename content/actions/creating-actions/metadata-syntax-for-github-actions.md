@@ -115,6 +115,7 @@ outputs:
 ### Example: Declaring outputs for composite actions
 
 {% raw %}
+
 ```yaml
 outputs:
   random-number:
@@ -131,6 +132,7 @@ runs:
 {%- endif %}{% raw %}
       shell: bash
 ```
+
 {% endraw %}
 
 ### `outputs.<output_id>.value`
@@ -235,6 +237,7 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 **Optional** The command you want to run. This can be inline or a script in your action repository:
 
 {% raw %}
+
 ```yaml
 runs:
   using: "composite"
@@ -242,6 +245,7 @@ runs:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+
 {% endraw %}
 
 Alternatively, you can use `$GITHUB_ACTION_PATH`:
@@ -447,6 +451,7 @@ For more information about using the `CMD` instruction with {% data variables.pr
 #### Example: Defining arguments for the Docker container
 
 {% raw %}
+
 ```yaml
 runs:
   using: 'docker'
@@ -456,6 +461,7 @@ runs:
     - 'foo'
     - 'bar'
 ```
+
 {% endraw %}
 
 ## `branding`

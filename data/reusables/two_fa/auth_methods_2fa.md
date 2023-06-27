@@ -1,4 +1,5 @@
 {% ifversion ghes %}
+
 ### Authentication methods that support 2FA
 
 | Authentication Method | Description  | Two-factor authentication support |

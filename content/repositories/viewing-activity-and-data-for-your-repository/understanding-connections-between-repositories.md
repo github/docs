@@ -40,7 +40,7 @@ The network graph displays the branch history of the entire repository network, 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Network**.
+1. In the left sidebar, click **Network**.
 ![Screenshot of the left sidebar. The "Network" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/network_tab.png)
 
 ## Listing the forks of a repository
@@ -84,7 +84,7 @@ Forks are listed alphabetically by the organization or username of the person wh
 
    ![Screenshot of the forks page with filter and sort options shown. The dropdown menu, titled "Sort", is highlighted with an orange outline.](/assets/images/help/graphs/repository-forks-page-sort-dropdown.png)
 
-1. Optionally, to preserve the filter values you have selected as the default filters for any time you view a forks page, click **Save Defaults**. If the currently selected filters are already the defaults, the button will be disabled and labeled as **Defaults Saved**. 
+1. Optionally, to preserve the filter values you have selected as the default filters for any time you view a forks page, click **Save Defaults**. If the currently selected filters are already the defaults, the button will be disabled and labeled as **Defaults Saved**.
 
    ![Screenshot of the forks page with filter and sort options shown. The "Defaults saved" button, which is disabled because the defaults are already saved, is highlighted with an orange outline."](/assets/images/help/graphs/repository-forks-page-save-defaults-button.png)
 

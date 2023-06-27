@@ -47,7 +47,6 @@ During development, you will likely use your personal computer or codespace to r
 
 Once you write the code for your {% data variables.product.prodname_github_app %}, you should ensure that it follows best practices. If necessary, remember to update your {% data variables.product.prodname_github_app %} registration. If your {% data variables.product.prodname_github_app %} needs to run on a server instead of a user's device, deploy your app to your server. Finally, you can share your {% data variables.product.prodname_github_app %} with other users and organizations.
 
-
 ### Follow best practices
 
 Before deploying your {% data variables.product.prodname_github_app %}, make sure you follow best practices. For example, make sure that your {% data variables.product.prodname_github_app %}'s credentials are secure. For more information, see "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)."

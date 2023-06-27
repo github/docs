@@ -17,6 +17,7 @@ shortTitle: Delete organization
 ---
 
 ## About deletion of your organization account
+
 {% ifversion fpt or ghec %}
 {% tip %}
 

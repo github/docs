@@ -18,9 +18,9 @@ Before merging your pull requests, other changes may get merged into the base br
 
 You can update a pull request's head branch from the command line or the pull request page. The **Update branch** button is displayed when all of these are true:
 
-* There are no merge conflicts between the pull request branch and the base branch.
-* The pull request branch is not up to date with the base branch.
-* The base branch requires branches to be up to date before merging{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} or the setting to always suggest updating branches is enabled{% endif %}.
+- There are no merge conflicts between the pull request branch and the base branch.
+- The pull request branch is not up to date with the base branch.
+- The base branch requires branches to be up to date before merging{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %} or the setting to always suggest updating branches is enabled{% endif %}.
 
 For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches){% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}" and "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches){% endif %}."
 

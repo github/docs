@@ -151,7 +151,7 @@ After you enable SCIM on a {% data variables.product.product_name %} instance, a
        --header 'Content-Type: application/scim' \
        --header 'Authorization: Bearer $GHES_PAT'
    ```
-   
+
    The command should return an empty array.
 {%- endif %}
 {%- ifversion ghae %}
@@ -159,7 +159,7 @@ After you enable SCIM on a {% data variables.product.product_name %} instance, a
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SCIM User Provisioning", select **Require SCIM user provisioning**.
-2. Click **Save**.
+1. Click **Save**.
 {%- endif %}
 1. Configure user provisioning in the application for {% data variables.product.product_name %} on your IdP.{% ifversion scim-for-ghes %} To request documentation for a supported IdP, contact your account manager on {% data variables.contact.contact_enterprise_sales %}. If your IdP is unsupported, you must create the application and configure SCIM manually.{% elsif ghae %}
 

@@ -154,6 +154,7 @@ The following table shows which toolkit functions are available within a workflo
 | `core.warning`    | `warning` |
 
 {% ifversion actions-save-state-set-output-envs %}{% else %}
+
 ## Setting an output parameter
 
 Sets an action's output parameter.
@@ -256,6 +257,7 @@ Creates a warning message and prints the message to the log. {% data reusables.a
 ```bash copy
 echo "::warning file=app.js,line=1,col=5,endColumn=7::Missing semicolon"
 ```
+
 {% endbash %}
 
 {% powershell %}
@@ -476,6 +478,7 @@ jobs:
 If you want to pass a masked secret between jobs or workflows, you should store the secret in a store and then retrieve it in the subsequent job or workflow.
 
 #### Setup
+
 1. Set up a secret store to store the secret that you will generate during your workflow. For example, Vault.
 1. Generate a key for reading and writing to that secret store. Store the key as a repository secret. In the following example workflow, the secret name is `SECRET_STORE_CREDENTIALS`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
@@ -524,6 +527,7 @@ jobs:
         echo "::add-mask::$RETRIEVED_SECRET"
         echo "We retrieved our masked secret: $RETRIEVED_SECRET"
 ```
+
 {% endbash %}
 
 {% powershell %}
@@ -563,6 +567,7 @@ jobs:
         echo "::add-mask::$Retrieved_Secret"
         echo "We retrieved our masked secret: $Retrieved_Secret"
 ```
+
 {% endpowershell %}
 
 ## Stopping and starting workflow commands
@@ -603,6 +608,7 @@ jobs:
           echo "::$stopMarker::"
           echo '::warning:: This is a warning again, because stop-commands has been turned off.'
 ```
+
 {% endbash %}
 
 {% powershell %}
@@ -625,6 +631,7 @@ jobs:
 {% endpowershell %}
 
 {% ifversion actions-save-state-set-output-envs %}{% else %}
+
 ## Echoing command outputs
 
 Enables or disables echoing of workflow commands. For example, if you use the `set-output` command in a workflow, it sets an output parameter but the workflow run's log does not show the command itself. If you enable command echoing, then the log shows the command, such as `::set-output name={name}::{value}`.
@@ -715,6 +722,7 @@ This example uses JavaScript to run the `save-state` command. The resulting envi
 ```javascript copy
 console.log('::save-state name=processID::12345')
 ```
+
 {% endif %}
 
 The `STATE_processID` variable is then exclusively available to the cleanup script running under the `main` action. This example runs in `main` and uses JavaScript to display the value assigned to the `STATE_processID` environment variable:
@@ -879,6 +887,7 @@ steps:
 {% endpowershell %}
 
 {% ifversion actions-save-state-set-output-envs %}
+
 ## Setting an output parameter
 
 Sets a step's output parameter. Note that the step will need an `id` to be defined to later retrieve the output value. You can set multi-line output values with the same technique used in the "[Multiline strings](/actions/using-workflows/workflow-commands-for-github-actions#multiline-strings)" section to define multi-line environment variables.
@@ -888,6 +897,7 @@ Sets a step's output parameter. Note that the step will need an `id` to be defin
 ```bash copy
 echo "{name}={value}" >> "$GITHUB_OUTPUT"
 ```
+
 {% endbash %}
 
 {% powershell %}
@@ -1087,6 +1097,7 @@ Prepends a directory to the system `PATH` variable and automatically makes it av
 ```bash copy
 echo "{path}" >> $GITHUB_PATH
 ```
+
 {% endbash %}
 
 {% powershell %}

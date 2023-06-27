@@ -20,10 +20,10 @@ children:
   - /adding-or-editing-a-payment-method
   - /viewing-your-payment-history-and-receipts
   - /adding-information-to-your-receipts
+  - /receiving-an-invoice
   - /setting-your-billing-email
   - /changing-the-duration-of-your-billing-cycle
   - /redeeming-a-coupon
   - /troubleshooting-a-declined-credit-card-charge
   - /unlocking-a-locked-account
 ---
-

@@ -54,6 +54,7 @@ GitHub Octocat in:readme user:defunkt
 ```
 
 **Note:** Be sure to use your language's preferred HTML-encoder to construct your query strings. For example:
+
 ```javascript
 // JavaScript
 const queryString = 'q=' + encodeURIComponent('GitHub Octocat in:readme user:defunkt');
@@ -181,6 +182,5 @@ The second text match occurred in the `body` property of one of the issue's comm
   ]
 }
 ```
-
 
 <!-- Content after this section is automatically generated -->

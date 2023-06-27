@@ -67,7 +67,6 @@ In the "All activity" section of your news feed, you can view updates from repos
 You'll see updates in your news feed when a user you follow:
 {% endif %}
 
-
 - Stars a repository.
 - Follows another user.{% ifversion fpt or ghes or ghec %}
 - Creates a public repository.{% endif %}
@@ -79,6 +78,7 @@ You'll see updates in your news feed when a user you follow:
 For more information about following people and watching repositories, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)" and "[AUTOTITLE](/get-started/quickstart/be-social)."
 
 {% ifversion for-you-feed %}
+
 ### For you feed
 
 {% note %}

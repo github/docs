@@ -42,9 +42,9 @@ If your project communicates with an external service, you might use a token or 
 {% ifversion fpt or ghec %}
 {% data variables.product.prodname_secret_scanning_caps %} is available on {% data variables.product.prodname_dotcom_the_website %} in two forms:
 
-1. **{% data variables.secret-scanning.partner_alerts_caps %}.** Runs automatically on all public repositories and public npm packages. Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner. For more information, see the "[About {% data variables.secret-scanning.partner_alerts %}](#about-secret-scanning-alerts-for-partners)" section below.
+1. **{% data variables.secret-scanning.partner_alerts_caps %}.** Runs automatically on all public repositories and public npm packages. Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning, hence the term "partners." {% data reusables.secret-scanning.partner-program-link %} Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner. For more information, see the "[About {% data variables.secret-scanning.partner_alerts %}](#about-secret-scanning-alerts-for-partners)" section below.
 
-2. **{% data variables.secret-scanning.user_alerts_caps %}.** {% ifversion fpt %}The following users can enable and configure additional scanning:
+1. **{% data variables.secret-scanning.user_alerts_caps %}.** {% ifversion fpt %}The following users can enable and configure additional scanning:
    - Owners of repositories on {% data variables.product.prodname_dotcom_the_website %}, on any _public_ repositories they own.
    - Organizations owning _public_ repositories, on any of these repositories.
    - Organizations using {% data variables.product.prodname_ghe_cloud %}, on any public repositories (for free), and on any private and internal repositories, when you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% elsif ghec %}You can enable and configure additional scanning for repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} for any public repositories (for free), and for private and internal repositorites when you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
@@ -53,8 +53,6 @@ If your project communicates with an external service, you might use a token or 
 
 {% data reusables.secret-scanning.audit-secret-scanning-events %}
 
-Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. {% data reusables.secret-scanning.partner-program-link %}
-
 {% ifversion secret-scanning-push-protection %}
 
 You can also enable {% data variables.product.prodname_secret_scanning %} as a push protection for a repository or an organization. When you enable this feature, {% data variables.product.prodname_secret_scanning %} prevents contributors from pushing code with a detected secret. To proceed, contributors must either remove the secret(s) from the push or, if needed, bypass the protection. {% ifversion push-protection-custom-link-orgs %}Admins can also specify a custom link that is displayed to the contributor when a push is blocked; the link can contain resources specific to the organization to aid contributors. {% endif %}For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
@@ -62,6 +60,7 @@ You can also enable {% data variables.product.prodname_secret_scanning %} as a p
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## About {% data variables.secret-scanning.partner_alerts %}
 
 When you make a repository public, or push changes to a public repository, {% data variables.product.product_name %} always scans the code for secrets that match partner patterns. Public packages on the npm registry are also scanned. {% ifversion secret-scanning-issue-body-comments %}{% data reusables.secret-scanning.scan-issue-description-and-comments %}{% endif %} If {% data variables.product.prodname_secret_scanning %} detects a potential secret, we notify the service provider who issued the secret. The service provider validates the string and then decides whether they should revoke the secret, issue a new secret, or contact you directly. Their action will depend on the associated risks to you or them. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."

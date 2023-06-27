@@ -32,7 +32,7 @@ Occasionally, the {% data variables.product.prodname_github_app %} will request 
 
 Before you install or authorize a {% data variables.product.prodname_github_app %}, you should make sure that you trust the app developer. If you no longer use the app, you should suspend or uninstall the app and/or revoke your authorization of the app. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access)" and "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)."
 
-## {% data variables.product.prodname_github_app %}s and OAuth Apps
+## {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_app %}s
 
 {% data variables.product.company_short %} also supports {% data variables.product.prodname_oauth_app %}s. Unlike {% data variables.product.prodname_github_app %}s, you do not install an {% data variables.product.prodname_oauth_app %} or control what repositories it can access.
 
