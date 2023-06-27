@@ -72,8 +72,6 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 ## `on.workflow_call`
 
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
-
 Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
 ## `on.workflow_call.inputs`
@@ -1004,8 +1002,6 @@ Additional Docker container resource options. For a list of options, see "[`dock
 {% endwarning %}
 
 ## `jobs.<job_id>.uses`
-
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
 
 The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes or ghae > 3.4 %}Use one of the following syntaxes:{% endif %}
 

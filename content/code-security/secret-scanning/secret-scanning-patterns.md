@@ -105,11 +105,6 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 {%- endfor %}
 {% endif %}
 
-<!-- GHES 3.4 version of table -->
-{% octicon "x" aria-label="Unsupported" %}{% endif %} |
-{%- endfor %}
-
-
 <!-- GHES 3.5 to GHES 3.8 table -->
 {% ifversion ghes = 3.5 or ghes = 3.6 or ghes = 3.7 or ghes = 3.8 %}
 
