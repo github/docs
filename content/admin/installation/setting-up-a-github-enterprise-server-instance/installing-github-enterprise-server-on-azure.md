@@ -53,7 +53,7 @@ Before launching {% data variables.location.product_location %} on Azure, you'll
    az vm create -n VM_NAME -g RESOURCE_GROUP --size VM_SIZE -l REGION --image APPLIANCE_IMAGE_NAME --storage-sku Premium_LRS
    ```
 
-1. Configure the security settings on your VM to open up required ports. For more information, see "[`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port)" in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
+1. Configure the security settings on your VM to open up required ports. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)," and [`az vm open-port`](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_open_port) in the Microsoft documentation. See the table below for a description of each port to determine what ports you need to open.
 
    ```shell
    az vm open-port -n VM_NAME -g RESOURCE_GROUP --port PORT_NUMBER
@@ -90,21 +90,21 @@ To configure the instance, you must confirm the instance's status, upload a lice
    > Name    ResourceGroup    PowerState    PublicIps     Fqdns    Location    Zones
    > ------  ---------------  ------------  ------------  -------  ----------  -------
    > VM_NAME RESOURCE_GROUP   VM running    40.76.79.202           eastus
-  
+
    ```
 
    {% note %}
-  
+
    **Note:** Azure does not automatically create a FQDNS entry for the VM. For more information, see Azure's guide on how to "[Create a fully qualified domain name in the Azure portal for a Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/portal-create-fqdn)."
-  
+
    {% endnote %}
-  
+
    {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
    {% data reusables.enterprise_installation.upload-a-license-file %}
    {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)."
    {% data reusables.enterprise_installation.instance-will-restart-automatically %}
    {% data reusables.enterprise_installation.visit-your-instance %}
-  
+
 ## Azure extension features
 
 {% data variables.product.product_name %} does not support the installation of Azure extension features. The {% data variables.product.prodname_ghe_server %} image is shipped with a customized `waagent` package which only supports basic VM management functions and blocks advanced VM management functions.
