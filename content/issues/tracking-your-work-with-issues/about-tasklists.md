@@ -29,7 +29,7 @@ The issues you add to your tasklists will be automatically populated to show the
 
 **Note:** If {% data variables.product.product_name %} cannot render your tasklist, make sure it is formatted like the example below.
 
-Tasklists do not currently support: 
+Tasklists do not currently support:
 
 - Duplicate issue or pull request links.
 - Indented tasks (i.e, nested tasklist).
@@ -38,7 +38,6 @@ Tasklists do not currently support:
 - Draft tasks that exceed 512 characters.
 
 {% endnote %}
-
 
 You can create a tasklist using Markdown in the issue description (the opening comment of an issue). You can include links to issues and pull requests or create draft issues.
 
@@ -75,7 +74,6 @@ You can also click {% octicon "checklist" aria-label="Add tasklist" %} in the fo
    - To add a recently updated issue from the repository, click the issue in the dropdown, or use your arrow keys to select it and then press <kbd>Enter</kbd>.
    - To search for an issue in the repository, start typing the title of an issue or the issue's number and click on the result, or use your arrow keys to select it and press <kbd>Enter</kbd>.
    - To add an issue directly using its URL, paste the URL of an issue and press <kbd>Enter</kbd>.
-
 
 ## Creating draft issues in a tasklist
 

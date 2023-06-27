@@ -38,7 +38,7 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 {% note %}
 
-**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, you will not receive prompts to enter sudo mode, as your account doesn't have credentials stored on {% data variables.product.product_name %}. 
+**Note**: If your enterprise uses {% data variables.product.prodname_emus %}, you will not receive prompts to enter sudo mode, as your account doesn't have credentials stored on {% data variables.product.product_name %}.
 
 {% endnote %}
 
@@ -87,6 +87,7 @@ When prompted to authenticate for sudo mode, type the authentication code from y
 
 {% ifversion fpt or ghec %}Text messages are not supported for use on the sudo prompt. If you have registered SMS as the only 2FA method on your account, you'll be asked for your password to enter sudo mode.
 {% endif %}
+
 ### Confirming access using your password
 
 {% endif %}

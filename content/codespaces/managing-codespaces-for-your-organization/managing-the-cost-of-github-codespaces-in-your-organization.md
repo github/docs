@@ -25,10 +25,10 @@ To learn about pricing for {% data variables.product.prodname_github_codespaces 
 ## Spending limits
 
 You can set a spending limit for {% data variables.product.prodname_github_codespaces %} for your organization. This limit is applied to the total compute and storage cost for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
- 
-- **Compute usage:** This is the total time during which all {% data variables.product.prodname_github_codespaces %} instances ("codespaces") were active in a billing month. 
 
-- **Storage usage:** For {% data variables.product.prodname_github_codespaces %} billing purposes, this includes all files used by all codespaces and prebuilds in your account. This includes resources such as cloned repositories, configuration files, and extensions, among others. 
+- **Compute usage:** This is the total time during which all {% data variables.product.prodname_github_codespaces %} instances ("codespaces") were active in a billing month.
+
+- **Storage usage:** For {% data variables.product.prodname_github_codespaces %} billing purposes, this includes all files used by all codespaces and prebuilds in your account. This includes resources such as cloned repositories, configuration files, and extensions, among others.
 
 You can check the compute and storage usage for {% data variables.product.prodname_github_codespaces %} for the current billing month. For information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)."
 
@@ -58,7 +58,7 @@ Repository owners who set up prebuilds for their repository can reduce the stora
 
 ## Deleting unused codespaces
 
-Your users can delete their own codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}. 
+Your users can delete their own codespaces in https://github.com/codespaces and from within {% data variables.product.prodname_vscode %}. To reduce the size of a codespace, users can manually delete files using the terminal or from within {% data variables.product.prodname_vscode_shortname %}.
 
 As an organization owner, you can delete any codespace in your organization. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/deleting-a-codespace#deleting-codespaces-in-your-organization)."
 

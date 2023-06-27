@@ -1,5 +1,5 @@
 ---
-title: Rate limits for OAuth Apps
+title: Rate limits for OAuth apps
 intro: '{% data reusables.shortdesc.rate_limits_apps %}'
 versions:
   fpt: '*'
@@ -7,7 +7,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 shortTitle: Rate limits
 ---
 

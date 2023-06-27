@@ -35,7 +35,7 @@ The summary list of methods and functions is created from these supported file t
 
  {% note %}
 
- **Note:** If you don't see the functions or methods you expected, confirm that your code compiles and doesn't contain errors. Only functions and methods changed in this pull request and found in *.go*, *.js*, *.ts*, *.py*, *.php*, and *.rb* files appear in the drop-down menu.
+ **Note:** If you don't see the functions or methods you expected, confirm that your code compiles and doesn't contain errors. Only functions and methods changed in this pull request and found in _.go_, _.js_, _.ts_, _.py_, _.php_, and _.rb_ files appear in the drop-down menu.
 
  {% endnote %}
 

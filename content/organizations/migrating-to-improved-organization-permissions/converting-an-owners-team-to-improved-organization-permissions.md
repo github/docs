@@ -51,4 +51,4 @@ You have a few options to convert your legacy Owners team:
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.owners-team %}
 {% data reusables.organizations.convert-owners-team-confirm %}
-5. At the bottom of the page, review the warning and click **Delete the Owners team**.
+1. At the bottom of the page, review the warning and click **Delete the Owners team**.

@@ -34,7 +34,7 @@ Prerequisites for repository transfers:
 - Internal repositories can't be transferred.{% endif %}
 - Private forks can't be transferred.
 {%- ifversion ghec %}
-- You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
+- Internal repositories can only be transferred to an organization in the enterprise. You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
 {%- endif %}
 
 {% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
@@ -51,7 +51,7 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 - All links to the previous repository location are automatically redirected to the new location. When you use `git clone`, `git fetch`, or `git push` on a transferred repository, these commands will redirect to the new repository location or URL. However, to avoid confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using `git remote` on the command line:
 
   ```shell
-  $ git remote set-url origin NEW_URL
+  git remote set-url origin NEW_URL
   ```
 
   {% warning %}

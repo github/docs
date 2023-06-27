@@ -57,8 +57,9 @@ You'll use the [Ruby programming language](https://www.ruby-lang.org/en/), the [
 You don't need to be an expert in any of these tools or concepts to complete this project. This guide will walk you through all the required steps. Before you begin creating CI tests with the Checks API, you'll need to do the following:
 
 1. Clone the [Creating CI tests with the Checks API](https://github.com/github-developer/creating-ci-tests-with-the-checks-api) repository.
+
    ```shell
-   $ git clone https://github.com/github-developer/creating-ci-tests-with-the-checks-api.git
+   git clone https://github.com/github-developer/creating-ci-tests-with-the-checks-api.git
    ```
 
   Inside the directory, you'll find a `template_server.rb` file with the template code you'll use in this quickstart and a `server.rb` file with the completed project code.
@@ -165,7 +166,7 @@ In the code above, you're using the [ternary operator](https://ruby-doc.org/core
 To test this code, restart the server from your terminal:
 
 ```shell
-$ ruby template_server.rb
+ruby template_server.rb
 ```
 
 {% data reusables.apps.sinatra_restart_instructions %}
@@ -241,7 +242,7 @@ You'll notice in the "[AUTOTITLE](/rest/checks#update-a-check-run)" docs that wh
 You could also provide more details about what your check is doing, but you'll get to that in the next section. Let's test this code again by re-running `template_server.rb`:
 
 ```shell
-$ ruby template_server.rb
+ruby template_server.rb
 ```
 
 Head over to your open pull request and click the **Checks** tab. Click the "Re-run all" button in the upper right corner. You should see the check run move from `pending` to `in_progress` and end with `success`.
@@ -385,7 +386,7 @@ Because this code stores the RuboCop results in a `@report` variable, it can saf
 You can test that this code works and see the errors reported by RuboCop in your server's debug output. Start up the `template_server.rb` server again and create a new pull request in the repository where you're testing your app:
 
 ```shell
-$ ruby template_server.rb
+ruby template_server.rb
 ```
 
 You should see the linting errors in the debug output, although they aren't printed with formatting. You can use a web tool like [JSON formatter](https://jsonformatter.org/) to format your JSON output like this formatted linting error output:
@@ -575,7 +576,7 @@ The code above also adds a feature to your CI server called [requested actions](
 The code above doesn't have RuboCop automatically fix errors yet. You'll add that in the next section. But first, take a look at the CI test that you just created by starting up the `template_server.rb` server again and creating a new pull request:
 
 ```shell
-$ ruby template_server.rb
+ruby template_server.rb
 ```
 
 The annotations will show up in the **Checks** tab. Also notice the "Fix this" button that you created by adding a requested action.
@@ -665,7 +666,7 @@ The files are changed locally, but you'll still need to push them to GitHub. You
 That's it! The code you have written now completes your Checks API CI server. 💪 Restart your `template_server.rb` server again and create a new pull request:
 
 ```shell
-$ ruby template_server.rb
+ruby template_server.rb
 ```
 
 {% data reusables.apps.sinatra_restart_instructions %}

@@ -93,7 +93,7 @@ These logs contain information about the container, dev container, and their con
 {% webui %}
 
 1. Connect to the codespace you want to debug.
-2. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type `creation log`. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
+1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux)) and type `creation log`. Select **Codespaces: View Creation Log** from the list to open the `creation.log` file.
 
 If you want to share the log with support, you can copy the text from the creation log into a text editor and save the file locally.
 

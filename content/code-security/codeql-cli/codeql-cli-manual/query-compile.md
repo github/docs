@@ -43,10 +43,10 @@ output options are mostly for debugging.
 
 \[Mandatory] Queries to compile. Each argument is one of:
 
--   A .ql file to compile.
--   A directory which will be searched recursively for .ql files.
--   A .qls file that defines a particular set of queries.
--   The basename of a "well-known" .qls file exported by one of the
+- A .ql file to compile.
+- A directory which will be searched recursively for .ql files.
+- A .qls file that defines a particular set of queries.
+- The basename of a "well-known" .qls file exported by one of the
     installed QL packs.
 
 #### `-n, --check-only`
@@ -93,14 +93,14 @@ compiled.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `-j, --threads=<num>`
 
 Use this many threads to compile queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`
@@ -115,7 +115,7 @@ How to handle warnings from the QL compiler. One of:
 
 `hide`: Suppress warnings.
 
-`show` *(default)*: Print warnings but continue with compilation.
+`show` _(default)_: Print warnings but continue with compilation.
 
 `error`: Treat warnings as errors.
 

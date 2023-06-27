@@ -18,5 +18,4 @@ These endpoints are only available to [authenticated](/rest/overview/authenticat
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-
 <!-- Content after this section is automatically generated -->

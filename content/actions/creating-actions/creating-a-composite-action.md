@@ -38,19 +38,20 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
    cd hello-world-composite-action
    ```
 
-2. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
+1. In the `hello-world-composite-action` repository, create a new file called `goodbye.sh`, and add the following example code:
 
    ```bash copy
    echo "Goodbye"
    ```
 
-3. From your terminal, make `goodbye.sh` executable.
+1. From your terminal, make `goodbye.sh` executable.
 
    ```shell copy
    chmod +x goodbye.sh
    ```
 
 1. From your terminal, check in your `goodbye.sh` file.
+
    ```shell copy
    git add goodbye.sh
    git commit -m "Add goodbye script"
@@ -63,6 +64,7 @@ Before you begin, you'll create a repository on {% ifversion ghae %}{% data vari
 
     {% raw %}
     **action.yml**
+
     ```yaml copy
     name: 'Hello World'
     description: 'Greet someone'
@@ -121,6 +123,7 @@ The following workflow code uses the completed hello world action that you made 
 Copy the workflow code into a `.github/workflows/main.yml` file in another repository, but replace `actions/hello-world-composite-action@v1` with the repository and tag you created. You can also replace the `who-to-greet` input with your name.
 
 **.github/workflows/main.yml**
+
 ```yaml copy
 on: [push]
 

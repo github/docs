@@ -22,6 +22,7 @@ You can find apps and actions on {% data variables.product.prodname_marketplace 
 - Search across all of {% data variables.product.prodname_dotcom_the_website %} and then filter the results.
 
 ## Searching in {% data variables.product.prodname_marketplace %}
+
 1. To open {% data variables.product.prodname_marketplace %}, in the top-left corner of {% data variables.location.product_location %}, select {% octicon "three-bars" aria-label="Open global navigation menu" %}, then click {% octicon "gift" aria-hidden="true" %} **Marketplace**.
 
   ![Screenshot of the navigation bar on {% data variables.product.product_name %}. The "Open global navigation menu" icon is outlined in dark orange.](/assets/images/help/navigation/global-navigation-menu-icon.png)

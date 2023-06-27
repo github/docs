@@ -254,84 +254,6 @@
         "access": "write"
       },
       {
-        "category": "actions",
-        "slug": "list-required-workflows",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/required_workflows",
-        "additional-permissions": [],
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "create-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/actions/required_workflows",
-        "additional-permissions": [],
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "get-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "additional-permissions": [],
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "update-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "additional-permissions": [],
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "delete-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "additional-permissions": [],
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "sets-repositories-for-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
-        "additional-permissions": [
-          "metadata"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "add-a-repository-to-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "additional-permissions": [
-          "metadata"
-        ],
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "remove-a-selected-repository-from-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "additional-permissions": [
-          "metadata"
-        ],
-        "access": "write"
-      },
-      {
         "category": "orgs",
         "slug": "get-the-audit-log-for-an-organization",
         "subcategory": "orgs",
@@ -1366,90 +1288,6 @@
       }
     ]
   },
-  "organization_personal_access_token_requests": {
-    "title": "Personal access token requests",
-    "displayTitle": "Organization permissions for \"Personal access token requests\"",
-    "permissions": [
-      {
-        "category": "orgs",
-        "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
-        "subcategory": "personal-access-tokens",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/personal-access-token-requests",
-        "additional-permissions": [],
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
-        "subcategory": "personal-access-tokens",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/personal-access-token-requests",
-        "additional-permissions": [],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
-        "subcategory": "personal-access-tokens",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}",
-        "additional-permissions": [],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
-        "subcategory": "personal-access-tokens",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories",
-        "additional-permissions": [],
-        "access": "read"
-      }
-    ]
-  },
-  "organization_personal_access_tokens": {
-    "title": "Personal access tokens",
-    "displayTitle": "Organization permissions for \"Personal access tokens\"",
-    "permissions": [
-      {
-        "category": "orgs",
-        "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
-        "subcategory": "personal-access-tokens",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/personal-access-tokens",
-        "additional-permissions": [],
-        "access": "read"
-      },
-      {
-        "category": "orgs",
-        "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
-        "subcategory": "personal-access-tokens",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/personal-access-tokens",
-        "additional-permissions": [],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
-        "subcategory": "personal-access-tokens",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}",
-        "additional-permissions": [],
-        "access": "write"
-      },
-      {
-        "category": "orgs",
-        "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
-        "subcategory": "personal-access-tokens",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories",
-        "additional-permissions": [],
-        "access": "read"
-      }
-    ]
-  },
   "organization_projects": {
     "title": "Projects",
     "displayTitle": "Organization permissions for \"Projects\"",
@@ -2224,33 +2062,6 @@
     "permissions": [
       {
         "category": "actions",
-        "slug": "list-repository-required-workflows",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows",
-        "additional-permissions": [],
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "get-a-required-workflow-entity-for-a-repository",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}",
-        "additional-permissions": [],
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "get-required-workflow-usage",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing",
-        "additional-permissions": [],
-        "access": "read"
-      },
-      {
-        "category": "actions",
         "slug": "list-artifacts-for-a-repository",
         "subcategory": "artifacts",
         "verb": "get",
@@ -2365,15 +2176,6 @@
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub",
         "additional-permissions": [],
         "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "list-workflow-runs-for-a-required-workflow",
-        "subcategory": "workflow-runs",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs",
-        "additional-permissions": [],
-        "access": "read"
       },
       {
         "category": "actions",
@@ -5599,17 +5401,6 @@
         "access": "read"
       },
       {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "additional-permissions": [
-          "notifications"
-        ],
-        "access": "read"
-      },
-      {
         "category": "actions",
         "slug": "enable-a-selected-repository-for-github-actions-in-an-organization",
         "subcategory": "permissions",
@@ -5626,39 +5417,6 @@
         "subcategory": "permissions",
         "verb": "delete",
         "requestPath": "/orgs/{org}/actions/permissions/repositories/{repository_id}",
-        "additional-permissions": [
-          "organization_administration"
-        ],
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "sets-repositories-for-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
-        "additional-permissions": [
-          "organization_administration"
-        ],
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "add-a-repository-to-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "additional-permissions": [
-          "organization_administration"
-        ],
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "remove-a-selected-repository-from-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
         "additional-permissions": [
           "organization_administration"
         ],
@@ -6066,15 +5824,6 @@
         "additional-permissions": [
           "codespaces_user_secrets"
         ],
-        "access": "read"
-      },
-      {
-        "category": "apps",
-        "slug": "list-repositories-accessible-to-the-user-access-token",
-        "subcategory": "installations",
-        "verb": "get",
-        "requestPath": "/user/installations/{installation_id}/repositories",
-        "additional-permissions": [],
         "access": "read"
       },
       {
@@ -8027,23 +7776,6 @@
         "requestPath": "/user/interaction-limits",
         "additional-permissions": [],
         "access": "write"
-      }
-    ]
-  },
-  "notifications": {
-    "title": "Notifications",
-    "displayTitle": "User permissions for \"Notifications\"",
-    "permissions": [
-      {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "additional-permissions": [
-          "metadata"
-        ],
-        "access": "read"
       }
     ]
   },

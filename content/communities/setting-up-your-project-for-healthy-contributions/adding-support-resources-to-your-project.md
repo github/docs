@@ -34,9 +34,9 @@ You can create default support resources for your organization or personal accou
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field, type *SUPPORT.md* (with all caps).
-4. On the **Edit new file** tab, add information about how people can get support for your project.
-5. To review your SUPPORT file, click **Preview**.
+1. In the file name field, type _SUPPORT.md_ (with all caps).
+1. On the **Edit new file** tab, add information about how people can get support for your project.
+1. To review your SUPPORT file, click **Preview**.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

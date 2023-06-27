@@ -130,6 +130,8 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
   --smb-user SMB-USER
   # Use the following option if you're using AWS S3 as your blob storage provider
   --aws-bucket-name AWS-BUCKET-NAME
+  # Use the following option if you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer
+  --archive-download-host ARCHIVE-DOWNLOAD-HOST
 ```
 
 {% data reusables.enterprise-migration-tool.placeholder-table %}
@@ -142,6 +144,7 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
 {% data reusables.enterprise-migration-tool.path-to-key-placeholder %}
 {% data reusables.enterprise-migration-tool.smb-user-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
+{% data reusables.enterprise-migration-tool.archive-download-host-placeholder %}
 
 {% note %}
 
@@ -221,6 +224,8 @@ gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
   --ssh-user SSH-USER --ssh-private-key PATH-TO-KEY
   # Use the following options if your Bitbucket Server instance runs on Windows
   --smb-user SMB-USER
+  # Use the following option if you are running a Bitbucket Data Center cluster or your Bitbucket Server is behind a load balancer
+  --archive-download-host ARCHIVE-DOWNLOAD-HOST
 ```
 
 {% data reusables.enterprise-migration-tool.download-migration-logs-flag %}
@@ -232,6 +237,7 @@ gh bbs2gh generate-script --bbs-server-url BBS-SERVER-URL \
 {% data reusables.enterprise-migration-tool.ssh-user-placeholder %}
 {% data reusables.enterprise-migration-tool.path-to-key-placeholder %}
 {% data reusables.enterprise-migration-tool.smb-user-placeholder %}
+{% data reusables.enterprise-migration-tool.archive-download-host-placeholder %}
 
 ### Reviewing the migration script
 

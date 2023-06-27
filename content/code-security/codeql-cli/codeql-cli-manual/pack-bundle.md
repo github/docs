@@ -45,7 +45,7 @@ The root directory of the package.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `--pack-path=<packPath>`
 
@@ -60,7 +60,7 @@ The path of the query pack file to create. This file must not yet exist.
 Use this many threads to compile queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`

@@ -133,6 +133,7 @@ jobs:
 ```yaml copy
 name: 'Link Checker: All English'
 ```
+
 </td>
 <td>
 
@@ -145,6 +146,7 @@ name: 'Link Checker: All English'
 ```yaml copy
 on:
 ```
+
 </td>
 <td>
 
@@ -157,6 +159,7 @@ The `on` keyword lets you define the events that trigger when the workflow is ru
 ```yaml copy
   workflow_dispatch:
 ```
+
 </td>
 <td>
 
@@ -171,6 +174,7 @@ Add the `workflow_dispatch` event if you want to be able to manually run this wo
     branches:
       - main
 ```
+
 </td>
 <td>
 
@@ -183,6 +187,7 @@ Add the `push` event, so that the workflow runs automatically every time a commi
 ```yaml copy
   pull_request:
 ```
+
 </td>
 <td>
 
@@ -197,6 +202,7 @@ permissions:
   contents: read
   pull-requests: read
 ```
+
 </td>
 <td>
 
@@ -207,10 +213,12 @@ Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depen
 <td>
 
 {% raw %}
+
 ```yaml copy
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
 ```
+
 {% endraw %}
 </td>
 <td>
@@ -224,6 +232,7 @@ Creates a concurrency group for specific events, and uses the `||` operator to d
 ```yaml copy
   cancel-in-progress: true
 ```
+
 </td>
 <td>
 
@@ -236,6 +245,7 @@ Cancels any currently running job or workflow in the same concurrency group.
 ```yaml copy
 jobs:
 ```
+
 </td>
 <td>
 
@@ -248,6 +258,7 @@ Groups together all the jobs that run in the workflow file.
 ```yaml copy
   check-links:
 ```
+
 </td>
 <td>
 
@@ -258,9 +269,11 @@ Defines a job with the ID `check-links` that is stored within the `jobs` key.
 <td>
 
 {% raw %}
+
 ```yaml copy
     runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
 ```
+
 {% endraw %}
 </td>
 <td>
@@ -274,6 +287,7 @@ Configures the job to run on a {% data variables.product.prodname_dotcom %}-host
 ```yaml copy
     steps:
 ```
+
 </td>
 <td>
 
@@ -287,6 +301,7 @@ Groups together all the steps that will run as part of the `check-links` job. Ea
       - name: Checkout
         uses: {% data reusables.actions.action-checkout %}
 ```
+
 </td>
 <td>
 
@@ -303,6 +318,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
           node-version: 16.13.x
           cache: npm
 ```
+
 </td>
 <td>
 
@@ -317,6 +333,7 @@ This step uses the `actions/setup-node` action to install the specified version 
       - name: Install
         run: npm ci
 ```
+
 </td>
 <td>
 
@@ -333,6 +350,7 @@ The `run` keyword tells the job to execute a command on the runner. In this case
         with:
           fileOutput: 'json'
 ```
+
 </td>
 <td>
 
@@ -347,6 +365,7 @@ Uses the `trilom/file-changes-action` action to gather all the changed files. Th
       - name: Show files changed
         run: cat $HOME/files.json
 ```
+
 </td>
 <td>
 
@@ -367,6 +386,7 @@ Lists the contents of `files.json`. This will be visible in the workflow run's l
             --verbose \
             --list $HOME/files.json
 ```
+
 </td>
 <td>
 
@@ -386,6 +406,7 @@ This step uses `run` command to execute a script that is stored in the repositor
             --check-images \
             --level critical
 ```
+
 </td>
 <td>
 

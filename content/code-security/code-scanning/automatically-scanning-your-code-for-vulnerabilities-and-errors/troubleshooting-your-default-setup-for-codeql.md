@@ -15,6 +15,7 @@ topics:
 ---
 
 {% ifversion code-scanning-without-workflow-310 %}
+
 ## A particular language is causing the default setup to fail
 
 When you enable the default setup, all languages selected for analysis must be successfully analyzed, or the configuration of the default setup will fail. To enable the default setup when a language previously failed, you must reconfigure the default setup, deselecting all failing languages for analysis.

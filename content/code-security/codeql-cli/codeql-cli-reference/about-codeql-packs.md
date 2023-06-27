@@ -45,6 +45,7 @@ The other files and directories within the pack should be logically organized. F
 their own top-level directories.
 
 {% ifversion query-pack-compatibility %}
+
 ### About published packs
 
 When a pack is published for use in analyses, the `codeql pack create` or `codeql pack publish` command verifies that the content is complete and also adds some additional pieces of content to it:
@@ -75,8 +76,9 @@ The following properties are supported in `qlpack.yml` files.
 
 #### `name`
 
-- Required by all packs. 
+- Required by all packs.
 - Defines the scope of the pack, where the {% data variables.product.prodname_codeql %} pack is published, and the name of the pack defined using alphanumeric characters and hyphens. It must be unique as {% data variables.product.prodname_codeql %} cannot differentiate between {% data variables.product.prodname_codeql %} packs with identical names. Use the pack name to specify queries to run using `database analyze` and to define dependencies between {% data variables.product.prodname_codeql %} packs (see examples below). For example:
+
   ```yaml
   name: octo-org/security-queries
   ```
@@ -85,6 +87,7 @@ The following properties are supported in `qlpack.yml` files.
 
 - Required by all packs that are published.
 - Defines a semantic version for this {% data variables.product.prodname_codeql %} pack that must adhere to the [SemVer v2.0.0 specification](https://semver.org/spec/v2.0.0.html). For example:
+
   ```yaml
   version: 0.0.0
   ```
@@ -93,15 +96,17 @@ The following properties are supported in `qlpack.yml` files.
 
 - Required by packs that define {% data variables.product.prodname_codeql %} package dependencies on other packs.
 - Defines a map from pack references to the semantic version range that is compatible with this pack. Supported for {% data variables.product.prodname_codeql_cli %} versions v2.6.0 and later. For example:
+
   ```yaml
   dependencies:
-    codeql/cpp-all: ^0.0.2`
+    codeql/cpp-all: ^0.0.2
   ```
 
 #### `defaultSuiteFile`
 
 - Required by packs that export a set of default queries to run.
 - Defines the path to a query suite file relative to the package root, containing all of the queries that are run by default when this pack is passed to the `codeql database analyze` command. Supported from CLI version v2.6.0 and onwards. Only one of `defaultSuiteFile` or `defaultSuite` can be defined. For example:
+
   ```yaml
   defaultSuiteFile: cpp-code-scanning.qls
   ```
@@ -110,6 +115,7 @@ The following properties are supported in `qlpack.yml` files.
 
 - Required by packs that export a set of default queries to run.
 - Defines an inlined query suite containing all of the queries that are run by default when this pack is passed to the `codeql database analyze` command. Supported from CLI version v2.6.0 and onwards. Only one of `defaultSuiteFile` or `defaultSuite` can be defined. For example:
+
   ```yaml
   defaultSuite:
     queries: .
@@ -121,6 +127,7 @@ The following properties are supported in `qlpack.yml` files.
 
 - Required by library packs.
 - Defines a boolean value that indicates whether or not this pack is a library pack. Library packs do not contain queries and are not compiled. Query packs can ignore this field or explicitly set it to `false`. For example:
+
   ```yaml
   library: true
   ```
@@ -129,63 +136,89 @@ The following properties are supported in `qlpack.yml` files.
 
 - Optional for packs that define query suites.
 - Defines the path to a directory in the pack that contains the query suites you want to make known to the {% data variables.product.prodname_codeql_cli %}, defined relative to the pack directory. {% data variables.product.prodname_codeql %} pack users can run "well-known" suites stored in this directory by specifying the pack name, without providing their full path. This is not supported for {% data variables.product.prodname_codeql %} packs downloaded from the Container registry. For more information about query suites, see "[Creating {% data variables.product.prodname_codeql %} query suites](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites)." For example:
+
   ```yaml
   suites: octo-org-query-suites
   ```
 
 #### `tests`
+
 - Optional for packs containing {% data variables.product.prodname_codeql %} tests. Ignored for packs without tests.
 - Defines the path to a directory within the pack that contains tests, defined relative to the pack directory. Use `.` to specify the whole pack. Any queries in this directory are run as tests when `test run` is run with the `--strict-test-discovery` option. These queries are ignored by query suite definitions that use `queries` or `qlpack` instructions to ask for all queries in a particular pack. If this property is missing, then `.` is assumed. For example:
+
   ```yaml
   tests: .
   ```
 
 #### `extractor`
+
 - Required by all packs containing {% data variables.product.prodname_codeql %} tests.
 - Defines the {% data variables.product.prodname_codeql %} language extractor to use when running the {% data variables.product.prodname_codeql %} tests in the pack. For more information about testing queries, see "[Testing custom queries](/code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries)." For example:
+
   ```yaml
   extractor: javascript
   ```
 
 #### `authors`
+
 - Optional.
 - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For example:
+
   ```yaml
   authors: author1@github.com,author2@github.com 
   ```
 
 #### `license`
-- Optional. 
+
+- Optional.
 - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For a list of allowed licenses, see [SPDX License List](https://spdx.org/licenses/) in the SPDX Specification. For example:
+
   ```yaml
   license: MIT
   ```
 
 #### `description`
+
 - Optional.
 - Defines metadata that will be displayed on the packaging search page in the packages section of the account that the {% data variables.product.prodname_codeql %} pack is published to. For example:
+
   ```yaml
   description: Human-readable description of the contents of the {% data variables.product.prodname_codeql %} pack.
   ```
 
 #### `libraryPathDependencies`
-- Optional, deprecated. Use the `dependencies` property instead. 
+
+- Optional, deprecated. Use the `dependencies` property instead.
 - Previously used to define the names of any {% data variables.product.prodname_codeql %} packs that this {% data variables.product.prodname_codeql %} pack depends on, as an array. This gives the pack access to any libraries, database schema, and query suites defined in the dependency. For example:
+
   ```yaml
   libraryPathDependencies: codeql/javascript-all 
   ```
 
 #### `dbscheme`
+
 - Required by core language packs only.
 - Defines the path to the [database schema](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#codeql-database-schema) for all libraries and queries written for this {% data variables.product.prodname_codeql %} language (see example below). For example:
+
   ```yaml
   dbscheme: semmlecode.python.dbscheme
   ```
+
 #### `upgrades`
+
 - Required by core language packs only.
 - Defines the path to a directory within the pack that contains database upgrade scripts, defined relative to the pack directory. Database upgrades are used internally to ensure that a database created with a different version of the {% data variables.product.prodname_codeql_cli %} is compatible with the current version of the CLI. For example:
+
   ```yaml
   upgrades: .
+  ```
+
+#### `warnOnImplicitThis`
+- Optional. Defaults to `false` if the `warnOnImplicitThis` property is not defined.
+- Defines a boolean that specifies whether or not the compiler should emit warnings about member predicate calls with implicit `this` call receivers, that is, without an explicit receiver. Supported from {% data variables.product.prodname_codeql_cli %} version 2.13.2 and onwards. For example:
+
+  ```yaml
+  warnOnImplicitThis: true
   ```
 
 ## About `codeql-pack.lock.yml` files
@@ -213,7 +246,7 @@ dependencies:
     version: 1.2.4
 ```
 
-The `codeql/cpp-all` dependency is locked to version 0.1.4. The `my-user/my-lib` dependency is locked to version 0.2.4. The `my-user/transitive-dependency`, which is a transitive dependency and is not specified in the `qlpack.yml` file, is locked to version 1.2.4. The `other-dependency/from-source` is absent from the lock file since it is resolved from source. This dependency must be available in the same {% data variables.product.prodname_codeql %} workspace as the pack. For more information about {% data variables.product.prodname_codeql %} workspaces and resolving dependencies from source, see "[About {% data variables.product.prodname_codeql %} Workspaces](/code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces)."
+The `codeql/cpp-all` dependency is locked to version 0.1.4. The `my-user/my-lib` dependency is locked to version 0.2.1. The `my-user/transitive-dependency`, which is a transitive dependency and is not specified in the `qlpack.yml` file, is locked to version 1.2.4. The `other-dependency/from-source` is absent from the lock file since it is resolved from source. This dependency must be available in the same {% data variables.product.prodname_codeql %} workspace as the pack. For more information about {% data variables.product.prodname_codeql %} workspaces and resolving dependencies from source, see "[About {% data variables.product.prodname_codeql %} Workspaces](/code-security/codeql-cli/codeql-cli-reference/about-codeql-workspaces)."
 
 In most cases, the `codeql-pack.lock.yml` file is only relevant for query packs since library packs are non-executable and usually do not need their transitive dependencies to be fixed. The exception to this is for library packs that contain tests. In this case, the `codeql-pack.lock.yml` file is used to ensure that the tests are always run with the same versions of dependencies to avoid spurious failures when there are mismatched dependencies.
 
@@ -343,4 +376,3 @@ Some extra notes on the following properties:
 - `tests`: This specifies the location of the tests. In this case, the tests are in the root folder (and all sub-folders) of the pack.
 
 - `version`: There is no `version` property for the tests pack. This prevents test packs from accidentally being published.
-

@@ -2,7 +2,7 @@
 {% data reusables.user-settings.access_org %}
 1. Under your organization name, click {% octicon "table" aria-hidden="true" %} **Projects**.
 
-   ![Screenshot showing the 'Projects' tab.](/assets/images/help/projects-v2/tab-projects.png)
+   ![Screenshot showing profile tabs. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png)
 1. Click **New project**.
 1. Optionally, in the text box under "Project name", type a name for your new project.
   

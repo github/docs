@@ -90,5 +90,5 @@ You can submit feature requests or other feedback for {% data variables.product.
 If you're testing a beta release of {% data variables.product.prodname_mobile %} for iOS using TestFlight, you can leave the beta at any time.
 
 1. On your iOS device, open the TestFlight app.
-2. Under "Apps", tap **{% data variables.product.prodname_dotcom %}**.
-3. At the bottom of the page, tap **Stop Testing**.
+1. Under "Apps", tap **{% data variables.product.prodname_dotcom %}**.
+1. At the bottom of the page, tap **Stop Testing**.

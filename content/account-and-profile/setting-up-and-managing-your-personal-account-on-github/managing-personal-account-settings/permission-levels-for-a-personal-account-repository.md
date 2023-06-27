@@ -52,7 +52,7 @@ The repository owner has full control of the repository. In addition to the acti
 | Archive the repository | "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt or ghec %}
 | Create security advisories | "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)" |
 | Display a sponsor button | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository)" |{% endif %}
-| Allow or disallow auto-merge for pull requests | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)" | 
+| Allow or disallow auto-merge for pull requests | "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-auto-merge-for-pull-requests-in-your-repository)" |
 | Manage webhooks and deploy keys	| "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)" |
 
 ## Collaborator access for a repository owned by a personal account

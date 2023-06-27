@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
 import copyCode from 'components/lib/copy-code'
+import toggleAnnotation from 'components/lib/toggle-annotations'
 import localization from 'components/lib/localization'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
@@ -41,6 +42,7 @@ function initiateArticleScripts() {
   copyCode()
   localization()
   wrapCodeTerms()
+  toggleAnnotation()
 }
 
 type Props = {

@@ -54,7 +54,7 @@ You can use templates to quickly set up a new {% data variables.projects.project
 | Template | Description |
 | --- | --- |
 | Basic kanban | Track your tasks with To do, In progress, and Done columns |
-| Automated kanban | Cards automatically move between To do, In progress, and Done columns | 
+| Automated kanban | Cards automatically move between To do, In progress, and Done columns |
 | Automated kanban with review | Cards automatically move between To do, In progress, and Done columns, with additional triggers for pull request review status |
 | Bug triage | Triage and prioritize bugs with To do, High priority, Low priority, and Closed columns |
 

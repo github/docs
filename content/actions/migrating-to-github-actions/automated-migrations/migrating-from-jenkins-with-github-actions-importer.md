@@ -51,10 +51,10 @@ The `configure` CLI command is used to set required credentials and options for 
    Your token must have the `workflow` scope.
 
    After creating the token, copy it and save it in a safe location for later use.
-2. Create a Jenkins API token. For more information, see [Authenticating scripted clients](https://www.jenkins.io/doc/book/system-administration/authenticating-scripted-clients/) in the Jenkins documentation.
+1. Create a Jenkins API token. For more information, see [Authenticating scripted clients](https://www.jenkins.io/doc/book/system-administration/authenticating-scripted-clients/) in the Jenkins documentation.
 
    After creating the token, copy it and save it in a safe location for later use.
-3. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
 
    ```shell
    gh actions-importer configure
@@ -77,10 +77,11 @@ The `configure` CLI command is used to set required credentials and options for 
   Enter the following values (leave empty to omit):
   ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
   ✔ Base url of the GitHub instance: https://github.com
-  ✔ {% data variables.product.pat_generic_caps %} for Jenkins: *************** 
+  ✔ {% data variables.product.pat_generic_caps %} for Jenkins: ***************
   ✔ Username of Jenkins user: admin
   ✔ Base url of the Jenkins instance: https://localhost
   Environment variables successfully updated.
+
    ```
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 

@@ -136,6 +136,7 @@ The `metadata-action` option required for {% data variables.product.prodname_reg
 {% endif %}
 
 The `build-push-action` options required for {% data variables.product.prodname_registry %} are:{% ifversion fpt or ghec %}
+
 - `context`: Defines the build's context as the set of files located in the specified path.{% endif %}
 - `push`: If set to `true`, the image will be pushed to the registry if it is built successfully.{% ifversion fpt or ghec %}
 - `tags` and `labels`: These are populated by output from `metadata-action`.{% else %}

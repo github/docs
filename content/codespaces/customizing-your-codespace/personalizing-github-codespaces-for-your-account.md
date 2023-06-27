@@ -151,7 +151,7 @@ You can use your selected dotfiles repository to personalize your {% data variab
 
    ![Screenshot of the "Dotfiles" section of the codespace settings, with the "Automatically install dotfiles" option cleared.](/assets/images/help/codespaces/install-custom-dotfiles.png)
 
-2. Use the dropdown to choose the repository you want to install dotfiles from.
+1. Use the dropdown to choose the repository you want to install dotfiles from.
 
    ![Screenshot of the "Automatically install dotfiles" option selected and "monalisa/dotfiles" selected from a dropdown list of repositories.](/assets/images/help/codespaces/select-dotfiles-repo.png)
 

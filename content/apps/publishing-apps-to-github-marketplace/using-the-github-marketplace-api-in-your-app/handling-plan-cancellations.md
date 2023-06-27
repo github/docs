@@ -29,7 +29,7 @@ When a customer cancels a free or paid plan, your app must perform these steps t
 
 1. Deactivate the account of the customer who canceled their plan.
 1. Revoke the OAuth token your app received for the customer.
-1. If your app is an OAuth App, remove all webhooks your app created for repositories.
+1. If your app is an {% data variables.product.prodname_oauth_app %}, remove all webhooks your app created for repositories.
 1. Remove all customer data within 30 days of receiving the `cancelled` event.
 
 {% note %}

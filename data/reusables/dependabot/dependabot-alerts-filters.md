@@ -1,6 +1,6 @@
-You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by typing filters as `key:value` pairs into the search bar. 
+You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by typing filters as `key:value` pairs into the search bar.
 
-| Option | Description | Example | 
+| Option | Description | Example |
 |:---|:---|:---|
 | `ecosystem` | Displays alerts for the selected ecosystem | Use `ecosystem:npm` to show {% data variables.product.prodname_dependabot_alerts %} for npm |{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
 | `has` | Displays alerts meeting the selected filter criteria | Use `has:patch` to show alerts related to advisories that have a patch{% ifversion dependabot-alerts-vulnerable-calls %}</br>Use `has:vulnerable-calls` to show alerts relating to calls to vulnerable functions{% endif %} |{% endif %}

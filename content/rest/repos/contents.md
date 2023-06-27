@@ -39,5 +39,4 @@ for a directory, the response will be an object with an `entries` attribute cont
 
 You can read more about the use of media types in the API [here](/rest/overview/media-types).
 
-
 <!-- Content after this section is automatically generated -->

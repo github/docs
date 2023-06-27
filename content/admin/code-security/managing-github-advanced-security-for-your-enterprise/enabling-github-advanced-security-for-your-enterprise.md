@@ -44,9 +44,9 @@ For guidance on a phased deployment of GitHub Advanced Security, see "[AUTOTITLE
 ## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
 
 1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}.{% ifversion ghes %} For information about licensing, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
-2. Download the new license file. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
-3. Upload the new license file to {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes %}
-4. Review the prerequisites for the features you plan to enable.
+1. Download the new license file. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
+1. Upload the new license file to {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server)."{% ifversion ghes %}
+1. Review the prerequisites for the features you plan to enable.
 
     - {% data variables.product.prodname_code_scanning_caps %}, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#prerequisites-for-code-scanning)."
     - {% data variables.product.prodname_secret_scanning_caps %}, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning)."{% endif %}
@@ -78,42 +78,55 @@ For example, you can enable any {% data variables.product.prodname_GH_advanced_s
 1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     - To enable {% data variables.product.prodname_code_scanning_caps %}, enter the following commands.
+
     ```shell
     ghe-config app.minio.enabled true
     ghe-config app.code-scanning.enabled true
     ```
+
     - To enable {% data variables.product.prodname_secret_scanning_caps %}, enter the following command.
+
     ```shell
     ghe-config app.secret-scanning.enabled true
     ```
+
     - To enable the dependency graph, enter the following {% ifversion ghes %}command{% else %}commands{% endif %}.
     {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
+
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled true
     ghe-config app.github.vulnerability-alerting-and-settings-enabled true
     ```{% endif %}
-2. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
+
+1. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     - To disable {% data variables.product.prodname_code_scanning %}, enter the following commands.
+
     ```shell
     ghe-config app.minio.enabled false
     ghe-config app.code-scanning.enabled false
     ```
+
     - To disable {% data variables.product.prodname_secret_scanning %}, enter the following command.
+
     ```shell
     ghe-config app.secret-scanning.enabled false
     ```
+
     - To disable the dependency graph, enter the following {% ifversion ghes %}command{% else %}commands{% endif %}.
     {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled false
+
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled false
     ghe-config app.github.vulnerability-alerting-and-settings-enabled false
     ```{% endif %}
-3. Apply the configuration.
+
+1. Apply the configuration.
+
     ```shell
     ghe-config-apply
     ```

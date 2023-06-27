@@ -53,11 +53,11 @@ Before defining a custom pattern, you must ensure that {% data variables.product
 {% data reusables.advanced-security.secret-scanning-create-custom-pattern %}{% ifversion secret-scanning-push-protection-custom-patterns %}
 1. Optionally, to enable push protection for your custom pattern, click **Enable**.  
    {% note %}
-   
+
    **Note**: The "Enable" button isn't available until after the dry run succeeds and you publish the pattern.
-   
+
    {% endnote %}
-   
+
    For more information about push protection, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 
 {% endif %}

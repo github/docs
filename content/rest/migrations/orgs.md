@@ -22,5 +22,4 @@ These endpoints are only available to authenticated organization owners. For mor
 
 {% data variables.migrations.organization_migrations_intro %}
 
-
 <!-- Content after this section is automatically generated -->

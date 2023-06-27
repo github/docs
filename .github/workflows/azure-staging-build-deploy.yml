@@ -83,7 +83,7 @@ jobs:
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           path: docs-early-access
           ref: main
 

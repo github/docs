@@ -45,11 +45,11 @@ You can view all the teams you belong to on your personal dashboard. For more in
 
 Each team has its own page within an organization. On a team's page, you can view team members, child teams, and the team's repositories. Organization owners and team maintainers can access team settings and update the team's description and profile picture from the team's page.
 
-{% ifversion team-discussions %} 
+{% ifversion team-discussions %}
 Organization members can create and participate in discussions with the team. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)."
-{% else %} 
+{% else %}
 {% data reusables.organizations.team-discussions-deprecation %}
-{% endif %} 
+{% endif %}
 
 ## Nested teams
 
@@ -72,9 +72,9 @@ If your organization already has existing teams, you should audit each team's re
 At the top of the team hierarchy, you should give parent teams repository access permissions that are safe for every member of the parent team and its child teams. As you move toward the bottom of the hierarchy, you can grant child teams additional, more granular access to more sensitive repositories.
 
 1. Remove all members from existing teams
-2. Audit and adjust each team's repository access permissions and give each team a parent
-3. Create any new teams you'd like to, choose a parent for each new team, and give them repository access
-4. Add people directly to teams
+1. Audit and adjust each team's repository access permissions and give each team a parent
+1. Create any new teams you'd like to, choose a parent for each new team, and give them repository access
+1. Add people directly to teams
 
 ## Further reading
 

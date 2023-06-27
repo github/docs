@@ -163,6 +163,7 @@ jobs:
             fi
           done
 ```
+
 ## Understanding the example
 
 {% data reusables.actions.example-explanation-table-intro %}
@@ -181,6 +182,7 @@ jobs:
 ```yaml copy
 name: Check all English links
 ```
+
 </td>
 <td>
 
@@ -196,6 +198,7 @@ on:
   schedule:
     - cron: '40 20 * * *' # once a day at 20:40 UTC / 12:40 PST
 ```
+
 </td>
 <td>
 
@@ -213,6 +216,7 @@ permissions:
   contents: read
   issues: write
 ```
+
 </td>
 <td>
 
@@ -225,6 +229,7 @@ Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depen
 ```yaml copy
 jobs:
 ```
+
 </td>
 <td>
 
@@ -238,6 +243,7 @@ Groups together all the jobs that run in the workflow file.
   check_all_english_links:
     name: Check all links
 ```
+
 </td>
 <td>
 
@@ -250,6 +256,7 @@ Defines a job with the ID `check_all_english_links`, and the name `Check all lin
 ```yaml copy
 if: github.repository == 'github/docs-internal'
 ```
+
 </td>
 <td>
 
@@ -262,6 +269,7 @@ Only run the `check_all_english_links` job if the repository is named `docs-inte
 ```yaml copy
 runs-on: ubuntu-latest
 ```
+
 </td>
 <td>
 
@@ -278,6 +286,7 @@ Configures the job to run on an Ubuntu Linux runner. This means that the job wil
       REPORT_LABEL: broken link report
       REPORT_REPOSITORY: github/docs-content
 ```
+
 </td>
 <td>
 
@@ -290,6 +299,7 @@ Creates custom environment variables, and redefines the built-in `GITHUB_TOKEN` 
 ```yaml copy
     steps:
 ```
+
 </td>
 <td>
 
@@ -303,6 +313,7 @@ Groups together all the steps that will run as part of the `check_all_english_li
       - name: Check out repo's default branch
         uses: {% data reusables.actions.action-checkout %}
 ```
+
 </td>
 <td>
 
@@ -319,6 +330,7 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
           node-version: 16.8.x
           cache: npm
 ```
+
 </td>
 <td>
 
@@ -334,6 +346,7 @@ This step uses the `actions/setup-node` action to install the specified version 
       - name: Run the "npm run build" command
         run: npm run build
 ```
+
 </td>
 <td>
 
@@ -348,6 +361,7 @@ The `run` keyword tells the job to execute a command on the runner. In this case
         run: |
           script/check-english-links.js > broken_links.md
 ```
+
 </td>
 <td>
 
@@ -367,6 +381,7 @@ This `run` command executes a script that is stored in the repository at `script
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
 {%- endif %}
 ```
+
 </td>
 <td>
 
@@ -389,6 +404,7 @@ If the `check-english-links.js` script detects broken links and returns a non-ze
           repository: {% raw %}${{ env.REPORT_REPOSITORY }}{% endraw %}
           labels: {% raw %}${{ env.REPORT_LABEL }}{% endraw %}
 ```
+
 </td>
 <td>
 
@@ -417,6 +433,7 @@ Uses the `peter-evans/create-issue-from-file` action to create a new {% data var
 
           gh issue comment {% raw %}${{ env.NEW_REPORT_URL }}{% endraw %} --body "⬅️ [Previous report]($previous_report_url)"
 ```
+
 </td>
 <td>
 
@@ -437,6 +454,7 @@ Uses [`gh issue list`](https://cli.github.com/manual/gh_issue_list) to locate th
             fi
           done
 ```
+
 </td>
 <td>
 
@@ -458,6 +476,7 @@ If an issue from a previous run is open and assigned to someone, then use [`gh i
             fi
           done
 ```
+
 </td>
 <td>
 

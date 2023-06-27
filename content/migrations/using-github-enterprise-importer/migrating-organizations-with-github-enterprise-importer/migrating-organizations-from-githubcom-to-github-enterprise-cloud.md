@@ -171,12 +171,13 @@ gh gei migrate-org --github-source-org SOURCE --github-target-org DESTINATION --
 DESTINATION | The name you want the new organization to have. Must be unique on {% data variables.product.prodname_dotcom_the_website %}.
 ENTERPRISE | The slug for your destination enterprise, which you can identify by looking at the URL for your enterprise account, `https://github.com/enterprises/SLUG`.
 
-
 ## Step 5: Validate your migration and check the error log
+
 {% endcli %}
 {% api %}
 
 ## Step 4: Validate your migration and check the error log
+
 {% endapi %}
 
 After your migration has finished, we recommend that you check the migration log repository. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#accessing-an-organization-migration-log)."

@@ -23,5 +23,4 @@ You can use the REST API to temporarily restrict which type of user can comment,
 
 Setting the interaction limit at the user level will overwrite any interaction limits that are set for individual repositories owned by the user. To set different interaction limits for individual repositories owned by the user, use the [Repository](#repository) interactions endpoints instead.
 
-
 <!-- Content after this section is automatically generated -->
