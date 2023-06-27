@@ -60,7 +60,6 @@ You can also configure and manage team synchronization for an individual organiz
 
 {% ifversion team-sync-manage-org-invites %}
 ## Managing whether team synchronization can re-invite non-members to organizations
-Disabling this setting will let Team Sync re-send invites to non-members if they are in a synced identity group and were previously an organization member removed by an organization owner. 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
