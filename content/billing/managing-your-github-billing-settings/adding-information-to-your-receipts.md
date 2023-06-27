@@ -31,6 +31,8 @@ Your receipts include your {% data variables.product.prodname_dotcom %} subscrip
 
 {% endwarning %}
 
+You can also receive an invoice alongside your receipts. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/receiving-an-invoice)."
+
 ## Adding information to your personal account's receipts
 
 {% data reusables.user-settings.access_settings %}
