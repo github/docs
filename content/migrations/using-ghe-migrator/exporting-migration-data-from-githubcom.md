@@ -72,10 +72,10 @@ The Migrations API is currently in a preview period, which means that the endpoi
       ```
 
   A migration can be in one of the following states:
-    *`pending`, which means the migration hasn't started yet.
-    * `exporting`, which means the migration is in progress.
-    *`exported`, which means the migration finished successfully.
-    * `failed`, which means the migration failed.
+    - `pending`, which means the migration hasn't started yet.
+    - `exporting`, which means the migration is in progress.
+    - `exported`, which means the migration finished successfully.
+    - `failed`, which means the migration failed.
 
 1. After your migration has exported, download the migration archive by sending a `GET` request to [the migration download endpoint](/free-pro-team@latest/rest/migrations#download-an-organization-migration-archive). You'll need:
     - Your access token for authentication.
