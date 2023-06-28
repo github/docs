@@ -86,7 +86,7 @@ Each repository is shown in security overview with an indicator for each type of
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae > 3.4 %}
+{% ifversion ghec or ghes or ghae %}
 
 ## About security overview for enterprises
 

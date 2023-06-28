@@ -66,7 +66,7 @@ You can use security overview to see which repositories and teams are free from 
 
 {% endif %}
 
-{% ifversion ghec or ghes or ghae > 3.4 %}
+{% ifversion ghec or ghes or ghae %}
 
 ## Viewing enterprise-level code security risks
 
