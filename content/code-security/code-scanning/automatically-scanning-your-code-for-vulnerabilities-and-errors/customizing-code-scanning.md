@@ -231,12 +231,14 @@ If your workflow does not contain a matrix called `language`, then {% data varia
   with:
     languages: cpp, csharp, python
 ```
+
 {% ifversion fpt or ghec %}
+
 ## Analyzing Python dependencies
 
 For GitHub-hosted runners that use Linux only, the {% data variables.code-scanning.codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
 
--  If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
+- If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
 
 - If the repository doesn't have any Python dependencies, or the dependencies are specified in an unexpected way, you'll get a warning and the action will continue with the remaining jobs. The action can run successfully even when there are problems interpreting dependencies, but the results may be incomplete.
 
@@ -274,6 +276,7 @@ jobs:
           # to auto-install Python dependencies
           setup-python-dependencies: false
 ```
+
 {% endif %}
 
 ## Defining the alert severities that give a check failure for a pull request
@@ -315,6 +318,7 @@ Your specified category will not overwrite the details of the `runAutomationDeta
 {% data reusables.code-scanning.run-additional-queries %}
 
 {% ifversion codeql-packs %}
+
 ### Using {% data variables.product.prodname_codeql %} query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
@@ -388,6 +392,7 @@ The package patterns in the registries list are examined in order, so you should
 Notice the `|` after the `registries` property name. This is important since  {% data variables.product.prodname_actions %} inputs can only accept strings. Using the `|` converts the subsequent text to a string, which is parsed later by the {% data reusables.actions.action-codeql-action-init %} action.
 
 ### Using queries in QL packs
+
 {% endif %}
 To add one or more queries, add a `with: queries:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. If the queries are in a private repository, use the `external-repository-token` parameter to specify a token that has access to checkout the private repository.
 
@@ -407,7 +412,9 @@ You can also specify query suites in the value of `queries`. Query suites are co
 {% data reusables.code-scanning.codeql-query-suites-explanation %}
 
 {% ifversion codeql-packs %}
+
 ### Working with custom configuration files
+
 {% endif %}
 
 If you also use a configuration file for custom settings, any additional {% ifversion codeql-packs %}packs or {% endif %}queries specified in your workflow are used instead of those specified in the configuration file. If you want to run the combined set of additional {% ifversion codeql-packs %}packs or {% endif %}queries, prefix the value of {% ifversion codeql-packs %}`packs` or {% endif %}`queries` in the workflow with the `+` symbol. For more information, see "[Using a custom configuration file](#using-a-custom-configuration-file)."
@@ -454,6 +461,7 @@ If the configuration file is located in an external private repository, use the 
 The settings in the configuration file are written in YAML format.
 
 {% ifversion codeql-packs %}
+
 ### Specifying {% data variables.product.prodname_codeql %} query packs
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
@@ -461,6 +469,7 @@ The settings in the configuration file are written in YAML format.
 You specify {% data variables.product.prodname_codeql %} query packs in an array. Note that the format is different from the format used by the workflow file.
 
 {% raw %}
+
 ``` yaml copy
 packs:
   # Use the latest version of 'pack1' published by 'scope'
@@ -476,6 +485,7 @@ packs:
   # Use pack6 and restrict it to the query suite 'path/to/suite.qls'
   - scope/pack6:path/to/suite.qls
 ```
+
 {% endraw %}
 
 The full format for specifying a query pack is `scope/name[@version][:path]`. Both `version` and `path` are optional. `version` is semver version range. If it is missing, the latest version is used. For more information about semver ranges, see the [semver docs on npm](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
@@ -483,6 +493,7 @@ The full format for specifying a query pack is `scope/name[@version][:path]`. Bo
 If you have a workflow that generates more than one {% data variables.product.prodname_codeql %} database, you can specify any {% data variables.product.prodname_codeql %} query packs to run in a custom configuration file using a nested map of packs.
 
 {% raw %}
+
 ``` yaml copy
 packs:
   # Use these packs for JavaScript and TypeScript analysis
@@ -494,6 +505,7 @@ packs:
     - scope/java-pack1
     - scope/java-pack2@v1.0.0
 ```
+
 {% endraw %}
 {% endif %}
 
@@ -515,6 +527,7 @@ Optionally, you can give each array element a name, as shown in the example conf
 If you only want to run custom queries, you can disable the default security queries by using `disable-default-queries: true`.
 
 {% ifversion code-scanning-exclude-queries-from-analysis %}
+
 ### Excluding specific queries from analysis
 
 You can add `exclude` and `include` filters to your custom configuration file, to specify the queries you want to exclude or include in the analysis.
@@ -533,6 +546,7 @@ query-filters:
   - exclude:
       id: js/useless-assignment-to-local
 ```
+
 To find the id of a query, you can click the alert in the list of alerts in the **Security** tab. This opens the alert details page. The `Rule ID` field contains the query id. For more information about the alert details page, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)."
 
 {% tip %}
@@ -580,6 +594,7 @@ You can quickly analyze small portions of a monorepo when you modify code in spe
 {% data reusables.code-scanning.example-configuration-files %}
 
 {% ifversion code-scanning-config-input %}
+
 ## Specifying configuration details using the `config` input
 
 If you'd prefer to specify additional configuration details in the workflow file, you can use the `config` input of the `init` command of the {% data variables.product.prodname_codeql %} action. The value of this input must be a YAML string that follows the configuration file format documented at "[Using a custom configuration file](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-a-custom-configuration-file)" above.

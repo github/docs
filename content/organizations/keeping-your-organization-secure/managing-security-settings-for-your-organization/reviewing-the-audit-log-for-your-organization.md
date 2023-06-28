@@ -127,6 +127,7 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 - `country:"United States"` all finds events that occurred in the United States.
 
 {% ifversion fpt or ghec %}
+
 ## Exporting the audit log
 
 {% data reusables.audit_log.export-log %}

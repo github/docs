@@ -27,7 +27,7 @@ jobs:
         env:
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
-          github-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           script: |
             // Only perform this action with GitHub employees
             try {

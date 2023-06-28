@@ -88,9 +88,11 @@ If the dev container for the current codespace was built from the default image,
   {% endnote %}
 - Configure your retention period to ensure codespaces you forget to delete are deleted automatically. The default retention period is 30 days. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/configuring-automatic-deletion-of-your-codespaces)."
 - {% data variables.product.prodname_vscode %} extensions consume storage. Make sure you are only installing extensions that you need. You can find out how much space is being used by extensions by running this command in your codespace.
+
   ```shell copy
   du -h -s ~/.vscode-remote/extensions
   ```
+
 - Monitor your compute and storage usage by going to your billing page on {% data variables.product.prodname_dotcom_the_website %}, https://github.com/settings/billing, and reviewing the figures in the "{% data variables.product.prodname_codespaces %}" section.
   {% note %}
 

@@ -85,54 +85,6 @@
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
     },
     {
-      "slug": "list-required-workflows",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/actions/required_workflows"
-    },
-    {
-      "slug": "create-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/actions/required_workflows"
-    },
-    {
-      "slug": "get-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "update-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "patch",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "delete-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "sets-repositories-for-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories"
-    },
-    {
-      "slug": "add-a-repository-to-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
-    },
-    {
-      "slug": "remove-a-selected-repository-from-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
-    },
-    {
       "slug": "list-self-hosted-runners-for-an-organization",
       "subcategory": "self-hosted-runners",
       "verb": "get",
@@ -307,24 +259,6 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
-      "slug": "list-repository-required-workflows",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows"
-    },
-    {
-      "slug": "get-a-required-workflow-entity-for-a-repository",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}"
-    },
-    {
-      "slug": "get-required-workflow-usage",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing"
-    },
-    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -461,12 +395,6 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
-    },
-    {
-      "slug": "list-workflow-runs-for-a-required-workflow",
-      "subcategory": "workflow-runs",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs"
     },
     {
       "slug": "list-self-hosted-runners-for-a-repository",

@@ -44,10 +44,10 @@ You can perform initial validation of your maintenance operation by configuring 
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. In the top navigation bar, click **Maintenance**.
+1. In the top navigation bar, click **Maintenance**.
 
    ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Maintenance", is highlighted with an orange outline.](/assets/images/enterprise/management-console/maintenance-tab.png)
-3. Under "Enable and schedule", select **Enable maintenance mode**, then decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
+1. Under "Enable and schedule", select **Enable maintenance mode**, then decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
     - To enable maintenance mode immediately, select the dropdown menu and click **now**.
     - To schedule a maintenance window for a future time, select the dropdown menu and click a start time.
 {% data reusables.enterprise_management_console.save-settings %}

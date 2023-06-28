@@ -69,17 +69,20 @@ Below is an example comparing the syntax for each system.
 #### Travis CI syntax for a matrix
 
 {% raw %}
+
 ```yaml
 matrix:
   include:
     - rvm: 2.5
     - rvm: 2.6.3
 ```
+
 {% endraw %}
 
 #### {% data variables.product.prodname_actions %} syntax for a matrix
 
 {% raw %}
+
 ```yaml
 jobs:
   build:
@@ -87,6 +90,7 @@ jobs:
       matrix:
         ruby: [2.5, 2.6.3]
 ```
+
 {% endraw %}
 
 ### Targeting specific branches
@@ -98,17 +102,20 @@ Below is an example of the syntax for each system.
 #### Travis CI syntax for targeting specific branches
 
 {% raw %}
+
 ```yaml
 branches:
   only:
     - main
     - 'mona/octocat'
 ```
+
 {% endraw %}
 
 #### {% data variables.product.prodname_actions %} syntax for targeting specific branches
 
 {% raw %}
+
 ```yaml
 on:
   push:
@@ -116,6 +123,7 @@ on:
       - main
       - 'mona/octocat'
 ```
+
 {% endraw %}
 
 ### Checking out submodules
@@ -127,20 +135,24 @@ Below is an example of the syntax for each system.
 #### Travis CI syntax for checking out submodules
 
 {% raw %}
+
 ```yaml
 git:
   submodules: false
 ```
+
 {% endraw %}
 
 #### {% data variables.product.prodname_actions %} syntax for checking out submodules
 
 {% raw %}
+
 ```yaml
 - uses: {% data reusables.actions.action-checkout %}
   with:
     submodules: false
 ```
+
 {% endraw %}
 
 ### Using environment variables in a matrix
@@ -232,6 +244,7 @@ Below is an example of the syntax for each system.
 ### Travis CI syntax for phases and steps
 
 {% raw %}
+
 ```yaml
 language: python
 python:
@@ -240,11 +253,13 @@ python:
 script:
   - python script.py
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for steps and actions
 
 {% raw %}
+
 ```yaml
 jobs:
   run_python:
@@ -256,6 +271,7 @@ jobs:
           architecture: 'x64'
       - run: python script.py
 ```
+
 {% endraw %}
 
 ## Caching dependencies
@@ -269,10 +285,12 @@ These examples demonstrate the cache syntax for each system.
 ### Travis CI syntax for caching
 
 {% raw %}
+
 ```yaml
 language: node_js
 cache: npm
 ```
+
 {% endraw %}
 
 ### GitHub Actions syntax for caching
@@ -321,6 +339,7 @@ jobs:
 ##### Travis CI for building with Node.js
 
 {% raw %}
+
 ```yaml
 install:
   - npm install
@@ -328,6 +347,7 @@ script:
   - npm run build
   - npm test
 ```
+
 {% endraw %}
 
 ##### {% data variables.product.prodname_actions %} workflow for building with Node.js

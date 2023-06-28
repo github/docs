@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 import { loadPageMap, loadPages } from '../../lib/page-data.js'
-import renderContent from '../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 import { allVersions } from '../../lib/all-versions.js'
 
 describe('toc links', () => {

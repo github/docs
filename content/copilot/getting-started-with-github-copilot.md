@@ -122,6 +122,7 @@ To use {% data variables.product.prodname_copilot %} in a JetBrains IDE, you mus
 
 {% data reusables.copilot.create-java-file %}
 1. To prompt {% data variables.product.prodname_copilot %} to suggest an implementation of a function in the Java file, type the following lines.
+
     ```java copy
     // find all images without alternate text
     // and give them a red border
@@ -195,6 +196,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
+
    ```csharp copy
    int CalculateDaysBetweenDates(
    ```
@@ -202,6 +204,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 {% data reusables.copilot.accept-suggestion %}
 
 ## Seeing alternative suggestions
+
 {% data reusables.copilot.alternative-suggestions %}
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following function signature. {% data variables.product.prodname_copilot %} will show you a suggestion.
@@ -209,6 +212,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
    ```csharp copy
    int CalculateDaysBetweenDates(
    ```
+
 1. If alternative suggestions are available, you can see these alternatives by pressing <kbd>Alt</kbd>+<kbd>.</kbd> (or <kbd>Alt</kbd>+<kbd>,</kbd>).
 1. Optionally, you can hover over the suggestion to see the {% data variables.product.prodname_copilot %} command palette for choosing suggestions.
 {% data reusables.copilot.accept-or-reject-suggestion %}
@@ -219,6 +223,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-c-file %}
 1. In the C# file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
+
    ```csharp copy
    using System.Xml.Linq;
 
@@ -226,6 +231,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
    // find all images
    ```
+
 {% data reusables.copilot.accept-suggestion %}
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
@@ -272,6 +278,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will automatically suggest an entire function body in grayed text, as shown below. The exact suggestion may vary.
+
    ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
@@ -284,9 +291,11 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
+
    ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
+
 {% data reusables.copilot.see-alternative-suggestions %}
 
    | OS | See next suggestion | See previous suggestion |
@@ -303,9 +312,11 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following function header. {% data variables.product.prodname_copilot %} will show you a suggestion.
+
    ```javascript copy
    function calculateDaysBetweenDates(begin, end) {
    ```
+
 1. To open a new tab with multiple additional options, press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>.
 1. To accept a suggestion, above the suggestion, click **Accept Solution**. To reject all suggestions, close the tab.
 
@@ -315,6 +326,7 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment. {% data variables.product.prodname_copilot %} will suggest an implementation of the function.
+
    ```javascript copy
    // find all images without alternate text
    // and give them a red border
@@ -327,13 +339,16 @@ You can also use {% data variables.product.prodname_copilot %} to generate sugge
 
 {% data reusables.copilot.create-js-file %}
 1. In the JavaScript file, type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation of the Express app.
+
    ```javascript copy
    // Express server on port 3000
 1. To accept each line, press <kbd>Tab</kbd>, then <kbd>Enter</kbd>.
 1. Type the following comment and then press <kbd>Enter</kbd>. {% data variables.product.prodname_copilot %} will suggest an implementation for the default handler.
+
    ```javascript copy
    // Return the current time
    ```
+
 1. To accept each line, press <kbd>Tab</kbd>.
 
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}

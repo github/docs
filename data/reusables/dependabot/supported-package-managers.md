@@ -40,7 +40,9 @@ Terraform      | `terraform`      | >= 0.13, <= 1.5.x  | {% octicon "check" aria
 Private registry support applies to git registries, and doesn't include cargo registries.
 
 {% ifversion dependabot-version-updates-enhanced-docker-support %}
+
 #### Docker
+
 {% ifversion dependabot-version-updates-docker-metadata-support %}
 {% data variables.product.prodname_dependabot %} can add metadata from Docker images to pull requests for version updates. The metadata includes release notes, changelogs and the commit history. Repository administrators can use the metadata to quickly evaluate the stability risk of the dependency update.
 
@@ -53,32 +55,42 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 {% endif %}
 
 #### {% data variables.product.prodname_actions %}
+
 {% data variables.product.prodname_dependabot %} only supports updates to {% data variables.product.prodname_actions %} using the {% data variables.product.prodname_dotcom %} repository syntax, such as {% data reusables.actions.action-checkout %}. Docker Hub and {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} URLs are currently not supported.
 
 #### Gradle
+
 {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files:
 - `build.gradle`, `build.gradle.kts` (for Kotlin projects){% ifversion dependabot-updates-gradle-versions-catalog-support %}
 - `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog){% endif %}
 - Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
 
 #### Maven
+
 {% data variables.product.prodname_dependabot %} doesn't run Maven but supports updates to `pom.xml` files.
 
 #### NuGet CLI
+
 {% data variables.product.prodname_dependabot %} doesn't run the NuGet CLI but does support most features up until version 4.8.
 
 {% ifversion dependabot-PEP621-support %}
+
 #### pip and pip-compile
+
 In addition to supporting updates to `requirements.txt` files, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard.
 {% endif %}
 
 {% ifversion dependabot-updates-pnpm-support %}
+
 #### pnpm
+
 pnpm is supported for {% data variables.product.prodname_dependabot_version_updates %} only. {% data variables.product.prodname_dependabot_security_updates %} are not currently supported.
 {% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.4 %}
+
 #### pub
+
 {% ifversion ghes = 3.5 %}`pub` support is currently in beta. Any known limitations are subject to change. Note that {% data variables.product.prodname_dependabot %}:
 - Doesn't support updating git dependencies for `pub`.
 - Won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
@@ -88,6 +100,8 @@ For information about configuring your _dependabot.yml_ file for `pub`, see "[AU
 {% endif %}
 
 {% ifversion dependabot-yarn-v3-update %}
+
 #### yarn
+
 Dependabot supports vendored dependencies for v2 onwards.
 {% endif %}

@@ -79,6 +79,7 @@ This error means that your code references a file that doesn't exist in your __i
 {% data reusables.pages.search-for-includes %} If any of the files you've referenced aren't in the __includes_ directory, copy or move the files into the __includes_ directory.
 
 {% ifversion ghes < 3.9 %}
+
 ## File is a symlink
 
 This error means that your code references a symlinked file that does not exist in the published files for your site.
@@ -91,6 +92,7 @@ This error means that your code references a symlinked file that does not exist 
 This error means that you used non-Latin characters, like `日本語`, without telling the computer to expect these symbols.
 
 To troubleshoot, force UTF-8 encoding by adding the following line to your __config.yml_ file:
+
 ```yaml
 encoding: UTF-8
 ```
@@ -169,6 +171,7 @@ Permalinks are permanent URLs that reference a particular page on your site. Abs
 To troubleshoot, remove the `relative_permalinks` line from your __config.yml_ file and reformat any relative permalinks in your site with absolute permalinks. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)."
 
 {% ifversion ghes < 3.9 %}
+
 ## Symlink does not exist within your site's repository
 
 This error means that your site includes a symbolic link (symlink) that does not exist in the published files for your site. For more information about symlinks, see "[Symbolic link](https://en.wikipedia.org/wiki/Symbolic_link)" on Wikipedia.

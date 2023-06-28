@@ -84,6 +84,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 ### Downloading {% data variables.product.prodname_advanced_security %} license usage information through the UI
 
 {% ifversion ghas-billing-table-ui-update %}
+
 #### At the repository-level
 
 {% data reusables.profile.access_org %}
@@ -96,6 +97,7 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {% endif %}
 
 {% ifversion ghec %}
+
 #### At the organization-level
 
 {% data reusables.profile.access_org %}
@@ -105,7 +107,9 @@ You can download the {% data variables.product.prodname_advanced_security %} lic
 {% endif %}
 
 {% ifversion ghas-billing-table-ui-update %}
+
 #### At the enterprise-level
+
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}

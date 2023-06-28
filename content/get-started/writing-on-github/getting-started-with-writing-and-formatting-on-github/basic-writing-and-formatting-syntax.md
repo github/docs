@@ -51,6 +51,7 @@ Text that is not a quote
 
 > Text that is a quote
 ```
+
 Quoted text is indented, with a different type color.
 
 ![Screenshot of rendered GitHub Markdown showing sample quoted text. The quote is indented with a vertical line on the left, and its text is dark gray rather than black.](/assets/images/help/writing/quoted-text-rendered.png)
@@ -199,8 +200,8 @@ To order your list, precede each line with a number.
 
 ```markdown
 1. James Madison
-2. James Monroe
-3. John Quincy Adams
+1. James Monroe
+1. John Quincy Adams
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a numbered list of the names of the fourth, fifth, and sixth American presidents.](/assets/images/help/writing/ordered-list-rendered.png)

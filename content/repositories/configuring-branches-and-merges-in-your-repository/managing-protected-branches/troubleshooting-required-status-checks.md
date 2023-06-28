@@ -31,6 +31,7 @@ You won't be able to push local changes to a protected branch until all required
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: error: Required status check "ci-build" is failing
 ```
+
 {% note %}
 
 **Note:** Pull requests that are up-to-date and pass required status checks can be merged locally and pushed to the protected branch. This can be done without status checks running on the merge commit itself.
@@ -97,6 +98,7 @@ jobs:
     steps:
       - run: 'echo "No build required"'
 ```
+
 Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
 
 {% note %}

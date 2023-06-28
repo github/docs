@@ -26,7 +26,7 @@ shortTitle: RubyGems registry
 - You must have RubyGems 2.4.1 or higher. To find your RubyGems version:
 
   ```shell
-  $ gem --version
+  gem --version
   ```
 
 - You must have bundler 1.6.4 or higher. To find your Bundler version:
@@ -75,6 +75,7 @@ To install gems, you need to authenticate to {% data variables.product.prodname_
 {% endif %}
 
 If you would like your package to be available globally, you can run the following command to add your registry as a source.
+
 ```shell
 gem sources --add https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE/
 ```
@@ -82,7 +83,7 @@ gem sources --add https://USERNAME:TOKEN@{% ifversion fpt or ghec %}rubygems.pkg
 To authenticate with Bundler, configure Bundler to use your {% data variables.product.pat_v1 %}, replacing USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_generic %}, and NAMESPACE with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the gem is scoped{% else %}that owns the repository containing the gem{% endif %}.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's RubyGems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace HOSTNAME with the hostname of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %}Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace HOSTNAME with the hostname of {% data variables.location.product_location %}.{% endif %}
 
 ```shell
-$ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE USERNAME:TOKEN
+bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE USERNAME:TOKEN
 ```
 
 ## Publishing a package
@@ -92,10 +93,13 @@ $ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% els
 {% data reusables.package_registry.auto-inherit-permissions-note %}
 
 {% data reusables.package_registry.authenticate-step %}
+
 1. Build the package from the _gemspec_ to create the _.gem_ package. Replace `GEM_NAME` with the name of your gem.
+   
    ```
    gem build GEM_NAME.gemspec
    ```
+
 1. Publish a package to {% data variables.product.prodname_registry %}, replacing `NAMESPACE` with the name of the personal account or organization {% ifversion packages-rubygems-v2 %}to which the package will be scoped{% else %}that owns the repository containing your project{% endif %} and `GEM_NAME` with the name of your gem package.{% ifversion ghes %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry. If your instance has subdomain isolation enabled, use `rubygems.HOSTNAME`. If your instance has subdomain isolation disabled, use `HOSTNAME/_registry/rubygems`. In either case, replace `HOSTNAME` with the host name of your {% data variables.product.prodname_ghe_server %} instance.{% elsif ghae %} Replace `REGISTRY_URL` with the URL for your instance's Rubygems registry, `rubygems.HOSTNAME`. Replace `HOSTNAME` with the hostname of {% data variables.location.product_location %}.{% endif %}
 
    {% note %}
@@ -153,7 +157,7 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   end
   ```
 
-3. For Bundler versions earlier than 1.7.0, you need to add a new global `source`. For more information on using Bundler, see the [bundler.io documentation](https://bundler.io/gemfile.html).
+1. For Bundler versions earlier than 1.7.0, you need to add a new global `source`. For more information on using Bundler, see the [bundler.io documentation](https://bundler.io/gemfile.html).
 
   ```ruby
   source "https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE"
@@ -163,10 +167,11 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
   gem "GEM_NAME"
   ```
 
-4. Install the package:
-   ```
-   $ gem install GEM_NAME --version "0.1.1"
-   ```
+1. Install the package:
+
+  ```
+  gem install GEM_NAME --version "0.1.1"
+  ```
 
 ## Further reading
 

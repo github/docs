@@ -37,7 +37,7 @@
    {% endnote %}
 {%- endif %}
 1. Under "Subject", type a descriptive title for the issue you're having.
-2. Under "How can we help", provide any additional information that will help the Support team troubleshoot the problem. You can use markdown to format your message.
+1. Under "How can we help", provide any additional information that will help the Support team troubleshoot the problem. You can use markdown to format your message.
 
    Helpful information may include:
     - Steps to reproduce the issue

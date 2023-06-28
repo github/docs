@@ -51,7 +51,12 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
      ```shell copy
      git credential-osxkeychain erase https://github.com
      ```
+
    {% data reusables.git.clear-stored-gcm-credentials %}
+
+    ```shell copy
+    echo "protocol=https\nhost=github.com" | git credential-manager erase
+    ```
 {% data reusables.git.cache-on-repository-path %}
 {% data reusables.accounts.create-personal-access-tokens %}
 {% data reusables.git.provide-credentials %}
@@ -65,11 +70,16 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
 {% data reusables.git.clear-the-stored-credentials %}
    {% data reusables.git.no-credential-manager %}
    {% data reusables.git.clear-stored-gcm-credentials %}
+
+    ```shell copy
+    echo "protocol=https`nhost=github.com" | git credential-manager erase
+    ```
    - If the output is `wincred`, you're using the Windows Credential Manager. To clear the credentials, enter the following command.
 
      ```shell copy
      cmdkey /delete:LegacyGeneric:target=git:https://github.com
      ```
+
 {% data reusables.git.cache-on-repository-path %}
 {% data reusables.accounts.create-personal-access-tokens %}
 {% data reusables.git.provide-credentials %}
@@ -83,6 +93,10 @@ Alternatively, if you want to use the HTTPS protocol for both accounts, you can 
 {% data reusables.git.clear-the-stored-credentials %}
    {% data reusables.git.no-credential-manager %}
    {% data reusables.git.clear-stored-gcm-credentials %}
+
+    ```shell copy
+    echo "protocol=https\nhost=github.com" | git credential-manager erase
+    ```
 {% data reusables.git.cache-on-repository-path %}
 {% data reusables.accounts.create-personal-access-tokens %}
 {% data reusables.git.provide-credentials %}
@@ -95,8 +109,8 @@ If you want to use the SSH protocol for both accounts, you can use different SSH
 
 To use a different SSH key for different repositories that you clone to your workstation, you must write a shell wrapper function for Git operations. The function should perform the following steps.
 1. Determine the repository's full name with owner, using a command such as `git config --get remote.origin.url`.
-2. Choose the correct SSH key for authentication.
-3. Modify `GIT_SSH_COMMAND` accordingly. For more information about `GIT_SSH_COMMAND`, see [Environment Variables](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode) in the Git documentation.
+1. Choose the correct SSH key for authentication.
+1. Modify `GIT_SSH_COMMAND` accordingly. For more information about `GIT_SSH_COMMAND`, see [Environment Variables](https://git-scm.com/docs/git#Documentation/git.txt-codeGITSSHCOMMANDcode) in the Git documentation.
 
 For example, the following command sets the `GIT_SSH_COMMAND` environment variable to specify an SSH command that uses the private key file at **_PATH/TO/KEY/FILE_** for authentication to clone the repository named OWNER/REPOSITORY on {% data variables.location.product_location %}.
 

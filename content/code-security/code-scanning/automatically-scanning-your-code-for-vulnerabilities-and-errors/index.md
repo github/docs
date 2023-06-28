@@ -28,8 +28,6 @@ children:
   - /built-in-codeql-query-suites
   - /configuring-the-codeql-workflow-for-compiled-languages
   - /configuring-code-scanning-at-scale
-  - /troubleshooting-your-default-setup-for-codeql
-  - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
   - /viewing-code-scanning-logs
 ---

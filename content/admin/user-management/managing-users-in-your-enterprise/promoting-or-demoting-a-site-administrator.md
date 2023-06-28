@@ -29,8 +29,8 @@ For information about promoting a user to an organization owner, see the `ghe-or
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-5. In the upper-right corner of the page, click **Add owner**.
-6. In the search field, type the name of the user, then click **Add**.
+1. In the upper-right corner of the page, click **Add owner**.
+1. In the search field, type the name of the user, then click **Add**.
 
 ## Demoting a site administrator from the enterprise settings
 
@@ -49,15 +49,17 @@ For information about promoting a user to an organization owner, see the `ghe-or
 ## Promoting a user from the command line
 
 1. [SSH](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) into your appliance.
-2. Run [ghe-user-promote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-promote) with the username to promote.
+1. Run [ghe-user-promote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-promote) with the username to promote.
+
    ```shell
-   $ ghe-user-promote USERNAME
+   ghe-user-promote USERNAME
    ```
 
 ## Demoting a site administrator from the command line
 
 1. [SSH](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) into your appliance.
-2. Run [ghe-user-demote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-demote) with the username to demote.
+1. Run [ghe-user-demote](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-user-demote) with the username to demote.
+
    ```shell
-   $ ghe-user-demote USERNAME
+   ghe-user-demote USERNAME
    ```

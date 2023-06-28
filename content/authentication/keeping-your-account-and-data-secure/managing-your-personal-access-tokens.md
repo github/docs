@@ -136,10 +136,10 @@ If you selected an organization as the resource owner and the organization requi
 {% data reusables.user-settings.developer_settings %}
 {% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
 {% ifversion pat-v2%}1. Select **Generate new token**, then click **Generate new token (classic)**.{% else %}{% data reusables.user-settings.generate_new_token %}{% endif %}
-5. In the "Note" field, give your token a descriptive name.
-6. To give your token an expiration, select **Expiration**, then choose a default option or click **Custom** to enter a date.
-7. Select the scopes you'd like to grant this token. To use your token to access repositories from the command line, select **repo**. A token with no assigned scopes can only access public information. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
-8. Click **Generate token**.
+1. In the "Note" field, give your token a descriptive name.
+1. To give your token an expiration, select **Expiration**, then choose a default option or click **Custom** to enter a date.
+1. Select the scopes you'd like to grant this token. To use your token to access repositories from the command line, select **repo**. A token with no assigned scopes can only access public information. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
+1. Click **Generate token**.
 1. Optionally, to copy the new token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
 
    ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens.png){% ifversion fpt or ghec %}

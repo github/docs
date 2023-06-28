@@ -40,6 +40,7 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% data reusables.actions.enterprise-oidc-prereqs %}
 
 {% ifversion ghes-actions-storage-oidc %}
+
 ## Enabling {% data variables.product.prodname_actions %} with Amazon S3 using OIDC (recommended)
 
 {% data reusables.actions.ghes-storage-oidc-beta-note %}
@@ -66,6 +67,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
       ```
       SHA1 Fingerprint=AB:12:34:56:78:90:AB:CD:EF:12:34:56:78:90:AB:CD:EF:12:34:56
       ```
+
    1. Remove the colons (`:`) from the thumbprint value, and save the value to use later.
 
       For example, the thumbprint for the value returned in the previous step is:
@@ -73,6 +75,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
       ```
       AB1234567890ABCDEF1234567890ABCDEF123456
       ```
+
 1. Using the AWS CLI, use the following command to create an OIDC provider for {% data variables.location.product_location_enterprise %}. Replace `HOSTNAME` with the public hostname for {% data variables.location.product_location_enterprise %}, and `THUMBPRINT` with the thumbprint value from the previous step.
 
    ```shell copy
@@ -139,6 +142,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
    }
    ...
    ```
+
 1. Click **Update policy**.
 
 ### 3. Configure {% data variables.product.prodname_ghe_server %} to connect to Amazon S3 using OIDC

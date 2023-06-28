@@ -26,7 +26,7 @@ jobs:
         with:
           project: Docs open source board
           column: Triage
-          repo-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          repo-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
 
       - name: remove label
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90

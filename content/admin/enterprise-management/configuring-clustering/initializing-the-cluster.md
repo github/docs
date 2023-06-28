@@ -25,14 +25,14 @@ To deploy a {% data variables.product.product_name %} cluster in your environmen
 To start setting up the cluster, install the {% data variables.product.prodname_ghe_server %} appliance on each node's virtual machine (VM), then configure an IP address.
 
 1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
-2. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
+1. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
 
 ## Configuring the first node
 
 On the node that will function as your primary MySQL node, install your {% data variables.product.product_name %} license.
 
 1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
-2. In your web browser, visit `https://<ip address>:8443/setup/`.
+1. In your web browser, visit `https://<ip address>:8443/setup/`.
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
@@ -42,7 +42,7 @@ On the node that will function as your primary MySQL node, install your {% data 
 To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)".
 
 1. From the first node that was configured, run `ghe-cluster-config-init`.  This will initialize the cluster if there are nodes in the cluster configuration file that are not configured.
-2. Run `ghe-cluster-config-apply`. This will validate the `cluster.conf` file, apply the configuration to each node file and bring up the configured services on each node.
+1. Run `ghe-cluster-config-apply`. This will validate the `cluster.conf` file, apply the configuration to each node file and bring up the configured services on each node.
 
 To check the status of a running cluster use the `ghe-cluster-status` command.
 

@@ -108,7 +108,7 @@ If you see that there is a problem with your analysis from the {% data variables
 For integrated tools such as {% data variables.product.prodname_codeql %}, you can also use file coverage information to improve your analysis. For each language displayed on the {% data variables.code-scanning.tool_status_page %}:
 
 - If the language has a high scanned percentage, this shows that code scanning is scanning that language as expected.
-- If the language has a low scanned percentage, you may wish to investigate diagnostic output produced by CodeQL for that language: for more information see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)."
+- If the language has a low scanned percentage, you may wish to investigate diagnostic output produced by CodeQL for that language: for more information see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected)."
 - If the language has a scanned percentage of zero, you may have source code in your repository written in languages supported by CodeQL but not currently being analyzed with CodeQL. In this case, you may wish to update your setup to start analyzing these additional languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#changing-the-languages-that-are-analyzed)."
 
 {% note %}
@@ -117,4 +117,4 @@ For integrated tools such as {% data variables.product.prodname_codeql %}, you c
 
 {% endnote %}
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-your-default-setup-for-codeql)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning)."

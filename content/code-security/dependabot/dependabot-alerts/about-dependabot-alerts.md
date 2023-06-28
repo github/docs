@@ -110,6 +110,7 @@ By default, we notify people with {% ifversion dependabot-alerts-permissions-wri
 You can also see all the {% data variables.product.prodname_dependabot_alerts %} that correspond to a particular advisory in the {% data variables.product.prodname_advisory_database %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ## Further reading
 
 - "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)"

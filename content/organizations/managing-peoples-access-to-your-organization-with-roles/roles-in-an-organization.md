@@ -17,6 +17,7 @@ topics:
 shortTitle: Roles in an organization
 ---
 ## About roles
+
 {% data reusables.organizations.about-roles %}
 
 Repository-level roles give organization members, outside collaborators and teams of people varying levels of access to repositories. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
@@ -34,21 +35,27 @@ If your organization is owned by an enterprise account, enterprise owners can ch
 {% endif %}
 
 ### Organization owners
+
 Organization owners have complete administrative access to your organization. This role should be limited, but to no less than two people, in your organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
 
 ### Organization members
+
 The default, non-administrative role for people in an organization is the organization member. By default, organization members have a number of permissions, including the ability to create repositories and project boards.
 
 {% ifversion fpt or ghec %}
+
 ### Organization moderators
+
 Moderators are organization members who, in addition to their permissions as members, are allowed to block and unblock non-member contributors, set interaction limits, and hide comments in public repositories owned by the organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)."
 
 ### Billing managers
+
 Billing managers are users who can manage the billing settings for your organization, such as payment information. This is a useful option if members of your organization don't usually have access to billing resources. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
 
 {% endif %}
 
 {% ifversion security-managers %}
+
 ### Security managers
 
 {% data reusables.organizations.security-manager-beta-note %}
@@ -57,12 +64,15 @@ Billing managers are users who can manage the billing settings for your organiza
 
 If your organization has a security team, you can use the security manager role to give members of the team the least access they need to the organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization)."
 {% endif %}
+
 ### {% data variables.product.prodname_github_app %} managers
+
 By default, only organization owners can manage the settings of {% data variables.product.prodname_github_app %} registrations owned by an organization. To allow additional users to manage {% data variables.product.prodname_github_app %} registrations owned by an organization, an owner can grant them {% data variables.product.prodname_github_app %} manager permissions.
 
 When you designate a user as a {% data variables.product.prodname_github_app %} manager in your organization, you can grant them access to manage the settings of some or all {% data variables.product.prodname_github_app %} registrations owned by the organization. The {% data variables.product.prodname_github_app %} manager role does not grant users access to install and uninstall {% data variables.product.prodname_github_apps %} on an organization. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-and-removing-github-app-managers-in-your-organization)."
 
 ### Outside collaborators
+
 To keep your organization's data secure while allowing access to repositories, you can add _outside collaborators_. {% data reusables.organizations.outside_collaborators_description %}
 
 ## Permissions for organization roles

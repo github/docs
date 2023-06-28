@@ -240,6 +240,7 @@ The following examples are designed to give you an idea of some of the build com
    ```
    codeql database create -l swift -c "./scripts/build.sh" swift-database
    ```
+
 {% endif %}
 
 - Project built using Bazel:

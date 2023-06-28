@@ -28,7 +28,6 @@ featuredLinks:
     - '{% ifversion ghae %}/code-security/secret-scanning/about-secret-scanning{% endif %}'
     - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
     - '{% ifversion ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages{% endif %}'
-    - '{% ifversion ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow{% endif %}'
     - '{% ifversion ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container{% endif %}'
 changelog:
   label: security-and-compliance

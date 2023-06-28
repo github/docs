@@ -57,6 +57,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.codespaces.usage-report-download %}
 
 {% ifversion ghec %}
+
 ## Viewing {% data variables.product.prodname_codespaces %} usage for your enterprise account
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_github_codespaces %} usage for an enterprise account.

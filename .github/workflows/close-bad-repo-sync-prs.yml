@@ -23,7 +23,7 @@ jobs:
       - name: Close pull request if unwanted
         uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
         with:
-          github-token: ${{ secrets.DOCS_BOT_FR }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           script: |
             const { owner, repo } = context.repo
             const prCreator = context.actor

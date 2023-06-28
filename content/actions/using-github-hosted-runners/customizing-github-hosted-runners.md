@@ -73,6 +73,7 @@ jobs:
 The following example demonstrates how to use [Chocolatey](https://community.chocolatey.org/packages) to install the {% data variables.product.prodname_dotcom %} CLI as part of a job.
 
 {% raw %}
+
 ```yaml
 name: Build on Windows
 on: push
@@ -83,4 +84,5 @@ jobs:
       - run: choco install gh
       - run: gh version
 ```
+
 {% endraw %}
