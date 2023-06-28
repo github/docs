@@ -213,8 +213,7 @@
     "website-scraper": "^5.3.1"
   },
   "optionalDependencies": {
-    "esm": "^3.2.25",
-    "website-scraper": "^5.3.1"
+    "esm": "^3.2.25"
   },
   "engines": {
     "node": "^16 || ^18"
