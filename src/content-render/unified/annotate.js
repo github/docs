@@ -119,23 +119,29 @@ function matchComment(lang) {
 
 function getSubnav() {
   const besideBtn = h(
-    'a',
+    'button',
     {
-      className: 'subnav-item',
-      href: '#annotation-beside',
+      name: 'annotate-display',
+      value: 'beside',
+      type: 'button',
+      ariaLabel: 'Display annotations beside the code sample',
+      className: 'BtnGroup-item btn btn-sm tooltipped tooltipped-nw',
     },
     ['Beside']
   )
   const inlineBtn = h(
-    'a',
+    'button',
     {
-      className: 'subnav-item',
-      href: '#annotation-inline',
+      name: 'annotate-display',
+      value: 'inline',
+      type: 'button',
+      ariaLabel: 'Display annotations inline as comments of the code sample',
+      className: 'BtnGroup-item btn btn-sm tooltipped tooltipped-nw',
     },
     ['Inline']
   )
 
-  return h('nav', { className: 'subnav mb-0 pr-2' }, [besideBtn, inlineBtn])
+  return h('div', { className: 'BtnGroup' }, [besideBtn, inlineBtn])
 }
 
 function template({ lang, code, rows }) {
