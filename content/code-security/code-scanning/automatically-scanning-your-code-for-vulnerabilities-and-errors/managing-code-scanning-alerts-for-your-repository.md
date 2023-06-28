@@ -142,7 +142,6 @@ Alerts may be fixed in one branch but not in another. You can use the "Branch" f
 
 {% data reusables.code-scanning.filter-non-default-branches %}
 
-{% ifversion fpt or ghes or ghae > 3.4 or ghec %}
 {% note %}
 
 **Note:**
@@ -152,7 +151,6 @@ If you run {% data variables.product.prodname_code_scanning %} using multiple co
 If you run {% data variables.product.prodname_code_scanning %} using multiple configurations, then sometimes an alert will have multiple analysis origins. Unless you run all configurations regularly, you may see alerts that are fixed in one analysis origin but not in another. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
 {% endif %}
 {% endnote %}
-{% endif %}
 
 ## Dismissing {% ifversion delete-code-scanning-alerts %}or deleting{% endif %} alerts
 
