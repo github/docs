@@ -8,10 +8,6 @@ header:
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
       ' is currently available as a release candidate. For more information, see "<a href="/admin/overview/about-upgrades-to-new-releases">About upgrades to new releases</a>."'
-    localization_complete:
-      We publish frequent updates to our documentation, and translation of this page may still be in progress.
-      For the most current information, please visit the
-      <a id="to-english-doc" href="/en">English documentation</a>.
     early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
