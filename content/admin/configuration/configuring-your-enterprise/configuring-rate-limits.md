@@ -74,7 +74,7 @@ If a member of {% data variables.product.company_short %}'s staff has recommende
 1. Under "User ID Limit", type a limit for each user ID.
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
 ## Configuring rate limits for {% data variables.product.prodname_actions %}
 

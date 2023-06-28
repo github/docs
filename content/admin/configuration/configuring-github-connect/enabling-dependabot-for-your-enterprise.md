@@ -120,7 +120,7 @@ After you enable {% data variables.product.prodname_dependabot_alerts %} for you
 {% data variables.product.prodname_dependabot_updates %} are not supported on {% data variables.product.product_name %} if your enterprise uses clustering.
 {% endif %}
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
 {% note %}
 
