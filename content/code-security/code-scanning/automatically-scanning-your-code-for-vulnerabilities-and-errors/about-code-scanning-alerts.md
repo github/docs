@@ -29,9 +29,7 @@ By default, {% data variables.product.prodname_code_scanning %} analyzes your co
 
 Each alert highlights a problem with the code and the name of the tool that identified it. You can see the line of code that triggered the alert, as well as properties of the alert, such as the alert severity, security severity, and the nature of the problem. Alerts also tell you when the issue was first introduced. For alerts identified by {% data variables.product.prodname_codeql %} analysis, you will also see information on how to fix the problem.
 
-{% ifversion fpt or ghec or ghes or ghae > 3.4 %}
 {% data reusables.code-scanning.alert-default-branch %}
-{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.8 %}
 ![Screenshot showing the elements of a {% data variables.product.prodname_code_scanning %} alert, including the title of the alert and relevant lines of code at left and the severity level, affected branches, and weaknesses at right. ](/assets/images/help/repository/code-scanning-alert.png)

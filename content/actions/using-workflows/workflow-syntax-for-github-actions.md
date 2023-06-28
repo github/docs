@@ -14,7 +14,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About YAML syntax for workflows
@@ -1003,7 +1003,7 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 ## `jobs.<job_id>.uses`
 
-The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes or ghae > 3.4 %}Use one of the following syntaxes:{% endif %}
+The location and version of a reusable workflow file to run as a job. Use one of the following syntaxes:
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
