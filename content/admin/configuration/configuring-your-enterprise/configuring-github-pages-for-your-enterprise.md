@@ -59,7 +59,7 @@ If subdomain isolation is disabled for your enterprise, you should also disable 
 
 {% endif %}
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
 ## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
 

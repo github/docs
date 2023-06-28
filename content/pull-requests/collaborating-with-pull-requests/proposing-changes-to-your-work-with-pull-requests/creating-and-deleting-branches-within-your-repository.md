@@ -59,7 +59,7 @@ You can create a branch in different ways on {% data variables.product.product_n
 
    ![Screenshot of the branch selector dropdown menu. "Create branch: new-branch" is highlighted with an orange outline.](/assets/images/help/branches/create-branch-text.png)
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 ### Creating a branch for an issue
 
