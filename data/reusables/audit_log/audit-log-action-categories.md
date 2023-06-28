@@ -83,7 +83,7 @@
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `members_can_view_dependency_insights` | Contains organization-level configuration activities allowing organization members to view dependency insights.
-| `migration` | Contains activities related to transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
+| `migration` | Contains activities related to transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance.
 {%- endif %}
 | `oauth_access` | Contains activities related to OAuth access tokens.
 | `oauth_application` | Contains activities related to {% data variables.product.prodname_oauth_app %}s.

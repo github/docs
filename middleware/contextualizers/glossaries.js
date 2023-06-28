@@ -1,5 +1,5 @@
 import { getDataByLanguage } from '../../lib/get-data.js'
-import liquid from '../../lib/render-content/liquid.js'
+import { liquid } from '#src/content-render/index.js'
 import { executeWithFallback } from '../../lib/render-with-fallback.js'
 import { correctTranslatedContentStrings } from '../../lib/correct-translation-content.js'
 

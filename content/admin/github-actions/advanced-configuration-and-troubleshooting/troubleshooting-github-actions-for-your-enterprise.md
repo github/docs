@@ -150,6 +150,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
      }
    }
    ```
+
 1. Save and exit the file.
 1. Run `ghe-config-apply` to apply the changes.
 
@@ -157,6 +158,7 @@ If any of these services are at or near 100% CPU utilization, or the memory is n
 1. After the configuration is applied, run `ghe-actions-check` to verify that the {% data variables.product.prodname_actions %} services are operational.
 
 {% ifversion fpt or ghec or ghes %}
+
 ## Troubleshooting failures when {% data variables.product.prodname_dependabot %} triggers existing workflows
 
 {% data reusables.dependabot.beta-security-and-version-updates %}
@@ -168,20 +170,24 @@ By default, {% data variables.product.prodname_actions %} workflow runs that are
 There are three ways to resolve this problem:
 
 1. You can update your workflows so that they are no longer triggered by {% data variables.product.prodname_dependabot %} using an expression like: `if: github.actor != 'dependabot[bot]'`. For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
-2. You can modify your workflows to use a two-step process that includes `pull_request_target` which does not have these limitations. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#responding-to-events)."
-3. You can provide workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and allow the `permissions` term to increase the default scope of the `GITHUB_TOKEN`. For more information, see "[Providing workflows triggered by{% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
+1. You can modify your workflows to use a two-step process that includes `pull_request_target` which does not have these limitations. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions#responding-to-events)."
+1. You can provide workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and allow the `permissions` term to increase the default scope of the `GITHUB_TOKEN`. For more information, see "[Providing workflows triggered by{% data variables.product.prodname_dependabot %} access to secrets and increased permissions](#providing-workflows-triggered-by-dependabot-access-to-secrets-and-increased-permissions)" below.
 
 ### Providing workflows triggered by {% data variables.product.prodname_dependabot %} access to secrets and increased permissions
 
 1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 1. To remove the limitations on workflows triggered by {% data variables.product.prodname_dependabot %} on {% data variables.location.product_location %}, use the following command.
+
     ``` shell
-    $ ghe-config app.actions.disable-dependabot-enforcement true
+    ghe-config app.actions.disable-dependabot-enforcement true
     ```
+
 1. Apply the configuration.
+
     ```shell
-    $ ghe-config-apply
+    ghe-config-apply
     ```
+
 1. Return to {% data variables.product.prodname_ghe_server %}.
 
 {% endif %}
@@ -204,20 +210,27 @@ To install the official bundled actions and starter workflows within a designate
 
 1. Log in to the administrative shell using SSH. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 1. To designate your organization as the location to store the bundled actions, use the `ghe-config` command, replacing `ORGANIZATION` with the name of your organization.
+
     ```shell
-    $ ghe-config app.actions.actions-org ORGANIZATION
+    ghe-config app.actions.actions-org ORGANIZATION
     ```
+
     and:
+
     ```shell
-    $ ghe-config app.actions.github-org ORGANIZATION
+    ghe-config app.actions.github-org ORGANIZATION
     ```
+
 1.  To add the bundled actions to your organization, unset the SHA.
+
     ```shell
-    $ ghe-config --unset 'app.actions.actions-repos-sha1sum'
+    ghe-config --unset 'app.actions.actions-repos-sha1sum'
     ```
+
 1. Apply the configuration.
+
     ```shell
-    $ ghe-config-apply
+    ghe-config-apply
     ```
 
 After you've completed these steps, you can resume configuring {% data variables.product.prodname_actions %} at "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#managing-access-permissions-for-github-actions-in-your-enterprise)."

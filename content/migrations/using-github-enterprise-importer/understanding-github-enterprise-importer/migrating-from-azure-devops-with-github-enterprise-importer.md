@@ -20,8 +20,8 @@ If you're migrating from Azure DevOps (ADO), you can use this guide to plan and 
 Enterprises who migrate from ADO to {% data variables.product.prodname_dotcom %} typically follow a multi-phase approach.
 
 1. Migrate repositories from ADO to {% data variables.product.prodname_dotcom %}.
-2. Migrate pipelines from Azure Pipelines to {% data variables.product.prodname_actions %}.
-3. Migrate remaining assets, such as boards and artifacts, from ADO to {% data variables.product.prodname_dotcom %}.
+1. Migrate pipelines from Azure Pipelines to {% data variables.product.prodname_actions %}.
+1. Migrate remaining assets, such as boards and artifacts, from ADO to {% data variables.product.prodname_dotcom %}.
 
 This guide will guide you through completing the first phase, migrating repositories to {% data variables.product.prodname_dotcom %}, and assumes you're using the {% data variables.product.prodname_ado2gh_cli %}.
 

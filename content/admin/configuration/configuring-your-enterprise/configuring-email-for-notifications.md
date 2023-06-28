@@ -25,42 +25,43 @@ shortTitle: Configure email notifications
 
 {% ifversion ghes %}
 {% data reusables.enterprise_site_admin_settings.email-settings %}
-4. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
+1. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
 settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
-5. Type the settings for your SMTP server.
+1. Type the settings for your SMTP server.
       - In the **Server address** field, type the address of your SMTP server.
       - In the **Port** field, type the port that your SMTP server uses to send email.
       - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
       - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
       - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
-6. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
-7. Under **Support**, select a type of link to offer additional support to your users.
+1. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
+1. Under **Support**, select a type of link to offer additional support to your users.
     - **Email:** An internal email address.
     - **URL:** A link to an internal support site. You must include either `http://` or `https://`.
-8. [Test email delivery](#testing-email-delivery).
+1. [Test email delivery](#testing-email-delivery).
 {% elsif ghae %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under {% octicon "gear" aria-hidden="true" %} **Settings**, click **Email**.
-2. Select **Enable email**.
-3. Type the settings for your email server.
+1. Select **Enable email**.
+1. Type the settings for your email server.
     - In the **Server address** field, type the address of your SMTP server.
     - In the **Port** field, type the port that your SMTP server uses to send email.
     - In the **Domain** field, type the domain name that your SMTP server will send with a HELO response, if any.
     - Select the **Authentication** dropdown, and choose the type of encryption used by your SMTP server.
     - In the **No-reply email address** field, type the email address to use in the From and To fields for all notification emails.
-4. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
-5. Click **Test email settings**.
-6. Under "Send test email to," type the email address where you want to send a test email, then click **Send test email**.
-7. Click **Save**.
+1. If you want to discard all incoming emails that are addressed to the no-reply email address, select **Discard email addressed to the no-reply email address**.
+1. Click **Test email settings**.
+1. Under "Send test email to," type the email address where you want to send a test email, then click **Send test email**.
+1. Click **Save**.
 {% endif %}
 
 {% ifversion ghes %}
+
 ## Testing email delivery
 
 1. At the top of the **Email** section, click **Test email settings**.
-2. Under "Send test email to," type an address to send the test email to.
-3. Click **Send test email**.
+1. Under "Send test email to," type an address to send the test email to.
+1. Click **Send test email**.
 
   {% tip %}
 
@@ -68,11 +69,12 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 
   {% endtip %}
 
-4. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
-5. When the test email succeeds, under the "Settings" sidebar, click **Save settings**.
+1. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
+1. When the test email succeeds, under the "Settings" sidebar, click **Save settings**.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
 
 {% ifversion require-tls-for-smtp %}
+
 ## Enforcing TLS for SMTP connections
 
 You can enforce TLS encryption for all incoming SMTP connections, which can help satisfy an ISO-27017 certification requirement.
@@ -97,9 +99,9 @@ You can enforce TLS encryption for all incoming SMTP connections, which can help
 If you want to allow email replies to notifications, you must configure your DNS settings.
 
 1. Ensure that port 25 on the instance is accessible to your SMTP server.
-2. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
-3. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
-4. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+1. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
+1. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
+1. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
 
 ## Troubleshooting email delivery
 
@@ -185,6 +187,7 @@ If {% data variables.location.product_location %} is behind a firewall or is bei
 {% endif %}
 
 ### Contact support
+
 {% ifversion ghes %}
 If you're still unable to resolve the problem, contact {% data variables.contact.contact_ent_support %}. Please attach the output file from `http(s)://[hostname]/setup/diagnostics` to your email to help us troubleshoot your problem.
 {% elsif ghae %}

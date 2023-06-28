@@ -13,66 +13,6 @@
       "requestPath": "/enterprises/{enterprise}/actions/oidc/customization/issuer"
     },
     {
-      "slug": "get-github-actions-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions"
-    },
-    {
-      "slug": "set-github-actions-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions"
-    },
-    {
-      "slug": "list-selected-organizations-enabled-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations"
-    },
-    {
-      "slug": "set-selected-organizations-enabled-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations"
-    },
-    {
-      "slug": "enable-a-selected-organization-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations/{org_id}"
-    },
-    {
-      "slug": "disable-a-selected-organization-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations/{org_id}"
-    },
-    {
-      "slug": "get-allowed-actions-and-reusable-workflows-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/selected-actions"
-    },
-    {
-      "slug": "set-allowed-actions-and-reusable-workflows-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/selected-actions"
-    },
-    {
-      "slug": "get-default-workflow-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-    },
-    {
-      "slug": "set-default-workflow-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-    },
-    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -155,54 +95,6 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
-    },
-    {
-      "slug": "list-required-workflows",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/actions/required_workflows"
-    },
-    {
-      "slug": "create-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/actions/required_workflows"
-    },
-    {
-      "slug": "get-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "update-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "patch",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "delete-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "sets-repositories-for-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories"
-    },
-    {
-      "slug": "add-a-repository-to-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
-    },
-    {
-      "slug": "remove-a-selected-repository-from-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
     },
     {
       "slug": "list-self-hosted-runner-groups-for-an-organization",
@@ -457,24 +349,6 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
-      "slug": "list-repository-required-workflows",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows"
-    },
-    {
-      "slug": "get-a-required-workflow-entity-for-a-repository",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}"
-    },
-    {
-      "slug": "get-required-workflow-usage",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing"
-    },
-    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -611,12 +485,6 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
-    },
-    {
-      "slug": "list-workflow-runs-for-a-required-workflow",
-      "subcategory": "workflow-runs",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs"
     },
     {
       "slug": "list-self-hosted-runners-for-a-repository",
@@ -981,12 +849,6 @@
       "requestPath": "/networks/{owner}/{repo}/events"
     },
     {
-      "slug": "list-notifications-for-the-authenticated-user",
-      "subcategory": "notifications",
-      "verb": "get",
-      "requestPath": "/notifications"
-    },
-    {
       "slug": "list-public-organization-events",
       "subcategory": "events",
       "verb": "get",
@@ -1109,18 +971,6 @@
       "subcategory": "apps",
       "verb": "get",
       "requestPath": "/apps/{app_slug}"
-    },
-    {
-      "slug": "list-app-installations-accessible-to-the-user-access-token",
-      "subcategory": "installations",
-      "verb": "get",
-      "requestPath": "/user/installations"
-    },
-    {
-      "slug": "list-repositories-accessible-to-the-user-access-token",
-      "subcategory": "installations",
-      "verb": "get",
-      "requestPath": "/user/installations/{installation_id}/repositories"
     },
     {
       "slug": "list-subscriptions-for-the-authenticated-user",
@@ -3331,54 +3181,6 @@
       "subcategory": "outside-collaborators",
       "verb": "delete",
       "requestPath": "/orgs/{org}/outside_collaborators/{username}"
-    },
-    {
-      "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
-      "subcategory": "personal-access-tokens",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/personal-access-token-requests"
-    },
-    {
-      "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
-      "subcategory": "personal-access-tokens",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/personal-access-token-requests"
-    },
-    {
-      "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
-      "subcategory": "personal-access-tokens",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}"
-    },
-    {
-      "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
-      "subcategory": "personal-access-tokens",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories"
-    },
-    {
-      "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
-      "subcategory": "personal-access-tokens",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/personal-access-tokens"
-    },
-    {
-      "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
-      "subcategory": "personal-access-tokens",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/personal-access-tokens"
-    },
-    {
-      "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
-      "subcategory": "personal-access-tokens",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}"
-    },
-    {
-      "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
-      "subcategory": "personal-access-tokens",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories"
     },
     {
       "slug": "list-public-organization-members",

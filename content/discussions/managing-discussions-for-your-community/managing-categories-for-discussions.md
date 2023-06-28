@@ -47,7 +47,9 @@ Each category must have a unique name and emoji pairing, and can be accompanied 
 1. Click **Create**.
 
 {% ifversion discussions-category-section %}
+
 ## Creating a section
+
 1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to create a category.
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.edit-categories %}
@@ -72,6 +74,7 @@ You can edit a category to change the category's emoji, title, description, and 
 1. Click **Save changes**.
 
 {% ifversion discussions-category-section %}
+
 ## Editing a section
 
 You can edit a section to change the section's emoji and title, and to add and remove categories from the section.
@@ -97,6 +100,7 @@ When you delete a category, {% data variables.product.product_name %} will move 
 1. Click **Delete & Move**.
 
 {% ifversion discussions-category-section %}
+
 ## Deleting a section
 
 When you delete a section, all categories within the section will no longer belong to a section.

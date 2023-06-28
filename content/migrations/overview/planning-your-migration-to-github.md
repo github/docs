@@ -58,6 +58,12 @@ You should build a migration inventory with a list of all of the repositories in
 
 If you’re migrating from {% data variables.product.prodname_ghe_cloud %} or {% data variables.product.prodname_ghe_server %}, you can obtain this data with the `gh-repo-stats` extension for the {% data variables.product.prodname_cli %}. With just a few commands, `gh-repo-stats` will connect with your migration origin's API and create a CSV with all of the recommended fields. For more information, see the [mona-actions/gh-repo-stats](https://github.com/mona-actions/gh-repo-stats/) repository.
 
+{% note %}
+
+**Note:** `gh-repo-stats` is a third-party open-source tool which is not supported by GitHub Support. If you need help with this tool, [open an issue](https://github.com/mona-actions/gh-repo-stats/issues) in its repository.
+
+{% endnote %}
+
 If you’re migrating from Azure DevOps, we recommend our official `gh-migrator-analyzer` tool. `gh-migration-analyzer` will connect with the Azure DevOps API and build a very simple CSV with some of the fields suggested above. For more information, see the [github/gh-migration-analyzer](https://github.com/github/gh-migration-analyzer) repository.
 
 For other migration origins, create your migration inventory yourself. You could build the spreadsheet using the origin’s reporting tools, if available, or API, or you could create the inventory manually.

@@ -49,4 +49,5 @@ For more information, see [{% data variables.product.prodname_blog %}](https://g
    ```shell
    ghe-config app.gitauth.rsa-sha1 false
    ```
+
 {% data reusables.enterprise.apply-configuration %}

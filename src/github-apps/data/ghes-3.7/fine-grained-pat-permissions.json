@@ -4082,17 +4082,6 @@
         "access": "read"
       },
       {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "additional-permissions": [
-          "notifications"
-        ],
-        "access": "read"
-      },
-      {
         "category": "actions",
         "slug": "enable-a-selected-repository-for-github-actions-in-an-organization",
         "subcategory": "permissions",
@@ -4411,15 +4400,6 @@
         "subcategory": "search",
         "verb": "get",
         "requestPath": "/search/labels",
-        "additional-permissions": [],
-        "access": "read"
-      },
-      {
-        "category": "apps",
-        "slug": "list-repositories-accessible-to-the-user-access-token",
-        "subcategory": "installations",
-        "verb": "get",
-        "requestPath": "/user/installations/{installation_id}/repositories",
         "additional-permissions": [],
         "access": "read"
       },
@@ -6040,23 +6020,6 @@
         "verb": "get",
         "requestPath": "/users/{username}/keys",
         "additional-permissions": [],
-        "access": "read"
-      }
-    ]
-  },
-  "notifications": {
-    "title": "Notifications",
-    "displayTitle": "User permissions for \"Notifications\"",
-    "permissions": [
-      {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "additional-permissions": [
-          "metadata"
-        ],
         "access": "read"
       }
     ]

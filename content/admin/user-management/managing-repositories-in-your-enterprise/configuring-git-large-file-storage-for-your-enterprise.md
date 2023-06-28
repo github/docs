@@ -67,6 +67,7 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
 {% ifversion ghes %}
+
 ## Configuring Git Large File Storage to use a third party server
 
 {% data reusables.large_files.storage_assets_location %}
@@ -74,7 +75,8 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
 
 1. Disable {% data variables.large_files.product_name_short %} on {% data variables.location.product_location %}. For more information, see "[Configuring {% data variables.large_files.product_name_long %} for your enterprise](#configuring-git-large-file-storage-for-your-enterprise)."
 
-2. Create a {% data variables.large_files.product_name_short %} configuration file that points to the third party server.
+1. Create a {% data variables.large_files.product_name_short %} configuration file that points to the third party server.
+
    ```shell
    # Show default configuration
    $ git lfs env
@@ -97,18 +99,21 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
    lfsurl = https://THIRD-PARTY-LFS-SERVER/path/to/repo
    ```
 
-3. To keep the same {% data variables.large_files.product_name_short %} configuration for each user, commit a custom `.lfsconfig` file to the repository.
+1. To keep the same {% data variables.large_files.product_name_short %} configuration for each user, commit a custom `.lfsconfig` file to the repository.
+
    ```shell
-   $ git add .lfsconfig
-   $ git commit -m "Adding LFS config file"
+   git add .lfsconfig
+   git commit -m "Adding LFS config file"
    ```
-3. Migrate any existing {% data variables.large_files.product_name_short %} assets. For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
+
+1. Migrate any existing {% data variables.large_files.product_name_short %} assets. For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
 
 ## Migrating to a different Git Large File Storage server
 
 Before migrating to a different {% data variables.large_files.product_name_long %} server, you must configure {% data variables.large_files.product_name_short %} to use a third party server. For more information, see "[Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
 
 1. Configure the repository with a second remote.
+
    ```shell
    $ git remote add NEW-REMOTE https://NEW-REMOTE-HOSTNAME/path/to/repo
    &nbsp;
@@ -120,7 +125,8 @@ Before migrating to a different {% data variables.large_files.product_name_long 
    > Endpoint (NEW-REMOTE)=https://NEW-REMOTE-HOSTNAME/path/to/repo/info/lfs (auth=none)
    ```
 
-2. Fetch all objects from the old remote.
+1. Fetch all objects from the old remote.
+
    ```shell
    $ git lfs fetch origin --all
    > Scanning for all objects ever referenced...
@@ -129,7 +135,8 @@ Before migrating to a different {% data variables.large_files.product_name_long 
    > Git LFS: (16 of 16 files) 48.71 MB / 48.85 MB
    ```
 
-3. Push all objects to the new remote.
+1. Push all objects to the new remote.
+
    ```shell
    $ git lfs push NEW-REMOTE --all
    > Scanning for all objects ever referenced...
@@ -137,6 +144,7 @@ Before migrating to a different {% data variables.large_files.product_name_long 
    > Pushing objects...
    > Git LFS: (16 of 16 files) 48.00 MB / 48.85 MB, 879.10 KB skipped
    ```
+
 {% endif %}
 
 ## Further reading

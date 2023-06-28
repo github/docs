@@ -78,19 +78,19 @@ shortTitle: Configure default editor
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-3. In the Preferences window, select **Integrations**.
+1. In the Preferences window, select **Integrations**.
    ![Screenshot of the "Preferences" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/mac-select-integrations-pane.png)
-4. Under "External Editor", use the dropdown menu to select the editor you want to set as your default.
-5. Click **Save**.
+1. Under "External Editor", use the dropdown menu to select the editor you want to set as your default.
+1. Click **Save**.
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.windows-choose-options %}
-3. In the Options window, select **Integrations**.
+1. In the Options window, select **Integrations**.
    ![Screenshot of the "Options" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/windows-select-integrations-pane.png)
-4. Under "External Editor", use the dropdown menu to select the editor you want to set as your default.
-5. Click **Save**.
+1. Under "External Editor", use the dropdown menu to select the editor you want to set as your default.
+1. Click **Save**.
 
 {% endwindows %}

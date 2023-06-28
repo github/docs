@@ -96,6 +96,7 @@ These qualifiers are available in the main summary views.
 | `archived:false` | Omit archived repositories. |
 
 {% ifversion security-overview-org-risk-coverage-enterprise %}{% else %}
+
 ## Filter by level of risk for repositories
 
 The level of risk for a repository is determined by the number and severity of alerts from security features. If one or more security features are not enabled for a repository, the repository will have an unknown level of risk. If a repository has no risks that are detected by security features, the repository will have a clear level of risk.

@@ -17,7 +17,7 @@ topics:
 
 ## About provisioning for {% data variables.product.prodname_emus %}
 
-You must configure provisioning for {% data variables.product.prodname_emus %} to create, manage, and deactivate user accounts for your enterprise members. 
+You must configure provisioning for {% data variables.product.prodname_emus %} to create, manage, and deactivate user accounts for your enterprise members.
 
 After you configure provisioning for {% data variables.product.prodname_emus %}, users assigned to the {% data variables.product.prodname_emu_idp_application %} application in your identity provider are provisioned as new {% data variables.enterprise.prodname_managed_users %} on {% data variables.product.prodname_dotcom %} via SCIM, and the {% data variables.enterprise.prodname_managed_users %} are added to your enterprise. If you assign a group to the application, all users within the group will be provisioned as new {% data variables.enterprise.prodname_managed_users %}.
 
@@ -48,18 +48,18 @@ To configure provisioning for your {% data variables.enterprise.prodname_emu_ent
 {% data reusables.user-settings.personal_access_tokens %}
 {% data reusables.user-settings.generate_new_token %}
 1. Under **Note**, give your token a descriptive name.
-2. Select the **Expiration** dropdown menu, then click **No expiration**.
-3. Select the **admin:enterprise** scope.
+1. Select the **Expiration** dropdown menu, then click **No expiration**.
+1. Select the **admin:enterprise** scope.
    ![Screenshot of a list of scopes with checkboxes. The "admin:enterprise" scope, accompanied by the text "Full control of enterprises," is selected and highlighted with an orange outline.](/assets/images/help/enterprises/enterprise-pat-scope.png)
-4. Click **Generate token**.
-5. To copy the token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
+1. Click **Generate token**.
+1. To copy the token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
 
    ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens.png)
-6. To save the token for use later, store the new token securely in a password manager.
+1. To save the token for use later, store the new token securely in a password manager.
 
 ## Configuring provisioning for {% data variables.product.prodname_emus %}
 
-After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your identity provider. 
+After creating your {% data variables.product.pat_generic %} and storing it securely, you can configure provisioning on your identity provider.
 
 {% data reusables.scim.emu-scim-rate-limit %}
 

@@ -36,5 +36,4 @@ For more best practices, [see our guide](/rest/guides/best-practices-for-integra
 
 {% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/webhooks-and-events/webhooks/webhook-events-and-payloads#delivery-headers) for details.
 
-
 <!-- Content after this section is automatically generated -->

@@ -28,6 +28,7 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 {% endif %}
 
 {% ifversion internal-actions %}
+
 ### Sharing actions with your enterprise
 
 {% data reusables.actions.internal-actions-summary %}

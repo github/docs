@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   PR-Preview-Links:
-    if: github.event.pull_request.user.login != 'Octomerger' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+    if: github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
     name: Add staging/live links to PR
     runs-on: ubuntu-latest
     outputs:

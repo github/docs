@@ -82,8 +82,9 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
+
   {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-   
+
    on:
      workflow_dispatch:
    jobs:
@@ -96,12 +97,13 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-   
+
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
            run: |
              gh api repos/octocat/Spoon-Knife/issues
+
    ```
 
 {% endcli %}
@@ -227,8 +229,9 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
+
   {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-   
+
    on:
      workflow_dispatch:
    jobs:
@@ -237,7 +240,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Check out repo content
            uses: {% data reusables.actions.action-checkout %}
-   
+
          - name: Setup Node
            uses: {% data reusables.actions.action-setup-node %}
            with:
@@ -259,6 +262,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
              node .github/actions-scripts/use-the-api.mjs
            env:
              TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+
    ```
 
 {% endjavascript %}
@@ -354,8 +358,9 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
+
   {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-   
+
    on:
      workflow_dispatch:
    jobs:
@@ -368,7 +373,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-   
+
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
@@ -377,6 +382,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
              --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
              --header "Accept: application/vnd.github+json" \
              --header "Authorization: Bearer $GH_TOKEN"
+
    ```
 
 {% endcurl %}

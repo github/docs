@@ -19,5 +19,4 @@ Pull request review comments are comments made on a portion of the unified diff 
 
 {% data reusables.pull_requests.issues-media-types %}
 
-
 <!-- Content after this section is automatically generated -->

@@ -47,6 +47,7 @@ You can use {% data variables.product.company_short %}'s Octokit.js SDK to authe
    ```javascript copy
    import { App } from "octokit";
    ```
+
 1. Create a new instance of `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to the value of your app's private key.
 
    ```javascript copy

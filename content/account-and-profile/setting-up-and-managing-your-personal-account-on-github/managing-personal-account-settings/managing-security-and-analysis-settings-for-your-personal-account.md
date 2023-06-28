@@ -44,7 +44,7 @@ For an overview of repository-level security, see "[AUTOTITLE](/code-security/ge
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
-3. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
+1. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
 
 ## Further reading
 

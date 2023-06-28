@@ -150,7 +150,6 @@ If you use ReSharper, {% data variables.product.prodname_copilot %} may work bes
 
 {% data reusables.copilot.dotcom-settings %}
 
-
 {% endvisualstudio %}
 
 {% vscode %}
@@ -246,7 +245,6 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
-
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
 ## Enabling or disabling inline suggestions
@@ -290,11 +288,11 @@ You can specify which languages you want to enable or disable {% data variables.
 {% data reusables.user-settings.access_authorized_github_apps %}
 1. If the **{% data variables.product.prodname_copilot %}** plugin is listed, click **Revoke**.
 
-After revoking authorization, {% data variables.product.prodname_vscode %} will be able to continue using {% data variables.product.prodname_copilot %} in a current session for a maximum of 30 minutes. After that time, you will need to re-authorize {% data variables.product.prodname_copilot %} for use in {% data variables.product.prodname_vscode %} again.
+After revoking authorization, {% data variables.product.prodname_vscode %} will be able to continue using {% data variables.product.prodname_copilot %} in a current session for a maximum of 30 minutes. After that time, you will need to reauthorize {% data variables.product.prodname_copilot %} for use in {% data variables.product.prodname_vscode %} again.
 
 ## Re-authorizing {% data variables.product.prodname_copilot %}
 
-After you have revoked authorization, if you want to continue using {% data variables.product.prodname_copilot %}, you will need to complete the re-authorization process.
+After you have revoked authorization, if you want to continue using {% data variables.product.prodname_copilot %}, you will need to complete the reauthorization process.
 
 1. In the bottom left corner of {% data variables.product.prodname_vscode %}, click the **Accounts** icon, hover over your username, and click **Sign out**.
 
@@ -329,10 +327,8 @@ You can configure {% data variables.product.prodname_copilot %} to connect throu
 
 For guidance on configuring {% data variables.product.prodname_copilot %} in Vim/Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Vim/Neovim by running the following command:
 
-
     :help copilot
 
 {% data reusables.copilot.dotcom-settings %}
 
 {% endvimneovim %}
-

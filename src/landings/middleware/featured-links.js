@@ -1,5 +1,5 @@
 import getLinkData from '#src/learning-track/lib/get-link-data.js'
-import renderContent from '../../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 
 // this middleware adds properties to the context object
 export default async function featuredLinks(req, res, next) {

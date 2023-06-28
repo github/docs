@@ -12,6 +12,7 @@ shortTitle: Set up an Advanced Security trial
 ---
 
 ## About trials of {% data variables.product.prodname_GH_advanced_security %}
+
 {% data variables.product.prodname_GH_advanced_security %} provides features that help you improve and maintain the security and quality of code. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
  If you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account and pay with a credit card, you can set up a 14-day trial to evaluate the features that come with {% data variables.product.prodname_GH_advanced_security %}, such as code scanning, secret scanning, and dependency review. During the trial, you can add any number of committers and enable {% data variables.product.prodname_GH_advanced_security %} for any number of organizations.
@@ -21,8 +22,8 @@ shortTitle: Set up an Advanced Security trial
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Start free trial**. 
-2. Click **Start trial**.
+1. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Start free trial**.
+1. Click **Start trial**.
 
 ## Finishing your trial
 

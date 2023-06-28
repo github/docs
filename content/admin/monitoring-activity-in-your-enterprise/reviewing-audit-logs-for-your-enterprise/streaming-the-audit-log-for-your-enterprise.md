@@ -37,13 +37,9 @@ The benefits of streaming audit data include:
 - **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
 - **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
 
-Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
+Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports audit and Git events data for all of the organizations in your enterprise, for activity from the time the stream is enabled onwards.
 
-{% note %}
-
-**Note:** All audit logs are streamed in JSON format.
-
-{% endnote %}
+All streamed audit logs are sent as compressed JSON files. The filename format is in`YYYY/MM/HH/MM/<uuid>.json.gz`.
 
 ## Setting up audit log streaming
 
@@ -67,6 +63,7 @@ You can set up streaming to S3 with access keys or, to avoid storing long-lived 
 - [Integrating with AWS CloudTrail Lake](#integrating-with-aws-cloudtrail-lake)
 
 #### Setting up streaming to S3 with access keys
+
 {% endif %}
 
 To set up audit log streaming from {% data variables.product.prodname_dotcom %} you will need:
@@ -80,7 +77,7 @@ For information on creating or accessing your access key ID and secret key, see 
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}{% ifversion streaming-oidc-s3 %}
 1. Under "Authentication", click **Access keys**.{% endif %}
-2. Configure the stream settings.
+1. Configure the stream settings.
 
    - Under "Bucket", type the name of the bucket you want to stream to. For example, `auditlog-streaming-test`.
    - Under "Access Key ID", type your access key ID. For example, `ABCAIOSFODNN7EXAMPLE1`.
@@ -89,6 +86,7 @@ For information on creating or accessing your access key ID and secret key, see 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-oidc-s3 %}
+
 #### Setting up streaming to S3 with OpenID Connect
 
 1. In AWS, add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM. For more information, see [Creating OpenID Connect (OIDC) identity providers](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html) in the AWS documentation.
@@ -101,6 +99,7 @@ For information on creating or accessing your access key ID and secret key, see 
 
    - Add the permissions policy you created above to allow writes to the bucket.
    - Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+
      ```
      "Condition": {
         "StringEquals": {
@@ -109,6 +108,7 @@ For information on creating or accessing your access key ID and secret key, see 
          }
       }
       ```
+
    - Make note of the Amazon Resource Name (ARN) of the created role.
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 {% data reusables.audit_log.streaming-choose-s3 %}
@@ -129,6 +129,7 @@ Then, set up streaming with access keys until the vulnerability is resolved. For
 {% endif %}
 
 #### Integrating with AWS CloudTrail Lake
+
 You can consolidate your audit logs from {% data variables.product.product_name %} with AWS activity logs by integrating audit log streaming to S3 with AWS CloudTrail Lake. For additional information, see the [AWS CloudTrail Documentation](https://docs.aws.amazon.com/cloudtrail/) or the [GitHub Audit Log to CloudTrail Open Audit](https://github.com/aws-samples/aws-cloudtrail-lake-github-audit-log) in the `aws-samples/aws-cloudtrail-lake-github-audit-log` repository.
 
 ### Setting up streaming to Azure Blob Storage
@@ -151,8 +152,8 @@ To configure the stream in {% data variables.product.prodname_dotcom %} you need
 **On {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Azure Blob Storage**.
-2. On the configuration page, enter the blob SAS URL that you copied in Azure. The **Container** field is auto-filled based on the URL.
-3. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Blob Storage endpoint.
+1. On the configuration page, enter the blob SAS URL that you copied in Azure. The **Container** field is auto-filled based on the URL.
+1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Blob Storage endpoint.
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -165,24 +166,25 @@ You need two pieces of information about your event hub: its instance name and t
 **On Microsoft Azure portal**:
 1. At the top of the page, next to "Microsoft Azure", use the search box to search for "Event Hubs".
 1. Select **Event Hubs**. The names of your event hubs are listed.
-2. Make a note of the name of the event hub to which you want to stream. Click the event hub.
-3. In the left menu, click **Shared Access Policies**.
-4. Select a shared access policy from the list of policies, or create a new policy.
-5. Copy the connection string from the **Connection string-primary key** field.
+1. Make a note of the name of the event hub to which you want to stream. Click the event hub.
+1. In the left menu, click **Shared Access Policies**.
+1. Select a shared access policy from the list of policies, or create a new policy.
+1. Copy the connection string from the **Connection string-primary key** field.
 
 **On {% data variables.product.prodname_dotcom %}**:
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Azure Event Hubs**.
 
-2. On the configuration page, enter:
+1. On the configuration page, enter:
    - The name of the Azure Event Hubs instance.
    - The connection string.
 
-3. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
+1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Azure Events Hub endpoint.
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion streaming-datadog %}
+
 ### Setting up streaming to Datadog
 
 To set up streaming to Datadog, you must create a client token or an  API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
@@ -194,11 +196,11 @@ After you set up streaming to Datadog, you can see your audit log data by filter
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Datadog**.
 
-2. In the **Token** field, paste the token you copied earlier.
+1. In the **Token** field, paste the token you copied earlier.
 
-3. Select the **Site** dropdown menu and click your Datadog site. To determine your Datadog site, compare your Datadog URL to the table in [Datadog sites](https://docs.datadoghq.com/getting_started/site/) in Datadog Docs.
+1. Select the **Site** dropdown menu and click your Datadog site. To determine your Datadog site, compare your Datadog URL to the table in [Datadog sites](https://docs.datadoghq.com/getting_started/site/) in Datadog Docs.
 
-4. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
+1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Datadog endpoint, click **Check endpoint**.
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 1. After a few minutes, confirm that audit log data is appearing on the **Logs** tab in Datadog. If audit log data is not appearing, confirm that your token and site are correct in {% data variables.product.prodname_dotcom %}.
@@ -215,12 +217,11 @@ To set up streaming to Google Cloud Storage, you must create a service account i
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Google Cloud Storage**.
 
-2. Under "Bucket", type the name of your Google Cloud Storage bucket.
+1. Under "Bucket", type the name of your Google Cloud Storage bucket.
 
-3. Under "JSON Credentials", paste the entire contents of the file for your service account's JSON key.
+1. Under "JSON Credentials", paste the entire contents of the file for your service account's JSON key.
 
-4. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Google Cloud Storage bucket, click **Check endpoint**.
-
+1. To verify that {% data variables.product.prodname_dotcom %} can connect and write to the Google Cloud Storage bucket, click **Check endpoint**.
 
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
@@ -231,7 +232,7 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Splunk**.
 
-2. On the configuration page, enter:
+1. On the configuration page, enter:
    - The domain on which the application you want to stream to is hosted.
 
      If you're using Splunk Cloud, `Domain` should be `http-inputs-<host>`, where `host` is the domain you use in Splunk Cloud. For example, `http-inputs-mycompany.splunkcloud.com`.
@@ -246,13 +247,14 @@ To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must ma
 
    - A token that {% data variables.product.prodname_dotcom %} can use to authenticate to the third-party application.
 
-3. Leave the **Enable SSL verification** check box selected.
+1. Leave the **Enable SSL verification** check box selected.
 
     Audit logs are always streamed as encrypted data, however, with this option selected, {% data variables.product.prodname_dotcom %} verifies the SSL certificate of your Splunk instance when delivering events. SSL verification helps ensure that events are delivered to your URL endpoint securely. You can clear the selection of this option, but we recommend you leave SSL verification enabled.
-4. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint.
+1. Click **Check endpoint** to verify that {% data variables.product.prodname_dotcom %} can connect and write to the Splunk endpoint.
 {% data reusables.enterprise.verify-audit-log-streaming-endpoint %}
 
 {% ifversion pause-audit-log-stream %}
+
 ## Pausing audit log streaming
 
 Pausing the stream allows you to perform maintenance on the receiving application without losing audit data. Audit logs are stored for up to seven days on {% data variables.location.product_location %} and are then exported when you unpause the stream.
@@ -264,7 +266,7 @@ Datadog only accepts logs from up to 18 hours in the past. If you pause a stream
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. To the right of your configured stream, click **Pause stream**.
 
-2. A confirmation message is displayed. Click **Pause stream** to confirm.
+1. A confirmation message is displayed. Click **Pause stream** to confirm.
 
 When the application is ready to receive audit logs again, click **Resume stream** to restart streaming audit logs.
 {% endif %}
@@ -277,6 +279,7 @@ When the application is ready to receive audit logs again, click **Resume stream
 1. A confirmation message is displayed. Click **Delete stream** to confirm.
 
 {% ifversion ghec %}
+
 ## Enabling audit log streaming of API requests
 
 {% note %}
@@ -289,5 +292,5 @@ When the application is ready to receive audit logs again, click **Resume stream
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Under "Audit log", click **Settings**.
-2. Under "API Requests", select **Enable API Request Events**.
-3. {% endif %}
+1. Under "API Requests", select **Enable API Request Events**.
+1. {% endif %}

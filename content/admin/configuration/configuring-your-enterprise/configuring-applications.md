@@ -18,24 +18,27 @@ You can choose the amount of time that {% data variables.location.product_locati
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-3. In the "Settings" sidebar, click **Applications**.
-4. Under "Avatar image cache time (seconds)", type the number of seconds that you would like {% data variables.location.product_location %} to cache avatar images.
+1. In the "Settings" sidebar, click **Applications**.
+1. Under "Avatar image cache time (seconds)", type the number of seconds that you would like {% data variables.location.product_location %} to cache avatar images.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion status-check-retention %}
+
 ## Enabling retention policy for checks
+
 You can enable a retention policy for checks, actions, and associated data by setting thresholds for archival and deletion. For more information about configuring actions, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. In the "Settings" sidebar, click **Checks**.
-2. Select **Enable archiving of Checks-related data**.
-3. Under "Archive threshold (days)", type the number of days for the archival threshold. Checks older than this number of days will be archived. 
-4. Under "Delete threshold (days)", type the number of days for the deletion threshold. Archived checks older than this number of days will be permanently deleted. 
+1. Select **Enable archiving of Checks-related data**.
+1. Under "Archive threshold (days)", type the number of days for the archival threshold. Checks older than this number of days will be archived.
+1. Under "Delete threshold (days)", type the number of days for the deletion threshold. Archived checks older than this number of days will be permanently deleted.
 {% data reusables.enterprise_management_console.save-settings %}
 {% endif %}
 
 {% ifversion azure-maps %}
+
 ## Enabling interactive maps
 
 You can allow users to create interactive maps using GeoJSON or TopoJSON syntax. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."

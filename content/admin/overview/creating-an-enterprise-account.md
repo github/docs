@@ -18,8 +18,7 @@ shortTitle: Create enterprise account
 
 If you currently use {% data variables.product.prodname_ghe_cloud %} with a single organization and by invoice, you can create an enterprise account through your billing page. If you need Enterprise Managed Users, {% data variables.product.prodname_ghe_server %}, or invoicing support, please contact {% data variables.contact.contact_enterprise_sales %}.
 
-You can also create an enterprise account by setting up a free trial of {% data variables.product.prodname_ghe_cloud %}. Trials are limited to 50 seats. If you have an existing organization with more than 50 seats that you want to invite into the trial, please contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)". 
-
+You can also create an enterprise account by setting up a free trial of {% data variables.product.prodname_ghe_cloud %}. Trials are limited to 50 seats. If you have an existing organization with more than 50 seats that you want to invite into the trial, please contact {% data variables.contact.contact_enterprise_sales %}. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)".
 
 When you create an enterprise account that owns your existing organization on {% data variables.product.product_name %}, the organization's resources remain accessible to members at the same URLs. After you add your organization to the enterprise account, the following changes will apply to the organization.
 
