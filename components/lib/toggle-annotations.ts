@@ -12,7 +12,7 @@ enum annotationMode {
  * @returns The validated mode, or null if leaveNull is true and no valid mode is found.
  */
 function validateMode(mode?: string) {
-  if (mode === annotationMode.Beside || mode === annotationMode.Inline || !mode) return mode
+  if (mode === annotationMode.Beside || mode === annotationMode.Inline) return mode
   // default to Beside
   else return annotationMode.Beside
 }
