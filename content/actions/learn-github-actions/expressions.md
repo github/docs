@@ -92,9 +92,6 @@ env:
 | `&&`        | And |
 |  <code>\|\|</code> | Or |
 
-{% data variables.product.prodname_dotcom %} performs loose ordinal comparisons.
-
-
   {% note %}
 
   **Notes:**
