@@ -7,6 +7,11 @@ type: tutorial
 topics:
   - Projects
 ---
+{% ifversion ghes > 3.8 %}
+
+{% data reusables.projects.enable_enterprise_workflows %}
+
+{% endif %}
 
 ## About automatically adding items
 
