@@ -37,7 +37,7 @@ The benefits of streaming audit data include:
 - **Data continuity**. You can pause the stream for up to seven days without losing any audit data.{% endif %}
 - **Data retention**. You can keep your exported audit logs and Git events data as long as you need to.
 
-Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports the audit and Git events data for all of the organizations in your enterprise.
+Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% endif %} or delete a stream at any time. The stream exports audit and Git events data for all of the organizations in your enterprise, for activity from the time the stream is enabled onwards.
 
 All streamed audit logs are sent as compressed JSON files. The filename format is in`YYYY/MM/HH/MM/<uuid>.json.gz`.
 

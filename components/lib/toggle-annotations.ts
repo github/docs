@@ -1,8 +1,8 @@
 import Cookies from 'components/lib/cookies'
 
 enum annotationMode {
-  Beside = '#annotation-beside',
-  Inline = '#annotation-inline',
+  Beside = 'beside',
+  Inline = 'inline',
 }
 
 /**
@@ -11,73 +11,63 @@ enum annotationMode {
  * @param leaveNull Alters the return value of this function. If false, the function will return the mode that was passed in or, in the case of null, the default mode. If true, the function will return null instead of using the default mode.
  * @returns The validated mode, or null if leaveNull is true and no valid mode is found.
  */
-function validateMode(mode?: string, leaveNull?: boolean) {
-  if (mode === annotationMode.Beside || mode === annotationMode.Inline || (!mode && leaveNull))
-    return mode
-  else {
-    if (leaveNull) {
-      console.warn(`Leaving null.`)
-      return
-    }
-
-    // default to beside
-    return annotationMode.Beside
-  }
+function validateMode(mode?: string) {
+  if (mode === annotationMode.Beside || mode === annotationMode.Inline) return mode
+  // default to Beside
+  else return annotationMode.Beside
 }
 
 export default function toggleAnnotation() {
-  const subNavElements = Array.from(document.querySelectorAll('a.subnav-item'))
-  if (!subNavElements.length) return
+  const annotationButtons = Array.from(document.querySelectorAll('div.BtnGroup button'))
+  if (!annotationButtons.length) return
 
   const cookie = validateMode(Cookies.get('annotate-mode')) // will default to beside
-  displayAnnotationMode(subNavElements, cookie)
+  displayAnnotationMode(annotationButtons, cookie)
 
   // this loop adds event listeners for both the annotation buttons
-  for (const subnav of subNavElements) {
-    subnav.addEventListener('click', (evt) => {
+  for (const annotationBtn of annotationButtons) {
+    annotationBtn.addEventListener('click', (evt) => {
       evt.preventDefault()
 
-      // returns either:
-      // 1. if href is correct, the href that was passed in
-      // 2. if href is missing, null
-      const validMode = validateMode(subnav.getAttribute('href')!)
-
+      // validate the annotation mode and set the cookie with the valid mode
+      const validMode = validateMode(annotationBtn.getAttribute('value')!)
       Cookies.set('annotate-mode', validMode!)
 
-      setActive(subNavElements, validMode)
-      displayAnnotationMode(subNavElements, validMode)
+      // set and display the annotation mode
+      setActive(annotationButtons, validMode)
+      displayAnnotationMode(annotationButtons, validMode)
     })
   }
 }
 
 // sets the active element's aria-current, if no targetMode is set we default to "Beside", errors if it can't set either Beside or the passed in targetMode
-function setActive(subNavElements: Array<Element>, targetMode?: string) {
+function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   const activeElements: Array<Element> = []
   targetMode = validateMode(targetMode)
-
-  subNavElements.forEach((el) => {
-    if (el.getAttribute('href') === targetMode) {
-      el.ariaCurrent = 'true'
+  annotationButtons.forEach((el) => {
+    if (el.getAttribute('value') === targetMode) {
+      el.ariaSelected = 'true'
       activeElements.push(el)
-    } else el.removeAttribute('aria-current')
+    } else el.removeAttribute('aria-selected')
   })
 
-  if (!activeElements.length) throw new Error('No subnav item is active for code annotation.')
+  if (!activeElements.length)
+    throw new Error('No annotationBtn item is active for code annotation.')
 
   return activeElements
 }
 
 // displays the chosen annotation mode
-function displayAnnotationMode(subNavItems: Array<Element>, targetMode?: string) {
+function displayAnnotationMode(annotationBtnItems: Array<Element>, targetMode?: string) {
   if (!targetMode || targetMode === annotationMode.Beside)
-    subNavItems.forEach((el) => {
+    annotationBtnItems.forEach((el) => {
       el.closest('.annotate')?.classList.replace('inline', 'beside')
     })
   else if (targetMode === annotationMode.Inline)
-    subNavItems.forEach((el) => {
+    annotationBtnItems.forEach((el) => {
       el.closest('.annotate')?.classList.replace('beside', 'inline')
     })
   else throw new Error('Invalid target mode set for annotation.')
 
-  setActive(subNavItems, targetMode)
+  setActive(annotationBtnItems, targetMode)
 }

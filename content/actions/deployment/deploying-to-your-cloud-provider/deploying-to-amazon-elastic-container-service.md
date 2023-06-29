@@ -25,7 +25,7 @@ This guide explains how to use {% data variables.product.prodname_actions %} to 
 
 On every new push to `main` in your {% data variables.product.company_short %} repository, the {% data variables.product.prodname_actions %} workflow builds and pushes a new container image to Amazon ECR, and then deploys a new task definition to Amazon ECS.
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 {% note %}
 

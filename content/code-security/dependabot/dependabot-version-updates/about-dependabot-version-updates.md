@@ -60,7 +60,7 @@ If you've enabled security updates, you'll sometimes see extra pull requests for
 
 You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#vendor)."
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
 {% note %}
 

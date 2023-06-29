@@ -17,7 +17,7 @@ You can use expressions to programmatically set environment variables in workflo
 
 Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
 
-You need to use specific syntax to tell {% data variables.product.prodname_dotcom %} to evaluate an expression rather than treat it as a string.
+{% data reusables.actions.expressions-syntax-evaluation %}
 
 {% raw %}
 `${{ <expression> }}`
@@ -80,7 +80,7 @@ env:
 | Operator    | Description |
 | ---         | ---         |
 | `( )`       | Logical grouping |
-| `[ ]`       | Index
+| `[ ]`       | Index |
 | `.`         | Property de-reference |
 | `!`         | Not |
 | `<`         | Less than |
@@ -91,6 +91,16 @@ env:
 | `!=`        | Not equal |
 | `&&`        | And |
 |  <code>\|\|</code> | Or |
+
+  {% note %}
+
+  **Notes:**
+  - {% data variables.product.company_short %} ignores case when comparing strings.
+  - `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
+  - {% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
+  - For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
+
+  {% endnote %}
 
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 

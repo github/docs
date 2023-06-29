@@ -35,7 +35,7 @@ The `upload-pages-artifact` actions enables you to package and upload artifacts.
 To use the action in your current workflow place this snippet under `jobs`.
 
 ```yaml
-- name: Upload Github Pages artifact
+- name: Upload GitHub Pages artifact
   uses: actions/upload-pages-artifact@v1
 ```
 

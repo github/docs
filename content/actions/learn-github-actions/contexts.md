@@ -826,8 +826,6 @@ The `inputs` context contains input properties passed to an action{% ifversion a
 
 The properties in the `inputs` context are defined in the workflow file. They are only available in a [reusable workflow](/actions/using-workflows/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch){% endif %}
 
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
-
 | Property name | Type | Description |
 |---------------|------|-------------|
 | `inputs` | `object` | This context is only available in a [reusable workflow](/actions/using-workflows/reusing-workflows){% ifversion actions-unified-inputs %} or in a workflow triggered by the [`workflow_dispatch` event](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch){% endif %}. You can access this context from any job or step in a workflow. This object contains the properties listed below. |

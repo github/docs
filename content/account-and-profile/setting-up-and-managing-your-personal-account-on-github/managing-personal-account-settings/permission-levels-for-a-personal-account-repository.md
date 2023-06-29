@@ -47,7 +47,7 @@ The repository owner has full control of the repository. In addition to the acti
 | Create a template from the repository | "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository)" |
 | Control access to {% data variables.product.prodname_dependabot_alerts %}| "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" |{% ifversion fpt or ghec %}
 | Dismiss {% data variables.product.prodname_dependabot_alerts %} in the repository | "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)" |
-| Manage data use for a private repository | "[AUTOTITLE](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"|{% endif %}
+| Manage data use for a private repository | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)" |{% endif %}
 | Define code owners for the repository | "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)" |
 | Archive the repository | "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)" |{% ifversion fpt or ghec %}
 | Create security advisories | "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)" |

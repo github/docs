@@ -9,6 +9,8 @@ redirect_from:
   - /articles/github-privacy-statement
   - /github/site-policy/github-privacy-statement
   - /site-policy/privacy-policies/global-privacy-practices
+  - /get-started/privacy-on-github/about-githubs-use-of-your-data
+  - /get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository
 versions:
   fpt: '*'
 topics:

@@ -45,7 +45,7 @@ Before launching {% data variables.location.product_location %} on Google Cloud 
 
 ## Configuring the firewall
 
-GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. For more information about firewall rules on Google Cloud Platform, see the Google guide "[Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls)."
+GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)," and [Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls) in the Google Cloud Platform documentation.
 
 1. Using the gcloud compute command-line tool, create the network. For more information, see "[gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)" in the Google documentation.
 

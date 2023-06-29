@@ -18,7 +18,7 @@ topics:
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 {% note %}
 
