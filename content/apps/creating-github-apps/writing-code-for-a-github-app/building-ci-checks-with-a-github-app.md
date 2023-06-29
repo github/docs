@@ -666,7 +666,7 @@ The following steps will show you how to test that the code works, and that it s
    ruby server.rb
    ```
 
-1. In the repository where you installed your app, create a new pull request.
+1. When you installed the app on your account, you granted the app access to one or more repositories. In one of those repositories, create a new pull request.
 1. In the pull request you just created, navigate to the **Checks** tab. You should see a check run with the name "Octo RuboCop," or whichever name you chose earlier for the check run.
 
 If you see other apps in the **Checks** tab, it means you have other apps installed on your repository that have **Read & write** access to checks and are subscribed to **Check suite** and **Check run** events. It may also mean that you have {% data variables.product.prodname_actions %} workflows on the repository that are triggered by the `pull_request` or `pull_request_target` event.
