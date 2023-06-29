@@ -42,6 +42,7 @@ If {% data variables.location.product_location %} uses clustering, you cannot en
 1. In the administrative shell, enable the dependency graph on {% data variables.location.product_location %}:
     {% ifversion ghes %}```shell
     ghe-config app.dependency-graph.enabled true
+
     ```
     {% else %}```shell
     ghe-config app.github.dependency-graph-enabled true
@@ -52,8 +53,8 @@ If {% data variables.location.product_location %} uses clustering, you cannot en
    **Note**: For more information about enabling access to the administrative shell via SSH, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
-2. Apply the configuration.
+1. Apply the configuration.
     ```shell
     $ ghe-config-apply
     ```
-3. Return to {% data variables.product.prodname_ghe_server %}.
+1. Return to {% data variables.product.prodname_ghe_server %}.

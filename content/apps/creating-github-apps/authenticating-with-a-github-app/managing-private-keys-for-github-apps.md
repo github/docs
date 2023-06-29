@@ -42,13 +42,15 @@ To generate a private key:
 
 To verify a private key:
 
-1. Find the fingerprint for the private and public key pair you want to verify in the "Private keys" section of your {% data variables.product.prodname_github_app %}'s developer settings page. For more information, see "[Generating private keys](#generating-private-keys)".
+1. Find the fingerprint for the private and public key pair you want to verify in the "Private keys" section of the settings page for your {% data variables.product.prodname_github_app %}. For more information, see "[Generating private keys](#generating-private-keys)".
 
-   ![Screenshot of a private key in a {% data variables.product.prodname_github_app %} settings page. The fingerprint, the part of the private key after the colon, is outlined in dark orange.](/assets/images/github-apps/github_apps_private_key_fingerprint.png)
+   ![Screenshot of a private key in a {% data variables.product.prodname_github_app %} settings page. The fingerprint, the part of the private key after the colon, is outlined in dark orange.](/assets/images/github-apps/github-apps-private-key-fingerprint.png)
 1. Generate the fingerprint of your private key (PEM) locally by using the following command:
+
     ```shell
-    $ openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha256 -binary | openssl base64
+    openssl rsa -in PATH_TO_PEM_FILE -pubout -outform DER | openssl sha256 -binary | openssl base64
     ```
+
 1. Compare the results of the locally generated fingerprint to the fingerprint you see in {% data variables.product.product_name %}.
 
 ## Deleting private keys

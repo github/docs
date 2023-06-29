@@ -45,7 +45,7 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
     {% endnote %}
 
-1.  Under "Repository visibility," select a visibility. If you use private repositories, only the student or team can see the feedback you provide.
+1. Under "Repository visibility," select a visibility. If you use private repositories, only the student or team can see the feedback you provide.
 
     {% note %}
 
@@ -53,7 +53,7 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
     {% endnote %}
 
-1.  Optionally, select or deselect **Grant students admin access to their repository**. For more information on admin permissions for repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+1. Optionally, select or deselect **Grant students admin access to their repository**. For more information on admin permissions for repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
 
     {% note %}
 

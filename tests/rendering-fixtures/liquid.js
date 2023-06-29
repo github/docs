@@ -154,15 +154,6 @@ describe('extended Markdown', () => {
       'condition-l',
     ],
     'enterprise-cloud@latest': ['condition-c', 'condition-j', 'condition-l'],
-    'enterprise-server@3.4': [
-      'condition-c',
-      'condition-e',
-      'condition-g',
-      'condition-i',
-      'condition-j',
-      'condition-m',
-      'condition-n',
-    ],
     'enterprise-server@3.5': [
       'condition-c',
       'condition-e',
@@ -172,6 +163,7 @@ describe('extended Markdown', () => {
       'condition-i',
       'condition-k',
       'condition-m',
+      'condition-n',
       'condition-o',
     ],
     'enterprise-server@3.6': [

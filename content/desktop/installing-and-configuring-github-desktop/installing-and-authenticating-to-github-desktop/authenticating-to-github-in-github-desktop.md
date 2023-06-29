@@ -60,17 +60,16 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}
-7. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
+1. After {% data variables.product.prodname_dotcom %} authenticates your account, follow the prompts to return to {% data variables.product.prodname_desktop %}.
 
 ## Authenticating an account on {% data variables.product.prodname_enterprise %}
-
 
 {% data reusables.desktop.windows-choose-options %}
 1. In the "Options" window, on the **Accounts** pane, click the **Sign In** button next to "{% data variables.product.prodname_enterprise %}".
 
    ![Screenshot of the "Accounts" pane in the "Options" window. Next to "GitHub Enterprise", a button, labeled "Sign In", is outlined in orange.](/assets/images/help/desktop/windows-sign-in-ghes.png)
 
-4. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise address," then click **Continue**.
+1. To add a {% data variables.product.prodname_enterprise %} account, type your credentials under "Enterprise address," then click **Continue**.
 {% data reusables.desktop.retrieve-2fa %}
 
 {% endwindows %}
@@ -89,7 +88,7 @@ For some errors, {% data variables.product.prodname_desktop %} will prompt you w
 
    ![Screenshot of the "GitHub Desktop" menu bar on a Mac. Under the expanded "Help" dropdown menu, a cursor hovers over "Show Logs in Finder", highlighted in blue.](/assets/images/help/desktop/mac-show-logs.png)
 
-2. Select the log file from the date when you encountered the authentication error.
+1. Select the log file from the date when you encountered the authentication error.
 
 {% endmac %}
 
@@ -99,7 +98,7 @@ For some errors, {% data variables.product.prodname_desktop %} will prompt you w
 
    ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Help" dropdown menu, an option labeled "Show Logs in Explorer" is outlined in orange.](/assets/images/help/desktop/windows-show-logs.png)
 
-2. Select the log file from the date when you encountered the authentication error.
+1. Select the log file from the date when you encountered the authentication error.
 
 {% endwindows %}
 
@@ -184,12 +183,13 @@ If the `Command Processor` registry entries are modified, {% data variables.prod
 1. Open the Registry Editor (`regedit.exe`) and navigate to the following locations.
    `HKEY_CURRENT_USER\Software\Microsoft\Command Processor\`
    `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Command Processor\`
-2. Check to see if there is an `Autorun` value in either location.
-3. If there is an `Autorun` value, delete it.
+1. Check to see if there is an `Autorun` value in either location.
+1. If there is an `Autorun` value, delete it.
 
 If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows user account and migrate your files to that account. For more information, see "[Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)" in the Microsoft documentation.
 
 {% endwindows %}
 
 ## Further reading
+
 - "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"

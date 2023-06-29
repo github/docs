@@ -25,5 +25,4 @@ Note that the `repo:invite` [OAuth scope](/apps/oauth-apps/building-oauth-apps/s
 access to invitations **without** also granting access to repository code, while the
 `repo` scope grants permission to code as well as invitations.
 
-
 <!-- Content after this section is automatically generated -->

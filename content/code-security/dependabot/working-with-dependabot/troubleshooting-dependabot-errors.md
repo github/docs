@@ -91,6 +91,7 @@ The best way to avoid this problem is to stay up to date with the most recently 
 **Security updates only.** {% data variables.product.prodname_dependabot %} updates explicitly defined transitive dependencies that are vulnerable for all ecosystems. For npm, {% data variables.product.prodname_dependabot %} will raise a pull request that also updates the parent dependency if it's the only way to fix the transitive dependency.
 
 For example, a project with a dependency on `A` version `~2.0.0` which has a transitive dependency on `B` version `~1.0.0` which has resolved to `1.0.1`.
+
 ```
 my project
 |
@@ -98,6 +99,7 @@ my project
        |
        --> B (1.0.1) [~1.0.0]
 ```
+
 If a security vulnerability is released for `B` versions `<2.0.0` and a patch is available at `2.0.0` then  {% data variables.product.prodname_dependabot %} will attempt to update `B` but will find that it's not possible due to the restriction in place by `A` which only allows lower vulnerable versions. To fix the vulnerability, {% data variables.product.prodname_dependabot %} will look for updates to dependency `A` which allow the fixed version of `B` to be used.
 
 {% data variables.product.prodname_dependabot %} automatically generates a pull request that upgrades both the locked parent and child transitive dependencies.{% endif %}
@@ -110,7 +112,7 @@ There are two options: you can review the open pull request and merge it as soon
 
 ### {% data variables.product.prodname_dependabot %} timed out during its update
 
-{% data variables.product.prodname_dependabot %} took longer than the maximum time allowed to assess the update required and prepare a pull request. This error is usually seen only for large repositories with many manifest files, for example, npm or yarn monorepo projects with hundreds of *package.json* files. Updates to the Composer ecosystem also take longer to assess and may time out.
+{% data variables.product.prodname_dependabot %} took longer than the maximum time allowed to assess the update required and prepare a pull request. This error is usually seen only for large repositories with many manifest files, for example, npm or yarn monorepo projects with hundreds of _package.json_ files. Updates to the Composer ecosystem also take longer to assess and may time out.
 
 This error is difficult to address. If a version update times out, you could specify the most important dependencies to update using the `allow` parameter or, alternatively, use the `ignore` parameter to exclude some dependencies from updates. Updating your configuration might allow {% data variables.product.prodname_dependabot %} to review the version update and generate the pull request in the time available.
 
@@ -130,13 +132,13 @@ If {% data variables.product.prodname_dependabot %} attempts to check whether de
 
 Similarly, if {% data variables.product.prodname_dependabot %} can't access a private package registry in which a dependency is located, one of the following errors is generated:
 
-*	"Dependabot can't reach a dependency in a private package registry"<br>
+-	"Dependabot can't reach a dependency in a private package registry"<br>
    (API error type: `private_source_not_reachable`)
-*	"Dependabot can't authenticate to a private package registry"<br>
+-	"Dependabot can't authenticate to a private package registry"<br>
    (API error type:`private_source_authentication_failure`)
-*	"Dependabot timed out while waiting for a private package registry"<br>
+-	"Dependabot timed out while waiting for a private package registry"<br>
    (API error type:`private_source_timed_out`)
-*	"Dependabot couldn't validate the certificate for a private package registry"<br>
+-	"Dependabot couldn't validate the certificate for a private package registry"<br>
    (API error type:`private_source_certificate_failure`)
 
 To allow {% data variables.product.prodname_dependabot %} to update the dependency references successfully, make sure that all of the referenced dependencies are hosted at accessible locations.
@@ -148,7 +150,7 @@ To allow {% data variables.product.prodname_dependabot %} to update the dependen
 If you unblock {% data variables.product.prodname_dependabot %}, you can manually trigger a fresh attempt to create a pull request.
 
 - **Security updates**—display the {% data variables.product.prodname_dependabot %} alert that shows the error you have fixed and click **Create {% data variables.product.prodname_dependabot %} security update**.
-- **Version updates**—on the **Insights** tab for the repository click **Dependency graph**, and then click the **Dependabot** tab. Click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates. Click **Check for updates**.
+- **Version updates**—on the **Insights** tab for the repository click **Dependency graph**, and then click the **Dependabot** tab. Click **Last checked _TIME_ ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates. Click **Check for updates**.
 
 ## Further reading
 

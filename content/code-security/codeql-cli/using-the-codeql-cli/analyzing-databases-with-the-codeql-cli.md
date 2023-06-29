@@ -35,10 +35,10 @@ For information about writing queries to run with `database analyze`, see "[Usin
 Queries run with `database analyze` have strict [metadata requirements](/code-security/codeql-cli/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli#including-query-metadata). You can also execute queries using the following
 plumbing-level subcommands:
 
-* [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-run-queries), which
+- [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-run-queries), which
     outputs non-interpreted results in an intermediate binary format called [BQRS](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#bqrs-file)
 
-* [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/query-run), which will output BQRS files, or print
+- [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/query-run), which will output BQRS files, or print
     results tables directly to the command line. Viewing results directly in
     the command line may be useful for iterative query development using the CLI.
 
@@ -52,8 +52,8 @@ analyze` to directly generate interpreted results.
 
 Before starting an analysis you must:
 
-* [Set up the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli//getting-started-with-the-codeql-cli) to run commands locally.
-* [Create a {% data variables.product.prodname_codeql %} database](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases) for the source code you want to analyze.
+- [Set up the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli//getting-started-with-the-codeql-cli) to run commands locally.
+- [Create a {% data variables.product.prodname_codeql %} database](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases) for the source code you want to analyze.
 
 The simplest way to run `codeql database analyze` is using {% data variables.product.prodname_codeql %} packs. You can also
 run the command using queries from a local checkout of the {% data variables.product.prodname_codeql %} repository,
@@ -64,10 +64,10 @@ which you may want to do if you want to customize the {% data variables.product.
 When you run `database analyze`, it:
 
 1. Optionally downloads any referenced {% data variables.product.prodname_codeql %} packages that are not available locally.
-2. Executes one or more query files, by running them over a {% data variables.product.prodname_codeql %} database.
-3. Interprets the results, based on certain query metadata, so that alerts can be
+1. Executes one or more query files, by running them over a {% data variables.product.prodname_codeql %} database.
+1. Interprets the results, based on certain query metadata, so that alerts can be
 displayed in the correct location in the source code.
-4. Reports the results of any diagnostic and summary queries to standard output.
+1. Reports the results of any diagnostic and summary queries to standard output.
 
 You can analyze a database by running the following command:
 
@@ -77,38 +77,36 @@ codeql database analyze <database> --format=<format> --output=<output> <query-sp
 
 You must specify:
 
-
-* `<database>`: the path to the {% data variables.product.prodname_codeql %} database you want to analyze.
-* `--format`: the format of the results file generated during analysis. A
-number of different formats are supported, including CSV, [SARIF](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#sarif-file), and graph formats. For more information about CSV and SARIF,
+- `<database>`: the path to the {% data variables.product.prodname_codeql %} database you want to analyze.
+- `--format`: the format of the results file generated during analysis. A number of different formats are supported, including CSV, [SARIF](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#sarif-file), and graph formats. For more information about CSV and SARIF,
 see [Results](#results). To find out which other results formats are
 supported, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze)."
-* `--output`: the output path of the results file generated during analysis.
+- `--output`: the output path of the results file generated during analysis.
 
 You can also specify:
 
-* `<query-specifiers>...`: a space-separated list of queries to run over your database. This
+- `<query-specifiers>...`: a space-separated list of queries to run over your database. This
 is a list of arguments, where each argument can be:
-  * a path to a query file
-  * a path to a directory containing query files
-  * a path to a query suite file
-  * the name of a {% data variables.product.prodname_codeql %} query pack
-    * with an optional version range
-    * with an optional path to a query, directory, or query suite inside the pack
+  - a path to a query file
+  - a path to a directory containing query files
+  - a path to a query suite file
+  - the name of a {% data variables.product.prodname_codeql %} query pack
+    - with an optional version range
+    - with an optional path to a query, directory, or query suite inside the pack
 
   If omitted, the default query suite for the language of the analyzed database will be used. For the complete syntax of query specifiers, see "[Specifying which queries to run in a {% data variables.product.prodname_codeql %} pack](#specifying-which-queries-to-run-in-a-codeql-pack)."
 
-* `--sarif-category`: an identifying category for the results. Used when
+- `--sarif-category`: an identifying category for the results. Used when
 you want to upload more than one set of results for a commit.
 For example, when you use  `github upload-results` to send results for more than one
 language to the {% data variables.product.prodname_dotcom %} code scanning API. For more information about this use case, see [Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system).
 
-* `--sarif-add-query-help`: (supported in version 2.7.1 onwards) adds any custom query help written
+- `--sarif-add-query-help`: (supported in version 2.7.1 onwards) adds any custom query help written
 in markdown to SARIF files (v2.1.0 or later) generated by the analysis. Query help stored in `.qhelp` files must be
 converted to `.md` before running the analysis. For further information,
 see "[Including query help for custom {% data variables.product.prodname_codeql %} queries in SARIF files](#including-query-help-for-custom-codeql-queries-in-sarif-files)."
 
-* `--download`: a boolean flag that will allow the CLI to download  any referenced {% data variables.product.prodname_codeql %} packages that are not available locally.
+- `--download`: a boolean flag that will allow the CLI to download  any referenced {% data variables.product.prodname_codeql %} packages that are not available locally.
 If this flag is missing and a referenced {% data variables.product.prodname_codeql %} package is not available locally, the command will fail.
 
 {% note %}
@@ -131,14 +129,9 @@ For full details of all the options you can use when analyzing databases, see "[
 Query specifiers are used by `codeql database analyze` and other commands that operate on a set of queries.
 The complete form of a query specifier is `scope/name@range:path`, where:
 
-
-* `scope/name` is the qualified name of a {% data variables.product.prodname_codeql %} pack.
-
-
-* `range` is a [semver range](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
-
-
-* `path` is a file system path to a single query, a directory containing queries, or a query suite file.
+- `scope/name` is the qualified name of a {% data variables.product.prodname_codeql %} pack.
+- `range` is a [semver range](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
+- `path` is a file system path to a single query, a directory containing queries, or a query suite file.
 
 When you specify a `scope/name`, the `range` and `path` are
 optional. If you omit a `range` then the latest version of the
@@ -157,20 +150,19 @@ pack.
 
 ### Example query specifiers
 
+- `codeql/python-queries` - All the queries in the default query suite of the latest version of the `codeql/python-queries` pack.
 
-* `codeql/python-queries` - All the queries in the default query suite of the latest version of the `codeql/python-queries` pack.
+- `codeql/python-queries@1.2.3` - All the queries in the default query suite of version `1.2.3` of the `codeql/python-queries` pack.
 
-* `codeql/python-queries@1.2.3` - All the queries in the default query suite of version `1.2.3` of the `codeql/python-queries` pack.
+- `codeql/python-queries@~1.2.3` - All the queries in the default query suite of the latest version of the `codeql/python-queries` pack that is >= `1.2.3` and < `1.3.0`.
 
-* `codeql/python-queries@~1.2.3` - All the queries in the default query suite of the latest version of the `codeql/python-queries` pack that is >= `1.2.3` and < `1.3.0`.
+- `codeql/python-queries:Functions` - All queries in the `Functions` directory in the latest version of the `codeql/python-queries` pack.
 
-* `codeql/python-queries:Functions` - All queries in the `Functions` directory in the latest version of the `codeql/python-queries` pack.
+- `codeql/python-queries@1.2.3:Functions` - All queries in the `Functions` directory in version 1.2.3 of the `codeql/python-queries` pack.
 
-* `codeql/python-queries@1.2.3:Functions` - All queries in the `Functions` directory in version 1.2.3 of the `codeql/python-queries` pack.
+- `codeql/python-queries@1.2.3:codeql-suites/python-code-scanning.qls` - All queries in the `codeql-suites/python-code-scanning.qls` directory in version 1.2.3 of the `codeql/python-queries` pack.
 
-* `codeql/python-queries@1.2.3:codeql-suites/python-code-scanning.qls` - All queries in the `codeql-suites/python-code-scanning.qls` directory in version 1.2.3 of the `codeql/python-queries` pack.
-
-* `suites/my-suite.qls` - All queries in the `suites/my-suite.qls` file relative to the current working directory.
+- `suites/my-suite.qls` - All queries in the `suites/my-suite.qls` file relative to the current working directory.
 
 {% note %}
 
@@ -178,11 +170,11 @@ pack.
 
 The default query suite of the standard {% data variables.product.prodname_codeql %} query packs are `codeql-suites/<lang>-code-scanning.qls`. Several other useful query suites can also be found in the `codeql-suites` directory of each pack. For example, the `codeql/cpp-queries` pack contains the following query suites:
 
-* `cpp-code-scanning.qls` - Standard Code Scanning queries for C++. The default query suite for this pack.
+- `cpp-code-scanning.qls` - Standard Code Scanning queries for C++. The default query suite for this pack.
 
-* `cpp-security-extended.qls` - Queries from the default  `cpp-code-scanning.qls` suite for C++, plus lower severity and precision queries.
+- `cpp-security-extended.qls` - Queries from the default  `cpp-code-scanning.qls` suite for C++, plus lower severity and precision queries.
 
-* `cpp-security-and-quality.qls` - Queries from `cpp-security-extended.qls`, plus maintainability and reliability queries.
+- `cpp-security-and-quality.qls` - Queries from `cpp-security-extended.qls`, plus maintainability and reliability queries.
 
 You can see the sources for these query suites in the [{% data variables.product.prodname_codeql %} repository](https://github.com/github/codeql/tree/main/cpp/ql/src/codeql-suites). Query suites for other languages are similar.
 
@@ -193,6 +185,7 @@ You can see the sources for these query suites in the [{% data variables.product
 The following examples show how to run `database analyze` using {% data variables.product.prodname_codeql %} packs, and how to use a local checkout of the {% data variables.product.prodname_codeql %} repository. These examples assume your {% data variables.product.prodname_codeql %} databases have been created in a directory that is a sibling of your local copies of the {% data variables.product.prodname_codeql %} repository.
 
 {% ifversion codeql-packs %}
+
 ### Running a {% data variables.product.prodname_codeql %} query pack
 
 {% note %}
@@ -278,20 +271,18 @@ that the results are formatted according to the most recent SARIF specification
 supported by {% data variables.product.prodname_codeql %}.
 
 {% ifversion codeql-packs %}
+
 ### Running a subset of queries in a {% data variables.product.prodname_codeql %} pack
 
 If you are using {% data variables.product.prodname_codeql_cli %} v2.8.1 or later, you can include a path at the end of a pack specification to run a subset of queries inside the pack. This applies to any command that locates or runs queries within a pack.
 
 The complete way to specify a set of queries is in the form `scope/name@range:path`, where:
 
+- `scope/name` is the qualified name of a {% data variables.product.prodname_codeql %} pack.
 
-* `scope/name` is the qualified name of a {% data variables.product.prodname_codeql %} pack.
+- `range` is a [semver range](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
 
-
-* `range` is a [semver range](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
-
-
-* `path` is a file system path to a single query, a directory containing queries, or a query suite file.
+- `path` is a file system path to a single query, a directory containing queries, or a query suite file.
 
 When you specify a `scope/name`, the `range` and `path` are
 optional. If you omit a `range` then the latest version of the
@@ -421,4 +412,4 @@ IDE.
 
 ## Further reading
 
-* ["Analyzing your projects in {% data variables.product.prodname_codeql %} for VS Code"](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)
+- ["Analyzing your projects in {% data variables.product.prodname_codeql %} for VS Code"](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)

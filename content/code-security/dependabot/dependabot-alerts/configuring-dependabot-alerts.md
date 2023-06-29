@@ -24,10 +24,10 @@ topics:
 {% data variables.product.prodname_dependabot %} scans code when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or the dependency graph for a repository changes. When vulnerable dependencies{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %} are detected, {% data variables.product.prodname_dependabot_alerts %} are generated. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
 You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for:
-* Your personal account
-* Your repository
-* Your organization{% ifversion dependabot-alerts-enterprise-enablement or ghes > 3.8 %}
-* Your enterprise{% endif %}
+- Your personal account
+- Your repository
+- Your organization{% ifversion dependabot-alerts-enterprise-enablement or ghes > 3.8 %}
+- Your enterprise{% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your personal account
 
@@ -68,6 +68,7 @@ By default, we notify people with {% ifversion dependabot-alerts-permissions-wri
 An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
 
 {% ifversion fpt or ghec or ghes > 3.8 %}
+
 ### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for a repository
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -83,6 +84,7 @@ An enterprise owner must first set up {% data variables.product.prodname_dependa
 {% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your organization
+
 {% ifversion fpt or ghec or ghes > 3.8 %}You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your organization. Your changes affect all repositories.
 
 {% ifversion dependabot-alerts-ghes-enablement %}

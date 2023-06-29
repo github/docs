@@ -26,7 +26,7 @@ You can find information for the last response of all service hooks deliveries o
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_user_management.service-hooks-sidebar-navigation %}
-1.  Under the service hook having problems, click the **Latest Delivery** link.
+1. Under the service hook having problems, click the **Latest Delivery** link.
 1. Click **Delivery**.
 
 ## Viewing past deliveries
@@ -35,5 +35,5 @@ Deliveries are stored for 15 days.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_user_management.service-hooks-sidebar-navigation %}
-1.  Under the service hook having problems, click the **Latest Delivery** link.
+1. Under the service hook having problems, click the **Latest Delivery** link.
 1. To view other deliveries to that specific hook, click **More for this Hook ID**.

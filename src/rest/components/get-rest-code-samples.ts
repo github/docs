@@ -70,16 +70,21 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     }
   }
 
-  let authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
-  if (operation.subcategory === 'management-console') {
-    authHeader = '-u "api_key:your-password"'
-  }
+  let authHeader
+  let apiVersionHeader
 
-  const apiVersionHeader =
-    allVersions[currentVersion].apiVersions.length > 0 &&
-    allVersions[currentVersion].latestApiVersion
-      ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
-      : ''
+  if (operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes') {
+    authHeader = '-u "api_key:your-password"'
+    apiVersionHeader = ''
+  } else {
+    authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
+
+    apiVersionHeader =
+      allVersions[currentVersion].apiVersions.length > 0 &&
+      allVersions[currentVersion].latestApiVersion
+        ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+        : ''
+  }
 
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,

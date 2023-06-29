@@ -7,7 +7,7 @@ import semver from 'semver'
 import { allVersions, allVersionShortnames } from '../../../lib/all-versions.js'
 import { supported, next, nextNext, deprecated } from '../../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../../script/helpers/get-liquid-conditionals.js'
-import allowedVersionOperators from '../../../lib/liquid-tags/ifversion-supported-operators.js'
+import allowedVersionOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
 import featureVersionsSchema from '../lib/feature-versions-schema.js'
 import walkFiles from '../../../script/helpers/walk-files.js'
 import { getDeepDataByLanguage } from '../../../lib/get-data.js'
@@ -157,6 +157,7 @@ function validateIfversionConditionals(conds) {
         // allows us to deprecate the version before removing
         // the old liquid content.
         if (
+          version !== 'ghae' &&
           !(
             supported.includes(release) ||
             release === next ||

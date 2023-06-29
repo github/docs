@@ -37,8 +37,8 @@ You cannot comment on a pull request from {% data variables.product.prodname_des
 ## Opening a pull request branch in {% data variables.product.prodname_desktop %} from {% data variables.product.prodname_dotcom %}
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request that you would like to open in {% data variables.product.prodname_desktop %}.
-3. To the right of the title of the pull request, click **{% octicon "code" aria-label="" %} Code**, then, on the **Local** tab, click **Checkout with GitHub Desktop**.
+1. In the list of pull requests, click the pull request that you would like to open in {% data variables.product.prodname_desktop %}.
+1. To the right of the title of the pull request, click **{% octicon "code" aria-label="" %} Code**, then, on the **Local** tab, click **Checkout with GitHub Desktop**.
 
    ![Screenshot of a pull request on GitHub. The "Code" dropdown menu is expanded, and a button, labeled "Checkout with GitHub Desktop" is outlined in orange.](/assets/images/help/desktop/open-pr-in-desktop-button.png)
 
@@ -85,5 +85,5 @@ To add comments to a pull request, leave a review, or merge the pull request, yo
 
 1. In the {% data variables.product.prodname_desktop %} menu bar, click **Branch**.
 1. Select **View Pull Request on {% data variables.product.prodname_dotcom %}**.
-   
+
    ![Screenshot of the menu bar on a Mac. The "Branch" dropdown menu is expanded, and the cursor hovers over "View Pull Request on {% data variables.product.prodname_dotcom %}".](/assets/images/help/desktop/view-pr-on-github.png)

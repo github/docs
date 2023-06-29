@@ -46,11 +46,6 @@ export const HeaderNotifications = () => {
         type: NotificationType.TRANSLATION,
         content: data.reusables.policies.translation,
       })
-    } else if (router.locale) {
-      translationNotices.push({
-        type: NotificationType.TRANSLATION,
-        content: t('notices.localization_complete'),
-      })
     }
   }
   const releaseNotices: Array<Notif> = []

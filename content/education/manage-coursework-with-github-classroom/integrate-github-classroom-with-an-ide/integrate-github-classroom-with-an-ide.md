@@ -36,9 +36,9 @@ You can choose the IDE you'd like to use for an assignment when you create an as
 
 The first time you configure an assignment using a different IDE, you must ensure that it is set up correctly.
 
-Unless you use {% data variables.product.prodname_github_codespaces %}, you must authorize the OAuth app for the IDE for your organization. For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+Unless you use {% data variables.product.prodname_github_codespaces %}, you must authorize the {% data variables.product.prodname_oauth_app %} for the IDE for your organization. For all repositories, grant the app **read** access to metadata, administration, and code, and **write** access to administration and code. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
 
-{% data variables.product.prodname_github_codespaces %} does not require an OAuth app, but you need to enable {% data variables.product.prodname_github_codespaces %} for your organization to be able to configure an assignment with {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)."
+{% data variables.product.prodname_github_codespaces %} does not require an {% data variables.product.prodname_oauth_app %}, but you need to enable {% data variables.product.prodname_github_codespaces %} for your organization to be able to configure an assignment with {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom#enabling-codespaces-for-your-organization)."
 
 ## Further reading
 

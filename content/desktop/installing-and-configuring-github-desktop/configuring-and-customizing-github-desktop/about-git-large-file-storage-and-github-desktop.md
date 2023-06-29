@@ -15,5 +15,6 @@ To use {% data variables.large_files.product_name_short %} with {% data variable
 After you configure {% data variables.large_files.product_name_short %} to track files in a repository, you can seamlessly access and manage large files with {% data variables.product.prodname_desktop %} like any other file in the repository.
 
 ## Further reading
+
 - "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"
 - "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"

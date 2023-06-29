@@ -51,6 +51,7 @@ files:
   ```
   - query: <path-to-query>
   ```
+
   The argument must be one or more file paths, relative to the {% data variables.product.prodname_codeql %} pack containing
   the suite definition.
 
@@ -210,7 +211,7 @@ and `@precision high` from the `my-custom-queries` directory, use:
     precision: very-high
 ```
 
-Note that the following query suite definition behaves differently from the definition above. This definition selects queries that are `@kind problem` *or*
+Note that the following query suite definition behaves differently from the definition above. This definition selects queries that are `@kind problem` _or_
 are `@precision very-high`:
 
 ```
@@ -379,6 +380,7 @@ This value is displayed when you run [AUTOTITLE](/code-security/codeql-cli/codeq
 directory. For more information, see "[Specifying well-known query suites](#specifying-well-known-query-suites)."
 
 {% ifversion codeql-packs %}
+
 ## Saving a query suite
 
 Save your query suite in a file with a `.qls` extension and add it to a CodeQL

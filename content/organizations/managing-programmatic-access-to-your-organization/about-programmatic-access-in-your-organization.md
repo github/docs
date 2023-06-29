@@ -5,7 +5,7 @@ permissions: Organization owners can control programmatic access in their organi
 topics:
   - Organizations
   - GitHub Apps
-  - OAuth Apps
+  - OAuth apps
   - API
 shortTitle: About programmatic access
 versions:
@@ -36,7 +36,6 @@ To help maintain {% data variables.product.prodname_github_app %}s owned by thei
 Organization managers can restrict {% data variables.product.prodname_oauth_app %}s from accessing organization resources. When these restrictions are enabled, organization members and outside collaborators can still request approval for individual {% data variables.product.prodname_oauth_app %}s. For more information, see "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)."
 
 {% endif %}
-
 
 ## {% data variables.product.pat_generic_caps %}s
 

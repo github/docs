@@ -17,5 +17,4 @@ You can use these endpoints to update the Distinguished Name (DN) that a user or
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-
 <!-- Content after this section is automatically generated -->

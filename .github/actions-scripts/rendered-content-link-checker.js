@@ -14,7 +14,7 @@ import contextualize from '../../middleware/context.js'
 import features from '../../middleware/contextualizers/features.js'
 import getRedirect from '../../lib/get-redirect.js'
 import warmServer from '../../lib/warm-server.js'
-import liquid from '../../lib/render-content/liquid.js'
+import { liquid } from '../../src/content-render/index.js'
 import { deprecated } from '../../lib/enterprise-server-releases.js'
 import excludedLinks from '../../lib/excluded-links.js'
 import { getEnvInputs, boolEnvVar } from './lib/get-env-inputs.js'
@@ -22,7 +22,7 @@ import { debugTimeEnd, debugTimeStart } from './lib/debug-time-taken.js'
 import { uploadArtifact as uploadArtifactLib } from './lib/upload-artifact.js'
 import github from '../../script/helpers/github.js'
 import { getActionContext } from './lib/action-context.js'
-import { createMinimalProcessor } from '../../lib/render-content/create-processor.js'
+import { createMinimalProcessor } from '../../src/content-render/unified/processor.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),
@@ -158,7 +158,7 @@ if (import.meta.url.endsWith(process.argv[1])) {
  *  linkReports {boolean} - When createReport is true, link the issue report to previous report(s) via comments
  *  reportRepository {string} - Repository in form of "owner/repo-name" that report issue will be created in
  *  reportLabel {string} - Label assigned to report issue,
- *  reportAuthor {string} - Expected author of previous report issue for linking reports (a bot user like Docubot)
+ *  reportAuthor {string} - Expected author of previous report issue for linking reports (a bot user like docs-bot)
  *  actionUrl {string} - Used to link report or comment to the action instance for debugging
  *  actionContext {object} - Event payload context when run from action or injected. Should include { repo, owner }
  *  verbose {boolean} - Set to true for more verbose logging

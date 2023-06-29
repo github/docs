@@ -83,6 +83,7 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
       ```shell copy
       gh gei reclaim-mannequin --github-target-org DESTINATION --mannequin-user MANNEQUIN --target-user USERNAME
       ```
+
 {% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}
 
 #### Reclaiming mannequins with the {% data variables.product.prodname_ado2gh_cli_short %}
@@ -114,6 +115,7 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
       ```shell copy
       gh ado2gh reclaim-mannequin --github-org DESTINATION --mannequin-user MANNEQUIN --target-user USERNAME
       ```
+
 {% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}
 
 ### Reclaiming mannequins in your browser

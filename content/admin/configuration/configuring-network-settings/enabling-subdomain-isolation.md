@@ -50,7 +50,7 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 {%- ifversion viewscreen-and-notebooks %}
 | `http(s)://HOSTNAME/viewscreen/` | `http(s)://viewscreen.HOSTNAME/` |
 {%- endif %}
-{%- ifversion ghes > 3.4 %}
+{%- ifversion ghes %}
 | Not supported | `https://containers.HOSTNAME/` |
 {%- endif %}
 

@@ -13,6 +13,7 @@ import frontmatter from '../../../lib/read-frontmatter.js'
 import getApplicableVersions from '../../../lib/get-applicable-versions.js'
 import { allVersions, getDocsVersion } from '../../../lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../lib/index.js'
+import { deprecated } from '../../../lib/enterprise-server-releases.js'
 
 const contentFiles = []
 
@@ -52,7 +53,11 @@ export async function getDiffOpenAPIContentRest() {
 
 async function createOpenAPISchemasCheck() {
   const openAPICheck = createCheckObj()
-  const restDirectory = fs.readdirSync(REST_DATA_DIR).filter((dir) => !dir.endsWith('.json'))
+  const restDirectory = fs
+    .readdirSync(REST_DATA_DIR)
+    .filter((dir) => !dir.endsWith('.json'))
+    // Allow the most recent deprecation to exist on disk until fully deprecated
+    .filter((dir) => !dir.includes(deprecated[0]))
 
   restDirectory.forEach((dir) => {
     const filename = path.join(REST_DATA_DIR, dir, REST_SCHEMA_FILENAME)

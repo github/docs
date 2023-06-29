@@ -6,7 +6,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-an-outbound-web-proxy-server
   - /enterprise/admin/configuration/configuring-an-outbound-web-proxy-server
   - /admin/configuration/configuring-an-outbound-web-proxy-server
-permissions: Site administrators can configure an outbound web proxy server for a {% data variables.product.product_name %} instance.
+permissions: 'Site administrators can configure an outbound web proxy server for a {% data variables.product.product_name %} instance.'
 versions:
   ghes: '*'
 type: how_to
@@ -49,7 +49,7 @@ Your instance validates the hostnames for proxy exclusion using the list of IANA
    {%- ifversion ghes < 3.9 %}
    {% note %}
 
-   **Note**: In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.4 %}4.18{% elsif ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, your instance validates the hostnames using the list of IANA's registered top-level domains (TLDs). For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
+   **Note**: In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, your instance validates the hostnames using the list of IANA's registered top-level domains (TLDs). For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
 
    {% endnote %}
    {%- endif %}
@@ -57,12 +57,13 @@ Your instance validates the hostnames for proxy exclusion using the list of IANA
 
 ## Excluding additional unregistered TLDs from the proxy
 
-{% ifversion ghes < 3.9 %}In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.4 %}4.18{% elsif ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, you{% elsif ghes > 3.8 %}You{% endif %} can configure your instance's proxy settings to exclude unregistered TLDs that aren't specified in the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
+{% ifversion ghes < 3.9 %}In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, you{% elsif ghes > 3.8 %}You{% endif %} can configure your instance's proxy settings to exclude unregistered TLDs that aren't specified in the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. Enter the following command, replacing COMMA-SEPARATED-TLD-LIST with a comma-separated list of TLDs.
 
    ```shell
-   $ ghe-config noproxy.exception-tld-list "COMMA-SEPARATED-TLD-LIST"
+   ghe-config noproxy.exception-tld-list "COMMA-SEPARATED-TLD-LIST"
    ```
+
 {% data reusables.enterprise.apply-configuration %}

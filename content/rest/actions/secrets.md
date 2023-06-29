@@ -21,5 +21,4 @@ You can use the REST API to create, update, delete, and retrieve information abo
 
 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `secrets` permission to use these endpoints. Authenticated users must have collaborator access to a repository to create, update, or read secrets.
 
-
 <!-- Content after this section is automatically generated -->

@@ -65,7 +65,7 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
 ### Using Octokit.js to authenticate with an installation ID
 
-1. Get the ID of your app. You can find your app's ID on the settings page for your app. For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the slugified name of your app. Replace `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+1. Get the ID of your {% data variables.product.prodname_github_app %}. You can find your app's ID on the settings page for your {% data variables.product.prodname_github_app %}. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
 1. Generate a private key. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)".
 1. Get the ID of the installation that you want to authenticate as.
 
@@ -115,7 +115,7 @@ You must install and import `octokit` in order to use the Octokit.js library. Th
 
 The Octokit.js SDK also passes a pre-authenticated `octokit` instance to webhook event handlers.
 
-1. Get the ID of your app. You can find your app's ID on the settings page for your app. For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the slugified name of your app. Replace `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+1. Get the ID of your {% data variables.product.prodname_github_app %}. You can find your app's ID on the settings page for your {% data variables.product.prodname_github_app %}. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
 1. Generate a private key. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)".
 1. Get the webhook secret that you specified in your app's settings. For more information about webhook secrets, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps#securing-your-webhooks-with-a-webhook-secret)."
 1. Import `App` from `octokit`. Create a new instance of `App`. In the following example, replace `APP_ID` with a reference to your app's ID. Replace `PRIVATE_KEY` with a reference to your app's private key. Replace `WEBHOOK_SECRET` with the your app's webhook secret.

@@ -36,13 +36,13 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/understandi
 When migrating from CircleCI, consider the following differences:
 
 - CircleCI’s automatic test parallelism automatically groups tests according to user-specified rules or historical timing information. This functionality is not built into {% data variables.product.prodname_actions %}.
-- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your *Dockerfile*. {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
+- Actions that execute in Docker containers are sensitive to permissions problems since containers have a different mapping of users. You can avoid many of these problems by not using the `USER` instruction in your _Dockerfile_. {% ifversion ghae %}{% data reusables.actions.self-hosted-runners-software %}
 {% else %}For more information about the Docker filesystem on {% data variables.product.product_name %}-hosted runners, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
 {% endif %}
 
 ## Migrating workflows and jobs
 
-CircleCI defines `workflows` in the *config.yml* file, which allows you to configure more than one workflow. {% data variables.product.product_name %} requires one workflow file per workflow, and as a consequence, does not require you to declare `workflows`. You'll need to create a new workflow file for each workflow configured in *config.yml*.
+CircleCI defines `workflows` in the _config.yml_ file, which allows you to configure more than one workflow. {% data variables.product.product_name %} requires one workflow file per workflow, and as a consequence, does not require you to declare `workflows`. You'll need to create a new workflow file for each workflow configured in _config.yml_.
 
 Both CircleCI and {% data variables.product.prodname_actions %} configure `jobs` in the configuration file using similar syntax. If you configure any dependencies between jobs using `requires` in your CircleCI workflow, you can use the equivalent {% data variables.product.prodname_actions %} `needs` syntax. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)."
 
@@ -53,7 +53,6 @@ Both CircleCI and {% data variables.product.prodname_actions %} provide a mechan
 CircleCI can reuse pieces of workflows with YAML anchors and aliases. {% data variables.product.prodname_actions %} supports the most common need for reusability using matrices. For more information about matrices, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 ## Using Docker images
-
 
 Both CircleCI and {% data variables.product.prodname_actions %} support running steps inside of a Docker image.
 
@@ -88,12 +87,14 @@ Below is an example of the syntax for each system.
 ### CircleCI syntax for caching
 
 {% raw %}
+
 ```yaml
 - restore_cache:
     keys:
       - v1-npm-deps-{{ checksum "package-lock.json" }}
       - v1-npm-deps-
 ```
+
 {% endraw %}
 
 ### GitHub Actions syntax for caching
@@ -124,6 +125,7 @@ Below is an example in CircleCI and {% data variables.product.prodname_actions %
 ### CircleCI syntax for persisting data between jobs
 
 {% raw %}
+
 ```yaml
 - persist_to_workspace:
     root: workspace
@@ -135,11 +137,13 @@ Below is an example in CircleCI and {% data variables.product.prodname_actions %
 - attach_workspace:
     at: /tmp/workspace
 ```
+
 {% endraw %}
 
 ### GitHub Actions syntax for persisting data between jobs
 
 {% raw %}
+
 ```yaml
 - name: Upload math result for job 1
   uses: {% data reusables.actions.action-upload-artifact %}
@@ -154,6 +158,7 @@ Below is an example in CircleCI and {% data variables.product.prodname_actions %
   with:
     name: homework
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
@@ -162,13 +167,14 @@ For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow
 
 Both systems enable you to include additional containers for databases, caching, or other dependencies.
 
-In CircleCI, the first image listed in the *config.yaml* is the primary image used to run commands. {% data variables.product.prodname_actions %} uses explicit sections: use `container` for the primary container, and list additional containers in `services`.
+In CircleCI, the first image listed in the _config.yaml_ is the primary image used to run commands. {% data variables.product.prodname_actions %} uses explicit sections: use `container` for the primary container, and list additional containers in `services`.
 
 Below is an example in CircleCI and {% data variables.product.prodname_actions %} configuration syntax.
 
 ### CircleCI syntax for using databases and service containers
 
 {% raw %}
+
 ```yaml
 ---
 version: 2.1
@@ -219,11 +225,13 @@ workflows:
 - attach_workspace:
     at: /tmp/workspace
 ```
+
 {% endraw %}
 
 ### GitHub Actions syntax for using databases and service containers
 
 {% raw %}
+
 ```yaml
 name: Containers
 
@@ -268,17 +276,19 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."
 
 ## Complete Example
 
-Below is a real-world example. The left shows the actual CircleCI *config.yml* for the [thoughtbot/administrator](https://github.com/thoughtbot/administrate) repository. The right shows the {% data variables.product.prodname_actions %} equivalent.
+Below is a real-world example. The left shows the actual CircleCI _config.yml_ for the [thoughtbot/administrator](https://github.com/thoughtbot/administrate) repository. The right shows the {% data variables.product.prodname_actions %} equivalent.
 
 ### Complete example for CircleCI
 
 {% raw %}
+
 ```yaml
 ---
 version: 2.1
@@ -360,6 +370,7 @@ workflows:
       - ruby-26
       - ruby-25
 ```
+
 {% endraw %}
 
 ### Complete example for GitHub Actions

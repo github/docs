@@ -123,12 +123,16 @@ async function main() {
 
   if (pipelines.includes('github-apps')) {
     console.log(`\n▶️  Generating GitHub Apps data files...\n`)
-    await syncGitHubAppsData(TEMP_OPENAPI_DIR, restSchemas)
+    await syncGitHubAppsData(
+      TEMP_OPENAPI_DIR,
+      restSchemas,
+      sourceRepo === 'github' && GITHUB_REP_DIR
+    )
   }
 
   if (pipelines.includes('rest-redirects')) {
     console.log(`\n▶️  Generating REST redirect data files...\n`)
-    await syncRestRedirects(TEMP_OPENAPI_DIR, restSchemas)
+    await syncRestRedirects()
   }
 
   // If the source repo is REST_API_DESCRIPTION_ROOT, we want to update

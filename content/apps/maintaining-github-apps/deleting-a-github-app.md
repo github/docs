@@ -28,21 +28,25 @@ If you own a {% data variables.product.prodname_github_app %} or are an app mana
 
 When you delete a {% data variables.product.prodname_github_app %} registration, the app will be uninstalled from all accounts that the app is installed on.
 
+{% ifversion ghec or fpt %}
+
 {% note %}
 
-**Note**: If your {% data variables.product.prodname_github_app %} is published on {% data variables.product.prodname_marketplace %}, you must contact {% data variables.product.company_short %} Support and ask them to remove your app from {% data variables.product.prodname_marketplace %} before you can delete your app.
+**Note**: If your {% data variables.product.prodname_github_app %} is published on {% data variables.product.prodname_marketplace %}, you must contact {% data variables.product.company_short %} Support and ask them to remove your app from {% data variables.product.prodname_marketplace %} before you can delete your app. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/deleting-your-github-app-listing-from-github-marketplace)."
 
 {% endnote %}
+
+{% endif %}
 
 ## Deleting a {% data variables.product.prodname_github_app %}
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
-4. Select the GitHub App you want to delete.
+1. Select the GitHub App you want to delete.
 {% data reusables.user-settings.github_apps_advanced %}
-6. Click **Delete GitHub App**.
-7. In the confirmation box, type the name of the GitHub App to confirm you want to delete it.
-8. Click **I understand the consequences, delete this GitHub App**.
+1. Click **Delete GitHub App**.
+1. In the confirmation box, type the name of the GitHub App to confirm you want to delete it.
+1. Click **I understand the consequences, delete this GitHub App**.
 
 These steps only delete your {% data variables.product.prodname_github_app %} registration, and all of the organization and account installations it may have. They do not delete any code that you wrote for your app. However, any code that relies on your {% data variables.product.prodname_github_app %}'s credentials will no longer function.

@@ -116,14 +116,14 @@ You can configure {% data variables.product.prodname_github_codespaces %} to use
 
 When you create a new codespace, {% data variables.product.prodname_dotcom %} clones your selected dotfiles repository to the codespace environment, and looks for one of the following files to set up the environment.
 
-* _install.sh_
-* _install_
-* _bootstrap.sh_
-* _bootstrap_
-* _script/bootstrap_
-* _setup.sh_
-* _setup_
-* _script/setup_
+- _install.sh_
+- _install_
+- _bootstrap.sh_
+- _bootstrap_
+- _script/bootstrap_
+- _setup.sh_
+- _setup_
+- _script/setup_
 
 If none of these files are found, then any files or folders in your selected dotfiles repository starting with `.` are symlinked to the codespace's `~` or `$HOME` directory.
 
@@ -151,7 +151,7 @@ You can use your selected dotfiles repository to personalize your {% data variab
 
    ![Screenshot of the "Dotfiles" section of the codespace settings, with the "Automatically install dotfiles" option cleared.](/assets/images/help/codespaces/install-custom-dotfiles.png)
 
-2. Use the dropdown to choose the repository you want to install dotfiles from.
+1. Use the dropdown to choose the repository you want to install dotfiles from.
 
    ![Screenshot of the "Automatically install dotfiles" option selected and "monalisa/dotfiles" selected from a dropdown list of repositories.](/assets/images/help/codespaces/select-dotfiles-repo.png)
 
@@ -171,6 +171,6 @@ You can also personalize {% data variables.product.prodname_github_codespaces %}
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)"
-* "[AUTOTITLE](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)"
-* "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"
+- "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)"
+- "[AUTOTITLE](/codespaces/getting-started/deep-dive#personalizing-your-codespace-with-extensions-or-plugins)"
+- "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"

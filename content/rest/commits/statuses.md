@@ -24,5 +24,4 @@ Note that the `repo:status` [OAuth scope](/apps/oauth-apps/building-oauth-apps/s
 
 If you are developing a GitHub App and want to provide more detailed information about an external service, you may want to use the REST API to manage checks. For more information, see "[AUTOTITLE](/rest/checks)."
 
-
 <!-- Content after this section is automatically generated -->
