@@ -30,7 +30,8 @@ shortTitle: Customize updates
 After you've enabled version updates, you can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies by adding further options to the _dependabot.yml_ file. For example, you could:
 
 - Specify which day of the week to open pull requests for version updates: `schedule.day`
-- Set reviewers, assignees, and labels for each package manager: `reviewers`, `assignees`, and `labels`
+- Set reviewers, assignees, and labels for each package manager: `reviewers`, `assignees`, and `labels`{%- ifversion dependabot-version-updates-groups %}
+- Create groups of dependencies (per package ecosystem), so that {% data variables.product.prodname_dependabot %} updates the group of dependencies in a single pull request: `groups`{% endif %}
 - Define a versioning strategy for changes to each manifest file: `versioning-strategy`
 - Change the maximum number of open pull requests for version updates from the default of 5: `open-pull-requests-limit`
 - Open pull requests for version updates to target a specific branch, instead of the default branch: `target-branch`
@@ -138,6 +139,22 @@ updates:
       - "Docker dependencies"
       - "triage-board"
 ```
+{% ifversion dependabot-version-updates-groups %}
+## Grouping {% data variables.product.prodname_dependabot_version_updates %} into one pull request
+
+{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
+
+{% data reusables.dependabot.dependabot-version-updates-groups-about %}
+
+{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+
+The example `dependabot.yml` file changes the bundler configuration to create a group of dependencies. The configuration specifies `patterns` (strings of characters) that match with the name of a dependency (or multiple dependencies) in order to include the dependencies in the group. You can also use `exclude-patterns` to exclude a dependency (or multiple dependencies) from the group. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
+
+You must configure groups per package ecosystem.
+
+{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+
+{% endif %}
 
 ## More examples
 
