@@ -1597,7 +1597,7 @@ When you deploy your app, you will want to change the port where your server is 
 
 For example, you can set a `PORT` variable in your `.env` file on your server to indicate the port where your server should listen. Then, you can update the place where your code sets `:port` so that your server listens on your deployment port:
 
-```javascript copy
+```ruby copy
 set :port, ENV['PORT']
 ```
 
