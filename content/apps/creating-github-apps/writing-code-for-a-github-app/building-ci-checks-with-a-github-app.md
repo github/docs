@@ -193,23 +193,24 @@ This section will show you how to add some basic template code for your {% data 
 Add the following template code to your `server.rb` file:
 
 ```ruby copy
-require 'sinatra/base'     # Use the Sinatra web framework
-require 'octokit'     # Use the Octokit Ruby library to interact with GitHub's REST API
-require 'dotenv/load' # Manages environment variables
-require 'json'        # Allows your app to manipulate JSON data
-require 'openssl'     # Verifies the webhook signature
-require 'jwt'         # Authenticates a GitHub App
-require 'time'        # Gets ISO 8601 representation of a Time object
-require 'logger'      # Logs debug statements
-
-set :port, 3000
-set :bind, '0.0.0.0'
+require 'sinatra/base'  # Use the Sinatra web framework
+require 'octokit'       # Use the Octokit Ruby library to interact with GitHub's REST API
+require 'dotenv/load'   # Manages environment variables
+require 'json'          # Allows your app to manipulate JSON data
+require 'openssl'       # Verifies the webhook signature
+require 'jwt'           # Authenticates a GitHub App
+require 'time'          # Gets ISO 8601 representation of a Time object
+require 'logger'        # Logs debug statements
 
 # This code is a Sinatra app, for two reasons:
 #   1. Because the app will require a landing page for installation.
 #   2. To easily handle webhook events.
 
 class GHAapp < Sinatra::Application
+
+  # Sets the port that's used when starting the web server.
+  set :port, 3000
+  set :bind, '0.0.0.0'
 
   # Expects the private key in PEM format. Converts the newlines.
   PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
@@ -347,21 +348,30 @@ The rest of this section will explain what the template code does. There aren't 
 
 ### Understand the template code
 
-Open up the `server.rb` file in a text editor. You'll see comments throughout the file that provide additional context for the template code. We recommend reading those comments carefully and even adding your own comments to accompany new code you write.
+Open the `server.rb` file in a text editor. You'll see comments throughout the file that provide additional context for the template code. We recommend reading those comments carefully and even adding your own comments to accompany new code you write.
 
-At the top of the file you'll see `set :port 3000`, which sets the port used when starting the web server to match the port you redirected your webhook payloads to in "[Get a Webhook Proxy URL](#get-a-webhook-proxy-url)."
+Below the list of required files, the first code you'll see is the `class GHApp < Sinatra::Application` declaration. You'll write all of the code for your {% data variables.product.prodname_github_app %} inside this class. The following sections explain in detail what the code does inside this class.
 
-The next code you'll see is the `class GHApp < Sinatra::Application` declaration. You'll write all of the code for your {% data variables.product.prodname_github_app %} inside this class. The following sections explain in detail what the code does inside this class.
-
+- [Set the port](#set-the-port)
 - [Read the environment variables](#read-the-environment-variables)
 - [Turn on logging](#turn-on-logging)
 - [Define a `before` filter](#define-a-before-filter)
 - [Define the route handler](#define-a-route-handler)
 - [Define the helper methods](#define-the-helper-methods)
 
+#### Set the port
+
+The first thing you'll see inside the `class GHApp < Sinatra::Application` declaration is `set :port 3000`. This sets the port used when starting the web server, to match the port you redirected your webhook payloads to in "[Get a Webhook Proxy URL](#get-a-webhook-proxy-url)."
+
+```ruby
+  # Sets the port that's used when starting the web server.
+  set :port, 3000
+  set :bind, '0.0.0.0'
+```
+
 #### Read the environment variables
 
-First, this class reads the three environment variables you set in "[Store your app's identifying information and credentials](#store-your-apps-identifying-information-and-credentials)," and stores them in variables to use later.
+Next, this class reads the three environment variables you set in "[Store your app's identifying information and credentials](#store-your-apps-identifying-information-and-credentials)," and stores them in variables to use later.
 
 ```ruby
 # Expects the private key in PEM format. Converts the newlines.
@@ -1234,24 +1244,24 @@ The following steps will show you how to test that the code works, and that Rubo
 This is what the final code in `server.rb` should look like, after you've followed all of the steps in this tutorial. There are also comments throughout the code that provide additional context.
 
 ```ruby copy
-require 'sinatra'     # Use the Sinatra web framework
-require 'octokit'     # Use the Octokit Ruby library to interact with GitHub's REST API
-require 'dotenv/load' # Manages environment variables
-require 'json'        # Allows your app to manipulate JSON data
-require 'openssl'     # Verifies the webhook signature
-require 'jwt'         # Authenticates a GitHub App
-require 'time'        # Gets ISO 8601 representation of a Time object
-require 'logger'      # Logs debug statements
-require 'git'
-
-set :port, 3000
-set :bind, '0.0.0.0'
+require 'sinatra/base'  # Use the Sinatra web framework
+require 'octokit'       # Use the Octokit Ruby library to interact with GitHub's REST API
+require 'dotenv/load'   # Manages environment variables
+require 'json'          # Allows your app to manipulate JSON data
+require 'openssl'       # Verifies the webhook signature
+require 'jwt'           # Authenticates a GitHub App
+require 'time'          # Gets ISO 8601 representation of a Time object
+require 'logger'        # Logs debug statements
 
 # This code is a Sinatra app, for two reasons:
 #   1. Because the app will require a landing page for installation.
 #   2. To easily handle webhook events.
 
 class GHAapp < Sinatra::Application
+
+  # Sets the port that's used when starting the web server.
+  set :port, 3000
+  set :bind, '0.0.0.0'
 
   # Expects the private key in PEM format. Converts the newlines.
   PRIVATE_KEY = OpenSSL::PKey::RSA.new(ENV['GITHUB_PRIVATE_KEY'].gsub('\n', "\n"))
