@@ -812,6 +812,8 @@ You can pass specific files or entire directories for RuboCop to check. In this 
    m.display
    ```
 
+1. Commit the file to your repository.
+
 ## Step 2.2. Clone the repository
 
 RuboCop is available as a command-line utility. That means your {% data variables.product.prodname_github_app %} will need to clone a local copy of the repository on the CI server so RuboCop can parse the files. To do that, your code will need to be able to run Git operations, and your {% data variables.product.prodname_github_app %} will need to have the correct permissions to clone a repository.
