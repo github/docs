@@ -55,7 +55,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby
-        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.1'
       - name: Install dependencies
