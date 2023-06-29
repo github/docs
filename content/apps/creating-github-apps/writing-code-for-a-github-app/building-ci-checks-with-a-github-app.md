@@ -130,7 +130,7 @@ For this tutorial, you must register a {% data variables.product.prodname_github
 - Has webhooks active
 - Uses a webhook URL that you can receive locally
 - Has the "Checks" repository permission
-- Subscribes to the "Checks" webhook event
+- Subscribes to the "Check suite" and "Check run" webhook events
 
 The following steps will guide you through configuring a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 
@@ -143,7 +143,7 @@ The following steps will guide you through configuring a {% data variables.produ
 1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial.
 1. Make sure that **Active** is selected under "Webhooks."
 1. Under "Webhook URL," enter your webhook proxy URL from earlier. For more information, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)."
-1. Under "Webhook secret," enter a random string. This secret is used to verify that webhooks are sent by {% data variables.product.prodname_dotcom %}. Save this string; You will use it later.
+1. Under "Webhook secret," enter a random string. This secret is used to verify that webhooks are sent by {% data variables.product.prodname_dotcom %}. Save this string; you will use it later.
 1. Under "Repository permissions," next to "Checks," select **Read & write**.
 1. Under "Subscribe to events," select **Check suite** and **Check run**.
 1. Under "Where can this GitHub App be installed?," select **Only on this account**. You can change this later if you want to publish your app.
@@ -345,7 +345,7 @@ end
 
 The rest of this section will explain what the template code does. There aren't any steps that you need to complete in this section. If you're already familiar with the template code, you can skip ahead to "[Start the server](#start-the-server)."
 
-### Review the template code
+### Understand the template code
 
 Open up the `server.rb` file in a text editor. You'll see comments throughout the file that provide additional context for the template code. We recommend reading those comments carefully and even adding your own comments to accompany new code you write.
 
@@ -386,7 +386,7 @@ configure :development do
 end
 ```
 
-#### Define a before filter
+#### Define a `before` filter
 
 Sinatra uses before filters that allow you to execute code before the route handler. The `before` block in the template calls four helper methods: `get_payload_request`, `verify_webhook_signature`, `authenticate_app`, and `authenticate_installation`. For more information, see "[Filters](https://github.com/sinatra/sinatra#filters)" and "[Helpers](https://github.com/sinatra/sinatra#helpers)" in the Sinatra documentation.
 
@@ -408,7 +408,7 @@ Sinatra uses before filters that allow you to execute code before the route hand
   end
 ```
 
-Each of these helper methods are defined later in the code, in the `helpers do` code block. For more information, see "[Define the helper methods](#define-the-helper-methods)."
+Each of these helper methods are defined later in the code, in the code block that starts with `helpers do`. For more information, see "[Define the helper methods](#define-the-helper-methods)."
 
 Under `verify_webhook_signature`, the code that starts with `unless @payload` is a security measure. If a repository name is provided with a webhook payload, this code validates that the repository name contains only Latin alphabetic characters, hyphens, and underscores. This helps ensure that a bad actor isn't attempting to execute arbitrary commands or inject false repository names. Later in the code, under `helpers do`, the `verify_webhook_signature` helper method also validates incoming webhook payloads as an additional security measure.
 
@@ -440,10 +440,11 @@ The third helper method `authenticate_app` allows your {% data variables.product
 
 To make API calls, you'll be using the Octokit library. Doing anything interesting with this library will require your {% data variables.product.prodname_github_app %} to authenticate. For more information about the Octokit library, see the [Octokit documentation](https://octokit.github.io/octokit.rb/).
 
-{% data variables.product.prodname_github_apps %} have two methods of authentication:
+{% data variables.product.prodname_github_apps %} have three methods of authentication:
 
 - Authenticating as a {% data variables.product.prodname_github_app %} using a [JSON Web Token (JWT)](https://jwt.io/introduction).
 - Authenticating as a specific installation of a {% data variables.product.prodname_github_app %} using an installation access token.
+- Authenticating on behalf of a user. This tutorial won't use this method of authentication.
 
 You'll learn about authenticating as an installation in the next section, "[Authenticating as an installation](#authenticating-as-an-installation)."
 
@@ -486,9 +487,9 @@ The code above generates a JSON Web Token (JWT) and uses it (along with your app
 
 ##### Authenticating as an installation
 
-The fourth and final helper method `authenticate_installation` initializes an [Octokit client](https://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as an installation, which you can use to make authenticated calls to the API.
+The fourth and final helper method, `authenticate_installation`, initializes an [Octokit client](https://octokit.github.io/octokit.rb/Octokit/Client.html) authenticated as an installation, which you can use to make authenticated calls to the API.
 
-An _installation_ refers to any user or organization account that has installed the app. Even if someone installs the app on more than one repository, it only counts as one installation because it's within the same account.
+An _installation_ refers to any user or organization account that has installed the app. Even if someone grants the app access to more than one repository on that account, it only counts as one installation because it's within the same account.
 
 ```ruby
 # Instantiate an Octokit client authenticated as an installation of a
@@ -668,9 +669,9 @@ The following steps will show you how to test that the code works, and that it s
 1. In the repository where you installed your app, create a new pull request.
 1. In the pull request you just created, navigate to the **Checks** tab. You should see a check run with the name "Octo RuboCop," or whichever name you chose earlier for the check run.
 
-If you see other apps in the **Checks** tab, it means you have other apps installed on your repository that have **Read & write** access to checks and are subscribed to **Check suite** and **Check run** events.
+If you see other apps in the **Checks** tab, it means you have other apps installed on your repository that have **Read & write** access to checks and are subscribed to **Check suite** and **Check run** events. It may also mean that you have {% data variables.product.prodname_actions %} workflows on the repository that are triggered by the `pull_request` or `pull_request_target` event.
 
-So far you've told {% data variables.product.prodname_dotcom %} to create a check run. The check run status in the pull request is set to queued with a yellow icon. Next, you'll want to wait for {% data variables.product.prodname_dotcom %} to create the check run and update its status.
+So far you've told {% data variables.product.prodname_dotcom %} to create a check run. The check run status in the pull request is set to queued with a yellow icon. In the next step, you will wait for {% data variables.product.prodname_dotcom %} to create the check run and update its status.
 
 ## Step 1.3. Update a check run
 
@@ -785,9 +786,9 @@ These are the steps you'll complete in this section:
 
 ## Step 2.1. Add a Ruby file
 
-You can pass specific files or entire directories for RuboCop to check. In this tutorial, you'll run RuboCop on an entire directory. RuboCop only checks Ruby code. You'll need to add a Ruby file in your repository that contains errors for RuboCop to find.
+You can pass specific files or entire directories for RuboCop to check. In this tutorial, you'll run RuboCop on an entire directory. RuboCop only checks Ruby code. To test your {% data variables.product.prodname_github_app %}, you'll need to add a Ruby file in your repository that contains errors for RuboCop to find.
 
-1. On {% data variables.product.prodname_dotcom %}, navigate to the repository where your app is installed.
+1. When you installed the app on your account, you granted the app access to one or more repositories. Navigate to one of those repositories.
 2. Create a new file named `myfile.rb`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
 3. Add the following content to `myfile.rb`:
 
@@ -837,7 +838,7 @@ Next you'll need to update your {% data variables.product.prodname_github_app %}
 
 ### Add code to clone a repository
 
-To clone a repository, the code will use your {% data variables.product.prodname_github_app %}'s permissions and the Octokit SDK to create an installation token for your app (`x-access-token:<token>`) and use it in the following clone command:
+To clone a repository, the code will use your {% data variables.product.prodname_github_app %}'s permissions and the Octokit SDK to create an installation token for your app (`x-access-token:TOKEN`) and use it in the following clone command:
 
 ```shell
 git clone https://x-access-token:TOKEN@github.com/OWNER/REPO.git
@@ -921,7 +922,7 @@ The following steps will show you how to test that the code works and view the e
    ruby server.rb
    ```
 
-2. In the repository where you installed your app, create a new pull request.
+2. In the repository where you added the `myfile.rb` file, create a new pull request.
 3. In your terminal tab where the server is running, you should see debug output that contains linting errors. The linting errors are printed without any formatting. You can copy and paste your debug output into a web tool like [JSON formatter](https://jsonformatter.org/), to format your JSON output like the following example:
 
    ```json
@@ -982,7 +983,7 @@ The following steps will show you how to test that the code works and view the e
 
 The `@output` variable contains the parsed JSON results of the RuboCop report. As shown in the example output in the previous step, the results contain a `summary` section that your code can use to quickly determine if there are any errors. The following code will set the check run conclusion to `success` when there are no reported errors. RuboCop reports errors for each file in the `files` array, so if there are errors, you'll need to extract some data from the file object.
 
-The REST API checks endpoints allow you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this tutorial you will update the check run with annotations, using the "[Update a check run](/rest/checks/runs#update-a-check-run)" endpoint.
+The REST API endpoints to manage check runs allow you to create annotations for specific lines of code. When you create or update a check run, you can add annotations. In this tutorial you will update the check run with annotations, using the "[Update a check run](/rest/checks/runs#update-a-check-run)" endpoint.
 
 The API limits the number of annotations to a maximum of 50 per request. To create more than 50 annotations, you will have to make multiple requests to the "Update a check run" endpoint. For example, to create 105 annotations you would need to make three separate requests to the API. The first two requests would each have 50 annotations, and the third request would include the five remaining annotations. Each time you update the check run, annotations are appended to the list of annotations that already exist for the check run.
 
