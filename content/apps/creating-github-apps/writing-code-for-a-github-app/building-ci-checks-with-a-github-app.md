@@ -749,7 +749,7 @@ The following steps will show you how to test that the code works, and that the 
    ruby server.rb
    ```
 
-1. In the repository where you installed your app, create a new pull request.
+1. When you installed the app on your account, you granted the app access to one or more repositories. In one of those repositories, create a new pull request.
 1. In the pull request you just created, navigate to the **Checks** tab. You should see a "Re-run all" button.
 1. Click the "Re-run all" button in the upper right corner. The test should run again, and end with `success`.
 
@@ -1123,7 +1123,7 @@ The following steps will show you how to test that the code works and view the C
    ruby server.rb
    ```
 
-2. In the repository where you installed your app, create a new pull request.
+2. When you installed the app on your account, you granted the app access to one or more repositories. In one of those repositories, create a new pull request.
 3. In the pull request you just created, navigate to the **Checks** tab. You should see annotations for each of the errors that RuboCop found. Also notice the "Fix this" button that you created by adding a requested action.
 
 ## Step 2.6. Automatically fix RuboCop errors
@@ -1224,7 +1224,7 @@ The following steps will show you how to test that the code works, and that Rubo
    ruby server.rb
    ```
 
-1. In the repository where you installed your app, create a new pull request.
+1. When you installed the app on your account, you granted the app access to one or more repositories. In one of those repositories, create a new pull request.
 1. In the new pull request you created, navigate to the **Checks** tab, and click the "Fix this" button to automatically fix the errors RuboCop found.
 1. Navigate to the **Commits** tab. You should see a new commit by the username you set in your Git configuration. You may need to refresh your browser to see the update.
 1. Navigate to the **Checks** tab. You should see a new check suite for Octo RuboCop. But this time there should be no errors, because RuboCop fixed them all.
