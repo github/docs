@@ -5,7 +5,7 @@ intro: OpenID Connect allows your workflows to exchange short-lived tokens direc
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
