@@ -846,8 +846,6 @@ git clone https://x-access-token:TOKEN@github.com/OWNER/REPO.git
 
 The command above clones a repository over HTTP. It requires the full repository name, which includes the repository owner (user or organization) and the repository name. For example, the [octocat Hello-World](https://github.com/octocat/Hello-World) repository has a full name of `octocat/hello-world`.
 
-After your app clones the repository, it needs to pull the latest code changes and check out a specific Git ref. The code to do all of this will fit nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag.
-
 Open your `server.rb` file. In the code block that starts with `helpers do`, where it says `# ADD CLONE_REPOSITORY HELPER METHOD HERE #`, add the following code:
 
 ```ruby copy
@@ -869,7 +867,7 @@ Open your `server.rb` file. In the code block that starts with `helpers do`, whe
 
 The code above uses the `ruby-git` gem to clone the repository using the app's installation token. It clones the code in the same directory as `server.rb`. To run Git commands in the repository, the code needs to change into the repository directory. Before changing directories, the code stores the current working directory in a variable (`pwd`) to remember where to return before exiting the `clone_repository` method.
 
-From the repository directory, this code fetches and merges the latest changes (`@git.pull`), checks out the ref (`@git.checkout(ref)`), then changes the directory back to the original working directory (`pwd`).
+From the repository directory, this code fetches and merges the latest changes (`@git.pull`), and checks out the specifig Git ref (`@git.checkout(ref)`). The code to do all of this fits nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag. When it's done, the code changes the directory back to the original working directory (`pwd`).
 
 Now you've got a method that clones a repository and checks out a ref. Next, you need to add code to get the required input parameters and call the new `clone_repository` method.
 
