@@ -355,7 +355,7 @@ The next code you'll see is the `class GHApp < Sinatra::Application` declaration
 
 - [Read the environment variables](#read-the-environment-variables)
 - [Turn on logging](#turn-on-logging)
-- [Define a before filter](#define-a-before-filter)
+- [Define a `before` filter](#define-a-before-filter)
 - [Define the route handler](#define-a-route-handler)
 - [Define the helper methods](#define-the-helper-methods)
 
@@ -388,7 +388,7 @@ end
 
 #### Define a `before` filter
 
-Sinatra uses before filters that allow you to execute code before the route handler. The `before` block in the template calls four helper methods: `get_payload_request`, `verify_webhook_signature`, `authenticate_app`, and `authenticate_installation`. For more information, see "[Filters](https://github.com/sinatra/sinatra#filters)" and "[Helpers](https://github.com/sinatra/sinatra#helpers)" in the Sinatra documentation.
+Sinatra uses `before` filters that allow you to execute code before the route handler. The `before` block in the template calls four helper methods: `get_payload_request`, `verify_webhook_signature`, `authenticate_app`, and `authenticate_installation`. For more information, see "[Filters](https://github.com/sinatra/sinatra#filters)" and "[Helpers](https://github.com/sinatra/sinatra#helpers)" in the Sinatra documentation.
 
 ```ruby
   # Executed before each request to the `/event_handler` route
@@ -907,7 +907,7 @@ The code above runs RuboCop on all files in the repository's directory. The opti
 
 After running RuboCop and saving the linting results, this code runs the command `rm -rf` to remove the checkout of the repository. Because the code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository.
 
-The `rm -rf` command cannot be undone. To keep your app secure, the code in this tutorial checks incoming webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. The `verify_webhook_signature` method validates the sender of the webhook. The `verify_webhook_signature` event handler also checks that the repository name is valid. For more information, see "[Define a before filter](#define-a-before-filter)."
+The `rm -rf` command cannot be undone. To keep your app secure, the code in this tutorial checks incoming webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. The `verify_webhook_signature` method validates the sender of the webhook. The `verify_webhook_signature` event handler also checks that the repository name is valid. For more information, see "[Define a `before` filter](#define-a-before-filter)."
 
 
 ### Test the code
