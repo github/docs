@@ -427,7 +427,10 @@ To link to a specific header in the same article, use this format:
 > For more information, see "[HEADER TITLE](#HEADER-TITLE)."
 
 To link to a specific header in a different article, use this format:
-> For more information, see "[ARTICLE TITLE](path-to-article#HEADER-TITLE)."
+> For more information, see "[AUOTOTITLE](path-to-article#HEADER-TITLE)."
+
+To link to two or more specific headers in a different article, use this format:
+> For more information, see "[HEADER 1](path-to-article#HEADER-1)" and "[HEADER 2](path-to-article#HEADER-2)" in "ARTICLE TITLE."
 
 ### Links to a specific tool
 
