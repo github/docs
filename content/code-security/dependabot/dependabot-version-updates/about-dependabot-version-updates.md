@@ -47,7 +47,7 @@ If you enable _security updates_, {% data variables.product.prodname_dependabot 
 
 You specify how often to check each ecosystem for new versions in the configuration file: daily, weekly, or monthly.
 
-{% data reusables.dependabot.initial-updates %}
+{% data reusables.dependabot.initial-updates %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates)."
 
 If you've enabled security updates, you'll sometimes see extra pull requests for security updates. These are triggered by a {% data variables.product.prodname_dependabot %} alert for a dependency on your default branch. {% data variables.product.prodname_dependabot %} automatically raises a pull request to update the vulnerable dependency.
 

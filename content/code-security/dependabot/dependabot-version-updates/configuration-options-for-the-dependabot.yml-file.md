@@ -50,7 +50,7 @@ These options fit broadly into the following categories.
 
 - Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
 - Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
-- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
+- Options to control which dependencies are updated: [`allow`](#allow), {% ifversion dependabot-version-updates-groups %}[`groups`](#groups),{% endif %} [`ignore`](#ignore), [`vendor`](#vendor).
 - Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
 - Options to change the behavior of the pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
@@ -325,6 +325,34 @@ updates:
 If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
+
+{% ifversion dependabot-version-updates-groups %}
+### `groups`
+
+{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
+
+{% data reusables.dependabot.dependabot-version-updates-groups-about %}
+
+{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+
+When you first configure a group, you specify a group name that will display in pull request titles and branch names. In the example below, the name of the group is `dev-dependencies`.
+
+You then define `patterns` (strings of characters) that match with a dependency name (or multiple dependency names) to include those dependencies in the group.
+
+If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal.
+
+You can also use `exclude-patterns` to exclude certain dependencies from the group. If a dependency is excluded from a group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version.
+
+Note that you can't use `@dependabot ignore` with pull requests for grouped updates. If you want to ignore version updates for a dependency, you must configure an [`ignore`](#ignore) rule for the dependency in the `dependabot.yml` file.
+
+When a scheduled update runs, {% data variables.product.prodname_dependabot %} will refresh pull requests for grouped updates using the following rules:
+- if all the same dependencies need to be updated to the same versions, {% data variables.product.prodname_dependabot %} will rebase the branch.
+- if all the same dependencies need to be updated, but a newer version has become available for one (or more) of the dependencies, {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
+- if the dependencies to be updated have changed - for example, if another dependency in the group now has an update available - {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
+
+{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+
+{% endif %}
 
 ### `ignore`
 
