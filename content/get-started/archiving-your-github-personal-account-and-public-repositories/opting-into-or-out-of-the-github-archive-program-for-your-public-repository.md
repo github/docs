@@ -4,6 +4,7 @@ intro: 'You can manage whether {% data variables.product.prodname_dotcom %} incl
 permissions: 'People with admin permissions to a public repository can opt into or out of the {% data variables.product.prodname_archive %}.'
 redirect_from:
   - /github/understanding-how-github-uses-and-protects-your-data/opting-into-or-out-of-the-github-archive-program-for-your-public-repository
+  - /get-started/privacy-on-github/opting-into-or-out-of-the-github-archive-program-for-your-public-repository
 versions:
   fpt: '*'
   ghec: '*'
