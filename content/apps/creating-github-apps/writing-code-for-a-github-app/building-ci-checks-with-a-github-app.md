@@ -606,17 +606,15 @@ Open the `server.rb` file that you created in "[Add code for your {% data variab
 Under `post '/event_handler' do`, where it says `# ADD EVENT HANDLING HERE  #`, add the following code. This route will handle the `check_suite` event.
 
 ```ruby copy
-# Get the event type from the HTTP_X_GITHUB_EVENT header
-case request.env['HTTP_X_GITHUB_EVENT']
-
-when 'check_suite'
-  # A new check_suite has been created. Create a new check run with status queued
-  if @payload['action'] == 'requested' || @payload['action'] == 'rerequested'
-    create_check_run
-  end
-
-  # ADD CHECK_RUN METHOD HERE #
-end
+    # Get the event type from the HTTP_X_GITHUB_EVENT header
+    case request.env['HTTP_X_GITHUB_EVENT']
+    when 'check_suite'
+      # A new check_suite has been created. Create a new check run with status queued
+      if @payload['action'] == 'requested' || @payload['action'] == 'rerequested'
+        create_check_run
+      end
+      # ADD CHECK_RUN METHOD HERE #
+    end
 ```
 
 Every event that {% data variables.product.prodname_dotcom %} sends includes a request header called `HTTP_X_GITHUB_EVENT`, which indicates the type of event in the `POST` request. Right now, you're only interested in events of type `check_suite`, which are emitted when a new check suite is created. Each event has an additional `action` field that indicates the type of action that triggered the events. For `check_suite`, the `action` field can be `requested`, `rerequested`, or `completed`.
@@ -630,20 +628,20 @@ You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sina
 Under `helpers do`, where it says `# ADD CREATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
 
 ```ruby copy
-# Create a new check run with status "queued"
-def create_check_run
-  @installation_client.create_check_run(
-    # [String, Integer, Hash, Octokit Repository object] A GitHub repository.
-    @payload['repository']['full_name'],
-    # [String] The name of your check run.
-    'Octo RuboCop',
-    # [String] The SHA of the commit to check
-    # The payload structure differs depending on whether a check run or a check suite event occurred.
-    @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
-    # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
-    accept: 'application/vnd.github+json'
-  )
-end
+    # Create a new check run with status "queued"
+    def create_check_run
+      @installation_client.create_check_run(
+        # [String, Integer, Hash, Octokit Repository object] A GitHub repository.
+        @payload['repository']['full_name'],
+        # [String] The name of your check run.
+        'Octo RuboCop',
+        # [String] The SHA of the commit to check
+        # The payload structure differs depending on whether a check run or a check suite event occurred.
+        @payload['check_run'].nil? ? @payload['check_suite']['head_sha'] : @payload['check_run']['head_sha'],
+        # [Hash] 'Accept' header option, to avoid a warning about the API not being ready for production use.
+        accept: 'application/vnd.github+json'
+      )
+    end
 ```
 
 This code calls the "[AUTOTITLE](/rest/checks#create-a-check-run)" endpoint using the Octokit [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method).
@@ -682,17 +680,17 @@ You'll update your event handler to look for the `created` action. While you're 
 Under `post '/event_handler' do`, where it says `# ADD CHECK_RUN METHOD HERE #`, add the following code:
 
 ```ruby copy
-when 'check_run'
-  # Check that the event is being sent to this app
-  if @payload['check_run']['app']['id'].to_s === APP_IDENTIFIER
-    case @payload['action']
-    when 'created'
-      initiate_check_run
-    when 'rerequested'
-      create_check_run
-    # ADD REQUESTED_ACTION METHOD HERE #
-    end
-  end
+    when 'check_run'
+      # Check that the event is being sent to this app
+      if @payload['check_run']['app']['id'].to_s === APP_IDENTIFIER
+        case @payload['action']
+        when 'created'
+          initiate_check_run
+        when 'rerequested'
+          create_check_run
+        # ADD REQUESTED_ACTION METHOD HERE #
+        end
+      end
 ```
 
 {% data variables.product.prodname_dotcom %} sends all events for `created` check runs to every app installed on a repository that has the necessary checks permissions. That means that your app will receive check runs created by other apps. A `created` check run is a little different from a `requested` or `rerequested` check suite, which {% data variables.product.prodname_dotcom %} sends only to apps that are being requested to run a check. The code above looks for the check run's application ID. This filters out all check runs for other apps on the repository.
@@ -706,31 +704,31 @@ Let's create the `initiate_check_run` method and update the status of the check 
 Under `helpers do`, where it says `# ADD INITIATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
 
 ```ruby copy
-# Start the CI process
-def initiate_check_run
-  # Once the check run is created, you'll update the status of the check run
-  # to 'in_progress' and run the CI process. When the CI finishes, you'll
-  # update the check run status to 'completed' and add the CI results.
+    # Start the CI process
+    def initiate_check_run
+      # Once the check run is created, you'll update the status of the check run
+      # to 'in_progress' and run the CI process. When the CI finishes, you'll
+      # update the check run status to 'completed' and add the CI results.
 
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'in_progress',
-    accept: 'application/vnd.github+json'
-  )
+      @installation_client.update_check_run(
+        @payload['repository']['full_name'],
+        @payload['check_run']['id'],
+        status: 'in_progress',
+        accept: 'application/vnd.github+json'
+      )
 
-  # ***** RUN A CI TEST *****
+      # ***** RUN A CI TEST *****
 
-  # Mark the check run as complete!
-  @installation_client.update_check_run(
-    @payload['repository']['full_name'],
-    @payload['check_run']['id'],
-    status: 'completed',
-    conclusion: 'success',
-    accept: 'application/vnd.github+json'
-  )
+      # Mark the check run as complete!
+      @installation_client.update_check_run(
+        @payload['repository']['full_name'],
+        @payload['check_run']['id'],
+        status: 'completed',
+        conclusion: 'success',
+        accept: 'application/vnd.github+json'
+      )
 
-end
+    end
 ```
 
 The code above calls the "[Update a check run](/rest/checks#update-a-check-run)" endpoint using the [`update_check_run` Octokit method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#update_check_run-instance_method), and updates the check run that you already created.
@@ -851,20 +849,20 @@ After your app clones the repository, it needs to pull the latest code changes a
 Open your `server.rb` file. Under `helpers do`, where it says `# ADD CLONE_REPOSITORY HELPER METHOD HERE #`, add the following code:
 
 ```ruby copy
-# Clones the repository to the current working directory, updates the
-# contents using Git pull, and checks out the ref.
-#
-# full_repo_name  - The owner and repo. Ex: octocat/hello-world
-# repository      - The repository name
-# ref             - The branch, commit SHA, or tag to check out
-def clone_repository(full_repo_name, repository, ref)
-  @git = Git.clone("https://x-access-token:#{@installation_token.to_s}@github.com/#{full_repo_name}.git", repository)
-  pwd = Dir.getwd()
-  Dir.chdir(repository)
-  @git.pull
-  @git.checkout(ref)
-  Dir.chdir(pwd)
-end
+    # Clones the repository to the current working directory, updates the
+    # contents using Git pull, and checks out the ref.
+    #
+    # full_repo_name  - The owner and repo. Ex: octocat/hello-world
+    # repository      - The repository name
+    # ref             - The branch, commit SHA, or tag to check out
+    def clone_repository(full_repo_name, repository, ref)
+      @git = Git.clone("https://x-access-token:#{@installation_token.to_s}@github.com/#{full_repo_name}.git", repository)
+      pwd = Dir.getwd()
+      Dir.chdir(repository)
+      @git.pull
+      @git.checkout(ref)
+      Dir.chdir(pwd)
+    end
 ```
 
 The code above uses the `ruby-git` gem to clone the repository using the app's installation token. It clones the code in the same directory as `server.rb`. To run Git commands in the repository, the code needs to change into the repository directory. Before changing directories, the code stores the current working directory in a variable (`pwd`) to remember where to return before exiting the `clone_repository` method.
@@ -876,13 +874,13 @@ Now you've got a method that clones a repository and checks out a ref. Next, you
 Under `helpers do`, in the `initiate_check_run` helper method where it says `# ***** RUN A CI TEST *****`, add the following code:
 
 ```ruby copy
-full_repo_name = @payload['repository']['full_name']
-repository     = @payload['repository']['name']
-head_sha       = @payload['check_run']['head_sha']
+    full_repo_name = @payload['repository']['full_name']
+    repository     = @payload['repository']['name']
+    head_sha       = @payload['check_run']['head_sha']
 
-clone_repository(full_repo_name, repository, head_sha)
+    clone_repository(full_repo_name, repository, head_sha)
 
-# ADD CODE HERE TO RUN RUBOCOP #
+    # ADD CODE HERE TO RUN RUBOCOP #
 ```
 
 The code above gets the full repository name and the head SHA of the commit from the `check_run` webhook payload.
@@ -896,13 +894,13 @@ First, you'll add code to run RuboCop and save the style code errors in JSON for
 Under `clone_repository`, where it says `# ADD CODE HERE TO RUN RUBOCOP #`, add the following code:
 
 ```ruby copy
-# Run RuboCop on all files in the repository
-@report = `rubocop '#{repository}' --format json`
-logger.debug @report
-`rm -rf #{repository}`
-@output = JSON.parse @report
+    # Run RuboCop on all files in the repository
+    @report = `rubocop '#{repository}' --format json`
+    logger.debug @report
+    `rm -rf #{repository}`
+    @output = JSON.parse @report
 
-# ADD ANNOTATIONS CODE HERE #
+    # ADD ANNOTATIONS CODE HERE #
 ```
 
 The code above runs RuboCop on all files in the repository's directory. The option `--format json` saves a copy of the linting results in a machine-parsable format. For more information, and an example of the JSON format, see "[JSON Formatter](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)" in the RuboCop docs. This code also parses the JSON so you can easily access the keys and values in your {% data variables.product.prodname_github_app %} using the `@output`  variable.
@@ -994,58 +992,58 @@ Now you'll add code to extract the required information from RuboCop that's need
 Under the code you added in the previous step, where it says `# ADD ANNOTATIONS CODE HERE #`, add the following code:
 
 ```ruby copy
-annotations = []
-# You can create a maximum of 50 annotations per request to the Checks
-# API. To add more than 50 annotations, use the "Update a check run" API
-# endpoint. This example code limits the number of annotations to 50.
-# See /rest/reference/checks#update-a-check-run
-# for details.
-max_annotations = 50
+    annotations = []
+    # You can create a maximum of 50 annotations per request to the Checks
+    # API. To add more than 50 annotations, use the "Update a check run" API
+    # endpoint. This example code limits the number of annotations to 50.
+    # See /rest/reference/checks#update-a-check-run
+    # for details.
+    max_annotations = 50
 
-# RuboCop reports the number of errors found in "offense_count"
-if @output['summary']['offense_count'] == 0
-  conclusion = 'success'
-else
-  conclusion = 'neutral'
-  @output['files'].each do |file|
+    # RuboCop reports the number of errors found in "offense_count"
+    if @output['summary']['offense_count'] == 0
+      conclusion = 'success'
+    else
+      conclusion = 'neutral'
+      @output['files'].each do |file|
 
-    # Only parse offenses for files in this app's repository
-    file_path = file['path'].gsub(/#{repository}\//,'')
-    annotation_level = 'notice'
+        # Only parse offenses for files in this app's repository
+        file_path = file['path'].gsub(/#{repository}\//,'')
+        annotation_level = 'notice'
 
-    # Parse each offense to get details and location
-    file['offenses'].each do |offense|
-      # Limit the number of annotations to 50
-      next if max_annotations == 0
-      max_annotations -= 1
+        # Parse each offense to get details and location
+        file['offenses'].each do |offense|
+          # Limit the number of annotations to 50
+          next if max_annotations == 0
+          max_annotations -= 1
 
-      start_line   = offense['location']['start_line']
-      end_line     = offense['location']['last_line']
-      start_column = offense['location']['start_column']
-      end_column   = offense['location']['last_column']
-      message      = offense['message']
+          start_line   = offense['location']['start_line']
+          end_line     = offense['location']['last_line']
+          start_column = offense['location']['start_column']
+          end_column   = offense['location']['last_column']
+          message      = offense['message']
 
-      # Create a new annotation for each error
-      annotation = {
-        path: file_path,
-        start_line: start_line,
-        end_line: end_line,
-        start_column: start_column,
-        end_column: end_column,
-        annotation_level: annotation_level,
-        message: message
-      }
-      # Annotations only support start and end columns on the same line
-      if start_line == end_line
-        annotation.merge({start_column: start_column, end_column: end_column})
+          # Create a new annotation for each error
+          annotation = {
+            path: file_path,
+            start_line: start_line,
+            end_line: end_line,
+            start_column: start_column,
+            end_column: end_column,
+            annotation_level: annotation_level,
+            message: message
+          }
+          # Annotations only support start and end columns on the same line
+          if start_line == end_line
+            annotation.merge({start_column: start_column, end_column: end_column})
+          end
+
+          annotations.push(annotation)
+        end
       end
-
-      annotations.push(annotation)
     end
-  end
-end
 
-# ADD CODE HERE TO UPDATE CHECK RUN SUMMARY #
+    # ADD CODE HERE TO UPDATE CHECK RUN SUMMARY #
 ```
 
 This code limits the total number of annotations to 50. But you can modify this code to update the check run for each batch of 50 annotations. The code above includes the variable `max_annotations` that sets the limit to 50, which is used in the loop that iterates through the offenses.
@@ -1067,9 +1065,9 @@ For the `summary`, this example uses the summary information from RuboCop and ad
 Under the code you added in the previous step, where it says `# ADD CODE HERE TO UPDATE CHECK RUN SUMMARY #`, add the following code:
 
 ``` ruby copy
-# Updated check run summary and text parameters
-summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_count']}\n-File count: #{@output['summary']['target_file_count']}\n-Target file count: #{@output['summary']['inspected_file_count']}"
-text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
+    # Updated check run summary and text parameters
+    summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_count']}\n-File count: #{@output['summary']['target_file_count']}\n-Target file count: #{@output['summary']['inspected_file_count']}"
+    text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 ```
 
 Now your code should have all the information it needs to update your check run. In "[Step 1.3. Update a check run](#step-13-update-a-check-run)," you added code to set the status of the check run to `success`. You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). Here's the code you added previously to your `server.rb` file:
@@ -1088,25 +1086,25 @@ Now your code should have all the information it needs to update your check run.
 Replace that code with the following code:
 
 ```ruby copy
-# Mark the check run as complete! And if there are warnings, share them.
-@installation_client.update_check_run(
-  @payload['repository']['full_name'],
-  @payload['check_run']['id'],
-  status: 'completed',
-  conclusion: conclusion,
-  output: {
-    title: 'Octo RuboCop',
-    summary: summary,
-    text: text,
-    annotations: annotations
-  },
-  actions: [{
-    label: 'Fix this',
-    description: 'Automatically fix all linter notices.',
-    identifier: 'fix_rubocop_notices'
-  }],
-  accept: 'application/vnd.github+json'
-)
+    # Mark the check run as complete! And if there are warnings, share them.
+    @installation_client.update_check_run(
+      @payload['repository']['full_name'],
+      @payload['check_run']['id'],
+      status: 'completed',
+      conclusion: conclusion,
+      output: {
+        title: 'Octo RuboCop',
+        summary: summary,
+        text: text,
+        annotations: annotations
+      },
+      actions: [{
+        label: 'Fix this',
+        description: 'Automatically fix all linter notices.',
+        identifier: 'fix_rubocop_notices'
+      }],
+      accept: 'application/vnd.github+json'
+    )
 ```
 
 Now that your code sets a conclusion based on the status of the CI test, and adds the output from the RuboCop results, you've created a CI test.
@@ -1169,8 +1167,8 @@ end
 After the `rerequested` case, where it says `# ADD REQUESTED_ACTION METHOD HERE #`, add the following code:
 
 ```ruby copy
-when 'requested_action'
-  take_requested_action
+    when 'requested_action'
+      take_requested_action
 ```
 
 This code calls a new method that will handle all `requested_action` events for your app.
@@ -1178,36 +1176,36 @@ This code calls a new method that will handle all `requested_action` events for 
 Under `helpers do`, where it says `# ADD TAKE_REQUESTED_ACTION HELPER METHOD HERE #`, add the following helper method:
 
 ```ruby copy
-# Handles the check run `requested_action` event
-# See /webhooks/event-payloads/#check_run
-def take_requested_action
-  full_repo_name = @payload['repository']['full_name']
-  repository     = @payload['repository']['name']
-  head_branch    = @payload['check_run']['check_suite']['head_branch']
+    # Handles the check run `requested_action` event
+    # See /webhooks/event-payloads/#check_run
+    def take_requested_action
+      full_repo_name = @payload['repository']['full_name']
+      repository     = @payload['repository']['name']
+      head_branch    = @payload['check_run']['check_suite']['head_branch']
 
-  if (@payload['requested_action']['identifier'] == 'fix_rubocop_notices')
-    clone_repository(full_repo_name, repository, head_branch)
+      if (@payload['requested_action']['identifier'] == 'fix_rubocop_notices')
+        clone_repository(full_repo_name, repository, head_branch)
 
-    # Sets your commit username and email address
-    @git.config('user.name', ENV['GITHUB_APP_USER_NAME'])
-    @git.config('user.email', ENV['GITHUB_APP_USER_EMAIL'])
+        # Sets your commit username and email address
+        @git.config('user.name', ENV['GITHUB_APP_USER_NAME'])
+        @git.config('user.email', ENV['GITHUB_APP_USER_EMAIL'])
 
-    # Automatically correct RuboCop style errors
-    @report = `rubocop '#{repository}/*' --format json --auto-correct`
+        # Automatically correct RuboCop style errors
+        @report = `rubocop '#{repository}/*' --format json --auto-correct`
 
-    pwd = Dir.getwd()
-    Dir.chdir(repository)
-    begin
-      @git.commit_all('Automatically fix Octo RuboCop notices.')
-      @git.push("https://x-access-token:#{@installation_token.to_s}@github.com/#{full_repo_name}.git", head_branch)
-    rescue
-      # Nothing to commit!
-      puts 'Nothing to commit'
+        pwd = Dir.getwd()
+        Dir.chdir(repository)
+        begin
+          @git.commit_all('Automatically fix Octo RuboCop notices.')
+          @git.push("https://x-access-token:#{@installation_token.to_s}@github.com/#{full_repo_name}.git", head_branch)
+        rescue
+          # Nothing to commit!
+          puts 'Nothing to commit'
+        end
+        Dir.chdir(pwd)
+        `rm -rf '#{repository}'`
+      end
     end
-    Dir.chdir(pwd)
-    `rm -rf '#{repository}'`
-  end
-end
 ```
 
 The code above clones a repository, just like the code you added in "[Step 2.2. Clone the repository](#step-22-clone-the-repository)." An `if` statement checks that the requested action's identifier matches the RuboCop button identifier (`fix_rubocop_notices`). When they match, the code clones the repository, sets the Git username and email, and runs RuboCop with the option `--auto-correct`. The `--auto-correct` option applies the changes to the local CI server files automatically.
