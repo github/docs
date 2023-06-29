@@ -18,7 +18,7 @@ topics:
 ---
 ## Introduction
 
-This tutorial demonstrates how to build a continuous integration (CI) server that runs tests on new code that's pushed to a repository. The tutorial shows how to build and configure a {% data variables.product.prodname_github_app %} to act as a server that receives and responds to Checks webhook events using {% data variables.product.prodname_dotcom %}'s REST API.
+This tutorial demonstrates how to build a continuous integration (CI) server that runs tests on new code that's pushed to a repository. The tutorial shows how to build and configure a {% data variables.product.prodname_github_app %} to act as a server that receives and responds to `check_run` and `check_suite` webhook events using {% data variables.product.prodname_dotcom %}'s REST API.
 
 In this tutorial, you will use your computer or codespace as a server while you develop your app. Once the app is ready for production use, you should deploy your app to a dedicated server.
 
@@ -63,7 +63,7 @@ Before you get started, you may want to familiarize yourself with the following 
 - [Webhooks](/webhooks-and-events/webhooks/about-webhooks)
 - [REST API checks endpoints](/rest/checks)
 
-The Checks endpoints are also available to use in GraphQL, but this tutorial focuses on REST. For more information about the GraphQL objects, see [Check Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) in the GraphQL documentation.
+Checks are also available to use with the GraphQL API, but this tutorial focuses on the REST API. For more information about the GraphQL objects, see [Check Suite](/graphql/reference/objects#checksuite) and [Check Run](/graphql/reference/objects#checkrun) in the GraphQL documentation.
 
 ## Setup
 
