@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with Azure.
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'
+  ghes: '>=3.5'
 type: tutorial
 topics:
   - Security
