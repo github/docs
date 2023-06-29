@@ -26,12 +26,14 @@ Re-running a workflow{% ifversion re-run-jobs %} or jobs in a workflow{% endif %
 {% data reusables.repositories.actions-tab %}
 {% data reusables.repositories.navigate-to-workflow %}
 {% data reusables.repositories.view-run %}
+{% ifversion fpt or ghes > 3.4 or ghae or ghec -%}
 1. In the upper-right corner of the workflow, re-run jobs.
 
    - If any jobs failed, select the **{% octicon "sync" aria-hidden="true" %} Re-run jobs** dropdown menu and click **Re-run all jobs**.
 
    - If no jobs failed, click **Re-run all jobs**.
-{% ifversion ghae -%}
+{%- endif %}
+{% ifversion ghes < 3.5 or ghae -%}
 1. In the upper-right corner of the workflow, select the **Re-run jobs** dropdown menu and click **Re-run all jobs**.
 {%- endif %}
 {% data reusables.actions.enable-debug-logging %}
@@ -145,6 +147,8 @@ gh run rerun --job JOB_ID --debug
 
 {% endif %}
 
+{% ifversion fpt or ghes > 3.4 or ghae or ghec %}
+
 ## Reviewing previous workflow runs
 
 You can view the results from your previous attempts at running a workflow. You can also view previous workflow runs using the API. For more information, see "[AUTOTITLE](/rest/actions#get-a-workflow-run)."
@@ -160,3 +164,4 @@ You can view the results from your previous attempts at running a workflow. You 
 {%- else %}
 1. In the left pane, click a previous run attempt.
 {%- endif %}
+{% endif %}

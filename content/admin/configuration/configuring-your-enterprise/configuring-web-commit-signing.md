@@ -3,7 +3,7 @@ title: Configuring web commit signing
 shortTitle: Configure web commit signing
 intro: 'You can enable auto-signing of commits made in the web interface of {% data variables.product.product_name %}.'
 versions:
-  ghes: '*'
+  ghes: '>=3.5'
 type: how_to
 topics:
   - Access management

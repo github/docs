@@ -7,7 +7,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'
+  ghes: '>=3.5'
 type: how_to
 topics:
   - Workflows
