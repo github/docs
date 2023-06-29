@@ -108,7 +108,7 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
    ```
 1. In your browser, navigate to https://smee.io/.
 1. Click **Start a new channel**.
-1. Copy the full URL under "Webhook Proxy URL."
+1. Copy the full URL under "Webhook Proxy URL".
 1. In the terminal, run the following command to start the Smee client. Replace `YOUR_DOMAIN` with the Webhook Proxy URL you copied in the previous step.
    ```shell copy
    smee --url YOUR_DOMAIN --path /event_handler --port 3000
@@ -138,15 +138,15 @@ The following steps will guide you through configuring a {% data variables.produ
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.github_apps %}
 1. Click **New GitHub App**.
-1. Under "GitHub App name," enter a name for your app. For example, `USERNAME-ci-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
-1. Under "Homepage URL," enter a URL for your app. For example, you can use the URL of the repository that you created to store the code for your app.
+1. Under "GitHub App name", enter a name for your app. For example, `USERNAME-ci-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
+1. Under "Homepage URL", enter a URL for your app. For example, you can use the URL of the repository that you created to store the code for your app.
 1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial.
-1. Make sure that **Active** is selected under "Webhooks."
-1. Under "Webhook URL," enter your webhook proxy URL from earlier. For more information, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)."
-1. Under "Webhook secret," enter a random string. This secret is used to verify that webhooks are sent by {% data variables.product.prodname_dotcom %}. Save this string; you will use it later.
-1. Under "Repository permissions," next to "Checks," select **Read & write**.
-1. Under "Subscribe to events," select **Check suite** and **Check run**.
-1. Under "Where can this GitHub App be installed?," select **Only on this account**. You can change this later if you want to publish your app.
+1. Make sure that **Active** is selected under "Webhooks".
+1. Under "Webhook URL", enter your webhook proxy URL from earlier. For more information, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)."
+1. Under "Webhook secret", enter a random string. This secret is used to verify that webhooks are sent by {% data variables.product.prodname_dotcom %}. Save this string; you will use it later.
+1. Under "Repository permissions", next to "Checks", select **Read & write**.
+1. Under "Subscribe to events", select **Check suite** and **Check run**.
+1. Under "Where can this GitHub App be installed?", select **Only on this account**. You can change this later if you want to publish your app.
 1. Click **Create GitHub App**.
 
 ### Store your app's identifying information and credentials
@@ -167,10 +167,10 @@ Make sure that you are on a secure machine before performing these steps, since 
    ```
 
 1. {% data reusables.apps.navigate-to-app-settings-page %}
-1. On your app's settings page, next to "App ID," find the app ID for your app.
+1. On your app's settings page, next to "App ID", find the app ID for your app.
 1. In your `.env` file, replace `YOUR_APP_ID` with the app ID of your app.
-1. In your `.env` file, replace `YOUR_WEBHOOK_SECRET` with the webhook secret for your app. If you have forgotten your webhook secret, under "Webhook secret (optional)," click **Change secret**. Enter a new secret, then click **Save changes**.
-1. On your app's settings page, under "Private keys," click **Generate a private key**. You will see a private key `.pem` file downloaded to your computer.
+1. In your `.env` file, replace `YOUR_WEBHOOK_SECRET` with the webhook secret for your app. If you have forgotten your webhook secret, under "Webhook secret (optional)", click **Change secret**. Enter a new secret, then click **Save changes**.
+1. On your app's settings page, under "Private keys", click **Generate a private key**. You will see a private key `.pem` file downloaded to your computer.
 1. Open the `.pem` file with a text editor, or use the following command on the command line to display the contents of the file: `cat PATH/TO/YOUR/private-key.pem`.
 1. Copy and paste the entire contents of the file into your `.env` file as the value of `GITHUB_PRIVATE_KEY`, and add double quotes around the entire value.
 
@@ -613,7 +613,7 @@ Open the `server.rb` file that you created in "[Add code for your {% data variab
   end
 ```
 
-Under `post '/event_handler' do`, where it says `# ADD EVENT HANDLING HERE  #`, add the following code. This route will handle the `check_suite` event.
+In the code block that starts with `post '/event_handler' do`, where it says `# ADD EVENT HANDLING HERE  #`, add the following code. This route will handle the `check_suite` event.
 
 ```ruby copy
     # Get the event type from the HTTP_X_GITHUB_EVENT header
@@ -822,7 +822,7 @@ You can pass specific files or entire directories for RuboCop to check. In this 
    m.display
    ```
 
-1. Commit the file to your repository.
+1. If you created the file locally, make sure you commit and push the file to your repository on {% data variables.product.prodname_dotcom %}.
 
 ## Step 2.2. Clone the repository
 
@@ -843,7 +843,7 @@ require 'git'
 Next you'll need to update your {% data variables.product.prodname_github_app %}'s permissions. Your app will need read permission for "Contents" to clone a repository. And later in this tutorial, it will need write permission to push contents to {% data variables.product.prodname_dotcom %}. To update your app's permissions:
 
 1. Select your app from the [app settings page](https://github.com/settings/apps), and click **Permissions & events** in the sidebar.
-1. Under "Repository permissions," next to "Contents," select **Read & write**.
+1. Under "Repository permissions", next to "Contents", select **Read & write**.
 {% data reusables.apps.accept_new_permissions_steps %}
 
 ### Add code to clone a repository
@@ -904,13 +904,13 @@ First, you'll add code to run RuboCop and save the style code errors in JSON for
 In the code block that starts with `helpers do`, find the `initiate_check_run` helper method. Inside that helper method, under `clone_repository(full_repo_name, repository, head_sha)`, where it says `# ADD CODE HERE TO RUN RUBOCOP #`, add the following code:
 
 ```ruby copy
-    # Run RuboCop on all files in the repository
-    @report = `rubocop '#{repository}' --format json`
-    logger.debug @report
-    `rm -rf #{repository}`
-    @output = JSON.parse @report
+        # Run RuboCop on all files in the repository
+        @report = `rubocop '#{repository}' --format json`
+        logger.debug @report
+        `rm -rf #{repository}`
+        @output = JSON.parse @report
 
-    # ADD ANNOTATIONS CODE HERE #
+        # ADD ANNOTATIONS CODE HERE #
 ```
 
 The code above runs RuboCop on all files in the repository's directory. The option `--format json` saves a copy of the linting results in a machine-parsable format. For more information, and an example of the JSON format, see "[JSON Formatter](https://docs.rubocop.org/rubocop/formatters.html#json-formatter)" in the RuboCop docs. This code also parses the JSON so you can easily access the keys and values in your {% data variables.product.prodname_github_app %} using the `@output`  variable.
@@ -1075,9 +1075,9 @@ For the `summary`, this example uses the summary information from RuboCop and ad
 Under the code you added in the previous step, where it says `# ADD CODE HERE TO UPDATE CHECK RUN SUMMARY #`, add the following code:
 
 ``` ruby copy
-    # Updated check run summary and text parameters
-    summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_count']}\n-File count: #{@output['summary']['target_file_count']}\n-Target file count: #{@output['summary']['inspected_file_count']}"
-    text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
+        # Updated check run summary and text parameters
+        summary = "Octo RuboCop summary\n-Offense count: #{@output['summary']['offense_count']}\n-File count: #{@output['summary']['target_file_count']}\n-Target file count: #{@output['summary']['inspected_file_count']}"
+        text = "Octo RuboCop version: #{@output['metadata']['rubocop_version']}"
 ```
 
 Now your code should have all the information it needs to update your check run. In "[Step 1.3. Update a check run](#step-13-update-a-check-run)," you added code to set the status of the check run to `success`. You'll need to update that code to use the `conclusion` variable you set based on the RuboCop results (to `success` or `neutral`). Here's the code you added previously to your `server.rb` file:
@@ -1096,25 +1096,25 @@ Now your code should have all the information it needs to update your check run.
 Replace that code with the following code:
 
 ```ruby copy
-    # Mark the check run as complete! And if there are warnings, share them.
-    @installation_client.update_check_run(
-      @payload['repository']['full_name'],
-      @payload['check_run']['id'],
-      status: 'completed',
-      conclusion: conclusion,
-      output: {
-        title: 'Octo RuboCop',
-        summary: summary,
-        text: text,
-        annotations: annotations
-      },
-      actions: [{
-        label: 'Fix this',
-        description: 'Automatically fix all linter notices.',
-        identifier: 'fix_rubocop_notices'
-      }],
-      accept: 'application/vnd.github+json'
-    )
+        # Mark the check run as complete! And if there are warnings, share them.
+        @installation_client.update_check_run(
+          @payload['repository']['full_name'],
+          @payload['check_run']['id'],
+          status: 'completed',
+          conclusion: conclusion,
+          output: {
+            title: 'Octo RuboCop',
+            summary: summary,
+            text: text,
+            annotations: annotations
+          },
+          actions: [{
+            label: 'Fix this',
+            description: 'Automatically fix all linter notices.',
+            identifier: 'fix_rubocop_notices'
+          }],
+          accept: 'application/vnd.github+json'
+        )
 ```
 
 Now that your code sets a conclusion based on the status of the CI test, and adds the output from the RuboCop results, you've created a CI test.
