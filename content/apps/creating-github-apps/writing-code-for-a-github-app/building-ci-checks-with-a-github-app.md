@@ -757,8 +757,6 @@ The following steps will show you how to test that the code works, and that the 
 
 Now that you've got the interface created to receive API events and create check runs, you can create a check run that implements a CI test.
 
-Your app will run RuboCop on the CI server, and create check runs (CI tests in this case) that report the results that RuboCop reports to {% data variables.product.prodname_dotcom %}.
-
 RuboCop is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the Ruby Style Guide. For more information, see the [RuboCop documentation](https://rubocop.readthedocs.io/en/latest/).
 
 RuboCop has three primary functions:
@@ -766,6 +764,8 @@ RuboCop has three primary functions:
 * Linting to check code style
 * Code formatting
 * Replaces the native Ruby linting capabilities using `ruby -w`
+
+Your app will run RuboCop on the CI server, and create check runs (CI tests in this case) that report the results that RuboCop reports to {% data variables.product.prodname_dotcom %}.
 
 The REST API allows you to report rich details about each check run, including statuses, images, summaries, annotations, and requested actions.
 
