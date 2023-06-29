@@ -32,8 +32,8 @@ shortTitle: Install on VMware
 
 {% data reusables.enterprise_installation.download-license %}
 {% data reusables.enterprise_installation.download-appliance %}
-4. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **VMware ESXi/vSphere (OVA)**.
-5. Click **Download for VMware ESXi/vSphere (OVA)**.
+1. Under "{% data variables.product.prodname_dotcom %} On-premises", select the "Select your hypervisor" dropdown menu and click **VMware ESXi/vSphere (OVA)**.
+1. Click **Download for VMware ESXi/vSphere (OVA)**.
 
 ## Creating the {% data variables.product.prodname_ghe_server %} instance
 

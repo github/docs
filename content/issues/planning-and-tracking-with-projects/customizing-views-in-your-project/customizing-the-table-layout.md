@@ -41,7 +41,7 @@ You can change the order of fields.
 
    ![Screenshot showing three field headers. One of the headers is highlighted with an orange outline.](/assets/images/help/projects-v2/select-field-header.png)
 
-2. While continuing to click, drag the field to the required location.
+1. While continuing to click, drag the field to the required location.
 
 ## Reordering rows
 
@@ -51,7 +51,7 @@ You can change the order of rows.
 
    ![Screenshot showing three rows on a table layout. One of the row numbers is highlighted with an orange outline.](/assets/images/help/projects-v2/select-row-number.png)
 
-2. While continuing to click, drag the row to the required location.
+1. While continuing to click, drag the row to the required location.
 
 ## Sorting by field values
 

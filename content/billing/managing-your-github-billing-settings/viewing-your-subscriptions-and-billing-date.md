@@ -33,6 +33,7 @@ shortTitle: Subscriptions & billing date
 {% data reusables.dotcom_billing.next_billing_date %}
 
 {% ifversion ghec %}
+
 ## Finding your enterprise account's next billing date
 
 {% data reusables.enterprise-accounts.billing-perms %}

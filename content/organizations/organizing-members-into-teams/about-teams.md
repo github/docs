@@ -72,9 +72,9 @@ If your organization already has existing teams, you should audit each team's re
 At the top of the team hierarchy, you should give parent teams repository access permissions that are safe for every member of the parent team and its child teams. As you move toward the bottom of the hierarchy, you can grant child teams additional, more granular access to more sensitive repositories.
 
 1. Remove all members from existing teams
-2. Audit and adjust each team's repository access permissions and give each team a parent
-3. Create any new teams you'd like to, choose a parent for each new team, and give them repository access
-4. Add people directly to teams
+1. Audit and adjust each team's repository access permissions and give each team a parent
+1. Create any new teams you'd like to, choose a parent for each new team, and give them repository access
+1. Add people directly to teams
 
 ## Further reading
 

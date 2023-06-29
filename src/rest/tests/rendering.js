@@ -1,12 +1,10 @@
 import { jest, test } from '@jest/globals'
 import { slug } from 'github-slugger'
-import { readdirSync, readFileSync } from 'fs'
-import path from 'path'
 
 import { get, getDOM } from '../../../tests/helpers/e2etest.js'
 import { isApiVersioned, allVersions } from '../../../lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
-import getRest, { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '#src/rest/lib/index.js'
+import getRest from '#src/rest/lib/index.js'
 
 describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -27,38 +25,57 @@ describe('REST references docs', () => {
     }
   })
 
-  test('all category and subcategory REST pages render for free-pro-team', async () => {
-    // This currently just grabs the 'free-pro-team' schema, but ideally, we'd
-    // get a list of all categories across all versions.
-    const freeProTeamVersion = readdirSync(REST_DATA_DIR)
-      .filter((file) => file.startsWith('fpt'))
-      .shift()
-    const freeProTeamSchema = JSON.parse(
-      readFileSync(path.join(REST_DATA_DIR, freeProTeamVersion, REST_SCHEMA_FILENAME), 'utf8')
-    )
-
-    const restCategories = Object.entries(freeProTeamSchema)
-      .map(([key, subCategory]) => {
-        const subCategoryKeys = Object.keys(subCategory)
-        if (subCategoryKeys.length === 1) {
-          return key
-        } else {
-          return subCategoryKeys.map((elem) => `${key}/${elem}`)
-        }
-      })
-      .flat()
-
-    const statusCodes = await Promise.all(
-      restCategories.map(async (page) => {
-        const url = `/en/rest/${page}`
-        const res = await get(url)
-        return [url, res.statusCode]
-      })
-    )
-    for (const [url, status] of statusCodes) {
-      expect(status, url).toBe(200)
+  // These tests exists because of issue #1960
+  test('rest subcategory with fpt in URL', async () => {
+    for (const category of [
+      'migrations',
+      'actions',
+      'activity',
+      'apps',
+      'billing',
+      'checks',
+      'codes-of-conduct',
+      'code-scanning',
+      'codespaces',
+      'emojis',
+      'gists',
+      'git',
+      'gitignore',
+      'interactions',
+      'issues',
+      'licenses',
+      'markdown',
+      'meta',
+      'orgs',
+      'projects',
+      'pulls',
+      'rate-limit',
+      'reactions',
+      'repos',
+      'scim',
+      'search',
+      'teams',
+      'users',
+    ]) {
+      // Without language prefix
+      {
+        const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
+        expect(res.statusCode).toBe(302)
+        expect(
+          res.headers.location === `/en/rest/${category}` ||
+            res.headers.location === `/en/rest/${category}/${category}`
+        )
+      }
+      // With language prefix
+      {
+        const res = await get(`/en/free-pro-team@latest/rest/reference/${category}`)
+        expect(res.statusCode).toBe(301)
+        expect(
+          res.headers.location === `/en/rest/${category}` ||
+            res.headers.location === `/en/rest/${category}/${category}`
+        )
+      }
     }
-    expect.assertions(restCategories.length)
   })
 
   test('test the latest version of the OpenAPI schema categories/subcategories to see if it matches the content/rest directory', async () => {

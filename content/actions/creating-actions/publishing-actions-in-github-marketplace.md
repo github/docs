@@ -24,6 +24,7 @@ Actions are published to {% data variables.product.prodname_marketplace %} immed
 
 - The action must be in a public repository.
 - Each repository must contain a single action.
+- Each repository must _not_ contain any workflow files.
 - The action's metadata file (`action.yml` or `action.yaml`) must be in the root directory of the repository.
 - The `name` in the action's metadata file must be unique.
   - The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
@@ -60,8 +61,8 @@ To remove a published action from {% data variables.product.prodname_marketplace
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 {% data reusables.releases.edit-release %}
-4. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
-5. Click **Update release** at the bottom of the page.
+1. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
+1. Click **Update release** at the bottom of the page.
 
 ## About badges in {% data variables.product.prodname_marketplace %}
 

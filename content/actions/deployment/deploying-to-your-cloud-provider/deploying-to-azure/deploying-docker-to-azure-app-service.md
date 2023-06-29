@@ -20,7 +20,7 @@ topics:
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Docker container to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 {% note %}
 
@@ -63,9 +63,10 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
         --name MY_WEBAPP_NAME \
         --resource-group MY_RESOURCE_GROUP \
         --settings DOCKER_REGISTRY_SERVER_URL=https://ghcr.io DOCKER_REGISTRY_SERVER_USERNAME=MY_REPOSITORY_OWNER DOCKER_REGISTRY_SERVER_PASSWORD=MY_PERSONAL_ACCESS_TOKEN
+
 ```
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+1. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 
 ## Creating the workflow
 

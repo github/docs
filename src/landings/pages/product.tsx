@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 // typically operating on elements **within** an article.
 import copyCode from 'components/lib/copy-code'
 import toggleAnnotation from 'components/lib/toggle-annotations'
-import localization from 'components/lib/localization'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
@@ -40,7 +39,6 @@ import { useEffect } from 'react'
 
 function initiateArticleScripts() {
   copyCode()
-  localization()
   wrapCodeTerms()
   toggleAnnotation()
 }

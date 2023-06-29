@@ -135,6 +135,7 @@ If the repository belongs to an organization and you're using an SSH key generat
 For more information, see [Adding a new SSH key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
 {% ifversion ghes %}
+
 ### Check if your instance is in private mode
 
 If your site administrator has enabled private mode on your GitHub Enterprise instance, anonymous clones over `git://` will be disabled. If you are unable to clone a repository, contact your site administrator.

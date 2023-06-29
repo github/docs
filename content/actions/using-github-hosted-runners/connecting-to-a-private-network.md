@@ -20,7 +20,8 @@ By default, {% data variables.product.prodname_dotcom %}-hosted runners have acc
 
 {% data variables.product.prodname_dotcom %}-hosted runners are shared across all {% data variables.product.prodname_dotcom %} customers, so you will need a way of connecting your private network to just your runners while they are running your workflows. There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
+
 ### Using an API Gateway with OIDC
 
 With {% data variables.product.prodname_actions %}, you can use OpenID Connect (OIDC) tokens to authenticate your workflow outside of {% data variables.product.prodname_actions %}. For example, you could run an API Gateway on the edge of your private network that authenticates incoming requests with the OIDC token and then makes API requests on behalf of your workflow in your private network.

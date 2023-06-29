@@ -6,6 +6,7 @@
 The following example demonstrates how these different types of variables can be used together in a job:
 
 {% raw %}
+
 ```yaml
 name: CI
 on: push
@@ -16,6 +17,7 @@ jobs:
     steps:
       - run: echo "Deploying to production server on branch $GITHUB_REF"
 ```
+
 {% endraw %}
 
 In this example, the `if` statement checks the [`github.ref`](/actions/learn-github-actions/contexts#github-context) context to determine the current branch name; if the name is `refs/heads/main`, then the subsequent steps are executed. The `if` check is processed by {% data variables.product.prodname_actions %}, and the job is only sent to the runner if the result is `true`. Once the job is sent to the runner, the step is executed and refers to the [`$GITHUB_REF`](/actions/learn-github-actions/variables#default-environment-variables) variable from the runner.

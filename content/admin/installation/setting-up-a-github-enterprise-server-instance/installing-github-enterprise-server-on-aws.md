@@ -61,36 +61,41 @@ AMIs for {% data variables.product.prodname_ghe_server %} are available in the A
 ### Using the {% data variables.product.prodname_ghe_server %} portal to select an AMI
 
 {% data reusables.enterprise_installation.download-appliance %}
-3. Under "{% data variables.product.prodname_dotcom %} in the Cloud", select the "Select your platform" dropdown menu, and click **Amazon Web Services**.
-4. Select the "Select your AWS region" drop-down menu, and click your desired region.
-5. Take note of the AMI ID that is displayed.
+1. Under "{% data variables.product.prodname_dotcom %} in the Cloud", select the "Select your platform" dropdown menu, and click **Amazon Web Services**.
+1. Select the "Select your AWS region" drop-down menu, and click your desired region.
+1. Take note of the AMI ID that is displayed.
 
 ### Using the AWS CLI to select an AMI
 
 1. Using the AWS CLI, get a list of {% data variables.product.prodname_ghe_server %} images published by {% data variables.product.prodname_dotcom %}'s AWS owner IDs (`025577942450` for GovCloud, and `895557238572` for other regions). For more information, see "[describe-images](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html)" in the AWS documentation.
+
    ```shell
    aws ec2 describe-images \
    --owners OWNER_ID \
    --query 'sort_by(Images,&Name)[*].{Name:Name,ImageID:ImageId}' \
    --output=text
    ```
-2. Take note of the AMI ID for the latest {% data variables.product.prodname_ghe_server %} image.
+
+1. Take note of the AMI ID for the latest {% data variables.product.prodname_ghe_server %} image.
 
 ## Creating a security group
 
 If you're setting up your AMI for the first time, you will need to create a security group and add a new security group rule for each port in the table below. For more information, see the AWS guide "[Using Security Groups](https://docs.aws.amazon.com/cli/latest/userguide/cli-ec2-sg.html)."
 
 1. Using the AWS CLI, create a new security group. For more information, see "[create-security-group](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-security-group.html)" in the AWS documentation.
+
    ```shell
-   $ aws ec2 create-security-group --group-name SECURITY_GROUP_NAME --description "SECURITY GROUP DESCRIPTION"
+   aws ec2 create-security-group --group-name SECURITY_GROUP_NAME --description "SECURITY GROUP DESCRIPTION"
    ```
 
-2. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
+1. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
 
-3. Create a security group rule for each of the ports in the table below. For more information, see "[authorize-security-group-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html)" in the AWS documentation.
+1. Create a security group rule for each of the ports in the table below. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)," and [`authorize-security-group-ingress`](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) in the AWS documentation.
+
    ```shell
-   $ aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE
+   aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE
    ```
+
   This table identifies what each port is used for.
 
   {% data reusables.enterprise_installation.necessary_ports %}

@@ -51,7 +51,7 @@ You cannot create a default license file. License files must be added to individ
    ![Screenshot of the owner menu for a new {% data variables.product.prodname_dotcom %} repository. The menu shows two options, octocat and github.](/assets/images/help/repository/create-repository-owner.png)
 1. In the "Repository name" field, type **.github**.
 1. Optionally, in the "Description" field, type a description.
-2. Make sure the repository status is set to **Public**. A repository for default files cannot be private.
+1. Make sure the repository status is set to **Public**. A repository for default files cannot be private.
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
 1. In the repository, create one of the supported community health files. Issue templates{% ifversion fpt or ghes or ghec %} and their configuration file{% endif %} must be in a folder called `.github/ISSUE_TEMPLATE`. All other supported files may be in the root of the repository, the `.github` folder, or the `docs` folder. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."

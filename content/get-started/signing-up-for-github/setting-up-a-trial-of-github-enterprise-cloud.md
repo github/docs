@@ -87,4 +87,4 @@ If you cancel your trial, all enterprise owners and members also lose access to 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
-6. Follow the prompts.
+1. Follow the prompts.

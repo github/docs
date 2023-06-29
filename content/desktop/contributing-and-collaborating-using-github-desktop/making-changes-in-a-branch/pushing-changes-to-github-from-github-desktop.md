@@ -38,6 +38,7 @@ If you configure {% data variables.large_files.product_name_long %} to track you
    ![Screenshot of the "No local changes" view. A button, labeled "Preview Pull Request", is highlighted with an orange outline.](/assets/images/help/desktop/mac-preview-pull-request.png)
 
 ## Further reading
+
 - "[AUTOTITLE](/get-started/quickstart/github-glossary#push)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)"
 - "[AUTOTITLE](/get-started/using-git)"

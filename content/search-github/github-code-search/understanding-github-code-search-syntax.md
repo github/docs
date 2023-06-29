@@ -175,6 +175,7 @@ For example, to search for files with the extension `txt`, you can use:
 ```
 path:*.txt
 ```
+
 <br>
 To search for JavaScript files within a `src` directory, you could use:
 
@@ -187,11 +188,13 @@ path:src/*.js
     ```
     path:/src/*.js
     ```
+
 - Note that `*` doesn't match the `/` character, so for the above example, all results will be direct descendants of the `src` directory. To match within subdirectories, so that results include deeply nested files such as `/src/app/testing/utils/example.js`, you can use `**`. For example:
 
     ```
     path:/src/**/*.js
     ```
+
 <br>
 
 You can also use the `?` global character. For example, to match the path `file.aac` or `file.abc`, you can use:
@@ -199,6 +202,7 @@ You can also use the `?` global character. For example, to match the path `file.
 ```
 path:*.a?c
 ```
+
 <br>
 To search for a filename which contains a special character like `*` or `?`, just use a quoted string:
 

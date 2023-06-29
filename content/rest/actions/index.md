@@ -1,6 +1,8 @@
 ---
 title: Actions
-intro: 'Use the REST API to interact with {% data variables.product.prodname_actions %} for an organization or repository.'
+intro: >-
+  Use the REST API to interact with {% data variables.product.prodname_actions
+  %} for an organization or repository.
 redirect_from:
   - /v3/actions
   - /rest/reference/actions
@@ -16,11 +18,10 @@ children:
   - /cache
   - /oidc
   - /permissions
-  - /required-workflows
   - /secrets
-  - /variables
   - /self-hosted-runner-groups
   - /self-hosted-runners
+  - /variables
   - /workflow-jobs
   - /workflow-runs
   - /workflows

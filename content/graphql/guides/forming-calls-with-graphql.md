@@ -89,8 +89,8 @@ For a real-world example, see "[Example query](#example-query)."
 To form a mutation, you must specify three things:
 
 1. _Mutation name_. The type of modification you want to perform.
-2. _Input object_. The data you want to send to the server, composed of _input fields_. Pass it as an argument to the mutation name.
-3. _Payload object_. The data you want to return from the server, composed of _return fields_. Pass it as the body of the mutation name.
+1. _Input object_. The data you want to send to the server, composed of _input fields_. Pass it as an argument to the mutation name.
+1. _Payload object_. The data you want to return from the server, composed of _return fields_. Pass it as the body of the mutation name.
 
 Mutations are structured like this:
 
@@ -146,7 +146,7 @@ There are three steps to using variables:
 
    The object must be valid JSON. This example shows a simple `Int` variable type, but it's possible to define more complex variable types, such as input objects. You can also define multiple variables here.
 
-2. Pass the variable to the operation as an argument:
+1. Pass the variable to the operation as an argument:
 
    ```graphql
    query($number_of_repos:Int!){
@@ -154,7 +154,7 @@ There are three steps to using variables:
 
    The argument is a key-value pair, where the key is the _name_ starting with `$` (e.g., `$number_of_repos`), and the value is the _type_ (e.g., `Int`). Add a `!` to indicate whether the type is required. If you've defined multiple variables, include them here as multiple arguments.
 
-3. Use the variable within the operation:
+1. Use the variable within the operation:
 
    ```graphql
    repositories(last: $number_of_repos) {
@@ -247,7 +247,7 @@ You may notice that running this query on the Octocat's {% ifversion not ghae %}
 Mutations often require information that you can only find out by performing a query first. This example shows two operations:
 
 1. A query to get an issue ID.
-2. A mutation to add an emoji reaction to the issue.
+1. A mutation to add an emoji reaction to the issue.
 
 ```graphql
 query FindIssueID {

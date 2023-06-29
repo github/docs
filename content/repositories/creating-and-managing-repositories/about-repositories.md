@@ -76,6 +76,7 @@ Organization owners always have access to every repository created in an organiz
 People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
 
 {% ifversion ghes or ghec or ghae %}
+
 ## About internal repositories
 
 {% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."

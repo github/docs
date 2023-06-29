@@ -1005,6 +1005,7 @@ Return type fields:
 - `discussion: Discussion` The discussion that was modified.
 
 ### deleteDiscussion
+
 Input fields:
 
 - `id: ID!` The node ID of the discussion to delete.
