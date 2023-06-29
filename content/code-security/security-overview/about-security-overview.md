@@ -24,9 +24,7 @@ topics:
 shortTitle: Security overview
 ---
 
-{% ifversion ghae %}
 {% data reusables.security-overview.beta %}
-{% endif %}
 
 ## About security overview
 
