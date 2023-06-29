@@ -784,7 +784,7 @@ These are the steps you'll complete in this section:
 
 ## Step 2.1. Add a Ruby file
 
-You can pass specific files or entire directories for RuboCop to check. In this tutorial, you'll run RuboCop on an entire directory. RuboCop only checks Ruby code. To test your {% data variables.product.prodname_github_app %}, you'll need to add a Ruby file in your repository that contains errors for RuboCop to find.
+You can pass specific files or entire directories for RuboCop to check. In this tutorial, you'll run RuboCop on an entire directory. RuboCop only checks Ruby code. To test your {% data variables.product.prodname_github_app %}, you'll need to add a Ruby file in your repository that contains errors for RuboCop to find. After adding the following Ruby file to your repository, you will update your CI check to run RuboCop on the code.
 
 1. When you installed the app on your account, you granted the app access to one or more repositories. Navigate to one of those repositories.
 2. Create a new file named `myfile.rb`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
