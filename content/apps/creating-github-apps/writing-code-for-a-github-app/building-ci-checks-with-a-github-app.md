@@ -193,7 +193,7 @@ This section will show you how to add some basic template code for your {% data 
 Add the following template code to your `server.rb` file:
 
 ```ruby copy
-require 'sinatra'     # Use the Sinatra web framework
+require 'sinatra/base'     # Use the Sinatra web framework
 require 'octokit'     # Use the Octokit Ruby library to interact with GitHub's REST API
 require 'dotenv/load' # Manages environment variables
 require 'json'        # Allows your app to manipulate JSON data
