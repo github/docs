@@ -410,7 +410,7 @@ Sinatra uses before filters that allow you to execute code before the route hand
 
 Each of these helper methods are defined later in the code, in the code block that starts with `helpers do`. For more information, see "[Define the helper methods](#define-the-helper-methods)."
 
-Under `verify_webhook_signature`, the code that starts with `unless @payload` is a security measure. If a repository name is provided with a webhook payload, this code validates that the repository name contains only Latin alphabetic characters, hyphens, and underscores. This helps ensure that a bad actor isn't attempting to execute arbitrary commands or inject false repository names. Later in the code, under `helpers do`, the `verify_webhook_signature` helper method also validates incoming webhook payloads as an additional security measure.
+Under `verify_webhook_signature`, the code that starts with `unless @payload` is a security measure. If a repository name is provided with a webhook payload, this code validates that the repository name contains only Latin alphabetic characters, hyphens, and underscores. This helps ensure that a bad actor isn't attempting to execute arbitrary commands or inject false repository names. Later, in the code block that starts with `helpers do`, the `verify_webhook_signature` helper method also validates incoming webhook payloads as an additional security measure.
 
 #### Define a route handler
 
@@ -625,7 +625,7 @@ The `requested` action requests a check run each time code is pushed to the repo
 
 You'll add this new method as a [Sinatra helper](https://github.com/sinatra/sinatra#helpers) in case you want other routes to use it too.
 
-Under `helpers do`, where it says `# ADD CREATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
+In the code block that starts with `helpers do`, where it says `# ADD CREATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
 
 ```ruby copy
     # Create a new check run with status "queued"
@@ -677,7 +677,7 @@ When your `create_check_run` method runs, it asks {% data variables.product.prod
 
 You'll update your event handler to look for the `created` action. While you're updating the event handler, you can add a conditional for the `rerequested` action. When someone re-runs a single test on {% data variables.product.prodname_dotcom %} by clicking the "Re-run" button, {% data variables.product.prodname_dotcom %} sends the `rerequested` check run event to your app. When a check run is `rerequested`, you'll start the process all over and create a new check run. To do that, you'll include a condition for the `check_run` event in the `post '/event_handler'` route.
 
-Under `post '/event_handler' do`, where it says `# ADD CHECK_RUN METHOD HERE #`, add the following code:
+In the code block that starts with `post '/event_handler' do`, where it says `# ADD CHECK_RUN METHOD HERE #`, add the following code:
 
 ```ruby copy
     when 'check_run'
@@ -701,7 +701,7 @@ In this section, you're not going to kick off the CI test yet, but you'll walk t
 
 Let's create the `initiate_check_run` method and update the status of the check run.
 
-Under `helpers do`, where it says `# ADD INITIATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
+In the code block that starts with `helpers do`, where it says `# ADD INITIATE_CHECK_RUN HELPER METHOD HERE #`, add the following code:
 
 ```ruby copy
     # Start the CI process
@@ -846,7 +846,7 @@ The command above clones a repository over HTTP. It requires the full repository
 
 After your app clones the repository, it needs to pull the latest code changes and check out a specific Git ref. The code to do all of this will fit nicely into its own method. To perform these operations, the method needs the name and full name of the repository and the ref to checkout. The ref can be a commit SHA, branch, or tag.
 
-Open your `server.rb` file. Under `helpers do`, where it says `# ADD CLONE_REPOSITORY HELPER METHOD HERE #`, add the following code:
+Open your `server.rb` file. In the code block that starts with `helpers do`, where it says `# ADD CLONE_REPOSITORY HELPER METHOD HERE #`, add the following code:
 
 ```ruby copy
     # Clones the repository to the current working directory, updates the
@@ -871,7 +871,7 @@ From the repository directory, this code fetches and merges the latest changes (
 
 Now you've got a method that clones a repository and checks out a ref. Next, you need to add code to get the required input parameters and call the new `clone_repository` method.
 
-Under `helpers do`, in the `initiate_check_run` helper method where it says `# ***** RUN A CI TEST *****`, add the following code:
+In the code block that starts with `helpers do`, in the `initiate_check_run` helper method where it says `# ***** RUN A CI TEST *****`, add the following code:
 
 ```ruby copy
     full_repo_name = @payload['repository']['full_name']
@@ -891,7 +891,7 @@ So far, your code clones the repository and creates check runs using your CI ser
 
 First, you'll add code to run RuboCop and save the style code errors in JSON format.
 
-Under `clone_repository`, where it says `# ADD CODE HERE TO RUN RUBOCOP #`, add the following code:
+In the code block that starts with `helpers do`, find the `initiate_check_run` helper method. Inside that helper method, under `clone_repository(full_repo_name, repository, head_sha)`, where it says `# ADD CODE HERE TO RUN RUBOCOP #`, add the following code:
 
 ```ruby copy
     # Run RuboCop on all files in the repository
@@ -1173,7 +1173,7 @@ After the `rerequested` case, where it says `# ADD REQUESTED_ACTION METHOD HERE 
 
 This code calls a new method that will handle all `requested_action` events for your app.
 
-Under `helpers do`, where it says `# ADD TAKE_REQUESTED_ACTION HELPER METHOD HERE #`, add the following helper method:
+In the code block that starts with `helpers do`, where it says `# ADD TAKE_REQUESTED_ACTION HELPER METHOD HERE #`, add the following helper method:
 
 ```ruby copy
     # Handles the check run `requested_action` event
