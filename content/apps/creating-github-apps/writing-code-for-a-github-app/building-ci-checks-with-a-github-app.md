@@ -1581,15 +1581,14 @@ This tutorial used your computer or codespace as a server. Once the app is ready
 
 Once you have a server that is set up to receive webhook traffic from {% data variables.product.company_short %}, update the webhook URL in your app settings. You should not use Smee.io to forward your webhooks in production.
 
-#### Update the `port` and `host` constants
+#### Update the `:port` setting
 
-When you deploy your app, you will want to change the host and port where your server is listening.
+When you deploy your app, you will want to change the port where your server is listening. The code already tells your server to listen to all available network interfaces by setting `:bind` to `0.0.0.0`.
 
-For example, you can set a `PORT` environment variable on your server to indicate the port where your server should listen. You can set a `NODE_ENV` environment variable on your server to `production`. Then, you can update the place where your code defines the `port` and `host` constants so that your server listens to all available network interfaces (`0.0.0.0`) instead of the local network interface (`localhost`) on your deployment port:
+For example, you can set a `PORT` variable in your `.env` file on your server to indicate the port where your server should listen. Then, you can update the place where your code sets `:port` so that your server listens on your deployment port:
 
 ```javascript copy
-const port = process.env.PORT || 3000;
-const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
+set :port, ENV['PORT']
 ```
 
 #### Secure your app's credentials
