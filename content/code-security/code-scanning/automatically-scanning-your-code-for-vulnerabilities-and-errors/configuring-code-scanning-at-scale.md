@@ -49,6 +49,17 @@ You can use the organization settings page for "Code security and analysis" to e
 
 A repository must meet all the following criteria to be eligible for default setup, otherwise you need to use advanced setup.
 
+{% ifversion code-scanning-without-workflow-310 %}
+
+- {% data variables.product.prodname_code_scanning_caps %} is not already enabled.
+- {% data variables.product.prodname_actions %} are enabled.
+- Uses {% ifversion code-scanning-default-setup-go %} Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% ifversion fpt %}
+- Publicly visible.{%- elsif ghec %}
+- Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes or ghae %}
+- {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+
+{% else %}
+
 - {% data variables.product.prodname_code_scanning_caps %} is not already enabled.
 - {% data variables.product.prodname_actions %} are enabled.
 - Uses {% ifversion code-scanning-default-setup-go %} Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.
@@ -56,6 +67,8 @@ A repository must meet all the following criteria to be eligible for default set
 - {% ifversion fpt %}Publicly visible.
    {%- elsif ghec %}Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.
    {%- elsif ghes or ghae %}{% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+
+{% endif %}
 
 {% data reusables.code-scanning.limitation-org-enable-all %}
 
