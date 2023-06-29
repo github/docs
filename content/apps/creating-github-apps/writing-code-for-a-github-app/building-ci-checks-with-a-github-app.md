@@ -108,7 +108,7 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
    ```
 1. In your browser, navigate to https://smee.io/.
 1. Click **Start a new channel**.
-1. Copy the full URL under "Webhook Proxy URL." You will use this URL in the following step, and during the app registration steps in the next section.
+1. Copy the full URL under "Webhook Proxy URL."
 1. In the terminal, run the following command to start the Smee client. Replace `YOUR_DOMAIN` with the Webhook Proxy URL you copied in the previous step.
    ```shell copy
    smee --url YOUR_DOMAIN --path /event_handler --port 3000
