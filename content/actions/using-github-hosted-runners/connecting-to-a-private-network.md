@@ -20,7 +20,7 @@ By default, {% data variables.product.prodname_dotcom %}-hosted runners have acc
 
 {% data variables.product.prodname_dotcom %}-hosted runners are shared across all {% data variables.product.prodname_dotcom %} customers, so you will need a way of connecting your private network to just your runners while they are running your workflows. There are a few different approaches you could take to configure this access, each with different advantages and disadvantages.
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 ### Using an API Gateway with OIDC
 

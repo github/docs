@@ -56,15 +56,6 @@ You can perform initial validation of your maintenance operation by configuring 
 
 ## Validating changes in maintenance mode using the IP exception list
 
-{% ifversion ghes = 3.4 %}
-
-{% note %}
-
-**Note**: To validate changes in maintenance mode using the IP exception list, your {% data variables.product.product_name %} instance must be running version 3.4.4 or later.
-
-{% endnote %}
-
-{% endif %}
 
 The IP exception list provides controlled and restricted access to {% data variables.location.product_location %}, which is ideal for initial validation of server health following a maintenance operation. Once enabled, {% data variables.location.product_location %} will be taken out of maintenance mode and available only to the configured IP addresses. The maintenance mode checkbox will be updated to reflect the change in state.
 

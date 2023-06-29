@@ -1,14 +1,9 @@
-import { fileURLToPath } from 'url'
-import path from 'path'
-
 import { afterAll, beforeAll, expect, describe, it } from '@jest/globals'
 
 import Page from '../../../lib/page.js'
 import languages from '../../../lib/languages.js'
 import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
 import { DataDirectory } from '../../../tests/helpers/data-directory.js'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 describe('data tag', () => {
   let dd
@@ -35,7 +30,7 @@ describe('data tag', () => {
   it('should render fine if data is found', async () => {
     const page = await Page.init({
       relativePath: 'liquid-tags/good-data-variable.md',
-      basePath: path.join(__dirname, '../../fixtures'),
+      basePath: './tests/fixtures',
       languageCode: 'en',
     })
     const context = {
@@ -52,7 +47,7 @@ describe('data tag', () => {
   it('should throw if the data tag is used with something unrecognized', async () => {
     const page = await Page.init({
       relativePath: 'liquid-tags/bad-data-variable.md',
-      basePath: path.join(__dirname, '../../fixtures'),
+      basePath: './tests/fixtures',
       languageCode: 'en',
     })
     const context = {
