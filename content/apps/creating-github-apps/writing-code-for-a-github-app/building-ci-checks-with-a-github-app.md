@@ -109,9 +109,9 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
 1. In your browser, navigate to https://smee.io/.
 1. Click **Start a new channel**.
 1. Copy the full URL under "Webhook Proxy URL." You will use this URL in the following step, and during the app registration steps in the next section.
-1. In the terminal, run the following command to start the Smee client. Replace `https://smee.io/YOUR_DOMAIN` with the Webhook Proxy URL you copied in the previous step.
+1. In the terminal, run the following command to start the Smee client. Replace `YOUR_DOMAIN` with the Webhook Proxy URL you copied in the previous step.
    ```shell copy
-   smee --url https://smee.io/YOUR_DOMAIN --path /event_handler --port 3000
+   smee --url YOUR_DOMAIN --path /event_handler --port 3000
    ```
    You should see output like the following:
    ```shell
@@ -119,7 +119,7 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
    Connected https://smee.io/YOUR_DOMAIN
    ```
 
-The `smee --url https://smee.io/YOUR_DOMAIN` command tells Smee to forward all webhook events received by the Smee channel to the Smee client running on your computer. The `--path /event_handler` option forwards events to the `/event_handler` route. The `--port 3000` option specifies port 3000, which is the port we'll tell your server to listen to, when we add more code later in the tutorial. Using Smee, your machine does not need to be open to the public internet to receive webhooks from {% data variables.product.prodname_dotcom %}. You can also open that Smee URL in your browser to inspect webhook payloads as they come in.
+The `smee --url https://smee.io/YOUR_DOMAIN` command tells Smee to forward all webhook events received by the Smee channel to the Smee client running on your computer. The `--path /event_handler` option forwards events to the `/event_handler` route. The `--port 3000` option specifies port 3000, which is the port you will tell your server to listen to, when you add more code later in the tutorial. Using Smee, your machine does not need to be open to the public internet to receive webhooks from {% data variables.product.prodname_dotcom %}. You can also open that Smee URL in your browser to inspect webhook payloads as they come in.
 
 We recommend leaving this terminal window open and keeping Smee connected while you complete the rest of the steps in this guide. Although you can disconnect and reconnect the Smee client without losing your unique domain, you may find it easier to leave it connected and do other command-line tasks in a different terminal window.
 
