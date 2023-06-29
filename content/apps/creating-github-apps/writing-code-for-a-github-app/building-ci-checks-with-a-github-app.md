@@ -1307,7 +1307,6 @@ class GHAapp < Sinatra::Application
           take_requested_action
         end
       end
-
     end
 
     200 # success status
