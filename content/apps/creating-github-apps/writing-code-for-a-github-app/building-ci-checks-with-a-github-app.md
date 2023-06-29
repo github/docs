@@ -27,7 +27,7 @@ This tutorial uses Ruby, but you can use any programming language that you can r
 This tutorial is broken into two parts:
 
 - In part one, you'll learn how to set up the framework for a CI server using {% data variables.product.prodname_dotcom %}'s REST API, create new check runs for CI tests when a repository receives newly pushed commits, and re-run check runs when a user requests that action on {% data variables.product.prodname_dotcom %}.
-- In part two, you'll add a linter test to your CI server, create annotations that are displayed in the **Checks** and **Files Changed** tab of a pull request, and automatically fix linter recommendations by exposing a "Fix this" button in the **Checks** tab of the pull request.
+- In part two, you'll add functionality to your CI test, by adding a linter test to your CI server. You'll also create annotations that are displayed in the **Checks** and **Files Changed** tab of a pull request, and automatically fix linter recommendations by exposing a "Fix this" button in the **Checks** tab of the pull request.
 
 ### About continuous integration (CI)
 
@@ -753,7 +753,11 @@ The following steps will show you how to test that the code works, and that the 
 1. In the pull request you just created, navigate to the **Checks** tab. You should see a "Re-run all" button.
 1. Click the "Re-run all" button in the upper right corner. The test should run again, and end with `success`.
 
-## Part 2. Creating the Octo RuboCop CI test
+## Part 2. Creating a CI test
+
+Now that you've got the interface created to receive API events and create check runs, you can create a check run that implements a CI test.
+
+Your app will run RuboCop on the CI server, and create check runs (CI tests in this case) that report the results that RuboCop reports to {% data variables.product.prodname_dotcom %}.
 
 RuboCop is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the Ruby Style Guide. For more information, see the [RuboCop documentation](https://rubocop.readthedocs.io/en/latest/).
 
@@ -763,11 +767,7 @@ RuboCop has three primary functions:
 * Code formatting
 * Replaces the native Ruby linting capabilities using `ruby -w`
 
-Now that you've got the interface created to receive API events and create check runs, you can create a check run that implements a CI test.
-
-Your app will run RuboCop on the CI server, and create check runs (CI tests in this case) that report the results that RuboCop reports to {% data variables.product.prodname_dotcom %}.
-
-The checks API endpoints allow you to report rich details about each check run, including statuses, images, summaries, annotations, and requested actions.
+The REST API allows you to report rich details about each check run, including statuses, images, summaries, annotations, and requested actions.
 
 Annotations are information about specific lines of code in a repository. An annotation allows you to pinpoint and visualize the exact parts of the code you'd like to show additional information for. For example, you could show that information as a comment, error, or warning on a specific line of code. This tutorial uses annotations to visualize RuboCop errors.
 
