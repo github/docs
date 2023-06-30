@@ -157,25 +157,23 @@ which is declared as a dependency for `my-query-tests`. Therefore, `EmptyThen.ql
 
 1. Create a code snippet to test. The following Java code contains an empty `if` statement on the third line. Save it in `custom-queries/java/tests/EmptyThen/Test.java`.
 
-   ```java
-
-class Test {
-  public void problem(String arg) {
-    if (arg.isEmpty())
-      ;
-    {
-      System.out.println("Empty argument");
+  ```java
+  class Test {
+    public void problem(String arg) {
+      if (arg.isEmpty())
+        ;
+      {
+        System.out.println("Empty argument");
+      }
+    }
+  
+    public void good(String arg) {
+      if (arg.isEmpty()) {
+        System.out.println("Empty argument");
+      }
     }
   }
-
-  public void good(String arg) {
-    if (arg.isEmpty()) {
-      System.out.println("Empty argument");
-    }
-  }
-}
-
-   ```
+  ```
 
 ### Execute the test
 
