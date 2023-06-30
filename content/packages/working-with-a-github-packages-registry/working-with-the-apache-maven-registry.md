@@ -125,6 +125,7 @@ If your instance has subdomain isolation disabled:
   </servers>
 </settings>
 ```
+
 {% endif %}
 
 ## Publishing a package
@@ -138,6 +139,7 @@ For more information on creating a package, see the [maven.apache.org documentat
 1. Edit the `distributionManagement` element of the _pom.xml_ file located in your package directory, replacing {% ifversion ghes or ghae %}HOSTNAME with the host name of {% data variables.location.product_location %}, {% endif %}`OWNER` with the name of the personal account or organization that owns the repository and `REPOSITORY` with the name of the repository containing your project.{% ifversion ghes %}
 
    If your instance has subdomain isolation enabled:{% endif %}
+
    ```xml
    <distributionManagement>
       <repository>
@@ -157,10 +159,12 @@ For more information on creating a package, see the [maven.apache.org documentat
       </repository>
    </distributionManagement>
    ```{% endif %}
+
 {% data reusables.package_registry.checksum-maven-plugin %}
 1. Publish the package.
+
    ```shell
-   $ mvn deploy
+   mvn deploy
    ```
 
 {% data reusables.package_registry.viewing-packages %}
@@ -170,7 +174,7 @@ For more information on creating a package, see the [maven.apache.org documentat
 To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the _pom.xml_ file to include the package as a dependency. If you want to install packages from any repository for a specified repository owner, use a repository URL like `https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*`. For more information on using a _pom.xml_ file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
 
 {% data reusables.package_registry.authenticate-step %}
-2. Add the package dependencies to the `dependencies` element of your project _pom.xml_ file, replacing `com.example:test` with your package.
+1. Add the package dependencies to the `dependencies` element of your project _pom.xml_ file, replacing `com.example:test` with your package.
 
    ```xml
    <dependencies>
@@ -181,11 +185,12 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
      </dependency>
    </dependencies>
    ```
+
 {% data reusables.package_registry.checksum-maven-plugin %}
-3. Install the package.
+1. Install the package.
 
    ```shell
-   $ mvn install
+   mvn install
    ```
 
 ## Further reading

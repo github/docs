@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with HashiCorp V
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
@@ -52,7 +52,7 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
    {% endnote %}
    {% endif %}
 
-2. Configure a policy that only grants access to the specific paths your workflows will use to retrieve secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
+1. Configure a policy that only grants access to the specific paths your workflows will use to retrieve secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
 
    ```sh copy
    vault policy write myproject-production - <<EOF
@@ -63,7 +63,8 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
    }
    EOF
    ```
-3. Configure roles to group different policies together. If the authentication is successful, these policies are attached to the resulting Vault access token.
+
+1. Configure roles to group different policies together. If the authentication is successful, these policies are attached to the resulting Vault access token.
 
    ```sh copy
    vault write auth/jwt/role/myproject-production -<<EOF
@@ -90,7 +91,7 @@ For more information, see the HashiCorp Vault [documentation](https://www.vaultp
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to exchange the OIDC token (JWT) for a cloud access token.
 
 To add OIDC integration to your workflows that allow them to access secrets in Vault, you will need to add the following code changes:
 
@@ -160,7 +161,7 @@ jobs:
 By default, the Vault server will automatically revoke access tokens when their TTL is expired, so you don't have to manually revoke the access tokens. However, if you do want to revoke access tokens immediately after your job has completed or failed, you can manually revoke the issued token using the [Vault API](https://www.vaultproject.io/api/auth/token#revoke-a-token-self).
 
 1. Set the `exportToken` option to `true` (default: `false`). This exports the issued Vault access token as an environment variable: `VAULT_TOKEN`.
-2. Add a step to call the [Revoke a Token (Self)](https://www.vaultproject.io/api/auth/token#revoke-a-token-self) Vault API to revoke the access token.
+1. Add a step to call the [Revoke a Token (Self)](https://www.vaultproject.io/api/auth/token#revoke-a-token-self) Vault API to revoke the access token.
 
 ```yaml copy
 jobs:

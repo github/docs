@@ -7,7 +7,6 @@ import path from 'path'
 import { slug } from 'github-slugger'
 import yaml from 'js-yaml'
 
-import { getOverrideCategory } from '../../rest/scripts/utils/operation.js'
 import { getContents } from '../../../script/helpers/git-utils.js'
 import permissionSchema from './permission-list-schema.js'
 import enabledSchema from './enabled-list-schema.js'
@@ -39,7 +38,7 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
         const isUserAccessToken = progAccessData[operation.operationId].userToServerRest
         const isFineGrainedPat =
           isUserAccessToken && !progAccessData[operation.operationId].disabledForPatV2
-        const { category, subcategory } = getCategory(operation)
+        const { category, subcategory } = operation['x-github']
         const appDataOperation = {
           slug: slug(operation.summary),
           subcategory,
@@ -230,12 +229,6 @@ function sortObjectByTitle(obj) {
       acc[key] = obj[key]
       return acc
     }, {})
-}
-
-function getCategory(operation) {
-  const schemaCategory = operation['x-github'].category
-  const schemaSubcategory = operation['x-github'].subcategory
-  return getOverrideCategory(operation.operationId, schemaCategory, schemaSubcategory)
 }
 
 function getDisplayTitle(title, resourceGroup) {

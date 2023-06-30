@@ -105,6 +105,7 @@ The `configure` CLI command is used to set required credentials and options for 
    ✔ Base url of the Bamboo instance: https://bamboo.example.com
    Environment variables successfully updated.
    ```
+
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
    ```shell
@@ -182,6 +183,7 @@ You can use the `dry-run` command to convert a Bamboo pipeline to an equivalent 
 ### Running a dry-run migration for a build plan
 
 To perform a dry run of migrating your Bamboo build plan to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing `:my_plan_slug` with the plan's project and plan key in the format `<projectKey>-<planKey>` (for example: `PAN-SCRIP`).
+
 ```shell
 gh actions-importer dry-run bamboo build --plan-slug :my_plan_slug --output-dir tmp/dry-run
 ```

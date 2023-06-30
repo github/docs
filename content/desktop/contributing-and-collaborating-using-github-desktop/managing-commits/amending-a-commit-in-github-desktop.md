@@ -1,5 +1,5 @@
 ---
-title: Amending a commit in Github Desktop
+title: Amending a commit in GitHub Desktop
 shortTitle: Amending commits
 intro: 'You can use {% data variables.product.prodname_desktop %} to amend your last commit.'
 versions:

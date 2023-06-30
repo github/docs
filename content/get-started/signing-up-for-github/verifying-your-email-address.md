@@ -48,7 +48,7 @@ If you do not verify your email address, you will not be able to:
 1. Under your email address, click **Resend verification email**.
 
    ![Screenshot of a list of email addresses on the "Emails" page. Under an email address, a link, labeled "Resend verification email," is outlined in orange.](/assets/images/help/settings/email-verify-button.png)
-4. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
+1. {% data variables.product.prodname_dotcom %} will send you an email with a link in it. After you click that link, you'll be taken to your {% data variables.product.prodname_dotcom %} dashboard and see a confirmation banner.
 
 ## Troubleshooting email verification
 
@@ -63,9 +63,9 @@ The verification link expires after 24 hours. If you don't verify your email wit
 If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
 
 1. {% data variables.product.signout_link %} of your personal account on {% data variables.location.product_location %}.
-2. Quit and restart your browser.
-3. {% data variables.product.signin_link %} to your personal account on {% data variables.location.product_location %}.
-4. Click on the verification link in the email we sent you.
+1. Quit and restart your browser.
+1. {% data variables.product.signin_link %} to your personal account on {% data variables.location.product_location %}.
+1. Click on the verification link in the email we sent you.
 
 ## Further reading
 

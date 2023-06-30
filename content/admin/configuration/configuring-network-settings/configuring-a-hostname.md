@@ -29,8 +29,8 @@ For more information on the supported hostname types, see [Section 2.1 of the HT
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.hostname-menu-item %}
-4. Under "Hostname", type the hostname you'd like to set for {% data variables.location.product_location %}.
-5. To test the DNS and SSL settings for the new hostname, click **Test domain settings**.
+1. Under "Hostname", type the hostname you'd like to set for {% data variables.location.product_location %}.
+1. To test the DNS and SSL settings for the new hostname, click **Test domain settings**.
 {% data reusables.enterprise_management_console.test-domain-settings-failure %}
 {% data reusables.enterprise_management_console.save-settings %}
 

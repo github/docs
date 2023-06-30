@@ -65,10 +65,10 @@ In the following diagram, a class of hosted runner named `ubuntu-20.04-16core` h
 ![Diagram showing a larger runner being used by a workflow because of the runner's label.](/assets/images/help/actions/hosted-runner.png)
 
 1. Instances of this runner are automatically created and added to a group called `grp-ubuntu-20.04-16core`.
-2. The runners have been assigned the label `ubuntu-20.04-16core`.
-3. Workflow jobs use the `ubuntu-20.04-16core` label in their `runs-on` key to indicate the type of runner they need to execute the job.
-4. {% data variables.product.prodname_actions %} checks the runner group to see if your repository is authorized to send jobs to the runner.
-5. The job runs on the next available instance of the `ubuntu-20.04-16core` runner.
+1. The runners have been assigned the label `ubuntu-20.04-16core`.
+1. Workflow jobs use the `ubuntu-20.04-16core` label in their `runs-on` key to indicate the type of runner they need to execute the job.
+1. {% data variables.product.prodname_actions %} checks the runner group to see if your repository is authorized to send jobs to the runner.
+1. The job runs on the next available instance of the `ubuntu-20.04-16core` runner.
 
 ## Autoscaling {% data variables.actions.hosted_runner %}s
 

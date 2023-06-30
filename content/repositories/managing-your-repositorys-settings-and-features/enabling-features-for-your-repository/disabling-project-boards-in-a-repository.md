@@ -20,6 +20,6 @@ When you disable {% data variables.projects.projects_v1_boards %}, you will no l
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Features," unselect the **Projects** checkbox.
+1. Under "Features," unselect the **Projects** checkbox.
 
 After {% data variables.projects.projects_v1_boards %} are disabled, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. If you decide to re-enable project boards, any project boards that were previously added will be available.

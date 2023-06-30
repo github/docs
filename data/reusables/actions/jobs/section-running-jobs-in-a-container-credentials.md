@@ -3,6 +3,7 @@
 #### Example: Defining credentials for a container registry
 
 {% raw %}
+
 ```yaml
 container:
   image: ghcr.io/owner/image
@@ -10,4 +11,5 @@ container:
      username: ${{ github.actor }}
      password: ${{ secrets.github_token }}
 ```
+
 {% endraw %}

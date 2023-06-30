@@ -48,11 +48,11 @@ New organizations you create within your enterprise account settings are include
 Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. For more information about organization owners, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-2. On the **Organizations** tab, above the list of organizations, click **New organization**.
-3. Under "Organization name", type a name for your organization.
-4. Click **Create organization**.
-5. Optionally, under "Invite owners", type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
-6. Click **Finish**.
+1. On the **Organizations** tab, above the list of organizations, click **New organization**.
+1. Under "Organization name", type a name for your organization.
+1. Click **Create organization**.
+1. Optionally, under "Invite owners", type the username of a person you'd like to invite to become an organization owner, then click **Invite**.
+1. Click **Finish**.
 
 ## Inviting an organization to join your enterprise account
 
@@ -87,5 +87,5 @@ Enterprise owners can transfer existing organizations between enterprise account
 
    {% data reusables.enterprise-accounts.organization-settings-dropdown %}
 1. Select the **Select enterprise** dropdown menu, start typing the name of the destination enterprise, and click the enterprise you want to transfer the organization to.
-2. Click **Review transfer**.
-3. To confirm the transfer, click **Transfer organization**.
+1. Click **Review transfer**.
+1. To confirm the transfer, click **Transfer organization**.

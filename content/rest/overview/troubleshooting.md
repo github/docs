@@ -24,7 +24,7 @@ some of the problems you may be experiencing.
 You should use the `X-GitHub-Api-Version` header to specify an API version. For example:
 
 ```shell
-$ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
+curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 ```
 
 If you specify a version that does not exist, you will receive a `400` error.
@@ -56,6 +56,7 @@ the link header, which is returned with every request. For more information abou
 [oap-guide]: https://developer.github.com/changes/2015-01-19-an-integrators-guide-to-organization-application-policies/
 
 {% ifversion fpt or ghec %}
+
 ## Basic authentication errors
 
 On November 13, 2020 username and password authentication to the REST API and the OAuth Authorizations API were deprecated and no longer work.

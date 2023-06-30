@@ -127,6 +127,7 @@ By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you
 {% endtip %}
 
 {% ifversion mermaid %}
+
 ### Rendering in Markdown
 
 You can embed ASCII STL syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
@@ -236,6 +237,7 @@ In general, rendered views of changes to a document containing embedded HTML wil
 Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [TopoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
 
 {% ifversion geoJSON-with-MapBox %}
+
 ### Styling features
 
 You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the GeoJSON object's properties. The options are:
@@ -275,6 +277,7 @@ By default, the embedded map 420px x 620px, but you can customize the output by 
 {% endtip %}
 
 {% ifversion mermaid %}
+
 ### Mapping in Markdown
 
 You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
@@ -323,7 +326,7 @@ To view a fully interactive version of your Jupyter Notebook, you can set up a n
 If you're having trouble rendering Jupyter Notebook files in static HTML, you can convert the file locally on the command line by using the [`nbconvert` command](https://github.com/jupyter/nbconvert):
 
 ```shell
-$ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
+jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 ```
 
 ### Further reading about Jupyter Notebook
@@ -332,6 +335,7 @@ $ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 - [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
 
 {% ifversion mermaid %}
+
 ## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.

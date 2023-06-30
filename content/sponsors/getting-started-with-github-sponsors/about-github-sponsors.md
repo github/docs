@@ -48,6 +48,7 @@ Donations between sponsored developers will not be matched.
 {% data reusables.sponsors.feedback %}
 
 ## Further reading
+
 - "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors)"
 - "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors)"
 - "[AUTOTITLE](/search-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"

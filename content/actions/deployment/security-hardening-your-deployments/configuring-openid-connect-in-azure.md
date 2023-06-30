@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with Azure.
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
@@ -32,8 +32,8 @@ This guide gives an overview of how to configure Azure to trust {% data variable
 To configure the OIDC identity provider in Azure, you will need to perform the following configuration. For instructions on making these changes, refer to [the Azure documentation](https://docs.microsoft.com/en-us/azure/developer/github/connect-from-azure).
 
 1. Create an Azure Active Directory application and a service principal.
-2. Add federated credentials for the Azure Active Directory application.
-3. Create {% data variables.product.prodname_dotcom %} secrets for storing Azure configuration.
+1. Add federated credentials for the Azure Active Directory application.
+1. Create {% data variables.product.prodname_dotcom %} secrets for storing Azure configuration.
 
 Additional guidance for configuring the identity provider:
 
@@ -44,7 +44,7 @@ Additional guidance for configuring the identity provider:
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the [`azure/login`](https://github.com/Azure/login) action to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the [`azure/login`](https://github.com/Azure/login) action to exchange the OIDC token (JWT) for a cloud access token.
 
 ### Adding permissions settings
 
@@ -57,6 +57,7 @@ The [`azure/login`](https://github.com/Azure/login) action receives a JWT from t
 The following example exchanges an OIDC ID token with Azure to receive an access token, which can then be used to access cloud resources.
 
 {% raw %}
+
 ```yaml copy
 name: Run Azure Login with OIDC
 on: [push]
@@ -80,4 +81,5 @@ jobs:
           az account show
           az group list
 ```
+
  {% endraw %}

@@ -16,10 +16,10 @@ import { jest } from '@jest/globals'
 
 import { frontmatter, deprecatedProperties } from '../../../lib/frontmatter.js'
 import languages from '../../../lib/languages.js'
-import { tags } from '../../../lib/liquid-tags/extended-markdown.js'
+import { tags } from '#src/content-render/liquid/extended-markdown.js'
 import releaseNotesSchema from '../lib/release-notes-schema.js'
 import learningTracksSchema from '../lib/learning-tracks-schema.js'
-import renderContent from '../../../lib/render-content/index.js'
+import { renderContent, liquid } from '#src/content-render/index.js'
 import getApplicableVersions from '../../../lib/get-applicable-versions.js'
 import { allVersions } from '../../../lib/all-versions.js'
 import { getDiffFiles } from '../lib/diff-files.js'
@@ -467,7 +467,7 @@ describe('lint markdown content', () => {
         await Promise.all(
           yamlScheduledWorkflows.map(async (snippet) => {
             // If we don't parse the Liquid first, yaml loading chokes on {% raw %} tags
-            const rendered = await renderContent.liquid.parseAndRender(snippet, context)
+            const rendered = await liquid.parseAndRender(snippet, context)
             const parsed = yaml.load(rendered)
             return parsed.on.schedule
           })
@@ -669,7 +669,7 @@ describe('lint markdown content', () => {
       // If Liquid can't parse the file, it'll throw an error.
       // For example, the following is invalid and will fail this test:
       // {% if currentVersion ! "github-ae@latest" %}
-      expect(() => renderContent.liquid.parse(content)).not.toThrow()
+      expect(() => liquid.parse(content)).not.toThrow()
     })
 
     if (!markdownRelPath.includes('data/reusables')) {
@@ -679,7 +679,7 @@ describe('lint markdown content', () => {
         )
 
         for (const key of fmKeysWithLiquid) {
-          expect(() => renderContent.liquid.parse(frontmatterData[key])).not.toThrow()
+          expect(() => liquid.parse(frontmatterData[key])).not.toThrow()
         }
       })
     }
@@ -963,10 +963,7 @@ describe('lint GHES release notes', () => {
 
       for (const key in toLint) {
         if (!toLint[key]) continue
-        expect(
-          () => renderContent.liquid.parse(toLint[key]),
-          `${key} contains invalid liquid`
-        ).not.toThrow()
+        expect(() => liquid.parse(toLint[key]), `${key} contains invalid liquid`).not.toThrow()
       }
     })
   })
@@ -1030,10 +1027,7 @@ describe('lint GHAE release notes', () => {
 
       for (const key in toLint) {
         if (!toLint[key]) continue
-        expect(
-          () => renderContent.liquid.parse(toLint[key]),
-          `${key} contains invalid liquid`
-        ).not.toThrow()
+        expect(() => liquid.parse(toLint[key]), `${key} contains invalid liquid`).not.toThrow()
       }
     })
   })
@@ -1117,10 +1111,7 @@ describe('lint learning tracks', () => {
       })
 
       toLint.forEach((element) => {
-        expect(
-          () => renderContent.liquid.parse(element),
-          `${element} contains invalid liquid`
-        ).not.toThrow()
+        expect(() => liquid.parse(element), `${element} contains invalid liquid`).not.toThrow()
       })
     })
   })

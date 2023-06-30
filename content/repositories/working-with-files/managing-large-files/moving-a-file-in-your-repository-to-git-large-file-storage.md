@@ -22,8 +22,8 @@ After installing {% data variables.large_files.product_name_short %} and configu
 
 {% endtip %}
 
-1.  Remove the file from the repository's Git history using either the `filter-repo` command or BFG Repo-Cleaner. For detailed information on using these, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
-2. Configure tracking for your file and push it to {% data variables.large_files.product_name_short %}. For more information on this procedure, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage)."
+1. Remove the file from the repository's Git history using either the `filter-repo` command or BFG Repo-Cleaner. For detailed information on using these, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+1. Configure tracking for your file and push it to {% data variables.large_files.product_name_short %}. For more information on this procedure, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/configuring-git-large-file-storage)."
 
 ## Further reading
 

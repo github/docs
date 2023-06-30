@@ -38,13 +38,16 @@ $ curl \
 ```
 
 Even though the legacy ID `MDQ6VXNlcjM0MDczMDM=` was used in the query, the response will contain the new ID format:
+
 ```
 {"data":{"node":{"id":"U_kgDOADP9xw"}}}
 ```
+
 With the `X-Github-Next-Global-ID` header, you can find the new ID format for legacy IDs that you reference in your application. You can then update those references with the ID received in the response. You should update all references to legacy IDs and use the new ID format for any subsequent requests to the API.
 To perform bulk operations, you can use aliases to submit multiple node queries in one API call. For more information, see "[the GraphQL docs](https://graphql.org/learn/queries/#aliases)."
 
 You can also get the new ID for a collection of items. For example, if you wanted to get the new ID for the last 10 repositories in your organization, you could use a query like this:
+
 ```
 {
   organization(login: "github") {

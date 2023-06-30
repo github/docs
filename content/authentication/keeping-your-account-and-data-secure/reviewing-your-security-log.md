@@ -21,11 +21,7 @@ shortTitle: Review security log
 The security log lists all actions performed within the last 90 days.
 
 {% data reusables.user-settings.access_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-hidden="true" %} Security log**.
-{% else %}
-1. In the user settings sidebar, click **Security log**.
-{% endif %}
 
 ## Searching your security log
 

@@ -17,7 +17,7 @@ topics:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.oauth_apps %}
-4. Select the {% data variables.product.prodname_oauth_app %} you want to modify.
-5. In the left sidebar, click **Advanced**.
-6. Click **Delete application**.
-7. Click **Delete this OAuth Application**.
+1. Select the {% data variables.product.prodname_oauth_app %} you want to modify.
+1. In the left sidebar, click **Advanced**.
+1. Click **Delete application**.
+1. Click **Delete this OAuth Application**.

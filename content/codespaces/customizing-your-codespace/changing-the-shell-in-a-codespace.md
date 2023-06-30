@@ -90,6 +90,7 @@ You can set a default terminal profile to choose the default shell used for all 
       "terminal.integrated.defaultProfile.windows": "PowerShell"
    }
    ```
+
 1. Save the `settings.json` file.
 
 {% data reusables.codespaces.settings-sync-link %}

@@ -27,6 +27,6 @@ Here is the rendered version of the issue form.
 People with write access to a repository can create a discussion category form.
 
 1. Navigate to the repository where you want to create a discussion category form.
-2. In your repository, create a file called `/.github/DISCUSSION_TEMPLATE/FORM-NAME.yml`, replacing `FORM-NAME` with the name for your discussion category form. {% data reusables.discussions.discussion-category-forms-name %} For more information about creating new files on GitHub, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
-3. In the body of the new file, type the contents of your discussion category form. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/syntax-for-discussion-category-forms)."
-4. Commit your file to the default branch of your repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
+1. In your repository, create a file called `/.github/DISCUSSION_TEMPLATE/FORM-NAME.yml`, replacing `FORM-NAME` with the name for your discussion category form. {% data reusables.discussions.discussion-category-forms-name %} For more information about creating new files on GitHub, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
+1. In the body of the new file, type the contents of your discussion category form. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/syntax-for-discussion-category-forms)."
+1. Commit your file to the default branch of your repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."

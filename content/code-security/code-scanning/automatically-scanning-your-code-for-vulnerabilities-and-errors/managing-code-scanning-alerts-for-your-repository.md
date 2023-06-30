@@ -39,8 +39,7 @@ By default, the code scanning alerts page is filtered to show alerts for the def
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. Optionally, use the free text search box or the drop-down menus to filter alerts. For example, you can filter by the tool that was used to identify alerts.
 {% data reusables.code-scanning.explore-alert %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-   {% data reusables.code-scanning.alert-default-branch %}{% endif %}
+   {% data reusables.code-scanning.alert-default-branch %}
 1. Optionally, if the alert highlights a problem with data flow, click **Show paths** to display the path from the data source to the sink where it's used.
    ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. The "Show paths" link is highlighted with a dark orange outline. The "Show more" link, described in the next step, is also highlighted.](/assets/images/help/repository/code-scanning-alert-details.png)
 
@@ -74,9 +73,7 @@ When you select a keyword from either a drop-down list, or as you enter a keywor
 
 If you enter multiple filters, the view will show alerts matching _all_ these filters. For example, `is:closed severity:high branch:main` will only display closed high-severity alerts that are present on the `main` branch. The exception is filters relating to refs (`ref`, `branch` and `pr`): `is:open branch:main branch:next` will show you open alerts from both the `main` branch and the `next` branch.
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.code-scanning.filter-non-default-branches %}
-{% endif %}
 
 {% ifversion fpt or ghes or ghec %}
 
@@ -122,6 +119,7 @@ You can search the list of alerts. This is useful if there is a large number of 
 {% endif %}
 
 {% ifversion code-scanning-task-lists %}
+
 ## Tracking {% data variables.product.prodname_code_scanning %} alerts in issues
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
@@ -142,11 +140,8 @@ Alerts may be fixed in one branch but not in another. You can use the "Branch" f
 
 ![Screenshot of the search field on the {% data variables.product.prodname_code_scanning %}, with the "Branch" dropdown menu expanded. The "Branch" button is outlined in dark orange.](/assets/images/help/repository/code-scanning-branch-filter.png)
 
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.code-scanning.filter-non-default-branches %}
-{% endif %}
 
-{% ifversion fpt or ghes > 3.4 or ghae > 3.4 or ghec %}
 {% note %}
 
 **Note:**
@@ -156,7 +151,7 @@ If you run {% data variables.product.prodname_code_scanning %} using multiple co
 If you run {% data variables.product.prodname_code_scanning %} using multiple configurations, then sometimes an alert will have multiple analysis origins. Unless you run all configurations regularly, you may see alerts that are fixed in one analysis origin but not in another. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
 {% endif %}
 {% endnote %}
-{% endif %}
+
 ## Dismissing {% ifversion delete-code-scanning-alerts %}or deleting{% endif %} alerts
 
 There are two ways of closing an alert. You can fix the problem in the code, or you can dismiss the alert. {% ifversion delete-code-scanning-alerts %}Alternatively, if you have admin permissions for the repository, you can delete alerts. Deleting alerts is useful in situations where you have set up a {% data variables.product.prodname_code_scanning %} tool and then decided to remove it, or where you have configured {% data variables.product.prodname_codeql %} analysis with a larger set of queries than you want to continue using, and you've then removed some queries from the tool. In both cases, deleting alerts allows you to clean up your {% data variables.product.prodname_code_scanning %} results. You can delete alerts from the summary list within the **Security** tab.{% endif %}
@@ -205,6 +200,7 @@ To dismiss {% ifversion delete-code-scanning-alerts %}or delete{% endif %} alert
 If a project has multiple alerts that you want to dismiss for the same reason, you can bulk dismiss them from the summary of alerts. Typically, you'll want to filter the list and then dismiss all of the matching alerts. For example, you might want to dismiss all of the current alerts in the project that have been tagged for a particular Common Weakness Enumeration (CWE) vulnerability.
 
 {% ifversion remove-code-scanning-configurations %}
+
 ## Removing stale configurations and alerts from a branch
 
 You may have multiple code scanning configurations on a single repository. When run, multiple configurations can generate the same alert. Additionally, if the configurations are run on different schedules, the alert statuses may become out-of-date for infrequent or stale configurations. For more information on alerts from multiple configurations, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alerts-from-multiple-configurations)."

@@ -168,7 +168,6 @@ export const SidebarProduct = () => {
         </div>
         <TreeView>
           {restPages.map((childPage, i) => {
-            const isStandaloneCategory = childPage.documentType === 'article'
             const childTitle = childPage.shortTitle || childPage.title
 
             return (
@@ -177,7 +176,6 @@ export const SidebarProduct = () => {
                 routePath={routePath}
                 title={childTitle}
                 page={childPage}
-                isStandaloneCategory={isStandaloneCategory}
               />
             )
           })}

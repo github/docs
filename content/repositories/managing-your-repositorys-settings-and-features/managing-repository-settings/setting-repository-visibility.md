@@ -44,6 +44,7 @@ We recommend reviewing the following caveats before you change the visibility of
 {% endif %}
 
 ### Making a repository private
+
 {% ifversion fpt or ghes or ghec %}
 - {% data variables.product.product_name %} will detach public forks of the public repository and put them into a new network. Public forks are not made private.{% endif %}
 {%- ifversion ghes or ghec or ghae %}
@@ -93,4 +94,5 @@ For information about improving repository security, see "[AUTOTITLE](/code-secu
 1. Click **I understand, change repository visibility**.
 
 ## Further reading
+
 - "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)"
