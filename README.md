@@ -6,7 +6,7 @@ GitHub's Docs team works on pre-production content in a private repo that regula
 
 Use the table of contents icon <img src="/contributing/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to navigate to a specific section quickly.
 
-## Contributing
+
 
 See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how to get started with our project.
 
