@@ -86,6 +86,5 @@ For more information about the configuration options available for security upda
 ## Further reading
 
 - "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-- "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)"{% endif %}
+- "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)"
 - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#supported-package-ecosystems)"

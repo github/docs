@@ -429,14 +429,6 @@ test.describe('survey', () => {
 })
 
 test.describe('rest API reference pages', () => {
-  test('REST code-scanning', async ({ page }) => {
-    await page.goto('/rest')
-    await page.getByRole('treeitem', { name: 'Code Scanning' }).locator('svg').click()
-    await page.getByText('Code Scanning').click()
-    await page.getByTestId('sidebar').getByRole('link', { name: 'About code scanning' }).click()
-    await expect(page).toHaveURL(/\/en\/rest\/code-scanning\?apiVersion=/)
-    await expect(page).toHaveTitle(/Code Scanning - GitHub Docs/)
-  })
   test('REST actions', async ({ page }) => {
     await page.goto('/rest')
     await page.getByTestId('sidebar').getByText('Actions').click()
@@ -456,13 +448,6 @@ test.describe('translations', () => {
     await expect(page.getByRole('heading', { name: '日本 GitHub Docs' })).toBeVisible()
   })
 
-  test('switch to English from Japanese using banner on home page', async ({ page }) => {
-    await page.goto('/ja')
-    await page.getByRole('link', { name: 'English documentation' }).click()
-    await expect(page).toHaveURL('/en')
-    await expect(page.getByRole('heading', { name: 'GitHub Docs' })).toBeVisible()
-  })
-
   test('switch to Japanese from English using widget on home page', async ({ page }) => {
     await page.goto('/en')
     await page.getByRole('button', { name: 'Select language: current language is English' }).click()
@@ -473,14 +458,6 @@ test.describe('translations', () => {
     // Having done this once, should now use a cookie to redirect back to Japanese
     await page.goto('/')
     await expect(page).toHaveURL('/ja')
-  })
-
-  test('switch to English from Japanese using banner on article', async ({ page }) => {
-    await page.goto('/ja/get-started/quickstart/hello-world')
-    await expect(page.getByRole('heading', { name: 'こんにちは World' })).toBeVisible()
-    await page.getByRole('link', { name: 'English documentation' }).click()
-    await expect(page).toHaveURL('/en/get-started/quickstart/hello-world')
-    await expect(page.getByRole('heading', { name: 'Hello World' })).toBeVisible()
   })
 
   test('switch to Japanese from English using widget on article', async ({ page }) => {

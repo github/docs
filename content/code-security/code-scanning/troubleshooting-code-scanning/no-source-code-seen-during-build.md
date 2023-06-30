@@ -44,15 +44,6 @@ If your workflow fails with `Error: "No source code was seen during the build"` 
    - Building using a distributed build system external to GitHub Actions, using a daemon process.
    - {% data variables.product.prodname_codeql %} isn't aware of the specific compiler you are using.
 
-  For .NET Framework projects, and for C# projects using either `dotnet build` or `msbuild`, you should specify `/p:UseSharedCompilation=false` in your workflow's `run` step, when you build your code.
-
-  For example, the following configuration for C# will pass the flag during the first build step.
-
-   ``` yaml
-   - run: |
-       dotnet build /p:UseSharedCompilation=false
-   ```
-
   If you encounter another problem with your specific compiler or configuration, contact {% data variables.contact.contact_support %}.
 
 For more information about specifying build steps, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#adding-build-steps-for-a-compiled-language)."

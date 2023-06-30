@@ -9,4 +9,4 @@ You can also enable or disable the dependency graph for all repositories owned b
 
    ![Screenshot showing how to enable the dependency graph for a repository. The "Enable" button is highlighted with a dark orange outline.](/assets/images/help/repository/dependency-graph-enable-button.png)
 
-   You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the settings page for {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}"Code security and analysis."{% else %}"Security & analysis."{% endif %}
+   You can disable the dependency graph at any time by clicking **Disable** next to "Dependency Graph" on the settings page for "Code security and analysis."

@@ -24,9 +24,7 @@ topics:
 shortTitle: Security overview
 ---
 
-{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-overview.beta %}
-{% endif %}
 
 ## About security overview
 
@@ -86,7 +84,7 @@ Each repository is shown in security overview with an indicator for each type of
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion ghec or ghes or ghae %}
 
 ## About security overview for enterprises
 

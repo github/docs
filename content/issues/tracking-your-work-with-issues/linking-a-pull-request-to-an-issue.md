@@ -69,11 +69,7 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
 1. In the list of pull requests, click the pull request that you'd like to link to an issue.
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.pull_requests.click-development %}
-{% else %}
-1. In the right sidebar, click **Linked issues**.
-{% endif %}
 1. Click the issue you want to link to the pull request.
 
 {% ifversion link-existing-branches-to-issue %}

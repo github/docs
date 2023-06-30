@@ -14,7 +14,6 @@ topics:
   - Workflows
 ---
 
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -86,7 +85,7 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 - Reusable workflows can't call other reusable workflows.
 - You can call a maximum of 20 reusable workflows from a single workflow file.
 {% endif %}
-{% ifversion private-actions %}{% else %}*Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
+{% ifversion private-actions %}{% else %}- Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
 {% ifversion actions-reusable-workflow-matrix %}{% else %}* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
 - Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/actions/learn-github-actions/contexts#env-context)."
 - Similarly, environment variables set in the `env` context, defined in the called workflow, are not accessible in the `env` context of the caller workflow. Instead, you must use outputs of the reusable workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow).
@@ -201,7 +200,7 @@ You call a reusable workflow by using the `uses` keyword. Unlike when you are us
 
 [`jobs.<job_id>.uses`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
+You reference reusable workflow files using one of the following syntaxes:
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
