@@ -10,7 +10,7 @@ topics:
   - Copilot
 shortTitle: Your business subscription
 ---
-
+Hello
 {% note %}
 
 **Note:** If you are a member of your organization{% ifversion ghec %} or enterprise{% endif %}, and you want to set up a {% data variables.product.prodname_copilot_for_business %} subscription, you will need to contact your organization{% ifversion ghec %} or enterprise{% endif %} administrator.
