@@ -12,6 +12,8 @@ versions:
 ---
 {% mac %}
 
+hello
+
 GitHub Desktop keyboard shortcuts on macOS
 
 ## Site wide shortcuts
