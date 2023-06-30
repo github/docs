@@ -18,6 +18,8 @@ topics:
   - Copilot
 ---
 
+hello
+
 {% data reusables.copilot.copilot-cta-button %}
 
 {% jetbrains %}
