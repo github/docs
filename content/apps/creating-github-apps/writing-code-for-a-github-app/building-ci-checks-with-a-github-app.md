@@ -567,9 +567,10 @@ Your app doesn't do anything yet, but at this point, you can get it running on t
 
 ## Test that the server is listening to your app
 
-You can test that the server is listening to your app by triggering an event for it to receive. You'll do that by installing the app on your {% data variables.product.prodname_dotcom %} account, which will send the [`installation` event](/webhooks-and-events/webhooks/webhook-events-and-payloads#installation) to your app. If the app receives it, you should see output in the terminal tab where you're running `server.rb`.
+You can test that the server is listening to your app by triggering an event for it to receive. You'll do that by installing the app on a test repository, which will send the [`installation` event](/webhooks-and-events/webhooks/webhook-events-and-payloads#installation) to your app. If the app receives it, you should see output in the terminal tab where you're running `server.rb`.
 
-1. Install the {% data variables.product.prodname_github_app %} on your account. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app#installing-your-own-github-app)." You can choose to install it on all of your repositories, or just one. For example, you could install it on the repository you created for this tutorial.
+1. Create a new repository to use for testing your tutorial code. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Install the {% data variables.product.prodname_github_app %} on the repository you just created. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app#installing-your-own-github-app)." During the installation process, choose **Only select repositories**, and select the repository you created in the previous step.
 2. After you click **Install**, look at the output in the terminal tab where you're running `server.rb`. You should see something like this:
 
    ```shell
@@ -674,7 +675,7 @@ The following steps will show you how to test that the code works, and that it s
    ruby server.rb
    ```
 
-1. When you installed the app on your account, you granted the app access to one or more repositories. In one of those repositories, create a new pull request.
+1. Create a pull request in the test repository you created in "[Test that the server is listening to your app](#test-that-the-server-is-listening-to-your-app)." This is the repository that you granted the app access to.
 1. In the pull request you just created, navigate to the **Checks** tab. You should see a check run with the name "Octo RuboCop," or whichever name you chose earlier for the check run.
 
 If you see other apps in the **Checks** tab, it means you have other apps installed on your repository that have **Read & write** access to checks and are subscribed to **Check suite** and **Check run** events. It may also mean that you have {% data variables.product.prodname_actions %} workflows on the repository that are triggered by the `pull_request` or `pull_request_target` event.
@@ -759,7 +760,7 @@ The following steps will show you how to test that the code works, and that the 
    ruby server.rb
    ```
 
-1. When you installed the app on your account, you granted the app access to one or more repositories. In one of those repositories, create a new pull request.
+1. Create a pull request in the test repository you created in "[Test that the server is listening to your app](#test-that-the-server-is-listening-to-your-app)." This is the repository that you granted the app access to.
 1. In the pull request you just created, navigate to the **Checks** tab. You should see a "Re-run all" button.
 1. Click the "Re-run all" button in the upper right corner. The test should run again, and end with `success`.
 
@@ -796,9 +797,9 @@ These are the steps you'll complete in this section:
 
 You can pass specific files or entire directories for RuboCop to check. In this tutorial, you'll run RuboCop on an entire directory. RuboCop only checks Ruby code. To test your {% data variables.product.prodname_github_app %}, you'll need to add a Ruby file in your repository that contains errors for RuboCop to find. After adding the following Ruby file to your repository, you will update your CI check to run RuboCop on the code.
 
-1. When you installed the app on your account, you granted the app access to one or more repositories. Navigate to one of those repositories.
-2. Create a new file named `myfile.rb`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
-3. Add the following content to `myfile.rb`:
+1. Navigate to the test repository you created in "[Test that the server is listening to your app](#test-that-the-server-is-listening-to-your-app)." This is the repository that you granted the app access to.
+1. Create a new file named `myfile.rb`. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)."
+1. Add the following content to `myfile.rb`:
 
    ```ruby copy
    # frozen_string_literal: true
@@ -824,7 +825,7 @@ You can pass specific files or entire directories for RuboCop to check. In this 
 
 1. If you created the file locally, make sure you commit and push the file to your repository on {% data variables.product.prodname_dotcom %}.
 
-## Step 2.2. Clone the repository
+## Step 2.2. Allow RuboCop to clone the test repository
 
 RuboCop is available as a command-line utility. That means, if you want to run RuboCop on a repository, your {% data variables.product.prodname_github_app %} will need to clone a local copy of the repository on the CI server so RuboCop can parse the files. To do that, your code will need to be able to run Git operations, and your {% data variables.product.prodname_github_app %} will need to have the correct permissions to clone a repository.
 
@@ -930,8 +931,8 @@ The following steps will show you how to test that the code works and view the e
    ruby server.rb
    ```
 
-2. In the repository where you added the `myfile.rb` file, create a new pull request.
-3. In your terminal tab where the server is running, you should see debug output that contains linting errors. The linting errors are printed without any formatting. You can copy and paste your debug output into a web tool like [JSON formatter](https://jsonformatter.org/), to format your JSON output like the following example:
+1. In the repository where you added the `myfile.rb` file, create a new pull request.
+1. In your terminal tab where the server is running, you should see debug output that contains linting errors. The linting errors are printed without any formatting. You can copy and paste your debug output into a web tool like [JSON formatter](https://jsonformatter.org/), to format your JSON output like the following example:
 
    ```json
    {
@@ -1133,8 +1134,8 @@ The following steps will show you how to test that the code works and view the C
    ruby server.rb
    ```
 
-2. When you installed the app on your account, you granted the app access to one or more repositories. In one of those repositories, create a new pull request.
-3. In the pull request you just created, navigate to the **Checks** tab. You should see annotations for each of the errors that RuboCop found. Also notice the "Fix this" button that you created by adding a requested action.
+1. In the repository where you added the `myfile.rb` file, create a new pull request.
+1. In the pull request you just created, navigate to the **Checks** tab. You should see annotations for each of the errors that RuboCop found. Also notice the "Fix this" button that you created by adding a requested action.
 
 ## Step 2.6. Automatically fix RuboCop errors
 
@@ -1234,7 +1235,7 @@ The following steps will show you how to test that the code works, and that Rubo
    ruby server.rb
    ```
 
-1. When you installed the app on your account, you granted the app access to one or more repositories. In one of those repositories, create a new pull request.
+1. In the repository where you added the `myfile.rb` file, create a new pull request.
 1. In the new pull request you created, navigate to the **Checks** tab, and click the "Fix this" button to automatically fix the errors RuboCop found.
 1. Navigate to the **Commits** tab. You should see a new commit by the username you set in your Git configuration. You may need to refresh your browser to see the update.
 1. Navigate to the **Checks** tab. You should see a new check suite for Octo RuboCop. But this time there should be no errors, because RuboCop fixed them all.
