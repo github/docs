@@ -131,7 +131,7 @@
     "sharp": "0.32.0",
     "slash": "^5.0.0",
     "strip-html-comments": "^1.0.0",
-    "styled-components": "^5.3.5",
+    "styled-components": "^5.3.7",
     "swr": "^2.0.0",
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.0",
