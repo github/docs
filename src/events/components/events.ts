@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 
 const COOKIE_NAME = '_docs-events'
@@ -46,11 +46,7 @@ export function getUserEventsId() {
   cookieValue = Cookies.get(COOKIE_NAME)
   if (cookieValue) return cookieValue
   cookieValue = uuidv4()
-  Cookies.set(COOKIE_NAME, cookieValue, {
-    secure: document.location.protocol !== 'http:',
-    sameSite: 'strict',
-    expires: 365,
-  })
+  Cookies.set(COOKIE_NAME, cookieValue)
   return cookieValue
 }
 
@@ -305,6 +301,7 @@ function initLinkEvent() {
 }
 
 function initHoverEvent() {
+  let timer: number | null = null
   document.documentElement.addEventListener('mouseover', (evt) => {
     const target = evt.target as HTMLElement
     const link = target.closest('a[href]') as HTMLAnchorElement | null
@@ -317,13 +314,27 @@ function initHoverEvent() {
     if (!mainContent || !mainContent.contains(link)) return
 
     if (hoveredUrls.has(link.href)) return // Otherwise this is a flood of events
-    const sameSite = link.origin === location.origin
-    hoveredUrls.add(link.href)
-    sendEvent({
-      type: EventType.hover,
-      hover_url: link.href,
-      hover_samesite: sameSite,
-    })
+
+    if (timer) {
+      window.clearTimeout(timer)
+    }
+    timer = window.setTimeout(() => {
+      const sameSite = link.origin === location.origin
+      hoveredUrls.add(link.href)
+      sendEvent({
+        type: EventType.hover,
+        hover_url: link.href,
+        hover_samesite: sameSite,
+      })
+    }, 500)
+  })
+
+  // Doesn't matter which link you hovered on that triggered a timer,
+  // you're clearly not hovering over it any more.
+  document.documentElement.addEventListener('mouseout', () => {
+    if (timer) {
+      window.clearTimeout(timer)
+    }
   })
 }
 

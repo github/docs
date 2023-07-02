@@ -104,6 +104,8 @@ If you want to use the API on behalf of an organization or another user, {% data
 
 If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
 
+For more information about best practices you can use to keep your tokens secure, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+
 ### Authentication example
 
 {% cli %}

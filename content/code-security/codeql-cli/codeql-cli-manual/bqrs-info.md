@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql bqrs info <options>... -- <file>
 ```
 
@@ -48,7 +48,7 @@ options of [codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 ### Supporting pagination in codeql bqrs decode
 

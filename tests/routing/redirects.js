@@ -71,11 +71,6 @@ describe('redirects', () => {
       expect(res.headers.location).toBe(expected)
     })
 
-    test("don't convert q= to query= if query= already present", async () => {
-      const res = await get('/en/search?q=pulls&query=pushes')
-      expect(res.statusCode).toBe(200)
-    })
-
     test('have faq= not converted to query=', async () => {
       // Don't confuse `?faq=` for `?q=` just because they both start with `q=`
       // Docs internal #21945
@@ -413,54 +408,6 @@ describe('redirects', () => {
       const res = await get(url)
       expect(res.statusCode).toBe(302)
       expect(res.headers.location).toBe(`/en${url}`)
-    })
-  })
-
-  // These tests exists because of issue #1960
-  describe('rest reference redirects with default product', () => {
-    test('rest subcategory with fpt in URL', async () => {
-      for (const category of [
-        'migrations',
-        'actions',
-        'activity',
-        'apps',
-        'billing',
-        'checks',
-        'codes-of-conduct',
-        'code-scanning',
-        'codespaces',
-        'emojis',
-        'gists',
-        'git',
-        'gitignore',
-        'interactions',
-        'issues',
-        'licenses',
-        'markdown',
-        'meta',
-        'orgs',
-        'projects',
-        'pulls',
-        'rate-limit',
-        'reactions',
-        'repos',
-        'search',
-        'teams',
-        'users',
-      ]) {
-        // Without language prefix
-        {
-          const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
-          expect(res.statusCode).toBe(302)
-          expect(res.headers.location).toBe(`/en/rest/${category}`)
-        }
-        // With language prefix
-        {
-          const res = await get(`/en/free-pro-team@latest/rest/reference/${category}`)
-          expect(res.statusCode).toBe(301)
-          expect(res.headers.location).toBe(`/en/rest/${category}`)
-        }
-      }
     })
   })
 

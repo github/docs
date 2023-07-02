@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack upgrade [--force] <options>... -- <dir>
 ```
 
@@ -49,7 +49,7 @@ The root directory of the package.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `-f, --[no-]force`
 

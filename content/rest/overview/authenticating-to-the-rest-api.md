@@ -61,11 +61,11 @@ For example:
 ```shell
 curl --request POST \
 --url "{% data variables.product.api_url_code %}/authorizations" \
---user CLIENT_ID:CLIENT_SECRET{% ifversion api-date-versioning %} \
+--user "<YOUR_CLIENT_ID>:<YOUR_CLIENT_SECRET>"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
-You can find the client ID and generate a client secret on the settings page for your app. For user-owned {% data variables.product.prodname_github_app %}s, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned {% data variables.product.prodname_github_app %}s, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the sluggified name of your app and `ORGANIZATION` with the sluggified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+You can find the client ID and generate a client secret on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
 
 ## Authenticating in a {% data variables.product.prodname_actions %} workflow
 
@@ -79,7 +79,7 @@ If you want to use the API in a {% data variables.product.prodname_actions %} wo
 
 ```shell
 curl --request GET \
---url "{% data variables.product.api_url_code %}/user"
+--url "{% data variables.product.api_url_code %}/user" \
 --user USERNAME:PASSWORD{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
@@ -89,3 +89,7 @@ curl --request GET \
 Authentication with username and password is not supported. If you try to authenticate with user name and password, you will receive a 4xx error.
 
 {% endif %}
+
+## Further reading
+
+- "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."

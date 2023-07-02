@@ -14,8 +14,7 @@ versions:
   ghec: '*'
 type: reference
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About YAML syntax for {% data variables.product.prodname_actions %}
@@ -116,6 +115,7 @@ outputs:
 ### Example: Declaring outputs for composite actions
 
 {% raw %}
+
 ```yaml
 outputs:
   random-number:
@@ -132,6 +132,7 @@ runs:
 {%- endif %}{% raw %}
       shell: bash
 ```
+
 {% endraw %}
 
 ### `outputs.<output_id>.value`
@@ -236,6 +237,7 @@ For example, this `cleanup.js` will only run on Linux-based runners:
 **Optional** The command you want to run. This can be inline or a script in your action repository:
 
 {% raw %}
+
 ```yaml
 runs:
   using: "composite"
@@ -243,6 +245,7 @@ runs:
     - run: ${{ github.action_path }}/test/script.sh
       shell: bash
 ```
+
 {% endraw %}
 
 Alternatively, you can use `$GITHUB_ACTION_PATH`:
@@ -269,9 +272,9 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#gi
 
 **Example: Using contexts**
 
- This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
+This step only runs when the event type is a `pull_request` and the event action is `unassigned`.
 
- ```yaml
+```yaml
 steps:
   - run: echo This event is a pull request that had an assignee removed.
     if: {% raw %}${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}{% endraw %}
@@ -448,6 +451,7 @@ For more information about using the `CMD` instruction with {% data variables.pr
 #### Example: Defining arguments for the Docker container
 
 {% raw %}
+
 ```yaml
 runs:
   using: 'docker'
@@ -457,6 +461,7 @@ runs:
     - 'foo'
     - 'bar'
 ```
+
 {% endraw %}
 
 ## `branding`

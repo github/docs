@@ -1,5 +1,5 @@
 ---
-title: Denying access to a previously approved OAuth App for your organization
+title: Denying access to a previously approved OAuth app for your organization
 intro: 'If an organization no longer requires a previously authorized {% data variables.product.prodname_oauth_app %}, owners can remove the application''s access to the organization''s resources.'
 redirect_from:
   - /articles/denying-access-to-a-previously-approved-application-for-your-organization
@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Deny OAuth App
+shortTitle: Deny {% data variables.product.prodname_oauth_app %} access
 ---
 
 {% data reusables.profile.access_org %}

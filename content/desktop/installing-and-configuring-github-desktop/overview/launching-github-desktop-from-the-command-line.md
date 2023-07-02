@@ -12,36 +12,36 @@ versions:
 
 1. In the menu bar, select the **{% data variables.product.prodname_desktop %}** menu, then click **Install Command Line Tool**.
 ![Screenshot of the menu bar on a Mac. Under the expanded "GitHub Desktop" dropdown menu, the cursor hovers over "Install command line tool", highlighted in blue.](/assets/images/help/desktop/mac-install-command-line-tool.png)
-2. Open Terminal.
-3. {% data reusables.desktop.launch-desktop-from-command-line %}
+1. Open Terminal.
+1. {% data reusables.desktop.launch-desktop-from-command-line %}
 
-  ```shell
-  $ github /PATH/TO/REPO
-  ```
+   ```shell
+   github /PATH/TO/REPO
+   ```
 
-  You can also change to your repository path and then type `github .` to open that repository.
+   You can also change to your repository path and then type `github .` to open that repository.
 
-  ```shell
-  $ cd /PATH/TO/REPO
-  [repo]$ github .
-  ```
+   ```shell
+   $ cd /PATH/TO/REPO
+   [repo]$ github .
+   ```
 
 {% endmac %}
 
 {% windows %}
 
 1. Open a command prompt.
-2. {% data reusables.desktop.launch-desktop-from-command-line %}
+1. {% data reusables.desktop.launch-desktop-from-command-line %}
 
-  ```shell
-  C:\Users\octocat> github PATH\TO\REPO
-  ```
+   ```shell
+   C:\Users\octocat> github PATH\TO\REPO
+   ```
 
- You can also change to your repository path and then type `github .` to open that repository.
+   You can also change to your repository path and then type `github .` to open that repository.
 
-  ```shell
-  C:\Users\octocat> cd REPO\MY-REPO
-  C:\Users\octocat\repo\myrepo> github .
-  ```
+   ```shell
+   C:\Users\octocat> cd REPO\MY-REPO
+   C:\Users\octocat\repo\myrepo> github .
+   ```
 
 {% endwindows %}

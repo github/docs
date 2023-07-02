@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting OAuth App access token request errors
+title: Troubleshooting OAuth app access token request errors
 intro: '{% data reusables.shortdesc.troubleshooting_access_token_reques_errors_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/managing-oauth-apps/troubleshooting-oauth-app-access-token-request-errors
@@ -12,7 +12,7 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 shortTitle: Troubleshoot token request
 ---
 {% note %}

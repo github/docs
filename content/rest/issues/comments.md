@@ -19,5 +19,4 @@ You can use the REST API to create and manage comments on issues and pull reques
 
 {% data reusables.pull_requests.issues-media-types %}
 
-
 <!-- Content after this section is automatically generated -->

@@ -25,16 +25,16 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 ![Screenshot of a hidden comment. The only visible content is "This comment has been minimized", with a button to show the comment.](/assets/images/help/repository/hidden-comment.png)
 
 1. Navigate to the comment you'd like to hide.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
+1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Hide**.
 
-  ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Hide" is outlined in orange.](/assets/images/help/repository/comment-menu-hide.png)
+   ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Hide" is outlined in orange.](/assets/images/help/repository/comment-menu-hide.png)
 
-3. Using the "Choose a reason" dropdown menu, choose a reason to hide the comment. Then select **Hide comment**.
-  {% ifversion fpt or ghec %}
-  ![Screenshot of a {% data variables.product.prodname_dotcom %} comment showing a menu to select a reason to hide the comment: Spam, Abuse, Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
-  {% else %}
-  ![Screenshot of a {% data variables.product.prodname_dotcom %} comment showing a menu to select a reason to hide the comment: Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
-  {% endif %}
+1. Using the "Choose a reason" dropdown menu, choose a reason to hide the comment. Then select **Hide comment**.
+   {% ifversion fpt or ghec %}
+   ![Screenshot of a {% data variables.product.prodname_dotcom %} comment showing a menu to select a reason to hide the comment: Spam, Abuse, Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment.png)
+   {% else %}
+   ![Screenshot of a {% data variables.product.prodname_dotcom %} comment showing a menu to select a reason to hide the comment: Off Topic, Outdated, Duplicate, or Resolved.](/assets/images/help/repository/choose-reason-for-hiding-comment-ghe.png)
+   {% endif %}
 
 ## Unhiding a comment
 
@@ -43,7 +43,7 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 1. Navigate to the comment you'd like to unhide.
 1. On the right side of the comment, click **{% octicon "fold" aria-hidden="true" %} Show comment**.
 1. On the right side of the expanded comment, select the {% octicon "kebab-horizontal" aria-label="Show options" %} dropdown menu, then click **Unhide**.
-   
+
    ![Screenshot of a pull request comment marked as spam. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Unhide" is outlined in orange.](/assets/images/help/repository/comment-menu-hidden.png)
 
 ## Editing a comment
@@ -92,11 +92,13 @@ Deleting a comment creates a timeline event that is visible to anyone with read 
 ### Steps to delete a comment
 
 1. Navigate to the comment you'd like to delete.
-2. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
-  ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Delete" is outlined in orange.](/assets/images/help/repository/comment-menu-delete.png)
-3. Optionally, write a comment noting that you deleted a comment and why.
+1. In the upper-right corner of the comment, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **Delete**.
+   ![Screenshot of a pull request comment by octo-user. Below an icon of three horizontal dots, a dropdown menu is expanded, and "Delete" is outlined in orange.](/assets/images/help/repository/comment-menu-delete.png)
+1. Optionally, write a comment noting that you deleted a comment and why.
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
+
 - "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"
 {% endif %}

@@ -1,5 +1,5 @@
 import { allVersions } from '../../lib/all-versions.js'
-import { liquid } from '../../lib/render-content/index.js'
+import { liquid } from '#src/content-render/index.js'
 import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
 
 describe('ifversion conditionals', () => {

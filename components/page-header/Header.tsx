@@ -17,7 +17,7 @@ import { useMainContext } from 'components/context/MainContext'
 import { useHasAccount } from 'components/hooks/useHasAccount'
 import { LanguagePicker } from './LanguagePicker'
 import { HeaderNotifications } from 'components/page-header/HeaderNotifications'
-import { ApiVersionPicker } from 'components/sidebar/ApiVersionPicker'
+import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { Search } from 'src/search/components/Search'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
@@ -30,7 +30,7 @@ import styles from './Header.module.scss'
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
-  const { isHomepageVersion, currentProduct, currentProductTree, allVersions } = useMainContext()
+  const { isHomepageVersion, currentProduct, allVersions } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
@@ -50,7 +50,8 @@ export const Header = () => {
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
-  const productTitle = currentProductTree?.shortTitle || currentProductTree?.title
+  const productTitle = currentProduct?.name || null
+
   const [windowSize, setWindowSize] = useState(0)
   const handleWindowResize = useCallback(() => {
     setWindowSize(window.innerWidth)
@@ -347,14 +348,11 @@ export const Header = () => {
                     sx={{ display: 'block' }}
                   >
                     <AllProductsLink />
-                    {error === '404' ||
-                    !currentProduct ||
-                    isSearchResultsPage ||
-                    !currentProductTree ? null : (
+                    {error === '404' || !currentProduct || isSearchResultsPage ? null : (
                       <div className="mt-3">
                         <Link
                           data-testid="sidebar-product-dialog"
-                          href={currentProductTree.href}
+                          href={currentProduct.href}
                           className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
                         >
                           {productTitle}

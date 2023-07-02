@@ -63,9 +63,9 @@ You can filter issues and pull requests to find:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. Above the list, select the **Filters** dropdown menu, then click the type of filter you're interested in.
+1. Above the list, select the **Filters** dropdown menu, then click the type of filter you're interested in.
 
-  ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Filters", is outlined in dark orange.](/assets/images/help/issues/issues_filter_dropdown.png)
+   ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Filters", is outlined in dark orange.](/assets/images/help/issues/issues_filter_dropdown.png)
 
 ## Filtering issues and pull requests by assignees
 
@@ -91,7 +91,7 @@ Once you've [applied labels to an issue or pull request](/issues/using-labels-an
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. In the list of labels, click a label.
+1. In the list of labels, click a label.
 
 {% tip %}
 
@@ -201,19 +201,19 @@ Filters can be sorted to provide better information during a specific time perio
 
 You can sort any filtered view by:
 
-* The newest created issues or pull requests
-* The oldest created issues or pull requests
-* The most commented issues or pull requests
-* The least commented issues or pull requests
-* The newest updated issues or pull requests
-* The oldest updated issues or pull requests
-* The most added reaction on issues or pull requests
+- The newest created issues or pull requests
+- The oldest created issues or pull requests
+- The most commented issues or pull requests
+- The least commented issues or pull requests
+- The newest updated issues or pull requests
+- The oldest updated issues or pull requests
+- The most added reaction on issues or pull requests
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 1. Above the list of issues or pull requests, select the **Sort** dropdown menu, then click a sort method.
 
-  ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Sort," is outlined in dark orange.](/assets/images/help/issues/issues_sort_dropdown.png)
+   ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Sort," is outlined in dark orange.](/assets/images/help/issues/issues_sort_dropdown.png)
 
 To clear your sort selection, click **Sort** > **Newest**.
 

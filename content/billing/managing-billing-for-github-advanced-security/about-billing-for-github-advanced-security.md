@@ -56,7 +56,9 @@ You can determine how many licenses you'll need for {% data variables.product.pr
 {% endif %}
 
 {% ifversion ghec %}
-If you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account and pay with a credit card, you can purchase a {% data variables.product.prodname_GH_advanced_security %} license from your enterprise account settings. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."
+If you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account and pay with a credit card, you can purchase a {% data variables.product.prodname_GH_advanced_security %} license or start a free trial from your enterprise account settings. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security)."
+
+You can not purchase {% data variables.product.prodname_GH_advanced_security %} or start a {% data variables.product.prodname_GH_advanced_security %} trial if you are currently on a {% data variables.product.prodname_ghe_cloud %} trial.
 
 If you pay by invoice, contact {% data variables.contact.contact_enterprise_sales %} to discuss licensing {% data variables.product.prodname_GH_advanced_security %} for your enterprise.
 

@@ -17,6 +17,11 @@ topics:
   - Accounts
 shortTitle: Your personal dashboard
 ---
+
+{% ifversion global-nav-update %}
+{% data reusables.navigation.global-nav-beta-note %}
+{% endif %}
+
 ## Accessing your personal dashboard
 
 Your personal dashboard is the first page you'll see when you sign in on {% data variables.product.product_name %}.
@@ -31,7 +36,14 @@ In the "Recent activity" section of your news feed, you can quickly find and fol
 
 ## Finding your top repositories and teams
 
+{% ifversion global-nav-update %}
+In the global navigation menu, you can access the top repositories and teams you use. To open the menu, select {% octicon "three-bars" aria-label="Open global navigation menu" %} at the top left of any page.
+
+  ![Screenshot of the navigation bar on {% data variables.product.product_name %}. The "Open global navigation menu" icon is outlined in dark orange.](/assets/images/help/navigation/global-navigation-menu-icon.png)
+
+{% else %}
 In the left sidebar of your dashboard, you can access the top repositories and teams you use.
+{% endif %}
 
 The list of top repositories is automatically generated, and can include any repository you have interacted with, whether it's owned directly by your account or not. Interactions include making commits and opening or commenting on issues and pull requests. The list of top repositories cannot be edited, but repositories will drop off the list {% ifversion ghes < 3.6 or ghae < 3.6 %}4 months{% else %}1 year{% endif %} after you last interacted with them.
 
@@ -55,7 +67,6 @@ In the "All activity" section of your news feed, you can view updates from repos
 You'll see updates in your news feed when a user you follow:
 {% endif %}
 
-
 - Stars a repository.
 - Follows another user.{% ifversion fpt or ghes or ghec %}
 - Creates a public repository.{% endif %}
@@ -67,6 +78,7 @@ You'll see updates in your news feed when a user you follow:
 For more information about following people and watching repositories, see "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)" and "[AUTOTITLE](/get-started/quickstart/be-social)."
 
 {% ifversion for-you-feed %}
+
 ### For you feed
 
 {% note %}

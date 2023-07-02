@@ -15,7 +15,7 @@ topics:
   - Security
 shortTitle: Require 2FA
 ---
-When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.location.product_location %}. Organization administrators can require members to have two-factor authentication enabled.
+When using LDAP or built-in authentication, two-factor authentication is supported on {% data variables.location.product_location %}. Organization owners can require members to have two-factor authentication enabled.
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}
 
@@ -50,13 +50,12 @@ To view people who were automatically removed from your organization for non-com
 {% data reusables.audit_log.octicon_icon %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.audit_log.audit_log_sidebar_for_site_admins %}
-1. Enter your search query using `reason:two_factor_requirement_non_compliance`.
- To narrow your search for:
-    - Organizations members removed, enter `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
-    - Outside collaborators removed, enter `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`
+1. Enter your search query using `reason:two_factor_requirement_non_compliance`. To narrow your search for:
+   - Organizations members removed, enter `action:org.remove_member AND reason:two_factor_requirement_non_compliance`
+   - Outside collaborators removed, enter `action:org.remove_outside_collaborator AND reason:two_factor_requirement_non_compliance`
 
-  You can also view people removed from a particular organization by using the organization name in your search:
-    - `org:octo-org AND reason:two_factor_requirement_non_compliance`
+   You can also view people removed from a particular organization by using the organization name in your search:
+   - `org:octo-org AND reason:two_factor_requirement_non_compliance`
 1. Click **Search**.
 
 ## Helping removed members and outside collaborators rejoin your organization

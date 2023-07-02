@@ -12,7 +12,7 @@ shortTitle: Available rules
 
 {% data reusables.repositories.rulesets-public-beta %}
 
-You can create rulesets to control how users can interact with selected branches and tags in a repository. When you create a ruleset, you can choose to enable or disable the rules described in the following sections. 
+You can create rulesets to control how users can interact with selected branches and tags in a repository. When you create a ruleset, you can choose to enable or disable the rules described in the following sections.
 
 When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with certain permissions, specific teams, or {% data variables.product.prodname_github_apps %}. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
@@ -57,8 +57,8 @@ When you enable required commit signing on a branch, contributors {% ifversion f
 {% ifversion fpt or ghec %}
 **Notes:**
 
-* If you have enabled vigilant mode in your account settings, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
-* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+- If you have enabled vigilant mode in your account settings, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
+- If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 
 {% else %}
 **Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
@@ -75,6 +75,10 @@ You can always push local commits to the branch if the commits are signed and ve
 You can require that all changes to the target branch be associated with a pull request. The pull request doesn't necessarily have to be approved, but it must be opened.
 
 ### Additional settings
+
+{% ifversion pull-request-mergeability-security-changes %}
+{% data reusables.pull_requests.security-changes-mergeability %}
+{% endif %}
 
 {% data reusables.pull_requests.required-reviews-for-prs-summary %}
 

@@ -74,7 +74,7 @@ You can filter to see which alerts have been auto-dismissed, and you can reopen 
 {% data reusables.repositories.sidebar-security %}
 1. To filter to see all closed alerts, click **{% octicon "check" aria-hidden="true" %} Closed**. Alternatively, use the `is:closed` filter query in the search bar.
 
-  ![Screenshot of the "Dependabot Alerts" page. A button, labelled "Closed" is highlighted with an orange outline.](/assets/images/help/repository/dependabot-alerts-closed-tab.png)
+   ![Screenshot of the "Dependabot Alerts" page. A button, labelled "Closed" is highlighted with an orange outline.](/assets/images/help/repository/dependabot-alerts-closed-tab.png)
 
 1. To see all auto-dismissed alerts, select **Closed as**, then in the dropdown menu, click **Auto-dismissed**.
 
@@ -89,6 +89,7 @@ You can filter to see which alerts have been auto-dismissed, and you can reopen 
 Along with the `ecosystem:npm` and `scope:development` alert metadata, we use the following {% data variables.product.company_short %}-curated Common Weakness Enumerations (CWEs) to filter out low impact alerts for the `Dismiss low impact alerts` rule. We regularly improve this list and vulnerability patterns covered by built-in rules.
 
 ### Resource Management Issues
+
 - CWE-400 Uncontrolled Resource Consumption
 - CWE-770 Allocation of Resources Without Limits or Throttling
 - CWE-409 Improper Handling of Highly Compressed Data (Data Amplification)
@@ -99,6 +100,7 @@ Along with the `ecosystem:npm` and `scope:development` alert metadata, we use th
 - CWE-1119 Excessive Use of Unconditional Branching
 
 ### Programming and Logic Errors
+
 - CWE-185 Incorrect Regular Expression
 - CWE-754 Improper Check for Unusual or Exceptional Conditions
 - CWE-755 Improper Handling of Exceptional Conditions
@@ -112,6 +114,7 @@ Along with the `ecosystem:npm` and `scope:development` alert metadata, we use th
 - CWE-178 Improper Handling of Case Sensitivity
 
 ### Information Disclosure Issues
+
 - CWE-544 Missing Standardized Error Handling Mechanism
 - CWE-377 Insecure Temporary File
 - CWE-451 User Interface (UI) Misrepresentation of Critical Information

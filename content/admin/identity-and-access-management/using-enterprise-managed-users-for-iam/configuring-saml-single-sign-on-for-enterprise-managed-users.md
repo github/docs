@@ -27,7 +27,6 @@ With {% data variables.product.prodname_emus %}, your enterprise uses your corpo
 
 After you configure SAML SSO, we recommend storing your recovery codes so you can recover access to your enterprise in the event that your identity provider is unavailable.
 
-
 {% data reusables.enterprise_user_management.SAML-to-OIDC-migration-for-EMU %}
 
 {% note %}
@@ -49,8 +48,8 @@ To install and configure the {% data variables.product.prodname_emu_idp_applicat
 {% endnote %}
 
 1. [Configuring your identity provider](#configuring-your-identity-provider)
-2. [Configuring your enterprise](#configuring-your-enterprise)
-3. [Enabling provisioning](#enabling-provisioning)
+1. [Configuring your enterprise](#configuring-your-enterprise)
+1. [Enabling provisioning](#enabling-provisioning)
 
 ### Configuring your identity provider
 
@@ -60,11 +59,17 @@ To configure your IdP, follow the instructions they provide for configuring the 
 
      - [{% data variables.product.prodname_emu_idp_application %} application on Azure Active Directory](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterprisemanageduser?tab=Overview)
      - [{% data variables.product.prodname_emu_idp_application %} application on Okta](https://www.okta.com/integrations/github-enterprise-managed-user)
+     - [{% data variables.product.prodname_emu_idp_application %} connector on PingFederate](https://www.pingidentity.com/en/resources/downloads/pingfederate.html) (public beta)
+
+       To download the PingFederate connector, navigate to the **Add-ons** tab and select **GitHub EMU Connector 1.0**.
+
+{% indented_data_reference reusables.enterprise-accounts.public-beta-pingfed-for-emu spaces=3 %}
 
 1. To configure the {% data variables.product.prodname_emu_idp_application %} application and your IdP, click the link below and follow the instructions provided by your IdP:
 
      - [Azure Active Directory tutorial for {% data variables.product.prodname_emus %}](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial)
      - [Okta documentation for {% data variables.product.prodname_emus %}](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-GitHub-Enterprise-Managed-User.html)
+     - [PingFederate documentation for {% data variables.product.prodname_emus %}](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_emu_connector) (public beta)
 
 1. So you can test and configure your enterprise, assign yourself or the user that will be configuring SAML SSO on {% data variables.product.prodname_dotcom %} to the {% data variables.product.prodname_emu_idp_application %} application on your IdP.
 
@@ -101,7 +106,6 @@ After you install and configure the {% data variables.product.prodname_emu_idp_a
     {% endnote %}
 
 {% data reusables.enterprise-accounts.download-recovery-codes %}
-
 
 ### Enabling provisioning
 

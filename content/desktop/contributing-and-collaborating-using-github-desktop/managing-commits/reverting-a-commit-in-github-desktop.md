@@ -19,4 +19,3 @@ When you revert to a previous commit, the revert is also a commit. The original 
 
 {% data reusables.desktop.history-tab %}
 {% data reusables.desktop.revert-commit %}
-  ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the cursor hovers over the "Revert Changes in Commit" option.](/assets/images/help/desktop/commit-revert-mac.png)

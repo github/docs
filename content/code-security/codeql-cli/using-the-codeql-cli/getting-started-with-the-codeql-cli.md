@@ -72,9 +72,9 @@ Alternatively, you can download `codeql.zip`, which contains the CLI for all sup
 If you use macOS version 10.15 ("Catalina"), version 11 ("Big Sur"), or the upcoming version 12 ("Monterey"), you need to ensure that your web browser does not automatically extract zip files. If you use Safari, complete the following steps before downloading the {% data variables.product.prodname_codeql_cli %} zip archive:
 
 1. Open Safari.
-2. From the Safari menu, select **Preferences…**.
-3. Click the **General** Tab.
-4. Ensure the check-box labeled **Open "safe" files after downloading** is unchecked.
+1. From the Safari menu, select **Preferences…**.
+1. Click the **General** Tab.
+1. Ensure the check-box labeled **Open "safe" files after downloading** is unchecked.
 
 ### 2. Extract the zip archive
 
@@ -86,9 +86,9 @@ simply extract the zip archive.
 macOS "Catalina", "Big Sur", or "Monterey" users should run the following commands in the Terminal, where `${extraction-root}` is the path to the directory where you will extract the {% data variables.product.prodname_codeql_cli %} zip archive:
 
 1. `mv ~/Downloads/codeql\*.zip ${extraction-root}`
-2. `cd ${extraction-root}`
-3. `/usr/bin/xattr -c codeql\*.zip`
-4. `unzip codeql\*.zip`
+1. `cd ${extraction-root}`
+1. `/usr/bin/xattr -c codeql\*.zip`
+1. `unzip codeql\*.zip`
 
 ### 3. Launch `codeql`
 
@@ -154,7 +154,7 @@ the queries and libraries required for {% data variables.product.prodname_codeql
 Clone a copy of this repository into `codeql-home`.
 
 By default, the root of the cloned repository will be called `codeql`.
-Rename this folder `codeql-repo` to avoid conflicting with the {% data variables.product.prodname_codeql_cli %} that you will extract in step 4. If you use git on the command line, you can
+Rename this folder `codeql-repo` to avoid conflicting with the {% data variables.product.prodname_codeql_cli %} that you will extract in step 1. If you use git on the command line, you can
 clone and rename the repository in a single step by running
 `git clone git@github.com:github/codeql.git codeql-repo` in the `codeql-home` folder.
 
@@ -202,10 +202,10 @@ See [step 3 from the previous section](#3-launch-codeql).
 
 - Run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.
 - Run `codeql resolve qlpacks` to show which {% data variables.product.prodname_codeql %} packs the CLI can find. This will display the names of all the {% data variables.product.prodname_codeql %} packs directly available to the {% data variables.product.prodname_codeql_cli %}. This should include:
- - Query packs for each supported language, for example, `codeql/{language}-queries`. These packs contain the standard queries that will be run for each analysis.
- - Library packs for each supported language, for example,  `codeql/{language}-all`. These packs contain query libraries, such as control flow and data flow libraries, that may be useful to query writers.
- - Example packs for each supported language, for example, `codeql/{language}-examples`. These packs contain useful snippets of {% data variables.product.prodname_codeql %} that query writers may find useful.
- - Legacy packs that ensure custom queries and libraries created using older products are compatible with your version of {% data variables.product.prodname_codeql %}.
+- Query packs for each supported language, for example, `codeql/{language}-queries`. These packs contain the standard queries that will be run for each analysis.
+- Library packs for each supported language, for example,  `codeql/{language}-all`. These packs contain query libraries, such as control flow and data flow libraries, that may be useful to query writers.
+- Example packs for each supported language, for example, `codeql/{language}-examples`. These packs contain useful snippets of {% data variables.product.prodname_codeql %} that query writers may find useful.
+- Legacy packs that ensure custom queries and libraries created using older products are compatible with your version of {% data variables.product.prodname_codeql %}.
 
 ## Using two versions of the {% data variables.product.prodname_codeql_cli %}
 

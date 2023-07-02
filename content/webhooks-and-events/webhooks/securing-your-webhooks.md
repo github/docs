@@ -27,13 +27,13 @@ To set your token on GitHub:
 {% data reusables.repositories.sidebar-settings %}
 1. In the left sidebar, click **{% octicon "webhook" aria-hidden="true" %} Webhooks**.
 1. Next to the webhook, click **Edit**.
-2. In the "Secret" field, type a random string with high entropy. You can generate a string with `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` in the terminal, for example.
-3. Click **Update Webhook**.
+1. In the "Secret" field, type a random string with high entropy. You can generate a string with `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` in the terminal, for example.
+1. Click **Update Webhook**.
 
 Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:
 
 ```shell
-$ export SECRET_TOKEN=YOUR-TOKEN
+export SECRET_TOKEN=YOUR-TOKEN
 ```
 
 **Never** hardcode the token into your app!
@@ -60,9 +60,9 @@ You should calculate a hash using your `SECRET_TOKEN`, and ensure that the resul
 
 Your language and server implementations may differ from the following examples. However, there are a number of very important things to point out:
 
-* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
+- No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
 
-* Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
+- Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
 ### Ruby example
 
@@ -110,6 +110,32 @@ def verify_signature(payload_body, secret_token, signature_header):
     expected_signature = "sha256=" + hash_object.hexdigest()
     if not hmac.compare_digest(expected_signature, signature_header):
         raise HTTPException(status_code=403, detail="Request signatures didn't match!")
+```
+
+### Typescript example
+
+For example, you can define the following `verify_signature` function and call it when you receive a webhook payload:
+
+```javascript copy
+import * as crypto from "crypto";
+
+const WEBHOOK_SECRET: string = process.env.WEBHOOK_SECRET;
+
+const verify_signature = (req: Request) => {
+  const signature = crypto
+    .createHmac("sha256", WEBHOOK_SECRET)
+    .update(JSON.stringify(req.body))
+    .digest("hex");
+  return `sha256=${signature}` === req.headers.get("x-hub-signature-256");
+};
+
+const handleWebhook = (req: Request, res: Response) => {
+  if (!verify_signature(req)) {
+    res.status(401).send("Unauthorized");
+    return;
+  }
+  // The rest of your logic here
+};
 ```
 
 [secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare

@@ -1,4 +1,4 @@
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
@@ -45,4 +45,3 @@ jobs:
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
 ```
-

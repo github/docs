@@ -1734,7 +1734,7 @@
       "kind": "mutations",
       "id": "createcommitonbranch",
       "href": "/graphql/reference/mutations#createcommitonbranch",
-      "description": "<p>Appends a commit to the given branch as the authenticated user.</p>\n<p>This mutation creates a commit whose parent is the HEAD of the provided\nbranch and also updates that branch to point to the new commit.\nIt can be thought of as similar to <code>git commit</code>.</p>\n<h3 id=\"locating-a-branch\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#locating-a-branch\">Locating a Branch<span class=\"heading-link-symbol\" aria-hidden=\"true\"> #</span></a></h3>\n<p>Commits are appended to a <code>branch</code> of type <code>Ref</code>.\nThis must refer to a git branch (i.e.  the fully qualified path must\nbegin with <code>refs/heads/</code>, although including this prefix is optional.</p>\n<p>Callers may specify the <code>branch</code> to commit to either by its global node\nID or by passing both of <code>repositoryNameWithOwner</code> and <code>refName</code>.  For\nmore details see the documentation for <code>CommittableBranch</code>.</p>\n<h3 id=\"describing-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#describing-changes\">Describing Changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"> #</span></a></h3>\n<p><code>fileChanges</code> are specified as a <code>FilesChanges</code> object describing\n<code>FileAdditions</code> and <code>FileDeletions</code>.</p>\n<p>Please see the documentation for <code>FileChanges</code> for more information on\nhow to use this argument to describe any set of file changes.</p>\n<h3 id=\"authorship\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#authorship\">Authorship<span class=\"heading-link-symbol\" aria-hidden=\"true\"> #</span></a></h3>\n<p>Similar to the web commit interface, this mutation does not support\nspecifying the author or committer of the commit and will not add\nsupport for this in the future.</p>\n<p>A commit created by a successful execution of this mutation will be\nauthored by the owner of the credential which authenticates the API\nrequest.  The committer will be identical to that of commits authored\nusing the web interface.</p>\n<p>If you need full control over author and committer information, please\nuse the Git Database REST API instead.</p>\n<h3 id=\"commit-signing\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#commit-signing\">Commit Signing<span class=\"heading-link-symbol\" aria-hidden=\"true\"> #</span></a></h3>\n<p>Commits made using this mutation are automatically signed by GitHub if\nsupported and will be marked as verified in the user interface.</p>",
+      "description": "<p>Appends a commit to the given branch as the authenticated user.</p>\n<p>This mutation creates a commit whose parent is the HEAD of the provided\nbranch and also updates that branch to point to the new commit.\nIt can be thought of as similar to <code>git commit</code>.</p>\n<h3 id=\"locating-a-branch\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#locating-a-branch\">Locating a Branch<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Commits are appended to a <code>branch</code> of type <code>Ref</code>.\nThis must refer to a git branch (i.e.  the fully qualified path must\nbegin with <code>refs/heads/</code>, although including this prefix is optional.</p>\n<p>Callers may specify the <code>branch</code> to commit to either by its global node\nID or by passing both of <code>repositoryNameWithOwner</code> and <code>refName</code>.  For\nmore details see the documentation for <code>CommittableBranch</code>.</p>\n<h3 id=\"describing-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#describing-changes\">Describing Changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p><code>fileChanges</code> are specified as a <code>FilesChanges</code> object describing\n<code>FileAdditions</code> and <code>FileDeletions</code>.</p>\n<p>Please see the documentation for <code>FileChanges</code> for more information on\nhow to use this argument to describe any set of file changes.</p>\n<h3 id=\"authorship\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#authorship\">Authorship<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Similar to the web commit interface, this mutation does not support\nspecifying the author or committer of the commit and will not add\nsupport for this in the future.</p>\n<p>A commit created by a successful execution of this mutation will be\nauthored by the owner of the credential which authenticates the API\nrequest.  The committer will be identical to that of commits authored\nusing the web interface.</p>\n<p>If you need full control over author and committer information, please\nuse the Git Database REST API instead.</p>\n<h3 id=\"commit-signing\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#commit-signing\">Commit Signing<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Commits made using this mutation are automatically signed by GitHub if\nsupported and will be marked as verified in the user interface.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -6356,7 +6356,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -10476,7 +10476,7 @@
         },
         {
           "name": "changedFiles",
-          "description": "<p>We recommend using the <code>changedFielsIfAvailable</code> field instead of\n<code>changedFiles</code>, as <code>changedFiles</code> will cause your request to return an error\nif GitHub is unable to calculate the number of changed files.</p>",
+          "description": "<p>We recommend using the <code>changedFilesIfAvailable</code> field instead of\n<code>changedFiles</code>, as <code>changedFiles</code> will cause your request to return an error\nif GitHub is unable to calculate the number of changed files.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -23332,6 +23332,11 @@
           "href": "/graphql/reference/interfaces#comment"
         },
         {
+          "name": "Deletable",
+          "id": "deletable",
+          "href": "/graphql/reference/interfaces#deletable"
+        },
+        {
           "name": "Labelable",
           "id": "labelable",
           "href": "/graphql/reference/interfaces#labelable"
@@ -24250,6 +24255,14 @@
         {
           "name": "viewerCanClose",
           "description": "<p>Indicates if the object can be closed by the viewer.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanDelete",
+          "description": "<p>Check if the current viewer can delete this object.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -27764,7 +27777,7 @@
         },
         {
           "name": "applicationUrl",
-          "description": "<p>The application URL of the OAuth Application.</p>",
+          "description": "<p>The application URL of the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -27772,7 +27785,7 @@
         },
         {
           "name": "callbackUrl",
-          "description": "<p>The callback URL of the OAuth Application.</p>",
+          "description": "<p>The callback URL of the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -27788,7 +27801,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -27796,7 +27809,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -27804,7 +27817,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -27852,7 +27865,7 @@
         },
         {
           "name": "rateLimit",
-          "description": "<p>The rate limit of the OAuth Application.</p>",
+          "description": "<p>The rate limit of the OAuth application.</p>",
           "type": "Int",
           "id": "int",
           "kind": "scalars",
@@ -27860,7 +27873,7 @@
         },
         {
           "name": "state",
-          "description": "<p>The state of the OAuth Application.</p>",
+          "description": "<p>The state of the OAuth application.</p>",
           "type": "OauthApplicationCreateAuditEntryState",
           "id": "oauthapplicationcreateauditentrystate",
           "kind": "enums",
@@ -30428,7 +30441,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -30436,7 +30449,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -30444,7 +30457,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -30619,7 +30632,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -30627,7 +30640,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -30635,7 +30648,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -30810,7 +30823,7 @@
         },
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -30818,7 +30831,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -30826,7 +30839,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -34008,6 +34021,26 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "ruleset",
+          "description": "<p>Returns a single ruleset from the current organization by ID.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset",
+          "arguments": [
+            {
+              "name": "databaseId",
+              "description": "<p>The ID of the ruleset to be returned.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "rulesets",
           "description": "<p>A list of rulesets for this organization.</p>",
           "type": "RepositoryRulesetConnection",
@@ -34047,7 +34080,7 @@
             },
             {
               "name": "includeParents",
-              "defaultValue": false,
+              "defaultValue": true,
               "description": "<p>Return rulesets configured at higher levels that apply to this organization.</p>",
               "type": {
                 "name": "Boolean",
@@ -39379,7 +39412,7 @@
       "kind": "objects",
       "id": "pullrequestparameters",
       "href": "/graphql/reference/objects#pullrequestparameters",
-      "description": "<p>Parameters to be used for the pull_request rule.</p>",
+      "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
       "fields": [
         {
           "name": "dismissStaleReviewsOnPush",
@@ -49488,6 +49521,37 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "ruleset",
+          "description": "<p>Returns a single ruleset from the current repository by ID.</p>",
+          "type": "RepositoryRuleset",
+          "id": "repositoryruleset",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryruleset",
+          "arguments": [
+            {
+              "name": "databaseId",
+              "description": "<p>The ID of the ruleset to be returned.</p>",
+              "type": {
+                "name": "Int!",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "includeParents",
+              "defaultValue": true,
+              "description": "<p>Include rulesets configured at higher levels that apply to this repository.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
+        },
+        {
           "name": "rulesets",
           "description": "<p>A list of rulesets for this repository.</p>",
           "type": "RepositoryRulesetConnection",
@@ -49527,7 +49591,7 @@
             },
             {
               "name": "includeParents",
-              "defaultValue": false,
+              "defaultValue": true,
               "description": "<p>Return rulesets configured at higher levels that apply to this repository.</p>",
               "type": {
                 "name": "Boolean",
@@ -50498,6 +50562,14 @@
           "id": "migrationstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#migrationstate"
+        },
+        {
+          "name": "warningsCount",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -50804,6 +50876,14 @@
           "href": "/graphql/reference/objects#repositoryruleconditions"
         },
         {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "databaseId",
           "description": "<p>Identifies the primary key from the database.</p>",
           "type": "Int",
@@ -50902,6 +50982,14 @@
           "id": "repositoryrulesettarget",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryrulesettarget"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         }
       ]
     },
@@ -51790,7 +51878,7 @@
       "kind": "objects",
       "id": "requireddeploymentsparameters",
       "href": "/graphql/reference/objects#requireddeploymentsparameters",
-      "description": "<p>Parameters to be used for the required_deployments rule.</p>",
+      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
       "fields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -51832,7 +51920,7 @@
       "kind": "objects",
       "id": "requiredstatuschecksparameters",
       "href": "/graphql/reference/objects#requiredstatuschecksparameters",
-      "description": "<p>Parameters to be used for the required_status_checks rule.</p>",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
       "fields": [
         {
           "name": "requiredStatusChecks",
@@ -58489,7 +58577,7 @@
       "kind": "objects",
       "id": "updateparameters",
       "href": "/graphql/reference/objects#updateparameters",
-      "description": "<p>Parameters to be used for the update rule.</p>",
+      "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
       "fields": [
         {
           "name": "updateAllowsFetchAndMerge",
@@ -61332,6 +61420,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "file",
+          "description": "<p>The workflow file.</p>",
+          "type": "WorkflowRunFile",
+          "id": "workflowrunfile",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrunfile"
+        },
+        {
           "name": "pendingDeploymentRequests",
           "description": "<p>The pending deployment requests of all check runs in this workflow run.</p>",
           "type": "DeploymentRequestConnection!",
@@ -61486,6 +61582,91 @@
           "id": "workflowrun",
           "kind": "objects",
           "href": "/graphql/reference/objects#workflowrun"
+        }
+      ]
+    },
+    {
+      "name": "WorkflowRunFile",
+      "kind": "objects",
+      "id": "workflowrunfile",
+      "href": "/graphql/reference/objects#workflowrunfile",
+      "description": "<p>An executed workflow file for a workflow run.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "UniformResourceLocatable",
+          "id": "uniformresourcelocatable",
+          "href": "/graphql/reference/interfaces#uniformresourcelocatable"
+        }
+      ],
+      "fields": [
+        {
+          "name": "path",
+          "description": "<p>The path of the workflow file relative to its repository.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "repositoryFileUrl",
+          "description": "<p>The direct link to the file in the repository which stores the workflow file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "repositoryName",
+          "description": "<p>The repository name and owner which stores the workflow file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "resourcePath",
+          "description": "<p>The HTTP path for this workflow run file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "run",
+          "description": "<p>The parent workflow run execution for this file.</p>",
+          "type": "WorkflowRun!",
+          "id": "workflowrun",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#workflowrun"
+        },
+        {
+          "name": "url",
+          "description": "<p>The HTTP URL for this workflow run file.</p>",
+          "type": "URI!",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "viewerCanPushRepository",
+          "description": "<p>If the viewer has permissions to push to the repository which stores the workflow.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "viewerCanReadRepository",
+          "description": "<p>If the viewer has permissions to read the repository which stores the workflow.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         }
       ]
     }
@@ -62432,6 +62613,14 @@
           "id": "migrationstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#migrationstate"
+        },
+        {
+          "name": "warningsCount",
+          "description": "<p>The number of warnings encountered for this migration. To review the warnings,\ncheck the <a href=\"https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer\">Migration Log</a>.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -62494,7 +62683,7 @@
       "fields": [
         {
           "name": "oauthApplicationName",
-          "description": "<p>The name of the OAuth Application.</p>",
+          "description": "<p>The name of the OAuth application.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
@@ -62502,7 +62691,7 @@
         },
         {
           "name": "oauthApplicationResourcePath",
-          "description": "<p>The HTTP path for the OAuth Application.</p>",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -62510,7 +62699,7 @@
         },
         {
           "name": "oauthApplicationUrl",
-          "description": "<p>The HTTP URL for the OAuth Application.</p>",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
           "type": "URI",
           "id": "uri",
           "kind": "scalars",
@@ -65722,19 +65911,19 @@
       "kind": "enums",
       "id": "oauthapplicationcreateauditentrystate",
       "href": "/graphql/reference/enums#oauthapplicationcreateauditentrystate",
-      "description": "<p>The state of an OAuth Application when it was created.</p>",
+      "description": "<p>The state of an OAuth application when it was created.</p>",
       "values": [
         {
           "name": "ACTIVE",
-          "description": "<p>The OAuth Application was active and allowed to have OAuth Accesses.</p>"
+          "description": "<p>The OAuth application was active and allowed to have OAuth Accesses.</p>"
         },
         {
           "name": "PENDING_DELETION",
-          "description": "<p>The OAuth Application was in the process of being deleted.</p>"
+          "description": "<p>The OAuth application was in the process of being deleted.</p>"
         },
         {
           "name": "SUSPENDED",
-          "description": "<p>The OAuth Application was suspended from generating OAuth Accesses due to abuse or security concerns.</p>"
+          "description": "<p>The OAuth application was suspended from generating OAuth Accesses due to abuse or security concerns.</p>"
         }
       ]
     },
@@ -66172,12 +66361,20 @@
           "description": "<p>The Octoshift migration has failed.</p>"
         },
         {
+          "name": "FAILED_VALIDATION",
+          "description": "<p>The Octoshift migration has invalid credentials.</p>"
+        },
+        {
           "name": "IN_PROGRESS",
           "description": "<p>The Octoshift migration is in progress.</p>"
         },
         {
           "name": "NOT_STARTED",
           "description": "<p>The Octoshift migration has not started.</p>"
+        },
+        {
+          "name": "PENDING_VALIDATION",
+          "description": "<p>The Octoshift migration needs to have its credentials validated.</p>"
         },
         {
           "name": "POST_REPO_MIGRATION",
@@ -67376,35 +67573,35 @@
         },
         {
           "name": "CREATION",
-          "description": "<p>Creation.</p>"
+          "description": "<p>Only allow users with bypass permission to create matching refs.</p>"
         },
         {
           "name": "DELETION",
-          "description": "<p>Deletion.</p>"
+          "description": "<p>Only allow users with bypass permissions to delete matching refs.</p>"
         },
         {
           "name": "NON_FAST_FORWARD",
-          "description": "<p>Non fast forward.</p>"
+          "description": "<p>Prevent users with push access from force pushing to branches.</p>"
         },
         {
           "name": "PULL_REQUEST",
-          "description": "<p>Pull request.</p>"
+          "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>"
         },
         {
           "name": "REQUIRED_DEPLOYMENTS",
-          "description": "<p>Required deployments.</p>"
+          "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>"
         },
         {
           "name": "REQUIRED_LINEAR_HISTORY",
-          "description": "<p>Required linear history.</p>"
+          "description": "<p>Prevent merge commits from being pushed to matching branches.</p>"
         },
         {
           "name": "REQUIRED_SIGNATURES",
-          "description": "<p>Required signatures.</p>"
+          "description": "<p>Commits pushed to matching branches must have verified signatures.</p>"
         },
         {
           "name": "REQUIRED_STATUS_CHECKS",
-          "description": "<p>Required status checks.</p>"
+          "description": "<p>Choose which status checks must pass before branches can be merged into a\nbranch that matches this rule. When enabled, commits must first be pushed to\nanother branch, then merged or pushed directly to a branch that matches this\nrule after status checks have passed.</p>"
         },
         {
           "name": "TAG_NAME_PATTERN",
@@ -67412,7 +67609,7 @@
         },
         {
           "name": "UPDATE",
-          "description": "<p>Update.</p>"
+          "description": "<p>Only allow users with bypass permission to update matching refs.</p>"
         }
       ]
     },
@@ -67560,6 +67757,18 @@
         {
           "name": "ORGANIZATION",
           "description": "<p>Those with bypass permission at the organization level can bypass.</p>"
+        },
+        {
+          "name": "ORGANIZATION_ALWAYS",
+          "description": "<p>Those with bypass permission at the organization level can always bypass.</p>"
+        },
+        {
+          "name": "ORGANIZATION_NONE",
+          "description": "<p>Bypassing is disabled.</p>"
+        },
+        {
+          "name": "ORGANIZATION_PRS_ONLY",
+          "description": "<p>Those with bypass permission at the organization level can bypass for pull requests only.</p>"
         },
         {
           "name": "REPOSITORY",
@@ -67743,6 +67952,10 @@
         {
           "name": "RUST",
           "description": "<p>Rust crates.</p>"
+        },
+        {
+          "name": "SWIFT",
+          "description": "<p>Swift packages.</p>"
         }
       ]
     },
@@ -71487,7 +71700,7 @@
       "kind": "inputObjects",
       "id": "committablebranch",
       "href": "/graphql/reference/input-objects#committablebranch",
-      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\n<code>repositoryNameWithOwner</code> and <code>branchName</code>.</p>\n<h3 id=\"examples\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#examples\">Examples<span class=\"heading-link-symbol\" aria-hidden=\"true\"> #</span></a></h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using <code>repositoryNameWithOwner</code> and <code>branchName</code>:</p>\n<pre><code>{\n  \"repositoryNameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
+      "description": "<p>A git ref for a commit to be appended to.</p>\n<p>The ref must be a branch, i.e. its fully qualified name must start\nwith <code>refs/heads/</code> (although the input is not required to be fully\nqualified).</p>\n<p>The Ref may be specified by its global node ID or by the\n<code>repositoryNameWithOwner</code> and <code>branchName</code>.</p>\n<h3 id=\"examples\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#examples\">Examples<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Specify a branch using a global node ID:</p>\n<pre><code>{ \"id\": \"MDM6UmVmMTpyZWZzL2hlYWRzL21haW4=\" }\n</code></pre>\n<p>Specify a branch using <code>repositoryNameWithOwner</code> and <code>branchName</code>:</p>\n<pre><code>{\n  \"repositoryNameWithOwner\": \"github/graphql-client\",\n  \"branchName\": \"main\"\n}.\n</code></pre>",
       "inputFields": [
         {
           "name": "branchName",
@@ -74207,7 +74420,7 @@
       "kind": "inputObjects",
       "id": "filechanges",
       "href": "/graphql/reference/input-objects#filechanges",
-      "description": "<p>A description of a set of changes to a file tree to be made as part of\na git commit, modeled as zero or more file <code>additions</code> and zero or more\nfile <code>deletions</code>.</p>\n<p>Both fields are optional; omitting both will produce a commit with no\nfile changes.</p>\n<p><code>deletions</code> and <code>additions</code> describe changes to files identified\nby their path in the git tree using unix-style path separators, i.e.\n<code>/</code>.  The root of a git tree is an empty string, so paths are not\nslash-prefixed.</p>\n<p><code>path</code> values must be unique across all <code>additions</code> and <code>deletions</code>\nprovided.  Any duplication will result in a validation error.</p>\n<h3 id=\"encoding\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#encoding\">Encoding<span class=\"heading-link-symbol\" aria-hidden=\"true\"> #</span></a></h3>\n<p>File contents must be provided in full for each <code>FileAddition</code>.</p>\n<p>The <code>contents</code> of a <code>FileAddition</code> must be encoded using RFC 4648\ncompliant base64, i.e. correct padding is required and no characters\noutside the standard alphabet may be used.  Invalid base64\nencoding will be rejected with a validation error.</p>\n<p>The encoded contents may be binary.</p>\n<p>For text files, no assumptions are made about the character encoding of\nthe file contents (after base64 decoding).  No charset transcoding or\nline-ending normalization will be performed; it is the client's\nresponsibility to manage the character encoding of files they provide.\nHowever, for maximum compatibility we recommend using UTF-8 encoding\nand ensuring that all files in a repository use a consistent\nline-ending convention (<code>\\n</code> or <code>\\r\\n</code>), and that all files end\nwith a newline.</p>\n<h3 id=\"modeling-file-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#modeling-file-changes\">Modeling file changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"> #</span></a></h3>\n<p>Each of the the five types of conceptual changes that can be made in a\ngit commit can be described using the <code>FileChanges</code> type as follows:</p>\n<ol>\n<li>\n<p>New file addition: create file <code>hello world\\n</code> at path <code>docs/README.txt</code>:</p>\n<p>   {\n\"additions\" [\n{\n\"path\": \"docs/README.txt\",\n\"contents\": base64encode(\"hello world\\n\")\n}\n]\n}</p>\n</li>\n<li>\n<p>Existing file modification: change existing <code>docs/README.txt</code> to have new\ncontent <code>new content here\\n</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"new content here\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file deletion: remove existing file <code>docs/README.txt</code>.\nNote that the path is required to exist -- specifying a\npath that does not exist on the given branch will abort the\ncommit and return an error.</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\"\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with no changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to the same content at\n<code>newdocs/README.txt</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to a file at path\n<code>newdocs/README.txt</code> with content <code>new contents\\n</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"new contents\\n\")\n    }\n  ]\n}.\n</code></pre>\n</li>\n</ol>",
+      "description": "<p>A description of a set of changes to a file tree to be made as part of\na git commit, modeled as zero or more file <code>additions</code> and zero or more\nfile <code>deletions</code>.</p>\n<p>Both fields are optional; omitting both will produce a commit with no\nfile changes.</p>\n<p><code>deletions</code> and <code>additions</code> describe changes to files identified\nby their path in the git tree using unix-style path separators, i.e.\n<code>/</code>.  The root of a git tree is an empty string, so paths are not\nslash-prefixed.</p>\n<p><code>path</code> values must be unique across all <code>additions</code> and <code>deletions</code>\nprovided.  Any duplication will result in a validation error.</p>\n<h3 id=\"encoding\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#encoding\">Encoding<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>File contents must be provided in full for each <code>FileAddition</code>.</p>\n<p>The <code>contents</code> of a <code>FileAddition</code> must be encoded using RFC 4648\ncompliant base64, i.e. correct padding is required and no characters\noutside the standard alphabet may be used.  Invalid base64\nencoding will be rejected with a validation error.</p>\n<p>The encoded contents may be binary.</p>\n<p>For text files, no assumptions are made about the character encoding of\nthe file contents (after base64 decoding).  No charset transcoding or\nline-ending normalization will be performed; it is the client's\nresponsibility to manage the character encoding of files they provide.\nHowever, for maximum compatibility we recommend using UTF-8 encoding\nand ensuring that all files in a repository use a consistent\nline-ending convention (<code>\\n</code> or <code>\\r\\n</code>), and that all files end\nwith a newline.</p>\n<h3 id=\"modeling-file-changes\" tabindex=\"-1\"><a class=\"heading-link\" href=\"#modeling-file-changes\">Modeling file changes<span class=\"heading-link-symbol\" aria-hidden=\"true\"></span></a></h3>\n<p>Each of the the five types of conceptual changes that can be made in a\ngit commit can be described using the <code>FileChanges</code> type as follows:</p>\n<ol>\n<li>\n<p>New file addition: create file <code>hello world\\n</code> at path <code>docs/README.txt</code>:</p>\n<p>   {\n\"additions\" [\n{\n\"path\": \"docs/README.txt\",\n\"contents\": base64encode(\"hello world\\n\")\n}\n]\n}</p>\n</li>\n<li>\n<p>Existing file modification: change existing <code>docs/README.txt</code> to have new\ncontent <code>new content here\\n</code>:</p>\n<pre><code>{\n  \"additions\" [\n    {\n      \"path\": \"docs/README.txt\",\n      \"contents\": base64encode(\"new content here\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>Existing file deletion: remove existing file <code>docs/README.txt</code>.\nNote that the path is required to exist -- specifying a\npath that does not exist on the given branch will abort the\ncommit and return an error.</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\"\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with no changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to the same content at\n<code>newdocs/README.txt</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"hello world\\n\")\n    }\n  ]\n}\n</code></pre>\n</li>\n<li>\n<p>File rename with changes: rename <code>docs/README.txt</code> with\nprevious content <code>hello world\\n</code> to a file at path\n<code>newdocs/README.txt</code> with content <code>new contents\\n</code>:</p>\n<pre><code>{\n  \"deletions\" [\n    {\n      \"path\": \"docs/README.txt\",\n    }\n  ],\n  \"additions\" [\n    {\n      \"path\": \"newdocs/README.txt\",\n      \"contents\": base64encode(\"new contents\\n\")\n    }\n  ]\n}.\n</code></pre>\n</li>\n</ol>",
       "inputFields": [
         {
           "name": "additions",
@@ -75283,7 +75496,7 @@
       "kind": "inputObjects",
       "id": "pullrequestparametersinput",
       "href": "/graphql/reference/input-objects#pullrequestparametersinput",
-      "description": "<p>Parameters to be used for the pull_request rule.</p>",
+      "description": "<p>Require all commits be made to a non-target branch and submitted via a pull request before they can be merged.</p>",
       "inputFields": [
         {
           "name": "dismissStaleReviewsOnPush",
@@ -75419,7 +75632,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -76053,7 +76266,7 @@
       "kind": "inputObjects",
       "id": "requireddeploymentsparametersinput",
       "href": "/graphql/reference/input-objects#requireddeploymentsparametersinput",
-      "description": "<p>Parameters to be used for the required_deployments rule.</p>",
+      "description": "<p>Choose which environments must be successfully deployed to before branches can\nbe merged into a branch that matches this rule.</p>",
       "inputFields": [
         {
           "name": "requiredDeploymentEnvironments",
@@ -76095,7 +76308,7 @@
       "kind": "inputObjects",
       "id": "requiredstatuschecksparametersinput",
       "href": "/graphql/reference/input-objects#requiredstatuschecksparametersinput",
-      "description": "<p>Parameters to be used for the required_status_checks rule.</p>",
+      "description": "<p>Choose which status checks must pass before branches can be merged into a branch\nthat matches this rule. When enabled, commits must first be pushed to another\nbranch, then merged or pushed directly to a branch that matches this rule after\nstatus checks have passed.</p>",
       "inputFields": [
         {
           "name": "requiredStatusChecks",
@@ -78648,7 +78861,7 @@
       "kind": "inputObjects",
       "id": "updateparametersinput",
       "href": "/graphql/reference/input-objects#updateparametersinput",
-      "description": "<p>Parameters to be used for the update rule.</p>",
+      "description": "<p>Only allow users with bypass permission to update matching refs.</p>",
       "inputFields": [
         {
           "name": "updateAllowsFetchAndMerge",
@@ -79056,7 +79269,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -79708,7 +79921,7 @@
           "RefUpdate"
         ],
         "owning_teams": [
-          "@github/reponauts"
+          "@github/repos"
         ],
         "accept_header": "application/vnd.github.update-refs-preview+json",
         "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"

@@ -17,5 +17,4 @@ You can determine which machine types are available to create a codespace, eithe
 
 You can also use this information when changing the machine of an existing codespace by updating its `machine` property. The machine update will take place the next time the codespace is restarted. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
 
-
 <!-- Content after this section is automatically generated -->

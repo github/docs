@@ -13,8 +13,7 @@ versions:
   ghec: '*'
 shortTitle: Automatic token authentication
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About the `GITHUB_TOKEN` secret
@@ -38,6 +37,8 @@ You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secr
 {% endnote %}
 
 {% data reusables.actions.actions-do-not-trigger-workflows %}
+
+{% data reusables.actions.actions-do-not-trigger-pages-rebuilds %}
 
 ### Example 1: passing the `GITHUB_TOKEN` as an input
 

@@ -76,15 +76,17 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 1. Click the **{% octicon "code" aria-hidden="true" %} Code** button, then click the **Codespaces** tab.
 
-   If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed below the **Create codespace on BRANCH** button telling you who will pay for the codespace.
+   A message is displayed at the bottom of the dialog telling you who will pay for the codespace.
+
+   ![Screenshot of Codespaces dialog. The message showing who will pay for the codespace is highlighted with a dark orange outline.](/assets/images/help/codespaces/who-will-pay.png)
 
 1. Create your codespace, either using the default options, or after configuring advanced options:
 
-   * **Use the default options**
+   - **Use the default options**
 
-      To create a codespace using the default options, click the plus sign ({% octicon "plus" aria-label="The plus icon" %}). Alternatively, if you don't currently have any codespaces for this repository, you can click **Create codespace on BRANCH**. <br/><br/>
+      To create a codespace using the default options, click {% octicon "plus" aria-label="Create a codespace on BRANCH" %}. <br/><br/>
 
-   * **Configure advanced options**
+   - **Configure advanced options**
 
       To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
 
@@ -102,11 +104,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
          **Notes**
 
-         * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
-         * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
-         * For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
-         * For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
-         * {% data reusables.codespaces.codespaces-machine-type-availability %}
+         - You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
+         - The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
+         - For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+         - For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+         - {% data reusables.codespaces.codespaces-machine-type-availability %}
 
          {% endnote %}
 
@@ -144,7 +146,7 @@ To create a new codespace, use the `gh codespace create` subcommand.
 gh codespace create
 ```
 
-You are prompted to choose a repository. If codespaces for this repository are billable to an organization, or its parent enterprise, a message is displayed telling you who will pay for the codespace. You are then prompted to choose a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
+You are prompted to choose a repository. A message is displayed telling you who will pay for the codespace. You are then prompted to choose a branch, a dev container configuration file (if more than one is available), and a machine type (if more than one is available).
 
 Alternatively, you can use flags to specify some or all of the options:
 
@@ -163,5 +165,6 @@ For full details of the options for this command, see [the {% data variables.pro
 {% endcli %}
 
 ## Further reading
+
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
 - "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"

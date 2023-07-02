@@ -40,7 +40,7 @@ You can open any {% data variables.product.prodname_dotcom %} repository in {% d
   To open the repository in a new browser tab, press <kbd>></kbd>.
 
 - Change the URL from "github.com" to "github.dev".
-- When viewing a file, use the dropdown menu next to {% octicon "pencil" aria-label="The edit icon" %} and select **github.dev**.
+- When viewing a file, select the {% octicon "triangle-down" aria-label="More edit options" %} dropdown menu and click **github.dev**.
 
   ![Screenshot of the dropdown menu for the edit icon. The option "github.dev" is highlighted with a dark orange outline.](/assets/images/help/codespaces/github-dev-dropdown-option.png)
 
@@ -107,8 +107,8 @@ Because {% data variables.codespaces.serverless %} uses the GitHub Repositories 
 You can use {% data variables.codespaces.serverless %} to work with an existing pull request.
 
 1. Browse to the pull request you'd like to open in {% data variables.codespaces.serverless %}.
-2. Press `.` to open the pull request in {% data variables.codespaces.serverless %}.
-3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
+1. Press `.` to open the pull request in {% data variables.codespaces.serverless %}.
+1. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
 
 ## Using extensions
 

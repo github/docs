@@ -16,7 +16,6 @@ shortTitle: Enterprise Cloud trial
 
 {% data reusables.enterprise.ghec-cta-button %}
 
-
 ## About {% data variables.product.prodname_ghe_cloud %}
 
 {% data reusables.enterprise.about-ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
@@ -41,6 +40,8 @@ You do not need to provide a payment method during the trial.
 
 {% data variables.product.prodname_emus %} is not part of the free trial of {% data variables.product.prodname_ghe_cloud %}. If you're interested in {% data variables.product.prodname_emus %}, please contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
 
+{% data reusables.enterprise.ghec-trial-azure %}
+
 ## Features not included in the trial
 
 The following features are not included in the trial of {% data variables.product.prodname_ghe_cloud %}:
@@ -51,7 +52,7 @@ The following features are not included in the trial of {% data variables.produc
 - {% data variables.product.prodname_sponsors %}
 - {% data variables.product.prodname_marketplace %} apps
 - {% data variables.product.prodname_github_connect %}
-- For {% data variables.product.prodname_actions %}, increased minutes and job concurrency
+- For {% data variables.product.prodname_actions %}, increased minutes, job concurrency, and {% data variables.actions.hosted_runner %}s
 - If you set up your own trial, access to {% data variables.product.prodname_ghe_server %} is not included. If you would like to use {% data variables.product.prodname_ghe_server %}, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
@@ -86,4 +87,4 @@ If you cancel your trial, all enterprise owners and members also lose access to 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
-6. Follow the prompts.
+1. Follow the prompts.

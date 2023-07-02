@@ -34,7 +34,7 @@ You have several options for triaging notifications from your inbox.
 
 | Triaging option | Description |
 |-----------------|-------------|
-| Save            | Saves your notification for later review. To save a notification, to the right of the notification, click {% octicon "bookmark" aria-label="The bookmark icon" %}. <br> <br> Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day. |
+| Save            | Saves your notification for later review. To save a notification, to the right of the notification, click {% octicon "bookmark" aria-label="Save" %}. <br> <br> Saved notifications are kept indefinitely and can be viewed by clicking **Saved** in the sidebar or with the `is:saved` query. If your saved notification is older than 5 months and becomes unsaved, the notification will disappear from your inbox within a day. |
 | Done            | Marks a notification as completed and removes the notification from your inbox. You can see all completed notifications by clicking **Done** in the sidebar or with the `is:done` query. Notifications marked as **Done** are saved for 5 months.
 | Unsubscribe     | Automatically removes the notification from your inbox and unsubscribes you from the conversation until you are @mentioned, a team you're on is @mentioned, or you're requested for review.
 | Read            | Marks a notification as read. To only view read notifications in your inbox, use the `is:read` query. This query doesn't include notifications marked as **Done**.
@@ -46,7 +46,7 @@ Before choosing a triage option, you can preview your notification's details fir
 
 ## Triaging multiple notifications at the same time
 
-To triage multiple notifications at once, select the relevant notifications and use the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down to choose a triage option.
+To triage multiple notifications at once, select the relevant notifications and use the {% octicon "kebab-horizontal" aria-label="More options" %} drop-down to choose a triage option.
 
 ![Screenshot of the "Notifications" page. A drop-down menu is highlighted with an orange outline.](/assets/images/help/notifications-v2/triage-multiple-notifications-together.png)
 
@@ -59,7 +59,7 @@ By default, your inbox has filters for when you are assigned, participating in a
 You can add up to 15 of your own custom filters.
 
 {% data reusables.notifications.access_notifications %}
-2. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="The Gear icon" %}.
+1. To open the filter settings, in the left sidebar, next to "Filters", click {% octicon "gear" aria-label="Customize filters" %}.
 
   {% tip %}
 
@@ -67,29 +67,29 @@ You can add up to 15 of your own custom filters.
 
   {% endtip %}
 
-3. Add a name for your filter and a filter query. For example, to only see notifications for a specific repository, you can create a filter using the query `repo:octocat/open-source-project-name reason:participating`. You can also add emojis with a native emoji keyboard. For a list of supported search queries, see "[Supported queries for custom filters](#supported-queries-for-custom-filters)."
+1. Add a name for your filter and a filter query. For example, to only see notifications for a specific repository, you can create a filter using the query `repo:octocat/open-source-project-name reason:participating`. You can also add emojis with a native emoji keyboard. For a list of supported search queries, see "[Supported queries for custom filters](#supported-queries-for-custom-filters)."
 
-  ![Screenshot showing notification filters. Two input fields, with an example name and filter query filled in, are highlighted with an orange outline.](/assets/images/help/notifications-v2/custom-filter-example.png)
+   ![Screenshot showing notification filters. Two input fields, with an example name and filter query filled in, are highlighted with an orange outline.](/assets/images/help/notifications-v2/custom-filter-example.png)
 
-4. Click **Create**.
+1. Click **Create**.
 
 ## Custom filter limitations
 
 Custom filters do not currently support:
-  - Full text search in your inbox, including searching for pull request or issue titles.
-  - Distinguishing between the `is:issue`, `is:pr`, and `is:pull-request` query filters. These queries will return both issues and pull requests.
-  - Creating more than 15 custom filters.
-  - Changing the default filters or their order.
-  - Search [exclusion](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
+- Full text search in your inbox, including searching for pull request or issue titles.
+- Distinguishing between the `is:issue`, `is:pr`, and `is:pull-request` query filters. These queries will return both issues and pull requests.
+- Creating more than 15 custom filters.
+- Changing the default filters or their order.
+- Search [exclusion](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax#exclude-certain-results) using `NOT` or `-QUALIFIER`.
 
 ## Supported queries for custom filters
 
 These are the types of filters that you can use:
-  - Filter by repository with `repo:`
-  - Filter by discussion type with `is:`
-  - Filter by notification reason with `reason:`{% ifversion fpt or ghec %}
-  - Filter by notification author with `author:`
-  - Filter by organization with `org:`{% endif %}
+- Filter by repository with `repo:`
+- Filter by discussion type with `is:`
+- Filter by notification reason with `reason:`{% ifversion fpt or ghec %}
+- Filter by notification author with `author:`
+- Filter by organization with `org:`{% endif %}
 
 ### Supported `repo:` queries
 
@@ -139,6 +139,7 @@ To filter notifications by why you've received an update, you can use the `reaso
 | `reason:ci-activity` | When a repository has a CI update, such as a new workflow run status.
 
 {% ifversion fpt or ghec %}
+
 ### Supported `author:` queries
 
 To filter notifications by user, you can use the `author:` query. An author is the original author of the thread (issue, pull request, gist, discussions, and so on) for which you are being notified. For example, to see notifications for threads created by the Octocat user, use `author:octocat`.

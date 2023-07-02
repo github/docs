@@ -47,7 +47,7 @@ For example, you can use `https://github.com/sponsors/{account}?metadata_campaig
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 1. Optionally, to filter your sponsors by tier, use the **Filter** drop-down menu, click **Active tiers** or **Retired tiers**, and select a tier.
 
-  ![Screenshot of the {% data variables.product.prodname_sponsors %} dashboard. An expanded dropdown menu, labeled "Filter: all sponsors," is outlined in dark orange.](/assets/images/help/sponsors/tier-filter-dropdown.png)
+   ![Screenshot of the {% data variables.product.prodname_sponsors %} dashboard. An expanded dropdown menu, labeled "Filter: all sponsors," is outlined in dark orange.](/assets/images/help/sponsors/tier-filter-dropdown.png)
 
 ## Viewing recent sponsorship activity
 

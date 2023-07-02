@@ -15,7 +15,7 @@ topics:
   - Actions
   - Enterprise
 ---
-{% data reusables.actions.enterprise-beta %}
+ 
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -46,15 +46,6 @@ The CPU and memory resources available to {% data variables.location.product_loc
 The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated performance targets for GitHub Enterprise Server on a range of CPU and memory configurations.
 
 {% endif %}
-
-
-{%- ifversion ghes = 3.4 %}
-
-{% data reusables.actions.hardware-requirements-3.4 %}
-
-Maximum concurrency was measured using multiple repositories, job duration of approximately 10 minutes, and 10 MB artifact uploads. You may experience different performance depending on the overall levels of activity on your instance.
-
-{%- endif %}
 
 {%- ifversion ghes = 3.5 %}
 
@@ -104,7 +95,7 @@ For more information about minimum hardware requirements for {% data variables.l
 
 {% data reusables.enterprise_installation.about-adjusting-resources %}
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
 Optionally, you can limit resource consumption on {% data variables.location.product_location %} by configuring a rate limit for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-rate-limits-for-github-actions)."
 
@@ -120,12 +111,12 @@ All other {% data variables.product.prodname_actions %} data, such as the workfl
 
 {% data variables.product.prodname_actions %} supports these storage providers:
 
-* Azure Blob storage
-* Amazon S3
+- Azure Blob storage
+- Amazon S3
 {%- ifversion actions-ghes-gcp-storage %}
-* Google Cloud Storage
+- Google Cloud Storage
 {%- endif %}
-* S3-compatible MinIO cluster
+- S3-compatible MinIO cluster
 
 {% note %}
 
@@ -145,12 +136,12 @@ All other {% data variables.product.prodname_actions %} data, such as the workfl
 
 Follow one of the procedures below to enable {% data variables.product.prodname_actions %} with your chosen storage provider:
 
-* [Enabling GitHub Actions with Azure Blob storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage)
-* [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage)
+- [Enabling GitHub Actions with Azure Blob storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-azure-blob-storage)
+- [Enabling GitHub Actions with Amazon S3 storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-amazon-s3-storage)
 {%- ifversion actions-ghes-gcp-storage %}
-* [Enabling GitHub Actions with Google Cloud Storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage)
+- [Enabling GitHub Actions with Google Cloud Storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-google-cloud-storage)
 {%- endif %}
-* [Enabling GitHub Actions with MinIO storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-storage)
+- [Enabling GitHub Actions with MinIO storage](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/enabling-github-actions-with-minio-storage)
 
 ## Managing access permissions for {% data variables.product.prodname_actions %} in your enterprise
 

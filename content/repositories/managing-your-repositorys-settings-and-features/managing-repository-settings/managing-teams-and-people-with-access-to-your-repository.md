@@ -32,33 +32,21 @@ For more information about repository roles, see "[AUTOTITLE](/account-and-profi
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
-{% else %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
 1. Under "Manage access", in the search field, start typing the name of the team or person you'd like to find. Optionally, use the dropdown menus to filter your search.
 
 ## Changing permissions for a team or person
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
-{% else %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
 1. Under "Manage access", next to the team or person whose role you'd like to change, select the **Role** dropdown menu, and click a new role.
 
 ## Inviting a team or person
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
-{% else %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
 {% data reusables.organizations.invite-teams-or-people %}
 1. In the search field, start typing the name of the team or person to invite, then click a name in the list of matches.
 1. Under "Choose a role", select the repository role to grant to the team or person, then click **Add NAME to REPOSITORY**.
@@ -67,11 +55,7 @@ For more information about repository roles, see "[AUTOTITLE](/account-and-profi
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 {% data reusables.repositories.click-collaborators-teams %}
-{% else %}
-{% data reusables.repositories.navigate-to-manage-access %}
-{% endif %}
 1. Under "Manage access", next to the team or person whose access you'd like to remove, click **Remove**.
 
 ## Further reading

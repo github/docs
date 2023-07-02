@@ -57,22 +57,22 @@ If your Bitbucket Server instance runs on Linux, you must use an SSH key that me
 
 - Does not have a passphrase
 - Uses one of the following ciphers
-   - `aes256-ctr`
-   - `3des-cbc`
-   - `aes128-cbc`
-   - `aes192-cbc`
-   - `aes256-cbc`
-   - `blowfish-cbc`
-   - `twofish-cbc`
-   - `twofish192-cbc`
-   - `twofish128-cbc`
-   - `twofish256-cbc`
-   - `arcfour`
-   - `arcfour128`
-   - `arcfour256`
-   - `cast128-cbc`
-   - `aes128-ctr`
-   - `aes192-ctr`
+  - `aes256-ctr`
+  - `3des-cbc`
+  - `aes128-cbc`
+  - `aes192-cbc`
+  - `aes256-cbc`
+  - `blowfish-cbc`
+  - `twofish-cbc`
+  - `twofish192-cbc`
+  - `twofish128-cbc`
+  - `twofish256-cbc`
+  - `arcfour`
+  - `arcfour128`
+  - `arcfour256`
+  - `cast128-cbc`
+  - `aes128-ctr`
+  - `aes192-ctr`
 
 If you receive an error like `cipher name aes256-ctr for openssh key file is not supported` when running a migration, your SSH private key uses an unsupported cipher. For more information about how to generate a compatible private key, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported)."
 
@@ -123,8 +123,8 @@ To configure IP allow lists correctly, please read the following sections carefu
 
 You need to configure IP allow lists on {% data variables.product.prodname_dotcom_the_website %} if **both** of the following apply to your migration:
 
-* The source or destination of your migration is {% data variables.product.prodname_dotcom_the_website %}
-* The source or destination uses an IP allow list, either {% data variables.product.company_short %}'s IP allow list feature or your identity provider's (IdP) IP allow list restrictions (such as Azure CAP)
+- The source or destination of your migration is {% data variables.product.prodname_dotcom_the_website %}
+- The source or destination uses an IP allow list, either {% data variables.product.company_short %}'s IP allow list feature or your identity provider's (IdP) IP allow list restrictions (such as Azure CAP)
 
 If you use {% data variables.product.company_short %}'s IP allow list feature, you must add the {% data variables.product.prodname_dotcom %} IP ranges below to the allow list for the source and/or destination organizations.
 

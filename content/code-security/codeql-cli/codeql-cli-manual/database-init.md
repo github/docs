@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database init --source-root=<dir> [--language=<lang>[,<lang>...]] [--github-auth-stdin] [--github-url=<url>] [--extractor-option=<extractor-option-name=value>] <options>... -- <database>
 ```
 
@@ -46,10 +46,10 @@ extractors in the middle of an extraction operation anyway.)
 #### `<database>`
 
 \[Mandatory] Path to the CodeQL database to create. This directory will
-be created, and *must not* already exist (but its parent must).
+be created, and _must not_ already exist (but its parent must).
 
 If the `--db-cluster` option is given, this will not be a database
-itself, but a directory that will *contain* databases for several
+itself, but a directory that will _contain_ databases for several
 languages built from the same source root.
 
 It is important that this directory is not in a location that the build
@@ -74,7 +74,7 @@ as it may recursively delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning). To run queries from this file in a
+to [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning). To run queries from this file in a
 later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`

@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql bqrs decode [--output=<file>] [--result-set=<name>] [--sort-key=<col>[,<col>...]] <options>... -- <file>
 ```
 
@@ -71,7 +71,7 @@ for all columns.
 
 Select output format. Choices include:
 
-`text` *(default)*: A human-readable plain text table.
+`text` _(default)_: A human-readable plain text table.
 
 `csv`: Comma-separated values.
 

@@ -27,21 +27,22 @@ shortTitle: Azure Blob storage
 
 Before enabling {% data variables.product.prodname_actions %}, make sure you have completed the following steps:
 
-* Create your Azure storage account for storing workflow data. {% data variables.product.prodname_actions %} stores its data as block blobs, and two storage account types are supported:
-  * A **general-purpose** storage account (also known as `general-purpose v1` or `general-purpose v2`) using the **standard** performance tier.
+- Create your Azure storage account for storing workflow data. {% data variables.product.prodname_actions %} stores its data as block blobs, and two storage account types are supported:
+  - A **general-purpose** storage account (also known as `general-purpose v1` or `general-purpose v2`) using the **standard** performance tier.
 
     {% warning %}
 
     **Warning:** Using the **premium** performance tier with a general-purpose storage account is not supported. The **standard** performance tier must be selected when creating the storage account, and it cannot be changed later.
 
     {% endwarning %}
-  * A **BlockBlobStorage** storage account, which uses the **premium** performance tier.
+  - A **BlockBlobStorage** storage account, which uses the **premium** performance tier.
 
   For more information on Azure storage account types and performance tiers, see the [Azure documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts).
 {% data reusables.actions.enterprise-common-prereqs %}
 {% data reusables.actions.enterprise-oidc-prereqs %}
 
 {% ifversion ghes-actions-storage-oidc %}
+
 ## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage using OIDC (recommended)
 
 {% data reusables.actions.ghes-storage-oidc-beta-note %}
@@ -93,10 +94,10 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 {% data reusables.actions.enterprise-enable-checkbox %}
 {% data reusables.actions.enterprise-azure-storage-setup %}
 1. Under "Authentication", select **OpenID Connect (OIDC)**, and enter the values for your storage that you noted down in the previous procedures:
-   * Azure tenant ID
-   * Azure client ID
-   * Azure storage account name
-   * Azure blob endpoint suffix
+   - Azure tenant ID
+   - Azure client ID
+   - Azure storage account name
+   - Azure blob endpoint suffix
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 

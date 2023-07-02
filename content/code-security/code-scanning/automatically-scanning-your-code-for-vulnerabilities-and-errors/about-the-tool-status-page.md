@@ -37,7 +37,7 @@ The code scanning alerts page for each repository includes a tools banner with a
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. Click **Tool status** in the tools banner.
-  ![Screenshot showing how to access the tool status page from a repository. The "Tool status" button is highlighted in a dark orange outline.](/assets/images/help/repository/code-scanning-tool-status-page-access.png)
+   ![Screenshot showing how to access the tool status page from a repository. The "Tool status" button is highlighted in a dark orange outline.](/assets/images/help/repository/code-scanning-tool-status-page-access.png)
 
 ## Using the {% data variables.code-scanning.tool_status_page %}
 
@@ -71,10 +71,10 @@ The tool status page will calculate the percentage of files that were scanned by
 
 For integrated tools such as {% data variables.product.prodname_codeql %}, you can download detailed reports from the {% data variables.code-scanning.tool_status_page %} in CSV format. This will show:
 
-* Which configuration was used to scan each file.
-* The file path.
-* The programming language of the file.
-* Whether the file was successfully extracted.
+- Which configuration was used to scan each file.
+- The file path.
+- The programming language of the file.
+- Whether the file was successfully extracted.
 
 To download a report, select a tool you're interested in. Then on the top right of the page, click the **{% octicon "download" aria-label="Download language CSV report" %}** button.
 
@@ -82,12 +82,24 @@ To download a report, select a tool you're interested in. Then on the top right 
 
 You can download the list of rules that {% data variables.product.prodname_code_scanning %} is checking against, in CSV format. This will show:
 
-* The configuration used.
-* The rule source.
-* The SARIF identifier.
-* How many alerts were found.
+- The configuration used.
+- The rule source.
+- The SARIF identifier.
+- How many alerts were found.
 
-To download a report, select a configuration you're interested in. Then click **{% octicon "kebab-horizontal" aria-label="Scanned files menu"  %}** on the top right of the page, and select **{% octicon "download" aria-hidden="true"  %} Download list of rules used**.
+To download a report, select a configuration you're interested in. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu"  %}** on the top right of the page, and select **{% octicon "download" aria-hidden="true"  %} Download list of rules used**.
+
+### Removing configurations
+
+You can remove stale, duplicate, or unwanted configurations for the default branch of your repository.
+
+To remove a configuration, select the configuration you want to delete. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu"  %}** on the top right of the page, and select **{% octicon "trash" aria-hidden="true"  %} Delete configuration**. Once you have read the warning about alerts, to confirm the deletion, click the **Delete** button.
+
+{% note %}
+
+**Note:** You can only use the {% data variables.code-scanning.tool_status_page %} to remove configurations for the default branch of a repository. For information about removing configurations from non-default branches, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+
+{% endnote %}
 
 ## Debugging using the {% data variables.code-scanning.tool_status_page %}
 
@@ -96,7 +108,7 @@ If you see that there is a problem with your analysis from the {% data variables
 For integrated tools such as {% data variables.product.prodname_codeql %}, you can also use file coverage information to improve your analysis. For each language displayed on the {% data variables.code-scanning.tool_status_page %}:
 
 - If the language has a high scanned percentage, this shows that code scanning is scanning that language as expected.
-- If the language has a low scanned percentage, you may wish to investigate diagnostic output produced by CodeQL for that language: for more information see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)."
+- If the language has a low scanned percentage, you may wish to investigate diagnostic output produced by CodeQL for that language: for more information see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected)."
 - If the language has a scanned percentage of zero, you may have source code in your repository written in languages supported by CodeQL but not currently being analyzed with CodeQL. In this case, you may wish to update your setup to start analyzing these additional languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#changing-the-languages-that-are-analyzed)."
 
 {% note %}
@@ -105,4 +117,4 @@ For integrated tools such as {% data variables.product.prodname_codeql %}, you c
 
 {% endnote %}
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-your-default-setup-for-codeql)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning)."

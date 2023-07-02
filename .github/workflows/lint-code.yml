@@ -20,8 +20,6 @@ on:
       - 'package-lock.json'
       # In case one of the script definitions changed
       - 'package.json'
-      # Ultimately, for debugging this workflow itself
-      - .github/workflows/code-lint.yml
 
 permissions:
   contents: read

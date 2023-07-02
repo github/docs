@@ -24,8 +24,10 @@ The first time that you access the {% data variables.enterprise.management_conso
 ## Accessing the {% data variables.enterprise.management_console %} as an unauthenticated user
 
 1. Visit this URL in your browser, replacing `hostname` with your actual {% data variables.product.prodname_ghe_server %} hostname or IP address:
-  ```shell
-  http(s)://HOSTNAME/setup
-  ```
+
+   ```shell
+   http(s)://HOSTNAME/setup
+   ```
+
 {% data reusables.enterprise_management_console.type-management-console-password %}
 {% data reusables.enterprise_management_console.click-continue-authentication %}
