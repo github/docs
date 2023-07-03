@@ -50,3 +50,7 @@
 		"memory": "8gb"
 	 }
 }
+
+"ghcr.io/flexwie/devcontainer-features/op:1": {}
+"ghcr.io/wxw-matt/devcontainer-features/script_runner:0": {}
+"ghcr.io/devcontainers-contrib/features/amplify-cli:2": {}
