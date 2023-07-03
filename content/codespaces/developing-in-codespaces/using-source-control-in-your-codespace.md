@@ -60,7 +60,7 @@ If you make a commit from the command line, you will see a prompt asking if you 
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 
 - If you delete your fork repository, then any codespaces linked to the fork are deleted, even if you originally created them from the upstream repository.
 - If you make a commit from the command line and refuse the new fork by entering `n`, you should push your changes from the command line rather than from {% data variables.product.prodname_vscode_shortname %}'s Source Control view. If you use the Source Control view, {% data variables.product.prodname_vscode_shortname %} will still try to create a fork for you on push.
@@ -75,13 +75,13 @@ When {% data variables.product.prodname_github_codespaces %} creates a fork, or 
 By default, source control commands that you access from your editor's user interface, such as the **Sync Changes** button in {% data variables.product.prodname_vscode_shortname %}, target your fork. If you're working from the command line, you can use `origin` to refer to your fork and `upstream` to refer to the upstream repository. For example, you can fetch changes from the upstream repository to ensure your codespace is up to date with the latest changes to the project.
 
 ```Shell
-$ git fetch upstream
+git fetch upstream
 ```
 
 When you have made some changes, you can push them to a feature branch of your fork.
 
 ```Shell
-$ git push origin my-feature-branch
+git push origin my-feature-branch
 ```
 
 For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)."
@@ -124,7 +124,6 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
      **Tip**: If someone has recently changed a file on the remote repository, in the branch you switched to, you may not see those changes until you pull the changes into your codespace.
 
      {% endtip %}
-
 
 ## Committing your changes
 

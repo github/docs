@@ -18,11 +18,14 @@ topics:
 {% data reusables.gpg.desktop-support-for-commit-signing %}
 
 1. To sign a tag, add `-s` to your `git tag` command.
+
    ```shell
    $ git tag -s MYTAG
    # Creates a signed tag
    ```
-2. Verify your signed tag by running `git tag -v [tag-name]`.
+
+1. Verify your signed tag by running `git tag -v [tag-name]`.
+
    ```shell
    $ git tag -v MYTAG
    # Verifies the signed tag

@@ -39,7 +39,13 @@ Warnings and danger notices are rendered in red `{% warning %}` tags.
 
 For more information on formatting callouts, see “Callouts” in the [markup reference guide](content-markup-reference.md).
 
-## Call to action (CTA) buttons
+## Buttons
+
+Landing pages and some articles have buttons that take people to relevant content in other articles or on other GitHub webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, "[Setting up a trial of GitHub Enterprise Cloud](https://docs.github.com/en/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" has a button that takes people to the Enterprise trial sign up page since that is the next step in the process of setting up a trial. The "[Migrations](https://docs.github.com/en/migrations)" landing page uses a button to direct people to the article that most people will need to read to start a migration.
+
+If a button encourages people to navigate away from the GitHub Docs site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, open an issue in `docs-strategy` to share your use case for approval by Content Strategy.
+
+### Call to action (CTA) buttons
 
 CTA buttons emphasize a link that we expect or encourage readers to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to GitHub-owned domains. For example, the CTA in "[Getting started with GitHub Copilot in Visual Studio Code](https://docs.github.com/en/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code)" links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on github.com.
 
@@ -56,6 +62,7 @@ Style your CTAs using the following format.
 Keep lines in code samples to about 60 characters, to avoid requiring readers to scroll horizontally in the code block. Locate explanatory text before the code block, rather than using comments inside the code block. See "[Code sample syntax highlighting](./content-markup-reference.md#code-sample-syntax-highlighting)" for more information on the syntax and formatting of code blocks.
 
 Within code blocks:
+- Specify the language of the sample after the first code fence. For a list of all supported languages, see [Code languages](../data/variables/code-languages.yml).
 - Do not use markup before the command output.
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
   - If you show a command and the command's output, do not make the code block copyable.
@@ -63,13 +70,13 @@ Within code blocks:
 - If your code example includes content that should be parsed (for example, HTML tags to format text), wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
   - **Use**:
 
-    ```
+    ``` YAML
     GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
     ```
 
   - **Avoid**:
 
-    ```
+    ``` YAML
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     ```
 
@@ -89,7 +96,8 @@ Avoid inline links in command names.
 
 ### Examples
 
-When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context.
+When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context. You can add code annotations to explain long code examples. See "[Code annotations](./code-annotations)" for more information.
+
 - **Use:**
 
 ```
@@ -419,7 +427,10 @@ To link to a specific header in the same article, use this format:
 > For more information, see "[HEADER TITLE](#HEADER-TITLE)."
 
 To link to a specific header in a different article, use this format:
-> For more information, see "[ARTICLE TITLE](path-to-article#HEADER-TITLE)."
+> For more information, see "[AUOTOTITLE](path-to-article#HEADER-TITLE)."
+
+To link to two or more specific headers in a different article, use this format:
+> For more information, see "[HEADER 1](path-to-article#HEADER-1)" and "[HEADER 2](path-to-article#HEADER-2)" in "ARTICLE TITLE."
 
 ### Links to a specific tool
 

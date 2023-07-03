@@ -129,45 +129,26 @@
 
 /* Code annotations
 ----------------------------------------------------------------------------*/
-$annotation-breakpoint: 1550px;
+
+.annotate.beside {
+  .annotate-beside {
+    display: inherit;
+  }
+  .annotate-inline {
+    display: none;
+  }
+}
+
+.annotate.inline {
+  .annotate-beside {
+    display: none;
+  }
+  .annotate-inline {
+    display: inherit;
+  }
+}
 
 .annotate {
-  margin: 0 -250px;
-
-  @media (max-width: $annotation-breakpoint) {
-    margin: auto;
-  }
-
-  & > div:last-child > .annotate-code {
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border-bottom: 1px solid var(--color-border-default);
-  }
-}
-
-.annotate-row {
-  display: flex;
-  flex-direction: column;
-
-  @media (min-width: $annotation-breakpoint) {
-    flex-direction: row;
-    margin: 0 auto;
-
-    &:not(.header):hover {
-      border-radius: 4px;
-      outline: 2px solid var(--color-accent-fg);
-    }
-  }
-}
-
-.annotate-code {
-  background-color: var(--color-canvas-subtle);
-
-  &:not(.header) {
-    border-left: 1px solid var(--color-border-default);
-    border-right: 1px solid var(--color-border-default);
-  }
-
   pre {
     border: 0px !important;
     margin: 0px !important;
@@ -181,24 +162,77 @@ $annotation-breakpoint: 1550px;
       word-wrap: break-word;
     }
   }
+}
 
-  @media (min-width: $annotation-breakpoint) {
+.annotate-beside,
+.beside .annotate-header {
+  margin: auto;
+
+  @include breakpoint(md) {
+    // 720px: content width, 4rem padding
+    margin: 0 calc((100vw - 720px - 4rem) / 2 * -1);
+  }
+
+  @include breakpoint(xl) {
+    // 326px: navigation width
+    margin: 0 max(-12rem, calc((100vw - 720px - 326px - 4rem) / 2 * -1));
+  }
+}
+
+.beside .annotate-header header {
+  width: auto;
+
+  @include breakpoint(md) {
+    width: 50%;
+  }
+}
+
+.annotate-beside > div:last-child > .annotate-code {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.annotate-inline {
+  border-left: 1px solid var(--color-border-default);
+  border-right: 1px solid var(--color-border-default);
+  border-bottom: 1px solid var(--color-border-default);
+}
+
+.annotate-row {
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint(md) {
+    flex-direction: row;
+    margin: 0 auto;
+
+    &:hover {
+      border-radius: 4px;
+      outline: 2px solid var(--color-accent-fg);
+    }
+  }
+}
+
+.annotate-code {
+  background-color: var(--color-canvas-subtle);
+  border-left: 1px solid var(--color-border-default);
+  border-right: 1px solid var(--color-border-default);
+
+  @include breakpoint(md) {
     width: 50%;
   }
 }
 
 .annotate-note {
-  @media (min-width: $annotation-breakpoint) {
+  @include breakpoint(md) {
     width: 50%;
 
     padding: 16px 0 16px 16px;
     font-size: 14px;
   }
+}
 
-  @media (max-width: $annotation-breakpoint) {
-    .annotate-note {
-      padding: 16px 0 32px 0px;
-      font-size: 14px;
-    }
-  }
+.subnav-item[aria-current]:not([aria-current="false"]) {
+  z-index: 0;
 }

@@ -186,6 +186,7 @@ on:
 ```
 
 {% ifversion discussions %}
+
 ## `discussion`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -409,6 +410,7 @@ on:
 ```
 
 {% endif %}
+
 ## `milestone`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -1046,11 +1048,13 @@ on:
 **Note**: When pushing multi-architecture container images, this event occurs once per manifest, so you might observe your workflow triggering multiple times. To mitigate this, and only run your workflow job for the event that contains the actual image tag information, use a conditional:
 
 {% raw %}
+
 ```yaml
 jobs:
     job_name:
         if: ${{ github.event.registry_package.package_version.container_metadata.tag.name != '' }}
 ```
+
 {% endraw %}
 
 {% endnote %}
@@ -1085,7 +1089,7 @@ on:
 
 {% note %}
 
-**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable _and_ pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
 
 {% endnote %}
 
@@ -1154,7 +1158,7 @@ jobs:
 
 {% note %}
 
-**Notes**: 
+**Notes**:
 
 - The maximum number of top-level properties in `client_payload` is 10.
 - The payload can contain a maximum of 65,535 characters.

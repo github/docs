@@ -33,9 +33,7 @@ default-suite-file: default-queries.qls # optional, a pointer to a query-suite i
 license: # optional, the license under which the pack is published
 dependencies: # map from CodeQL pack name to version range
 ```
-
 - `name:` must follow the `<scope>/<pack>` format, where `<scope>` is the {% data variables.product.prodname_dotcom %} organization that you will publish to and <pack> is the name for the pack.
-
 
 - A maximum of one of `default-suite` or `default-suite-file` is allowed. These are two different ways to define a default query suite to be run, the first by specifying queries directly in the qlpack.yml file and the second by specifying a query suite in the pack.
 
@@ -81,6 +79,7 @@ To analyze a {% data variables.product.prodname_codeql %} database with a {% dat
 ```
 codeql database analyze <database> <scope>/<pack>@x.x.x:<path>
 ```
+
 - `<database>`: the {% data variables.product.prodname_codeql %} database to be analyzed.
 - `<scope>`: the name of the {% data variables.product.prodname_dotcom %} organization that the pack is published to.
 - `<pack>`: the name for the pack that you are using.
@@ -112,14 +111,18 @@ It can also be assumed that a pack published by the _latest_ public release of {
 As an exception to the above, packs published with versions of {% data variables.product.prodname_codeql %} _earlier than 2.12.0_ are not compatible with any earlier or later versions. These old versions did not write pre-compiled queries in a format that supported compatibility between releases. Packs published by these versions can still be _used_ by newer versions, but the analysis will be slower because the queries have to be recompiled first.
 
 As a user of a published query pack, you can check that the {% data variables.product.prodname_codeql %} makes use of the precompiled queries in it by inspecting the terminal output from an analysis runs that uses the query pack. If it contains lines looking like the following, then the precompiled queries were used successfully:
+
 ```
 [42/108] Loaded /long/path/to/query/Filename.qlx.
 ```
+
 However, if they instead look like the following, then usage of the precompiled queries failed:
+
 ```
 Compiling query plan for /long/path/to/query/Filename.ql.
 [42/108 comp 25s] Compiled /long/path/to/query/Filename.ql.
 ```
+
 The results of the analysis will still be good in this case, but to get optimal performance you may need to upgrade to a newer version of the {% data variables.product.prodname_codeql %} CLI and/or of the query pack.
 
 If you publish query packs on the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %} for others to use, we recommend that you use a recent release of {% data variables.product.prodname_codeql %} to run `codeql pack publish`, and that you publish a fresh version of your pack with an updated {% data variables.product.prodname_codeql %} version before the version you used turns 6 months old. That way you can ensure that users of your pack who keep _their_ {% data variables.product.prodname_codeql %} up to date will benefit from the pre-compiled queries in your pack.
@@ -163,14 +166,14 @@ You can publish packs and download private packs by authenticating to the approp
 You can authenticate to the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_dotcom_the_website %} in two ways:
 
 1. Pass the `--github-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} via standard input.
-2. Set the `GITHUB_TOKEN` environment variable to a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %}.
+1. Set the `GITHUB_TOKEN` environment variable to a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %}.
 
 {% ifversion ghes %}
 
 Similarly, you can authenticate to a {% data variables.product.prodname_ghe_server %} {% data variables.product.prodname_container_registry %}, or authenticate to multiple registries simultaneously (for example, to download or run private packs from multiple registries) in two ways:
 
 1. Pass the `--registries-auth-stdin` option to the {% data variables.product.prodname_codeql_cli %}, then supply a registry authentication string via standard input.
-2. Set the `CODEQL_REGISTRIES_AUTH` environment variable to a registry authentication string.
+1. Set the `CODEQL_REGISTRIES_AUTH` environment variable to a registry authentication string.
 
 A registry authentication string is a comma-separated list of `<registry-url>=<token>` pairs, where `registry-url` is a {% data variables.product.prodname_container_registry %} URL, such as `https://containers.GHE_HOSTNAME/v2/`, and `token` is a {% data variables.product.prodname_github_apps %} token or {% data variables.product.pat_generic %} for that {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_container_registry %}.
 This ensures that each token is only passed to the {% data variables.product.prodname_container_registry %} you specify.

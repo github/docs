@@ -23,7 +23,7 @@ Both {% data variables.product.prodname_oauth_app %}s and {% data variables.prod
 
 {% data variables.product.prodname_oauth_app %}s can only act on behalf of a user while {% data variables.product.prodname_github_app %}s can either act on behalf of a user or independently of a user.
 
-{% data variables.product.prodname_github_app %}s use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. 
+{% data variables.product.prodname_github_app %}s use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens.
 
 For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 

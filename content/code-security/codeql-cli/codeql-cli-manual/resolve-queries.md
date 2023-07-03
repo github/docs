@@ -48,9 +48,9 @@ list of queries.
 \[Mandatory] Queries to execute. Each argument is in the form
 `scope/name@range:path` where:
 
--   `scope/name` is the qualified name of a CodeQL pack.
--   `range` is a semver range.
--   `path` is a file system path.
+- `scope/name` is the qualified name of a CodeQL pack.
+- `range` is a semver range.
+- `path` is a file system path.
 
 If a `scope/name` is specified, the `range` and `path` are optional. A
 missing `range` implies the latest version of the specified pack. A
@@ -71,7 +71,7 @@ absolute. It is considered relative to the root of the CodeQL pack.
 
 Select output format. Choices include:
 
-`text` *(default)*: A line-oriented list of pathnames.
+`text` _(default)_: A line-oriented list of pathnames.
 
 `json`: A plain list of pathnames as strings.
 

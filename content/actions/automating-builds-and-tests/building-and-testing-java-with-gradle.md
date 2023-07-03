@@ -78,9 +78,9 @@ jobs:
 This workflow performs the following steps:
 
 1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
-3. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
-4. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
+1. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
+1. The "Validate Gradle wrapper" step validates the checksums of Gradle Wrapper JAR files present in the source tree.
+1. The "Build with Gradle" step does a build using the `gradle/gradle-build-action` action provided by the Gradle organization on {% data variables.product.prodname_dotcom %}. The action takes care of invoking Gradle, collecting results, and caching state between jobs. For more information see [`gradle/gradle-build-action`](https://github.com/gradle/gradle-build-action).
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 

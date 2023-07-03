@@ -36,18 +36,18 @@ Unpublishing a site does not permanently delete the site. For information on del
 ## Unpublishing a project site
 
 {% data reusables.repositories.navigate-to-repo %}
-2. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
-3. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
+1. If a `gh-pages` branch exists in the repository, delete the `gh-pages` branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)."
+1. If the `gh-pages` branch was your publishing source, {% ifversion fpt or ghec %}skip to step 6{% else %}your site is now unpublished and you can skip the remaining steps{% endif %}.
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-5. Under "{% data variables.product.prodname_pages %}", use the branch dropdown menu and select **None.**
+1. Under "{% data variables.product.prodname_pages %}", use the branch dropdown menu and select **None.**
    ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
 {% data reusables.pages.update_your_dns_settings %}
 
 ## Unpublishing a user or organization site
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)."
+1. Delete the branch that you're using as a publishing source, or delete the entire repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#deleting-a-branch)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)."
 {% data reusables.pages.update_your_dns_settings %}
 
 {% endif %}

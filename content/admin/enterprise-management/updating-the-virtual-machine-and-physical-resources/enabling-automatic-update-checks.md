@@ -20,7 +20,6 @@ When an upgrade package is automatically downloaded for {% data variables.locati
 
 If a hotpatch is available for an upgrade, the `.hpkg` will download automatically. In the management console you can choose to install the hotpatch immediately or schedule installation for a later time. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-a-hotpatch)."
 
-
 ## Enabling automatic update checks
 
 {% tip %}
@@ -32,7 +31,7 @@ If a hotpatch is available for an upgrade, the `.hpkg` will download automatical
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.updates-tab %}
-4. Click **Yes, automatically check for updates**.
+1. Click **Yes, automatically check for updates**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Viewing whether an update is available

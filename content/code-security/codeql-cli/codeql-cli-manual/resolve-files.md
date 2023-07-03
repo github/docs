@@ -41,11 +41,11 @@ directory.
 The `--include`, `--exclude`, and `--prune` options all take glob
 patterns, which can use the following wildcard characters:
 
--   A single "?" matches any character other than a forward/backward
+- A single "?" matches any character other than a forward/backward
     slash;
--   A single "\*" matches any number of characters other than a
+- A single "\*" matches any number of characters other than a
     forward/backward slash;
--   The pattern "\*\*" matches zero or more complete directory
+- The pattern "\*\*" matches zero or more complete directory
     components.
 
 ## Primary options
@@ -56,7 +56,7 @@ The directory to be searched.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 ### Options for limiting the set of collected files
 

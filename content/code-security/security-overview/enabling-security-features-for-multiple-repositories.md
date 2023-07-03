@@ -1,7 +1,7 @@
 ---
 title: Enabling security features for multiple repositories
 shortTitle: Enable security features
-intro: 'You can use security overview to select a subset of repositories and enable security features for them all.'
+intro: You can use security overview to select a subset of repositories and enable security features for them all.
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 allowTitleToDifferFromFilename: true
@@ -16,7 +16,7 @@ topics:
   - Teams
 ---
 
-{% ifversion ghes < 3.5 or ghae %}
+{% ifversion ghae %}
 {% data reusables.security-overview.beta %}
 {% endif %}
 

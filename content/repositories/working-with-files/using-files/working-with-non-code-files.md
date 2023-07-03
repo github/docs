@@ -75,7 +75,7 @@ You can visually compare images in three different modes: [2-up](#2-up), [swipe]
 
 ## 3D File Viewer
 
-{% data variables.product.product_name %} can host and render 3D files with the *.stl* extension.
+{% data variables.product.product_name %} can host and render 3D files with the _.stl_ extension.
 
 When looking directly at an STL file on {% data variables.product.product_name %} you can:
 
@@ -127,6 +127,7 @@ By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you
 {% endtip %}
 
 {% ifversion mermaid %}
+
 ### Rendering in Markdown
 
 You can embed ASCII STL syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
@@ -134,7 +135,7 @@ You can embed ASCII STL syntax directly in Markdown. For more information, see "
 
 ## Rendering CSV and TSV data
 
-{% data variables.product.prodname_dotcom %} supports rendering tabular data in the form of *.csv* (comma-separated) and .*tsv* (tab-separated) files.
+{% data variables.product.prodname_dotcom %} supports rendering tabular data in the form of _.csv_ (comma-separated) and ._tsv_ (tab-separated) files.
 
 ![Screenshot of a rendered CSV file, with data shown in a table format.](/assets/images/help/repository/rendered_csv.png)
 
@@ -166,7 +167,7 @@ Currently, links within PDFs are ignored.
 
 ## Rendering differences in prose documents
 
-Commits and pull requests that include prose documents have the ability to represent those documents with *source* and *rendered* views.
+Commits and pull requests that include prose documents have the ability to represent those documents with _source_ and _rendered_ views.
 
 The source view shows the raw text that has been typed, while the rendered
 view shows how that text would look once it's rendered on {% data variables.product.product_name %}. For example,
@@ -207,7 +208,7 @@ another, we'd show a tooltip like this:
 ### Commenting on changes
 
 [Commit comments](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request) can only
-be added to files within the *source* view, on a line-by-line basis.
+be added to files within the _source_ view, on a line-by-line basis.
 
 ### Linking to headers
 
@@ -236,6 +237,7 @@ In general, rendered views of changes to a document containing embedded HTML wil
 Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [TopoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
 
 {% ifversion geoJSON-with-MapBox %}
+
 ### Styling features
 
 You can customize the way features are displayed, such as specifying a particular color or adding a descriptive icon, by passing additional metadata within the GeoJSON object's properties. The options are:
@@ -275,6 +277,7 @@ By default, the embedded map 420px x 620px, but you can customize the output by 
 {% endtip %}
 
 {% ifversion mermaid %}
+
 ### Mapping in Markdown
 
 You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
@@ -310,11 +313,11 @@ It may still be possible to render the data by converting the `.geojson` file to
 
 ## Working with Jupyter Notebook files on {% data variables.product.prodname_dotcom %}
 
-When you add Jupyter Notebook or IPython Notebook files with a *.ipynb* extension on {% data variables.location.product_location %}, they will render as static HTML files in your repository.
+When you add Jupyter Notebook or IPython Notebook files with a _.ipynb_ extension on {% data variables.location.product_location %}, they will render as static HTML files in your repository.
 
-The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.location.product_location %}. For an example, see [*Linking and Interactions.ipynb*](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
+The interactive features of the notebook, such as custom JavaScript plots, will not work in your repository on {% data variables.location.product_location %}. For an example, see [_Linking and Interactions.ipynb_](https://github.com/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb).
 
-To view your Jupyter notebook with JavaScript content rendered or to share your notebook files with others you can use [nbviewer](https://nbviewer.jupyter.org/). For an example, see [*Linking and Interactions.ipynb*](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) rendered on nbviewer.
+To view your Jupyter notebook with JavaScript content rendered or to share your notebook files with others you can use [nbviewer](https://nbviewer.jupyter.org/). For an example, see [_Linking and Interactions.ipynb_](https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb) rendered on nbviewer.
 
 To view a fully interactive version of your Jupyter Notebook, you can set up a notebook server locally. For more information, see [Jupyter's official documentation](http://jupyter.readthedocs.io/en/latest/index.html).
 
@@ -323,7 +326,7 @@ To view a fully interactive version of your Jupyter Notebook, you can set up a n
 If you're having trouble rendering Jupyter Notebook files in static HTML, you can convert the file locally on the command line by using the [`nbconvert` command](https://github.com/jupyter/nbconvert):
 
 ```shell
-$ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
+jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 ```
 
 ### Further reading about Jupyter Notebook
@@ -332,6 +335,7 @@ $ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 - [Gallery of Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki)
 
 {% ifversion mermaid %}
+
 ## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
 
 {% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.

@@ -20,5 +20,4 @@ You can create, update, delete, and retrieve information about encrypted secrets
 
 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `dependabot_secrets` permission to use these endpoints. Authenticated users must have collaborator access to a repository to create, update, or read secrets.
 
-
 <!-- Content after this section is automatically generated -->

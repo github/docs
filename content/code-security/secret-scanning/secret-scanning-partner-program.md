@@ -151,6 +151,7 @@ The following code snippets demonstrate how you could perform signature validati
 The code examples assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated [{% data variables.product.pat_generic %}](https://github.com/settings/tokens) to avoid hitting rate limits. The {% data variables.product.pat_generic %} does not need any scopes/permissions.
 
 **Validation sample in Go**
+
 ```golang
 package main
 
@@ -281,6 +282,7 @@ type asn1Signature struct {
 ```
 
 **Validation sample in Ruby**
+
 ```ruby
 require 'openssl'
 require 'net/http'
@@ -321,6 +323,7 @@ puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature),
 ```
 
 **Validation sample in JavaScript**
+
 ```js
 const crypto = require("crypto");
 const axios = require("axios");
@@ -383,6 +386,7 @@ You can send us the raw token:
   }
 ]
 ```
+
 You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
 
 ```
@@ -394,6 +398,7 @@ You may also provide the token in hashed form after performing a one way cryptog
   }
 ]
 ```
+
 A few important points:
 - You should only send us either the raw form of the token ("token_raw"), or the hashed form ("token_hash"), but not both.
 - For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.

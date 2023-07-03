@@ -1,6 +1,7 @@
 After you set up an AWS S3 storage bucket or Azure Blob Storage storage account, configure blob storage in the {% data variables.enterprise.management_console %} of {% data variables.location.product_location_enterprise %}. For more information about the {% data variables.enterprise.management_console %}, see "[Administering your instance from the Management Console]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/administering-your-instance-from-the-management-console)."
 
-{% data reusables.enterprise_site_admin_settings.access-settings %}
+1. From an administrative account on {% data variables.product.prodname_ghe_server %}, in the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %}.
+1. If you're not already on the "Site admin" page, in the upper-left corner, click **Site admin**.
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. Log into the {% data variables.enterprise.management_console %}.
 1. In the top navigation bar, click **Settings**.

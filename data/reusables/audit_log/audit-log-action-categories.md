@@ -83,7 +83,7 @@
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `members_can_view_dependency_insights` | Contains organization-level configuration activities allowing organization members to view dependency insights.
-| `migration` | Contains activities related to transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
+| `migration` | Contains activities related to transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance.
 {%- endif %}
 | `oauth_access` | Contains activities related to OAuth access tokens.
 | `oauth_application` | Contains activities related to {% data variables.product.prodname_oauth_app %}s.
@@ -129,7 +129,7 @@
 | `repo` | Contains activities related to the repositories owned by an organization.
 {%- ifversion fpt or ghec %}
 | `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}.  For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
-| `repository_content_analysis`   | Contains activities related to [enabling or disabling data use for a private repository](/get-started/privacy-on-github/about-githubs-use-of-your-data).
+| `repository_content_analysis`   | Contains activities related to enabling or disabling data use for a private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."
 | `repository_dependency_graph`   | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
 {%- endif %}
 | `repository_image` | Contains activities related to images for a repository.

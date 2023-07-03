@@ -25,7 +25,7 @@ For more information about viewing the subscription and usage for your enterpris
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Latest invoice", click **View**.
+1. Under "Latest invoice", click **View**.
 
    ![Screenshot of the billing summary for an enterprise account. A link, labeled "View", is highlighted with an orange outline.](/assets/images/help/business-accounts/view-invoice-link.png)
 
@@ -34,17 +34,17 @@ For more information about viewing the subscription and usage for your enterpris
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Latest invoice", click **Pay invoice**.
+1. Under "Latest invoice", click **Pay invoice**.
 
    ![Screenshot of the billing summary for an enterprise account. A link, labeled "Pay invoice", is highlighted with an orange outline.](/assets/images/help/business-accounts/pay-invoice-link.png)
-5. Under "Pay invoice", type your credit card information in the secure form, then click **Pay Invoice**.
+1. Under "Pay invoice", type your credit card information in the secure form, then click **Pay Invoice**.
 
 ## Downloading your current invoice
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. Under "Quick Actions", click **Download current invoice**.
+1. Under "Quick Actions", click **Download current invoice**.
 
    ![Screenshot of the billing summary for an enterprise account. A link, labeled "Download current invoice", is highlighted with an orange outline.](/assets/images/help/business-accounts/download-current-invoice.png)
 
@@ -53,6 +53,6 @@ For more information about viewing the subscription and usage for your enterpris
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-4. To see a summary of your past billing activity, under "Billing", click the **Past invoices** tab.
+1. To see a summary of your past billing activity, under "Billing", click the **Past invoices** tab.
 
    ![Screenshot of the billing page for an enterprise account. A tab, labeled "Past invoices", is highlighted with an orange outline.](/assets/images/help/business-accounts/view-payment-history.png)

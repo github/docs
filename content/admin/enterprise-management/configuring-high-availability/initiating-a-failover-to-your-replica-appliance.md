@@ -25,27 +25,29 @@ The time required to failover depends on how long it takes to manually promote t
      - To use the management console, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)"
 
      - You can also use the `ghe-maintenance -s` command.
+
        ```shell
-       $ ghe-maintenance -s
+       ghe-maintenance -s
        ```
 
-   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds. 
+   - When the number of active Git operations, MySQL queries, and Resque jobs reaches zero, wait 30 seconds.
 
      {% note %}
 
      **Note:** Nomad will always have jobs running, even in maintenance mode, so you can safely ignore these jobs.
-    
+
      {% endnote %}
 
    - To verify all replication channels report `OK`, use the `ghe-repl-status -vv` command.
 
      ```shell
-     $ ghe-repl-status -vv
+     ghe-repl-status -vv
      ```
 
-4. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
+1. On the replica appliance, to stop replication and promote the replica appliance to primary status, use the `ghe-repl-promote` command. This will also automatically put the primary node in maintenance mode if it’s reachable.
+
    ```shell
-   $ ghe-repl-promote
+   ghe-repl-promote
    ```
 
    {% note %}
@@ -54,17 +56,20 @@ The time required to failover depends on how long it takes to manually promote t
 
    {% endnote %}
 
-5. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
-6. Notify users that they can resume normal operations.
-7. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)."
-8. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
+1. Update the DNS record to point to the IP address of the replica. Traffic is directed to the replica after the TTL period elapses. If you are using a load balancer, ensure it is configured to send traffic to the replica.
+1. Notify users that they can resume normal operations.
+1. If desired, set up replication from the new primary to existing appliances and the previous primary. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#utilities-for-replication-management)."
+1. Appliances you do not intend to setup replication to that were part of the high availability configuration prior the failover, need to be removed from the high availability configuration by UUID.
     - On the former appliances, get their UUID via `cat /data/user/common/uuid`.
+
       ```shell
-      $ cat /data/user/common/uuid
+      cat /data/user/common/uuid
       ```
+
     - On the new primary, remove the UUIDs using `ghe-repl-teardown`. Please replace *`UUID`* with a UUID you retrieved in the previous step.
+
       ```shell
-      $ ghe-repl-teardown -u  UUID
+      ghe-repl-teardown -u  UUID
       ```
 
 ## Further reading

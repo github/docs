@@ -63,15 +63,15 @@ jobs:
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           repository: github/docs-internal.popular-pages
-          # This works because user `docubot` has read access to that private repo.
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          # This works because user `docs-bot` has read access to that private repo.
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           path: popular-pages
 
       - name: Checkout the language-specific repo
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           repository: ${{ matrix.language_repo }}
-          token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           path: ${{ matrix.language_dir }}
 
       - name: Get language SHA

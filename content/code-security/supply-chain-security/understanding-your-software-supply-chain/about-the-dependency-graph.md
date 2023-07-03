@@ -39,8 +39,6 @@ Repository administrators can also set up the dependency graph for private repos
 
 {% endif %}
 
-{% data reusables.code-scanning.enterprise-enable-dependency-graph %}
-
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
 {% ifversion ghes %}
@@ -102,7 +100,7 @@ The recommended formats explicitly define which versions are used for all direct
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 
 - If you list your Python dependencies within a `setup.py` file, we may not be able to parse and list every dependency in your project.
 
@@ -122,6 +120,7 @@ The recommended formats explicitly define which versions are used for all direct
 {% ifversion dependency-submission-api %}You can use the Dependency submission API (beta) to add dependencies from the package manager or ecosystem of your choice to the dependency graph, even if the ecosystem is not in the supported ecosystem list above.{% endif %} {% data reusables.dependency-graph.dependency-submission-API-short %}
 
 {% ifversion dependency-submission-api %}You will only get {% data variables.product.prodname_dependabot_alerts %} for dependencies that are from one of the [supported ecosystems](https://github.com/github/advisory-database#supported-ecosystems) of the {% data variables.product.prodname_advisory_database %}. For more information on the Dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."{% endif %}
+
 ## Further reading
 
 - "[Dependency graph](https://en.wikipedia.org/wiki/Dependency_graph)" on Wikipedia

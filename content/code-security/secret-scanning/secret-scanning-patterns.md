@@ -19,16 +19,17 @@ redirect_from:
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
+
 ## About {% data variables.product.prodname_secret_scanning %} patterns
 
 {% data variables.product.product_name %} maintains these different sets of default {% data variables.product.prodname_secret_scanning %} patterns:
 
 1. **Partner patterns.** Used to detect potential secrets in all public repositories as well as public npm packages.{% data reusables.secret-scanning.partner-program-link %}
-2. **User alert patterns.** Used to detect potential secrets in {% ifversion fpt %}public{% endif %} repositories with {% data variables.secret-scanning.user_alerts %} enabled. {% ifversion secret-scanning-push-protection %}
-3. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled.{% endif %}
+1. **User alert patterns.** Used to detect potential secrets in {% ifversion fpt %}public{% endif %} repositories with {% data variables.secret-scanning.user_alerts %} enabled. {% ifversion secret-scanning-push-protection %}
+1. **Push protection patterns.** Used to detect potential secrets in repositories with {% data variables.product.prodname_secret_scanning %} as a push protection enabled.{% endif %}
 
 {% ifversion fpt %}
-Owners of public repositories, as well as organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %}, can enable {% data variables.secret-scanning.user_alerts %} on their repositories. 
+Owners of public repositories, as well as organizations using {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_advanced_security %}, can enable {% data variables.secret-scanning.user_alerts %} on their repositories.
 {% endif %}
 
 For details about all the supported patterns, see the "[Supported secrets](#supported-secrets)" section below.
@@ -37,7 +38,7 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 
 ## About partner alerts
 
-Partner alerts are alerts that are sent to the secret providers whenever a secret leak is reported for one of their secrets. {% data variables.product.product_name %} currently scans public repositories and public npm packages for secrets issued by specific service providers and alerts the relevant service provider whenever a secret is detected in a commit. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-partners)." 
+Partner alerts are alerts that are sent to the secret providers whenever a secret leak is reported for one of their secrets. {% data variables.product.product_name %} currently scans public repositories and public npm packages for secrets issued by specific service providers and alerts the relevant service provider whenever a secret is detected in a commit. For more information about {% data variables.secret-scanning.partner_alerts %}, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-alerts-for-partners)."
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
@@ -62,6 +63,7 @@ If you use the REST API for secret scanning, you can use the `Secret type` to re
 {% endif %}
 
 {% ifversion secret-scanning-push-protection %}
+
 ## About push protection alerts
 
 Push protection alerts are user alerts that are reported by push protection. {% data variables.product.prodname_secret_scanning_caps %} as a push protection currently scans repositories for secrets issued by some service providers.
@@ -101,17 +103,6 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 {%- for entry in secretScanningData %}
 | {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
 {%- endfor %}
-{% endif %}
-
-<!-- GHES 3.4 version of table -->
-{% ifversion ghes = 3.4 %}
-
-| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert |
-|----|:----|:----:|
-{%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
-{%- endfor %}
-
 {% endif %}
 
 <!-- GHES 3.5 to GHES 3.8 table -->

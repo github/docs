@@ -26,5 +26,4 @@ People with owner or admin access can use the REST API to temporarily restrict w
 
 If an interaction limit is enabled for the user or organization that owns the repository, the limit cannot be changed for the individual repository. Instead, use the [User](#user) or [Organization](#organization) interactions endpoints to change the interaction limit.
 
-
 <!-- Content after this section is automatically generated -->

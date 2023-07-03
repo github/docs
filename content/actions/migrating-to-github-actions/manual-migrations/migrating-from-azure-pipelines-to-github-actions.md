@@ -59,6 +59,7 @@ Below is an example of the syntax for each system.
 ### Azure Pipelines syntax for script steps
 
 {% raw %}
+
 ```yaml
 jobs:
   - job: scripts
@@ -72,11 +73,13 @@ jobs:
         inputs:
           script: Write-Host "This step runs in PowerShell"
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for script steps
 
 {% raw %}
+
 ```yaml
 jobs:
   scripts:
@@ -90,6 +93,7 @@ jobs:
       - run: Write-Host "This step runs in PowerShell"
         shell: powershell
 ```
+
 {% endraw %}
 
 ## Differences in script error handling
@@ -109,6 +113,7 @@ Below is an example of the syntax for each system.
 ### Azure Pipelines syntax using CMD by default
 
 {% raw %}
+
 ```yaml
 jobs:
   - job: run_command
@@ -117,11 +122,13 @@ jobs:
     steps:
       - script: echo "This step runs in CMD on Windows by default"
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for specifying CMD
 
 {% raw %}
+
 ```yaml
 jobs:
   run_command:
@@ -131,6 +138,7 @@ jobs:
       - run: echo "This step runs in CMD on Windows explicitly"
         shell: cmd
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#using-a-specific-shell)."
@@ -146,6 +154,7 @@ Below is an example of the syntax for each system.
 ### Azure Pipelines syntax for conditional expressions
 
 {% raw %}
+
 ```yaml
 jobs:
   - job: conditional
@@ -155,11 +164,13 @@ jobs:
       - script: echo "This step runs with str equals 'ABC' and num equals 123"
         condition: and(eq(variables.str, 'ABC'), eq(variables.num, 123))
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for conditional expressions
 
 {% raw %}
+
 ```yaml
 jobs:
   conditional:
@@ -168,6 +179,7 @@ jobs:
       - run: echo "This step runs with str equals 'ABC' and num equals 123"
         if: ${{ env.str == 'ABC' && env.num == 123 }}
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
@@ -178,10 +190,10 @@ Both Azure Pipelines and {% data variables.product.prodname_actions %} allow you
 
 Below is an example of the syntax for each system. The workflows start a first job named `initial`, and when that job completes, two jobs named `fanout1` and `fanout2` will run. Finally, when those jobs complete, the job `fanin` will run.
 
-
 ### Azure Pipelines syntax for dependencies between jobs
 
 {% raw %}
+
 ```yaml
 jobs:
   - job: initial
@@ -208,11 +220,13 @@ jobs:
     steps:
       - script: echo "This job will run after fanout1 and fanout2 have finished."
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for dependencies between jobs
 
 {% raw %}
+
 ```yaml
 jobs:
   initial:
@@ -235,6 +249,7 @@ jobs:
     steps:
       - run: echo "This job will run after fanout1 and fanout2 have finished."
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)."
@@ -248,6 +263,7 @@ Below is an example of the syntax for each system.
 ### Azure Pipelines syntax for tasks
 
 {% raw %}
+
 ```yaml
 jobs:
   - job: run_python
@@ -260,6 +276,7 @@ jobs:
           architecture: 'x64'
       - script: python script.py
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for actions

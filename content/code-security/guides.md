@@ -24,6 +24,7 @@ includeGuides:
   - /code-security/getting-started/github-security-features
   - /code-security/getting-started/securing-your-organization
   - /code-security/getting-started/securing-your-repository
+  - /code-security/getting-started/dependabot-quickstart-guide
   - /code-security/getting-started/auditing-security-alerts
   - /code-security/secret-scanning/about-secret-scanning
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
@@ -43,7 +44,6 @@ includeGuides:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs
   - /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
   - /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning

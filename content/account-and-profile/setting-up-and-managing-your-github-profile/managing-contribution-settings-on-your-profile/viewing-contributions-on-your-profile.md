@@ -60,7 +60,7 @@ Your contributions calendar shows your contribution activity.
 ### Viewing contributions from specific times
 
 - Click on a day's square to show the contributions made during that 24-hour period.
-- Press *Shift* and click on another day's square to show contributions made during that time span.
+- Press _Shift_ and click on another day's square to show contributions made during that time span.
 
 {% note %}
 

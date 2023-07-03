@@ -88,7 +88,7 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."
+**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations, with autoscaling enabled by default and optional dedicated IP addresses. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."
 
 {% endnote %}
 {% endif %}
@@ -108,9 +108,21 @@ Hardware specification for macOS XL virtual machines:
 - 30 GB of RAM
 - 14 GB of SSD space
 
+{% note %}
+
+**Note:** macOS XL runners are considered {% data variables.actions.hosted_runner %}s and are billed in the same way. This means macOS XL runners are not eligible for the use of entitlement minutes on private repositories. For both private and public repositories, when macOS XL runners are in use, they will always be billed at the per-minute rate. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners#understanding-billing)."
+
+{% endnote %}
+
 {% data reusables.actions.supported-github-runners %}
 
 Workflow logs list the runner used to run a job. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+
+### {% data variables.actions.hosted_runner_caps %}s
+
+{% data reusables.actions.about-larger-runners %}
+
+For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."
 
 ## Supported software
 
@@ -209,6 +221,7 @@ Actions that run in Docker containers have static directories under the `/github
 - `/github/workflow`
 
 ## Further reading
+
 - "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
 - You can use a matrix strategy to run your jobs on multiple images. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 

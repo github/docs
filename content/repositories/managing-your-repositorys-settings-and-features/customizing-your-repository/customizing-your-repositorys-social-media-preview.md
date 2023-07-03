@@ -28,7 +28,7 @@ Until you add an image, repository links expand to show basic information about 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Social preview," click **Edit**
+1. Under "Social preview," click **Edit**
     - To add a new image, click **Upload an image...**.
     - To remove an image, click **Remove image**
 

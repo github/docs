@@ -61,7 +61,7 @@ Delete the pack bundle after publishing.
 Use this many threads to compile queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`
@@ -112,17 +112,17 @@ Available since `v2.11.3`.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `--groups=[-]<group>[,[-]<group>...]`
 
 List of CodeQL pack groups to include or exclude from this operation. A
 qlpack in the given workspace is included if:
 
--   It is in at least one of the groups listed without a minus sign (this
+- It is in at least one of the groups listed without a minus sign (this
     condition is automatically satisfied if there are no groups listed
     without a minus sign), and
--   It is not in any group listed with a minus sign
+- It is not in any group listed with a minus sign
 
 ### Options to set up compilation environment
 

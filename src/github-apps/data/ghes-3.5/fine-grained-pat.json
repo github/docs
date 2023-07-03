@@ -19,54 +19,6 @@
       "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy"
     },
     {
-      "slug": "get-github-actions-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions"
-    },
-    {
-      "slug": "set-github-actions-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions"
-    },
-    {
-      "slug": "list-selected-organizations-enabled-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations"
-    },
-    {
-      "slug": "set-selected-organizations-enabled-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations"
-    },
-    {
-      "slug": "enable-a-selected-organization-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations/{org_id}"
-    },
-    {
-      "slug": "disable-a-selected-organization-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations/{org_id}"
-    },
-    {
-      "slug": "get-allowed-actions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/selected-actions"
-    },
-    {
-      "slug": "set-allowed-actions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/selected-actions"
-    },
-    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -711,12 +663,6 @@
       "requestPath": "/networks/{owner}/{repo}/events"
     },
     {
-      "slug": "list-notifications-for-the-authenticated-user",
-      "subcategory": "notifications",
-      "verb": "get",
-      "requestPath": "/notifications"
-    },
-    {
       "slug": "list-public-organization-events",
       "subcategory": "events",
       "verb": "get",
@@ -819,18 +765,6 @@
       "subcategory": "apps",
       "verb": "get",
       "requestPath": "/apps/{app_slug}"
-    },
-    {
-      "slug": "list-app-installations-accessible-to-the-user-access-token",
-      "subcategory": "installations",
-      "verb": "get",
-      "requestPath": "/user/installations"
-    },
-    {
-      "slug": "list-repositories-accessible-to-the-user-access-token",
-      "subcategory": "installations",
-      "verb": "get",
-      "requestPath": "/user/installations/{installation_id}/repositories"
     }
   ],
   "billing": [

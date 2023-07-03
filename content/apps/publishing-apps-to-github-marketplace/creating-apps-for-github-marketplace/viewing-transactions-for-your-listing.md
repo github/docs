@@ -21,7 +21,6 @@ shortTitle: View listing transactions
 
 {% endnote %}
 
-
 You can view or download the transaction data to keep track of your subscription activity. Click the **Export CSV** button to download a `.csv` file. You can also select a period of time to view and search within the transaction page.
 
 ## Transaction data fields
@@ -47,7 +46,7 @@ To access {% data variables.product.prodname_marketplace %} transactions:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view transactions for.
+1. Select the {% data variables.product.prodname_github_app %} that you'd like to view transactions for.
 {% data reusables.user-settings.edit_marketplace_listing %}
-6. Click the **Transactions** tab.
-7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Transactions page.
+1. Click the **Transactions** tab.
+1. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Transactions page.

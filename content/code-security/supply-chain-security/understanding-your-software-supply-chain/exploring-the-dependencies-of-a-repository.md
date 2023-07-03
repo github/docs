@@ -69,6 +69,7 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ### Dependents view
 
 For public repositories, the dependents view shows how the repository is used by other repositories. To show only the repositories that contain a library in a package manager, click **NUMBER Packages** immediately above the list of dependent repositories. The dependent counts are approximate and may not always match the dependents listed.
@@ -95,7 +96,7 @@ The "Used by" section represents a single package from the repository. If you ha
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package.
+1. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package.
 
 {% endif %}
 

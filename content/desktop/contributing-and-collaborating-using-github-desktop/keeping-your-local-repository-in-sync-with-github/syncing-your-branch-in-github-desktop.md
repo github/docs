@@ -22,11 +22,11 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 ## Pulling to your local branch from the remote
 
 1. In {% data variables.product.prodname_desktop %}, use the {% octicon "git-branch" aria-hidden="true" %} **Current Branch** drop-down, and select the local branch you want to update.
-2. To check for commits on the remote branch, click **Fetch origin**
+1. To check for commits on the remote branch, click **Fetch origin**
 
    ![Screenshot of the repository bar. The "Fetch origin" button, displayed with an icon of two arrows forming a circle, is outlined in orange.](/assets/images/help/desktop/fetch-button.png)
 
-3. To pull any commits from the remote branch, click **Pull origin** or **Pull origin with rebase**.
+1. To pull any commits from the remote branch, click **Pull origin** or **Pull origin with rebase**.
 
    ![Screenshot of the repository bar. The "Pull origin" button, displayed with an icon of a downward-facing arrow, is outlined in orange.](/assets/images/help/desktop/pull-button.png)
 
@@ -61,10 +61,10 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
    {% endwindows %}
 
-2. Click the branch you want to rebase into the current branch, then click **Rebase**.
-3. If you're sure you want to rebase, click **Begin Rebase**.
+1. Click the branch you want to rebase into the current branch, then click **Rebase**.
+1. If you're sure you want to rebase, click **Begin Rebase**.
 {% data reusables.desktop.resolve-merge-conflicts %}
-4. To push your local changes, click **Force push origin**.
+1. To push your local changes, click **Force push origin**.
 
    ![Screenshot of the repository bar. A button, labeled "Force push origin" and displayed with an icon of a double upward arrow, is outlined in orange.](/assets/images/help/desktop/force-push-origin.png)
 
@@ -84,7 +84,7 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
    {% endwindows %}
 
-2. In the "Squash and merge" window, click the branch you want to merge into the current branch, then click **Squash and merge**.
+1. In the "Squash and merge" window, click the branch you want to merge into the current branch, then click **Squash and merge**.
 
    {% note %}
 
@@ -94,6 +94,7 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 {% data reusables.desktop.push-origin %}
 
 ## Further Reading
+
 - "[AUTOTITLE](/get-started/quickstart/github-glossary#pull)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[AUTOTITLE](/get-started/quickstart/github-glossary#merge)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[AUTOTITLE](/get-started/quickstart/github-glossary#rebase)" in the {% data variables.product.prodname_dotcom %} glossary

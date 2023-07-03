@@ -16,6 +16,11 @@ redirect_from:
   - /developers/apps/guides/using-the-github-api-in-your-app
   - /apps/creating-github-apps/guides/using-the-github-api-in-your-app
   - /apps/creating-github-apps/writing-code-for-a-github-app/using-the-github-api-in-your-app
+  - /apps/quickstart-guides/setting-up-your-development-environment
+  - /developers/apps/setting-up-your-development-environment-to-create-a-github-app
+  - /developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app
+  - /apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app
+  - /apps/creating-github-apps/writing-code-for-a-github-app/setting-up-your-development-environment-to-create-a-github-app
 ---
 
 ## Prerequisites
@@ -46,7 +51,6 @@ During development, you will likely use your personal computer or codespace to r
 ## Next steps
 
 Once you write the code for your {% data variables.product.prodname_github_app %}, you should ensure that it follows best practices. If necessary, remember to update your {% data variables.product.prodname_github_app %} registration. If your {% data variables.product.prodname_github_app %} needs to run on a server instead of a user's device, deploy your app to your server. Finally, you can share your {% data variables.product.prodname_github_app %} with other users and organizations.
-
 
 ### Follow best practices
 

@@ -283,7 +283,7 @@ steps:
 
 You can test your workflow using the following script, which connects to the PostgreSQL service and adds a new table with some placeholder data. The script then prints the values stored in the PostgreSQL table to the terminal. Your script can use any language you'd like, but this example uses Node.js and the `pg` npm module. For more information, see the [npm pg module](https://www.npmjs.com/package/pg).
 
-You can modify *client.js* to include any PostgreSQL operations needed by your workflow. In this example, the script connects to the PostgreSQL service, adds a table to the `postgres` database, inserts some placeholder data, and then retrieves the data.
+You can modify _client.js_ to include any PostgreSQL operations needed by your workflow. In this example, the script connects to the PostgreSQL service, adds a table to the `postgres` database, inserts some placeholder data, and then retrieves the data.
 
 {% data reusables.actions.service-container-add-script %}
 

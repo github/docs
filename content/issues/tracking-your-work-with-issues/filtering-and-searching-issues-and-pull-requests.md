@@ -63,7 +63,7 @@ You can filter issues and pull requests to find:
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
-3. Above the list, select the **Filters** dropdown menu, then click the type of filter you're interested in.
+1. Above the list, select the **Filters** dropdown menu, then click the type of filter you're interested in.
 
    ![Screenshot of the list of issues for a repository. Above the list, a dropdown menu, labeled "Filters", is outlined in dark orange.](/assets/images/help/issues/issues_filter_dropdown.png)
 
@@ -91,7 +91,7 @@ Once you've [applied labels to an issue or pull request](/issues/using-labels-an
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. In the list of labels, click a label.
+1. In the list of labels, click a label.
 
 {% tip %}
 

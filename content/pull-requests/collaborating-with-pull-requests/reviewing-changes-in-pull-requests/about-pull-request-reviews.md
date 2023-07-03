@@ -17,7 +17,7 @@ shortTitle: About PR reviews
 ---
 ## About pull request reviews
 
-After a pull request is opened, anyone with *read* access can review and comment on the changes it proposes. You can also suggest specific changes to lines of code, which the author can apply directly from the pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
+After a pull request is opened, anyone with _read_ access can review and comment on the changes it proposes. You can also suggest specific changes to lines of code, which the author can apply directly from the pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)."
 
 {% ifversion pull-request-approval-limit %}{% data reusables.pull_requests.code-review-limits %}{% endif %}
 
@@ -52,7 +52,7 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 {% tip %}
 
-**Tip**: If necessary, people with *admin* or *write* access to a repository can dismiss a pull request review. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
+**Tip**: If necessary, people with _admin_ or _write_ access to a repository can dismiss a pull request review. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/dismissing-a-pull-request-review)."
 
 {% endtip %}
 

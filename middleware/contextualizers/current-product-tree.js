@@ -1,5 +1,5 @@
 import path from 'path'
-import liquid from '../../lib/render-content/liquid.js'
+import { liquid } from '#src/content-render/index.js'
 import findPageInSiteTree from '../../lib/find-page-in-site-tree.js'
 import removeFPTFromPath from '../../lib/remove-fpt-from-path.js'
 import { executeWithFallback } from '../../lib/render-with-fallback.js'

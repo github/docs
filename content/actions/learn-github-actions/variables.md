@@ -52,6 +52,7 @@ To set a custom environment variable{% ifversion actions-configuration-variables
 - A specific step within a job, by using [`jobs.<job_id>.steps[*].env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
 
 {% raw %}
+
 ```yaml copy
 name: Greeting on variable day
 
@@ -72,6 +73,7 @@ jobs:
         env:
           First_Name: Mona
 ```
+
 {% endraw %}
 
 You can access `env` variable values using runner environment variables or using contexts. The example above shows three custom variables being used as environment variables in an `echo` command: `$DAY_OF_WEEK`, `$Greeting`, and  `$First_Name`. The values for these variables are set, and scoped, at the workflow, job, and step level respectively. For more information on accessing variable values using contexts, see "[Using contexts to access variable values](#using-contexts-to-access-variable-values)."
@@ -157,6 +159,7 @@ The following rules apply to configuration variable names:
 1. Click **Add variable**.
 
 ### Limits for configuration variables
+
 {% ifversion ghes %}
 {% ifversion ghes > 3.8 %}
 
@@ -222,6 +225,7 @@ In addition to runner environment variables, {% data variables.product.prodname_
 Runner environment variables are always interpolated on the runner machine. However, parts of a workflow are processed by {% data variables.product.prodname_actions %} and are not sent to the runner. You cannot use environment variables in these parts of a workflow file. Instead, you can use contexts. For example, an `if` conditional, which determines whether a job or step is sent to the runner, is always processed by {% data variables.product.prodname_actions %}. You can use a context in an `if` conditional statement to access the value of an variable.
 
 {% raw %}
+
 ```yaml copy
 env:
   DAY_OF_WEEK: Monday
@@ -238,6 +242,7 @@ jobs:
         env:
           First_Name: Mona
 ```
+
 {% endraw %}
 
 In this modification of the earlier example, we've introduced an `if` conditional. The workflow step is now only run if `DAY_OF_WEEK` is set to "Monday". We access this value from the `if` conditional statement by using the [`env` context](/actions/learn-github-actions/contexts#env-context).
@@ -343,6 +348,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 You can write a single workflow file that can be used for different operating systems by using the `RUNNER_OS` default environment variable and the corresponding context property <span style="white-space: nowrap;">{% raw %}`${{ runner.os }}`{% endraw %}</span>. For example, the following workflow could be run successfully if you changed the operating system from `macos-latest` to `windows-latest` without having to alter the syntax of the environment variables, which differs depending on the shell being used by the runner.
 
 {% raw %}
+
 ```yaml copy
 jobs:
   if-Windows-else:
@@ -355,6 +361,7 @@ jobs:
         if: runner.os != 'Windows'
         run: echo "The operating system on the runner is not Windows, it's $RUNNER_OS."
 ```
+
 {% endraw %}
 
 In this example, the two `if` statements check the `os` property of the `runner` context to determine the operating system of the runner. `if` conditionals are processed by {% data variables.product.prodname_actions %}, and only steps where the check resolves as `true` are sent to the runner. Here one of the checks will always be `true` and the other `false`, so only one of these steps is sent to the runner. Once the job is sent to the runner, the step is executed and the environment variable in the `echo` command is interpolated using the appropriate syntax (`$env:NAME` for PowerShell on Windows, and `$NAME` for bash and sh on Linux and MacOS). In this example, the statement `runs-on: macos-latest` means that the second step will be run.

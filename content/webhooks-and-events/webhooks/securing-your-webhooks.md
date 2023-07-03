@@ -27,13 +27,13 @@ To set your token on GitHub:
 {% data reusables.repositories.sidebar-settings %}
 1. In the left sidebar, click **{% octicon "webhook" aria-hidden="true" %} Webhooks**.
 1. Next to the webhook, click **Edit**.
-2. In the "Secret" field, type a random string with high entropy. You can generate a string with `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` in the terminal, for example.
-3. Click **Update Webhook**.
+1. In the "Secret" field, type a random string with high entropy. You can generate a string with `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` in the terminal, for example.
+1. Click **Update Webhook**.
 
 Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:
 
 ```shell
-$ export SECRET_TOKEN=YOUR-TOKEN
+export SECRET_TOKEN=YOUR-TOKEN
 ```
 
 **Never** hardcode the token into your app!

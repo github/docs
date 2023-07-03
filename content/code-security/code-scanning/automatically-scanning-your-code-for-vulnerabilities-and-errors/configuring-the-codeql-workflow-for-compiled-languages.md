@@ -38,9 +38,13 @@ topics:
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
-{% ifversion code-scanning-without-workflow %}
+{% ifversion code-scanning-without-workflow-310 %}
 
-For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. Currently, the default setup does not support any compiled languages, so you must use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. The default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}{% ifversion codeql-swift-beta %} except for Swift, for which you must use the advanced setup{% endif %}. For more information about the advanced setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+
+{% elsif code-scanning-without-workflow %}
+
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. The default setup does not support any compiled languages, so you must use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
 
 {% else %}
 
@@ -135,6 +139,7 @@ The `autobuild` process tries to determine the build system for Java codebases b
 1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
 
 {% ifversion codeql-swift-beta %}
+
 ### `autobuild` for Swift
 
 | Supported system type | System name |
@@ -177,11 +182,12 @@ If your repository contains multiple compiled languages, you can specify languag
 
 For more information about the `if` conditional, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif)."
 
-For more tips and tricks about why `autobuild` won't build your code, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)."
+For more tips and tricks about why `autobuild` won't build your code, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/automatic-build-failed-for-a-compiled-language)."
 
 If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
 
-{% ifversion codeql-swift-beta %} 
+{% ifversion codeql-swift-beta %}
+
 ### Considerations for building Swift
 
 {% data reusables.code-scanning.beta-swift-support %}

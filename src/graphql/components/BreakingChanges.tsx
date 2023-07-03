@@ -5,18 +5,24 @@ import { HeadingLink } from 'components/article/HeadingLink'
 import { BreakingChangesT } from './types'
 import styles from 'components/ui/MarkdownContent/MarkdownContent.module.scss'
 
+export type HeadingT = {
+  title: string
+  slug: string
+}
 type Props = {
   schema: BreakingChangesT
+  headings: Record<string, HeadingT>
 }
 
-export function BreakingChanges({ schema }: Props) {
+export function BreakingChanges({ schema, headings }: Props) {
   const changes = Object.keys(schema).map((date) => {
     const items = schema[date]
-    const heading = `Changes scheduled for ${date}`
-
+    const { title, slug } = headings[date]
     return (
       <div className={cx(styles.markdownBody)} key={date}>
-        <HeadingLink as="h2">{heading}</HeadingLink>
+        <HeadingLink as="h2" slug={slug}>
+          {title}
+        </HeadingLink>
         {items.map((item) => {
           const criticalityStyles =
             item.criticality === 'breaking'
@@ -31,13 +37,13 @@ export function BreakingChanges({ schema }: Props) {
                   {criticality}
                 </span>{' '}
                 A change will be made to <code>{item.location}</code>.
-                <p>
+                <div>
                   <b>Description: </b>
                   <span dangerouslySetInnerHTML={{ __html: item.description }} />
-                </p>
-                <p>
+                </div>
+                <div>
                   <b>Reason: </b> <span dangerouslySetInnerHTML={{ __html: item.reason }} />
-                </p>
+                </div>
               </li>
             </ul>
           )
