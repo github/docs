@@ -44,6 +44,7 @@ You can view the **Dependents** tab of the dependency graph to see which reposit
 You can also use the Releases API to gather information, such as the number of times people download a release asset. For more information, see "[AUTOTITLE](/rest/releases)."
 
 {% ifversion fpt or ghec %}
+
 ## Storage and bandwidth quotas
 
  Each file included in a release must be under {% data variables.large_files.max_file_size %}. There is no limit on the total size of a release, nor bandwidth usage.

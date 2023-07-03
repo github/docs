@@ -40,10 +40,10 @@ shortTitle: Project management with Jira
 ## Jira instance configuration
 
 1. On your Jira instance, log into an account with administrative access.
-2. At the top of the page, click the settings (gear) icon and choose **Applications**.
-3. In the left sidebar, under **Integrations**, click **DVCS accounts**.
-4. Click **Link Bitbucket Cloud or {% data variables.product.prodname_dotcom %} account**.
-5. In the **Add New Account** modal, fill in your {% data variables.product.prodname_enterprise %} settings:
+1. At the top of the page, click the settings (gear) icon and choose **Applications**.
+1. In the left sidebar, under **Integrations**, click **DVCS accounts**.
+1. Click **Link Bitbucket Cloud or {% data variables.product.prodname_dotcom %} account**.
+1. In the **Add New Account** modal, fill in your {% data variables.product.prodname_enterprise %} settings:
     - From the **Host** dropdown menu, choose **{% data variables.product.prodname_enterprise %}**.
     - In the **Team or User Account** field, type the name of your {% data variables.product.prodname_enterprise %} organization or user account.
     - In the **OAuth Key** field, type the Client ID of your {% data variables.product.prodname_enterprise %} developer application.
@@ -51,5 +51,5 @@ shortTitle: Project management with Jira
     - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or user account, deselect **Auto Link New Repositories**.
     - If you don't want to enable smart commits, deselect **Enable Smart Commits**.
     - Click **Add**.
-6. Review the permissions you are granting to your {% data variables.product.prodname_enterprise %} account and click **Authorize application**.
-7. If necessary, type your password to continue.
+1. Review the permissions you are granting to your {% data variables.product.prodname_enterprise %} account and click **Authorize application**.
+1. If necessary, type your password to continue.

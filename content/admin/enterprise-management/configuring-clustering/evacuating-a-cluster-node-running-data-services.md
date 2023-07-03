@@ -95,13 +95,17 @@ If you plan to take a node offline and the node runs any of the following roles,
      - Command (replace REASON FOR EVACUATION with the reason for evacuation):
 
         {% ifversion ghe-spokes-deprecation-phase-1 %}
+
         ```shell
         ghe-spokesctl server set evacuating git-server-UUID 'REASON FOR EVACUATION'
         ```
+
         {% else %}
+
         ```shell
         ghe-spokes server evacuate git-server-UUID 'REASON FOR EVACUATION'
         ```
+
         {% endif %}
    - `pages-server`:
 
@@ -136,13 +140,17 @@ If you plan to take a node offline and the node runs any of the following roles,
    - `git-server`:
 
      {% ifversion ghe-spokes-deprecation-phase-1 %}
+
      ```shell
      ghe-spokesctl server evac-status git-server-UUID
      ```
+
      {% else %}
+
      ```shell
      ghe-spokes evac-status git-server-UUID
      ```
+
      {% endif %}
    - `pages-server`:
 

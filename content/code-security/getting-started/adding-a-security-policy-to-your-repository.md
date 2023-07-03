@@ -48,9 +48,9 @@ By making security reporting instructions clearly available, you make it easy fo
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" %} Policy**.
-4. Click **Start setup**.
-5. In the new `SECURITY.md` file, add information about supported versions of your project and how to report a vulnerability.
+1. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" %} Policy**.
+1. Click **Start setup**.
+1. In the new `SECURITY.md` file, add information about supported versions of your project and how to report a vulnerability.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

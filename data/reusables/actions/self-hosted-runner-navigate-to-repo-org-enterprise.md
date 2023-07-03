@@ -1,6 +1,6 @@
 {% ifversion fpt %}
 1. Navigate to the main page of the organization or repository where your self-hosted runner group is registered.
-2. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
+1. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% elsif ghec or ghes or ghae %}
 1. Navigate to where your runner is registered:
@@ -8,7 +8,7 @@
    - **If using an enterprise-level runner**:
 
 {% indented_data_reference reusables.enterprise-accounts.access-enterprise spaces=5 %}
-2. Navigate to the {% data variables.product.prodname_actions %} settings:
+1. Navigate to the {% data variables.product.prodname_actions %} settings:
    - **In an organization or repository**:
 
 {% indented_data_reference reusables.actions.settings-ui.settings-actions-runners spaces=5 %}

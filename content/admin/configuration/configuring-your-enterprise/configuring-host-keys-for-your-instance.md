@@ -39,9 +39,11 @@ To improve security for clients that connect to {% data variables.location.produ
    ```shell
    ghe-config app.babeld.host-key-ed25519 true
    ```
+
 1. Optionally, enter the following command to disable generation and advertisement of the Ed25519 host key.
 
    ```shell
    ghe-config app.babeld.host-key-ed25519 false
    ```
+
 {% data reusables.enterprise.apply-configuration %}

@@ -76,6 +76,7 @@ You can authenticate to {% data variables.product.product_name %} in your browse
 {% endif %}
 
 ## Authenticating with {% data variables.product.prodname_desktop %}
+
 You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
 
 ## Authenticating with the API
@@ -121,6 +122,7 @@ If you authenticate with {% data variables.product.prodname_cli %}, the CLI will
 If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)." Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
 
 {% ifversion fpt or ghec %}
+
 ### Authorizing for SAML single sign-on
 
 To use a {% data variables.product.pat_generic %} or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}

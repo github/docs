@@ -9,6 +9,14 @@ topics:
   - Maintenance
 ---
 
+{% ifversion ghec %}
+{% note %}
+
+**Note:** To create an announcement banner, your organization must use {% data variables.product.prodname_ghe_cloud %}. {% data reusables.enterprise.link-to-ghec-trial %}
+
+{% endnote %}
+{% endif %}
+
 You can create an announcement banner that will be displayed to all organization members at the top of every page in the organization.
 
 {% data reusables.enterprise.user-messages-markdown %}

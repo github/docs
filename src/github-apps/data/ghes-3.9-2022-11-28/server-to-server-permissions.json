@@ -379,100 +379,6 @@
         "additional-permissions": []
       },
       {
-        "category": "actions",
-        "slug": "list-required-workflows",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/required_workflows",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "create-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "post",
-        "requestPath": "/orgs/{org}/actions/required_workflows",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "get-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "update-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "patch",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "delete-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "sets-repositories-for-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "metadata"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "add-a-repository-to-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "metadata"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "remove-a-selected-repository-from-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "metadata"
-        ]
-      },
-      {
         "category": "orgs",
         "slug": "get-the-audit-log-for-an-organization",
         "subcategory": "orgs",
@@ -2055,28 +1961,6 @@
     "permissions": [
       {
         "category": "actions",
-        "slug": "list-repository-required-workflows",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "get-a-required-workflow-entity-for-a-repository",
-        "subcategory": "required-workflows",
-        "verb": "get",
-        "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
         "slug": "list-artifacts-for-a-repository",
         "subcategory": "artifacts",
         "verb": "get",
@@ -2225,17 +2109,6 @@
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/actions/oidc/customization/sub",
         "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "actions",
-        "slug": "list-workflow-runs-for-a-required-workflow",
-        "subcategory": "workflow-runs",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs",
-        "access": "read",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -5479,45 +5352,6 @@
         "subcategory": "permissions",
         "verb": "delete",
         "requestPath": "/orgs/{org}/actions/permissions/repositories/{repository_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "sets-repositories-for-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "add-a-repository-to-a-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "put",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": [
-          "organization_administration"
-        ]
-      },
-      {
-        "category": "actions",
-        "slug": "remove-a-selected-repository-from-required-workflow",
-        "subcategory": "required-workflows",
-        "verb": "delete",
-        "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,

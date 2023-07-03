@@ -30,7 +30,7 @@ You will use your personal account to set up the enterprise account. You'll also
 
 {% data reusables.enterprise.create-enterprise-account %}
 1. Complete the form with your client's information.
-8. Click **Create your enterprise**.
+1. Click **Create your enterprise**.
 
 ## Step 3: Upgrade the enterprise to a yearly paid subscription
 
@@ -52,11 +52,11 @@ Invite your client to become an enterprise owner. For more information, see "[AU
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-4. Confirm that your client is listed as an enterprise owner.
-5. To the right of your username, select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu, then click **Change role**.
+1. Confirm that your client is listed as an enterprise owner.
+1. To the right of your username, select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu, then click **Change role**.
 
    ![Screenshot of a user in the administrators list. A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/administrator-settings.png)
-6. Select **Billing manager**, then click **Change role**.
+1. Select **Billing manager**, then click **Change role**.
 
 ## Next steps
 

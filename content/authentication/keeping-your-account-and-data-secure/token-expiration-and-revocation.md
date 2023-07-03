@@ -29,6 +29,7 @@ This article explains the possible reasons your {% data variables.product.produc
 When you create a {% data variables.product.pat_generic %}, we recommend that you set an expiration for your token. Upon reaching your token's expiration date, the token is automatically revoked. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 {% ifversion fpt or ghec %}
+
 ## Token revoked when pushed to a public repository or public gist
 
 If a valid OAuth token, {% data variables.product.prodname_github_app %} token, or {% data variables.product.pat_generic %} is pushed to a public repository or public gist, the token will be automatically revoked.
@@ -36,6 +37,7 @@ If a valid OAuth token, {% data variables.product.prodname_github_app %} token, 
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Token expired due to lack of use
 
 {% data variables.product.product_name %} will automatically revoke an OAuth token or {% data variables.product.pat_generic %} when the token hasn't been used in one year.

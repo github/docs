@@ -30,7 +30,7 @@ For more information about installing a {% data variables.product.prodname_githu
 {% data reusables.marketplace.confirm-install-account-org %}
 {% data reusables.marketplace.add-payment-method-org %}
 {% data reusables.marketplace.complete-order-begin-installation %}
-8. Review the information about the app's access to your personal account, organizations, and data, then click **Authorize application**.
+1. Review the information about the app's access to your personal account, organizations, and data, then click **Authorize application**.
 
 ## Further reading
 

@@ -6,7 +6,7 @@ import { execSync } from 'child_process'
 import { program } from 'commander'
 import fpt from '../../lib/non-enterprise-default-version.js'
 import { allVersionKeys } from '../../lib/all-versions.js'
-import { liquid } from '../../lib/render-content/index.js'
+import { liquid } from '#src/content-render/index.js'
 import contextualize from '../../middleware/context.js'
 
 const layoutFilename = path.posix.join(process.cwd(), 'script/dev-toc/layout.html')

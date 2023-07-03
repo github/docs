@@ -1,20 +1,14 @@
 #!/usr/bin/env node
 import httpStatusCodes from 'http-status-code'
-import { readFile } from 'fs/promises'
 import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'
-import path from 'path'
 import mergeAllOf from 'json-schema-merge-allof'
 
-import renderContent from '../../../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 import getCodeSamples from './create-rest-examples.js'
 import operationSchema from './operation-schema.js'
 import { validateData } from './validate-data.js'
 import { getBodyParams } from './get-body-params.js'
-
-const { operationUrls } = JSON.parse(
-  await readFile(path.join('src/rest/lib/rest-api-overrides.json'), 'utf8')
-)
 
 export default class Operation {
   #operation
@@ -47,23 +41,12 @@ export default class Operation {
     this.verb = verb
     this.requestPath = requestPath
     this.title = operation.summary
-    this.setCategories()
+    this.category = operation['x-github'].category
+    this.subcategory = operation['x-github'].subcategory
     this.parameters = operation.parameters || []
     this.bodyParameters = []
     this.enabledForGitHubApps = operation['x-github'].enabledForGitHubApps
     return this
-  }
-
-  setCategories() {
-    const operationId = this.#operation.operationId
-    const xGithub = this.#operation['x-github']
-    const { category, subcategory } = getOverrideCategory(
-      operationId,
-      xGithub.category,
-      xGithub.subcategory
-    )
-    this.category = category
-    this.subcategory = subcategory
   }
 
   async process() {
@@ -77,10 +60,6 @@ export default class Operation {
     ])
 
     validateData(this, operationSchema)
-  }
-
-  getExternalDocs() {
-    return this.#operation.externalDocs
   }
 
   async renderDescription() {
@@ -168,19 +147,4 @@ export default class Operation {
       })
     )
   }
-}
-
-// This is a temporary method of overriding the category and subcategory
-// of an operation to allow redirecting. We only need to do this until
-// we update the urls in the OpenAPI to reflect the current location on
-// docs.github.com. Once we've done that, we can remove this functionality.
-export function getOverrideCategory(operationId, category, subcategory) {
-  const newCategory = operationUrls[operationId] ? operationUrls[operationId].category : category
-
-  const isSubcategoryOverride = operationUrls[operationId] && operationUrls[operationId].subcategory
-  const newSubcategory = isSubcategoryOverride
-    ? operationUrls[operationId].subcategory
-    : subcategory || category
-
-  return { category: newCategory, subcategory: newSubcategory }
 }

@@ -28,14 +28,14 @@ Before you generate a new SSH key, you should check your local machine for exist
 {% data reusables.ssh.key-type-support %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Enter `ls -al ~/.ssh` to see if existing SSH keys are present.
+1. Enter `ls -al ~/.ssh` to see if existing SSH keys are present.
 
    ```shell
    $ ls -al ~/.ssh
    # Lists the files in your .ssh directory, if they exist
    ```
 
-3. Check the directory listing to see if you already have a public SSH key. By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is _id_rsa.pub_.{% else %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
+1. Check the directory listing to see if you already have a public SSH key. By default, the {% ifversion ghae %}filename of a supported public key for {% data variables.product.product_name %} is _id_rsa.pub_.{% else %}filenames of supported public keys for {% data variables.product.product_name %} are one of the following.
    - _id_rsa.pub_
    - _id_ecdsa.pub_
    - _id_ed25519.pub_{% endif %}
@@ -46,7 +46,7 @@ Before you generate a new SSH key, you should check your local machine for exist
 
    {% endtip %}
 
-4. Either generate a new SSH key or upload an existing key.
+1. Either generate a new SSH key or upload an existing key.
    - If you don't have a supported public and private key pair, or don't wish to use any that are available, generate a new SSH key.
    - If you see an existing public and private key pair listed (for example, _id_rsa.pub_ and _id_rsa_) that you would like to use to connect to {% data variables.product.product_name %}, you can add the key to the ssh-agent.
 

@@ -68,6 +68,7 @@ There are several types of user messages.
 {% data reusables.enterprise_site_admin_settings.save-changes %}{% endif %}{% endif %}
 
 {% ifversion ghes or ghae %}
+
 ## Creating a mandatory message
 
 You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before using {% data variables.location.product_location %}.

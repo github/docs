@@ -57,7 +57,7 @@ You can change the name and email address used to author commits in a specific r
 
 {% mac %}
 
-1.  To switch to the repository for which you want to set specific configuration, use the "Current Repository" dropdown menu.
+1. To switch to the repository for which you want to set specific configuration, use the "Current Repository" dropdown menu.
 
    ![Screenshot of the repository bar in GitHub Desktop. Next to "Current Repository", a dropdown icon is highlighted with an orange outline.](/assets/images/help/desktop/current-repo-dropdown.png)
 

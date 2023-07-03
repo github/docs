@@ -144,6 +144,7 @@ Before your Okta users can use their credentials to sign in to {% data variables
 1. Click **Done**.
 
 {% ifversion ghae %}
+
 ### Provisioning access for Okta groups
 
 You can map your Okta group to a team in {% data variables.product.product_name %}. Members of the Okta group will then automatically become members of the mapped {% data variables.product.product_name %} team. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."

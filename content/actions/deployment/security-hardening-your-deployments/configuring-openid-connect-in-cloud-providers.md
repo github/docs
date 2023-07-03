@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with cloud provi
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
@@ -29,7 +29,7 @@ To use OIDC, you will first need to configure your cloud provider to trust {% da
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the official action from your cloud provider to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the official action from your cloud provider to exchange the OIDC token (JWT) for a cloud access token.
 
 If your cloud provider doesn't yet offer an official action, you can update your workflows to perform these steps manually.
 
@@ -50,8 +50,8 @@ If you're not using an official action, then {% data variables.product.prodname_
 To update your workflows using this approach, you will need to make three changes to your YAML:
 
 1. Add permissions settings for the token.
-2. Add code that requests the OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider.
-3. Add code that exchanges the OIDC token with your cloud provider for an access token.
+1. Add code that requests the OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider.
+1. Add code that exchanges the OIDC token with your cloud provider for an access token.
 
 ### Requesting the JWT using the Actions core toolkit
 

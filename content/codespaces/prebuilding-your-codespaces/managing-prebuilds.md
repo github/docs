@@ -30,6 +30,7 @@ People with admin access to a repository can check the progress of prebuilds, ed
 To locate all repositories that are hosting a prebuild configuration, you must obtain a copy of your usage report by following the steps for “[AUTOTITLE](/billing/managing-billing-for-github-codespaces/viewing-your-github-codespaces-usage)”
 
 ## Viewing the progress of prebuilds
+
 You can view the current status of the latest workflow run for each prebuild configuration you've set up on the {% data variables.product.prodname_github_codespaces %} page of your repository settings. For example, "Currently running" or "Last run 1 hour ago."
 
 To see the log output for the latest prebuild workflow run, click **See output**.

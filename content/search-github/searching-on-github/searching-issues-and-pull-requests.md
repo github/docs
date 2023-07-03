@@ -83,6 +83,7 @@ You can also use the `is` qualifier to find pull requests that are queued to mer
 | `is:queued` | [**is:queued**](https://github.com/search?q=is%3Aqueued&type=pullrequests) matches pull requests that are currently queued to merge. |
 
 {% ifversion issue-close-reasons %}
+
 ## Search by the reason an issue was closed
 
 You can filter issues based on the reason given when the issue was closed, using the `reason` qualifier.
@@ -158,6 +159,7 @@ You can use the `involves` qualifier to find issues that in some way involve a c
 | `in:body` <code>involves:<em>USERNAME</em></code> | [**NOT bootstrap in:body involves:mdo**](https://github.com/search?q=NOT+bootstrap+in%3Abody+involves%3Amdo&type=Issues) matches issues @mdo is involved in that do not contain the word "bootstrap" in the body.
 
 ## Search for linked issues and pull requests
+
 You can narrow your results to only include issues that are linked to a pull request by a closing reference, or pull requests that are linked to an issue that the pull request may close.
 
 | Qualifier | Example |
@@ -260,6 +262,7 @@ You can filter issues and pull requests by the number of reactions using the `re
 | <code>reactions:<em>n..n</em></code> | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches issues with reactions ranging from 500 to 1,000.
 
 ## Search for draft pull requests
+
 You can filter for draft pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)."
 
 | Qualifier        | Example

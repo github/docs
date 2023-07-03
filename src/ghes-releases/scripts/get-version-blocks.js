@@ -1,4 +1,4 @@
-import supportedOperators from '../../../lib/liquid-tags/ifversion-supported-operators.js'
+import supportedOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
 
 // Turn an array of Liquid conditional objects that results from ./get-liquid-conditionals.js into a more
 // detailed array of objects that includes GHES versioning information.

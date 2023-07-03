@@ -36,6 +36,7 @@ shortTitle: Security & analysis
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Enabling or disabling security and analysis features for public repositories
 
 You can manage a subset of security and analysis features for public repositories. Other features are permanently enabled, including dependency graph and {% data variables.secret-scanning.partner_alerts %}.
@@ -43,7 +44,7 @@ You can manage a subset of security and analysis features for public repositorie
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-4. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.
+1. Under "Code security and analysis", to the right of the feature, click **Disable** or **Enable**.
 {% endif %}
 
 ## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}

@@ -12,4 +12,4 @@
 
    {% endwindows %}
 
-4. Click the theme you'd like to use. If you want {% data variables.product.prodname_desktop %} to always match the theme on your computer, select **System**.
+1. Click the theme you'd like to use. If you want {% data variables.product.prodname_desktop %} to always match the theme on your computer, select **System**.

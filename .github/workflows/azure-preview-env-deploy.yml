@@ -126,7 +126,7 @@ jobs:
         env:
           BRANCH_NAME: ${{ env.BRANCH_NAME }}
         with:
-          github-token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           result-encoding: string
           script: |
             const { BRANCH_NAME } = process.env
@@ -154,7 +154,7 @@ jobs:
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           path: docs-early-access
           ref: ${{ steps.check-early-access.outputs.result }}
 
@@ -180,7 +180,7 @@ jobs:
       - if: ${{ steps.with-translations.outputs.result == 'true' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - if: ${{ env.IS_PUBLIC_BUILD == 'true' }}
         name: Check out user code to temp directory

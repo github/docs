@@ -36,6 +36,7 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% data reusables.actions.enterprise-oidc-prereqs %}
 
 {% ifversion ghes-actions-storage-oidc %}
+
 ## Enabling {% data variables.product.prodname_actions %} with Google Cloud Storage using OIDC (recommended)
 
 {% data reusables.actions.ghes-storage-oidc-beta-note %}
@@ -73,6 +74,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with G
      ```
      https://my-ghes-host.example.com/_services/token
      ```
+
    - Under "Audiences", leave **Default audience** selected, but note the identity provider URL, as it is needed later. The identity provider URL is in the format `https://iam.googleapis.com/projects/PROJECT-NUMBER/locations/global/workloadIdentityPools/POOL-NAME/providers/PROVIDER-NAME`.
    - Click **Continue**.
 1. Under "Configure provider attributes":

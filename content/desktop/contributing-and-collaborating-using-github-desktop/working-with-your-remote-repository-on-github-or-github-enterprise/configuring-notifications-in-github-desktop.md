@@ -33,9 +33,9 @@ If system notifications are disabled for {% data variables.product.prodname_desk
 {% mac %}
 
 1. In the menu bar, select the Apple icon, then click **System Preferences**.
-2. Select **Notifications & Focus**.
-3. Select **{% data variables.product.prodname_desktop %}** from the list of applications.
-4. Click **Allow Notifications**.
+1. Select **Notifications & Focus**.
+1. Select **{% data variables.product.prodname_desktop %}** from the list of applications.
+1. Click **Allow Notifications**.
 
 For more information about macOS system notifications, see "[Use notifications on your Mac](https://support.apple.com/en-us/HT204079)."
 
@@ -44,8 +44,8 @@ For more information about macOS system notifications, see "[Use notifications o
 {% windows %}
 
 1. Open the **Start** menu, then select **Settings**.
-2. Select **System**, then click **Notifications**.
-3. Find **{% data variables.product.prodname_desktop %}** in the application list and click **On**.
+1. Select **System**, then click **Notifications**.
+1. Find **{% data variables.product.prodname_desktop %}** in the application list and click **On**.
 
 For more information about Windows system notifications, see "[Change notification settings in Windows](https://support.microsoft.com/en-us/windows/change-notification-settings-in-windows-8942c744-6198-fe56-4639-34320cf9444e)."
 

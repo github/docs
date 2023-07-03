@@ -51,6 +51,7 @@ The following example shows you how {% data variables.product.prodname_actions %
              ls {% raw %}${{ github.workspace }}{% endraw %}
          - run: echo "🍏 This job's status is {% raw %}${{ job.status }}{% endraw %}."
    ```
+
 1. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
 
    ![Screenshot of the "Commit new file" area of the page.](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
