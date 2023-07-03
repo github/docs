@@ -21,19 +21,30 @@ shortTitle: Known issues with backups
 
 If you used {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.7 %}3.7.0{% elsif ghes = 3.8 or ghes = 3.9 %}3.7.0 or 3.8.0{% endif %} to back up an instance running any release in the {% data variables.product.product_name %} 3.7{% ifversion ghes = 3.8 or ghes = 3.9 %} or 3.8{% endif %} series, after you restore the backup to a new instance, users cannot sign in. Though users cannot sign in, the backup itself is unaffected and all data is intact.
 
+{% ifversion ghes = 3.7 %}
+
+After you restore an existing backup affected by this issue, you can resolve the issue by modifying the configuration on the new instance.
+
+{% elsif ghes = 3.8 or ghes = 3.9 %}
+
 To address this issue, upgrade {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, then create a new backup. Alternatively, you can modify the configuration on a new target instance to restore an existing backup affected by this issue.
+
+{% endif %}
+
+{% ifversion ghes = 3.8 or ghes = 3.9 %}
 
 - [Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}](#upgrading-github-enterprise-server-backup-utilities)
 - [Restoring from an existing backup](#restoring-from-an-existing-backup)
 
 ### Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
 
-To create a new backup, upgrade {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host to version {% ifversion ghes = 3.7 %}3.7.1{% elsif ghes = 3.8 or ghes = 3.9 %}3.7.1 or 3.8.1{% endif %}, then use the `ghe-backup` utility to back up your instance running {% data variables.product.product_name %} {% ifversion ghes = 3.7 %}3.7{% elsif ghes = 3.8 or ghes = 3.9 %}3.7 or 3.8{% endif %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)" and [{% ifversion ghes = 3.7 %}the 3.7.1 release{% elsif ghes = 3.8 or ghes = 3.9 %}releases{% endif %}](https://github.com/github/backup-utils/releases{% ifversion ghes = 3.7 %}/tag/v3.7.1{% endif %}) in the github/backup-utils repository.
+To create a new backup, upgrade {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host to 3.8.1, then use the `ghe-backup` utility to back up your instance running {% data variables.product.product_name %} 3.8. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)" and [releases](https://github.com/github/backup-utils/releases) in the github/backup-utils repository.
 
 {% ifversion ghes = 3.9 %}
 
 If your instance is already running {% data variables.product.product_name %} 3.9 and users can sign in, you can upgrade to {% data variables.product.prodname_enterprise_backup_utilities %} 3.9.0 on your backup host and continue backing up normally. For more information, see the [3.9.0 release](https://github.com/github/backup-utils/releases/tag/v3.9.0) in the `github/backup-utils` repository.
 
+{% endif %}
 {% endif %}
 
 ### Restoring from an existing backup
