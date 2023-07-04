@@ -41,7 +41,7 @@ If your app runs in the browser, you should use the web application flow to gene
 
    Query parameter | Type | Description
    -----|------|------------
-   `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app.<br><br>For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`.<br><br>For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`.<br><br>Replace `APP-SLUG` with the slugified name of your app and `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+   `client_id` | `string` | **Required.** The client ID for your {% data variables.product.prodname_github_app %}. The client ID is different from the app ID. You can find the client ID on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
    `redirect_uri` | `string` | The URL in your application where users will be sent after authorization. This must be an exact match to one of the URLs you provided as a "Callback URL" in your app's settings and can't contain any additional parameters.
    `state` | `string` | When specified, the value should contain a random string to protect against forgery attacks, and it can also contain any other arbitrary data.
    `login` | `string` | When specified, the web application flow will prompt users with a specific account they can use for signing in and authorizing your app.
@@ -71,12 +71,7 @@ If your app is headless or does not have access to a browser, you should use the
 
 The device flow uses the OAuth 2.0 Device Authorization Grant.
 
-1. Send a `POST` request to `{% data variables.product.oauth_host_code %}/login/device/code` along with a `client_id` query parameter. The client ID is different from the app ID. You can find the client ID on the settings page for your app.
-   - For user-owned apps, the settings page is `https://github.com/settings/apps/APP-SLUG`.
-   - For organization-owned apps, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`.
-
-   Replace `APP-SLUG` with the slugified name of your app and `ORGANIZATION` with the slugified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
-
+1. Send a `POST` request to `{% data variables.product.oauth_host_code %}/login/device/code` along with a `client_id` query parameter. The client ID is different from the app ID. You can find the client ID on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
 1. {% data variables.product.company_short %} will give a response that includes the following query parameters:
 
    Response parameter | Type | Description

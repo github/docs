@@ -21,11 +21,13 @@ topics:
 The {% data variables.product.prodname_advisory_database %} contains a curated list of security vulnerabilities that you can view, search, and filter. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 ## Available for all repositories
+
 ### Security policy
 
 Make it easy for your users to confidentially report security vulnerabilities they've found in your repository. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
 {% ifversion fpt or ghec %}
+
 ### Security advisories
 
 Privately discuss and fix security vulnerabilities in your repository's code. You can then publish a security advisory to alert your community to the vulnerability and encourage community members to upgrade. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
@@ -39,7 +41,10 @@ View alerts about dependencies that are known to contain security vulnerabilitie
 and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."
 {% endif %}
 
+{% data reusables.dependabot.quickstart-link %}
+
 {% ifversion ghae %}
+
 ### {% data variables.product.prodname_dependabot_alerts %}
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
@@ -48,12 +53,14 @@ View alerts about dependencies that are known to contain security vulnerabilitie
 {% endif %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ### {% data variables.product.prodname_dependabot %} version updates
 
 Use {% data variables.product.prodname_dependabot %} to automatically raise pull requests to keep your dependencies up-to-date. This helps reduce your exposure to older versions of dependencies. Using newer versions makes it easier to apply patches if security vulnerabilities are discovered, and also makes it easier for {% data variables.product.prodname_dependabot_security_updates %} to successfully raise pull requests to upgrade vulnerable dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 {% endif %}
 
 ### Dependency graph
+
 The dependency graph allows you to explore the ecosystems and packages that your repository depends on and the repositories and packages that depend on your repository.
 
 You can find the dependency graph on the **Insights** tab for your repository. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
@@ -61,17 +68,20 @@ You can find the dependency graph on the **Insights** tab for your repository. F
 {% ifversion dependency-graph-sbom-export %}{% data reusables.dependency-graph.sbom-export %}{% endif %}
 
 {% ifversion security-overview-displayed-alerts %}
+
 ### Security overview
 
 Security overview allows you to review security configurations and alerts, making it easy to identify the repositories and organizations at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 
 {% else %}
+
 ### Security overview for repositories
+
 Security overview shows which security features are enabled for the repository, and lets you configure any available security features that are not already enabled.
 {% endif %}
 
-
 {% ifversion fpt or ghec %}
+
 ## Available for free public repositories
 
 ### {% data variables.secret-scanning.partner_alerts_caps %}
@@ -79,6 +89,7 @@ Security overview shows which security features are enabled for the repository, 
 Automatically detect leaked secrets across all public repositories, as well as public npm packages. {% data variables.product.company_short %} informs the relevant service provider that the secret may be compromised. For details of the supported secrets and service providers, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
 
 {% endif %}
+
 ## Available with {% data variables.product.prodname_GH_advanced_security %}
 
 {% ifversion fpt %}
@@ -113,11 +124,13 @@ Show the full impact of changes to dependencies and see details of any vulnerabl
 {% elsif fpt %}<!--Feature requires enterprise product-->
 
 {% else %}
-### Security overview for organizations{% ifversion ghes > 3.4 or ghae > 3.4 %}, enterprises,{% endif %} and teams
+
+### Security overview for organizations{% ifversion ghes or ghae  %}, enterprises,{% endif %} and teams
 
 Review the security configuration and alerts for your organization and identify the repositories at greatest risk. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 {% endif %}
 
 ## Further reading
+
 - "[AUTOTITLE](/get-started/learning-about-github/githubs-products)"
 - "[AUTOTITLE](/get-started/learning-about-github/github-language-support)"

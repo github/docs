@@ -19,7 +19,6 @@ topics:
 <!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/configuring-ghes.-->
 
-
 {% data reusables.code-scanning.beta %}
 
 ## About {% data variables.product.prodname_code_scanning %}
@@ -76,6 +75,7 @@ The {% data variables.product.prodname_codeql %} action is included in your inst
 You can also make third-party actions available to users for {% data variables.product.prodname_code_scanning %}, by setting up {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-github-connect-to-sync-github-actions)" below.
 
 ### Configuring {% data variables.product.prodname_codeql %} analysis on a server without internet access
+
 If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, and you want to allow users to enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for their repositories, you must use the {% data variables.product.prodname_codeql %} action sync tool to copy the {% data variables.product.prodname_codeql %} analysis bundle from {% data variables.product.prodname_dotcom_the_website %} to your server. The tool, and details of how to use it, are available at [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/).
 
 If you configure the {% data variables.product.prodname_codeql %} action sync tool, you can use it to sync the latest releases of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql %} analysis bundle. These are compatible with {% data variables.product.prodname_ghe_server %}.
@@ -83,6 +83,7 @@ If you configure the {% data variables.product.prodname_codeql %} action sync to
 {% endif %}
 
 ### Configuring {% data variables.product.prodname_github_connect %} to sync {% data variables.product.prodname_actions %}
+
 1. If you want to download action workflows on demand from {% data variables.product.prodname_dotcom_the_website %}, you need to enable {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect#enabling-github-connect)."
 1. You'll also need to enable {% data variables.product.prodname_actions %} for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 1. The next step is to configure access to actions on {% data variables.product.prodname_dotcom_the_website %} using {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."

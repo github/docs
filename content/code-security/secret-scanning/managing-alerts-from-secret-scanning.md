@@ -69,6 +69,7 @@ shortTitle: Manage secret alerts
 {% endif %}
 
 {% ifversion secret-scanning-github-token-metadata %}
+
 ## Reviewing {% data variables.product.company_short %} token metadata
 
 {% note %}
@@ -120,6 +121,7 @@ Once a secret has been committed to a repository, you should consider the secret
 Notifications are different for incremental scans and historical scans.
 
 ### Incremental scans
+
 {% endif %}
 
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
@@ -141,6 +143,7 @@ Notifications are different for incremental scans and historical scans.
 {% data reusables.notifications.watch-settings %}
 
 {% ifversion secret-scanning-backfills %}
+
 ### Historical scans
 
 For historical scans, {% data variables.product.product_name %} notifies the following users:

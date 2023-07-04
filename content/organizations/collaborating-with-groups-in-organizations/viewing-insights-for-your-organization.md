@@ -60,6 +60,7 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
 1. To see which dependents in your organization are using each library, next to a vulnerability, click {% octicon "package" aria-hidden-"true" %} **X dependents**.
 
 ## Further reading
+
 - "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
 - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)"
 - "[AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"{% ifversion ghec %}

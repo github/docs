@@ -142,6 +142,7 @@ topics:
 | `unarchived` | Triggered when a repository owner unarchives a repository.
 
 {% ifversion fpt or ghec %}
+
 ## `sponsors` category actions
 
 | Action | Description
@@ -166,6 +167,7 @@ topics:
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `successor_invitation` category actions
 
 | Action | Description
@@ -193,6 +195,7 @@ topics:
 {% endif %}
 
 {% ifversion not ghae %}
+
 ## `two_factor_authentication` category actions
 
 | Action | Description

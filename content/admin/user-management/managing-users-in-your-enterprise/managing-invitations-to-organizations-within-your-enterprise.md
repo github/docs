@@ -25,7 +25,7 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
    ![Screenshot of a user in the list of failed invitations. A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/enterprise-invitation-retry-or-cancel.png)
    - To confirm, click **Yes, retry** or **Yes, cancel**.
 
-3. Optionally, retry or cancel multiple invitations at the same time.
+1. Optionally, retry or cancel multiple invitations at the same time.
    - Select the checkboxes next to the invitations you want to retry or cancel.
    - At the top of the list, select the **X invitations selected** dropdown menu and click **Retry invitations** or **Cancel invitations**.
 

@@ -29,10 +29,10 @@ If a user runs the Windows Installer package for {% data variables.product.prodn
 You can install {% data variables.product.prodname_desktop %} on {% data variables.desktop.mac-osx-versions %}.
 
 {% data reusables.desktop.download-desktop-page %}
-2. Click **Download for macOS**.
-3. In your computer's `Downloads` folder, double-click the **{% data variables.product.prodname_desktop %}** zip file.
-4. After the file has been unzipped, double-click the **{% data variables.product.prodname_desktop %}** application file.
-5. {% data variables.product.prodname_desktop %} will launch after installation is complete.
+1. Click **Download for macOS**.
+1. In your computer's `Downloads` folder, double-click the **{% data variables.product.prodname_desktop %}** zip file.
+1. After the file has been unzipped, double-click the **{% data variables.product.prodname_desktop %}** application file.
+1. {% data variables.product.prodname_desktop %} will launch after installation is complete.
 
 {% endmac %}
 
@@ -47,8 +47,8 @@ You can install {% data variables.product.prodname_desktop %} on {% data variabl
 {% endwarning %}
 
 {% data reusables.desktop.download-desktop-page %}
-2. Click **Download for Windows**.
-3. In your computer's `Downloads` folder, double-click the **{% data variables.product.prodname_desktop %}** setup file.
-4. {% data variables.product.prodname_desktop %} will launch after installation is complete.
+1. Click **Download for Windows**.
+1. In your computer's `Downloads` folder, double-click the **{% data variables.product.prodname_desktop %}** setup file.
+1. {% data variables.product.prodname_desktop %} will launch after installation is complete.
 
 {% endwindows %}

@@ -24,9 +24,7 @@ topics:
 shortTitle: Security overview
 ---
 
-{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-overview.beta %}
-{% endif %}
 
 ## About security overview
 
@@ -86,7 +84,8 @@ Each repository is shown in security overview with an indicator for each type of
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion ghec or ghes or ghae %}
+
 ## About security overview for enterprises
 
 You can find security overview on the **Code Security** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise. {% ifversion security-overview-org-risk-coverage-enterprise %}
@@ -102,6 +101,7 @@ For information about permissions, see "[Permission to view data in security ove
 {% endif %}
 
 {% ifversion ghes < 3.8 or ghae < 3.8 %}
+
 ## About security overview for teams
 
 You can find security overview on the **Security** tab for any team in an organization that's owned by an enterprise.

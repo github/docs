@@ -17,7 +17,7 @@ You can use expressions to programmatically set environment variables in workflo
 
 Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
 
-You need to use specific syntax to tell {% data variables.product.prodname_dotcom %} to evaluate an expression rather than treat it as a string.
+{% data reusables.actions.expressions-syntax-evaluation %}
 
 {% raw %}
 `${{ <expression> }}`
@@ -38,10 +38,12 @@ steps:
 ### Example setting an environment variable
 
 {% raw %}
+
 ```yaml
 env:
   MY_ENV_VAR: ${{ <expression> }}
 ```
+
 {% endraw %}
 
 ## Literals
@@ -78,7 +80,7 @@ env:
 | Operator    | Description |
 | ---         | ---         |
 | `( )`       | Logical grouping |
-| `[ ]`       | Index
+| `[ ]`       | Index |
 | `.`         | Property de-reference |
 | `!`         | Not |
 | `<`         | Less than |
@@ -89,6 +91,16 @@ env:
 | `!=`        | Not equal |
 | `&&`        | And |
 |  <code>\|\|</code> | Or |
+
+  {% note %}
+
+  **Notes:**
+  - {% data variables.product.company_short %} ignores case when comparing strings.
+  - `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
+  - {% data reusables.actions.expression-syntax-if %} For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
+  - For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
+
+  {% endnote %}
 
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 
@@ -119,7 +131,7 @@ env:
 {% endraw %}
 
 In this example, we're using a ternary operator to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not. If it is, the variable is set to `value_for_main_branch`. Otherwise, it is set to `value_for_other_branches`.
-It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned. 
+It is important to note that the first value after the `&&` condition must be `truthy` otherwise the value after the `||` will always be returned.
 
 ## Functions
 
@@ -184,9 +196,11 @@ Replaces values in the `string`, with the variable `replaceValueN`. Variables in
 #### Example of `format`
 
 {% raw %}
+
 ```js
 format('Hello {0} {1} {2}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns 'Hello Mona the Octocat'.
@@ -194,9 +208,11 @@ Returns 'Hello Mona the Octocat'.
 #### Example escaping braces
 
 {% raw %}
+
 ```js
 format('{{Hello {0} {1} {2}!}}', 'Mona', 'the', 'Octocat')
 ```
+
 {% endraw %}
 
 Returns '{Hello Mona the Octocat!}'.
@@ -232,6 +248,7 @@ Returns a JSON object or JSON data type for `value`. You can use this function t
 This workflow sets a JSON matrix in one job, and passes it to the next job using an output and `fromJSON`.
 
 {% raw %}
+
 ```yaml
 name: build
 on: push
@@ -255,6 +272,7 @@ jobs:
     steps:
       - run: build
 ```
+
 {% endraw %}
 
 #### Example returning a JSON data type
@@ -262,6 +280,7 @@ jobs:
 This workflow uses `fromJSON` to convert environment variables from a string to a Boolean or integer.
 
 {% raw %}
+
 ```yaml
 name: print
 on: push
@@ -276,6 +295,7 @@ jobs:
         timeout-minutes: ${{ fromJSON(env.time) }}
         run: echo ...
 ```
+
 {% endraw %}
 
 ### hashFiles
@@ -317,7 +337,7 @@ steps:
 
 ### always
 
-Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled. 
+Causes the step to always execute, and returns `true`, even when canceled. The `always` expression is best used at the step level or on tasks that you expect to run even when a job is canceled. For example, you can use `always` to send logs even when a job is canceled.
 
 {% note %}
 

@@ -41,6 +41,7 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 {% endif %}
 
 {% endif %}
+
 ## Reviewing dependencies in a pull request
 
 {% data reusables.repositories.sidebar-pr %}
@@ -62,7 +63,7 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 
     ![Screenshot of the "Files changed" tab of a pull request. The button to display the rich diff, labeled with a file icon, is outlined in dark orange.](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-2. Check the dependencies listed in the dependency review.
+1. Check the dependencies listed in the dependency review.
 
    ![Screenshot of the vulnerability warnings in a dependency review for a pull request.](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 

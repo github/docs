@@ -23,4 +23,5 @@ The Standard Terms of Service is an agreement between {% data variables.product.
 1. To agree to the Corporate Terms of Service on behalf of your entity, click **Accept terms**.
 
 ## Further reading
+
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-corporate-terms-of-service)"

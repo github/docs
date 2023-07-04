@@ -31,7 +31,7 @@ If the default parent repository isn't correct, you can change both the parent r
 
 ![Screenshot of a pull request. The dropdown to edit the compare branch is expanded.](/assets/images/help/pull_requests/pull-request-review-edit-branch.png)
 
-When thinking about branches, remember that the *base branch* is **where** changes should be applied, the *head branch* contains **what** you would like to be applied.
+When thinking about branches, remember that the _base branch_ is **where** changes should be applied, the _head branch_ contains **what** you would like to be applied.
 
 When you change the base repository, you also change notifications for the pull request. Everyone that can push to the base repository will receive an email notification and see the new pull request in their dashboard the next time they sign in.
 
@@ -172,6 +172,7 @@ For more information on creating pull requests in {% data variables.product.prod
 {% endcodespaces %}
 
 {% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"

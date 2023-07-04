@@ -79,4 +79,3 @@ For more information about comparing {% data variables.product.prodname_actions 
 
 You can use a {% data variables.product.prodname_github_app %} to authenticate in a {% data variables.product.prodname_actions %}
 workflow if the built in `GITHUB_TOKEN` does not have sufficient permissions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
-

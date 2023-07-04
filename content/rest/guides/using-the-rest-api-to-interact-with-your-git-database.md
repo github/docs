@@ -51,5 +51,5 @@ A consuming API needs to explicitly request a pull request to create a _test_ me
 If you are currently using polling methods that produce outdated `merge` Git refs, then GitHub recommends using the following steps to get the latest changes from the default branch:
 
 1. Receive the pull request webhook.
-2. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to start a background job for creating the merge commit candidate.
-3. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.
+1. Call [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to start a background job for creating the merge commit candidate.
+1. Poll your repository using [`GET /repos/{owner}/{repo}/pulls/{pull_number}`](/rest/pulls#get-a-pull-request) to see if the `mergeable` attribute is `true` or `false`. You can use Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git#get-a-reference) for updates to `merge` Git refs only after performing the previous steps.

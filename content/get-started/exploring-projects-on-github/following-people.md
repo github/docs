@@ -29,7 +29,7 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 ## Unfollowing a user on {% data variables.product.product_name %}
 
 {% data reusables.profile.navigate-to-user-profile %}
-1.  Under the user's profile picture, click **Unfollow**.
+1. Under the user's profile picture, click **Unfollow**.
 
 ## Viewing followed users on {% data variables.product.product_name %}
 
@@ -45,9 +45,8 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 
    ![Screenshot of the sidebar of @octocat's profile page. A people icon and a link, labeled "8.4k followers", are outlined in dark orange.](/assets/images/help/profile/user-profile-followers.png)
 
-
-
 {% ifversion fpt or ghec %}
+
 ## Further reading
 
 - "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)"

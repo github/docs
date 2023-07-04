@@ -66,7 +66,7 @@ Anyone with write access to a repository can create a label.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issue-pr %}
 {% data reusables.project-management.labels %}
-4. To the right of the search field, click **New label**.
+1. To the right of the search field, click **New label**.
 {% data reusables.project-management.name-label %}
 {% data reusables.project-management.label-description %}
 {% data reusables.project-management.label-color-randomizer %}
@@ -104,6 +104,7 @@ Deleting a label will remove the label from issues and pull requests.
 {% data reusables.project-management.delete-label %}
 
 ## Further reading
+
 - "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"{% ifversion fpt or ghes or ghec %}
 - "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)"{% endif %}{% ifversion fpt or ghec %}
 - "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}

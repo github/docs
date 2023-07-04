@@ -69,12 +69,12 @@ Here at {% data variables.product.product_name %}, our developers, writers, and 
 ### Create a branch
 
 1. Click the **Code** tab of your `hello-world` repository.
-2. Above the file list, click the dropdown menu that says **main**.
+1. Above the file list, click the dropdown menu that says **main**.
    ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
 
-3. Type a branch name, `readme-edits`, into the text box.
-4. Click **Create branch: readme-edits from main**.
-   
+1. Type a branch name, `readme-edits`, into the text box.
+1. Click **Create branch: readme-edits from main**.
+
    ![Screenshot of the branch dropdown for a repository. "Create branch: readme-edits from 'main'" is outlined in dark orange.](/assets/images/help/repository/new-branch.png)
 Now you have two branches, `main` and `readme-edits`. Right now, they look exactly the same. Next you'll add changes to the new branch.
 
@@ -90,7 +90,7 @@ You can make and save changes to the files in your repository. On {% data variab
 {% ifversion code-search-code-view %}
 1. Click **Commit changes...**.
 1. In the "Propose changes" box, write a commit message that describes your changes.
-1. Click **Propose changes**. 
+1. Click **Propose changes**.
 {% else %}
 1. In the "Commit changes" box, write a commit message that describes your changes.
 1. Click **Commit changes**.
@@ -111,16 +111,16 @@ By using {% data variables.product.product_name %}'s `@mention` feature in your 
 You can even open pull requests in your own repository and merge them yourself. It's a great way to learn the {% data variables.product.product_name %} flow before working on larger projects.
 
 1. Click the **Pull requests** tab of your `hello-world` repository.
-2. Click **New pull request**
-3. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
-4. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
+1. Click **New pull request**
+1. In the **Example Comparisons** box, select the branch you made, `readme-edits`, to compare with `main` (the original).
+1. Look over your changes in the diffs on the Compare page, make sure they're what you want to submit.
 
    ![Screenshot of a diff for the README.md file. 3 red lines list the text that's being removed, and 3 green lines list the text being added.](/assets/images/help/repository/diffs.png)
 
-5. Click **Create pull request**.
-6. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
-7. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-7. Click **Create pull request**.
+1. Click **Create pull request**.
+1. Give your pull request a title and write a brief description of your changes. You can include emojis and drag and drop images and gifs.
+1. Optionally, to the right of your title and description, click the {% octicon "gear" aria-label="The Gear icon" %} next to **Reviewers**. **Assignees**, **Labels**, **Projects**, or **Milestone** to add any of these options to your pull request. You do not need to add any yet, but these options offer different ways to collaborate using pull requests. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+1. Click **Create pull request**.
 
 Your collaborators can now review your edits and make suggestions.
 

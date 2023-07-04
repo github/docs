@@ -11,6 +11,7 @@ versions:
   ghec: '*'
 shortTitle: Connect an Azure subscription
 ---
+
 ## About Azure subscriptions
 
 {% data reusables.enterprise-accounts.billing-azure-subscription %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)," "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)," and "[AUTOTITLE](/billing/managing-billing-for-github-copilot)."
@@ -34,6 +35,12 @@ After you connect an Azure subscription, you can also manage your spending limit
 - "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)"
 - "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)"
 
+## Prerequisites
+
+To link an Azure subscription, a user must sign into Azure AD with adequate permissions. For more information, see [Grant tenant-wide admin consent to an application](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/grant-admin-consent?pivots=portal#prerequisites) in Microsoft Docs.
+
+If the user does not have adequate permissions, the user must obtain admin approval before linking a subscription. Alternatively, users can work with a Azure AD global administrators to configure an admin consent workflow. For more information, see [User and admin consent in Azure Active Directory](https://learn.microsoft.com/en-us/azure/active-directory/manage-apps/user-admin-consent-overview#admin-consent-workflow) in Microsoft Docs.
+
 ## Connecting your Azure subscription to your organization account
 
 To connect your Azure subscription, you must have owner permissions to the subscription.
@@ -54,6 +61,7 @@ To connect your Azure subscription, you must have owner permissions to the subsc
 1. Click **Connect**.
 
 {% ifversion ghec %}
+
 ## Connecting your Azure subscription to your enterprise account
 
 To connect your Azure subscription, you must have owner permissions to the subscription.
@@ -88,6 +96,7 @@ After you disconnect your Azure subscription from your organization account, you
 1. Review the prompt, then click **Remove**.
 
 {% ifversion ghec %}
+
 ## Disconnecting your Azure subscription from your enterprise account
 
 After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.

@@ -41,6 +41,7 @@ If the file{% ifversion fpt or ghes or ghec %} or directory{% endif %} you delet
 {% data reusables.files.propose_file_change %}
 
 {% ifversion fpt or ghes or ghec %}
+
 ## Deleting a directory
 
 1. Browse to the directory in your repository that you want to delete.

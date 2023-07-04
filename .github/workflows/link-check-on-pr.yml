@@ -33,15 +33,15 @@ jobs:
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Link check all pages (internal links only)
         id: all_links
         env:
           LEVEL: 'critical'
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
-          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_FR != '' }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT != '' }}
           CHECK_EXTERNAL_LINKS: false
           CREATE_REPORT: false
           # Not strictly necessary bit it makes warmServer() a bit faster

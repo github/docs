@@ -36,6 +36,7 @@ topics:
 {% endnote %}
 
 {% ifversion ghec%}
+
 ## About audit log events for your enterprise
 
 The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_emus %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
@@ -45,6 +46,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {% endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `account` category actions
 
 | Action | Description
@@ -56,6 +58,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `advisory_credit` category actions
 
 | Action | Description
@@ -73,6 +76,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `artifact.destroy`    | A workflow run artifact was manually deleted.
 
 {%- ifversion audit-log-streaming %}
+
 ## `audit_log_streaming` category actions
 
 | Action | Description
@@ -84,6 +88,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `billing` category actions
 
 | Action | Description
@@ -201,6 +206,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {% endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
+
 ## `business_secret_scanning_custom_pattern` category actions
 
 Action                        | Description
@@ -212,6 +218,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
+
 ## `business_secret_scanning_custom_pattern_push_protection` category actions
 
 Action                        | Description
@@ -256,6 +263,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `codespaces` category actions
 
 | Action | Description
@@ -272,6 +280,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `commit_comment` category actions
 
 | Action | Description
@@ -281,6 +290,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghes %}
+
 ## `config_entry` category actions
 
 | Action | Description
@@ -311,6 +321,7 @@ Action                        | Description
 | `dependabot_repository_access.repositories_updated` | The repositories that {% data variables.product.prodname_dependabot %} can access were updated.
 
 {%- ifversion fpt or ghec or ghes %}
+
 ## `dependabot_security_updates` category actions
 
 | Action | Description
@@ -341,6 +352,7 @@ Action                        | Description
 | `dependency_graph_new_repos.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all new repositories.
 
 {%- ifversion ghec or ghes %}
+
 ## `dotcom_connection` category actions
 
 | Action | Description
@@ -381,6 +393,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghec %}
+
 ## `enterprise_domain` category actions
 
 | Action | Description
@@ -400,6 +413,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `environment` category actions
 
 | Action | Description
@@ -414,6 +428,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghae %}
+
 ## `external_group` category actions
 
 | Action | Description
@@ -425,6 +440,7 @@ Action                        | Description
 | `external_group.update` | An Okta group's settings were updated. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."
 
 ## `external_identity` category actions
+
 | Action | Description
 |--------|-------------
 | `external_identity.deprovision` | A user was removed from an Okta group and was subsequently deprovisioned from {% data variables.product.prodname_ghe_managed %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."
@@ -433,6 +449,7 @@ Action                        | Description
 {%- endif %}
 
 {% ifversion git-events-audit-log %}
+
 ## `git` category actions
 
 {% ifversion enable-git-events %}
@@ -496,6 +513,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `integration_installation_request.close` | A request to install an integration for use in an enterprise or organization was either approved or denied by an owner, or canceled by the member who opened the request.
 
 {%- ifversion ghec or ghae %}
+
 ## `ip_allow_list` category actions
 
 | Action | Description
@@ -541,6 +559,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `issues.deletes_policy_cleared` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for allowing members to delete issues in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."
 
 {% ifversion management-console-events-audit-log %}
+
 ## `management_console` category actions
 
 | Action | Description
@@ -573,7 +592,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `management_console.slack_app_generate` | An app for the Slack integration was generated. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
 | `management_console.slack_app_update` | The app-level token for the Slack integration was updated. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
 | `management_console.smtp_test` | An SMTP configuration was tested while enabling email notifications for the instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#testing-email-delivery)." |
-| `management_console.ssh_command` | A command was run using the administrative shell (SSH). For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)." 
+| `management_console.ssh_command` | A command was run using the administrative shell (SSH). For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 | `management_console.storage_actions_test` | A storage configuration for {% data variables.product.prodname_actions %} was tested. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server)." |
 | `management_console.storage_migrations_test` | A storage configuration for {% data variables.product.prodname_importer_proper_name %} was tested. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud)." |
 | `management_console.storage_packages_test` | A storage configuration for {% data variables.product.prodname_registry %} was tested. For more information, see "[AUTOTITLE](/admin/packages)." |
@@ -586,6 +605,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {% endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `marketplace_agreement_signature` category actions
 
 | Action | Description
@@ -626,6 +646,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `members_can_create_public_pages.enable` |  The ability for members to publish public {% data variables.product.prodname_pages %} was enabled. Members can publish public {% data variables.product.prodname_pages %} in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `members_can_delete_repos` category actions
 
 | Action | Description
@@ -646,9 +667,9 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `migration.create` | A migration file was created for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
-| `migration.destroy_file` | A migration file for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance was deleted.
-|  `migration.download` | A migration file for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance was downloaded.
+| `migration.create` | A migration file was created for transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance.
+| `migration.destroy_file` | A migration file for transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance was deleted.
+|  `migration.download` | A migration file for transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance was downloaded.
 {%- endif %}
 
 ## `oauth_access` category actions
@@ -681,6 +702,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `oauth_authorization` category actions
 
 | Action | Description
@@ -847,6 +869,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `org_credential_authorization` category actions
 
 | Action | Description
@@ -857,6 +880,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
+
 ## `org_secret_scanning_custom_pattern` category actions
 
 | Action | Description
@@ -876,6 +900,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `organization_default_label.destroy` | A default label for repositories in an organization was deleted. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#deleting-a-default-label)."
 
 {%- ifversion fpt or ghec or ghes %}
+
 ## `organization_domain` category actions
 
 | Action | Description
@@ -895,6 +920,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion not ghes %}
+
 ## `packages` category actions
 
 | Action | Description
@@ -906,6 +932,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `pages_protected_domain` category actions
 
 | Action | Description
@@ -933,6 +960,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion ghes %}
+
 ## `pre_receive_environment` category actions
 
 | Action | Description
@@ -963,6 +991,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `private_repository_forking.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are always allowed to be forked. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository), "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and for enterprises "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
 
 {%- ifversion fpt or ghec %}
+
 ## `profile_picture` category actions
 
 | Action | Description
@@ -987,6 +1016,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `project.update_user_permission` | An organization member or outside collaborator was added to or removed from a project board or had their permission level changed. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)."
 
 {%- ifversion projects-v2 %}
+
 ## `project_field` category actions
 
 | Action | Description
@@ -1158,6 +1188,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repo.update_member` | A user's permission to a repository was changed.
 
 {%- ifversion fpt or ghec %}
+
 ## `repository_advisory` category actions
 
 | Action | Description
@@ -1175,8 +1206,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repository_content_analysis.enable` | An organization owner or repository administrator [enabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
-| `repository_content_analysis.disable` | An organization owner or repository administrator [disabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
+| `repository_content_analysis.enable` | An organization owner or repository administrator enabled data use settings for a private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."
+| `repository_content_analysis.disable` | An organization owner or repository administrator disabled data use settings for a private repository.
 
 ## `repository_dependency_graph` category actions
 
@@ -1211,6 +1242,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repository_projects_change.enable` | Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `repository_secret_scanning` category actions
 
 | Action | Description
@@ -1239,8 +1271,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repository_secret_scanning_custom_pattern_push_protection.enabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was enabled for your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
 | `repository_secret_scanning_custom_pattern_push_protection.disabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was disabled for your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{%- endif %}
 
-
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
+
 ## `repository_secret_scanning_push_protection` category actions
 
 | Action | Description
@@ -1248,6 +1280,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repository_secret_scanning_push_protection.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 | `repository_secret_scanning_push_protection.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
+
 ## `repository_visibility_change` category actions
 
 | Action | Description
@@ -1265,6 +1298,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repository_vulnerability_alert.resolve` | Someone with write{% ifversion dependabot-alerts-permissions-write-maintain %} or maintain{% endif %} access to a repository pushed changes to update and resolve a {% data variables.product.prodname_dependabot %} alert in a project dependency.
 
 {%- ifversion fpt or ghec %}
+
 ## `repository_vulnerability_alerts` category actions
 
 | Action | Description
@@ -1282,6 +1316,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `required_status_check.destroy` | A status check was no longer marked as required for a protected branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)."
 
 {%- ifversion ghec or ghes %}
+
 ## `restrict_notification_delivery` category actions
 
 | Action | Description
@@ -1291,6 +1326,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion custom-repository-roles %}
+
 ## `role` category actions
 
 | Action | Description
@@ -1301,6 +1337,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `secret_scanning` category actions
 
 | Action | Description
@@ -1309,6 +1346,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `secret_scanning.enable` | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.
 
 {% ifversion secret-scanning-alert-audit-log %}
+
 ## `secret_scanning_alert` category actions
 
 | Action | Description
@@ -1327,6 +1365,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {% ifversion secret-scanning-push-protection-bypasses %}
+
 ## `secret_scanning_push_protection` category actions
 
 | Action | Description
@@ -1334,6 +1373,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `bypass` | Triggered when a user bypasses the push protection on a secret detected by secret scanning. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."{% endif %}
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `security_key` category actions
 
 | Action | Description
@@ -1343,6 +1383,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `sponsors` category actions
 
 | Action | Description
@@ -1369,6 +1410,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `ssh_certificate_authority` category actions
 
 | Action | Description
@@ -1385,6 +1427,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {% ifversion sso-redirect %}
+
 ## `sso_redirect` category actions
 
 {% data reusables.enterprise-managed.sso-redirect-release-phase %}
@@ -1444,6 +1487,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 | `team.update_repository_permission` | A team's permission to a repository was changed.
 
 {% ifversion team-discussions %}
+
 ## `team_discussions` category actions
 
 | Action | Description
@@ -1454,6 +1498,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 {% endif %}
 
 {%- ifversion ghec %}
+
 ## `team_sync_tenant` category actions
 
 | Action | Description
@@ -1464,6 +1509,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 {%- endif %}
 
 {%- ifversion fpt or ghes %}
+
 ## `two_factor_authentication` category actions
 
 | Action | Description
@@ -1479,6 +1525,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
   [2fa]: /authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication
 
 {%- ifversion fpt or ghes or ghae %}
+
 ## `user` category actions
 
 | Action | Description
@@ -1531,6 +1578,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
+
 ## `user_license` category actions
 
 | Action | Description

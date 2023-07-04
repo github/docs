@@ -13,8 +13,7 @@ type: how_to
 topics:
   - Workflows
 ---
- 
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -57,6 +56,8 @@ A reusable workflow can be used by another workflow if any of the following is t
 - The called workflow is stored in a private repository and the settings for that repository allow it to be accessed. For more information, see {% ifversion ghes or ghec or ghae %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}"[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-organization)" and "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-from-your-private-repository)."{% endif %}
 {% endif %}
 
+{% data reusables.actions.actions-redirects-workflows %}
+
 ## Using runners
 
 {% ifversion fpt or ghes or ghec %}
@@ -84,7 +85,7 @@ Called workflows that are owned by the same user or organization{% ifversion ghe
 - Reusable workflows can't call other reusable workflows.
 - You can call a maximum of 20 reusable workflows from a single workflow file.
 {% endif %}
-{% ifversion private-actions %}{% else %}* Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
+{% ifversion private-actions %}{% else %}- Reusable workflows stored within a private repository can only be used by workflows within the same repository.{% endif %}
 {% ifversion actions-reusable-workflow-matrix %}{% else %}* The `strategy` property is not supported in any job that calls a reusable workflow.{% endif %}
 - Any environment variables set in an `env` context defined at the workflow level in the caller workflow are not propagated to the called workflow. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/actions/learn-github-actions/contexts#env-context)."
 - Similarly, environment variables set in the `env` context, defined in the called workflow, are not accessible in the `env` context of the caller workflow. Instead, you must use outputs of the reusable workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#using-outputs-from-a-reusable-workflow).
@@ -108,6 +109,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 
 1. In the reusable workflow, use the `inputs` and `secrets` keywords to define inputs or secrets that will be passed from a caller workflow.
    {% raw %}
+
    ```yaml
    on:
      workflow_call:
@@ -119,6 +121,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
          envPAT:
            required: true
    ```
+
    {% endraw %}
    For details of the syntax for defining inputs and secrets, see [`on.workflow_call.inputs`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callinputs) and [`on.workflow_call.secrets`](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_callsecrets).
    {% ifversion actions-inherit-secrets-reusable-workflows %}
@@ -134,6 +137,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
    {%- endif %}
 
    {% raw %}
+
    ```yaml
    jobs:
      reusable_workflow_job:
@@ -145,6 +149,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
            repo-token: ${{ secrets.envPAT }}
            configuration-path: ${{ inputs.config-path }}
    ```
+
    {% endraw %}
    In the example above, `envPAT` is an environment secret that's been added to the `production` environment. This environment is therefore referenced within the job.
 
@@ -163,6 +168,7 @@ You can define inputs and secrets, which can be passed from the caller workflow 
 This reusable workflow file named `workflow-B.yml` (we'll refer to this later in the [example caller workflow](#example-caller-workflow)) takes an input string and a secret from the caller workflow and uses them in an action.
 
 {% raw %}
+
 ```yaml copy
 name: Reusable workflow example
 
@@ -185,6 +191,7 @@ jobs:
         repo-token: ${{ secrets.token }}
         configuration-path: ${{ inputs.config-path }}
 ```
+
 {% endraw %}
 
 ## Calling a reusable workflow
@@ -193,7 +200,7 @@ You call a reusable workflow by using the `uses` keyword. Unlike when you are us
 
 [`jobs.<job_id>.uses`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iduses)
 
-You reference reusable workflow files using {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}one of the following syntaxes:{% else %}the syntax:{% endif %}
+You reference reusable workflow files using one of the following syntaxes:
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
@@ -206,6 +213,7 @@ You can call multiple workflows, referencing each in a separate job.
 {% data reusables.actions.pass-inputs-to-reusable-workflows%}
 
 {% ifversion actions-reusable-workflow-matrix %}
+
 ### Using a matrix strategy with a reusable workflow
 
 Jobs using the matrix strategy can call a reusable workflow.
@@ -215,6 +223,7 @@ A matrix strategy lets you use variables in a single job definition to automatic
 This example job below calls a reusable workflow and references the matrix context by defining the variable `target` with the values `[dev, stage, prod]`. It will run three jobs, one for each value in the variable.
 
 {% raw %}
+
 ```yaml copy
 jobs:
   ReuseableMatrixJobForDeployment:
@@ -225,6 +234,7 @@ jobs:
     with:
       target: ${{ matrix.target }}
 ```
+
 {% endraw %}
 {% endif %}
 
@@ -263,6 +273,7 @@ When you call a reusable workflow, you can only use the following keywords in th
 This workflow file calls two workflow files. The second of these, `workflow-B.yml` (shown in the [example reusable workflow](#example-reusable-workflow)), is passed an input (`config-path`) and a secret (`token`).
 
 {% raw %}
+
 ```yaml copy
 name: Call a reusable workflow
 
@@ -285,9 +296,11 @@ jobs:
     secrets:
       token: ${{ secrets.GITHUB_TOKEN }}
 ```
+
 {% endraw %}
 
 {% ifversion nested-reusable-workflow %}
+
 ## Nesting reusable workflows
 
 You can connect a maximum of four levels of workflows - that is, the top-level caller workflow and up to three levels of reusable workflows. For example: _caller-workflow.yml_ → _called-workflow-1.yml_ → _called-workflow-2.yml_ → _called-workflow-3.yml_. Loops in the workflow tree are not permitted.
@@ -295,6 +308,7 @@ You can connect a maximum of four levels of workflows - that is, the top-level c
 From within a reusable workflow you can call another reusable workflow.
 
 {% raw %}
+
 ```yaml copy
 name: Reusable workflow
 
@@ -305,6 +319,7 @@ jobs:
   call-another-reusable:
     uses: octo-org/example-repo/.github/workflows/another-reusable.yml@v1
 ```
+
 {% endraw %}
 
 ### Passing secrets to nested workflows
@@ -314,6 +329,7 @@ You can use `jobs.<job_id>.secrets` in a calling workflow to pass named secrets 
 In the following example, workflow A passes all of its secrets to workflow B, by using the `inherit` keyword, but workflow B only passes one secret to workflow C. Any of the other secrets passed to workflow B are not available to workflow C.
 
 {% raw %}
+
 ```yaml
 jobs:
   workflowA-calls-workflowB:
@@ -328,6 +344,7 @@ jobs:
     secrets:
       envPAT: ${{ secrets.envPAT }} # pass just this secret
 ```
+
 {% endraw %}
 
 ### Access and permissions
@@ -349,6 +366,7 @@ That means if the last successful completing reusable workflow sets an empty str
 The following reusable workflow has a single job containing two steps. In each of these steps we set a single word as the output: "hello" and "world." In the `outputs` section of the job, we map these step outputs to job outputs called: `output1` and `output2`. In the `on.workflow_call.outputs` section we then define two outputs for the workflow itself, one called `firstword` which we map to `output1`, and one called `secondword` which we map to `output2`.
 
 {% raw %}
+
 ```yaml copy
 name: Reusable workflow
 
@@ -385,11 +403,13 @@ jobs:
         run: echo "::set-output name=secondword::world"
 {%- endif %}{% raw %}
 ```
+
 {% endraw %}
 
 We can now use the outputs in the caller workflow, in the same way you would use the outputs from a job within the same workflow. We reference the outputs using the names defined at the workflow level in the reusable workflow: `firstword` and `secondword`. In this workflow, `job1` calls the reusable workflow and `job2` prints the outputs from the reusable workflow ("hello world") to standard output in the workflow log.
 
 {% raw %}
+
 ```yaml copy
 name: Call a reusable workflow and use its outputs
 
@@ -406,6 +426,7 @@ jobs:
     steps:
       - run: echo ${{ needs.job1.outputs.firstword }} ${{ needs.job1.outputs.secondword }}
 ```
+
 {% endraw %}
 
 For more information on using job outputs, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs)."

@@ -203,7 +203,6 @@ body:
 
 `id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
 
-
 ## Labels are too similar
 
 Similar labels may be processed into identical references. If an `id` attribute is not provided for an `input`, the `label` attribute is used to generate a reference to the `input` field. To do this, we process the `label` by leveraging the Rails [parameterize](https://apidock.com/rails/ActiveSupport/Inflector/parameterize) method. In some cases, two labels that are distinct can be processed into the same parameterized string.

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import renderContent from '../../../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 import fs from 'fs/promises'
 import graphql from 'graphql'
 import path from 'path'

@@ -22,7 +22,7 @@ For each ruleset you create, you specify which branches or tags in your reposito
 
 ## About rulesets, protected branches, and protected tags
 
-Rulesets work alongside any branch protection rules and tag protection rules in a repository. Many of the rules you can define in rulesets are similar to protection rules, and you can start using rulesets without overriding any of your existing protection rules. 
+Rulesets work alongside any branch protection rules and tag protection rules in a repository. Many of the rules you can define in rulesets are similar to protection rules, and you can start using rulesets without overriding any of your existing protection rules.
 
 Rulesets have the following advantages over branch and tag protection rules.
 

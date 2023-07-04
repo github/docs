@@ -128,10 +128,10 @@ blocks in Java code:
    select ifstmt, "This if statement has an empty then."
    ```
 
-2. Save the query to a file named `EmptyThen.ql` in a directory with your
+1. Save the query to a file named `EmptyThen.ql` in a directory with your
 other custom queries. For example, `custom-queries/java/queries/EmptyThen.ql`.
 
-3. If you haven’t already added your custom queries to a {% data variables.product.prodname_codeql %} pack, create a {% data variables.product.prodname_codeql %} pack now. For example, if your custom Java queries are stored in `custom-queries/java/queries`, add a `qlpack.yml` file with the following contents to `custom-queries/java/queries`:
+1. If you haven’t already added your custom queries to a {% data variables.product.prodname_codeql %} pack, create a {% data variables.product.prodname_codeql %} pack now. For example, if your custom Java queries are stored in `custom-queries/java/queries`, add a `qlpack.yml` file with the following contents to `custom-queries/java/queries`:
 
    ```yaml
    name: my-custom-queries
@@ -141,39 +141,39 @@ other custom queries. For example, `custom-queries/java/queries/EmptyThen.ql`.
 
    For more information about {% data variables.product.prodname_codeql %} packs, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
 
-4. Create a {% data variables.product.prodname_codeql %} pack for your Java tests by adding a `qlpack.yml` file with the following contents to `custom-queries/java/tests`, updating the `dependencies` to match the name of your {% data variables.product.prodname_codeql %} pack of custom queries:
+1. Create a {% data variables.product.prodname_codeql %} pack for your Java tests by adding a `qlpack.yml` file with the following contents to `custom-queries/java/tests`, updating the `dependencies` to match the name of your {% data variables.product.prodname_codeql %} pack of custom queries:
 
   {% data reusables.codeql-cli.test-qlpack %}
 
-5. Run `codeql pack install` in the root of the test directory. This generates a `codeql-pack.lock.yml` file that specifies all of the transitive dependencies required to run queries in this pack.
+1. Run `codeql pack install` in the root of the test directory. This generates a `codeql-pack.lock.yml` file that specifies all of the transitive dependencies required to run queries in this pack.
 
-6. Within the Java test pack, create a directory to contain the test files
+1. Within the Java test pack, create a directory to contain the test files
 associated with `EmptyThen.ql`. For example, `custom-queries/java/tests/EmptyThen`.
 
-7. In the new directory, create `EmptyThen.qlref` to define the location of `EmptyThen.ql`. The path to the query must be specified relative to the root of
+1. In the new directory, create `EmptyThen.qlref` to define the location of `EmptyThen.ql`. The path to the query must be specified relative to the root of
 the {% data variables.product.prodname_codeql %} pack that contains the query. In this case, the query is in the
 top level directory of the {% data variables.product.prodname_codeql %} pack named `my-custom-queries`,
 which is declared as a dependency for `my-query-tests`. Therefore, `EmptyThen.qlref` should simply contain `EmptyThen.ql`.
 
-8. Create a code snippet to test. The following Java code contains an empty `if` statement on the third line. Save it in `custom-queries/java/tests/EmptyThen/Test.java`.
+1. Create a code snippet to test. The following Java code contains an empty `if` statement on the third line. Save it in `custom-queries/java/tests/EmptyThen/Test.java`.
 
-   ```java
-class Test {
-  public void problem(String arg) {
-    if (arg.isEmpty())
-      ;
-    {
-      System.out.println("Empty argument");
+  ```java
+  class Test {
+    public void problem(String arg) {
+      if (arg.isEmpty())
+        ;
+      {
+        System.out.println("Empty argument");
+      }
+    }
+  
+    public void good(String arg) {
+      if (arg.isEmpty()) {
+        System.out.println("Empty argument");
+      }
     }
   }
-
-  public void good(String arg) {
-    if (arg.isEmpty()) {
-      System.out.println("Empty argument");
-    }
-  }
-}
-   ```
+  ```
 
 ### Execute the test
 
@@ -184,9 +184,9 @@ When the test runs, it:
 
 1. Finds one test in the `EmptyThen` directory.
 
-2. Extracts a {% data variables.product.prodname_codeql %} database from the `.java` files stored in the `EmptyThen` directory.
+1. Extracts a {% data variables.product.prodname_codeql %} database from the `.java` files stored in the `EmptyThen` directory.
 
-3. Compiles the query referenced by the `EmptyThen.qlref` file.
+1. Compiles the query referenced by the `EmptyThen.qlref` file.
 
    If this step fails, it’s because the CLI can’t find your custom {% data variables.product.prodname_codeql %} pack. Re-run the command and specify the location of your custom {% data variables.product.prodname_codeql %} pack, for example:
 
@@ -194,11 +194,11 @@ When the test runs, it:
 
    For information about saving the search path as part of your configuration, see "[Specifying command options in a {% data variables.product.prodname_codeql %} configuration file](/code-security/codeql-cli/using-the-codeql-cli/specifying-command-options-in-a-codeql-configuration-file)."
 
-4. Executes the test by running the query and generating an `EmptyThen.actual` results file.
+1. Executes the test by running the query and generating an `EmptyThen.actual` results file.
 
-5. Checks for an `EmptyThen.expected` file to compare with the `.actual` results file.
+1. Checks for an `EmptyThen.expected` file to compare with the `.actual` results file.
 
-6. Reports the results of the test — in this case, a failure: `0 tests passed; 1 tests failed:`. The test failed because we haven’t yet added a file with the expected results of the query.
+1. Reports the results of the test — in this case, a failure: `0 tests passed; 1 tests failed:`. The test failed because we haven’t yet added a file with the expected results of the query.
 
 ### View the query test output
 
@@ -211,7 +211,9 @@ query.
 In this case, the failure was expected and is easy to fix. If you open the `EmptyThen.actual` file, you can see the results of the test:
 
 ```
+
 | Test.java:3:5:3:22 | stmt | This if statement has an empty then. |
+
 ```
 
 This file contains a table, with a column for the location of the result,

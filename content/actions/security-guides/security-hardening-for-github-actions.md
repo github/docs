@@ -75,6 +75,7 @@ The following sections explain how you can help mitigate the risk of script inje
 A script injection attack can occur directly within a workflow's inline script. In the following example, an action uses an expression to test the validity of a pull request title, but also adds the risk of script injection:
 
 {% raw %}
+
 ```
       - name: Check PR title
         run: |
@@ -87,6 +88,7 @@ A script injection attack can occur directly within a workflow's inline script. 
           exit 1
           fi
 ```
+
 {% endraw %}
 
 This example is vulnerable to script injection because the `run` command executes within a temporary shell script on the runner. Before the shell script is run, the expressions inside {% raw %}`${{ }}`{% endraw %} are evaluated and then substituted with the resulting values, which can make it vulnerable to shell command injection.
@@ -113,11 +115,13 @@ There are a number of different approaches available to help you mitigate the ri
 The recommended approach is to create an action that processes the context value as an argument. This approach is not vulnerable to the injection attack, as the context value is not used to generate a shell script, but is instead passed to the action as an argument:
 
 {% raw %}
+
 ```
 uses: fakeaction/checktitle@v3
 with:
     title: ${{ github.event.pull_request.title }}
 ```
+
 {% endraw %}
 
 ### Using an intermediate environment variable
@@ -127,6 +131,7 @@ For inline scripts, the preferred approach to handling untrusted input is to set
 The following example uses Bash to process the `github.event.pull_request.title` value as an environment variable:
 
 {% raw %}
+
 ```
       - name: Check PR title
         env:
@@ -140,6 +145,7 @@ The following example uses Bash to process the `github.event.pull_request.title`
           exit 1
           fi
 ```
+
 {% endraw %}
 
 In this example, the attempted script injection is unsuccessful, which is reflected by the following lines in the log:
@@ -153,6 +159,7 @@ PR title did not start with 'octocat'
 With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{% endraw %} expression is stored in memory and used as a variable, and doesn't interact with the script generation process. In addition, consider using double quote shell variables to avoid [word splitting](https://github.com/koalaman/shellcheck/wiki/SC2086), but this is [one of many](https://mywiki.wooledge.org/BashPitfalls) general recommendations for writing shell scripts, and is not specific to {% data variables.product.prodname_actions %}.
 
 {% ifversion fpt or ghec %}
+
 ### Using starter workflows for code scanning
 
 {% data reusables.advanced-security.starter-workflows-beta %}
@@ -166,7 +173,7 @@ For more information, see "[AUTOTITLE](/code-security/code-scanning/automaticall
 
 To help mitigate the risk of an exposed token, consider restricting the assigned permissions. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token)."
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 ## Using OpenID Connect to access cloud resources
 
@@ -199,12 +206,14 @@ You can help mitigate this risk by following these good practices:
 The same principles described above for using third-party actions also apply to using third-party workflows. You can help mitigate the risks associated with reusing workflows by following the same good practices outlined above. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
 {% ifversion not ghae %}
+
 ## Using {% data variables.product.prodname_dependabot_version_updates %} to keep actions up to date
 
 You can use {% data variables.product.prodname_dependabot_version_updates %} to ensure that references to actions{% ifversion dependabot-updates-actions-reusable-workflows %} and reusable workflows{% endif %} used in your repository are kept up to date. Actions are often updated with bug fixes and new features to make automated processes more reliable, faster, and safer. {% data variables.product.prodname_dependabot_version_updates %} take the effort out of maintaining your dependencies as {% data variables.product.prodname_dependabot %} does this automatically for you. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/keeping-your-actions-up-to-date-with-dependabot)."
 {% endif %}
 
 {% ifversion internal-actions %}
+
 ## Allowing workflows to access internal {% ifversion private-actions %}and private {% endif %}repositories
 
 {% data reusables.actions.outside-collaborators-actions %} For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
@@ -214,6 +223,7 @@ You can use {% data variables.product.prodname_dependabot_version_updates %} to 
 {% endif %}
 
 {% ifversion allow-actions-to-approve-pr %}
+
 ## Preventing {% data variables.product.prodname_actions %} from {% ifversion allow-actions-to-approve-pr-with-ent-repo %}creating or {% endif %}approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %} Allowing workflows, or any other automation, to {% ifversion allow-actions-to-approve-pr-with-ent-repo %}create or {% endif %}approve pull requests could be a security risk if the pull request is merged without proper oversight.
@@ -244,11 +254,13 @@ Workflows triggered using the `pull_request` event have read-only permissions an
 - For a custom action, the risk can vary depending on how a program is using the secret it obtained from the argument:
 
   {% raw %}
+
   ```
   uses: fakeaction/publish@v3
   with:
       key: ${{ secrets.PUBLISH_KEY }}
   ```
+
   {% endraw %}
 
 Although {% data variables.product.prodname_actions %} scrubs secrets from memory that are not referenced in the workflow (or an included action), the `GITHUB_TOKEN` and any referenced secrets can be harvested by a determined attacker.
@@ -274,17 +286,17 @@ We have [a plan on the {% data variables.product.prodname_dotcom %} roadmap](htt
 This list describes the recommended approaches for accessing repository data within a workflow, in descending order of preference:
 
 1. **The `GITHUB_TOKEN`**
-    -  This token is intentionally scoped to the single repository that invoked the workflow, and can have the same level of access as a write-access user on the repository. The token is created before each job begins and expires when the job is finished. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
+    - This token is intentionally scoped to the single repository that invoked the workflow, and can have the same level of access as a write-access user on the repository. The token is created before each job begins and expires when the job is finished. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
     - The `GITHUB_TOKEN` should be used whenever possible.
-2. **Repository deploy key**
+1. **Repository deploy key**
     - Deploy keys are one of the only credential types that grant read or write access to a single repository, and can be used to interact with another repository within a workflow. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys)."
     - Note that deploy keys can only clone and push to the repository using Git, and cannot be used to interact with the REST or GraphQL API, so they may not be appropriate for your requirements.
-3. **{% data variables.product.prodname_github_app %} tokens**
+1. **{% data variables.product.prodname_github_app %} tokens**
     - {% data variables.product.prodname_github_apps %} can be installed on select repositories, and even have granular permissions on the resources within them. You could create a {% data variables.product.prodname_github_app %} internal to your organization, install it on the repositories you need access to within your workflow, and authenticate as the installation within your workflow to access those repositories. For more information, see "[AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
-4. **{% data variables.product.pat_generic %}s**
+1. **{% data variables.product.pat_generic %}s**
     - You should never use a {% data variables.product.pat_v1 %}. These tokens grant access to all repositories within the organizations that you have access to, as well as all personal repositories in your personal account. This indirectly grants broad access to all write-access users of the repository the workflow is in.
     - If you do use a {% data variables.product.pat_generic %}, you should never use a {% data variables.product.pat_generic %} from your own account. If you later leave an organization, workflows using this token will immediately break, and debugging this issue can be challenging. Instead, you should use a {% ifversion pat-v2%}{% data variables.product.pat_v2 %}s{% else %}{% data variables.product.pat_generic %}s{% endif %} for a new account that belongs to your organization and that is only granted access to the specific repositories that are needed for the workflow. Note that this approach is not scalable and should be avoided in favor of alternatives, such as deploy keys.
-5. **SSH keys on a personal account**
+1. **SSH keys on a personal account**
     - Workflows should never use the SSH keys on a personal account. Similar to {% data variables.product.pat_v1_plural %}, they grant read/write permissions to all of your personal repositories as well as all the repositories you have access to through organization membership.  This indirectly grants broad access to all write-access users of the repository the workflow is in. If you're intending to use an SSH key because you only need to perform repository clones or pushes, and do not need to interact with public APIs, then you should use individual deploy keys instead.
 
 {% ifversion actions-sbom %}
@@ -309,7 +321,7 @@ SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate
 
 {% ifversion actions-disable-repo-runners %}
 
-{% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% endif %}
 
@@ -353,7 +365,8 @@ A self-hosted runner can be added to various levels in your {% data variables.pr
 - If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
 - You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
+
 ### Authenticating to your cloud provider
 
 If you are using {% data variables.product.prodname_actions %} to deploy to a cloud provider, or intend to use HashiCorp Vault for secret management, then its recommended that you consider using OpenID Connect to create short-lived, well-scoped access tokens for your workflow runs. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."

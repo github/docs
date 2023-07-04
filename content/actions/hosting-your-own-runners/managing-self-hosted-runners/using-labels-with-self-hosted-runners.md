@@ -69,6 +69,6 @@ You can programmatically assign labels to a self-hosted runner after the runner 
 
   {% note %}
 
-  ** Note:** If you replace an existing runner, then you must reassign any custom labels.
+  **Note:** If you replace an existing runner, then you must reassign any custom labels.
 
   {% endnote %}

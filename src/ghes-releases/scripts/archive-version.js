@@ -10,7 +10,6 @@
 
 import path from 'path'
 import fs from 'fs'
-import { execSync } from 'child_process'
 import scrape from 'website-scraper'
 import { program } from 'commander'
 import { rimraf } from 'rimraf'
@@ -35,6 +34,7 @@ program
     '-o, --output <PATH>',
     `output directory to place scraped HTML files and redirects. By default, this temp directory is named 'tmpArchivalDir_<VERSION_TO_DEPRECATE>'`
   )
+  .option('-l, --local-dev', 'Do not rewrite asset paths to enable testing scraped content locally')
   .option('-d, --dry-run', 'only scrape the first 10 pages for testing purposes')
   .option(
     '-p, --page <PATH>',
@@ -45,6 +45,7 @@ program
 const output = program.opts().output
 const dryRun = program.opts().dryRun
 const singlePage = program.opts().page
+const localDev = program.opts().localDev
 const tmpArchivalDirectory = output
   ? path.join(process.cwd(), output)
   : path.join(process.cwd(), `tmpArchivalDir_${version}`)
@@ -67,19 +68,30 @@ class RewriteAssetPathsPlugin {
 
       // Get the text contents of the resource
       const text = resource.getText()
-      let newBody = ''
+      let newBody = text
 
       // Rewrite HTML asset paths. Example:
       // ../assets/images/foo/bar.png ->
       // https://githubdocs.azureedge.net/github-images/enterprise/2.17/assets/images/foo/bar.png
+
       if (resource.isHtml()) {
-        newBody = text.replace(
-          /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/cb-\d+\/images|node_modules)/g,
-          (match, attribute, basepath) => {
-            const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
-            return `${attribute}="${replaced}`
-          }
+        // Remove nextjs scripts and manifest.json link
+        newBody = newBody.replace(
+          /<script\ssrc="(\.\.\/)*_next\/static\/[\w]+\/(_buildManifest|_ssgManifest).js?".*?><\/script>/g,
+          ''
         )
+        newBody = newBody.replace(/<link href=".*manifest.json".*?>/g, '')
+
+        if (!localDev) {
+          // Rewrite asset paths
+          newBody = newBody.replace(
+            /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/cb-\d+\/images|node_modules)/g,
+            (match, attribute, basepath) => {
+              const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
+              return `${attribute}="${replaced}`
+            }
+          )
+        }
       }
 
       // Rewrite CSS asset paths. Example
@@ -88,25 +100,25 @@ class RewriteAssetPathsPlugin {
       // url(../../../assets/cb-303/images/octicons/search-24.svg) ->
       // url(https://githubdocs.azureedge.net/github-images/enterprise/2.20/assets/cb-303/images/octicons/search-24.svg)
       if (resource.isCss()) {
-        newBody = text.replace(
-          /(?<attribute>url)(?<paren>\("|\()(?:\.\.\/)*(?<basepath>_next\/static|assets\/fonts|assets\/images|assets\/cb-\d+\/images)/g,
-          (match, attribute, paren, basepath) => {
-            const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
-            return `${attribute}${paren}${replaced}`
-          }
-        )
+        if (!localDev) {
+          newBody = newBody.replace(
+            /(?<attribute>url)(?<paren>\("|\()(?:\.\.\/)*(?<basepath>_next\/static|assets\/fonts|assets\/images|assets\/cb-\d+\/images)/g,
+            (match, attribute, paren, basepath) => {
+              const replaced = `${REMOTE_ENTERPRISE_STORAGE_URL}/${this.version}/${basepath}`
+              return `${attribute}${paren}${replaced}`
+            }
+          )
+        }
       }
 
       const filePath = path.join(this.tempDirectory, resource.getFilename())
-      await fs.promises.writeFile(filePath, newBody, 'binary')
+      await fs.promises.writeFile(filePath, newBody, resource.encoding)
     })
   }
 }
 
 async function main() {
   // Build the production assets, to simulate a production deployment
-  console.log('Running `npm run build` for production assets')
-  execSync('npm run build', { stdio: 'inherit' })
   console.log('Finish building production assets')
   if (dryRun) {
     console.log(

@@ -38,5 +38,4 @@ To summarize this:
 - All statistics exclude merge commits.
 - Contributor statistics also exclude empty commits.
 
-
 <!-- Content after this section is automatically generated -->

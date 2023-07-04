@@ -38,7 +38,7 @@ In many cases, especially in the beginning of a project, SSH agent forwarding is
 ### Set up SSH agent forwarding
 
 1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
-2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
+1. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
 `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## HTTPS cloning with OAuth tokens
@@ -86,12 +86,12 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. In the sidebar, click **Deploy Keys**.
+1. In the sidebar, click **Deploy Keys**.
 1. Click **Add deploy key**.
-4. In the "Title" field, provide a title.
+1. In the "Title" field, provide a title.
 1. In the "Key" field, paste your public key.
-5. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
-6. Click **Add key**.
+1. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
+1. Click **Add key**.
 
 ### Using multiple repositories on one server
 
@@ -116,7 +116,7 @@ Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif 
 You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
 
 ```bash
-$ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
 ## {% data variables.product.prodname_github_app %} installation access tokens
@@ -161,7 +161,7 @@ If your server needs to access multiple repositories, you can create a new accou
 
 **Tip:** Our [terms of service][tos] state:
 
-> *Accounts registered by "bots" or other automated methods are not permitted.*
+> _Accounts registered by "bots" or other automated methods are not permitted._
 
 This means that you cannot automate the creation of accounts. But if you want to create a single machine user for automating tasks such as deploy scripts in your project or organization, that is totally cool.
 
@@ -183,7 +183,7 @@ This means that you cannot automate the creation of accounts. But if you want to
 ### Set up machine users
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
-2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.
+1. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.
 
 [ssh-agent-forwarding]: /authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding
 [generating-ssh-keys]: /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
@@ -193,4 +193,5 @@ This means that you cannot automate the creation of accounts. But if you want to
 [team]: /organizations/organizing-members-into-teams/adding-organization-members-to-a-team
 
 ## Further reading
+
 - [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

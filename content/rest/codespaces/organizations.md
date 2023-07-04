@@ -18,5 +18,4 @@ organization. These endpoints are available for authenticated
 organization admins and {% data variables.product.prodname_oauth_app %}s, but not GitHub Apps. For more information,
 see "[AUTOTITLE](/codespaces)."
 
-
 <!-- Content after this section is automatically generated -->

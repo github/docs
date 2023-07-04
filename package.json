@@ -127,7 +127,7 @@
     "remark-rehype": "^10.1.0",
     "rss-parser": "^3.13.0",
     "scroll-anchoring": "^0.1.0",
-    "semver": "^7.3.7",
+    "semver": "^7.5.2",
     "sharp": "0.32.0",
     "slash": "^5.0.0",
     "strip-html-comments": "^1.0.0",
@@ -146,7 +146,7 @@
     "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
-    "@graphql-inspector/core": "^4.0.3",
+    "@graphql-inspector/core": "^5.0.0",
     "@graphql-tools/load": "^8.0.0",
     "@jest/globals": "29.5.0",
     "@octokit/graphql": "5.0.4",
@@ -165,7 +165,7 @@
     "babel-preset-env": "^1.7.0",
     "chalk": "^5.0.1",
     "change-case": "^4.1.2",
-    "commander": "^10.0.0",
+    "commander": "^11.0.0",
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
     "dedent": "^0.7.0",
@@ -193,7 +193,7 @@
     "markdownlint": "^0.28.2",
     "markdownlint-rule-helpers": "^0.19.0",
     "mdast-util-gfm-table": "^1.0.7",
-    "micromark-extension-gfm-table": "^1.0.5",
+    "micromark-extension-gfm-table": "^2.0.0",
     "mkdirp": "^3.0.0",
     "mockdate": "^3.0.5",
     "nock": "^13.2.7",
@@ -213,8 +213,7 @@
     "website-scraper": "^5.3.1"
   },
   "optionalDependencies": {
-    "esm": "^3.2.25",
-    "website-scraper": "^5.3.1"
+    "esm": "^3.2.25"
   },
   "engines": {
     "node": "^16 || ^18"

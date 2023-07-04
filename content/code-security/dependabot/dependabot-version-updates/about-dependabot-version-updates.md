@@ -47,16 +47,20 @@ If you enable _security updates_, {% data variables.product.prodname_dependabot 
 
 You specify how often to check each ecosystem for new versions in the configuration file: daily, weekly, or monthly.
 
-{% data reusables.dependabot.initial-updates %}
+{% data reusables.dependabot.initial-updates %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates)."
 
 If you've enabled security updates, you'll sometimes see extra pull requests for security updates. These are triggered by a {% data variables.product.prodname_dependabot %} alert for a dependency on your default branch. {% data variables.product.prodname_dependabot %} automatically raises a pull request to update the vulnerable dependency.
+
+{% ifversion dependabot-updates-failure-skip-schedule %}
+{% data reusables.dependabot.version-updates-skip-scheduled-runs %}
+{% endif %}
 
 ## Supported repositories and ecosystems
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
-You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#vendor)." 
+You can configure version updates for repositories that contain a dependency manifest or lock file for one of the supported package managers. For some package managers, you can also configure vendoring for dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#vendor)."
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
 {% note %}
 
@@ -79,6 +83,7 @@ You can configure version updates for repositories that contain a dependency man
 If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-integrations)."{% endif %}
 
 {% ifversion dependabot-updates-paused %}
+
 ## About automatic deactivation of {% data variables.product.prodname_dependabot_updates %}
 
 {% data reusables.dependabot.automatically-pause-dependabot-updates %}

@@ -93,7 +93,7 @@ In order to use ARC, ensure you have the following.
 
         For additional Helm configuration options, see [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) in the ARC documentation.
 
-2. From your terminal, run the following command to check your installation.
+1. From your terminal, run the following command to check your installation.
 
     ```bash copy
     helm list -A
@@ -107,7 +107,7 @@ In order to use ARC, ensure you have the following.
     arc-runner-set  arc-runners     1               2023-04-12 11:46:13.451041354 +0000 UTC deployed        gha-runner-scale-set-0.4.0                  0.4.0
     ```
 
-3. To check the manager pod, run the following command in your terminal.
+1. To check the manager pod, run the following command in your terminal.
 
     ```bash copy
     kubectl get pods -n arc-systems

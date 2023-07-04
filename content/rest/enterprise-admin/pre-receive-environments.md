@@ -39,5 +39,4 @@ These endpoints are only available to [authenticated](/rest/overview/authenticat
 
 Possible values for `state` are `not_started`, `in_progress`, `success`, `failed`.
 
-
 <!-- Content after this section is automatically generated -->

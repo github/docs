@@ -67,7 +67,7 @@ You can choose to disable {% data variables.product.prodname_actions %} for all 
 
 By default anyone with admin access to a repository can add a self-hosted runner for the repository. The enterprise settings allow you to disable the use of repository-level self-hosted runners across all repositories in your enterprise. If you allow repository-level self-hosted runners for your enterprise, organization owners can choose to allow or prevent creation of repository-level self-hosted runners for some or all repositories in their organization. For more information see, "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)."
 
-{% data reusables.actions.disable-selfhosted-runners-note %} 
+{% data reusables.actions.disable-selfhosted-runners-note %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -75,9 +75,9 @@ By default anyone with admin access to a repository can add a self-hosted runner
 1. In the "Runners" section, select **Disable for all organizations**.{% ifversion ghec %}
 
    {% note %}
-   
+
    **Note**: Owners of an {% data variables.enterprise.prodname_emu_enterprise %} can also choose to select **Disable in all Enterprise Managed User (EMU) repositories** to restrict runner creation for repositories that are owned by managed user accounts.
-   
+
    {% endnote %}
 
    {% endif %}
@@ -151,6 +151,7 @@ By default, when you create a new enterprise, `GITHUB_TOKEN` only has read acces
 1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+
 ### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}

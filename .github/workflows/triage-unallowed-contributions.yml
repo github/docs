@@ -28,7 +28,7 @@ jobs:
     if: >-
       ${{
         github.repository == 'github/docs' &&
-        github.event.pull_request.user.login != 'Octomerger' &&
+        github.event.pull_request.user.login != 'docs-bot' &&
         github.event.pull_request.user.login != 'dependabot[bot]'
       }}
     runs-on: ubuntu-latest

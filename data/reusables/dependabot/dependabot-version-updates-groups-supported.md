@@ -1,0 +1,1 @@
+You can only create groups for {% data variables.product.prodname_dependabot_version_updates %}. {% data variables.product.prodname_dependabot_security_updates %} do not support grouped updates.

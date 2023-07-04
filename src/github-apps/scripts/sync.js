@@ -7,7 +7,6 @@ import path from 'path'
 import { slug } from 'github-slugger'
 import yaml from 'js-yaml'
 
-import { getOverrideCategory } from '../../rest/scripts/utils/operation.js'
 import { getContents } from '../../../script/helpers/git-utils.js'
 import permissionSchema from './permission-list-schema.js'
 import enabledSchema from './enabled-list-schema.js'
@@ -38,8 +37,8 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
         const isInstallationAccessToken = progAccessData[operation.operationId].serverToServer
         const isUserAccessToken = progAccessData[operation.operationId].userToServerRest
         const isFineGrainedPat =
-          isUserAccessToken && !progAccessData[operation.operationId].disabledForPathv2
-        const { category, subcategory } = getCategory(operation)
+          isUserAccessToken && !progAccessData[operation.operationId].disabledForPatV2
+        const { category, subcategory } = operation['x-github']
         const appDataOperation = {
           slug: slug(operation.summary),
           subcategory,
@@ -157,6 +156,14 @@ async function getProgAccessData(progAccessSource) {
   let progActorResources
   const progAccessFilepath = 'config/access_control/programmatic_access.yaml'
   const progActorFilepath = 'config/locales/programmatic_actor_fine_grained_resources.en.yml'
+
+  // check for required PAT
+  if (!process.env.GITHUB_TOKEN) {
+    throw new Error(
+      'Error! You must have the GITHUB_TOKEN environment variable set to access the programmatic access and resource files via the GitHub REST API.'
+    )
+  }
+
   if (progAccessSource) {
     progAccessDataRaw = yaml.load(
       await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8')
@@ -185,14 +192,14 @@ async function getProgAccessData(progAccessSource) {
     const userToServerRest = operation.user_to_server.enabled
     const serverToServer = operation.server_to_server.enabled
     const allowPermissionlessAccess = operation.allows_permissionless_access
-    const disabledForPathv2 = operation.disabled_for_pathv2
+    const disabledForPatV2 = operation.disabled_for_patv2
 
     progAccessData[operation.operation_ids] = {
       userToServerRest,
       serverToServer,
       permissions,
       allowPermissionlessAccess,
-      disabledForPathv2,
+      disabledForPatV2,
     }
   }
   return { progAccessData, progActorResources }
@@ -222,12 +229,6 @@ function sortObjectByTitle(obj) {
       acc[key] = obj[key]
       return acc
     }, {})
-}
-
-function getCategory(operation) {
-  const schemaCategory = operation['x-github'].category
-  const schemaSubcategory = operation['x-github'].subcategory
-  return getOverrideCategory(operation.operationId, schemaCategory, schemaSubcategory)
 }
 
 function getDisplayTitle(title, resourceGroup) {

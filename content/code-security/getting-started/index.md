@@ -13,9 +13,11 @@ topics:
   - Vulnerabilities
 children:
   - /github-security-features
+  - /dependabot-quickstart-guide
   - /securing-your-repository
   - /securing-your-organization
   - /adding-a-security-policy-to-your-repository
   - /auditing-security-alerts
+
 ---
 

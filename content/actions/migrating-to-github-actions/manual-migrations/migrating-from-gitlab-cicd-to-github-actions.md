@@ -46,6 +46,7 @@ Below is an example of the syntax for each system.
 ### GitLab CI/CD syntax for jobs
 
 {% raw %}
+
 ```yaml
 job1:
   variables:
@@ -53,11 +54,13 @@ job1:
   script:
     - echo "Run your script here"
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for jobs
 
 {% raw %}
+
 ```yaml
 jobs:
   job1:
@@ -65,6 +68,7 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - run: echo "Run your script here"
 ```
+
 {% endraw %}
 
 ## Runners
@@ -76,6 +80,7 @@ Below is an example of the syntax for each system.
 ### GitLab CI/CD syntax for runners
 
 {% raw %}
+
 ```yaml
 windows_job:
   tags:
@@ -89,11 +94,13 @@ linux_job:
   script:
     - echo "Hello, $USER!"
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for runners
 
 {% raw %}
+
 ```yaml
 windows_job:
   runs-on: windows-latest
@@ -105,6 +112,7 @@ linux_job:
   steps:
     - run: echo "Hello, $USER!"
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
@@ -118,20 +126,24 @@ Below is an example of the syntax for each system.
 ### GitLab CI/CD syntax for Docker images
 
 {% raw %}
+
 ```yaml
 my_job:
   image: node:10.16-jessie
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for Docker images
 
 {% raw %}
+
 ```yaml
 jobs:
   my_job:
     container: node:10.16-jessie
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer)."
@@ -145,6 +157,7 @@ Below is an example of the syntax for each system.
 ### GitLab CI/CD syntax for conditions and expressions
 
 {% raw %}
+
 ```yaml
 deploy_prod:
   stage: deploy
@@ -153,11 +166,13 @@ deploy_prod:
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for conditions and expressions
 
 {% raw %}
+
 ```yaml
 jobs:
   deploy_prod:
@@ -166,6 +181,7 @@ jobs:
     steps:
       - run: echo "Deploy to production server"
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
@@ -179,6 +195,7 @@ Below is an example of the syntax for each system. The workflows start with two 
 ### GitLab CI/CD syntax for dependencies between jobs
 
 {% raw %}
+
 ```yaml
 stages:
   - build
@@ -205,11 +222,13 @@ deploy_ab:
   script:
     - echo "This job will run after test_ab is complete"
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for dependencies between jobs
 
 {% raw %}
+
 ```yaml
 jobs:
   build_a:
@@ -234,6 +253,7 @@ jobs:
     steps:
       - run: echo "This job will run after test_ab is complete"
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)."
@@ -261,6 +281,7 @@ Below is an example of the syntax for each system.
 ### GitLab CI/CD syntax for caching
 
 {% raw %}
+
 ```yaml
 image: node:latest
 
@@ -276,6 +297,7 @@ test_async:
   script:
     - node ./specs/start.js ./specs/async.spec.js
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for caching
@@ -308,17 +330,20 @@ Below is an example of the syntax for each system.
 ### GitLab CI/CD syntax for artifacts
 
 {% raw %}
+
 ```yaml
 script:
 artifacts:
   paths:
     - math-homework.txt
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %} syntax for artifacts
 
 {% raw %}
+
 ```yaml
 - name: Upload math result for job 1
   uses: {% data reusables.actions.action-upload-artifact %}
@@ -326,6 +351,7 @@ artifacts:
     name: homework
     path: math-homework.txt
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
@@ -341,6 +367,7 @@ Below is an example of the syntax for each system.
 ### GitLab CI/CD syntax for databases and service containers
 
 {% raw %}
+
 ```yaml
 container-job:
   variables:
@@ -363,11 +390,13 @@ container-job:
   tags:
     - docker
 ```
+
 {% endraw %}
 
 ### {% data variables.product.prodname_actions %}  syntax for databases and service containers
 
 {% raw %}
+
 ```yaml
 jobs:
   container-job:
@@ -400,7 +429,7 @@ jobs:
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
 ```
-{% endraw %}
 
+{% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."

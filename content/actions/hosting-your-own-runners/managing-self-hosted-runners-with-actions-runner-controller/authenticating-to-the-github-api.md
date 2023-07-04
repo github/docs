@@ -20,7 +20,6 @@ defaultPlatform: linux
 
 You can authenticate {% data variables.product.prodname_actions_runner_controller %} (ARC) to the {% data variables.product.prodname_dotcom %} API by using a {% data variables.product.prodname_github_app %} or by using a {% data variables.product.pat_v1 %}.
 
-
 {% note %}
 
 **Note:** You cannot authenticate using a {% data variables.product.prodname_github_app %} for runners at the enterprise level. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#about-runner-groups)."

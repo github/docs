@@ -49,8 +49,8 @@ To authorize your {% data variables.product.prodname_oauth_app %}, consider whic
 The web application flow to authorize users for your app is:
 
 1. Users are redirected to request their GitHub identity
-2. Users are redirected back to your site by GitHub
-3. Your app accesses the API with the user's access token
+1. Users are redirected back to your site by GitHub
+1. Your app accesses the API with the user's access token
 
 ### 1. Request a user's GitHub identity
 
@@ -144,8 +144,8 @@ Before you can use the device flow to authorize and identify users, you must fir
 ### Overview of the device flow
 
 1. Your app requests device and user verification codes and gets the authorization URL where the user will enter the user verification code.
-2. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
-3.  The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
+1. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
+1. The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
 
 ### Step 1: App requests the device and user verification codes from GitHub
 
