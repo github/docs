@@ -54,7 +54,7 @@
     "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write"
   },
   "dependencies": {
-    "@elastic/elasticsearch": "7.11.0",
+    "@elastic/elasticsearch": "7.17.0",
     "@github/failbot": "0.8.3",
     "@primer/behaviors": "^1.3.3",
     "@primer/css": "^21.0.2",
