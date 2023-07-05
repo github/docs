@@ -142,14 +142,16 @@ If the upgrade target you're presented with is a feature release instead of a pa
 {% data reusables.enterprise_installation.download-note %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (*.hpkg* file).
+1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Copy the URL for the upgrade hotpackage (_.hpkg_ file).
 {% data reusables.enterprise_installation.download-package %}
 1. Run the `ghe-upgrade` command using the package file name:
+
    ```shell
    admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.hpkg
    *** verifying upgrade package signature...
    ```
-1. If at least one service or system component requires a reboot, the hotpatch upgrade script notifies you. For example, updates to the kernel, MySQL, or Elasticsearch may require a reboot. 
+
+1. If at least one service or system component requires a reboot, the hotpatch upgrade script notifies you. For example, updates to the kernel, MySQL, or Elasticsearch may require a reboot.
 
 ### Upgrading an instance with multiple nodes using a hotpatch
 
@@ -183,7 +185,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 {% data reusables.enterprise_installation.download-note %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Select the appropriate platform and copy the URL for the upgrade package (*.pkg* file).
+1. {% data reusables.enterprise_installation.enterprise-download-upgrade-pkg %} Select the appropriate platform and copy the URL for the upgrade package (_.pkg_ file).
 {% data reusables.enterprise_installation.download-package %}
 1. Enable maintenance mode and wait for all active processes to complete on the {% data variables.product.prodname_ghe_server %} instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 
@@ -194,11 +196,14 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   {% endnote %}
 
 1. Run the `ghe-upgrade` command using the package file name:
+
    ```shell
    admin@HOSTNAME:~$ ghe-upgrade GITHUB-UPGRADE.pkg
    *** verifying upgrade package signature...
    ```
+
 1. Confirm that you'd like to continue with the upgrade and restart after the package signature verifies. The new root filesystem writes to the secondary partition and the instance automatically restarts in maintenance mode:
+
   ```shell
   *** applying update...
   This package will upgrade your installation to version VERSION-NUMBER
@@ -206,6 +211,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
   Target root partition:  /dev/xvda2
   Proceed with installation? [y/N]
   ```
+
 {%- ifversion ghe-migrations-cli-utility %}
 1. Optionally, during an upgrade to a feature release, you can monitor the status of database migrations using the `ghe-migrations` utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-migrations)."
 {%- endif %}
@@ -214,6 +220,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
    ```shell
    tail -f /data/user/common/ghe-config.log
    ```
+
 {% ifversion ip-exception-list %}
 1. Optionally, after the upgrade, validate the upgrade by configuring an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 {% endif %}
@@ -262,14 +269,15 @@ To upgrade an instance that comprises multiple nodes using an upgrade package, y
    ```
    CRITICAL: git replication is behind the primary by more than 1007 repositories and/or gists
    ```
+
    {% endnote %}
 
-   {%- ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}
+   {%- ifversion ghes = 3.5 or ghes = 3.6 %}
 
    - If you have upgraded each node to {% data variables.product.product_name %} 3.6.0 or later and started replication, but `git replication is behind the primary` continues to appear after 45 minutes, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
    {%- endif %}
 
-   - {% ifversion ghes = 3.4 or ghes = 3.5 or ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
+   - {% ifversion ghes = 3.5 or ghes = 3.6 %}Otherwise, if{% else %}If{% endif %} `ghe-repl-status` did not return `OK`, contact {% data variables.contact.enterprise_support %}. For more information, see "[AUTOTITLE](/support/contacting-github-support)."
 {% data reusables.enterprise_installation.multiple-node-repeat-upgrade-process %}
 1. After you have upgraded the last replica node and the resync is complete, disable maintenance mode so users can use {% data variables.location.product_location %}.
 
@@ -290,6 +298,7 @@ For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-ent
 To roll back from a feature release, restore from a VM snapshot to ensure that root and data partitions are in a consistent state. For more information, see "[Taking a snapshot](#taking-a-snapshot)."
 
 {% ifversion ghes %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"

@@ -20,6 +20,7 @@ shortTitle: Secure your repository
 ---
 
 ## Introduction
+
 This guide shows you how to configure security features for a repository. You must be a repository administrator or organization owner to configure security settings for a repository.
 
 Your security needs are unique to your repository, so you may not need to enable every feature for your repository. For more information, see "[AUTOTITLE](/code-security/getting-started/github-security-features)."
@@ -53,6 +54,8 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 
 {% data variables.product.prodname_dependabot_alerts %} are generated when {% data variables.product.prodname_dotcom %} identifies a dependency in the dependency graph with a vulnerability. {% ifversion fpt or ghec %}You can enable {% data variables.product.prodname_dependabot_alerts %} for any repository.{% endif %}
 
+{% data reusables.dependabot.quickstart-link %}
+
 {% ifversion fpt or ghec %}
 1. Click your profile photo, then click **Settings**.
 1. Click **Security & analysis**.
@@ -67,6 +70,7 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 {% endif %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts){% ifversion fpt or ghec %}" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account){% endif %}."
+
 
 ## Managing dependency review
 
@@ -100,11 +104,11 @@ You can enable {% data variables.product.prodname_dependabot %} to automatically
 {% ifversion dependabot-settings-update-37 %}
 1. From the main page of your repository, click **{% octicon "gear" aria-label="The Settings gear" %} Settings**.
 1. Click **Security & analysis**.
-1. Next to {% data variables.product.prodname_dependabot_version_updates %}, click **Enable** to create a basic *dependabot.yml* configuration file.
+1. Next to {% data variables.product.prodname_dependabot_version_updates %}, click **Enable** to create a basic _dependabot.yml_ configuration file.
 1. Specify the dependencies to update and commit the file to the repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
 
 {% else %}
-To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a *dependabot.yml* configuration file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
+To enable {% data variables.product.prodname_dependabot_version_updates %}, you must create a _dependabot.yml_ configuration file. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)."
 {% endif %}
 
 {% endif %}
@@ -138,16 +142,17 @@ Alternatively, you can use the advanced setup, which generates a workflow file y
 
 ## Setting a security policy
 
-If you are a repository maintainer, it's good practice to specify a security policy for your repository by creating a file named _SECURITY.md_ in the repository. This file instructs users about how to best contact you and collaborate with you when they want to report security vulnerabilities in your repository. You can view the security policy of a repository from the repository’s **Security** tab.
+If you are a repository maintainer, it's good practice to specify a security policy for your repository by creating a file named `SECURITY.md` in the repository. This file instructs users about how to best contact you and collaborate with you when they want to report security vulnerabilities in your repository. You can view the security policy of a repository from the repository’s **Security** tab.
 
 1. From the main page of your repository, click **{% octicon "shield" aria-label="The shield symbol" %} Security**.
-2. Click **Security policy**.
-3. Click **Start setup**.
-4. Add information about supported versions of your project and how to report vulnerabilities.
+1. Click **Security policy**.
+1. Click **Start setup**.
+1. Add information about supported versions of your project and how to report vulnerabilities.
 
 For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
 
 ## Next steps
+
 You can view and manage alerts from security features to address dependencies and vulnerabilities in your code. For more information, see {% ifversion fpt or ghes or ghec %} "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts),"{% endif %} {% ifversion fpt or ghec or ghes %}"[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates)," {% endif %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)," and "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)".
 
 You can also use {% data variables.product.prodname_dotcom %}'s tools to audit responses to security alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".

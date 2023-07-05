@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with Amazon Web 
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
@@ -15,7 +15,7 @@ topics:
 
 ## Overview
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Amazon Web Services (AWS), without needing to store the AWS credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. 
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Amazon Web Services (AWS), without needing to store the AWS credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
 
 This guide explains how to configure AWS to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) that uses tokens to authenticate to AWS and access resources.
 
@@ -29,6 +29,11 @@ This guide explains how to configure AWS to trust {% data variables.product.prod
 
 To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
 
+{% ifversion ghec %}
+- Two intermediate Certificate Authority(CA) certificate thumbprints must be added to the GitHub Actions OIDC IdP provider:
+  - `6938fd4d98bab03faadb97b34396831e3780aea1`
+  - `1c58a3a8518e8759bf075b76b750d4f2df264fcd`
+{% endif %}
 - For the provider URL: Use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 - For the "Audience": Use `sts.amazonaws.com` if you are using the [official action](https://github.com/aws-actions/configure-aws-credentials).
 
@@ -72,12 +77,11 @@ In the following example, `StringLike` is used with a wildcard operator (`*`) to
 }
 ```
 
-
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) action to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) action to exchange the OIDC token (JWT) for a cloud access token.
 
 ### Adding permissions settings
 

@@ -20,7 +20,7 @@ shortTitle: Link PR to issue
 ---
 {% note %}
 
-**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's *default* branch. However, if the PR's base is *any other branch*, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
+**Note:** The special keywords in a pull request description are interpreted when the pull request targets the repository's _default_ branch. However, if the PR's base is _any other branch_, then these keywords are ignored, no links are created and merging the PR has no effect on the issues. **If you want to link a pull request to an issue using a keyword, the PR must be on the default branch.**
 
 {% endnote %}
 
@@ -36,15 +36,15 @@ When you merge a linked pull request into the default branch of a repository, it
 
 You can link a pull request to an issue by using a supported keyword in the pull request's description or in a commit message. The pull request **must be** on the default branch.
 
-* `close`
-* `closes`
-* `closed`
-* `fix`
-* `fixes`
-* `fixed`
-* `resolve`
-* `resolves`
-* `resolved`
+- `close`
+- `closes`
+- `closed`
+- `fix`
+- `fixes`
+- `fixed`
+- `resolve`
+- `resolves`
+- `resolved`
 
 If you use a keyword to reference a pull request comment in another pull request, the pull requests will be linked. Merging the referencing pull request also closes the referenced pull request.
 
@@ -52,8 +52,8 @@ The syntax for closing keywords depends on whether the issue is in the same repo
 
 Linked issue | Syntax | Example
 --------------- | ------ | ------
-Issue in the same repository | *KEYWORD* #*ISSUE-NUMBER* | `Closes #10`
-Issue in a different repository | *KEYWORD* *OWNER*/*REPOSITORY*#*ISSUE-NUMBER* | `Fixes octo-org/octo-repo#100`
+Issue in the same repository | KEYWORD #ISSUE-NUMBER | `Closes #10`
+Issue in a different repository | KEYWORD OWNER/REPOSITORY#ISSUE-NUMBER | `Fixes octo-org/octo-repo#100`
 Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
 Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
@@ -68,14 +68,9 @@ You can manually link up to ten issues to each pull request. The issue and pull 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
-3. In the list of pull requests, click the pull request that you'd like to link to an issue.
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
+1. In the list of pull requests, click the pull request that you'd like to link to an issue.
 {% data reusables.pull_requests.click-development %}
-{% else %}
-4. In the right sidebar, click **Linked issues**.
-{% endif %}
-5. Click the issue you want to link to the pull request.
-
+1. Click the issue you want to link to the pull request.
 
 {% ifversion link-existing-branches-to-issue %}
 
@@ -97,4 +92,4 @@ You can manually link up to ten issues to each pull request. The issue can be in
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)"
+- "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#issues-and-pull-requests)"

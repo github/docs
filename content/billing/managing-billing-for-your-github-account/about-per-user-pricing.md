@@ -49,7 +49,7 @@ In addition to licensed seats, your bill may include other charges, such as {% d
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 - {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
 - {% data reusables.organizations.org-invite-scim %}
 
@@ -81,7 +81,7 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 - {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
 - {% data reusables.organizations.org-invite-scim %}
 

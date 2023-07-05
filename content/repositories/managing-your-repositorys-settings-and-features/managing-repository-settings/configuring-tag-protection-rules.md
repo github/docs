@@ -5,9 +5,9 @@ intro: You can configure tag protection rules for your repository to prevent con
 product: '{% data reusables.gated-features.tag-protection-rules %}'
 versions:
   fpt: '*'
-  ghae: '>= 3.5'
+  ghae: '*'
   ghec: '*'
-  ghes: '>3.4'
+  ghes: '*'
 ---
 
 {% note %}

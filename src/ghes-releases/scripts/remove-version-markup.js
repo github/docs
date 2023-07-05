@@ -60,37 +60,55 @@ async function main() {
   for (const file of allFiles) {
     const oldContents = fs.readFileSync(file, 'utf8')
     const { content, data } = frontmatter(oldContents)
-
+    let fileChanged = false
     // update frontmatter versions prop
-    removeDeprecatedFrontmatter(file, data.versions, release, nextOldestRelease)
+    fileChanged ||= removeDeprecatedFrontmatter(file, data.versions, release, nextOldestRelease)
 
     // update liquid statements in content and data
-    const newContent = removeLiquidStatements(content, release, nextOldestRelease, file)
+    const { newContent, contentChanged } = removeLiquidStatements(
+      content,
+      release,
+      nextOldestRelease,
+      file
+    )
+    fileChanged ||= contentChanged
 
     // update liquid statements in content frontmatter (like intro and title)
     for (const key in data) {
       const value = data[key]
       if (typeof value === 'string' && value.includes('{% ifversion')) {
-        const newValue = removeLiquidStatements(value, release, nextOldestRelease, file)
-        data[key] = newValue
+        const { newContent, contentChanged } = removeLiquidStatements(
+          value,
+          release,
+          nextOldestRelease,
+          file
+        )
+        fileChanged ||= contentChanged
+        data[key] = newContent
       }
     }
 
-    // make sure any intro fields that exist and are empty return an empty string, not null
-    if (typeof data.intro !== 'undefined' && !data.intro) {
-      data.intro = ''
+    // When stringifying frontmatter, the frontmatter is also formatted.
+    // This means that even if there were no Liquid versioning changes,
+    // the frontmatter may still be modified to modify line breaks or quotes.
+    // This an already difficult PR noisier to review. This prevents writing
+    // the file unless there are versioning changes made.
+    if (fileChanged) {
+      // make sure any intro fields that exist and are empty return an empty string, not null
+      if (typeof data.intro !== 'undefined' && !data.intro) {
+        data.intro = ''
+      }
+      // put it all back together
+      const newContents = frontmatter.stringify(newContent, data, { lineWidth: 10000 })
+
+      // if the content file is now empty, remove it
+      if (newContents.replace(/\s/g, '').length === 0) {
+        fs.unlinkSync(file)
+        continue
+      }
+
+      fs.writeFileSync(file, newContents)
     }
-
-    // put it all back together
-    const newContents = frontmatter.stringify(newContent, data, { lineWidth: 10000 })
-
-    // if the content file is now empty, remove it
-    if (newContents.replace(/\s/g, '').length === 0) {
-      fs.unlinkSync(file)
-      continue
-    }
-
-    fs.writeFileSync(file, newContents)
   }
 
   console.log(`Removed GHES ${release} markup from content and data files! Review and run tests.`)

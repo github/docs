@@ -17,16 +17,14 @@ type SectionProps = {
   routePath: string
   page: ProductTreeNode
   title: string
-  isStandaloneCategory: boolean
 }
 
 export const RestCollapsibleSection = (props: SectionProps) => {
   const router = useRouter()
-  const { routePath, title, page, isStandaloneCategory } = props
+  const { routePath, title, page } = props
   const [currentAnchor, setCurrentAnchor] = useState('')
   const [visibleAnchor, setVisibleAnchor] = useState('')
   const isActive = routePath.includes(page.href + '/') || routePath === page.href
-  const [standAloneExpanded, setStandAloneExpanded] = useState(isActive)
   const [mapTopicExpanded, setMapTopicExpanded] = useState(isActive)
 
   const miniTocItems =
@@ -125,114 +123,85 @@ export const RestCollapsibleSection = (props: SectionProps) => {
   return (
     // This is where a category has no subcategory
     <div className="ml-3" data-testid="rest-category">
-      {isStandaloneCategory ? (
-        <TreeView.Item
-          id={page.href}
-          expanded={isActive && standAloneExpanded}
-          onExpandedChange={setStandAloneExpanded}
-          defaultExpanded={isActive}
-          onSelect={(e) => {
-            router.push(page.href)
-            e?.stopPropagation()
-            setStandAloneExpanded(!standAloneExpanded)
-          }}
-        >
-          {title}
-          <TreeView.SubTree>
-            {miniTocItems.length > 0 && (
-              <>
-                {miniTocItems.map((item) => {
-                  return renderRestAnchorLink(item)
-                })}
-              </>
-            )}
-          </TreeView.SubTree>
-        </TreeView.Item>
-      ) : (
-        // This is where a category has a subcategory
-        <TreeView.Item id={title} defaultExpanded={isActive}>
-          {title}
-          <TreeView.SubTree>
-            {page.childPages.map((childPage, i) => {
-              const childTitle = childPage.shortTitle || childPage.title
-              const childActive =
-                routePath.includes(childPage.href + '/') || routePath === childPage.href
-              const childCurrent = routePath === childPage.href
-              return (
-                <div
-                  data-testid="rest-subcategory"
-                  key={childPage.href + i}
-                  className={cx(styles.toggleHover, 'width-full')}
-                >
-                  <TreeView.Item
-                    id={childPage.href + i}
-                    expanded={childCurrent && mapTopicExpanded}
-                    onExpandedChange={() => setMapTopicExpanded(childCurrent && mapTopicExpanded)}
-                    defaultExpanded={childActive}
-                    // We need the subcategory level to router.push so that we can get the operations
-                    // We also want it to open/close on click without doing router.push when toggling
-                    onSelect={(e) => {
-                      e.preventDefault()
-                      const currentTarget = e.target
-                      if (
-                        childPage.href.split('/').pop() === router.query.subcategory &&
-                        mapTopicExpanded
-                      ) {
-                        prevTarget = currentTarget
-                      }
-
-                      if (prevTarget && prevTarget === currentTarget) {
-                        setMapTopicExpanded(!mapTopicExpanded)
-                      } else {
-                        sendEvent({
-                          type: EventType.navigate,
-                          navigate_label: `rest page navigate to: ${childPage.href}`,
-                        })
-                      }
-
-                      if (
-                        e.nativeEvent instanceof KeyboardEvent &&
-                        e.nativeEvent.code === 'Enter'
-                      ) {
-                        document.getElementById(childPage.href)?.click()
-                        e?.stopPropagation()
-                      }
-
+      <TreeView.Item id={title} defaultExpanded={isActive}>
+        {title}
+        <TreeView.SubTree>
+          {page.childPages.map((childPage, i) => {
+            const childTitle = childPage.shortTitle || childPage.title
+            const childActive =
+              routePath.includes(childPage.href + '/') || routePath === childPage.href
+            const childCurrent = routePath === childPage.href
+            return (
+              <div
+                data-testid="rest-subcategory"
+                key={childPage.href + i}
+                className={cx(styles.toggleHover, 'width-full')}
+              >
+                <TreeView.Item
+                  id={childPage.href + i}
+                  expanded={childCurrent && mapTopicExpanded}
+                  onExpandedChange={() => setMapTopicExpanded(childCurrent && mapTopicExpanded)}
+                  defaultExpanded={childActive}
+                  // We need the subcategory level to router.push so that we can get the operations
+                  // We also want it to open/close on click without doing router.push when toggling
+                  onSelect={(e) => {
+                    e.preventDefault()
+                    const currentTarget = e.target
+                    if (
+                      childPage.href.split('/').pop() === router.query.subcategory &&
+                      mapTopicExpanded
+                    ) {
                       prevTarget = currentTarget
-                    }}
-                  >
-                    <Link
-                      id={childPage.href}
-                      href={childPage.href}
-                      className="d-block width-full no-underline color-fg-default"
-                    >
-                      {childTitle}
-                    </Link>
+                    }
 
-                    <TreeView.SubTree>
-                      {/* At this point we have the mini-toc data for the current page
-                        so we render this list of operation links. */}
-                      {routePath === childPage.href ? (
-                        <>
-                          {miniTocItems.length > 0 && (
-                            <>
-                              {miniTocItems.map((item) => {
-                                return renderRestAnchorLink(item)
-                              })}
-                            </>
-                          )}
-                        </>
-                      ) : (
-                        <div></div>
-                      )}
-                    </TreeView.SubTree>
-                  </TreeView.Item>
-                </div>
-              )
-            })}
-          </TreeView.SubTree>
-        </TreeView.Item>
-      )}
+                    if (prevTarget && prevTarget === currentTarget) {
+                      setMapTopicExpanded(!mapTopicExpanded)
+                    } else {
+                      sendEvent({
+                        type: EventType.navigate,
+                        navigate_label: `rest page navigate to: ${childPage.href}`,
+                      })
+                    }
+
+                    if (e.nativeEvent instanceof KeyboardEvent && e.nativeEvent.code === 'Enter') {
+                      document.getElementById(childPage.href)?.click()
+                      e?.stopPropagation()
+                    }
+
+                    prevTarget = currentTarget
+                  }}
+                >
+                  <Link
+                    id={childPage.href}
+                    href={childPage.href}
+                    className="d-block width-full no-underline color-fg-default"
+                  >
+                    {childTitle}
+                  </Link>
+
+                  <TreeView.SubTree>
+                    {/* At this point we have the mini-toc data for the current page
+                      so we render this list of operation links. */}
+                    {routePath === childPage.href ? (
+                      <>
+                        {miniTocItems.length > 0 && (
+                          <>
+                            {miniTocItems.map((item) => {
+                              return renderRestAnchorLink(item)
+                            })}
+                          </>
+                        )}
+                      </>
+                    ) : (
+                      <div></div>
+                    )}
+                  </TreeView.SubTree>
+                </TreeView.Item>
+              </div>
+            )
+          })}
+        </TreeView.SubTree>
+      </TreeView.Item>
     </div>
   )
 }

@@ -30,7 +30,7 @@ Common use cases for {% data variables.product.prodname_github_apps %} include:
 - As a developer tool, allowing users to work with {% data variables.product.prodname_dotcom %} by signing into your  {% data variables.product.prodname_github_app %}, which can then act on their behalf
 - Integrating your tool or external service with {% data variables.product.company_short %}
 
-Like OAuth Apps, {% data variables.product.prodname_github_app %}s use OAuth 2.0 and can act on behalf of a user. Unlike OAuth Apps, {% data variables.product.prodname_github_app %}s can also act independently of a user.
+Like {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_app %}s use OAuth 2.0 and can act on behalf of a user. Unlike {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_app %}s can also act independently of a user.
 
 {% data variables.product.prodname_github_apps %} can be installed directly on organizations and personal accounts and granted access to specific repositories. They come with built-in webhooks and narrow, specific permissions.
 
@@ -74,4 +74,3 @@ If you want your app to respond to events on {% data variables.product.prodname_
 ### {% data variables.product.prodname_github_app %}s that can take certain actions
 
 When you set up your {% data variables.product.prodname_github_app %}, you can select specific permissions for the app. These permissions determine what the app can do via the {% data variables.product.prodname_dotcom %} API, what they can do on behalf of a signed in user, and what webhooks the app can receive. For more information, see "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app)."
-

@@ -22,6 +22,6 @@ children:
   - /managing-team-memberships-with-identity-provider-groups
   - /about-support-for-your-idps-conditional-access-policy
   - /migrating-from-saml-to-oidc
+  - /migrating-from-oidc-to-saml
   - /migrating-your-enterprise-to-a-new-identity-provider-or-tenant
 ---
-

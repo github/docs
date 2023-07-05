@@ -20,7 +20,7 @@ redirect_from:
 
 You use a {% data variables.product.prodname_codeql %} workspace when you want to group multiple {% data variables.product.prodname_codeql %} packs together. A typical use case for a {% data variables.product.prodname_codeql %} workspace is to develop a set of {% data variables.product.prodname_codeql %} library and query packs that are mutually dependent. For more information on {% data variables.product.prodname_codeql %} packs, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
 
-The main benefit of a {% data variables.product.prodname_codeql %} workspace is that it makes it easier for you to develop and maintain multiple {% data variables.product.prodname_codeql %} packs. When you use a {% data variables.product.prodname_codeql %} workspace, all the {% data variables.product.prodname_codeql %} packs in the workspace are available as *source dependencies* for each other when you run a {% data variables.product.prodname_codeql %} command that resolves queries. This makes it easier to develop, maintain, and publish multiple, related {% data variables.product.prodname_codeql %} packs.
+The main benefit of a {% data variables.product.prodname_codeql %} workspace is that it makes it easier for you to develop and maintain multiple {% data variables.product.prodname_codeql %} packs. When you use a {% data variables.product.prodname_codeql %} workspace, all the {% data variables.product.prodname_codeql %} packs in the workspace are available as _source dependencies_ for each other when you run a {% data variables.product.prodname_codeql %} command that resolves queries. This makes it easier to develop, maintain, and publish multiple, related {% data variables.product.prodname_codeql %} packs.
 
 In most cases, you should store the {% data variables.product.prodname_codeql %} workspace and the {% data variables.product.prodname_codeql %} packs contained in it in one git repository. This makes it easier to share your {% data variables.product.prodname_codeql %} development environment.
 
@@ -28,11 +28,11 @@ In most cases, you should store the {% data variables.product.prodname_codeql %}
 
 A {% data variables.product.prodname_codeql %} workspace is defined by a `codeql-workspace.yml` yaml file. This file contains a `provide` block, and optionally `ignore` and `registries` blocks.
 
-* The `provide` block contains a list of glob patterns that define the {% data variables.product.prodname_codeql %} packs that are available in the workspace.
+- The `provide` block contains a list of glob patterns that define the {% data variables.product.prodname_codeql %} packs that are available in the workspace.
 
-* The `ignore` block contains a list of glob patterns that define {% data variables.product.prodname_codeql %} packs that are not available in the workspace.
+- The `ignore` block contains a list of glob patterns that define {% data variables.product.prodname_codeql %} packs that are not available in the workspace.
 
-* The `registries` block contains a list of GHES URLs and package patterns that control which container registry is used for publishing {% data variables.product.prodname_codeql %} packs. For more information, see "[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs#working-with-codeql-packs-on-ghes)."
+- The `registries` block contains a list of GHES URLs and package patterns that control which container registry is used for publishing {% data variables.product.prodname_codeql %} packs. For more information, see "[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs#working-with-codeql-packs-on-ghes)."
 
 Each entry in the `provide` or `ignore` section must map to the location of a `qlpack.yml` file. All glob patterns are defined relative to the directory that contains the workspace file. For a list of patterns accepted in this file, see "[@actions/glob](https://github.com/actions/toolkit/tree/main/packages/glob#patterns) ."
 
@@ -60,9 +60,9 @@ Source dependencies are {% data variables.product.prodname_codeql %} packs that 
 
 This is particularly useful in the following situations:
 
-* One of the dependencies of the query pack you are running is not yet published. Resolving from source is the only way to reference that pack.
+- One of the dependencies of the query pack you are running is not yet published. Resolving from source is the only way to reference that pack.
 
-* You are making changes to multiple packs at the same time and want to test them together. Resolving from source ensures that you are using the version of the pack with your changes in it.
+- You are making changes to multiple packs at the same time and want to test them together. Resolving from source ensures that you are using the version of the pack with your changes in it.
 
 ## {% data variables.product.prodname_codeql %} workspaces and query resolution
 

@@ -32,7 +32,7 @@ Runs tests. Equivalent of `npm test`.
 
 ### [`anonymize-branch.js`](anonymize-branch.js)
 
-Flatten all the commits in the current branch into a single anonymized @Octomerger commit
+Flatten all the commits in the current branch into a single anonymized @docs-bot commit
 
 Usage: script/anonymize-branch.js <new-commit-message> [base-branch] Example: script/anonymize-branch.js "nothing to see here" If the optional [base-branch] argument is omitted, it will default to `main`
 

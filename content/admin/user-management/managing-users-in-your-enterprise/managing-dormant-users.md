@@ -29,6 +29,7 @@ The report includes both enterprise members and outside collaborators.
 {% endif %}
 
 {% ifversion ghes or ghae %}
+
 ## Viewing dormant users
 
 {% data reusables.enterprise-accounts.viewing-dormant-users %}
@@ -59,6 +60,7 @@ The report includes both enterprise members and outside collaborators.
 {% endif %}
 
 {% ifversion ghec %}
+
 ## Downloading the dormant users report from your enterprise account
 
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -66,6 +68,5 @@ The report includes both enterprise members and outside collaborators.
 1. Scroll to "Other."
 1. Optionally, to generate a new report, next to "Dormant Users", click **New report**.
 1. Under "Recent reports", next to the report you want to download, click {% octicon "download" aria-hidden="true" %} **Download**.
-
 
 {% endif %}

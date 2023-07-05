@@ -1,0 +1,7 @@
+# Issue 10598
+# Ability to set a limit on the number of items on a column
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'
+  ghae: '>=3.10'

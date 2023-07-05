@@ -23,8 +23,8 @@ A remote URL is Git's fancy way of saying "the place where your code is stored."
 
 You can only push to two types of URL addresses:
 
-* An HTTPS URL like `https://{% data variables.command_line.backticks %}/user/repo.git`
-* An SSH URL, like `git@{% data variables.command_line.backticks %}:user/repo.git`
+- An HTTPS URL like `https://{% data variables.command_line.backticks %}/user/repo.git`
+- An SSH URL, like `git@{% data variables.command_line.backticks %}:user/repo.git`
 
 Git associates a remote URL with a name, and your default remote is usually called `origin`.
 
@@ -86,6 +86,7 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
 {% ifversion not ghae %}
+
 ## Cloning with Subversion
 
 {% data reusables.subversion.sunset %}

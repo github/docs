@@ -10,6 +10,7 @@ versions:
 shortTitle: Clone & fork from Desktop
 ---
 ## About local repositories
+
 Repositories on {% data variables.product.prodname_dotcom %} are remote repositories. You can clone or fork a repository with {% data variables.product.prodname_desktop %} to create a local repository on your computer.
 
 You can create a local copy of any repository on {% data variables.product.product_name %} that you have access to by cloning the repository. If you own a repository or have write permissions, you can sync between the local and remote locations. For more information, see "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch-in-github-desktop)."
@@ -35,18 +36,21 @@ You can fork a repository on {% data variables.product.prodname_dotcom_the_websi
 {% data reusables.desktop.forking-a-repo %}
 
 ## Managing fork behavior
+
 You can change how a fork behaves with the upstream repository in {% data variables.product.prodname_desktop %}.
 
 {% data reusables.desktop.open-repository-settings %}
 {% data reusables.desktop.select-fork-behavior %}
 
 ## Creating an alias for a local repository
+
 You can create an alias for a local repository to help differentiate between repositories of the same name in {% data variables.product.prodname_desktop %}. Creating an alias does not affect the repository's name on {% data variables.product.prodname_dotcom %}. In the repositories list, aliases appear in italics.
 
 1. In the upper-left corner of {% data variables.product.prodname_desktop %}, to the right of the current repository name, click {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
-2. Right-click the repository you want to create an alias for, then click **Create Alias**.
-3. Type an alias for the repository.
-4. Click **Create Alias**.
+1. Right-click the repository you want to create an alias for, then click **Create Alias**.
+1. Type an alias for the repository.
+1. Click **Create Alias**.
 
 ## Further reading
+
 - [About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)

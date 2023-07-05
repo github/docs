@@ -28,7 +28,7 @@ In addition to reviewing {% data variables.product.prodname_github_app %}s that 
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.
 
 - For a {% data variables.product.prodname_github_app %} installed on your personal account:
-   1. In the upper-right corner of any page, click your profile photo, then click **Settings**. 
+   1. In the upper-right corner of any page, click your profile photo, then click **Settings**.
    1. Under "Integrations," click **Applications**.
    1. Click **Installed GitHub Apps**. A list of the {% data variables.product.prodname_github_app %}s installed on your personal account will be displayed.
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.

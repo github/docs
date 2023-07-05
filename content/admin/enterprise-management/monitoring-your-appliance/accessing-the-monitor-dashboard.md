@@ -20,7 +20,7 @@ shortTitle: Access the monitor dashboard
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. In the top navigation bar, click **Monitor**.
+1. In the top navigation bar, click **Monitor**.
 
    ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.](/assets/images/enterprise/management-console/monitor-dash-link.png)
 

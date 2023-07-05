@@ -19,5 +19,4 @@ Global webhooks can subscribe to the [organization](/webhooks-and-events/webhook
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
 
-
 <!-- Content after this section is automatically generated -->
