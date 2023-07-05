@@ -265,6 +265,7 @@ When you call a reusable workflow, you can only use the following keywords in th
 
   - If `jobs.<job_id>.permissions` is not specified in the calling job, the called workflow will have the default permissions for the `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
   - The `GITHUB_TOKEN` permissions passed from the caller workflow can be only downgraded (not elevated) by the called workflow.
+  - Avoid using `jobs.<job_id>.concurrency.cancel-in-progress: true` and same `jobs.<job_id>.concurrency.group` values between called and caller workflows to prevent immediate cancel on called workflow
 
    {% endnote %}
 
