@@ -20,8 +20,7 @@ children:
   - /initializing-github-ae
   - /accessing-the-administrative-shell-ssh
   - /enabling-and-scheduling-maintenance-mode
-  - /configuring-backups-on-your-instance
-  - /known-issues-with-backups-for-your-instance
+  - /configuring-backups-on-your-appliance
   - /site-admin-dashboard
   - /enabling-private-mode
   - /managing-github-mobile-for-your-enterprise
