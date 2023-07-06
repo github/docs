@@ -1230,7 +1230,7 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-   replaces-base: true
+    replaces-base: true
 ```
 
 {% endraw %}
