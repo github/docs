@@ -41,15 +41,23 @@ With the {% data variables.product.product_name %} for {% data variables.product
 
 With the {% data variables.product.prodname_dotcom %} for {% data variables.product.prodname_vscode %} extension, you can review and manage {% data variables.product.product_name %} pull requests in {% data variables.product.prodname_vscode_shortname %}. For more information, see the official {% data variables.product.prodname_vscode_shortname %} extension [site](https://vscode.github.com/) or [documentation](https://github.com/Microsoft/vscode-pull-request-github).
 
+{% endif %}
+
 ## Project management tools
 
-You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party project management tools, such as Jira.
+You can integrate your personal or organization account on {% data variables.location.product_location %} with third-party project management tools.
+
+{% ifversion fpt or ghec %}
 
 ### Jira Cloud and {% data variables.product.product_name %}.com integration
 
 You can integrate Jira Cloud with your personal or organization account to scan commits and pull requests, creating relevant metadata and hyperlinks in any mentioned Jira issues. For more information, visit the [Jira integration app](https://github.com/marketplace/jira-software-github) in the marketplace.
 
 {% endif %}
+
+### Shortcut and {% data variables.product.product_name %} integration
+
+Automate key parts of your [Shortcut](https://shortcut.com) workflow so the work in {% data variables.product.product_name %} stays in sync with your Shortcut Stories. Specially formatted commit messages & branch names can be used to link Shortcut Stories to commits, branches, pull requests, and move Stories across your workflow. Visit the [Shortcut Help Center](https://help.shortcut.com/hc/en-us/articles/207540323-Using-Branches-and-Pull-Requests-with-the-Shortcut-VCS-Integrations) for more information.
 
 {% ifversion slack-and-team-integrations %}
 
