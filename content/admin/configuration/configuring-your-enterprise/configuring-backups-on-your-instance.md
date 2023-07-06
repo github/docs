@@ -1,5 +1,5 @@
 ---
-title: Configuring backups on your appliance
+title: Configuring backups on your instance
 shortTitle: Configuring backups
 redirect_from:
   - /enterprise/admin/categories/backups-and-restores
@@ -14,6 +14,7 @@ redirect_from:
   - /enterprise/admin/installation/configuring-backups-on-your-appliance
   - /enterprise/admin/configuration/configuring-backups-on-your-appliance
   - /admin/configuration/configuring-backups-on-your-appliance
+  - /admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance
 intro: 'As part of a disaster recovery plan, you can protect production data on {% data variables.location.product_location %} by configuring automated backups.'
 versions:
   ghes: '*'
@@ -94,7 +95,7 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
 
      **Note:** If {% data variables.location.product_location %} is deployed as a cluster or in a high availability configuration using a load balancer, the `GHE_HOSTNAME` can be the load balancer hostname, as long as it allows SSH access (on port 122) to {% data variables.location.product_location %}.
 
-     To ensure a recovered appliance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
+     To ensure a recovered instance is immediately available, perform backups targeting the primary instance even in a geo-replication configuration.
 
      {% endnote %}
    1. Set the `GHE_DATA_DIR` value to the filesystem location where you want to store backup snapshots. We recommend choosing a location on the same filesystem as your backup host, but outside of where you cloned the Git repository in step 1.
@@ -203,34 +204,50 @@ To use Git instead of a compressed archive for upgrades, you must back up your e
 
 ## Scheduling a backup
 
+{% ifversion backup-utilities-encryption-bug %}
+{% warning %}
+
+**Warning**: {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-encryption-keys %}
+
+{% endwarning %}
+{% endif %}
+
 You can schedule regular backups on the backup host using the `cron(8)` command or a similar command scheduling service. The configured backup frequency will dictate the worst case recovery point objective (RPO) in your recovery plan. For example, if you have scheduled the backup to run every day at midnight, you could lose up to 24 hours of data in a disaster scenario. We recommend starting with an hourly backup schedule, guaranteeing a worst case maximum of one hour of data loss if the primary site data is destroyed.
 
 If backup attempts overlap, the `ghe-backup` command will abort with an error message, indicating the existence of a simultaneous backup. If this occurs, we recommended decreasing the frequency of your scheduled backups. For more information, see the "Scheduling backups" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#scheduling-backups) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
 
 ## Restoring a backup
 
-In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.location.product_location %} by provisioning another {% data variables.product.prodname_enterprise %} appliance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} appliance as an authorized SSH key before restoring an appliance.
+{% ifversion backup-utilities-encryption-bug %}
 
-{% note %}
+{% warning %}
 
-**Note:** When performing backup restores to {% data variables.location.product_location %}, the same version supportability rules apply. You can only restore data from at most two feature releases behind.
+**Warning**: {% data reusables.enterprise_backup_utilities.enterprise-backup-utils-encryption-keys %}
 
-For example, if you take a backup from {% data variables.product.product_name %} 3.0.x, you can restore the backup to a {% data variables.product.product_name %} 3.2.x instance. You cannot restore data from a backup of {% data variables.product.product_name %} 2.22.x to an instance running 3.2.x, because that would be three jumps between versions (2.22 to 3.0 to 3.1 to 3.2). You would first need to restore to an instance running 3.1.x, and then upgrade to 3.2.x.
+{% endwarning %}
 
-{% endnote %}
+{% endif %}
 
-To restore {% data variables.location.product_location %} from the last successful snapshot, use the `ghe-restore` command.
+In the event of prolonged outage or catastrophic event at the primary site, you can restore {% data variables.location.product_location %} by provisioning another instance and performing a restore from the backup host. You must add the backup host's SSH key to the target {% data variables.product.prodname_enterprise %} instance as an authorized SSH key before restoring an instance.
 
-{% note %}
+When performing backup restores to {% data variables.location.product_location %}, you can only restore data from at most two feature releases behind. For example, if you take a backup from {% data variables.product.product_name %} 3.0.x, you can restore the backup to an instance running {% data variables.product.product_name %} 3.2.x. You cannot restore data from a backup of {% data variables.product.product_name %} 2.22.x to an instance running 3.2.x, because that would be three jumps between versions (2.22 to 3.0 to 3.1 to 3.2). You would first need to restore to an instance running 3.1.x, and then upgrade to 3.2.x.
 
-**Note:** Prior to restoring a backup, ensure:
-- Maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
-- Replication is stopped on all replicas in high availability configurations. For more information, see the `ghe-repl-stop` command in "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop)."
-- If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must first configure the {% data variables.product.prodname_actions %} external storage provider on the replacement appliance. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+Network settings are excluded from the backup snapshot. After restoration, you must manually configure networking on the target {% data variables.product.prodname_ghe_server %} instance.
 
-{% endnote %}
+### Prerequisites
 
-When running the `ghe-restore` command, you should see output similar to this:
+1. Ensure maintenance mode is enabled on the primary instance and all active processes have completed. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
+1. Stop replication on all replica nodes in a high-availability configuration. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/about-high-availability-configuration#ghe-repl-stop)."
+1. If {% data variables.location.product_location %} has {% data variables.product.prodname_actions %} enabled, you must configure the external storage provider for {% data variables.product.prodname_actions %} on the replacement instance. For more information, see "[AUTOTITLE](/admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled)."
+
+### Starting the restore operation
+
+To restore {% data variables.location.product_location %} from your backup host using the last successful snapshot, use the `ghe-restore` command. You can use the following additional options with `ghe-restore`.
+
+- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) in the github/backup-utils repository.
+- The `-s` flag allows you to select a different backup snapshot.
+
+After you run `ghe-restore`, the command confirms the restoration, then outputs details and status during the operation.
 
 ```shell
 $ ghe-restore -c 169.154.1.1
@@ -253,16 +270,27 @@ $ ghe-restore -c 169.154.1.1
 Optionally, to validate the restore, configure an IP exception list to allow access to a specified list of IP addresses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode#validating-changes-in-maintenance-mode-using-the-ip-exception-list)."
 {% endif %}
 
-{% note %}
+On an instance in a high-availability configuration, after you restore to new disks on an existing or empty instance, `ghe-repl-status` may report that Git or Alambic replication is out of sync due to stale server UUIDs. These stale UUIDs can be the result of a retired node in a high-availability configuration still being present in the application database, but not in the restored replication configuration. 
 
-**Note:**
+To remediate after the restoration completes and before starting replication, you can tear down stale UUIDs using `ghe-repl-teardown`. If you need further assistance, contact {% data variables.contact.contact_ent_support %}.
 
-- The network settings are excluded from the backup snapshot. You must manually configure the network on the target {% data variables.product.prodname_ghe_server %} appliance as required for your environment.
+{% ifversion backup-utilities-progress %}
+## Monitoring backup or restoration progress
 
-- When restoring to new disks on an existing or empty {% data variables.product.prodname_ghe_server %} instance, stale UUIDs may be present, resulting in Git and/or Alambic replication reporting as out of sync. Stale server entry IDs can be the result of a retired node in a high availability configuration still being present in the application database, but not in the restored replication configuration. To remediate, stale UUIDs can be torn down using `ghe-repl-teardown` once the restore has completed and prior to starting replication. In this scenario, contact {% data variables.contact.contact_ent_support %} for further assistance.
+During a backup or restoration operation, you can use the `ghe-backup-progress` utility on your backup host to monitor the operation's progress. The utility prints the progress of each job sequentially.
 
-{% endnote %}
+To monitor progress on the backup host, from the directory containing {% data variables.product.prodname_enterprise_backup_utilities %}, run the following command.
 
-You can use these additional options with `ghe-restore` command:
-- The `-c` flag overwrites the settings, certificate, and license data on the target host even if it is already configured. Omit this flag if you are setting up a staging instance for testing purposes and you wish to retain the existing configuration on the target. For more information, see the "Using backup and restore commands" section of the [{% data variables.product.prodname_enterprise_backup_utilities %} README](https://github.com/github/backup-utils#using-the-backup-and-restore-commands) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
-- The `-s` flag allows you to select a different backup snapshot.
+```shell copy
+bin/ghe-backup-progress
+```
+
+By default, the utility prints progress continuously until the operation is complete. You can press any key to return to the prompt.
+
+Optionally, you can run the following command to print the current progress, the last completed job, and then immediately exit.
+
+```shell copy
+bin/ghe-backup-progress --once
+```
+
+{% endif %}
