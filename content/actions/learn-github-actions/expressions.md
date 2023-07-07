@@ -32,7 +32,7 @@ Expressions are commonly used with the conditional `if` keyword in a workflow fi
 ```yaml
 steps:
   - uses: actions/hello-world-javascript-action@e76147da8e5c81eaf017dede5645551d4b94427b
-    if: {% raw %}${{ <expression> }}{% endraw %}
+    if: <expression> 
 ```
 
 ### Example setting an environment variable
