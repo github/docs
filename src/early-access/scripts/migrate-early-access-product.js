@@ -12,10 +12,10 @@ import yaml from 'js-yaml'
 import { last } from 'lodash-es'
 import { program } from 'commander'
 import { execFileSync } from 'child_process'
-import frontmatter from '../../lib/read-frontmatter.js'
-import patterns from '../../lib/patterns.js'
-import addRedirectToFrontmatter from '../helpers/add-redirect-to-frontmatter.js'
-import walkFiles from '../helpers/walk-files.js'
+import frontmatter from '../../../lib/read-frontmatter.js'
+import patterns from '../../../lib/patterns.js'
+import addRedirectToFrontmatter from '../../../script/helpers/add-redirect-to-frontmatter.js'
+import walkFiles from '../../../script/helpers/walk-files.js'
 
 const contentFiles = walkFiles('content', '.md', { includeEarlyAccess: true })
 const contentDir = path.posix.join(process.cwd(), 'content')
@@ -58,7 +58,7 @@ const migratePath = path.posix.join(contentDir, newPathId)
 
 // 1. Update the image and data refs in the to-be-migrated early access files BEFORE moving them.
 try {
-  execFileSync('script/early-access/update-data-and-image-paths.js', [
+  execFileSync('src/early-access/scripts/update-data-and-image-paths.js', [
     '-p',
     `content/${oldPathId}`,
     '--remove',
