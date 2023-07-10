@@ -5,11 +5,11 @@ import { getCodeFenceTokens, getCodeFenceLines } from '../markdownlint-helpers.j
 const dollarCommandRe = /^(\s*)(\$\s+)/
 
 export const codeFenceUsesCopyDirective = {
-  names: ['GH001', 'code-fences-use-copy-directive'],
+  names: ['MD116', 'code-fences-use-copy-directive'],
   description: 'Code fence blocks should use the copy directive when no output is shown',
   tags: ['code'],
   severity: 'error',
-  function: function GH001(params, onError) {
+  function: function MD116(params, onError) {
     const codeFenceTokens = getCodeFenceTokens(params)
     codeFenceTokens.forEach((token) => {
       const lines = getCodeFenceLines(token)

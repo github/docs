@@ -85,6 +85,8 @@ async function main() {
     MD113: true,
     MD114: true,
     MD115: true,
+    MD116: true,
+    MD117: true,
   }
 
   const files = walkFiles(path, ['.md'], { includeBasePath: true })

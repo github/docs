@@ -3,11 +3,11 @@ import { addError } from 'markdownlint-rule-helpers'
 import { getCodeFenceTokens, getCodeFenceLines } from '../markdownlint-helpers.js'
 
 export const codeFenceLineLength = {
-  names: ['GH011', 'code-fence-line-length'],
+  names: ['MD117', 'code-fence-line-length'],
   description: 'Code fence lines should not exceed a maximum length',
   tags: ['code'],
   severity: 'warning',
-  function: function GH011(params, onError) {
+  function: function MD117(params, onError) {
     const MAX_LINE_LENGTH = String(params.config.maxLength || 60)
     const codeFenceTokens = getCodeFenceTokens(params)
     codeFenceTokens.forEach((token) => {
