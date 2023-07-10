@@ -32,12 +32,16 @@ describe('data references', () => {
     let errors = []
     expect(pages.length).toBeGreaterThan(0)
 
+    const checked = new Set()
     pages.forEach((page) => {
-      const file = path.join('content', page.relativePath)
       const pageRefs = getDataReferences(page.markdown)
-      pageRefs.forEach((key) => {
+      new Set(pageRefs).forEach((key) => {
+        if (checked.has(key)) return
         const value = getDataByLanguage(key, 'en')
-        if (typeof value !== 'string') errors.push({ key, value, file })
+        checked.add(key)
+        if (typeof value !== 'string') {
+          errors.push({ key, value, file: path.join('content', page.relativePath) })
+        }
       })
     })
 
