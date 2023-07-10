@@ -134,7 +134,7 @@
     "styled-components": "^5.3.5",
     "swr": "^2.0.0",
     "unified": "^10.1.2",
-    "unist-util-visit": "^4.1.0",
+    "unist-util-visit": "^5.0.0",
     "url-template": "^3.0.0",
     "walk-sync": "^3.0.0"
   },
