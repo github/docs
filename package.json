@@ -168,7 +168,7 @@
     "commander": "^11.0.0",
     "cross-env": "^7.0.3",
     "csp-parse": "0.0.2",
-    "dedent": "^0.7.0",
+    "dedent": "^1.0.1",
     "eslint": "8.38.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-standard": "^17.0.0",
