@@ -91,6 +91,13 @@ jobs:
     runs-on: ubuntu-20.04-xl
     strategy:
       fail-fast: false
+      # When it's only English (i.e. a simple array of ['en']), this value
+      # does not matter. If it's ALL the languages, then we know we can
+      # be patient because it's a daily scheduled run and it's run by bots
+      # while humans are asleep. So there's no rush and no need to finish
+      # the whole job fast.
+      # As of June 2023, it takes about 10+ minutes to index one whole
+      # language and we have 8 non-English languages.
       max-parallel: 3
       matrix:
         language: ${{ fromJSON(needs.figureOutMatrix.outputs.matrix) }}
@@ -185,6 +192,7 @@ jobs:
         run: |
           ./src/search/scripts/index-elasticsearch.js /tmp/records \
             --language ${{ matrix.language }} \
+            --stagger-seconds 5
 
       - name: Check created indexes and aliases
         run: |

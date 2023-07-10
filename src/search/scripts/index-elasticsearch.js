@@ -11,7 +11,7 @@ import fs from 'fs/promises'
 import path from 'path'
 
 import { Client, errors } from '@elastic/elasticsearch'
-import { program, Option } from 'commander'
+import { program, Option, InvalidArgumentError } from 'commander'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 
@@ -61,6 +61,17 @@ program
   )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
   .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
+  .option(
+    '-s, --stagger-seconds <seconds>',
+    'Number of seconds to sleep between each bulk operation',
+    (value) => {
+      const parsed = parseInt(value, 10)
+      if (isNaN(parsed)) {
+        throw new InvalidArgumentError('Not a number.')
+      }
+      return parsed
+    }
+  )
   .argument('<source-directory>', 'where the indexable files are')
   .parse(process.argv)
 
@@ -125,7 +136,9 @@ async function main(opts, args) {
     if (error instanceof errors.ElasticsearchClientError) {
       // All ElasticsearchClientError error subclasses have a `name` and
       // `message` but only some have a `meta`.
-      if (error.meta) console.error(error.meta)
+      if (error.meta) {
+        console.error(`Error meta: ${error.meta}`)
+      }
       throw new Error(error.message)
     }
     // If any other error happens that isn't from the elasticsearch SDK,
@@ -133,10 +146,13 @@ async function main(opts, args) {
     throw error
   }
 }
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
 async function indexAll(node, sourceDirectory, opts) {
   const client = new Client({ node })
 
-  const { language, verbose, notLanguage, indexPrefix } = opts
+  const { language, verbose, notLanguage, indexPrefix, staggerSeconds } = opts
 
   let version
   if ('version' in opts) {
@@ -189,6 +205,10 @@ async function indexAll(node, sourceDirectory, opts) {
       if (verbose) {
         console.log(`To view index: ${safeUrlDisplay(node + `/${indexName}`)}`)
         console.log(`To search index: ${safeUrlDisplay(node + `/${indexName}/_search`)}`)
+      }
+      if (staggerSeconds) {
+        console.log(`Sleeping for ${staggerSeconds} seconds...`)
+        await sleep(1000 * staggerSeconds)
       }
     }
   }
@@ -345,7 +365,17 @@ async function indexVersion(
     `version:${version}`,
     `language:${language}`,
   ])
-  const bulkResponse = await timed({ refresh: true, body: operations })
+  const bulkOptions = {
+    // Default is 'false'.
+    // It means that the index is NOT refreshed as documents are inserted.
+    // Which makes sense in our case because we do not intend to search on
+    // this index until after we've pointed the alias to this new index.
+    refresh: false,
+    // Default is '1m' but we have no reason *not* to be patient. It's run
+    // by a bot on a schedeule (GitHub Actions).
+    timeout: '5m',
+  }
+  const bulkResponse = await timed({ body: operations, ...bulkOptions })
 
   if (bulkResponse.errors) {
     // Some day, when we're more confident how and why this might happen
@@ -353,7 +383,7 @@ async function indexVersion(
     // For now, if it fails, it's "OK". It means we won't be proceeding,
     // an error is thrown in Actions and we don't have to worry about
     // an incompletion index.
-    console.error(bulkResponse.errors)
+    console.error(`Bulk response errors: ${bulkResponse.errors}`)
     throw new Error('Bulk errors happened.')
   }
 
