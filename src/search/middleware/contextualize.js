@@ -1,4 +1,5 @@
 import got from 'got'
+import { errors } from '@elastic/elasticsearch'
 
 import { getPathWithoutVersion, getPathWithoutLanguage } from '../../../lib/path-utils.js'
 import { getSearchFromRequest } from './get-search-request.js'
@@ -40,7 +41,28 @@ export default async function contextualizeSearch(req, res, next) {
       // In local dev, you get to see the error. In production,
       // you get a "Oops! Something went wrong" which involves a Failbot
       // send.
-      req.context.search.results = await getSearchResults(search)
+      try {
+        req.context.search.results = await getSearchResults(search)
+      } catch (error) {
+        // If the error coming from the Elasticsearch client is any sort
+        // of 4xx error, it will be bubbled up to the next middleware
+        // which might think something else is wrong with the *client's*
+        // request from the outside. But in reality it's not their fault.
+        // It's our fault in the backend side. So we throw a new error
+        // so that this failure to seach ultimately bubbles up to a
+        // proper 500 error (including Failbot reporting).
+        // In particular, this helps platform developers working on the
+        // Elasticsearch searching code.
+        if (error instanceof errors.ElasticsearchClientError) {
+          console.error('Error calling getSearchResults(%s):', search, error)
+          if (error.meta?.body) {
+            console.error(`Meta:`, error.meta.body)
+          }
+          throw new Error(error.message)
+        } else {
+          throw error
+        }
+      }
     }
   }
 

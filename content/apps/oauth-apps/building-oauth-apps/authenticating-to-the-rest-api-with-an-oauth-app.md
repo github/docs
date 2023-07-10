@@ -29,15 +29,16 @@ You can download the complete source code for this project [from the platform-sa
 
 ## Registering your app
 
-First, you'll need to [register your application](https://github.com/settings/applications/new). Every
+First, you'll need to [register your application][new oauth app]. Every
 registered {% data variables.product.prodname_oauth_app %} is assigned a unique Client ID and Client Secret.
-The Client Secret should not be shared! That includes checking the string
-into your repository.
+The client secret is used to get an access token for the signed-in user. You must
+include the client secret in your native application, however web applications should not leak this value.
 
-You can fill out every piece of information however you like, except the
-**Authorization callback URL**. This is easily the most important piece to setting
-up your application. It's the callback URL that {% data variables.product.product_name %} returns the user to after
-successful authentication.
+You can fill out every other piece of information however you like, except the
+**Authorization callback URL**. This is the most important piece to securely setting
+up your application. It's the callback URL that {% data variables.product.product_name %} 
+returns the user to after successful authentication. Ownership of that URL is what ensures 
+that users sign into your app, instead of leaking tokens to an attacker.
 
 Since we're running a regular Sinatra server, the location of the local instance
 is set to `http://127.0.0.1:4567`. Let's fill in the callback URL as `http://127.0.0.1:4567/callback`.
@@ -61,10 +62,10 @@ get '/' do
 end
 ```
 
-Your client ID and client secret keys come from [your application's configuration
-page][app settings].{% ifversion fpt or ghec %} You should **never, _ever_** store these values in
-{% data variables.product.product_name %}--or any other public place, for that matter.{% endif %} We recommend storing them as
-[environment variables][about env vars]--which is exactly what we've done here.
+Your client ID and client secret come from [your application's configuration
+page][app settings]. We recommend storing these values as
+[environment variables][about env vars] for ease of replacement and use -- 
+which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
 
@@ -124,7 +125,8 @@ end
 ```
 
 After a successful app authentication, {% data variables.product.product_name %} provides a temporary `code` value.
-You'll need to `POST` this code back to {% data variables.product.product_name %} in exchange for an `access_token`.
+You'll need to `POST` this code back to {% data variables.product.product_name %} with your client secret 
+in exchange for an `access_token`.
 To simplify our GET and POST HTTP requests, we're using the [rest-client][REST Client].
 Note that you'll probably never access the API through REST. For a more serious
 application, you should probably use [a library written in the language of your choice][libraries].
@@ -144,7 +146,7 @@ get '/callback' do
 
   # check if we were granted user:email scope
   scopes = JSON.parse(result)['scope'].split(',')
-  has_user_email_scope = scopes.include? 'user:email'
+  has_user_email_scope = scopes.include? 'user:email' || scopes.include? 'user'
 end
 ```
 
@@ -154,10 +156,12 @@ email addresses. Had the application asked for other scopes, we would have
 checked for those as well.
 
 Also, since there's a hierarchical relationship between scopes, you should
-check that you were granted the lowest level of required scopes. For example,
-if the application had asked for `user` scope, it might have been granted only
-`user:email` scope. In that case, the application wouldn't have been granted
-what it asked for, but the granted scopes would have still been sufficient.
+check if you were granted any higher levels of the required scope. For example,
+if the application had asked for `user` scope, it won't have been granted explicitly the
+`user:email` scope. In that case, it would recieve a token with the `user` scope, which 
+would work for requesting the user's email address, even though it doesn't explicitly include
+`user:email` on the token. Checking for both `user` and `user:email` ensures that you 
+check for both scenarios. 
 
 Checking for scopes only before making requests is not enough since it's possible
 that users will change the scopes in between your check and the actual request.
@@ -165,7 +169,7 @@ In case that happens, API calls you expected to succeed might fail with a `404`
 or `401` status, or return a different subset of information.
 
 To help you gracefully handle these situations, all API responses for requests
-made with valid tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
+made with valid OAuth app tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
 This header contains the list of scopes of the token that was used to make the
 request. In addition to that, the REST API provides an endpoint to {% ifversion fpt or ghes or ghec %}
 [check a token for validity](/rest/apps#check-a-token){% else %}[check a token for validity](/rest/apps#check-an-authorization){% endif %}.
@@ -240,7 +244,7 @@ require 'sinatra'
 require 'rest_client'
 require 'json'
 
-# !!! DO NOT EVER USE HARD-CODED VALUES IN A REAL APP !!!
+# Don't use hard-coded values in your app
 # Instead, set and test environment variables, like below
 # if ENV['GITHUB_CLIENT_ID'] && ENV['GITHUB_CLIENT_SECRET']
 #  CLIENT_ID        = ENV['GITHUB_CLIENT_ID']
@@ -360,6 +364,7 @@ Also, if we had never authorized this application to access our {% data variable
 we would've seen the same confirmation dialog from earlier pop-up and warn us.
 
 [webflow]: /apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
+[new oauth app]: https://github.com/settings/applications/new
 [Sinatra]: http://www.sinatrarb.com/
 [about env vars]: http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables
 [Sinatra guide]: https://github.com/sinatra/sinatra-book/blob/master/book/Introduction.markdown#hello-world-application
