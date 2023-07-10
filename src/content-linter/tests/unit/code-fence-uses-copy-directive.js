@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { runRule } from './init-test.js'
+import { runRule } from '../../lib/init-test.js'
 import { codeFenceUsesCopyDirective } from '../../lib/linting-rules/code-fence-uses-copy-directive.js'
 
 jest.setTimeout(60 * 1000)
