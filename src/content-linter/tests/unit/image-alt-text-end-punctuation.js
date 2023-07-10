@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { runRule } from './init-test.js'
+import { runRule } from '../../lib/init-test.js'
 import { imageAltTextEndPunctuation } from '../../lib/linting-rules/image-alt-text-end-punctuation.js'
 
 jest.setTimeout(60 * 1000)
