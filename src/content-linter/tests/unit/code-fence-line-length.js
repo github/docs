@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { runRule } from './init-test.js'
+import { runRule } from '../../lib/init-test.js'
 import { codeFenceLineLength } from '../../lib/linting-rules/code-fence-line-length.js'
 
 jest.setTimeout(60 * 1000)
