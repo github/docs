@@ -201,7 +201,7 @@
     "npm-merge-driver-install": "^3.0.0",
     "nth-check": "2.1.1",
     "postcss": "^8.4.14",
-    "prettier": "^2.7.0",
+    "prettier": "^3.0.0",
     "rimraf": "^5.0.0",
     "robots-parser": "^3.0.0",
     "sass": "^1.52.3",

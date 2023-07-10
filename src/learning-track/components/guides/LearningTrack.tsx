@@ -44,9 +44,9 @@ export const LearningTrack = ({ track }: Props) => {
           <Link
             {...{ 'aria-label': `${track?.title} - ${t('start_path')}` }}
             className="d-inline-flex btn no-wrap mt-3 mt-md-0 flex-items-center flex-justify-center"
-            href={`${track?.guides && track?.guides[0].href}?learn=${
-              track?.trackName
-            }&learnProduct=${track?.trackProduct}`}
+            href={`${
+              track?.guides && track?.guides[0].href
+            }?learn=${track?.trackName}&learnProduct=${track?.trackProduct}`}
           >
             <span>{t('start_path')}</span>
             <ArrowRightIcon size={20} className="ml-2" />
