@@ -12,7 +12,13 @@ import { ProductCollapsibleSection } from 'components/sidebar/ProductCollapsible
 export const SidebarProduct = () => {
   const router = useRouter()
   const sidebarRef = useRef<HTMLDivElement>(null)
-  const { currentProduct, currentProductTree } = useMainContext()
+
+  const {
+    currentProduct,
+    // For the sidebar we only need the short titles so we can use the
+    // more "compressed" tree that is as light as possible.
+    sidebarTree,
+  } = useMainContext()
   const { t } = useTranslation(['products'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
 
@@ -26,7 +32,7 @@ export const SidebarProduct = () => {
     if (!router.asPath.includes('#')) window?.scrollTo(0, 0)
   }, [])
 
-  if (!currentProductTree) {
+  if (!sidebarTree) {
     return null
   }
 
@@ -36,10 +42,10 @@ export const SidebarProduct = () => {
   const productSection = () => (
     <div className="ml-3" data-testid="product-sidebar">
       <TreeView aria-label="product sidebar">
-        {currentProductTree &&
-          currentProductTree.childPages.map((childPage, i) => {
-            const isStandaloneCategory = childPage.documentType === 'article'
-            const childTitle = childPage.shortTitle || childPage.title
+        {sidebarTree &&
+          sidebarTree.childPages.map((childPage, i) => {
+            const isStandaloneCategory = childPage.childPages.length === 0
+            const childTitle = childPage.title
             const isActive =
               routePath.includes(childPage.href + '/') || routePath === childPage.href
 
@@ -89,13 +95,13 @@ export const SidebarProduct = () => {
   )
 
   const restSection = () => {
-    const conceptualPages = currentProductTree.childPages.filter(
+    const conceptualPages = sidebarTree.childPages.filter(
       (page) =>
         page.href.includes('guides') ||
         page.href.includes('overview') ||
         page.href.includes('quickstart')
     )
-    const restPages = currentProductTree.childPages.filter(
+    const restPages = sidebarTree.childPages.filter(
       (page) =>
         !page.href.includes('guides') &&
         !page.href.includes('overview') &&
@@ -106,7 +112,7 @@ export const SidebarProduct = () => {
         <div className="ml-3">
           <TreeView aria-label="rest sidebar">
             {conceptualPages.map((childPage, i) => {
-              const childTitle = childPage.shortTitle || childPage.title
+              const childTitle = childPage.title
               const isActive =
                 routePath.includes(childPage.href + '/') || routePath === childPage.href
 
@@ -168,7 +174,7 @@ export const SidebarProduct = () => {
         </div>
         <TreeView>
           {restPages.map((childPage, i) => {
-            const childTitle = childPage.shortTitle || childPage.title
+            const childTitle = childPage.title
 
             return (
               <RestCollapsibleSection

@@ -50,8 +50,6 @@ export const Header = () => {
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
-  const productTitle = currentProduct?.name || null
-
   const [windowSize, setWindowSize] = useState(0)
   const handleWindowResize = useCallback(() => {
     setWindowSize(window.innerWidth)
@@ -355,7 +353,7 @@ export const Header = () => {
                           href={currentProduct.href}
                           className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
                         >
-                          {productTitle}
+                          {currentProduct.name}
                         </Link>
                       </div>
                     )}
