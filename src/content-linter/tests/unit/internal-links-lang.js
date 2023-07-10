@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { runRule } from './init-test.js'
+import { runRule } from '../../lib/init-test.js'
 import { internalLinksLang } from '../../lib/linting-rules/internal-links-lang.js'
 
 jest.setTimeout(30 * 1000)

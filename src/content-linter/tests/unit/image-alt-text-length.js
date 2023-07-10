@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { runRule } from './init-test.js'
+import { runRule } from '../../lib/init-test.js'
 import { incorrectAltTextLength } from '../../lib/linting-rules/image-alt-text-length.js'
 
 jest.setTimeout(60 * 1000)

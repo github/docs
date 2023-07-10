@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { runRule } from './init-test.js'
+import { runRule } from '../../lib/init-test.js'
 import { imageFileKebab } from '../../lib/linting-rules/image-file-kebab'
 
 jest.setTimeout(20 * 1000)
