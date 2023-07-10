@@ -77,7 +77,7 @@ When you're prompted to "Enter a file in which to save the key", you can press *
    {% mac %}
 
    ```shell
-   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM: [Press enter]
+   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM): [Press enter]
    ```
 
    {% endmac %}
