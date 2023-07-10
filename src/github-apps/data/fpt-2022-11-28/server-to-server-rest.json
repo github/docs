@@ -1277,7 +1277,7 @@
       "requestPath": "/orgs/{org}/codespaces/billing/selected_users"
     },
     {
-      "slug": "removes-users-from-codespaces-billing-for-an-organization",
+      "slug": "remove-users-from-codespaces-billing-for-an-organization",
       "subcategory": "organizations",
       "verb": "delete",
       "requestPath": "/orgs/{org}/codespaces/billing/selected_users"
