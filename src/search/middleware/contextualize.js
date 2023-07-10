@@ -25,6 +25,26 @@ export default async function contextualizeSearch(req, res, next) {
     language: req.context.currentLanguage,
   })
 
+  if (validationErrors.map((error) => error.key).includes('query')) {
+    // 'query' is such an exception because the search result component
+    // will attempt to display its value even if there was any
+    // validation error. In a sense, it displays:
+    //
+    //   You searched for "foo"
+    //   But your 'page' parameter is invalid.
+    //
+    // If for example, the search input is an array, we pick the first
+    // value. If it's too long, we truncate it.
+    if (Array.isArray(search.query)) {
+      search.query = search.query[0]
+    } else if (!search.query) {
+      // If the 'query' query string parameter wasn't even present,
+      // it becomes `undefined`. But since `search.query` needs to be
+      // a *string*, we pretend it was provided but empty.
+      search.query = ''
+    }
+  }
+
   req.context.search = { search, validationErrors }
 
   if (!validationErrors.length && search.query) {
