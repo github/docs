@@ -34,9 +34,7 @@ type VersionItem = {
 }
 
 export type ProductTreeNode = {
-  documentType: 'article' | 'mapTopic'
   title: string
-  shortTitle: string
   href: string
   childPages: Array<ProductTreeNode>
 }
@@ -89,6 +87,7 @@ export type MainContextT = {
   allVersions: Record<string, VersionItem>
   currentVersion?: string
   currentProductTree?: ProductTreeNode | null
+  sidebarTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
@@ -126,6 +125,13 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   if (req.context.site.data.ui.ms) {
     delete req.context.site.data.ui.ms
   }
+
+  const { documentType } = req.context.page
+
+  // Every product landing page has a listing of all articles.
+  // It's used by the <ProductArticlesList> component.
+  const includeFullProductTree = documentType === 'product'
+  const includeSidebarTree = documentType !== 'homepage'
 
   return {
     breadcrumbs: req.context.breadcrumbs || {},
@@ -166,7 +172,7 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
-      documentType: req.context.page.documentType,
+      documentType,
       type: req.context.page.type || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
@@ -190,7 +196,14 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     // This is a slimmed down version of `req.context.currentProductTree`
     // that only has the minimal titles stuff needed for sidebars and
     // any page that is hidden is omitted.
-    currentProductTree: req.context.currentProductTreeTitlesExcludeHidden || null,
+    // However, it's not needed on most pages. For example, on article pages,
+    // you don't need it. It's similar to the minimal product tree but,
+    // has the full length titles and not just the short titles.
+    currentProductTree:
+      (includeFullProductTree && req.context.currentProductTreeTitlesExcludeHidden) || null,
+    // The minimal product tree is needed on all pages that depend on
+    // the product sidebar or the rest sidebar.
+    sidebarTree: (includeSidebarTree && req.context.sidebarTree) || null,
     featureFlags: {},
     searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,

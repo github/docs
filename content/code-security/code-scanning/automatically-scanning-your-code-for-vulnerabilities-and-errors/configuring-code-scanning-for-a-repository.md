@@ -68,23 +68,17 @@ You can use default setup if your repository includes languages that aren't supp
 
 {% data reusables.code-scanning.default-setup-automatic %}
 
-{% ifversion code-scanning-without-workflow-310 %}
-
 {% note %}
 
 **Note:** If your repository contains _only_ {% data variables.product.prodname_codeql %}-supported compiled languages (for example, Java), then you will be taken to the configuration page to select the languages you want to add to your default setup configuration.
 
 {% endnote %}
 
-{% endif %}
-
 {% else %}
 
 Your repository is eligible for default setup if it uses {% data variables.product.prodname_actions %} and contains only the following {% data variables.product.prodname_codeql %}-supported languages:{% ifversion code-scanning-default-setup-go %} Go,{% endif %} JavaScript/TypeScript, Python, or Ruby. While you can use default setup if your repository includes languages that aren't supported by {% data variables.product.prodname_codeql %}, such as R, you must use the advanced setup if you include {% data variables.product.prodname_codeql %}-supported languages other than those previously listed. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)."{% ifversion org-enable-code-scanning %} For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."{% endif %}
 
 {% endif %}
-
-{% data reusables.code-scanning.default-setup-automatic %}
 
 Enabling default setup is the quickest way to configure {% data variables.product.prodname_code_scanning %} for your repository. Additionally, default setup requires none of the maintenance necessary with a {% data variables.product.prodname_codeql %} workflow file. Before you enable default setup, you'll see the languages it will analyze, the query suites it will run, and the events that will trigger a new scan.
 

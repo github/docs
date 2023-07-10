@@ -2375,7 +2375,9 @@
           "id": "teamdiscussion",
           "kind": "objects",
           "href": "/graphql/reference/objects#teamdiscussion",
-          "description": "<p>The new discussion.</p>"
+          "description": "<p>The new discussion.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         }
       ]
     },
@@ -2409,7 +2411,9 @@
           "id": "teamdiscussioncomment",
           "kind": "objects",
           "href": "/graphql/reference/objects#teamdiscussioncomment",
-          "description": "<p>The new comment.</p>"
+          "description": "<p>The new comment.</p>",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         }
       ]
     },
@@ -14291,8 +14295,7 @@
           "DependencyGraphManifestConnection",
           "DependencyGraphDependency",
           "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection",
-          "DependencyGraphPackageRelease.dependencies"
+          "DependencyGraphDependencyConnection"
         ],
         "owning_teams": [
           "@github/dependency-graph"
@@ -14371,8 +14374,7 @@
           "DependencyGraphManifestConnection",
           "DependencyGraphDependency",
           "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection",
-          "DependencyGraphPackageRelease.dependencies"
+          "DependencyGraphDependencyConnection"
         ],
         "owning_teams": [
           "@github/dependency-graph"
@@ -14433,8 +14435,7 @@
           "DependencyGraphManifestConnection",
           "DependencyGraphDependency",
           "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection",
-          "DependencyGraphPackageRelease.dependencies"
+          "DependencyGraphDependencyConnection"
         ],
         "owning_teams": [
           "@github/dependency-graph"
@@ -14479,8 +14480,7 @@
           "DependencyGraphManifestConnection",
           "DependencyGraphDependency",
           "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection",
-          "DependencyGraphPackageRelease.dependencies"
+          "DependencyGraphDependencyConnection"
         ],
         "owning_teams": [
           "@github/dependency-graph"
@@ -14614,8 +14614,7 @@
           "DependencyGraphManifestConnection",
           "DependencyGraphDependency",
           "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection",
-          "DependencyGraphPackageRelease.dependencies"
+          "DependencyGraphDependencyConnection"
         ],
         "owning_teams": [
           "@github/dependency-graph"
@@ -14676,8 +14675,7 @@
           "DependencyGraphManifestConnection",
           "DependencyGraphDependency",
           "DependencyGraphDependencyEdge",
-          "DependencyGraphDependencyConnection",
-          "DependencyGraphPackageRelease.dependencies"
+          "DependencyGraphDependencyConnection"
         ],
         "owning_teams": [
           "@github/dependency-graph"
@@ -30538,6 +30536,197 @@
       ]
     },
     {
+      "name": "OrgOauthAppAccessBlockedAuditEntry",
+      "kind": "objects",
+      "id": "orgoauthappaccessblockedauditentry",
+      "href": "/graphql/reference/objects#orgoauthappaccessblockedauditentry",
+      "description": "<p>Audit log entry for a org.oauth_app_access_blocked event.</p>",
+      "implements": [
+        {
+          "name": "AuditEntry",
+          "id": "auditentry",
+          "href": "/graphql/reference/interfaces#auditentry"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "OauthApplicationAuditEntryData",
+          "id": "oauthapplicationauditentrydata",
+          "href": "/graphql/reference/interfaces#oauthapplicationauditentrydata"
+        },
+        {
+          "name": "OrganizationAuditEntryData",
+          "id": "organizationauditentrydata",
+          "href": "/graphql/reference/interfaces#organizationauditentrydata"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>The action name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "actor",
+          "description": "<p>The user who initiated the action.</p>",
+          "type": "AuditEntryActor",
+          "id": "auditentryactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#auditentryactor"
+        },
+        {
+          "name": "actorIp",
+          "description": "<p>The IP address of the actor.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "actorLocation",
+          "description": "<p>A readable representation of the actor's location.</p>",
+          "type": "ActorLocation",
+          "id": "actorlocation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#actorlocation"
+        },
+        {
+          "name": "actorLogin",
+          "description": "<p>The username of the user who initiated the action.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "actorResourcePath",
+          "description": "<p>The HTTP path for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "actorUrl",
+          "description": "<p>The HTTP URL for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>The time the action was initiated.</p>",
+          "type": "PreciseDateTime!",
+          "id": "precisedatetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "oauthApplicationName",
+          "description": "<p>The name of the OAuth application.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "oauthApplicationResourcePath",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "oauthApplicationUrl",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "operationType",
+          "description": "<p>The corresponding operation type for the action.</p>",
+          "type": "OperationType",
+          "id": "operationtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#operationtype"
+        },
+        {
+          "name": "organization",
+          "description": "<p>The Organization associated with the Audit Entry.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization"
+        },
+        {
+          "name": "organizationName",
+          "description": "<p>The name of the Organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "organizationResourcePath",
+          "description": "<p>The HTTP path for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "organizationUrl",
+          "description": "<p>The HTTP URL for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user affected by the action.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "userLogin",
+          "description": "<p>For actions involving two users, the actor is the initiator and the user is the affected user.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "userResourcePath",
+          "description": "<p>The HTTP path for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "userUrl",
+          "description": "<p>The HTTP URL for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
       "name": "OrgOauthAppAccessDeniedAuditEntry",
       "kind": "objects",
       "id": "orgoauthappaccessdeniedauditentry",
@@ -30734,6 +30923,197 @@
       "id": "orgoauthappaccessrequestedauditentry",
       "href": "/graphql/reference/objects#orgoauthappaccessrequestedauditentry",
       "description": "<p>Audit log entry for a org.oauth_app_access_requested event.</p>",
+      "implements": [
+        {
+          "name": "AuditEntry",
+          "id": "auditentry",
+          "href": "/graphql/reference/interfaces#auditentry"
+        },
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        },
+        {
+          "name": "OauthApplicationAuditEntryData",
+          "id": "oauthapplicationauditentrydata",
+          "href": "/graphql/reference/interfaces#oauthapplicationauditentrydata"
+        },
+        {
+          "name": "OrganizationAuditEntryData",
+          "id": "organizationauditentrydata",
+          "href": "/graphql/reference/interfaces#organizationauditentrydata"
+        }
+      ],
+      "fields": [
+        {
+          "name": "action",
+          "description": "<p>The action name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "actor",
+          "description": "<p>The user who initiated the action.</p>",
+          "type": "AuditEntryActor",
+          "id": "auditentryactor",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#auditentryactor"
+        },
+        {
+          "name": "actorIp",
+          "description": "<p>The IP address of the actor.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "actorLocation",
+          "description": "<p>A readable representation of the actor's location.</p>",
+          "type": "ActorLocation",
+          "id": "actorlocation",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#actorlocation"
+        },
+        {
+          "name": "actorLogin",
+          "description": "<p>The username of the user who initiated the action.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "actorResourcePath",
+          "description": "<p>The HTTP path for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "actorUrl",
+          "description": "<p>The HTTP URL for the actor.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>The time the action was initiated.</p>",
+          "type": "PreciseDateTime!",
+          "id": "precisedatetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#precisedatetime"
+        },
+        {
+          "name": "oauthApplicationName",
+          "description": "<p>The name of the OAuth application.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "oauthApplicationResourcePath",
+          "description": "<p>The HTTP path for the OAuth application.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "oauthApplicationUrl",
+          "description": "<p>The HTTP URL for the OAuth application.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "operationType",
+          "description": "<p>The corresponding operation type for the action.</p>",
+          "type": "OperationType",
+          "id": "operationtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#operationtype"
+        },
+        {
+          "name": "organization",
+          "description": "<p>The Organization associated with the Audit Entry.</p>",
+          "type": "Organization",
+          "id": "organization",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organization"
+        },
+        {
+          "name": "organizationName",
+          "description": "<p>The name of the Organization.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "organizationResourcePath",
+          "description": "<p>The HTTP path for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "organizationUrl",
+          "description": "<p>The HTTP URL for the organization.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "user",
+          "description": "<p>The user affected by the action.</p>",
+          "type": "User",
+          "id": "user",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#user"
+        },
+        {
+          "name": "userLogin",
+          "description": "<p>For actions involving two users, the actor is the initiator and the user is the affected user.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "userResourcePath",
+          "description": "<p>The HTTP path for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        },
+        {
+          "name": "userUrl",
+          "description": "<p>The HTTP URL for the user.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
+        }
+      ]
+    },
+    {
+      "name": "OrgOauthAppAccessUnblockedAuditEntry",
+      "kind": "objects",
+      "id": "orgoauthappaccessunblockedauditentry",
+      "href": "/graphql/reference/objects#orgoauthappaccessunblockedauditentry",
+      "description": "<p>Audit log entry for a org.oauth_app_access_unblocked event.</p>",
       "implements": [
         {
           "name": "AuditEntry",
@@ -33668,6 +34048,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "isArchived",
+              "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -41117,6 +41507,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "path",
+          "description": "<p>Identifies the file path of this thread.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "pullRequest",
           "description": "<p>Identifies the pull request associated with this thread.</p>",
           "type": "PullRequest!",
@@ -41155,6 +41553,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "subjectType",
+          "description": "<p>The level at which the comments in the corresponding thread are targeted, can be a diff line or a file.</p>",
+          "type": "PullRequestReviewThreadSubjectType!",
+          "id": "pullrequestreviewthreadsubjecttype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestreviewthreadsubjecttype"
         },
         {
           "name": "viewerCanReply",
@@ -47657,8 +48063,7 @@
               "DependencyGraphManifestConnection",
               "DependencyGraphDependency",
               "DependencyGraphDependencyEdge",
-              "DependencyGraphDependencyConnection",
-              "DependencyGraphPackageRelease.dependencies"
+              "DependencyGraphDependencyConnection"
             ],
             "owning_teams": [
               "@github/dependency-graph"
@@ -50343,6 +50748,23 @@
       ]
     },
     {
+      "name": "RepositoryIdConditionTarget",
+      "kind": "objects",
+      "id": "repositoryidconditiontarget",
+      "href": "/graphql/reference/objects#repositoryidconditiontarget",
+      "description": "<p>Parameters to be used for the repository_id condition.</p>",
+      "fields": [
+        {
+          "name": "repositoryIds",
+          "description": "<p>One of these repo IDs must match the repo.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
       "name": "RepositoryInvitation",
       "kind": "objects",
       "id": "repositoryinvitation",
@@ -50720,6 +51142,14 @@
           "href": "/graphql/reference/objects#refnameconditiontarget"
         },
         {
+          "name": "repositoryId",
+          "description": "<p>Configuration for the repository_id condition.</p>",
+          "type": "RepositoryIdConditionTarget",
+          "id": "repositoryidconditiontarget",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#repositoryidconditiontarget"
+        },
+        {
           "name": "repositoryName",
           "description": "<p>Configuration for the repository_name condition.</p>",
           "type": "RepositoryNameConditionTarget",
@@ -50858,14 +51288,6 @@
               }
             }
           ]
-        },
-        {
-          "name": "bypassMode",
-          "description": "<p>The bypass mode of this ruleset.</p>",
-          "type": "RuleBypassMode!",
-          "id": "rulebypassmode",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#rulebypassmode"
         },
         {
           "name": "conditions",
@@ -51014,6 +51436,38 @@
           "id": "bypassactor",
           "kind": "unions",
           "href": "/graphql/reference/unions#bypassactor"
+        },
+        {
+          "name": "bypassMode",
+          "description": "<p>The mode for the bypass actor.</p>",
+          "type": "RepositoryRulesetBypassActorBypassMode",
+          "id": "repositoryrulesetbypassactorbypassmode",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryrulesetbypassactorbypassmode"
+        },
+        {
+          "name": "organizationAdmin",
+          "description": "<p>This actor represents the ability for an organization admin to bypass.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "repositoryRoleDatabaseId",
+          "description": "<p>If the actor is a repository role, the repository role's ID that can bypass.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "repositoryRoleName",
+          "description": "<p>If the actor is a repository role, the repository role's name that can bypass.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "repositoryRuleset",
@@ -56132,7 +56586,9 @@
           "type": "CommentAuthorAssociation!",
           "id": "commentauthorassociation",
           "kind": "enums",
-          "href": "/graphql/reference/enums#commentauthorassociation"
+          "href": "/graphql/reference/enums#commentauthorassociation",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "body",
@@ -56164,7 +56620,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "comments",
@@ -56234,7 +56692,9 @@
                 "href": "/graphql/reference/input-objects#teamdiscussioncommentorder"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "commentsResourcePath",
@@ -56242,7 +56702,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "commentsUrl",
@@ -56250,7 +56712,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "createdAt",
@@ -56298,7 +56762,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "isPrivate",
@@ -56306,7 +56772,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "lastEditedAt",
@@ -56322,7 +56790,9 @@
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "publishedAt",
@@ -56416,7 +56886,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "team",
@@ -56424,7 +56896,9 @@
           "type": "Team!",
           "id": "team",
           "kind": "objects",
-          "href": "/graphql/reference/objects#team"
+          "href": "/graphql/reference/objects#team",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "title",
@@ -56432,7 +56906,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -56448,7 +56924,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "userContentEdits",
@@ -56514,7 +56992,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "viewerCanReact",
@@ -56624,7 +57104,9 @@
           "type": "CommentAuthorAssociation!",
           "id": "commentauthorassociation",
           "kind": "enums",
-          "href": "/graphql/reference/enums#commentauthorassociation"
+          "href": "/graphql/reference/enums#commentauthorassociation",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "body",
@@ -56656,7 +57138,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "createdAt",
@@ -56688,7 +57172,9 @@
           "type": "TeamDiscussion!",
           "id": "teamdiscussion",
           "kind": "objects",
-          "href": "/graphql/reference/objects#teamdiscussion"
+          "href": "/graphql/reference/objects#teamdiscussion",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "editor",
@@ -56720,7 +57206,9 @@
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "publishedAt",
@@ -56814,7 +57302,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -56830,7 +57320,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>The Team Discussions feature is deprecated in favor of Organization Discussions. Follow the guide at <a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to find a suitable replacement. Removal on 2024-07-01 UTC.</p>"
         },
         {
           "name": "userContentEdits",
@@ -59906,6 +60398,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "isArchived",
+              "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -63796,6 +64298,16 @@
               }
             },
             {
+              "name": "isArchived",
+              "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isFork",
               "description": "<p>If non-null, filters repositories according to whether they are forks of another repository.</p>",
               "type": {
@@ -67614,6 +68126,23 @@
       ]
     },
     {
+      "name": "RepositoryRulesetBypassActorBypassMode",
+      "kind": "enums",
+      "id": "repositoryrulesetbypassactorbypassmode",
+      "href": "/graphql/reference/enums#repositoryrulesetbypassactorbypassmode",
+      "description": "<p>The bypass mode for a specific actor on a ruleset.</p>",
+      "values": [
+        {
+          "name": "ALWAYS",
+          "description": "<p>The actor can always bypass rules.</p>"
+        },
+        {
+          "name": "PULL_REQUEST",
+          "description": "<p>The actor can only bypass rules via a pull request.</p>"
+        }
+      ]
+    },
+    {
       "name": "RepositoryRulesetTarget",
       "kind": "enums",
       "id": "repositoryrulesettarget",
@@ -67740,39 +68269,6 @@
         {
           "name": "UNAFFILIATED",
           "description": "<p>A user who is unaffiliated with the organization.</p>"
-        }
-      ]
-    },
-    {
-      "name": "RuleBypassMode",
-      "kind": "enums",
-      "id": "rulebypassmode",
-      "href": "/graphql/reference/enums#rulebypassmode",
-      "description": "<p>The bypass mode for a rule or ruleset.</p>",
-      "values": [
-        {
-          "name": "NONE",
-          "description": "<p>Bypassing is disabled.</p>"
-        },
-        {
-          "name": "ORGANIZATION",
-          "description": "<p>Those with bypass permission at the organization level can bypass.</p>"
-        },
-        {
-          "name": "ORGANIZATION_ALWAYS",
-          "description": "<p>Those with bypass permission at the organization level can always bypass.</p>"
-        },
-        {
-          "name": "ORGANIZATION_NONE",
-          "description": "<p>Bypassing is disabled.</p>"
-        },
-        {
-          "name": "ORGANIZATION_PRS_ONLY",
-          "description": "<p>Those with bypass permission at the organization level can bypass for pull requests only.</p>"
-        },
-        {
-          "name": "REPOSITORY",
-          "description": "<p>Those with bypass permission at the repository level can bypass.</p>"
         }
       ]
     },
@@ -69120,6 +69616,11 @@
           "href": "/graphql/reference/objects#orgoauthappaccessapprovedauditentry"
         },
         {
+          "name": "OrgOauthAppAccessBlockedAuditEntry",
+          "id": "orgoauthappaccessblockedauditentry",
+          "href": "/graphql/reference/objects#orgoauthappaccessblockedauditentry"
+        },
+        {
           "name": "OrgOauthAppAccessDeniedAuditEntry",
           "id": "orgoauthappaccessdeniedauditentry",
           "href": "/graphql/reference/objects#orgoauthappaccessdeniedauditentry"
@@ -69128,6 +69629,11 @@
           "name": "OrgOauthAppAccessRequestedAuditEntry",
           "id": "orgoauthappaccessrequestedauditentry",
           "href": "/graphql/reference/objects#orgoauthappaccessrequestedauditentry"
+        },
+        {
+          "name": "OrgOauthAppAccessUnblockedAuditEntry",
+          "id": "orgoauthappaccessunblockedauditentry",
+          "href": "/graphql/reference/objects#orgoauthappaccessunblockedauditentry"
         },
         {
           "name": "OrgRemoveBillingManagerAuditEntry",
@@ -73272,20 +73778,12 @@
       "description": "<p>Autogenerated input type of CreateRepositoryRuleset.</p>",
       "inputFields": [
         {
-          "name": "bypassActorIds",
-          "description": "<p>A list of Team or App IDs allowed to bypass rules in this ruleset.</p>",
-          "type": "[ID!]",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
-        },
-        {
-          "name": "bypassMode",
-          "description": "<p>The bypass mode for this ruleset.</p>",
-          "type": "RuleBypassMode",
-          "id": "rulebypassmode",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#rulebypassmode"
+          "name": "bypassActors",
+          "description": "<p>A list of actors that are allowed to bypass rules in this ruleset.</p>",
+          "type": "[RepositoryRulesetBypassActorInput!]",
+          "id": "repositoryrulesetbypassactorinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositoryrulesetbypassactorinput"
         },
         {
           "name": "clientMutationId",
@@ -73355,8 +73853,8 @@
       "inputFields": [
         {
           "name": "body",
-          "description": "<p>The content of the comment.</p>",
-          "type": "String!",
+          "description": "<p>The content of the comment. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>body</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -73371,8 +73869,8 @@
         },
         {
           "name": "discussionId",
-          "description": "<p>The ID of the discussion to which the comment belongs.</p>",
-          "type": "ID!",
+          "description": "<p>The ID of the discussion to which the comment belongs. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>discussionId</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "ID",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
@@ -73389,8 +73887,8 @@
       "inputFields": [
         {
           "name": "body",
-          "description": "<p>The content of the discussion.</p>",
-          "type": "String!",
+          "description": "<p>The content of the discussion. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>body</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -73405,7 +73903,7 @@
         },
         {
           "name": "private",
-          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>",
+          "description": "<p>If true, restricts the visibility of this discussion to team members and\norganization admins. If false or not specified, allows any organization member\nto view this discussion.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>private</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",
@@ -73413,8 +73911,8 @@
         },
         {
           "name": "teamId",
-          "description": "<p>The ID of the team to which the discussion belongs.</p>",
-          "type": "ID!",
+          "description": "<p>The ID of the team to which the discussion belongs. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>teamId</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "ID",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
@@ -73422,8 +73920,8 @@
         },
         {
           "name": "title",
-          "description": "<p>The title of the discussion.</p>",
-          "type": "String!",
+          "description": "<p>The title of the discussion. This field is required.</p>\n<p><strong>Upcoming Change on 2024-07-01 UTC</strong>\n<strong>Description:</strong> <code>title</code> will be removed. Follow the guide at\n<a href=\"https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/\">https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/</a> to\nfind a suitable replacement.\n<strong>Reason:</strong> The Team Discussions feature is deprecated in favor of Organization Discussions.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -76043,6 +76541,23 @@
       ]
     },
     {
+      "name": "RepositoryIdConditionTargetInput",
+      "kind": "inputObjects",
+      "id": "repositoryidconditiontargetinput",
+      "href": "/graphql/reference/input-objects#repositoryidconditiontargetinput",
+      "description": "<p>Parameters to be used for the repository_id condition.</p>",
+      "inputFields": [
+        {
+          "name": "repositoryIds",
+          "description": "<p>One of these repo IDs must match the repo.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        }
+      ]
+    },
+    {
       "name": "RepositoryInvitationOrder",
       "kind": "inputObjects",
       "id": "repositoryinvitationorder",
@@ -76166,6 +76681,14 @@
           "href": "/graphql/reference/input-objects#refnameconditiontargetinput"
         },
         {
+          "name": "repositoryId",
+          "description": "<p>Configuration for the repository_id condition.</p>",
+          "type": "RepositoryIdConditionTargetInput",
+          "id": "repositoryidconditiontargetinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositoryidconditiontargetinput"
+        },
+        {
           "name": "repositoryName",
           "description": "<p>Configuration for the repository_name condition.</p>",
           "type": "RepositoryNameConditionTargetInput",
@@ -76206,6 +76729,47 @@
           "id": "repositoryruletype",
           "kind": "enums",
           "href": "/graphql/reference/enums#repositoryruletype"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryRulesetBypassActorInput",
+      "kind": "inputObjects",
+      "id": "repositoryrulesetbypassactorinput",
+      "href": "/graphql/reference/input-objects#repositoryrulesetbypassactorinput",
+      "description": "<p>Specifies the attributes for a new or updated ruleset bypass actor. Only one of\n<code>actor_id</code>, <code>repository_role_database_id</code>, or <code>organization_admin</code> should be specified.</p>",
+      "inputFields": [
+        {
+          "name": "actorId",
+          "description": "<p>For Team and Integration bypasses, the Team or Integration ID.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "bypassMode",
+          "description": "<p>The bypass mode for this actor.</p>",
+          "type": "RepositoryRulesetBypassActorBypassMode!",
+          "id": "repositoryrulesetbypassactorbypassmode",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryrulesetbypassactorbypassmode"
+        },
+        {
+          "name": "organizationAdmin",
+          "description": "<p>For org admin bupasses, true.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "repositoryRoleDatabaseId",
+          "description": "<p>For role bypasses, the role database ID.</p>",
+          "type": "Int",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -79400,20 +79964,12 @@
       "description": "<p>Autogenerated input type of UpdateRepositoryRuleset.</p>",
       "inputFields": [
         {
-          "name": "bypassActorIds",
-          "description": "<p>A list of Team or App IDs allowed to bypass rules in this ruleset.</p>",
-          "type": "[ID!]",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
-        },
-        {
-          "name": "bypassMode",
-          "description": "<p>The bypass mode for this ruleset.</p>",
-          "type": "RuleBypassMode",
-          "id": "rulebypassmode",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#rulebypassmode"
+          "name": "bypassActors",
+          "description": "<p>A list of actors that are allowed to bypass rules in this ruleset.</p>",
+          "type": "[RepositoryRulesetBypassActorInput!]",
+          "id": "repositoryrulesetbypassactorinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#repositoryrulesetbypassactorinput"
         },
         {
           "name": "clientMutationId",
