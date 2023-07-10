@@ -396,8 +396,8 @@ Some best practices for using links:
 - Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurance.)
 
 For accessibility and readability, avoid inline or midsentence links.
-- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
-- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.
+- **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
+- **Avoid:** `Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
 
@@ -413,11 +413,11 @@ For example, the Free, Pro, & Team version of "[Managing the publication of GitH
 
 To link to a different article in a different version, use this format:
 
-> For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.
+> `For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.`
 
 To link to the same article in a different version, use this format:
 
-> For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).
+> `For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).`
 
 To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/{{ currentArticle }}`).
 
@@ -426,25 +426,25 @@ To link to a specific version, you must include the version in the path (e.g., `
 When we link to specific sections of articles, we want to make sure the link is descriptive enough so that someone knows they are in the correct spot after following a link.
 
 To link to a specific header in the same article, use this format:
-> For more information, see "[HEADER TITLE](#HEADER-TITLE)."
+> `For more information, see "[HEADER TITLE](#HEADER-TITLE)."`
 
 To link to a specific header in a different article, use this format:
-> For more information, see "[AUOTOTITLE](path-to-article#HEADER-TITLE)."
+> `For more information, see "[AUTOTITLE](path-to-article#HEADER-TITLE)."`
 
 To link to two or more specific headers in a different article, use this format:
-> For more information, see "[HEADER 1](path-to-article#HEADER-1)" and "[HEADER 2](path-to-article#HEADER-2)" in "ARTICLE TITLE."
+> `For more information, see "[HEADER 1](path-to-article#HEADER-1)" and "[HEADER 2](path-to-article#HEADER-2)" in "ARTICLE TITLE."`
 
 ### Links to a specific tool
 
 When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
 
-> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
+> `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."`
 
 ### Links to learning paths
 
 Use this format to link to a learning path.
 
-> For more information, follow the "[LEARNING PATH TITLE]()" learning path.
+> `For more information, follow the "[LEARNING PATH TITLE]()" learning path.`
 
 ### Links to external resources
 

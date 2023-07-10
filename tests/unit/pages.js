@@ -100,8 +100,8 @@ describe('pages module', () => {
 
       const message = `
   Found ${nonMatches.length} ${
-        nonMatches.length === 1 ? 'file' : 'files'
-      } that do not match their slugified titles.\n
+    nonMatches.length === 1 ? 'file' : 'files'
+  } that do not match their slugified titles.\n
   ${nonMatches.join('\n')}\n
   To fix, run script/reconcile-filenames-with-ids.js\n\n`
 

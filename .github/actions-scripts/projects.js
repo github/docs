@@ -187,9 +187,9 @@ export function generateUpdateProjectV2ItemFieldMutation({
     // (statistically, this should still give us a unique mutation ID)
     return `
       set_${fieldID.slice(1)}_item_${item.replaceAll(
-      /[^a-z0-9]/g,
-      ''
-    )}: updateProjectV2ItemFieldValue(input: {
+        /[^a-z0-9]/g,
+        ''
+      )}: updateProjectV2ItemFieldValue(input: {
         projectId: $project
         itemId: "${item}"
         fieldId: ${fieldID}
