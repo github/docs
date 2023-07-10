@@ -127,7 +127,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
         {title}
         <TreeView.SubTree>
           {page.childPages.map((childPage, i) => {
-            const childTitle = childPage.shortTitle || childPage.title
+            const childTitle = childPage.title
             const childActive =
               routePath.includes(childPage.href + '/') || routePath === childPage.href
             const childCurrent = routePath === childPage.href

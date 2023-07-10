@@ -12,9 +12,8 @@ type Props = {
 }
 
 export const SidebarNav = ({ variant = 'full' }: Props) => {
-  const { currentProduct, currentProductTree } = useMainContext()
+  const { currentProduct } = useMainContext()
   const isRestPage = currentProduct && currentProduct.id === 'rest'
-  const productTitle = currentProductTree?.shortTitle || currentProductTree?.title
   // we need to roughly account for the site header height plus the height of
   // the side nav header (which is taller when we show the API version picker)
   // so we don't cut off the bottom of the sidebar
@@ -25,19 +24,19 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
       className={cx(variant === 'full' ? 'position-sticky d-none border-right d-xl-block' : '')}
       style={{ width: 326, height: 'calc(100vh - 65px)', top: '65px' }}
     >
-      {variant === 'full' && currentProductTree && (
+      {variant === 'full' && currentProduct && (
         <div className={cx('d-none px-4 pb-3 border-bottom d-xl-block')}>
           <AllProductsLink />
           {currentProduct && (
             <div className="mt-3">
               <Link
                 data-testid="sidebar-product-xl"
-                href={currentProductTree.href}
+                href={currentProduct.href}
                 // Note the `_product-title` is used by the popover preview cards
                 // when it needs this text for in-page links.
                 className="d-block pl-1 mb-2 h3 color-fg-default no-underline _product-title"
               >
-                {productTitle}
+                {currentProduct.name}
               </Link>
             </div>
           )}
