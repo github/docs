@@ -128,7 +128,7 @@
     "rss-parser": "^3.13.0",
     "scroll-anchoring": "^0.1.0",
     "semver": "^7.5.2",
-    "sharp": "0.32.0",
+    "sharp": "0.32.1",
     "slash": "^5.0.0",
     "strip-html-comments": "^1.0.0",
     "styled-components": "^5.3.5",
