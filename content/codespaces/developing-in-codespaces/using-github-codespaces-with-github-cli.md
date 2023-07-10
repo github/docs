@@ -21,6 +21,7 @@ redirect_from:
 You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
 - [List all of your codespaces](#list-all-of-your-codespaces)
 - [Create a new codespace](#create-a-new-codespace)
+- [View details of a codespace](#view-details-of-a-codespace)
 - [Stop a codespace](#stop-a-codespace)
 - [Delete a codespace](#delete-a-codespace)
 - [Rename a codespace](#rename-a-codespace)
@@ -85,6 +86,25 @@ gh codespace create -r OWNER/REPO_NAME [-b BRANCH]
 ```
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+
+### View details of a codespace
+
+```shell
+gh codespace view
+```
+
+After running this command you are prompted to choose one of your existing codespaces. The following information is then displayed:
+- Name of the codespace
+- State (for example, "Available" or "Shutdown")
+- Repository
+- Git status
+- Path to the dev container configuration file used to create the codespace
+- Machine type
+- Idle timeout
+- Date and time the codespace was created
+- Retention period
+
+For more information, see the [{% data variables.product.prodname_dotcom %} CLI reference](https://cli.github.com/manual/gh_codespace_view).
 
 ### Stop a codespace
 
