@@ -19,10 +19,18 @@ import { mkdirp } from 'mkdirp'
 
 import { deprecated, supported } from '../../../lib/enterprise-server-releases.js'
 
+const [currentReleaseNumber, previousReleaseNumber] = supported
 const pipelines = JSON.parse(await readFile('src/automated-pipelines/lib/config.json'))[
   'automation-pipelines'
 ]
 await updateAutomatedConfigFiles(pipelines, supported, deprecated)
+await cp(
+  `data/graphql/ghes-${previousReleaseNumber}`,
+  `data/graphql/ghes-${currentReleaseNumber}`,
+  {
+    recursive: true,
+  }
+)
 
 // The allVersions object uses the 'api-versions' data stored in the
 // src/rest/lib/config.json file. We want to update 'api-versions'
@@ -132,7 +140,6 @@ for (const directory of addRelNoteDirs) {
 // If the config file for a pipeline includes `api-versions` update that list
 // based on the supported and deprecated releases.
 async function updateAutomatedConfigFiles(pipelines, supported, deprecated) {
-  const [currentReleaseNumber, previousReleaseNumber] = supported
   for (const pipeline of pipelines) {
     const configFilepath = `src/${pipeline}/lib/config.json`
     const configData = JSON.parse(await readFile(configFilepath))
