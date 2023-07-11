@@ -44,7 +44,7 @@ permissions:
 
 # This allows one deploy workflow to interrupt another
 concurrency:
-  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
+  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
   cancel-in-progress: true
 
 jobs:
@@ -56,8 +56,8 @@ jobs:
     # See https://bit.ly/3qB9nZW > If a job in a workflow is skipped due to a conditional, it will report its status as "Success".
     if: |
       (
-        (github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF)
-         && (github.event.number || github.event.inputs.PR_NUMBER || github.run_id)
+        (github.event.pull_request.head.sha || inputs.COMMIT_REF)
+         && (github.event.number || inputs.PR_NUMBER || github.run_id)
        )
        && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
        &&  github.actor != 'dependabot[bot]'
@@ -70,8 +70,8 @@ jobs:
       # to link a PR to a list of environments later.
       url: ${{ env.APP_URL }}
     env:
-      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
-      COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
+      PR_NUMBER: ${{ github.event.number || inputs.PR_NUMBER || github.run_id }}
+      COMMIT_REF: ${{ github.event.pull_request.head.sha || inputs.COMMIT_REF }}
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
       IS_INTERNAL_BUILD: ${{ github.repository == 'github/docs-internal' }}
       # This may also run in forked repositories, not just 'github/docs'
