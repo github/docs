@@ -27358,6 +27358,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     last: Int
 
     """
+    Filter mannequins by login.
+    """
+    login: String
+
+    """
     Ordering options for mannequins returned from the connection.
     """
     orderBy: MannequinOrder = {field: CREATED_AT, direction: ASC}
