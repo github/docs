@@ -56,7 +56,7 @@ export function ParameterRow({
           <div
             className={cx(
               'pl-0 pt-1 pr-1 pb-1',
-              `${rowIndex > 0 && isChild ? 'pt-3 border-top color-border-muted' : ''}`
+              `${rowIndex > 0 && isChild ? 'pt-3 border-top color-border-muted' : ''}`,
             )}
           >
             <div>

@@ -79,7 +79,7 @@ You may be able to view the email addresses for members of your enterprise on ei
 
 - If you use {% data variables.product.prodname_emus %} and the `NameID` for your SAML configuration is an email address, you can view the `NameID` for each of your enterprise members.
 
-- If you verify a domain for your enterprise, you can view members' email addresses for the verified domain.
+- If you verify a domain for your enterprise, you can view members' email addresses for the verified domain. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
 
 - If you don't use {% data variables.product.prodname_emus %}, and you also don't configure SAML single sign-on (SSO), members access your enterprise's resources on {% data variables.location.product_location %} solely using a personal account. {% data reusables.saml.personal-accounts-determine-email-visibility %}
 

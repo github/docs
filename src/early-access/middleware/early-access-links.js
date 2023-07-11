@@ -12,10 +12,10 @@ export default function earlyAccessContext(req, res, next) {
         (page) =>
           page.hidden &&
           page.relativePath.startsWith('early-access') &&
-          !page.relativePath.endsWith('index.md')
+          !page.relativePath.endsWith('index.md'),
       )
       .map((page) => page.permalinks)
-      .flat()
+      .flat(),
   )
     // Get links for the current version
     .filter((permalink) => req.context.currentVersion === permalink.pageVersion)

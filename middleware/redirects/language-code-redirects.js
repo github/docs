@@ -14,7 +14,7 @@ const combinedRedirectPatternRegex =
 
 const allRedirectPatterns = Object.values(languages)
   .map((language) =>
-    (language.redirectPatterns || []).map((redirectPattern) => [language.code, redirectPattern])
+    (language.redirectPatterns || []).map((redirectPattern) => [language.code, redirectPattern]),
   )
   .flat()
 

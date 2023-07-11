@@ -42,7 +42,7 @@ export const LegalFooter = () => {
             legacyBehavior={false}
             className={cx(
               'text-underline',
-              router.locale === 'ko' && 'color-fg-attention text-bold'
+              router.locale === 'ko' && 'color-fg-attention text-bold',
             )}
           >
             {t('privacy')}

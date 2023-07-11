@@ -126,14 +126,14 @@ describe('category pages', () => {
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
-              })
+              }),
             )
           ).filter(Boolean)
 
           // Get all of the child articles that exist in the subdir
           const childEntries = await fs.promises.readdir(categoryDir, { withFileTypes: true })
           const childFileEntries = childEntries.filter(
-            (ent) => ent.isFile() && ent.name !== 'index.md'
+            (ent) => ent.isFile() && ent.name !== 'index.md',
           )
           const childFilePaths = childFileEntries.map((ent) => path.join(categoryDir, ent.name))
 
@@ -148,7 +148,7 @@ describe('category pages', () => {
 
                 // ".../content/github/{category}/{article}.md" => "/{article}"
                 return `/${path.relative(categoryDir, articlePath).replace(/\.md$/, '')}`
-              })
+              }),
             )
           ).filter(Boolean)
 
@@ -158,7 +158,7 @@ describe('category pages', () => {
               const { data } = matter(articleContents)
 
               articleVersions[articlePath] = getApplicableVersions(data.versions, articlePath)
-            })
+            }),
           )
         })
 
@@ -191,7 +191,7 @@ describe('category pages', () => {
             }),
             `${indexRelPath.replace('index.md', '')} contains a mix of ${errorType}s and ${
               categoryChildTypes[0]
-            }s, category children must be of the same type`
+            }s, category children must be of the same type`,
           ).toBe(true)
         })
 
@@ -210,7 +210,7 @@ describe('category pages', () => {
 
           // If this fails, execute "script/reconcile-category-dirs-with-ids.js"
         })
-      }
+      },
     )
   })
 })

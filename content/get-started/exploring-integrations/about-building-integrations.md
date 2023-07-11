@@ -10,9 +10,9 @@ versions:
 
 Integrations are tools that extend {% data variables.product.company_short %}'s functionality. Integrations can do things on {% data variables.product.company_short %} like open issues, comment on pull requests, and manage projects. They can also do things outside of {% data variables.product.company_short %} based on events that happen on {% data variables.product.company_short %}. For example, an integration can post on Slack when an issue is opened on {% data variables.product.company_short %}.
 
-Many integrations are {% data variables.product.prodname_github_app %}s, {% data variables.product.prodname_actions %} workflows, or custom actions for {% data variables.product.prodname_actions %} workflows.
+Many integrations are {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_actions %} workflows, or custom actions for {% data variables.product.prodname_actions %} workflows.
 
-- {% data variables.product.prodname_github_app %}s are integrations that run on the app owner's server or on a user device. For more information, see "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)."
+- {% data variables.product.prodname_github_apps %} are integrations that run on the app owner's server or on a user device. For more information, see "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps)."
 - {% data variables.product.prodname_actions %} workflows are workflows that run when specific events occur on {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 - Custom actions are code that can be executed by a {% data variables.product.prodname_actions %} workflow. For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions)."
 

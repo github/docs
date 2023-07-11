@@ -11,7 +11,7 @@ import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 import { deprecated } from '../../../../lib/enterprise-server-releases.js'
 
 const { frontmatterDefaults, targetDirectory } = JSON.parse(
-  await readFile('src/rest/lib/config.json', 'utf-8')
+  await readFile('src/rest/lib/config.json', 'utf-8'),
 )
 
 export async function updateRestFiles() {

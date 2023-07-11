@@ -24,15 +24,15 @@ program
   .description('Move a product-level early access docs set to a category level.')
   .requiredOption(
     '-o, --oldPath <PATH>',
-    'Provide the path of the existing product, e.g., content/early-access/enterprise-importer'
+    'Provide the path of the existing product, e.g., content/early-access/enterprise-importer',
   )
   .requiredOption(
     '-n, --newPath <PATH>',
-    'Provide the new path it will move under, e.g., content/migrations/using-enterprise-importer'
+    'Provide the new path it will move under, e.g., content/migrations/using-enterprise-importer',
   )
   .option(
     '-t, --newTitle <TITLE>',
-    'Provide the new title if it is different from the existing title, e.g., Using Enterprise Importer'
+    'Provide the new title if it is different from the existing title, e.g., Using Enterprise Importer',
   )
   .parse(process.argv)
 
@@ -111,7 +111,7 @@ parentProducToc.data.children.push(`/${path.basename(newPathId)}`)
 
 fs.writeFileSync(
   parentProductTocPath,
-  frontmatter.stringify(parentProducToc.content, parentProducToc.data, { lineWidth: 10000 })
+  frontmatter.stringify(parentProducToc.content, parentProducToc.data, { lineWidth: 10000 }),
 )
 
 // 6. Optionally, update the new product TOC with the new title.
@@ -122,7 +122,7 @@ if (program.opts().newTitle) {
 
   fs.writeFileSync(
     productTocPath,
-    frontmatter.stringify(productToc.content, productToc.data, { lineWidth: 10000 })
+    frontmatter.stringify(productToc.content, productToc.data, { lineWidth: 10000 }),
   )
 }
 
@@ -161,12 +161,12 @@ function moveVariable(dataRef) {
   const oldVariablePath = path.posix.join(
     process.cwd(),
     'data/early-access',
-    `${variablePathArray.join('/')}.yml`
+    `${variablePathArray.join('/')}.yml`,
   )
   const newVariablePath = path.posix.join(
     process.cwd(),
     'data',
-    `${variablePathArray.join('/')}.yml`
+    `${variablePathArray.join('/')}.yml`,
   )
   const nonAltPath = newVariablePath.replace('-alt.yml', '.yml')
   const oldAltPath = oldVariablePath.replace('.yml', '-alt.yml')

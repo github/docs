@@ -38,7 +38,7 @@ export const VersionPicker = ({ mediumOrLower }: Props) => {
   }))
 
   const hasEnterpriseVersions = (page.permalinks || []).some((permalink) =>
-    permalink.pageVersion.startsWith('enterprise-server')
+    permalink.pageVersion.startsWith('enterprise-server'),
   )
 
   allLinks.push({

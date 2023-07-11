@@ -63,20 +63,20 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
 
         // permissions
         for (const [permissionName, readOrWrite] of Object.entries(
-          progAccessData[operation.operationId].permissions
+          progAccessData[operation.operationId].permissions,
         )) {
           const tempTitle = permissionName.replace(/_/g, ' ')
           const permissionNameExists = progActorResources[permissionName]
           if (!permissionNameExists) {
             console.warn(
-              `The permission ${permissionName} is missing from config/locales/programmatic_actor_fine_grained_resources.en.yml. Creating a placeholder value of ${tempTitle} until it's added.`
+              `The permission ${permissionName} is missing from config/locales/programmatic_actor_fine_grained_resources.en.yml. Creating a placeholder value of ${tempTitle} until it's added.`,
             )
           }
           const title = progActorResources[permissionName]?.title || tempTitle
           const resourceGroup = progActorResources[permissionName]?.resource_group || ''
           const displayTitle = getDisplayTitle(title, resourceGroup)
           const relatedPermissionNames = Object.keys(
-            progAccessData[operation.operationId].permissions
+            progAccessData[operation.operationId].permissions,
           ).filter((permission) => permission !== permissionName)
 
           // github app permissions
@@ -94,7 +94,7 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
             'additional-permissions': relatedPermissionNames,
           }
           serverToServerPermissions[permissionName].permissions.push(
-            Object.assign({}, appDataOperationWithCategory, { access: readOrWrite }, worksWithData)
+            Object.assign({}, appDataOperationWithCategory, { access: readOrWrite }, worksWithData),
           )
 
           // fine-grained pats
@@ -112,7 +112,7 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
               Object.assign({}, appDataOperationWithCategory, {
                 'additional-permissions': relatedPermissionNames,
                 access: readOrWrite,
-              })
+              }),
             )
           }
         }
@@ -134,7 +134,7 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
       const filename = `${pageType}.json`
       if (Object.keys(data).length === 0) {
         throw new Error(
-          `Generating GitHub Apps data failed for ${openApiSource}/${schemaName}. The generated data file was empty.`
+          `Generating GitHub Apps data failed for ${openApiSource}/${schemaName}. The generated data file was empty.`,
         )
       }
       const sortedOperations = pageType.includes('permissions')
@@ -160,23 +160,23 @@ async function getProgAccessData(progAccessSource) {
   // check for required PAT
   if (!process.env.GITHUB_TOKEN) {
     throw new Error(
-      'Error! You must have the GITHUB_TOKEN environment variable set to access the programmatic access and resource files via the GitHub REST API.'
+      'Error! You must have the GITHUB_TOKEN environment variable set to access the programmatic access and resource files via the GitHub REST API.',
     )
   }
 
   if (progAccessSource) {
     progAccessDataRaw = yaml.load(
-      await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8')
+      await readFile(path.join(progAccessSource, progAccessFilepath), 'utf8'),
     )
     progActorResources = yaml.load(
-      await readFile(path.join(progAccessSource, progActorFilepath), 'utf8')
+      await readFile(path.join(progAccessSource, progActorFilepath), 'utf8'),
     ).en.programmatic_actor_fine_grained_resources
   } else {
     progAccessDataRaw = yaml.load(
-      await getContents('github', 'github', 'master', progAccessFilepath)
+      await getContents('github', 'github', 'master', progAccessFilepath),
     )
     progActorResources = yaml.load(
-      await getContents('github', 'github', 'master', progActorFilepath)
+      await getContents('github', 'github', 'master', progActorFilepath),
     ).en.programmatic_actor_fine_grained_resources
   }
 

@@ -89,7 +89,7 @@ export const HeaderNotifications = () => {
               type === NotificationType.TRANSLATION && 'color-bg-accent',
               type === NotificationType.RELEASE && 'color-bg-accent',
               type === NotificationType.EARLY_ACCESS && 'color-bg-danger',
-              !isLast && 'border-bottom color-border-default'
+              !isLast && 'border-bottom color-border-default',
             )}
             dangerouslySetInnerHTML={{ __html: content }}
           />

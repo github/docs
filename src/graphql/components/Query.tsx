@@ -32,7 +32,7 @@ export function Query({ item }: Props) {
               dangerouslySetInnerHTML={{
                 __html: t('graphql.reference.arguments').replace(
                   '{{ GraphQLItemTitle }}',
-                  item.name
+                  item.name,
                 ),
               }}
             />

@@ -32,7 +32,7 @@ In addition, {% data variables.product.prodname_actions %} must be enabled for t
 
 {% ifversion code-security-multi-repo-enablement %}
 
-You can use security overview to find a set of repositories and enable or disable default setup for {% data variables.product.prodname_code_scanning %} for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+You can use security overview to identify which repositories in an organization are eligible for default setup for {% data variables.product.prodname_code_scanning %}. Then you can enable code scanning for some or all of these repositories at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
 
 You can also use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in the organization that are eligible for {% data variables.product.prodname_codeql %} default setup.
 
@@ -44,6 +44,8 @@ You can use the organization settings page for "Code security and analysis" to e
 {% data reusables.code-scanning.default-setup-automatic %}
 
 {% endif %}
+
+{% data reusables.security.note-securing-your-org %}
 
 ### Eligibility criteria for organization-level enablement
 

@@ -13,7 +13,7 @@ redirect_from:
   - /apps/creating-github-apps/setting-up-a-github-app/making-your-github-app-available-for-github-enterprise-server
 ---
 
-## About developing {% data variables.product.prodname_github_app %}s for {% data variables.product.prodname_ghe_server %}
+## About developing {% data variables.product.prodname_github_apps %} for {% data variables.product.prodname_ghe_server %}
 
 If you want your {% data variables.product.prodname_github_app %} to be available to organizations in a {% data variables.product.prodname_ghe_server %} instance that you are not part of, you must take the following steps.
 
@@ -25,7 +25,7 @@ If {% data variables.product.prodname_ghe_server %} access is important, conside
 
 ## Each {% data variables.product.prodname_ghe_server %} instance must register their own {% data variables.product.prodname_github_app %}
 
-Organizations owned by a {% data variables.product.prodname_ghe_server %} instance cannot install {% data variables.product.prodname_github_app %}s registered on {% data variables.product.prodname_dotcom_the_website %} or on another {% data variables.product.prodname_ghe_server %} instance. Instead, they must register and install their own {% data variables.product.prodname_github_app %} for use on that instance.
+Organizations owned by a {% data variables.product.prodname_ghe_server %} instance cannot install {% data variables.product.prodname_github_apps %} registered on {% data variables.product.prodname_dotcom_the_website %} or on another {% data variables.product.prodname_ghe_server %} instance. Instead, they must register and install their own {% data variables.product.prodname_github_app %} for use on that instance.
 
 1. The app developer creates a manifest or URL parameters. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters)."
 1. The app developer shares the manifest or URL parameters with the {% data variables.product.prodname_ghe_server %} instance that wants to use the app. The same manifest or URL parameters can be shared with multiple {% data variables.product.prodname_ghe_server %} instances.

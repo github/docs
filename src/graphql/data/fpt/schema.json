@@ -38212,6 +38212,16 @@
               }
             },
             {
+              "name": "login",
+              "description": "<p>Filter mannequins by login.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
               "name": "orderBy",
               "description": "<p>Ordering options for mannequins returned from the connection.</p>",
               "type": {

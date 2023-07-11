@@ -126,14 +126,14 @@ export const Header = () => {
       <div
         className={cx(
           'border-bottom d-unset color-border-muted no-print z-3 color-bg-default',
-          styles.header
+          styles.header,
         )}
       >
         {error !== '404' && <HeaderNotifications />}
         <header
           className={cx(
             'color-bg-default p-2 position-sticky top-0 z-1 border-bottom',
-            scroll && 'color-shadow-small'
+            scroll && 'color-shadow-small',
           )}
         >
           <div
@@ -167,7 +167,7 @@ export const Header = () => {
                     isSearchOpen
                       ? styles.searchContainerWithOpenSearch
                       : styles.searchContainerWithClosedSearch,
-                    'mr-3'
+                    'mr-3',
                   )}
                 >
                   <Search />
@@ -194,7 +194,7 @@ export const Header = () => {
               <IconButton
                 className={cx(
                   'hide-lg hide-xl',
-                  !isSearchOpen ? 'd-flex flex-items-center' : 'd-none'
+                  !isSearchOpen ? 'd-flex flex-items-center' : 'd-none',
                 )}
                 data-testid="mobile-search-button"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
