@@ -43,7 +43,7 @@ describe('graphql json files', () => {
 
           if (!valid) {
             errors = `kind: ${typeObj.kind}, name: ${typeObj.name}: ${formatAjvErrors(
-              schemaValidatorFunctions[type].errors
+              schemaValidatorFunctions[type].errors,
             )}`
           }
 

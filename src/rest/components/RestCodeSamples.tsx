@@ -83,7 +83,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const showExampleOptionMediaType =
     languageExamples.length > 1 &&
     !languageExamples.every(
-      (example) => example.response.contentType === languageExamples[0].response.contentType
+      (example) => example.response.contentType === languageExamples[0].response.contentType,
     )
   const exampleSelectOptions = languageExamples.map((example, index) => ({
     text: showExampleOptionMediaType
@@ -290,7 +290,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           className={cx(
             styles.codeBlock,
             styles.requestCodeBlock,
-            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`
+            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
         >
@@ -350,7 +350,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               className={cx(
                 styles.codeBlock,
                 styles.responseCodeBlock,
-                'border-top rounded-1 my-0'
+                'border-top rounded-1 my-0',
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}

@@ -36,7 +36,7 @@ const languages = process.env.LANGUAGES
 
 for (const language of languages) {
   console.log(
-    `Sleeping ${DELAY_BETWEEN_LANGUAGES / 1000} seconds before purging for '${language}'...`
+    `Sleeping ${DELAY_BETWEEN_LANGUAGES / 1000} seconds before purging for '${language}'...`,
   )
   await sleep(DELAY_BETWEEN_LANGUAGES)
   await purgeEdgeCache(makeLanguageSurrogateKey(language))
@@ -49,7 +49,7 @@ function languagesFromString(str) {
     .filter(Boolean)
   if (!languages.every((lang) => languageKeys.includes(lang))) {
     throw new Error(
-      `Unrecognized language code (${languages.find((lang) => !languageKeys.includes(lang))})`
+      `Unrecognized language code (${languages.find((lang) => !languageKeys.includes(lang))})`,
     )
   }
   return languages

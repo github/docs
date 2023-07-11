@@ -44,7 +44,7 @@ const shortNames = Object.fromEntries(
       ? info.miscBaseName + info.currentRelease
       : info.miscBaseName
     return [shortName, info]
-  })
+  }),
 )
 
 const allVersionKeys = Object.keys(shortNames)
@@ -54,10 +54,10 @@ program
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(new Option('-V, --version [VERSION...]', 'Specific versions').choices(allVersionKeys))
   .addOption(
-    new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys)
+    new Option('-l, --language <LANGUAGE...>', 'Which languages to focus on').choices(languageKeys),
   )
   .addOption(
-    new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys)
+    new Option('--not-language <LANGUAGE...>', 'Specific language to omit').choices(languageKeys),
   )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
   .option('-p, --index-prefix <prefix>', 'Index string to put before index name')
@@ -70,7 +70,7 @@ program
         throw new InvalidArgumentError('Not a number.')
       }
       return parsed
-    }
+    },
   )
   .argument('<source-directory>', 'where the indexable files are')
   .parse(process.argv)
@@ -87,7 +87,7 @@ async function main(opts, args) {
   if (!elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must passed the elasticsearch URL option or ' +
-        'set the environment variable ELASTICSEARCH_URL'
+        'set the environment variable ELASTICSEARCH_URL',
     )
   }
   let node = elasticsearchUrl || process.env.ELASTICSEARCH_URL
@@ -159,7 +159,7 @@ async function indexAll(node, sourceDirectory, opts) {
     version = opts.version
     if (process.env.VERSION) {
       console.warn(
-        `'version' specified as argument ('${version}') AND environment variable ('${process.env.VERSION}')`
+        `'version' specified as argument ('${version}') AND environment variable ('${process.env.VERSION}')`,
       )
     }
   } else {
@@ -167,7 +167,7 @@ async function indexAll(node, sourceDirectory, opts) {
       version = process.env.VERSION
       if (!allVersionKeys.includes(version)) {
         throw new Error(
-          `Environment variable 'VERSION' (${version}) is not recognized. Must be one of ${allVersionKeys}`
+          `Environment variable 'VERSION' (${version}) is not recognized. Must be one of ${allVersionKeys}`,
         )
       }
     }
@@ -253,7 +253,7 @@ async function indexVersion(
   version,
   language,
   sourceDirectory,
-  verbose = false
+  verbose = false,
 ) {
   // Note, it's a bit "weird" that numbered releases versions are
   // called the number but that's the convention the previous
@@ -422,11 +422,11 @@ async function indexVersion(
       onError: (error, attempts) => {
         console.warn(
           chalk.yellow(
-            `Failed to get a list of indexes for '${indexName}' (${error.message}). Will attempt ${attempts} more times.`
-          )
+            `Failed to get a list of indexes for '${indexName}' (${error.message}). Will attempt ${attempts} more times.`,
+          ),
         )
       },
-    }
+    },
   )
   for (const index of indices) {
     if (index.index !== thisAlias && index.index.startsWith(indexName)) {

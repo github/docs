@@ -70,7 +70,7 @@ export const useProductLandingContext = (): ProductLandingContextT => {
 
   if (!context) {
     throw new Error(
-      '"useProductLandingContext" may only be used inside "ProductLandingContext.Provider"'
+      '"useProductLandingContext" may only be used inside "ProductLandingContext.Provider"',
     )
   }
 
@@ -90,12 +90,12 @@ export const getFeaturedLinksFromReq = (req: any): Record<string, Array<Featured
           fullTitle: entry.fullTitle || null,
         })),
       ]
-    })
+    }),
   )
 }
 
 export const getProductLandingContextFromRequest = async (
-  req: any
+  req: any,
 ): Promise<ProductLandingContextT> => {
   const productTree = req.context.currentProductTree
   const page = req.context.page
@@ -128,7 +128,7 @@ export const getProductLandingContextFromRequest = async (
       ({ user, description }: any) => ({
         username: user,
         description,
-      })
+      }),
     ),
 
     introLinks: page.introLinks || null,

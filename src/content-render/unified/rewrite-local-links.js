@@ -70,7 +70,7 @@ export default function rewriteLocalLinks(context) {
             ) {
               throw new Error(
                 `Found link text '${child.value}', expected 'AUTOTITLE'. ` +
-                  `Find the mention of the link text '${child.value}' and change it to 'AUTOTITLE'. Case matters.`
+                  `Find the mention of the link text '${child.value}' and change it to 'AUTOTITLE'. Case matters.`,
               )
             }
           }
@@ -86,7 +86,7 @@ export default function rewriteLocalLinks(context) {
           if (child.value && AUTOTITLE.test(child.value)) {
             throw new Error(
               `Found anchor link with text AUTOTITLE ('${node.properties.href}'). ` +
-                'Update the anchor link with text that is not AUTOTITLE.'
+                'Update the anchor link with text that is not AUTOTITLE.',
             )
           }
         }

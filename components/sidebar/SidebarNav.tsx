@@ -46,7 +46,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
       <div
         className={cx(
           variant === 'overlay' ? 'd-xl-none' : 'border-right d-none d-xl-block',
-          'bg-primary overflow-y-auto flex-shrink-0'
+          'bg-primary overflow-y-auto flex-shrink-0',
         )}
         style={{ width: 326, height: '100vh', paddingBottom: sidebarPaddingBottom }}
         role="banner"

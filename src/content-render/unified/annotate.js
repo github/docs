@@ -81,12 +81,12 @@ function validate(lang, code) {
   }
   if (!languages[lang]) {
     throw new Error(
-      `Unsupported language for annotate info string. Please use one of: ${Object.keys(languages)}`
+      `Unsupported language for annotate info string. Please use one of: ${Object.keys(languages)}`,
     )
   }
   if (!new RegExp(getRegexp(lang), 'm').test(code)) {
     throw new Error(
-      'Make sure the comment syntax matches the language. Use single-line comments only.'
+      'Make sure the comment syntax matches the language. Use single-line comments only.',
     )
   }
 }
@@ -127,7 +127,7 @@ function getSubnav() {
       ariaLabel: 'Display annotations beside the code sample',
       className: 'BtnGroup-item btn btn-sm tooltipped tooltipped-nw',
     },
-    ['Beside']
+    ['Beside'],
   )
   const inlineBtn = h(
     'button',
@@ -138,7 +138,7 @@ function getSubnav() {
       ariaLabel: 'Display annotations inline as comments of the code sample',
       className: 'BtnGroup-item btn btn-sm tooltipped tooltipped-nw',
     },
-    ['Inline']
+    ['Inline'],
   )
 
   return h('div', { className: 'BtnGroup' }, [besideBtn, inlineBtn])
@@ -158,20 +158,20 @@ function template({ lang, code, rows }) {
             'div',
             { className: 'annotate-code' },
             // pre > code matches the mdast -> hast tree of a regular fenced code block.
-            h('pre', h('code', { className: `language-${lang}` }, code.join('\n')))
+            h('pre', h('code', { className: `language-${lang}` }, code.join('\n'))),
           ),
           h(
             'div',
             { className: 'annotate-note' },
-            mdToHast(note.map(removeComment(lang)).join('\n'))
+            mdToHast(note.map(removeComment(lang)).join('\n')),
           ),
-        ])
-      )
+        ]),
+      ),
     ),
     h('div', { className: 'annotate-inline' }, [
       // pre > code matches the mdast -> hast tree of a regular fenced code block.
       h('pre', h('code', { className: `language-${lang}` }, code)),
-    ])
+    ]),
   )
 }
 

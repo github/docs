@@ -56,7 +56,7 @@ async function run() {
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
-    }
+    },
   )
 
   // Get the project ID
@@ -156,17 +156,17 @@ async function run() {
         headers: {
           authorization: `token ${process.env.TOKEN}`,
         },
-      }
+      },
     )
     const docsPRData =
       contributorData.user.contributionsCollection.pullRequestContributionsByRepository.filter(
-        (item) => item.repository.nameWithOwner === 'github/docs'
+        (item) => item.repository.nameWithOwner === 'github/docs',
       )[0]
     const prCount = docsPRData ? docsPRData.contributions.totalCount : 0
 
     const docsIssueData =
       contributorData.user.contributionsCollection.issueContributionsByRepository.filter(
-        (item) => item.repository.nameWithOwner === 'github/docs'
+        (item) => item.repository.nameWithOwner === 'github/docs',
       )[0]
     const issueCount = docsIssueData ? docsIssueData.contributions.totalCount : 0
 

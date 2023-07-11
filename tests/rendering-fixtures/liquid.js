@@ -201,7 +201,7 @@ describe('extended Markdown', () => {
       unwantedConditions.forEach((condition) => {
         expect(html).not.toMatch(condition)
       })
-    }
+    },
   )
 })
 
