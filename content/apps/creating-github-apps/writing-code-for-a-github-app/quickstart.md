@@ -16,7 +16,7 @@ redirect_from:
 
 ## Introduction
 
-{% data variables.product.prodname_github_app %}s let you automate processes or integrate other platforms with {% data variables.product.company_short %}. For more info, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
+{% data variables.product.prodname_github_apps %} let you automate processes or integrate other platforms with {% data variables.product.company_short %}. For more info, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
 
 This quickstart describes how to quickly create a {% data variables.product.prodname_github_app %}. When a pull request is opened in a repository that the app was granted access to, the app will add a comment to the pull request.
 
