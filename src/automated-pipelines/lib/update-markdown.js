@@ -354,7 +354,7 @@ export async function convertVersionsToFrontmatter(versions) {
       // This creates an array of the applicable releases in the same
       // order as the available releases array. This is used to track when
       // a release is no longer supported.
-      const i = docsVersion.releases.sort().indexOf(docsVersion.currentRelease)
+      const i = docsVersion.releases.indexOf(docsVersion.currentRelease)
       if (!numberedReleases[docsVersion.shortName]) {
         const availableReleases = Array(docsVersion.releases.length).fill(undefined)
         availableReleases[i] = docsVersion.currentRelease
@@ -384,12 +384,12 @@ export async function convertVersionsToFrontmatter(versions) {
     } else {
       const semVer = []
       if (!availableReleases[availableReleases.length - 1]) {
-        const endVersion = availableReleases.filter(Boolean).pop()
-        semVer.push(`<=${endVersion}`)
+        const startVersion = availableReleases.filter(Boolean).pop()
+        semVer.push(`>=${startVersion}`)
       }
       if (!availableReleases[0]) {
-        const startVersion = availableReleases.filter(Boolean).shift()
-        semVer.push(`>=${startVersion}`)
+        const endVersion = availableReleases.filter(Boolean).shift()
+        semVer.push(`<=${endVersion}`)
       }
       frontmatterVersions[key] = semVer.join(' ')
     }
