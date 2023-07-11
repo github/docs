@@ -22,7 +22,7 @@ To maintain the security of your account when you perform a potentially sensitiv
 - Authorization of a third-party application
 - Addition of a new SSH key
 
-After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_name %} {% ifversion ghes %}has a two-hour session timeout period{% else %}will wait a few hours{% endif %} before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
+After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_name %} has a two-hour session timeout period before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
 
 {% ifversion ghes %}
 
