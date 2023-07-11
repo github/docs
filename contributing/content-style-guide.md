@@ -393,7 +393,7 @@ Some best practices for using links:
 - Links should be meaningful and provide high value to the user’s journey—link out carefully.
 - Move links that are helpful but not necessary to an article’s further reading section.
 - Do not repeat the same link more than once in the same article or under the same H2 header.
-- Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurance.)
+- Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurrence.)
 
 For accessibility and readability, avoid inline or midsentence links.
 - **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
