@@ -10,7 +10,7 @@ bbb
 
 Line length equals max length
 
-```shell copy
+```shell
 111
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 bbbbbbb
@@ -18,13 +18,13 @@ bbbbbbb
 
 Line length is less than max length
 
-```shell copy
+```shell
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
 
 Multiple lines in code fence exceed max length by 1
 
-```shell copy
+```shell
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaccc
 1
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbb
