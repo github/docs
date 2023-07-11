@@ -158,7 +158,7 @@
     "@types/react": "17.0.38",
     "@types/react-dom": "^18.0.5",
     "@types/react-syntax-highlighter": "^15.5.2",
-    "@typescript-eslint/eslint-plugin": "5.58.0",
+    "@typescript-eslint/eslint-plugin": "6.0.0",
     "@typescript-eslint/parser": "5.58.0",
     "babel-loader": "^9.0.1",
     "babel-plugin-styled-components": "^2.0.7",
