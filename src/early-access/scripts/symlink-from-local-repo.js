@@ -22,7 +22,7 @@ program
   .description(`Create or destroy symlinks to your local "${earlyAccessRepo}" repository.`)
   .option(
     '-p, --path-to-early-access-repo <PATH>',
-    `path to a local checkout of ${earlyAccessRepoUrl}`
+    `path to a local checkout of ${earlyAccessRepoUrl}`,
   )
   .option('-u, --unlink', 'remove the symlinks')
   .parse(process.argv)
@@ -49,13 +49,13 @@ if (!unlink && pathToEarlyAccessRepo) {
   if (!dirStats) {
     throw new Error(
       `The local "${earlyAccessRepo}" repo directory does not exist:`,
-      earlyAccessLocalRepoDir
+      earlyAccessLocalRepoDir,
     )
   }
   if (dirStats && !dirStats.isDirectory()) {
     throw new Error(
       `A non-directory entry exists at the local "${earlyAccessRepo}" repo directory location:`,
-      earlyAccessLocalRepoDir
+      earlyAccessLocalRepoDir,
     )
   }
 }
@@ -105,7 +105,7 @@ destinationDirNames.forEach((dirName) => {
   }
   if (!fs.statSync(destDir).isDirectory()) {
     throw new Error(
-      `The early access directory '${dirName}' entry's symbolic link does not refer to a directory!`
+      `The early access directory '${dirName}' entry's symbolic link does not refer to a directory!`,
     )
   }
 

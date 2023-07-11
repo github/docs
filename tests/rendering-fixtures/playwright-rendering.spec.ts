@@ -170,8 +170,8 @@ test('hovercards', async ({ page }) => {
   await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).hover()
   await expect(
     page.getByText(
-      'Get started using GitHub to manage Git repositories and collaborate with others.'
-    )
+      'Get started using GitHub to manage Git repositories and collaborate with others.',
+    ),
   ).toBeVisible()
 
   // now move the mouse away from hovering over the link, the hovercard should
@@ -179,8 +179,8 @@ test('hovercards', async ({ page }) => {
   await page.mouse.move(0, 0)
   await expect(
     page.getByText(
-      'Get started using GitHub to manage Git repositories and collaborate with others.'
-    )
+      'Get started using GitHub to manage Git repositories and collaborate with others.',
+    ),
   ).not.toBeVisible()
 
   // external links don't have a hovercard
@@ -204,7 +204,7 @@ test('hovercards', async ({ page }) => {
   // this page's intro has two links; one in-page and one internal
   await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
   await expect(
-    page.getByText('Follow this Hello World exercise to get started with GitHub.')
+    page.getByText('Follow this Hello World exercise to get started with GitHub.'),
   ).toBeVisible()
 
   // same page anchor links have a hovercard
@@ -327,7 +327,7 @@ test.describe('test nav at different viewports', () => {
     await expect(
       page.getByRole('button', {
         name: 'Select GitHub product version: current version is free-pro-team@latest',
-      })
+      }),
     ).not.toBeVisible()
 
     // version picker is in mobile menu

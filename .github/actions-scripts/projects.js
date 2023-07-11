@@ -26,7 +26,7 @@ export function findSingleSelectID(singleSelectName, fieldName, data) {
     return singleSelect.id
   } else {
     throw new Error(
-      `A single select called "${singleSelectName}" for the field "${fieldName}" was not found. Check if the single select was renamed.`
+      `A single select called "${singleSelectName}" for the field "${fieldName}" was not found. Check if the single select was renamed.`,
     )
   }
 }
@@ -47,7 +47,7 @@ export async function addItemsToProject(items, project) {
         id
       }
     }
-    `
+    `,
   )
 
   const mutation = `
@@ -102,7 +102,7 @@ export async function isDocsTeamMember(login) {
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
-    }
+    },
   )
 
   const teamMembers = data.organization.team.members.nodes.map((entry) => entry.login)
@@ -127,7 +127,7 @@ export async function isGitHubOrgMember(login) {
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
-    }
+    },
   )
 
   return Boolean(data.user.organization)
@@ -188,7 +188,7 @@ export function generateUpdateProjectV2ItemFieldMutation({
     return `
       set_${fieldID.slice(1)}_item_${item.replaceAll(
         /[^a-z0-9]/g,
-        ''
+        '',
       )}: updateProjectV2ItemFieldValue(input: {
         projectId: $project
         itemId: "${item}"

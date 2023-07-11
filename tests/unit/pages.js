@@ -32,13 +32,13 @@ describe('pages module', () => {
 
     test('every page has a non-empty `permalinks` array', async () => {
       const brokenPages = pages.filter(
-        (page) => !Array.isArray(page.permalinks) || page.permalinks.length === 0
+        (page) => !Array.isArray(page.permalinks) || page.permalinks.length === 0,
       )
 
       const expectation = JSON.stringify(
         brokenPages.map((page) => page.fullPath),
         null,
-        2
+        2,
       )
       expect(brokenPages.length, expectation).toBe(0)
     })
@@ -94,7 +94,7 @@ describe('pages module', () => {
               path: page.fullPath,
             },
             null,
-            2
+            2,
           )
         })
 

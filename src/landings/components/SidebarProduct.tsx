@@ -99,13 +99,13 @@ export const SidebarProduct = () => {
       (page) =>
         page.href.includes('guides') ||
         page.href.includes('overview') ||
-        page.href.includes('quickstart')
+        page.href.includes('quickstart'),
     )
     const restPages = sidebarTree.childPages.filter(
       (page) =>
         !page.href.includes('guides') &&
         !page.href.includes('overview') &&
-        !page.href.includes('quickstart')
+        !page.href.includes('quickstart'),
     )
     return (
       <>

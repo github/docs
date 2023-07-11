@@ -63,7 +63,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
           slug,
         },
       ]
-    })
+    }),
   )
   const titles = Object.values(headings).map((heading) => heading.title)
   const changelogMiniTocItems = await getAutomatedPageMiniTocItems(titles, req.context.context, 2)

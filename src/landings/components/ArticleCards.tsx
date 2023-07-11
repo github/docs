@@ -26,7 +26,7 @@ export const ArticleCards = () => {
         const matchesType = card.type === typeFilter?.key
         const matchesTopic = card.topics.some((key) => key === topicFilter?.key)
         return (typeFilter?.key ? matchesType : true) && (topicFilter?.key ? matchesTopic : true)
-      })
+      }),
     )
   }, [typeFilter, topicFilter])
 

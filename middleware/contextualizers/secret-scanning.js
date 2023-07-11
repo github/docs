@@ -14,7 +14,7 @@ export default async function secretScanning(req, res, next) {
   const { currentVersion } = req.context
 
   req.context.secretScanningData = secretScanningData.filter((entry) =>
-    getApplicableVersions(entry.versions).includes(currentVersion)
+    getApplicableVersions(entry.versions).includes(currentVersion),
   )
 
   return next()

@@ -19,13 +19,13 @@ export default async function currentProductTree(req, res, next) {
       '/',
       req.context.currentLanguage,
       req.context.currentVersion,
-      req.context.currentProduct
-    )
+      req.context.currentProduct,
+    ),
   )
   req.context.currentProductTree = findPageInSiteTree(
     currentRootTree,
     req.context.currentEnglishTree,
-    currentProductPath
+    currentProductPath,
   )
 
   // First make a slim tree of just the 'href', 'title', 'shortTitle'
@@ -33,12 +33,12 @@ export default async function currentProductTree(req, res, next) {
   // This gets used for map topic and category pages.
   req.context.currentProductTreeTitles = await getCurrentProductTreeTitles(
     req.context.currentProductTree,
-    req.context
+    req.context,
   )
   // Now make an even slimmer version that excludes all hidden pages.
   // This is i used for sidebars.
   req.context.currentProductTreeTitlesExcludeHidden = excludeHidden(
-    req.context.currentProductTreeTitles
+    req.context.currentProductTreeTitles,
   )
 
   // Some pages, like hidden pages, don't have a tree. For example,
@@ -56,7 +56,7 @@ export default async function currentProductTree(req, res, next) {
 async function getCurrentProductTreeTitles(input, context) {
   const { page, href } = input
   const childPages = await Promise.all(
-    (input.childPages || []).map((child) => getCurrentProductTreeTitles(child, context))
+    (input.childPages || []).map((child) => getCurrentProductTreeTitles(child, context)),
   )
 
   // If the current page is a translation we're going to need the English
@@ -88,14 +88,14 @@ async function getCurrentProductTreeTitles(input, context) {
   const renderedFullTitle = await executeWithFallback(
     context,
     () => liquid.parseAndRender(page.rawTitle, context),
-    (enContext) => liquid.parseAndRender(enPage.rawTitle, enContext)
+    (enContext) => liquid.parseAndRender(enPage.rawTitle, enContext),
   )
   let renderedShortTitle = ''
   if (rawShortTitle) {
     renderedShortTitle = await executeWithFallback(
       context,
       () => liquid.parseAndRender(page.rawShortTitle, context),
-      (enContext) => liquid.parseAndRender(enPage.rawShortTitle, enContext)
+      (enContext) => liquid.parseAndRender(enPage.rawShortTitle, enContext),
     )
   }
 

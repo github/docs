@@ -19,7 +19,7 @@ import { get } from '../../../tests/helpers/e2etest.js'
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
     'None of the API search middleware tests are run because ' +
-      "the environment variable 'ELASTICSEARCH_URL' is currently not set."
+      "the environment variable 'ELASTICSEARCH_URL' is currently not set.",
   )
 }
 

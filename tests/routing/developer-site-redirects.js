@@ -45,7 +45,7 @@ describe('developer redirects', () => {
       const expectedFinalPath = path.join(
         '/',
         `enterprise-server@${enterpriseServerReleases.latest}`,
-        newPath
+        newPath,
       )
       expect(finalPath).toBe(`/en${expectedFinalPath}`)
     })
@@ -114,12 +114,12 @@ describe('developer redirects', () => {
         // We make an exception to always redirect versionless paths to the latest version.
         newPath = newPath.replace(
           '/enterprise-server/',
-          `/enterprise-server@${enterpriseServerReleases.latest}/`
+          `/enterprise-server@${enterpriseServerReleases.latest}/`,
         )
         const res = await get(oldPath)
         const sameFirstPrefix = oldPath.split('/')[1] === newPath.split('/')[1]
         expect(res.statusCode, `${oldPath} did not redirect to ${newPath}`).toBe(
-          sameFirstPrefix ? 301 : 302
+          sameFirstPrefix ? 301 : 302,
         )
         expect(res.headers.location).toBe(newPath)
       }

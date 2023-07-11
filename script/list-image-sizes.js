@@ -26,7 +26,7 @@ const infos = await Promise.all(
     const { width, height } = await image.metadata()
     const size = width * height
     return { relativePath, width, height, size }
-  })
+  }),
 )
 const images = files
   .map((relativePath, i) => {

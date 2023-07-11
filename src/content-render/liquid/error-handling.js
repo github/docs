@@ -3,7 +3,7 @@
 export const THROW_ON_EMPTY = Boolean(
   process.env.THROW_ON_EMPTY
     ? JSON.parse(process.env.THROW_ON_EMPTY)
-    : JSON.parse(process.env.CI || process.env.NODE_ENV !== 'production')
+    : JSON.parse(process.env.CI || process.env.NODE_ENV !== 'production'),
 )
 
 export class DataReferenceError extends Error {}
