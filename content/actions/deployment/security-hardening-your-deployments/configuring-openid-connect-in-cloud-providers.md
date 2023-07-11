@@ -77,7 +77,7 @@ jobs:
 
 ### Requesting the JWT using environment variables
 
-The following example demonstrates how to use environment variables to request a JSON Web Token.
+The following example demonstrates how to use enviroment variables to request a JSON Web Token.
 
 For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
 
