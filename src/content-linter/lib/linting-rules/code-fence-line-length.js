@@ -23,6 +23,7 @@ export const codeFenceLineLength = {
             lineNumber,
             `Code fence line exceeds ${MAX_LINE_LENGTH} characters.`,
             undefined, // N/A
+            undefined, // N/A
             undefined // N/A
           )
         }
