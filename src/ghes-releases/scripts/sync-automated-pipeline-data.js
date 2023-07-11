@@ -29,7 +29,7 @@ await cp(
   `data/graphql/ghes-${currentReleaseNumber}`,
   {
     recursive: true,
-  }
+  },
 )
 
 // The allVersions object uses the 'api-versions' data stored in the
