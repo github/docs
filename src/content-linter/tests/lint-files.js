@@ -29,7 +29,7 @@ jest.useFakeTimers({ legacyFakeTimers: true })
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
-  v.startsWith('enterprise-server@')
+  v.startsWith('enterprise-server@'),
 )
 
 const rootDir = path.join(__dirname, '../../..')
@@ -90,9 +90,9 @@ const relativeArticleLinkRegex =
 //
 const languageLinkRegex = new RegExp(
   `(?=^|[^\\]]\\s*)\\[[^\\]]+\\](?::\\n?[ \\t]+|\\s*\\()(?:(?:https?://(?:help|docs|developer)\\.github\\.com)?/(?:${languageCodes.join(
-    '|'
+    '|',
   )})(?:/[^)\\s]*)?)(?:\\)|\\s+|$)`,
-  'gm'
+  'gm',
 )
 
 // Things matched by this RegExp:
@@ -246,7 +246,7 @@ const automatedIgnorePaths = (
   await Promise.all(
     automatedConfigFiles.map(async (p) => {
       return JSON.parse(await fs.readFile(p, 'utf8')).linterIgnore || []
-    })
+    }),
   )
 )
   .flat()
@@ -260,7 +260,7 @@ const ignoreMarkdownFilesAbsPath = new Set(
       const exists = existsSync(p)
       if (!exists) {
         console.warn(
-          `WARNING: Ignored path ${p} defined in an automation pipeline does not exist. This may be expected, but if not, remove the defined path from the pipeline config.`
+          `WARNING: Ignored path ${p} defined in an automation pipeline does not exist. This may be expected, but if not, remove the defined path from the pipeline config.`,
         )
       }
       return exists
@@ -269,26 +269,26 @@ const ignoreMarkdownFilesAbsPath = new Set(
       walk(p, {
         includeBasePath: true,
         globs: ['**/*.md'],
-      })
+      }),
     )
-    .flat()
+    .flat(),
 )
 
 // Difference between contentMarkdownAbsPaths & automatedIgnorePaths
 const contentMarkdownNoAutomated = [...contentMarkdownRelPaths].filter(
-  (p) => !ignoreMarkdownFilesAbsPath.has(p)
+  (p) => !ignoreMarkdownFilesAbsPath.has(p),
 )
 // We also need to go back and get the difference between the
 // absolute paths list
 const contentMarkdownAbsPathNoAutomated = [...contentMarkdownAbsPaths].filter(
-  (p) => !ignoreMarkdownFilesAbsPath.has(slash(path.relative(rootDir, p)))
+  (p) => !ignoreMarkdownFilesAbsPath.has(slash(path.relative(rootDir, p))),
 )
 
 const contentMarkdownTuples = zip(contentMarkdownNoAutomated, contentMarkdownAbsPathNoAutomated)
 
 const reusableMarkdownAbsPaths = walk(reusablesDir, mdWalkOptions).sort()
 const reusableMarkdownRelPaths = reusableMarkdownAbsPaths.map((p) =>
-  slash(path.relative(rootDir, p))
+  slash(path.relative(rootDir, p)),
 )
 const reusableMarkdownTuples = zip(reusableMarkdownRelPaths, reusableMarkdownAbsPaths)
 
@@ -312,21 +312,21 @@ const fbvTuples = zip(FbvYamlRelPaths, FbvYamlAbsPaths)
 // GHES release notes
 const ghesReleaseNotesYamlAbsPaths = walk(ghesReleaseNotesDir, yamlWalkOptions).sort()
 const ghesReleaseNotesYamlRelPaths = ghesReleaseNotesYamlAbsPaths.map((p) =>
-  slash(path.relative(rootDir, p))
+  slash(path.relative(rootDir, p)),
 )
 ghesReleaseNotesToLint = zip(ghesReleaseNotesYamlRelPaths, ghesReleaseNotesYamlAbsPaths)
 
 // GHAE release notes
 const ghaeReleaseNotesYamlAbsPaths = walk(ghaeReleaseNotesDir, yamlWalkOptions).sort()
 const ghaeReleaseNotesYamlRelPaths = ghaeReleaseNotesYamlAbsPaths.map((p) =>
-  slash(path.relative(rootDir, p))
+  slash(path.relative(rootDir, p)),
 )
 ghaeReleaseNotesToLint = zip(ghaeReleaseNotesYamlRelPaths, ghaeReleaseNotesYamlAbsPaths)
 
 // Learning tracks
 const learningTracksYamlAbsPaths = walk(learningTracks, yamlWalkOptions).sort()
 const learningTracksYamlRelPaths = learningTracksYamlAbsPaths.map((p) =>
-  slash(path.relative(rootDir, p))
+  slash(path.relative(rootDir, p)),
 )
 learningTracksToLint = zip(learningTracksYamlRelPaths, learningTracksYamlAbsPaths)
 
@@ -337,7 +337,7 @@ ymlToLint = [].concat(
   fbvTuples,
   ghesReleaseNotesToLint,
   ghaeReleaseNotesToLint,
-  learningTracksToLint
+  learningTracksToLint,
 )
 
 function formatLinkError(message, links) {
@@ -368,11 +368,11 @@ if (diffFiles.length > 0) {
         return name.slice(1, -1)
       }
       return name
-    })
+    }),
   )
   const filterFiles = (tuples) =>
     tuples.filter(
-      ([relativePath, absolutePath]) => only.has(relativePath) || only.has(absolutePath)
+      ([relativePath, absolutePath]) => only.has(relativePath) || only.has(absolutePath),
     )
   mdToLint = filterFiles(mdToLint)
   ymlToLint = filterFiles(ymlToLint)
@@ -470,7 +470,7 @@ describe('lint markdown content', () => {
             const rendered = await liquid.parseAndRender(snippet, context)
             const parsed = yaml.load(rendered)
             return parsed.on.schedule
-          })
+          }),
         )
       )
         .flat()
@@ -482,8 +482,8 @@ describe('lint markdown content', () => {
       const placeholderStr = matches.length === 1 ? 'placeholder' : 'placeholders'
       const errorMessage = `
         Found ${matches.length} ${placeholderStr} '${matches.join(
-        ', '
-      )}' in this file! Please update all placeholders.
+          ', ',
+        )}' in this file! Please update all placeholders.
       `
       expect(matches.length, errorMessage).toBe(0)
     })
@@ -492,7 +492,7 @@ describe('lint markdown content', () => {
       // We need to support some non-Early Access hidden docs in Site Policy
       if (isHidden) {
         expect(
-          isEarlyAccess || isSitePolicy || isSearch || hasExperimentalAlternative || isTranscript
+          isEarlyAccess || isSitePolicy || isSearch || hasExperimentalAlternative || isTranscript,
         ).toBe(true)
       }
     })
@@ -582,7 +582,7 @@ describe('lint markdown content', () => {
       const matchesWithExample = matches.map((match) => {
         const example = match.replace(
           /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
-          '{% data $1 %}'
+          '{% data $1 %}',
         )
         return `${match} => ${example}`
       })
@@ -660,7 +660,7 @@ describe('lint markdown content', () => {
         })
         expect(
           usedDeprecateProps,
-          `The following frontmatter properties are deprecated: ${usedDeprecateProps}. Please remove the property from your article's frontmatter.`
+          `The following frontmatter properties are deprecated: ${usedDeprecateProps}. Please remove the property from your article's frontmatter.`,
         ).toEqual([])
       }
     })
@@ -675,7 +675,7 @@ describe('lint markdown content', () => {
     if (!markdownRelPath.includes('data/reusables')) {
       test('frontmatter contains valid liquid', async () => {
         const fmKeysWithLiquid = ['title', 'shortTitle', 'intro', 'product', 'permission'].filter(
-          (key) => Boolean(frontmatterData[key])
+          (key) => Boolean(frontmatterData[key]),
         )
 
         for (const key of fmKeysWithLiquid) {
@@ -697,7 +697,7 @@ describe('lint markdown content', () => {
       const matches = content.match(patRegex) || []
       const errorMessage = formatLinkError(
         'You should use one of the personal access token variables from data/variables/product.yml instead of the literal phrase(s):',
-        matches
+        matches,
       )
       expect(matches.length, errorMessage).toBe(0)
     })
@@ -868,10 +868,10 @@ describe('lint yaml content', () => {
             ...valMatches.map((match) => {
               const example = match.replace(
                 /{{\s*?site\.data\.([a-zA-Z0-9-_]+(?:\.[a-zA-Z0-9-_]+)+)\s*?}}/g,
-                '{% data $1 %}'
+                '{% data $1 %}',
               )
               return `Key "${key}": ${match} => ${example}`
-            })
+            }),
           )
         }
       }
@@ -1003,7 +1003,7 @@ describe('lint GHAE release notes', () => {
     it('does not have more than one yaml file with currentWeek set to true', () => {
       if (dictionary.currentWeek) currentWeeksFound.push(yamlRelPath)
       const errorMessage = `Found more than one file with currentWeek set to true: ${currentWeeksFound.join(
-        '\n'
+        '\n',
       )}`
       expect(currentWeeksFound.length, errorMessage).not.toBeGreaterThan(1)
     })
@@ -1094,7 +1094,7 @@ describe('lint learning tracks', () => {
           }
 
           featuredTracks[version] = featuredTracksPerVersion.length
-        })
+        }),
       )
 
       Object.entries(featuredTracks).forEach(([version, numOfFeaturedTracks]) => {

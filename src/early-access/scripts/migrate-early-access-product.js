@@ -12,10 +12,10 @@ import yaml from 'js-yaml'
 import { last } from 'lodash-es'
 import { program } from 'commander'
 import { execFileSync } from 'child_process'
-import frontmatter from '../../lib/read-frontmatter.js'
-import patterns from '../../lib/patterns.js'
-import addRedirectToFrontmatter from '../helpers/add-redirect-to-frontmatter.js'
-import walkFiles from '../helpers/walk-files.js'
+import frontmatter from '../../../lib/read-frontmatter.js'
+import patterns from '../../../lib/patterns.js'
+import addRedirectToFrontmatter from '../../../script/helpers/add-redirect-to-frontmatter.js'
+import walkFiles from '../../../script/helpers/walk-files.js'
 
 const contentFiles = walkFiles('content', '.md', { includeEarlyAccess: true })
 const contentDir = path.posix.join(process.cwd(), 'content')
@@ -24,15 +24,15 @@ program
   .description('Move a product-level early access docs set to a category level.')
   .requiredOption(
     '-o, --oldPath <PATH>',
-    'Provide the path of the existing product, e.g., content/early-access/enterprise-importer'
+    'Provide the path of the existing product, e.g., content/early-access/enterprise-importer',
   )
   .requiredOption(
     '-n, --newPath <PATH>',
-    'Provide the new path it will move under, e.g., content/migrations/using-enterprise-importer'
+    'Provide the new path it will move under, e.g., content/migrations/using-enterprise-importer',
   )
   .option(
     '-t, --newTitle <TITLE>',
-    'Provide the new title if it is different from the existing title, e.g., Using Enterprise Importer'
+    'Provide the new title if it is different from the existing title, e.g., Using Enterprise Importer',
   )
   .parse(process.argv)
 
@@ -58,7 +58,7 @@ const migratePath = path.posix.join(contentDir, newPathId)
 
 // 1. Update the image and data refs in the to-be-migrated early access files BEFORE moving them.
 try {
-  execFileSync('script/early-access/update-data-and-image-paths.js', [
+  execFileSync('src/early-access/scripts/update-data-and-image-paths.js', [
     '-p',
     `content/${oldPathId}`,
     '--remove',
@@ -111,7 +111,7 @@ parentProducToc.data.children.push(`/${path.basename(newPathId)}`)
 
 fs.writeFileSync(
   parentProductTocPath,
-  frontmatter.stringify(parentProducToc.content, parentProducToc.data, { lineWidth: 10000 })
+  frontmatter.stringify(parentProducToc.content, parentProducToc.data, { lineWidth: 10000 }),
 )
 
 // 6. Optionally, update the new product TOC with the new title.
@@ -122,7 +122,7 @@ if (program.opts().newTitle) {
 
   fs.writeFileSync(
     productTocPath,
-    frontmatter.stringify(productToc.content, productToc.data, { lineWidth: 10000 })
+    frontmatter.stringify(productToc.content, productToc.data, { lineWidth: 10000 }),
   )
 }
 
@@ -161,12 +161,12 @@ function moveVariable(dataRef) {
   const oldVariablePath = path.posix.join(
     process.cwd(),
     'data/early-access',
-    `${variablePathArray.join('/')}.yml`
+    `${variablePathArray.join('/')}.yml`,
   )
   const newVariablePath = path.posix.join(
     process.cwd(),
     'data',
-    `${variablePathArray.join('/')}.yml`
+    `${variablePathArray.join('/')}.yml`,
   )
   const nonAltPath = newVariablePath.replace('-alt.yml', '.yml')
   const oldAltPath = oldVariablePath.replace('.yml', '-alt.yml')

@@ -137,6 +137,8 @@ In YAML examples, such as actions and workflow files, use two spaces to indent l
           python-version: {% raw %}${{ matrix.python }}{% endraw %}
 ```
 
+To indent reusables, see [`data/reusables/README.md`](/data/reusables/README.md).
+
 ### Scheduled workflows
 
 Workflow runs are delayed when too many workflows run at once. Since many users copy code from the GitHub docs, we should use examples that guide users away from congested times.
@@ -151,7 +153,7 @@ Use italics to emphasize words or parts of a sentence. Use emphasis sparingly fo
 
 - **Use:** _Fine-grained personal access tokens_ have several security advantages over personal access tokens (classic).
 - **Use:** _For types of packages other than containers_, to the right of the package version click **Delete**.
-- **Avoid:** Next to _**Title**_, add a descriptive label for your new key. 
+- **Avoid:** Next to _**Title**_, add a descriptive label for your new key.
 
 ## Footnotes
 
@@ -394,8 +396,8 @@ Some best practices for using links:
 - Do not include the `apiVersion` query parameter in REST links unless you need to link to a specific calendar version of the REST docs. (This should be a rare occurance.)
 
 For accessibility and readability, avoid inline or midsentence links.
-- **Use:** OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
-- **Avoid:** Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.
+- **Use:** `OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."`
+- **Avoid:** `Read [more about OAuth2.](https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/) Note that OAuth2 tokens can be [acquired programmatically](https://docs.github.com/en/enterprise-server@2.22/rest/reference/oauth-authorizations/#create-a-new-authorization), for applications that are not websites.`
 
 For more information on links and accessibility, see “[Links](https://readabilityguidelines.co.uk/content-design/links/)” in the Readability Guidelines project.
 
@@ -411,11 +413,11 @@ For example, the Free, Pro, & Team version of "[Managing the publication of GitH
 
 To link to a different article in a different version, use this format:
 
-> For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.
+> `For more information, see "[ARTICLE TITLE]()" in the VERSION documentation.`
 
 To link to the same article in a different version, use this format:
 
-> For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).
+> `For more information, see [the VERSION documentation](/VERSION/{{ currentArticle }}).`
 
 To link to a specific version, you must include the version in the path (e.g., `/enterprise-cloud@latest/{{ currentArticle }}`).
 
@@ -424,25 +426,25 @@ To link to a specific version, you must include the version in the path (e.g., `
 When we link to specific sections of articles, we want to make sure the link is descriptive enough so that someone knows they are in the correct spot after following a link.
 
 To link to a specific header in the same article, use this format:
-> For more information, see "[HEADER TITLE](#HEADER-TITLE)."
+> `For more information, see "[HEADER TITLE](#HEADER-TITLE)."`
 
 To link to a specific header in a different article, use this format:
-> For more information, see "[AUOTOTITLE](path-to-article#HEADER-TITLE)."
+> `For more information, see "[AUTOTITLE](path-to-article#HEADER-TITLE)."`
 
 To link to two or more specific headers in a different article, use this format:
-> For more information, see "[HEADER 1](path-to-article#HEADER-1)" and "[HEADER 2](path-to-article#HEADER-2)" in "ARTICLE TITLE."
+> `For more information, see "[HEADER 1](path-to-article#HEADER-1)" and "[HEADER 2](path-to-article#HEADER-2)" in "ARTICLE TITLE."`
 
 ### Links to a specific tool
 
 When we link to content with a specific tool selected, we want to make sure that someone knows that they will be looking at content relevant to a specific tool even if they do not view the tool switcher tabs in the article.
 
-> For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."
+> `For more information, see the TOOLNAME documentation in "[ARTICLE TITLE](/PATH/TO/ARTICLE?tool=TOOLNAME)."`
 
 ### Links to learning paths
 
 Use this format to link to a learning path.
 
-> For more information, follow the "[LEARNING PATH TITLE]()" learning path.
+> `For more information, follow the "[LEARNING PATH TITLE]()" learning path.`
 
 ### Links to external resources
 
@@ -893,7 +895,7 @@ For example, in "[Autoscaling with self hosted runners](https://docs.github.com/
 
 ### Use proper markup for row and column headers
 
-Tables in which the first column describes the data values in the table (but is not data itself) need to be marked up with row headers. This is important for assistive technology to understand relationships between cells. 
+Tables in which the first column describes the data values in the table (but is not data itself) need to be marked up with row headers. This is important for assistive technology to understand relationships between cells.
 
 For example in the following table, in order to make sense of the "Yes" and "No" values in the table, you need to know both the column header (role) and row header (permission).
 
@@ -955,11 +957,11 @@ See "[Footnotes](https://github.com/github/docs/blob/main/contributing/content-s
 
 ### Align table content consistently
 
-All columns in a table should be left-aligned, except for columns containing only octicons which should be center-aligned. If a column contains both text and octicons, use center alignment. 
+All columns in a table should be left-aligned, except for columns containing only octicons which should be center-aligned. If a column contains both text and octicons, use center alignment.
 
 Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read "[Organizing information with tables](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table)" for more information.
 
-The following example shows part of a table from "[Configuration options for the dependabot.yml file](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)". 
+The following example shows part of a table from "[Configuration options for the dependabot.yml file](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)".
 
 
 <table>
@@ -994,7 +996,7 @@ The following example shows part of a table from "[Configuration options for the
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
       <img alt="Supported">
-  </picture>  
+  </picture>
 </td>
 <td align=left>Package manager to use</td>
 </tr>
@@ -1005,8 +1007,8 @@ The following example shows part of a table from "[Configuration options for the
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
       <img alt="Supported">
-  </picture>  
-</td>  
+  </picture>
+</td>
 </td>
 <td align=center>
       <picture>
@@ -1032,7 +1034,7 @@ The following example shows part of a table from "[Configuration options for the
     <source media="(prefers-color-scheme: dark)" srcset="https://github.com/github/docs-internal/assets/12902836/fd97adaf-5ac5-4da0-9de1-89d70f0edc45">
     <source media="(prefers-color-scheme: light)" srcset="https://github.com/github/docs-internal/assets/12902836/6e531ef9-275b-4630-8217-3a2399e450bf">
       <img alt="Supported">
-  </picture>    
+  </picture>
 </td>
 </td>
 <td align=center>

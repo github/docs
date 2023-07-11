@@ -35,7 +35,7 @@ export const internalLinksLang = {
                 lineNumber: child.lineNumber,
                 editColumn: token.line.indexOf('(') + 2,
                 deleteCount: 3,
-              }
+              },
             )
             internalLinkHasLang = false
           }

@@ -54,11 +54,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Configuring two-factor authentication using a TOTP mobile app
 
-A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:
-- [1Password](https://support.1password.com/one-time-passwords/)
-- [Authy](https://authy.com/guides/github/)
-- [LastPass Authenticator](https://lastpass.com/auth/)
-- [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app/)
+A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps.
 
 {% tip %}
 

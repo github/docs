@@ -29,7 +29,7 @@ export default async function ghesReleaseNotesContext(req, res, next) {
 
   // Find the notes for the current release only
   const currentReleaseNotes = req.context.ghesReleases.find(
-    (r) => r.version === requestedRelease
+    (r) => r.version === requestedRelease,
   ).patches
 
   // Run the current release notes through the markdown rendering pipeline.
@@ -44,10 +44,10 @@ export default async function ghesReleaseNotesContext(req, res, next) {
       const ghesReleaseNotes = getReleaseNotes('enterprise-server', 'en')
       enContext.ghesReleases = formatReleases(ghesReleaseNotes)
       const currentReleaseNotes = enContext.ghesReleases.find(
-        (r) => r.version === requestedRelease
+        (r) => r.version === requestedRelease,
       ).patches
       return renderPatchNotes(currentReleaseNotes, enContext)
-    }
+    },
   )
 
   // GHES release notes on docs started with 2.20 but older release notes exist on enterprise.github.com.

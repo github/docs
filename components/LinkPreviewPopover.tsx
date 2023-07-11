@@ -58,7 +58,7 @@ function getOrCreatePopoverGlobal() {
     // or 'Popover-message--top-right`. These get set later when we
     // know where the popover message should appear on the screen.
     inner.classList.add(
-      ...'Popover-message Popover-message--large p-3 Box color-shadow-large'.split(/\s+/g)
+      ...'Popover-message Popover-message--large p-3 Box color-shadow-large'.split(/\s+/g),
     )
     inner.style.width = `360px`
 
@@ -343,8 +343,8 @@ export function LinkPreviewPopover() {
 
     const links = Array.from(
       document.querySelectorAll<HTMLLinkElement>(
-        '#article-contents a[href], #article-intro a[href]'
-      )
+        '#article-contents a[href], #article-intro a[href]',
+      ),
     ).filter((link) => {
       // This filters out links that are not internal or in-page
       // and the ones that are in-page anchor links next to the headings.

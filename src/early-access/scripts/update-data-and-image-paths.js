@@ -10,15 +10,15 @@
 import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
-import walkFiles from '../helpers/walk-files.js'
+import walkFiles from '../../../script/helpers/walk-files.js'
 import { escapeRegExp } from 'lodash-es'
-import patterns from '../../lib/patterns.js'
+import patterns from '../../../lib/patterns.js'
 
 program
   .description('Update data and image paths.')
   .option(
     '-p, --early-access-path <PATH>',
-    'Early access filepath. Defaults to all Early Access content and data files if not provided.'
+    'Early access filepath. Defaults to all Early Access content and data files if not provided.',
   )
   .option('-a, --add', 'Add "early-access" to data and image paths.')
   .option('-r, --remove', 'Remove "early-access" from data and image paths.')
@@ -37,7 +37,7 @@ if (earlyAccessPath && !earlyAccessPath.startsWith('content/early-access')) {
 }
 
 const allEarlyAccessFiles = walkFiles('content', '.md', { includeEarlyAccess: true }).concat(
-  walkFiles('data', ['.md', '.yml'], { includeEarlyAccess: true })
+  walkFiles('data', ['.md', '.yml'], { includeEarlyAccess: true }),
 )
 
 let selectFiles = allEarlyAccessFiles
@@ -63,7 +63,7 @@ if (earlyAccessPath) {
 
   const dataFiles = allEarlyAccessFiles.filter((file) => {
     return referencedDataFiles.some((f) =>
-      f.includes(file.replace('data/reusables', 'data/early-access/reusables'))
+      f.includes(file.replace('data/reusables', 'data/early-access/reusables')),
     )
   })
 
@@ -87,7 +87,7 @@ selectFiles.forEach((file) => {
       .forEach((dataRef) => {
         replacements[dataRef] = dataRef.replace(
           /({% (?:data|indented_data_reference) )(.*)/,
-          '$1early-access.$2'
+          '$1early-access.$2',
         )
       })
 

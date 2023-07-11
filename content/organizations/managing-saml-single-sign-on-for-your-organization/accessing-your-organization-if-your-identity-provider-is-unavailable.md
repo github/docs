@@ -12,7 +12,7 @@ topics:
 shortTitle: Unavailable identity provider
 ---
 
-Organization owners can use one of their downloaded or saved recovery codes to bypass single sign-on. You may have saved these to a password manager, such as [LastPass](https://lastpass.com/) or [1Password](https://1password.com/). For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes)."
+Organization owners can use one of their downloaded or saved recovery codes to bypass single sign-on. You may have saved these to a password manager. For more information about downloading recovery codes, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes)."
 
 {% data reusables.saml.recovery-code-caveats %}
 

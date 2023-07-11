@@ -88,7 +88,7 @@ jobs:
           ref: main
 
       - name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       - name: 'Build and push image'
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
