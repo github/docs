@@ -34,7 +34,6 @@ We are using the [markdownlint](https://github.com/DavidAnson/markdownlint) fram
 | [MD113](./linting-rules/internal-links-slash.js) | Internal links must start with a `/`. | error |
 | [MD114](./linting-rules/internal-links-lang.js) | Internal links must not have a hardcoded language code. | error |
 | [MD115](./linting-rules/image-file-kebab.js) | Image file names should be lowercase kebab case. | error |
-| [MD116](./linting-rules/code-fences-use-copy-directive.js) | Code fences must use the copy directive when the example is a command only and must not use the copy directive when the example contains output. | error |
 | [MD117](./linting-rules/code-fence-line-length.js) | Code fence content should be 60 lines or less in length. | warning |
 
 ## Linting Tests
