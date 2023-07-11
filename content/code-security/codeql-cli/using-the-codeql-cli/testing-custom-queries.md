@@ -143,7 +143,7 @@ other custom queries. For example, `custom-queries/java/queries/EmptyThen.ql`.
 
 1. Create a {% data variables.product.prodname_codeql %} pack for your Java tests by adding a `qlpack.yml` file with the following contents to `custom-queries/java/tests`, updating the `dependencies` to match the name of your {% data variables.product.prodname_codeql %} pack of custom queries:
 
-  {% data reusables.codeql-cli.test-qlpack %}
+{% indented_data_reference reusables.codeql-cli.test-qlpack spaces=2 %}
 
 1. Run `codeql pack install` in the root of the test directory. This generates a `codeql-pack.lock.yml` file that specifies all of the transitive dependencies required to run queries in this pack.
 
@@ -166,7 +166,7 @@ which is declared as a dependency for `my-query-tests`. Therefore, `EmptyThen.ql
         System.out.println("Empty argument");
       }
     }
-  
+
     public void good(String arg) {
       if (arg.isEmpty()) {
         System.out.println("Empty argument");

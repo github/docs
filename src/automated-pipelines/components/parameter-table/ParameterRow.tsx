@@ -164,7 +164,7 @@ export function ParameterRow({
       rowParams.childParamsGroups.length === 0 &&
       !NO_CHILD_WEBHOOK_PROPERTIES.includes(rowParams.name) ? (
         <tr className="border-top-0">
-          <td colSpan={4} className="has-nested-table">
+          <td className="has-nested-table">
             <details
               data-nested-param-id={rowParams.name}
               className="box px-3 ml-1 mb-0"

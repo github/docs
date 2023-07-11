@@ -27,16 +27,10 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
     ```
 
 1. Create an `index.js` file and add a basic alert to say "Hello world!"
-    {% raw %}
-
     ```javascript copy
     console.log("Hello, World!");
     ```
-
-    {% endraw %}
 1. Initialize an npm package with `npm init`. In the package initialization wizard, enter your package with the name: _`@YOUR-USERNAME/YOUR-REPOSITORY`_, and set the test script to `exit 0`. This will generate a `package.json` file with information about your package.
-    {% raw %}
-
     ```shell
     $ npm init
       ...
@@ -45,8 +39,6 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
       test command: exit 0
       ...    
     ```
-
-    {% endraw %}
 1. Run `npm install` to generate the `package-lock.json` file, then commit and push your changes to {% data variables.product.prodname_dotcom %}.
 
     ```shell
@@ -97,23 +89,15 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 
 1. Tell npm which scope and registry to publish packages to using one of the following methods:
    - Add an npm configuration file for the repository by creating a `.npmrc` file in the root directory with the contents:
-      {% raw %}
-
       ```shell
       @YOUR-USERNAME:registry=https://npm.pkg.github.com
       ```
-
-      {% endraw %}
    - Edit the `package.json` file and specify the `publishConfig` key:
-      {% raw %}
-
       ```shell
       "publishConfig": {
         "@<em>YOUR-USERNAME</em>:registry": "https://npm.pkg.github.com"
       }
       ```
-
-      {% endraw %}
 1. Commit and push your changes to {% data variables.product.prodname_dotcom %}.
 
     ```shell

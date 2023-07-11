@@ -41,6 +41,13 @@ export default async function currentProductTree(req, res, next) {
     req.context.currentProductTreeTitles
   )
 
+  // Some pages, like hidden pages, don't have a tree. For example,
+  // the search page. That one uses the same items as the homepage
+  // for its sidebar.
+  if (req.context.currentProductTreeTitlesExcludeHidden) {
+    req.context.sidebarTree = sidebarTree(req.context.currentProductTreeTitlesExcludeHidden)
+  }
+
   return next()
 }
 
@@ -116,6 +123,17 @@ function excludeHidden(tree) {
     shortTitle: tree.shortTitle,
     documentType: tree.documentType,
     childPages: tree.childPages.map(excludeHidden).filter(Boolean),
+  }
+  return newTree
+}
+
+function sidebarTree(tree) {
+  const { href, title, shortTitle, childPages } = tree
+  const childChildPages = childPages.map(sidebarTree)
+  const newTree = {
+    href,
+    title: shortTitle || title,
+    childPages: childChildPages,
   }
   return newTree
 }

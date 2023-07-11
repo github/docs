@@ -482,8 +482,8 @@ describe('lint markdown content', () => {
       const placeholderStr = matches.length === 1 ? 'placeholder' : 'placeholders'
       const errorMessage = `
         Found ${matches.length} ${placeholderStr} '${matches.join(
-        ', '
-      )}' in this file! Please update all placeholders.
+          ', '
+        )}' in this file! Please update all placeholders.
       `
       expect(matches.length, errorMessage).toBe(0)
     })

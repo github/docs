@@ -8,6 +8,8 @@ For new users, code annotations are a way to go beyond the high level overview o
 
 For more experienced users, code annotations can help them understand a code example and then tailor it to their specific needs. Annotations can explain why code was written a certain way so that the fundamentals are clear.
 
+You can annotate multiple code examples in a single article, but keep in mind that each annotation increases the complexity of an article and adds repetitive navigation tasks for people using screen readers. If you have multiple code examples in an article, consider whether they can be combined into a single example.
+
 ## Enabling and adding code annotations
 
 1. Specify the `layout: inline` frontmatter property for the article.
