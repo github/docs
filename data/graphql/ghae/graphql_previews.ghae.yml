@@ -66,7 +66,6 @@
     - DependencyGraphDependency
     - DependencyGraphDependencyEdge
     - DependencyGraphDependencyConnection
-    - DependencyGraphPackageRelease.dependencies
   owning_teams:
     - '@github/dependency-graph'
 - title: Project Event Details

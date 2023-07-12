@@ -19,13 +19,13 @@ describe('featuredLinks', () => {
       expect($featuredLinks.eq(0).attr('href')).toBe('/en/get-started/quickstart/set-up-git')
       expect($featuredLinks.eq(0).children('h3').text().startsWith('Set up Git')).toBe(true)
       expect($featuredLinks.eq(0).children('p').text().startsWith('At the heart of GitHub')).toBe(
-        true
+        true,
       )
 
       expect($featuredLinks.eq(8).attr('href')).toBe('/en/pages')
       expect($featuredLinks.eq(8).children('h3').text().startsWith('GitHub Pages')).toBe(true)
       expect(
-        $featuredLinks.eq(8).children('p').text().startsWith('Learn how to create a website')
+        $featuredLinks.eq(8).children('p').text().startsWith('Learn how to create a website'),
       ).toBe(true)
     })
 
@@ -34,7 +34,7 @@ describe('featuredLinks', () => {
       const $featuredLinks = $('[data-testid=article-list] a')
       expect($featuredLinks.length > 0).toBeTruthy()
       expect($featuredLinks.eq(0).attr('href')).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/learning-about-github/githubs-products`
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/get-started/learning-about-github/githubs-products`,
       )
       expect($featuredLinks.eq(0).children('h3').text().startsWith('GitHub’s products')).toBe(true)
       expect(
@@ -42,7 +42,7 @@ describe('featuredLinks', () => {
           .eq(0)
           .children('p')
           .text()
-          .startsWith("An overview of GitHub's products and pricing plans.")
+          .startsWith("An overview of GitHub's products and pricing plans."),
       ).toBe(true)
     })
 
@@ -58,13 +58,13 @@ describe('featuredLinks', () => {
       msg = `Enterprise article link is not rendered as expected on ${enterpriseVersionedLandingPage}`
       expect(
         $productArticlesLinks.text().includes('About licenses for GitHub Enterprise'),
-        msg
+        msg,
       ).toBe(true)
 
       // Confirm that the following Dotcom-only links are NOT included on this Enterprise page.
       msg = `Dotcom-only article link is rendered, but should not be, on ${enterpriseVersionedLandingPage}`
       expect($productArticlesLinks.text().includes('Adding or editing a payment method')).toBe(
-        false
+        false,
       )
       expect($productArticlesLinks.text().includes('Setting your billing email'), msg).toBe(false)
     })

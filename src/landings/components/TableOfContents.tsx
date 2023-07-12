@@ -55,7 +55,7 @@ export const TableOfContents = (props: Props) => {
                 {(childTocItems || []).length > 0 && (
                   <ul
                     className={cx(
-                      variant === 'compact' ? 'list-style-circle pl-5' : 'list-style-none'
+                      variant === 'compact' ? 'list-style-circle pl-5' : 'list-style-none',
                     )}
                   >
                     {(childTocItems || []).map((childItem) => {

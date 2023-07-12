@@ -37,7 +37,7 @@ export const internalLinksSlash = {
                 editColumn: token.line.indexOf('(') + 2,
                 deleteCount: 0,
                 insertText: '/',
-              }
+              },
             )
             internalLinkHasSlash = true
           }

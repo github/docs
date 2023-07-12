@@ -41,7 +41,7 @@ export default async function reloadTree(req, res, next) {
   warmed.unversionedTree.en = await createTree(
     path.join(languages.en.dir, 'content'),
     undefined,
-    warmed.unversionedTree.en
+    warmed.unversionedTree.en,
   )
   const after = getMtimes(warmed.unversionedTree.en)
   // The next couple of operations are much slower (in total) than

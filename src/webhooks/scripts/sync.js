@@ -18,7 +18,7 @@ export async function syncWebhookData(sourceDirectory, webhookSchemas) {
       const webhookSchemaData = schema.webhooks ?? schema['x-webhooks']
       if (!webhookSchemaData) {
         console.log(
-          `🟡 No webhooks exist in ${sourceDirectory}/${schemaName}. No static webhook files will be generated.`
+          `🟡 No webhooks exist in ${sourceDirectory}/${schemaName}. No static webhook files will be generated.`,
         )
         return
       }
@@ -29,7 +29,7 @@ export async function syncWebhookData(sourceDirectory, webhookSchemas) {
 
       if (Object.keys(data).length === 0) {
         throw new Error(
-          `Generating Webhook data failed for ${sourceDirectory}/${schemaName}. The generated data file was empty.`
+          `Generating Webhook data failed for ${sourceDirectory}/${schemaName}. The generated data file was empty.`,
         )
       }
 
@@ -43,7 +43,7 @@ export async function syncWebhookData(sourceDirectory, webhookSchemas) {
       const targetPath = path.join(targetDirectory, WEBHOOK_SCHEMA_FILENAME)
       await writeFile(targetPath, JSON.stringify(data, null, 2))
       console.log(`✅ Wrote ${targetPath}`)
-    })
+    }),
   )
 }
 
@@ -54,7 +54,7 @@ async function processWebhookSchema(webhooks) {
     }
   } catch (error) {
     throw new Error(
-      "🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help."
+      "🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.",
     )
   }
 }

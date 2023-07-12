@@ -164,6 +164,12 @@
   }
 }
 
+.annotate-header header {
+  border-top-left-radius: 6px !important;
+  border-top-right-radius: 6px !important;
+  border-bottom: 1px solid var(--color-border-default);
+}
+
 .annotate-beside,
 .beside .annotate-header {
   margin: auto;
@@ -225,12 +231,20 @@
 }
 
 .annotate-note {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+
   @include breakpoint(md) {
     width: 50%;
 
     padding: 16px 0 16px 16px;
     font-size: 14px;
+    margin: 0px;
   }
+}
+
+.annotate-note > p:last-child {
+  margin-bottom: 0px;
 }
 
 .subnav-item[aria-current]:not([aria-current="false"]) {

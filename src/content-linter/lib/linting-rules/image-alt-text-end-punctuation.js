@@ -25,7 +25,7 @@ export const imageAltTextEndPunctuation = {
             editColumn: token.line.indexOf(']') + 1,
             deleteCount: 0,
             insertText: '.',
-          }
+          },
         )
       }
     })

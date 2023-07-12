@@ -20,7 +20,7 @@ describe('server', () => {
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(
       // Note that English is the default fallback for redirects
-      `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/release-notes`
+      `/en/enterprise-server@${enterpriseServerReleases.latest}/admin/release-notes`,
     )
   })
   test('basic rendering', async () => {
