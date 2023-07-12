@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Member <code>Bot</code> was added to Union type <code>RequestedReviewer</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-07-12"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument <code>login: String</code> added to field <code>Organization.mannequins</code></p>"
         ]
       }

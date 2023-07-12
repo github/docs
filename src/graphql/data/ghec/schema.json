@@ -86070,6 +86070,11 @@
       "description": "<p>Types that can be requested reviewers.</p>",
       "possibleTypes": [
         {
+          "name": "Bot",
+          "id": "bot",
+          "href": "/graphql/reference/objects#bot"
+        },
+        {
           "name": "Mannequin",
           "id": "mannequin",
           "href": "/graphql/reference/objects#mannequin"
