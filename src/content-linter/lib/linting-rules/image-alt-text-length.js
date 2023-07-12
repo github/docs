@@ -18,7 +18,7 @@ export const incorrectAltTextLength = {
         addError(
           onError,
           token.lineNumber,
-          `The alt text: ${renderedString}, is ${renderedString.length} characters long`
+          `The alt text: ${renderedString}, is ${renderedString.length} characters long`,
         )
       }
     })

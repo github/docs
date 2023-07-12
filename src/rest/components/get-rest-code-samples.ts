@@ -49,7 +49,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   if (codeSample?.request?.bodyParameters) {
     requestBodyParams = `-d '${JSON.stringify(codeSample.request.bodyParameters).replace(
       /'/g,
-      "'\\''"
+      "'\\''",
     )}'`
 
     const contentType = codeSample.request.contentType
@@ -164,7 +164,7 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
     requestBodyParams,
   ].filter(Boolean)
   return `# GitHub CLI api\n# https://cli.github.com/manual/gh_api\n\ngh api \\\n  ${args.join(
-    ' \\\n  '
+    ' \\\n  ',
   )}`
 }
 

@@ -57,7 +57,7 @@ describe('liquid template parser', () => {
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       // We should have TWO results because we are supporting two shortcuts
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am FPT I am FTP or GHES < ${secondOldestSupportedGhes}`
+        `I am FPT I am FTP or GHES < ${secondOldestSupportedGhes}`,
       )
     })
 
@@ -95,7 +95,7 @@ describe('liquid template parser', () => {
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am GHES I am GHES < ${secondOldestSupportedGhes} I am FTP or GHES < ${secondOldestSupportedGhes}`
+        `I am GHES I am GHES < ${secondOldestSupportedGhes} I am FTP or GHES < ${secondOldestSupportedGhes}`,
       )
     })
 
@@ -109,7 +109,7 @@ describe('liquid template parser', () => {
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(shortVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am GHES I am GHES = ${secondOldestSupportedGhes} I am ${secondOldestSupportedGhes} only`
+        `I am GHES I am GHES = ${secondOldestSupportedGhes} I am ${secondOldestSupportedGhes} only`,
       )
     })
 
@@ -123,7 +123,7 @@ describe('liquid template parser', () => {
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am not GHEC I am not GHES I am not GHES ${secondOldestSupportedGhes}`
+        `I am not GHEC I am not GHES I am not GHES ${secondOldestSupportedGhes}`,
       )
     })
 
@@ -137,7 +137,7 @@ describe('liquid template parser', () => {
       await shortVersionsMiddleware(req, null, () => {})
       const output = await liquid.parseAndRender(negativeVersionsTemplate, req.context)
       expect(output.replace(/\s\s+/g, ' ').trim()).toBe(
-        `I am not GHAE I am not GHEC I am not GHES ${secondOldestSupportedGhes}`
+        `I am not GHAE I am not GHEC I am not GHES ${secondOldestSupportedGhes}`,
       )
     })
 

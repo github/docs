@@ -19,31 +19,18 @@ shortTitle: Known issues with backups
 
 ## Users cannot sign in after restoration of a backup
 
-If you used {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.7 %}3.7.0{% elsif ghes = 3.8 or ghes = 3.9 %}3.7.0 or 3.8.0{% endif %} to back up an instance running any release in the {% data variables.product.product_name %} 3.7{% ifversion ghes = 3.8 or ghes = 3.9 %} or 3.8{% endif %} series, after you restore the backup to a new instance, users cannot sign in. Though users cannot sign in, the backup itself is unaffected and all data is intact.
+If you used {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.7 %}3.7.0{% elsif ghes = 3.8 %}3.7.0 or 3.8.0{% elsif ghes = 3.9 %}3.7.0, 3.8.0, or 3.9.0{% endif %} to back up an instance running any release in the {% data variables.product.product_name %} 3.7{% ifversion ghes = 3.8 or ghes = 3.9 %} or 3.8{% endif %} series, after you restore the backup to a new instance, users cannot sign in. Though users cannot sign in, the backup itself is unaffected and all data is intact.
 
-To address this issue, upgrade {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, then create a new backup. Alternatively, you can modify the configuration on a new target instance to restore an existing backup affected by this issue.
-
-- [Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}](#upgrading-github-enterprise-server-backup-utilities)
-- [Restoring from an existing backup](#restoring-from-an-existing-backup)
-
-### Upgrading {% data variables.product.prodname_enterprise_backup_utilities %}
-
-To create a new backup, upgrade {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host to version {% ifversion ghes = 3.7 %}3.7.1{% elsif ghes = 3.8 or ghes = 3.9 %}3.7.1 or 3.8.1{% endif %}, then use the `ghe-backup` utility to back up your instance running {% data variables.product.product_name %} {% ifversion ghes = 3.7 %}3.7{% elsif ghes = 3.8 or ghes = 3.9 %}3.7 or 3.8{% endif %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance)" and [{% ifversion ghes = 3.7 %}the 3.7.1 release{% elsif ghes = 3.8 or ghes = 3.9 %}releases{% endif %}](https://github.com/github/backup-utils/releases{% ifversion ghes = 3.7 %}/tag/v3.7.1{% endif %}) in the github/backup-utils repository.
-
-{% ifversion ghes = 3.9 %}
-
-If your instance is already running {% data variables.product.product_name %} 3.9 and users can sign in, you can upgrade to {% data variables.product.prodname_enterprise_backup_utilities %} 3.9.0 on your backup host and continue backing up normally. For more information, see the [3.9.0 release](https://github.com/github/backup-utils/releases/tag/v3.9.0) in the `github/backup-utils` repository.
-
-{% endif %}
+After you restore an existing backup affected by this issue, you can resolve the issue by modifying the configuration on the new instance.
 
 ### Restoring from an existing backup
 
-If you've restored an existing backup from {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.7 %}3.7.0{% elsif ghes = 3.8 or ghes = 3.9 %}3.8.0{% endif %} to a new instance and users cannot sign in, you must output configuration data from the source {% data variables.product.product_name %} instance and adjust the configuration on the target instance.
+If you've restored an existing backup from {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.7 %}3.7.0{% elsif ghes = 3.8 %}3.8.0{% elsif ghes = 3.9%}3.7.0, 3.8.0, or 3.9.0{% endif %} to a new instance and users cannot sign in, you must output configuration data from the source {% data variables.product.product_name %} instance and adjust the configuration on the target instance.
 
 To ensure users can sign into the new target instance, ensure that your environment meets the following requirements.
 
 - The source {% data variables.product.product_name %} instance must be running and accessible via SSH.
-- You must have an existing backup from {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.7 %}3.7.0{% elsif ghes = 3.8 or ghes = 3.9 %}3.8.0{% endif %}.
+- You must have an existing backup from {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.7 %}3.7.0{% elsif ghes = 3.8 %}3.7.0 or 3.8.0{% elsif ghes = 3.9 %}3.7.0, 3.8.0, or 3.9.0{% endif %}.
 - You must have provisioned a new target {% data variables.product.product_name %} instance and restored the backup. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-instance)."
 
 1. SSH into the source {% data variables.product.product_name %} instance that you backed up. If your instance comprises multiple nodes, for example if high availability or geo-replication are configured, SSH into the primary node. If you use a cluster, you can SSH into any node. Replace HOSTNAME with the actual hostname of your instance. For more information about SSH access, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."

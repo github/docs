@@ -66,7 +66,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   if (page.effectiveDate) {
     if (isNaN(Date.parse(page.effectiveDate))) {
       throw new Error(
-        'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY'
+        'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY',
       )
     }
   }

@@ -28,14 +28,13 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 To generate a dependency graph, {% data variables.product.product_name %} needs read-only access to the dependency manifest and lock files for a repository. The dependency graph is automatically generated for all public repositories and you can choose to enable it for private repositories. For more information on viewing the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)."
 
 {% data reusables.dependency-submission.dependency-submission-link %}
+
+You can also enable the dependency graph for multiple repositories in an organization at the same time. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
+
 {% endif %}
 
 {% ifversion ghes %} ## Enabling the dependency graph
 {% data reusables.dependabot.ghes-ghae-enabling-dependency-graph %}{% endif %}{% ifversion fpt or ghec %}
-
-{% ifversion code-security-multi-repo-enablement %}
-You can use security overview to find a set of repositories and enable or disable the dependency graph for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
-{% endif %}
 
 ### Enabling and disabling the dependency graph for a private repository
 

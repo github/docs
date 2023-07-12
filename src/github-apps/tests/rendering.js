@@ -34,8 +34,8 @@ describe('REST references docs', () => {
             (item) =>
               `/en/rest/${key}${
                 categoriesWithoutSubcategories.includes(key) ? '' : '/' + item.subcategory
-              }#${item.slug}`
-          )
+              }#${item.slug}`,
+          ),
         )
       }
       // get all of the href attributes in the anchor tags
@@ -64,8 +64,8 @@ describe('REST references docs', () => {
             (item) =>
               `/en/rest/${item.category}${
                 categoriesWithoutSubcategories.includes(item.category) ? '' : '/' + item.subcategory
-              }#${item.slug}`
-          )
+              }#${item.slug}`,
+          ),
         )
       }
 

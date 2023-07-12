@@ -22,7 +22,17 @@ topics:
 
 ## About enabling security features
 
-If you're a security manager, repository administrator, or organization owner, you can use security overview to enable or disable security features for multiple repositories at the same time. You can enable or disable security features for all repositories visible on the "Security coverage" view in security overview for an organization. You can also use the search bar to narrow down to a specific subset of repositories, and enable or disable security features for that group.
+If you're a security manager, repository administrator, or organization owner, you can use security overview to enable or disable security features for multiple repositories at the same time. You can enable or disable security features for all repositories visible on the "Security coverage" view in security overview for an organization. 
+
+You can use checkboxes to select which repositories you want to include, or use the search bar to narrow down to a specific subset of repositories, and enable or disable security features for that group. This is useful if you want to introduce a feature to your organization gradually over time, or if your organization requires a complex security setup where different features are enabled in different repositories. For example, if you are enabling a feature across a group of repositories, you may find the following filtering options helpful.
+
+- To exclude certain repositories from the selection, you can assign a topic such as `test` to these repositories, then exclude them from the results with a search like `-topic:test`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
+- If a team uses repositories that all require a certain feature, you can use the `team:` filter to search for repositories where a team has write or admin access.{% ifversion code-scanning-without-workflow %}
+- If you're enabling {% data variables.product.prodname_code_scanning %}, you can see which repositories are eligible for default setup with the search `code-scanning-default-setup:eligible`. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."{% endif %}
+
+For more information on filters you can use in different parts of security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+
+For more information about the different ways of enabling security features in an organization, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
 
 ## Enabling security features for multiple repositories
 

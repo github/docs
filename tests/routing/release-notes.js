@@ -17,7 +17,7 @@ describe('release notes', () => {
 
     nock('https://github.github.com')
       .get(
-        '/help-docs-archived-enterprise-versions/2.19/en/enterprise-server@2.19/admin/release-notes'
+        '/help-docs-archived-enterprise-versions/2.19/en/enterprise-server@2.19/admin/release-notes',
       )
       .reply(404)
     nock('https://github.github.com')
@@ -42,7 +42,7 @@ describe('release notes', () => {
     const $ = await getDOM(`/en/enterprise-server@${oldestSupportedGhes}/admin/release-notes`)
     expect($('h1').first().text()).toBe(`Enterprise Server ${oldestSupportedGhes} release notes`)
     expect(
-      $('h2').first().text().trim().startsWith(`Enterprise Server ${oldestSupportedGhes}`)
+      $('h2').first().text().trim().startsWith(`Enterprise Server ${oldestSupportedGhes}`),
     ).toBe(true)
   })
 
