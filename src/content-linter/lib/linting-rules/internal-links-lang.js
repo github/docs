@@ -3,11 +3,11 @@ import { addError, filterTokens } from 'markdownlint-rule-helpers'
 import { languageKeys } from '../../../../lib/languages.js'
 
 export const internalLinksLang = {
-  names: ['MD114', 'internal-links-lang'],
+  names: ['GHD005', 'internal-links-lang'],
   description: 'Internal links must not have a hardcoded language code',
   severity: 'error',
   tags: ['links', 'url'],
-  function: function MD114(params, onError) {
+  function: function GHD006(params, onError) {
     filterTokens(params, 'inline', (token) => {
       let linkHref = ''
       let internalLinkHasLang = false

@@ -2,11 +2,11 @@ import { addError, forEachInlineChild } from 'markdownlint-rule-helpers'
 import { liquid } from '#src/content-render/index.js'
 
 export const incorrectAltTextLength = {
-  names: ['MD111', 'incorrect-alt-text-length'],
+  names: ['GHD003', 'incorrect-alt-text-length'],
   severity: 'warning',
   description: 'Images alternate text should be between 40-150 characters',
   tags: ['accessibility', 'images'],
-  function: function MD111(params, onError) {
+  function: function GHD004(params, onError) {
     forEachInlineChild(params, 'image', async function forToken(token) {
       let renderedString = token.content
       if (token.content.includes('{%') || token.content.includes('{{')) {

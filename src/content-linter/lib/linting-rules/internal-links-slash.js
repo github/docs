@@ -1,11 +1,11 @@
 import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
 export const internalLinksSlash = {
-  names: ['MD113', 'internal-links-slash'],
+  names: ['GHD006', 'internal-links-slash'],
   description: 'Internal links must start with a /',
   severity: 'error',
   tags: ['links', 'url'],
-  function: function MD113(params, onError) {
+  function: function GHD007(params, onError) {
     filterTokens(params, 'inline', (token) => {
       let linkHref = ''
       let internalLinkHasSlash = true

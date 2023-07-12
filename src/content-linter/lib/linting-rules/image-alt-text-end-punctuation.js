@@ -1,11 +1,11 @@
 import { addError, forEachInlineChild } from 'markdownlint-rule-helpers'
 
 export const imageAltTextEndPunctuation = {
-  names: ['MD112', 'image-alt-text-end-punctuation'],
+  names: ['GHD002', 'image-alt-text-end-punctuation'],
   description: 'Images alternate text should end with a punctuation.',
   severity: 'error',
   tags: ['accessibility', 'images'],
-  function: function MD112(params, onError) {
+  function: function GHD003(params, onError) {
     forEachInlineChild(params, 'image', function forToken(token) {
       const quoteRegex = /[.?!]['"]$/
       const endRegex = /[.?!]$/
