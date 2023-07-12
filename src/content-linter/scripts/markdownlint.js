@@ -28,9 +28,10 @@ program
   )
   .option('--fix', 'Fix linting errors.')
   .option('--summary-by-rule', 'Summarize the number of errors for each rule.')
+  .option('--verbose', 'Output full format for all errors.')
   .parse(process.argv)
 
-const { files, fix, paths, error, rules, summaryByRule } = program.opts()
+const { files, fix, paths, error, rules, summaryByRule, verbose } = program.opts()
 const DEFAULT_LINT_DIRS = ['content', 'data']
 
 main()
@@ -77,7 +78,7 @@ async function main() {
     }
   }
 
-  // Used for a temporary way to allow us to see how many errors currently
+  // Used for a temparary way to allow us to see how many errors currently
   // exist for each rule in the content directory.
   if (summaryByRule) {
     reportSummaryByRule(result, config)
@@ -129,12 +130,38 @@ function reportSummaryByRule(result, config) {
 function reportResults(results) {
   Object.entries(results)
     // each result key always has an array value, but it may be empty
-    .filter(([key, result]) => result.length)
+    .filter(([, result]) => result.length)
     .forEach(([key, result]) => {
-      console.log(key, result)
+      console.log(key)
+      if (!verbose) {
+        result.forEach((flaw) => {
+          const simplifiedResult = formatResult(flaw)
+          console.log(simplifiedResult)
+        })
+      } else {
+        console.log(result)
+      }
     })
 }
 
 function getErrorCountByFile(result) {
   return Object.values(result).filter((value) => value.length).length
+}
+
+function formatResult(object) {
+  return Object.entries(object).reduce((acc, [key, value]) => {
+    if (key === 'fixInfo') {
+      acc.fixable = !!value
+      delete acc.fixInfo
+      return acc
+    }
+    if (!value) return acc
+    if (key === 'errorRange') {
+      acc.columnNumber = value[0]
+      delete acc.range
+      return acc
+    }
+    acc[key] = value
+    return acc
+  }, {})
 }

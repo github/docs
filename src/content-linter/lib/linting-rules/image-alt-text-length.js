@@ -6,6 +6,7 @@ export const incorrectAltTextLength = {
   severity: 'warning',
   description: 'Images alternate text should be between 40-150 characters',
   tags: ['accessibility', 'images'],
+  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD004(params, onError) {
     forEachInlineChild(params, 'image', async function forToken(token) {
       let renderedString = token.content
@@ -18,7 +19,10 @@ export const incorrectAltTextLength = {
         addError(
           onError,
           token.lineNumber,
-          `The alt text: ${renderedString}, is ${renderedString.length} characters long`,
+          `Image alternate text is ${renderedString.length} characters long.`,
+          renderedString,
+          null, // No range
+          null, // No fix possible
         )
       }
     })
