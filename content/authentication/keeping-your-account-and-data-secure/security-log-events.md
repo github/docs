@@ -61,6 +61,17 @@ topics:
 | `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps).
 | `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/apps/using-github-apps/reviewing-your-authorized-integrations) and when [authorizations are revoked or expire](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
 
+{% ifversion passkeys %}
+
+## `passkey` category actions
+
+| Action | Description
+|------------------|-------------------
+| `register` | Triggered when a new passkey is added to your account.
+| `remove` | Triggered when a passkey is removed from your account.
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## `payment_method` category actions
