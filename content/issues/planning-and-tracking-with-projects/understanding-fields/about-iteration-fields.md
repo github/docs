@@ -28,9 +28,9 @@ If your project makes use of iteration fields, you can use the roadmap layout to
 
 {% data reusables.projects.new-field %}
 1. Under "Field type", select **Iteration**.
-2. Optionally, if you don't want the iteration to start today, select the calendar dropdown next to "Starts on" and choose a new start date.
-3. To change the duration of each iteration, type a new number, then select the dropdown and click either **days** or **weeks**.
-4. Click **Save**.
+1. Optionally, if you don't want the iteration to start today, select the calendar dropdown next to "Starts on" and choose a new start date.
+1. To change the duration of each iteration, type a new number, then select the dropdown and click either **days** or **weeks**.
+1. Click **Save**.
 
 Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
 
@@ -55,7 +55,7 @@ You can edit iterations in your project settings. You can also access the settin
 1. To change the date or duration of an iteration, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
    ![Screenshot of a single iteration's settings. The iteration date span is highlighted with an orange outline.](/assets/images/help/projects-v2/iteration-date.png)
 1. Optionally, to delete an iteration, on the right of the iteration, click {% octicon "trash" aria-label="Remove item" %}.
-2. Click **Save changes**.
+1. Click **Save changes**.
 
 ## Inserting a break
 
@@ -63,8 +63,8 @@ You can insert breaks into your iterations to communicate when you are taking ti
 
 {% data reusables.projects.project-settings %}
 1. Click the name of the iteration field you want to adjust.
-2. Hover over the dividing line above an iteration, then click **Insert break**.
+1. Hover over the dividing line above an iteration, then click **Insert break**.
 
    ![Screenshot of the list of iterations for a project. On the dividing line between two iterations, a button, labeled "Insert break," is outlined in dark orange.](/assets/images/help/issues/iteration-insert-break.png)
-3. Optionally, to change the duration of the break, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
-4. Click **Save changes**.
+1. Optionally, to change the duration of the break, click on the date to open the calendar. Click on the start day, then click the end day, and then click **Apply**.
+1. Click **Save changes**.

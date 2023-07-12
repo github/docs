@@ -34,7 +34,7 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
             className={cx(
               'py-6 d-block d-xl-flex',
               !withReleaseNoteLabel && 'mx-6',
-              !isLast && 'border-bottom'
+              !isLast && 'border-bottom',
             )}
           >
             <div>

@@ -54,11 +54,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Configuring two-factor authentication using a TOTP mobile app
 
-A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:
-- [1Password](https://support.1password.com/one-time-passwords/)
-- [Authy](https://authy.com/guides/github/)
-- [LastPass Authenticator](https://lastpass.com/auth/)
-- [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app/)
+A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps.
 
 {% tip %}
 
@@ -138,6 +134,7 @@ Registering a security key for your account is available after enabling 2FA with
 {% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
 
 You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.

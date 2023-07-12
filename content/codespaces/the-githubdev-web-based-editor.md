@@ -107,8 +107,8 @@ Because {% data variables.codespaces.serverless %} uses the GitHub Repositories 
 You can use {% data variables.codespaces.serverless %} to work with an existing pull request.
 
 1. Browse to the pull request you'd like to open in {% data variables.codespaces.serverless %}.
-2. Press `.` to open the pull request in {% data variables.codespaces.serverless %}.
-3. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
+1. Press `.` to open the pull request in {% data variables.codespaces.serverless %}.
+1. Once you have made any changes, commit them using the steps in [Commit your changes](#commit-your-changes). Your changes will be committed directly to the branch, it's not necessary to push the changes.
 
 ## Using extensions
 

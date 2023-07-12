@@ -1,1 +1,1 @@
-8. In the left sidebar, click **Collaborators**.
+1. In the left sidebar, click **Collaborators**.

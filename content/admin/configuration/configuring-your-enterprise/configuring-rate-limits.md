@@ -39,8 +39,8 @@ You can exempt a list of users from API rate limits using the `ghe-config` utili
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
-3. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
+1. Under "Rate Limiting", select **Enable HTTP API Rate Limiting**.
+1. Type limits for authenticated and unauthenticated requests for each API, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Enabling secondary rate limits
@@ -50,11 +50,11 @@ Setting secondary rate limits protects the overall level of service on {% data v
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {%- ifversion ghes %}
-2. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
+1. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
 {%- else %}
-2. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
+1. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
 {%- endif %}
-3. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
+1. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Enabling rate limits for Git
@@ -74,7 +74,7 @@ If a member of {% data variables.product.company_short %}'s staff has recommende
 1. Under "User ID Limit", type a limit for each user ID.
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
 ## Configuring rate limits for {% data variables.product.prodname_actions %}
 
@@ -101,16 +101,19 @@ By default, the rate limit for {% data variables.product.prodname_actions %} is 
    ghe-config actions-rate-limiting.enabled true
    ghe-config actions-rate-limiting.queue-runs-per-minute RUNS-PER-MINUTE
    ```
+
 1. To disable the rate limit after it's been enabled, run the following command.
 
    ```
    ghe-config actions-rate-limiting.enabled false
    ```
+
 1. To apply the configuration, run the following command.
 
    ```
    ghe-config-apply
    ```
+
 1. Wait for the configuration run to complete.
 
 {% endif %}

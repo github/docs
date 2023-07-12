@@ -50,7 +50,7 @@ These options fit broadly into the following categories.
 
 - Essential set up options that you must include in all configurations: [`package-ecosystem`](#package-ecosystem), [`directory`](#directory),[`schedule.interval`](#scheduleinterval).
 - Options to customize the update schedule: [`schedule.time`](#scheduletime), [`schedule.timezone`](#scheduletimezone), [`schedule.day`](#scheduleday).
-- Options to control which dependencies are updated: [`allow`](#allow), [`ignore`](#ignore), [`vendor`](#vendor).
+- Options to control which dependencies are updated: [`allow`](#allow), {% ifversion dependabot-version-updates-groups %}[`groups`](#groups),{% endif %} [`ignore`](#ignore), [`vendor`](#vendor).
 - Options to add metadata to pull requests: [`reviewers`](#reviewers), [`assignees`](#assignees), [`labels`](#labels), [`milestone`](#milestone).
 - Options to change the behavior of the pull requests: [`target-branch`](#target-branch), [`versioning-strategy`](#versioning-strategy), [`commit-message`](#commit-message), [`rebase-strategy`](#rebase-strategy), [`pull-request-branch-name.separator`](#pull-request-branch-nameseparator).
 
@@ -68,7 +68,7 @@ In general, security updates use any configuration options that affect pull requ
 
 ### `package-ecosystem`
 
-**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.{% ifversion ghes > 3.4 %}
+**Required**. You add one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each of these package managers. If you want to enable vendoring for a package manager that supports it, the vendored dependencies must be located in the required directory. For more information, see [`vendor`](#vendor) below.{% ifversion ghes %}
 
 {% note %}
 
@@ -81,6 +81,7 @@ In general, security updates use any configuration options that affect pull requ
 {% data reusables.dependabot.supported-package-managers %}
 
 #### Example of a basic setup for three package managers
+
 ```yaml
 # Basic set up for three package managers
 
@@ -320,9 +321,38 @@ updates:
       prefix-development: "pip dev"
       include: "scope"
 ```
+
 If you use the same configuration as in the example above, bumping the `requests` library in the `pip` development dependency group will generate a commit message of:
 
    `pip dev: bump requests from 1.0.0 to 1.0.1`
+
+{% ifversion dependabot-version-updates-groups %}
+### `groups`
+
+{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
+
+{% data reusables.dependabot.dependabot-version-updates-groups-about %}
+
+{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+
+When you first configure a group, you specify a group name that will display in pull request titles and branch names. In the example below, the name of the group is `dev-dependencies`.
+
+You then define `patterns` (strings of characters) that match with a dependency name (or multiple dependency names) to include those dependencies in the group.
+
+If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal.
+
+You can also use `exclude-patterns` to exclude certain dependencies from the group. If a dependency is excluded from a group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version.
+
+Note that you can't use `@dependabot ignore` with pull requests for grouped updates. If you want to ignore version updates for a dependency, you must configure an [`ignore`](#ignore) rule for the dependency in the `dependabot.yml` file.
+
+When a scheduled update runs, {% data variables.product.prodname_dependabot %} will refresh pull requests for grouped updates using the following rules:
+- if all the same dependencies need to be updated to the same versions, {% data variables.product.prodname_dependabot %} will rebase the branch.
+- if all the same dependencies need to be updated, but a newer version has become available for one (or more) of the dependencies, {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
+- if the dependencies to be updated have changed - for example, if another dependency in the group now has an update available - {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
+
+{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+
+{% endif %}
 
 ### `ignore`
 
@@ -376,7 +406,7 @@ updates:
 
 {% endnote %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 {% note %}
 
 **Note**: For the `pub` ecosystem, {% data variables.product.prodname_dependabot %} won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
@@ -390,6 +420,7 @@ updates:
 Package managers with the `package-ecosystem` values `bundler`, `mix`, and `pip` may execute external code in the manifest as part of the version update process. This might allow a compromised package to steal credentials or gain access to configured registries. When you add a [`registries`](#registries) setting within an `updates` configuration, {% data variables.product.prodname_dependabot %} automatically prevents external code execution, in which case the version update may fail. You can choose to override this behavior and allow external code execution for `bundler`, `mix`, and `pip` package managers by setting `insecure-external-code-execution` to `allow`.
 
 {% raw %}
+
 ```yaml
 # Allow external code execution when updating dependencies from private registries
 
@@ -407,6 +438,7 @@ updates:
     schedule:
       interval: "monthly"
 ```
+
 {% endraw %}
 
 If you define a `registries` setting to allow {% data variables.product.prodname_dependabot %} to access a private package registry, and you set `insecure-external-code-execution` to `allow` in the same `updates` configuration, external code execution that occurs will only have access to the package managers in the registries associated with that `updates`setting. There is no access allowed to any of the registries defined in the top level `registries` configuration.
@@ -414,6 +446,7 @@ If you define a `registries` setting to allow {% data variables.product.prodname
 In this example, the configuration file allows {% data variables.product.prodname_dependabot %} to access the `ruby-github` private package registry. In the same `updates`setting, `insecure-external-code-execution`is set to `allow`, which means that the code executed by dependencies will only access the `ruby-github` registry, and not the `dockerhub` registry.
 
 {% raw %}
+
 ```yaml
 # Using `registries` in conjunction with `insecure-external-code-execution:allow`
 # in the same `updates` setting
@@ -439,6 +472,7 @@ updates:
       interval: "monthly"
 
 ```
+
 {% endraw %}
 
 You can explicitly deny external code execution, regardless of whether there is a `registries` setting for this update configuration, by setting `insecure-external-code-execution` to `deny`.
@@ -845,6 +879,7 @@ The top-level `registries` key is optional. It allows you to specify authenticat
 The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following _dependabot.yml_ file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
 
 {% raw %}
+
 ```yaml
 # Minimal settings to update dependencies in one private registry
 
@@ -863,6 +898,7 @@ updates:
     schedule:
       interval: "monthly"
 ```
+
 {% endraw %}
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
@@ -874,6 +910,7 @@ You must provide the required settings for each configuration `type` that you sp
 The `composer-repository` type supports username and password.
 
 {% raw %}
+
 ```yaml
 registries:
   composer:
@@ -882,6 +919,7 @@ registries:
     username: octocat
     password: ${{secrets.MY_PACKAGIST_PASSWORD}}
 ```
+
 {% endraw %}
 
 ### `docker-registry`
@@ -891,6 +929,7 @@ registries:
 The `docker-registry` type supports username and password.
 {% ifversion dependabot-private-registries %}
 {% raw %}
+
 ```yaml
 registries:
   dockerhub:
@@ -900,9 +939,11 @@ registries:
     password: ${{secrets.MY_DOCKERHUB_PASSWORD}}
     replaces-base: true
 ```
+
 {% endraw %}
 {% else %}
 {% raw %}
+
 ```yaml
 registries:
   dockerhub:
@@ -911,12 +952,14 @@ registries:
     username: octocat
     password: ${{secrets.MY_DOCKERHUB_PASSWORD}}
 ```
+
 {% endraw %}
 {% endif %}
 
 The `docker-registry` type can also be used to pull from private Amazon ECR using static AWS credentials.
 {% ifversion dependabot-private-registries %}
 {% raw %}
+
 ```yaml
 registries:
   ecr-docker:
@@ -926,9 +969,11 @@ registries:
     password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
     replaces-base: true
 ```
+
 {% endraw %}
 {% else %}
 {% raw %}
+
 ```yaml
 registries:
   ecr-docker:
@@ -937,6 +982,7 @@ registries:
     username: ${{secrets.ECR_AWS_ACCESS_KEY_ID}}
     password: ${{secrets.ECR_AWS_SECRET_ACCESS_KEY}}
 ```
+
 {% endraw %}
 {% endif %}
 
@@ -945,6 +991,7 @@ registries:
 The `git` type supports username and password.
 
 {% raw %}
+
 ```yaml
 registries:
   github-octocat:
@@ -953,6 +1000,7 @@ registries:
     username: x-access-token
     password: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
+
 {% endraw %}
 
 ### `hex-organization`
@@ -960,6 +1008,7 @@ registries:
 The `hex-organization` type supports organization and key.
 
 {% raw %}
+
 ```yaml
 registries:
   github-hex-org:
@@ -967,9 +1016,11 @@ registries:
     organization: github
     key: ${{secrets.MY_HEX_ORGANIZATION_KEY}}
 ```
+
 {% endraw %}
 
 {% ifversion dependabot-hex-self-hosted-support %}
+
 ### `hex-repository`
 
 The `hex-repository` type supports an authentication key.
@@ -979,6 +1030,7 @@ The `hex-repository` type supports an authentication key.
 The `public-key-fingerprint` is an optional configuration field, representing the fingerprint of the public key for the Hex repository. `public-key-fingerprint` is used by Hex to establish trust with the private repository. The `public-key-fingerprint` field can be either listed in plaintext or stored as a {% data variables.product.prodname_dependabot %} secret.
 
 {% raw %}
+
 ```yaml
 registries:
    github-hex-repository:
@@ -988,6 +1040,7 @@ registries:
      auth-key: ${{secrets.MY_AUTH_KEY}}
      public-key-fingerprint: ${{secrets.MY_PUBLIC_KEY_FINGERPRINT}}
 ```
+
 {% endraw %}{% endif %}
 
 ### `maven-repository`
@@ -995,6 +1048,7 @@ registries:
 The `maven-repository` type supports username and password.
 {% ifversion dependabot-private-registries %}
 {% raw %}
+
 ```yaml
 registries:
   maven-artifactory:
@@ -1004,9 +1058,11 @@ registries:
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
     replaces-base: true
 ```
+
 {% endraw %}
 {% else %}
 {% raw %}
+
 ```yaml
 registries:
   maven-artifactory:
@@ -1015,6 +1071,7 @@ registries:
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
+
 {% endraw %}{% endif %}
 
 ### `npm-registry`
@@ -1031,6 +1088,7 @@ When using username and password, your `.npmrc`'s auth token may contain a `base
 
 {% ifversion dependabot-private-registries %}
 {% raw %}
+
 ```yaml
 registries:
   npm-npmjs:
@@ -1040,9 +1098,11 @@ registries:
     password: ${{secrets.MY_NPM_PASSWORD}}  # Must be an unencoded password
     replaces-base: true
 ```
+
 {% endraw %}
 
 {% raw %}
+
 ```yaml
 registries:
   npm-github:
@@ -1051,9 +1111,11 @@ registries:
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
     replaces-base: true
 ```
+
 {% endraw %}
 {% else %}
 {% raw %}
+
 ```yaml
 registries:
   npm-npmjs:
@@ -1062,9 +1124,11 @@ registries:
     username: octocat
     password: ${{secrets.MY_NPM_PASSWORD}}  # Must be an unencoded password
 ```
+
 {% endraw %}
 
 {% raw %}
+
 ```yaml
 registries:
   npm-github:
@@ -1072,6 +1136,7 @@ registries:
     url: https://npm.pkg.github.com
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
+
 {% endraw %} {% endif %}
 {% ifversion dependabot-yarn-v3-update %}
 For security reasons, {% data variables.product.prodname_dependabot %} does not set environment variables. Yarn (v2 and later) requires that any accessed environment variables are set. When accessing environment variables in your `.yarnrc.yml` file, you should provide a fallback value such as {% raw %}`${ENV_VAR-fallback}`{% endraw %} or {% raw %}`${ENV_VAR:-fallback}`{% endraw %}. For more information, see [Yarnrc files](https://yarnpkg.com/configuration/yarnrc) in the Yarn documentation.{% endif %}
@@ -1081,6 +1146,7 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 The `nuget-feed` type supports username and password, or token.
 
 {% raw %}
+
 ```yaml
 registries:
   nuget-example:
@@ -1089,9 +1155,11 @@ registries:
     username: octocat@example.com
     password: ${{secrets.MY_NUGET_PASSWORD}}
 ```
+
 {% endraw %}
 
 {% raw %}
+
 ```yaml
 registries:
   nuget-azure-devops:
@@ -1100,6 +1168,7 @@ registries:
     username: octocat@example.com
     password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
 ```
+
 {% endraw %}
 
 ### `python-index`
@@ -1107,6 +1176,7 @@ registries:
 The `python-index` type supports username and password, or token.
 
 {% raw %}
+
 ```yaml
 registries:
   python-example:
@@ -1116,9 +1186,11 @@ registries:
     password: ${{secrets.MY_BASIC_AUTH_PASSWORD}}
     replaces-base: true
 ```
+
 {% endraw %}
 
 {% raw %}
+
 ```yaml
 registries:
   python-azure:
@@ -1128,6 +1200,7 @@ registries:
     password: ${{secrets.MY_AZURE_DEVOPS_TOKEN}}
     replaces-base: true
 ```
+
 {% endraw %}
 
 ### `rubygems-server`
@@ -1136,6 +1209,7 @@ The `rubygems-server` type supports username and password, or token.
 
 {% ifversion dependabot-private-registries %}
 {% raw %}
+
 ```yaml
 registries:
   ruby-example:
@@ -1145,9 +1219,11 @@ registries:
     password: ${{secrets.MY_RUBYGEMS_PASSWORD}}
     replaces-base: true
 ```
+
 {% endraw %}
 
 {% raw %}
+
 ```yaml
 registries:
   ruby-github:
@@ -1156,9 +1232,11 @@ registries:
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
    replaces-base: true
 ```
+
 {% endraw %}
 {% else %}
 {% raw %}
+
 ```yaml
 registries:
   ruby-example:
@@ -1167,9 +1245,11 @@ registries:
     username: octocat@example.com
     password: ${{secrets.MY_RUBYGEMS_PASSWORD}}
 ```
+
 {% endraw %}
 
 {% raw %}
+
 ```yaml
 registries:
   ruby-github:
@@ -1177,6 +1257,7 @@ registries:
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
 ```
+
 {% endraw %}{% endif %}
 
 ### `terraform-registry`
@@ -1184,6 +1265,7 @@ registries:
 The `terraform-registry` type supports a token.
 
 {% raw %}
+
 ```yaml
 registries:
   terraform-example:
@@ -1191,9 +1273,11 @@ registries:
     url: https://terraform.example.com
     token: ${{secrets.MY_TERRAFORM_API_TOKEN}}
 ```
+
 {% endraw %}
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
+
 ## Enabling support for beta-level ecosystems
 
 ### `enable-beta-ecosystems`
@@ -1215,4 +1299,5 @@ updates:{% ifversion fpt or ghec or ghes > 3.5 %}
     schedule:
       interval: "weekly"
 ```
+
 {% endif %}

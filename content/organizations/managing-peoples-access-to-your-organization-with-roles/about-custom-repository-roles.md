@@ -61,6 +61,7 @@ After choosing an inherited role, you can select additional permissions for your
 You can only choose an additional permission if it's not already included in the inherited role. For example, if the inherited role offers **Write** access to a repository, then the "Close a pull request" permission will already be included in the inherited role.
 
 {% ifversion discussions %}
+
 ### Discussions
 
 - Create a discussion category

@@ -20,6 +20,7 @@ shortTitle: Audit log events
 {% endnote %}
 
 {% ifversion fpt or ghec %}
+
 ## `account` category actions
 
 | Action | Description
@@ -31,6 +32,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `advisory_credit` category actions
 
 | Action | Description
@@ -53,6 +55,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `billing` category actions
 
 | Action | Description
@@ -70,6 +73,7 @@ shortTitle: Audit log events
 | `set_fork_pr_workflows_policy` | Triggered when the policy for workflows on  private repository forks is changed. For more information, see "{% ifversion fpt or ghec%}[Enforcing policies for {% data variables.product.prodname_actions %} in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories){% else ifversion ghes > 2.22 %}[Enabling workflows for private repository forks](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enabling-workflows-for-private-repository-forks){% endif %}."{% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `codespaces` category actions
 
 | Action | Description
@@ -98,6 +102,7 @@ shortTitle: Audit log events
 | `enable` | Triggered when an organization owner enables {% data variables.product.prodname_dependabot_alerts %} for all new {% ifversion fpt or ghec %}private {% endif %}repositories.
 
 {% ifversion fpt or ghec or ghes %}
+
 ## `dependabot_security_updates` category actions
 
 | Action | Description
@@ -114,6 +119,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `dependency_graph` category actions
 
 | Action | Description
@@ -130,6 +136,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion team-discussions %}
+
 ## `discussion_post` category actions
 
 | Action | Description
@@ -146,6 +153,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
+
 ## `enterprise` category actions
 
 {% data reusables.actions.actions-audit-events-for-enterprise %}
@@ -153,6 +161,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `environment` category actions
 
 | Action | Description
@@ -164,6 +173,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion ghae %}
+
 ## `external_group` category actions
 
 {% data reusables.saml.external-group-audit-events %}
@@ -171,6 +181,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion ghae %}
+
 ## `external_identity` category actions
 
 {% data reusables.saml.external-identity-audit-events %}
@@ -178,6 +189,7 @@ shortTitle: Audit log events
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `git` category actions
 
 {% note %}
@@ -228,6 +240,7 @@ shortTitle: Audit log events
 | `close` | Triggered when a request to install an integration for use in an organization is either approved or denied by an organization owner, or canceled by the organization member who opened the request.
 
 {% ifversion ghec or ghae %}
+
 ## `ip_allow_list` category actions
 
 | Action | Description
@@ -370,6 +383,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the Corporate Terms of Service. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
 
 {% ifversion ghec %}
+
 ## `org_credential_authorization` category actions
 
 | Action | Description
@@ -400,6 +414,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `destroy` | Triggered when a default label is deleted.
 
 {%- ifversion not ghes %}
+
 ## `packages` category actions
 
 | Action | Description |
@@ -436,6 +451,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 ## `profile_picture` category actions
+
 | Action | Description
 |------------------|-------------------
 | update | Triggered when you set or update your organization's profile picture.
@@ -565,8 +581,8 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |------------------|-------------------
-| `enable` | Triggered when an organization owner or person with admin access to the repository [enables data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
-| `disable` | Triggered when an organization owner or person with admin access to the repository [disables data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
+| `enable` | Triggered when an organization owner or person with admin access to the repository enables data use settings for a private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."
+| `disable` | Triggered when an organization owner or person with admin access to the repository disables data use settings for a private repository.
 
 {% endif %}{% ifversion fpt or ghec %}
 
@@ -589,6 +605,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `repository_invitation.reject` | An invitation to join a repository was declined.
 
 {% ifversion ghec or ghes or ghae %}
+
 ## `repository_secret_scanning` category actions
 
 | Action | Description
@@ -626,6 +643,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_secret_scanning %} for a repository.
 
 {% endif %}
+
 ## `repository_vulnerability_alert` category actions
 
 | Action | Description
@@ -636,6 +654,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `dismiss` | Triggered when an organization owner or person with admin{% ifversion dependabot-alerts-permissions-write-maintain %}, write, or maintain{% endif %} access to the repository dismisses a {% data variables.product.prodname_dependabot %} alert about a vulnerable dependency.
 | `resolve` | Triggered when someone with write {% ifversion dependabot-alerts-permissions-write-maintain %}or maintain{% endif %} access to a repository pushes changes to update and resolve a vulnerability in a project dependency.
 {% ifversion fpt or ghec %}
+
 ## `repository_vulnerability_alerts` category actions
 
 | Action | Description
@@ -645,7 +664,9 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_dependabot_alerts %}.
 
 {% endif %}{% ifversion custom-repository-roles %}
+
 ## `role` category actions
+
 | Action | Description
 |------------------|-------------------
 |`create` | Triggered when an organization owner creates a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
@@ -654,6 +675,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 {% endif %}
 {% ifversion ghec or ghes or ghae %}
+
 ## `secret_scanning` category actions
 
 | Action | Description
@@ -663,6 +685,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 {% ifversion secret-scanning-alert-audit-log %}
+
 ## `secret_scanning_alert` category actions
 
 | Action | Description
@@ -673,6 +696,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
+
 ## `secret_scanning_new_repos` category actions
 
 | Action | Description
@@ -682,6 +706,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 {% ifversion secret-scanning-push-protection-bypasses %}
+
 ## `secret_scanning_push_protection` category actions
 
 | Action | Description
@@ -690,6 +715,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `sponsors` category actions
 
 | Action | Description
@@ -729,6 +755,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `remove_repository` | Triggered when a repository is no longer under a team's control.
 
 {% ifversion team-discussions %}
+
 ## `team_discussions` category actions
 
 | Action | Description

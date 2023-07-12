@@ -50,7 +50,7 @@ You will use your personal account to set up the organization. You'll also need 
 {% data reusables.organizations.billing_plans %}
 {% data reusables.dotcom_billing.upgrade_org %}
 {% data reusables.dotcom_billing.choose_org_plan %} (You can add more seats to the organization in the next step.)
-6. Under "Upgrade summary", select **Pay yearly** to pay for the organization yearly.
+1. Under "Upgrade summary", select **Pay yearly** to pay for the organization yearly.
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
@@ -88,5 +88,5 @@ You will use your personal account to set up the organization. You'll also need 
 ## Next steps
 
 1. Contact your client and ask them to [add you to the organization as a billing manager](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization). You'll need to be a billing manager for the organization so that you can renew or make changes to your client's subscription in the future.
-2. If you would like your organization's credit card to be removed from the organization so that it's not charged again, contact {% data variables.contact.contact_support %}.
-3. When it's time to renew your client's paid subscription, see "[AUTOTITLE](/articles/renewing-your-client-s-paid-organization)."
+1. If you would like your organization's credit card to be removed from the organization so that it's not charged again, contact {% data variables.contact.contact_support %}.
+1. When it's time to renew your client's paid subscription, see "[AUTOTITLE](/articles/renewing-your-client-s-paid-organization)."

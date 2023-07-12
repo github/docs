@@ -19,6 +19,6 @@ export default function copyCode() {
       setTimeout(() => {
         button.setAttribute('aria-label', beforeTooltip)
       }, 2000)
-    })
+    }),
   )
 }

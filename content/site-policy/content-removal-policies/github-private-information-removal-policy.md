@@ -20,12 +20,14 @@ For the purposes of this document, “private information” refers to content t
 "Security risk" refers to a situation involving exposure to physical danger, identity theft, or increased likelihood of unauthorized access to physical or network facilities.
 
 ### Private information removal requests are appropriate for:
+
 - Access credentials, such as user names combined with passwords, access tokens, or other sensitive secrets that can grant access to your organization's server, network, or domain.
 - AWS tokens and other similar access credentials that grant access to a third party on your behalf. You must be able to show that the token does belong to you.
 - Documentation (such as network diagrams or architecture) that poses a specific security risk for an organization.
 - [Information](/site-policy/acceptable-use-policies/github-doxxing-and-invasion-of-privacy) related to, and posing a security risk to, you as an individual (such as social security numbers or other government identification numbers).
 
 ### Private information removal requests are _not_ appropriate for:
+
 - Internal server names, IP addresses, and URLs, on their own. You must be able to show that their use in a particular file or piece of code poses a security threat.
 - Mere mentions of your company's identity, name, brand, domain name, or other references to your company in files on GitHub. You must be able to articulate why a use of your company's identity is a threat to your company's security posture.
 - Entire files or repositories that do not pose a specific security risk, but you believe are otherwise objectionable.
@@ -48,21 +50,22 @@ For the purposes of this document, “private information” refers to content t
 
 1. **Complainant Investigates.** It is up to the requesting party to conduct their own investigation and to provide us with the [details we require](#your-request-must-include) — most importantly, an explanation of how the data poses a security risk. GitHub is not in a position to search for or make initial determinations about private information on any individual's or organization's behalf.
 
-2. **Complainant Sends a Private Information Removal Request.** After conducting an investigation, the complainant prepares and [sends a private information removal request](#sending-a-private-information-removal-request) to GitHub. If the request is not sufficiently detailed to demonstrate the security risk and for GitHub to locate the data, we will reply and ask for more information.
+1. **Complainant Sends a Private Information Removal Request.** After conducting an investigation, the complainant prepares and [sends a private information removal request](#sending-a-private-information-removal-request) to GitHub. If the request is not sufficiently detailed to demonstrate the security risk and for GitHub to locate the data, we will reply and ask for more information.
 
-3. **GitHub Asks User to Make Changes.** In most cases, we will contact the user who created the repository and give them an opportunity to delete or modify the private information specified in the request or to dispute the claim.
+1. **GitHub Asks User to Make Changes.** In most cases, we will contact the user who created the repository and give them an opportunity to delete or modify the private information specified in the request or to dispute the claim.
 
-4. **User Notifies GitHub of Changes.** If the user chooses to make the specified changes, they must tell us so within the window of time they've been allowed. If they don't, we will disable the repository. If the user notifies us that they made changes, we will verify that the changes have been made and notify the complainant.
+1. **User Notifies GitHub of Changes.** If the user chooses to make the specified changes, they must tell us so within the window of time they've been allowed. If they don't, we will disable the repository. If the user notifies us that they made changes, we will verify that the changes have been made and notify the complainant.
 
   OR
 
-5. **User May Dispute the Request.** If a user believes the content in question is not private information subject to this Policy, they may dispute it. If they do, we will generally leave it up to the complainant to contact the user and work things out with them directly, within reason.
+1. **User May Dispute the Request.** If a user believes the content in question is not private information subject to this Policy, they may dispute it. If they do, we will generally leave it up to the complainant to contact the user and work things out with them directly, within reason.
 
-6. **Complainant Reviews Changes.** If the user makes changes, the complainant must review them. If the changes are insufficient, the complainant must provide GitHub with details explaining why. GitHub may disable the repository or give the user an additional chance to make the changes.
+1. **Complainant Reviews Changes.** If the user makes changes, the complainant must review them. If the changes are insufficient, the complainant must provide GitHub with details explaining why. GitHub may disable the repository or give the user an additional chance to make the changes.
 
-7. **User May Request an Additional Window to Make Changes.** If the user missed their opportunity to remove the private information specified in the notice, we may allow them an additional window of approximately 1 business day, upon request, to make those changes. In that event, GitHub will notify the complainant.
+1. **User May Request an Additional Window to Make Changes.** If the user missed their opportunity to remove the private information specified in the notice, we may allow them an additional window of approximately 1 business day, upon request, to make those changes. In that event, GitHub will notify the complainant.
 
 ### What About Forks? (or What's a Fork?)
+
 One of the best features of GitHub is the ability for users to "fork" one another's repositories. What does that mean? In essence, it means that users can make a copy of a project on GitHub into their own repositories. As the license or the law allows, users can then make changes to that fork to either push back to the main project or just keep as their own variation of a project. Each of these copies is a "[AUTOTITLE](/get-started/quickstart/github-glossary#fork)" of the original repository, which in turn may also be called the "parent" of the fork.
 
 GitHub will not automatically disable forks when disabling a parent repository. This is because forks belong to different users and may have been altered in significant ways. GitHub does not conduct any independent investigation into forks. We expect those sending private information removal requests to conduct that investigation and, if they believe that the forks also contain private information, expressly include forks in their request.
@@ -78,10 +81,10 @@ These guidelines are designed to make the processing of requests to remove priva
 ### Your Request Must Include:
 
 1. A working, clickable link to each file containing private information. (Note that we're not able to work from search results, examples, or screenshots.)
-2. Specific line numbers within each file containing the private information.
-3. A brief description of how each item you've identified poses a security risk to you or your organization. ***It is important that you provide an explanation of how the data poses a security risk beyond merely stating that it does.***
-4. If you are a third party acting as an agent for an organization facing a security risk, include a statement that you have a legal right to act on behalf of that organization.
-5. OPTIONAL: Let us know if your request is particularly urgent, and why. We respond to all private information removal requests as quickly as possible. However, if this request is especially time-sensitive, such as a very recent credential exposure, please explain why.
+1. Specific line numbers within each file containing the private information.
+1. A brief description of how each item you've identified poses a security risk to you or your organization. ***It is important that you provide an explanation of how the data poses a security risk beyond merely stating that it does.***
+1. If you are a third party acting as an agent for an organization facing a security risk, include a statement that you have a legal right to act on behalf of that organization.
+1. OPTIONAL: Let us know if your request is particularly urgent, and why. We respond to all private information removal requests as quickly as possible. However, if this request is especially time-sensitive, such as a very recent credential exposure, please explain why.
 
 ## How to Submit Your Request
 

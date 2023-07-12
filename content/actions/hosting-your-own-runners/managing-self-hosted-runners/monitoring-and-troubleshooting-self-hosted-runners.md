@@ -78,6 +78,7 @@ The script tests each service, and outputs either a `PASS` or `FAIL` for each on
 If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-requirements)."
 
 ### Disabling TLS certificate verification
+
 {% ifversion ghes %}
 By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If your {% data variables.product.product_name %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
 {% else %}
@@ -129,7 +130,7 @@ actions.runner.octo-org-octo-repo.hostname.service loaded active running GitHub 
 You can use `journalctl` to monitor the real-time activity of the self-hosted runner:
 
 ```shell
-$ sudo journalctl -u actions.runner.octo-org-octo-repo.runner01.service -f
+sudo journalctl -u actions.runner.octo-org-octo-repo.runner01.service -f
 ```
 
 In this example output, you can see `runner01` start, receive a job named `testAction`, and then display the resulting status:
@@ -269,6 +270,7 @@ User=runner-user
 {% endlinux %}
 
 {% ifversion ghes %}
+
 ## Resolving runners that are offline after an upgrade of {% data variables.location.product_location %}
 
 {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}

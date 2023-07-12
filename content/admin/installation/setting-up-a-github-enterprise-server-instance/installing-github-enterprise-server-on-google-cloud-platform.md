@@ -36,26 +36,31 @@ Before launching {% data variables.location.product_location %} on Google Cloud 
 ## Selecting the {% data variables.product.prodname_ghe_server %} image
 
 1. Using the [gcloud compute](https://cloud.google.com/compute/docs/gcloud-compute/) command-line tool, list the public {% data variables.product.prodname_ghe_server %} images:
+
    ```shell
-   $ gcloud compute images list --project github-enterprise-public --no-standard-images
+   gcloud compute images list --project github-enterprise-public --no-standard-images
    ```
 
-2. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
+1. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
 
 ## Configuring the firewall
 
-GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. For more information about firewall rules on Google Cloud Platform, see the Google guide "[Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls)."
+GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)," and [Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls) in the Google Cloud Platform documentation.
 
 1. Using the gcloud compute command-line tool, create the network. For more information, see "[gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create)" in the Google documentation.
+
    ```shell
-   $ gcloud compute networks create NETWORK-NAME --subnet-mode auto
+   gcloud compute networks create NETWORK-NAME --subnet-mode auto
    ```
-2. Create a firewall rule for each of the ports in the table below. For more information, see "[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" in the Google documentation.
+
+1. Create a firewall rule for each of the ports in the table below. For more information, see "[gcloud compute firewall-rules](https://cloud.google.com/sdk/gcloud/reference/compute/firewall-rules/)" in the Google documentation.
+
    ```shell
    $ gcloud compute firewall-rules create RULE-NAME \
    --network NETWORK-NAME \
    --allow tcp:22,tcp:25,tcp:80,tcp:122,udp:161,tcp:443,udp:1194,tcp:8080,tcp:8443,tcp:9418,icmp
    ```
+
    This table identifies the required ports and what each port is used for.
 
    {% data reusables.enterprise_installation.necessary_ports %}
@@ -71,11 +76,13 @@ In production High Availability configurations, both primary and replica applian
 To create the {% data variables.product.prodname_ghe_server %} instance, you'll need to create a GCE instance with your {% data variables.product.prodname_ghe_server %} image and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
 
 1. Using the gcloud compute command-line tool, create a data disk to use as an attached storage volume for your instance data, and configure the size based on your user license count. For more information, see "[gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create)" in the Google documentation.
+
    ```shell
-   $ gcloud compute disks create DATA-DISK-NAME --size DATA-DISK-SIZE --type DATA-DISK-TYPE --zone ZONE
+   gcloud compute disks create DATA-DISK-NAME --size DATA-DISK-SIZE --type DATA-DISK-TYPE --zone ZONE
    ```
 
-2. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see "[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" in the Google documentation.
+1. Then create an instance using the name of the {% data variables.product.prodname_ghe_server %} image you selected, and attach the data disk. For more information, see "[gcloud compute instances create](https://cloud.google.com/sdk/gcloud/reference/compute/instances/create)" in the Google documentation.
+
    ```shell
    $ gcloud compute instances create INSTANCE-NAME \
    --machine-type n1-standard-8 \

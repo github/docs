@@ -40,7 +40,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
    {% endwindows %}
 
-2. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
+1. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
 
 {% note %}
 
@@ -77,6 +77,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 {% data reusables.repositories.create-pull-request %}
 
 ## Further reading
+
 - "[Issue](/get-started/quickstart/github-glossary#issue)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Pull request](/get-started/quickstart/github-glossary#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Base branch](/get-started/quickstart/github-glossary#base-branch)" in the {% data variables.product.prodname_dotcom %} glossary

@@ -48,8 +48,8 @@ To install and configure the {% data variables.product.prodname_emu_idp_applicat
 {% endnote %}
 
 1. [Configuring your identity provider](#configuring-your-identity-provider)
-2. [Configuring your enterprise](#configuring-your-enterprise)
-3. [Enabling provisioning](#enabling-provisioning)
+1. [Configuring your enterprise](#configuring-your-enterprise)
+1. [Enabling provisioning](#enabling-provisioning)
 
 ### Configuring your identity provider
 
@@ -65,15 +65,15 @@ To configure your IdP, follow the instructions they provide for configuring the 
 
 {% indented_data_reference reusables.enterprise-accounts.public-beta-pingfed-for-emu spaces=3 %}
 
-2. To configure the {% data variables.product.prodname_emu_idp_application %} application and your IdP, click the link below and follow the instructions provided by your IdP:
+1. To configure the {% data variables.product.prodname_emu_idp_application %} application and your IdP, click the link below and follow the instructions provided by your IdP:
 
      - [Azure Active Directory tutorial for {% data variables.product.prodname_emus %}](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial)
      - [Okta documentation for {% data variables.product.prodname_emus %}](https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-GitHub-Enterprise-Managed-User.html)
      - [PingFederate documentation for {% data variables.product.prodname_emus %}](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_emu_connector) (public beta)
 
-3. So you can test and configure your enterprise, assign yourself or the user that will be configuring SAML SSO on {% data variables.product.prodname_dotcom %} to the {% data variables.product.prodname_emu_idp_application %} application on your IdP.
+1. So you can test and configure your enterprise, assign yourself or the user that will be configuring SAML SSO on {% data variables.product.prodname_dotcom %} to the {% data variables.product.prodname_emu_idp_application %} application on your IdP.
 
-4. To enable you to continue configuring your enterprise on {% data variables.product.prodname_dotcom %}, locate and note the following information from the application you installed on your IdP.
+1. To enable you to continue configuring your enterprise on {% data variables.product.prodname_dotcom %}, locate and note the following information from the application you installed on your IdP.
 
     | Value | Other names | Description |
     | :- | :- | :- |

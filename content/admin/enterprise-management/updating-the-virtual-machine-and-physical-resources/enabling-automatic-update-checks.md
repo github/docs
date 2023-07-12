@@ -31,7 +31,7 @@ If a hotpatch is available for an upgrade, the `.hpkg` will download automatical
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.updates-tab %}
-4. Click **Yes, automatically check for updates**.
+1. Click **Yes, automatically check for updates**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Viewing whether an update is available

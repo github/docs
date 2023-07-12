@@ -31,15 +31,15 @@ There are many open source GraphQL client IDEs. For example, you can use Altair 
 ### Configuring Altair
 
 1. Get an [access token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
-2. Launch Altair.
-3. In the left sidebar, below the Altair logo, click **Set Headers**. A new window will open.
-4. In the "Header key" field, enter `Authorization`.
-5. In the "Header value" field, enter `Bearer TOKEN`, replacing `TOKEN` with your token from the first step.
-6. Click **Save** in the bottom right corner of the window to save your authorization header.
-8. In the "GraphQL Endpoint" field, enter `{% data variables.product.graphql_url_pre %}`.
-9. To load the {% data variables.product.company_short %} GraphQL schema, download the [public schema](/graphql/overview/public-schema).
-10. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
-11. Select the file public schema that you downloaded in an earlier step.
+1. Launch Altair.
+1. In the left sidebar, below the Altair logo, click **Set Headers**. A new window will open.
+1. In the "Header key" field, enter `Authorization`.
+1. In the "Header value" field, enter `Bearer TOKEN`, replacing `TOKEN` with your token from the first step.
+1. Click **Save** in the bottom right corner of the window to save your authorization header.
+1. In the "GraphQL Endpoint" field, enter `{% data variables.product.graphql_url_pre %}`.
+1. To load the {% data variables.product.company_short %} GraphQL schema, download the [public schema](/graphql/overview/public-schema).
+1. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
+1. Select the file public schema that you downloaded in an earlier step.
 
 {% note %}
 

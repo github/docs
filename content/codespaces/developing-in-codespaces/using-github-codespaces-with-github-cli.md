@@ -21,6 +21,7 @@ redirect_from:
 You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
 - [List all of your codespaces](#list-all-of-your-codespaces)
 - [Create a new codespace](#create-a-new-codespace)
+- [View details of a codespace](#view-details-of-a-codespace)
 - [Stop a codespace](#stop-a-codespace)
 - [Delete a codespace](#delete-a-codespace)
 - [Rename a codespace](#rename-a-codespace)
@@ -85,6 +86,25 @@ gh codespace create -r OWNER/REPO_NAME [-b BRANCH]
 ```
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository)."
+
+### View details of a codespace
+
+```shell
+gh codespace view
+```
+
+After running this command you are prompted to choose one of your existing codespaces. The following information is then displayed:
+- Name of the codespace
+- State (for example, "Available" or "Shutdown")
+- Repository
+- Git status
+- Path to the dev container configuration file used to create the codespace
+- Machine type
+- Idle timeout
+- Date and time the codespace was created
+- Retention period
+
+For more information, see the [{% data variables.product.prodname_dotcom %} CLI reference](https://cli.github.com/manual/gh_codespace_view).
 
 ### Stop a codespace
 
@@ -231,6 +251,7 @@ gh codespace logs -c CODESPACE-NAME
 For more information about the creation log, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
 
 ### Access remote resources
+
 You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
 
 {% note %}

@@ -151,6 +151,7 @@ By default, when you create a new enterprise, `GITHUB_TOKEN` only has read acces
 1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr-with-ent-repo %}
+
 ### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}

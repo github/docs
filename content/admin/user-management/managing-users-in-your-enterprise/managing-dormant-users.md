@@ -29,6 +29,7 @@ The report includes both enterprise members and outside collaborators.
 {% endif %}
 
 {% ifversion ghes or ghae %}
+
 ## Viewing dormant users
 
 {% data reusables.enterprise-accounts.viewing-dormant-users %}
@@ -59,6 +60,7 @@ The report includes both enterprise members and outside collaborators.
 {% endif %}
 
 {% ifversion ghec %}
+
 ## Downloading the dormant users report from your enterprise account
 
 {% data reusables.enterprise-accounts.access-enterprise %}

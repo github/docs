@@ -105,6 +105,7 @@ GitHub Actions provide context information about the webhook event, Git refs, wo
 Add a new file called `index.js`, with the following code.
 
 {% raw %}
+
 ```javascript copy
 const core = require('@actions/core');
 const github = require('@actions/github');
@@ -122,6 +123,7 @@ try {
   core.setFailed(error.message);
 }
 ```
+
 {% endraw %}
 
 If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
@@ -224,6 +226,7 @@ This example demonstrates how your new public action can be run from within an e
 Copy the following YAML into a new file at `.github/workflows/main.yml`, and update the `uses: octocat/hello-world-javascript-action@v1.1` line with your username and the name of the public repository you created above. You can also replace the `who-to-greet` input with your name.
 
 {% raw %}
+
 ```yaml copy
 on: [push]
 
@@ -241,6 +244,7 @@ jobs:
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
 ```
+
 {% endraw %}
 
 When this workflow is triggered, the runner will download the `hello-world-javascript-action` action from your public repository and then execute it.
@@ -250,6 +254,7 @@ When this workflow is triggered, the runner will download the `hello-world-javas
 Copy the workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name.
 
 **.github/workflows/main.yml**
+
 ```yaml copy
 on: [push]
 
@@ -272,9 +277,7 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}{% endraw %}"
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**.
-
-Click **Hello world action step**, and you should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input printed in the log. To see the timestamp, click **Get the output time**.
+{% data reusables.actions.test-private-action-example %}
 
 ## Template repositories for creating JavaScript actions
 

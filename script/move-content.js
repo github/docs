@@ -43,7 +43,7 @@ program
   .option('-v, --verbose', 'Verbose outputs')
   .option(
     '--no-git',
-    "DON'T use 'git mv' and 'git commit' to move the file. Just regular file moves."
+    "DON'T use 'git mv' and 'git commit' to move the file. Just regular file moves.",
   )
   .option('--undo', 'Reverse of moving. I.e. moving it back. Only applies to the last run.')
   .arguments('old', 'old file or folder name')
@@ -56,7 +56,7 @@ async function main(opts, nameTuple) {
   const { verbose, undo } = opts
   if (nameTuple.length !== 2) {
     console.error(
-      chalk.red(`Must be exactly 2 file paths as arguments. Not ${nameTuple.length} arguments.`)
+      chalk.red(`Must be exactly 2 file paths as arguments. Not ${nameTuple.length} arguments.`),
     )
     process.exit(1)
   }
@@ -162,8 +162,8 @@ async function main(opts, nameTuple) {
     if (verbose) {
       console.log(
         chalk.yellow(
-          'To undo (reverse) what you just did, run the same exact command but with --undo added to the end'
-        )
+          'To undo (reverse) what you just did, run the same exact command but with --undo added to the end',
+        ),
       )
     }
   }
@@ -178,8 +178,8 @@ function validateFileInputs(oldPath, newPath, isFolder) {
     if (oldBase !== newBase && !existsAndIsDirectory(newBase)) {
       console.error(
         chalk.red(
-          `When moving a directory, both bases need to be the same. '${oldBase}' != '${newBase}'`
-        )
+          `When moving a directory, both bases need to be the same. '${oldBase}' != '${newBase}'`,
+        ),
       )
       console.warn(chalk.yellow(`Only the name (e.g. '${oldName}') can be different.`))
       process.exit(1)
@@ -198,13 +198,13 @@ function validateFileInputs(oldPath, newPath, isFolder) {
   }
   if (path.basename(oldPath) === 'index.md') {
     console.error(
-      chalk.red(`File path can't be 'index.md'. Refer to it by its foldername instead.`)
+      chalk.red(`File path can't be 'index.md'. Refer to it by its foldername instead.`),
     )
     process.exit(1)
   }
   if (path.basename(newPath) === 'index.md') {
     console.error(
-      chalk.red(`File path can't be 'index.md'. Refer to it by its foldername instead.`)
+      chalk.red(`File path can't be 'index.md'. Refer to it by its foldername instead.`),
     )
     process.exit(1)
   }
@@ -350,7 +350,7 @@ function removeFromChildren(oldPath, opts) {
   fs.writeFileSync(
     parentFilePath,
     readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-    'utf-8'
+    'utf-8',
   )
   if (verbose) {
     console.log(`Removed 'children' (${oldName}) key in ${parentFilePath}`)
@@ -397,7 +397,7 @@ function addToChildren(newPath, positions, opts) {
   fs.writeFileSync(
     parentFilePath,
     readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-    'utf-8'
+    'utf-8',
   )
   if (verbose) {
     console.log(`Added 'children' (${newName}) key in ${parentFilePath}`)
@@ -469,7 +469,7 @@ function editFiles(files, updateParent, opts) {
     fs.writeFileSync(
       newPath,
       readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-      'utf-8'
+      'utf-8',
     )
     if (verbose) {
       console.log(`Added ${oldHref} to 'redirects_from' in ${newPath}`)
@@ -513,7 +513,7 @@ function undoFiles(files, updateParent, opts) {
     fs.writeFileSync(
       newPath,
       readFrontmatter.stringify(content, data, { lineWidth: 10000 }),
-      'utf-8'
+      'utf-8',
     )
     if (updateParent) {
       addToChildren(newPath, removeFromChildren(oldPath, opts), opts)

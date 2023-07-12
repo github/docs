@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import renderContent from '../../../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 
 // If there is a oneOf at the top level, then we have to present just one
 // in the docs. We don't currently have a convention for showing more than one
@@ -92,7 +92,7 @@ export async function getBodyParams(schema, topLevel = false) {
         type: 'object',
         name: 'key',
         description: await renderContent(
-          `A user-defined key to represent an item in \`${paramKey}\`.`
+          `A user-defined key to represent an item in \`${paramKey}\`.`,
         ),
         isRequired: param.required,
         enum: param.enum,
@@ -212,10 +212,10 @@ async function getTransformedParam(param, paramType, props) {
           const curr = childParam.get(obj.name)
           return childParam.set(
             obj.name,
-            curr ? (!Object.hasOwn(curr, 'isRequired') ? obj : curr) : obj
+            curr ? (!Object.hasOwn(curr, 'isRequired') ? obj : curr) : obj,
           )
         }, new Map())
-        .values()
+        .values(),
     )
 
     paramDecorated.childParamsGroups = mergedChildParamsGroups

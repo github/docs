@@ -25,7 +25,9 @@ This guide describes the highest impact changes you can make to increase account
 Account security is fundamental to the security of your supply chain. If an attacker can take over your account on {% data variables.product.product_name %}, they can then make malicious changes to your code or build process. So your first goal should be to make it difficult for someone to take over your account and the accounts of other {% ifversion ghes %}users{% else %}members{% endif %} of {% ifversion fpt %}your organization{% elsif ghec or ghae %}your organization or enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
 
 {% ifversion ghec or ghes %}
+
 ## Centralize authentication
+
 {% endif %}
 
 {% ifversion ghec %}
@@ -125,8 +127,8 @@ When you set up 2FA, you should always download the recovery codes and set up mo
 If you're an organization owner, you can see which users don't have 2FA enabled, help them get set up, and then require 2FA for your organization. To guide you through that process, see:
 
 1. "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)"
-2. "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)"
-3. "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)"
+1. "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/preparing-to-require-two-factor-authentication-in-your-organization)"
+1. "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)"
 
 {% endif %}
 

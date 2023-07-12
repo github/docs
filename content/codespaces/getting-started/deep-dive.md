@@ -76,6 +76,7 @@ If you have a public dotfiles repository for {% data variables.product.prodname_
 Finally, if you created the codespace from a repository, the entire history of the repository is copied down with a full clone. If you created the codespace from a template, the full history of the template repository is not preserved; instead, unless you are using the blank template, you will start with an initial commit for the contents of the template repository.
 
 During post-creation setup you'll still be able to use the integrated terminal and make edits to your files, but take care to avoid any race conditions between your work and the commands that are running.
+
 ## {% data variables.product.prodname_codespaces %} lifecycle
 
 ### Saving files in your codespace

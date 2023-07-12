@@ -28,8 +28,8 @@ function showPlatformSpecificContent(platform: string) {
   // example: <span class="platform-mac">inline content</span>
   const platformEls = Array.from(
     document.querySelectorAll<HTMLElement>(
-      platforms.map((platform) => `.platform-${platform.value}`).join(', ')
-    )
+      platforms.map((platform) => `.platform-${platform.value}`).join(', '),
+    ),
   )
   platformEls.forEach((el) => {
     el.style.display = el.classList.contains(`platform-${platform}`) ? '' : 'none'

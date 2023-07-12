@@ -208,6 +208,7 @@ This Agreement shall be governed by the laws of the State of California without 
 DEVELOPER PRODUCTS DISTRIBUTED VIA MARKETPLACE MAY BE SUBJECT TO EXPORT CONTROLS OR RESTRICTIONS BY THE UNITED STATES OR OTHER COUNTRIES OR TERRITORIES.  DEVELOPER AGREES TO COMPLY WITH ALL APPLICABLE US AND INTERNATIONAL EXPORT LAWS AND REGULATIONS.  THESE LAWS MAY INCLUDE RESTRICTIONS ON DESTINATIONS, CONTENT AND/OR END USERS.
 
 ## 18.  USAGE DATA
+
 In order to operate and improve Marketplace, GitHub may collect Usage Data from Marketplace and GitHub API or anywhere previously purchased or downloaded Developer Products are stored on behalf of End Users by GitHub.  The Usage Data will be maintained in accordance with GitHub’s then in effect privacy policies.  Limited Usage Data may be available for use by Developer in GitHub’s sole discretion.
 
 # Addendum1: Data Protection Addendum

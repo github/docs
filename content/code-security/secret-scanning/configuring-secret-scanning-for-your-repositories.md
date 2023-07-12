@@ -34,20 +34,14 @@ You can enable {% data variables.secret-scanning.user_alerts %} for any {% ifver
 {% endnote %}
 {% endif %}
 
+You can also enable {% data variables.product.prodname_secret_scanning %} for multiple repositories in an organization at the same time. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
+
 {% ifversion secret-scanning-enterprise-level %}
 {% note %}
 
 **Note:** If your organization is owned by an enterprise account, an enterprise owner can also enable {% data variables.product.prodname_secret_scanning %} at the enterprise level. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
 
 {% endnote %}
-{% endif %}
-
-{% ifversion code-security-multi-repo-enablement %}
-You can use security overview to find a set of repositories and enable or disable {% data variables.secret-scanning.user_alerts %} for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
-
-You can also use the organization settings page for "Code security and analysis" to enable or disable {% data variables.secret-scanning.user_alerts %} for all public repositories in an organization:
-{% else %}
-You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all public repositories in an organization:
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -69,13 +63,14 @@ You can use the organization settings page for "Code security and analysis" to e
 {% ifversion ghae %}
 1. Before you can enable {% data variables.product.prodname_secret_scanning %}, you need to enable {% data variables.product.prodname_GH_advanced_security %} first. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Enable**.
    ![Enable {% data variables.product.prodname_GH_advanced_security %} for your repository.](/assets/images/enterprise/github-ae/repository/enable-ghas-ghae.png)
-2. Click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository** to confirm the action.
+1. Click **Enable {% data variables.product.prodname_GH_advanced_security %} for this repository** to confirm the action.
    ![Confirm enabling {% data variables.product.prodname_GH_advanced_security %} for your repository.](/assets/images/enterprise/github-ae/repository/enable-ghas-confirmation-ghae.png)
-3. To the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable**.
+1. To the right of "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable**.
    ![Enable {% data variables.product.prodname_secret_scanning %} for your repository.](/assets/images/enterprise/github-ae/repository/enable-secret-scanning-ghae.png)
 {% endif %}
 
 {% ifversion fpt %}
+
 ## Enabling {% data variables.secret-scanning.user_alerts %} for all your public repositories
 
 You can enable {% data variables.secret-scanning.user_alerts %} for all of your public repositories through your personal account settings.
@@ -97,8 +92,8 @@ You can configure a _secret_scanning.yml_ file to exclude directories from {% da
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field, type _.github/secret_scanning.yml_.
-4. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
+1. In the file name field, type _.github/secret_scanning.yml_.
+1. Under **Edit new file**, type `paths-ignore:` followed by the paths you want to exclude from {% data variables.product.prodname_secret_scanning %}.
     ``` yaml
     paths-ignore:
       - "foo/bar/*.js"
@@ -117,6 +112,7 @@ You can configure a _secret_scanning.yml_ file to exclude directories from {% da
 You can also ignore individual alerts from {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning#managing-secret-scanning-alerts)."
 
 {% ifversion not fpt %}
+
 ## Further reading
 
 - "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"

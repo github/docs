@@ -63,7 +63,7 @@ Yes, the dependency graph has {% ifversion dependency-graph-repository-view-upda
       - vendors/dependency1
       - /externals/vendor1/dependency1
 {% ifversion ghes < 3.10 or ghae < 3.10 %}
-2. **Visualization limits**
+1. **Visualization limits**
 
     These affect what's displayed in the dependency graph within {% data variables.product.prodname_dotcom %}. However, they don't affect the {% data variables.product.prodname_dependabot_alerts %} that are created.
 
@@ -71,6 +71,7 @@ Yes, the dependency graph has {% ifversion dependency-graph-repository-view-upda
 
 **Check**: Is the missing dependency in a manifest file that's over 0.5 MB, or in a repository with a large number of manifests?
 {% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
