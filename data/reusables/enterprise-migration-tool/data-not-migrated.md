@@ -14,3 +14,4 @@ Currently, the following data is **not** migrated.
 - Packages in {% data variables.product.prodname_registry %}
 - GitHub Apps
 - Fork relationships between repositories (see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)")
+- References between pull requests and issues in different repositories (see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)")
