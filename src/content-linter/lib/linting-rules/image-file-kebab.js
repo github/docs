@@ -13,7 +13,7 @@ export const imageFileKebab = {
         addError(
           onError,
           token.lineNumber,
-          `The image file name: ${token.attrs[0][1]}, is not lowercase kebab case.`
+          `The image file name: ${token.attrs[0][1]}, is not lowercase kebab case.`,
         )
       }
     })

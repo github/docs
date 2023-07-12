@@ -35,7 +35,7 @@ export const SupportSection = () => {
             className={cx(
               'float-left pr-4 mb-6 mb-xl-0 col-12',
               totalCols > 1 && 'col-lg-6',
-              totalCols > 2 && 'col-xl-3'
+              totalCols > 2 && 'col-xl-3',
             )}
           >
             <Survey />
@@ -47,7 +47,7 @@ export const SupportSection = () => {
               'float-left pr-4 mb-6 mb-xl-0 col-12',
               totalCols > 1 && 'col-lg-6',
               totalCols > 2 && 'col-xl-4',
-              totalCols > 2 && showSurvey && 'offset-xl-1'
+              totalCols > 2 && showSurvey && 'offset-xl-1',
             )}
           >
             <Contribution />
@@ -59,7 +59,7 @@ export const SupportSection = () => {
               'float-left pr-4 mb-6 mb-xl-0 col-12',
               totalCols > 1 && 'col-lg-6',
               totalCols > 2 && 'col-xl-3',
-              totalCols > 2 && (showSurvey || showContribution) && 'offset-xl-1'
+              totalCols > 2 && (showSurvey || showContribution) && 'offset-xl-1',
             )}
           >
             <Support />

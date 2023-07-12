@@ -25,7 +25,7 @@ export default class Operation {
     if (serverVariables) {
       const templateVariables = {}
       Object.keys(serverVariables).forEach(
-        (key) => (templateVariables[key] = serverVariables[key].default)
+        (key) => (templateVariables[key] = serverVariables[key].default),
       )
       this.serverUrl = parseTemplate(this.serverUrl).expand(templateVariables)
     }
@@ -73,7 +73,7 @@ export default class Operation {
       this.codeExamples.map(async (codeExample) => {
         codeExample.response.description = await renderContent(codeExample.response.description)
         return codeExample
-      })
+      }),
     )
   }
 
@@ -99,7 +99,7 @@ export default class Operation {
           httpStatusCode,
           description: responseDescription,
         }
-      })
+      }),
     )
   }
 
@@ -108,7 +108,7 @@ export default class Operation {
       this.parameters.map(async (param) => {
         param.description = await renderContent(param.description)
         return param
-      })
+      }),
     )
   }
 
@@ -144,7 +144,7 @@ export default class Operation {
           .replace(/\n`application/, '\n```\napplication')
           .replace(/json`$/, 'json\n```')
         return await renderContent(note)
-      })
+      }),
     )
   }
 }

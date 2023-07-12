@@ -14,7 +14,7 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
   const { routePath, page } = props
   // The lowest level page link displayed in the tree
   const renderTerminalPageLink = (page: ProductTreeNode) => {
-    const title = page.shortTitle || page.title
+    const title = page.title
     const isCurrent = routePath === page.href
 
     return (
@@ -50,10 +50,10 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
   return (
     <>
       {/* <!-- some pages have nested child pages (formerly known as a mapTopic) --> */}
-      {page.childPages[0]?.documentType === 'mapTopic' ? (
+      {page.childPages[0]?.childPages.length > 0 ? (
         <>
           {page.childPages.map((childPage, i) => {
-            const childTitle = childPage.shortTitle || childPage.title
+            const childTitle = childPage.title
             const isActive = routePath.includes(childPage.href)
             const isCurrent = routePath === childPage.href
 
@@ -71,7 +71,7 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
             )
           })}
         </>
-      ) : page.childPages[0]?.documentType === 'article' ? (
+      ) : page.childPages[0]?.childPages.length === 0 ? (
         <div data-testid="sidebar-article-group">
           {page.childPages.map((cp) => {
             return renderTerminalPageLink(cp)

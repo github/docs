@@ -48,7 +48,7 @@ router.post(
         formatErrors(validate.errors, req.body).map((error) => ({
           schema: hydroNames.validation,
           value: error,
-        }))
+        })),
       )
       // We aren't helping bots spam us :)
       return res.status(400).json(isProd ? {} : validate.errors)
@@ -59,6 +59,6 @@ router.post(
       value: omit(req.body, OMIT_FIELDS),
     })
     return res.json({})
-  })
+  }),
 )
 export default router

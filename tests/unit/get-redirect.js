@@ -67,13 +67,13 @@ describe('getRedirect basics', () => {
     }
     expect(getRedirect('/desktop/guides/foo/bar', ctx)).toBe('/en/desktop/foo/bar')
     expect(getRedirect('/admin/guides/foo/bar', ctx)).toBe(
-      `/en/enterprise-server@${latest}/admin/foo/bar`
+      `/en/enterprise-server@${latest}/admin/foo/bar`,
     )
     expect(getRedirect('/admin/something/else', ctx)).toBe(
-      `/en/enterprise-server@${latest}/admin/something/else`
+      `/en/enterprise-server@${latest}/admin/something/else`,
     )
     expect(getRedirect('/insights/stuff', ctx)).toBe(
-      `/en/enterprise-server@${latest}/insights/stuff`
+      `/en/enterprise-server@${latest}/insights/stuff`,
     )
   })
 
@@ -87,13 +87,13 @@ describe('getRedirect basics', () => {
     }
     // Replacing `/user` with `` worked because there exits a page of such name.
     expect(
-      getRedirect(`/enterprise-server@${previousEnterpriserServerVersion}/user/foo/bar`, ctx)
+      getRedirect(`/enterprise-server@${previousEnterpriserServerVersion}/user/foo/bar`, ctx),
     ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/foo/bar`)
     expect(
       getRedirect(
         `/enterprise-server@${previousEnterpriserServerVersion}/admin/guides/user-management`,
-        ctx
-      )
+        ctx,
+      ),
     ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/admin/github-management`)
   })
 
@@ -106,19 +106,19 @@ describe('getRedirect basics', () => {
     }
     expect(getRedirect('/enterprise', ctx)).toBe(`/en/enterprise-server@${latest}`)
     expect(getRedirect(`/enterprise/${previousEnterpriserServerVersion}`, ctx)).toBe(
-      `/en/enterprise-server@${previousEnterpriserServerVersion}`
+      `/en/enterprise-server@${previousEnterpriserServerVersion}`,
     )
     expect(getRedirect(`/enterprise/${previousEnterpriserServerVersion}/something`, ctx)).toBe(
-      `/en/enterprise-server@${previousEnterpriserServerVersion}/something`
+      `/en/enterprise-server@${previousEnterpriserServerVersion}/something`,
     )
     // but also respect redirects if there are some
     expect(getRedirect(`/enterprise/${previousEnterpriserServerVersion}/foo`, ctx)).toBe(
-      `/en/enterprise-server@${previousEnterpriserServerVersion}/bar`
+      `/en/enterprise-server@${previousEnterpriserServerVersion}/bar`,
     )
 
     // Unique snowflake pattern
     expect(getRedirect('/enterprise/github/admin/foo', ctx)).toBe(
-      `/en/enterprise-server@${latest}/github/admin/foo`
+      `/en/enterprise-server@${latest}/github/admin/foo`,
     )
   })
 

@@ -26,7 +26,7 @@ async function main() {
   } catch (err) {
     if (err.status === 404) {
       console.log(
-        `There is no docs-early-access branch called '${BRANCH_NAME}' so checking out 'main' instead.`
+        `There is no docs-early-access branch called '${BRANCH_NAME}' so checking out 'main' instead.`,
       )
       setOutput(OUTPUT_KEY, 'main')
     } else {

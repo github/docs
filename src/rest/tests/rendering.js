@@ -63,7 +63,7 @@ describe('REST references docs', () => {
         expect(res.statusCode).toBe(302)
         expect(
           res.headers.location === `/en/rest/${category}` ||
-            res.headers.location === `/en/rest/${category}/${category}`
+            res.headers.location === `/en/rest/${category}/${category}`,
         )
       }
       // With language prefix
@@ -72,7 +72,7 @@ describe('REST references docs', () => {
         expect(res.statusCode).toBe(301)
         expect(
           res.headers.location === `/en/rest/${category}` ||
-            res.headers.location === `/en/rest/${category}/${category}`
+            res.headers.location === `/en/rest/${category}/${category}`,
         )
       }
     }

@@ -3,8 +3,8 @@ import path from 'path'
 
 import { expect } from '@jest/globals'
 
-import { testViaActionsOnly } from '../helpers/conditional-runs.js'
-import { get, getDOM } from '../helpers/e2etest.js'
+import { testViaActionsOnly } from '../../../tests/helpers/conditional-runs.js'
+import { get, getDOM } from '../../../tests/helpers/e2etest.js'
 
 describe('cloning early-access', () => {
   testViaActionsOnly('the content directory exists', async () => {

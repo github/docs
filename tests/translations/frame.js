@@ -48,7 +48,7 @@ describe('frame', () => {
     const $en = await getDOM(`/en/get-started`)
     const $ = await getDOM(`/${lang}/get-started`)
     expect($(`a[href="/${lang}/get-started"]`).text()).not.toEqual(
-      $en(`a[href="/${lang}/get-started"]`).text()
+      $en(`a[href="/${lang}/get-started"]`).text(),
     )
   })
 
@@ -57,7 +57,7 @@ describe('frame', () => {
     const $en = await getDOM(`/en`)
     const $ = await getDOM(`/${lang}`)
     expect($('[data-testid="survey-form"] h2').text()).not.toEqual(
-      $en('[data-testid="survey-form"] h2').text()
+      $en('[data-testid="survey-form"] h2').text(),
     )
   })
 })
@@ -115,6 +115,6 @@ describe('release notes', () => {
       const url = `/${lang}/${version}/admin/release-notes`
       const res = await get(url)
       expect(res.statusCode).toBe(200)
-    }
+    },
   )
 })
