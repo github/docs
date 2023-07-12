@@ -45513,7 +45513,7 @@ enum RequestableCheckStatusState {
 """
 Types that can be requested reviewers.
 """
-union RequestedReviewer = Mannequin | Team | User
+union RequestedReviewer = Bot | Mannequin | Team | User
 
 """
 The connection type for RequestedReviewer.

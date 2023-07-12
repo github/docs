@@ -37872,7 +37872,7 @@ enum RequestableCheckStatusState {
 """
 Types that can be requested reviewers.
 """
-union RequestedReviewer = Mannequin | Team | User
+union RequestedReviewer = Bot | Mannequin | Team | User
 
 """
 Represents a type that can be required by a pull request for merging.
