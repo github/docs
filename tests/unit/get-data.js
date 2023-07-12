@@ -59,7 +59,7 @@ describe('get-data', () => {
           },
         },
       },
-      jaTranslationsRoot
+      jaTranslationsRoot,
     )
   })
 
@@ -251,7 +251,7 @@ describe('get-data on corrupt translations', () => {
           },
         },
       },
-      jaTranslationsRoot
+      jaTranslationsRoot,
     )
     const ymlFile = path.join(jaTranslationsRoot, 'data', 'variables', 'everything.yml')
     console.assert(fs.existsSync(ymlFile), `${ymlFile} wasn't created`)

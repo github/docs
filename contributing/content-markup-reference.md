@@ -6,14 +6,16 @@
   - [Usage](#usage)
 - [Callout tags](#callout-tags)
   - [Usage](#usage-1)
-- [Code sample syntax highlighting](#code-sample-syntax-highlighting)
+- [Code sample annotations](#code-sample-annotations)
   - [Usage](#usage-2)
-- [Octicons](#octicons)
+- [Code sample syntax highlighting](#code-sample-syntax-highlighting)
   - [Usage](#usage-3)
-- [Operating system tags](#operating-system-tags)
+- [Octicons](#octicons)
   - [Usage](#usage-4)
-- [Tool tags](#tool-tags)
+- [Operating system tags](#operating-system-tags)
   - [Usage](#usage-5)
+- [Tool tags](#tool-tags)
+  - [Usage](#usage-6)
 - [Reusable and variable strings of text](#reusable-and-variable-strings-of-text)
 - [Tables with codeblocks](#tables-with-codeblocks)
 - [Internal links with AUTOTITLE](#internal-links-with-autotitle)
@@ -62,9 +64,42 @@ Callouts highlight important information that customers need to know. We use sta
 
 For information on when to use callout tags, see the [style guide](content-style-guide.md).
 
+## Code sample annotations
+Code sample annotations help explain longer code examples by rendering comments as annotations next to the sample code. This lets us write longer explanations of code without cluttering the code itself. Code samples with annotations are rendered in a two pane layout with the code sample on the left and the annotations on the right. The annotations are visually emphasized when someone hovers their cursor over the code example.
+
+Code annotations only work in articles with the `layout: inline` frontmatter property. See "[Code annotations](./code-annotations.md)" for more information on how to write and style code annotations.
+
+### Usage
+
+    ```yaml annotate
+    # The name of the workflow as it will appear in the "Actions" tab of the GitHub repository.
+    name: Post welcome comment
+    # The `on` keyword lets you define the events that trigger when the workflow is run.
+    on:
+      # Add the `pull_request` event, so that the workflow runs automatically
+      # every time a pull request is created.
+      pull_request:
+        types: [opened]
+    # Modifies the default permissions granted to `GITHUB_TOKEN`.
+    permissions:
+      pull-requests: write
+    # Defines a job with the ID `build` that is stored within the `jobs` key.
+    jobs:
+      build:
+        name: Post welcome comment
+        # Configures the operating system the job runs on.
+        runs-on: ubuntu-latest
+        # The `run` keyword tells the job to execute the [`gh pr comment`](https://cli.github.com/manual/gh_pr_comment) command on the runner.
+        steps:
+          - run: gh pr comment $PR_URL --body "Welcome to the repository!"
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              PR_URL: ${{ github.event.pull_request.html_url }}
+    ```
+
 ## Code sample syntax highlighting
 
-To render syntax highlighting in command line instructions, we use triple backticks followed by the term `shell`.
+To render syntax highlighting in command line instructions, we use triple backticks followed by the language of the sample. For a list of all supported languages, see the [Code languages](https://github.com/github/docs/blob/main/data/variables/code-languages.yml) file.
 
 ### Usage
 
@@ -72,15 +107,13 @@ To render syntax highlighting in command line instructions, we use triple backti
     git init YOUR_REPO
     ```
 
-This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
-
-Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content (for example, to italicize text within `<em>` tags instead of passing the tags through literally), wrap the codeblock in `<pre>` `</pre>` tags.
+Within the code sample syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content (for example, to italicize text within `<em>` tags instead of passing the tags through literally), wrap the codeblock in `<pre>` `</pre>` tags.
 
 **Copy-able code blocks**
 
 You can also add a header that includes the name of the language and a button to copy the contents of the code block:
 
-    ```js{:copy}
+    ```javascript copy
     const copyMe = true
     ```
 

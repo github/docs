@@ -48,4 +48,4 @@ If you have write or admin permissions for a project in your organization, you c
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)"
+- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)"

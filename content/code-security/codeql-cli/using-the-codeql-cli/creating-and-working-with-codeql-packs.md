@@ -24,16 +24,15 @@ With {% data variables.product.prodname_codeql %} packs and the package manageme
 
 There are two types of {% data variables.product.prodname_codeql %} packs: query packs and library packs.
 
-  - Query packs are designed to be run. When a query pack is published, the bundle includes all the transitive dependencies and {% ifversion query-pack-compatibility %}pre-compiled representations of each query, in addition to the query sources{% else %}a compilation cache{% endif %}. This ensures consistent and efficient execution of the queries in the pack.
+- Query packs are designed to be run. When a query pack is published, the bundle includes all the transitive dependencies and {% ifversion query-pack-compatibility %}pre-compiled representations of each query, in addition to the query sources{% else %}a compilation cache{% endif %}. This ensures consistent and efficient execution of the queries in the pack.
   
-  - Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.
+- Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled {% ifversion query-pack-compatibility %}separately{% else %}and there is no compilation cache included when the pack is published{% endif %}.
 
 You can use the `pack` command in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. You can also publish and download {% data variables.product.prodname_codeql %} packs using the `pack` command. For more information, see "[Publishing and using {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs)."
 
 {% ifversion query-pack-compatibility %}
 For more information about compatibility between published query packs and different {% data variables.product.prodname_codeql %} releases, see "[About {% data variables.product.prodname_codeql %} pack compatibility](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 {% endif %}
-
 
 ## Creating a {% data variables.product.prodname_codeql %} pack
 
@@ -45,11 +44,9 @@ codeql pack init <scope>/<pack>
 
 You must specify:
 
+- `<scope>`: the name of the {% data variables.product.prodname_dotcom %} organization or user account that you will publish to.
 
-* `<scope>`: the name of the {% data variables.product.prodname_dotcom %} organization or user account that you will publish to.
-
-
-* `<pack>`: the name for the pack that you are creating.
+- `<pack>`: the name for the pack that you are creating.
 
 The `codeql pack init` command creates the directory structure and configuration files for a {% data variables.product.prodname_codeql %} pack. By default, the command creates a query pack. If you want to create a library pack, you must edit the `qlpack.yml` file to explicitly declare the file as a library pack by including the `library:true` property.
 
@@ -57,14 +54,11 @@ The `codeql pack init` command creates the directory structure and configuration
 
 If you already have a `qlpack.yml` file, you can edit it manually to convert it into a {% data variables.product.prodname_codeql %} pack.
 
-
 1. Edit the `name` property so that it matches the format `<scope>/<name>`, where `<scope>` is the name of the {% data variables.product.prodname_dotcom %} organization or user account that you will publish to.
 
+1. In the `qlpack.yml` file, include a `version` property with a semver identifier, as well as an optional `dependencies` block.
 
-2. In the `qlpack.yml` file, include a `version` property with a semver identifier, as well as an optional `dependencies` block.
-
-
-3. Migrate the list of dependencies in `libraryPathDependencies` to the `dependencies` block. Specify the version range for each dependency. If the range is unimportant, or you are unsure of compatibility, you can specify `"\*"`, which indicates that any version is acceptable and will default to the latest version when you run `codeql pack install`.
+1. Migrate the list of dependencies in `libraryPathDependencies` to the `dependencies` block. Specify the version range for each dependency. If the range is unimportant, or you are unsure of compatibility, you can specify `"\*"`, which indicates that any version is acceptable and will default to the latest version when you run `codeql pack install`.
 
 For more information about the properties, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#about-codeql-packs)."
 
@@ -90,7 +84,7 @@ This command downloads all dependencies to the shared cache on the local disk.
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 
 - Running the `codeql pack add` and `codeql pack install` commands will generate or update the `codeql-pack.lock.yml` file. This file should be checked-in to version control. The `codeql-pack.lock.yml` file contains the precise version numbers used by the pack. For more information, see "[About codeql-pack.lock.yml files](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#about-codeql-pack-lock)."
 
@@ -99,6 +93,7 @@ This command downloads all dependencies to the shared cache on the local disk.
 {% endnote %}
 
 {% ifversion query-pack-compatibility %}
+
 ## Customizing a downloaded {% data variables.product.prodname_codeql %} pack
 
 The recommended way to experiment with changes to a pack is to clone the repository containing its source code.

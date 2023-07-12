@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack create [--output=<output>] [--threads=<num>] [--ram=<MB>] <options>... -- <dir>
 ```
 
@@ -55,14 +55,14 @@ Defaults to `./.codeql/pack`.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `-j, --threads=<num>`
 
 Use this many threads to compile queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`
@@ -75,6 +75,13 @@ Set total amount of RAM that the compiler should be allowed to use.
 directory. This will reduce the size of the pack and the time it takes
 to create it, but will require compilation before the pack can be run.
 Only meaningful for query packs.
+
+#### `--no-validate-extensions`
+
+\[Advanced] Avoid validating data extensions as part of the compile
+step.
+
+Available since `v2.13.3`.
 
 #### `--no-overwrite`
 

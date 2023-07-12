@@ -18,5 +18,4 @@ You can use the REST API to manage groups of self-hosted runners in {% data vari
 
 {% data reusables.actions.actions-authentication %} {% data variables.product.prodname_github_apps %} must have the `administration` permission for repositories or the `organization_self_hosted_runners` permission for organizations. Authenticated users must have admin access to repositories or organizations, or the `manage_runners:enterprise` scope for enterprises to use these endpoints.
 
-
 <!-- Content after this section is automatically generated -->

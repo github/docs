@@ -69,6 +69,7 @@ shortTitle: Manage secret alerts
 {% endif %}
 
 {% ifversion secret-scanning-github-token-metadata %}
+
 ## Reviewing {% data variables.product.company_short %} token metadata
 
 {% note %}
@@ -120,6 +121,7 @@ Once a secret has been committed to a repository, you should consider the secret
 Notifications are different for incremental scans and historical scans.
 
 ### Incremental scans
+
 {% endif %}
 
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
@@ -135,12 +137,13 @@ Notifications are different for incremental scans and historical scans.
 1. On your notification settings page, under "Subscriptions", then under "Watching", select the **Notify me** dropdown.
 1. Select "Email" as a notification option, then click **Save**.
 
-   ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/secret-scanning-notification-options.png)
+   ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/repository-watching-notification-options.png)
 {% endif %}
 
-{% data reusables.secret-scanning.notification-settings %}
+{% data reusables.notifications.watch-settings %}
 
 {% ifversion secret-scanning-backfills %}
+
 ### Historical scans
 
 For historical scans, {% data variables.product.product_name %} notifies the following users:
@@ -150,7 +153,7 @@ For historical scans, {% data variables.product.product_name %} notifies the fol
 
 We do _not_ notify commit authors.
 
-{% data reusables.secret-scanning.notification-settings %}
+{% data reusables.notifications.watch-settings %}
 
 {% endif %}
 

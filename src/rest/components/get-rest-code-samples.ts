@@ -49,7 +49,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   if (codeSample?.request?.bodyParameters) {
     requestBodyParams = `-d '${JSON.stringify(codeSample.request.bodyParameters).replace(
       /'/g,
-      "'\\''"
+      "'\\''",
     )}'`
 
     const contentType = codeSample.request.contentType
@@ -70,16 +70,21 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     }
   }
 
-  let authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
-  if (operation.subcategory === 'management-console') {
-    authHeader = '-u "api_key:your-password"'
-  }
+  let authHeader
+  let apiVersionHeader
 
-  const apiVersionHeader =
-    allVersions[currentVersion].apiVersions.length > 0 &&
-    allVersions[currentVersion].latestApiVersion
-      ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
-      : ''
+  if (operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes') {
+    authHeader = '-u "api_key:your-password"'
+    apiVersionHeader = ''
+  } else {
+    authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
+
+    apiVersionHeader =
+      allVersions[currentVersion].apiVersions.length > 0 &&
+      allVersions[currentVersion].latestApiVersion
+        ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+        : ''
+  }
 
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
@@ -159,7 +164,7 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
     requestBodyParams,
   ].filter(Boolean)
   return `# GitHub CLI api\n# https://cli.github.com/manual/gh_api\n\ngh api \\\n  ${args.join(
-    ' \\\n  '
+    ' \\\n  ',
   )}`
 }
 

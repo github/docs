@@ -47,7 +47,7 @@ topics:
 
 {% data reusables.actions.note-understanding-example %}
 
-```yaml{:copy}
+```yaml copy
 name: Check all English links
 
 # **What it does**: This script once a day checks all English links and reports in issues.
@@ -163,6 +163,7 @@ jobs:
             fi
           done
 ```
+
 ## Understanding the example
 
 {% data reusables.actions.example-explanation-table-intro %}
@@ -178,9 +179,10 @@ jobs:
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 name: Check all English links
 ```
+
 </td>
 <td>
 
@@ -190,29 +192,31 @@ name: Check all English links
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 on:
   workflow_dispatch:
   schedule:
     - cron: '40 20 * * *' # once a day at 20:40 UTC / 12:40 PST
 ```
+
 </td>
 <td>
 
 Defines the `workflow_dispatch` and `scheduled` as triggers for the workflow:
 
-* The `workflow_dispatch` lets you manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
-* The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. For more information, see [`schedule`](/actions/using-workflows/events-that-trigger-workflows#schedule).
+- The `workflow_dispatch` lets you manually run this workflow from the UI. For more information, see [`workflow_dispatch`](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
+- The `schedule` event lets you use `cron` syntax to define a regular interval for automatically triggering the workflow. For more information, see [`schedule`](/actions/using-workflows/events-that-trigger-workflows#schedule).
 </td>
 </tr>
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 permissions:
   contents: read
   issues: write
 ```
+
 </td>
 <td>
 
@@ -222,9 +226,10 @@ Modifies the default permissions granted to `GITHUB_TOKEN`. This will vary depen
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 jobs:
 ```
+
 </td>
 <td>
 
@@ -234,10 +239,11 @@ Groups together all the jobs that run in the workflow file.
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
   check_all_english_links:
     name: Check all links
 ```
+
 </td>
 <td>
 
@@ -247,9 +253,10 @@ Defines a job with the ID `check_all_english_links`, and the name `Check all lin
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 if: github.repository == 'github/docs-internal'
 ```
+
 </td>
 <td>
 
@@ -259,9 +266,10 @@ Only run the `check_all_english_links` job if the repository is named `docs-inte
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
 runs-on: ubuntu-latest
 ```
+
 </td>
 <td>
 
@@ -271,13 +279,14 @@ Configures the job to run on an Ubuntu Linux runner. This means that the job wil
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     env:
       GITHUB_TOKEN: {% raw %}${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}{% endraw %}
       REPORT_AUTHOR: docubot
       REPORT_LABEL: broken link report
       REPORT_REPOSITORY: github/docs-content
 ```
+
 </td>
 <td>
 
@@ -287,9 +296,10 @@ Creates custom environment variables, and redefines the built-in `GITHUB_TOKEN` 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
     steps:
 ```
+
 </td>
 <td>
 
@@ -299,10 +309,11 @@ Groups together all the steps that will run as part of the `check_all_english_li
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Check out repo's default branch
         uses: {% data reusables.actions.action-checkout %}
 ```
+
 </td>
 <td>
 
@@ -312,13 +323,14 @@ The `uses` keyword tells the job to retrieve the action named `actions/checkout`
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Setup Node
         uses: {% data reusables.actions.action-setup-node %}
         with:
           node-version: 16.8.x
           cache: npm
 ```
+
 </td>
 <td>
 
@@ -328,12 +340,13 @@ This step uses the `actions/setup-node` action to install the specified version 
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Run the "npm ci" command
         run: npm ci
       - name: Run the "npm run build" command
         run: npm run build
 ```
+
 </td>
 <td>
 
@@ -343,11 +356,12 @@ The `run` keyword tells the job to execute a command on the runner. In this case
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - name: Run script
         run: |
           script/check-english-links.js > broken_links.md
 ```
+
 </td>
 <td>
 
@@ -357,7 +371,7 @@ This `run` command executes a script that is stored in the repository at `script
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Get title for issue
         id: check
@@ -367,6 +381,7 @@ This `run` command executes a script that is stored in the repository at `script
         run: echo "::set-output name=title::$(head -1 broken_links.md)"
 {%- endif %}
 ```
+
 </td>
 <td>
 
@@ -376,7 +391,7 @@ If the `check-english-links.js` script detects broken links and returns a non-ze
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Create issue from file
         id: broken-link-report
@@ -389,6 +404,7 @@ If the `check-english-links.js` script detects broken links and returns a non-ze
           repository: {% raw %}${{ env.REPORT_REPOSITORY }}{% endraw %}
           labels: {% raw %}${{ env.REPORT_LABEL }}{% endraw %}
 ```
+
 </td>
 <td>
 
@@ -398,7 +414,7 @@ Uses the `peter-evans/create-issue-from-file` action to create a new {% data var
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
       - if: {% raw %}${{ failure() }}{% endraw %}
         name: Close and/or comment on old issues
         env:
@@ -417,6 +433,7 @@ Uses the `peter-evans/create-issue-from-file` action to create a new {% data var
 
           gh issue comment {% raw %}${{ env.NEW_REPORT_URL }}{% endraw %} --body "⬅️ [Previous report]($previous_report_url)"
 ```
+
 </td>
 <td>
 
@@ -428,7 +445,7 @@ Uses [`gh issue list`](https://cli.github.com/manual/gh_issue_list) to locate th
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
           for issue_url in $(gh list-reports \
                                   --json assignees,url \
                                   --jq '.[] | select (.assignees != []) | .url'); do
@@ -437,6 +454,7 @@ Uses [`gh issue list`](https://cli.github.com/manual/gh_issue_list) to locate th
             fi
           done
 ```
+
 </td>
 <td>
 
@@ -446,7 +464,7 @@ If an issue from a previous run is open and assigned to someone, then use [`gh i
 <tr>
 <td>
 
-```yaml{:copy}
+```yaml copy
           for issue_url in $(gh list-reports \
                                   --search 'no:assignee' \
                                   --json url \
@@ -458,14 +476,15 @@ If an issue from a previous run is open and assigned to someone, then use [`gh i
             fi
           done
 ```
+
 </td>
 <td>
 
 If an issue from a previous run is open and is not assigned to anyone, then:
 
-* Use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
-* Use [`gh issue close`](https://cli.github.com/manual/gh_issue_close) to close the old issue.
-* Use [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit) to edit the old issue to remove it from a specific {% data variables.product.prodname_dotcom %} project board.
+- Use [`gh issue comment`](https://cli.github.com/manual/gh_issue_comment) to add a comment with a link to the new issue.
+- Use [`gh issue close`](https://cli.github.com/manual/gh_issue_close) to close the old issue.
+- Use [`gh issue edit`](https://cli.github.com/manual/gh_issue_edit) to edit the old issue to remove it from a specific {% data variables.product.prodname_dotcom %} project board.
 </td>
 </tr>
 </tbody>

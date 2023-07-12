@@ -47,10 +47,10 @@ To enable {% data variables.product.prodname_code_scanning %} using {% data vari
 You can run code scanning on a repository by creating a {% data variables.product.prodname_actions %} workflow to run the [CodeQL action](https://github.com/github/codeql-action/). {% ifversion ghec %}{% data variables.product.prodname_code_scanning_caps %} uses [GitHub-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners) by default, but this can be customized if you plan to host your own runner with your own hardware specifications. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners)."{% endif %}
 
 For more information about {% data variables.product.prodname_actions %}, see:
-  - "[AUTOTITLE](/actions/learn-github-actions)"
-  - "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"
-  - "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)"
-  - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
+- "[AUTOTITLE](/actions/learn-github-actions)"
+- "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)"
+- "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)"
+- "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)"
 
 We recommend enabling {% data variables.product.prodname_code_scanning %} on a repository-by-repository basis as part of your pilot program. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
 

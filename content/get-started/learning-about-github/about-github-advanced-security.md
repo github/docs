@@ -16,9 +16,19 @@ shortTitle: GitHub Advanced Security
 ---
 ## About {% data variables.product.prodname_GH_advanced_security %}
 
-{% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans{% ifversion not ghae %}, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require a {% data variables.product.prodname_GH_advanced_security %}{% ifversion fpt or ghec %} license to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
+{% data variables.product.prodname_dotcom %} has many features that help you improve and maintain the quality of your code. Some of these are included in all plans{% ifversion not ghae %}, such as dependency graph and {% data variables.product.prodname_dependabot_alerts %}{% endif %}. Other security features require a {% data variables.product.prodname_GH_advanced_security %} (GHAS){% ifversion fpt or ghec %} license to run on repositories apart from public repositories on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.
 
 {% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."{% elsif ghae %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% elsif fpt %}To purchase a {% data variables.product.prodname_GH_advanced_security %} license, you must be using {% data variables.product.prodname_enterprise %}. For information about upgrading to {% data variables.product.prodname_enterprise %} with {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
+
+{% ifversion ghec %}{% data reusables.advanced-security.ghas-trial %}{% endif %}
+
+{% ifversion ghas-for-azure-devops %}
+{% note %}
+
+**Note:** If you want to try the preview of {% data variables.product.prodname_GH_advanced_security %} with Azure Repos, see [{% data variables.product.prodname_GH_advanced_security %} & Azure DevOps](https://resources.github.com/ghazdo/) in our resources site. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
+
+{% endnote %}
+{% endif %}
 
 ## About {% data variables.product.prodname_advanced_security %} features
 
@@ -57,6 +67,7 @@ For information about {% data variables.product.prodname_advanced_security %} fe
 {% endif %}
 
 {% ifversion ghes or ghec or ghae %}
+
 ## Deploying GitHub Advanced Security in your enterprise
 
 To learn about what you need to know to plan your {% data variables.product.prodname_GH_advanced_security %} deployment at a high level and to review the rollout phases we recommended, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale)."
@@ -64,6 +75,7 @@ To learn about what you need to know to plan your {% data variables.product.prod
 {% endif %}
 
 {% ifversion not fpt %}
+
 ## Enabling {% data variables.product.prodname_advanced_security %} features
 
 {%- ifversion ghes %}
@@ -88,6 +100,7 @@ If you have an enterprise account, license use for the entire enterprise is show
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## About starter workflows for {% data variables.product.prodname_advanced_security %}
 
 {% data reusables.advanced-security.starter-workflows-beta %}
@@ -98,6 +111,7 @@ For more information on starter workflows, see "[AUTOTITLE](/code-security/code-
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)"

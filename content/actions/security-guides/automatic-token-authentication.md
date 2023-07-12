@@ -13,8 +13,7 @@ versions:
   ghec: '*'
 shortTitle: Automatic token authentication
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About the `GITHUB_TOKEN` secret
@@ -38,6 +37,8 @@ You can use the `GITHUB_TOKEN` by using the standard syntax for referencing secr
 {% endnote %}
 
 {% data reusables.actions.actions-do-not-trigger-workflows %}
+
+{% data reusables.actions.actions-do-not-trigger-pages-rebuilds %}
 
 ### Example 1: passing the `GITHUB_TOKEN` as an input
 
@@ -99,11 +100,12 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 
 {% note %}
 
-**Note:** Private repositories can control if pull requests from forks can run workflows, and configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
+**Notes:** 
+- When a workflow is triggered by the [`pull_request_target`](/actions/using-workflows/events-that-trigger-workflows#pull_request_target) event, the `GITHUB_TOKEN` is granted read/write repository permission, even when it is triggered from a public fork. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#pull_request_target)."
+- Private repositories can control whether pull requests from forks can run workflows, and can configure the permissions assigned to `GITHUB_TOKEN`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#enabling-workflows-for-forks-of-private-repositories)."
+- {% data reusables.actions.workflow-runs-dependabot-note %}
 
 {% endnote %}
-
-{% data reusables.actions.workflow-runs-dependabot-note %}
 
 ### Modifying the permissions for the `GITHUB_TOKEN`
 

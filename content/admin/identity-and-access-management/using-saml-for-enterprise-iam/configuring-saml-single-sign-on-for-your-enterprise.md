@@ -39,6 +39,8 @@ For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-
 
 {% data reusables.saml.about-saml-access-enterprise-account %} For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
 
+{% data reusables.saml.no-scim-for-enterprises %}
+
 {% data reusables.saml.saml-disabled-linked-identities-removed %}
 
 {% data reusables.apps.reauthorize-apps-saml %}

@@ -57,6 +57,7 @@ HTTP/2 200
 Link: <https://api.github.com/resource?page=2>; rel="next",
       <https://api.github.com/resource?page=5>; rel="last"
 ```
+
 ```json
 [
   {
@@ -173,13 +174,16 @@ Link: <https://api.github.com/resource?page=2>; rel="next",
 {% data reusables.webhooks.member_properties %}
 
 {% ifversion fpt or ghes or ghec %}
+
 ## PublicEvent
 
 {% data reusables.webhooks.public_short_desc %}
+
 ### Event `payload` object for PublicEvent
 
 This event returns an empty `payload` object.
 {% endif %}
+
 ## PullRequestEvent
 
 {% data reusables.webhooks.pull_request_short_desc %}
@@ -263,6 +267,7 @@ Key | Type | Description
 {% data reusables.webhooks.release_properties %}
 
 {% ifversion fpt or ghec %}
+
 ## SponsorshipEvent
 
 {% data reusables.webhooks.sponsorship_short_desc %}

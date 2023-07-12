@@ -22,7 +22,7 @@ shortTitle: Compare branches
 {% endnote %}
 
 You can view proposed changes in a pull request in the Files changed tab.
-![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+![Screenshot of the tabs for a pull request. The "Files changed" tab is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
 
 Rather than viewing the commits themselves, you can view the proposed changes as they'll appear in the files once the pull request is merged. The files appear in alphabetical order within the Files changed tab. Additions to the files appear in green and are prefaced by a `+` sign while content that has been removed appears in red and is prefaced by a `-` sign.
 
@@ -49,8 +49,9 @@ To simplify reviewing changes in a large pull request, you can filter the diff t
 ![Screenshot of the file filter dropdown menu. The menu is expanded and outlined in dark orange.](/assets/images/help/pull_requests/file-filter-menu.png)
 
 ## Reasons diffs will not display
+
 - You've exceeded the total limit of files or certain file types. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
-- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)."
+- Your file matches a rule in the repository's _.gitattributes_ file to block that file from displaying by default. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)."
 
 ## Three-dot and two-dot Git diff comparisons
 

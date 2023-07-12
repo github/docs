@@ -23,14 +23,14 @@ Members can also be added or removed from an organization at the organization le
    {% note %}
 
    **Note:**
-   - Users will be added as organization members. If the user is already an organization member or organization admin, the privileges will not be modified.
-   - Organization admins cannot be removed from the organization via the bulk method.
+   - Users will be added as organization members. If the user is already an organization member or organization owner, the privileges will not be modified.
+   - Organization owners cannot be removed from the organization via the bulk method.
 
    {% endnote %}
 
    ![Screenshot of the list of enterprise members. A dropdown menu, labeled "1 user selected...", is expanded and highlighted with an orange outline.](/assets/images/help/business-accounts/enterprise-add-or-remove-from-org.png)
 
-2. In the popup, select the organizations you want to add or remove the user from.
+1. In the popup, select the organizations you want to add or remove the user from.
 
     {% note %}
 
@@ -38,5 +38,5 @@ Members can also be added or removed from an organization at the organization le
 
     {% endnote %}
 
-3. To confirm, click **Add user** or **Remove user**.
-4. Optionally, to add or remove multiple users at the same time, select multiple checkboxes. Use the dropdown to select **Add to organizations** or **Remove from organizations**.
+1. To confirm, click **Add user** or **Remove user**.
+1. Optionally, to add or remove multiple users at the same time, select multiple checkboxes. Use the dropdown to select **Add to organizations** or **Remove from organizations**.

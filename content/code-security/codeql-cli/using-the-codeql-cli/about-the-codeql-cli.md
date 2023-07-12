@@ -21,7 +21,7 @@ redirect_from:
 ## About the {% data variables.product.prodname_codeql_cli %}
 
 Software developers and security researchers can secure their code
-using the {% data variables.product.prodname_codeql_cli %}.
+using {% data variables.product.prodname_codeql %} analysis. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)."
 
 The {% data variables.product.prodname_codeql_cli %} is a command-line tool used to run {% data variables.product.prodname_codeql %} processes locally on
 open source software projects. You can use the {% data variables.product.prodname_codeql_cli %} to:
@@ -32,7 +32,9 @@ source community
 - Develop and test custom {% data variables.product.prodname_codeql %} queries to use in your own analyses
 
 For information about using the {% data variables.product.prodname_codeql_cli %}, see
-"[Getting started with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli)."
+"[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli)."
+
+You can also use {% data variables.product.prodname_actions %} or Azure DevOps pipelines to scan code using the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)" or [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
 ## About the {% data variables.product.prodname_dotcom %} {% data variables.product.prodname_codeql %} license
 

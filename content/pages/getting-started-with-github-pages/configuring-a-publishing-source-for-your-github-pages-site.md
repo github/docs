@@ -35,10 +35,10 @@ shortTitle: Configure publishing source
    ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
 {% else %}
 1. Under "{% data variables.product.prodname_pages %}", use the branch dropdown menu and select a publishing source.
-  ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
+   ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
 {% endif %}
 1. Optionally, use the folder dropdown menu to select a folder for your publishing source.
-  ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a folder for a publishing source, labeled "/(root)," is outlined in dark orange.](/assets/images/help/pages/publishing-source-folder-drop-down.png)
+   ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a folder for a publishing source, labeled "/(root)," is outlined in dark orange.](/assets/images/help/pages/publishing-source-folder-drop-down.png)
 1. Click **Save**.
 
 ### Troubleshooting publishing from a branch
@@ -93,7 +93,6 @@ The starter workflows use a deployment environment called `github-pages`. If you
 
 {% ifversion fpt or ghec %}
 {% note %}
-
 
 **Note**: A `CNAME` file in your repository file does not automatically add or remove a custom domain. Instead, you must configure the custom domain through your repository settings or through the API. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain)" and the [Pages API reference documentation](/rest/pages#update-information-about-a-github-pages-site).
 

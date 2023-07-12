@@ -17,8 +17,7 @@ topics:
   - JavaScript
 shortTitle: Build & test Node.js
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -40,7 +39,7 @@ We recommend that you have a basic understanding of Node.js, YAML, workflow conf
 
 To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository. The workflow shown below assumes that the default branch for your repository is `main`.
 
-```yaml{:copy}
+```yaml copy
 name: Node.js CI
 
 on:
@@ -81,7 +80,7 @@ The starter workflow includes a matrix strategy that builds and tests your code 
 
 Each job can access the value defined in the matrix `node-version` array using the `matrix` context. The `setup-node` action uses the context as the `node-version` input. The `setup-node` action configures each job with a different Node.js version before building and testing code. For more information about matrix strategies and contexts, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix)" and "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
-```yaml{:copy}
+```yaml copy
 strategy:
   matrix:
     node-version: [14.x, 16.x, 18.x, 20.x]
@@ -96,7 +95,7 @@ steps:
 
 Alternatively, you can build and test with exact Node.js versions.
 
-```yaml{:copy}
+```yaml copy
 strategy:
   matrix:
     node-version: [10.17.0, 17.9.0]
@@ -104,7 +103,7 @@ strategy:
 
 Or, you can build and test using a single version of Node.js too.
 
-```yaml{:copy}
+```yaml copy
 name: Node.js CI
 
 on: [push]
@@ -138,9 +137,9 @@ If you don't specify a Node.js version, {% data variables.product.prodname_dotco
 
 ### Example using npm
 
-This example installs the dependencies defined in the *package.json* file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
+This example installs the dependencies defined in the _package.json_ file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
@@ -151,9 +150,9 @@ steps:
   run: npm install
 ```
 
-Using `npm ci` installs the versions in the *package-lock.json* or *npm-shrinkwrap.json* file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and "[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
+Using `npm ci` installs the versions in the _package-lock.json_ or _npm-shrinkwrap.json_ file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and "[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
@@ -166,9 +165,9 @@ steps:
 
 ### Example using Yarn
 
-This example installs the dependencies defined in the *package.json* file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
+This example installs the dependencies defined in the _package.json_ file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
@@ -181,7 +180,7 @@ steps:
 
 Alternatively, you can pass `--frozen-lockfile` to install the versions in the `yarn.lock` file and prevent updates to the `yarn.lock` file.
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
@@ -198,11 +197,11 @@ steps:
 
 To authenticate to your private registry, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-In the example below, the secret `NPM_TOKEN` stores the npm authentication token. The `setup-node` action configures the *.npmrc* file to read the npm authentication token from the `NODE_AUTH_TOKEN` environment variable. When using the `setup-node` action to create an *.npmrc* file, you must set the `NODE_AUTH_TOKEN` environment variable with the secret that contains your npm authentication token.
+In the example below, the secret `NPM_TOKEN` stores the npm authentication token. The `setup-node` action configures the _.npmrc_ file to read the npm authentication token from the `NODE_AUTH_TOKEN` environment variable. When using the `setup-node` action to create an _.npmrc_ file, you must set the `NODE_AUTH_TOKEN` environment variable with the secret that contains your npm authentication token.
 
-Before installing dependencies, use the `setup-node` action to create the *.npmrc* file. The action has two input parameters. The `node-version` parameter sets the Node.js version, and the `registry-url` parameter sets the default registry. If your package registry uses scopes, you must use the `scope` parameter. For more information, see [`npm-scope`](https://docs.npmjs.com/misc/scope).
+Before installing dependencies, use the `setup-node` action to create the _.npmrc_ file. The action has two input parameters. The `node-version` parameter sets the Node.js version, and the `registry-url` parameter sets the default registry. If your package registry uses scopes, you must use the `scope` parameter. For more information, see [`npm-scope`](https://docs.npmjs.com/misc/scope).
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js
@@ -218,7 +217,7 @@ steps:
     NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
 
-The example above creates an *.npmrc* file with the following contents:
+The example above creates an _.npmrc_ file with the following contents:
 
 ```ini
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
@@ -234,7 +233,7 @@ You can cache and restore the dependencies using the [`setup-node` action](https
 
 The following example caches dependencies for npm.
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
@@ -247,7 +246,7 @@ steps:
 
 The following example caches dependencies for Yarn.
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-node %}
@@ -260,7 +259,7 @@ steps:
 
 The following example caches dependencies for pnpm (v6.10+).
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 # NOTE: pnpm caching support requires pnpm version >= 6.10.0
@@ -284,9 +283,9 @@ If you have a custom requirement or need finer controls for caching, you can use
 
 ## Building and testing your code
 
-You can use the same commands that you use locally to build and test your code. For example, if you run `npm run build` to run build steps defined in your *package.json* file and `npm test` to run your test suite, you would add those commands in your workflow file.
+You can use the same commands that you use locally to build and test your code. For example, if you run `npm run build` to run build steps defined in your _package.json_ file and `npm test` to run your test suite, you would add those commands in your workflow file.
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Use Node.js

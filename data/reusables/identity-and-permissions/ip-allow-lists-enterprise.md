@@ -1,4 +1,4 @@
-When you enable the allow list, the IP addresses you have configured are immediately added to the allow lists of organizations in your enterprise. If you disable the allow list, the addresses are removed from the organization allow lists. 
+When you enable the allow list, the IP addresses you have configured are immediately added to the allow lists of organizations in your enterprise. If you disable the allow list, the addresses are removed from the organization allow lists.
 
 {% data reusables.identity-and-permissions.org-enterprise-allow-list-interaction %} For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-allowed-ip-addresses-for-your-organization)."
 

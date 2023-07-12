@@ -94,12 +94,12 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
-* Run a command, after the dev container is created, to create a new file.
-* Automatically install two {% data variables.product.prodname_vscode_shortname %} extensions in this codespace.
+- Run a command, after the dev container is created, to create a new file.
+- Automatically install two {% data variables.product.prodname_vscode_shortname %} extensions in this codespace.
 
 1. In the `devcontainer.json` file, add a comma after the `features` property.
 
-   ```json{:copy}
+   ```json copy
    "features": {
      "ghcr.io/devcontainers/features/java:1": {
        "version": "none",
@@ -112,14 +112,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `postCreateCommand` property and change its value to `echo \"This file was added by the postCreateCommand.\" > TEMP.md`.
 
-   ```json{:copy}
+   ```json copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "echo \"This file was added by the postCreateCommand.\" > TEMP.md",
    ```
 
 1. Uncomment the `customizations` property and edit it as follows to install the "Code Spell Checker" extension and the "Extension Pack for Java."
 
-   ```json{:copy}
+   ```json copy
    // Configure tool-specific properties.
    "customizations": {
      // Configure properties specific to VS Code.

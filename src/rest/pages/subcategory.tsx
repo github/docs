@@ -6,7 +6,7 @@ import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'components/context/AutomatedPageContext'
+} from 'src/automated-pipelines/components/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
 
 type MinitocItemsT = {
@@ -71,7 +71,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       restOperations,
       currentLanguage,
       currentVersion,
-      req.context
+      req.context,
     )) as MinitocItemsT
 
     restOperationsMiniTocItems && miniTocItems.push(...restOperationsMiniTocItems)

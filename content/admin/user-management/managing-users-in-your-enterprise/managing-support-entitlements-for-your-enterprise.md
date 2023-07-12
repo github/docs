@@ -29,9 +29,9 @@ To add a support entitlement to a user, the user must already be a member of an 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. Under "Settings", click **Support**.
-4. In the search bar, start typing the name or username of the person you want to give a support entitlement. Click their name in the list of matches.
-5. Click **Add support entitlement**.
+1. Under "Settings", click **Support**.
+1. In the search bar, start typing the name or username of the person you want to give a support entitlement. Click their name in the list of matches.
+1. Click **Add support entitlement**.
 
 ## Removing a support entitlement from an enterprise member
 
@@ -41,8 +41,8 @@ If a user remains an enterprise member, you can manually remove their support en
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-3. In the sidebar under "Settings", click **Support**.
-4. Under "Support members", to the right of the person you want to remove a support entitlement from, click {% octicon "trash" aria-label="remove support entitlement" %}.
+1. In the sidebar under "Settings", click **Support**.
+1. Under "Support members", to the right of the person you want to remove a support entitlement from, click {% octicon "trash" aria-label="remove support entitlement" %}.
 
 ## Further reading
 

@@ -30,7 +30,7 @@ import styles from './Header.module.scss'
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
-  const { isHomepageVersion, currentProduct, currentProductTree, allVersions } = useMainContext()
+  const { isHomepageVersion, currentProduct, allVersions } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
@@ -50,7 +50,6 @@ export const Header = () => {
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
-  const productTitle = currentProductTree?.shortTitle || currentProductTree?.title
   const [windowSize, setWindowSize] = useState(0)
   const handleWindowResize = useCallback(() => {
     setWindowSize(window.innerWidth)
@@ -127,14 +126,14 @@ export const Header = () => {
       <div
         className={cx(
           'border-bottom d-unset color-border-muted no-print z-3 color-bg-default',
-          styles.header
+          styles.header,
         )}
       >
         {error !== '404' && <HeaderNotifications />}
         <header
           className={cx(
             'color-bg-default p-2 position-sticky top-0 z-1 border-bottom',
-            scroll && 'color-shadow-small'
+            scroll && 'color-shadow-small',
           )}
         >
           <div
@@ -168,7 +167,7 @@ export const Header = () => {
                     isSearchOpen
                       ? styles.searchContainerWithOpenSearch
                       : styles.searchContainerWithClosedSearch,
-                    'mr-3'
+                    'mr-3',
                   )}
                 >
                   <Search />
@@ -195,7 +194,7 @@ export const Header = () => {
               <IconButton
                 className={cx(
                   'hide-lg hide-xl',
-                  !isSearchOpen ? 'd-flex flex-items-center' : 'd-none'
+                  !isSearchOpen ? 'd-flex flex-items-center' : 'd-none',
                 )}
                 data-testid="mobile-search-button"
                 onClick={() => setIsSearchOpen(!isSearchOpen)}
@@ -347,17 +346,14 @@ export const Header = () => {
                     sx={{ display: 'block' }}
                   >
                     <AllProductsLink />
-                    {error === '404' ||
-                    !currentProduct ||
-                    isSearchResultsPage ||
-                    !currentProductTree ? null : (
+                    {error === '404' || !currentProduct || isSearchResultsPage ? null : (
                       <div className="mt-3">
                         <Link
                           data-testid="sidebar-product-dialog"
-                          href={currentProductTree.href}
+                          href={currentProduct.href}
                           className="d-block pl-1 mb-2 h3 color-fg-default no-underline"
                         >
-                          {productTitle}
+                          {currentProduct.name}
                         </Link>
                       </div>
                     )}

@@ -29,7 +29,7 @@ With {% data variables.product.prodname_classroom %}, you can create individual 
 
 {% endnote %}
 
-## Types of assignments 
+## Types of assignments
 
 You can create both individual assignments and group assignments with {% data variables.product.prodname_classroom %}.
 

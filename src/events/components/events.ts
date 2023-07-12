@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 
 const COOKIE_NAME = '_docs-events'
@@ -36,7 +36,7 @@ function uuidv4(): string {
   } catch (err) {
     // https://stackoverflow.com/a/2117523
     return (<any>[1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c: number) =>
-      (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16)
+      (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
     )
   }
 }
@@ -46,11 +46,7 @@ export function getUserEventsId() {
   cookieValue = Cookies.get(COOKIE_NAME)
   if (cookieValue) return cookieValue
   cookieValue = uuidv4()
-  Cookies.set(COOKIE_NAME, cookieValue, {
-    secure: document.location.protocol !== 'http:',
-    sameSite: 'strict',
-    expires: 365,
-  })
+  Cookies.set(COOKIE_NAME, cookieValue)
   return cookieValue
 }
 

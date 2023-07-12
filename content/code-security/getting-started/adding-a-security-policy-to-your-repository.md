@@ -21,7 +21,7 @@ shortTitle: Add a security policy
 
 ## About security policies
 
-To give people instructions for reporting security vulnerabilities in your project,{% ifversion fpt or ghes or ghec %} you can add a _SECURITY.md_ file to your repository's root, `docs`, or `.github` folder.{% else %} you can add a _SECURITY.md_ file to your repository's root, or `docs` folder.{% endif %} When someone creates an issue in your repository, they will see a link to your project's security policy.
+To give people instructions for reporting security vulnerabilities in your project,{% ifversion fpt or ghes or ghec %} you can add a `SECURITY.md` file to your repository's root, `docs`, or `.github` folder.{% else %} you can add a `SECURITY.md` file to your repository's root, or `docs` folder.{% endif %} When someone creates an issue in your repository, they will see a link to your project's security policy.
 
 {% ifversion not ghae %}
 <!-- no public repos in GHAE -->
@@ -30,7 +30,7 @@ You can create a default security policy for your organization or personal accou
 
 {% tip %}
 
-**Tip:** To help people find your security policy, you can link to your _SECURITY.md_ file from other places in your repository, such as your README file. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
+**Tip:** To help people find your security policy, you can link to your `SECURITY.md` file from other places in your repository, such as your README file. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
 
 {% endtip %}
 
@@ -48,9 +48,9 @@ By making security reporting instructions clearly available, you make it easy fo
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-3. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" %} Policy**.
-4. Click **Start setup**.
-5. In the new _SECURITY.md_ file, add information about supported versions of your project and how to report a vulnerability.
+1. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" %} Policy**.
+1. Click **Start setup**.
+1. In the new `SECURITY.md` file, add information about supported versions of your project and how to report a vulnerability.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}
 {% data reusables.files.choose_commit_branch %}

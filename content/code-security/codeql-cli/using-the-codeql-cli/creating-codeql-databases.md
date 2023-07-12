@@ -12,7 +12,7 @@ topics:
   - Code scanning
   - CodeQL
 redirect_from:
-   - /code-security/codeql-cli/creating-codeql-databases
+  - /code-security/codeql-cli/creating-codeql-databases
 ---
 <!--The CodeQL CLI man pages include a link to a section in this article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/codeql-docs/indirect-tracing.-->
@@ -55,9 +55,10 @@ You must specify:
 | Java{% ifversion codeql-kotlin-beta %}/Kotlin{% endif %} | `java`
 | JavaScript/TypeScript | `javascript`
 | Python | `python`
-| Ruby | `ruby`
+| Ruby | `ruby` {% ifversion codeql-swift-beta %}
+| Swift | `swift` {% endif %}
 
-{% data reusables.code-scanning.beta-kotlin-support %}
+{% data reusables.code-scanning.beta-kotlin-or-swift-support %}
 {% data reusables.code-scanning.beta-ruby-support %}
 
 You can specify additional options depending on the location of your source file, if the code needs to be compiled, and if you want to create {% data variables.product.prodname_codeql %} databases for more than one language:
@@ -70,7 +71,7 @@ You can specify additional options depending on the location of your source file
 You can specify extractor options to customize the behavior of extractors that create {% data variables.product.prodname_codeql %} databases. For more information, see
 "[Extractor options](/code-security/codeql-cli/using-the-codeql-cli/extractor-options)."
 
-For full details of all the options you can use when creating databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create/)."
+For full details of all the options you can use when creating databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create)."
 
 ## Progress and results
 
@@ -133,13 +134,9 @@ For compiled languages, {% data variables.product.prodname_codeql %} needs to in
 
 ### Detecting the build system
 
-   {% note %}
+{% data reusables.code-scanning.beta-kotlin-or-swift-support %}
 
-   **Note:** {% data variables.product.prodname_codeql %} analysis for Kotlin is currently in beta. During the beta, analysis of Kotlin code, and the accompanying documentation, will not be as comprehensive as for other languages.
-
-   {% endnote %}
-
-The {% data variables.product.prodname_codeql_cli %} includes autobuilders for C/C++, C#, Go, and Java code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database.
+The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.compiled_languages %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database.
 
 An autobuilder is invoked automatically when you execute `codeql database create` for a compiled `--language` if don’t include a
 `--command` option. For example, for a Java codebase, you would simply run:
@@ -154,8 +151,8 @@ If a codebase uses a standard build system, relying on an autobuilder is often t
 
    **Notes:**
 
-   - If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
-   - The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
+- If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
+- The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
 
    {% endnote %}
 
@@ -213,6 +210,38 @@ The following examples are designed to give you an idea of some of the build com
    ```
    codeql database create java-database --language=java --command='ant -f build.xml'
    ```
+
+{% ifversion codeql-swift-beta %}
+- Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
+
+	   It's a good idea to ensure that the project is in a clean state and that there are no build artefacts available.
+	
+	   ```
+	   xcodebuild clean -all
+	   codeql database create -l swift swift-database
+	   ```
+
+- Swift project built with `swift build`:
+
+   ```
+   codeql database create -l swift -c "swift build" swift-database
+   ```
+
+- Swift project built with `xcodebuild`:
+
+   ```
+      codeql database create -l swift -c "xcodebuild build -target your-target" swift-database
+   ```
+
+   You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that CodeQL requires for a successful scan.
+
+- Swift project built using a custom build script:
+
+   ```
+   codeql database create -l swift -c "./scripts/build.sh" swift-database
+   ```
+
+{% endif %}
 
 - Project built using Bazel:
 
@@ -289,6 +318,14 @@ Build your code; optionally, unset the environment variables using an `end-traci
 Once you have created a {% data variables.product.prodname_codeql %} database using indirect build tracing, you can work with it like any other {% data variables.product.prodname_codeql %} database. For example, analyze the database, and upload the results to {% data variables.product.prodname_dotcom %} if you use code scanning.
 
 ### Example of creating a {% data variables.product.prodname_codeql %} database using indirect build tracing
+
+{% ifversion ghas-for-azure-devops %}
+{% note %}
+
+**Note:** If you use Azure DevOps pipelines, the simplest way to create a {% data variables.product.prodname_codeql %} database is to use {% data variables.product.prodname_ghas_azdo %}. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
+
+{% endnote %}
+{% endif %}
 
 The following example shows how you could use indirect build tracing in an Azure DevOps pipeline to create a {% data variables.product.prodname_codeql %} database:
 
@@ -369,7 +406,7 @@ steps:
 You can check if a repository has any {% data variables.product.prodname_codeql %} databases available for download using the `/repos/<owner>/<repo>/code-scanning/codeql/databases` endpoint. For example, to check for {% data variables.product.prodname_codeql %} databases using the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_api) you would run:
 
 ```
-gh api /repos/<owner>/<repo>/code-scanning/codeql/databases/
+gh api /repos/<owner>/<repo>/code-scanning/codeql/databases
 ```
 
 This command returns information about any {% data variables.product.prodname_codeql %} databases that are available for a repository, including the language the database represents, and when the database was last updated. If no {% data variables.product.prodname_codeql %} databases are available, the response is empty.

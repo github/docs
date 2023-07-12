@@ -68,5 +68,5 @@ jobs:
       - uses: strumwolf/delete-deployment-environment@3cb547f8ec03ee6c0473d90cce57c74c688c2510
         with:
           # The token provided by the workflow does not have the permissions to delete created environments
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           environment: preview-env-${{ env.PR_NUMBER }}

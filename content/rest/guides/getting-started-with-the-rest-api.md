@@ -104,6 +104,8 @@ If you want to use the API on behalf of an organization or another user, {% data
 
 If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
 
+For more information about best practices you can use to keep your tokens secure, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
+
 ### Authentication example
 
 {% cli %}
@@ -128,7 +130,7 @@ To keep your token secure, you can store your token as a secret and run your scr
 
 {% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+If these options are not possible, consider using another CLI service to store your token securely.
 
 {% endwarning %}
 
@@ -153,7 +155,7 @@ To help keep your account secure, you can use {% data variables.product.prodname
 
 {% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+If these options are not possible, consider using another CLI service to store your token securely.
 
 {% endwarning %}
 

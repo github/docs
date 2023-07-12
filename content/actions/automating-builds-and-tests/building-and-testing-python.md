@@ -16,8 +16,7 @@ topics:
   - Python
 shortTitle: Build & test Python
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -46,7 +45,7 @@ We recommend that you have a basic understanding of Python, PyPy, and pip. For m
 
 To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -105,7 +104,7 @@ If you are using a self-hosted runner, you can configure the runner to use the `
 
 ### Using multiple Python versions
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -135,7 +134,7 @@ jobs:
 
 You can configure a specific version of Python. For example, 3.10. Alternatively, you can use semantic version syntax to get the latest minor release. This example uses the latest minor release of Python 3.
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -165,7 +164,7 @@ If you specify a version of Python that is not available, `setup-python` fails w
 
 You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -201,7 +200,7 @@ We recommend using `setup-python` to configure the version of Python used in you
 
 {% ifversion actions-caching %}You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."{% endif %}
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Set up Python
@@ -214,9 +213,9 @@ steps:
 
 ### Requirements file
 
-After you update `pip`, a typical next step is to install dependencies from *requirements.txt*. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
+After you update `pip`, a typical next step is to install dependencies from _requirements.txt_. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Set up Python
@@ -237,7 +236,7 @@ You can cache and restore the dependencies using the [`setup-python` action](htt
 
 The following example caches dependencies for pip.
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - uses: {% data reusables.actions.action-setup-python %}
@@ -262,7 +261,7 @@ You can use the same commands that you use locally to build and test your code.
 
 This example installs or upgrades `pytest` and `pytest-cov`. Tests are then run and output in JUnit format while code coverage results are output in Cobertura. For more information, see [JUnit](https://junit.org/junit5/) and [Cobertura](https://cobertura.github.io/cobertura/).
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Set up Python
@@ -283,7 +282,7 @@ steps:
 
 The following example installs or upgrades `ruff` and uses it to lint all files. For more information, see [Ruff](https://beta.ruff.rs/docs).
 
-```yaml{:copy}
+```yaml copy
 steps:
 - uses: {% data reusables.actions.action-checkout %}
 - name: Set up Python
@@ -307,7 +306,7 @@ The linting step has `continue-on-error: true` set. This will keep the workflow 
 
 With {% data variables.product.prodname_actions %}, you can run tests with tox and spread the work across multiple jobs. You'll need to invoke tox using the `-e py` option to choose the version of Python in your `PATH`, rather than specifying a specific version. For more information, see [tox](https://tox.readthedocs.io/en/latest/).
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -339,7 +338,7 @@ You can upload artifacts to view after a workflow completes. For example, you ma
 
 The following example demonstrates how you can use the `upload-artifact` action to archive test results from running `pytest`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
-```yaml{:copy}
+```yaml copy
 name: Python package
 
 on: [push]
@@ -380,7 +379,7 @@ You can configure your workflow to publish your Python package to a package regi
 
 For this example, you will need to create two [PyPI API tokens](https://pypi.org/help/#apitoken). You can use secrets to store the access tokens or credentials needed to publish your package. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}

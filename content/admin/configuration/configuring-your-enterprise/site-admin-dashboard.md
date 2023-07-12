@@ -30,10 +30,12 @@ Refer to this section of the site admin dashboard to check your current {% data 
 
 {% endif %}
 {% ifversion ghes %}
+
 ## {% data variables.enterprise.management_console %}
 
 Here you can launch the {% data variables.enterprise.management_console %} to manage virtual appliance settings such as the domain, authentication, and SSL.
 {% endif %}
+
 ## Explore
 
 Data for GitHub's [trending page][] is calculated into daily, weekly, and monthly time spans for both repositories and developers. You can see when this data was last cached and queue up new trending calculation jobs from the **Explore** section.
@@ -128,6 +130,7 @@ Key             | Description
 `deleted?`      | Whether the repository has been deleted
 
 {% ifversion ghes %}
+
 ## Indexing
 
 GitHub's search features are powered by Elasticsearch. This section of the site admin dashboard shows you the current status of your Elasticsearch cluster and provides you with several tools to control search and index behavior.
@@ -174,6 +177,7 @@ Repair jobs use a "repair offset" for parallelization. This is an offset into th
 This allows you to enable or disable both search and index operations on source code.
 
 {% endif %}
+
 ## Reserved logins
 
 Certain words are reserved for internal use in {% data variables.location.product_location %}, which means that these words cannot be used as usernames.
@@ -189,24 +193,11 @@ For example, the following words are reserved, among others:
 For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
 
 {% ifversion ghas-committers-calculator %}
+
 ## {% data variables.product.prodname_advanced_security %} Committers
 
-You can see the number of active committers that are currently using {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories.
+With the site admin dashboard, you can see the number of active committers that are currently using {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many new or additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security)."
 
-Under "Current active committer count", you can see the number of active committers for repositories with {% data variables.product.prodname_GH_advanced_security %} enabled. This is the number of {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} that are currently being used.
-
-Under "Maximum committers across entire instance", you can see the number of active committers across all the repositories in your enterprise. This is the number of {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for every repository in your enterprise.
-
-Under "Calculate Additional Advanced Committers", you can calculate how many more additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} will be used if you enable {% data variables.product.prodname_GH_advanced_security %} for specific organizations and repositories. Under "Organizations and Repositories", enter or paste a list of organizations and repositories, with one organization or repository per line.
-
-```
-example-org
-octo-org/octo-repo
-```
-
-The result is the number of additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} that would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for those organizations and repositories.
-
-For more information about billing for {% data variables.product.prodname_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."
 {% endif %}
 
 ## Enterprise overview
@@ -230,6 +221,7 @@ Here you can see all of the users on {% data variables.location.product_location
 Here you can see all of the administrators on {% data variables.location.product_location %}, and [initiate an SSH key audit](/admin/user-management/managing-users-in-your-enterprise/auditing-ssh-keys).
 
 ## Dormant users
+
 {% ifversion ghes %}
 Here you can see and [suspend](/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users) all of the inactive users on {% data variables.location.product_location %}. A user account is considered to be inactive ("dormant") when it:
 {% endif %}

@@ -24,6 +24,7 @@ shortTitle: Publish & install with Actions
 You can extend the CI and CD capabilities of your repository by publishing or installing packages as part of your workflow.
 
 {% ifversion packages-registries-v2 %}
+
 ### Authenticating to package registries with granular permissions
 
 Some {% data variables.product.prodname_registry %} registries support granular permissions. This means you can choose to allow packages to be scoped to a user or an organization, or linked to a repository. For the list of registries that support granular permissions, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
@@ -95,7 +96,7 @@ Create a new workflow file in your repository (such as `.github/workflows/deploy
 
 {% else %}
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
@@ -166,6 +167,7 @@ jobs:
           tags: |
             {% ifversion ghae %}docker.YOUR-HOSTNAME.com{% else %}docker.pkg.github.com{% endif %}/{% raw %}${{ github.repository }}/octo-image:${{ github.sha }}{% endraw %}
 ```
+
 {% endif %}
 
 The relevant settings are explained in the following table. For full details about each element in a workflow, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
@@ -493,6 +495,7 @@ Installing packages hosted by {% data variables.product.prodname_registry %} thr
 {% data reusables.package_registry.actions-configuration %}
 
 {% ifversion packages-registries-v2 %}
+
 ## Upgrading a workflow that accesses a registry using a {% data variables.product.pat_generic %}
 
 {% data variables.product.prodname_registry %} supports the `GITHUB_TOKEN` for easy and secure authentication in your workflows. If you're using a registry that supports granular permissions, and your workflow is using a {% data variables.product.pat_generic %} to authenticate to the registry, then we highly recommend you update your workflow to use the `GITHUB_TOKEN`.
@@ -504,17 +507,17 @@ Using the `GITHUB_TOKEN`, instead of a {% data variables.product.pat_v1 %} with 
 1. Navigate to your package landing page.
 {% data reusables.package_registry.package-settings-actions-access %}
 1. To ensure your package has access to your workflow, you must add the repository where the workflow is stored to your package. {% data reusables.package_registry.package-settings-add-repo %}
-  {% note %}
+   {% note %}
 
-  **Note:** Adding a repository to your package {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+   **Note:** Adding a repository to your package {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility#ensuring-workflow-access-to-your-package)" and "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
 
-  {% endnote %}
+   {% endnote %}
 1. Optionally, use {% data variables.package_registry.package-settings-actions-access-role-dropdown %}
 1. Open your workflow file. On the line where you log in to the registry, replace your {% data variables.product.pat_generic %} with {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %}.
 
 For example, this workflow publishes a Docker image to the {% data variables.product.prodname_container_registry %} and uses {% raw %}`${{ secrets.GITHUB_TOKEN }}`{% endraw %} to authenticate.
 
-```yaml{:copy}
+```yaml copy
 name: Demo Push
 
 on:

@@ -1,7 +1,7 @@
 ---
 title: Enabling security features for multiple repositories
 shortTitle: Enable security features
-intro: 'You can use security overview to select a subset of repositories and enable security features for them all.'
+intro: You can use security overview to select a subset of repositories and enable security features for them all.
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 allowTitleToDifferFromFilename: true
@@ -16,13 +16,23 @@ topics:
   - Teams
 ---
 
-{% ifversion ghes < 3.5 or ghae %}
+{% ifversion ghae %}
 {% data reusables.security-overview.beta %}
 {% endif %}
 
 ## About enabling security features
 
-If you're a security manager, repository administrator, or organization owner, you can use security overview to enable or disable security features for multiple repositories at the same time. You can enable or disable security features for all repositories visible on the "Security coverage" view in security overview. You can also use the search bar to narrow down to a specific subset of repositories, and enable or disable security features for that group.
+If you're a security manager, repository administrator, or organization owner, you can use security overview to enable or disable security features for multiple repositories at the same time. You can enable or disable security features for all repositories visible on the "Security coverage" view in security overview for an organization. 
+
+You can use checkboxes to select which repositories you want to include, or use the search bar to narrow down to a specific subset of repositories, and enable or disable security features for that group. This is useful if you want to introduce a feature to your organization gradually over time, or if your organization requires a complex security setup where different features are enabled in different repositories. For example, if you are enabling a feature across a group of repositories, you may find the following filtering options helpful.
+
+- To exclude certain repositories from the selection, you can assign a topic such as `test` to these repositories, then exclude them from the results with a search like `-topic:test`. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
+- If a team uses repositories that all require a certain feature, you can use the `team:` filter to search for repositories where a team has write or admin access.{% ifversion code-scanning-without-workflow %}
+- If you're enabling {% data variables.product.prodname_code_scanning %}, you can see which repositories are eligible for default setup with the search `code-scanning-default-setup:eligible`. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."{% endif %}
+
+For more information on filters you can use in different parts of security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+
+For more information about the different ways of enabling security features in an organization, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
 
 ## Enabling security features for multiple repositories
 
@@ -41,13 +51,13 @@ If you're a security manager, repository administrator, or organization owner, y
 
 The security features that you can enable and disable in this view are:
 
-* Dependency graph
-* {% data variables.product.prodname_dependabot_alerts %}
-* {% data variables.product.prodname_dependabot_security_updates %} 
-* {% data variables.product.prodname_GH_advanced_security %} 
-* {% data variables.product.prodname_code_scanning_caps %} default setup
-* {% data variables.secret-scanning.alerts_caps %}
-* {% data variables.product.prodname_secret_scanning_caps %} as a push protection
+- Dependency graph
+- {% data variables.product.prodname_dependabot_alerts %}
+- {% data variables.product.prodname_dependabot_security_updates %} 
+- {% data variables.product.prodname_GH_advanced_security %} 
+- {% data variables.product.prodname_code_scanning_caps %} default setup
+- {% data variables.secret-scanning.alerts_caps %}
+- {% data variables.product.prodname_secret_scanning_caps %} as a push protection
 
 If you're blocked from enabling a security feature due to an enterprise policy, you will still be able to see the affected repository in the "Security Coverage" view and access the side panel from the **{% octicon "gear" aria-hidden="true" %} Security settings** button. However, you will see a message in the side panel indicating that the functionality is not available. For more information about enterprise policies, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)."
 

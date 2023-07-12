@@ -10,7 +10,7 @@ import { useVersion } from 'components/hooks/useVersion'
 import { HeadingLink } from 'components/article/HeadingLink'
 import { useTranslation } from 'components/hooks/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
-import { ParameterTable } from 'components/parameter-table/ParameterTable'
+import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
 
 import styles from './WebhookPayloadExample.module.scss'
 
@@ -117,7 +117,7 @@ export function Webhook({ webhook }: Props) {
       undefined,
       {
         shallow: true,
-      }
+      },
     )
   }
 
@@ -138,7 +138,7 @@ export function Webhook({ webhook }: Props) {
     webhookFetcher,
     {
       revalidateOnFocus: false,
-    }
+    },
   )
 
   const currentWebhookActionType = selectedWebhookActionType || webhook.data.action
@@ -155,7 +155,7 @@ export function Webhook({ webhook }: Props) {
           dangerouslySetInnerHTML={{
             __html: t('webhooks.availability').replace(
               '{{ WebhookName }}',
-              currentWebhookAction.category
+              currentWebhookAction.category,
             ),
           }}
         />
@@ -182,7 +182,7 @@ export function Webhook({ webhook }: Props) {
           dangerouslySetInnerHTML={{
             __html: t('webhooks.webhook_payload_object').replace(
               '{{ WebhookName }}',
-              currentWebhookAction.category
+              currentWebhookAction.category,
             ),
           }}
         />

@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals'
 
-import { getDOMCached as getDOM } from '../helpers/e2etest.js'
+import { getDOMCached as getDOM, get } from '../helpers/e2etest.js'
 
 describe('sidebar', () => {
   jest.setTimeout(10 * 60 * 1000)
@@ -22,9 +22,24 @@ describe('sidebar', () => {
       // or else those pages won't become part of the site tree. But
       // they should not actually appear in the side bar.
       const earlyAccessLinks = links.filter((i, link) =>
-        $(link).attr('href').split('/').includes('early-access')
+        $(link).attr('href').split('/').includes('early-access'),
       )
       expect(earlyAccessLinks.length).toBe(0)
+    })
+
+    test('all links have Liquid evaluated', async () => {
+      const $ = await getDOM('/')
+      const links = $('[data-testid=sidebar] a[href]')
+      const hrefs = links
+        .filter((i, link) => $(link).attr('href').startsWith('/'))
+        .map((i, link) => $(link))
+        .get()
+      for (const href of hrefs) {
+        const res = await get(href.attr('href'))
+        expect(res.statusCode).toBe(200) // Not needing to redirect
+        expect(href.text().includes('{%')).toBe(false)
+      }
+      expect.assertions(hrefs.length * 2)
     })
   })
 
@@ -43,8 +58,8 @@ describe('sidebar', () => {
       const $ = await getDOM('/get-started/quickstart/hello-world')
       expect(
         $(
-          '[data-testid=sidebar] [data-testid=sidebar-article-group] li[aria-current="true"]'
-        ).text()
+          '[data-testid=sidebar] [data-testid=sidebar-article-group] li[aria-current="true"]',
+        ).text(),
       ).toBe('Hello World')
     })
 

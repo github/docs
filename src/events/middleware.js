@@ -3,7 +3,7 @@ import { omit, without, mapValues } from 'lodash-es'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 import { schemas, hydroNames } from './lib/schema.js'
-import catchMiddlewareError from '../../middleware/catch-middleware-error.js'
+import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import { noCacheControl } from '../../middleware/cache-control.js'
 import { formatErrors } from './lib/middleware-errors.js'
 import { publish as _publish } from './lib/hydro.js'
@@ -48,7 +48,7 @@ router.post(
         formatErrors(validate.errors, req.body).map((error) => ({
           schema: hydroNames.validation,
           value: error,
-        }))
+        })),
       )
       // We aren't helping bots spam us :)
       return res.status(400).json(isProd ? {} : validate.errors)
@@ -59,6 +59,6 @@ router.post(
       value: omit(req.body, OMIT_FIELDS),
     })
     return res.json({})
-  })
+  }),
 )
 export default router

@@ -12,8 +12,7 @@ versions:
   ghec: '*'
 type: how_to
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -29,6 +28,7 @@ Your organization can share workflows by reusing the workflows exactly or by cre
 {% endif %}
 
 {% ifversion internal-actions %}
+
 ### Sharing actions with your enterprise
 
 {% data reusables.actions.internal-actions-summary %}

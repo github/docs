@@ -9,12 +9,6 @@ type: tutorial
 shortTitle: Run a script before or after a job
 ---
 
-{% note %}
-
-**Note**: This feature is currently in beta and is subject to change.
-
-{% endnote %}
-
 ## About pre- and post-job scripts
 
 You can automatically execute scripts on a self-hosted runner, either before a job runs, or after a job finishes running. You could use these scripts to support the job's requirements, such as building or tearing down a runner environment, or cleaning out directories. You could also use these scripts to track telemetry of how your runners are used.
@@ -68,7 +62,6 @@ ACTIONS_RUNNER_HOOK_JOB_STARTED=/cleanup_script.sh
 ```
 
 ## Troubleshooting
-
 
 ### No timeout setting
 

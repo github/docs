@@ -14,8 +14,7 @@ topics:
   - Deployment
 shortTitle: Deploy with GitHub Actions
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction

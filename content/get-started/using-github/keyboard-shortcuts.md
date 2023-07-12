@@ -132,6 +132,7 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>O</kbd> or <kbd>Enter</kbd> | Open issue
 
 ## Issues and pull requests
+
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>Q</kbd> | Request a reviewer. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)."
@@ -248,6 +249,7 @@ If you view a code file in a repository using the **Code** view and click on any
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## {% data variables.product.prodname_actions %}
 
 | Keyboard shortcut | Description

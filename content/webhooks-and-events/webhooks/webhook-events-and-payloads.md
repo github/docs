@@ -48,7 +48,7 @@ The unique properties for a webhook event are the same properties you'll find in
 HTTP POST payloads that are delivered to your webhook's configured URL endpoint will contain several special headers.
 
 - `X-GitHub-Event`: Name of the event that triggered the delivery.
-- `X-GitHub-Delivery`: A [GUID](http://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% ifversion ghes or ghae %}
+- `X-GitHub-Delivery`: A [GUID](https://en.wikipedia.org/wiki/Globally_unique_identifier) to identify the delivery.{% ifversion ghes or ghae %}
 - `X-GitHub-Enterprise-Version`: The version of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.
 - `X-GitHub-Enterprise-Host`: The hostname of the {% data variables.product.prodname_ghe_server %} instance that sent the HTTP POST payload.{% endif %}{% ifversion not ghae %}
 - `X-Hub-Signature`: This header is sent if the webhook is configured with a [`secret`](/rest/repos#create-hook-config-params). This is the HMAC hex digest of the request body, and is generated using the SHA-1 hash function and the `secret` as the HMAC `key`.{% ifversion fpt or ghes or ghec %} `X-Hub-Signature` is provided for compatibility with existing integrations, and we recommend that you use the more secure `X-Hub-Signature-256` instead.{% endif %}{% endif %}
@@ -96,6 +96,5 @@ Also, the `User-Agent` for the requests will have the prefix `GitHub-Hookshot/`.
 >   }
 > }
 ```
-
 
 <!-- Content after this section is automatically generated -->

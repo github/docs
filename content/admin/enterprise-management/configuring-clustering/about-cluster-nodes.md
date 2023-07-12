@@ -1,6 +1,7 @@
 ---
 title: About cluster nodes
-intro: '*Nodes* are {% data variables.product.prodname_ghe_server %} instances that operate in a cluster. Each node runs a set of services that are provided to the cluster, and ultimately to the users.'
+product: '{% data reusables.gated-features.cluster %}'
+intro: 'In a {% data variables.product.product_name %} cluster, nodes are individual virtual machines (VMs) running the {% data variables.product.prodname_ghe_server %} software that comprise the instance. Each node runs a set of services.'
 redirect_from:
   - /enterprise/admin/clustering/about-cluster-nodes
   - /enterprise/admin/enterprise-management/about-cluster-nodes
@@ -12,29 +13,37 @@ topics:
   - Clustering
   - Enterprise
 ---
+## About {% data variables.product.product_name %} cluster nodes
+
+Each node in a {% data variables.product.product_name %} cluster is a virtual machine (VM) that runs the {% data variables.product.product_name %} software. Before you deploy a cluster, you can review hardware requirements, required services, and design recommendations.
+
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
-## Minimum hardware recommendations
+## Hardware requirements
+
 Each node must have a root volume, as well as a separate data volume. These are minimum recommendations. More resources may be required depending on your usage, such as user activity and selected integrations.
 
-| Services | Minimum Memory Required    | Minimum Data Volume Free Space Required |
-| :-: | :-: | :-: |
+| Services | Minimum memory required    | Minimum data volume free space Required |
+| :- | :- | :- |
 | `job-server`,<br/>`memcache-server`,<br/>`web-server` | 14 GB | 1 GB |
 | `consul-server`,<br/>`mysql-server`,<br/>`redis-server` | 14 GB | 10 GB |
 | `git-server`,<br/>`metrics-server`,<br/>`pages-server`,<br/>`storage-server` | 14 GB | 10 GB |
 | `elasticsearch-server` | 14 GB | 10 GB |
 
 ## Services required for clustering
+
+{% data variables.product.prodname_ghe_server %} comprises a set of services. In a cluster, these services run across multiple nodes, and the instance balances requests between the nodes. The instance automatically stores redundant copies of data on separate nodes. Most services are equal peers with other instances of the same service. The exceptions to this distribution are the `mysql-server` and `redis-server` services, which operate with a single primary node with one or more replica nodes.
+
 For adequate redundancy, use these minimum nodes operating each service.
 
 {% tip %}
 
-**Note:** Your organization's needs for scalability will depend on many factors including the size and number of repositories, number of users, and overall utilization.
+**Note:** Your environment's scaling requirements depend on many factors, including the size and number of repositories, number of users, and overall utilization.
 
 {% endtip %}
 
-| Services | Minimum Nodes Required |
-| :-: | :-: |
+| Services | Minimum nodes required |
+| :- | :- |
 | `job-server`,<br/>`memcache-server`,<br/>`metrics-server`,<br/>`web-server` | 2 |
 | `mysql-server`,<br/>`redis-server` | 2 |
 | `consul-server` | 3 |

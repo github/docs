@@ -22,5 +22,5 @@ Once enabled, organization owners and people with admin access in an organizatio
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Issue deletion", select **Allow members to delete issues for this organization**.
-6. Click **Save**.
+1. Under "Issue deletion", select **Allow members to delete issues for this organization**.
+1. Click **Save**.

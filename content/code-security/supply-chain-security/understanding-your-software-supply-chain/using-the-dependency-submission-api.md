@@ -35,7 +35,6 @@ Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketp
 Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
 
-
 For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency submission API.
 
 ```yaml
@@ -86,8 +85,8 @@ jobs:
 Alternatively, you can write your own action to submit dependencies for your project at build-time. Your workflow should:
 
   1. Generate a list of dependencies for your project.
-  2. Translate the list of dependencies into the snapshot format accepted by the Dependency submission API. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
-  3. Submit the formatted list of dependencies to the Dependency submission API.
+  1. Translate the list of dependencies into the snapshot format accepted by the Dependency submission API. For more information about the format, see the body parameters for the "Create a repository snapshot" API operation in the [Dependency submission REST API documentation](/rest/dependency-graph/dependency-submission).
+  1. Submit the formatted list of dependencies to the Dependency submission API.
 
 {% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the Dependency submission API. For more information about writing an action, see "[AUTOTITLE](/actions/creating-actions)".
 
@@ -98,6 +97,7 @@ Alternatively, you can write your own action to submit dependencies for your pro
 {% ifversion dependency-graph-sbom-export %}
 To generate an SBOM, you can use:
 - the {% data variables.product.prodname_dotcom %} user interface.  For more information about how to export an SBOM for a repository using information from the dependency graph, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)."
+- the REST API. For more information, see "[AUTOTITLE](/rest/dependency-graph/sboms)."
 - {% data variables.product.prodname_actions %}. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 {% else %}
 You can use {% data variables.product.prodname_actions %} to generate an SBOM. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."

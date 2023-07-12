@@ -7,11 +7,6 @@
 #
 # [end-readme]
 
-# Translations are never tested in preview environments
-# but let's keep the empty directory.
-rm -rf translations
-mkdir translations
-
 # The assumption here is that a preview build will not
 # need these legacy redirects. Only the redirects from
 # front-matter will be at play.

@@ -19,7 +19,7 @@ import walk from 'walk-sync'
 import slash from 'slash'
 import GithubSlugger from 'github-slugger'
 import { decode } from 'html-entities'
-import renderContent from '../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 
 const slugger = new GithubSlugger()
 
@@ -84,7 +84,7 @@ Redirect: "${redirectPath}"
       // Figure out redirect path
       const articlePathMinusExtension = path.join(
         categoryDirPath,
-        path.basename(articleFileName, '.md')
+        path.basename(articleFileName, '.md'),
       )
       const redirectArticlePath = '/' + slash(path.relative(contentDir, articlePathMinusExtension))
 
@@ -110,7 +110,7 @@ Redirect: "${redirectArticlePath}"
       // Update the article file on disk
       fs.writeFileSync(
         articlePath,
-        frontmatter.stringify(articleContent, articleData, { lineWidth: 10000 })
+        frontmatter.stringify(articleContent, articleData, { lineWidth: 10000 }),
       )
     }
 
@@ -123,11 +123,11 @@ Redirect: "${redirectArticlePath}"
     const { data: productIndexData, content: productIndex } = frontmatter(productIndexContents)
     const revisedProductIndex = productIndex.replace(
       new RegExp(`(\\s+)(?:/${categoryDirName})(\\s+)`, 'g'),
-      `$1/${expectedSlug}$2`
+      `$1/${expectedSlug}$2`,
     )
     fs.writeFileSync(
       productIndexPath,
-      frontmatter.stringify(revisedProductIndex, productIndexData, { lineWidth: 10000 })
+      frontmatter.stringify(revisedProductIndex, productIndexData, { lineWidth: 10000 }),
     )
 
     console.log(`*** Updated product index "${productIndexPath}" for ☝️\n`)

@@ -31,7 +31,7 @@ To allow users to use FIDO U2F for two-factor authentication, you must enable TL
 
 To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority. To use a certificate signed by an internal certificate authority, you must install the root certificate and any intermediate certificates. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors#installing-self-signed-or-untrusted-certificate-authority-ca-root-certificates)."
 
-Your certificate will also need Subject Alternative Names configured for the subdomains listed in "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)" and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see "[Subject Alternative Name](http://en.wikipedia.org/wiki/SubjectAltName)" on Wikipedia.
+Your certificate will also need Subject Alternative Names configured for the subdomains listed in "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)" and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see "[Subject Alternative Name](https://en.wikipedia.org/wiki/SubjectAltName)" on Wikipedia.
 
 You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-generate-csr)."
 
@@ -45,9 +45,9 @@ Your key must be an RSA key and must not have a passphrase. For more information
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 {% data reusables.enterprise_management_console.select-tls-only %}
-4. Under "TLS Protocol support", select the protocols you want to allow.
-5. Under "Certificate", click **Choose File**, then choose a TLS certificate or certificate chain (in PEM format) to install. This file will usually have a *.pem*, *.crt*, or *.cer* extension.
-6. Under "Unencrypted key", click **Choose File**, then choose an RSA key (in PEM format) to install. This file will usually have a *.key* extension.
+1. Under "TLS Protocol support", select the protocols you want to allow.
+1. Under "Certificate", click **Choose File**, then choose a TLS certificate or certificate chain (in PEM format) to install. This file will usually have a _.pem_, _.crt_, or _.cer_ extension.
+1. Under "Unencrypted key", click **Choose File**, then choose an RSA key (in PEM format) to install. This file will usually have a _.key_ extension.
 
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -71,11 +71,11 @@ You can also use the `ghe-ssl-acme` command line utility on {% data variables.lo
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 {% data reusables.enterprise_management_console.select-tls-only %}
-5. Select **Enable automation of TLS certificate management using Let's Encrypt**.
+1. Select **Enable automation of TLS certificate management using Let's Encrypt**.
 {% data reusables.enterprise_management_console.save-settings %}
 {% data reusables.enterprise_management_console.privacy %}
-7. Click **Request TLS certificate**.
-8. Wait for the "Status" to change from "STARTED" to "DONE".
+1. Click **Request TLS certificate**.
+1. Wait for the "Status" to change from "STARTED" to "DONE".
 
    ![Screenshot of the "Requesting TLS Certificate" dialog. At the top of the dialog, "STATUS: DONE" is highlighted with an orange outline.](/assets/images/enterprise/management-console/lets-encrypt-status.png)
-9. Click **Save configuration**.
+1. Click **Save configuration**.

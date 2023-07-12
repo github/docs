@@ -38,6 +38,7 @@ export type ArticleContextT = {
   detectedTools: Array<string>
   allTools: Record<string, string>
   supportPortalVaIframeProps: SupportPortalVaIframeProps
+  currentLayout?: string
 }
 
 export const ArticleContext = createContext<ArticleContextT | null>(null)
@@ -65,7 +66,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   if (page.effectiveDate) {
     if (isNaN(Date.parse(page.effectiveDate))) {
       throw new Error(
-        'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY'
+        'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY',
       )
     }
   }
@@ -99,5 +100,6 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     detectedTools: page.detectedTools || [],
     allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.js
     supportPortalVaIframeProps,
+    currentLayout: req.context.currentLayoutName,
   }
 }

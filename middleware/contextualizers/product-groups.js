@@ -1,4 +1,4 @@
-import { getProductGroups } from '../../lib/all-products.js'
+import { getProductGroups } from '../../lib/get-product-groups.js'
 import warmServer from '../../lib/warm-server.js'
 import { languageKeys } from '../../lib/languages.js'
 import { allVersionKeys } from '../../lib/all-versions.js'
@@ -25,7 +25,7 @@ export default async function productGroups(req, res, next) {
   // client-side routing.
   if (isHomepage(req.pagePath)) {
     const { pages } = await warmServer()
-    req.context.productGroups = getProductGroups(pages, req.language)
+    req.context.productGroups = await getProductGroups(pages, req.language, req.context)
   }
 
   return next()

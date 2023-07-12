@@ -35,12 +35,12 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
 | Style | Syntax | Keyboard shortcut | Example | Output |
 | --- | --- | --- | --- | --- |
 | Bold | `** **` or `__ __`| <kbd>Command</kbd>+<kbd>B</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | `**This is bold text**` | **This is bold text** |
-| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `*This text is italicized*` | *This text is italicized* |
-| Strikethrough | `~~ ~~` | | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
-| Bold and nested italic | `** **` and `_ _` | | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
-| All bold and italic | `*** ***` | | `***All this text is important***` | ***All this text is important*** |
-| Subscript | `<sub> </sub>` | | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
-| Superscript | `<sup> </sup>` | | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+| Italic | `* *` or `_ _`     | <kbd>Command</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | `_This text is italicized_` | *This text is italicized* |
+| Strikethrough | `~~ ~~` | None | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
+| Bold and nested italic | `** **` and `_ _` | None | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
+| All bold and italic | `*** ***` | None | `***All this text is important***` | ***All this text is important*** |
+| Subscript | `<sub> </sub>` | None | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
+| Superscript | `<sup> </sup>` | None | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
 
 ## Quoting text
 
@@ -51,6 +51,7 @@ Text that is not a quote
 
 > Text that is a quote
 ```
+
 Quoted text is indented, with a different type color.
 
 ![Screenshot of rendered GitHub Markdown showing sample quoted text. The quote is indented with a vertical line on the left, and its text is dark gray rather than black.](/assets/images/help/writing/quoted-text-rendered.png)
@@ -199,8 +200,8 @@ To order your list, precede each line with a number.
 
 ```markdown
 1. James Madison
-2. James Monroe
-3. John Quincy Adams
+1. James Monroe
+1. John Quincy Adams
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a numbered list of the names of the fourth, fifth, and sixth American presidents.](/assets/images/help/writing/ordered-list-rendered.png)
@@ -229,21 +230,21 @@ To create a nested list using the web editor on {% data variables.product.produc
 
 To create a nested list in the comment editor on {% data variables.product.product_name %}, which doesn't use a monospaced font, you can look at the list item immediately above the nested list and count the number of characters that appear before the content of the item. Then type that number of space characters in front of the nested list item.
 
-In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100. `) before `First list item`.
+In this example, you could add a nested list item under the list item `100. First list item` by indenting the nested list item a minimum of five spaces, since there are five characters (`100 .`) before `First list item`.
 
 ```markdown
-1.   First list item
+100. First list item
      - First nested list item
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a list item prefaced by the number 100 followed by a bulleted item nested one level to the right.](/assets/images/help/writing/nested-list-example-3.png)
 
-You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by seven spaces.
+You can create multiple levels of nested lists using the same method. For example, because the first nested list item has seven characters (`␣␣␣␣␣-␣`) before the nested list content `First nested list item`, you would need to indent the second nested list item by at least two more characters (nine spaces minimum).
 
 ```markdown
-1.   First list item
-     - First nested list item
-       - Second nested list item
+100. First list item
+       - First nested list item
+         - Second nested list item
 ```
 
 ![Screenshot of rendered GitHub Markdown showing a list item prefaced by the number 100 followed by a bulleted item nested one level to the right, and another bulleted item nested yet further to the right.](/assets/images/help/writing/nested-list-example-2.png)

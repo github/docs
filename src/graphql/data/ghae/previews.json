@@ -51,7 +51,7 @@
       "RefUpdate"
     ],
     "owning_teams": [
-      "@github/reponauts"
+      "@github/repos"
     ],
     "accept_header": "application/vnd.github.update-refs-preview+json",
     "href": "/graphql/overview/schema-previews#update-refs-preview-update-multiple-refs-in-a-single-operation-preview"
@@ -67,8 +67,7 @@
       "DependencyGraphManifestConnection",
       "DependencyGraphDependency",
       "DependencyGraphDependencyEdge",
-      "DependencyGraphDependencyConnection",
-      "DependencyGraphPackageRelease.dependencies"
+      "DependencyGraphDependencyConnection"
     ],
     "owning_teams": [
       "@github/dependency-graph"

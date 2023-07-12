@@ -13,8 +13,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About variables
@@ -48,12 +47,13 @@ You can set your own custom variables, you can use the default variables that {%
 
 To set a custom environment variable{% ifversion actions-configuration-variables %} for a single workflow{% endif %}, you can define it using the `env` key in the workflow file. The scope of a custom variable set by this method is limited to the element in which it is defined. You can define variables that are scoped for:
 
-* The entire workflow, by using [`env`](/actions/using-workflows/workflow-syntax-for-github-actions#env) at the top level of the workflow file.
-* The contents of a job within a workflow, by using [`jobs.<job_id>.env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenv).
-* A specific step within a job, by using [`jobs.<job_id>.steps[*].env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
+- The entire workflow, by using [`env`](/actions/using-workflows/workflow-syntax-for-github-actions#env) at the top level of the workflow file.
+- The contents of a job within a workflow, by using [`jobs.<job_id>.env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idenv).
+- A specific step within a job, by using [`jobs.<job_id>.steps[*].env`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 name: Greeting on variable day
 
 on:
@@ -73,6 +73,7 @@ jobs:
         env:
           First_Name: Mona
 ```
+
 {% endraw %}
 
 You can access `env` variable values using runner environment variables or using contexts. The example above shows three custom variables being used as environment variables in an `echo` command: `$DAY_OF_WEEK`, `$Greeting`, and  `$First_Name`. The values for these variables are set, and scoped, at the workflow, job, and step level respectively. For more information on accessing variable values using contexts, see "[Using contexts to access variable values](#using-contexts-to-access-variable-values)."
@@ -101,7 +102,7 @@ You can create configuration variables for use across multiple workflows, and ca
 
 For example, you can use configuration variables to set default values for parameters passed to build tools at an organization level, but then allow repository owners to override these parameters on a case-by-case basis.
 
-When you define configuration variables, they are automatically available in the `vars` context. For more information, see "[Using the `vars `context to access configuration variable values](#using-the-vars-context-to-access-configuration-variable-values)".
+When you define configuration variables, they are automatically available in the `vars` context. For more information, see "[Using the `vars` context to access configuration variable values](#using-the-vars-context-to-access-configuration-variable-values)".
 
 ### Configuration variable precedence
 
@@ -158,6 +159,7 @@ The following rules apply to configuration variable names:
 1. Click **Add variable**.
 
 ### Limits for configuration variables
+
 {% ifversion ghes %}
 {% ifversion ghes > 3.8 %}
 
@@ -167,9 +169,9 @@ You can store up to 1,000 organization variables, 500 variables per repository, 
 
 A workflow created in a repository can access the following number of variables:
 
-* Up to 500 repository variables, if the total size of repository variables is less than 10 MB. If the total size of repository variables exceeds 10 MB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
-* Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 10 MB. If the total combined size of organization and repository variables exceeds 10 MB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
-* Up to 100 environment-level variables.
+- Up to 500 repository variables, if the total size of repository variables is less than 10 MB. If the total size of repository variables exceeds 10 MB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
+- Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 10 MB. If the total combined size of organization and repository variables exceeds 10 MB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
+- Up to 100 environment-level variables.
 
 {% note %}
 
@@ -184,9 +186,9 @@ You can store up to 1,000 organization variables, 100 variables per repository, 
 
 A workflow created in a repository can access the following number of variables:
 
-* All 100 repository variables.
-* If the repository is assigned access to more than 100 organization variables, the workflow can only use the first 100 organization variables (sorted alphabetically by variable name).
-* All 100 environment-level variables.
+- All 100 repository variables.
+- If the repository is assigned access to more than 100 organization variables, the workflow can only use the first 100 organization variables (sorted alphabetically by variable name).
+- All 100 environment-level variables.
 {% endif %}
 
 {% else %}
@@ -197,9 +199,9 @@ You can store up to 1,000 organization variables, 500 variables per repository, 
 
 A workflow created in a repository can access the following number of variables:
 
-* Up to 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
-* Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
-* Up to 100 environment-level variables.
+- Up to 500 repository variables, if the total size of repository variables is less than 256 KB. If the total size of repository variables exceeds 256 KB, only the repository variables that fall below the limit will be available (as sorted alphabetically by variable name).
+- Up to 1,000 organization variables, if the total combined size of repository and organization variables is less than 256 KB. If the total combined size of organization and repository variables exceeds 256 KB, only the organization variables that fall below that limit will be available (after accounting for repository variables and as sorted alphabetically by variable name).
+- Up to 100 environment-level variables.
 
 {% note %}
 
@@ -223,7 +225,8 @@ In addition to runner environment variables, {% data variables.product.prodname_
 Runner environment variables are always interpolated on the runner machine. However, parts of a workflow are processed by {% data variables.product.prodname_actions %} and are not sent to the runner. You cannot use environment variables in these parts of a workflow file. Instead, you can use contexts. For example, an `if` conditional, which determines whether a job or step is sent to the runner, is always processed by {% data variables.product.prodname_actions %}. You can use a context in an `if` conditional statement to access the value of an variable.
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 env:
   DAY_OF_WEEK: Monday
 
@@ -239,6 +242,7 @@ jobs:
         env:
           First_Name: Mona
 ```
+
 {% endraw %}
 
 In this modification of the earlier example, we've introduced an `if` conditional. The workflow step is now only run if `DAY_OF_WEEK` is set to "Monday". We access this value from the `if` conditional statement by using the [`env` context](/actions/learn-github-actions/contexts#env-context).
@@ -334,8 +338,8 @@ We strongly recommend that actions use variables to access the filesystem rather
 
 **Note:**
 
-* If you need to use a workflow run's URL from within a job, you can combine these variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
-* Most of the default variables have a corresponding, and similarly named, context property. For example, the value of the `GITHUB_REF` variable can be read during workflow processing using the {% raw %}`${{ github.ref }}`{% endraw %} context property.
+- If you need to use a workflow run's URL from within a job, you can combine these variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+- Most of the default variables have a corresponding, and similarly named, context property. For example, the value of the `GITHUB_REF` variable can be read during workflow processing using the {% raw %}`${{ github.ref }}`{% endraw %} context property.
 
 {% endnote %}
 
@@ -344,7 +348,8 @@ We strongly recommend that actions use variables to access the filesystem rather
 You can write a single workflow file that can be used for different operating systems by using the `RUNNER_OS` default environment variable and the corresponding context property <span style="white-space: nowrap;">{% raw %}`${{ runner.os }}`{% endraw %}</span>. For example, the following workflow could be run successfully if you changed the operating system from `macos-latest` to `windows-latest` without having to alter the syntax of the environment variables, which differs depending on the shell being used by the runner.
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 jobs:
   if-Windows-else:
     runs-on: macos-latest
@@ -356,6 +361,7 @@ jobs:
         if: runner.os != 'Windows'
         run: echo "The operating system on the runner is not Windows, it's $RUNNER_OS."
 ```
+
 {% endraw %}
 
 In this example, the two `if` statements check the `os` property of the `runner` context to determine the operating system of the runner. `if` conditionals are processed by {% data variables.product.prodname_actions %}, and only steps where the check resolves as `true` are sent to the runner. Here one of the checks will always be `true` and the other `false`, so only one of these steps is sent to the runner. Once the job is sent to the runner, the step is executed and the environment variable in the `echo` command is interpolated using the appropriate syntax (`$env:NAME` for PowerShell on Windows, and `$NAME` for bash and sh on Linux and MacOS). In this example, the statement `runs-on: macos-latest` means that the second step will be run.

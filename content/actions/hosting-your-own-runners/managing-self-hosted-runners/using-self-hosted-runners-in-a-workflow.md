@@ -13,8 +13,7 @@ versions:
 type: tutorial
 shortTitle: Use runners in a workflow
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 You can target self-hosted runners for use in a workflow based on the labels assigned to the runners{% ifversion target-runner-groups %}, or their group membership, or a combination of these{% endif %}.
@@ -43,9 +42,9 @@ For information on creating and managing runner groups, see "[AUTOTITLE](/action
 
 A self-hosted runner automatically receives certain labels when it is added to {% data variables.product.prodname_actions %}. These are used to indicate its operating system and hardware platform:
 
-* `self-hosted`: Default label applied to all self-hosted runners.
-* `linux`, `windows`, or `macOS`: Applied depending on operating system.
-* `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
+- `self-hosted`: Default label applied to all self-hosted runners.
+- `linux`, `windows`, or `macOS`: Applied depending on operating system.
+- `x64`, `ARM`, or `ARM64`: Applied depending on hardware architecture.
 
 You can use your workflow's YAML to send jobs to a combination of these labels. In this example, a self-hosted runner that matches all three labels will be eligible to run the job:
 

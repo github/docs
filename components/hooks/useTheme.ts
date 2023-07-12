@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Cookies from 'js-cookie'
+import Cookies from '../lib/cookies'
 
 enum CssColorMode {
   auto = 'auto',
@@ -105,10 +105,24 @@ export function useTheme() {
   })
 
   useEffect(() => {
-    const cookieValue = Cookies.get('color_mode')
-    const css = getCssTheme(cookieValue)
-    const component = getComponentTheme(cookieValue)
-    setTheme({ css, component })
+    // Using setTimeout with a default delay value of 0 interjects one
+    // additional event cycle, which works around a bug that is the
+    // result of a timing issue. Without the setTimeout function
+    // the page loads, then the docs site switches the color mode to
+    // match the user's GitHub color mode. Primer React has a useEffect
+    // call that overrides this change, causing the site to ignore the
+    // user's GitHub color mode and revert to auto.
+    // As a temporary workaround, this code that fetches the user's GitHub
+    // color mode will be called after Primer React's useEffect call.
+    // The long term solution to this theming issue is to migrate to CSS variables
+    // under the hood, which Primer is planning to do in the next couple quarters.
+    // Reference: https://github.com/primer/react/issues/2229
+    setTimeout(() => {
+      const cookieValue = Cookies.get('color_mode')
+      const css = getCssTheme(cookieValue)
+      const component = getComponentTheme(cookieValue)
+      setTheme({ css, component })
+    })
   }, [])
 
   return { theme }

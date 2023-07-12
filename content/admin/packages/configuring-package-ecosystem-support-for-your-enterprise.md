@@ -1,6 +1,6 @@
 ---
 title: Configuring package ecosystem support for your enterprise
-intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% ifversion ghes > 3.4 %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, and npm. Learn about other configuration requirements to support specific package ecosystems.'
+intro: 'You can configure {% data variables.product.prodname_registry %} for your enterprise by globally enabling or disabling individual package ecosystems on your enterprise, including {% ifversion ghes %}{% data variables.product.prodname_container_registry %}, {% endif %}Docker, and npm. Learn about other configuration requirements to support specific package ecosystems.'
 permissions: 'Site administrators can enable {% data variables.product.prodname_registry %} and configure enterprise settings.'
 redirect_from:
   - /enterprise/admin/packages/configuring-packages-support-for-your-enterprise
@@ -32,7 +32,7 @@ To prevent new packages from being uploaded, you can set an ecosystem you previo
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 1. Under "Ecosystem Toggles", for each package type, select **Enabled**, **Read-Only**, or **Disabled**.
-   {%- ifversion ghes > 3.4 %}{% note -%}
+   {%- ifversion ghes %}{% note -%}
    **Note**: Subdomain isolation must be enabled to toggle the {% data variables.product.prodname_container_registry %} options.
    {%- endnote %}{%- endif %}
    ![Screenshot of the "Ecosystem toggles" section on the Settings page of the Management Console.](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png)

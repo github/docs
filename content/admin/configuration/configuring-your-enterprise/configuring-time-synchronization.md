@@ -36,13 +36,13 @@ The NTP protocol continuously corrects small time synchronization discrepancies.
 {% note %}
 
 **Notes:**
- - You can't modify the Coordinated Universal Time (UTC) zone.
- - You should prevent your hypervisor from trying to set the virtual machine's clock. For more information, see the documentation provided by the virtualization provider.
+- You can't modify the Coordinated Universal Time (UTC) zone.
+- You should prevent your hypervisor from trying to set the virtual machine's clock. For more information, see the documentation provided by the virtualization provider.
 
 {% endnote %}
 
 - Use the `chronyc` command to synchronize the server with the configured NTP server. For example:
 
 ```shell
-$ sudo chronyc -a makestep
+sudo chronyc -a makestep
 ```

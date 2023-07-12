@@ -23,5 +23,4 @@ You can use timeline events to display information about issues and pull request
 
 {% data reusables.pull_requests.issues-pr-shared-api %}
 
-
 <!-- Content after this section is automatically generated -->

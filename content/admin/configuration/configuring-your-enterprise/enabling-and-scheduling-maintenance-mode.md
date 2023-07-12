@@ -32,7 +32,7 @@ Some types of operations require that you take {% data variables.location.produc
 
 We recommend that you schedule a maintenance window for at least 30 minutes in the future to give users time to prepare. When a maintenance window is scheduled, all users will see a banner when accessing the site.
 
-When the instance is in maintenance mode, all normal HTTP and Git access is refused. Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable. In high availability configurations, Git replication will be paused. GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
+When the instance is in maintenance mode, all normal HTTP and Git access is refused. This includes web and API requests, for which the appliance responds with status code `503` (Service Unavailable). Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable. In high availability configurations, Git replication will be paused. GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
 
 {% ifversion ip-exception-list %}
 
@@ -44,10 +44,10 @@ You can perform initial validation of your maintenance operation by configuring 
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-2. In the top navigation bar, click **Maintenance**.
+1. In the top navigation bar, click **Maintenance**.
 
    ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Maintenance", is highlighted with an orange outline.](/assets/images/enterprise/management-console/maintenance-tab.png)
-3. Under "Enable and schedule", select **Enable maintenance mode**, then decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
+1. Under "Enable and schedule", select **Enable maintenance mode**, then decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
     - To enable maintenance mode immediately, select the dropdown menu and click **now**.
     - To schedule a maintenance window for a future time, select the dropdown menu and click a start time.
 {% data reusables.enterprise_management_console.save-settings %}
@@ -55,6 +55,7 @@ You can perform initial validation of your maintenance operation by configuring 
 {% ifversion ip-exception-list %}
 
 ## Validating changes in maintenance mode using the IP exception list
+
 
 The IP exception list provides controlled and restricted access to {% data variables.location.product_location %}, which is ideal for initial validation of server health following a maintenance operation. Once enabled, {% data variables.location.product_location %} will be taken out of maintenance mode and available only to the configured IP addresses. The maintenance mode checkbox will be updated to reflect the change in state.
 
@@ -77,7 +78,22 @@ You can also use a command-line utility to configure the IP exception list. For 
 
 You can schedule maintenance for different times or dates with the {% data variables.product.prodname_enterprise_api %}. For more information, see "[AUTOTITLE](/rest/enterprise-admin#enable-or-disable-maintenance-mode)."
 
-## Enabling or disabling maintenance mode for all nodes in a cluster
+## Enabling or disabling maintenance mode for {% data variables.product.prodname_ghe_server %} via the CLI
+
+With the `ghe-maintenance` utility, you can set or unset maintenance mode for a single instance of {% data variables.product.prodname_ghe_server %}.
+
+```shell
+$ ghe-maintenance -h
+# Shows options
+$ ghe-maintenance -q
+# Queries the current mode
+$ ghe-maintenance -s
+# Sets maintenance mode
+$ ghe-maintenance -u
+# Unsets maintenance mode
+```
+
+## Enabling or disabling maintenance mode for all nodes in a cluster via the CLI
 
 With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
 
