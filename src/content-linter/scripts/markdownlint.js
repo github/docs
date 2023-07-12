@@ -37,7 +37,6 @@ async function main() {
     MD014: true,
     MD022: true,
     MD023: true,
-    MD024: true,
     MD027: true,
     MD029: { style: 'one' },
     MD030: true,
