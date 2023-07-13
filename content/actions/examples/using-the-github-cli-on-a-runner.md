@@ -49,7 +49,6 @@ layout: inline
 The following workflow checks all English links one time per day and reports broken links by creating a new issue for the docs content team to review.
 
 ```yaml annotate copy
-
 # {% data reusables.actions.explanation-name-key %}
 name: Check all English links
 
