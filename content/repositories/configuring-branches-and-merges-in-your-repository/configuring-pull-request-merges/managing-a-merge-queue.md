@@ -62,7 +62,7 @@ Once you have enabled the "Require merge queue" setting, you can also access the
 
 - **Merge method**: Select which method to use when merging queued pull requests: merge, rebase, or squash.
 
-- **Build concurrency**: The maximum number of `merge_group` webhooks to dispatch (beween `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
+- **Build concurrency**: The maximum number of `merge_group` webhooks to dispatch (between `1` and `100`), throttling the total amount of concurrent CI builds. This affects the velocity of merges that a merge queue can complete.
 -
   **Only merge non-failing pull requests**: This setting determines how a merge queue forms groups of pull requests to be merged.
 
