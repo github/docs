@@ -23,14 +23,7 @@ const [currentReleaseNumber, previousReleaseNumber] = supported
 const pipelines = JSON.parse(await readFile('src/automated-pipelines/lib/config.json'))[
   'automation-pipelines'
 ]
-await updateAutomatedConfigFiles(pipelines, supported, deprecated)
-await cp(
-  `data/graphql/ghes-${previousReleaseNumber}`,
-  `data/graphql/ghes-${currentReleaseNumber}`,
-  {
-    recursive: true,
-  },
-)
+await updateAutomatedConfigFiles(pipelines, deprecated)
 
 // The allVersions object uses the 'api-versions' data stored in the
 // src/rest/lib/config.json file. We want to update 'api-versions'
@@ -99,6 +92,19 @@ for (const pipeline of pipelines) {
       'Only one new release per numbered release version should be added at a time. Check that the lib/enterprise-server-releases.js is correct.',
     )
   }
+
+  // Temp workaround to only add files during a release. This will be removed
+  // when we migrate these files to the src/graphql/data directory.
+  if (addFiles.length && !removeFiles.length) {
+    await cp(
+      `data/graphql/ghes-${previousReleaseNumber}`,
+      `data/graphql/ghes-${currentReleaseNumber}`,
+      {
+        recursive: true,
+      },
+    )
+  }
+
   for (const base of numberedReleaseBaseNames) {
     const dirToAdd = addFiles.find((item) => item.startsWith(base))
     if (!dirToAdd) continue
@@ -139,7 +145,7 @@ for (const directory of addRelNoteDirs) {
 
 // If the config file for a pipeline includes `api-versions` update that list
 // based on the supported and deprecated releases.
-async function updateAutomatedConfigFiles(pipelines, supported, deprecated) {
+async function updateAutomatedConfigFiles(pipelines, deprecated) {
   for (const pipeline of pipelines) {
     const configFilepath = `src/${pipeline}/lib/config.json`
     const configData = JSON.parse(await readFile(configFilepath))
