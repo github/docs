@@ -189,7 +189,7 @@ These steps lead you through writing code to make an API request in response to 
 
    ```javascript copy
    import dotenv from "dotenv";
-   import {App} from "octokit";
+   import {App, Octokit} from "octokit";
    import {createNodeMiddleware} from "@octokit/webhooks";
    import fs from "fs";
    import http from "http";
@@ -252,7 +252,7 @@ These steps lead you through writing code to make an API request in response to 
 
       ```javascript copy
       import dotenv from "dotenv";
-      import {App} from "octokit";
+      import {App, Octokit} from "octokit";
       import {createNodeMiddleware} from "@octokit/webhooks";
       import fs from "fs";
       import http from "http";
@@ -404,7 +404,7 @@ This is the full code example that was outlined in the previous section. In addi
 
 ```javascript copy
 import dotenv from "dotenv";
-import {App} from "octokit";
+import {App, Octokit} from "octokit";
 import {createNodeMiddleware} from "@octokit/webhooks";
 import fs from "fs";
 import http from "http";
