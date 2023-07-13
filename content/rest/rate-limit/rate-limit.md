@@ -1,7 +1,7 @@
 ---
 title: Rate limit
 intro: Use the REST API to check your current rate limit status.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
