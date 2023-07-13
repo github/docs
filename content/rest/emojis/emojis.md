@@ -3,7 +3,7 @@ title: Emojis
 intro: >-
   Use the REST API to list and view all the available emojis to use on {% data
   variables.product.product_name %}.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

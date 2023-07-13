@@ -5,7 +5,7 @@ shortTitle: Discussions
 intro: >-
   Use the REST API to get, create, edit, and delete discussion posts on a team's
   page.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

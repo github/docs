@@ -3,7 +3,7 @@ title: Issue assignees
 allowTitleToDifferFromFilename: true
 shortTitle: Assignees
 intro: Use the REST API to manage assignees on issues and pull requests.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
