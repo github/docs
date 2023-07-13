@@ -77,13 +77,23 @@ function createAnnotatedNode(node) {
 
 function validate(lang, code) {
   if (!lang) {
-    throw new Error('No language specific for annotate info string')
+    throw new Error('No language specific for annotate info string.')
   }
   if (!languages[lang]) {
     throw new Error(
-      `Unsupported language for annotate info string. Please use one of: ${Object.keys(languages)}`,
+      `Unsupported language for annotate info string. Please use one of: ${Object.keys(
+        languages,
+      )}.`,
     )
   }
+
+  const firstLine = code.split('\n')[0]
+  if (!getRegexp(lang).test(firstLine)) {
+    throw new Error(
+      `Make sure the annotated code example starts with a single line annotation. It's currently starting with: ${firstLine}`,
+    )
+  }
+
   if (!new RegExp(getRegexp(lang), 'm').test(code)) {
     throw new Error(
       'Make sure the comment syntax matches the language. Use single-line comments only.',
