@@ -25,6 +25,7 @@ children:
   - /configuring-user-provisioning-with-scim-for-your-enterprise
   - /managing-team-synchronization-for-organizations-in-your-enterprise
   - /configuring-saml-single-sign-on-for-your-enterprise-using-okta
+  - /disabling-saml-single-sign-on-for-your-enterprise
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad
   - /configuring-authentication-and-provisioning-for-your-enterprise-using-okta
   - /mapping-okta-groups-to-teams
