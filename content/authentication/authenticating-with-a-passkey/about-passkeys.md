@@ -26,7 +26,7 @@ Since your passkey is protected by the passkey provider's account system (iCloud
 
 For 2FA users, if you already have passkey-eligible security keys registered to your account for 2FA, you can easily upgrade these existing security keys into passkeys in your account settings. When you use an eligible security key to sign in, you'll also be asked if you want to upgrade it to a passkey. For more information, see "[Upgrading an existing security key to a passkey](/authentication/authenticating-with-a-passkey/managing-your-passkeys#upgrading-an-existing-security-key-to-a-passkey)."
 
-For information on whether your device and operating system support passkeys, see [Device support](https://passkeys.dev/device-support/) in the Passkey.dev documentation, and [Web Authentication API](https://caniuse.com/webauthn) in the CanIUse documentation.
+For information on whether your device and operating system support passkeys, see [Device support](https://passkeys.dev/device-support/) in the Passkeys.dev documentation, and [Web Authentication API](https://caniuse.com/webauthn) in the CanIUse documentation.
 
 ## Enabling and disabling the feature preview for passkeys
 
