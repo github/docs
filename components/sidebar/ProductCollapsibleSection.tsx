@@ -19,13 +19,15 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
 
     return (
       <Link
+        role="group"
         id={page.href}
         href={page.href}
         key={page.href}
         className={cx('color-fg-default no-underline', isCurrent ? 'text-bold' : '')}
+        aria-label={page.title + ' link'}
       >
         <TreeView.Item
-          id={page.href}
+          id={page.href + ' item'}
           data-testid="sidebar-article"
           current={isCurrent}
           defaultExpanded={isCurrent}
