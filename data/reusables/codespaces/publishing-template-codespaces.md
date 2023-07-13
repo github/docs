@@ -7,7 +7,7 @@ If you're working in a codespace, you can publish it from the {% data variables.
 
    {% note %}
 
-   **Note:** If you start from {% data variables.product.company_short %}'s blank template, you will not see a list of changes unless you have already initialized your directory as a Git repository. To publish codespaces created from the blank template, click **Publish to {% data variables.product.company_short %}** in the Source Control view, then skip to step 5.
+   **Note:** If you start from {% data variables.product.company_short %}'s blank template, you will not see a list of changes unless you have already initialized your directory as a Git repository. To publish codespaces created from the blank template, click **Publish to {% data variables.product.company_short %}** in the "Source Control" view, then skip to step 5.
 
    {% endnote %}
 1. To commit your staged changes, type a commit message describing the change you've made, then click **Commit**.
