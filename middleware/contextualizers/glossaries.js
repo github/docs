@@ -39,7 +39,7 @@ export default async function glossaries(req, res, next) {
             // But because the terms themselves are often translated,
             // in this mapping we often don't have an English equivalent.
             // So that's why we fall back on the empty string.
-            enGlossaryMap.get(glossary.term) || ''
+            enGlossaryMap.get(glossary.term) || '',
           )
         }
         description = await executeWithFallback(
@@ -53,13 +53,13 @@ export default async function glossaries(req, res, next) {
             if (!enGlossaryMap.has(term)) return
             const enDescription = enGlossaryMap.get(term)
             return liquid.parseAndRender(enDescription, enContext)
-          }
+          },
         )
         // It's important to use `Object.assign` here to avoid mutating the
         // original object because from `getDataByLanguage`, reads from an
         // in-memory cache so if we mutated it, it would be mutated for all.
         return Object.assign({}, glossary, { description })
-      })
+      }),
     )
   ).filter(Boolean)
 

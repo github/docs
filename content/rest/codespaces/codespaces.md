@@ -3,7 +3,7 @@ title: Codespaces
 intro: >-
   Use the REST API to manage {% data
   variables.product.prodname_github_codespaces %}.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

@@ -42,7 +42,7 @@ async function main() {
   if (graph.errors && graph.errors.length > 0) {
     console.error(
       'ERROR! Failed to enable auto-merge:\n - ' +
-        graph.errors.map((error) => error.message).join('\n - ')
+        graph.errors.map((error) => error.message).join('\n - '),
     )
   } else {
     console.log('Auto-merge enabled!')

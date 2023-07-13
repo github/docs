@@ -32,7 +32,7 @@ In addition, {% data variables.product.prodname_actions %} must be enabled for t
 
 {% ifversion code-security-multi-repo-enablement %}
 
-You can use security overview to find a set of repositories and enable or disable default setup for {% data variables.product.prodname_code_scanning %} for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+You can use security overview to identify which repositories in an organization are eligible for default setup for {% data variables.product.prodname_code_scanning %}. Then you can enable code scanning for some or all of these repositories at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
 
 You can also use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all repositories in the organization that are eligible for {% data variables.product.prodname_codeql %} default setup.
 
@@ -45,9 +45,22 @@ You can use the organization settings page for "Code security and analysis" to e
 
 {% endif %}
 
+{% data reusables.security.note-securing-your-org %}
+
 ### Eligibility criteria for organization-level enablement
 
 A repository must meet all the following criteria to be eligible for default setup, otherwise you need to use advanced setup.
+
+{% ifversion code-scanning-without-workflow-310 %}
+
+- {% data variables.product.prodname_code_scanning_caps %} is not already enabled.
+- {% data variables.product.prodname_actions %} are enabled.
+- Uses {% ifversion code-scanning-default-setup-go %} Go, {% endif %}JavaScript/TypeScript, Python, or Ruby.{% ifversion fpt %}
+- Publicly visible.{%- elsif ghec %}
+- Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes or ghae %}
+- {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+
+{% else %}
 
 - {% data variables.product.prodname_code_scanning_caps %} is not already enabled.
 - {% data variables.product.prodname_actions %} are enabled.
@@ -56,6 +69,8 @@ A repository must meet all the following criteria to be eligible for default set
 - {% ifversion fpt %}Publicly visible.
    {%- elsif ghec %}Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.
    {%- elsif ghes or ghae %}{% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+
+{% endif %}
 
 {% data reusables.code-scanning.limitation-org-enable-all %}
 

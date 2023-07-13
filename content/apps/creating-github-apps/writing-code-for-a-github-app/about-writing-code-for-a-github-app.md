@@ -16,6 +16,11 @@ redirect_from:
   - /developers/apps/guides/using-the-github-api-in-your-app
   - /apps/creating-github-apps/guides/using-the-github-api-in-your-app
   - /apps/creating-github-apps/writing-code-for-a-github-app/using-the-github-api-in-your-app
+  - /apps/quickstart-guides/setting-up-your-development-environment
+  - /developers/apps/setting-up-your-development-environment-to-create-a-github-app
+  - /developers/apps/getting-started-with-apps/setting-up-your-development-environment-to-create-a-github-app
+  - /apps/creating-github-apps/guides/setting-up-your-development-environment-to-create-a-github-app
+  - /apps/creating-github-apps/writing-code-for-a-github-app/setting-up-your-development-environment-to-create-a-github-app
 ---
 
 ## Prerequisites

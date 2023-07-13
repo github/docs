@@ -21,8 +21,8 @@ describe('redirect orphans', () => {
           throw new Error(
             `In ${path.join(
               'content',
-              page.relativePath
-            )} redirect entry (${redirectFrom}) has a trailing slash`
+              page.relativePath,
+            )} redirect entry (${redirectFrom}) has a trailing slash`,
           )
         }
         redirectFroms.set(redirectFrom, page.relativePath)
@@ -34,7 +34,7 @@ describe('redirect orphans', () => {
       const asPath = Permalink.relativePathToSuffix(page.relativePath)
       if (redirectFroms.has(asPath)) {
         errors.push(
-          `${asPath} is a redirect_from in ${path.join('content', redirectFroms.get(asPath))}`
+          `${asPath} is a redirect_from in ${path.join('content', redirectFroms.get(asPath))}`,
         )
       }
     }

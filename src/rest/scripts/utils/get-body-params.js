@@ -92,7 +92,7 @@ export async function getBodyParams(schema, topLevel = false) {
         type: 'object',
         name: 'key',
         description: await renderContent(
-          `A user-defined key to represent an item in \`${paramKey}\`.`
+          `A user-defined key to represent an item in \`${paramKey}\`.`,
         ),
         isRequired: param.required,
         enum: param.enum,
@@ -212,10 +212,10 @@ async function getTransformedParam(param, paramType, props) {
           const curr = childParam.get(obj.name)
           return childParam.set(
             obj.name,
-            curr ? (!Object.hasOwn(curr, 'isRequired') ? obj : curr) : obj
+            curr ? (!Object.hasOwn(curr, 'isRequired') ? obj : curr) : obj,
           )
         }, new Map())
-        .values()
+        .values(),
     )
 
     paramDecorated.childParamsGroups = mergedChildParamsGroups

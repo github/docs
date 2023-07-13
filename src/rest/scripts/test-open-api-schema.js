@@ -69,7 +69,7 @@ async function createOpenAPISchemasCheck() {
       const subcategories = Object.keys(fileSchema[category])
       if (isApiVersioned(version)) {
         getOnlyApiVersions(version).forEach(
-          (apiVersion) => (openAPICheck[apiVersion][category] = subcategories.sort())
+          (apiVersion) => (openAPICheck[apiVersion][category] = subcategories.sort()),
         )
       } else {
         openAPICheck[version][category] = subcategories.sort()
@@ -94,7 +94,7 @@ async function createCheckContentDirectory(contentFiles) {
     const allCompleteVersions = applicableVersions.flatMap((version) => {
       return isApiVersioned(version)
         ? allVersions[version].apiVersions.map(
-            (apiVersion) => `${allVersions[version].version}.${apiVersion}`
+            (apiVersion) => `${allVersions[version].version}.${apiVersion}`,
           )
         : version
     })
@@ -116,7 +116,7 @@ function isApiVersioned(version) {
 
 function getOnlyApiVersions(version) {
   return allVersions[version].apiVersions.map(
-    (apiVersion) => `${allVersions[version].version}.${apiVersion}`
+    (apiVersion) => `${allVersions[version].version}.${apiVersion}`,
   )
 }
 

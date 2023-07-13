@@ -406,7 +406,7 @@ steps:
 You can check if a repository has any {% data variables.product.prodname_codeql %} databases available for download using the `/repos/<owner>/<repo>/code-scanning/codeql/databases` endpoint. For example, to check for {% data variables.product.prodname_codeql %} databases using the [{% data variables.product.prodname_cli %}](https://cli.github.com/manual/gh_api) you would run:
 
 ```
-gh api /repos/<owner>/<repo>/code-scanning/codeql/databases/
+gh api /repos/<owner>/<repo>/code-scanning/codeql/databases
 ```
 
 This command returns information about any {% data variables.product.prodname_codeql %} databases that are available for a repository, including the language the database represents, and when the database was last updated. If no {% data variables.product.prodname_codeql %} databases are available, the response is empty.

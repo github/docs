@@ -46,13 +46,15 @@ If there is a conflict between the test merge commit and head commit, the checks
 
 ## Handling skipped but required checks
 
-{% note %}
+{% warning %}
 
-**Note:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
+**Warning:** If a workflow is skipped due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), [branch filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpull_requestpull_request_targetbranchesbranches-ignore) or a [commit message](/actions/managing-workflow-runs/skipping-workflow-runs), then checks associated with that workflow will remain in a "Pending" state. A pull request that requires those checks to be successful will be blocked from merging.
 
-If a job in a workflow is skipped due to a conditional, it will report its status as "Success". For more information see [Skipping workflow runs](/actions/managing-workflow-runs/skipping-workflow-runs) and [Using conditions to control job execution](/actions/using-jobs/using-conditions-to-control-job-execution).
+For this reason you should not use path or branch filtering to skip workflow runs if the workflow is required. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/skipping-workflow-runs){% ifversion required-workflows %}" and "[AUTOTITLE](/actions/using-workflows/required-workflows){% endif %}."
 
-{% endnote %}
+If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
+
+{% endwarning %}
 
 ### Example
 
@@ -84,30 +86,7 @@ jobs:
 
 Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore), a pull request that only changes a file in the root of the repository will not trigger this workflow and is blocked from merging. On the pull request, you would see "Waiting for status to be reported."
 
-You can fix this by creating a generic workflow, with the same name, that will return true in any case similar to the workflow below :
-
-```yaml
-name: ci
-on:
-  pull_request:
-    paths-ignore:
-      - 'scripts/**'
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: 'echo "No build required"'
-```
-
-Now the checks will always pass whenever someone sends a pull request that doesn't change the files listed under `paths` in the first workflow.
-
-{% note %}
-
-**Notes:**
-- Make sure that the `name` key and required job name in both the workflow files are the same. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)".
-- The example above uses {% data variables.product.prodname_actions %} but this workaround is also applicable to other CI/CD providers that integrate with {% data variables.product.company_short %}.
-
-{% endnote %}
+It is recommended that you do not use path filtering (as shown in the previous example), or branch filtering, in a workflow that has been configured to be required. {% ifversion required-workflows %}For more information, see "[AUTOTITLE](/actions/using-workflows/required-workflows)."{% endif %}
 
 ## Required status checks from unexpected sources
 

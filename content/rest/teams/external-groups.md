@@ -4,7 +4,7 @@ intro: >-
   Use the REST API to view the external identity provider groups that are
   available to your organization and manage the connection between external
   groups and teams in your organization.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghae: '*'
   ghec: '*'
   ghes: '>=3.6'

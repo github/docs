@@ -28,7 +28,7 @@ const properties = Object.keys(schema.properties)
 const contentDir = path.join(__dirname, '../content')
 
 const contentFiles = walk(contentDir, { includeBasePath: true }).filter(
-  (relativePath) => relativePath.endsWith('.md') && !relativePath.includes('README')
+  (relativePath) => relativePath.endsWith('.md') && !relativePath.includes('README'),
 )
 
 contentFiles.forEach((fullPath) => {

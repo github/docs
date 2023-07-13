@@ -3,7 +3,7 @@ title: SCIM
 intro: >-
   Use the REST API to control and manage your GitHub organization members access
   with SCIM.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
 topics:
   - API

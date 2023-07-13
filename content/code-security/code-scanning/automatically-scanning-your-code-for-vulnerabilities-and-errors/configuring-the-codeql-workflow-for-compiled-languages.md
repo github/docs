@@ -38,9 +38,13 @@ topics:
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
-{% ifversion code-scanning-without-workflow %}
+{% ifversion code-scanning-without-workflow-310 %}
 
-For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. Currently, the default setup does not support any compiled languages, so you must use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. The default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}{% ifversion codeql-swift-beta %} except for Swift, for which you must use the advanced setup{% endif %}. For more information about the advanced setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+
+{% elsif code-scanning-without-workflow %}
+
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. The default setup does not support any compiled languages, so you must use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
 
 {% else %}
 
@@ -188,7 +192,7 @@ If you added manual build steps for compiled languages and {% data variables.pro
 
 {% data reusables.code-scanning.beta-swift-support %}
 
-Code scanning of Swift code uses macOS runners by default. Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
 
 `xcodebuild` and `swift build` are both supported for Swift builds. We recommend only targeting one architecture during the build. For example, `ARCH=arm64` for `xcodebuild`, or `--arch arm64` for `swift build`.
 

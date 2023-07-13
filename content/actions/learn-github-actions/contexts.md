@@ -126,27 +126,27 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo '$GITHUB_CONTEXT'
+        run: echo "$GITHUB_CONTEXT"
       - name: Dump job context
         env:
           JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo '$JOB_CONTEXT'
+        run: echo "$JOB_CONTEXT"
       - name: Dump steps context
         env:
           STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo '$STEPS_CONTEXT'
+        run: echo "$STEPS_CONTEXT"
       - name: Dump runner context
         env:
           RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo '$RUNNER_CONTEXT'
+        run: echo "$RUNNER_CONTEXT"
       - name: Dump strategy context
         env:
           STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo '$STRATEGY_CONTEXT'
+        run: echo "$STRATEGY_CONTEXT"
       - name: Dump matrix context
         env:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
-        run: echo '$MATRIX_CONTEXT'
+        run: echo "$MATRIX_CONTEXT"
 ```
 
 {% endraw %}

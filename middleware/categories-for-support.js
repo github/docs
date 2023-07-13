@@ -26,7 +26,7 @@ export default async function categoriesForSupport(req, res) {
           name,
           published_articles: await findArticlesPerCategory(categoryPage, [], req.context),
         })
-      })
+      }),
     )
   }
 
@@ -55,7 +55,7 @@ async function findArticlesPerCategory(currentPage, articlesArray, context) {
   await Promise.all(
     currentPage.childPages.map(async (childPage) => {
       await findArticlesPerCategory(childPage, articlesArray, context)
-    })
+    }),
   )
 
   return articlesArray

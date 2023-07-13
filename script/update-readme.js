@@ -28,7 +28,7 @@ const ignoreList = ['README.md']
 const scriptsToRuleThemAll = ['bootstrap', 'server', 'test']
 
 const allScripts = walk(__dirname, { directories: false }).filter((script) =>
-  ignoreList.every((ignoredPath) => !script.includes(ignoredPath))
+  ignoreList.every((ignoredPath) => !script.includes(ignoredPath)),
 )
 
 const otherScripts = difference(allScripts, scriptsToRuleThemAll)

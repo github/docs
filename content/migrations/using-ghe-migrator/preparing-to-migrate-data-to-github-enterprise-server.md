@@ -88,7 +88,7 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 | `action`      | Description | Applicable models |
 |------------------------|-------------|-------------------|
 | `import`      | (default) Data from the source is imported to the target. | All record types
-| `map`         | Data from the source is replaced by existing data on the target. | Users, organizations
+| `map`         | Instead of creating a new model based on the source data, an existing record in the target is used. Useful for importing a repository into an existing organization or mapping user identities in the target to user identities in the source.  | Users, organizations
 | `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories
 | `map_or_rename` | If the target exists, map to that target. Otherwise, rename the imported model. | Users
 | `merge`       | Data from the source is combined with existing data on the target. | Teams

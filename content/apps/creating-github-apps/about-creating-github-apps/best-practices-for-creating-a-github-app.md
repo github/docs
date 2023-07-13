@@ -69,7 +69,7 @@ If your app is a native client, client-side app, or runs on a user device (as op
 
 ## Use the appropriate token type
 
-{% data variables.product.prodname_github_app %}s can generate installation access tokens or user access tokens in order to make authenticated API requests.
+{% data variables.product.prodname_github_apps %} can generate installation access tokens or user access tokens in order to make authenticated API requests.
 
 Installation access tokens will attribute activity to your app. These are useful for automations that act independently of users.
 

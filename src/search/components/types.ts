@@ -46,7 +46,7 @@ export type SearchQueryT = {
 
 export type SearchValidationErrorT = {
   error: string
-  fields?: string[]
+  key: string
 }
 
 export type SearchT = {

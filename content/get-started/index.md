@@ -61,5 +61,6 @@ children:
   - /using-git
   - /working-with-subversion-on-github
   - /exploring-integrations
-  - /privacy-on-github
+  - /archiving-your-github-personal-account-and-public-repositories
 ---
+

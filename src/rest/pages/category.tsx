@@ -114,7 +114,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     let fullSubcategoryTitle
 
     const pageTocItem = tocLandingContext.tocItems.find(
-      (tocItem) => tocItem.fullPath === fullSubcategoryPath
+      (tocItem) => tocItem.fullPath === fullSubcategoryPath,
     )
 
     if (pageTocItem) {
@@ -134,7 +134,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       subCatOperations,
       currentLanguage,
       currentVersion,
-      req.context
+      req.context,
     )) as MinitocItemsT
 
     miniTocItems.restOperationsMiniTocItems.forEach((operationMinitoc) => {
@@ -190,7 +190,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       restOperations,
       currentLanguage,
       currentVersion,
-      req.context
+      req.context,
     )) as MinitocItemsT
 
     restOperationsMiniTocItems && miniTocItems.push(...restOperationsMiniTocItems)
