@@ -165,7 +165,7 @@ steps:
 
 ### Example using Yarn
 
-This example installs the dependencies defined in the _yarn.lock_ file and prevent updates to the `yarn.lock` file.
+This example installs the dependencies defined in the _yarn.lock_ file and prevent updates to the `yarn.lock` file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
 
 ```yaml copy
 steps:
@@ -175,10 +175,10 @@ steps:
   with:
     node-version: '18.x'
 - name: Install dependencies
-  run: yarn --frozen-lockfile
+  run: yarn --immutable --immutable-cache --check-cache
 ```
 
-Alternatively, you can install the dependencies defined in the _package.json_ file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
+Alternatively, you can install the dependencies defined in the _package.json_ file. 
 
 ```yaml copy
 steps:
