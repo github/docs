@@ -22,10 +22,10 @@ children:
   - /about-ssh
   - /using-ssh-agent-forwarding
   - /managing-deploy-keys
-  - /checking-for-existing-ssh-keys
+  - /redeem-for-existing-ssh-keys
   - /generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /adding-a-new-ssh-key-to-your-github-account
-  - /testing-your-ssh-connection
+  - /put-your-ssh-connection
   - /working-with-ssh-key-passphrases
 shortTitle: Connect with SSH
 ---
