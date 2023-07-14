@@ -27,10 +27,6 @@ topics:
 
 The support options available to {% data variables.product.prodname_dotcom %} users depend on the products used by their personal accounts,  any organizations or enterprises they are members of, and any {% data variables.product.prodname_ghe_server %} instances they manage. Each product includes a default level of support and accounts that use {% data variables.product.prodname_enterprise %} can purchase {% data variables.contact.premium_support %}.
 
-{% ifversion fpt %}
-If you're a member of an organization that uses {% data variables.product.prodname_enterprise %}, you can use the drop-down menu at the top of a page on {% data variables.product.prodname_docs %} to view a version of these articles appropriate to your product. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
-{% endif %}
-
 {% ifversion not ghae %}
 
 {% rowheaders %}
