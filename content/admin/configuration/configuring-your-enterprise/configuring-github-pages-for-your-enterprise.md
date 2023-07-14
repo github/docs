@@ -34,7 +34,7 @@ If private mode is enabled on your enterprise, the public cannot access {% data 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.pages-tab %}
-4. Select **Public Pages**.
+1. Select **Public Pages**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Disabling {% data variables.product.prodname_pages %} for your enterprise
@@ -59,7 +59,7 @@ If subdomain isolation is disabled for your enterprise, you should also disable 
 
 {% endif %}
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes %}
 
 ## Configuring {% data variables.product.prodname_pages %} response headers for your enterprise
 
@@ -82,6 +82,7 @@ You can add or override response headers for {% data variables.product.prodname_
 {% endif %}
 
 {% ifversion ghes %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-private-mode)"

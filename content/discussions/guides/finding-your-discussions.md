@@ -13,6 +13,7 @@ redirect_from:
 {% endif %}
 
 ## Finding discussions
+
 {% ifversion global-nav-update %}
 1. In the top-left corner of {% data variables.location.product_location %}, select {% octicon "three-bars" aria-label="Open global navigation menu" %}, then click {% octicon "comment-discussion" aria-hidden="true" %} **Discussions**.
 

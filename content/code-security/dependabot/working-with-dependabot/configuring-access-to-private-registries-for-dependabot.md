@@ -55,9 +55,11 @@ When you add a secret at the organization level, you can specify which repositor
 After you add a {% data variables.product.prodname_dependabot %} secret, you can reference it in the _dependabot.yml_ configuration file like this: {% raw %}`${{secrets.NAME}}`{% endraw %}, where "NAME" is the name you chose for the secret. For example:
 
 {% raw %}
+
 ```yaml
 password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-private-registries)."
@@ -107,6 +109,7 @@ When creating a secret in an organization, you can use a policy to limit which r
    The name of the secret is listed on the {% data variables.product.prodname_dependabot %} secrets page. You can click **Update** to change the secret value or its access policy. You can click **Remove** to delete the secret.
 
 {% ifversion fpt or ghec %}
+
 ## Configuring firewall IP rules
 
 You can add {% data variables.product.prodname_dependabot %} to your registries IP allow list.

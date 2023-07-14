@@ -25,7 +25,7 @@ Secrets are variables that you create in an organization, repository, or reposit
 
 For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 {% note %}
 
@@ -124,10 +124,10 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.actions.sidebar-environment %}
 1. Click on the environment that you want to add a secret to.
-2. Under **Environment secrets**, click **Add secret**.
-3. Type a name for your secret in the **Name** input box.
-4. Enter the value for your secret.
-5. Click **Add secret**.
+1. Under **Environment secrets**, click **Add secret**.
+1. Type a name for your secret in the **Name** input box.
+1. Enter the value for your secret.
+1. Click **Add secret**.
 
 {% endwebui %}
 
@@ -232,6 +232,7 @@ You can check which access policies are being applied to a secret in your organi
 To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)" and "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
 
 {% raw %}
+
 ```yaml
 steps:
   - name: Hello world action
@@ -240,6 +241,7 @@ steps:
     env: # Or as an environment variable
       super_secret: ${{ secrets.SuperSecret }}
 ```
+
 {% endraw %}
 
 Secrets cannot be directly referenced in `if:` conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and [`jobs.<job_id>.steps[*].if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif).
@@ -253,6 +255,7 @@ If you must pass secrets within a command line, then enclose them within the pro
 ### Example using Bash
 
 {% raw %}
+
 ```yaml
 steps:
   - shell: bash
@@ -261,11 +264,13 @@ steps:
     run: |
       example-command "$SUPER_SECRET"
 ```
+
 {% endraw %}
 
 ### Example using PowerShell
 
 {% raw %}
+
 ```yaml
 steps:
   - shell: pwsh
@@ -274,11 +279,13 @@ steps:
     run: |
       example-command "$env:SUPER_SECRET"
 ```
+
 {% endraw %}
 
 ### Example using Cmd.exe
 
 {% raw %}
+
 ```yaml
 steps:
   - shell: cmd
@@ -287,6 +294,7 @@ steps:
     run: |
       example-command "%SUPER_SECRET%"
 ```
+
 {% endraw %}
 
 ## Limits for secrets
@@ -393,7 +401,7 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
 1. Use `base64` to encode your file into a Base64 string. For example:
 
    ```
-   $ base64 -i cert.der -o cert.base64
+   base64 -i cert.der -o cert.base64
    ```
 
 1. Create a secret that contains the Base64 string. For example:

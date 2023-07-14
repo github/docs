@@ -51,6 +51,7 @@ If your organization requires members to use two-factor authentication, users th
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 
 {% ifversion organization-invitation-enhancements %}
+
 ## Retrying or canceling expired invitations
 
 Invitations expire after 7 days. You can retry or cancel expired invitations, either one by one or in bulk. Failed invitations to outside collaborators can also be found in this view.
@@ -62,4 +63,5 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 {% endif %}
 
 ## Further reading
+
 - "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"

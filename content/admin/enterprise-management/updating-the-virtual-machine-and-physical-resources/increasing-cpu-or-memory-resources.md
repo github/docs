@@ -56,8 +56,8 @@ You need to determine the instance type you would like to upgrade to based on CP
 It's not possible to add CPU or memory resources to an existing AWS/EC2 instance. Instead, you must:
 
 1. Stop the instance.
-2. Change the instance type.
-3. Start the instance.
+1. Change the instance type.
+1. Start the instance.
 {% data reusables.enterprise_installation.configuration-recognized %}
 
 ## Adding CPU or memory resources on Microsoft Azure

@@ -23,9 +23,9 @@ If you choose to use the API, you'll need to write your own scripts or use an HT
 To migrate your repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} with the APIs, you will:
 
 1. Create a {% data variables.product.pat_generic %} for both the source and destination organization
-2. Fetch the `ownerId` of the destination organization on {% data variables.product.prodname_ghe_cloud %}
-3. Set up a migration source via {% data variables.product.prodname_dotcom_the_website %}'s GraphQL API to identify where you're migrating from
-4. For each repository you want to migrate, repeat these steps.
+1. Fetch the `ownerId` of the destination organization on {% data variables.product.prodname_ghe_cloud %}
+1. Set up a migration source via {% data variables.product.prodname_dotcom_the_website %}'s GraphQL API to identify where you're migrating from
+1. For each repository you want to migrate, repeat these steps.
    - Use the REST API on {% data variables.location.product_location_enterprise %} to generate migration archives for your repository
    - Upload your migration archives to a location where they can be accessed by {% data variables.product.prodname_dotcom_the_website %}
    - Start your migration using the GraphQL API for {% data variables.product.prodname_dotcom_the_website %}, passing in your archive URLs
@@ -426,9 +426,9 @@ gh gei generate-script --github-source-org SOURCE \
 When you migrate repositories, the {% data variables.product.prodname_gei_cli %} performs the following steps:
 
 1. Connects to {% data variables.location.product_location_enterprise %} and generates two migration archives per repository, one for the Git source and one for the metadata
-2. Uploads the migration archives to the blob storage provider of your choice
-3. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
-4. Deletes the migration archive
+1. Uploads the migration archives to the blob storage provider of your choice
+1. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
+1. Deletes the migration archive
 
 ### Migrate multiple repositories
 

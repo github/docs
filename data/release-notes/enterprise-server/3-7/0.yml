@@ -322,6 +322,8 @@ sections:
     - 'The maximum number of self-hosted runners in a runner group is limited to 10,000. Previously, there was no limit. [Updated: 2023-05-24]'
 
   known_issues:
+    - |
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
     - Custom firewall rules are removed during the upgrade process.
     - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.

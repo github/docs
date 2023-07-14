@@ -153,6 +153,6 @@ extractor:
 You can specify `--extractor-options-file` multiple times. The extractor option assignments are processed in the following order:
 
 1. All extractor option files specified by `--extractor-options-file` are processed in the order they appear on the command line, then
-2. All extractor option assignments specified by `--extractor-option` are processed in the order they appear on the command line
+1. All extractor option assignments specified by `--extractor-option` are processed in the order they appear on the command line
 
 The same rules govern what happens when the same extractor option is set multiple times, regardless of whether the assignments are done using `--extractor-option`, using `--extractor-options-file`, or some combination of the two. If you set a `string` extractor option multiple times, the last option value overwrites all previous values. If you set an `array` extractor option multiple times, all option values are concatenated in order.

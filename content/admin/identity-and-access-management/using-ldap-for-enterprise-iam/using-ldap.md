@@ -67,6 +67,7 @@ When you configure LDAP access for users via the {% data variables.enterprise.ma
 1. Add your configuration settings.
 
 ## LDAP attributes
+
 Use these attributes to finish configuring LDAP for {% data variables.location.product_location %}.
 
 | Attribute name           | Required     | Description |
@@ -78,7 +79,7 @@ Use these attributes to finish configuring LDAP for {% data variables.location.p
 | `Domain search password` | {% octicon "x" aria-label="Optional" %} | The password for the domain search user. |
 | `Administrators group`   | {% octicon "x" aria-label="Optional" %} | Users in this group are promoted to site administrators when signing into your appliance. If you don't configure an LDAP Administrators group, the first LDAP user account that signs into your appliance will be automatically promoted to a site administrator. |
 | `Domain base`            | {% octicon "check" aria-label="Required" %} | The fully qualified `Distinguished Name` (DN) of an LDAP subtree you want to search for users and groups. You can add as many as you like; however, each group must be defined in the same domain base as the users that belong to it. If you specify restricted user groups, only users that belong to those groups will be in scope. We recommend that you specify the top level of your LDAP directory tree as your domain base and use restricted user groups to control access. |
-| `Restricted user groups` | {% octicon "x" aria-label="Optional" %} | If specified, only users in these groups will be allowed to log in. You only need to specify the common names (CNs) of the groups, and you can add as many groups as you like. If no groups are specified, *all* users within the scope of the specified domain base will be able to sign in to your {% data variables.product.prodname_ghe_server %} instance. |
+| `Restricted user groups` | {% octicon "x" aria-label="Optional" %} | If specified, only users in these groups will be allowed to log in. You only need to specify the common names (CNs) of the groups, and you can add as many groups as you like. If no groups are specified, _all_ users within the scope of the specified domain base will be able to sign in to your {% data variables.product.prodname_ghe_server %} instance. |
 | `User ID`                | {% octicon "check" aria-label="Required" %} | The LDAP attribute that identifies the LDAP user who attempts authentication. Once a mapping is established, users may change their {% data variables.product.prodname_ghe_server %} usernames. This field should be `sAMAccountName` for most Active Directory installations, but it may be `uid` for other LDAP solutions, such as OpenLDAP. The default value is `uid`. |
 | `Profile name`           | {% octicon "x" aria-label="Optional" %} | The name that will appear on the user's {% data variables.product.prodname_ghe_server %} profile page. Unless LDAP Sync is enabled, users may change their profile names. |
 | `Emails`                 | {% octicon "x" aria-label="Optional" %} | The email addresses for a user's {% data variables.product.prodname_ghe_server %} account. |
@@ -111,13 +112,15 @@ When this option is selected, the certificate is validated to make sure:
 
 ### Enabling LDAP Sync
 
+You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled)."
+
 {% note %}
 
-**Note:** Teams using LDAP Sync are limited to a maximum 1499 members.
+**Note:** If you use Active Directory, user lookups and team synchronization may fail when the LDAP groups configured for teams or in the {% data variables.enterprise.management_console %} exceed 1500 members, due to the `MaxValRange` limit in Active Directory. As a workaround, you can use Active Directory groups that contain less than 1500 members, or you can work with your Active Directory administrator to increase the `MaxValRange` value for your domain controllers. For more information, see [View and set LDAP policy in Active Directory by using Ntdsutil.exe](https://learn.microsoft.com/en-US/troubleshoot/windows-server/identity/view-set-ldap-policy-using-ntdsutil) in Microsoft Learn.
+
+If you need help determining if modifying the `MaxValRange` is the right approach for your Active Directory environment, contact Microsoft Support.
 
 {% endnote %}
-
-You can establish role-based access control for users from your LDAP server by synchronizing {% data variables.product.prodname_ghe_server %} users and team membership against your established LDAP groups. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team#creating-teams-with-ldap-sync-enabled)."
 
 To enable LDAP Sync, in your LDAP settings, select **Synchronize Emails**, **Synchronize SSH Keys**, or **Synchronize GPG Keys** .
 
@@ -165,10 +168,10 @@ When LDAP Sync is enabled, site admins and organization owners can search the LD
 
 This has the potential to disclose sensitive organizational information to contractors or other unprivileged users, including:
 
-- The existence of specific LDAP Groups visible to the *Domain search user*.
+- The existence of specific LDAP Groups visible to the _Domain search user_.
 - Members of the LDAP group who have {% data variables.product.prodname_ghe_server %} user accounts, which is disclosed when creating a team synced with that LDAP group.
 
-If disclosing such information is not desired, your company or organization should restrict the permissions of the configured *Domain search user* in the admin console. If such restriction isn't possible, contact {% data variables.contact.contact_ent_support %}.
+If disclosing such information is not desired, your company or organization should restrict the permissions of the configured _Domain search user_ in the admin console. If such restriction isn't possible, contact {% data variables.contact.contact_ent_support %}.
 
 {% endwarning %}
 

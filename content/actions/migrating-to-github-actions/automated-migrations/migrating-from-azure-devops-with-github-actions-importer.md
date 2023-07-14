@@ -78,7 +78,7 @@ The `configure` CLI command is used to set required credentials and options for 
    - Variable Groups: `Read`
 
    After creating the token, copy it and save it in a safe location for later use.
-2. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
 
    ```shell
    gh actions-importer configure
@@ -107,8 +107,9 @@ The `configure` CLI command is used to set required credentials and options for 
   ✔ Azure DevOps organization name: :organization
   ✔ Azure DevOps project name: :project
   Environment variables successfully updated.
+
    ```
-3. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
    ```shell
    gh actions-importer update
@@ -440,7 +441,7 @@ You can transform Azure DevOps templates with {% data variables.product.prodname
 {% data variables.product.prodname_actions_importer %} is able to transform Azure DevOps templates with some limitations.
 
 - Azure DevOps templates used under the `stages`, `deployments`, and `jobs` keys are converted into reusable workflows in {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
--  Azure DevOps templates used under the `steps` key are converted into composite actions. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action)."
+- Azure DevOps templates used under the `steps` key are converted into composite actions. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action)."
 - If you currently have job templates that reference other job templates, {% data variables.product.prodname_actions_importer %} converts the templates into reusable workflows. Because reusable workflows cannot reference other reusable workflows, this is invalid syntax in {% data variables.product.prodname_actions %}. You must manually correct nested reusable workflows.
 - If a template references an external Azure DevOps organization or {% data variables.product.prodname_dotcom %} repository, you must use the `--credentials-file` option to provide credentials to access this template. For more information, see "[AUTOTITLE](/actions/migrating-to-github-actions/automated-migrations/supplemental-arguments-and-settings#using-a-credentials-file-for-authentication)."
 - You can dynamically generate YAML using `each` expressions with the following caveats:
@@ -467,7 +468,6 @@ You can transform Azure DevOps templates with {% data variables.product.prodname
 | Conditional insertion         | `if` conditions on job/steps          | Partially supported |
 | Iterative insertion           | Not applicable                        | Partially supported |
 | Templates with parameters     | Varies                                | Partially supported |
-
 
 #### Template file path names
 
@@ -534,7 +534,6 @@ steps:
 | deploymentList        | `job`                                       | Partially supported |
 | stage                 | `job`                                       | Partially supported |
 | stageList             | `job`                                       | Partially supported |
-
 
 {% note %}
 

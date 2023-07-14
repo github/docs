@@ -42,8 +42,8 @@ Starter workflows created by users can only be used to create workflows in publi
 This procedure demonstrates how to create a starter workflow and metadata file. The metadata file describes how the starter workflows will be presented to users when they are creating a new workflow.
 
 1. If it doesn't already exist, create a new public repository named `.github` in your organization.
-2. Create a directory named `workflow-templates`.
-3. Create your new workflow file inside the `workflow-templates` directory.
+1. Create a directory named `workflow-templates`.
+1. Create your new workflow file inside the `workflow-templates` directory.
 
    If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
 
@@ -68,7 +68,9 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
          - name: Run a one-line script
            run: echo Hello from Octo Organization
    ```
-4. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
+
+1. Create a metadata file inside the `workflow-templates` directory. The metadata file must have the same name as the workflow file, but instead of the `.yml` extension, it must be appended with `.properties.json`. For example, this file named `octo-organization-ci.properties.json` contains the metadata for a workflow file named `octo-organization-ci.yml`:
+
    ```json copy
    {
        "name": "Octo Organization Workflow",
@@ -84,6 +86,7 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
        ]
    }
    ```
+
    - `name` - **Required.** The name of the workflow. This is displayed in the list of available workflows.
    - `description` - **Required.** The description of the workflow. This is displayed in the list of available workflows.
    - `iconName` - **Optional.** Specifies an icon for the workflow that is displayed in the list of workflows. `iconName` can one of the following types:

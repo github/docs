@@ -6,7 +6,7 @@ intro: 'You can use security overview to see which teams and repositories are af
 permissions: '{% data reusables.security-overview.permissions %}'
 product: '{% data reusables.gated-features.security-overview %}'
 type: how_to
-topics: 
+topics:
   - Security overview
   - Advanced Security
   - Alerts
@@ -20,7 +20,7 @@ redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
 ---
 
-{% ifversion ghes < 3.5 or ghae %}
+{% ifversion ghae %}
 {% data reusables.security-overview.beta %}
 {% endif %}
 
@@ -66,7 +66,7 @@ You can use security overview to see which repositories and teams are free from 
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion ghec or ghes or ghae %}
 
 ## Viewing enterprise-level code security risks
 
@@ -95,6 +95,7 @@ You can view data for security alerts across organizations in an enterprise. {% 
 {% endif %}
 
 {% ifversion ghes < 3.7 or ghae < 3.7 %}
+
 ## Viewing security overview for a team
 
 {% data reusables.profile.access_org %}
@@ -103,4 +104,3 @@ You can view data for security alerts across organizations in an enterprise. {% 
 {% data reusables.organizations.team-security-overview %}
 {% data reusables.organizations.filter-security-overview %}
 {% endif %}
-

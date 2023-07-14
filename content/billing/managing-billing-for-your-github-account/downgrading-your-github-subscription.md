@@ -40,7 +40,7 @@ If you downgrade your personal account from {% data variables.product.prodname_p
 {% data reusables.user-settings.billing_plans %}
 1. Under "Current plan", use the **Edit** drop-down and click **Downgrade to Free**.
    ![Screenshot of the "Current plan" section of the billing settings page. The "Edit" dropdown menu is expanded and highlighted with an orange outline.](/assets/images/help/billing/downgrade-to-free.png)
-5. Read the information about the features your personal account will no longer have access to on your next billing date, then click **I understand. Continue with downgrade**.
+1. Read the information about the features your personal account will no longer have access to on your next billing date, then click **I understand. Continue with downgrade**.
 
 If you published a {% data variables.product.prodname_pages %} site in a private repository and added a custom domain, remove or update your DNS records before downgrading from {% data variables.product.prodname_pro %} to {% data variables.product.prodname_free_user %}, to avoid the risk of a domain takeover. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site)."
 
@@ -51,7 +51,6 @@ If you published a {% data variables.product.prodname_pages %} site in a private
 After an organization's subscription is downgraded, the organization will lose access to any functionality that is not included its new plan. If an advanced feature, such as {% data variables.product.prodname_pages %}, is not available for private repositories in your new plan, consider whether you'd like to retain access to the feature by making affected repositories public. For more information, see "[Setting repository visibility](/articles/setting-repository-visibility)."
 
 Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SAML settings. If you later purchase {% data variables.product.prodname_enterprise %}, you will need to reconfigure SAML.
-
 
 {% note %}
 
@@ -71,7 +70,7 @@ Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SA
 {% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#switching-your-organization-from-per-repository-to-per-user-pricing)."
 
 {% data reusables.organizations.billing-settings %}
-5. Under "Subscriptions", next to your current subscription, select the **Edit** dropdown menu and click **Edit plan**.
+1. Under "Subscriptions", next to your current subscription, select the **Edit** dropdown menu and click **Edit plan**.
 1. Under "Billing/Plans", next to the plan you want to change, click **Downgrade**.
 1. Enter the reason you're downgrading your account, then click **Downgrade plan**.
 
@@ -88,6 +87,7 @@ To reduce the number of paid seats your organization uses, you can remove member
 1. Review the information about your new payment on your next billing date, then click **Remove seats**.
 
 {% ifversion ghec %}
+
 ## Downgrading your enterprise account's subscription
 
 Enterprise accounts are only available with {% data variables.product.prodname_enterprise %}, so it's not possible to downgrade an enterprise account to another plan.

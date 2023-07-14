@@ -18,7 +18,7 @@ describe('article versioning', () => {
     const second = links.filter((i) => i === 1)
     expect(first.attr('href')).toBe('/en/enterprise-cloud@latest/get-started/versioning/only-ghec')
     expect(second.attr('href')).toBe(
-      '/en/enterprise-cloud@latest/get-started/versioning/only-ghec-and-ghes'
+      '/en/enterprise-cloud@latest/get-started/versioning/only-ghec-and-ghes',
     )
     // Both links should 200 if you go to them
     expect((await head(first.attr('href'))).statusCode).toBe(200)
@@ -41,7 +41,7 @@ describe('article versioning', () => {
     })
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(
-      '/en/enterprise-cloud@latest/get-started/versioning/only-ghec'
+      '/en/enterprise-cloud@latest/get-started/versioning/only-ghec',
     )
   })
 })

@@ -78,7 +78,7 @@ All updated operations:
 ${updatedFilesAll.join('\r\n')}
 
 Updated operations with api.github.com removed (GHEC only):
-${updatedFilesGHECOnly.join('\r\n')}`
+${updatedFilesGHECOnly.join('\r\n')}`,
     )
   })
 console.log(
@@ -86,5 +86,5 @@ console.log(
   ${notUpdated.length} Operations not updated
   ${updatedFilesAll.length} Operations updated
     ${updatedFilesGHECOnly.length} Operations with api.github.com removed (GHEC only)
-Log file at ${logFile}`
+Log file at ${logFile}`,
 )

@@ -55,12 +55,12 @@ The `configure` CLI command is used to set required credentials and options for 
    Your token must have the `workflow` scope.
 
    After creating the token, copy it and save it in a safe location for later use.
-2. Create a GitLab {% data variables.product.pat_generic %}. For more information, see [{% data variables.product.pat_generic_caps_plural %}](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) in the GitLab documentation.
+1. Create a GitLab {% data variables.product.pat_generic %}. For more information, see [{% data variables.product.pat_generic_caps_plural %}](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#create-a-personal-access-token) in the GitLab documentation.
 
    Your token must have the `read_api` scope.
 
    After creating the token, copy it and save it in a safe location for later use.
-3. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
 
    ```shell
    gh actions-importer configure
@@ -85,6 +85,7 @@ The `configure` CLI command is used to set required credentials and options for 
   ✔ Private token for GitLab: ***************
   ✔ Base url of the GitLab instance: http://localhost
   Environment variables successfully updated.
+
    ```
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
@@ -413,7 +414,6 @@ For information about supported GitLab constructs, see the [`github/gh-actions-i
 | `CI_EXTERNAL_PULL_REQUEST_SOURCE_BRANCH_SHA`  | {% raw %}`${{ github.event.pull_request.head.sha }}`{% endraw %}                                           |
 | `CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_NAME` | {% raw %}`${{ github.event.pull_request.base.ref }}`{% endraw %}                                           |
 | `CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA`  | {% raw %}`${{ github.event.pull_request.base.sha }}`{% endraw %}                                           |
-
 
 ## Legal notice
 

@@ -48,12 +48,9 @@ For more information, see the [Locating IDE log files](https://intellij-support.
 1. Go to **Show Log in**.
 1. Open the `idea.log` in your preferred editor and look for any errors related to {% data variables.product.prodname_dotcom%} or {% data variables.product.prodname_copilot%}.
 
-
 {% endjetbrains %}
 
 {% visualstudio %}
-
-
 
 ## Viewing logs in {% data variables.product.prodname_vs %}
 
@@ -84,7 +81,7 @@ Alternatively, you can open the log folder for {% data variables.product.prodnam
       - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
    - For Windows or Linux:
       - Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
-2. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
+1. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
 
 ## Viewing network connectivity diagnostics logs
 
@@ -124,7 +121,6 @@ In rare cases, errors might not be propagated to the corresponding error handler
 ## Checking if {% data variables.product.prodname_copilot%} is operational
 
 To check if GitHub Copilot is operational, run the following command in Vim/Neovim:
-
 
     :Copilot status
 

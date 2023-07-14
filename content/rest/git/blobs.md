@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with a Git blob (binary large object), the object
   type used to store the contents of each file in a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -28,6 +28,5 @@ These are the supported media types for blobs.
     application/vnd.github.raw
 
 For more information, see "[AUTOTITLE](/rest/overview/media-types)."
-
 
 <!-- Content after this section is automatically generated -->

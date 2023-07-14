@@ -3,5 +3,5 @@
    ```bash copy
    gpg --full-generate-key --pinentry-mode=loopback
    ```
-    
-   - Use the default key type and at least `4096` bits with no expiry. 
+
+   - Use the default key type and at least `4096` bits with no expiry.

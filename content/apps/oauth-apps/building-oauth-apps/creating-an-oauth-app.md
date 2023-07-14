@@ -1,5 +1,5 @@
 ---
-title: Creating an OAuth App
+title: Creating an OAuth app
 intro: '{% data reusables.shortdesc.creating_oauth_apps %}'
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps/registering-oauth-apps
@@ -12,18 +12,18 @@ versions:
   ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 ---
 
 {% note %}
 
 **Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}.
 
-Both {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_app %}s use OAuth 2.0.
+Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
 
-{% data variables.product.prodname_oauth_app %}s can only act on behalf of a user while {% data variables.product.prodname_github_app %}s can either act on behalf of a user or independently of a user.
+{% data variables.product.prodname_oauth_apps %} can only act on behalf of a user while {% data variables.product.prodname_github_apps %} can either act on behalf of a user or independently of a user.
 
-{% data variables.product.prodname_github_app %}s use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. 
+{% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens.
 
 For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
@@ -51,7 +51,7 @@ For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/diff
 
   {% warning %}
 
-  **Warning:**  Only use information in your OAuth app that you consider public. Avoid using sensitive data, such as internal URLs, when creating an OAuth App.
+  **Warning:**  Only use information in your {% data variables.product.prodname_oauth_app %} that you consider public. Avoid using sensitive data, such as internal URLs, when creating an {% data variables.product.prodname_oauth_app %}.
 
   {% endwarning %}
 
@@ -61,11 +61,11 @@ For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/diff
 {% ifversion fpt or ghes or ghec %}
    {% note %}
 
-   **Note:** OAuth Apps cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
+   **Note:** {% data variables.product.prodname_oauth_apps %} cannot have multiple callback URLs, unlike {% data variables.product.prodname_github_apps %}.
 
    {% endnote %}
 {% endif %}{% ifversion device-flow-is-opt-in %}
-1. If your OAuth App will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."{% endif %}
+1. If your {% data variables.product.prodname_oauth_app %} will use the device flow to identify and authorize users, click **Enable Device Flow**. For more information about the device flow, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."{% endif %}
 1. Click **Register application**.
 
 ## Further reading

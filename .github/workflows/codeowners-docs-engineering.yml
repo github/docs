@@ -30,7 +30,7 @@ jobs:
     if: ${{ github.repository == 'github/docs-internal' && !github.event.pull_request.draft }}
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
       PR: ${{ github.event.pull_request.html_url }}
 
     steps:

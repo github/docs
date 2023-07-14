@@ -55,13 +55,16 @@ If your locally-hosted code isn't tracked by any VCS, the first step is to initi
    ``` shell
    git init && git symbolic-ref HEAD refs/heads/main
    ```
+
 1. Add the files in your new local repository. This stages them for the first commit.
 
    ```shell
    $ git add .
    # Adds the files in the local repository and stages them for commit. {% data reusables.git.unstage-codeblock %}
    ```
+
 1. Commit the files that you've staged in your local repository.
+
    ```shell
    $ git commit -m "First commit"
    # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
@@ -93,13 +96,16 @@ After you've initialized a Git repository, you can push the repository to {% dat
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
 1. [Add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
+
    ```shell
    $ git remote add origin &lt;REMOTE_URL>
    # Sets the new remote
    $ git remote -v
    # Verifies the new remote URL
    ```
+
 1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
+
    ```shell
    $ git push -u origin main
    # Pushes the changes in your local repository up to the remote repository you specified as the origin
@@ -116,13 +122,16 @@ After you've initialized a Git repository, you can push the repository to {% dat
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
 1. In the Command prompt, [add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
+
    ```shell
    $ git remote add origin &lt;REMOTE_URL>
    # Sets the new remote
    $ git remote -v
    # Verifies the new remote URL
    ```
+
 1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
+
    ```shell
    $ git push origin main
    # Pushes the changes in your local repository up to the remote repository you specified as the origin
@@ -139,13 +148,16 @@ After you've initialized a Git repository, you can push the repository to {% dat
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
 1. [Add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
+
    ```shell
    $ git remote add origin &lt;REMOTE_URL>
    # Sets the new remote
    $ git remote -v
    # Verifies the new remote URL
    ```
+
 1. [Push the changes](/get-started/using-git/pushing-commits-to-a-remote-repository) in your local repository to {% data variables.location.product_location %}.
+
    ```shell
    $ git push origin main
    # Pushes the changes in your local repository up to the remote repository you specified as the origin

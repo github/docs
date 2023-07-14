@@ -9,6 +9,13 @@ topics:
   - Projects
 ---
 
+{% ifversion ghes > 3.8 %}
+
+{% data reusables.projects.enable_enterprise_workflows %}
+
+{% endif %}
+
+
 ## About automatically archiving items
 
 You can configure your project's built-in workflows to automatically archive items. Archiving items will help you stay below the limit of {% data variables.projects.item_limit %} items in each project.
@@ -37,7 +44,6 @@ Projects also have a limit on the number of archived items they can contain. You
 1. In the "Filters" field, type the filter criteria you want to use to automatically archive items. You can only use the `is`, `reason`, and `updated` filters.{% ifversion projects-v2-workflows-ui-refresh %}
 1. To save your changes and enable the workflow, click **Save and turn on workflow**.{% else %}
 1. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.{% endif %}
-   
 
 ## Further reading
 

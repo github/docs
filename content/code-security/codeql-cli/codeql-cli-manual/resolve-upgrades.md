@@ -43,13 +43,13 @@ in extraordinary cases where exact control is needed.
 
 #### `--dbscheme=<file>`
 
-\[Mandatory] The *current* dbscheme of the dataset we want to upgrade.
+\[Mandatory] The _current_ dbscheme of the dataset we want to upgrade.
 
 #### `--format=<fmt>`
 
 Select output format. Choices include:
 
-`lines` *(default)*: Print upgrade scripts on one line each.
+`lines` _(default)_: Print upgrade scripts on one line each.
 
 `json`: Print a JSON array of upgrade script paths.
 
@@ -93,7 +93,7 @@ value.
 
 #### `--target-dbscheme=<file>`
 
-The *target* dbscheme we want to upgrade to. If this is not given, a
+The _target_ dbscheme we want to upgrade to. If this is not given, a
 maximal upgrade path will be constructed
 
 #### `--target-sha=<sha>`

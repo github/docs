@@ -29,7 +29,7 @@ Anyone with read access to a repository can view and compare releases, but only 
 
 You can manually create release notes while managing a release. Alternatively, you can automatically generate release notes from a default template, or customize your own release notes template. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
 
-{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.6 %}
+{% ifversion fpt or ghec or ghes or ghae > 3.6 %}
 When viewing the details for a release, the creation date for each release asset is shown next to the release asset.
 {% endif %}
 
@@ -44,6 +44,7 @@ You can view the **Dependents** tab of the dependency graph to see which reposit
 You can also use the Releases API to gather information, such as the number of times people download a release asset. For more information, see "[AUTOTITLE](/rest/releases)."
 
 {% ifversion fpt or ghec %}
+
 ## Storage and bandwidth quotas
 
  Each file included in a release must be under {% data variables.large_files.max_file_size %}. There is no limit on the total size of a release, nor bandwidth usage.

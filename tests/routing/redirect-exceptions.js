@@ -19,7 +19,7 @@ describe('redirect exceptions', () => {
     const newPath = redirectExceptions[oldPath]
     const englishNewPath = `/en${newPath.replace(
       '/enterprise-server@latest',
-      `/enterprise-server@${latest}`
+      `/enterprise-server@${latest}`,
     )}`
     const { statusCode, headers } = await get(oldPath, { followRedirects: false })
     expect(statusCode).toBe(302)

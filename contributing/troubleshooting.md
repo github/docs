@@ -1,6 +1,6 @@
 # Troubleshooting <!-- omit in toc -->
 
-- [Troubleshooting server tests that fail locally but pass in CI](#troublshooting-server-tests-that-fail-locally-but-pass-in-ci)
+- [Troubleshooting server tests that fail locally but pass in CI](#troubleshooting-server-tests-that-fail-locally-but-pass-in-ci)
 - [Troubleshooting stalled deployments and CI](#troubleshooting-stalled-deployments-and-ci)
   - [Staging deployment stalled](#staging-deployment-stalled)
   - [CI stalled or stuck](#ci-stalled-or-stuck)

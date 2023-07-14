@@ -56,11 +56,13 @@ By default, {% data variables.product.prodname_nes %} is disabled. You can enabl
    ```shell copy
    ghe-config app.nes.enabled
    ```
+
 1. To enable {% data variables.product.prodname_nes %}, run the following command.
 
    ```shell copy
    ghe-config app.nes.enabled true
    ```
+
 {% data reusables.enterprise.apply-configuration %}
 1. To verify that {% data variables.product.prodname_nes %} is running, from any node, run the following command.
 
@@ -68,7 +70,7 @@ By default, {% data variables.product.prodname_nes %} is disabled. You can enabl
    nomad status nes
    ```
 
-## Configuring TTL settings for {% data variables.product.prodname_nes %} 
+## Configuring TTL settings for {% data variables.product.prodname_nes %}
 
 To determine how {% data variables.product.prodname_nes %} notifies you, you can configure TTL settings for `fail` and `warn` states. The TTL for the `fail` state must be higher than the TTL for the `warn` state.
 
@@ -78,11 +80,13 @@ To determine how {% data variables.product.prodname_nes %} notifies you, you can
    ```shell copy
    nes get-node-ttl all
    ```
+
 1. To set the TTL for the `fail` state, run the following command. Replace MINUTES with the number of minutes to use for failures.
 
    ```shell copy
    nes set-node-ttl fail MINUTES
    ```
+
 1. To set the TTL for the `warn` state, run the following command. Replace MINUTES with the number of minutes to use for warnings.
 
    ```shell copy
@@ -104,6 +108,7 @@ To manage whether {% data variables.product.prodname_nes %} can take a node and 
      ```shell copy
      nes set-node-adminaction approved HOSTNAME
      ```
+
    - To revoke {% data variables.product.prodname_nes %}'s ability to take a node offline, run the following command. Replace HOSTNAME with the node's hostname.
 
      ```shell copy
@@ -127,27 +132,31 @@ After {% data variables.product.prodname_nes %} detects that a node has exceeded
    ```shell copy
    nes get-node-adminaction HOSTNAME
    ```
+
 1. If the `adminaction` state is currently set to `approved`, change the state to `none` by running the following command. Replace HOSTNAME with the hostname of the ineligible node.
 
    ```shell copy
    nes set-node-adminaction none HOSTNAME
    ```
+
 1. To ensure the node is in a healthy state, run the following command and confirm that the node's status is `ready`.
 
    ```shell copy
    nomad node status
    ```
-   
+
    - If the node's status is `ineligible`, make the node eligible by connecting to the node via SSH and running the following command.
 
      ```shell copy
      nomad node eligibility -enable -self
      ```
+
 1. To update the node's eligibility in {% data variables.product.prodname_nes %}, run the following command. Replace HOSTNAME with the node's hostname.
 
    ```shell copy
    nes set-node-eligibility eligible HOSTNAME
    ```
+
 1. Wait 30 seconds, then check the cluster's health to confirm the target node is eligible by running the following command.
 
    ```shell copy
@@ -164,15 +173,17 @@ You can view logs for {% data variables.product.prodname_nes %} from any node in
    ```shell copy
    nomad alloc logs -job nes
    ```
+
 1. Alternatively, you can view logs for {% data variables.product.prodname_nes %} on the node that runs the service. The service writes logs to the systemd journal.
-   
+
    - To determine which node runs {% data variables.product.prodname_nes %}, run the following command.
 
      ```shell copy
      nomad job status "nes" | grep running | grep "${nomad_node_id}" | awk 'NR==2{ print $1 }' | xargs nomad alloc status | grep "Node Name"
      ```
+
    - To view logs on the node, connect to the node via SSH, then run the following command.
-     
+
      ```shell copy
      journalctl -t nes
      ```

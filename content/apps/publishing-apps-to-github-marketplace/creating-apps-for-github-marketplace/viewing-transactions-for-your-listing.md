@@ -21,7 +21,6 @@ shortTitle: View listing transactions
 
 {% endnote %}
 
-
 You can view or download the transaction data to keep track of your subscription activity. Click the **Export CSV** button to download a `.csv` file. You can also select a period of time to view and search within the transaction page.
 
 ## Transaction data fields
@@ -38,7 +37,7 @@ You can view or download the transaction data to keep track of your subscription
 - **region:** The name of the region present in billing address.
 - **postal_code:** The postal code value present in billing address.
 
-![Screenshot of the {% data variables.product.prodname_marketplace %} Insights.](/assets/images/marketplace/marketplace-transactions.png)
+![Screenshot of the "Transactions" tab in the {% data variables.product.prodname_marketplace %} listing for an app. Transactions from the past week are listed in a table layout, with a search bar labeled "Search this file...".](/assets/images/marketplace/marketplace-transactions.png)
 
 ## Accessing {% data variables.product.prodname_marketplace %} transactions
 
@@ -47,7 +46,7 @@ To access {% data variables.product.prodname_marketplace %} transactions:
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.marketplace_apps %}
-4. Select the {% data variables.product.prodname_github_app %} that you'd like to view transactions for.
+1. Select the {% data variables.product.prodname_github_app %} that you'd like to view transactions for.
 {% data reusables.user-settings.edit_marketplace_listing %}
-6. Click the **Transactions** tab.
-7. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Transactions page.
+1. Click the **Transactions** tab.
+1. Optionally, select a different time period by clicking the Period dropdown in the upper-right corner of the Transactions page.

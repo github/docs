@@ -82,7 +82,7 @@ Key            | Value
 {%- ifversion ghes or ghae %}
 `note`         | Miscellaneous event-specific information (in either plain text or JSON format).{% endif %}
 {%- ifversion ghes or ghae %}
-`oauth_app_id` | ID of the OAuth application associated with the action.{% endif %}
+`oauth_app_id` | ID of the {% data variables.product.prodname_oauth_app %} associated with the action.{% endif %}
 `operation`         | Operation type that corresponds with the action. Operation types are `create`, `access`, `modify`, `remove`, `authentication`, `transfer`, and `restore`.
 {%- ifversion ghes or ghae %}
 `org`          | Name of the organization affected by the action (if applicable).{% endif %}
@@ -94,7 +94,6 @@ Key            | Value
 {%- ifversion ghes or ghae %}
 `user_id`      | ID of the user affected by the action.{% endif %}
 `user`         | Name of the user affected by the action.
-
 
 To see actions grouped by category, you can also use the action qualifier as a `key:value` pair. For more information, see "[Search based on the action performed](#search-based-on-the-action-performed)."
 
@@ -148,6 +147,7 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 - `country:"United States"` all finds events that occurred in the United States.
 
 {% ifversion token-audit-log %}
+
 ### Search based on the token that performed the action
 
 Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."

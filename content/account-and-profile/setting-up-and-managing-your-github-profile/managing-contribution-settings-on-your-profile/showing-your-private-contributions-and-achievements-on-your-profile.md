@@ -33,7 +33,6 @@ If you choose to hide your private contributions, visitors will only see your pu
 {% data reusables.profile.access_profile %}
 1. Under "Contributions & Activity", select or deselect **Include private contributions on my profile**.
 
-
 ## Changing the visibility of achievements
 
 {% data reusables.user-settings.access_settings %}
