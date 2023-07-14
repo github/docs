@@ -19,7 +19,7 @@ export const internalLinksLang = {
           for (const attr of child.attrs) {
             if (
               languageKeys.some(
-                (lang) => attr[1].startsWith(`/${lang}`) || attr[1].startsWith(lang),
+                (lang) => attr[1].startsWith(`/${lang}/`) || attr[1].startsWith(lang),
               )
             ) {
               internalLinkHasLang = true
