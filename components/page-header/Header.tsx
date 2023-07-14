@@ -150,9 +150,9 @@ export const Header = () => {
                 className="d-flex flex-items-center color-fg-default no-underline mr-3"
               >
                 <MarkGithubIcon size={32} />
-                <span className="h4 text-semibold ml-2">{t('github_docs')}</span>
+                <span className="h4 text-semibold ml-2 mr-3">{t('github_docs')}</span>
               </Link>
-              <div className="hide-sm border-left">
+              <div className="hide-sm border-left pl-3">
                 <VersionPicker />
               </div>
             </div>
