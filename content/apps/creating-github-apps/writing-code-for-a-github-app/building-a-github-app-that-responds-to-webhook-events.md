@@ -144,7 +144,7 @@ Add the following code to `app.js`. The code includes annotations that explain e
 //
 // You installed the `dotenv` and `octokit` modules earlier. The `@octokit/webhooks` is a dependency of the `octokit` module, so you don't need to install it separately. The `fs` and `http` dependencies are built-in Node.js modules.
 import dotenv from "dotenv";
-import {App} from "octokit";
+import {App{% ifversion ghes or ghae %}, Octokit{% endif %}} from "octokit";
 import {createNodeMiddleware} from "@octokit/webhooks";
 import fs from "fs";
 import http from "http";
