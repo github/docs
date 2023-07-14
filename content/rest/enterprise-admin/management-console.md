@@ -3,7 +3,7 @@ title: Management Console
 intro: >-
   Use the REST API to manage your {% data variables.product.product_name %}
   installation.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API

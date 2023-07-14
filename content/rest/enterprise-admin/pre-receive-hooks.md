@@ -1,7 +1,7 @@
 ---
 title: Pre-receive Hooks
 intro: 'Use the REST API to create, list, update and delete pre-receive hooks.'
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API

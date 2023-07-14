@@ -20,7 +20,7 @@ program
   .description('Generate a local TOC of the docs website and open it in your browser')
   .option(
     '-o, --openSections [product-ids...]',
-    'open sections for one or more product IDs by default (e.g., "-o codespaces pull-requests")'
+    'open sections for one or more product IDs by default (e.g., "-o codespaces pull-requests")',
   )
   .parse(process.argv)
 

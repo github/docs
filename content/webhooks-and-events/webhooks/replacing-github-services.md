@@ -55,10 +55,10 @@ To replace GitHub Services with Webhooks:
 1. Change your configuration depending on how you currently use GitHub Services:
 
    - **GitHub Apps**: Update your app's permissions and subscribed events to configure your app to receive the relevant webhook events.
-   - **{% data variables.product.prodname_oauth_app %}s**: Request either the `repo_hook` and/or `org_hook` scope(s) to manage the relevant events on behalf of users.
+   - **{% data variables.product.prodname_oauth_apps %}**: Request either the `repo_hook` and/or `org_hook` scope(s) to manage the relevant events on behalf of users.
    - **GitHub Service providers**: Request that users manually configure a webhook with the relevant events sent to you, or take this opportunity to build an app to manage this functionality. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
-1. Move additional configuration from outside of GitHub. Some GitHub Services require additional, custom configuration on the configuration page within GitHub. If your service does this, you will need to move this functionality into your application or rely on GitHub or {% data variables.product.prodname_oauth_app %}s where applicable.
+1. Move additional configuration from outside of GitHub. Some GitHub Services require additional, custom configuration on the configuration page within GitHub. If your service does this, you will need to move this functionality into your application or rely on GitHub or {% data variables.product.prodname_oauth_apps %} where applicable.
 
 ## Supporting {% data variables.product.prodname_ghe_server %}
 

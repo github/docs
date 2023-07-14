@@ -52,7 +52,7 @@ export function GHESReleaseNotes({ context }: Props) {
       <aside
         className={cx(
           'position-sticky d-none d-md-block border-left no-print color-bg-default flex-shrink-0',
-          styles.aside
+          styles.aside,
         )}
       >
         <nav className="height-full overflow-auto">

@@ -63,7 +63,7 @@ async function main() {
 
         // Find the relevant version from the master list so we can access the short name.
         const versionObj = allVersionKeys.find(
-          (version) => version.plan === plan || version.shortName === plan
+          (version) => version.plan === plan || version.shortName === plan,
         )
         if (!versionObj) {
           console.error(`can't find supported version for ${plan}`)
@@ -107,7 +107,7 @@ main().then(
   (err) => {
     console.error(err)
     process.exit(1)
-  }
+  },
 )
 
 // Convenience function to help with readability by removing this large but unneded property.
@@ -150,7 +150,7 @@ function getLiquidReplacements(content, file) {
   tokens
     .filter(
       (token) =>
-        (token.name === 'if' || token.name === 'elsif') && token.content.includes('currentVersion')
+        (token.name === 'if' || token.name === 'elsif') && token.content.includes('currentVersion'),
     )
     .map((token) => token.content)
     .forEach((token) => {
@@ -198,7 +198,7 @@ function getLiquidReplacements(content, file) {
             const newOperator = operatorsMap[operator]
             if (!newOperator) {
               console.error(
-                `Couldn't find an operator that corresponds to ${operator} in "${token} in "${file}`
+                `Couldn't find an operator that corresponds to ${operator} in "${token} in "${file}`,
               )
               process.exit(1)
             }

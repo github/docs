@@ -37,7 +37,7 @@ export default async function processLearningTracks(rawLearningTracks, context) 
     // fall back to English if they don't exist on disk in the translation.
     const track = getDataByLanguage(
       `learning-tracks.${context.currentProduct}.${renderedTrackName}`,
-      context.currentLanguage
+      context.currentLanguage,
     )
     if (!track) {
       throw new Error(`No learning track called '${renderedTrackName}'.`)
@@ -61,7 +61,7 @@ export default async function processLearningTracks(rawLearningTracks, context) 
     if (context.currentLanguage !== 'en') {
       enTrack = getDataByLanguage(
         `learning-tracks.${context.currentProduct}.${renderedTrackName}`,
-        'en'
+        'en',
       )
       // Sometimes the translations have more than just translated the
       // `title` and `description`, but also things that don't make sense
@@ -85,12 +85,12 @@ export default async function processLearningTracks(rawLearningTracks, context) 
     const title = await executeWithFallback(
       context,
       () => renderContent(track.title, context, renderOpts),
-      (enContext) => renderContent(enTrack.title, enContext, renderOpts)
+      (enContext) => renderContent(enTrack.title, enContext, renderOpts),
     )
     const description = await executeWithFallback(
       context,
       () => renderContent(track.description, context, renderOpts),
-      (enContext) => renderContent(enTrack.description, enContext, renderOpts)
+      (enContext) => renderContent(enTrack.description, enContext, renderOpts),
     )
 
     const learningTrack = {

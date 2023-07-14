@@ -382,15 +382,13 @@ on:
     types: [created, deleted]
 ```
 
-{% ifversion fpt or ghec  %}
+{% ifversion merge-queue  %}
 
 ## `merge_group`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
 | [`merge_group`](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
-
-{% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 

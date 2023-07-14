@@ -60,7 +60,7 @@ ndDirs.scriptSrc.push(
   "'unsafe-eval'",
   "'unsafe-inline'",
   'http://www.google-analytics.com',
-  'https://ssl.google-analytics.com'
+  'https://ssl.google-analytics.com',
 )
 ndDirs.connectSrc.push('https://www.google-analytics.com')
 ndDirs.imgSrc.push('http://www.google-analytics.com', 'https://ssl.google-analytics.com')

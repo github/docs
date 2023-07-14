@@ -11,8 +11,6 @@ topics:
   - Actions Runner Controller
 ---
 
-{% data reusables.actions.actions-runner-controller-beta %}
-
 [Legal notice](#legal-notice)
 
 ## About {% data variables.product.prodname_actions_runner_controller %}

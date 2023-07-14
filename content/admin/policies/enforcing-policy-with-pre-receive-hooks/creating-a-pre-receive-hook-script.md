@@ -159,7 +159,7 @@ You can test a pre-receive hook script locally before you create or update it on
 1. Create a file called `Dockerfile.dev` containing:
 
    ```dockerfile
-   FROM gliderlabs/alpine:3.3
+   FROM alpine:latest
    RUN \
      apk add --no-cache git openssh bash && \
      ssh-keygen -A && \
@@ -197,23 +197,24 @@ You can test a pre-receive hook script locally before you create or update it on
 
    ```shell
    $ docker build -f Dockerfile.dev -t pre-receive.dev .
-   > Sending build context to Docker daemon 3.584 kB
-   > Step 1 : FROM gliderlabs/alpine:3.3
-   >  ---> 8944964f99f4
-   > Step 2 : RUN apk add --no-cache git openssh bash && ssh-keygen -A && sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g"  /etc/ssh/sshd_config && adduser git -D -G root -h /home/git -s /bin/bash && passwd -d git && su git -c "mkdir /home/git/.ssh && ssh-keygen -t ed25519 -f /home/git/.ssh/id_ed25519 -P ' && mv /home/git/.ssh/id_ed25519.pub /home/git/.ssh/authorized_keys && mkdir /home/git/test.git && git --bare init /home/git/test.git"
-   >  ---> Running in e9d79ab3b92c
-   > fetch http://alpine.gliderlabs.com/alpine/v3.3/main/x86_64/APKINDEX.tar.gz
-   > fetch http://alpine.gliderlabs.com/alpine/v3.3/community/x86_64/APKINDEX.tar.gz
-   ....truncated output....
-   > OK: 34 MiB in 26 packages
-   > ssh-keygen: generating new host keys: RSA DSA ECDSA ED25519
-   > Password for git changed by root
-   > Generating public/private ed25519 key pair.
-   > Your identification has been saved in /home/git/.ssh/id_ed25519.
-   > Your public key has been saved in /home/git/.ssh/id_ed25519.pub.
-   ....truncated output....
-   > Initialized empty Git repository in /home/git/test.git/
-   > Successfully built dd8610c24f82
+   [+] Building 4.5s (8/8) FINISHED
+    => [internal] load build definition from Dockerfile.dev                                                                            0.0s
+    => => transferring dockerfile: 641B                                                                                                0.0s
+    => [internal] load .dockerignore                                                                                                   0.0s
+    => transferring context: 2B                                                                                                     0.0s
+    => [internal] load metadata for docker.io/library/alpine:latest                                                                    1.9s
+    => [auth] library/alpine:pull token for registry-1.docker.io                                                                       0.0s
+    => [1/3] FROM docker.io/library/alpine:latest@sha256:82d1e9d7ed48a7523bdebc18cf6290bdb97b82302a8a9c27d4fe885949ea94d1              0.0s
+    => => resolve docker.io/library/alpine:latest@sha256:82d1e9d7ed48a7523bdebc18cf6290bdb97b82302a8a9c27d4fe885949ea94d1              0.0s
+    => => sha256:82d1e9d7ed48a7523bdebc18cf6290bdb97b82302a8a9c27d4fe885949ea94d1 1.64kB / 1.64kB                                      0.0s
+    => => sha256:25fad2a32ad1f6f510e528448ae1ec69a28ef81916a004d3629874104f8a7f70 528B / 528B                                          0.0s
+    => => sha256:c1aabb73d2339c5ebaa3681de2e9d9c18d57485045a4e311d9f8004bec208d67 1.47kB / 1.47kB                                      0.0s
+    => [2/3] RUN   apk add --no-cache git openssh bash &&   ssh-keygen -A &&   sed -i "s/#AuthorizedKeysFile/AuthorizedKeysFile/g" /e  2.3s
+    => [3/3] WORKDIR /home/git                                                                                                         0.0s
+    => exporting to image                                                                                                              0.1s
+    => => exporting layers                                                                                                             0.1s
+    => => writing image sha256:938447846e19a4328a85883fbd1ccf5eb919d97448cc7256efebf403d8b5a196                                        0.0s
+    => => naming to docker.io/library/pre-receive.dev
    ```
 
 1. Run a data container that contains a generated SSH key:
@@ -247,16 +248,16 @@ You can test a pre-receive hook script locally before you create or update it on
    $ git clone git@github.com:octocat/Hello-World.git
    $ cd Hello-World
    $ git remote add test git@127.0.0.1:test.git
-   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_ed25519" git push -u test main
-   > Warning: Permanently added '[192.168.99.100]:52311' (ECDSA) to the list of known hosts.
+   $ GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 52311 -i ../id_ed25519" git push -u test master
+   > Warning: Permanently added '[127.0.0.1]:52311' (ECDSA) to the list of known hosts.
    > Counting objects: 7, done.
    > Delta compression using up to 4 threads.
    > Compressing objects: 100% (3/3), done.
    > Writing objects: 100% (7/7), 700 bytes | 0 bytes/s, done.
    > Total 7 (delta 0), reused 7 (delta 0)
    > remote: error: rejecting all pushes
-   > To git@192.168.99.100:test.git
-   >  ! [remote rejected] main -> main (pre-receive hook declined)
+   > To git@127.0.0.1:test.git
+   >  ! [remote rejected] master -> master (pre-receive hook declined)
    > error: failed to push some refs to 'git@192.168.99.100:test.git'
    ```
 

@@ -51,7 +51,7 @@
 {%- endif %}
 {%- ifversion ghec %}
 | `enterprise_domain` | Contains activities related to verified enterprise domains.
-| `enterprise_installation` | Contains activities related to {% data variables.product.prodname_github_app %}s associated with an {% data variables.product.prodname_github_connect %} enterprise connection.
+| `enterprise_installation` | Contains activities related to {% data variables.product.prodname_github_apps %} associated with an {% data variables.product.prodname_github_connect %} enterprise connection.
 {%- endif %}
 {%- ifversion fpt or ghec %}
 | `environment` | Contains activities related to {% data variables.product.prodname_actions %} environments.
@@ -86,9 +86,9 @@
 | `migration` | Contains activities related to transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance.
 {%- endif %}
 | `oauth_access` | Contains activities related to OAuth access tokens.
-| `oauth_application` | Contains activities related to {% data variables.product.prodname_oauth_app %}s.
+| `oauth_application` | Contains activities related to {% data variables.product.prodname_oauth_apps %}.
 {%- ifversion fpt or ghec %}
-| `oauth_authorization` | Contains activities related to authorizing {% data variables.product.prodname_oauth_app %}s.
+| `oauth_authorization` | Contains activities related to authorizing {% data variables.product.prodname_oauth_apps %}.
 {%- endif %}
 | `org`   | Contains activities related to organization membership.
 {%- ifversion ghec or ghes or ghae %}

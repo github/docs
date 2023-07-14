@@ -109,7 +109,7 @@ describe('check if a GitHub-owned private repository is referenced', () => {
       !(
         filename.includes('static') &&
         (filename.endsWith('.json') || filename.endsWith('.json.br'))
-      )
+      ),
   )
 
   test.each(filenames)('in file %s', (filename) => {
@@ -131,7 +131,7 @@ describe('check if a GitHub-owned private repository is referenced', () => {
       You can:
 
       (1) edit the file to remove the repository reference; or
-      (2) if the repository is public, add the repository name to the 'PUBLIC_REPOS' variable in this test file.`
+      (2) if the repository is public, add the repository name to the 'PUBLIC_REPOS' variable in this test file.`,
     ).toHaveLength(0)
   })
 })

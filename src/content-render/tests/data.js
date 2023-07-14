@@ -55,7 +55,7 @@ describe('data tag', () => {
       currentLanguage: 'en',
     }
     await expect(page.render(context)).rejects.toThrow(
-      "Can't find the key 'foo.bar.tipu' in the scope., line:2, col:1"
+      "Can't find the key 'foo.bar.tipu' in the scope., line:2, col:1",
     )
   })
 })

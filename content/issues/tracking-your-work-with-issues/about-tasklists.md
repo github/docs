@@ -45,7 +45,7 @@ You can create a tasklist using Markdown in the issue description (the opening c
 1. To begin your tasklist, type <code>```[tasklist]</code> (triple backticks and <code>tasklist</code> inside square brackets) on a new line in the issue description.
 1. Optionally, type `### TITLE` on the next line, replacing `TITLE` with a title for your tasklist.
 1. For each item you want to add to your tasklist, type `- [ ]` on a new line, followed by a space, and either a link to an issue, a link to a pull request, or some text to create a draft issue.
-   - You must provide a full link to an issue or pull request. For example, `https://github.com/octo-org/octo-repo/issues/45`.
+   - You may provide a full link to an issue or pull request or, if the issue or pull request is in the same repository as your tasklist, you can use the #ISSUE-NUMBER shorthand syntax. For example, `https://github.com/octo-org/octo-repo/issues/45` or `#45`.
    - Tasks can be formatted with Markdown.
    - Tasks must not exceed 256 characters in length.
 1. To finish your tasklist, type <code>```</code> on a new line after the last item.

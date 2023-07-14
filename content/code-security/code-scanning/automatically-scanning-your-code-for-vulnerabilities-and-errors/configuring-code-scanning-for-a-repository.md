@@ -3,7 +3,7 @@ title: Configuring code scanning for a repository
 shortTitle: Configure code scanning
 intro: 'You can configure {% data variables.product.prodname_code_scanning %} for a repository to find security vulnerabilities in your code.'
 product: '{% data reusables.gated-features.code-scanning %}'
-permissions: 'People with admin permissions to a repository, or the security manager role for the repository, can configure {% data variables.product.prodname_code_scanning %} for that repository.  People with write permissions to a repository can also configure {% data variables.product.prodname_code_scanning %}, but only by creating a workflow file or manually uploading a SARIF file.'
+permissions: 'Organization owners, security managers, and people with admin permissions to a repository can configure {% data variables.product.prodname_code_scanning %} for that repository. People with write permissions to a repository can also configure {% data variables.product.prodname_code_scanning %}, but only by creating a workflow file or manually uploading a SARIF file.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
@@ -45,6 +45,8 @@ The {% data variables.code-scanning.tool_status_page %} shows useful information
 
 {% endif %}
 
+You can also enable {% data variables.product.prodname_code_scanning %} for multiple repositories in an organization at the same time. For more information, see "[AUTOTITLE](/code-security/getting-started/securing-your-organization)."
+
 {% ifversion ghae %}
 
 ## Prerequisites
@@ -68,23 +70,17 @@ You can use default setup if your repository includes languages that aren't supp
 
 {% data reusables.code-scanning.default-setup-automatic %}
 
-{% ifversion code-scanning-without-workflow-310 %}
-
 {% note %}
 
 **Note:** If your repository contains _only_ {% data variables.product.prodname_codeql %}-supported compiled languages (for example, Java), then you will be taken to the configuration page to select the languages you want to add to your default setup configuration.
 
 {% endnote %}
 
-{% endif %}
-
 {% else %}
 
 Your repository is eligible for default setup if it uses {% data variables.product.prodname_actions %} and contains only the following {% data variables.product.prodname_codeql %}-supported languages:{% ifversion code-scanning-default-setup-go %} Go,{% endif %} JavaScript/TypeScript, Python, or Ruby. While you can use default setup if your repository includes languages that aren't supported by {% data variables.product.prodname_codeql %}, such as R, you must use the advanced setup if you include {% data variables.product.prodname_codeql %}-supported languages other than those previously listed. For more information on {% data variables.product.prodname_codeql %}-supported languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql#about-codeql)."{% ifversion org-enable-code-scanning %} For information on bulk enablement, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."{% endif %}
 
 {% endif %}
-
-{% data reusables.code-scanning.default-setup-automatic %}
 
 Enabling default setup is the quickest way to configure {% data variables.product.prodname_code_scanning %} for your repository. Additionally, default setup requires none of the maintenance necessary with a {% data variables.product.prodname_codeql %} workflow file. Before you enable default setup, you'll see the languages it will analyze, the query suites it will run, and the events that will trigger a new scan.
 

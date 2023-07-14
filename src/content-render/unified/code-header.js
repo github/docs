@@ -63,10 +63,10 @@ export function header(lang, code, subnav) {
           'aria-label': 'Copy code to clipboard',
           'data-clipboard': codeId,
         },
-        btnIcon()
+        btnIcon(),
       ),
       h('pre', { hidden: true, 'data-clipboard': codeId }, code),
-    ]
+    ],
   )
 }
 
