@@ -14,6 +14,7 @@ Once you have an active {% data variables.product.prodname_copilot %} {% ifversi
 {% data reusables.copilot.save-settings %}
 
 {% ifversion fpt %}
+
 ### Enabling or disabling code snippet collection
 
 {% data reusables.copilot.telemetry-setting-org %}

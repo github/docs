@@ -48,7 +48,7 @@ Many people forget about repositories that they've chosen to watch in the past. 
 1. In the left sidebar, under the list of repositories that you have notifications from, use the "Manage notifications" drop-down to click **Subscriptions**.
    ![Screenshot of the "Notifications" page. A dropdown menu, titled "Manage notifications", is highlighted with an orange outline.](/assets/images/help/notifications-v2/manage-notifications-options.png)
 
-2. Use the filters and sort to narrow the list of subscriptions and begin unsubscribing to conversations you no longer want to receive notifications for.
+1. Use the filters and sort to narrow the list of subscriptions and begin unsubscribing to conversations you no longer want to receive notifications for.
 
    ![Screenshot of the "Subscriptions" tab. Three dropdown menus, titled "Reason", "Repository", and "Sort", are highlighted with an orange outline.](/assets/images/help/notifications-v2/all-subscriptions.png)
 
@@ -65,7 +65,7 @@ Many people forget about repositories that they've chosen to watch in the past. 
 
 1. In the left sidebar, under the list of repositories, use the "Manage notifications" drop-down menu and click **Watched repositories**.
    ![Screenshot of the "Notifications" page. A dropdown menu, titled "Manage notifications", is highlighted with an orange outline.](/assets/images/help/notifications-v2/manage-notifications-options.png)
-2. Evaluate the repositories that you are watching and decide if their updates are still relevant and helpful. When you watch a repository, you will be notified of all conversations for that repository.
+1. Evaluate the repositories that you are watching and decide if their updates are still relevant and helpful. When you watch a repository, you will be notified of all conversations for that repository.
 
   {% tip %}
 

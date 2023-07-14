@@ -47,11 +47,13 @@ To follow these steps, you must use a macOS or Linux system and have the followi
    ```shell copy
    hg log --template "{author}\n" | sort | uniq > committers.txt
    ```
+
 1. Update your `committers.txt` file, mapping the committer name used in the Mercurial repository to the name you want to use in your Git repository, with the following format:
 
    ```
    “The Octocat <octocato@gmail.com>”=”Octocat <octocat@github.com>”
    ```
+
 1. In your initialized Git repository, run `hg-fast-export.sh`, passing in the path to your Mercurial repository and the path to your `committers.txt` file as arguments.
 
    For example, `../fast-export-221024/hg-fast-export.sh -r ../mercurial-repo -A ../mercurial-repo/committers.txt -M main`.

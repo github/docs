@@ -43,13 +43,14 @@ jobs:
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
               { name: 'content', path: 'tests/content', },
               // { name: 'content-linter', path: 'src/content-linter/tests', },
+              { name: 'content-render', path: 'src/content-render/tests', },
               { name: 'events', path: 'src/events/tests', },
               { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
               { name: 'github-apps', path: 'src/github-apps/tests', },
               { name: 'graphql', path: 'src/graphql/tests', },
               { name: 'landings', path: 'src/landings/tests', },
+              // { name: 'learning-track', path: 'src/learning-track/tests', },
               { name: 'linting', path: 'src/content-linter/tests', },
-              { name: 'meta', path: 'tests/meta', },
               { name: 'observability', path: 'src/observability/tests' },
               { name: 'pageinfo', path: 'src/pageinfo/tests', },
               { name: 'rendering', path: 'tests/rendering', },
@@ -89,7 +90,7 @@ jobs:
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.name == 'rendering-fixtures' }}
@@ -114,7 +115,7 @@ jobs:
         if: ${{ matrix.name == 'translations' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Gather files changed
         if: ${{ matrix.name == 'linting' }}

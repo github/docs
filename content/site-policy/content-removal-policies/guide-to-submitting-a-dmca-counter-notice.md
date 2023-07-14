@@ -54,18 +54,18 @@ If you need additional help, there are many self-help resources online. Lumen ha
 1. **Include the following statement: "I have read and understand GitHub's Guide to Filing a DMCA Counter Notice."**
 We won't refuse to process an otherwise complete counter notice if you don't include this statement; however, we will know that you haven't read these guidelines and may ask you to go back and do so.
 
-2. ***Identify the content that was disabled and the location where it appeared.***
+1. ***Identify the content that was disabled and the location where it appeared.***
 The disabled content should have been identified by URL in the takedown notice. You simply need to copy the URL(s) that you want to challenge.
 
-3. **Provide your contact information.**
+1. **Provide your contact information.**
 Include your email address, name, telephone number, and physical address.
 
-4. ***Include the following statement: "I swear, under penalty of perjury, that I have a good-faith belief that the material was removed or disabled as a result of a mistake or misidentification of the material to be removed or disabled."***
+1. ***Include the following statement: "I swear, under penalty of perjury, that I have a good-faith belief that the material was removed or disabled as a result of a mistake or misidentification of the material to be removed or disabled."***
 You may also choose to communicate the reasons why you believe there was a mistake or misidentification. If you think of your counter notice as a "note" to the complaining party, this is a chance to explain why they should not take the next step and file a lawsuit in response. This is yet another reason to work with a lawyer when submitting a counter notice.
 
-5. ***Include the following statement: "I consent to the jurisdiction of Federal District Court for the judicial district in which my address is located (if in the United States, otherwise the Northern District of California where GitHub is located), and I will accept service of process from the person who provided the DMCA notification or an agent of such person."***
+1. ***Include the following statement: "I consent to the jurisdiction of Federal District Court for the judicial district in which my address is located (if in the United States, otherwise the Northern District of California where GitHub is located), and I will accept service of process from the person who provided the DMCA notification or an agent of such person."***
 
-6. **Include your physical or electronic signature.**
+1. **Include your physical or electronic signature.**
 
 ## How to Submit Your Counter Notice
 

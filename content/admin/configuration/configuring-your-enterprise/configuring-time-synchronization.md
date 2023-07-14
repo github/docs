@@ -44,5 +44,5 @@ The NTP protocol continuously corrects small time synchronization discrepancies.
 - Use the `chronyc` command to synchronize the server with the configured NTP server. For example:
 
 ```shell
-$ sudo chronyc -a makestep
+sudo chronyc -a makestep
 ```

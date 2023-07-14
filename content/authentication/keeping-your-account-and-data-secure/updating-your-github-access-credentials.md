@@ -18,6 +18,7 @@ topics:
 shortTitle: Update access credentials
 ---
 {% ifversion not ghae %}
+
 ## Requesting a new password
 
 1. To request a new password, visit {% ifversion fpt or ghec %}https://{% data variables.product.product_url %}/password_reset{% else %}`https://{% data variables.product.product_url %}/password_reset`{% endif %}.
@@ -38,7 +39,7 @@ shortTitle: Update access credentials
 
 {% tip %}
 
-To avoid losing your password in the future, we suggest using a secure password manager, like [LastPass](https://lastpass.com/) or [1Password](https://1password.com/).
+To avoid losing your password in the future, we suggest using a secure password manager.
 
 {% endtip %}
 
@@ -58,6 +59,7 @@ For greater security, enable two-factor authentication in addition to changing y
 
 {% endtip %}
 {% endif %}
+
 ## Updating your access tokens
 
 See "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)" for instructions on reviewing and deleting access tokens. To generate new access tokens, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
@@ -77,6 +79,7 @@ See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-
 If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the "[AUTOTITLE](/rest/apps#reset-an-authorization)" endpoint.
 
 {% ifversion not ghae %}
+
 ## Preventing unauthorized access
 
 For more tips on securing your account and preventing unauthorized access, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/preventing-unauthorized-access)."

@@ -15,12 +15,12 @@ Reordering allows you to alter your commit history to provide a more meaningful 
 ## Reordering a commit
 
 {% data reusables.desktop.current-branch-menu %}
-2. In the list of branches, click the branch with the commits that you want to reorder.
+1. In the list of branches, click the branch with the commits that you want to reorder.
 
    ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 
 {% data reusables.desktop.history-tab %}
-4. Drag the commit that you want to reorder and drop it between two adjoining commits.
+1. Drag the commit that you want to reorder and drop it between two adjoining commits.
 
    ![Screenshot of a list of commits in the "History" tab. The cursor hovers over a narrow horizontal line between two commits, with a "one" icon indicating one commit is being moved.](/assets/images/help/desktop/reorder-drag-and-drop.png)
 
@@ -38,5 +38,5 @@ When you reorder commits, you may see one of the following notifications or erro
 
       ![Screenshot of a notification about conflicts. At the end of the message, a link, labeled "View commits", is highlighted with an orange outline.](/assets/images/help/desktop/reorder-resolve-conflicts.png)
     {% data reusables.desktop.resolve-merge-conflicts %}
-   3. When all conflicts are resolved, you can reorder your commits.
 
+    1. When all conflicts are resolved, you can reorder your commits.

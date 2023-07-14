@@ -36,7 +36,7 @@ export const Survey = () => {
     if (state === ViewState.END) {
       document
         .querySelector<HTMLAnchorElement>(
-          `footer a[href="/${locale}/site-policy/privacy-policies/github-privacy-statement"]`
+          `footer a[href="/${locale}/site-policy/privacy-policies/github-privacy-statement"]`,
         )
         ?.focus()
     }
@@ -100,7 +100,7 @@ export const Survey = () => {
           <label
             className={cx(
               'btn mr-1 color-border-accent-emphasis',
-              state === ViewState.YES && 'color-bg-accent-emphasis'
+              state === ViewState.YES && 'color-bg-accent-emphasis',
             )}
             htmlFor="survey-yes"
           >
@@ -119,7 +119,7 @@ export const Survey = () => {
           <label
             className={cx(
               'btn color-border-accent-emphasis',
-              state === ViewState.NO && 'color-bg-danger-emphasis'
+              state === ViewState.NO && 'color-bg-danger-emphasis',
             )}
             htmlFor="survey-no"
           >

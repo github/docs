@@ -51,7 +51,7 @@ If you work with forks, or if you're the owner of a repository or organization t
 ### About forks within an organization
 
 Forks within the same organization copy the collaborators and team settings of their upstream repositories. If a repository is owned by an organization:
-- That organization controls the permissions of its forks. 
+- That organization controls the permissions of its forks.
 - Any teams from the upstream permission structure that exist and are visible in the target organization or user namespace will have their permissions copied.
 - Admin permissions remain with the upstream owner, except when a user forks into a different organization.
 - If that repository is forked to a user namespace, the organization maintains admin permissions and any teams with access maintain access.

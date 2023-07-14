@@ -64,10 +64,10 @@ which you may want to do if you want to customize the {% data variables.product.
 When you run `database analyze`, it:
 
 1. Optionally downloads any referenced {% data variables.product.prodname_codeql %} packages that are not available locally.
-2. Executes one or more query files, by running them over a {% data variables.product.prodname_codeql %} database.
-3. Interprets the results, based on certain query metadata, so that alerts can be
+1. Executes one or more query files, by running them over a {% data variables.product.prodname_codeql %} database.
+1. Interprets the results, based on certain query metadata, so that alerts can be
 displayed in the correct location in the source code.
-4. Reports the results of any diagnostic and summary queries to standard output.
+1. Reports the results of any diagnostic and summary queries to standard output.
 
 You can analyze a database by running the following command:
 
@@ -77,10 +77,8 @@ codeql database analyze <database> --format=<format> --output=<output> <query-sp
 
 You must specify:
 
-
 - `<database>`: the path to the {% data variables.product.prodname_codeql %} database you want to analyze.
-- `--format`: the format of the results file generated during analysis. A
-number of different formats are supported, including CSV, [SARIF](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#sarif-file), and graph formats. For more information about CSV and SARIF,
+- `--format`: the format of the results file generated during analysis. A number of different formats are supported, including CSV, [SARIF](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#sarif-file), and graph formats. For more information about CSV and SARIF,
 see [Results](#results). To find out which other results formats are
 supported, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze)."
 - `--output`: the output path of the results file generated during analysis.
@@ -131,13 +129,8 @@ For full details of all the options you can use when analyzing databases, see "[
 Query specifiers are used by `codeql database analyze` and other commands that operate on a set of queries.
 The complete form of a query specifier is `scope/name@range:path`, where:
 
-
 - `scope/name` is the qualified name of a {% data variables.product.prodname_codeql %} pack.
-
-
 - `range` is a [semver range](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
-
-
 - `path` is a file system path to a single query, a directory containing queries, or a query suite file.
 
 When you specify a `scope/name`, the `range` and `path` are
@@ -156,7 +149,6 @@ be absolute. It is considered relative to the root of the {% data variables.prod
 pack.
 
 ### Example query specifiers
-
 
 - `codeql/python-queries` - All the queries in the default query suite of the latest version of the `codeql/python-queries` pack.
 
@@ -193,6 +185,7 @@ You can see the sources for these query suites in the [{% data variables.product
 The following examples show how to run `database analyze` using {% data variables.product.prodname_codeql %} packs, and how to use a local checkout of the {% data variables.product.prodname_codeql %} repository. These examples assume your {% data variables.product.prodname_codeql %} databases have been created in a directory that is a sibling of your local copies of the {% data variables.product.prodname_codeql %} repository.
 
 {% ifversion codeql-packs %}
+
 ### Running a {% data variables.product.prodname_codeql %} query pack
 
 {% note %}
@@ -278,18 +271,16 @@ that the results are formatted according to the most recent SARIF specification
 supported by {% data variables.product.prodname_codeql %}.
 
 {% ifversion codeql-packs %}
+
 ### Running a subset of queries in a {% data variables.product.prodname_codeql %} pack
 
 If you are using {% data variables.product.prodname_codeql_cli %} v2.8.1 or later, you can include a path at the end of a pack specification to run a subset of queries inside the pack. This applies to any command that locates or runs queries within a pack.
 
 The complete way to specify a set of queries is in the form `scope/name@range:path`, where:
 
-
 - `scope/name` is the qualified name of a {% data variables.product.prodname_codeql %} pack.
 
-
 - `range` is a [semver range](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges).
-
 
 - `path` is a file system path to a single query, a directory containing queries, or a query suite file.
 

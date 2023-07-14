@@ -34,6 +34,7 @@ If your organization uses {% data variables.product.prodname_ghe_cloud %}, you c
 {% endif %}
 
 {% ifversion enterprise-owners-visible-for-org-members %}
+
 ## View enterprise owners and their roles in an organization
 
 If your organization is managed by an enterprise account, then you can view the enterprise owners who manage billing settings and policies for all of your enterprise's organizations. For more information about enterprise accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."

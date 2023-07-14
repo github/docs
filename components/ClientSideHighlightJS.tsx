@@ -50,13 +50,13 @@ export default function ClientSideHighlightJS() {
       }
     })
     for (const parent of Array.from(
-      document.querySelectorAll<HTMLElement>(CODE_ELEMENTS_PARENT_SELECTOR)
+      document.querySelectorAll<HTMLElement>(CODE_ELEMENTS_PARENT_SELECTOR),
     )) {
       const language = parent.dataset.highlight || 'json'
       if (!SUPPORTED_LANGUAGES.includes(language)) {
         if (process.env.NODE_ENV === 'development') {
           console.warn(
-            `For highlighting, only ${SUPPORTED_LANGUAGES} is supported. Not '${language}'.`
+            `For highlighting, only ${SUPPORTED_LANGUAGES} is supported. Not '${language}'.`,
           )
         }
         continue

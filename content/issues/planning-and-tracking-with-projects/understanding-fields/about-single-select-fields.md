@@ -13,7 +13,7 @@ redirect_from:
 
 You can filter by your single select fields by specifying the option, for example: `fieldname:option`. You can filter for multiple values by providing a comma-separated list of options, for example: `fieldname:option,option`. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
 
-Single select fields can contain up to 50 options. 
+Single select fields can contain up to 50 options.
 
 ## Adding a single select field
 
@@ -33,17 +33,16 @@ You can set descriptions and colors for each of your single select options.
 
 1. Access your project's settings.
 1. To the right of the single select field you want to edit, click {% octicon "pencil" aria-label="The pencil icon" %}.
-   
+
    ![Screenshot of the single select options. The pencil icon, by one of the options, is highlighted with an orange outline.](/assets/images/help/projects-v2/edit-single-select.png)
-   
+
 1. In the modal that opens, under **Label text**, type the name of this option.
-1. Optionally, under **Color**, select the color you want to use to represent this option. 
-   
+1. Optionally, under **Color**, select the color you want to use to represent this option.
+
    ![Screenshot of the modal for editing a single select option. The blue color option is highlighted with an orange outline.](/assets/images/help/projects-v2/edit-single-select-color.png)
-   
+
 1. Optionally, under **Description**, type a description for this option.
 1. Click **Save** to save your changes.
-
 
 {% else %}
 

@@ -11,7 +11,9 @@ permissions: Organization owners can add people to an organization.
 shortTitle: Add people to organization
 ---
 {% ifversion organization-invitation-enhancements %}
+
 ## Adding people to your organization
+
 {% endif %}
 
 {% ifversion not ghae %}
@@ -30,6 +32,7 @@ If your organization [requires members to use two-factor authentication](/organi
 {% data reusables.organizations.send-invitation %}
 
 {% ifversion organization-invitation-enhancements %}
+
 ## Retrying or canceling expired invitations
 
 Invitations expire after 7 days. You can retry or cancel expired invitations, either one by one or in bulk. Failed invitations to outside collaborators can also be found in this view.
@@ -42,4 +45,5 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 {% endif %}
 
 ## Further reading
+
 - "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"

@@ -82,7 +82,7 @@ You can use security overview to find a set of repositories and enable or disabl
 
 1. Go to the security and analysis settings for your organization. For more information, see "[Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings)."
 
-2. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. {% ifversion ghes or ghec %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. {% ifversion ghes or ghec %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 1. Review the information in the dialog box.
 1. Optionally, if you are enabling a feature, select **Enable by default for new {% ifversion fpt or ghec %}private {% endif %}repositories**.
 
@@ -90,7 +90,7 @@ You can use security overview to find a set of repositories and enable or disabl
 
 1. When you are ready to make the changes, click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories in your organization.
 
-{% data reusables.code-scanning.beta-org-enable-all %}
+{% data reusables.code-scanning.limitation-org-enable-all %}
 
 {% data reusables.security.displayed-information %}
 

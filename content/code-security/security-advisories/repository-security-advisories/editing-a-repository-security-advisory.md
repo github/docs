@@ -27,8 +27,8 @@ You can also use the REST API to edit repository security advisories. For more i
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-advisories %}
-4. In the "Security Advisories" list, click the name of the security advisory you'd like to edit.
-5. In the upper-right corner of the details for the security advisory, click **Edit advisory**. This will open the security advisory form in edit mode.
+1. In the "Security Advisories" list, click the name of the security advisory you'd like to edit.
+1. In the upper-right corner of the details for the security advisory, click **Edit advisory**. This will open the security advisory form in edit mode.
 {% data reusables.repositories.security-advisory-edit-cve %}
 {% data reusables.repositories.security-advisory-edit-description %}
 {% data reusables.repositories.security-advisory-edit-details %}

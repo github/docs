@@ -32,7 +32,7 @@ shortTitle: Review dependency changes
 
 Dependency review allows you to "shift left". You can use the provided predictive information to catch vulnerable dependencies before they hit production. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
 
-{% ifversion fpt or ghec or ghes > 3.5 %}
+{% ifversion fpt or ghec or ghes %}
 
 You can use the {% data variables.dependency-review.action_name %} to help enforce dependency reviews on pull requests in your repository. {% data reusables.dependency-review.dependency-review-action-overview %}
 
@@ -41,6 +41,7 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 {% endif %}
 
 {% endif %}
+
 ## Reviewing dependencies in a pull request
 
 {% data reusables.repositories.sidebar-pr %}
@@ -62,7 +63,7 @@ You can configure the {% data variables.dependency-review.action_name %} to bett
 
     ![Screenshot of the "Files changed" tab of a pull request. The button to display the rich diff, labeled with a file icon, is outlined in dark orange.](/assets/images/help/pull_requests/dependency-review-rich-diff.png)
 
-2. Check the dependencies listed in the dependency review.
+1. Check the dependencies listed in the dependency review.
 
    ![Screenshot of the vulnerability warnings in a dependency review for a pull request.](/assets/images/help/pull_requests/dependency-review-vulnerability.png)
 

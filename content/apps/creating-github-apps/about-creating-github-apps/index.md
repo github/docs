@@ -1,7 +1,7 @@
 ---
 title: About creating GitHub Apps
 shortTitle: About creating GitHub Apps
-intro: todo
+intro: Learn about how to create a {% data variables.product.prodname_github_app %}, including best practices and when to use a {% data variables.product.prodname_github_app %}.
 versions:
   fpt: '*'
   ghes: '*'

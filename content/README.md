@@ -407,8 +407,8 @@ The homepage is the main Table of Contents file for the docs site. The homepage 
 To create a product guides page (e.g. [Actions' Guide page](https://docs.github.com/en/actions/guides)), create or modify an existing markdown file with these specific frontmatter values:
 
 1. Use the product guides page template by referencing `layout: product-guides`.
-2. (optional) Include the learning tracks in [`learningTracks`](#learningTracks).
-3. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
+1. (optional) Include the learning tracks in [`learningTracks`](#learningTracks).
+1. (optional) Define which articles to include with [`includeGuides`](#includeGuides).
 
 If using learning tracks, they need to be defined in [`data/learning-tracks/*.yml`](../data/learning-tracks/README.md).
 If using `includeGuides`, make sure each of the articles in this list has [`topics`](#topics) and [`type`](#type) in its frontmatter.

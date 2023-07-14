@@ -26,4 +26,4 @@ You can disable {% data variables.product.prodname_server_statistics %} from {% 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-4. Under "Share server statistics with GitHub.com", select the dropdown menu and click **Enabled** or **Disabled**.
+1. Under "Share server statistics with GitHub.com", select the dropdown menu and click **Enabled** or **Disabled**.

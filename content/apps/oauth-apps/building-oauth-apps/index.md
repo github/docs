@@ -1,6 +1,6 @@
 ---
 title: Building OAuth apps
-intro: You can build {% data variables.product.prodname_oauth_app %}s for yourself or others to use. Learn how to register and set up permissions and authorization options for {% data variables.product.prodname_oauth_app %}s.
+intro: You can build {% data variables.product.prodname_oauth_apps %} for yourself or others to use. Learn how to register and set up permissions and authorization options for {% data variables.product.prodname_oauth_apps %}.
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-oauth-apps
   - /apps/building-oauth-apps

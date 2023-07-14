@@ -22,6 +22,6 @@ shortTitle: Set the IP using the console
 {% endnote %}
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
-3. Choose to configure the `IPv4` or `IPv6` protocol.
-4. Configure options for the protocol you chose.
+1. Choose to configure the `IPv4` or `IPv6` protocol.
+1. Configure options for the protocol you chose.
 {% data reusables.enterprise_installation.vm-console-done %}

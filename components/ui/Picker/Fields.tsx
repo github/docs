@@ -45,7 +45,7 @@ export const Fields = (fieldProps: {
           >
             {renderItem ? renderItem(item) : item.text}
           </ActionList.Item>
-        )
+        ),
       )}
     </ActionList>
   )

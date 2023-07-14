@@ -13,10 +13,10 @@ async function run() {
   const queryRelease = encodeURIComponent('is:open repo:github/docs-content is:issue')
 
   const deprecationIssues = await octokit.request(
-    `GET /search/issues?q=${queryDeprecation}+label:"${encodeURI(ENTERPRISE_DEPRECATION_LABEL)}"`
+    `GET /search/issues?q=${queryDeprecation}+label:"${encodeURI(ENTERPRISE_DEPRECATION_LABEL)}"`,
   )
   const releaseIssues = await octokit.request(
-    `GET /search/issues?q=${queryRelease}+label:"${encodeURI(ENTERPRISE_RELEASE_LABEL)}"`
+    `GET /search/issues?q=${queryRelease}+label:"${encodeURI(ENTERPRISE_RELEASE_LABEL)}"`,
   )
   const isDeprecationIssue = deprecationIssues.data.items.length === 0 ? 'false' : 'true'
   const isReleaseIssue = releaseIssues.data.items.length === 0 ? 'false' : 'true'
@@ -32,5 +32,5 @@ run().then(
   (error) => {
     console.log(`#ERROR# ${error}`)
     process.exit(1)
-  }
+  },
 )

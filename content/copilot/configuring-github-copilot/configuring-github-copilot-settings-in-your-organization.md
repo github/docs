@@ -39,7 +39,6 @@ Depending on the policy settings configured at the enterprise level, an organiza
 
 **Note:** You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}.  For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
 
-
 {% endnote %}
 {% endif %}
 

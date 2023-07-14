@@ -91,6 +91,7 @@ The best way to avoid this problem is to stay up to date with the most recently 
 **Security updates only.** {% data variables.product.prodname_dependabot %} updates explicitly defined transitive dependencies that are vulnerable for all ecosystems. For npm, {% data variables.product.prodname_dependabot %} will raise a pull request that also updates the parent dependency if it's the only way to fix the transitive dependency.
 
 For example, a project with a dependency on `A` version `~2.0.0` which has a transitive dependency on `B` version `~1.0.0` which has resolved to `1.0.1`.
+
 ```
 my project
 |
@@ -98,6 +99,7 @@ my project
        |
        --> B (1.0.1) [~1.0.0]
 ```
+
 If a security vulnerability is released for `B` versions `<2.0.0` and a patch is available at `2.0.0` then  {% data variables.product.prodname_dependabot %} will attempt to update `B` but will find that it's not possible due to the restriction in place by `A` which only allows lower vulnerable versions. To fix the vulnerability, {% data variables.product.prodname_dependabot %} will look for updates to dependency `A` which allow the fixed version of `B` to be used.
 
 {% data variables.product.prodname_dependabot %} automatically generates a pull request that upgrades both the locked parent and child transitive dependencies.{% endif %}
@@ -142,6 +144,46 @@ Similarly, if {% data variables.product.prodname_dependabot %} can't access a pr
 To allow {% data variables.product.prodname_dependabot %} to update the dependency references successfully, make sure that all of the referenced dependencies are hosted at accessible locations.
 
 **Version updates only.** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)."
+
+{% ifversion dependabot-version-updates-groups %}
+
+### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request
+
+{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
+
+You must configure groups per package ecosystem.
+
+{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+
+For more information on how to configure groups for {% data variables.product.prodname_dependabot_version_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#groups)."
+
+### {% data variables.product.prodname_dependabot %} fails to update one of the dependencies in a grouped pull request
+
+{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
+
+**Version updates only.** {% data variables.product.prodname_dependabot %} will show the failed update in your logs, as well as in the job summary at the end of your logs. You should use the `@dependabot recreate` comment on the pull request to build the group again. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+
+If the dependency still fails to update, you should use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
+
+If the dependency still fails to update, there may be a problem with the dependency itself, or with {% data variables.product.prodname_dependabot %} for that specific ecosystem.
+
+If you want to ignore version updates for the dependency, you must configure an `ignore` rule for the dependency in the `dependabot.yml` file.
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+
+### Continuous integration (CI) fails on my grouped pull request
+
+{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
+
+**Version updates only.** If the failure is due to a single dependency, you should use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
+
+If you want to ignore version updates for the dependency, you must configure an `ignore` rule for the dependency in the `dependabot.yml` file.
+
+For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+
+If you continue to see CI failures, you should remove the group configuration so that {% data variables.product.prodname_dependabot %} reverts to raising individual pull requests for each dependency. Then, you should check and confirm that the update works correctly for each individual pull request.
+
+{% endif %}
 
 ## Triggering a {% data variables.product.prodname_dependabot %} pull request manually
 

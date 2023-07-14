@@ -22,9 +22,9 @@ shortTitle: Create a team discussion
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
-6. Type a team discussion title and a comment to start a conversation.
-7. Optionally, select whether you want your post to be private or public using the drop-down menu.
-8. Click **Comment**.
+1. Type a team discussion title and a comment to start a conversation.
+1. Optionally, select whether you want your post to be private or public using the drop-down menu.
+1. Click **Comment**.
 
 ## Further reading
 

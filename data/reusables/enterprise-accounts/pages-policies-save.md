@@ -1,1 +1,1 @@
- 6. Click **Save**.
+ 1. Click **Save**.

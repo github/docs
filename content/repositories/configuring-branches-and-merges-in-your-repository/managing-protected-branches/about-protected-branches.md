@@ -57,7 +57,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 - [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 - [Require signed commits](#require-signed-commits)
 - [Require linear history](#require-linear-history)
-{% ifversion fpt or ghec %}
+{% ifversion merge-queue %}
 - [Require merge queue](#require-merge-queue)
 {% endif %}
 {%- ifversion required-deployments %}
@@ -158,10 +158,10 @@ Enforcing a linear commit history prevents collaborators from pushing merge comm
 
 Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges)."
 
-{% ifversion fpt or ghec %}
+{% ifversion merge-queue %}
+
 ### Require merge queue
 
-{% data reusables.pull_requests.merge-queue-beta %}
 {% data reusables.pull_requests.merge-queue-overview %}
 
 {% data reusables.pull_requests.merge-queue-merging-method %}
@@ -169,11 +169,14 @@ Before you can require a linear commit history, your repository must allow squas
 
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.6 %}
 ### Require deployments to succeed before merging
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+{% endif %}
 
 {% ifversion lock-branch %}
+
 ### Lock branch
 
 Locking a branch ensures that no commits can be made to the branch.
@@ -181,6 +184,7 @@ By default, a forked repository does not support syncing from its upstream repos
 {%  endif %}
 
 {% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
+
 ### Include administrators{% endif %}
 
 {% ifversion bypass-branch-protections %}

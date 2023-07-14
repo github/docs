@@ -24,12 +24,11 @@ topics:
 You can also create a new issue to track an alert:
 - From a {% data variables.product.prodname_code_scanning %} alert, which automatically adds the code scanning alert to a task list in the new issue. For more information, see "[Creating a tracking issue from a {% data variables.product.prodname_code_scanning %} alert](#creating-a-tracking-issue-from-a-code-scanning-alert)" below.
 
-- Via the API as you normally would, and then provide the code scanning link within the body of the issue. You must use the task list syntax to create the tracked relationship: 
+- Via the API as you normally would, and then provide the code scanning link within the body of the issue. You must use the task list syntax to create the tracked relationship:
   - `- [ ] <full-URL- to-the-code-scanning-alert>`
   - For example, if you add `- [ ] https://github.com/octocat-org/octocat-repo/security/code-scanning/17` to an issue, the issue will track the code scanning alert that has an ID number of 17 in the **Security** tab of the `octocat-repo` repository in the `octocat-org` organization.
 
 You can use more than one issue to track the same {% data variables.product.prodname_code_scanning %} alert, and issues can belong to different repositories from the repository where the {% data variables.product.prodname_code_scanning %} alert was found.
-
 
 {% data variables.product.product_name %} provides visual cues in different locations of the user interface to indicate when you are tracking {% data variables.product.prodname_code_scanning %} alerts in issues.
 
@@ -37,11 +36,11 @@ You can use more than one issue to track the same {% data variables.product.prod
 
   ![Screenshot of the {% data variables.product.prodname_code_scanning %} alerts view. The first entry includes the issue icon followed by the number 2. The third entry includes the issue icon followed by the number 1. Both are outlined in dark orange.](/assets/images/help/repository/code-scanning-alert-list-tracked-issues.png)
 
-- A "tracked in" section will also show in the corresponding alert page. 
+- A "tracked in" section will also show in the corresponding alert page.
 
   ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. Under the alert title, "Tracked by #1, #2" is outlined in dark orange.](/assets/images/help/repository/code-scanning-alert-tracked-in-pill.png)
 
-- On the tracking issue, {% data variables.product.prodname_dotcom %} displays a security badge icon in the task list and on the hovercard. 
+- On the tracking issue, {% data variables.product.prodname_dotcom %} displays a security badge icon in the task list and on the hovercard.
   
   {% note %}
 
@@ -62,18 +61,18 @@ The status of the tracked alert won't change if you change the checkbox state of
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 {% data reusables.code-scanning.explore-alert %}
 1. Optionally, to find the alert to track, you can use the free-text search or the drop-down menus to filter and locate the alert. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#filtering-code-scanning-alerts)."
-1. Towards the top of the page, on the right side, click **Create issue**. 
+1. Towards the top of the page, on the right side, click **Create issue**.
 
    ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert. The "Create issue" button is outlined in dark orange.](/assets/images/help/repository/code-scanning-create-issue-for-alert.png)
 
    {% data variables.product.prodname_dotcom %} automatically creates an issue to track the alert and adds the alert as a task list item.
    {% data variables.product.prodname_dotcom %} prepopulates the issue:
    - The title contains the name of the {% data variables.product.prodname_code_scanning %} alert.
-   - The body contains the task list item with the full URL to the {% data variables.product.prodname_code_scanning %} alert. 
-2. Optionally, edit the title and the body of the issue.
+   - The body contains the task list item with the full URL to the {% data variables.product.prodname_code_scanning %} alert.
+1. Optionally, edit the title and the body of the issue.
    {% warning %}
 
     **Warning:** You may want to edit the title of the issue as it may expose security information. You can also edit the body of the issue. Make sure that you keep the task list item with a link to the alert otherwise the issue will no longer track the alert.
    {% endwarning %}
 
-3. Click **Submit new issue**.
+1. Click **Submit new issue**.

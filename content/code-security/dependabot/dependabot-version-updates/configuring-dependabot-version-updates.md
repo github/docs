@@ -109,7 +109,7 @@ On a fork, you also need to explicitly enable {% data variables.product.prodname
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
 {% data reusables.dependabot.click-dependabot-tab %}
-5. Under "Enable Dependabot", click **Enable Dependabot**.
+1. Under "Enable Dependabot", click **Enable Dependabot**.
 
 {% endif %}
 

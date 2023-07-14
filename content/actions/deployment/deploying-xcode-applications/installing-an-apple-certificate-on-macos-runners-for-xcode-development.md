@@ -50,6 +50,7 @@ Create secrets in your repository or organization for the following items:
     ```shell
     base64 -i BUILD_CERTIFICATE.p12 | pbcopy
     ```
+
 - The password for your Apple signing certificate.
   - In this example, the secret is named `P12_PASSWORD`.
 
@@ -131,6 +132,7 @@ On self-hosted runners, the `$RUNNER_TEMP` directory is cleaned up at the end of
 If you use self-hosted runners, you should add a final step to your workflow to help ensure that these sensitive files are deleted at the end of the job. The workflow step shown below is an example of how to do this.
 
 {% raw %}
+
 ```yaml
 - name: Clean up keychain and provisioning profile
   if: ${{ always() }}
@@ -138,4 +140,5 @@ If you use self-hosted runners, you should add a final step to your workflow to 
     security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
     rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
 ```
+
 {% endraw %}

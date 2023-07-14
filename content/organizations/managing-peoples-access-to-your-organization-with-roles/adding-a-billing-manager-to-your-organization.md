@@ -62,7 +62,7 @@ The invited person will receive an invitation email asking them to become a bill
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Billing management", next to "Billing managers", click **Add**.
-6. Type the username or email address of the person you want to add and click **Send invitation**.
+1. Type the username or email address of the person you want to add and click **Send invitation**.
 
 ## Further reading
 

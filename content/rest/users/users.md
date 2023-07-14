@@ -3,7 +3,7 @@ title: Users
 intro: >-
   Use the REST API to get public and private information about authenticated
   users.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

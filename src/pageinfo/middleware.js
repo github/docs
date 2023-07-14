@@ -173,10 +173,10 @@ router.get(
     setFastlySurrogateKey(
       res,
       `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(page.languageCode)}`,
-      true
+      true,
     )
     res.status(200).json({ info })
-  })
+  }),
 )
 
 // Alias for the latest version
