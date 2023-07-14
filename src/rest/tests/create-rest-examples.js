@@ -53,7 +53,7 @@ describe('rest example requests and responses', () => {
     const mergedExamples = await getCodeSamples(operation)
     mergedExamples.forEach((example, index) => {
       expect(example.request.description).toBe(
-        'Example ' + (index + 1) + ': Status Code ' + example.response.statusCode
+        'Example ' + (index + 1) + ': Status Code ' + example.response.statusCode,
       )
     })
   })

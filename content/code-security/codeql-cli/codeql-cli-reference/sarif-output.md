@@ -58,6 +58,7 @@ This details each SARIF component that may be generated, along with any specific
 | `$schema`| {% octicon "check" aria-label="Always" %}| Provides a link to the [SARIF schema](https://github.com/oasis-tcs/sarif-spec/blob/123e95847b13fbdd4cbe2120fa5e33355d4a042b/Schemata/sarif-schema-2.1.0.json).|
 | `version`| {% octicon "check" aria-label="Always" %}| The version of the SARIF used to generate the output.|
 | `runs`| {% octicon "check" aria-label="Always" %}| An array containing a single run object, for one language.|
+
 ### `run` object
 
 | JSON property name| Always generated?| Notes|
@@ -173,6 +174,7 @@ For character offset and length regions, the following properties will be set:
 | `snippet`| {% octicon "x" aria-label="Optionally" %}| None |
 
 ### `codeFlow` object
+
 | JSON property name| Always generated?| Notes|
 |-----------------------|--------------------|------|
 | `threadFlows`| {% octicon "check" aria-label="Always" %}| None |

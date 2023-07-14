@@ -78,7 +78,7 @@ jobs:
         name: Approve
         uses: juliangruber/approve-pull-request-action@dcc4effb325c0b503408619918d56e40653dcc91
         with:
-          github-token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           number: ${{ steps.create-pull-request.outputs.pull-request-number }}
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad

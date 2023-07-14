@@ -33,6 +33,7 @@ GitHub or its partners sometimes take photos and videos at GitHub events. By par
 ## 3. Risk, liability, and indemnity
 
 ### Assumption of risk
+
 Although we try to create a safe environment at the Event, accidents or other bad things happen, even to good people. We ask that you do your part to help limit the possibility that you might get injured at the Event.
 
 You agree to carefully consider the risks inherent in any activities that you choose to take part in and to take reasonable precautions before you choose to attend or participate at a GitHub event. For example, you should ensure that you are in good physical health before engaging in any physical activity at a GitHub event, and you should always drink responsibly given the risks associated with drunk driving and participating in activities while your judgment is impaired. It's always good to remember that other event guests may be less responsible than you, and may themselves create additional risk to you despite their best intentions.
@@ -42,9 +43,11 @@ In short, you understand that your attendance and participation at any GitHub ev
 By the same token, you agree that GitHub is not responsible for any injuries or accidents that you might sustain at any events that GitHub doesn't organize or control.
 
 ### Release of liability
+
 You (for yourself, your heirs, personal representatives, or assigns, and anyone else who might make a claim on your behalf) hereby release, waive, discharge and covenant not to sue GitHub and its respective parent companies, subsidiaries, affiliates, officers, directors, partners, shareholders, members, agents, employees, vendors, sponsors, and volunteers from any and all claims, demands, causes of action, damages, losses or expenses (including court costs and reasonable attorneys' fees) which may arise out of, result from, or relate in any way to your attendance at the Event or any related event, except, of course, for any gross negligence or willful misconduct on our part.
 
 ### Indemnity
+
 By the same token, you agree to indemnify and hold GitHub, its parents, subsidiaries, affiliates, officers, directors, employees, agents and representatives harmless, including costs, liabilities and legal fees, from any claim or demand made by any third party due to, related to, or connected with your attendance or conduct at the Event or any related event.
 
 ## 4. Termination

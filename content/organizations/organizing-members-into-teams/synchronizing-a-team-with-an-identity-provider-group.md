@@ -48,6 +48,7 @@ To manage repository access for any {% data variables.product.prodname_dotcom %}
 {% ifversion ghec %}You can also manage team synchronization with the API. For more information, see "[AUTOTITLE](/rest/teams#team-sync)."{% endif %}
 
 {% ifversion ghec %}
+
 ## Requirements for members of synchronized teams
 
 After you connect a team to an IdP group, team synchronization will add each member of the IdP group to the corresponding team on {% data variables.product.product_name %} only if:

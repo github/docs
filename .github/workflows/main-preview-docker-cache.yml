@@ -61,7 +61,7 @@ jobs:
 
       - if: ${{ env.ENABLE_EARLY_ACCESS }}
         name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
       - name: 'Prune for preview env'

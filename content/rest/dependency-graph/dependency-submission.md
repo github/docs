@@ -1,7 +1,7 @@
 ---
 title: Dependency submission
 intro: Use the REST API to submit dependencies.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
   ghes: '>=3.7'

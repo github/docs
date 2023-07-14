@@ -23,6 +23,7 @@ shortTitle: npm registry
 
 {% ifversion packages-npm-v2 %}
 {% else %}
+
 ## Limits for published npm versions
 
 If you publish over 1,000 npm package versions to {% data variables.product.prodname_registry %}, you may see performance issues and timeouts occur during usage.
@@ -37,6 +38,7 @@ If you reach this limit, consider deleting package versions or contact Support f
 {% data reusables.package_registry.authenticate-packages %}
 
 {% ifversion packages-npm-v2 %}
+
 ### Authenticating in a {% data variables.product.prodname_actions %} workflow
 
 This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
@@ -66,6 +68,7 @@ If your instance has subdomain isolation disabled:
 ```shell
 //HOSTNAME/_registry/npm/:_authToken=TOKEN
 ```
+
 {% endif %}
 
 To authenticate by logging in to npm, use the `npm login` command, replacing USERNAME with your {% data variables.product.prodname_dotcom %} username, TOKEN with your {% data variables.product.pat_v1 %}, and PUBLIC-EMAIL-ADDRESS with your email address.
@@ -93,6 +96,7 @@ $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_r
 > Username: USERNAME
 > Password: TOKEN
 ```
+
 {% endif %}
 
 ## Publishing a package
@@ -150,18 +154,22 @@ You can use `publishConfig` element in the _package.json_ file to specify the re
    {% ifversion ghes %}
    If your instance has subdomain isolation enabled:
    {% endif %}
+
    ```shell
    "publishConfig": {
      "registry": "https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm. HOSTNAME/{% endif %}"
    },
    ```
+
    {% ifversion ghes %}
    If your instance has subdomain isolation disabled:
+
    ```shell
    "publishConfig": {
      "registry": "https://HOSTNAME/_registry/npm/"
    },
    ```
+
    {% endif %}
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
@@ -208,10 +216,11 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
      }
    }
    ```
-5. Install the package.
+
+1. Install the package.
 
    ```shell
-   $ npm install
+   npm install
    ```
 
 ### Installing packages from other organizations
@@ -234,9 +243,11 @@ If your instance has subdomain isolation disabled:
 @NAMESPACE:registry=https://HOSTNAME/_registry/npm
 @NAMESPACE:registry=https://HOSTNAME/_registry/npm
 ```
+
 {% endif %}
 
 {% ifversion ghes %}
+
 ## Using the official npm registry
 
 {% data variables.product.prodname_registry %} allows you to access the official npm registry at `registry.npmjs.com`, if your {% data variables.product.prodname_ghe_server %} administrator has enabled this feature. For more information, see [Connecting to the official npm registry](/admin/packages/configuring-package-ecosystem-support-for-your-enterprise#connecting-to-the-official-npm-registry).

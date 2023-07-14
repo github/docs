@@ -1,0 +1,1 @@
+By default, {% data variables.product.prodname_dependabot %} raises a single pull request for each dependency that needs to be updated to a newer version. You can use `groups` to create sets of dependencies (per package manager), so that {% data variables.product.prodname_dependabot %} opens a single pull request to update multiple dependencies at the same time.

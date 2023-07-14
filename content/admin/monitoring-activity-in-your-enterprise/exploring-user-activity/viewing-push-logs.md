@@ -29,7 +29,7 @@ Push log entries show:
 
 {% ifversion repository-activity-view %}
 {% data reusables.repositories.activity-view %}
-For more information, see "[Using the activity view to see changes to your repository](/enterprise-server@latest/repositories/viewing-activity-and-data-for-your-repository/viewing-repository-activity#using-the-activity-view-to-see-changes-to-a-repository)."
+For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
 {% endif %}
 
 ## Viewing a repository's push logs
@@ -41,11 +41,14 @@ For more information, see "[Using the activity view to see changes to your repos
 1. In the left sidebar, click **Push Log**.
 
 {% ifversion ghes %}
+
 ## Viewing a repository's push logs on the command-line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. In the appropriate Git repository, open the audit log file:
+
    ```shell
    ghe-repo OWNER/REPOSITORY -c "cat audit_log"
    ```
+
 {% endif %}

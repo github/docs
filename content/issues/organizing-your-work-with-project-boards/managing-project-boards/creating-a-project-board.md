@@ -93,7 +93,7 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
-2. Under your repository name, click {% octicon "project" aria-hidden="true" %} **Projects**.{% ifversion projects-v2 %}
+1. Under your repository name, click {% octicon "project" aria-hidden="true" %} **Projects**.{% ifversion projects-v2 %}
 1. Click **Projects (classic)**{% endif %}
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}

@@ -34,6 +34,7 @@ Deployments to an environment can be approved or rejected based on the condition
 Alternatively, you can write your own protection rules for any of the above use cases or you can define any custom logic to safely approve or reject deployments from pre-production to production environments.
 
 ## Creating a custom deployment protection rule with {% data variables.product.prodname_github_apps %}
+
 1. Create a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)." Configure the {% data variables.product.prodname_github_app %} as follows.
    1. Optionally, in the **Callback URL** text field under "Identifying and authorizing users," enter the callback URL. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-the-user-authorization-callback-url)."
    1. Under "Permissions," select **Repository permissions**.
@@ -68,6 +69,7 @@ Once a workflow reaches a job that references an environment that has the custom
       } \
    }'
    ```
+
 1. Optionally, to add a status report without taking any other action to {% data variables.product.prodname_dotcom_the_website %}, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, omit the `state`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run)." You can post a status report on the same deployment up to 10 times. Status reports support Markdown formatting and can be up to 1024 characters long.
 
 1. To approve or reject a request, send a `POST` request to `/repos/OWNER/REPO/actions/runs/RUN_ID/deployment_protection_rule`. In the request body, set the `state` property to either `approved` or `rejected`. For more information, see "[AUTOTITLE](/rest/actions/workflow-runs#review-custom-deployment-protection-rules-for-a-workflow-run)."
@@ -76,6 +78,10 @@ Once a workflow reaches a job that references an environment that has the custom
 
 1. Optionally, review the deployment on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
 
+{% ifversion fpt or ghec %}
+
 ## Publishing custom deployment protection rules in the {% data variables.product.prodname_marketplace %}
 
 You can publish your {% data variables.product.prodname_github_app %} to the {% data variables.product.prodname_marketplace %} to allow developers to discover suitable protection rules and install it across their {% data variables.product.company_short %} repositories. Or you can browse existing custom deployment protection rules to suit your needs. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace)" and "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace)."
+
+{% endif %}

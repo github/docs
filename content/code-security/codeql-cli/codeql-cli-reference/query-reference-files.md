@@ -31,7 +31,7 @@ are intended to identify problems in real codebases. You might create
 several directories of test code, each focusing on different
 aspects of the query. Then you would add a query reference file to
 each directory of test code, to specify the query to test.
-2. Add the query directly to a directory of tests.
+1. Add the query directly to a directory of tests.
 These is typically useful when you’re writing queries explicitly to test the behavior
 of QL libraries. Often these queries contain just a few calls to library predicates,
 wrapping them in a `select` statement so their output can be tested.

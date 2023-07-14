@@ -29,6 +29,7 @@ We highly recommend managing team membership through your identity provider (IdP
 We recommend keeping teams visible whenever possible and reserving secret teams for sensitive situations. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/changing-team-visibility)."
 
 {% ifversion ghec or ghes or ghae %}
+
 ## Use security overview
 
 {% data reusables.security-overview.about-security-overview %} For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."

@@ -81,7 +81,7 @@ Alternatively, you can open the log folder for {% data variables.product.prodnam
       - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
    - For Windows or Linux:
       - Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
-2. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
+1. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
 
 ## Viewing network connectivity diagnostics logs
 

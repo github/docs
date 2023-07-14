@@ -40,7 +40,7 @@ The network graph displays the branch history of the entire repository network, 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-3. In the left sidebar, click **Network**.
+1. In the left sidebar, click **Network**.
 ![Screenshot of the left sidebar. The "Network" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/network_tab.png)
 
 ## Listing the forks of a repository

@@ -54,6 +54,7 @@ topics:
 {% endif %}
 
 {% ifversion create-new-repos-with-query-params %}
+
 ## Creating a new repository from a URL query
 
 You can use query parameters to pre-fill form fields when creating a new repository. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {% data variables.product.prodname_dotcom %}. To specify values for the predefined query parameters, you must match the key and value pair.

@@ -40,6 +40,7 @@ If an image is showing up in your browser but not on {% data variables.product.p
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Request the image headers using `curl`.
+
    ```shell
    $ curl -I https://www.my-server.com/images/some-image.png
    > HTTP/2 200
@@ -49,8 +50,9 @@ If an image is showing up in your browser but not on {% data variables.product.p
    > Server: Google Frontend
    > Content-Length: 6507
    ```
-3. Check the value of `Content-Type`. In this case, it's `image/x-png`.
-4. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
+
+1. Check the value of `Content-Type`. In this case, it's `image/x-png`.
+1. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
 
 If your content type is not supported by Camo, you can try several actions:
 - If you own the server that's hosting the image, modify it so that it returns a correct content type for images.
@@ -63,6 +65,7 @@ If you changed an image recently and it's showing up in your browser but not {% 
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Request the image headers using `curl`.
+
    ```shell
    $ curl -I https://www.my-server.com/images/some-image.png
    > HTTP/2 200
@@ -84,6 +87,7 @@ Purging the cache forces every {% data variables.product.prodname_dotcom %} user
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Purge the image using `curl -X PURGE` on the Camo URL.
+
    ```shell
    $ curl -X PURGE https://camo.githubusercontent.com/4d04abe0044d94fefcf9af2133223....
    > {"status": "ok", "id": "216-8675309-1008701"}

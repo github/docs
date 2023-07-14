@@ -1,6 +1,7 @@
 In this example, the matrix entries for `node-version` are each configured to use different values for the `site` and `datacenter` environment variables. The `Echo site details` step then uses {% raw %}`env: ${{ matrix.env }}`{% endraw %} to refer to the custom variables:
 
 {% raw %}
+
 ```yaml
 name: Node.js CI
 on: [push]
@@ -23,4 +24,5 @@ jobs:
           DATACENTER: ${{ matrix.datacenter }}
         run: echo $SITE $DATACENTER
 ```
+
 {% endraw %}

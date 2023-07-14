@@ -147,6 +147,7 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 - `country:"United States"` all finds events that occurred in the United States.
 
 {% ifversion token-audit-log %}
+
 ### Search based on the token that performed the action
 
 Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)."

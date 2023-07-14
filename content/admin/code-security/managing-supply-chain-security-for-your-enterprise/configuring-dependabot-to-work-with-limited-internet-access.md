@@ -40,6 +40,7 @@ Before configuring {% data variables.product.prodname_dependabot %}, install Doc
    docker pull ghcr.io/dependabot/dependabot-updater-github-actions:VERSION@SHA
    docker pull ghcr.io/dependabot/dependabot-updater-npm:VERSION@SHA
    ```
+
    {%- endif %}
 
    {% note %}

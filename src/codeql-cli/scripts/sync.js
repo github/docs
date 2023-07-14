@@ -13,7 +13,7 @@ import { updateContentDirectory } from '../../automated-pipelines/lib/update-mar
 import { convertContentToDocs } from './convert-markdown-for-docs.js'
 
 const { targetDirectory, sourceDirectory, frontmatterDefaults, markdownPrefix } = JSON.parse(
-  await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8')
+  await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'),
 )
 const SOURCE_REPO = sourceDirectory.split('/')[0]
 const TEMP_DIRECTORY = path.join(SOURCE_REPO, 'tempCliDocs')
@@ -59,7 +59,7 @@ async function setupEnvironment() {
   const isPandoc = execSync('pandoc --version', { encoding: 'utf8' })
   if (!isPandoc.startsWith('pandoc')) {
     throw new Error(
-      'You must install pandoc to run this script. See https://pandoc.org/installing.html.'
+      'You must install pandoc to run this script. See https://pandoc.org/installing.html.',
     )
   }
 

@@ -49,7 +49,7 @@ export const Breadcrumbs = ({ inHeader }: Props) => {
                       'Link--primary mr-2 color-fg-muted',
                       // Show the last breadcrumb if it's in the header, but not if it's in the article
                       // If there's only 1 breadcrumb, show it
-                      !inHeader && i === arr.length - 1 && arr.length !== 1 && 'd-none'
+                      !inHeader && i === arr.length - 1 && arr.length !== 1 && 'd-none',
                     )}
                   >
                     {breadcrumb.title}

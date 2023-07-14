@@ -45,6 +45,7 @@ After verifying ownership of your organization's domain, you can restrict email 
 {% ifversion ghec %}You can also verify custom domains used for {% data variables.product.prodname_pages %} to prevent domain takeovers when a custom domain remains configured but your {% data variables.product.prodname_pages %} site is either disabled or no longer uses the domain. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)."{% endif %}
 
 {% ifversion ghec or ghes %}
+
 ## About domain approval
 
 {% data reusables.enterprise-accounts.approved-domains-beta-note %}
@@ -69,9 +70,11 @@ To verify a domain, you must have access to modify domain records with your doma
 {% data reusables.organizations.add-domain %}
 {% data reusables.organizations.add-dns-txt-record %}
 1. Wait for your DNS configuration to change, which may take up to 72 hours. You can confirm your DNS configuration has changed by running the `dig` command on the command line, replacing `ORGANIZATION` with the name of your organization and `example.com` with the domain you'd like to verify. You should see your new TXT record listed in the command output.
+
    ```shell
-   $ dig _github-challenge-ORGANIZATION-org.example.com +nostats +nocomments +nocmd TXT
+   dig _github-challenge-ORGANIZATION-org.example.com +nostats +nocomments +nocmd TXT
    ```
+
 1. After confirming your TXT record is added to your DNS, follow steps one through three above to navigate to your organization's approved and verified domains.
 {% data reusables.organizations.continue-verifying-domain %}
 1. Optionally, once the "Verified" badge is visible on your organization's profile page, you can delete the TXT entry from the DNS record at your domain hosting service.

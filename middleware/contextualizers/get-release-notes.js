@@ -9,8 +9,8 @@ export function getReleaseNotes(prefix, langCode) {
   if (!VALID_PREFIXES.has(prefix)) {
     throw new Error(
       `'${prefix}' is not a valid prefix for this function. Must be one of ${Array.from(
-        VALID_PREFIXES
-      )}`
+        VALID_PREFIXES,
+      )}`,
     )
   }
   // Use English as the foundation, then we'll try to load each individual
@@ -45,13 +45,13 @@ export function getReleaseNotes(prefix, langCode) {
       // Minor version is things like '0-rc1' or '3'
       const data = getDataByLanguage(
         `release-notes.${prefix}.${majorVersion}.${minorVersion}`,
-        langCode
+        langCode,
       )
       // A simple but powerful validation. If the `sections:` thing
       // is incorrectly translated so it's no longer an array, then we
       // don't pick this up from the translation.
       const validSections = Object.values(data.sections).every((sectionValue) =>
-        Array.isArray(sectionValue)
+        Array.isArray(sectionValue),
       )
       if (validSections) {
         translatedReleaseNotes[majorVersion][minorVersion] = data

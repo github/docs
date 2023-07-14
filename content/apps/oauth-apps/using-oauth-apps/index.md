@@ -1,6 +1,6 @@
 ---
 title: Using OAuth apps
-intro: 'You can authorize third-party {% data variables.product.prodname_oauth_app %}s, and review the {% data variables.product.prodname_oauth_app %}s you authorized.'
+intro: 'You can authorize third-party {% data variables.product.prodname_oauth_apps %}, and review the {% data variables.product.prodname_oauth_apps %} you authorized.'
 versions:
   fpt: '*'
   ghes: '*'

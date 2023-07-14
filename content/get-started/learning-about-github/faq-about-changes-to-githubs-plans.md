@@ -34,6 +34,7 @@ To upgrade your personal account's plan, see "[AUTOTITLE](/billing/managing-bill
 To downgrade your personal account's plan, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)." To downgrade your organization's plan, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
 
 ## If I downgrade from GitHub Team or a Legacy plan to GitHub Free, what features will I lose?
+
 - Required reviewers in private repositories
 - Protected branches in private repositories
 - Code owners in private repositories

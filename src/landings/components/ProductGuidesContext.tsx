@@ -33,7 +33,7 @@ export const useProductGuidesContext = (): ProductGuidesContextT => {
 
   if (!context) {
     throw new Error(
-      '"useProductGuidesContext" may only be used inside "ProductGuidesContext.Provider"'
+      '"useProductGuidesContext" may only be used inside "ProductGuidesContext.Provider"',
     )
   }
 

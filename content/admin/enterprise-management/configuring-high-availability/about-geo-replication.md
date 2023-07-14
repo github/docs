@@ -33,4 +33,5 @@ Geo-replication will not add capacity to a {% data variables.product.prodname_gh
 {% data reusables.enterprise_installation.monitoring-replicas %}
 
 ## Further reading
+
 - "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica#creating-geo-replication-replicas)"

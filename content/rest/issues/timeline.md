@@ -5,7 +5,7 @@ shortTitle: Timeline
 intro: >-
   Use the REST API to receive events triggered by timeline activity in issues
   and pull requests.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

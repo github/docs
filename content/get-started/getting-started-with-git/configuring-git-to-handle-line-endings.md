@@ -17,6 +17,7 @@ versions:
 shortTitle: Handle line endings
 ---
 ## About line endings
+
 Every time you press <kbd>return</kbd> on your keyboard you insert an invisible character called a line ending. Different operating systems handle line endings differently.
 
 When you're collaborating on projects with Git and {% data variables.product.product_name %}, Git might produce unexpected results if, for example, you're working on a Windows machine, and your collaborator has made a change in macOS.
@@ -116,17 +117,20 @@ To ensure that all the line endings in your repository match your new configurat
    git add . -u
    git commit -m "Saving files before refreshing line endings"
    ```
+
 1. To update all files on the current branch to reflect the new configuration, run the following commands.
 
    ```shell copy
    git rm -rf --cached .
    git reset --hard HEAD
    ```
+
 1. To display the rewritten, normalized files, run the following command.
 
    ```shell copy
    git status
    ```
+
 1. Optionally, to commit any outstanding changes in your repository, run the following command.
 
    ```shell copy

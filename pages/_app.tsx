@@ -121,7 +121,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // of a 500 page ("Ooops! It looks like something went wrong.")
   if (req?.context?.languages) {
     for (const [langCode, langObj] of Object.entries(
-      req.context.languages as Record<string, LanguageItem>
+      req.context.languages as Record<string, LanguageItem>,
     )) {
       if (langObj.wip) continue
       // Only pick out the keys we actually need

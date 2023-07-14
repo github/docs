@@ -17,7 +17,7 @@ import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
 
 // This doesn't change just because the request changes, so compute it once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
-  version.startsWith('enterprise-server@')
+  version.startsWith('enterprise-server@'),
 )
 
 // Supply all route handlers with a baseline `req.context` object

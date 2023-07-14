@@ -20,6 +20,7 @@ Each node in a {% data variables.product.product_name %} cluster is a virtual ma
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ## Hardware requirements
+
 Each node must have a root volume, as well as a separate data volume. These are minimum recommendations. More resources may be required depending on your usage, such as user activity and selected integrations.
 
 | Services | Minimum memory required    | Minimum data volume free space Required |

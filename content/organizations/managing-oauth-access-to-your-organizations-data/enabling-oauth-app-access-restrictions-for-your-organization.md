@@ -12,7 +12,7 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Restrict {% data variables.product.prodname_oauth_app %}s
+shortTitle: Restrict {% data variables.product.prodname_oauth_apps %}
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}

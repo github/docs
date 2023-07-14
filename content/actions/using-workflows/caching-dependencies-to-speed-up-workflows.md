@@ -80,17 +80,20 @@ You cannot change the contents of an existing cache. Instead, you can create a n
           ~/.gradle/caches
           ~/.gradle/wrapper
     ```
+
   - You can specify either directories or single files, and glob patterns are supported.
   - You can specify absolute paths, or paths relative to the workspace directory.
 - `restore-keys`: **Optional** A string containing alternative restore keys, with each restore key placed on a new line. If no cache hit occurs for `key`, these restore keys are used sequentially in the order provided to find and restore a cache. For example:
 
   {% raw %}
+
   ```yaml
   restore-keys: |
     npm-feature-${{ hashFiles('package-lock.json') }}
     npm-feature-
     npm-
   ```
+
   {% endraw %}
 
 - `enableCrossOsArchive`: **Optional** A boolean value that when enabled, allows Windows runners to save or restore caches independent of the operating system the cache was created on. If this parameter is not set, it defaults to `false`. For more information, see [Cross OS cache](https://github.com/actions/cache/blob/main/tips-and-workarounds.md#cross-os-cache) in the Actions Cache documentation.
@@ -100,6 +103,7 @@ You cannot change the contents of an existing cache. Instead, you can create a n
 - `cache-hit`: A boolean value to indicate an exact match was found for the key.
 
 ### Cache hits and misses
+
 When `key` exactly matches an existing cache, it's called a _cache hit_, and the action restores the cached files to the `path` directory.
 
 When `key` doesn't match an existing cache, it's called a _cache miss_, and a new cache is automatically created if the job completes successfully.
@@ -165,9 +169,11 @@ Using expressions to create a `key` allows you to automatically create a new cac
 For example, you can create a `key` using an expression that calculates the hash of an npm `package-lock.json` file. So, when the dependencies that make up the `package-lock.json` file change, the cache key changes and a new cache is automatically created.
 
 {% raw %}
+
 ```yaml
 npm-${{ hashFiles('package-lock.json') }}
 ```
+
 {% endraw %}
 
 {% data variables.product.prodname_dotcom %} evaluates the expression `hash "package-lock.json"` to derive the final `key`.
@@ -200,23 +206,27 @@ Cache version is a way to stamp a cache with metadata of the `path` and the comp
 ### Example using multiple restore keys
 
 {% raw %}
+
 ```yaml
 restore-keys: |
   npm-feature-${{ hashFiles('package-lock.json') }}
   npm-feature-
   npm-
 ```
+
 {% endraw %}
 
 The runner evaluates the expressions, which resolve to these `restore-keys`:
 
 {% raw %}
+
 ```yaml
 restore-keys: |
   npm-feature-d5ea0750
   npm-feature-
   npm-
 ```
+
 {% endraw %}
 
 The restore key `npm-feature-` matches any key that starts with the string `npm-feature-`. For example, both of the keys `npm-feature-fd3052de` and `npm-feature-a9b253ff` match the restore key. The cache with the most recent creation date would be used. The keys in this example are searched in the following order:

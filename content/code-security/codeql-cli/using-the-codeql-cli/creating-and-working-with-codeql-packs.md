@@ -56,9 +56,9 @@ If you already have a `qlpack.yml` file, you can edit it manually to convert it 
 
 1. Edit the `name` property so that it matches the format `<scope>/<name>`, where `<scope>` is the name of the {% data variables.product.prodname_dotcom %} organization or user account that you will publish to.
 
-2. In the `qlpack.yml` file, include a `version` property with a semver identifier, as well as an optional `dependencies` block.
+1. In the `qlpack.yml` file, include a `version` property with a semver identifier, as well as an optional `dependencies` block.
 
-3. Migrate the list of dependencies in `libraryPathDependencies` to the `dependencies` block. Specify the version range for each dependency. If the range is unimportant, or you are unsure of compatibility, you can specify `"\*"`, which indicates that any version is acceptable and will default to the latest version when you run `codeql pack install`.
+1. Migrate the list of dependencies in `libraryPathDependencies` to the `dependencies` block. Specify the version range for each dependency. If the range is unimportant, or you are unsure of compatibility, you can specify `"\*"`, which indicates that any version is acceptable and will default to the latest version when you run `codeql pack install`.
 
 For more information about the properties, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#about-codeql-packs)."
 
@@ -93,6 +93,7 @@ This command downloads all dependencies to the shared cache on the local disk.
 {% endnote %}
 
 {% ifversion query-pack-compatibility %}
+
 ## Customizing a downloaded {% data variables.product.prodname_codeql %} pack
 
 The recommended way to experiment with changes to a pack is to clone the repository containing its source code.
