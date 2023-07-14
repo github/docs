@@ -55,6 +55,9 @@ jobs:
       - name: Build
         run: go build -v ./...
 
+      - name: Vet
+        run: go vet -v ./...
+
       - name: Test
         run: go test -v ./...
 ```
