@@ -159,7 +159,7 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-{% ifversion ghes < 3.6 or ghae < 3.6 %}
+{% ifversion ghae < 3.6 %}
 
 {% tip %}
 

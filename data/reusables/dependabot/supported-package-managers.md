@@ -91,12 +91,7 @@ pnpm is supported for {% data variables.product.prodname_dependabot_version_upda
 
 #### pub
 
-{% ifversion ghes = 3.5 %}`pub` support is currently in beta. Any known limitations are subject to change. Note that {% data variables.product.prodname_dependabot %}:
-- Doesn't support updating git dependencies for `pub`.
-- Won't perform an update when the version that it tries to update to is ignored, even if an earlier version is available.
-
-For information about configuring your _dependabot.yml_ file for `pub`, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#enable-beta-ecosystems)."
-{%- else %}{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.{% endif %}
+{% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.
 {% endif %}
 
 {% ifversion dependabot-yarn-v3-update %}
