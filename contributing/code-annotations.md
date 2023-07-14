@@ -34,7 +34,7 @@ Within code sample annotations:
 - Multiple sequential comments will create a single annotation.
 - Lines that do not start with a comment tag and are empty or only contain spaces will be ignored.
 - You must start the code section with a single line comment. If the first line (or section) of the code does not need an annotation, you can use a comment tag with no text to create a blank annotation.
-- For HTML style, you can include a closing tag, `<!-- -->`, after your annotations to maintain syntax highlighting; this will not impact how the annotations render.
+- For HTML style, you should include a closing tag, `<!-- -->`, after your annotations to maintain syntax highlighting.
 
 ## Writing code annotations
 

@@ -29,7 +29,7 @@ By default{% ifversion ghes < 3.7 %} on {% data variables.product.product_name %
 
 {% data reusables.ssh.rsa-sha-1-connection-failure-criteria %}
 
-You can adjust the cutoff date. If the user uploaded the RSA key before the cutoff date, the client can continue to connect successfuly using SHA-1 as long as the key remains valid. Alternatively, you can reject all SSH connections authenticated with an RSA key if the client signs the connection using the SHA-1 hash function.
+You can adjust the cutoff date. If the user uploaded the RSA key before the cutoff date, the client can continue to connect successfully using SHA-1 as long as the key remains valid. Alternatively, you can reject all SSH connections authenticated with an RSA key if the client signs the connection using the SHA-1 hash function.
 
 Regardless of the setting you choose for your instance, clients can continue to connect using any RSA key signed with a SHA-2 hash function.
 

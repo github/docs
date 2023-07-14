@@ -199,9 +199,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.retention_days` | `string` | The number of days that workflow run logs and artifacts are kept. |
 | `github.run_id` | `string` | {% data reusables.actions.run_id_description %} |
 | `github.run_number` | `string` | {% data reusables.actions.run_number_description %} |
-{%- ifversion fpt or ghec or ghes > 3.5 or ghae > 3.4 %}
 | `github.run_attempt` | `string` | A unique number for each attempt of a particular workflow run in a repository. This number begins at 1 for the workflow run's first attempt, and increments with each re-run. |
-{%- endif %}
 | `github.secret_source` | `string` | The source of a secret used in a workflow. Possible values are `None`, `Actions`{% ifversion fpt or ghec %}, `Codespaces`{% endif %}, or `Dependabot`. |
 | `github.server_url` | `string` | The URL of the GitHub server. For example: `https://github.com`. |
 | `github.sha` | `string` | {% data reusables.actions.github_sha_description %} |

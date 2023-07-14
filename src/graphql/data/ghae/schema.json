@@ -48474,6 +48474,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the environments.</p>",
+              "type": {
+                "name": "Environments",
+                "id": "environments",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#environments"
+              }
             }
           ]
         },
@@ -65723,6 +65733,19 @@
       ]
     },
     {
+      "name": "EnvironmentOrderField",
+      "kind": "enums",
+      "id": "environmentorderfield",
+      "href": "/graphql/reference/enums#environmentorderfield",
+      "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "NAME",
+          "description": "<p>Order environments by name.</p>"
+        }
+      ]
+    },
+    {
       "name": "FileViewedState",
       "kind": "enums",
       "id": "fileviewedstate",
@@ -74900,6 +74923,31 @@
           "id": "enterpriseserveruseraccountsuploadorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#enterpriseserveruseraccountsuploadorderfield"
+        }
+      ]
+    },
+    {
+      "name": "Environments",
+      "kind": "inputObjects",
+      "id": "environments",
+      "href": "/graphql/reference/input-objects#environments",
+      "description": "<p>Ordering options for environments.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order environments by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order environments by.</p>",
+          "type": "EnvironmentOrderField!",
+          "id": "environmentorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#environmentorderfield"
         }
       ]
     },

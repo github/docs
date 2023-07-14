@@ -2,8 +2,8 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 
 | Option | Description | Example |
 |:---|:---|:---|
-| `ecosystem` | Displays alerts for the selected ecosystem | Use `ecosystem:npm` to show {% data variables.product.prodname_dependabot_alerts %} for npm |{% ifversion fpt or ghec or ghes > 3.5 or ghae > 3.5 %}
-| `has` | Displays alerts meeting the selected filter criteria | Use `has:patch` to show alerts related to advisories that have a patch{% ifversion dependabot-alerts-vulnerable-calls %}</br>Use `has:vulnerable-calls` to show alerts relating to calls to vulnerable functions{% endif %} |{% endif %}
+| `ecosystem` | Displays alerts for the selected ecosystem | Use `ecosystem:npm` to show {% data variables.product.prodname_dependabot_alerts %} for npm |
+| `has` | Displays alerts meeting the selected filter criteria | Use `has:patch` to show alerts related to advisories that have a patch{% ifversion dependabot-alerts-vulnerable-calls %}</br>Use `has:vulnerable-calls` to show alerts relating to calls to vulnerable functions |{% endif %}
 | `is` | Displays alerts based on their state | Use `is:open` to show open alerts |
 | `manifest` | Displays alerts for the selected manifest | Use `manifest:webwolf/pom.xml` to show alerts on the pom.xml file of the webwolf application |
 | `package` | Displays alerts for the selected package | Use `package:django` to show alerts for django |

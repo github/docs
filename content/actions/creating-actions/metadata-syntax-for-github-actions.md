@@ -358,7 +358,7 @@ runs:
         last_name: Octocat
 ```
 
-{% ifversion ghes > 3.5 or ghae > 3.5 %}
+{% ifversion ghes or ghae %}
 
 #### `runs.steps[*].continue-on-error`
 
