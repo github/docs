@@ -165,20 +165,7 @@ steps:
 
 ### Example using Yarn
 
-This example installs the dependencies defined in the _package.json_ file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
-
-```yaml copy
-steps:
-- uses: {% data reusables.actions.action-checkout %}
-- name: Use Node.js
-  uses: {% data reusables.actions.action-setup-node %}
-  with:
-    node-version: '18.x'
-- name: Install dependencies
-  run: yarn
-```
-
-Alternatively, you can pass `--frozen-lockfile` to install the versions in the `yarn.lock` file and prevent updates to the `yarn.lock` file.
+This example installs the dependencies defined in the _yarn.lock_ file and prevent updates to the `yarn.lock` file.
 
 ```yaml copy
 steps:
@@ -189,6 +176,19 @@ steps:
     node-version: '18.x'
 - name: Install dependencies
   run: yarn --frozen-lockfile
+```
+
+Alternatively, you can install the dependencies defined in the _package.json_ file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
+
+```yaml copy
+steps:
+- uses: {% data reusables.actions.action-checkout %}
+- name: Use Node.js
+  uses: {% data reusables.actions.action-setup-node %}
+  with:
+    node-version: '18.x'
+- name: Install dependencies
+  run: yarn
 ```
 
 ### Example using a private registry and creating the .npmrc file
