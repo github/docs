@@ -114,7 +114,6 @@ jobs:
 
 In certain cases, you might choose to combine everything into a single job, especially if there is no need for a build process. Consequently, you would solely focus on the deployment step.
 
-{% raw %}
 ```yaml
 ...
 
@@ -123,7 +122,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{steps.deployment.outputs.page_url}}
+      url: {% raw %}${{steps.deployment.outputs.page_url}}{% endraw %}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -141,6 +140,5 @@ jobs:
 
 ...
 ```
-{% endraw %}
 
 You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see "[AUTOTITLE](/actions/using-jobs)."
