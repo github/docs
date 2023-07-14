@@ -29,6 +29,7 @@ The instructions below will guide you through configuring your environment to us
 ### Prerequisites
 
 - A Bamboo account or organization with projects and pipelines that you want to convert to {% data variables.product.prodname_actions %} workflows.
+- Bamboo version of 7.1.1 or greater.
 - Access to create a Bamboo {% data variables.product.pat_generic %} for your account or organization.
 {% data reusables.actions.actions-importer-prerequisites %}
 
@@ -47,6 +48,7 @@ There are some limitations when migrating from Bamboo to {% data variables.produ
 - Pattern match labeling is not transformed because there is no equivalent in {% data variables.product.prodname_actions %}.
 - All artifacts are transformed into an `actions/upload-artifact`, regardless of whether they are `shared` or not, so they can be downloaded from any job in the workflow.
 - Permissions are not transformed because there is no suitable equivalent in {% data variables.product.prodname_actions %}.
+- {% data variables.product.prodname_actions_importer %} supports Bamboo version between 7.1.1 and 8.1.1, however, project and plan variables will not be migrated.
 
 #### Manual tasks
 
@@ -96,7 +98,7 @@ The `configure` CLI command is used to set required credentials and options for 
    An example of the `configure` command is shown below:
 
    ```shell
-   $ gh actions-importer configure 
+   $ gh actions-importer configure
    ✔ Which CI providers are you configuring?: Bamboo
    Enter the following values (leave empty to omit):
    ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************

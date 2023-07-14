@@ -14,7 +14,7 @@ export function debugTimeStart(core, instanceName) {
 export function debugTimeEnd(core, instanceName) {
   if (!timeInstances.has(instanceName)) {
     core.warn(
-      `Invalid instanceName: ${instanceName} in debugTimeEnd. Did you call debugTimeStart first with the same instanceName?`
+      `Invalid instanceName: ${instanceName} in debugTimeEnd. Did you call debugTimeStart first with the same instanceName?`,
     )
     return
   }

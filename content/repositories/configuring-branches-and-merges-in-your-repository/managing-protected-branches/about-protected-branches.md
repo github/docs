@@ -57,7 +57,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 - [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 - [Require signed commits](#require-signed-commits)
 - [Require linear history](#require-linear-history)
-{% ifversion fpt or ghec %}
+{% ifversion merge-queue %}
 - [Require merge queue](#require-merge-queue)
 {% endif %}
 {%- ifversion required-deployments %}
@@ -158,11 +158,10 @@ Enforcing a linear commit history prevents collaborators from pushing merge comm
 
 Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges)."
 
-{% ifversion fpt or ghec %}
+{% ifversion merge-queue %}
 
 ### Require merge queue
 
-{% data reusables.pull_requests.merge-queue-beta %}
 {% data reusables.pull_requests.merge-queue-overview %}
 
 {% data reusables.pull_requests.merge-queue-merging-method %}

@@ -154,7 +154,7 @@ describe('extended Markdown', () => {
       'condition-l',
     ],
     'enterprise-cloud@latest': ['condition-c', 'condition-j', 'condition-l'],
-    'enterprise-server@3.5': [
+    'enterprise-server@3.6': [
       'condition-c',
       'condition-e',
       'condition-f',
@@ -166,7 +166,7 @@ describe('extended Markdown', () => {
       'condition-n',
       'condition-o',
     ],
-    'enterprise-server@3.6': [
+    'enterprise-server@3.7': [
       'condition-c',
       'condition-e',
       'condition-f',
@@ -201,7 +201,7 @@ describe('extended Markdown', () => {
       unwantedConditions.forEach((condition) => {
         expect(html).not.toMatch(condition)
       })
-    }
+    },
   )
 })
 

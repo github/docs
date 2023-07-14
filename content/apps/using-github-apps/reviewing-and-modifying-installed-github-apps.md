@@ -1,7 +1,7 @@
 ---
 title: Reviewing and modifying installed GitHub Apps
 shortTitle: Review installations
-intro: "You can review the permissions and change the repository access for {% data variables.product.prodname_github_app %}s that you have installed. You can also temporarily or permanently prevent a {% data variables.product.prodname_github_app %} from accessing resources owned by your account or organization."
+intro: "You can review the permissions and change the repository access for {% data variables.product.prodname_github_apps %} that you have installed. You can also temporarily or permanently prevent a {% data variables.product.prodname_github_app %} from accessing resources owned by your account or organization."
 versions:
   fpt: '*'
   ghes: '*'
@@ -11,26 +11,26 @@ topics:
   - GitHub Apps
 ---
 
-## About installed {% data variables.product.prodname_github_app %}s
+## About installed {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.company_short %} users can install {% data variables.product.prodname_github_app %}s on their personal account or organizations. When you install a {% data variables.product.prodname_github_app %}, you grant the app the organization-level and repository-level permissions that it requested. You also specify which repositories the {% data variables.product.prodname_github_app %} can access.
+{% data variables.product.company_short %} users can install {% data variables.product.prodname_github_apps %} on their personal account or organizations. When you install a {% data variables.product.prodname_github_app %}, you grant the app the organization-level and repository-level permissions that it requested. You also specify which repositories the {% data variables.product.prodname_github_app %} can access.
 
-You should periodically review the {% data variables.product.prodname_github_app %}s that you have installed. You can review the permissions that you granted and change the repositories that the {% data variables.product.prodname_github_app %} can access. If you no longer use an app, consider suspending or deleting the {% data variables.product.prodname_github_app %} to block its access to resources owned by the account where it is installed.
+You should periodically review the {% data variables.product.prodname_github_apps %} that you have installed. You can review the permissions that you granted and change the repositories that the {% data variables.product.prodname_github_app %} can access. If you no longer use an app, consider suspending or deleting the {% data variables.product.prodname_github_app %} to block its access to resources owned by the account where it is installed.
 
-In addition to reviewing {% data variables.product.prodname_github_app %}s that you have installed, you can review {% data variables.product.prodname_github_app %}s that you have authorized to act on your behalf. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)."
+In addition to reviewing {% data variables.product.prodname_github_apps %} that you have installed, you can review {% data variables.product.prodname_github_apps %} that you have authorized to act on your behalf. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)."
 
 ## Navigating to the {% data variables.product.prodname_github_app %} you want to review or modify
 
 - For a {% data variables.product.prodname_github_app %} installed on an organization:
    1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Your organizations**.
    1. Next to your organization name, click **Settings**.
-   1. In the side bar, under "Third-party Access," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_app %}s installed on your organization will be displayed.
+   1. In the side bar, under "Third-party Access," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} installed on your organization will be displayed.
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.
 
 - For a {% data variables.product.prodname_github_app %} installed on your personal account:
    1. In the upper-right corner of any page, click your profile photo, then click **Settings**.
    1. Under "Integrations," click **Applications**.
-   1. Click **Installed GitHub Apps**. A list of the {% data variables.product.prodname_github_app %}s installed on your personal account will be displayed.
+   1. Click **Installed GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} installed on your personal account will be displayed.
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.
 
 - For a repository where a {% data variables.product.prodname_github_app %} was granted access:
@@ -43,7 +43,7 @@ In addition to reviewing {% data variables.product.prodname_github_app %}s that 
 
    1. Navigate to the main page of the organization or repository.
    1. Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**.
-   1. Under "Integrations," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_app %}s that have been granted access to your repository will be displayed.
+   1. Under "Integrations," click **GitHub Apps**. A list of the {% data variables.product.prodname_github_apps %} that have been granted access to your repository will be displayed.
 
    1. Next to the {% data variables.product.prodname_github_app %} you want to review or modify, click **Configure**.
 

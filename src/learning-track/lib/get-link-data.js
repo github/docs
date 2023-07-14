@@ -9,7 +9,7 @@ import { renderContent } from '#src/content-render/index.js'
 export default async (
   rawLinks,
   context,
-  option = { title: true, intro: true, fullTitle: false }
+  option = { title: true, intro: true, fullTitle: false },
 ) => {
   if (!rawLinks) return
 

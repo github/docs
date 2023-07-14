@@ -25,7 +25,7 @@ const contentDir = path.join(process.cwd(), 'content')
 const contentFiles = walk(contentDir, { includeBasePath: true, directories: false }).filter(
   (file) => {
     return file.endsWith('.md') && !file.endsWith('index.md') && !file.includes('README')
-  }
+  },
 )
 
 // TODO fix path separators in the redirect

@@ -32,11 +32,11 @@ test('view the for-playwright article', async ({ page }) => {
 test('use sidebar to go to Hello World page', async ({ page }) => {
   await page.goto('/')
 
-  await page.getByTestId('sidebar').getByRole('link', { name: 'Get started' }).click()
+  await page.getByTestId('sidebar').getByRole('group', { name: 'Get started' }).click()
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
   await page.getByTestId('product-sidebar').getByText('Quickstart').click()
-  await page.getByTestId('product-sidebar').getByRole('link', { name: 'Hello World' }).click()
+  await page.getByTestId('product-sidebar').getByRole('group', { name: 'Hello World' }).click()
   await expect(page).toHaveURL(/\/en\/get-started\/quickstart\/hello-world/)
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
@@ -155,10 +155,10 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // the category, you'll be able to see the map-topic and the article
   // within.
   await page.goto('/')
-  await page.getByTestId('sidebar').getByRole('link', { name: 'GitHub Actions' }).click()
+  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'GitHub Actions' }).click()
   await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
   await page.getByText('Map & Topic').click()
-  await page.getByRole('link', { name: '<article>' }).click()
+  await page.getByLabel('<article> link').click()
   await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
   await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
 })
@@ -170,8 +170,8 @@ test('hovercards', async ({ page }) => {
   await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).hover()
   await expect(
     page.getByText(
-      'Get started using GitHub to manage Git repositories and collaborate with others.'
-    )
+      'Get started using GitHub to manage Git repositories and collaborate with others.',
+    ),
   ).toBeVisible()
 
   // now move the mouse away from hovering over the link, the hovercard should
@@ -179,8 +179,8 @@ test('hovercards', async ({ page }) => {
   await page.mouse.move(0, 0)
   await expect(
     page.getByText(
-      'Get started using GitHub to manage Git repositories and collaborate with others.'
-    )
+      'Get started using GitHub to manage Git repositories and collaborate with others.',
+    ),
   ).not.toBeVisible()
 
   // external links don't have a hovercard
@@ -204,7 +204,7 @@ test('hovercards', async ({ page }) => {
   // this page's intro has two links; one in-page and one internal
   await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
   await expect(
-    page.getByText('Follow this Hello World exercise to get started with GitHub.')
+    page.getByText('Follow this Hello World exercise to get started with GitHub.'),
   ).toBeVisible()
 
   // same page anchor links have a hovercard
@@ -327,7 +327,7 @@ test.describe('test nav at different viewports', () => {
     await expect(
       page.getByRole('button', {
         name: 'Select GitHub product version: current version is free-pro-team@latest',
-      })
+      }),
     ).not.toBeVisible()
 
     // version picker is in mobile menu

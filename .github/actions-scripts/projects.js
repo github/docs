@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { graphql } from '@octokit/graphql'
 
 // Shared functions for managing projects (memex)
@@ -26,7 +27,7 @@ export function findSingleSelectID(singleSelectName, fieldName, data) {
     return singleSelect.id
   } else {
     throw new Error(
-      `A single select called "${singleSelectName}" for the field "${fieldName}" was not found. Check if the single select was renamed.`
+      `A single select called "${singleSelectName}" for the field "${fieldName}" was not found. Check if the single select was renamed.`,
     )
   }
 }
@@ -47,7 +48,7 @@ export async function addItemsToProject(items, project) {
         id
       }
     }
-    `
+    `,
   )
 
   const mutation = `
@@ -102,7 +103,7 @@ export async function isDocsTeamMember(login) {
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
-    }
+    },
   )
 
   const teamMembers = data.organization.team.members.nodes.map((entry) => entry.login)
@@ -127,7 +128,7 @@ export async function isGitHubOrgMember(login) {
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
-    }
+    },
   )
 
   return Boolean(data.user.organization)
@@ -187,9 +188,9 @@ export function generateUpdateProjectV2ItemFieldMutation({
     // (statistically, this should still give us a unique mutation ID)
     return `
       set_${fieldID.slice(1)}_item_${item.replaceAll(
-      /[^a-z0-9]/g,
-      ''
-    )}: updateProjectV2ItemFieldValue(input: {
+        /[^a-z0-9]/g,
+        '',
+      )}: updateProjectV2ItemFieldValue(input: {
         projectId: $project
         itemId: "${item}"
         fieldId: ${fieldID}

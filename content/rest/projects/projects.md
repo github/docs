@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to create and manage {% data
   variables.projects.projects_v1_boards %} in a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

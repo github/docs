@@ -15,7 +15,7 @@ describe('page titles', () => {
   test('ghes article', async () => {
     const $ = await getDOM(`/enterprise-server@latest/get-started/quickstart/hello-world`)
     expect($('title').text()).toBe(
-      `Hello World - GitHub Enterprise Server ${enterpriseServerReleases.latest} Docs`
+      `Hello World - GitHub Enterprise Server ${enterpriseServerReleases.latest} Docs`,
     )
   })
 
