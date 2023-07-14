@@ -46,6 +46,7 @@ License | License keyword
 | BSD 2-clause "Simplified" license | `bsd-2-clause` |
 | BSD 3-clause "New" or "Revised" license | `bsd-3-clause` |
 | BSD 3-clause Clear license | `bsd-3-clause-clear` |
+| BSD 4-clause "Original" or "Old" license | `bsd-4-clause` |
 | BSD Zero-Clause license | `0bsd` |
 | Creative Commons license family | `cc` |
 | Creative Commons Zero v1.0 Universal | `cc0-1.0` |
