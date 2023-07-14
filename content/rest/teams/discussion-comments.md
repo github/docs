@@ -5,7 +5,7 @@ shortTitle: Discussion comments
 intro: >-
   Use the REST API to get, create, edit, and delete discussion comments on a
   [team discussion](/rest/reference/teams#discussions) post.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

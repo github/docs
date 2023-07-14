@@ -3,7 +3,7 @@ title: Organization webhooks
 allowTitleToDifferFromFilename: true
 shortTitle: Webhooks
 intro: Use the REST API to interact with webhooks in an organization.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
