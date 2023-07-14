@@ -158,7 +158,7 @@ Rename this folder `codeql-repo` to avoid conflicting with the {% data variables
 clone and rename the repository in a single step by running
 `git clone git@github.com:github/codeql.git codeql-repo` in the `codeql-home` folder.
 
-{% ifversion ghes < 3.6 or ghae < 3.6 %}
+{% ifversion ghae < 3.6 %}
 {% note %}
 
 **Note:** The {% data variables.product.prodname_codeql %} libraries and queries for Go analysis used to live in a separate [{% data variables.product.prodname_codeql %} for Go repository](https://github.com/github/codeql-go/). These have been moved to the `github/codeql` repository. It is no longer necessary to clone the `github/codeql-go` into a separate `codeql-home/codeql-go` folder.
