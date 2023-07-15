@@ -30,7 +30,7 @@ export default async function buildRecords(
   pageVersion,
   languageCode,
   redirects,
-  config = {}
+  config = {},
 ) {
   const { noMarkers, popularPagesFilePath } = config
   console.log(`\n\nBuilding records for index '${indexName}' (${languages[languageCode].name})`)
@@ -85,7 +85,7 @@ export default async function buildRecords(
               padding: 1,
               borderColor: 'red',
             }) +
-            '\n'
+            '\n',
         )
       } else {
         console.error(err)

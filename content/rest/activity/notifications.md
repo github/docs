@@ -3,7 +3,7 @@ title: Notifications
 intro: >-
   Use the REST API to manage {% data variables.product.product_name %}
   notifications.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

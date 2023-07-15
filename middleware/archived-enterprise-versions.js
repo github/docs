@@ -34,10 +34,10 @@ function splitByLanguage(uri) {
 // `readJsonFileLazily()` function will, at import-time, check that
 // the path does exist.
 const archivedRedirects = readCompressedJsonFileFallbackLazily(
-  './lib/redirects/static/archived-redirects-from-213-to-217.json'
+  './lib/redirects/static/archived-redirects-from-213-to-217.json',
 )
 const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
-  './lib/redirects/static/archived-frontmatter-valid-urls.json'
+  './lib/redirects/static/archived-frontmatter-valid-urls.json',
 )
 
 // Combine all the things you need to make sure the response is

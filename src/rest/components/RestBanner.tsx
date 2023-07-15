@@ -64,7 +64,7 @@ export const RestBanner = () => {
         bannerText = t('rest.banner.ghes_api_versioned')
           .replace(
             '{{ firstGhesReleaseWithApiVersions.versionTitle }}',
-            firstGhesReleaseWithApiVersions.versionTitle
+            firstGhesReleaseWithApiVersions.versionTitle,
           )
           .replace(/{{\s*currentVersion\s*}}/, currentVersion)
       }
@@ -83,7 +83,7 @@ export const RestBanner = () => {
             dangerouslySetInnerHTML={{
               __html: t('rest.banner.api_version_info').replace(
                 /{{\s*versionWithApiVersion\s*}}/,
-                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`
+                versionWithApiVersion === DEFAULT_VERSION ? '' : `/${versionWithApiVersion}`,
               ),
             }}
           />

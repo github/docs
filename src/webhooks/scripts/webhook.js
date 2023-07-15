@@ -26,7 +26,7 @@ export default class Webhook {
     this.action = get(
       webhook,
       `requestBody.content['application/json'].schema.properties.action.enum[0]`,
-      null
+      null,
     )
 
     // for some webhook action types (like some pull-request webhook types) the
@@ -36,7 +36,7 @@ export default class Webhook {
       this.action = get(
         webhook,
         `requestBody.content['application/json'].schema.oneOf[0].properties.action.enum[0]`,
-        null
+        null,
       )
     }
 

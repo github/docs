@@ -192,6 +192,9 @@ To import your migration archive into {% data variables.product.prodname_dotcom 
 ```shell copy
 gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
   --github-org DESTINATION --github-repo NEW-NAME \
+  --bbs-server-url BBS-SERVER-URL \
+  --bbs-project PROJECT \
+  --bbs-repo CURRENT-NAME \
   # Use the following option if you're using AWS S3 as your blob storage provider
   --aws-bucket-name AWS-BUCKET-NAME
 ```
@@ -200,6 +203,9 @@ gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
 {% data reusables.enterprise-migration-tool.archive-path-placeholder %}
 {% data reusables.enterprise-migration-tool.destination-placeholder %}
 {% data reusables.enterprise-migration-tool.new-name-placeholder %}
+{% data reusables.enterprise-migration-tool.bbs-server-url-placeholder %}
+{% data reusables.enterprise-migration-tool.project-placeholder %}
+{% data reusables.enterprise-migration-tool.current-name-placeholder %}
 {% data reusables.enterprise-migration-tool.aws-bucket-name-placeholder %}
 
 ## Step 6: Validate your migration and check the error log

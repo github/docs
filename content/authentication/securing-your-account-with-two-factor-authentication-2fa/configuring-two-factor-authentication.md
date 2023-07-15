@@ -54,11 +54,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Configuring two-factor authentication using a TOTP mobile app
 
-A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:
-- [1Password](https://support.1password.com/one-time-passwords/)
-- [Authy](https://authy.com/guides/github/)
-- [LastPass Authenticator](https://lastpass.com/auth/)
-- [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app/)
+A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps.
 
 {% tip %}
 
@@ -119,6 +115,16 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 ## Configuring two-factor authentication using a security key
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
+
+{% ifversion passkeys %}
+{% note %}
+
+**Note:** {% data reusables.passkeys.after-2fa-optional-add-passkey %} For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+
+Passkeys are in public beta and are subject to change.
+
+{% endnote %}
+{% endif %}
 
 On most devices and browsers, you can use a physical security key over USB or NFC. Most browsers can use the fingerprint reader, facial recognition, or password/PIN on your device as a security key as well.
 

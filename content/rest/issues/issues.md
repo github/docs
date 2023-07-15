@@ -1,7 +1,7 @@
 ---
 title: Issues
 intro: Use the REST API to manage issues and pull requests.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

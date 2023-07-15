@@ -56,16 +56,16 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
               message: {
                 ghes_release_notes_upgrade_patch_only: liquid.parseAndRenderSync(
                   req.context.site.data.ui.header.notices.ghes_release_notes_upgrade_patch_only,
-                  { latestPatch, latestRelease }
+                  { latestPatch, latestRelease },
                 ),
                 ghes_release_notes_upgrade_release_only: liquid.parseAndRenderSync(
                   req.context.site.data.ui.header.notices.ghes_release_notes_upgrade_release_only,
-                  { latestPatch, latestRelease }
+                  { latestPatch, latestRelease },
                 ),
                 ghes_release_notes_upgrade_patch_and_release: liquid.parseAndRenderSync(
                   req.context.site.data.ui.header.notices
                     .ghes_release_notes_upgrade_patch_and_release,
-                  { latestPatch, latestRelease }
+                  { latestPatch, latestRelease },
                 ),
               },
             }

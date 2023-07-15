@@ -24,12 +24,12 @@ export default function validateRecords(name, records) {
   records.forEach((record) => {
     assert(
       isString(record.objectID) && record.objectID.length,
-      `objectID must be a string. received: ${record.objectID}, ${JSON.stringify(record)}`
+      `objectID must be a string. received: ${record.objectID}, ${JSON.stringify(record)}`,
     )
 
     assert(
       isString(record.title) && record.title.length,
-      `title must be a string. received: ${record.title}, ${JSON.stringify(record)}`
+      `title must be a string. received: ${record.title}, ${JSON.stringify(record)}`,
     )
   })
 

@@ -31,8 +31,8 @@ program
   .addOption(
     new Option(
       '-L, --level <LEVEL>',
-      'Level of broken link to be marked as a flaw (default: "warning")'
-    ).choices(['all', 'warning', 'critical'])
+      'Level of broken link to be marked as a flaw (default: "warning")',
+    ).choices(['all', 'warning', 'critical']),
   )
   .option('-f, --filter <FILTER...>', 'Search filter(s) on the paths')
   .option(
@@ -46,36 +46,36 @@ program
           }
         }
         throw new InvalidArgumentError(
-          `'${version}' is not a recognized version. (not one of ${Object.keys(allVersions)})`
+          `'${version}' is not a recognized version. (not one of ${Object.keys(allVersions)})`,
         )
       }
       return version
-    }
+    },
   )
   .option('-v, --verbose', 'Verbose outputs')
   .option(
     '--create-report',
-    'Create a report issue in report-repository if there are flaws. (default: false)'
+    'Create a report issue in report-repository if there are flaws. (default: false)',
   )
   .option(
     '--report-repository <REPOSITORY>',
-    'Repository to create issue in. (default: "github/docs-content")'
+    'Repository to create issue in. (default: "github/docs-content")',
   )
   .option(
     '--link-reports',
-    'If comments should be made on previous report and new report "linking" them. (default: false)'
+    'If comments should be made on previous report and new report "linking" them. (default: false)',
   )
   .option(
     '--report-author <AUTHOR>',
-    'Previous author of report PR for linking. (default: "docs-bot")'
+    'Previous author of report PR for linking. (default: "docs-bot")',
   )
   .option(
     '--report-label <LABEL>',
-    'Label to assign to report issue. (default: "broken link report")'
+    'Label to assign to report issue. (default: "broken link report")',
   )
   .option(
     '--comment-on-pr <URI>',
-    'For debugging. Comment on a PR in form "owner/repo-name:pr_number"'
+    'For debugging. Comment on a PR in form "owner/repo-name:pr_number"',
   )
   .option('--should-comment', 'Comments failed links on PR')
   .option('--check-anchors', "Validate links that start with a '#' too")
@@ -113,7 +113,7 @@ program
       }
 
       return resolvedPath
-    }
+    },
   )
   .arguments('[files...]', 'Specific files to check')
   .parse(process.argv)
@@ -147,5 +147,5 @@ renderedContentLinkChecker(
   {
     ...opts,
     files,
-  }
+  },
 )

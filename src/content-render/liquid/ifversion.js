@@ -29,7 +29,7 @@ export default class extends Tag {
         this.branches.push({
           cond: tagToken.args,
           templates: (p = []),
-        })
+        }),
       )
       .on('tag:elsif', (token) => {
         this.branches.push({

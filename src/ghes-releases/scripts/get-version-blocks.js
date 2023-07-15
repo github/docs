@@ -25,7 +25,8 @@ export default function getVersionBlocks(rawBlocks) {
       .map((arg) => arg.split(' '))
       .filter(
         (args) =>
-          args.some((arg) => supportedOperators.includes(arg)) && args.some((arg) => arg === 'ghes')
+          args.some((arg) => supportedOperators.includes(arg)) &&
+          args.some((arg) => arg === 'ghes'),
       )
       .map((args) => args.filter((arg) => !(arg === 'or' || (arg === 'and') | (arg === ''))))
 

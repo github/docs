@@ -3,7 +3,7 @@ title: Source imports
 intro: >-
   Use the REST API to start an import from a Git, Subversion, Mercurial, or Team
   Foundation Version Control source repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:
