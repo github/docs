@@ -1,5 +1,6 @@
 ---
 title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+If you require further assistance or have any questions, feel free to reach out to our support team, who will be more than happy to help you
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/set-up-git
