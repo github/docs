@@ -95,9 +95,13 @@ gh pr merge 523 --squash --body "my squash commit" --delete-branch
 
 {% endcli %}
 
+{% mobileapp %}
+To merge a pull request on the app, click on the green **Merge Request** button.
+{% mobileapp %}
 ## Further reading
 
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request)"
 - "[AUTOTITLE](/desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch)" using {% data variables.product.prodname_desktop %}
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)"
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)"
+  
