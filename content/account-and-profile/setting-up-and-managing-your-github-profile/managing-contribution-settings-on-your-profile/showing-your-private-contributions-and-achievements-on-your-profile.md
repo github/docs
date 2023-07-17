@@ -31,7 +31,11 @@ You can choose to publicize your private contributions, which allows visitors to
 If you choose to hide your private contributions, visitors will only see your public contributions.
 
 {% data reusables.profile.access_profile %}
-1. Under "Contributions & Activity", select or deselect **Include private contributions on my profile**.
+1. Above the contribution calendar, click **Contribution settings**.
+
+   ![Screenshot of the "Contribution settings" link, highlighted with a dark orange outline.](/assets/images/help/profile/contribution-settings.png)
+
+1. Click **Private contributions** to show or hide private contributions on your profile.
 
 ## Changing the visibility of achievements
 
@@ -48,10 +52,11 @@ You can hide an individual achievement on your profile. When hidden, badges are 
 {% data reusables.profile.access_profile %}
 1. Under "Achievements", click the achievement you want to hide.
 
-   ![Screenshot of the "Achievements" section of a user profile. A badge with a cowboy image is highlighted with an orange outline.](/assets/images/help/profile/achievements-on-profile.png)
+   ![Screenshot of the "Achievements" section of a user profile. A badge with a cowboy image is highlighted with a dark orange outline.](/assets/images/help/profile/achievements-on-profile.png)
+
 1. Click {% octicon "eye" aria-label="Hide from profile" %}.
 
-   ![Screenshot of an achievement. An open eye icon is highlighted with an orange outline.](/assets/images/help/profile/achievements-detail-view.png)
+   ![Screenshot of an achievement. An open eye icon is highlighted with a dark orange outline.](/assets/images/help/profile/achievements-detail-view.png)
 
 {% endif %}
 
