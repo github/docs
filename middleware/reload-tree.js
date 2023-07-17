@@ -20,7 +20,7 @@ import languages, { languageKeys } from '../lib/languages.js'
 import createTree from '../lib/create-tree.js'
 import warmServer from '../lib/warm-server.js'
 import { loadSiteTree, loadPages, loadPageMap } from '../lib/page-data.js'
-import loadRedirects from '../lib/redirects/precompile.js'
+import loadRedirects from '#src/redirects/lib/precompile.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 const englishPrefixRegex = /^\/en(\/|$)/
