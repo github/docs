@@ -38,7 +38,7 @@ Any options that also affect security updates are used the next time a security 
 
 {% endnote %}
 
-The _dependabot.yml_ file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
+The _dependabot.yml_ file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key. The file must start with `version: 2`.
 
 ## Configuration options for the _dependabot.yml_ file
 
@@ -1230,7 +1230,7 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-   replaces-base: true
+    replaces-base: true
 ```
 
 {% endraw %}
@@ -1292,7 +1292,7 @@ There are currently no ecosystems in beta.
 
 version: 2
 enable-beta-ecosystems: true
-updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+updates:{% ifversion fpt or ghec or ghes %}
   - package-ecosystem: "beta-ecosystem"{% else %}
   - package-ecosystem: "pub"{% endif %}
     directory: "/"

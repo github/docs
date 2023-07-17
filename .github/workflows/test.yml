@@ -53,6 +53,7 @@ jobs:
               { name: 'linting', path: 'src/content-linter/tests', },
               { name: 'observability', path: 'src/observability/tests' },
               { name: 'pageinfo', path: 'src/pageinfo/tests', },
+              { name: 'redirects', path: 'src/redirects/tests', },
               { name: 'rendering', path: 'tests/rendering', },
               { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
               { name: 'rest', path: 'src/rest/tests', },

@@ -31,15 +31,15 @@ condition-e
 
 ## ifversion with ranges
 
-{% ifversion ghes > 3.4 %}
+{% ifversion ghes > 3.5 %}
 condition-f
 {% endif %}
 
-{% ifversion ghes < 3.6 %}
+{% ifversion ghes < 3.7 %}
 condition-g
 {% endif %}
 
-{% ifversion ghes > 3.4 and ghes < 3.6 %}
+{% ifversion ghes > 3.5 and ghes < 3.7 %}
 condition-h
 {% endif %}
 
@@ -49,11 +49,11 @@ condition-h
 condition-i
 {% endif %}
 
-{% ifversion ghes != 3.5 %}
+{% ifversion ghes != 3.6 %}
 condition-j
 {% endif %}
 
-{% ifversion ghes = 3.5 %}
+{% ifversion ghes = 3.6 %}
 condition-k
 {% endif %}
 
@@ -67,13 +67,13 @@ condition-l
 
 {% ifversion ghes %}
 condition-m
-  {% ifversion ghes = 3.5 %}
+  {% ifversion ghes = 3.6 %}
   condition-n
   {% endif %}
 {% endif %}
 
 ## ifversion combined operations
 
-{% ifversion not fpt and ghes > 3.4 %}
+{% ifversion not fpt and ghes > 3.5 %}
 condition-o
 {% endif %}

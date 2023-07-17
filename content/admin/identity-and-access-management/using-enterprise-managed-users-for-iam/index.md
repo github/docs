@@ -24,4 +24,5 @@ children:
   - /migrating-from-saml-to-oidc
   - /migrating-from-oidc-to-saml
   - /migrating-your-enterprise-to-a-new-identity-provider-or-tenant
+  - /disabling-authentication-for-enterprise-managed-users
 ---
