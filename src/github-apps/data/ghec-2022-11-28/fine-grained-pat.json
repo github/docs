@@ -1870,13 +1870,13 @@
       "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
       "subcategory": "copilot-for-business",
       "verb": "get",
-      "requestPath": "/orgs/{org}/copilot/billing"
+      "requestPath": "/organizations/{org}/copilot/billing"
     },
     {
       "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
       "subcategory": "copilot-for-business",
       "verb": "get",
-      "requestPath": "/orgs/{org}/copilot/billing/seats"
+      "requestPath": "/organizations/{org}/copilot/billing/seats"
     },
     {
       "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
