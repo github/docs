@@ -63,7 +63,7 @@ You can override the default behavior of {% data variables.product.prodname_depe
 
 If you only require security updates and want to exclude version updates, you can set `open-pull-requests-limit` to `0` in order to prevent version updates for a given `package-ecosystem`. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#open-pull-requests-limit)."
 
-```
+```yaml
 # Example configuration file that:
 #  - Ignores lodash dependency
 #  - Disables version-updates
