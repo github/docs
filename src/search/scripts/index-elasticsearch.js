@@ -137,7 +137,7 @@ async function main(opts, args) {
       // All ElasticsearchClientError error subclasses have a `name` and
       // `message` but only some have a `meta`.
       if (error.meta) {
-        console.error(`Error meta: ${error.meta}`)
+        console.error('Error meta: %O', error.meta)
       }
       throw new Error(error.message)
     }
