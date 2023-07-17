@@ -61,7 +61,7 @@ This view will also show error messages. For more information, see "[Debugging u
 
 ### How {% data variables.product.prodname_codeql %} defines scanned files
 
-A file is reported as scanned by {% data variables.product.prodname_codeql %} if some of the lines of code in that file were processed. If you're using a standard configuration of the {% data variables.product.prodname_codeql %} action, the scanned files shown in the {% data variables.code-scanning.tool_status_page %} will include source code files for all languages that {% data variables.product.prodname_codeql %} can analyze. If you use an advanced setup, you can optionally define which files for interpreted languages should be scanned using the `paths` and `paths-ignore` configuration properties. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
+A file is reported as scanned by {% data variables.product.prodname_codeql %} if some of the lines of code in that file were processed. If you're using a standard configuration of the {% data variables.product.prodname_codeql %} action, the scanned files shown in the {% data variables.code-scanning.tool_status_page %} will include source code files for all languages that {% data variables.product.prodname_codeql %} can analyze. If you use advanced setup, you can optionally define which files for interpreted languages should be scanned using the `paths` and `paths-ignore` configuration properties. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
 
 For compiled languages, the {% data variables.code-scanning.tool_status_page %} reports files that were present before running autobuild or any manual build steps. This means that files generated during the build process are not shown in the {% data variables.code-scanning.tool_status_page %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#about-autobuild-for-codeql)."
 
@@ -113,7 +113,7 @@ For integrated tools such as {% data variables.product.prodname_codeql %}, you c
 
 {% note %}
 
-**Note:** If you have set up {% data variables.product.prodname_codeql %} using advanced setup and then set up default setup on the same repository, the {% data variables.code-scanning.tool_status_page %} will only show the default setup.
+**Note:** If you have set up {% data variables.product.prodname_codeql %} using advanced setup and then set up default setup on the same repository, the {% data variables.code-scanning.tool_status_page %} will only show default setup.
 
 {% endnote %}
 

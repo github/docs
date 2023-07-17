@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with a Git blob (binary large object), the object
   type used to store the contents of each file in a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

@@ -20,7 +20,7 @@ import languages, { languageKeys } from '../lib/languages.js'
 import createTree from '../lib/create-tree.js'
 import warmServer from '../lib/warm-server.js'
 import { loadSiteTree, loadPages, loadPageMap } from '../lib/page-data.js'
-import loadRedirects from '../lib/redirects/precompile.js'
+import loadRedirects from '#src/redirects/lib/precompile.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 const englishPrefixRegex = /^\/en(\/|$)/
@@ -41,7 +41,7 @@ export default async function reloadTree(req, res, next) {
   warmed.unversionedTree.en = await createTree(
     path.join(languages.en.dir, 'content'),
     undefined,
-    warmed.unversionedTree.en
+    warmed.unversionedTree.en,
   )
   const after = getMtimes(warmed.unversionedTree.en)
   // The next couple of operations are much slower (in total) than

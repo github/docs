@@ -14,7 +14,7 @@ topics:
   - Repositories
 shortTitle: Automatic branch deletion
 ---
-Anyone with admin permissions to a repository can enable or disable the automatic deletion of branches.
+Anyone with admin permissions to a repository can enable or disable the automatic deletion of branches. Branch protection rules and repository rules can also prevent branches being automatically deleted. For more information, see{% ifversion fpt or ghec %} "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)" and{% endif %} "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

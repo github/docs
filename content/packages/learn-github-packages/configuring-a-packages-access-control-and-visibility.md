@@ -75,7 +75,7 @@ The selected users or teams will automatically be given access and don't need to
 
 ## Selecting whether a package inherits permissions from a repository
 
-{% ifversion packages-inherit-permissions %}By default, if publish a package that is linked to a repository, the package inherits{% else %}If you link a package to a repository, you can choose whether or not the package inherits{% endif %} the access permissions of the linked repository. We recommend you let packages inherit their permissions from a repository, because this simplifies the process of managing access to a package.
+{% ifversion packages-inherit-permissions %}By default, if you publish a package that is linked to a repository, the package inherits{% else %}If you link a package to a repository, you can choose whether or not the package inherits{% endif %} the access permissions of the linked repository. We recommend you let packages inherit their permissions from a repository, because this simplifies the process of managing access to a package.
 
 When a package inherits permissions from a repository, to grant or remove access to your package, you must configure the permissions of the linked repository.
 

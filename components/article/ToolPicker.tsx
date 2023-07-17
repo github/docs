@@ -12,7 +12,7 @@ import { InArticlePicker } from './InArticlePicker'
 // find all platform-specific *block* elements and hide or show as appropriate
 // example: {% webui %} block content {% endwebui %}
 function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
-  const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.extended-markdown'))
+  const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.ghd-tool'))
   markdowns
     .filter((el) => supportedTools.some((tool) => el.classList.contains(tool)))
     .forEach((el) => {
@@ -22,7 +22,9 @@ function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
   // find all tool-specific *inline* elements and hide or show as appropriate
   // example: <span class="tool-webui">inline content</span>
   const toolEls = Array.from(
-    document.querySelectorAll<HTMLElement>(supportedTools.map((tool) => `.tool-${tool}`).join(', '))
+    document.querySelectorAll<HTMLElement>(
+      supportedTools.map((tool) => `.tool-${tool}`).join(', '),
+    ),
   )
   toolEls.forEach((el) => {
     el.style.display = el.classList.contains(`tool-${tool}`) ? '' : 'none'

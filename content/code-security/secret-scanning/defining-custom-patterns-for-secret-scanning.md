@@ -78,7 +78,7 @@ A company has an internal token with five characteristics. They use the differen
 
 These tokens would match the custom pattern described above:
 
-```
+```shell
 a9@AAfT!         # Secret string match: a9@AAfT
 ee95GG@ZA942@aa  # Secret string match: @ZA942@a
 a9@AA!ee9        # Secret string match: a9@AA
@@ -86,7 +86,7 @@ a9@AA!ee9        # Secret string match: a9@AA
 
 These strings would not match the custom pattern described above:
 
-```
+```shell
 a9@AA.!
 a@AAAAA
 aa9@AA!ee9

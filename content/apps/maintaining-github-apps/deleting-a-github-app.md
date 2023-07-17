@@ -1,7 +1,7 @@
 ---
 title: Deleting a GitHub App
 shortTitle: Delete your app
-intro: 'You can delete {% data variables.product.prodname_github_app %}s that you own if you no longer want to use or maintain the app.'
+intro: 'You can delete {% data variables.product.prodname_github_apps %} that you own if you no longer want to use or maintain the app.'
 redirect_from:
   - /apps/building-integrations/managing-github-apps/deleting-a-github-app
   - /apps/managing-github-apps/deleting-a-github-app
@@ -22,7 +22,7 @@ topics:
 
 {% endnote %}
 
-## About deleting {% data variables.product.prodname_github_app %}s
+## About deleting {% data variables.product.prodname_github_apps %}
 
 If you own a {% data variables.product.prodname_github_app %} or are an app manager for a {% data variables.product.prodname_github_app %}, you can delete the {% data variables.product.prodname_github_app %} registration. For more information about {% data variables.product.prodname_github_app %} managers, see "[AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)."
 

@@ -8,8 +8,6 @@ topics:
   - Enterprise
 ---
 
-{% data reusables.enterprise.repository-caching-release-phase %}
-
 ## About configuration for repository caching
 
 {% data reusables.enterprise.repository-caching-config-summary %} Then, you can set data location policies that govern which repository networks are replicated to the repository cache.
@@ -56,20 +54,6 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
       ghe-repl-setup -a PRIMARY-IP
       ```
 
-{% ifversion ghes < 3.6 %}
-1. If you haven't already, set the datacenter name on the primary and any replica appliances, replacing DC-NAME with a datacenter name.
-
-   ```
-   ghe-repl-node --datacenter DC-NAME
-   ```
- 
-1. Set a `cache-location` for the repository cache, replacing CACHE-LOCATION with an alphanumeric identifier, such as the region where the cache is deployed. Also set a datacenter name for this cache; new caches will attempt to seed from another cache in the same datacenter.
-
-   ```shell
-   ghe-repl-node --cache CACHE-LOCATION --datacenter REPLICA-DC-NAME
-   ```
-
-{% else %}
 1. To configure the repository cache, use the `ghe-repl-node` command and include the necessary parameters.
     - Set a `cache-location` for the repository cache, replacing _CACHE-LOCATION_ with an alphanumeric identifier, such as the region where the cache is deployed.  The _CACHE-LOCATION_ value must not be any of the subdomains reserved for use with subdomain isolation, such as `assets` or `media`.  For a list of reserved names, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)."
     - Set a `cache-domain` for the repository cache, replacing _EXTERNAL-CACHE-DOMAIN_ with the hostname Git clients will use to access the repository cache. If you do not specify a `cache-domain`, {% data variables.product.product_name %} will prepend the _CACHE-LOCATION_ value as a subdomain to the hostname configured for your instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
@@ -84,8 +68,6 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
     ```shell
     ghe-repl-node --cache CACHE-LOCATION --cache-domain EXTERNAL-CACHE-DOMAIN --datacenter REPLICA-DC-NAME
     ```
-
-{% endif %}
 
 {% data reusables.enterprise_installation.replication-command %}
 {% data reusables.enterprise_installation.verify-replication-channel %}

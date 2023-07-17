@@ -829,8 +829,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org.secret_scanning_push_protection_custom_message_updated` | The custom message triggered by an attempted push to a push-protected repository was updated for your organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for secret scanning. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for secret scanning.
+| `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for {% data variables.product.prodname_secret_scanning %}.
 {%- endif %}
 | `org.self_hosted_runner_online` | The runner application was started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
 | `org.self_hosted_runner_offline` | The runner application was stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
@@ -1277,8 +1277,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |------------------|-------------------
-| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} push protection for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} push protection for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
 
 ## `repository_visibility_change` category actions
@@ -1342,8 +1342,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
-| `secret_scanning.enable` | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.
+| `secret_scanning.disable` | An organization owner disabled {% data variables.product.prodname_secret_scanning %} for all existing{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+| `secret_scanning.enable` | An organization owner enabled {% data variables.product.prodname_secret_scanning %} for all existing{% ifversion ghec %} private or internal{% endif %} repositories.
 
 {% ifversion secret-scanning-alert-audit-log %}
 
@@ -1360,8 +1360,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `secret_scanning_new_repos.disable` | An organization owner disabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
-| `secret_scanning_new_repos.enable` | An organization owner enabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories.
+| `secret_scanning_new_repos.disable` | An organization owner disabled {% data variables.product.prodname_secret_scanning %} for all new{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+| `secret_scanning_new_repos.enable` | An organization owner enabled {% data variables.product.prodname_secret_scanning %} for all new{% ifversion ghec %} private or internal{% endif %} repositories.
 {%- endif %}
 
 {% ifversion secret-scanning-push-protection-bypasses %}

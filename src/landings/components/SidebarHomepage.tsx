@@ -15,14 +15,16 @@ export const SidebarHomepage = () => {
           const { href, external, name } = link
           return (
             <Link
+              role="group"
               id={href}
               key={href}
               href={href}
               target={external ? '_blank' : undefined}
               className="no-underline"
+              aria-label={name + ' link'}
             >
               <TreeView.Item
-                id={href}
+                id={href + ' item'}
                 onSelect={(e) => {
                   if (e.nativeEvent instanceof KeyboardEvent && e.nativeEvent.code === 'Enter') {
                     document.getElementById(href)?.click()

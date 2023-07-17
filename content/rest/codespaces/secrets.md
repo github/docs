@@ -3,7 +3,7 @@ title: Codespaces user secrets
 allowTitleToDifferFromFilename: true
 shortTitle: User secrets
 intro: Use the REST API manage secrets that the user has access to in a codespace.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

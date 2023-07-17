@@ -332,7 +332,7 @@ Caches have branch scope restrictions in place, which means some caches have lim
 
 For example, a repository could have many new pull requests opened, each with their own caches that are restricted to that branch. These caches could take up the majority of the cache storage for that repository. Once a repository has reached its maximum cache storage, the cache eviction policy will create space by deleting the oldest caches in the repository. In order to prevent cache thrashing when this happens, you can set up workflows to delete caches on a faster cadence than the cache eviction policy will. You can use the [`gh-actions-cache`](https://github.com/actions/gh-actions-cache/) CLI extension to delete caches for specific branches.
 
-This example workflow uses `gh-actions-cache` to delete all the caches created by a branch once a pull request is closed.
+This example workflow uses `gh-actions-cache` to delete up to 100 caches created by a branch once a pull request is closed.
 
 ```yaml
 name: cleanup caches by a branch
@@ -356,7 +356,7 @@ jobs:
           BRANCH="refs/pull/{% raw %}${{ github.event.pull_request.number }}{% endraw %}/merge"
 
           echo "Fetching list of cache key"
-          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH | cut -f 1 )
+          cacheKeysForPR=$(gh actions-cache list -R $REPO -B $BRANCH -L 100 | cut -f 1 )
 
           ## Setting this to not fail the workflow while deleting cache keys. 
           set +e
@@ -370,6 +370,6 @@ jobs:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
-Alternatively, you can use the API to programmatically delete caches on your own cadence. For more information, see "[AUTOTITLE](/rest/actions/cache#delete-github-actions-caches-for-a-repository-using-a-cache-key)."
+Alternatively, you can use the API to automatically list or delete all caches on your own cadence. For more information, see "[AUTOTITLE](/rest/actions/cache#about-the-cache-in-github-actions)."
 
 {% endif %}

@@ -229,6 +229,10 @@ To set up streaming to Google Cloud Storage, you must create a service account i
 
 To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must make sure that the endpoint is configured to accept HTTPS connections. For more information, see [Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) in the Splunk documentation.
 
+{% ifversion ghec %}
+To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the HEC endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[Meta](/rest/meta/meta#get-github-enterprise-cloud-meta-information)" in the REST API documentation.
+{% endif %}
+
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Splunk**.
 

@@ -85,7 +85,7 @@ An enterprise owner must first set up {% data variables.product.prodname_dependa
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your organization
 
-{% ifversion fpt or ghec or ghes > 3.8 %}You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories owned by your organization. Your changes affect all repositories.
+{% ifversion fpt or ghec or ghes > 3.8 %}You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for some or all repositories owned by your organization. {% data reusables.security.note-securing-your-org %}
 
 {% ifversion dependabot-alerts-ghes-enablement %}
 An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
@@ -95,9 +95,9 @@ An enterprise owner must first set up {% data variables.product.prodname_dependa
 {% ifversion code-security-multi-repo-enablement %}
 You can use security overview to find a set of repositories and enable or disable {% data variables.product.prodname_dependabot_alerts %} for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
 
-You can also use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_dependabot_alerts %} for all existing repositories in an organization:
+You can also use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_dependabot_alerts %} for all existing repositories in an organization.
 {% else %}
-You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_code_scanning %} for all existing repositories in an organization:
+You can use the organization settings page for "Code security and analysis" to enable {% data variables.product.prodname_dependabot_alerts %} for all existing repositories in an organization.
 {% endif %}
 
 {% data reusables.profile.access_org %}

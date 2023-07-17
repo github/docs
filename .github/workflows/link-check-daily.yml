@@ -33,7 +33,7 @@ jobs:
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
-        run: node .github/actions-scripts/what-docs-early-access-branch.js
+        run: node src/early-access/scripts/what-docs-early-access-branch.js
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
@@ -46,7 +46,7 @@ jobs:
 
       - name: Merge docs-early-access repo's folders
         if: ${{ github.repository == 'github/docs-internal' }}
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       - name: Restore disk-cache file for external link checking
         uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8

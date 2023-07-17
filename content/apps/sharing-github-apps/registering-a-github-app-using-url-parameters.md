@@ -17,7 +17,7 @@ topics:
   - GitHub Apps
 shortTitle: App query parameters
 ---
-## About URL parameters for registering {% data variables.product.prodname_github_app %}s
+## About URL parameters for registering {% data variables.product.prodname_github_apps %}
 
 You can use URL parameters to preselect the configuration settings of a new {% data variables.product.prodname_github_app %} registration and share a custom link with other people. The link will take people to a {% data variables.product.prodname_github_app %} registration page, where the app settings will be pre-filled according to the URL parameters you included in the URL.
 

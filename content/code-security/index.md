@@ -9,11 +9,13 @@ featuredLinks:
     - /code-security/getting-started/securing-your-repository
     - /code-security/getting-started/securing-your-organization
     - '{% ifversion fpt or ghec %}/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory{% endif %}'
-    - '{% ifversion ghes or ghae %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository{% endif%}'
+    - '{% ifversion code-scanning-without-workflow %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning{% endif %}'
+    - '{% ifversion ghes < 3.9 or ghae < 3.9 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning{% endif %}'
   guideCards:
     - '{% ifversion fpt or ghec or ghes %}/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates{% endif %}'
     - '{% ifversion fpt or ghec or ghes %}/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates{% endif %}'
-    - '{% ifversion fpt or ghec or ghes %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository{% endif %}'
+    - '{% ifversion code-scanning-without-workflow %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning{% endif %}'
+    - '{% ifversion ghes < 3.9 or ghae < 3.9 %}/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning{% endif %}'
     - '{% ifversion ghae %}/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories{% endif %}'
     - '{% ifversion ghae %}/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github{% endif %}'
     - '{% ifversion ghae %}/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system{% endif %}'

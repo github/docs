@@ -30,7 +30,7 @@ export default async function featuredLinks(req, res, next) {
           req.context,
           {
             textOnly: true,
-          }
+          },
         )
         const item = { title, href: req.context.page.featuredLinks[key][i].href }
 
@@ -42,7 +42,7 @@ export default async function featuredLinks(req, res, next) {
       req.context.featuredLinks[key] = await getLinkData(
         req.context.page.featuredLinks[key],
         req.context,
-        { title: true, intro: true, fullTitle: true }
+        { title: true, intro: true, fullTitle: true },
       )
     }
   }

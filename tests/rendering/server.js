@@ -14,7 +14,7 @@ import { describe, jest } from '@jest/globals'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
 const activeProducts = Object.values(productMap).filter(
-  (product) => !product.wip && !product.hidden
+  (product) => !product.wip && !product.hidden,
 )
 
 jest.useFakeTimers({ legacyFakeTimers: true })
@@ -55,7 +55,7 @@ describe('server', () => {
 
     const productTitles = activeProducts.map((prod) => prod.name)
     const productHrefs = activeProducts.map((prod) =>
-      prod.external ? prod.href : `/en${prod.href}`
+      prod.external ? prod.href : `/en${prod.href}`,
     )
 
     const titlesInSidebarButNotProducts = lodash.difference(sidebarTitles, productTitles)
@@ -66,19 +66,19 @@ describe('server', () => {
 
     expect(
       titlesInSidebarButNotProducts.length,
-      `Found unexpected titles in sidebar: ${titlesInSidebarButNotProducts.join(', ')}`
+      `Found unexpected titles in sidebar: ${titlesInSidebarButNotProducts.join(', ')}`,
     ).toBe(0)
     expect(
       titlesInProductsButNotSidebar.length,
-      `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`
+      `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`,
     ).toBe(0)
     expect(
       hrefsInSidebarButNotProducts.length,
-      `Found unexpected hrefs in sidebar: ${hrefsInSidebarButNotProducts.join(', ')}`
+      `Found unexpected hrefs in sidebar: ${hrefsInSidebarButNotProducts.join(', ')}`,
     ).toBe(0)
     expect(
       hrefsInProductsButNotSidebar.length,
-      `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`
+      `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`,
     ).toBe(0)
   })
 
@@ -94,11 +94,11 @@ describe('server', () => {
       const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
       const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
       const productItems = activeProducts.filter(
-        (prod) => prod.external || prod.versions.includes(ep)
+        (prod) => prod.external || prod.versions.includes(ep),
       )
       const productTitles = productItems.map((prod) => prod.name)
       const productHrefs = productItems.map((prod) =>
-        prod.external ? prod.href : `/en/${ep}${getPathWithoutVersion(prod.href)}`
+        prod.external ? prod.href : `/en/${ep}${getPathWithoutVersion(prod.href)}`,
       )
 
       const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
@@ -106,11 +106,11 @@ describe('server', () => {
 
       expect(
         titlesInProductsButNotSidebar.length,
-        `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`
+        `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`,
       ).toBe(0)
       expect(
         hrefsInProductsButNotSidebar.length,
-        `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`
+        `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`,
       ).toBe(0)
     }
   })
@@ -163,8 +163,8 @@ describe('server', () => {
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
     expect(
       $.text().includes(
-        'We track these errors automatically, but if the problem persists please feel free to contact us.'
-      )
+        'We track these errors automatically, but if the problem persists please feel free to contact us.',
+      ),
     ).toBe(true)
     expect($.res.statusCode).toBe(404)
   })
@@ -184,8 +184,8 @@ describe('server', () => {
     expect($.text().includes('It looks like something went wrong.')).toBe(true)
     expect(
       $.text().includes(
-        'We track these errors automatically, but if the problem persists please feel free to contact us.'
-      )
+        'We track these errors automatically, but if the problem persists please feel free to contact us.',
+      ),
     ).toBe(true)
     expect($.res.statusCode).toBe(500)
   })
@@ -203,11 +203,11 @@ describe('server', () => {
   // see issue 9678
   test('does not use cached intros in map topics', async () => {
     let $ = await getDOM(
-      '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
+      '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
     )
     const articleIntro = $('[data-testid="lead"]').text()
     $ = await getDOM(
-      '/en/enterprise/2.16/user/importing-your-projects-to-github/importing-source-code-to-github'
+      '/en/enterprise/2.16/user/importing-your-projects-to-github/importing-source-code-to-github',
     )
     const mapTopicIntro = $('.map-topic').first().next().text()
     expect(articleIntro).not.toEqual(mapTopicIntro)
@@ -247,7 +247,7 @@ describe('server', () => {
           page.languageCode === 'en' &&
           page.hidden &&
           page.relativePath.startsWith('early-access') &&
-          !page.relativePath.endsWith('index.md')
+          !page.relativePath.endsWith('index.md'),
       )
       for (const { href } of hiddenPages[0].permalinks) {
         const $ = await getDOM(href)
@@ -391,14 +391,14 @@ describe('static routes', () => {
 
     expect(
       (await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`))
-        .statusCode
+        .statusCode,
     ).toBe(200)
     expect(
       (
         await get(
-          `/public/ghes-${enterpriseServerReleases.oldestSupported}/schema.docs-enterprise.graphql`
+          `/public/ghes-${enterpriseServerReleases.oldestSupported}/schema.docs-enterprise.graphql`,
         )
-      ).statusCode
+      ).statusCode,
     ).toBe(200)
     expect((await get('/public/ghae/schema.docs-ghae.graphql')).statusCode).toBe(200)
   })

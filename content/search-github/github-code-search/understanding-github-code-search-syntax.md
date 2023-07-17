@@ -60,7 +60,7 @@ To search for a phrase containing a quotation mark, you can escape the quotation
 You can also use quoted strings in qualifiers, for example:
 
 ```
-path: git language: "protocol buffers"
+path:git language:"protocol buffers"
 ```
 
 ## Using boolean operations

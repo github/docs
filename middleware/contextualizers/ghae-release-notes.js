@@ -35,8 +35,8 @@ export default async function ghaeReleaseNotesContext(req, res, next) {
   req.context.ghaeReleaseNotes = (
     await Promise.all(
       req.context.ghaeReleases.map(
-        async (release) => await renderPatchNotes(release.patches, req.context)
-      )
+        async (release) => await renderPatchNotes(release.patches, req.context),
+      ),
     )
   ).flat()
 
