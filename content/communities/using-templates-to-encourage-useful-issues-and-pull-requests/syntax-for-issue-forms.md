@@ -109,7 +109,7 @@ Links? References? Anything that will give us more context about the issue that 
 name: 🐞 Bug
 description: File a bug/issue
 title: "[BUG] <title>"
-labels: [Bug, Needs Triage]
+labels: ["Bug", "Needs Triage"]
 body:
 - type: checkboxes
   attributes:
