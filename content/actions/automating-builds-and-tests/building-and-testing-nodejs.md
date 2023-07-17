@@ -165,7 +165,7 @@ steps:
 
 ### Example using Yarn
 
-This example installs the dependencies defined in the _yarn.lock_ file and prevent updates to the _yarn.lock_ file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
+This example installs the dependencies defined in the _yarn.lock_ file and prevents updates to the _yarn.lock_ file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
 
 ```yaml copy
 steps:
