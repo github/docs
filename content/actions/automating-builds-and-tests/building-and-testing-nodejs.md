@@ -137,20 +137,7 @@ If you don't specify a Node.js version, {% data variables.product.prodname_dotco
 
 ### Example using npm
 
-This example installs the dependencies defined in the _package.json_ file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
-
-```yaml copy
-steps:
-- uses: {% data reusables.actions.action-checkout %}
-- name: Use Node.js
-  uses: {% data reusables.actions.action-setup-node %}
-  with:
-    node-version: '18.x'
-- name: Install dependencies
-  run: npm install
-```
-
-Using `npm ci` installs the versions in the _package-lock.json_ or _npm-shrinkwrap.json_ file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and "[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
+This example installs the versions in the _package-lock.json_ or _npm-shrinkwrap.json_ file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and "[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
 
 ```yaml copy
 steps:
@@ -161,6 +148,19 @@ steps:
     node-version: '18.x'
 - name: Install dependencies
   run: npm ci
+```
+
+Using `npm install` installs the dependencies defined in the _package.json_ file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
+
+```yaml copy
+steps:
+- uses: {% data reusables.actions.action-checkout %}
+- name: Use Node.js
+  uses: {% data reusables.actions.action-setup-node %}
+  with:
+    node-version: '18.x'
+- name: Install dependencies
+  run: npm install
 ```
 
 ### Example using Yarn
