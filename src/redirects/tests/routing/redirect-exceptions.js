@@ -2,13 +2,13 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import { jest } from '@jest/globals'
 
-import { get } from '../helpers/e2etest.js'
-import getExceptionRedirects from '../../lib/redirects/exception-redirects.js'
-import { latest } from '../../lib/enterprise-server-releases.js'
+import { get } from '../../../../tests/helpers/e2etest.js'
+import getExceptionRedirects from '../../lib/exception-redirects.js'
+import { latest } from '../../../../lib/enterprise-server-releases.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const EXCEPTIONS_FILE = path.join(__dirname, '../../lib/redirects/static/redirect-exceptions.txt')
+const EXCEPTIONS_FILE = path.join(__dirname, '../../lib/static/redirect-exceptions.txt')
 
 describe('redirect exceptions', () => {
   jest.setTimeout(5 * 60 * 1000)

@@ -1,15 +1,17 @@
-import { readCompressedJsonFileFallback } from '../read-json-file.js'
+import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
 import getExceptionRedirects from './exception-redirects.js'
-import { latest } from '../enterprise-server-releases.js'
+import { latest } from '../../../lib/enterprise-server-releases.js'
 
-const EXCEPTIONS_FILE = './lib/redirects/static/redirect-exceptions.txt'
+const EXCEPTIONS_FILE = './src/redirects/lib/static/redirect-exceptions.txt'
 
 // This function runs at server warmup and precompiles possible redirect routes.
 // It outputs them in key-value pairs within a neat Javascript object: { oldPath: newPath }
 export async function precompileRedirects(pageList) {
-  const allRedirects = readCompressedJsonFileFallback('./lib/redirects/static/developer.json')
+  const allRedirects = readCompressedJsonFileFallback('./src/redirects/lib/static/developer.json')
 
-  const externalRedirects = readCompressedJsonFileFallback('./lib/redirects/external-sites.json')
+  const externalRedirects = readCompressedJsonFileFallback(
+    './src/redirects/lib/external-sites.json',
+  )
   Object.assign(allRedirects, externalRedirects)
 
   // CURRENT PAGES PERMALINKS AND FRONTMATTER
