@@ -63,8 +63,8 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 {% data reusables.codespaces.using-tools-to-access-ports-1 %}
 {% data reusables.codespaces.find-address-and-token %}
 {% data reusables.codespaces.using-tools-to-access-ports-2 %}
-{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 
 {% endwebui %}
 
@@ -97,8 +97,8 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 {% data reusables.codespaces.using-tools-to-access-ports-1 %}
 {% data reusables.codespaces.find-address-and-token %}
 {% data reusables.codespaces.using-tools-to-access-ports-2 %}
-{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 
 {% endvscode %}
 
@@ -174,11 +174,12 @@ Copy the address and paste it somewhere for later use.
    ```
 
 {% data reusables.codespaces.using-tools-to-access-ports-2 %}
+{% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
 {% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 
-You can see the port labels when you list the forwarded ports for a codespace. To do this, use the `gh codespace ports` command and then select a codespace.
+### Seeing port labels on the command line
 
-{% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+You can see the port labels when you list the forwarded ports for a codespace. To do this, use the `gh codespace ports` command and then select a codespace.
 
 {% endcli %}
 
