@@ -40,15 +40,15 @@ topics:
 
 {% ifversion code-scanning-without-workflow-310 %}
 
-For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. The default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}{% ifversion codeql-swift-beta %} except for Swift, for which you must use the advanced setup{% endif %}. For more information about the advanced setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. Default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}{% ifversion codeql-swift-beta %} except for Swift, for which you must use advanced setup{% endif %}. For more information about advanced setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
 
 {% elsif code-scanning-without-workflow %}
 
-For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. The default setup does not support any compiled languages, so you must use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. Default setup does not support any compiled languages, so you must use advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
 
 {% else %}
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
+You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-the-codeql-action)."
 
 {% endif %}
 
@@ -59,10 +59,11 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
 - [`autobuild` for C/C++](#autobuild-for-cc)
-- [`autobuild` for C#](#autobuild-for-c)
-{% ifversion codeql-go-autobuild %} - [`autobuild` for Go](#autobuild-for-go) {% endif %}
-{% ifversion codeql-kotlin-beta %} - [`autobuild` for Java and Kotlin](#autobuild-for-java--and-kotlin) {% else %} - [`autobuild` for Java](#autobuild-for-java) {% endif %}
-{% ifversion codeql-swift-beta %} - [`autobuild` for Swift](#autobuild-for-swift) {% endif %}
+- [`autobuild` for C#](#autobuild-for-c){% ifversion codeql-go-autobuild %}
+- [`autobuild` for Go](#autobuild-for-go){% endif %}{% ifversion codeql-kotlin-beta %}
+- [`autobuild` for Java and Kotlin](#autobuild-for-java--and-kotlin){% else %}
+- [`autobuild` for Java](#autobuild-for-java){% endif %}{% ifversion codeql-swift-beta %}
+- [`autobuild` for Swift](#autobuild-for-swift){% endif %}
 
 {% note %}
 
