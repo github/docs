@@ -3,14 +3,14 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
 import { useState } from 'react'
-import { FeaturedTrack } from 'src/landings/components/ProductGuidesContext'
+import { LearningTrack as LearningTrackT } from 'src/landings/components/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
 import { slug } from 'github-slugger'
 import styles from './LearningTrack.module.scss'
 import { Link } from 'components/Link'
 
 type Props = {
-  track: FeaturedTrack
+  track: LearningTrackT
 }
 
 const DEFAULT_VISIBLE_GUIDES = 4
