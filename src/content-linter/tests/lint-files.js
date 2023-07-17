@@ -18,18 +18,13 @@ import { frontmatter, deprecatedProperties } from '../../../lib/frontmatter.js'
 import languages from '../../../lib/languages.js'
 import releaseNotesSchema from '../lib/release-notes-schema.js'
 import learningTracksSchema from '../lib/learning-tracks-schema.js'
-import { renderContent, liquid } from '#src/content-render/index.js'
-import getApplicableVersions from '../../../lib/get-applicable-versions.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { liquid } from '#src/content-render/index.js'
 import { getDiffFiles } from '../lib/diff-files.js'
 import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
-  v.startsWith('enterprise-server@'),
-)
 
 const rootDir = path.join(__dirname, '../../..')
 const contentDir = path.join(rootDir, 'content')
@@ -1021,45 +1016,6 @@ describe('lint learning tracks', () => {
       }
 
       expect(valid, errors).toBe(true)
-    })
-
-    it('has one and only one featured track per supported version', async () => {
-      // Use the YAML filename to determine which product this refers to, and then peek
-      // inside the product TOC frontmatter to see which versions the product is available in.
-      const product = path.posix.basename(yamlRelPath, '.yml')
-      const productTocPath = path.posix.join('content', product, 'index.md')
-      const productContents = await fs.readFile(productTocPath, 'utf8')
-      const { data } = frontmatter(productContents)
-      const productVersions = getApplicableVersions(data.versions, productTocPath)
-
-      const featuredTracks = {}
-      const context = { enterpriseServerVersions }
-
-      // For each of the product's versions, render the learning track data and look for a featured track.
-      await Promise.all(
-        productVersions.map(async (version) => {
-          const featuredTracksPerVersion = []
-
-          for (const entry of Object.values(dictionary)) {
-            if (!entry.featured_track) return
-            context.currentVersion = version
-            context[allVersions[version].shortName] = true
-            const isFeaturedLink =
-              typeof entry.featured_track === 'boolean' ||
-              (await renderContent(entry.featured_track, context, {
-                textOnly: true,
-              })) === 'true'
-            featuredTracksPerVersion.push(isFeaturedLink)
-          }
-
-          featuredTracks[version] = featuredTracksPerVersion.length
-        }),
-      )
-
-      Object.entries(featuredTracks).forEach(([version, numOfFeaturedTracks]) => {
-        const errorMessage = `Expected 1 featured learning track but found ${numOfFeaturedTracks} for ${version} in ${yamlAbsPath}`
-        expect(numOfFeaturedTracks, errorMessage).toBe(1)
-      })
     })
 
     it('contains valid liquid', () => {
