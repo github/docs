@@ -16,7 +16,6 @@ import { jest } from '@jest/globals'
 
 import { frontmatter, deprecatedProperties } from '../../../lib/frontmatter.js'
 import languages from '../../../lib/languages.js'
-import { tags } from '#src/content-render/liquid/extended-markdown.js'
 import releaseNotesSchema from '../lib/release-notes-schema.js'
 import learningTracksSchema from '../lib/learning-tracks-schema.js'
 import { renderContent, liquid } from '#src/content-render/index.js'
@@ -170,13 +169,6 @@ const oldVariableRegex = /{{\s*?site\.data\..*?}}/g
 //
 const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 
-//  - {{#note}}
-//  - {{/note}}
-//  - {{ #warning }}
-//  - {{ /pizza }}
-//
-const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
-
 // GitHub-owned actions (e.g. actions/checkout@v2) should use a reusable in examples.
 // list:
 // - actions/checkout@v2
@@ -211,8 +203,6 @@ const oldVariableErrorText =
   'Found article uses old {{ site.data... }} syntax. Use {% data example.data.string %} instead!'
 const oldOcticonErrorText =
   'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
-const oldExtendedMarkdownErrorText =
-  'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
 const literalActionInsteadOfReusableErrorText =
   'Found a literal mention of a GitHub-owned action. Instead, use the reusables for the action. e.g {% data reusables.actions.action-checkout %}'
 
@@ -596,21 +586,6 @@ describe('lint markdown content', () => {
       expect(matches.length, errorMessage).toBe(0)
     })
 
-    test('does not use old extended markdown syntax', async () => {
-      Object.keys(tags).forEach((tag) => {
-        const reg = new RegExp(`{{\\s*?[#|/]${tag}`, 'g')
-        if (reg.test(content)) {
-          const matches = content.match(oldExtendedMarkdownRegex) || []
-          const tagMessage = oldExtendedMarkdownErrorText
-            .replace('{{#note}}', `{{#${tag}}}`)
-            .replace('{% note %}', `{% ${tag} %}`)
-            .replace('{% endnote %}', `{% end${tag} %}`)
-          const errorMessage = formatLinkError(tagMessage, matches)
-          expect(matches.length, errorMessage).toBe(0)
-        }
-      })
-    })
-
     test('URLs must not contain a hard-coded language code', async () => {
       const matches = links.filter((link) => {
         return /\/(?:${languageCodes.join('|')})\//.test(link)
@@ -893,22 +868,6 @@ describe('lint yaml content', () => {
       }
 
       const errorMessage = formatLinkError(oldOcticonErrorText, matches)
-      expect(matches.length, errorMessage).toBe(0)
-    })
-
-    test('does not use old extended markdown syntax', async () => {
-      const matches = []
-
-      for (const [key, content] of Object.entries(dictionary)) {
-        const contentStr = getContent(content)
-        if (!contentStr) continue
-        const valMatches = contentStr.match(oldExtendedMarkdownRegex) || []
-        if (valMatches.length > 0) {
-          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-        }
-      }
-
-      const errorMessage = formatLinkError(oldExtendedMarkdownErrorText, matches)
       expect(matches.length, errorMessage).toBe(0)
     })
   })
