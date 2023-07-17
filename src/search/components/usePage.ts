@@ -8,7 +8,7 @@ export const usePage = (): Info => {
   const page = parseInt(
     router.query.page && Array.isArray(router.query.page)
       ? router.query.page[0]
-      : router.query.page || ''
+      : router.query.page || '',
   )
   return {
     page: !isNaN(page) && page >= 1 ? page : 1,

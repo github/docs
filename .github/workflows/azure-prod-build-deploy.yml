@@ -69,7 +69,7 @@ jobs:
           path: docs-early-access
 
       - name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       - uses: ./.github/actions/warmup-remotejson-cache
         with:

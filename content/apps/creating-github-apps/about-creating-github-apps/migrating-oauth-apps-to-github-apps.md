@@ -14,12 +14,12 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: 'Migrate from {% data variables.product.prodname_oauth_app %}s'
+shortTitle: 'Migrate from {% data variables.product.prodname_oauth_apps %}'
 ---
 
-## Benefits of migrating from {% data variables.product.prodname_oauth_app %}s to {% data variables.product.prodname_github_app %}s
+## Benefits of migrating from {% data variables.product.prodname_oauth_apps %} to {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.prodname_github_app %}s are the recommended way to integrate with {% data variables.product.company_short %}. {% data variables.product.prodname_github_app %}s offer many advantages over {% data variables.product.prodname_oauth_app %}s, including:
+{% data variables.product.prodname_github_apps %} are the recommended way to integrate with {% data variables.product.company_short %}. {% data variables.product.prodname_github_apps %} offer many advantages over {% data variables.product.prodname_oauth_apps %}, including:
 
 - enhanced security features, like fine-grained permissions, choice over repository access, and short lived tokens
 - the ability to act independently of or on behalf of a user
@@ -36,7 +36,7 @@ The following steps provide an overview of how to migrate from an {% data variab
 
 Re-familiarize yourself with the code for your {% data variables.product.prodname_oauth_app %}. The API requests that your {% data variables.product.prodname_oauth_app %} makes will help you decide what permissions to select for your {% data variables.product.prodname_github_app %}.
 
-Additionally, there are a few REST API endpoints that are not available for {% data variables.product.prodname_oauth_app %}s. Verify that any REST endpoints that you use are available for {% data variables.product.prodname_github_app %}s by reviewing "[AUTOTITLE](/rest/overview/endpoints-available-for-github-apps)."
+Additionally, there are a few REST API endpoints that are not available for {% data variables.product.prodname_oauth_apps %}. Verify that any REST endpoints that you use are available for {% data variables.product.prodname_github_apps %} by reviewing "[AUTOTITLE](/rest/overview/endpoints-available-for-github-apps)."
 
 ### 2. Register a {% data variables.product.prodname_github_app %}
 
@@ -46,7 +46,7 @@ Compared to an {% data variables.product.prodname_oauth_app %}, you have more co
 
 - Unlike an {% data variables.product.prodname_oauth_app %}, which always acts on behalf of a user, you can make your {% data variables.product.prodname_github_app %} take actions as itself or on behalf of a user. If you do not want your new {% data variables.product.prodname_github_app %} to take actions on behalf of a user, you can skip the "Identifying and authorizing users" settings. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-- You can use webhooks to notify your {% data variables.product.prodname_github_app %} when specific events occur. Unlike webhooks for {% data variables.product.prodname_oauth_app %}s, which you must configure via the API for each repository or organization, webhooks are built into {% data variables.product.prodname_github_app %}s. When you register your {% data variables.product.prodname_github_app %}, you can select the webhook events that you want to receive. Additionally, if your {% data variables.product.prodname_oauth_app %} currently uses polling to determine if an event had occurred, consider subscribing to webhooks instead to help your {% data variables.product.prodname_github_app %} stay within the rate limit. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)."
+- You can use webhooks to notify your {% data variables.product.prodname_github_app %} when specific events occur. Unlike webhooks for {% data variables.product.prodname_oauth_apps %}, which you must configure via the API for each repository or organization, webhooks are built into {% data variables.product.prodname_github_apps %}. When you register your {% data variables.product.prodname_github_app %}, you can select the webhook events that you want to receive. Additionally, if your {% data variables.product.prodname_oauth_app %} currently uses polling to determine if an event had occurred, consider subscribing to webhooks instead to help your {% data variables.product.prodname_github_app %} stay within the rate limit. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)."
 
 - With an {% data variables.product.prodname_oauth_app %}, you request scopes when a user authorizes your app. With a {% data variables.product.prodname_github_app %}, you specify permissions in the app settings. These permissions are more granular than scopes and enable you to only select the permissions that your app needs. Additionally, these permissions are mapped to REST API endpoints and webhook events, so you can easily determine what permissions your {% data variables.product.prodname_github_app %} needs in order to access a specific REST API endpoint or subscribe to a specific webhook. Permissions are not currently documented for GraphQL requests. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
@@ -66,7 +66,7 @@ If you are using {% data variables.product.company_short %}'s official Octokit.j
 
 #### Review rate limits
 
-Review the differences in rate limits between {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_app %}s. {% data variables.product.prodname_github_app %}s use sliding rules for rate limits, which can increase based on the number of repositories and number of users in the organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
+Review the differences in rate limits between {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %}. {% data variables.product.prodname_github_apps %} use sliding rules for rate limits, which can increase based on the number of repositories and number of users in the organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps)."
 
 If possible, consider using conditional requests and subscribing to webhooks instead of polling to help you stay within rate limits. For more information about conditional requests, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#conditional-requests)." For more information about using webhooks with your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
@@ -97,7 +97,7 @@ To pre-select any repositories your {% data variables.product.prodname_oauth_app
 
 For example: `{% data variables.product.oauth_host_code %}/{% ifversion ghes or ghae %}github-apps{% else %}apps{% endif %}/YOUR_APP_NAME/installations/new/permissions?suggested_target_id=ID_OF_USER_OR_ORG&repository_ids[]=REPO_A_ID&repository_ids[]=REPO_B_ID`.
 
-For more information about installing {% data variables.product.prodname_github_app %}s, see {% ifversion ghec or fpt %}"[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)," "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations),"{% endif %} "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party)" and "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)."
+For more information about installing {% data variables.product.prodname_github_apps %}, see {% ifversion ghec or fpt %}"[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)," "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations),"{% endif %} "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party)" and "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app)."
 
 #### Prompt users to authorize your app
 
@@ -105,7 +105,7 @@ If you want your {% data variables.product.prodname_github_app %} to make API re
 
 To prompt users to authorize your app, you will lead them through the web application flow or device flow. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
 
-For more information about authorizing {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
+For more information about authorizing {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
 
 #### Encourage your users to revoke {% data variables.product.prodname_oauth_app %} access
 

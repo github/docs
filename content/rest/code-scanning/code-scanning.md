@@ -3,7 +3,7 @@ title: Code Scanning
 intro: >-
   Use the REST API to retrieve and update {% data
   variables.product.prodname_code_scanning %} alerts from a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

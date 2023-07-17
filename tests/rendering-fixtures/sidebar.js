@@ -22,7 +22,7 @@ describe('sidebar', () => {
       // or else those pages won't become part of the site tree. But
       // they should not actually appear in the side bar.
       const earlyAccessLinks = links.filter((i, link) =>
-        $(link).attr('href').split('/').includes('early-access')
+        $(link).attr('href').split('/').includes('early-access'),
       )
       expect(earlyAccessLinks.length).toBe(0)
     })
@@ -58,8 +58,8 @@ describe('sidebar', () => {
       const $ = await getDOM('/get-started/quickstart/hello-world')
       expect(
         $(
-          '[data-testid=sidebar] [data-testid=sidebar-article-group] li[aria-current="true"]'
-        ).text()
+          '[data-testid=sidebar] [data-testid=sidebar-article-group] li[aria-current="true"]',
+        ).text(),
       ).toBe('Hello World')
     })
 

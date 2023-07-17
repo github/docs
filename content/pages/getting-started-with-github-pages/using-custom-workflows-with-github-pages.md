@@ -50,6 +50,7 @@ The `deploy-pages` action handles the necessary setup for deploying artifacts. T
 
 For more information, see the [`deploy-pages`](https://github.com/marketplace/actions/deploy-github-pages-site) action.
 
+{% raw %}
 ```yaml
 ...
 
@@ -61,14 +62,16 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     needs: jekyll-build
-    environment: github-pages
-    url: ${{steps.deployment.outputs.page_url}}
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
     steps:
       - name: Deploy artifact
         id: deployment
         uses: actions/deploy-pages@v1
 ...
 ```
+{% endraw %}
 
 ## Linking separate build and deploy jobs
 
@@ -93,13 +96,13 @@ jobs:
           source: ./
           destination: ./_site
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
 
   # Deployment job
   deploy:
     environment:
       name: github-pages
-      url: ${{steps.deployment.outputs.page_url}}
+      url: {% raw %}${{steps.deployment.outputs.page_url}}{% endraw %}
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -119,7 +122,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{steps.deployment.outputs.page_url}}
+      url: {% raw %}${{steps.deployment.outputs.page_url}}{% endraw %}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -127,7 +130,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v2
         with:
           # upload entire directory
           path: '.'

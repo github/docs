@@ -33,14 +33,7 @@ If you have low vision, you may benefit from a high contrast theme, with greater
 1. Click the theme you'd like to use.
     - If you chose a single theme, click a theme.
 
-      {%- ifversion ghes = 3.5 %}
-      {% note %}
-
-      **Note**: The light high contrast theme was unavailable in {% data variables.product.product_name %} 3.5.0, 3.5.1, 3.5.2, and 3.5.3. The theme is available in 3.5.4 and later. For more information about upgrades, contact your site administrator.
-
-      For more information about determining the version of {% data variables.product.product_name %} you're using, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs#github-enterprise-server)."
-      {% endnote %}
-      {%- endif %}
+      
 
     - If you chose to follow your system settings, click a day theme and a night theme.{% ifversion fpt or ghec %}
     - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}

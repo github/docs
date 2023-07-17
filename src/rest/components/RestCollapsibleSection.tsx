@@ -71,7 +71,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
             }
           })
         },
-        { rootMargin: '0px 0px -85% 0px' }
+        { rootMargin: '0px 0px -85% 0px' },
       )
       // TODO: When we add the ## About the {title} API to each operation
       // we can remove the h2 here
@@ -127,7 +127,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
         {title}
         <TreeView.SubTree>
           {page.childPages.map((childPage, i) => {
-            const childTitle = childPage.shortTitle || childPage.title
+            const childTitle = childPage.title
             const childActive =
               routePath.includes(childPage.href + '/') || routePath === childPage.href
             const childCurrent = routePath === childPage.href

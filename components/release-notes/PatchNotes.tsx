@@ -2,7 +2,6 @@ import { Fragment } from 'react'
 import cx from 'classnames'
 import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
-import { Link } from 'components/Link'
 import { HeadingLink } from 'components/article/HeadingLink'
 
 import styles from './PatchNotes.module.scss'
@@ -34,7 +33,7 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
             className={cx(
               'py-6 d-block d-xl-flex',
               !withReleaseNoteLabel && 'mx-6',
-              !isLast && 'border-bottom'
+              !isLast && 'border-bottom',
             )}
           >
             <div>
@@ -54,7 +53,7 @@ export function PatchNotes({ patch, withReleaseNoteLabel }: Props) {
                     <Fragment key={headingSlug}>
                       <li className="list-style-none">
                         <h4 id={headingSlug} className={cx(styles.sectionHeading, 'text-bold f4')}>
-                          <Link href={`#${headingSlug}`}>{item.heading}</Link>
+                          <a href={`#${headingSlug}`}>{item.heading}</a>
                         </h4>
                       </li>
                       {item.notes.map((note) => {

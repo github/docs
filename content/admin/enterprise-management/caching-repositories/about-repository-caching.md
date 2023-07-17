@@ -8,8 +8,6 @@ topics:
   - Enterprise
 ---
 
-{% data reusables.enterprise.repository-caching-release-phase %}
-
 If you have teams and CI farms located around the world, you may experience reduced performance on your primary {% data variables.product.prodname_ghe_server %} instance. While active geo-replicas can improve the performance of read requests, this comes at the cost of limiting write throughput. To reduce load on your primary instance and improve write throughput performance, you can configure a repository cache, an asynchronous read-only mirror of repositories located near these geographically-distributed clients.
 
 A repository cache eliminates the need for {% data variables.product.product_name %} to transmit the same Git data over a long-haul network link multiple times to serve multiple clients, by serving your repository data close to CI farms and distributed teams. For instance, if your primary instance is in North America and you also have a large presence in Asia, you will benefit from setting up the repository cache in Asia for use by CI runners there.

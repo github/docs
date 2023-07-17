@@ -34,7 +34,13 @@ For each action in the file, {% data variables.product.prodname_dependabot %} ch
 
 {% endif %}
 
-{% data reusables.actions.workflow-runs-dependabot-note %}
+{% ifversion fpt or ghec %}
+{% note %}
+
+**Note:**  {% data reusables.actions.workflow-runs-dependabot-note %}
+
+{% endnote %}
+{% endif %}
 
 ## Enabling {% data variables.product.prodname_dependabot_version_updates %} for actions
 

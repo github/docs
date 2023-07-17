@@ -160,7 +160,7 @@ jobs:
 
       - if: ${{ env.IS_INTERNAL_BUILD == 'true' }}
         name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       - name: Determine if we should include translations?
         uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410

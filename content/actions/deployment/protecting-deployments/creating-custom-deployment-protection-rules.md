@@ -78,6 +78,10 @@ Once a workflow reaches a job that references an environment that has the custom
 
 1. Optionally, review the deployment on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments)."
 
+{% ifversion fpt or ghec %}
+
 ## Publishing custom deployment protection rules in the {% data variables.product.prodname_marketplace %}
 
 You can publish your {% data variables.product.prodname_github_app %} to the {% data variables.product.prodname_marketplace %} to allow developers to discover suitable protection rules and install it across their {% data variables.product.company_short %} repositories. Or you can browse existing custom deployment protection rules to suit your needs. For more information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/github-marketplace-overview/about-github-marketplace)" and "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace)."
+
+{% endif %}

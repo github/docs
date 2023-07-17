@@ -106,6 +106,8 @@ You can also access the commands listed above by navigating to the Remote Explor
 
 ## Reopening an existing codespace
 
+{% data reusables.codespaces.using-github-cli %}
+
 1. In a terminal, enter one of the following {% data variables.product.prodname_cli %} commands.
    - To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:
 
