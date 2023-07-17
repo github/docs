@@ -9,6 +9,7 @@ featuredLinks:
   startHere:
     - /issues/tracking-your-work-with-issues/creating-an-issue
     - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
+    - /issues/managing-your-tasks-with-tasklists/quickstart-for-tasklists
     - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
     - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
@@ -36,6 +37,7 @@ versions:
 children:
   - /tracking-your-work-with-issues
   - /planning-and-tracking-with-projects
+  - /managing-your-tasks-with-tasklists
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
   - /guides
