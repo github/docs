@@ -3,12 +3,13 @@
 
 # Company
 
+# Use this variable when referring to the company in the context of its business. For example, in licensing agreements
 company_short: 'GitHub'
 
 # GitHub's flagship products
 product_name: >-
   {% ifversion ghec %}GitHub Enterprise Cloud{% elsif ghes %}GitHub Enterprise Server{% elsif ghae %}GitHub AE{% else %}GitHub{% endif %}
-## Use this variable when the output should always be GitHub, regardless of the product the user is using
+## Use this variable when referring to the product, when the output should always be GitHub. For example, "the GitHub REST API"
 prodname_dotcom: 'GitHub'
 
 ## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
