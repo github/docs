@@ -85,7 +85,7 @@ If you provide a source root, any location of an artifact specified using an abs
 
 For example, a SARIF file is uploaded using a source root of `file:///github/workspace`.
 
-```
+```shell
 # Conversion of absolute URIs to relative URIs for location artifacts
 
 file:///github/workspace/src/main.go -> src/main.go
