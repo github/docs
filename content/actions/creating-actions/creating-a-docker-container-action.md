@@ -259,3 +259,11 @@ jobs:
 ```
 
 {% data reusables.actions.test-private-action-example %}
+
+## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}
+
+You can find many examples of Docker container actions on {% data variables.product.prodname_dotcom_the_website %}.
+
+- [github/issue-metrics](https://github.com/github/issue-metrics)
+- [microsoft/infersharpaction](https://github.com/microsoft/infersharpaction)
+- [microsoft/ps-docs](https://github.com/microsoft/ps-docs)

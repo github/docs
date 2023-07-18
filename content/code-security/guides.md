@@ -26,6 +26,7 @@ includeGuides:
   - /code-security/getting-started/securing-your-repository
   - /code-security/getting-started/dependabot-quickstart-guide
   - /code-security/getting-started/auditing-security-alerts
+  - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
   - /code-security/secret-scanning/about-secret-scanning
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning

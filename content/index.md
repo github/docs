@@ -76,6 +76,7 @@ children:
   - early-access
   - support
   - video-transcripts
+  - contributing
 childGroups:
   - name: Get started
     octicon: RocketIcon
