@@ -117,6 +117,7 @@ On a fork, you also need to explicitly enable {% data variables.product.prodname
 
 After you enable version updates, the **Dependabot** tab in the dependency graph for the repository is populated. This tab shows which package managers {% data variables.product.prodname_dependabot %} is configured to monitor and when {% data variables.product.prodname_dependabot %} last checked for new versions.
 
+You can follow the screenshot for more further detailed understanding.
 ![Screenshot of the Dependency graph page. A tab, titled "{% data variables.product.prodname_dependabot %}", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view.png)
 
 For information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/listing-dependencies-configured-for-version-updates)."
