@@ -289,15 +289,11 @@ describe('Page class', () => {
                   title: 'title',
                   description: 'description',
                   guides,
-                  featured_track:
-                    '{% if currentVersion == "free-pro-team@latest" %}true{% else %}false{% endif %}',
                 },
                 track_2: {
                   title: 'title',
                   description: 'description',
                   guides,
-                  featured_track:
-                    '{% if enterpriseServerVersions contains currentVersion %}true{% else %}false{% endif %}',
                 },
                 dotcom_only_track: {
                   title: 'title',
@@ -325,8 +321,6 @@ describe('Page class', () => {
       const dotcomTrackNames = page.learningTracks.map((t) => t.trackName)
       expect(dotcomTrackNames.includes('track_2')).toBe(true)
       expect(dotcomTrackNames.includes('dotcom_only_track')).toBe(true)
-      expect(page.featuredTrack.trackName === 'track_1').toBeTruthy()
-      expect(page.featuredTrack.trackName === 'track_2').toBeFalsy()
 
       // Switch to Enterprise.
       context.currentVersion = `enterprise-server@${latest}`
@@ -336,8 +330,6 @@ describe('Page class', () => {
       const ghesTrackNames = page.learningTracks.map((t) => t.trackName)
       expect(ghesTrackNames.includes('track_1')).toBe(true)
       expect(ghesTrackNames.includes('enterprise_only_track')).toBe(true)
-      expect(page.featuredTrack.trackName === 'track_1').toBeFalsy()
-      expect(page.featuredTrack.trackName === 'track_2').toBeTruthy()
     })
   })
 

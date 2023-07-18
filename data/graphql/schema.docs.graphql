@@ -14922,6 +14922,31 @@ type EnvironmentEdge {
 }
 
 """
+Properties by which environments connections can be ordered
+"""
+enum EnvironmentOrderField {
+  """
+  Order environments by name.
+  """
+  NAME
+}
+
+"""
+Ordering options for environments
+"""
+input Environments {
+  """
+  The direction in which to order environments by the specified field.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order environments by.
+  """
+  field: EnvironmentOrderField!
+}
+
+"""
 An external identity provisioned by SAML SSO or SCIM. If SAML is configured on
 the organization, the external identity is visible to (1) organization owners,
 (2) organization owners' personal access tokens (classic) with read:org or
@@ -42149,6 +42174,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the environments
+    """
+    orderBy: Environments = {field: NAME, direction: ASC}
   ): EnvironmentConnection!
 
   """

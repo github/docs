@@ -17,7 +17,7 @@ const platforms = [
 // find all platform-specific *block* elements and hide or show as appropriate
 // example: {% mac %} block content {% endmac %}
 function showPlatformSpecificContent(platform: string) {
-  const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.extended-markdown'))
+  const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.ghd-tool'))
   markdowns
     .filter((el) => platforms.some((platform) => el.classList.contains(platform.value)))
     .forEach((el) => {

@@ -106,7 +106,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 {% endif %}
 
 <!-- GHES 3.5 to GHES 3.8 table -->
-{% ifversion ghes = 3.5 or ghes = 3.6 or ghes = 3.7 or ghes = 3.8 %}
+{% ifversion ghes = 3.6 or ghes = 3.7 or ghes = 3.8 %}
 
 | Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection |
 |----|:----|:----:|:----:|

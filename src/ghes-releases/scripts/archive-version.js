@@ -17,7 +17,7 @@ import http from 'http'
 
 import createApp from '../../../lib/app.js'
 import EnterpriseServerReleases from '../../../lib/enterprise-server-releases.js'
-import loadRedirects from '../../../lib/redirects/precompile.js'
+import loadRedirects from '#src/redirects/lib/precompile.js'
 import { loadPageMap } from '../../../lib/page-data.js'
 import { languageKeys } from '../../../lib/languages.js'
 

@@ -116,7 +116,7 @@ At the team level, security overview displays repository-specific security infor
 
 If you are an owner or security manager for an organization, you can see data for all the repositories in the organization in all views.{% ifversion security-overview-org-risk-coverage-enterprise %} You can see the data in the organization-level security overview, or see data for all organizations where you are an owner or security manager in the enterprise-level security overview.{% endif %}
 
-{% ifversion ghec or ghes > 3.5 or ghae > 3.5 %}If you are an enterprise owner, you will need to join an organization as an organization owner to view data for the organization's repositories in either the organization-level or enterprise-level overview. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."{% endif %}
+{% ifversion ghec or ghes or ghae > 3.5 %}If you are an enterprise owner, you will need to join an organization as an organization owner to view data for the organization's repositories in either the organization-level or enterprise-level overview. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."{% endif %}
 
 If you are an organization member, you can view security overview for the organization and see data for repositories where you have access.{% ifversion security-overview-org-risk-coverage-enterprise %} You can view this data in the organization-level overview, but you cannot access the enterprise-level overview.{% endif %}
 
