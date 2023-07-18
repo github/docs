@@ -1,4 +1,7 @@
 ---
+guideline: import/echo gitbook
+use as guide for issues 
+---
 title: Set up Git
 redirect_from:
   - /git-installation-redirect
