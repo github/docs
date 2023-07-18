@@ -1,61 +1,30 @@
----
-title: Hello World
-intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-type: quick_start
-topics:
-  - Pull requests
-  - Fundamentals
----
-
 ## Introduction
-
 {% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
 This tutorial teaches you {% data variables.product.product_name %} essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn {% data variables.product.product_name %}'s pull request workflow, a popular way to create and review code.
-
 In this quickstart guide, you will:
-
 - Create and use a repository
 - Start and manage a new branch
 - Make changes to a file and push them to {% data variables.product.product_name %} as commits
 - Open and merge a pull request
-
 To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
-
 ## Creating a repository
-
 A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a README file, a file with information about your project. README files are written in the plain text Markdown language. You can use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} lets you add a README file at the same time you create your new repository. {% data variables.product.product_name %} also offers other common options such as a license file, but you do not have to select any of them now.
-
 Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
-
 {% data reusables.repositories.create_new %}
 1. In the "Repository name" box, type `hello-world`.
 1. In the "Description" box, type a short description.
 1. Select whether your repository will be **Public** or **Private**.
 1. Select **Add a README file**.
 1. Click **Create repository**.
-
 ## Creating a branch
-
 Branching lets you have different versions of a repository at one time.
-
 By default, your repository has one branch named `main` that is considered to be the definitive branch. You can create additional branches off of `main` in your repository. You can use branches to have different versions of a project at one time. This is helpful when you want to add new features to a project without changing the main source of code. The work done on different branches will not show up on the main branch until you merge it, which we will cover later in this guide. You can use branches to experiment and make edits before committing them to `main`.
-
 When you create a branch off the `main` branch, you're making a copy, or snapshot, of `main` as it was at that point in time. If someone else made changes to the `main` branch while you were working on your branch, you could pull in those updates.
-
 This diagram shows:
-
 - The `main` branch
 - A new branch called `feature`
 - The journey that `feature` takes before it's merged into `main`
-
 ![Diagram of the two branches. The "feature" branch diverges from the "main" branch, goes through stages for "Commit changes," "Submit pull request," and "Discuss proposed changes," and is then merged back into main.](/assets/images/help/repository/branching.png)
-
 Have you ever saved different versions of a file? Something like:
 
 - `story.txt`
