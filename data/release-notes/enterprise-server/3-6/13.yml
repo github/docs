@@ -46,3 +46,4 @@ sections:
     # https://github.com/github/driftwood/issues/2746
     - |
       On an instance with audit log streaming enabled, the `driftwood` service does not start, preventing the normal operation of audit log streaming. [Updated: 2023-06-06]
+    - '{% data reusables.release-notes.user-already-taken %}'
