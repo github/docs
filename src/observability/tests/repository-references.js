@@ -47,6 +47,7 @@ const PUBLIC_REPOS = new Set([
   'help-docs-archived-enterprise-versions',
   'hubot',
   'insights-releases',
+  'issue-metrics',
   'janky',
   'linguist',
   'localization-support',
