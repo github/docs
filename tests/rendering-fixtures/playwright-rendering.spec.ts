@@ -155,7 +155,7 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // the category, you'll be able to see the map-topic and the article
   // within.
   await page.goto('/')
-  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'GitHub Actions' }).click()
+  await page.getByTestId('sidebar').getByRole('group', { name: 'GitHub Actions' }).click()
   await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
   await page.getByText('Map & Topic').click()
   await page.getByLabel('<article> link').click()
