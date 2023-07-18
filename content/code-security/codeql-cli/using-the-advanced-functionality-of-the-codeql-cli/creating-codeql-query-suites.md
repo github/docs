@@ -13,6 +13,7 @@ topics:
   - CodeQL
 redirect_from:
   - /code-security/codeql-cli/creating-codeql-query-suites
+  - /code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -34,7 +35,7 @@ suite definition have been executed, the result is a set of selected queries.
 {% ifversion codeql-packs %}
 {% note %}
 
-**Note:** Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs) and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
+**Note:** Any custom queries that you want to add to a query suite must be in a [{% data variables.product.prodname_codeql %} pack](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" and contain the correct query metadata. For more information, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
 
 {% endnote %}
 {% endif %}
@@ -48,7 +49,7 @@ queries using:
 - A `query` instruction—tells {% data variables.product.prodname_codeql %} to look for one or more specified `.ql`
 files:
 
-  ```
+  ```yaml
   - query: <path-to-query>
   ```
 
@@ -58,7 +59,7 @@ files:
 - A `queries` instruction—tells {% data variables.product.prodname_codeql %} to recursively scan a directory
 for `.ql` files:
 
-  ```
+  ```yaml
   - queries: <path-to-subdirectory>
   ```
 
@@ -66,7 +67,7 @@ for `.ql` files:
   contains the suite definition file. To find the queries relative to a
   different {% data variables.product.prodname_codeql %} pack, add a `from` field:
 
-  ```
+  ```yaml
   - queries: <path-to-subdirectory>
     from: <ql-pack-name>
     version: ^x.y.z
@@ -78,7 +79,7 @@ for `.ql` files:
 - A `qlpack` instruction—tells {% data variables.product.prodname_codeql %} to resolve queries in the default suite of the
 named {% data variables.product.prodname_codeql %} pack:
 
-  ```
+  ```yaml
   - qlpack: <qlpack-name>
     version: ^x.y.z
   ```
@@ -164,7 +165,7 @@ filter by the query `id`:
 
 This filter matches all the queries in the default suite of `codeql/cpp-queries`, except for the two queries with the excluded identifiers:
 
-```
+```yaml
 - qlpack: codeql/cpp-queries
 - exclude:
     id:
@@ -174,7 +175,7 @@ This filter matches all the queries in the default suite of `codeql/cpp-queries`
 
 In this example, a separate `exclude` instruction is used for each query:
 
-```
+```yaml
 - qlpack: codeql/cpp-queries
 - exclude:
     id: cpp/cleartext-transmission
@@ -184,7 +185,7 @@ In this example, a separate `exclude` instruction is used for each query:
 
 In this example, a regular expression excludes the same two queries. It would also exclude any future queries added to the suite with identifiers that begin: `cpp/cleartext-`:
 
-```
+```yaml
 - qlpack: codeql/cpp-queries
 - exclude:
     id:
@@ -195,7 +196,7 @@ To define a suite that selects all queries in the default suite of the
 `codeql/cpp-queries` {% data variables.product.prodname_codeql %} pack, and then refines them to only include
 security queries, use:
 
-```
+```yaml
 - qlpack: codeql/cpp-queries
 - include:
     tags contain: security
@@ -204,7 +205,7 @@ security queries, use:
 To define a suite that selects all queries with `@kind problem`
 and `@precision high` from the `my-custom-queries` directory, use:
 
-```
+```yaml
 - queries: my-custom-queries
 - include:
     kind: problem
@@ -214,7 +215,7 @@ and `@precision high` from the `my-custom-queries` directory, use:
 Note that the following query suite definition behaves differently from the definition above. This definition selects queries that are `@kind problem` _or_
 are `@precision very-high`:
 
-```
+```yaml
 - queries: my-custom-queries
 - include:
     kind: problem
@@ -226,7 +227,7 @@ To create a suite that selects all queries with `@kind problem` from the
 `my-custom-queries` directory except those with `@problem.severity
 recommendation`, use:
 
-```
+```yaml
 - queries: my-custom-queries
 - include:
     kind: problem
@@ -238,7 +239,7 @@ To create a suite that selects all queries with `@tag security` and
 `@problem.severity high` or `very-high` from the `codeql/cpp-queries` {% data variables.product.prodname_codeql %} pack,
 use:
 
-```
+```yaml
 - queries: .
   from: codeql/cpp-queries
 - include:
@@ -262,7 +263,7 @@ Existing query suite definitions can be reused by specifying:
 - An `import` instruction—adds the queries selected by a
 previously defined `.qls` file to the current suite:
 
-  ```
+  ```yaml
   - import: <path-to-query-suite>
   ```
 
@@ -270,7 +271,7 @@ previously defined `.qls` file to the current suite:
   current suite definition. If the imported query suite is in a different QL
   pack you can use:
 
-  ```
+  ```yaml
   - import: <path-to-query-suite>
     from: <ql-pack>
     version: ^x.y.z
@@ -288,7 +289,7 @@ applied `.qls` file are executed as if they appear in place of `apply`.
 Any `include` and `exclude` instructions from the applied suite also act on
 queries added by any earlier instructions:
 
-  ```
+  ```yaml
   - apply: <path-to-query-suite>
   ```
 
@@ -302,7 +303,7 @@ To use the same conditions in multiple query suite definitions, create a
 separate `.yml` file containing your instructions. For example, save the
 following in a file called `reusable-instructions.yml`:
 
-```
+```yaml
 - include:
     kind:
     - problem
@@ -317,7 +318,7 @@ Add `reusable-instructions.yml` to the same {% data variables.product.prodname_c
 suite. Then, in one or more query suites, use the `apply` instruction to apply
 the reusable instructions to the current suite. For example:
 
-```
+```yaml
 - queries: queries/cpp/custom
 - apply: reusable-instructions.yml
 ```
@@ -329,7 +330,7 @@ queries in a different {% data variables.product.prodname_codeql %} pack. If the
 the queries, you can add a `from` field immediately after the `apply`
 instruction:
 
-```
+```yaml
 # load queries from the default suite of my-org/my-other-custom-queries
 - qlpack: my-org/my-other-custom-queries
 
@@ -343,7 +344,7 @@ A common use case for an `import` instruction is to apply a further filter to qu
 query suite. For example, this suite will further filter the `cpp-security-and-quality` suite
 and exclude `low` and `medium` precision queries:
 
-```
+```yaml
 - import: codeql-suites/cpp-security-and-quality.qls
   from: codeql/cpp-queries
 - exclude:
@@ -354,7 +355,7 @@ and exclude `low` and `medium` precision queries:
 
 If you want to `include` queries imported from another suite, the syntax is a little different:
 
-```
+```yaml
 - import: codeql-suites/cpp-security-and-quality.qls
   from: codeql/cpp-queries
 - exclude: {}
@@ -372,7 +373,7 @@ instruction is able to filter queries from the imported suite.
 You can provide a name for your query suite by specifying a `description`
 instruction:
 
-```
+```yaml
 - description: <name-of-query-suite>
 ```
 
@@ -384,7 +385,7 @@ directory. For more information, see "[Specifying well-known query suites](#spec
 ## Saving a query suite
 
 Save your query suite in a file with a `.qls` extension and add it to a CodeQL
-pack. For more information, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#custom-codeql-packs)."
+pack. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#custom-codeql-packs)."
 
 ## Specifying well-known query suites
 
@@ -395,7 +396,7 @@ without providing their full path. This gives you a simple way of specifying a
 set of queries, without needing to search inside {% data variables.product.prodname_codeql %} packs and distributions.
 To declare a directory that contains "well-known" query suites, add the directory
 to the `suites` property in the `qlpack.yml` file at the root of your {% data variables.product.prodname_codeql %} pack.
-For more information, see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs#codeqlpack-yml-properties)."
+For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#codeqlpack-yml-properties)."
 {% endif %}
 
 ## Using query suites with CodeQL
@@ -404,7 +405,7 @@ You can specify query suites on the command line for any command that accepts
 `.qls` files. For example, you can compile the queries selected by a suite
 definition using `query compile`, or use the queries in an analysis using
 `database analyze`. For more information about analyzing {% data variables.product.prodname_codeql %} databases, see
-"[Analyzing databases with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-codeql-cli/analyzing-databases-with-the-codeql-cli)."
+"[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)."
 
 ## Further reading
 

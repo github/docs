@@ -13,6 +13,7 @@ topics:
   - CodeQL
 redirect_from:
   - /code-security/codeql-cli/query-reference-files
+  - /code-security/codeql-cli/codeql-cli-reference/query-reference-files
 ---
 
 {% data reusables.codeql-cli.codeql-site-migration-note %}
@@ -56,10 +57,10 @@ for the CodeQL pack at `javascript/ql/test` defines `codeql/javascript-queries` 
 a dependency. So the query reference file defines the location of the query relative
 to the `codeql/javascript-queries` {% data variables.product.prodname_codeql %} pack:
 
-```
+```shell
 AngularJS/DeadAngularJSEventListener.ql
 ```
 
 {% ifversion codeql-packs %}
-For another example, see [Testing custom queries](/code-security/codeql-cli/using-the-codeql-cli/testing-custom-queries).
+For another example, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries)."
 {% endif %}

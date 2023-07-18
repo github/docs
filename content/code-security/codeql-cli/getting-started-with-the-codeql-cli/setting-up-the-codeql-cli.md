@@ -1,7 +1,6 @@
 ---
-title: Getting started with the CodeQL CLI
-shortTitle: Getting started
-intro: 'To get started with the {% data variables.product.prodname_codeql_cli %}, you need to set up the CLI so that it can access the tools and libraries required to create and analyze databases.'
+title: Setting up the CodeQL CLI
+intro: 'To get started with the {% data variables.product.prodname_codeql_cli %}, you need to download and set up the CLI so that it can access the tools and libraries required to create and analyze databases.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
@@ -13,19 +12,16 @@ topics:
   - Code scanning
   - CodeQL
 redirect_from:
-  - /code-security/codeql-cli/getting-started-with-the-codeql-cli
+  - /code-security/codeql-cli/using-the-codeql-cli/getting-started-with-the-codeql-cli
+ 
 ---
 
-{% data reusables.codeql-cli.codeql-site-migration-note %}
-
-## Getting started with the {% data variables.product.prodname_codeql_cli %}
+## Setting up the {% data variables.product.prodname_codeql_cli %}
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
 
 To run {% data variables.product.prodname_codeql %} commands, you need to set up the CLI so that it can access
 the tools, queries, and libraries required to create and analyze databases.
-
-## Setting up the {% data variables.product.prodname_codeql_cli %}
 
 The {% data variables.product.prodname_codeql_cli %} can be set up to support many different use cases and directory
 structures. To get started quickly, we recommend adopting a relatively simple
@@ -42,7 +38,7 @@ tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https
 
 {% endnote %}
 
-For information about installing the {% data variables.product.prodname_codeql_cli %} in a CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, see [Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system).
+For information about installing the {% data variables.product.prodname_codeql_cli %} in a CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
 ### 1. Download the {% data variables.product.prodname_codeql_cli %} zip package
 
@@ -51,21 +47,23 @@ various {% data variables.product.prodname_codeql %}-specific files. If you donâ
 downloading this archive, you are agreeing to the [{% data variables.product.prodname_dotcom %} {% data variables.product.prodname_codeql %} Terms and
 Conditions](https://securitylab.github.com/tools/codeql/license).
 
+You should download the {% data variables.product.prodname_codeql %} bundle from https://github.com/github/codeql-action/releases. The bundle contains:
+
+- {% data variables.product.prodname_codeql_cli %} product
+- A compatible version of the queries and libraries from https://github.com/github/codeql
+- Precompiled versions of all the queries included in the bundle
+
+{% ifversion ghes or ghae %}
+
 {% note %}
-
-**Important:** There are several versions of the CLI available to download, depending on your use case:
-
-- If you want to use the most up to date {% data variables.product.prodname_codeql %} tools and features, download the version tagged `latest`.
-- If you want to generate code scanning data to upload to {% data variables.product.prodname_enterprise %} server, then download the version that is compatible with the {% data variables.product.prodname_codeql_cli %} used in your CI system. For more information, see "[Installing {% data variables.product.prodname_codeql_cli %} in your CI system](/enterprise-server@latest/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#downloading-the-codeql-cli)."
-
+For {% data variables.product.product_name %}{% ifversion ghes %} {{ allVersions[currentVersion].currentRelease }}{% endif %}, we recommend {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %}.
 {% endnote %}
 
-If you use Linux, Windows, or macOS version 10.14 ("Mojave") or earlier, simply
-[download the zip archive](https://github.com/github/codeql-cli-binaries/releases)
-for the version you require.
+{% endif %}
 
-If you want the CLI for a specific platform, download the appropriate `codeql-PLATFORM.zip` file.
-Alternatively, you can download `codeql.zip`, which contains the CLI for all supported platforms.
+You should always use the {% data variables.product.prodname_codeql %} bundle as this ensures compatibility and also gives much better performance than a separate download of the {% data variables.product.prodname_codeql_cli %} and checkout of the {% data variables.product.prodname_codeql %} queries. If you will only be running the CLI on one specific platform, download the appropriate `codeql-bundle-PLATFORM.tar.gz` file. Alternatively, you can download `codeql-bundle.tar.gz`, which contains the CLI for all supported platforms.
+
+{% data reusables.code-scanning.beta-codeql-packs-cli %}
 
 #### Download information for macOS "Catalina" (or newer) users
 
@@ -108,12 +106,42 @@ At this point, you can execute {% data variables.product.prodname_codeql %} comm
 
  {% endnote %}
 
-### 4. Verify your {% data variables.product.prodname_codeql_cli %} setup
+## Testing the {% data variables.product.prodname_codeql_cli %} configuration
 
-{% data variables.product.prodname_codeql_cli %} has subcommands you can execute to verify that you are correctly set up to create and analyze databases:
+After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly configured to create and analyze databases:
 
-- Run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.{% ifversion codeql-packs %}
-- (Optional) You can download some "[{% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)" containing pre-compiled queries you would like to run. To do this, run `codeql pack download <pack-name> [...pack-name]`, where `pack-name` is the name of the pack you want to download. The core query packs are a good place to start. They are:
+- `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
+- `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
+
+Extract from successful output:
+```shell
+codeql/cpp-all (/<extraction-root>/qlpacks/codeql/cpp-all/<version>)
+codeql/cpp-examples (/<extraction-root>/qlpacks/codeql/cpp-examples/<version>)
+codeql/cpp-queries (/<extraction-root>/qlpacks/codeql/cpp-queries/<version>)
+codeql/csharp-all (/<extraction-root>/qlpacks/codeql/charp-all/<version>)
+codeql/csharp-examples (/<extraction-root>/qlpacks/codeql/charp-examples/<version>)
+codeql/csharp-queries (/<extraction-root>/qlpacks/codeql/charp-queries/<version>)
+codeql/java-all (/<extraction-root>/qlpacks/codeql/java-all/<version>)
+codeql/java-examples (/<extraction-root>/qlpacks/codeql/java-examples/<version>)
+codeql/java-queries (/<extraction-root>/qlpacks/codeql/java-queries/<version>)
+codeql/javascript-all (/<extraction-root>/qlpacks/codeql/javascript-all/<version>)
+codeql/javascript-examples (/<extraction-root>/qlpacks/codeql/javascript-examples/<version>)
+codeql/javascript-queries (/<extraction-root>/qlpacks/codeql/javascript-queries/<version>)
+codeql/python-all (/<extraction-root>/qlpacks/codeql/python-all/<version>)
+codeql/python-examples (/<extraction-root>/qlpacks/codeql/python-examples/<version>)
+codeql/python-queries (/<extraction-root>/qlpacks/codeql/python-queries/<version>)
+codeql/ruby-all (/<extraction-root>/qlpacks/codeql/ruby-all/<version>)
+codeql/ruby-examples (/<extraction-root>/qlpacks/codeql/ruby-examples/<version>)
+codeql/ruby-queries (/<extraction-root>/qlpacks/codeql/ruby-queries/<version>)
+...
+```
+
+You should check that the output contains the expected languages and also that the directory location for the qlpack files is correct. The location should be within the extracted {% data variables.product.prodname_codeql_cli %} bundle, shown in the earlier example as `<extraction root>`, unless you are using a checkout of `github/codeql`. If the {% data variables.product.prodname_codeql_cli %} is unable to locate the qlpacks for the expected languages, check that you downloaded the {% data variables.product.prodname_codeql %} bundle and not a standalone copy of the {% data variables.product.prodname_codeql_cli %}.
+
+You can also run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.
+
+{% ifversion codeql-packs %}
+(Optional) You can download some "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)" containing pre-compiled queries you would like to run. To do this, run `codeql pack download <pack-name> [...pack-name]`, where `pack-name` is the name of the pack you want to download. The core query packs are a good place to start. They are:
 
   - `codeql/cpp-queries`
   - `codeql/csharp-queries`
@@ -123,10 +151,15 @@ At this point, you can execute {% data variables.product.prodname_codeql %} comm
   - `codeql/python-queries`
   - `codeql/ruby-queries`
 
+Alternatively, you can download query packs during the analysis by using the `--download` flag of the `codeql database analyze` command.
+
 {% endif %}
 
-Alternatively, you can download query packs during the analysis by using the `--download` flag of the `codeql database analyze`
- command.
+## Generating a token for authentication with {% data variables.product.product_name %}
+
+If you eventually want to upload your results to {% data variables.product.product_name %} to display as code scanning alerts, you will need to generate a {% data variables.product.pat_generic %} with the `security_events` write permission. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+
+If you have installed the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, you can use a {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} to upload results to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system#generating-a-token-for-authentication-with-github)."
 
 ## Checking out the {% data variables.product.prodname_codeql %} source code directly
 
@@ -173,7 +206,7 @@ For more information, see the [Relocation announcement](https://github.com/githu
 Within this repository, the queries and libraries are organized into {% data variables.product.prodname_codeql %}
 packs. Along with the queries themselves, {% data variables.product.prodname_codeql %} packs contain important metadata
 that tells the {% data variables.product.prodname_codeql_cli %} how to process the query files. For more information,
-see "[About {% data variables.product.prodname_codeql %} packs](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
+see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
 {% endif %}
 
 {% note %}
