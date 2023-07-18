@@ -22,12 +22,10 @@ export const SidebarHomepage = () => {
               id={href + ' item'}
             >
               <Link
-                role="group"
                 id={href}
                 href={href}
                 target={external ? '_blank' : undefined}
                 className="no-underline color-fg-default focus-visible"
-                aria-label={name + ' link'}
               >
                 <span className="d-block py-2 my-2 f4 ml-4">
                   {name}
