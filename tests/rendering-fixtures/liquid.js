@@ -64,9 +64,9 @@ describe('tool', () => {
   test('renders expected mini TOC headings in platform-specific content', async () => {
     const $ = await getDOM('/get-started/liquid/platform-specific')
     expect($('h2#in-this-article').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.ghd-tool.mac').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.ghd-tool.windows').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.ghd-tool.linux').length).toBe(1)
+    expect($('h2#in-this-article + nav ul .ghd-tool.mac').length).toBe(1)
+    expect($('h2#in-this-article + nav ul .ghd-tool.windows').length).toBe(1)
+    expect($('h2#in-this-article + nav ul .ghd-tool.linux').length).toBe(1)
   })
 })
 
