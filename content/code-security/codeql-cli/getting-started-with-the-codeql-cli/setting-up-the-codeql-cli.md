@@ -67,21 +67,21 @@ You should always use the {% data variables.product.prodname_codeql %} bundle as
 
 #### Download information for macOS "Catalina" (or newer) users
 
-If you use macOS version 10.15 ("Catalina"), version 11 ("Big Sur"), or the upcoming version 12 ("Monterey"), you need to ensure that your web browser does not automatically extract zip files. If you use Safari, complete the following steps before downloading the {% data variables.product.prodname_codeql_cli %} zip archive:
+From macOS version 10.15 ("Catalina") onwards you need to ensure that your web browser does not automatically extract zip files. If you use Safari, complete the following steps before downloading the {% data variables.product.prodname_codeql_cli %} zip archive:
 
 1. Open Safari.
-1. From the Safari menu, select **Preferences…**.
+1. From the Safari menu, select **Preferences...** or **Settings...** (version 13 "Ventura" onwards).
 1. Click the **General** Tab.
 1. Ensure the check-box labeled **Open "safe" files after downloading** is unchecked.
 
+
 ### 2. Extract the zip archive
 
-For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier)
-simply extract the zip archive.
+For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply extract the zip archive.
 
 #### Extraction information for macOS "Catalina" (or newer) users
 
-macOS "Catalina", "Big Sur", or "Monterey" users should run the following commands in the Terminal, where `${extraction-root}` is the path to the directory where you will extract the {% data variables.product.prodname_codeql_cli %} zip archive:
+macOS "Catalina", "Big Sur", "Monterey", or "Ventura" users should run the following commands in the Terminal, where `${extraction-root}` is the path to the directory where you will extract the {% data variables.product.prodname_codeql_cli %} zip archive:
 
 1. `mv ~/Downloads/codeql\*.zip ${extraction-root}`
 1. `cd ${extraction-root}`
