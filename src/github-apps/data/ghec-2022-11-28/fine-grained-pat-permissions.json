@@ -660,7 +660,7 @@
         "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
         "subcategory": "copilot-for-business",
         "verb": "get",
-        "requestPath": "/organizations/{org}/copilot/billing",
+        "requestPath": "/orgs/{org}/copilot/billing",
         "additional-permissions": [],
         "access": "write"
       },
@@ -669,7 +669,7 @@
         "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
         "subcategory": "copilot-for-business",
         "verb": "get",
-        "requestPath": "/organizations/{org}/copilot/billing/seats",
+        "requestPath": "/orgs/{org}/copilot/billing/seats",
         "additional-permissions": [],
         "access": "write"
       },
@@ -2738,6 +2738,15 @@
         "subcategory": "autolinks",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
         "additional-permissions": [],
         "access": "write"
       },
