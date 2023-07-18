@@ -463,6 +463,14 @@ describe('lint markdown content', () => {
     })
 
     test('placeholder string is not present in any markdown files', async () => {
+      // this article explains how to use todocs placeholder text so shouldn't fail this test
+      if (
+        markdownRelPath ===
+          'content/contributing/collaborating-on-github-docs/using-the-todocs-placeholder-to-leave-notes.md' ||
+        markdownRelPath === 'content/contributing/collaborating-on-github-docs/index.md'
+      ) {
+        return
+      }
       const matches = rawContent.match(placeholderRegex) || []
       const placeholderStr = matches.length === 1 ? 'placeholder' : 'placeholders'
       const errorMessage = `
