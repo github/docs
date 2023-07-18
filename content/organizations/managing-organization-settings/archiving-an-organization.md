@@ -20,7 +20,7 @@ topics:
 
 ## About archiving your organization
 
-When you archive an organization, all repositories in the organization will be archived as well. This means that all issues, pull requests, and comments will be read-only. A key will be set in the API to indicate the organization has been archived. Many actions that can be performed in an organization will be disabled, including creating new repositories and deleting existing repositories. You will still be able to transfer repositories out of the organization, for example, to give a project to a user who is taking over active maintenance.
+When you archive an organization, all repositories in the organization will be archived as well. This means that all issues, pull requests, and comments will be read-only. A key will be set in the API to indicate the organization has been archived. Many actions that can be performed in an organization will be disabled, including creating new repositories. You will still be able to delete repositories. You will also still be able to transfer repositories out of the organization, for example, to give a project to a user who is taking over active maintenance.
 
 When an organization is archived, visitors to the organization's profile will see a banner indicating that it has been archived. The repositories in the organization will now have a badge and a banner on their home page indicating that they are read-only.
 
