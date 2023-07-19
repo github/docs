@@ -1538,13 +1538,13 @@
       "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
       "subcategory": "copilot-for-business",
       "verb": "get",
-      "requestPath": "/organizations/{org}/copilot/billing"
+      "requestPath": "/orgs/{org}/copilot/billing"
     },
     {
       "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
       "subcategory": "copilot-for-business",
       "verb": "get",
-      "requestPath": "/organizations/{org}/copilot/billing/seats"
+      "requestPath": "/orgs/{org}/copilot/billing/seats"
     },
     {
       "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
@@ -3405,6 +3405,12 @@
       "subcategory": "autolinks",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}"
+    },
+    {
+      "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/automated-security-fixes"
     },
     {
       "slug": "enable-automated-security-fixes",
