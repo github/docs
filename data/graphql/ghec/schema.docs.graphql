@@ -28105,6 +28105,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     includeAsSponsor: Boolean = false
 
     """
+    Whether or not to include private activities in the result set. Defaults to including public and private activities.
+    """
+    includePrivate: Boolean = true
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -47655,6 +47660,11 @@ interface Sponsorable {
     includeAsSponsor: Boolean = false
 
     """
+    Whether or not to include private activities in the result set. Defaults to including public and private activities.
+    """
+    includePrivate: Boolean = true
+
+    """
     Returns the last _n_ elements from the list.
     """
     last: Int
@@ -58191,6 +58201,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     of a sponsorship.
     """
     includeAsSponsor: Boolean = false
+
+    """
+    Whether or not to include private activities in the result set. Defaults to including public and private activities.
+    """
+    includePrivate: Boolean = true
 
     """
     Returns the last _n_ elements from the list.

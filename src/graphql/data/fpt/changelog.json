@@ -4,6 +4,21 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument <code>includePrivate: Boolean</code> (with default value) added to field <code>Organization.sponsorsActivities</code></p>",
+          "<p>Argument <code>includePrivate: Boolean</code> (with default value) added to field <code>Sponsorable.sponsorsActivities</code></p>",
+          "<p>Argument <code>includePrivate: Boolean</code> (with default value) added to field <code>User.sponsorsActivities</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-07-19"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>EnvironmentOrderField</code> was added</p>",
           "<p>Type <code>Environments</code> was added</p>",
           "<p>Argument <code>orderBy: Environments</code> (with default value) added to field <code>Repository.environments</code></p>"
