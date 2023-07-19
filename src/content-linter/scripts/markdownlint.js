@@ -3,75 +3,68 @@ import { program, Option } from 'commander'
 import markdownlint from 'markdownlint'
 import { applyFixes } from 'markdownlint-rule-helpers'
 import { readFile, writeFile } from 'fs/promises'
+import ora from 'ora'
+import { extname } from 'path'
+import { execSync } from 'child_process'
 
 import walkFiles from '../../../script/helpers/walk-files.js'
-import { gitHubDocsMarkdownlint } from '../lib/linting-rules/index.js'
 import { baseConfig } from '../style/base.js'
-import { githubDocsConfig } from '../style/github-docs.js'
+import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
 
 program
   .description('Run GitHub Docs Markdownlint rules.')
-  .addOption(
-    new Option('-p, --paths [paths...]', 'Specify filepaths to include.').conflicts('files'),
-  )
-  .addOption(new Option('-f, --files [files...]', 'A list of files to lint.').conflicts('paths'))
-  .addOption(
-    new Option('-e, --error', 'Only report rules that have the severity of error.').conflicts(
-      'rules',
-    ),
+  .option(
+    '-p, --paths [paths...]',
+    'Specify filepaths to include. Default: changed and staged files',
   )
   .addOption(
     new Option(
+      '-e, --errors',
+      'Only report rules that have the severity of error, not warning.',
+    ).conflicts('rules'),
+  )
+  .option('--fix', 'Automatically fix errors that can be fixed.')
+  .addOption(
+    new Option(
+      '--summary-by-rule',
+      'Summarize the number of errors for each rule, leaving out error details.',
+    ).conflicts(['error', 'paths', 'rules', 'fix']),
+  )
+  .option('--verbose', 'Output additional error detail.')
+  .addOption(
+    new Option(
       '-r, --rules [rules...]',
-      'Specify rules to run. For example code-fence-line-length.',
+      `Specify rules to run. For example, by short name MD001 or long name heading-increment \n${listRules()}\n\n`,
     ).conflicts('error'),
   )
-  .option('--fix', 'Fix linting errors.')
-  .option('--summary-by-rule', 'Summarize the number of errors for each rule.')
-  .option('--verbose', 'Output full format for all errors.')
   .parse(process.argv)
 
-const { files, fix, paths, error, rules, summaryByRule, verbose } = program.opts()
-const DEFAULT_LINT_DIRS = ['content', 'data']
+const { fix, paths, errors, rules, summaryByRule, verbose } = program.opts()
+const ALL_CONTENT_DIR = ['content', 'data']
 
 main()
 
 async function main() {
+  // If paths has not been specified, lint all files
+  const files = getFilesToLint((summaryByRule && ALL_CONTENT_DIR) || paths || getChangedFiles())
+  const spinner = ora({ text: 'Running content linter', spinner: 'simpleDots' })
+
+  if (!files.length) {
+    spinner.succeed('No files to lint')
+    process.exit(0)
+  }
+
+  spinner.start()
   const start = Date.now()
 
-  const config = {}
-  const allConfig = { ...baseConfig, ...githubDocsConfig }
-  if (error) {
-    const errorConfig = Object.keys(baseConfig).reduce(
-      (acc, key) => {
-        if (allConfig[key].severity === 'error') acc[key] = allConfig[key]
-        return acc
-      },
-      { default: false },
-    )
-    Object.assign(config, errorConfig)
-  } else if (rules) {
-    config.default = false
-    for (const rule of rules) {
-      config[rule] = allConfig[rule]
-    }
-  } else {
-    Object.assign(config, allConfig)
-  }
-
-  // If paths or files have not been specified, lint all files
-  const filesToLint = files || getFilesToLint(paths || DEFAULT_LINT_DIRS)
-
-  const options = {
-    files: filesToLint,
-    config,
-    customRules: gitHubDocsMarkdownlint.rules,
-  }
-
+  // Initializes the config to pass to markdownlint based on the script options
+  const config = initializeConfig(errors, rules)
+  const options = { files, config, customRules }
   const result = await markdownlint.promises.markdownlint(options)
 
+  // Apply markdownlint fixes if available and rewrite the files
   if (fix) {
-    for (const file of filesToLint) {
+    for (const file of files) {
       const content = await readFile(file, 'utf8')
       const applied = applyFixes(content, result[file])
       await writeFile(file, applied)
@@ -87,19 +80,25 @@ async function main() {
   }
 
   const end = Date.now()
-  console.log(`markdownlint finished in ${(end - start) / 1000} s`)
+  console.log(`🕦 Markdownlint finished in ${(end - start) / 1000} s`)
 
   const errorFileCount = getErrorCountByFile(result)
   if (errorFileCount > 0) {
-    console.log(`Found ${errorFileCount} file(s) with error(s).`)
+    spinner.fail(`Found ${errorFileCount} file(s) with error(s)`)
     process.exit(1)
   }
+  spinner.succeed('No errors found')
 }
 
 function getFilesToLint(paths) {
   const fileList = []
-  for (const path of paths) {
-    fileList.push(...walkFiles(path, ['.md'], { includeBasePath: true }))
+  const lintableFilepaths = getLintableFilepaths(paths)
+  for (const path of lintableFilepaths) {
+    const isFile = extname(path) !== ''
+
+    isFile
+      ? fileList.push(path)
+      : fileList.push(...walkFiles(path, ['.md'], { includeBasePath: true }))
   }
   return fileList
 }
@@ -164,4 +163,62 @@ function formatResult(object) {
     acc[key] = value
     return acc
   }, {})
+}
+
+// Get a list of changed and staged files in the local git repo
+function getChangedFiles() {
+  const changedFiles = execSync(`git diff --name-only`)
+    .toString()
+    .trim()
+    .split('\n')
+    .filter(Boolean)
+  const stagedFiles = execSync(`git diff --name-only --staged`)
+    .toString()
+    .trim()
+    .split('\n')
+    .filter(Boolean)
+  return [...changedFiles, ...stagedFiles]
+}
+
+function getLintableFilepaths(paths) {
+  return paths.filter((path) => {
+    const extension = extname(path)
+    return extension ? extension === '.md' : true
+  })
+}
+
+function initializeConfig(errors, rules) {
+  const config = {}
+
+  if (errors) {
+    // Only configure the rules that have the severity of error
+    const errorConfig = Object.keys(baseConfig).reduce(
+      (acc, key) => {
+        if (allConfig[key].severity === 'error') acc[key] = allConfig[key]
+        return acc
+      },
+      { default: false },
+    )
+    Object.assign(config, errorConfig)
+  } else if (rules) {
+    config.default = false
+    for (const rule of rules) {
+      config[rule] = allConfig[rule]
+    }
+  } else {
+    Object.assign(config, allConfig)
+  }
+
+  return config
+}
+
+// Summarizes the list of rules we have available to run with their
+// short name, long name, and description.
+function listRules() {
+  let ruleList = ''
+  for (const rule of allRules) {
+    if (!allConfig[rule.names[1]]) continue
+    ruleList += `\n[${rule.names[0]}, ${rule.names[1]}]: ${rule.description}`
+  }
+  return ruleList
 }
