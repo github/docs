@@ -13,5 +13,5 @@ children:
   - /viewing-whether-users-in-your-organization-have-2fa-enabled
   - /preparing-to-require-two-factor-authentication-in-your-organization
   - /requiring-two-factor-authentication-in-your-organization
+  - /managing-bots-and-service-accounts-with-two-factor-authentication
 ---
-
