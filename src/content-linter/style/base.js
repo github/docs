@@ -126,6 +126,10 @@ export const baseConfig = {
       'yml',
     ],
   },
+  'no-empty-links': {
+    // MD042
+    severity: 'error',
+  },
   'single-trailing-newline': {
     // MD047
     severity: 'warning',
