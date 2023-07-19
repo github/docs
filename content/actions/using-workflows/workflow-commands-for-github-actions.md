@@ -46,7 +46,7 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 {% note %}
 
-**Note:** Workflow command and parameter names are not case-sensitive.
+**Note:** Workflow command and parameter names are case insensitive.
 
 {% endnote %}
 
@@ -770,6 +770,8 @@ jobs:
 {% endpowershell %}
 
 ## Setting an environment variable
+
+{% data reusables.actions.environment-variables-as-case-sensitive %}
 
 {% bash %}
 
