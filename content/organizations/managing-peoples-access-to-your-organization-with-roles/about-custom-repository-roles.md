@@ -106,7 +106,9 @@ For more information, see "[AUTOTITLE](/discussions)."
 - Set interaction limits
 {%- endif %}
 - Set the social preview
-- Push commits to protected branches (branch protection rules will still apply)
+- Push commits to protected branches
+  - Base role must be `write`
+  - Branch protection rules will still apply
 - Create protected tags
 - Delete protected tags
 {%- ifversion bypass-branch-protections %}

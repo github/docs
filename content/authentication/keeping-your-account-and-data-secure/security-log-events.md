@@ -52,14 +52,25 @@ topics:
 | `redraft` | Triggered when your listing is sent back to draft state.
 | `reject` | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
 
+{% endif %}{% ifversion security-log-oauth-access-tokens %}
+
+## `oauth_access` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when you create a new OAuth access token.
+| `destroy` | Triggered when you delete an OAuth access token.
+| `regenerate` | Triggered when you regenerate an OAuth access token.
+| `update` | Triggered when you update an OAuth access token.
+
 {% endif %}
 
 ## `oauth_authorization` category actions
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps).
-| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/apps/using-github-apps/reviewing-your-authorized-integrations) and when [authorizations are revoked or expire](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+| `create` | Triggered when you grant access to an {% data variables.product.prodname_oauth_app %}. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+| `destroy` | Triggered when you revoke an {% data variables.product.prodname_oauth_app %}'s access to your account, and when authorizations are revoked or expired. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)," and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
 
 {% ifversion passkeys %}
 

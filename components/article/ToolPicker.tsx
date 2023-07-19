@@ -12,7 +12,7 @@ import { InArticlePicker } from './InArticlePicker'
 // find all platform-specific *block* elements and hide or show as appropriate
 // example: {% webui %} block content {% endwebui %}
 function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
-  const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.extended-markdown'))
+  const markdowns = Array.from(document.querySelectorAll<HTMLElement>('.ghd-tool'))
   markdowns
     .filter((el) => supportedTools.some((tool) => el.classList.contains(tool)))
     .forEach((el) => {

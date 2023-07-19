@@ -83,7 +83,7 @@ export const InArticlePicker = ({
   // If you're in local development, you have the <ClientSideRefresh>
   // causing a XHR refresh of the content triggered by the Page Visibility
   // API (implemented in the uswSWR hook). That means that on the pages that
-  // contain these `.extended-markdown` classes, any DOM changes we might
+  // contain these `.ghd-tool` classes, any DOM changes we might
   // have previously made are lost and started over.
   useEffect(() => {
     let mounted = true

@@ -57,6 +57,8 @@ For information on choosing a machine type when you create a codespace, see "[AU
 
 {% cli %}
 
+{% data reusables.codespaces.using-github-cli %}
+
 You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variables.product.prodname_cli %} command to change the machine type of a codespace. To use this command, you'll first need to find out the available machine types for your codespace.
 
 1. To view your list of codespaces, in a terminal, enter the following command.

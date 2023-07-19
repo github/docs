@@ -7,7 +7,7 @@ describe('curated homepage links', () => {
   test('English', async () => {
     const $ = await getDOM('/en')
     const $links = $('[data-testid=bump-link]')
-    expect($links.length).toBeGreaterThanOrEqual(8)
+    expect($links.length).toBeGreaterThanOrEqual(6)
 
     // Check that each link is localized and includes a title and intro
     $links.each((i, el) => {

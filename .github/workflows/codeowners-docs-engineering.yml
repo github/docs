@@ -27,7 +27,11 @@ on:
 
 jobs:
   codeowners-docs-engineering:
-    if: ${{ github.repository == 'github/docs-internal' && !github.event.pull_request.draft }}
+    if: >-
+      ${{ github.repository == 'github/docs-internal' &&
+          !github.event.pull_request.draft &&
+          !contains(github.event.pull_request.labels.*.name, 'engineering') &&
+          github.event.pull_request.head.ref != 'repo-sync' }}
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}

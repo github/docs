@@ -37,13 +37,13 @@ make sure that you also update the MS short link: https://aka.ms/code-scanning-d
 
 You can run {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %}, using {% data variables.product.prodname_actions %}, or from your continuous integration (CI) system. For more information, see "[AUTOTITLE](/actions/learn-github-actions)" or "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
 
-{% ifversion code-scanning-without-workflow %}Both the default and advanced setups for {% data variables.product.prodname_code_scanning %} run on {% data variables.product.prodname_actions %}. The default setup automatically chooses the languages to analyze, query suite to run, and events that trigger scans. If you prefer, you can manually select the query suite the default setup will run{% ifversion code-scanning-without-workflow-310 %} and the languages the default setup will analyze{% endif %}. Alternatively, you can use the advanced setup to further customize a {% data variables.product.prodname_code_scanning %} workflow. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#options-for-setting-up-code-scanning)."{% endif %} This article is about {% ifversion code-scanning-without-workflow %}customizing your advanced setup for {% data variables.product.prodname_code_scanning %}.{% else %}running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.{% endif %}
+{% ifversion code-scanning-without-workflow %}Both the default and advanced setups for {% data variables.product.prodname_code_scanning %} run on {% data variables.product.prodname_actions %}. Default setup automatically chooses the languages to analyze, query suite to run, and events that trigger scans. If you prefer, you can manually select the query suite default setup will run{% ifversion code-scanning-without-workflow-310 %} and the languages default setup will analyze{% endif %}. Alternatively, you can use advanced setup to further customize a {% data variables.product.prodname_code_scanning %} workflow. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning)."{% endif %} This article is about {% ifversion code-scanning-without-workflow %}customizing your advanced setup for {% data variables.product.prodname_code_scanning %}.{% else %}running {% data variables.product.prodname_code_scanning %} on {% data variables.product.product_name %} using actions.{% endif %}
 
-{% ifversion code-scanning-without-workflow %}{% else %}Before you can customize {% data variables.product.prodname_code_scanning %} for a repository, you must configure {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."{% endif %}
+{% ifversion code-scanning-without-workflow %}{% else %}Before you can customize {% data variables.product.prodname_code_scanning %} for a repository, you must configure {% data variables.product.prodname_code_scanning %} by adding a {% data variables.product.prodname_actions %} workflow to the repository. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning)."{% endif %}
 
 {% ifversion code-scanning-without-workflow %}
 
-With the advanced setup, you can edit workflows like {% data variables.product.prodname_dotcom %}'s {% data variables.code-scanning.codeql_workflow %} to specify the frequency of scans, the languages or directories to scan, and what {% data variables.product.prodname_code_scanning %} looks for in your code. You might also need to edit the workflow if you use a specific set of commands to compile your code.
+With advanced setup, you can edit workflows like {% data variables.product.prodname_dotcom %}'s {% data variables.code-scanning.codeql_workflow %} to specify the frequency of scans, the languages or directories to scan, and what {% data variables.product.prodname_code_scanning %} looks for in your code. You might also need to edit the workflow if you use a specific set of commands to compile your code.
 
 {% else %}
 
@@ -354,7 +354,7 @@ be used efficiently by the default
 {% data variables.product.prodname_codeql %} action.
 To ensure optimal performance, if you need to specify exact query pack versions, you should consider reviewing periodically whether the pinned version of the query pack needs to be moved forward.
 
-For more information about pack compatibility, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
+For more information about pack compatibility, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 
 {% endnote %}
 {% endif %}
@@ -559,7 +559,7 @@ To find the id of a query, you can click the alert in the list of alerts in the 
 
 You can find another example illustrating the use of these filters in the "[Example configuration files](#example-configuration-files)" section.
 
-For more information about using `exclude` and `include` filters in your custom configuration file, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites#filtering-the-queries-in-a-query-suite)." For information on the query metadata you can filter on, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
+For more information about using `exclude` and `include` filters in your custom configuration file, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites#filtering-the-queries-in-a-query-suite)." For information on the query metadata you can filter on, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
 
 {% endif %}
 

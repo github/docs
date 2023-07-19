@@ -76,6 +76,7 @@ children:
   - early-access
   - support
   - video-transcripts
+  - contributing
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -118,6 +119,8 @@ childGroups:
     octicon: ProjectIcon
     children:
       - issues
+      - issues/planning-and-tracking-with-projects
+      - issues/managing-your-tasks-with-tasklists
       - search-github
   - name: Developers
     octicon: CodeSquareIcon

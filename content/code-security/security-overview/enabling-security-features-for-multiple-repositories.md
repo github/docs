@@ -38,9 +38,7 @@ For more information about the different ways of enabling security features in a
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-
-1. In the sidebar, click **{% octicon "meter" aria-hidden="true"  %} Coverage** to display the "Security coverage" view.
-    ![Screenshot of the "Security coverage" view.](/assets/images/help/security-overview/security-coverage-view-multi-repo.png)
+{% data reusables.security-overview.security-overview-coverage-view %}
 1. You can use the search bar to narrow down visible repositories in the "Security coverage" view based on name, or on the enablement status of security features.
 1. In the list of repositories, select each repository you want to modify the enablement of security features for. To select all repositories on the page, click the checkbox next to **NUMBER Active**. To select all repositories that match the current search, click the checkbox next to **NUMBER Active** and then click **Select all NUMBER repos**.
 1. Click **Security settings** next to **NUMBER selected**.
@@ -53,8 +51,8 @@ The security features that you can enable and disable in this view are:
 
 - Dependency graph
 - {% data variables.product.prodname_dependabot_alerts %}
-- {% data variables.product.prodname_dependabot_security_updates %} 
-- {% data variables.product.prodname_GH_advanced_security %} 
+- {% data variables.product.prodname_dependabot_security_updates %}
+- {% data variables.product.prodname_GH_advanced_security %}
 - {% data variables.product.prodname_code_scanning_caps %} default setup
 - {% data variables.secret-scanning.alerts_caps %}
 - {% data variables.product.prodname_secret_scanning_caps %} as a push protection

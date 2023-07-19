@@ -32,7 +32,7 @@ test('view the for-playwright article', async ({ page }) => {
 test('use sidebar to go to Hello World page', async ({ page }) => {
   await page.goto('/')
 
-  await page.getByTestId('sidebar').getByRole('group', { name: 'Get started' }).click()
+  await page.getByTestId('sidebar').getByText('Get started').click()
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
   await page.getByTestId('product-sidebar').getByText('Quickstart').click()
@@ -155,7 +155,7 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // the category, you'll be able to see the map-topic and the article
   // within.
   await page.goto('/')
-  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'GitHub Actions' }).click()
+  await page.getByTestId('sidebar').getByText('GitHub Actions').click()
   await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
   await page.getByText('Map & Topic').click()
   await page.getByLabel('<article> link').click()

@@ -14,7 +14,7 @@ import findPage from '../../../lib/find-page.js'
 const isProd = process.env.NODE_ENV === 'production'
 
 const supportedPlans = new Set(Object.values(allVersions).map((v) => v.plan))
-const externalRedirects = readJsonFile('./lib/redirects/external-sites.json')
+const externalRedirects = readJsonFile('./src/redirects/lib/external-sites.json')
 
 // Meaning it can be 'AUTOTITLE ' or ' AUTOTITLE' or 'AUTOTITLE'
 const AUTOTITLE = /^\s*AUTOTITLE\s*$/
