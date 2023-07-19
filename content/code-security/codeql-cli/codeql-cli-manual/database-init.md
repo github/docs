@@ -117,7 +117,7 @@ the filesystem.
 build tracing," which allows integration into existing build workflows
 when an explicit build command is not available. For information about
 when and how to use this feature, please refer to our documentation at
-[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-databases).
+"[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis)."
 
 ### Extractor selection options
 

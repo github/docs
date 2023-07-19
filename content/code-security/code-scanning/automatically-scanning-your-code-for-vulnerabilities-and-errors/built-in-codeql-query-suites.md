@@ -18,9 +18,9 @@ With {% data variables.product.prodname_codeql %} {% data variables.product.prod
 - the `default` query suite.
 - the `security-extended` query suite.
 
-Currently, both the `default` query suite and the `security-extended` query suite are available for the default setup for {% data variables.product.prodname_code_scanning %}. For more information on the default setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."
+Currently, both the `default` query suite and the `security-extended` query suite are available for default setup for {% data variables.product.prodname_code_scanning %}. For more information on default setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning)."
 
-To use a custom query suite, you must create an advanced setup for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. For more information on advanced setups and creating a query suite, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)" and "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites)."
+To use a custom query suite, you must configure advanced setup for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}. For more information on advanced setups and creating a query suite, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)" and "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)."
 
 ## Built-in {% data variables.product.prodname_codeql %} query suites
 
@@ -30,14 +30,14 @@ The built-in {% data variables.product.prodname_codeql %} query suites, `default
 
 - The `default` query suite is the group of queries run by default in {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_dotcom %}.
 - The queries in the `default` query suite are highly precise and return few false positive {% data variables.product.prodname_code_scanning %} results. Relative to the `security-extended` query suite, the `default` suite returns fewer low-confidence {% data variables.product.prodname_code_scanning %} results.
-- This query suite is available for use with the default setup for {% data variables.product.prodname_code_scanning %}.
+- This query suite is available for use with default setup for {% data variables.product.prodname_code_scanning %}.
 
 ### `security-extended` query suite
 
 - The `security-extended` query suite consists of all the queries in the `default` query suite, plus additional queries with slightly lower precision and severity.
 - Relative to the `default` query suite, the `security-extended` suite may return a greater number of false positive {% data variables.product.prodname_code_scanning %} results.
-- This query suite is available for use with the default setup for {% data variables.product.prodname_code_scanning %}.
+- This query suite is available for use with default setup for {% data variables.product.prodname_code_scanning %}.
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/creating-codeql-query-suites)"
+- "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites)"

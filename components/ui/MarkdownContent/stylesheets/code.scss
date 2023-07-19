@@ -5,9 +5,13 @@
     border: 1px var(--color-border-default) solid;
   }
 
+  pre code {
+    white-space: pre-wrap;
+  }
+
   [class~="height-constrained-code-block"] pre {
     max-height: 32rem;
-    overflow: auto;
+    overflow-y: auto;
   }
 
   [class~="code-example"] {

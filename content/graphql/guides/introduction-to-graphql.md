@@ -42,7 +42,7 @@ A GraphQL schema may use the term _implements_ to define how an object inherits 
 
 Here's a contrived example of a schema that defines interface `X` and object `Y`:
 
-```
+```graphql
 interface X {
   some_field: String!
   other_field: String!

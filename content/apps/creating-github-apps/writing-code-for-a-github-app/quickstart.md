@@ -121,7 +121,7 @@ For testing, you will use your computer or codespace as a server. Your app will 
 
    You should see output that looks like this, where `WEBHOOK_PROXY_URL` is your webhook proxy URL:
 
-   ```
+   ```shell
    Forwarding WEBHOOK_PROXY_URL to http://localhost:3000/api/webhook
    Connected WEBHOOK_PROXY_URL
    ```

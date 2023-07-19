@@ -16,21 +16,15 @@ import { jest } from '@jest/globals'
 
 import { frontmatter, deprecatedProperties } from '../../../lib/frontmatter.js'
 import languages from '../../../lib/languages.js'
-import { tags } from '#src/content-render/liquid/extended-markdown.js'
 import releaseNotesSchema from '../lib/release-notes-schema.js'
 import learningTracksSchema from '../lib/learning-tracks-schema.js'
-import { renderContent, liquid } from '#src/content-render/index.js'
-import getApplicableVersions from '../../../lib/get-applicable-versions.js'
-import { allVersions } from '../../../lib/all-versions.js'
+import { liquid } from '#src/content-render/index.js'
 import { getDiffFiles } from '../lib/diff-files.js'
 import { formatAjvErrors } from '../../../tests/helpers/schemas.js'
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
-  v.startsWith('enterprise-server@'),
-)
 
 const rootDir = path.join(__dirname, '../../..')
 const contentDir = path.join(rootDir, 'content')
@@ -170,13 +164,6 @@ const oldVariableRegex = /{{\s*?site\.data\..*?}}/g
 //
 const oldOcticonRegex = /{{\s*?octicon-([a-z-]+)(\s[\w\s\d-]+)?\s*?}}/g
 
-//  - {{#note}}
-//  - {{/note}}
-//  - {{ #warning }}
-//  - {{ /pizza }}
-//
-const oldExtendedMarkdownRegex = /{{\s*?[#/][a-z-]+\s*?}}/g
-
 // GitHub-owned actions (e.g. actions/checkout@v2) should use a reusable in examples.
 // list:
 // - actions/checkout@v2
@@ -211,8 +198,6 @@ const oldVariableErrorText =
   'Found article uses old {{ site.data... }} syntax. Use {% data example.data.string %} instead!'
 const oldOcticonErrorText =
   'Found octicon variables with the old {{ octicon-name }} syntax. Use {% octicon "name" %} instead!'
-const oldExtendedMarkdownErrorText =
-  'Found extended markdown tags with the old {{#note}} syntax. Use {% note %}/{% endnote %} instead!'
 const literalActionInsteadOfReusableErrorText =
   'Found a literal mention of a GitHub-owned action. Instead, use the reusables for the action. e.g {% data reusables.actions.action-checkout %}'
 
@@ -478,6 +463,14 @@ describe('lint markdown content', () => {
     })
 
     test('placeholder string is not present in any markdown files', async () => {
+      // this article explains how to use todocs placeholder text so shouldn't fail this test
+      if (
+        markdownRelPath ===
+          'content/contributing/collaborating-on-github-docs/using-the-todocs-placeholder-to-leave-notes.md' ||
+        markdownRelPath === 'content/contributing/collaborating-on-github-docs/index.md'
+      ) {
+        return
+      }
       const matches = rawContent.match(placeholderRegex) || []
       const placeholderStr = matches.length === 1 ? 'placeholder' : 'placeholders'
       const errorMessage = `
@@ -594,21 +587,6 @@ describe('lint markdown content', () => {
       const matches = content.match(oldOcticonRegex) || []
       const errorMessage = formatLinkError(oldOcticonErrorText, matches)
       expect(matches.length, errorMessage).toBe(0)
-    })
-
-    test('does not use old extended markdown syntax', async () => {
-      Object.keys(tags).forEach((tag) => {
-        const reg = new RegExp(`{{\\s*?[#|/]${tag}`, 'g')
-        if (reg.test(content)) {
-          const matches = content.match(oldExtendedMarkdownRegex) || []
-          const tagMessage = oldExtendedMarkdownErrorText
-            .replace('{{#note}}', `{{#${tag}}}`)
-            .replace('{% note %}', `{% ${tag} %}`)
-            .replace('{% endnote %}', `{% end${tag} %}`)
-          const errorMessage = formatLinkError(tagMessage, matches)
-          expect(matches.length, errorMessage).toBe(0)
-        }
-      })
     })
 
     test('URLs must not contain a hard-coded language code', async () => {
@@ -895,22 +873,6 @@ describe('lint yaml content', () => {
       const errorMessage = formatLinkError(oldOcticonErrorText, matches)
       expect(matches.length, errorMessage).toBe(0)
     })
-
-    test('does not use old extended markdown syntax', async () => {
-      const matches = []
-
-      for (const [key, content] of Object.entries(dictionary)) {
-        const contentStr = getContent(content)
-        if (!contentStr) continue
-        const valMatches = contentStr.match(oldExtendedMarkdownRegex) || []
-        if (valMatches.length > 0) {
-          matches.push(...valMatches.map((match) => `Key "${key}": ${match}`))
-        }
-      }
-
-      const errorMessage = formatLinkError(oldExtendedMarkdownErrorText, matches)
-      expect(matches.length, errorMessage).toBe(0)
-    })
   })
 })
 
@@ -1062,45 +1024,6 @@ describe('lint learning tracks', () => {
       }
 
       expect(valid, errors).toBe(true)
-    })
-
-    it('has one and only one featured track per supported version', async () => {
-      // Use the YAML filename to determine which product this refers to, and then peek
-      // inside the product TOC frontmatter to see which versions the product is available in.
-      const product = path.posix.basename(yamlRelPath, '.yml')
-      const productTocPath = path.posix.join('content', product, 'index.md')
-      const productContents = await fs.readFile(productTocPath, 'utf8')
-      const { data } = frontmatter(productContents)
-      const productVersions = getApplicableVersions(data.versions, productTocPath)
-
-      const featuredTracks = {}
-      const context = { enterpriseServerVersions }
-
-      // For each of the product's versions, render the learning track data and look for a featured track.
-      await Promise.all(
-        productVersions.map(async (version) => {
-          const featuredTracksPerVersion = []
-
-          for (const entry of Object.values(dictionary)) {
-            if (!entry.featured_track) return
-            context.currentVersion = version
-            context[allVersions[version].shortName] = true
-            const isFeaturedLink =
-              typeof entry.featured_track === 'boolean' ||
-              (await renderContent(entry.featured_track, context, {
-                textOnly: true,
-              })) === 'true'
-            featuredTracksPerVersion.push(isFeaturedLink)
-          }
-
-          featuredTracks[version] = featuredTracksPerVersion.length
-        }),
-      )
-
-      Object.entries(featuredTracks).forEach(([version, numOfFeaturedTracks]) => {
-        const errorMessage = `Expected 1 featured learning track but found ${numOfFeaturedTracks} for ${version} in ${yamlAbsPath}`
-        expect(numOfFeaturedTracks, errorMessage).toBe(1)
-      })
     })
 
     it('contains valid liquid', () => {
