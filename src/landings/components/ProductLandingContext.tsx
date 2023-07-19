@@ -15,7 +15,6 @@ export type FeaturedLink = {
   href: string
   intro?: string
   authors?: Array<string>
-  hideIntro?: boolean
   date?: string
   fullTitle?: string
 }
@@ -154,7 +153,6 @@ export const getProductLandingContextFromRequest = async (
               : '',
           articles: links.map((link: any) => {
             return {
-              hideIntro: key === 'popular',
               href: link.href,
               title: link.title,
               intro: link.intro || null,
