@@ -1,6 +1,7 @@
 @import "@primer/css/support/index.scss";
 
 .codeBlock {
+  overflow-y: auto;
   margin-bottom: 1rem;
   line-height: 1.45;
   background-color: var(--color-canvas-subtle);
