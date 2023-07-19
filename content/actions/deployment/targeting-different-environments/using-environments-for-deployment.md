@@ -29,7 +29,7 @@ You can configure environments with protection rules and secrets. When a workflo
 {% ifversion fpt %}
 {% note %}
 
-**Note:** You can only configure environments for public repositories. If you convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. If you convert your repository back to public, you will have access to any previously configured protection rules and environment secrets.
+**Note:** Users with {% data variables.product.prodname_free_user %} plans can only configure environments for public repositories. If you convert a repository from public to private, any configured protection rules or environment secrets will be ignored, and you will not be able to configure any environments. If you convert your repository back to public, you will have access to any previously configured protection rules and environment secrets.
 
 Organizations with {% data variables.product.prodname_team %} and users with {% data variables.product.prodname_pro %} can configure environments for private repositories. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
 
