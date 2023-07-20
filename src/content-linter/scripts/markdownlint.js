@@ -71,18 +71,18 @@ async function main() {
     }
   }
 
+  const errorFileCount = getErrorCountByFile(results)
   // Used for a temparary way to allow us to see how many errors currently
   // exist for each rule in the content directory.
-  if (summaryByRule) {
+  if (summaryByRule && errorFileCount > 0) {
     reportSummaryByRule(results, config)
-  } else {
+  } else if (errorFileCount > 0) {
     reportResults(results)
   }
 
   const end = Date.now()
-  console.log(`🕦 Markdownlint finished in ${(end - start) / 1000} s`)
+  console.log(`\n🕦 Markdownlint finished in ${(end - start) / 1000} s`)
 
-  const errorFileCount = getErrorCountByFile(results)
   if (errorFileCount > 0) {
     spinner.fail(`Found ${errorFileCount} file(s) with error(s)`)
     process.exit(1)
@@ -154,20 +154,21 @@ function reportSummaryByRule(results, config) {
   console.log(JSON.stringify(ruleCount, null, 2))
 }
 
-function reportResults(results) {
+function reportResults(allResults) {
   console.log('\n\nMarkdownlint results:\n')
-  Object.entries(results)
+  Object.entries(allResults)
     // Each result key always has an array value, but it may be empty
-    .filter(([, result]) => result.length)
-    .forEach(([key, result]) => {
+    .filter(([, results]) => results.length)
+    .forEach(([key, results]) => {
       console.log(key)
       if (!verbose) {
-        result.forEach((flaw) => {
-          const simplifiedResult = formatResult(flaw)
-          console.log(simplifiedResult)
-        })
+        const formattedResults = results.map((flaw) => formatResult(flaw))
+        const errors = formattedResults.filter((result) => result.severity === 'error')
+        const warnings = formattedResults.filter((result) => result.severity === 'warning')
+        const sortedResult = [...errors, ...warnings]
+        console.log(sortedResult)
       } else {
-        console.log(result)
+        console.log(results)
       }
     })
 }
@@ -185,6 +186,12 @@ function getErrorCountByFile(results) {
 // Removes null values and properties that are not relevant to content
 // writers and transforms some error data into a more readable format.
 function formatResult(object) {
+  const formattedResult = {}
+
+  // Add severity of error or warning
+  const ruleName = object.ruleNames[1]
+  formattedResult.severity = allConfig[ruleName].severity
+
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {
       acc.fixable = !!value
@@ -199,7 +206,7 @@ function formatResult(object) {
     }
     acc[key] = value
     return acc
-  }, {})
+  }, formattedResult)
 }
 
 // Get a list of changed and staged files in the local git repo
