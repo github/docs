@@ -13,8 +13,8 @@ topics:
 
 **Notes:**
 
-* Tasklists are currently in private beta and subject to change. If you are interested in trying tasklists, you can join the [waitlist](https://aka.ms/tasklist-roadmap-signup). Tasklists build upon the previous iteration of [task lists](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
-* For the best experience, we recommend adding no more than 50 tasks to a tasklist and no more than 5 tasklists per issue. There is a hard limit of 250 tasks per tasklist and 10 tasklists per issue.
+- Tasklists are currently in private beta and subject to change. If you are interested in trying tasklists, you can join the [waitlist](https://aka.ms/tasklist-roadmap-signup). Tasklists build upon the previous iteration of [task lists](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
+- For the best experience, we recommend adding no more than 50 tasks to a tasklist and no more than 5 tasklists per issue. There is a hard limit of 250 tasks per tasklist and 10 tasklists per issue.
 
 {% endnote %}
 

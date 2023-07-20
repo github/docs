@@ -45,10 +45,10 @@ Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners
 
 Compared to standard {% data variables.product.prodname_dotcom %}-hosted runners, {% data variables.actions.hosted_runner %}s have the following additional features:
 
-* For Ubuntu runners, hardware acceleration for the Android SDK tools is enabled. This makes running Android tests much faster and consumes fewer minutes. For more information on Android hardware acceleration, see [Configure hardware acceleration for the Android Emulator](https://developer.android.com/studio/run/emulator-acceleration) in the Android Developers documentation.
-* {% data variables.actions.hosted_runner_caps %}s can be assigned static IP addresses from a specific range, which enables you to use this range to configure a firewall allowlist. For more information, see "[Networking for {% data variables.actions.hosted_runner %}s](#networking-for-larger-runners)."
-* {% data variables.actions.hosted_runner_caps %}s can automatically scale up to a maximum limit set by you, so your workflows can run concurrently. For more information, see "[Autoscaling {% data variables.actions.hosted_runner %}s](#autoscaling-larger-runners)."
-* Runner groups allow you to control access to {% data variables.actions.hosted_runner %}s for your organizations, repositories, and workflows. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+- For Ubuntu runners, hardware acceleration for the Android SDK tools is enabled. This makes running Android tests much faster and consumes fewer minutes. For more information on Android hardware acceleration, see [Configure hardware acceleration for the Android Emulator](https://developer.android.com/studio/run/emulator-acceleration) in the Android Developers documentation.
+- {% data variables.actions.hosted_runner_caps %}s can be assigned static IP addresses from a specific range, which enables you to use this range to configure a firewall allowlist. For more information, see "[Networking for {% data variables.actions.hosted_runner %}s](#networking-for-larger-runners)."
+- {% data variables.actions.hosted_runner_caps %}s can automatically scale up to a maximum limit set by you, so your workflows can run concurrently. For more information, see "[Autoscaling {% data variables.actions.hosted_runner %}s](#autoscaling-larger-runners)."
+- Runner groups allow you to control access to {% data variables.actions.hosted_runner %}s for your organizations, repositories, and workflows. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
 
 For a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
 
