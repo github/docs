@@ -97,6 +97,20 @@ test.describe('tool picker', () => {
     await expect(page.getByText('this is cli content')).not.toBeVisible()
     await expect(page.getByText('this is desktop content')).not.toBeVisible()
     await expect(page.getByText('this is webui content')).toBeVisible()
+
+    // Go to page again so that we start with the default webui content and can
+    // check the minitoc links
+    await page.goto('/get-started/liquid/tool-specific')
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+    ).not.toBeVisible()
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+    ).not.toBeVisible()
   })
 
   test('prefer default tool', async ({ page }) => {
