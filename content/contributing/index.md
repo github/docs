@@ -6,6 +6,14 @@ layout: product-landing
 product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
+featuredLinks:
+  startHere:
+    - /contributing/writing-for-github-docs/about-githubs-documentation-philosophy
+    - /contributing/writing-for-github-docs/style-guide
+    - /contributing/writing-for-github-docs/content-model
+    - /contributing/collaborating-on-github-docs/about-contributing-to-github-docs
+changelog:
+  label: docs
 children:
   - /writing-for-github-docs
   - /syntax-and-versioning-for-github-docs
