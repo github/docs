@@ -64,7 +64,7 @@ async function main() {
 
   // Apply markdownlint fixes if available and rewrite the files
   if (fix) {
-    for (const file of files) {
+    for (const file of [...files.content, ...files.data]) {
       const content = await readFile(file, 'utf8')
       const applied = applyFixes(content, results[file])
       await writeFile(file, applied)
@@ -155,6 +155,7 @@ function reportSummaryByRule(results, config) {
 }
 
 function reportResults(results) {
+  console.log('\n\nMarkdownlint results:\n')
   Object.entries(results)
     // Each result key always has an array value, but it may be empty
     .filter(([, result]) => result.length)
