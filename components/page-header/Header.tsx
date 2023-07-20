@@ -135,6 +135,7 @@ export const Header = () => {
             'color-bg-default p-2 position-sticky top-0 z-1 border-bottom',
             scroll && 'color-shadow-small',
           )}
+          role="banner"
         >
           <div
             className="d-flex flex-justify-between p-2 flex-items-center flex-wrap"
