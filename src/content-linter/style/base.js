@@ -1,3 +1,9 @@
+import highlightJs from 'highlight.js'
+
+const highlightJsLanguages = highlightJs.listLanguages()
+const languageAliases = ['text']
+const allowedCodeFenceLanguages = new Set([...highlightJsLanguages, ...languageAliases])
+
 export const baseConfig = {
   // Don't run all rules by default. This must be done first to
   // enable a specific set of rules.
@@ -94,37 +100,7 @@ export const baseConfig = {
     // MD040
     severity: 'warning',
     'partial-markdown-files': true,
-    allowed_languages: [
-      'bash',
-      'csharp',
-      'geojson',
-      'go',
-      'golang',
-      'graphql',
-      'groovy',
-      'html',
-      'http',
-      'java',
-      'javascript',
-      'json',
-      'markdown',
-      'math',
-      'md',
-      'mermaid',
-      'powershell',
-      'python',
-      'ruby',
-      'scss',
-      'shell',
-      'sh',
-      'stl',
-      'tasklist',
-      'text',
-      'topojson',
-      'xml',
-      'yaml',
-      'yml',
-    ],
+    allowed_languages: allowedCodeFenceLanguages,
   },
   'no-empty-links': {
     // MD042
