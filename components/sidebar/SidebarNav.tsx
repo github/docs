@@ -25,7 +25,10 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
       style={{ width: 326, height: 'calc(100vh - 65px)', top: '65px' }}
     >
       {variant === 'full' && currentProduct && (
-        <div className={cx('d-none px-4 pb-3 border-bottom d-xl-block')}>
+        <nav
+          className={cx('d-none px-4 pb-3 border-bottom d-xl-block')}
+          aria-labelledby={currentProduct.name}
+        >
           <AllProductsLink />
           {currentProduct && (
             <div className="mt-3">
@@ -41,7 +44,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
             </div>
           )}
           {variant === 'full' && isRestPage && <ApiVersionPicker />}
-        </div>
+        </nav>
       )}
       <div
         className={cx(
@@ -51,13 +54,11 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
         style={{ width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }}
         role="banner"
       >
-        <nav aria-labelledby="title-h1">
-          {!currentProduct || currentProduct.id === 'search' ? (
-            <SidebarHomepage />
-          ) : (
-            <SidebarProduct />
-          )}
-        </nav>
+        {!currentProduct || currentProduct.id === 'search' ? (
+          <SidebarHomepage />
+        ) : (
+          <SidebarProduct />
+        )}
       </div>
     </div>
   )
