@@ -78,7 +78,7 @@ To report account, security, and abuse issues, or to receive assisted support fo
 {% endif %}
 
 {% ifversion fpt %}
-If you have any paid product or are a member of an organization with a paid product, you can contact {% data variables.contact.github_support %} in English.
+You can contact {% data variables.contact.github_support %} in English.
 {% else %}
 With {% data variables.product.product_name %}, you have access to support in English and Japanese.
 {% endif %}

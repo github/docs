@@ -79,14 +79,20 @@ export const Survey = () => {
   }
 
   return (
-    <form className="f5" onSubmit={submit} ref={formRef} data-testid="survey-form">
-      <h3 className="f4 mb-3">{t`able_to_find`}</h3>
+    <form
+      className="f5"
+      onSubmit={submit}
+      ref={formRef}
+      data-testid="survey-form"
+      aria-live="polite"
+    >
+      <h3 id="survey-title" className="f4 mb-3">{t`able_to_find`}</h3>
 
       {/* Honeypot: token isn't a real field */}
       <input type="text" className="d-none" name="survey-token" aria-hidden="true" />
 
       {state !== ViewState.END && (
-        <div className="radio-group mb-2">
+        <div className="radio-group mb-2" role="radiogroup" aria-labelledby="survey-title">
           <input
             className={cx(styles.visuallyHidden, styles.customRadio)}
             id="survey-yes"

@@ -88,7 +88,7 @@ Parameter name | Type | Description
 
 By default, the response takes the following form:
 
-```
+```shell
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
 ```
 
@@ -162,7 +162,7 @@ Parameter name | Type | Description
 
 By default, the response takes the following form:
 
-```
+```shell
 device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
 ```
 
@@ -222,7 +222,7 @@ Parameter name | Type | Description
 
 By default, the response takes the following form:
 
-```
+```shell
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
 ```
 
@@ -297,7 +297,7 @@ The optional `redirect_uri` parameter can also be used for loopback URLs. If the
 
 For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
 
-```
+```http
 http://127.0.0.1:1234/path
 ```
 
@@ -319,7 +319,7 @@ You can link to authorization information for an {% data variables.product.prodn
 
 To build this link, you'll need your {% data variables.product.prodname_oauth_app %}'s `client_id` that you received from GitHub when you registered the application.
 
-```
+```http
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
 ```
 
