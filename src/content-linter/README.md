@@ -14,19 +14,67 @@ Once we have replaced all of our existing content linting CI checks with new rul
 
 ### Automatically run the linter on pre-commit
 
-The content linter rules that are already marked with a severity of `error` are run on a pre-commit git hook. When you are writing content locally, and commit files (`git commit`) those staged files will automatically be linted by the content linter.
+The content linter rules that are already marked with a severity of `error` are run on a pre-commit git hook. For a list of the rules that will run on the pre-commit hook, see "[Errors](#errors)."
 
-Any errors that are reported _must_ be fixed to prevent introducing errors in the content that are in violation of the GitHub Docs style guide. If you are making a change in the UI, you will not be able to take advantage of the linter from automatically running. For that use case, we plan to introduce a CI test that runs on each pull request.
+When you are writing content locally and commit files (`git commit`), those staged files will automatically be linted by the content linter. If any errors are reported, your commit will not complete. Fix the reported errors, and then try your `git commit` again. Any errors that are reported _must_ be fixed to prevent introducing errors in the content that are in violation of the GitHub Docs style guide.
 
-### Manually run the linter on staged + changed files
+If you are editing a file in the UI, you will not be able to automatically run the linter on a commit. For that use case, we plan to introduce a CI test that runs on each pull request.
 
-You can also manually run the linter before committing your files locally by running:
+### Manually run the linter
+
+#### Run the linter on staged + changed files
+
+Use the following command to run the linter locally on your **staged** and **changed** files (not committed yet). It will output both `warning` and `error` severity issues.
 
 ```shell
 npm run lint-content
 ```
 
-This will lint **only** your staged files and changed files. It will output both warnings and error severity issues.
+#### Run the linter on staged + changed files for errors only
+
+Use the following command to run the linter locally on your staged and changed files, and report only `error` severity.
+
+```shell
+npm run lint-content -- --errors
+```
+
+#### Run the linter on specific files or directories
+
+```shell
+npm run lint-content -- --paths content/file.md content/actions
+```
+
+#### Automatically fix errors that can be fixed
+
+Use the following command to automatically fix errors with `fixable: true`.
+
+Run this command to fix staged and changed files only:
+
+```shell
+npm run lint-content -- --fix
+```
+
+Run this command to fix speficic files or directories:
+
+```shell
+npm run lint-content -- --fix --paths content/file.md content/actions
+```
+
+#### Run a specific set of linter rules
+
+Use the following command to run one or more specific linter rules. In the command, replace `heading-increment code-fence-line-length` with one or more linter aliases that you would like to run. To see the list of linter rules you can pass to this option, run `npm run lint-content -- --help`. You can use either the short name (e.g. `MD001`) or long name (e.g. `heading-increment`) of a linter rule.
+
+Run the specified linter rule(s) on all staged + changed files:
+
+```shell
+npm run lint-content -- --rules heading-increment code-fence-line-length
+```
+
+Run the specified linter rule(s) on specific files or directories:
+
+```shell
+npm run lint-content -- --rules heading-increment code-fence-line-length --path content/file.md content/actions
+```
 
 ### Display the help menu for the content linter script
 
@@ -34,51 +82,11 @@ This will lint **only** your staged files and changed files. It will output both
 npm run lint-content -- --help
 ```
 
-### Manually run the linter on staged + changed files for errors only
-
-```shell
-npm run lint-content -- --errors
-```
-
-### Manually run the linter on specific files or directories
-
-```shell
-npm run lint-content -- --paths content/file.md content/actions
-```
-
-### Automatically fix errors that can be fixed
-
-On all staged + changed files:
-
-```shell
-npm run lint-content -- --fix
-```
-
-On speficic files or directories:
-
-```shell
-npm run lint-content -- --fix --paths content/file.md content/actions
-```
-
-### Run a specific set of rules
-
-On all staged +  changed files:
-
-```shell
-npm run lint-content -- --rules heading-increment code-fence-line-length
-```
-
-On specific files or directories:
-
-```shell
-npm run lint-content -- --rules heading-increment code-fence-line-length --path content/file.md content/actions
-```
-
 ## Linting Rules
 
 Here is the list of our current rules implemented in our [config](./style):
 
-Each rule listed below is configured in a src/content-linter/style file, which is where the rule's severity is defined. The goal is to get to a point where all rules have a severity of `error`, but we can set them to `warning` until the existing occurrences are handled in the content.
+Each rule listed below is configured in a file in `src/content-linter/style`, which is where the rule's severity is defined. The goal is to get to a point where all rules have a severity of `error`, but we can set them to `warning` until the existing occurrences are handled in the content.
 
 ### Errors
 
