@@ -707,7 +707,7 @@ jq '.[] | {title: .title, authorID: .user.id}' data.json
 
 The previous two commands return something like:
 
-```
+```json
 {
   "title": "Update index.html",
   "authorID": 10701255
@@ -764,7 +764,7 @@ jq '.[] | {title: .title, authorID: .user.id}' data.json
 
 The previous two commands return something like:
 
-```
+```json
 {
   "title": "Update index.html",
   "authorID": 10701255

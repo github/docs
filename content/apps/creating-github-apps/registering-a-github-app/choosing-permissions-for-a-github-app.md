@@ -66,6 +66,6 @@ If you want your app to use an installation or user access token to authenticate
 
 You can then use the access token as the HTTP password. Replace `TOKEN` with the access token:
 
-```
-git clone https://x-access-token:TOKEN@github.com/owner/repo.git"
+```shell
+git clone https://x-access-token:TOKEN@github.com/owner/repo.git
 ```

@@ -39610,6 +39610,17 @@
               }
             },
             {
+              "name": "includePrivate",
+              "defaultValue": true,
+              "description": "<p>Whether or not to include private activities in the result set. Defaults to including public and private activities.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "last",
               "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
               "type": {
@@ -72793,6 +72804,17 @@
               }
             },
             {
+              "name": "includePrivate",
+              "defaultValue": true,
+              "description": "<p>Whether or not to include private activities in the result set. Defaults to including public and private activities.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "last",
               "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
               "type": {
@@ -77539,6 +77561,17 @@
               "name": "includeAsSponsor",
               "defaultValue": false,
               "description": "<p>Whether to include those events where this sponsorable acted as the sponsor.\nDefaults to only including events where this sponsorable was the recipient\nof a sponsorship.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "includePrivate",
+              "defaultValue": true,
+              "description": "<p>Whether or not to include private activities in the result set. Defaults to including public and private activities.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",

@@ -82,7 +82,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     apiVersionHeader =
       allVersions[currentVersion].apiVersions.length > 0 &&
       allVersions[currentVersion].latestApiVersion
-        ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+        ? ` \\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
         : ''
   }
 
