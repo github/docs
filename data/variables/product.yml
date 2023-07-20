@@ -235,6 +235,8 @@ prodname_copilot_for_business: 'GitHub Copilot for Business'
 prodname_copilot_for_individuals: 'GitHub Copilot for Individuals'
 prodname_copilot_business_short: 'Copilot for Business'
 prodname_copilot_individuals_short: 'Copilot for Individuals'
+prodname_copilot_chat: 'GitHub Copilot Chat'
+prodname_copilot_chat_short: 'Copilot Chat'
 
 # Command Palette
 prodname_command_palette: 'GitHub Command Palette'
