@@ -34,6 +34,7 @@ export default async function contextualize(req, res, next) {
   req.context.currentLanguage = req.language
   req.context.userLanguage = req.userLanguage
   req.context.currentVersion = getVersionStringFromPath(req.pagePath)
+  req.context.currentVersionObj = allVersions[req.context.currentVersion]
   req.context.currentProduct = getProductStringFromPath(req.pagePath)
   req.context.currentCategory = getCategoryStringFromPath(req.pagePath)
   req.context.productMap = productMap
