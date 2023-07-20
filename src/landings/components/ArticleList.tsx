@@ -54,6 +54,7 @@ export const ArticleList = ({
                   borderRadius: 0,
                 },
               }}
+              tabIndex={undefined}
             >
               <BumpLink
                 as={Link}
