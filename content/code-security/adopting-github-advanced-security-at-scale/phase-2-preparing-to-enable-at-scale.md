@@ -25,7 +25,6 @@ Rolling {% data variables.product.prodname_code_scanning %} out across hundreds 
 {% ifversion ghec %}
 {% data variables.product.prodname_code_scanning_caps %} is also available for all public repositories on {% data variables.product.prodname_dotcom_the_website %} without a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
 
-
 ### Preparing teams for {% data variables.product.prodname_code_scanning %}
 
 First, prepare your teams to use {% data variables.product.prodname_code_scanning %}. The more teams that use {% data variables.product.prodname_code_scanning %}, the more data you'll have to drive remediation plans and monitor progress on your rollout. During this phase, focus on leveraging APIs and running internal enablement events.

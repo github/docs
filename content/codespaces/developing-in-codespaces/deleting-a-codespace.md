@@ -55,7 +55,6 @@ There are costs associated with storing codespaces. You should therefore delete 
 
 {% endnote %}
 
-
 {% vscode %}
 
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}

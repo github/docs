@@ -18,9 +18,8 @@ topics:
 
 {% data reusables.dependency-review.dependency-review-enabled-ghes %}
 
-After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository{% ifversion ghes %} and automatically fix the vulnerabilities{% endif %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository and automatically fix the vulnerabilities. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
 
-{% ifversion ghes %}
 You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend using the {% data variables.enterprise.management_console %} unless {% data variables.location.product_location %} uses clustering.
 
 ## Enabling the dependency graph via the {% data variables.enterprise.management_console %}
@@ -37,24 +36,22 @@ If {% data variables.location.product_location %} uses clustering, you cannot en
 
 ## Enabling the dependency graph via the administrative shell
 
-{% endif %}
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 1. In the administrative shell, enable the dependency graph on {% data variables.location.product_location %}:
-    {% ifversion ghes %}```shell
-    ghe-config app.dependency-graph.enabled true
 
+    ```shell
+    ghe-config app.dependency-graph.enabled true
     ```
-    {% else %}```shell
-    ghe-config app.github.dependency-graph-enabled true
-  ghe-config app.github.vulnerability-alerting-and-settings-enabled true
-    ```{% endif %}
+
    {% note %}
 
    **Note**: For more information about enabling access to the administrative shell via SSH, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
    {% endnote %}
 1. Apply the configuration.
+
     ```shell
-    $ ghe-config-apply
+    ghe-config-apply
     ```
+
 1. Return to {% data variables.product.prodname_ghe_server %}.

@@ -380,7 +380,7 @@ Contents of tutorials:
   - Does not include the expected amount of time that it may take someone to complete the task - this depends on the experience level of the person completing the tutorial.
 - Procedural sections
   - Based on the tutorial's audience, the steps can be less explicit and formal than those used in procedural content. You do not have to use existing reusables to form these steps if the audience doesn’t require that level of detail.
-    - Use: "From your profile, click **Settings, and then click **Developer settings**.”
+    - Use: "From your profile, click **Settings**, and then click **Developer settings**.”
     - Avoid: In the upper-right corner of any page, click your profile photo, then click **Settings**. In the left sidebar, click **Developer settings**.
   - Link out to other articles or resources rather than replicating them, to avoid interrupting the flow of information in the tutorial.
   - Give visual cues. Use code blocks and screenshots heavily to help reassure people that they are performing the correct actions.
@@ -434,7 +434,7 @@ Within an article, there is a standard order of content sections. Every article 
 11. Troubleshooting content
 12. Further reading (conditional)
 
-![Screenshot of article with title, intro, permissions, product callout, conceptual section, procedural section, and table of contents labeled](/assets/images/contributing/illustration-of-article-contents.png)
+![Screenshot of article with title, intro, permissions, product callout, conceptual section, procedural section, and table of contents labeled.](/assets/images/contributing/illustration-of-article-contents.png)
 
 ### Titles
 

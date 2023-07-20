@@ -7,7 +7,7 @@ versions:
   feature: 'contributing'
 ---
 
-# About the {% data variables.product.prodname_dotcom %} documentation philosophy
+## About the {% data variables.product.prodname_dotcom %} documentation philosophy
 
 As the home to the world's largest community of developers, we want to make sure that our documentation is accurate, valuable, inclusive, and easy to use. Our documentation philosophy leads us toward these goals.
 
