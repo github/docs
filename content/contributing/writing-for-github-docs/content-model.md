@@ -434,7 +434,7 @@ Within an article, there is a standard order of content sections. Every article 
 11. Troubleshooting content
 12. Further reading (conditional)
 
-![Screenshot of article with title, intro, permissions, product callout, conceptual section, procedural section, and table of contents labeled](/assets/images/contributing/illustration-of-article-contents.png)
+![Screenshot of article with title, intro, permissions, product callout, conceptual section, procedural section, and table of contents labeled.](/assets/images/contributing/illustration-of-article-contents.png)
 
 ### Titles
 
