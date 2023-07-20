@@ -53,6 +53,9 @@ export default class extends Tag {
     const r = this.liquid.renderer
 
     this.currentVersionObj = ctx.environments.currentVersionObj
+    if (!this.currentVersionObj) {
+      throw new Error('currentVersionObj not found in environment context.')
+    }
 
     for (const branch of this.branches) {
       let resolvedBranchCond = branch.cond
