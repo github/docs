@@ -798,53 +798,104 @@ updates:
 
 ### `versioning-strategy`
 
-When {% data variables.product.prodname_dependabot %} edits a manifest file to update a version, it uses the following overall strategies:
+When {% data variables.product.prodname_dependabot %} edits a manifest file to update a version, there are several different potential versioning strategies:
 
-- For apps, the version requirements are increased, for example: npm, pip and Composer.
-- For libraries, the range of versions is widened, for example: Bundler and Cargo.
+| Option | Action |
+|--------|--------|
+| `auto` | Try to differentiate between between apps and libraries. Use `increase` for apps and `widen` for libraries.|
+| `increase`| Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound. |
+| `increase-if-necessary` | Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint. |
+| `lockfile-only` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
+| `widen`| Widen the allowed version requirements to include both the new and old versions, when possible. Typically, this only increases the maximum allowed version requirement. |
+| N/A | Some package managers do not yet support configuring the `versioning-strategy` parameter. |
+
+The following table shows an example of how `versioning-strategy` can be used.
+
+<table>
+    <thead>
+        <tr>
+            <th align="center">Constraint</th>
+            <th align="center">Current Version</th>
+            <th align="center">New Version</th>
+            <th>Strategy</th>
+            <th>New Constraint</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="3" align="center"><code>^1.0.0</code></td>
+            <td rowspan="3" align="center"><code>1.0.0</code></td>
+            <td rowspan="3" align="center"><code>1.2.0</code></td>
+            <td align="center"><code>'widen'</code></td>
+            <td><code>^1.0.0</code></td>
+        </tr>
+        <tr>
+            <td align="center"><code>'increase'</code></td>
+            <td><code>^1.2.0</code></td>
+        </tr>
+        <tr>
+            <td align="center"><code>'increase-if-necessary'</code></td>
+            <td><code>^1.0.0</code></td>
+        </tr>
+      <tr>
+            <td rowspan="3" align="center"><code>^1.0.0</code></td>
+            <td rowspan="3" align="center"><code>1.0.0</code></td>
+            <td rowspan="3" align="center"><code>2.0.0</code></td>
+            <td align="center"><code>'widen'</code></td>
+            <td><code>&gt;=1.0.0 &lt;3.0.0</code></td>
+        </tr>
+        <tr>
+            <td align="center"><code>'increase'</code></td>
+            <td><code>^2.0.0</code></td>
+        </tr>
+        <tr>
+            <td align="center"><code>'increase-if-necessary'</code></td>
+            <td><code>^2.0.0</code></td>
+        </tr>
+    </tbody>
+</table>
 
 Use the `versioning-strategy` option to change this behavior for supported package managers.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-Available update strategies
+Available update strategies:
 
-| Option | Supported by | Action |
-|--------|--------------|--------|
-| `lockfile-only` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
-| `auto` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Follow the default strategy described above.|
-| `widen`| `composer`, `npm` | Relax the version requirement to include both the new and old version, when possible. |
-| `increase`| `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %}  | Always increase the version requirement to match the new version. |
-| `increase-if-necessary` | `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %} | Increase the version requirement only when required by the new version. |
+| Ecosystem | Supported versioning strategies | Default strategy |
+|-----------|---------------------------------|------------------|
+| `bundler` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only` | `auto` |
+| `cargo` | `auto`, `lockfile-only` | `auto` |
+| `composer` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only`, `widen` | `auto` |
+| `docker` | N/A | N/A |
+| `github-actions` | N/A | N/A |
+| `gitsubmodule` | N/A | N/A |
+| `gomod` | N/A | N/A |
+| `gradle` | N/A | N/A |
+| `maven` | N/A | N/A |
+| `mix` | `auto`, `lockfile-only` | `auto` |
+| `npm` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only`, `widen` | `auto` |
+| `nuget` | N/A | N/A |
+| `pip` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only` | `auto` |
+| `pub` | `auto`, `increase`, `increase-if-necessary`, `widen` | `auto` |
+| `terraform` | N/A | N/A |
+
+{% note %}
+
+**Note:** `N/A` indicates that the package manager does not yet support configuring the `versioning-strategy` parameter. The strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in https://github.com/dependabot/dependabot-core/.
+
+{% endnote %}
 
 ```yaml
-# Customize the manifest version strategy
+# Example configuration for customizing the manifest version strategy
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    # Update the npm manifest file to relax
-    # the version requirements
-    versioning-strategy: widen
-
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
       interval: "weekly"
-    # Increase the version requirements for Composer
-    # only when required
+    # Increase the version requirements for Composer only when required
     versioning-strategy: increase-if-necessary
-
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    # Only allow updates to the lockfile for pip and
-    # ignore any version updates that affect the manifest
-    versioning-strategy: lockfile-only
 ```
 
 ## Configuration options for private registries
