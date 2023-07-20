@@ -11,7 +11,6 @@ versions:
 
 Videos are used rarely in the {% data variables.product.prodname_docs %}. When videos are necessary to provide the best user experience for an article, they are used together with written text. Videos are not a replacement for written content. Videos should never be the only way information is communicated because they are more difficult to keep up to date and are not accessible to everyone.
 
-
 Use these guidelines to determine if a video is appropriate to include in an article or on a landing page in the docs.
 
 If you add a link to a video or embed a video in the {% data variables.product.prodname_docs %}, add the video's metadata to the "[Videos in {% data variables.product.prodname_docs %}](https://github.com/github/docs/blob/main/contributing/videos-in-github-docs.md)" file in the `github/docs` repository.

@@ -54,7 +54,6 @@ To calculate the security severity of an alert, we use Common Vulnerability Scor
 
 By default, any {% data variables.product.prodname_code_scanning %} results with a security severity of `Critical` or `High` will cause a check failure. You can specify which security severity level for {% data variables.product.prodname_code_scanning %} results should cause a check failure. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#defining-the-severities-causing-pull-request-check-failure)."
 
-
 ### About {% ifversion remove-code-scanning-configurations %}alerts from multiple configurations{% else %}analysis origins{% endif %}
 
 {% ifversion remove-code-scanning-configurations %}

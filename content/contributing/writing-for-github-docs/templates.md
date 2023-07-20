@@ -289,7 +289,6 @@ Include a bulleted list of tutorials or articles the user can reference to exten
 
 Use the content model for full instructions and examples on how to write for {% data variables.product.prodname_docs %}. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/content-model)."
 
-
 ```yaml
 {% raw %}---
 title: Guide title

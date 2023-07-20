@@ -11,7 +11,6 @@ versions:
 
 Sometimes, it's necessary to change the title of a help article. There are several considerations to keep in mind when you retitle an article.
 
-
 ## Background on changing the filename
 
 The title of the article corresponds directly to the name of the Markdown file that contains that article, for a couple of reasons:

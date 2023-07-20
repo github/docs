@@ -22,4 +22,3 @@ You can manually select the region that your codespaces will be created in, allo
 1. Under "Region", select the setting you want: **Set automatically** or **Set manually**.
 
 1. If you chose **Set manually**, select the dropdown menu and click your region.
-

@@ -995,7 +995,6 @@ Table content is left-aligned by default. Use Markdown table formatting, colons 
 
 The following example shows part of a table from "[AUTOTITLE](/free-pro-team@latest/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
 
-
 <table>
 <thead>
 <tr>

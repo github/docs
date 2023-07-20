@@ -920,7 +920,6 @@ After running RuboCop and saving the linting results, this code runs the command
 
 The `rm -rf` command cannot be undone. To keep your app secure, the code in this tutorial checks incoming webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. The `verify_webhook_signature` method validates the sender of the webhook. The `verify_webhook_signature` event handler also checks that the repository name is valid. For more information, see "[Define a `before` filter](#define-a-before-filter)."
 
-
 ### Test the code
 
 The following steps will show you how to test that the code works and view the errors reported by RuboCop.

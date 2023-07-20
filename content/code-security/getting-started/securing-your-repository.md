@@ -71,7 +71,6 @@ For more information, see "[AUTOTITLE](/code-security/supply-chain-security/unde
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts){% ifversion fpt or ghec %}" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account){% endif %}."
 
-
 ## Managing dependency review
 
 Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review)."
