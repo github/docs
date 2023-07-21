@@ -191,3 +191,7 @@ jobs:
           curl -X POST -sv -H "X-Vault-Token: {% raw %}${{ env.VAULT_TOKEN }}{% endraw %}" \
             <Vault URL>/v1/auth/token/revoke-self
 ```
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}
