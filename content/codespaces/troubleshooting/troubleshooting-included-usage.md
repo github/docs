@@ -71,7 +71,7 @@ devcontainer-info
 
 If the dev container for the current codespace was built from the default image, the output of this command will contain the following information.
 
-```
+```shell
 - Definition ID: universal
 - Source code repository: https://github.com/devcontainers/images
 ```

@@ -424,7 +424,7 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
 
 For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovim, you can view the plugin documentation. To see the documentation, open Vim/Neovim and run the following command:
 
-```
+```shell
 :help copilot
 ```
 

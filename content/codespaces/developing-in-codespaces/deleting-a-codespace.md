@@ -107,7 +107,7 @@ By default you are prompted to confirm deletion of any codespaces that contain u
 
 Delete all of the codespaces for the `octo-org/octo-repo` repository that you created more than 7 days ago.
 
-```
+```shell
 gh codespace delete --repo octo-org/octo-repo --days 7
 ```
 

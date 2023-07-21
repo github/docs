@@ -100,7 +100,7 @@ Some more destructive options:
 
 {% data reusables.codespaces.recovery-mode %}
 
-```
+```shell
 This codespace is currently running in recovery mode due to a container error.
 ```
 
