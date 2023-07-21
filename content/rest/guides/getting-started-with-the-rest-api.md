@@ -90,7 +90,7 @@ curl --request GET \
 
 Continue reading to learn how to authenticate, send parameters, and use the response.
 
-## Authenticating
+## Authenticating 
 
 Many operations require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.{% cli %} Although some REST API operations are accessible without authentication, you must authenticate to {% data variables.product.prodname_cli %} in order to use the `api` subcommand.{% endcli %}
 
