@@ -96,7 +96,7 @@ Avoid inline links in command names.
 
 ### Examples
 
-When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context. You can add code annotations to explain long code examples. See "[Code annotations](./code-annotations)" for more information.
+When code examples refer to a larger file, show the relevant section of the file, so that users understand how to edit their own code in context. You can add code annotations to explain long code examples. See "[Code annotations](./content-markup-reference.md#code-sample-annotations)" for more information.
 
 - **Use:**
 
