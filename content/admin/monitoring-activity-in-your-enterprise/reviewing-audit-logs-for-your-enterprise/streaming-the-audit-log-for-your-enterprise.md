@@ -297,4 +297,6 @@ When the application is ready to receive audit logs again, click **Resume stream
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Under "Audit log", click **Settings**.
 1. Under "API Requests", select **Enable API Request Events**.
-1. {% endif %}
+1. Click **Save**.
+
+{% endif %}
