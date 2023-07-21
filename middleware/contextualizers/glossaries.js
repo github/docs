@@ -6,6 +6,12 @@ import { correctTranslatedContentStrings } from '../../lib/correct-translation-c
 export default async function glossaries(req, res, next) {
   if (!req.pagePath.endsWith('get-started/quickstart/github-glossary')) return next()
 
+  // If the current version (which is found as part of the URL), does not
+  // correspond to a supported version, the Liquid rendering will fail
+  // (if there's uses of `ifversion` in any the Liquid).
+  // So we'll skip this contextualizer and let the 404 error take over later.
+  if (!req.context.currentVersionObj) return next()
+
   // When the current language is *not* English, we'll need to get the English
   // glossary based on the term. We'll use this to render the translated
   // glossaries. For example, if the Korean translation has a corruption
