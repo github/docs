@@ -175,7 +175,7 @@ steps:
   with:
     node-version: '18.x'
 - name: Install dependencies
-  run: yarn --immutable --immutable-cache --check-cache
+  run: yarn --frozen-lockfile
 ```
 
 Alternatively, you can install the dependencies defined in the _package.json_ file. 
