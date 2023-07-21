@@ -460,8 +460,8 @@ You'll learn about authenticating as an installation in the next section, "[Auth
 
 Authenticating as a {% data variables.product.prodname_github_app %} lets you do a couple of things:
 
- * You can retrieve high-level management information about your {% data variables.product.prodname_github_app %}.
- * You can request access tokens for an installation of the app.
+ - You can retrieve high-level management information about your {% data variables.product.prodname_github_app %}.
+ - You can request access tokens for an installation of the app.
 
 For example, you would authenticate as a {% data variables.product.prodname_github_app %} to retrieve a list of the accounts (organization and personal) that have installed your app. But this authentication method doesn't allow you to do much with the API. To access a repository's data and perform operations on behalf of the installation, you need to authenticate as an installation. To do that, you'll need to authenticate as a {% data variables.product.prodname_github_app %} first to request an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
@@ -515,8 +515,8 @@ The `create_app_installation_access_token` Octokit method creates an installatio
 
 This method accepts two arguments:
 
-* Installation (integer): The ID of a {% data variables.product.prodname_github_app %} installation
-* Options (hash, defaults to `{}`): A customizable set of options
+- Installation (integer): The ID of a {% data variables.product.prodname_github_app %} installation
+- Options (hash, defaults to `{}`): A customizable set of options
 
 Any time a {% data variables.product.prodname_github_app %} receives a webhook, it includes an `installation` object with an `id`. Using the client authenticated as a {% data variables.product.prodname_github_app %}, you pass this ID to the `create_app_installation_access_token` method to generate an access token for each installation. Since you're not passing any options to the method, the options default to an empty hash. The response for `create_app_installation_access_token` includes two fields: `token` and `expired_at`. The template code selects the token in the response and initializes an installation client.
 
@@ -772,9 +772,9 @@ RuboCop is a Ruby code linter and formatter. It checks Ruby code to ensure that 
 
 RuboCop has three primary functions:
 
-* Linting to check code style
-* Code formatting
-* Replaces the native Ruby linting capabilities using `ruby -w`
+- Linting to check code style
+- Code formatting
+- Replaces the native Ruby linting capabilities using `ruby -w`
 
 Your app will run RuboCop on the CI server, and create check runs (CI tests in this case) that report the results that RuboCop reports to {% data variables.product.prodname_dotcom %}.
 
@@ -919,7 +919,6 @@ The code above runs RuboCop on all files in the repository's directory. The opti
 After running RuboCop and saving the linting results, this code runs the command `rm -rf` to remove the checkout of the repository. Because the code stores the RuboCop results in a `@report` variable, it can safely remove the checkout of the repository.
 
 The `rm -rf` command cannot be undone. To keep your app secure, the code in this tutorial checks incoming webhooks for injected malicious commands that could be used to remove a different directory than intended by your app. For example, if a bad actor sent a webhook with the repository name `./`, your app would remove the root directory. The `verify_webhook_signature` method validates the sender of the webhook. The `verify_webhook_signature` event handler also checks that the repository name is valid. For more information, see "[Define a `before` filter](#define-a-before-filter)."
-
 
 ### Test the code
 

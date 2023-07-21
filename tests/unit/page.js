@@ -611,6 +611,7 @@ describe('catches errors thrown in Page class', () => {
       const context = {
         page: { version: `enterprise-server@3.2` },
         currentVersion: `enterprise-server@3.2`,
+        currentVersionObj: {},
         currentProduct: 'snowbird',
         currentLanguage: 'en',
         currentPath: '/en/enterprise-server@3.2/optional/attributes',

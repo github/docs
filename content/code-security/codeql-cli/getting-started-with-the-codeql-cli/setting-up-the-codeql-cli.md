@@ -74,7 +74,6 @@ From macOS version 10.15 ("Catalina") onwards you need to ensure that your web b
 1. Click the **General** Tab.
 1. Ensure the check-box labeled **Open "safe" files after downloading** is unchecked.
 
-
 ### 2. Extract the zip archive
 
 For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply extract the zip archive.

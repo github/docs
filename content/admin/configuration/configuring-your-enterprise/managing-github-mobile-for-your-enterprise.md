@@ -20,7 +20,6 @@ shortTitle: Manage GitHub Mobile
 
 You can allow or disallow people from using {% data variables.product.prodname_mobile %} to authenticate to {% data variables.location.product_location %} and access your instance's data. By default, {% data variables.product.prodname_mobile %} is enabled for people who use {% data variables.location.product_location %}.
 
-
 ## Enabling or disabling {% data variables.product.prodname_mobile %}
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}

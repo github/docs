@@ -17,6 +17,14 @@ function showToolSpecificContent(tool: string, supportedTools: Array<string>) {
     .filter((el) => supportedTools.some((tool) => el.classList.contains(tool)))
     .forEach((el) => {
       el.style.display = el.classList.contains(tool) ? '' : 'none'
+
+      // hack: special handling for minitoc links -- we can't pass the tool classes
+      // directly to the Primer NavList.Item generated <li>, it gets passed down
+      // to the child <a>.  So if we find an <a> that has the tool class and its
+      // parent is an <li>, we hide/unhide that element as well.
+      if (el.tagName === 'A' && el.parentElement && el.parentElement.tagName === 'LI') {
+        el.parentElement.style.display = el.classList.contains(tool) ? '' : 'none'
+      }
     })
 
   // find all tool-specific *inline* elements and hide or show as appropriate

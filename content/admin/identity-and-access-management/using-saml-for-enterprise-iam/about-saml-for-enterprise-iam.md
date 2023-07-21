@@ -62,7 +62,6 @@ After you configure the application for {% data variables.product.product_name %
 
 {% endif %}
 
-
 {% ifversion ghes %}
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}

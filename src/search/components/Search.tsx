@@ -7,6 +7,7 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'src/search/components/useQuery'
 import { useBreakpoint } from 'src/search/components/useBreakpoint'
+import { EventType, sendEvent } from 'src/events/components/events'
 
 export function Search() {
   const router = useRouter()
@@ -39,6 +40,12 @@ export function Search() {
           onSubmit={(event) => {
             event.preventDefault()
             if (!localQuery.trim()) return
+
+            sendEvent({
+              type: EventType.search,
+              search_query: localQuery,
+            })
+
             redirectSearch()
           }}
         >

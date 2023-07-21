@@ -7,10 +7,9 @@ versions:
   feature: 'contributing'
 ---
 
-# Changing the title of an article
+## Changing the title of an article
 
 Sometimes, it's necessary to change the title of a help article. There are several considerations to keep in mind when you retitle an article.
-
 
 ## Background on changing the filename
 
@@ -26,7 +25,7 @@ There are several places you may need to update when you give an article a new t
 
 Each article contains a metadata section or frontmatter located at the **top of the article** formatted using YAML syntax. This metadata section generates the title of the article and contains other important data, such as redirects and sometimes even short description conrefs that link to reusable intro text.
 
-```
+```yaml
 ---
 title: Your article name
 intro:
@@ -34,11 +33,12 @@ redirect_from:
   - /articles/older-outdated-article-name/
 ---
 ```
+
 #### Frontmatter update checklist
 
 - Update title using sentence case
 - Update redirects. Almost every time we retitle an article, we should add a redirect referencing the article's old URL and make sure we keep any redirects in the old article's frontmatter.
- 
+
 ### Filename
 
 You can use the [`git mv` command](https://git-scm.com/docs/git-mv) in your terminal to change the name of the file.

@@ -169,9 +169,9 @@ Avoid using footnotes where possible. Consider instead whether you could use a [
 
 If you must use footnotes:
 
-* Use numbers. Do not use typographical symbols or special characters.
-* Place footnote markers in square brackets: `[1]`.
-* Do not use superscript.
+- Use numbers. Do not use typographical symbols or special characters.
+- Place footnote markers in square brackets: `[1]`.
+- Do not use superscript.
 
 ## Headers
 
@@ -485,8 +485,8 @@ Capitalize the first letter in each line of a list. Use periods at the end of li
 
 When writing a list of items that consist of primary and secondary text, such as a `term` and its definition, use a colon delimiter. The secondary text should be capitalized as if it was the beginning of the line. For example:
 
-* `foo`: Something that provides bar.
-* `bar`: Something provided by foo.
+- `foo`: Something that provides bar.
+- `bar`: Something provided by foo.
 
 Formatting unordered lists:
 - If the order of items in the list is not important, alphabetize the list items.
@@ -616,8 +616,8 @@ For more information, see "[Using SHAs](/actions/learn-github-actions/finding-an
 ### {% data variables.product.prodname_codespaces %}
 
 When referring to the product {% data variables.product.prodname_codespaces %}, always include "{% data variables.product.company_short %}", except in these circumstances:
-* In the `shortTitle` front matter (i.e. the abbreviated version of the article title).
-* In subheadings within an article, if "{% data variables.product.prodname_codespaces %}" has already been used anywhere in the article prior to the subheading.
+- In the `shortTitle` front matter (i.e. the abbreviated version of the article title).
+- In subheadings within an article, if "{% data variables.product.prodname_codespaces %}" has already been used anywhere in the article prior to the subheading.
 
 Variables: `{% raw %}{% data variables.product.prodname_github_codespaces %}{% endraw %}` ("GitHub Codespaces") and `{% raw %}{% data variables.product.prodname_codespaces %}{% endraw %}` ("Codespaces").
 
@@ -977,10 +977,10 @@ If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
 
 For tables that use symbols:
 
-* Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
-* Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji.
-* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
-* Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
+- Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
+- Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji.
+- Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+- Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
 Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[AUTOTITLE](/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase".
 
@@ -994,7 +994,6 @@ All columns in a table should be left-aligned, except for columns containing onl
 Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table)" for more information.
 
 The following example shows part of a table from "[AUTOTITLE](/free-pro-team@latest/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
-
 
 <table>
 <thead>
