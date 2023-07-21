@@ -221,6 +221,28 @@ For example, consider a member, or outside collaborator, of an organization that
 
 Usage is calculated every hour. An organization pays for usage of codespaces created from any repository owned by the organization, where the organization settings permit the organization to be billed. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)." When a repository is transferred out of your organization, ownership and billing responsibility for any codespaces associated with that repository will change accordingly.
 
+## How billing is handled for {% data variables.product.prodname_github_codespaces %} templates
+
+You can get started on a new project by creating a codespace from a template. Codespaces created from templates aren't initially associated with a repository, but you can publish the codespace to a repository owned by your personal account. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+
+Any organization can maintain a template repository for use with {% data variables.product.prodname_github_codespaces %}. As with any other repository in an organization, a codespace created from a template repository is billed to the organization if the organization has set a spending limit for {% data variables.product.prodname_github_codespaces %} and allowed the user creating the codespace to do so at the organization's expense. Otherwise, the codespace is billed to the user who creates the codespace.
+
+If a user publishes a codespace created from a template, the codespace is published to a new repository owned by the user's personal account. If the codespace is currently billed to an organization, ownership and billing of the codespace transfer to the user who created the codespace.
+
+{% ifversion ghec %}
+
+{% note %}
+
+**Note:** A {% data variables.enterprise.prodname_managed_user %} cannot be the billable owner of a codespace. Therefore:
+- A {% data variables.enterprise.prodname_managed_user %} can only create a codespace from a template if the codespace is billed to an organization.
+- A {% data variables.enterprise.prodname_managed_user %} cannot publish a codespace created from a template to a new repository.
+
+For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+
+{% endnote %}
+
+{% endif %}
+
 ## What happens when users are removed
 
 If a user is removed from an organization or repository, their codespaces are automatically deleted.
