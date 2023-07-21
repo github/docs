@@ -811,49 +811,14 @@ When {% data variables.product.prodname_dependabot %} edits a manifest file to u
 
 The following table shows an example of how `versioning-strategy` can be used.
 
-<table>
-    <thead>
-        <tr>
-            <th align="center">Constraint</th>
-            <th align="center">Current Version</th>
-            <th align="center">New Version</th>
-            <th>Strategy</th>
-            <th>New Constraint</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan="3" align="center"><code>^1.0.0</code></td>
-            <td rowspan="3" align="center"><code>1.0.0</code></td>
-            <td rowspan="3" align="center"><code>1.2.0</code></td>
-            <td align="center"><code>'widen'</code></td>
-            <td><code>^1.0.0</code></td>
-        </tr>
-        <tr>
-            <td align="center"><code>'increase'</code></td>
-            <td><code>^1.2.0</code></td>
-        </tr>
-        <tr>
-            <td align="center"><code>'increase-if-necessary'</code></td>
-            <td><code>^1.0.0</code></td>
-        </tr>
-      <tr>
-            <td rowspan="3" align="center"><code>^1.0.0</code></td>
-            <td rowspan="3" align="center"><code>1.0.0</code></td>
-            <td rowspan="3" align="center"><code>2.0.0</code></td>
-            <td align="center"><code>'widen'</code></td>
-            <td><code>&gt;=1.0.0 &lt;3.0.0</code></td>
-        </tr>
-        <tr>
-            <td align="center"><code>'increase'</code></td>
-            <td><code>^2.0.0</code></td>
-        </tr>
-        <tr>
-            <td align="center"><code>'increase-if-necessary'</code></td>
-            <td><code>^2.0.0</code></td>
-        </tr>
-    </tbody>
-</table>
+| Current constraint | Current version | New version | Strategy | New constraint | 
+|--------------------|-----------------|-------------|----------|----------------|
+| ^1.0.0 | 1.0.0 | 1.2.0 | `widen` | ^1.0.0 |
+| ^1.0.0 | 1.0.0 | 1.2.0 | `increase` | ^1.2.0 |
+| ^1.0.0 | 1.0.0 | 1.2.0 | `increase-if-necessary` | ^1.0.0 |
+| ^1.0.0 | 1.0.0 | 2.0.0 | `widen` | >=1.0.0 <3.0.0 |
+| ^1.0.0 | 1.0.0 | 2.0.0 | `increase` | ^2.0.0 |
+| ^1.0.0 | 1.0.0 | 2.0.0 | `increase-if-necessary` | ^2.0.0 |
 
 Use the `versioning-strategy` option to change this behavior for supported package managers.
 
