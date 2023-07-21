@@ -105,6 +105,7 @@ To discover how a member was added to an organization, you can filter the member
 - {% data variables.enterprise.prodname_managed_users_caps %} can only create and use codespaces that are owned and paid for by their organization or enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:
   - Can create codespaces for repositories owned by their organization, or forks of these repositories, provided that the organization has enabled billing for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
   - Cannot create codespaces for their personal repositories, other than forks of repositories owned by their organization; for any other repositories outside their organization; or from {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}.
+  - Cannot publish a codespace created from a template to a new repository.
 
 ## Getting started with {% data variables.product.prodname_emus %}
 
