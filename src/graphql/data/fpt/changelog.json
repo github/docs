@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>SubscribableThread</code> was added</p>",
+          "<p>Type <code>ThreadSubscriptionFormAction</code> was added</p>",
+          "<p>Type <code>ThreadSubscriptionState</code> was added</p>",
+          "<p><code>Issue</code> object implements <code>SubscribableThread</code> interface</p>",
+          "<p>Field <code>viewerThreadSubscriptionFormAction</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>viewerThreadSubscriptionStatus</code> was added to object type <code>Issue</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-07-21"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Argument <code>includePrivate: Boolean</code> (with default value) added to field <code>Organization.sponsorsActivities</code></p>",
           "<p>Argument <code>includePrivate: Boolean</code> (with default value) added to field <code>Sponsorable.sponsorsActivities</code></p>",
           "<p>Argument <code>includePrivate: Boolean</code> (with default value) added to field <code>User.sponsorsActivities</code></p>"
