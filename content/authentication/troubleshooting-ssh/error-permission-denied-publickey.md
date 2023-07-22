@@ -77,7 +77,12 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
-1. Verify that you have a private key generated and loaded into SSH.
+  
+  {% tip %}
+**Tip**: Above commands are executed to start the `ssh-agent` manually in your enviornment. If the commands fails, please check the relevant documentation for your environment to start the ssh-agent
+  {% endtip %}
+  
+2. Verify that you have a private key generated and loaded into SSH.
 
    ```shell
    $ ssh-add -l -E sha256
