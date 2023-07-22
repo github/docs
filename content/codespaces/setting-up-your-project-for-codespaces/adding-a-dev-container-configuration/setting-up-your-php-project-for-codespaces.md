@@ -38,15 +38,9 @@ The default development container, or "dev container," for {% data variables.pro
 
 1. Type `php` and click **PHP**. Other options are available if your project uses particular tools. For example, **PHP & MariaDB**.
 
-   <!-- ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing "PHP & MariaDB" option.](/assets/images/help/codespaces/add-php-devcontainer-config.png) -->
-
 1. Choose the version of PHP you want to use for your project. In this case, select the version marked "(default)."
 
-   <!-- ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing a variety of PHP versions, including "8.2 (default)."](/assets/images/help/codespaces/add-php-version.png) -->
-
-1. A list of additional features you can install is displayed. We'll install {% data variables.product.prodname_cli %}, a tool for interacting with {% data variables.product.prodname_dotcom %} from the command line. To install this tool, type `github`, select `{% data variables.product.prodname_cli %}`, then click **OK**.
-
-   <!-- ![Screenshot of the "Add Dev Container Configuration Files" dropdown, showing "js" in the text box and "JSHint (via npm)" in the dropdown list.](/assets/images/help/codespaces/add-jshint-config.png) -->
+1. A list of additional features you can install is displayed. We'll install {% data variables.product.prodname_cli %}, a tool for interacting with {% data variables.product.prodname_dotcom %} from the command line. To install this tool, type `github`, select `{% data variables.product.prodname_cli %}`, then click **OK**, then select **Keep defaults**.
 
 {% data reusables.codespaces.overwrite-devcontainer-config %}
 {% data reusables.codespaces.details-of-devcontainer-config %}
@@ -57,7 +51,7 @@ The default development container, or "dev container," for {% data variables.pro
 {
   "name": "PHP",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/php:0-8.2",
+  "image": "mcr.microsoft.com/devcontainers/php:1-8.2-bullseye",
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},
@@ -89,7 +83,7 @@ The default development container, or "dev container," for {% data variables.pro
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
 
-* Run `composer install`, after the dev container is created, to install the dependencies listed in the `composer.json` file.
+* Run `composer install`, after the dev container is created, to install the dependencies listed in a `composer.json` file.
 * Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
 1. In the `devcontainer.json` file, delete the two commented-out lines about features:
@@ -121,11 +115,11 @@ With your dev container configuration added and a basic understanding of what ev
    },
    ```
 
-1. Uncomment the `postCreateCommand` property and change its value to the command `composer install`.
+1. Uncomment the `postCreateCommand` property and change its value to run the command `composer install` if the `composer.json` file exists.
 
    ```json{:copy}
    // Use 'postCreateCommand' to run commands after the container is created.
-   "postCreateCommand": "composer install"
+   "postCreateCommand": "if [ -f composer.json ];then composer install;fi"
    ```
 
   The `devcontainer.json` file should now look similar to this, depending on which image you chose:
@@ -136,7 +130,7 @@ With your dev container configuration added and a basic understanding of what ev
    {
      "name": "PHP",
      // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-     "image": "mcr.microsoft.com/devcontainers/php:0-8.2",
+     "image": "mcr.microsoft.com/devcontainers/php:1-8.2-bullseye",
 
      // Configure tool-specific properties.
      "customizations": {
@@ -157,7 +151,7 @@ With your dev container configuration added and a basic understanding of what ev
      },
 
      // Use 'postCreateCommand' to run commands after the container is created.
-     "postCreateCommand": "composer install"
+     "postCreateCommand": "if [ -f composer.json ];then composer install;fi"
 
      // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
      // "remoteUser": "root"
@@ -172,15 +166,15 @@ With your dev container configuration added and a basic understanding of what ev
 
 ## Step 4: Run your application
 
-In the previous section, you used the `postCreateCommand` to install a set of packages via the `composer install` command. With the dependencies now installed, you can run the application.
+In the previous section, you used the `postCreateCommand` to install a set of packages via the `composer install` command. With the dependencies now installed, you can run the application. However, in this scenario we first need to tweak the ports that Apache will listen on. By default, it is configured to use port 80, but in Codespaces, that port is not available -- so we will use port 8080 instead.
 
-1. In the Terminal of your codespace, enter `apache2ctl start`.
+1. In the Terminal of your codespace, enter `sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf`.
 
-   <!-- ![Screenshot of running "npm start" in the Terminal. The final output reads "Running on http://0.0.0.0:3000."](/assets/images/help/codespaces/codespaces-npmstart.png) -->
+1. Still in the Terminal, enter `sudo sed -i 's/80/8080/' /etc/apache2/sites-enabled/000-default.conf`.
+
+1. And finally, in the Terminal, enter `apache2ctl start`.
 
 1. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, telling you that your application is available on a forwarded port. To view the running application, click **Open in Browser**.
-
-   <!-- ![Screenshot of the port forwarding message, reading "Your application running on port 3000 is available." The "Open in Browser" button is also shown.](/assets/images/help/codespaces/codespaces-port3000-toast.png) -->
 
 ## Step 5: Commit your changes
 
