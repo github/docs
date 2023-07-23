@@ -1,4 +1,4 @@
----
+##git push --force-with-lease origin-push---
 title: Creating a pre-receive hook script
 intro: Use pre-receive hook scripts to create requirements for accepting or rejecting a push based on the contents.
 redirect_from:
