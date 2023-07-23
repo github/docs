@@ -63,6 +63,12 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
 
+  {% tip %}
+
+     **Note:** {% data reusables.desktop.note-start-ssh-agent %}
+
+  {% endtip %}
+
 1. Find and take a note of your public key fingerprint.
 
    ```shell
