@@ -1,6 +1,6 @@
 ---
 title: Hello World
-intro: 'Follow this Hello World exercise to get started with {% data variables.product.product_name %}.'
+intro: 'Follow this Hello World exercise to get started with GitHub.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,22 +14,22 @@ topics:
 
 ## Introduction
 
-{% data variables.product.product_name %} is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
-This tutorial teaches you {% data variables.product.product_name %} essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn {% data variables.product.product_name %}'s pull request workflow, a popular way to create and review code.
+This tutorial teaches you GitHub essentials like repositories, branches, commits, and pull requests. You'll create your own Hello World repository and learn GitHub's pull request workflow, a popular way to create and review code.
 
 In this quickstart guide, you will:
 
 - Create and use a repository
 - Start and manage a new branch
-- Make changes to a file and push them to {% data variables.product.product_name %} as commits
+- Make changes to a file and push them to GitHub as commits
 - Open and merge a pull request
 
-To complete this tutorial, you need a [{% data variables.product.product_name %} account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that {% data variables.product.product_name %} is built on). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
+To complete this tutorial, you need a [GitHub account](http://github.com) and Internet access. You don't need to know how to code, use the command line, or install Git (the version control software that GitHub is built on). If you have a question about any of the expressions used in this guide, head on over to the [glossary](/get-started/quickstart/github-glossary) to find out more about our terminology.
 
 ## Creating a repository
 
-A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a README file, a file with information about your project. README files are written in the plain text Markdown language. You can use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. {% data variables.product.product_name %} lets you add a README file at the same time you create your new repository. {% data variables.product.product_name %} also offers other common options such as a license file, but you do not have to select any of them now.
+A repository is usually used to organize a single project. Repositories can contain folders and files, images, videos, spreadsheets, and data sets -- anything your project needs. Often, repositories include a README file, a file with information about your project. README files are written in the plain text Markdown language. You can use this [cheat sheet](https://www.markdownguide.org/cheat-sheet/) to get started with Markdown syntax. GitHub lets you add a README file at the same time you create your new repository. GitHub also offers other common options such as a license file, but you do not have to select any of them now.
 
 Your `hello-world` repository can be a place where you store ideas, resources, or even share and discuss things with others.
 
@@ -62,9 +62,9 @@ Have you ever saved different versions of a file? Something like:
 - `story-edit.txt`
 - `story-edit-reviewed.txt`
 
-Branches accomplish similar goals in {% data variables.product.product_name %} repositories.
+Branches accomplish similar goals in GitHub repositories.
 
-Here at {% data variables.product.product_name %}, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `main` (production) branch. When a change is ready, they merge their branch into `main`.
+Here at GitHub, our developers, writers, and designers use branches for keeping bug fixes and feature work separate from our `main` (production) branch. When a change is ready, they merge their branch into `main`.
 
 ### Create a branch
 
@@ -80,9 +80,9 @@ Now you have two branches, `main` and `readme-edits`. Right now, they look exact
 
 ## Making and committing changes
 
-When you created a new branch in the previous step, {% data variables.product.product_name %} brought you to the code page for your new `readme-edits` branch, which is a copy of `main`.
+When you created a new branch in the previous step, GitHub brought you to the code page for your new `readme-edits` branch, which is a copy of `main`.
 
-You can make and save changes to the files in your repository. On {% data variables.product.product_name %}, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
+You can make and save changes to the files in your repository. On GitHub, saved changes are called commits. Each commit has an associated commit message, which is a description explaining why a particular change was made. Commit messages capture the history of your changes so that other contributors can understand what you’ve done and why.
 
 1. Under the `readme-edits` branch you created, click the _README.md_ file.
 1. To edit the file, click {% octicon "pencil" aria-label="Edit file" %}.
@@ -102,13 +102,13 @@ These changes will be made only to the README file on your `readme-edits` branch
 
 Now that you have changes in a branch off of `main`, you can open a pull request.
 
-Pull requests are the heart of collaboration on {% data variables.product.product_name %}. When you open a pull request, you're proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in different colors.
+Pull requests are the heart of collaboration on GitHub. When you open a pull request, you're proposing your changes and requesting that someone review and pull in your contribution and merge them into their branch. Pull requests show diffs, or differences, of the content from both branches. The changes, additions, and subtractions are shown in different colors.
 
 As soon as you make a commit, you can open a pull request and start a discussion, even before the code is finished.
 
-By using {% data variables.product.product_name %}'s `@mention` feature in your pull request message, you can ask for feedback from specific people or teams, whether they're down the hall or 10 time zones away.
+By using GitHub's `@mention` feature in your pull request message, you can ask for feedback from specific people or teams, whether they're down the hall or 10 time zones away.
 
-You can even open pull requests in your own repository and merge them yourself. It's a great way to learn the {% data variables.product.product_name %} flow before working on larger projects.
+You can even open pull requests in your own repository and merge them yourself. It's a great way to learn the GitHub flow before working on larger projects.
 
 1. Click the **Pull requests** tab of your `hello-world` repository.
 1. Click **New pull request**
@@ -128,7 +128,7 @@ Your collaborators can now review your edits and make suggestions.
 
 In this final step, you will merge your `readme-edits` branch into the `main` branch.  After you merge your pull request, the changes on your `readme-edits` branch will be incorporated into `main`.
 
-Sometimes, a pull request may introduce changes to code that conflict with the existing code on `main`. If there are any conflicts, {% data variables.product.product_name %} will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments in the pull request to discuss the conflicts with your team members.
+Sometimes, a pull request may introduce changes to code that conflict with the existing code on `main`. If there are any conflicts, GitHub will alert you about the conflicting code and prevent merging until the conflicts are resolved. You can make a commit that resolves the conflicts or use comments in the pull request to discuss the conflicts with your team members.
 
 In this walk-through, you should not have any conflicts, so you are ready to merge your branch into the main branch.
 
@@ -138,15 +138,15 @@ In this walk-through, you should not have any conflicts, so you are ready to mer
 
 ## Next steps
 
-By completing this tutorial, you've learned to create a project and make a pull request on {% data variables.product.product_name %}.
+By completing this tutorial, you've learned to create a project and make a pull request on GitHub.
 
 Here's what you accomplished in this tutorial:
 
 - Created an open source repository
 - Started and managed a new branch
-- Changed a file and committed those changes to {% data variables.product.product_name %}
+- Changed a file and committed those changes to GitHub
 - Opened and merged a pull request
 
-Take a look at your {% data variables.product.product_name %} profile and you'll see your work reflected on your contribution graph.
+Take a look at your GitHub profile and you'll see your work reflected on your contribution graph.
 
-For more information about the power of branches and pull requests, see "[AUTOTITLE](/get-started/quickstart/github-flow)." For more information about getting started with {% data variables.product.product_name %}, see the other guides in the [getting started quickstart](/get-started/quickstart).
+For more information about the power of branches and pull requests, see "[AUTOTITLE](/get-started/quickstart/github-flow)." For more information about getting started with GitHub, see the other guides in the [getting started quickstart](/get-started/quickstart).
