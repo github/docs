@@ -1177,7 +1177,7 @@ The `schedule` event allows you to trigger a workflow at a scheduled time.
 
 Cron syntax has five fields separated by a space, and each field represents a unit of time.
 
-```
+```text
 ┌───────────── minute (0 - 59)
 │ ┌───────────── hour (0 - 23)
 │ │ ┌───────────── day of the month (1 - 31)
@@ -1345,7 +1345,7 @@ If you run this workflow from a browser you must enter values for the required i
 
 You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. For example:
 
-```
+```shell
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 

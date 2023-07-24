@@ -55,7 +55,7 @@ You can programmatically assign labels to a self-hosted runner after the runner 
 
   For example, this command assigns a label named `gpu` when configuring a new self-hosted runner:
 
-  ```
+  ```shell
   ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu
   ```
 
@@ -63,7 +63,7 @@ You can programmatically assign labels to a self-hosted runner after the runner 
 
   You can use comma separation to assign multiple labels. For example:
 
-  ```
+  ```shell
   ./config.sh --url <REPOSITORY_URL> --token <REGISTRATION_TOKEN> --labels gpu,x64,linux
   ```
 
