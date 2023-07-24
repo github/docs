@@ -168,11 +168,23 @@ With your dev container configuration added and a basic understanding of what ev
 
 In the previous section, you used the `postCreateCommand` to install a set of packages via the `composer install` command. With the dependencies now installed, you can run the application. However, in this scenario we first need to change the ports that Apache will listen on. We're forwarding port 8080, so we'll instruct Apache to use this port rather than the default port 80.
 
-1. In the Terminal of your codespace, enter `sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf`.
+1. In the Terminal of your codespace, enter:
 
-1. Still in the Terminal, enter `sudo sed -i 's/80/8080/' /etc/apache2/sites-enabled/000-default.conf`.
+```shell
+sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf
+```
 
-1. And finally, in the Terminal, enter `apache2ctl start`.
+1. Then, enter:
+
+```shell
+sudo sed -i 's/80/8080/' /etc/apache2/sites-enabled/000-default.conf
+```
+
+1. Then start the Apache control interface:
+
+```shell
+apache2ctl start
+```
 
 1. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, telling you that your application is available on a forwarded port. To view the running application, click **Open in Browser**.
 
