@@ -8,4 +8,5 @@ versions:
 children:
   - /changing-an-articles-title
   - /creating-tool-switchers-in-articles
+  - /annotating-code-examples
 ---
