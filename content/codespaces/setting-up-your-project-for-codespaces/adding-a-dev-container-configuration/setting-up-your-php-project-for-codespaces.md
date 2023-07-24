@@ -88,14 +88,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. In the `devcontainer.json` file, delete the two commented-out lines about features:
 
-   ```json{:copy}
+   ```json
    // Features to add to the dev container. More info: https://containers.dev/features.
    // "features": {},
    ```
 
 1. Edit the `customizations` property as follows to install the "Composer" extension.
 
-   ```json{:copy}
+   ```json copy
    // Configure tool-specific properties.
    "customizations": {
      // Configure properties specific to VS Code.
@@ -109,7 +109,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Add a comma after the `features` property.
 
-   ```json{:copy}
+   ```json
    "features": {
      "ghcr.io/devcontainers/features/github-cli:1": {}
    },
@@ -117,7 +117,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `postCreateCommand` property and change its value to run the command `composer install` if the `composer.json` file exists.
 
-   ```json{:copy}
+   ```json copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "if [ -f composer.json ];then composer install;fi"
    ```
