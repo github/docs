@@ -27,11 +27,11 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
       {variant === 'full' && currentProduct && (
         <nav
           className={cx('d-none px-4 pb-3 border-bottom d-xl-block')}
-          aria-labelledby={currentProduct.name}
+          aria-labelledby="sidebar-header"
         >
           <AllProductsLink />
           {currentProduct && (
-            <div className="mt-3">
+            <div className="mt-3" aria-label="sidebar-header">
               <Link
                 data-testid="sidebar-product-xl"
                 href={currentProduct.href}
