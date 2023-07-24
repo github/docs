@@ -58,10 +58,10 @@ The `configure` CLI command is used to set required credentials and options for 
    Your token must have the `workflow` scope.
 
    After creating the token, copy it and save it in a safe location for later use.
-2. Create a Travis CI API access token. For more information, see [Get your Travis CI API token](https://docs.travis-ci.com/user/migrate/travis-migrate-to-apps-gem-guide/#4-get-your-travis-ci-api-token) in the Travis CI documentation.
+1. Create a Travis CI API access token. For more information, see [Get your Travis CI API token](https://docs.travis-ci.com/user/migrate/travis-migrate-to-apps-gem-guide/#4-get-your-travis-ci-api-token) in the Travis CI documentation.
 
    After creating the token, copy it and save it in a safe location for later use.
-3. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
+1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `configure` CLI command:
 
    ```shell
    gh actions-importer configure
@@ -88,6 +88,7 @@ The `configure` CLI command is used to set required credentials and options for 
   ✔ Base url of the Travis CI instance: https://travis-ci.com
   ✔ Travis CI organization name: actions-importer-labs
   Environment variables successfully updated.
+
    ```
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 

@@ -3,8 +3,13 @@ title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/hello-world
+    - /rest
   popular:
-    - get-started
+    - /get-started
+    - /get-started/foo/bar
+    - /pages
+    - '{% ifversion ghec %}/get-started/versioning/only-ghec{% endif %}'
+    - /actions/category/map-topic
 redirect_from:
   - /olden-days
 versions: '*'

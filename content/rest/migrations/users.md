@@ -5,7 +5,7 @@ shortTitle: Users
 intro: >-
   Use the REST API to review, backup, or migrate your user data stored on {%
   data variables.product.product_name %}.com.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,6 +24,5 @@ These endpoints are only available to authenticated account owners. For more inf
 To download an archive, you'll need to start a user migration first. Once the status of the migration is `exported`, you can download the migration.
 
 Once you've created a migration archive, it will be available to download for seven days. But, you can delete the user migration archive sooner if you'd like. You can unlock your repository when the migration is `exported` to begin using your repository again or delete the repository if you no longer need the source data.
-
 
 <!-- Content after this section is automatically generated -->

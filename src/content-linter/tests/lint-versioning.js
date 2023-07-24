@@ -7,7 +7,7 @@ import semver from 'semver'
 import { allVersions, allVersionShortnames } from '../../../lib/all-versions.js'
 import { supported, next, nextNext, deprecated } from '../../../lib/enterprise-server-releases.js'
 import { getLiquidConditionals } from '../../../script/helpers/get-liquid-conditionals.js'
-import allowedVersionOperators from '../../../lib/liquid-tags/ifversion-supported-operators.js'
+import allowedVersionOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
 import featureVersionsSchema from '../lib/feature-versions-schema.js'
 import walkFiles from '../../../script/helpers/walk-files.js'
 import { getDeepDataByLanguage } from '../../../lib/get-data.js'
@@ -76,7 +76,7 @@ describe('lint Liquid versioning', () => {
     // Now that `ifversion` supports feature-based versioning, we should have few other `if` tags.
     test('ifversion, not if, is used for versioning', async () => {
       const ifsForVersioning = ifConditionals.filter((cond) =>
-        allowedVersionNames.some((keyword) => cond.includes(keyword))
+        allowedVersionNames.some((keyword) => cond.includes(keyword)),
       )
       const errorMessage = `Found ${
         ifsForVersioning.length
@@ -139,16 +139,16 @@ function validateIfversionConditionals(conds) {
       if (strParts.length === 3) {
         const [version, operator, release] = strParts
         const hasSemanticVersioning = Object.values(allVersions).some(
-          (v) => (v.hasNumberedReleases || v.internalLatestRelease) && v.shortName === version
+          (v) => (v.hasNumberedReleases || v.internalLatestRelease) && v.shortName === version,
         )
         if (!hasSemanticVersioning) {
           errors.push(
-            `Found "${version}" inside "${cond}" with a "${operator}" operator, but "${version}" does not support semantic comparisons"`
+            `Found "${version}" inside "${cond}" with a "${operator}" operator, but "${version}" does not support semantic comparisons"`,
           )
         }
         if (!allowedVersionOperators.includes(operator)) {
           errors.push(
-            `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`
+            `Found a "${operator}" operator inside "${cond}", but "${operator}" is not supported`,
           )
         }
         // Check that the versions in conditionals are supported
@@ -157,6 +157,7 @@ function validateIfversionConditionals(conds) {
         // allows us to deprecate the version before removing
         // the old liquid content.
         if (
+          version !== 'ghae' &&
           !(
             supported.includes(release) ||
             release === next ||
@@ -165,7 +166,7 @@ function validateIfversionConditionals(conds) {
           )
         ) {
           errors.push(
-            `Found ${release} inside "${cond}", but ${release} is not a supported GHES release`
+            `Found ${release} inside "${cond}", but ${release} is not a supported GHES release`,
           )
         }
       }

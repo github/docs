@@ -50,11 +50,14 @@ Many files can be [renamed directly on {% data variables.product.product_name %}
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
-3. Rename the file, specifying the old file name and the new name you'd like to give the file. This will stage your change for commit.
+1. Rename the file, specifying the old file name and the new name you'd like to give the file. This will stage your change for commit.
+
    ```shell
-   $ git mv OLD-FILENAME NEW-FILENAME
+   git mv OLD-FILENAME NEW-FILENAME
    ```
-4. Use `git status` to check the old and new file names.
+
+1. Use `git status` to check the old and new file names.
+
    ```shell
    $ git status
    > # On branch YOUR-BRANCH
@@ -64,10 +67,13 @@ Many files can be [renamed directly on {% data variables.product.product_name %}
    > #     renamed: OLD-FILENAME -> NEW-FILENAME
    > #
    ```
+
 {% data reusables.git.commit-file %}
+
    ```shell
    $ git commit -m "Rename file"
    # Commits the tracked changes and prepares them to be pushed to a remote repository.
    # {% data reusables.git.reset-head-to-previous-commit-codeblock %}
    ```
+
 {% data reusables.git.git-push %}

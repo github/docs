@@ -28,7 +28,7 @@ topics:
 ---
 ## About branch protection rules
 
-You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule.
+You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule. Actors may only be added to bypass lists when the repository belongs to an organization.
 
 By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
 
@@ -57,7 +57,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 - [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 - [Require signed commits](#require-signed-commits)
 - [Require linear history](#require-linear-history)
-{% ifversion fpt or ghec %}
+{% ifversion merge-queue %}
 - [Require merge queue](#require-merge-queue)
 {% endif %}
 {%- ifversion required-deployments %}
@@ -139,8 +139,8 @@ When you enable required commit signing on a branch, contributors {% ifversion f
 {% ifversion fpt or ghec %}
 **Notes:**
 
-* If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
-* If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
+- If you have enabled vigilant mode, which indicates that your commits will always be signed, any commits that {% data variables.product.prodname_dotcom %} identifies as "Partially verified" are permitted on branches that require signed commits. For more information about vigilant mode, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/displaying-verification-statuses-for-all-of-your-commits)."
+- If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
 
 {% else %}
 **Note:** If a collaborator pushes an unsigned commit to a branch that requires commit signatures, the collaborator will need to rebase the commit to include a verified signature, then force push the rewritten commit to the branch.
@@ -158,10 +158,10 @@ Enforcing a linear commit history prevents collaborators from pushing merge comm
 
 Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges)."
 
-{% ifversion fpt or ghec %}
+{% ifversion merge-queue %}
+
 ### Require merge queue
 
-{% data reusables.pull_requests.merge-queue-beta %}
 {% data reusables.pull_requests.merge-queue-overview %}
 
 {% data reusables.pull_requests.merge-queue-merging-method %}
@@ -169,11 +169,14 @@ Before you can require a linear commit history, your repository must allow squas
 
 {% endif %}
 
+{% ifversion fpt or ghec or ghes > 3.6 %}
 ### Require deployments to succeed before merging
 
 You can require that changes are successfully deployed to specific environments before a branch can be merged. For example, you can use this rule to ensure that changes are successfully deployed to a staging environment before the changes merge to your default branch.
+{% endif %}
 
 {% ifversion lock-branch %}
+
 ### Lock branch
 
 Locking a branch ensures that no commits can be made to the branch.
@@ -181,6 +184,7 @@ By default, a forked repository does not support syncing from its upstream repos
 {%  endif %}
 
 {% ifversion bypass-branch-protections %}### Do not allow bypassing the above settings{% else %}
+
 ### Include administrators{% endif %}
 
 {% ifversion bypass-branch-protections %}

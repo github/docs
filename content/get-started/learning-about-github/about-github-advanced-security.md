@@ -20,6 +20,8 @@ shortTitle: GitHub Advanced Security
 
 {% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security)."{% elsif ghae %}There is no charge for {% data variables.product.prodname_GH_advanced_security %} on {% data variables.product.prodname_ghe_managed %} during the beta release.{% elsif fpt %}To purchase a {% data variables.product.prodname_GH_advanced_security %} license, you must be using {% data variables.product.prodname_enterprise %}. For information about upgrading to {% data variables.product.prodname_enterprise %} with {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)" and "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)."{% endif %}
 
+{% ifversion ghec %}{% data reusables.advanced-security.ghas-trial %}{% endif %}
+
 {% ifversion ghas-for-azure-devops %}
 {% note %}
 
@@ -65,6 +67,7 @@ For information about {% data variables.product.prodname_advanced_security %} fe
 {% endif %}
 
 {% ifversion ghes or ghec or ghae %}
+
 ## Deploying GitHub Advanced Security in your enterprise
 
 To learn about what you need to know to plan your {% data variables.product.prodname_GH_advanced_security %} deployment at a high level and to review the rollout phases we recommended, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale)."
@@ -72,6 +75,7 @@ To learn about what you need to know to plan your {% data variables.product.prod
 {% endif %}
 
 {% ifversion not fpt %}
+
 ## Enabling {% data variables.product.prodname_advanced_security %} features
 
 {%- ifversion ghes %}
@@ -96,16 +100,18 @@ If you have an enterprise account, license use for the entire enterprise is show
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## About starter workflows for {% data variables.product.prodname_advanced_security %}
 
 {% data reusables.advanced-security.starter-workflows-beta %}
 {% data reusables.advanced-security.starter-workflow-overview %}
 
-For more information on starter workflows, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-using-starter-workflows)" and "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)."
+For more information on starter workflows, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)" and "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)."
 
 {% endif %}
 
 {% ifversion ghec or ghes or ghae %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise)"

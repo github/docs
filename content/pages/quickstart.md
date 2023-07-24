@@ -31,7 +31,7 @@ This guide will lead you through creating a user site at `username.github.io`.
 1. Under "Build and deployment", under "Branch", use the branch dropdown menu and select a publishing source.
    ![Screenshot of Pages settings in a {% data variables.product.prodname_dotcom %} repository. A menu to select a branch for a publishing source, labeled "None," is outlined in dark orange.](/assets/images/help/pages/publishing-source-drop-down.png)
 1. Optionally, open the `README.md` file of your repository. The `README.md` file is where you will write the content for your site. You can edit the file or keep the default content for now.
-2. Visit `username.github.io` to view your new website. Note that it can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
+1. Visit `username.github.io` to view your new website. Note that it can take up to 10 minutes for changes to your site to publish after you push the changes to {% data variables.product.product_name %}.
 
 ## Changing the title and description
 

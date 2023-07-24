@@ -5,7 +5,7 @@ shortTitle: Manage GHES
 intro: >-
   Use the REST API to manage your {% data variables.product.product_name %}
   instance.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '>=3.9'
 topics:
   - API
@@ -24,6 +24,35 @@ To authenticate requests to endpoints for the Manage {% data variables.product.p
 
 ```shell
 curl -L -u "api_key:ROOT-SITE-ADMINISTRATOR-PASSWORD" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage'
+```
+
+{% ifversion enterprise-management-console-multi-user-auth %}
+
+### Authentication as a {% data variables.enterprise.management_console %} user
+
+{% data variables.enterprise.management_console %} user accounts can also authenticate to access these endpoints. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#management-console-user)."
+
+To authenticate with the password for a {% data variables.enterprise.management_console %} user account, use standard HTTP authentication. In the following example, replace YOUR_USER_NAME and YOUR_PASSWORD with the account's user name and password.
+
+```shell
+curl -L -u "YOUR_USER_NAME:YOUR_PASSWORD" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage'
+```
+
+{% endif %}
+
+### Query parameters
+
+By default, the response includes information from about all configured nodes for the instance. On an instance with multiple nodes, the details originate from `/data/user/common/cluster.conf`. You can use the following query parameters to filter the response for information about specific nodes.
+
+| Query parameter | Description |
+| :- | :- |
+| `uuid` | Unique identifier for the node. |
+| `cluster_role` | For nodes in a cluster, the roles that apply to the node. For more information, see "[AUTOTITLE)(/admin/enterprise-management/configuring-clustering/about-cluster-nodes)." |
+
+You can specify multiple values for the query parameter by delimiting the values with a comma. For example, the following request uses curl to return any nodes with the `web-server` or `storage-server` role.
+
+```shell
+curl -L -u "api_key:ROOT-SITE-ADMINISTRATOR-PASSWORD" 'http(s)://HOSTNAME:ADMINISTRATION-PORT/manage/v1/config/nodes?cluster_role=WebServer,StorageServer'
 ```
 
 <!-- Content after this section is automatically generated -->

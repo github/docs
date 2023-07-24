@@ -32,11 +32,11 @@ test('view the for-playwright article', async ({ page }) => {
 test('use sidebar to go to Hello World page', async ({ page }) => {
   await page.goto('/')
 
-  await page.getByTestId('sidebar').getByRole('link', { name: 'Get started' }).click()
+  await page.getByTestId('sidebar').getByText('Get started').click()
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
   await page.getByTestId('product-sidebar').getByText('Quickstart').click()
-  await page.getByTestId('product-sidebar').getByRole('link', { name: 'Hello World' }).click()
+  await page.getByTestId('product-sidebar').getByRole('group', { name: 'Hello World' }).click()
   await expect(page).toHaveURL(/\/en\/get-started\/quickstart\/hello-world/)
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
@@ -70,6 +70,24 @@ test.describe('platform picker', () => {
     await expect(page).toHaveURL(/\?platform=windows/)
     await expect(page.getByRole('heading', { name: /Windows 95/ })).toBeVisible()
     await expect(page.getByRole('heading', { name: /Macintosh/ })).not.toBeVisible()
+  })
+
+  test('minitoc matches picker', async ({ page }) => {
+    // default platform set to windows in fixture fronmatter
+    await page.goto('/get-started/liquid/platform-specific')
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Windows 95 was awesome' }),
+    ).toBeVisible()
+    await page.getByTestId('platform-picker').getByRole('link', { name: 'Linux' }).click()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'The year of Linux on the desktop' }),
+    ).toBeVisible()
   })
 
   test('remember last clicked OS', async ({ page }) => {
@@ -118,6 +136,24 @@ test.describe('tool picker', () => {
     await expect(page.getByText('this is desktop content')).not.toBeVisible()
     await expect(page.getByText('this is webui content')).toBeVisible()
   })
+
+  test('minitoc matches picker', async ({ page }) => {
+    // default tool set to desktop in fixture fronmatter
+    await page.goto('/get-started/liquid/tool-specific')
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+    ).toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).not.toBeVisible()
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).toBeVisible()
+  })
 })
 
 test('filter article cards', async ({ page }) => {
@@ -155,10 +191,10 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // the category, you'll be able to see the map-topic and the article
   // within.
   await page.goto('/')
-  await page.getByTestId('sidebar').getByRole('link', { name: 'GitHub Actions' }).click()
+  await page.getByTestId('sidebar').getByText('GitHub Actions').click()
   await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
   await page.getByText('Map & Topic').click()
-  await page.getByRole('link', { name: '<article>' }).click()
+  await page.getByLabel('<article> link').click()
   await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
   await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
 })
@@ -170,8 +206,8 @@ test('hovercards', async ({ page }) => {
   await page.locator('#article-contents').getByRole('link', { name: 'Quickstart' }).hover()
   await expect(
     page.getByText(
-      'Get started using GitHub to manage Git repositories and collaborate with others.'
-    )
+      'Get started using GitHub to manage Git repositories and collaborate with others.',
+    ),
   ).toBeVisible()
 
   // now move the mouse away from hovering over the link, the hovercard should
@@ -179,8 +215,8 @@ test('hovercards', async ({ page }) => {
   await page.mouse.move(0, 0)
   await expect(
     page.getByText(
-      'Get started using GitHub to manage Git repositories and collaborate with others.'
-    )
+      'Get started using GitHub to manage Git repositories and collaborate with others.',
+    ),
   ).not.toBeVisible()
 
   // external links don't have a hovercard
@@ -204,7 +240,7 @@ test('hovercards', async ({ page }) => {
   // this page's intro has two links; one in-page and one internal
   await page.locator('#article-intro').getByRole('link', { name: 'another link' }).hover()
   await expect(
-    page.getByText('Follow this Hello World exercise to get started with GitHub.')
+    page.getByText('Follow this Hello World exercise to get started with GitHub.'),
   ).toBeVisible()
 
   // same page anchor links have a hovercard
@@ -327,7 +363,7 @@ test.describe('test nav at different viewports', () => {
     await expect(
       page.getByRole('button', {
         name: 'Select GitHub product version: current version is free-pro-team@latest',
-      })
+      }),
     ).not.toBeVisible()
 
     // version picker is in mobile menu
@@ -429,14 +465,6 @@ test.describe('survey', () => {
 })
 
 test.describe('rest API reference pages', () => {
-  test('REST code-scanning', async ({ page }) => {
-    await page.goto('/rest')
-    await page.getByRole('treeitem', { name: 'Code Scanning' }).locator('svg').click()
-    await page.getByText('Code Scanning').click()
-    await page.getByTestId('sidebar').getByRole('link', { name: 'About code scanning' }).click()
-    await expect(page).toHaveURL(/\/en\/rest\/code-scanning\?apiVersion=/)
-    await expect(page).toHaveTitle(/Code Scanning - GitHub Docs/)
-  })
   test('REST actions', async ({ page }) => {
     await page.goto('/rest')
     await page.getByTestId('sidebar').getByText('Actions').click()
@@ -456,13 +484,6 @@ test.describe('translations', () => {
     await expect(page.getByRole('heading', { name: '日本 GitHub Docs' })).toBeVisible()
   })
 
-  test('switch to English from Japanese using banner on home page', async ({ page }) => {
-    await page.goto('/ja')
-    await page.getByRole('link', { name: 'English documentation' }).click()
-    await expect(page).toHaveURL('/en')
-    await expect(page.getByRole('heading', { name: 'GitHub Docs' })).toBeVisible()
-  })
-
   test('switch to Japanese from English using widget on home page', async ({ page }) => {
     await page.goto('/en')
     await page.getByRole('button', { name: 'Select language: current language is English' }).click()
@@ -473,14 +494,6 @@ test.describe('translations', () => {
     // Having done this once, should now use a cookie to redirect back to Japanese
     await page.goto('/')
     await expect(page).toHaveURL('/ja')
-  })
-
-  test('switch to English from Japanese using banner on article', async ({ page }) => {
-    await page.goto('/ja/get-started/quickstart/hello-world')
-    await expect(page.getByRole('heading', { name: 'こんにちは World' })).toBeVisible()
-    await page.getByRole('link', { name: 'English documentation' }).click()
-    await expect(page).toHaveURL('/en/get-started/quickstart/hello-world')
-    await expect(page.getByRole('heading', { name: 'Hello World' })).toBeVisible()
   })
 
   test('switch to Japanese from English using widget on article', async ({ page }) => {

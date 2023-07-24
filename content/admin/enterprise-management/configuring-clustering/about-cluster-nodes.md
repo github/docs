@@ -15,11 +15,12 @@ topics:
 ---
 ## About {% data variables.product.product_name %} cluster nodes
 
-Each node in a {% data variables.product.product_name %} cluster is a virtual machine (VM) that runs the {% data variables.product.product_name %} software. Before you deploy a cluster, you can review hardware requirements, required services, and design recommendations. 
+Each node in a {% data variables.product.product_name %} cluster is a virtual machine (VM) that runs the {% data variables.product.product_name %} software. Before you deploy a cluster, you can review hardware requirements, required services, and design recommendations.
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
 ## Hardware requirements
+
 Each node must have a root volume, as well as a separate data volume. These are minimum recommendations. More resources may be required depending on your usage, such as user activity and selected integrations.
 
 | Services | Minimum memory required    | Minimum data volume free space Required |
@@ -31,7 +32,7 @@ Each node must have a root volume, as well as a separate data volume. These are 
 
 ## Services required for clustering
 
-{% data variables.product.prodname_ghe_server %} comprises a set of services. In a cluster, these services run across multiple nodes, and the instance balances requests between the nodes. The instance automatically stores redundant copies of data on separate nodes. Most services are equal peers with other instances of the same service. The exceptions to this distribution are the `mysql-server` and `redis-server` services, which operate with a single primary node with one or more replica nodes. 
+{% data variables.product.prodname_ghe_server %} comprises a set of services. In a cluster, these services run across multiple nodes, and the instance balances requests between the nodes. The instance automatically stores redundant copies of data on separate nodes. Most services are equal peers with other instances of the same service. The exceptions to this distribution are the `mysql-server` and `redis-server` services, which operate with a single primary node with one or more replica nodes.
 
 For adequate redundancy, use these minimum nodes operating each service.
 

@@ -66,10 +66,10 @@ You can bookmark the address of this page if you want to get back to it quickly 
    ![Screenshot of the "Open in" dialog, with "Open in Visual Studio Code" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
 
    You can open the codespace in:
-   * Your browser
-   * {% data variables.product.prodname_vscode %}
-   * JetBrains Gateway
-   * JupyterLab
+   - Your browser
+   - {% data variables.product.prodname_vscode %}
+   - JetBrains Gateway
+   - JupyterLab
 
    {% data reusables.codespaces.application-installed-locally %}
 
@@ -105,6 +105,8 @@ You can also access the commands listed above by navigating to the Remote Explor
 {% cli %}
 
 ## Reopening an existing codespace
+
+{% data reusables.codespaces.using-github-cli %}
 
 1. In a terminal, enter one of the following {% data variables.product.prodname_cli %} commands.
    - To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:

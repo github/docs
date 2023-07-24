@@ -37,13 +37,15 @@ For information on the secrets and service providers supported for push protecti
 
 For you to use {% data variables.product.prodname_secret_scanning %} as a push protection in public repositories, the {% ifversion secret-scanning-enterprise-level %}enterprise,{% endif %} organization{% ifversion secret-scanning-enterprise-level %},{% endif %} or repository needs to have {% data variables.product.prodname_secret_scanning %} enabled.{% ifversion secret-scanning-push-protection-private-internal %} To use {% data variables.product.prodname_secret_scanning %} as a push protection in private or internal repositories, the enterprise or organization also needs to have {% data variables.product.prodname_GH_advanced_security %} enabled.{% endif %} For more information, see {% ifversion secret-scanning-enterprise-level %}"[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise),"{% endif %} "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)," "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)," and "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
-Organization owners, security managers, and repository administrators can enable push protection for {% data variables.product.prodname_secret_scanning %} via the UI and API. For more information, see "[AUTOTITLE](/rest/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
+Organization owners, security managers, and repository administrators can also enable push protection for {% data variables.product.prodname_secret_scanning %} via the API. For more information, see "[AUTOTITLE](/rest/repos#update-a-repository)" and expand the "Properties of the `security_and_analysis` object" section in the REST API documentation.
 
 {% ifversion secret-scanning-enterprise-level-api %}
 Enterprise administrators can also enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for the enterprise via the API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis)" in the REST API documentation.{% endif %}
 
 {% ifversion secret-scanning-enterprise-level %}
+
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for your enterprise
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. In the left sidebar, click **Code security and analysis**.
@@ -55,9 +57,9 @@ Enterprise administrators can also enable or disable {% data variables.product.p
 {% ifversion code-security-multi-repo-enablement %}
 You can use security overview to find a set of repositories and enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
 
-You can also use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for all existing repositories in an organization:
+You can also use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for all existing repositories in an organization.
 {% else %}
-You can use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for all existing repositories in an organization:
+You can use the organization settings page for "Code security and analysis" to enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for all existing repositories in an organization.
 {% endif %}
 
 {% data reusables.organizations.navigate-to-org %}
@@ -65,6 +67,8 @@ You can use the organization settings page for "Code security and analysis" to e
 {% data reusables.organizations.security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-push-protection-org %}
+
+{% data reusables.security.note-securing-your-org %}
 
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection for a repository
 
@@ -81,6 +85,7 @@ You can use the organization settings page for "Code security and analysis" to e
 You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at {% ifversion ghec or ghes or ghae %}the enterprise, organization, or repository level{% else%} the organization or repository level{% endif %}.
 
 {% ifversion ghec or ghes or ghae %}
+
 ### Enabling push protection for a custom pattern stored in an enterprise
 
 {% data reusables.secret-scanning.push-protection-enterprise-note %}
@@ -106,7 +111,8 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
    ![Screenshot of the custom pattern page with the button to enable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
 {% endif %}
-### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in an organization for a custom pattern 
+
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in an organization for a custom pattern
 
 Before enabling push protection for a custom pattern at organization level, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
 
@@ -120,7 +126,7 @@ Before enabling push protection for a custom pattern at organization level, you 
 
    ![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
-### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in a repository for a custom pattern 
+### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in a repository for a custom pattern
 
 Before enabling push protection for a custom pattern at repository level, you must define the custom pattern for the repository, and test it in the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
 
@@ -129,7 +135,7 @@ Before enabling push protection for a custom pattern at repository level, you mu
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
 {% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
-1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**. 
+1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
 
    ![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
@@ -153,7 +159,7 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-{% ifversion ghes < 3.6 or ghae < 3.6 %}
+{% ifversion ghae < 3.6 %}
 
 {% tip %}
 
@@ -177,6 +183,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 1. Reattempt the push on the command line within three hours. If you have not pushed within three hours, you will need to repeat this process.
 
 {% ifversion secret-scanning-push-protection-web-ui %}
+
 ## Using secret scanning as a push protection from the web UI
 
 {% data reusables.secret-scanning.push-protection-web-ui-choice %}
@@ -205,6 +212,5 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 1. In dialog box that appeared when {% data variables.product.prodname_dotcom %} blocked your commit, review the name and location of the secret.
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}
 1. Click **Allow secret**.
-
 
 {% endif %}

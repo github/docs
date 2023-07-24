@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
 import { FormControl, Select, Tooltip, UnderlineNav } from '@primer/react'
 import { CheckIcon, CopyIcon } from '@primer/octicons-react'
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import cx from 'classnames'
 
 import hljs from 'highlight.js/lib/core'
@@ -83,7 +83,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const showExampleOptionMediaType =
     languageExamples.length > 1 &&
     !languageExamples.every(
-      (example) => example.response.contentType === languageExamples[0].response.contentType
+      (example) => example.response.contentType === languageExamples[0].response.contentType,
     )
   const exampleSelectOptions = languageExamples.map((example, index) => ({
     text: showExampleOptionMediaType
@@ -111,10 +111,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
 
   const handleLanguageSelection = (languageKey: CodeSampleKeys) => {
     setSelectedLanguage(languageKey)
-    Cookies.set('codeSampleLanguagePreferred', languageKey, {
-      sameSite: 'strict',
-      secure: document.location.protocol !== 'http:',
-    })
+    Cookies.set('codeSampleLanguagePreferred', languageKey)
   }
 
   const handleResponseResize = () => {
@@ -293,7 +290,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           className={cx(
             styles.codeBlock,
             styles.requestCodeBlock,
-            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`
+            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
         >
@@ -353,7 +350,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               className={cx(
                 styles.codeBlock,
                 styles.responseCodeBlock,
-                'border-top rounded-1 my-0'
+                'border-top rounded-1 my-0',
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}

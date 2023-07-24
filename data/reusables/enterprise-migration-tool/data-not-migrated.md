@@ -1,7 +1,7 @@
 Currently, the following data is **not** migrated.
 
 - {% data variables.large_files.product_name_short %} objects and large binaries (repositories using {% data variables.large_files.product_name_short %} are still supported, see "[Limitations of {% data variables.product.prodname_importer_proper_name %}](#limitations-of-github-enterprise-importer)")
-- {% data variables.product.prodname_actions %} secrets, environments, or workflow run history
+- {% data variables.product.prodname_actions %} secrets, variables, environments, or workflow run history
 - Webhook secrets
 - {% data variables.product.prodname_github_codespaces %} secrets
 - {% data variables.product.prodname_code_scanning_caps %} results
@@ -14,3 +14,4 @@ Currently, the following data is **not** migrated.
 - Packages in {% data variables.product.prodname_registry %}
 - GitHub Apps
 - Fork relationships between repositories (see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)")
+- References between pull requests and issues in different repositories (see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)")

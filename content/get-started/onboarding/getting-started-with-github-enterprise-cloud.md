@@ -63,8 +63,8 @@ To audit access to enterprise-owned resources or user license usage, you can vie
 
 ## Part 3: Managing security with {% data variables.product.prodname_ghe_cloud %}
 
-* [Managing security with {% data variables.product.prodname_emus  %}](#managing-security-with-enterprise-managed-users)
-* [Managing security without {% data variables.product.prodname_emus  %}](#managing-security-without-enterprise-managed-users)
+- [Managing security with {% data variables.product.prodname_emus  %}](#managing-security-with-enterprise-managed-users)
+- [Managing security without {% data variables.product.prodname_emus  %}](#managing-security-without-enterprise-managed-users)
 
 ### Managing security with {% data variables.product.prodname_emus  %}
 

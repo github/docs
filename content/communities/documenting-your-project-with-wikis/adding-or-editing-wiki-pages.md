@@ -61,6 +61,6 @@ Once you have cloned the wiki, you can add new files, edit existing ones, and co
 
 The filename determines the title of your wiki page, and the file extension determines how your wiki content is rendered.
 
-Wikis use [our open-source Markup library](https://github.com/github/markup) to convert the markup, and it determines which converter to use by a file's extension. For example, if you name a file *foo.md* or *foo.markdown*, wiki will use the Markdown converter, while a file named *foo.textile* will use the Textile converter.
+Wikis use [our open-source Markup library](https://github.com/github/markup) to convert the markup, and it determines which converter to use by a file's extension. For example, if you name a file _foo.md_ or _foo.markdown_, wiki will use the Markdown converter, while a file named _foo.textile_ will use the Textile converter.
 
 Don't use the following characters in your wiki page's titles: `\ / : * ? " < > |`. Users on certain operating systems won't be able to work with filenames containing these characters. Be sure to write your content using a markup language that matches the extension, or your content won't render properly.

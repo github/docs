@@ -31,7 +31,7 @@ You can use the {% data variables.product.prodname_codeql_cli %} to run {% data 
 
 {% data reusables.code-scanning.what-is-codeql-cli %}
 
-Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} within {% data variables.product.product_name %}. For information about {% data variables.product.prodname_code_scanning %} using actions, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)." For an overview of the options for CI systems, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)".
+Alternatively, you can use {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_code_scanning %} within {% data variables.product.product_name %}. For information about {% data variables.product.prodname_code_scanning %} using actions, see {% ifversion code-scanning-without-workflow %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning)" and {% endif %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning)." For an overview of the options for CI systems, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)".
 
 {% data reusables.code-scanning.licensing-note %}
 
@@ -60,8 +60,8 @@ You should always use the {% data variables.product.prodname_codeql %} bundle as
 You need to make the full contents of the {% data variables.product.prodname_codeql_cli %} bundle available to every CI server that you want to run CodeQL {% data variables.product.prodname_code_scanning %} analysis on. For example, you might configure each server to copy the bundle from a central, internal location and extract it. Alternatively, you could use the REST API to get the bundle directly from {% data variables.product.prodname_dotcom %}, ensuring that you benefit from the latest improvements to queries. Updates to the {% data variables.product.prodname_codeql_cli %} are released every 2-3 weeks. For example:
 
 ```shell
-$ wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
-$ tar -xvzf ./codeql-bundle-linux64.tar.gz
+wget https://{% ifversion fpt or ghec %}github.com{% else %}<em>HOSTNAME</em>{% endif %}/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
+tar -xvzf ./codeql-bundle-linux64.tar.gz
 ```
 
 After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the `codeql` executable on the server:
@@ -85,7 +85,8 @@ After you extract the {% data variables.product.prodname_codeql_cli %} bundle, y
 - `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
 
 **Extract from successful output:**
-```
+
+```shell
 codeql/cpp-all (/<extraction-root>/qlpacks/codeql/cpp-all/<version>)
 codeql/cpp-examples (/<extraction-root>/qlpacks/codeql/cpp-examples/<version>)
 codeql/cpp-queries (/<extraction-root>/qlpacks/codeql/cpp-queries/<version>)

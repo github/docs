@@ -104,6 +104,7 @@ Billing for {% data variables.product.prodname_github_codespaces %} shares your 
 If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription)."
 
 ## About billing for compute usage
+
 The compute usage of a codespace is the length of time for which that codespace is active multiplied by the multiplier in the pricing table for the machine type of the codespace. Total compute usage is calculated by summing the time used by all codespaces billable to a particular account. These totals are reported to the billing service every hour, and are billed monthly.
 
 As an example, if a codespace is active for 1 hour and 15 minutes, then the compute cost will be the hourly cost of the codespace, as determined by its machine type, multiplied by 1.25.
@@ -111,6 +112,7 @@ As an example, if a codespace is active for 1 hour and 15 minutes, then the comp
 You can control compute usage by stopping your codespaces. For information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace)." Codespaces are stopped automatically after a configurable period of inactivity. The timeout period can be configured by the user, or at the organization level. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)" and "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)."
 
 ## About billing for storage usage
+
 For {% data variables.product.prodname_github_codespaces %} billing purposes, storage comprises the disk space used by all of the codespaces and prebuilds in your account. This includes any files you use in a codespace, such as cloned repositories, configuration files, data loaded to the codespace (for example as input or output of the software running in the repository), and extensions, among others. Storage is billed for all of your existing codespaces, regardless of whether they are active or inactive with the exception of blocked usage due to exhausted included usage quota or reaching your spending limit. The storage billing for a codespace ends when it is deleted. However, deleting a codespace does not reduce your used storage amount for the current billing month as this is a cumulative figure.
 
 {% note %}
@@ -177,7 +179,7 @@ If you delete a prebuild configuration, all the associated prebuilds are deleted
 
 {% note %}
 
-**Notes**: 
+**Notes**:
 - Prebuilds may be updated several times during a billing month. Newer versions of a prebuild may be larger or smaller than the previous versions. This will affect the storage charges. For details of how storage is calculated during a billing month, see "[About billing for storage usage](#about-billing-for-storage-usage)" earlier in this article.
 - As with deleting codespaces, deleting prebuilds does not reduce your used storage amount for the current billing month as this is a cumulative figure.
 
@@ -203,6 +205,10 @@ If a machine type that has more resources is chosen, this will affect the per-ho
 
 Organization owners can create a policy to limit the choice of machine types available to users for codespaces that are billed to an organization or enterprise account. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)."
 
+## Limiting the number of organization-owned codespaces
+
+Organization owners can limit the number of codespaces that people can create, where the organization will be billed for the codespace. This can help to reduce storage charges for the organization. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)."
+
 ## How billing is handled for forked repositories
 
 Usage of codespaces created from a forked repository will be billed to your personal account unless the upstream (or parent) repository is in an organization that has allowed you - as a member, or outside collaborator, of the organization - to use codespaces at the organization's expense.
@@ -214,6 +220,28 @@ For example, consider a member, or outside collaborator, of an organization that
 ## How billing is handled when a repository is transferred to another organization
 
 Usage is calculated every hour. An organization pays for usage of codespaces created from any repository owned by the organization, where the organization settings permit the organization to be billed. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)." When a repository is transferred out of your organization, ownership and billing responsibility for any codespaces associated with that repository will change accordingly.
+
+## How billing is handled for {% data variables.product.prodname_github_codespaces %} templates
+
+You can get started on a new project by creating a codespace from a template. Codespaces created from templates aren't initially associated with a repository, but you can publish the codespace to a repository owned by your personal account. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+
+Any organization can maintain a template repository for use with {% data variables.product.prodname_github_codespaces %}. As with any other repository in an organization, a codespace created from a template repository is billed to the organization if the organization has set a spending limit for {% data variables.product.prodname_github_codespaces %} and allowed the user creating the codespace to do so at the organization's expense. Otherwise, the codespace is billed to the user who creates the codespace.
+
+If a user publishes a codespace created from a template, the codespace is published to a new repository owned by the user's personal account. If the codespace is currently billed to an organization, ownership and billing of the codespace transfer to the user who created the codespace.
+
+{% ifversion ghec %}
+
+{% note %}
+
+**Note:** A {% data variables.enterprise.prodname_managed_user %} cannot be the billable owner of a codespace. Therefore:
+- A {% data variables.enterprise.prodname_managed_user %} can only create a codespace from a template if the codespace is billed to an organization.
+- A {% data variables.enterprise.prodname_managed_user %} cannot publish a codespace created from a template to a new repository.
+
+For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+
+{% endnote %}
+
+{% endif %}
 
 ## What happens when users are removed
 

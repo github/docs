@@ -48,13 +48,13 @@ If you do not authorize your {% data variables.product.pat_v1 %} for SAML SSO be
 
 If you want to use the API for an organization or on behalf of another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-You can also create an OAuth token with an {% data variables.product.prodname_oauth_app %} to access the REST API. However, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %} instead. {% data variables.product.prodname_github_app %}s allow more control over the access and permission that the app has.
+You can also create an OAuth token with an {% data variables.product.prodname_oauth_app %} to access the REST API. However, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %} instead. {% data variables.product.prodname_github_apps %} allow more control over the access and permission that the app has.
 
 {% ifversion fpt or ghec %}Access tokens created by apps are automatically authorized for SAML SSO.{% endif %}
 
 ### Using basic authentication
 
-Some REST API endpoints for {% data variables.product.prodname_github_app %}s and {% data variables.product.prodname_oauth_app %}s require you to use basic authentication to access the endpoint. You will use the app's client ID as the username and the app's client secret as the password.
+Some REST API endpoints for {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} require you to use basic authentication to access the endpoint. You will use the app's client ID as the username and the app's client secret as the password.
 
 For example:
 
@@ -65,7 +65,7 @@ curl --request POST \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
-You can find the client ID and generate a client secret on the settings page for your app. For user-owned {% data variables.product.prodname_github_app %}s, the settings page is `https://github.com/settings/apps/APP-SLUG`. For organization-owned {% data variables.product.prodname_github_app %}s, the settings page is `https://github.com/organizations/ORGANIZATION/settings/apps/APP-SLUG`. Replace `APP-SLUG` with the sluggified name of your app and `ORGANIZATION` with the sluggified name of your organization. For example, `https://github.com/organizations/octo-org/settings/apps/octo-app`.
+You can find the client ID and generate a client secret on the settings page for your app. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
 
 ## Authenticating in a {% data variables.product.prodname_actions %} workflow
 

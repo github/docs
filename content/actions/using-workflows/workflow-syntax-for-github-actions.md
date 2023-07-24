@@ -14,7 +14,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About YAML syntax for workflows
@@ -28,6 +28,7 @@ You must store workflow files in the `.github/workflows` directory of your repos
 The name of your workflow. {% data variables.product.prodname_dotcom %} displays the names of your workflows on your repository's "Actions" tab. If you omit `name`, {% data variables.product.prodname_dotcom %} sets it to the workflow file path relative to the root of the repository.
 
 {% ifversion actions-run-name %}
+
 ## `run-name`
 
 The name for workflow runs generated from the workflow. {% data variables.product.prodname_dotcom %} displays the workflow run name in the list of workflow runs on your repository's "Actions" tab. If `run-name` is omitted or is only whitespace, then the run name is set to event-specific information for the workflow run. For example, for a workflow triggered by a `push` or `pull_request` event, it is set as the commit message.
@@ -37,9 +38,11 @@ This value can include expressions and can reference the [`github`](/actions/lea
 ### Example of `run-name`
 
 {% raw %}
+
 ```yaml
 run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 ```
+
 {% endraw %}
 {% endif %}
 
@@ -69,8 +72,6 @@ run-name: Deploy to ${{ inputs.deploy_target }} by @${{ github.actor }}
 
 ## `on.workflow_call`
 
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
-
 Use `on.workflow_call` to define the inputs and outputs for a reusable workflow. You can also map the secrets that are available to the called workflow. For more information on reusable workflows, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
 ## `on.workflow_call.inputs`
@@ -88,6 +89,7 @@ If a caller workflow passes an input that is not specified in the called workflo
 ### Example of `on.workflow_call.inputs`
 
 {% raw %}
+
 ```yaml
 on:
   workflow_call:
@@ -106,6 +108,7 @@ jobs:
       - name: Print the input name to STDOUT
         run: echo The username is ${{ inputs.username }}
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
@@ -123,6 +126,7 @@ In the example below, two outputs are defined for this reusable workflow: `workf
 ### Example of `on.workflow_call.outputs`
 
 {% raw %}
+
 ```yaml
 on:
   workflow_call:
@@ -135,6 +139,7 @@ on:
         description: "The second job output"
         value: ${{ jobs.my_job.outputs.job_output2 }}
 ```
+
 {% endraw %}
 
 For information on how to reference a job output, see [`jobs.<job_id>.outputs`](#jobsjob_idoutputs). For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
@@ -156,6 +161,7 @@ If a caller workflow passes a secret that is not specified in the called workflo
 ### Example of `on.workflow_call.secrets`
 
 {% raw %}
+
 ```yaml
 on:
   workflow_call:
@@ -181,6 +187,7 @@ jobs:
     secrets:
        token: ${{ secrets.access-token }}
 ```
+
 {% endraw %}
 
 ## `on.workflow_call.secrets.<secret_id>`
@@ -218,6 +225,22 @@ The value of this parameter is a string specifying the data type of the input. T
 ## `permissions`
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
+
+### Defining access for the `GITHUB_TOKEN` scopes
+
+{% data reusables.actions.github-token-available-permissions %}
+
+#### Changing the permissions in a forked repository
+
+{% data reusables.actions.forked-write-permission %}
+
+### Setting the `GITHUB_TOKEN` permissions for all jobs in a workflow
+
+You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow. 
+
+#### Example: Setting the `GITHUB_TOKEN` permissions for an entire workflow
+
+{% data reusables.actions.jobs.setting-permissions-all-jobs-example %}
 
 ## `env`
 
@@ -262,7 +285,17 @@ env:
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
 
-### Example: Setting permissions for a specific job
+{% data reusables.actions.github-token-scope-descriptions %}
+
+### Defining access for the `GITHUB_TOKEN` scopes
+
+{% data reusables.actions.github-token-available-permissions %}
+
+#### Changing the permissions in a forked repository
+
+{% data reusables.actions.forked-write-permission %}
+
+#### Example: Setting the `GITHUB_TOKEN` permissions for one job in a workflow
 
 {% data reusables.actions.jobs.setting-permissions-specific-jobs-example %}
 
@@ -326,6 +359,7 @@ You can run an unlimited number of steps as long as you are within the workflow 
 ### Example of `jobs.<job_id>.steps`
 
 {% raw %}
+
 ```yaml
 name: Greeting from Mona
 
@@ -345,6 +379,7 @@ jobs:
         run: |
           echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
 ```
+
 {% endraw %}
 
 ## `jobs.<job_id>.steps[*].id`
@@ -388,6 +423,7 @@ Secrets cannot be directly referenced in `if:` conditionals. Instead, consider s
 If a secret has not been set, the return value of an expression referencing the secret (such as {% raw %}`${{ secrets.SuperSecret }}`{% endraw %} in the example) will be an empty string.
 
 {% raw %}
+
 ```yaml
 name: Run a step if a secret has been set
 on: push
@@ -402,6 +438,7 @@ jobs:
       - if: ${{ env.super_secret == '' }}
         run: echo 'This step will only run if the secret does not have a value set.'
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
@@ -500,6 +537,7 @@ jobs:
 ```
 
 {% ifversion fpt or ghec %}
+
 ### Example: Using the {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %}
 
 `docker://{host}/{image}:{tag}`
@@ -513,7 +551,9 @@ jobs:
       - name: My first step
         uses: docker://ghcr.io/OWNER/IMAGE_NAME
 ```
+
 {% endif %}
+
 ### Example: Using a Docker public registry action
 
 `docker://{host}/{image}:{tag}`
@@ -553,21 +593,20 @@ Alternatively, use a {% data variables.product.prodname_github_app %} instead of
 
 ## `jobs.<job_id>.steps[*].run`
 
-
 Runs command-line programs using the operating system's shell. If you do not provide a `name`, the step name will default to the text specified in the `run` command.
 
 Commands run using non-login shells by default. You can choose a different shell and customize the shell used to run commands. For more information, see [`jobs.<job_id>.steps[*].shell`](#jobsjob_idstepsshell).
 
 Each `run` keyword represents a new process and shell in the runner environment. When you provide multi-line commands, each line runs in the same shell. For example:
 
-* A single-line command:
+- A single-line command:
 
   ```yaml
   - name: Install Dependencies
     run: npm install
   ```
 
-* A multi-line command:
+- A multi-line command:
 
   ```yaml
   - name: Clean install dependencies and build
@@ -715,6 +754,7 @@ A `string` that defines the inputs for a Docker container. {% data variables.pro
 ### Example of `jobs.<job_id>.steps[*].with.args`
 
 {% raw %}
+
 ```yaml
 steps:
   - name: Explain why this job ran
@@ -723,6 +763,7 @@ steps:
       entrypoint: /bin/echo
       args: The ${{ github.event_name }} event triggered this step.
 ```
+
 {% endraw %}
 
 The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you use `CMD` in your `Dockerfile`, use the guidelines ordered by preference:
@@ -758,6 +799,7 @@ Public actions may specify expected variables in the README file. If you are set
 ### Example of `jobs.<job_id>.steps[*].env`
 
 {% raw %}
+
 ```yaml
 steps:
   - name: My first action
@@ -766,6 +808,7 @@ steps:
       FIRST_NAME: Mona
       LAST_NAME: Octocat
 ```
+
 {% endraw %}
 
 ## `jobs.<job_id>.steps[*].continue-on-error`
@@ -841,6 +884,7 @@ Prevents a workflow run from failing when a job fails. Set to `true` to allow a 
 You can allow specific jobs in a job matrix to fail without failing the workflow run. For example, if you wanted to only allow an experimental job with `node` set to `15` to fail without failing the workflow run.
 
 {% raw %}
+
 ```yaml
 runs-on: ${{ matrix.os }}
 continue-on-error: ${{ matrix.experimental }}
@@ -855,6 +899,7 @@ strategy:
         os: ubuntu-latest
         experimental: true
 ```
+
 {% endraw %}
 
 ## `jobs.<job_id>.container`
@@ -928,6 +973,7 @@ The Docker image to use as the service container to run the action. The value ca
 ### Example of `jobs.<job_id>.services.<service_id>.credentials`
 
 {% raw %}
+
 ```yaml
 services:
   myservice1:
@@ -941,6 +987,7 @@ services:
       username: ${{ secrets.DOCKER_USER }}
       password: ${{ secrets.DOCKER_PASSWORD }}
 ```
+
 {% endraw %}
 
 ## `jobs.<job_id>.services.<service_id>.env`
@@ -982,9 +1029,7 @@ Additional Docker container resource options. For a list of options, see "[`dock
 
 ## `jobs.<job_id>.uses`
 
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
-
-The location and version of a reusable workflow file to run as a job. {% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}Use one of the following syntaxes:{% endif %}
+The location and version of a reusable workflow file to run as a job. Use one of the following syntaxes:
 
 {% data reusables.actions.reusable-workflow-calling-syntax %}
 
@@ -1027,6 +1072,7 @@ Any secrets that you pass must match the names defined in the called workflow.
 ### Example of `jobs.<job_id>.secrets`
 
 {% raw %}
+
 ```yaml
 jobs:
   call-workflow:
@@ -1034,6 +1080,7 @@ jobs:
     secrets:
       access-token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 ```
+
 {% endraw %}
 
 {% ifversion actions-inherit-secrets-reusable-workflows %}

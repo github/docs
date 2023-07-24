@@ -3,7 +3,6 @@ security_advisories:
   description: >-
     Using repository security advisories to privately fix a reported
     vulnerability and get a CVE.
-  featured_track: '{% ifversion fpt or ghec %}true{% else %}false{% endif %}'
   guides:
     - >-
       /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
@@ -174,7 +173,6 @@ code_security_actions:
   description: >-
     Check your default branch and every pull request to keep vulnerabilities and
     errors out of your repository.
-  featured_track: '{% ifversion ghae or ghes %}true{% else %}false{% endif %}'
   guides:
     - >-
       /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning

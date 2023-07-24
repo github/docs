@@ -1,10 +1,10 @@
 import { jest, test } from '@jest/globals'
 import { slug } from 'github-slugger'
 
-import { getDOM } from '../../../tests/helpers/e2etest.js'
-import getRest from '../lib/index.js'
+import { get, getDOM } from '../../../tests/helpers/e2etest.js'
 import { isApiVersioned, allVersions } from '../../../lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
+import getRest from '#src/rest/lib/index.js'
 
 describe('REST references docs', () => {
   jest.setTimeout(3 * 60 * 1000)
@@ -22,6 +22,59 @@ describe('REST references docs', () => {
         .get()
       const schemaSlugs = checksRestOperations.map((operation) => slug(operation.title))
       expect(schemaSlugs.every((slug) => domH2Ids.includes(slug))).toBe(true)
+    }
+  })
+
+  // These tests exists because of issue #1960
+  test('rest subcategory with fpt in URL', async () => {
+    for (const category of [
+      'migrations',
+      'actions',
+      'activity',
+      'apps',
+      'billing',
+      'checks',
+      'codes-of-conduct',
+      'code-scanning',
+      'codespaces',
+      'emojis',
+      'gists',
+      'git',
+      'gitignore',
+      'interactions',
+      'issues',
+      'licenses',
+      'markdown',
+      'meta',
+      'orgs',
+      'projects',
+      'pulls',
+      'rate-limit',
+      'reactions',
+      'repos',
+      'scim',
+      'search',
+      'teams',
+      'users',
+    ]) {
+      // Without language prefix
+      {
+        const res = await get(`/free-pro-team@latest/rest/reference/${category}`)
+        expect(res.statusCode).toBe(302)
+        expect(
+          res.headers.location === `/en/rest/${category}` ||
+            res.headers.location === `/en/rest/${category}/${category}`,
+        )
+      }
+      // With language prefix
+      {
+        const res = await get(`/en/free-pro-team@latest/rest/reference/${category}`)
+        expect(res.statusCode).toBe(301)
+        expect(
+          res.headers.location === `/en/rest/${category}` ||
+            res.headers.location === `/en/rest/${category}/${category}`,
+        )
+      }
     }
   })
 
@@ -64,6 +117,36 @@ describe('REST references docs', () => {
         expect($('[data-testid=api-version-picker] button span').text()).toBe('')
       }
     }
+  })
+
+  describe('headings', () => {
+    test('rest pages do not render any headings with duplicate text', async () => {
+      const $ = await getDOM('/en/rest/actions/artifacts')
+      const headingText = $('body')
+        .find('h2, h3, h4, h5, h6')
+        .map((i, el) => $(el).text())
+        .get()
+        .sort()
+
+      const dupes = headingText.filter((item, index) => headingText.indexOf(item) !== index)
+
+      const message = `The following duplicate heading texts were found: ${dupes.join(', ')}`
+      expect(dupes.length, message).toBe(0)
+    })
+
+    test('rest pages do not render any headings with duplicate ids', async () => {
+      const $ = await getDOM('/en/rest/actions/artifacts')
+      const headingIDs = $('body')
+        .find('h2, h3, h4, h5, h6')
+        .map((i, el) => $(el).attr('id'))
+        .get()
+        .sort()
+
+      const dupes = headingIDs.filter((item, index) => headingIDs.indexOf(item) !== index)
+
+      const message = `The following duplicate heading IDs were found: ${dupes.join(', ')}`
+      expect(dupes.length, message).toBe(0)
+    })
   })
 })
 

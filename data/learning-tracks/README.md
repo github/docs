@@ -23,10 +23,6 @@ Learning track data for a product is defined in two places:
 
     For example, in `data/learning-tracks/actions.yml`, each of the items from the content file's `learningTracks` array is represented with additional data such as `title`, `description`, and an array of `guides` links.
 
-    One learning track in this YAML **per version** must be designated as a "featured" learning track via `featured_track: true`, which will set it to appear at the top of the product guides page. A test will fail if this property is missing.
-
-    The `featured_track` property can be a simple boolean (i.e., `featured_track: true`) or it can be a string that includes versioning statements (e.g., `featured_track: '{% ifversion fpt %}true{% else %}false{% endif %}'`). If you use versioning, you'll have multiple `featured_track`s per YML file, but make sure that only one will render in each currently supported version. A test will fail if there are more or less than one featured link for each version.
-
 ## Versioning
 
 Versioning for learning tracks is processed at page render time. The code lives in [`lib/learning-tracks.js`](lib/learning-tracks.js), which is called by `page.render()`. The processed learning tracks are then rendered by `components/guides`.
@@ -41,7 +37,6 @@ For example:
 learning_track_name:
   title: 'Learning track title'
   description: 'Learning track description'
-  featured_track: true
   versions:
     ghes: '>=3.0'
   guides:

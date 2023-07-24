@@ -19,6 +19,8 @@ Rather than binary pass/fail build statuses, {% data variables.product.prodname_
 
 For an example of how to use the REST API with a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/creating-ci-tests-with-the-checks-api)."
 
+You can use statuses with [protected branches](/rest/repos#branches) to prevent people from merging pull requests prematurely. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)."
+
 ## About check suites
 
 When someone pushes code to a repository, GitHub creates a check suite for the last commit. A check suite is a collection of the [check runs](/rest/checks#check-runs) created by a single GitHub App for a specific commit. Check suites summarize the status and conclusion of the check runs that a suite includes.
@@ -96,6 +98,7 @@ When a user clicks the button, {% data variables.product.prodname_dotcom %} send
 For a detailed example of how to set up requested actions with the REST API, see "[AUTOTITLE](/apps/creating-github-apps/guides/creating-ci-tests-with-the-checks-api#part-2-creating-the-octo-rubocop-ci-test)."
 
 {% ifversion status-check-retention %}
+
 ## Retention of checks data
 
 {% data reusables.pull_requests.retention-checks-data %}

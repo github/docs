@@ -53,7 +53,7 @@ For more information about installing and using self-hosted runners, see "[AUTOT
 - Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
 **Self-hosted runners:**{% endif %}
-- Receive automatic updates for the self-hosted runner application only{% ifversion fpt or ghec or ghes > 3.4 or ghae %}, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)."{% else %}.{% endif %} You are responsible for updating the operating system and all other software.
+- Receive automatic updates for the self-hosted runner application only, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)." You are responsible for updating the operating system and all other software.
 - Can use cloud services or local machines that you already pay for.
 - Are customizable to your hardware, operating system, software, and security requirements.
 - Don't need to have a clean instance for every job execution.
@@ -64,10 +64,10 @@ For more information about installing and using self-hosted runners, see "[AUTOT
 
 You can use any machine as a self-hosted runner as long at it meets these requirements:
 
-* You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
-* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
-* The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
-* If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
+- You can install and run the self-hosted runner application on the machine. For more information, see "[Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners)."
+- The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see "[Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements)."
+- The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
+- If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
 ## Autoscaling your self-hosted runners
 
@@ -82,6 +82,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% data reusables.actions.usage-api-requests %}
 - **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
+- **Registering self-hosted runners** - You can have a maximum of 10,000 self-hosted runners in one runner group. If this limit is reached, adding a new runner will not be possible.
 
 ## Workflow continuity for self-hosted runners
 
@@ -145,9 +146,7 @@ The self-hosted runner connects to {% data variables.product.product_name %} to 
 Since the self-hosted runner opens a connection to {% data variables.location.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
 {% elsif ghes or ghae %}
 Only an outbound connection from the runner to {% data variables.location.product_location %} is required. There is no need for an inbound connection from {% data variables.location.product_location %} to the runner.
-{% ifversion ghes > 3.4%}
 For caching to work, the runner must be able to communicate with the blob storage and directly download content from it.
-{%- endif %}
 {%- endif %}
 
 {% ifversion ghes %}
@@ -277,10 +276,10 @@ This is not an issue with {% data variables.product.prodname_dotcom %}-hosted ru
 
 Untrusted workflows running on your self-hosted runner pose significant security risks for your machine and network environment, especially if your machine persists its environment between jobs. Some of the risks include:
 
-* Malicious programs running on the machine.
-* Escaping the machine's runner sandbox.
-* Exposing access to the machine's network environment.
-* Persisting unwanted or dangerous data on the machine.
+- Malicious programs running on the machine.
+- Escaping the machine's runner sandbox.
+- Exposing access to the machine's network environment.
+- Persisting unwanted or dangerous data on the machine.
 
 For more information about security hardening for self-hosted runners, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners)."
 
@@ -288,7 +287,7 @@ For more information about security hardening for self-hosted runners, see "[AUT
 
 ### Restricting the use of self-hosted runners
 
-{% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% endif %}
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import { UnderlineNav } from '@primer/react'
 import { sendEvent, EventType } from 'src/events/components/events'
 import { useRouter } from 'next/router'
@@ -83,7 +83,7 @@ export const InArticlePicker = ({
   // If you're in local development, you have the <ClientSideRefresh>
   // causing a XHR refresh of the content triggered by the Page Visibility
   // API (implemented in the uswSWR hook). That means that on the pages that
-  // contain these `.extended-markdown` classes, any DOM changes we might
+  // contain these `.ghd-tool` classes, any DOM changes we might
   // have previously made are lost and started over.
   useEffect(() => {
     let mounted = true
@@ -130,11 +130,7 @@ export const InArticlePicker = ({
       preference_value: value,
     })
 
-    Cookies.set(cookieKey, value, {
-      sameSite: 'strict',
-      secure: document.location.protocol !== 'http:',
-      expires: 365,
-    })
+    Cookies.set(cookieKey, value)
   }
 
   const sharedContainerProps = {
