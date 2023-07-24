@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Cookies from 'components/lib/cookies'
-import { UnderlineNav } from '@primer/react'
+import { UnderlineNav } from '@primer/react/drafts'
 import { sendEvent, EventType } from 'src/events/components/events'
 import { useRouter } from 'next/router'
 
@@ -134,36 +134,35 @@ export const InArticlePicker = ({
   }
 
   const sharedContainerProps = {
-    'data-testid': `${queryStringKey}-picker`,
     'aria-label': ariaLabel,
-    [`data-default-${queryStringKey}`]: defaultValue || '',
-    className: 'mb-4',
   }
 
   const params = new URLSearchParams(asPathQuery)
 
   return (
-    <UnderlineNav {...sharedContainerProps}>
-      {options.map((option) => {
-        params.set(queryStringKey, option.value)
-        const linkProps = {
-          [`data-${queryStringKey}`]: option.value,
-        }
-        return (
-          <UnderlineNav.Link
-            href={`?${params}`}
-            key={option.value}
-            selected={option.value === currentValue}
-            onClick={(event) => {
-              event.preventDefault()
-              onClickChoice(option.value)
-            }}
-            {...linkProps}
-          >
-            {option.label}
-          </UnderlineNav.Link>
-        )
-      })}
-    </UnderlineNav>
+    <div data-testid={`${queryStringKey}-picker`}>
+      <UnderlineNav {...sharedContainerProps}>
+        {options.map((option) => {
+          params.set(queryStringKey, option.value)
+          const linkProps = {
+            [`data-${queryStringKey}`]: option.value,
+          }
+          return (
+            <UnderlineNav.Item
+              href={`?${params}`}
+              key={option.value}
+              aria-current={option.value === currentValue ? 'page' : undefined}
+              onSelect={(event) => {
+                event.preventDefault()
+                onClickChoice(option.value)
+              }}
+              {...linkProps}
+            >
+              {option.label}
+            </UnderlineNav.Item>
+          )
+        })}
+      </UnderlineNav>
+    </div>
   )
 }
