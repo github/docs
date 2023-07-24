@@ -74,7 +74,7 @@ jobs:
 
 - `Invoke-Pester Unit.Tests.ps1 -Passthru` - Uses Pester to execute tests defined in a file called `Unit.Tests.ps1`. For example, to perform the same test described above, the `Unit.Tests.ps1` will contain the following:
 
-  ```
+  ```powershell
   Describe "Check results file is present" {
       It "Check results file is present" {
           Test-Path resultsfile.log | Should -Be $true
