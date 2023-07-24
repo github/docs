@@ -97,6 +97,9 @@ parameter_table:
   type: Type
   single_enum_description: Value
 products:
+  button_text:
+    copy_to_clipboard: Copy to clipboard
+    copied: Copied!
   graphql:
     reference:
       implements: <code>{{ GraphQLItemTitle }}</code> Implements
