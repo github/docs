@@ -36,17 +36,17 @@ When you have decided on the most secure and reliable method for your configurat
 
 ```shell
 # {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available from a secret store
-&lt;call-to-retrieve-secret&gt; | codeql github upload-results \
-    --repository=&lt;repository-name&gt; \
-    --ref=&lt;ref&gt; --commit=&lt;commit&gt; \
-    --sarif=&lt;file&gt; {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; \
+<call-to-retrieve-secret> | codeql github upload-results \
+    --repository=<repository-name> \
+    --ref=<ref> --commit=<commit> \
+    --sarif=<file> {% ifversion ghes or ghae %}--github-url=<URL> \
     {% endif %}--github-auth-stdin
 
 # {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available in GITHUB_TOKEN
 codeql github upload-results \
-    --repository=&lt;repository-name&gt; \
-    --ref=&lt;ref&gt; --commit=&lt;commit&gt; \
-    --sarif=&lt;file&gt; {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; \
+    --repository=<repository-name> \
+    --ref=<ref> --commit=<commit> \
+    --sarif=<file> {% ifversion ghes or ghae %}--github-url=<URL> \
     {% endif %}
 ```
 
