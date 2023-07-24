@@ -117,4 +117,4 @@ For integrated tools such as {% data variables.product.prodname_codeql %}, you c
 
 {% endnote %}
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning)."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning){% ifversion code-scanning-tool-status-page %}" and "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif){% endif %}."
