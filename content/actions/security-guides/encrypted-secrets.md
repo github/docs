@@ -69,7 +69,7 @@ Instead of using a {% data variables.product.pat_generic %}, consider using a {%
 
 {% note %}
 
-**Note:** You can use the REST API to manage secrets. For more information, see "[AUTOTITLE](/rest/actions#secrets)."
+**Note:** Users with collaborator access to a repository can use the REST API to manage secrets for that repository, and users with admin access to an organization can use the REST API to manage secrets for that organization. For more information, see "[AUTOTITLE](/rest/actions#secrets)."
 
 {% endnote %}
 
