@@ -76,7 +76,7 @@ A script injection attack can occur directly within a workflow's inline script. 
 
 {% raw %}
 
-```
+```yaml
       - name: Check PR title
         run: |
           title="${{ github.event.pull_request.title }}"
@@ -116,7 +116,7 @@ The recommended approach is to create an action that processes the context value
 
 {% raw %}
 
-```
+```yaml
 uses: fakeaction/checktitle@v3
 with:
     title: ${{ github.event.pull_request.title }}
@@ -132,7 +132,7 @@ The following example uses Bash to process the `github.event.pull_request.title`
 
 {% raw %}
 
-```
+```yaml
       - name: Check PR title
         env:
           TITLE: ${{ github.event.pull_request.title }}
@@ -255,7 +255,7 @@ Workflows triggered using the `pull_request` event have read-only permissions an
 
   {% raw %}
 
-  ```
+  ```yaml
   uses: fakeaction/publish@v3
   with:
       key: ${{ secrets.PUBLISH_KEY }}

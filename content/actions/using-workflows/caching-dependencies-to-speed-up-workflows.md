@@ -72,7 +72,7 @@ You cannot change the contents of an existing cache. Instead, you can create a n
 - `path`: **Required** The path(s) on the runner to cache or restore.
   - You can specify a single path, or you can add multiple paths on separate lines. For example:
 
-    ```
+    ```yaml
     - name: Cache Gradle packages
       uses: {% data reusables.actions.action-cache %}
       with:
