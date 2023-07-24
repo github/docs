@@ -768,7 +768,7 @@ The following steps will show you how to test that the code works, and that the 
 
 Now that you've got the interface created to receive API events and create check runs, you can create a check run that implements a CI test.
 
-RuboCop is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the Ruby Style Guide. For more information, see the [RuboCop documentation](https://rubocop.readthedocs.io/en/latest/).
+RuboCop is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the Ruby Style Guide. For more information, see the [RuboCop documentation](https://docs.rubocop.org/rubocop/index.html).
 
 RuboCop has three primary functions:
 

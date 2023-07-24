@@ -2,8 +2,6 @@ date: '2023-06-20'
 sections:
   security_fixes:
     - |
-      **MEDIUM**: Updated Git to include fixes from [2.40.1](https://github.blog/2023-04-25-git-security-vulnerabilities-announced-4/). 
-    - |
       If a user's request to the instance's API included authentication credentials within a URL parameter, administrators could see the credentials in JSON within the instance's audit log. 
     - Packages have been updated to the latest security versions. 
   bugs:
