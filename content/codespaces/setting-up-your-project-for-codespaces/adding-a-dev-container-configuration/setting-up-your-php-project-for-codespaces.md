@@ -166,7 +166,7 @@ With your dev container configuration added and a basic understanding of what ev
 
 ## Step 4: Run your application
 
-In the previous section, you used the `postCreateCommand` to install a set of packages via the `composer install` command. With the dependencies now installed, you can run the application. However, in this scenario we first need to tweak the ports that Apache will listen on. By default, it is configured to use port 80, but in Codespaces, that port is not available -- so we will use port 8080 instead.
+In the previous section, you used the `postCreateCommand` to install a set of packages via the `composer install` command. With the dependencies now installed, you can run the application. However, in this scenario we first need to change the ports that Apache will listen on. We're forwarding port 8080, so we'll instruct Apache to use this port rather than the default port 80.
 
 1. In the Terminal of your codespace, enter `sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf`.
 
