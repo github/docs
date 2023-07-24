@@ -384,7 +384,7 @@ directory. For more information, see "[Specifying well-known query suites](#spec
 
 ## Saving a query suite
 
-Save your query suite in a file with a `.qls` extension and add it to a CodeQL
+Save your query suite in a file with a `.qls` extension and add it to a {% data variables.product.prodname_codeql %}
 pack. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#custom-codeql-packs)."
 
 ## Specifying well-known query suites
@@ -399,7 +399,7 @@ to the `suites` property in the `qlpack.yml` file at the root of your {% data va
 For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#codeqlpack-yml-properties)."
 {% endif %}
 
-## Using query suites with CodeQL
+## Using query suites with {% data variables.product.prodname_codeql %}
 
 You can specify query suites on the command line for any command that accepts
 `.qls` files. For example, you can compile the queries selected by a suite
