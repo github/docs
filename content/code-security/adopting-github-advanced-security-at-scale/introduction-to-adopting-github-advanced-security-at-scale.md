@@ -17,7 +17,7 @@ redirect_from:
 
 ## About these articles
 
-{% data variables.product.prodname_GH_advanced_security %} (GHAS) helps teams build more secure code faster using integrated tooling such as secret scanning and code scanning using CodeQL. To understand the security features available through {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+{% data variables.product.prodname_GH_advanced_security %} (GHAS) helps teams build more secure code faster using integrated tooling such as secret scanning and code scanning using {% data variables.product.prodname_codeql %}. To understand the security features available through {% data variables.product.prodname_GH_advanced_security %}, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
 
 GHAS is a suite of tools that requires active participation from developers across your enterprise. To realize the best return on your investment, you must learn how to use, apply, and maintain GHAS.
 

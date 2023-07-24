@@ -159,14 +159,14 @@ codeql database analyze <database> --format=<format> \
 | <nobr>`--sarif-category`<nobr> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository.<br><br>Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.|{% ifversion code-scanning-tool-status-page %}
 | <nobr>`--sarif-add-baseline-file-info`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to submit file coverage information to the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page#how-codeql-defines-scanned-files)." | {% endif %}
 | <nobr>`--sarif-add-query-help`</nobr> | {% octicon "x" aria-label="Optional" %} | Use if you want to include any available markdown-rendered query help for custom queries used in your analysis. Any query help for custom queries included in the SARIF output will be displayed in the code scanning UI if the relevant query generates an alert. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries#including-query-help-for-custom-codeql-queries-in-sarif-files)."{% ifversion codeql-packs %}
-| `<packs>` | {% octicon "x" aria-label="Optional" %} | Use if you want to include CodeQL query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} packs](#downloading-and-using-codeql-query-packs)."
-| <nobr>`--download`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use if some of your CodeQL query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
+| `<packs>` | {% octicon "x" aria-label="Optional" %} | Use if you want to include {% data variables.product.prodname_codeql %} query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} packs](#downloading-and-using-codeql-query-packs)."
+| <nobr>`--download`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use if some of your {% data variables.product.prodname_codeql %} query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
 | <nobr>`--threads`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use if you want to use more than one thread to run queries. The default value is `1`. You can specify more threads to speed up query execution. To set the number of threads to the number of logical processors, specify `0`.
 | <nobr>`--verbose`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use to get more detailed information about the analysis process and diagnostic data from the database creation process.
 
 For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)."
 
-### Basic example of analyzing a CodeQL database
+### Basic example of analyzing a {% data variables.product.prodname_codeql %} database
 
 This example analyzes a {% data variables.product.prodname_codeql %} database stored at `/codeql-dbs/example-repo` and saves the results as a SARIF file: `/temp/example-repo-js.sarif`. It uses `--sarif-category` to include extra information in the SARIF file that identifies the results as JavaScript. This is essential when you have more than one {% data variables.product.prodname_codeql %} database to analyze for a single commit in a repository.
 
@@ -301,13 +301,13 @@ Before you can use a {% data variables.product.prodname_codeql %} pack to analyz
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
-| <nobr>`<scope/name@version:path>`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the scope and name of one or more CodeQL query packs to download using a comma-separated list. Optionally, include the version to download and unzip. By default the latest version of this pack is downloaded. Optionally, include a path to a query, directory, or query suite to run. If no path is included, then run the default queries of this pack. |
+| <nobr>`<scope/name@version:path>`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the scope and name of one or more {% data variables.product.prodname_codeql %} query packs to download using a comma-separated list. Optionally, include the version to download and unzip. By default the latest version of this pack is downloaded. Optionally, include a path to a query, directory, or query suite to run. If no path is included, then run the default queries of this pack. |
 | <nobr>`--github-auth-stdin`</nobr> | {% octicon "x" aria-label="Optional" %}  | Pass the CLI the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication with {% data variables.product.company_short %}'s REST API from your secret store via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
 
 {% ifversion query-pack-compatibility %}
 {% note %}
 
-**Note:** If you specify a particular version of a query pack to use, be aware that the version you specify may eventually become too old for the latest version of {% data variables.product.prodname_codeql %} to make efficient use of. To ensure optimal performance, if you need to specify exact query pack versions, you should reevaluate which versions you pin to whenever you upgrade the {% data variables.product.prodname_codeql %} CLI you're using.
+**Note:** If you specify a particular version of a query pack to use, be aware that the version you specify may eventually become too old for the latest version of {% data variables.product.prodname_codeql %} to make efficient use of. To ensure optimal performance, if you need to specify exact query pack versions, you should reevaluate which versions you pin to whenever you upgrade the {% data variables.product.prodname_codeql_cli %} you're using.
 
 For more information about pack compatibility, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 
@@ -415,7 +415,7 @@ If you want to upload more than one set of results to the {% data variables.prod
 
 ### Issues with Python extraction
 
-We are deprecating Python 2 support for the {% data variables.product.prodname_codeql_cli %}, more specifically for the CodeQL database generation phase (code extraction).
+We are deprecating Python 2 support for the {% data variables.product.prodname_codeql_cli %}, more specifically for the {% data variables.product.prodname_codeql %} database generation phase (code extraction).
 
 If you use the {% data variables.product.prodname_codeql_cli %} to run {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} on code written in Python, you must make sure that your CI system has Python 3 installed.
 

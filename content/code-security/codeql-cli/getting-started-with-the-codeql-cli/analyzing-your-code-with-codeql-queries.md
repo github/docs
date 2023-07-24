@@ -21,7 +21,7 @@ redirect_from:
 
 {% data reusables.code-scanning.codeql-cli-version-ghes %}
 
-To analyze a codebase, you run queries against a CodeQL database extracted from the code.
+To analyze a codebase, you run queries against a {% data variables.product.prodname_codeql %} database extracted from the code.
 
 {% data variables.product.prodname_codeql %} analyses produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results) that can be displayed as alerts or paths in source code.
 For information about writing queries to run with `database analyze`, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
@@ -95,8 +95,8 @@ You must specify `<database>`, `--format`, and `--output`. You can specify addit
 | <nobr>`--sarif-category`<nobr> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository.<br><br>Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code.|{% ifversion code-scanning-tool-status-page %}
 | <nobr>`--sarif-add-baseline-file-info`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to submit file coverage information to the {% data variables.code-scanning.tool_status_page %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page#how-codeql-defines-scanned-files)." | {% endif %}
 | <nobr>`--sarif-add-query-help`</nobr> | {% octicon "x" aria-label="Optional" %} | Use if you want to include any available markdown-rendered query help for custom queries used in your analysis. Any query help for custom queries included in the SARIF output will be displayed in the code scanning UI if the relevant query generates an alert. For more information, see "[Including query help for custom {% data variables.product.prodname_codeql %} queries in SARIF files](#including-query-help-for-custom-codeql-queries-in-sarif-files)."{% ifversion codeql-packs %}
-| `<packs>` | {% octicon "x" aria-label="Optional" %} | Use if you want to include CodeQL query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} query packs](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#downloading-and-using-codeql-query-packs)."
-| <nobr>`--download`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use if some of your CodeQL query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
+| `<packs>` | {% octicon "x" aria-label="Optional" %} | Use if you want to include {% data variables.product.prodname_codeql %} query packs in your analysis. For more information, see "[Downloading and using {% data variables.product.prodname_codeql %} query packs](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#downloading-and-using-codeql-query-packs)."
+| <nobr>`--download`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use if some of your {% data variables.product.prodname_codeql %} query packs are not yet on disk and need to be downloaded before running queries.{% endif %}
 | <nobr>`--threads`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use if you want to use more than one thread to run queries. The default value is `1`. You can specify more threads to speed up query execution. To set the number of threads to the number of logical processors, specify `0`.
 | <nobr>`--verbose`</nobr> | {% octicon "x" aria-label="Optional" %}  | Use to get more detailed information about the analysis process and diagnostic data from the database creation process.
 
@@ -115,7 +115,7 @@ required upgrades. Explicitly running the upgrade command is not necessary.
 
 For full details of all the options you can use when analyzing databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze)."
 
-### Basic example of analyzing a CodeQL database
+### Basic example of analyzing a {% data variables.product.prodname_codeql %} database
 
 This example analyzes a {% data variables.product.prodname_codeql %} database stored at `/codeql-dbs/example-repo` and saves the results as a SARIF file: `/temp/example-repo-js.sarif`. It uses `--sarif-category` to include extra information in the SARIF file that identifies the results as JavaScript. This is essential when you have more than one {% data variables.product.prodname_codeql %} database to analyze for a single commit in a repository.
 
