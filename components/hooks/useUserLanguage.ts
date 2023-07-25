@@ -7,7 +7,7 @@ import { USER_LANGUAGE_COOKIE_NAME } from '../../lib/constants.js'
 
 export function useUserLanguage() {
   const { locale } = useRouter()
-  const [userLanguage, setUserLanguage] = useState<string>('en')
+  const [userLanguage, setUserLanguage] = useState('en')
   const { languages } = useLanguages()
 
   useEffect(() => {
@@ -28,5 +28,10 @@ export function useUserLanguage() {
     }
   }, [locale])
 
-  return { userLanguage }
+  function setUserLanguageCookie(language: string) {
+    Cookies.set(USER_LANGUAGE_COOKIE_NAME, language)
+    setUserLanguage(language)
+  }
+
+  return { userLanguage, setUserLanguageCookie }
 }

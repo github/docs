@@ -47,7 +47,7 @@ includeGuides:
   - /codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-editor-for-github-codespaces
   - /codespaces/customizing-your-codespace/setting-your-default-region-for-github-codespaces
-  - /codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization
+  - /codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization
   - /codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces
   - /codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types
