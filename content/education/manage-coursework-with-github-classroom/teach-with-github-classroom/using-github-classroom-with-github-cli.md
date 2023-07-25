@@ -72,7 +72,6 @@ gh classroom assignments
 
 Display a list of assignments for a classroom.
 
-
 ### List accepted assignments
 
 ```shell

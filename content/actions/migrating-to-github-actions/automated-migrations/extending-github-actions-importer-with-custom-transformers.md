@@ -26,19 +26,19 @@ shortTitle: 'Extending GitHub Actions Importer'
 
 ## Using custom transformers with {% data variables.product.prodname_actions_importer %}
 
-A custom transformer contains mapping logic that {% data variables.product.prodname_actions_importer %} can use to transform your plugins, tasks, runner labels, or environment variables to work with {% data variables.product.prodname_actions %}. Custom transformers are written with a domain-specific language (DSL) built on top of Ruby, and are defined within a file with the `.rb` file extension. 
+A custom transformer contains mapping logic that {% data variables.product.prodname_actions_importer %} can use to transform your plugins, tasks, runner labels, or environment variables to work with {% data variables.product.prodname_actions %}. Custom transformers are written with a domain-specific language (DSL) built on top of Ruby, and are defined within a file with the `.rb` file extension.
 
 You can use the `--custom-transformers` CLI option to specify which custom transformer files to use with the `audit`, `dry-run`, and `migrate` commands.
 
 For example, if custom transformers are defined in a file named `transformers.rb`, you can use the following command to use them with {% data variables.product.prodname_actions_importer %}:
 
-```
+```shell
 gh actions-importer ... --custom-transformers transformers.rb
 ```
 
 Alternatively, you can use the glob pattern syntax to specify multiple custom transformer files. For example, if multiple custom transformer files are within a directory named `transformers`, you can provide them all to {% data variables.product.prodname_actions_importer %} with the following command:
 
-```
+```shell
 gh actions-importer ... --custom-transformers transformers/*.rb
 ```
 

@@ -3,7 +3,7 @@ title: Monitoring a high-availability configuration
 intro: "After configuration of high availability for {% data variables.location.product_location %}, you can monitor the status of data replication among to your instance's replica nodes."
 versions:
   ghes: '*'
-permissions: Site administrators can monitor a high-availablity configuration for a {% data variables.product.product_name %} instance.
+permissions: Site administrators can monitor a high-availability configuration for a {% data variables.product.product_name %} instance.
 type: how_to
 topics:
   - Enterprise
@@ -69,7 +69,7 @@ Replication requires that the primary node and all replica nodes can communicate
 
 ### Under-replication
 
-If you run the `ghe-repl-status` command-line utility on a replica node and Git repositories, repository networks, or storage objects are under-replicated, one or more replica nodes are not fully synchronized with the primary node. Under-replication may occur if the primary node is unable to communicate with the replica nodes, or if the replica nodes are unable to communicate with the primary node. 
+If you run the `ghe-repl-status` command-line utility on a replica node and Git repositories, repository networks, or storage objects are under-replicated, one or more replica nodes are not fully synchronized with the primary node. Under-replication may occur if the primary node is unable to communicate with the replica nodes, or if the replica nodes are unable to communicate with the primary node.
 
 If you've recently configured high availability or geo-replication, the initial sync will take some time. The duration of the initial sync depends on how much data exists and network conditions.
 
@@ -110,11 +110,7 @@ ghe-storage info OID
 
 ### Getting support from {% data variables.product.company_short %}
 
-If you review the troubleshooting advice for replication and continue to experience issues on your instance, collect the following information, then contact {% data variables.contact.contact_ent_support %}. 
+If you review the troubleshooting advice for replication and continue to experience issues on your instance, collect the following information, then contact {% data variables.contact.contact_ent_support %}.
 
 - On each affected node, run `ghe-repl-status -vv`, then copy the output to your ticket. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repl-status)."
 - On each affected node, create a support bundle to attach to your ticket. For more information, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."
-
-
-
-

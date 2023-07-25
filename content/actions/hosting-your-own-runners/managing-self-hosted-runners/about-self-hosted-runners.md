@@ -53,7 +53,7 @@ For more information about installing and using self-hosted runners, see "[AUTOT
 - Use free minutes on your {% data variables.product.prodname_dotcom %} plan, with per-minute rates applied after surpassing the free minutes.
 
 **Self-hosted runners:**{% endif %}
-- Receive automatic updates for the self-hosted runner application only{% ifversion fpt or ghec or ghes > 3.4 or ghae %}, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)."{% else %}.{% endif %} You are responsible for updating the operating system and all other software.
+- Receive automatic updates for the self-hosted runner application only, though you may disable automatic updates of the runner. For more information about controlling runner software updates on self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#controlling-runner-software-updates-on-self-hosted-runners)." You are responsible for updating the operating system and all other software.
 - Can use cloud services or local machines that you already pay for.
 - Are customizable to your hardware, operating system, software, and security requirements.
 - Don't need to have a clean instance for every job execution.
@@ -146,9 +146,7 @@ The self-hosted runner connects to {% data variables.product.product_name %} to 
 Since the self-hosted runner opens a connection to {% data variables.location.product_location %}, you do not need to allow {% data variables.product.prodname_dotcom %} to make inbound connections to your self-hosted runner.
 {% elsif ghes or ghae %}
 Only an outbound connection from the runner to {% data variables.location.product_location %} is required. There is no need for an inbound connection from {% data variables.location.product_location %} to the runner.
-{% ifversion ghes > 3.4%}
 For caching to work, the runner must be able to communicate with the blob storage and directly download content from it.
-{%- endif %}
 {%- endif %}
 
 {% ifversion ghes %}
@@ -175,7 +173,7 @@ You must ensure that the machine has the appropriate network access to communica
 
 **Needed for essential operations:**
 
-```
+```shell copy
 github.com
 api.github.com
 *.actions.githubusercontent.com
@@ -183,20 +181,20 @@ api.github.com
 
 **Needed for downloading actions:**
 
-```
+```shell copy
 codeload.github.com
 ```
 
 **Needed for uploading/downloading job summaries and logs**
 
-```
+```shell copy
 actions-results-receiver-production.githubapp.com
 productionresultssa*.blob.core.windows.net
 ```
 
 **Needed for runner version updates:**
 
-```
+```shell copy
 objects.githubusercontent.com
 objects-origin.githubusercontent.com
 github-releases.githubusercontent.com
@@ -205,19 +203,19 @@ github-registry-files.githubusercontent.com
 
 **Needed for uploading/downloading caches and workflow artifacts:**
 
-```
+```shell copy
 *.blob.core.windows.net
 ```
 
 **Needed for retrieving OIDC tokens:**
 
-```
+```shell copy
 *.actions.githubusercontent.com
 ```
 
 **Needed for downloading or publishing packages or containers to {% data variables.product.prodname_dotcom %} Packages:**
 
-```
+```shell copy
 *.pkg.github.com
 ghcr.io
 ```
@@ -248,7 +246,7 @@ Self-hosted runners do not need to connect to {% data variables.product.prodname
 
 If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
 
-```
+```shell copy
 github.com
 api.github.com
 codeload.github.com
@@ -289,7 +287,7 @@ For more information about security hardening for self-hosted runners, see "[AUT
 
 ### Restricting the use of self-hosted runners
 
-{% data reusables.actions.disable-selfhosted-runners-crossrefs %} 
+{% data reusables.actions.disable-selfhosted-runners-crossrefs %}
 
 {% endif %}
 

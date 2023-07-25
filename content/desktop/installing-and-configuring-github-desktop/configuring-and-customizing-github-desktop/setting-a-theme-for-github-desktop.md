@@ -13,7 +13,6 @@ shortTitle: Set a theme
 {% data reusables.desktop.mac-select-desktop-menu %}
 {% data reusables.desktop.choose-a-theme %}
   
-
 {% endmac %}
 
 {% windows %}

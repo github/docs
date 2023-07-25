@@ -186,6 +186,7 @@ on:
 ```
 
 {% ifversion discussions %}
+
 ## `discussion`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -381,15 +382,13 @@ on:
     types: [created, deleted]
 ```
 
-{% ifversion fpt or ghec  %}
+{% ifversion merge-queue  %}
 
 ## `merge_group`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
 | [`merge_group`](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
-
-{% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 
@@ -409,6 +408,7 @@ on:
 ```
 
 {% endif %}
+
 ## `milestone`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -1046,11 +1046,13 @@ on:
 **Note**: When pushing multi-architecture container images, this event occurs once per manifest, so you might observe your workflow triggering multiple times. To mitigate this, and only run your workflow job for the event that contains the actual image tag information, use a conditional:
 
 {% raw %}
+
 ```yaml
 jobs:
     job_name:
         if: ${{ github.event.registry_package.package_version.container_metadata.tag.name != '' }}
 ```
+
 {% endraw %}
 
 {% endnote %}
@@ -1154,7 +1156,7 @@ jobs:
 
 {% note %}
 
-**Notes**: 
+**Notes**:
 
 - The maximum number of top-level properties in `client_payload` is 10.
 - The payload can contain a maximum of 65,535 characters.
@@ -1175,7 +1177,7 @@ The `schedule` event allows you to trigger a workflow at a scheduled time.
 
 Cron syntax has five fields separated by a space, and each field represents a unit of time.
 
-```
+```text
 ┌───────────── minute (0 - 59)
 │ ┌───────────── hour (0 - 23)
 │ │ ┌───────────── day of the month (1 - 31)
@@ -1343,7 +1345,7 @@ If you run this workflow from a browser you must enter values for the required i
 
 You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. For example:
 
-```
+```shell
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 

@@ -25,12 +25,15 @@ shortTitle: Troubleshoot TLS errors
 If you have a Linux machine with OpenSSL installed, you can remove your passphrase.
 
 1. Rename your original key file.
+
    ```shell
-   $ mv yourdomain.key yourdomain.key.orig
+   mv yourdomain.key yourdomain.key.orig
    ```
-2. Generate a new key without a passphrase.
+
+1. Generate a new key without a passphrase.
+
    ```shell
-   $ openssl rsa -in yourdomain.key.orig -out yourdomain.key
+   openssl rsa -in yourdomain.key.orig -out yourdomain.key
    ```
 
 You'll be prompted for the key's passphrase when you run this command.
@@ -42,14 +45,14 @@ For more information about OpenSSL, see [OpenSSL's documentation](https://www.op
 If you have OpenSSL installed, you can convert your key into PEM format by using the `openssl` command. For example, you can convert a key from DER format into PEM format.
 
 ```shell
-$ openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
+openssl rsa -in yourdomain.der -inform DER -out yourdomain.key -outform PEM
 ```
 
 Otherwise, you can use the SSL Converter tool to convert your certificate into the PEM format. For more information, see the [SSL Converter tool's documentation](https://www.sslshopper.com/ssl-converter.html).
 
 ## Unresponsive installation after uploading a key
 
-If {% data variables.location.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included. 
+If {% data variables.location.product_location %} is unresponsive after uploading an TLS key, please [contact {% data variables.product.prodname_enterprise %} Support](https://enterprise.github.com/support) with specific details, including a copy of your TLS certificate. Ensure that your private key **is not** included.
 
 ## Certificate validity errors
 
@@ -58,7 +61,7 @@ Clients such as web browsers and command-line Git will display an error message 
 If you are using a certificate signed by a certificate authority (CA), the certificate file that you upload to {% data variables.product.prodname_ghe_server %} must include a certificate chain with that CA's root certificate. To create such a file, concatenate your entire certificate chain (or "certificate bundle") onto the end of your certificate, ensuring that the principal certificate with your hostname comes first. On most systems you can do this with a command similar to:
 
 ```shell
-$ cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
+cat yourdomain.com.crt bundle-certificates.crt > yourdomain.combined.crt
 ```
 
 You should be able to download a certificate bundle (for example, `bundle-certificates.crt`) from your certificate authority or TLS vendor.
@@ -68,17 +71,22 @@ You should be able to download a certificate bundle (for example, `bundle-certif
 If your {% data variables.product.prodname_ghe_server %} appliance interacts with other machines on your network that use a self-signed or untrusted certificate, you will need to import the signing CA's root certificate into the system-wide certificate store in order to access those systems over HTTPS.
 
 1. Obtain the CA's root certificate from your local certificate authority and ensure it is in PEM format.
-2. Copy the file to your {% data variables.product.prodname_ghe_server %} appliance over SSH as the "admin" user on port 122.
+1. Copy the file to your {% data variables.product.prodname_ghe_server %} appliance over SSH as the "admin" user on port 122.
+
    ```shell
-   $ scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
+   scp -P 122 rootCA.crt admin@HOSTNAME:/home/admin
    ```
-3. Connect to the {% data variables.product.prodname_ghe_server %} administrative shell over SSH as the "admin" user on port 122.
+
+1. Connect to the {% data variables.product.prodname_ghe_server %} administrative shell over SSH as the "admin" user on port 122.
+
    ```shell
-   $ ssh -p 122 admin@HOSTNAME
+   ssh -p 122 admin@HOSTNAME
    ```
-4. Import the certificate into the system-wide certificate store.
+
+1. Import the certificate into the system-wide certificate store.
+
    ```shell
-   $ ghe-ssl-ca-certificate-install -c rootCA.crt
+   ghe-ssl-ca-certificate-install -c rootCA.crt
    ```
 
 ## Updating a TLS certificate

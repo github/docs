@@ -26488,25 +26488,16 @@ enum PackageType {
   A maven package.
   """
   MAVEN
-    @deprecated(
-      reason: "MAVEN will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2023-02-10 UTC."
-    )
 
   """
   An npm package.
   """
   NPM
-    @deprecated(
-      reason: "NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-11-21 UTC."
-    )
 
   """
   A nuget package.
   """
   NUGET
-    @deprecated(
-      reason: "NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-11-21 UTC."
-    )
 
   """
   A python package.
@@ -26517,9 +26508,6 @@ enum PackageType {
   A rubygems package.
   """
   RUBYGEMS
-    @deprecated(
-      reason: "RUBYGEMS will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-12-28 UTC."
-    )
 }
 
 """

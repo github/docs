@@ -3,6 +3,7 @@
 import assert from 'node:assert/strict'
 import fs from 'fs'
 
+import cheerio from 'cheerio'
 import got from 'got'
 
 /**
@@ -12,6 +13,12 @@ import got from 'got'
  * There are certain things that only work and happen when in
  * local dev, that don't make sense to test in regular end-to-end tests
  * such as `jest` rendering.
+ *
+ * For engineers to test this locally do the following:
+ *
+ *   1. Start `npm run dev` in one terminal
+ *   2. Run `./.github/actions-scripts/test-local-dev.js` in another terminal
+ *
  */
 
 main()
@@ -33,6 +40,10 @@ async function main() {
 
   // Only in local dev is the `?json=...` query string working
   await testJSONParameters()
+
+  // In local development, it depends on proxying the search to prod
+  // because if you haven't set up ELASTICSEARCH_URL.
+  await testSiteSearch()
 }
 
 async function testEditingPage() {
@@ -102,5 +113,23 @@ async function testJSONParameters() {
     assert(links && Array.isArray(links))
     assert(links[0].href)
     assert(links[0].page)
+  }
+}
+
+async function testSiteSearch() {
+  // Find something on free-pro-team@latest
+  {
+    const res = await get('/en/search?query=github')
+    const $ = cheerio.load(res.body)
+    // The [\d,]+ is because we use thousands separators in the number
+    assert(/[\d,]+ Search results for "github"/.test($('h1').text()))
+    assert($('[data-testid="search-result"]').length > 0)
+  }
+  // Find 0 things on enterprise-cloud@latest
+  {
+    const res = await get('/en/enterprise-cloud@latest/search?query=gobligook')
+    const $ = cheerio.load(res.body)
+    assert(/0 Search results for "gobligook"/.test($('h1').text()))
+    assert($('[data-testid="search-result"]').length === 0)
   }
 }

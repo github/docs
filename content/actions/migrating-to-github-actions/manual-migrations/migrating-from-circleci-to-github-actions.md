@@ -54,7 +54,6 @@ CircleCI can reuse pieces of workflows with YAML anchors and aliases. {% data va
 
 ## Using Docker images
 
-
 Both CircleCI and {% data variables.product.prodname_actions %} support running steps inside of a Docker image.
 
 CircleCI provides a set of pre-built images with common dependencies. These images have the `USER` set to `circleci`, which causes permissions to conflict with {% data variables.product.prodname_actions %}.
@@ -88,12 +87,14 @@ Below is an example of the syntax for each system.
 ### CircleCI syntax for caching
 
 {% raw %}
+
 ```yaml
 - restore_cache:
     keys:
       - v1-npm-deps-{{ checksum "package-lock.json" }}
       - v1-npm-deps-
 ```
+
 {% endraw %}
 
 ### GitHub Actions syntax for caching
@@ -124,6 +125,7 @@ Below is an example in CircleCI and {% data variables.product.prodname_actions %
 ### CircleCI syntax for persisting data between jobs
 
 {% raw %}
+
 ```yaml
 - persist_to_workspace:
     root: workspace
@@ -135,11 +137,13 @@ Below is an example in CircleCI and {% data variables.product.prodname_actions %
 - attach_workspace:
     at: /tmp/workspace
 ```
+
 {% endraw %}
 
 ### GitHub Actions syntax for persisting data between jobs
 
 {% raw %}
+
 ```yaml
 - name: Upload math result for job 1
   uses: {% data reusables.actions.action-upload-artifact %}
@@ -154,6 +158,7 @@ Below is an example in CircleCI and {% data variables.product.prodname_actions %
   with:
     name: homework
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
@@ -169,6 +174,7 @@ Below is an example in CircleCI and {% data variables.product.prodname_actions %
 ### CircleCI syntax for using databases and service containers
 
 {% raw %}
+
 ```yaml
 ---
 version: 2.1
@@ -219,11 +225,13 @@ workflows:
 - attach_workspace:
     at: /tmp/workspace
 ```
+
 {% endraw %}
 
 ### GitHub Actions syntax for using databases and service containers
 
 {% raw %}
+
 ```yaml
 name: Containers
 
@@ -268,6 +276,7 @@ jobs:
       - name: Run tests
         run: bundle exec rake
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."
@@ -279,6 +288,7 @@ Below is a real-world example. The left shows the actual CircleCI _config.yml_ f
 ### Complete example for CircleCI
 
 {% raw %}
+
 ```yaml
 ---
 version: 2.1
@@ -360,6 +370,7 @@ workflows:
       - ruby-26
       - ruby-25
 ```
+
 {% endraw %}
 
 ### Complete example for GitHub Actions

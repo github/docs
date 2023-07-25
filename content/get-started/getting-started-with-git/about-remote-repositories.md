@@ -34,7 +34,7 @@ You can use the `git remote add` command to match a remote URL with a name.
 For example, you'd type the following in the command line:
 
 ```shell
-git remote add origin &lt;REMOTE_URL>
+git remote add origin <REMOTE_URL>
 ```
 
 This associates the name `origin` with the `REMOTE_URL`.
@@ -86,6 +86,7 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
 {% ifversion not ghae %}
+
 ## Cloning with Subversion
 
 {% data reusables.subversion.sunset %}

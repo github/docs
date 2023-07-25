@@ -3,14 +3,14 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
 import { useState } from 'react'
-import { FeaturedTrack } from 'src/landings/components/ProductGuidesContext'
+import { LearningTrack as LearningTrackT } from 'src/landings/components/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
 import { slug } from 'github-slugger'
 import styles from './LearningTrack.module.scss'
 import { Link } from 'components/Link'
 
 type Props = {
-  track: FeaturedTrack
+  track: LearningTrackT
 }
 
 const DEFAULT_VISIBLE_GUIDES = 4
@@ -44,9 +44,9 @@ export const LearningTrack = ({ track }: Props) => {
           <Link
             {...{ 'aria-label': `${track?.title} - ${t('start_path')}` }}
             className="d-inline-flex btn no-wrap mt-3 mt-md-0 flex-items-center flex-justify-center"
-            href={`${track?.guides && track?.guides[0].href}?learn=${
-              track?.trackName
-            }&learnProduct=${track?.trackProduct}`}
+            href={`${
+              track?.guides && track?.guides[0].href
+            }?learn=${track?.trackName}&learnProduct=${track?.trackProduct}`}
           >
             <span>{t('start_path')}</span>
             <ArrowRightIcon size={20} className="ml-2" />

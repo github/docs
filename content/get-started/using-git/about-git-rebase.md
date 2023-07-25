@@ -31,7 +31,7 @@ Typically, you would use `git rebase` to:
 To rebase all the commits between another branch and the current branch state, you can enter the following command in your shell (either the command prompt for Windows, or the terminal for Mac and Linux):
 
 ```shell
-$ git rebase --interactive OTHER-BRANCH-NAME
+git rebase --interactive OTHER-BRANCH-NAME
 ```
 
 ## Rebasing commits against a point in time
@@ -39,7 +39,7 @@ $ git rebase --interactive OTHER-BRANCH-NAME
 To rebase the last few commits in your current branch, you can enter the following command in your shell:
 
 ```shell
-$ git rebase --interactive HEAD~7
+git rebase --interactive HEAD~7
 ```
 
 ## Commands available while rebasing

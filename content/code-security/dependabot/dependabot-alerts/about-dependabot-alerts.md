@@ -80,7 +80,7 @@ You can also enable or disable {% data variables.product.prodname_dependabot_ale
 
 For information about access requirements for actions related to {% data variables.product.prodname_dependabot_alerts %}, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization#access-requirements-for-security-features)."
 
-{% data variables.product.product_name %} starts generating the dependency graph immediately and generates alerts for any insecure dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see "[AUTOTITLE](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository)."
+{% data variables.product.product_name %} starts generating the dependency graph immediately and generates alerts for any insecure dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."
 {% endif %}
 
 When {% data variables.product.product_name %} identifies a vulnerable dependency{% ifversion GH-advisory-db-supports-malware %} or malware{% endif %}, we generate a {% data variables.product.prodname_dependabot %} alert and display it {% ifversion fpt or ghec or ghes %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes %}a link to the affected file in the project, and {% endif %}information about a fixed version. 
@@ -110,6 +110,7 @@ By default, we notify people with {% ifversion dependabot-alerts-permissions-wri
 You can also see all the {% data variables.product.prodname_dependabot_alerts %} that correspond to a particular advisory in the {% data variables.product.prodname_advisory_database %}. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 {% ifversion fpt or ghec or ghes %}
+
 ## Further reading
 
 - "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)"

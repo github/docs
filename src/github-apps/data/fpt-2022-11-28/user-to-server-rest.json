@@ -85,54 +85,6 @@
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
     },
     {
-      "slug": "list-required-workflows",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/actions/required_workflows"
-    },
-    {
-      "slug": "create-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/actions/required_workflows"
-    },
-    {
-      "slug": "get-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "update-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "patch",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "delete-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "sets-repositories-for-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories"
-    },
-    {
-      "slug": "add-a-repository-to-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
-    },
-    {
-      "slug": "remove-a-selected-repository-from-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
-    },
-    {
       "slug": "list-self-hosted-runners-for-an-organization",
       "subcategory": "self-hosted-runners",
       "verb": "get",
@@ -307,24 +259,6 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
-      "slug": "list-repository-required-workflows",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows"
-    },
-    {
-      "slug": "get-a-required-workflow-entity-for-a-repository",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}"
-    },
-    {
-      "slug": "get-required-workflow-usage",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/timing"
-    },
-    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -461,12 +395,6 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
-    },
-    {
-      "slug": "list-workflow-runs-for-a-required-workflow",
-      "subcategory": "workflow-runs",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs"
     },
     {
       "slug": "list-self-hosted-runners-for-a-repository",
@@ -1421,7 +1349,7 @@
       "requestPath": "/orgs/{org}/codespaces/billing/selected_users"
     },
     {
-      "slug": "removes-users-from-codespaces-billing-for-an-organization",
+      "slug": "remove-users-from-codespaces-billing-for-an-organization",
       "subcategory": "organizations",
       "verb": "delete",
       "requestPath": "/orgs/{org}/codespaces/billing/selected_users"
@@ -1837,6 +1765,26 @@
       "subcategory": "statuses",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/statuses/{sha}"
+    }
+  ],
+  "copilot": [
+    {
+      "slug": "get-copilot-for-business-seat-information-and-settings-for-an-organization",
+      "subcategory": "copilot-for-business",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/billing"
+    },
+    {
+      "slug": "list-all-copilot-for-business-seat-assignments-for-an-organization",
+      "subcategory": "copilot-for-business",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/copilot/billing/seats"
+    },
+    {
+      "slug": "add-teams-to-the-copilot-for-business-subscription-for-an-organization",
+      "subcategory": "copilot-for-business",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/copilot/billing/selected_teams"
     }
   ],
   "dependabot": [
@@ -3887,6 +3835,12 @@
       "subcategory": "autolinks",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}"
+    },
+    {
+      "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/automated-security-fixes"
     },
     {
       "slug": "enable-automated-security-fixes",

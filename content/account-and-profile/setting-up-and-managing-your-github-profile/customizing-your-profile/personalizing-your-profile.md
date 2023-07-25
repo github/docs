@@ -74,7 +74,7 @@ You can change the name that is displayed on your profile. This name may also be
 {% endif %}
 
 {% data reusables.user-settings.access_settings %}
-2. Under "Public profile", in the "Name" field, type the name you want to be displayed on your profile.
+1. Under "Public profile", in the "Name" field, type the name you want to be displayed on your profile.
 
 ## Adding a bio to your profile
 
@@ -94,7 +94,7 @@ For a longer-form and more prominent way of displaying customized information ab
 {% endnote %}
 
 {% data reusables.user-settings.access_settings %}
-2. Under "Public profile", in the "Bio" field, type the content that you want displayed on your profile. The bio field is limited to 160 characters.
+1. Under "Public profile", in the "Bio" field, type the content that you want displayed on your profile. The bio field is limited to 160 characters.
 
   {% tip %}
 
@@ -167,14 +167,15 @@ If you select the "Busy" option, when people @mention your username, assign you 
 1. In the top right corner of {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom_the_website %}{% else %}{% data variables.product.product_name %}{% endif %}, click your profile photo, then click **Set status** or, if you already have a status set, click your current status.
 
    ![Screenshot of the dropdown menu under @octocat's profile picture. A smiley icon and "Set status" are outlined in dark orange.](/assets/images/help/profile/set-status-on-profile.png)
-2. In the "What's happening" field, type a status message.
-3. Optionally, to set an emoji status, click {% octicon "smiley" aria-label="Choose an emoji" %}, then click an emoji from the list.
-4. Optionally, if you'd like to share that you have limited availability, select "Busy."
-5. Select the **Clear status** dropdown menu, then click when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
-6. Select the **Visible to** dropdown menu, then click who you want your status visible to. If you don't select an organization, your status will be public.
-7. Click **Set status**.
+1. In the "What's happening" field, type a status message.
+1. Optionally, to set an emoji status, click {% octicon "smiley" aria-label="Choose an emoji" %}, then click an emoji from the list.
+1. Optionally, if you'd like to share that you have limited availability, select "Busy."
+1. Select the **Clear status** dropdown menu, then click when you want your status to expire. If you don't select a status expiration, you will keep your status until you clear or edit your status.
+1. Select the **Visible to** dropdown menu, then click who you want your status visible to. If you don't select an organization, your status will be public.
+1. Click **Set status**.
 
 {% ifversion fpt or ghec %}
+
 ## Displaying badges on your profile
 
 When you participate in certain programs, {% data variables.product.prodname_dotcom %} automatically displays a badge on your profile.

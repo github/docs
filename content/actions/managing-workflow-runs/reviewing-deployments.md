@@ -20,13 +20,14 @@ For more information about environments and required approvals, see "[AUTOTITLE]
 ## Approving or rejecting a job
 
 1. Navigate to the workflow run that requires review. For more information about navigating to a workflow run, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
-2. If the run requires review, you will see a notification for the review request. On the notification, click **Review deployments**.
-3. Select the job environment(s) to approve or reject. Optionally, leave a comment.
-4. Approve or reject:
+1. If the run requires review, you will see a notification for the review request. On the notification, click **Review deployments**.
+1. Select the job environment(s) to approve or reject. Optionally, leave a comment.
+1. Approve or reject:
    - To approve the job, click **Approve and deploy**. Once a job is approved (and any other environment protection rules have passed), the job will proceed. At this point, the job can access any secrets stored in the environment.
    - To reject the job, click **Reject**. If a job is rejected, the workflow will fail.
 
 {% ifversion actions-break-glass %}
+
 ## Bypassing environment protection rules
 
 If you have configured environment protection rules that control whether software can be deployed to an environment, you can bypass these rules and force all pending jobs referencing the environment to proceed.

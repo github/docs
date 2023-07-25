@@ -38,13 +38,17 @@ topics:
 
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
-{% ifversion code-scanning-without-workflow %}
+{% ifversion code-scanning-without-workflow-310 %}
 
-For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use the default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or the advanced setup, which generates a workflow file you can edit. Currently, the default setup does not support any compiled languages, so you must use the advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#creating-an-advanced-setup)."
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. Default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}{% ifversion codeql-swift-beta %} except for Swift, for which you must use advanced setup{% endif %}. For more information about advanced setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
+
+{% elsif code-scanning-without-workflow %}
+
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. Default setup does not support any compiled languages, so you must use advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
 
 {% else %}
 
-You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository)."
+You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-the-codeql-action)."
 
 {% endif %}
 
@@ -55,10 +59,11 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 {% data reusables.code-scanning.autobuild-compiled-languages %}
 
 - [`autobuild` for C/C++](#autobuild-for-cc)
-- [`autobuild` for C#](#autobuild-for-c)
-{% ifversion codeql-go-autobuild %} - [`autobuild` for Go](#autobuild-for-go) {% endif %}
-{% ifversion codeql-kotlin-beta %} - [`autobuild` for Java and Kotlin](#autobuild-for-java--and-kotlin) {% else %} - [`autobuild` for Java](#autobuild-for-java) {% endif %}
-{% ifversion codeql-swift-beta %} - [`autobuild` for Swift](#autobuild-for-swift) {% endif %}
+- [`autobuild` for C#](#autobuild-for-c){% ifversion codeql-go-autobuild %}
+- [`autobuild` for Go](#autobuild-for-go){% endif %}{% ifversion codeql-kotlin-beta %}
+- [`autobuild` for Java and Kotlin](#autobuild-for-java--and-kotlin){% else %}
+- [`autobuild` for Java](#autobuild-for-java){% endif %}{% ifversion codeql-swift-beta %}
+- [`autobuild` for Swift](#autobuild-for-swift){% endif %}
 
 {% note %}
 
@@ -135,6 +140,7 @@ The `autobuild` process tries to determine the build system for Java codebases b
 1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
 
 {% ifversion codeql-swift-beta %}
+
 ### `autobuild` for Swift
 
 | Supported system type | System name |
@@ -177,20 +183,21 @@ If your repository contains multiple compiled languages, you can specify languag
 
 For more information about the `if` conditional, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsif)."
 
-For more tips and tricks about why `autobuild` won't build your code, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow)."
+For more tips and tricks about why `autobuild` won't build your code, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/automatic-build-failed-for-a-compiled-language)."
 
 If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
 
-{% ifversion codeql-swift-beta %} 
+{% ifversion codeql-swift-beta %}
+
 ### Considerations for building Swift
 
 {% data reusables.code-scanning.beta-swift-support %}
 
-Code scanning of Swift code uses macOS runners by default. Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
 
 `xcodebuild` and `swift build` are both supported for Swift builds. We recommend only targeting one architecture during the build. For example, `ARCH=arm64` for `xcodebuild`, or `--arch arm64` for `swift build`.
 
-You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that CodeQL requires for a successful scan.
+You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that {% data variables.product.prodname_codeql %} requires for a successful scan.
 
 For Swift analysis, you must always explicitly install dependencies managed via CocoaPods or Carthage before generating the {% data variables.product.prodname_codeql %} database.
 

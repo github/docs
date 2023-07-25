@@ -61,7 +61,7 @@ describe('Hydro', () => {
         { schema: 'docs.v0.ExampleEvent', value: { event_id: 'FA36EA6D' } },
         { schema: 'docs.v0.ExampleEvent', value: { event_id: '4F60C35A' } },
       ],
-      config
+      config,
     )
     expect(scope.isDone()).toBeTruthy()
   })

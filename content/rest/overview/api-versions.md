@@ -25,7 +25,7 @@ The {% data variables.product.prodname_ghe_server %} release notes will state wh
 You should use the `X-GitHub-Api-Version` header to specify an API version. For example:
 
 ```shell
-$ curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
+curl {% data reusables.rest-api.version-header %} https://api.github.com/zen
 ```
 
 Requests without the `X-GitHub-Api-Version` header will default to use the `{{ initialRestVersioningReleaseDate }}` version.

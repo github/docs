@@ -61,7 +61,6 @@ For example, if you notice that a customer is on a 5 person plan and needs to mo
 
 Use the `LISTING_PLAN_NUMBER` for the plan the customer would like to purchase. When you create new pricing plans they receive a `LISTING_PLAN_NUMBER`, which is unique to each plan across your listing, and a `LISTING_PLAN_ID`, which is unique to each plan in the {% data variables.product.prodname_marketplace %}. You can find these numbers when you [List plans](/rest/apps#list-plans), which identifies your listing's pricing plans. Use the `LISTING_PLAN_ID` and the "[AUTOTITLE](/rest/apps#list-accounts-for-a-plan)" endpoint to get the `CUSTOMER_ACCOUNT_ID`.
 
-
 {% note %}
 
 **Note:** If your customer upgrades to additional units (such as seats), you can still send them to the appropriate plan for their purchase, but we are unable to support `unit_count` parameters at this time.

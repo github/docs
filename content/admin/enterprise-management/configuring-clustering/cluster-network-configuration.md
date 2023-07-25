@@ -112,9 +112,11 @@ We strongly recommend enabling PROXY support for both your instance and the load
 {% data reusables.enterprise_installation.proxy-incompatible-with-aws-nlbs %}
 
 - For your instance, use this command:
+
   ```shell
-  $ ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply
+  ghe-config 'loadbalancer.proxy-protocol' 'true' && ghe-cluster-config-apply
   ```
+
 - For the load balancer, use the instructions provided by your vendor.
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
@@ -126,12 +128,13 @@ We strongly recommend enabling PROXY support for both your instance and the load
 To enable the `X-Forwarded-For` header, use this command:
 
 ```shell
-$ ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
+ghe-config 'loadbalancer.http-forward' 'true' && ghe-cluster-config-apply
 ```
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}
 
 ### Configuring health checks
+
 Health checks allow a load balancer to stop sending traffic to a node that is not responding if a pre-configured check fails on that node. If a cluster node fails, health checks paired with redundant nodes provides high availability.
 
 {% data reusables.enterprise_clustering.health_checks %}

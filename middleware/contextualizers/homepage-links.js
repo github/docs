@@ -35,7 +35,7 @@ export default async function productGroups(req, res, next) {
   // client-side routing.
   const { pagePath } = req
 
-  if (isHomepage(pagePath) || isSearchpage(pagePath)) {
+  if ((isHomepage(pagePath) || isSearchpage(pagePath)) && req.context.currentVersionObj) {
     req.context.homepageLinks = await getHomepageLinks(req)
   }
 

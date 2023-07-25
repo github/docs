@@ -88,7 +88,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // content file
   const webhooksMiniTocs = await getAutomatedPageMiniTocItems(
     webhooks.map((webhook) => webhook.data.category),
-    context
+    context,
   )
   webhooksMiniTocs && miniTocItems.push(...webhooksMiniTocs)
 

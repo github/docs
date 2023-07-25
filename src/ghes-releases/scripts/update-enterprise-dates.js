@@ -30,11 +30,11 @@ async function main() {
   let rawDates = []
   try {
     rawDates = JSON.parse(
-      await getContents('github', 'enterprise-releases', 'master', 'releases.json')
+      await getContents('github', 'enterprise-releases', 'master', 'releases.json'),
     )
   } catch {
     console.log(
-      'Failed to get the https://github.com/github/enterprise-releases/blob/master/releases.json content. Check that your token has the correct permissions.'
+      'Failed to get the https://github.com/github/enterprise-releases/blob/master/releases.json content. Check that your token has the correct permissions.',
     )
     process.exit(1)
   }

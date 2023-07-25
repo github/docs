@@ -49,6 +49,7 @@ When verifying a signature, {% data variables.product.product_name %} extracts t
 
 {% ifversion upload-expired-or-revoked-gpg-key %}
 {% else %}
+
 ## Updating an expired GPG key
 
 When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures.

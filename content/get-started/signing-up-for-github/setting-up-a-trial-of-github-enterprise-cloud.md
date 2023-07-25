@@ -16,7 +16,6 @@ shortTitle: Enterprise Cloud trial
 
 {% data reusables.enterprise.ghec-cta-button %}
 
-
 ## About {% data variables.product.prodname_ghe_cloud %}
 
 {% data reusables.enterprise.about-ghec %} For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)."
@@ -88,4 +87,4 @@ If you cancel your trial, all enterprise owners and members also lose access to 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
 1. At the top of the page, click **Buy Enterprise** or **Cancel trial**.
-6. Follow the prompts.
+1. Follow the prompts.

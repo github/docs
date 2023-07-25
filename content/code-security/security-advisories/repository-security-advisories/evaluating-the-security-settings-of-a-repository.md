@@ -16,15 +16,15 @@ shortTitle: Evaluate repository security
 
 Evaluating a public repository's security settings can help security researchers understand the repository's security posture. This information can help you decide whether to engage with the repository maintainers, for example, by reporting a vulnerability in the repository.
 
-If a repository is public, high level information about the repository's security settings is available to anyone. For example, you can see whether the repository has a security policy, and whether private vulnerability reporting is enabled. You can also view published and closed security advisories for the repository. If no security policy is associated with a repository, you can suggest one. If the repository has private vulnerability reporting enabled, you can privately report security vulnerabilities directly to repository maintainers. 
+If a repository is public, high level information about the repository's security settings is available to anyone. For example, you can see whether the repository has a security policy, and whether private vulnerability reporting is enabled. You can also view published and closed security advisories for the repository. If no security policy is associated with a repository, you can suggest one. If the repository has private vulnerability reporting enabled, you can privately report security vulnerabilities directly to repository maintainers.
 
 If you have admin permissions to the repository, and the repository is owned by an organization, you can see more detailed information about the repository's security settings through the security overview. For more information on the security overview, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/about-security-overview){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
  If a repository is private, you can only see the security settings if you have admin permissions to the repository or have been granted special security permissions covering the repository, for example, as an organization-wide security manager.
 
-## Suggesting a security policy for a repository 
+## Suggesting a security policy for a repository
 
- If you do not have admin or security permissions for a public repository, you can still suggest a security policy to the repository maintainers if one doesn't already exist. The repository maintainers can then choose to accept or reject your suggestion. If the repository maintainers accept your suggestion, the security policy will be associated with the repository. 
+ If you do not have admin or security permissions for a public repository, you can still suggest a security policy to the repository maintainers if one doesn't already exist. The repository maintainers can then choose to accept or reject your suggestion. If the repository maintainers accept your suggestion, the security policy will be associated with the repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

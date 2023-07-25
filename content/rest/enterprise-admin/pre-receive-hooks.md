@@ -1,7 +1,7 @@
 ---
 title: Pre-receive Hooks
 intro: 'Use the REST API to create, list, update and delete pre-receive hooks.'
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API
@@ -29,6 +29,5 @@ These endpoints are only available to [authenticated](/rest/overview/authenticat
 
 Possible values for _enforcement_ are `enabled`, `disabled` and`testing`. `disabled` indicates the pre-receive hook will not run. `enabled` indicates it will run and reject
 any pushes that result in a non-zero status. `testing` means the script will run but will not cause any pushes to be rejected.
-
 
 <!-- Content after this section is automatically generated -->

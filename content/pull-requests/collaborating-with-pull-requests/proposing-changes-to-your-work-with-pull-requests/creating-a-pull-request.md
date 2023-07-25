@@ -172,6 +172,7 @@ For more information on creating pull requests in {% data variables.product.prod
 {% endcodespaces %}
 
 {% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"

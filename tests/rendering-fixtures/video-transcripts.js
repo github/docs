@@ -7,7 +7,7 @@ describe('transcripts', () => {
     test('video link from product landing page leads to video', async () => {
       const $ = await getDOM('/en/get-started')
       expect($('a#product-video').attr('href')).toBe(
-        '/en/get-started/video-transcripts/transcript--my-awesome-video'
+        '/en/get-started/video-transcripts/transcript--my-awesome-video',
       )
     })
   })

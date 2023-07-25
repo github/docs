@@ -24,6 +24,7 @@ You can create an example workflow in your repository that automatically trigger
          - run: npm install -g bats
          - run: bats -v
    ```
+
 1. Commit these changes and push them to your {% data variables.product.prodname_dotcom %} repository.
 
 Your new {% data variables.product.prodname_actions %} workflow file is now installed in your repository and will run automatically each time someone pushes a change to the repository. To see the details about a workflow's execution history, see "[Viewing the activity for a workflow run](#viewing-the-activity-for-a-workflow-run)."
@@ -43,6 +44,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```yaml
   name: learn-github-actions
   ```
+
 </td>
 <td>
   <em>Optional</em> - The name of the workflow as it will appear in the "Actions" tab of the {% data variables.product.prodname_dotcom %} repository.
@@ -55,6 +57,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```yaml
   run-name: {% raw %}${{ github.actor }}{% endraw %} is learning GitHub Actions
   ```
+
 </td>
 <td>
 
@@ -68,6 +71,7 @@ To help you understand how YAML syntax is used to create a workflow file, this s
   ```yaml
   on: [push]
   ```
+
 </td>
 <td>
 Specifies the trigger for this workflow. This example uses the <code>push</code> event, so a workflow run is triggered every time someone pushes a change to the repository or merges a pull request.  This is triggered by a push to every branch; for examples of syntax that runs only on pushes to specific branches, paths, or tags, see "<a href="/actions/reference/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
@@ -79,6 +83,7 @@ Specifies the trigger for this workflow. This example uses the <code>push</code>
   ```yaml
   jobs:
   ```
+
 </td>
 <td>
  Groups together all the jobs that run in the <code>learn-github-actions</code> workflow.
@@ -90,6 +95,7 @@ Specifies the trigger for this workflow. This example uses the <code>push</code>
   ```yaml
   check-bats-version:
   ```
+
 </td>
 <td>
 Defines a job named <code>check-bats-version</code>. The child keys will define properties of the job.
@@ -101,6 +107,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```yaml
     runs-on: ubuntu-latest
   ```
+
 </td>
 <td>
   Configures the job to run on the latest version of an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by GitHub. For syntax examples using other runners, see "<a href="/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on">Workflow syntax for {% data variables.product.prodname_actions %}</a>."
@@ -112,6 +119,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```yaml
     steps:
   ```
+
 </td>
 <td>
   Groups together all the steps that run in the <code>check-bats-version</code> job. Each item nested under this section is a separate action or shell script.
@@ -123,6 +131,7 @@ Defines a job named <code>check-bats-version</code>. The child keys will define 
   ```yaml
       - uses: {% data reusables.actions.action-checkout %}
   ```
+
 </td>
 <td>
 The <code>uses</code> keyword specifies that this step will run <code>v3</code> of the <code>actions/checkout</code> action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
@@ -136,6 +145,7 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
         with:
           node-version: '14'
   ```
+
 </td>
 <td>
   This step uses the <code>{% data reusables.actions.action-setup-node %}</code> action to install the specified version of the Node.js (this example uses v14). This puts both the <code>node</code> and <code>npm</code> commands in your <code>PATH</code>.
@@ -147,6 +157,7 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
   ```yaml
       - run: npm install -g bats
   ```
+
 </td>
 <td>
   The <code>run</code> keyword tells the job to execute a command on the runner. In this case, you are using <code>npm</code> to install the <code>bats</code> software testing package.
@@ -158,6 +169,7 @@ The <code>uses</code> keyword specifies that this step will run <code>v3</code> 
   ```yaml
       - run: bats -v
   ```
+
 </td>
 <td>
   Finally, you'll run the <code>bats</code> command with a parameter that outputs the software version.

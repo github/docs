@@ -42,7 +42,7 @@ A GraphQL schema may use the term _implements_ to define how an object inherits 
 
 Here's a contrived example of a schema that defines interface `X` and object `Y`:
 
-```
+```graphql
 interface X {
   some_field: String!
   other_field: String!
@@ -116,7 +116,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
 - You can also run an _introspection query_ of the schema via a `GET` request:
 
   ```shell
-  $ curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
+  curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
   ```
 
   {% note %}

@@ -74,6 +74,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
            with:
              path: {% raw %}${{runner.tool_cache}}/tool_cache.tar.gz{% endraw %}
    ```
+
 1. Download the tool cache artifact from the workflow run. For instructions on downloading artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 1. Transfer the tool cache artifact to your self hosted runner and extract it to the local tool cache directory. The default tool cache directory is `RUNNER_DIR/_work/_tool`. If the runner hasn't processed any jobs yet, you might need to create the `_work/_tool` directories.
 

@@ -24,8 +24,8 @@ const base = args[1] || 'main'
 if (!message || !message.length) {
   console.error(
     `Specify a new commit message in quotes. Example:\n\nscript/${path.basename(
-      module.filename
-    )} "new commit"`
+      module.filename,
+    )} "new commit"`,
   )
   process.exit()
 }

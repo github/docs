@@ -33,6 +33,7 @@ shortTitle: View Git LFS usage
 {% data reusables.dotcom_billing.lfs-data %}
 
 {% ifversion ghec %}
+
 ## Viewing storage and bandwidth for an enterprise account
 
 {% data reusables.enterprise-accounts.access-enterprise %}

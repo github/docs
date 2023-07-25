@@ -68,7 +68,7 @@ export function RestOperation({ operation }: Props) {
               numPreviews={numPreviews}
               heading={t('rest.reference.parameters').replace(
                 '{{ RESTOperationTitle }}',
-                operation.title
+                operation.title,
               )}
               headers={headers}
               parameters={operation.parameters}
@@ -82,7 +82,7 @@ export function RestOperation({ operation }: Props) {
               slug={titleSlug}
               heading={t('rest.reference.http_status_code').replace(
                 '{{ RESTOperationTitle }}',
-                operation.title
+                operation.title,
               )}
             />
           )}
@@ -97,7 +97,7 @@ export function RestOperation({ operation }: Props) {
               slug={titleSlug}
               heading={t('rest.reference.code_samples').replace(
                 '{{ RESTOperationTitle }}',
-                operation.title
+                operation.title,
               )}
             />
           )}
@@ -110,11 +110,11 @@ export function RestOperation({ operation }: Props) {
                 operation.previews.length > 1
                   ? `${t('rest.reference.preview_notices').replace(
                       '{{ RESTOperationTitle }}',
-                      operation.title
+                      operation.title,
                     )}`
                   : `${t('rest.reference.preview_notice').replace(
                       '{{ RESTOperationTitle }}',
-                      operation.title
+                      operation.title,
                     )}`
               }
             />

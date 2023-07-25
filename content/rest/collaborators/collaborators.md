@@ -1,7 +1,7 @@
 ---
 title: Collaborators
 intro: Use the REST API to manage collaborators for a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
