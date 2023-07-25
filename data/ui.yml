@@ -84,6 +84,7 @@ contribution_cta:
   to_guidelines: Learn how to contribute
 parameter_table:
   body: Body parameters
+  webhook-body: Webhook request body parameters
   default: Default
   description: Description
   enum_description_title: Can be one of
