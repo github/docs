@@ -966,7 +966,7 @@ For example in the following table, in order to make sense of the "Yes" and "No"
   </tr>
 </table>
 
-To add row headers for a Markdown table, wrap the table in the Liquid tags `{% rowheaders %} {% endrowheaders %}`. For more information about using row headers, see "[Table row headers](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#table-row-headers)" in the content markup reference.
+To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see "[Table row headers](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#table-row-headers)" in the content markup reference.
 
 ### Include a value for every cell
 Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
@@ -1052,13 +1052,15 @@ The following example shows part of a table from "[AUTOTITLE](/free-pro-team@lat
 </tbody>
 </table>
 
-````
+The table is generated with the following alignment syntax.
+
+```text
 | Option              | Required | Security Updates | Version Updates | Description                    |
 |---------------------|:--------:|:----------------:|:---------------:|--------------------------------|
-| `package-ecosystem` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Package manager to use         |
-| `directory`         |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Location of package manifests  |
-| `schedule.interval` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| How often to check for updates |
-````
+| `package-ecosystem` |{% raw %}{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}{% endraw %}| Package manager to use         |
+| `directory`         |{% raw %}{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}{% endraw %}| Location of package manifests  |
+| `schedule.interval` |{% raw %}{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}{% endraw %}| How often to check for updates |
+```
 
 ## Titles
 
