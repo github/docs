@@ -1,3 +1,4 @@
+
 const { getPlatformFromUserAgent } = require('platform-utils')
 const supportedPlatforms = ['mac', 'windows', 'linux']
 const detectedPlatforms = new Set()
