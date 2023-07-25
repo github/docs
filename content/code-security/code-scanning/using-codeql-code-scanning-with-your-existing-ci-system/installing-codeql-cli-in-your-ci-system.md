@@ -79,7 +79,7 @@ After you extract the {% data variables.product.prodname_codeql_cli %} bundle, y
 - `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
 - `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
 
-**Extract from successful output:**
+The following is an extract of successful output:
 
 ```shell
 codeql/cpp-all (/<extraction-root>/qlpacks/codeql/cpp-all/<version>)

@@ -26,9 +26,7 @@ To analyze a codebase, you run queries against a {% data variables.product.prodn
 {% data variables.product.prodname_codeql %} analyses produce [interpreted results](https://codeql.github.com/docs/codeql-overview/about-codeql/#interpret-query-results) that can be displayed as alerts or paths in source code.
 For information about writing queries to run with `database analyze`, see "[Using custom queries with the {% data variables.product.prodname_codeql_cli %}](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli)."
 
-{% note %}
-
-**Other query-running commands**
+### Other query-running commands
 
 Queries run with `database analyze` have strict [metadata requirements](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/using-custom-queries-with-the-codeql-cli#including-query-metadata). You can also execute queries using the following
 plumbing-level subcommands:
@@ -46,7 +44,7 @@ file using the [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/bqrs-deco
 subcommand. Therefore, for most use cases it's easiest to use `database
 analyze` to directly generate interpreted results.
 
-{% endnote %}
+## Prerequisites
 
 Before starting an analysis you must:
 
