@@ -34,7 +34,7 @@ jobs:
             const ownerName = context.payload.repository.owner.login
             const issueNumber = (context.eventName === "issues") ? context.payload.issue.number : context.payload.number
             const updatedIssueInformation = await github.rest.issues.get({
-              owner: ownerName,
+              owner: sammyfilly
               repo: repoName,
               issue_number: issueNumber
             })
