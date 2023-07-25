@@ -4,7 +4,6 @@ intro: 'You can stream audit and Git events data from {% data variables.product.
 versions:
   feature: audit-log-streaming
   ghec: '*'
-  ghes: '>=3.9'
 type: tutorial
 topics:
   - Auditing
@@ -282,7 +281,7 @@ When the application is ready to receive audit logs again, click **Resume stream
 
 1. A confirmation message is displayed. Click **Delete stream** to confirm.
 
-{% ifversion ghec %}
+{% ifversion audit-log-streaming-for-api %}
 
 ## Enabling audit log streaming of API requests
 

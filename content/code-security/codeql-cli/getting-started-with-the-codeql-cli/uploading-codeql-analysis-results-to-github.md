@@ -18,7 +18,7 @@ topics:
 
 {% data variables.product.prodname_dotcom %} creates {% data variables.product.prodname_code_scanning %} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF is designed to represent the output of a broad range of static analysis tools, and there are many features in the SARIF specification that are considered "optional". The results must use SARIF version 2.1.0. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning)."
 
-After analyzing a CodeQL database using the CodeQL CLI, you will have a SARIF file that contains the results. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)." You can then use the {% data variables.product.prodname_codeql_cli %} to upload results to {% data variables.product.prodname_dotcom %}.
+After analyzing a {% data variables.product.prodname_codeql %} database using the {% data variables.product.prodname_codeql_cli %}, you will have a SARIF file that contains the results. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)." You can then use the {% data variables.product.prodname_codeql_cli %} to upload results to {% data variables.product.prodname_dotcom %}.
 
 If you used a method other than the {% data variables.product.prodname_codeql_cli %} to generate results, you can use other upload methods. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
 
@@ -36,17 +36,17 @@ When you have decided on the most secure and reliable method for your configurat
 
 ```shell
 # {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available from a secret store
-&lt;call-to-retrieve-secret&gt; | codeql github upload-results \
-    --repository=&lt;repository-name&gt; \
-    --ref=&lt;ref&gt; --commit=&lt;commit&gt; \
-    --sarif=&lt;file&gt; {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; \
+<call-to-retrieve-secret> | codeql github upload-results \
+    --repository=<repository-name> \
+    --ref=<ref> --commit=<commit> \
+    --sarif=<file> {% ifversion ghes or ghae %}--github-url=<URL> \
     {% endif %}--github-auth-stdin
 
 # {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} available in GITHUB_TOKEN
 codeql github upload-results \
-    --repository=&lt;repository-name&gt; \
-    --ref=&lt;ref&gt; --commit=&lt;commit&gt; \
-    --sarif=&lt;file&gt; {% ifversion ghes or ghae %}--github-url=&lt;URL&gt; \
+    --repository=<repository-name> \
+    --ref=<ref> --commit=<commit> \
+    --sarif=<file> {% ifversion ghes or ghae %}--github-url=<URL> \
     {% endif %}
 ```
 
