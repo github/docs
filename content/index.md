@@ -141,6 +141,12 @@ childGroups:
       - sponsors
       - education
       - support
+  - name: More docs
+    octicon: PencilIcon
+    children:
+      - electron
+      - codeql
+      - npm
 externalProducts:
   electron:
     id: electron

@@ -74,9 +74,12 @@ export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps)
 
               return (
                 <li key={product.name} className="pt-2">
-                  <Link href={href(product)} target={product.external ? '_blank' : undefined}>
+                  <Link
+                    href={group.name === 'More docs' ? product.href : href(product)}
+                    target={product.external ? '_blank' : undefined}
+                  >
                     {product.name}
-                    {product.external && (
+                    {group.name === 'More docs' && (
                       <span className="ml-1">
                         <LinkExternalIcon aria-label="(external site)" size="small" />
                       </span>
