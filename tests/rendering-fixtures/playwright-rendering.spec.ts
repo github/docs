@@ -256,15 +256,15 @@ test('hovercards', async ({ page }) => {
 })
 
 test.describe('test nav at different viewports', () => {
-  test('x-large viewports - 1280+', async ({ page }) => {
+  test('xx-large viewports - 1400+', async ({ page }) => {
     page.setViewportSize({
-      width: 1300,
+      width: 1400,
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
 
-    // in article breadcrumbs at xl viewport should remove last breadcrumb so
-    // for this page we should only have 'Get Started / Foo'
+    // in article breadcrumbs at our custom xl viewport should remove last
+    // breadcrumb so for this page we should only have 'Get Started / Foo'
     expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
