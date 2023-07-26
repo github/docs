@@ -51,6 +51,38 @@ function HomePage(props: HomePageProps) {
   const { gettingStartedLinks, popularLinks, productGroups } = props
   const { t } = useTranslation(['toc'])
 
+  // Adding external links here due to accessibility design changes where we removed the sidebar on the homepage
+  // docs-team 2965
+  if (!productGroups.find((group) => group.name === 'More docs')) {
+    productGroups.push({
+      name: 'More docs',
+      octicon: 'PencilIcon',
+      children: [
+        {
+          id: 'electron',
+          name: 'Electron',
+          href: 'https://www.electronjs.org/docs/latest',
+          versions: [],
+          external: true,
+        },
+        {
+          id: 'codeql',
+          name: 'CodeQL',
+          href: 'https://codeql.github.com/docs/',
+          versions: [],
+          external: true,
+        },
+        {
+          id: 'npm',
+          name: 'npm',
+          href: 'https://docs.npmjs.com/',
+          versions: [],
+          external: true,
+        },
+      ],
+    })
+  }
+
   return (
     <div>
       <HomePageHero />
