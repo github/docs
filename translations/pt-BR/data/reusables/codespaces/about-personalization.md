@@ -1,1 +1,0 @@
-Você também pode personalizar aspectos do ambiente dos espaços de códigos para qualquer espaço de código que sua conta criar. A personalização pode incluir preferências de shell e ferramentas adicionais.

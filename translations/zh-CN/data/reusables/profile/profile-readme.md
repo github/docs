@@ -1,1 +1,0 @@
-如果将 README 文件添加到与用户名同名的公共仓库的根目录，则该 README 将自动显示在您的个人资料页面上。 You can edit your profile README with {% data variables.product.company_short %} Flavored Markdown to create a personalized section on your profile. For more information, see "[Managing your profile README](/github/setting-up-and-managing-your-github-profile/managing-your-profile-readme)."

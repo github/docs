@@ -1,4 +1,5 @@
-1. As a site admin, [SSH into your target {% data variables.product.prodname_ghe_server %} instance](/enterprise/admin/guides/installation/accessing-the-administrative-shell-ssh/).
+1. As a site admin, [SSH into your target {% data variables.product.prodname_ghe_server %} instance]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
+
 ```shell
-$ ssh -p 122 admin@<em>HOSTNAME</em>
+ssh -p 122 admin@HOSTNAME
 ```

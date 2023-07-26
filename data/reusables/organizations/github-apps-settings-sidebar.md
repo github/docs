@@ -1,2 +1,1 @@
-1. In the left sidebar, click **{% data variables.product.prodname_github_app %}s**.
-![{% data variables.product.prodname_github_app %}s settings](/assets/images/help/organizations/github-apps-settings-sidebar.png)
+1. In the left sidebar, select **{% octicon "code" aria-hidden="true" %} Developer settings** then click **{% data variables.product.prodname_github_apps %}**.

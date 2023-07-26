@@ -1,2 +1,1 @@
-1. In the left sidebar, click **Verified domains**.
-![Verified domains button](/assets/images/help/organizations/verified-domains-button.png)
+1. In the "Security" section of the sidebar, click **{% octicon "verified" aria-hidden="true" %} Verified and approved domains**.

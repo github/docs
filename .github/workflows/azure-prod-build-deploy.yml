@@ -1,0 +1,156 @@
+name: Azure Production - Build and Deploy
+
+# **What it does**: Builds and deploys the default branch to production
+# **Why we have it**: To enable us to deploy the latest to production whenever necessary rather than relying on PR merges.
+# **Who does it impact**: All contributors.
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+# This allows a subsequently queued workflow run to take priority over
+# previously queued runs but NOT interrupt currently executing runs
+concurrency:
+  group: '${{ github.workflow }}'
+  cancel-in-progress: false
+
+jobs:
+  azure-prod-build-and-deploy:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-20.04-xl
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: 'https://docs.github.com'
+    env:
+      DOCKER_IMAGE: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:${{ github.sha }}
+      DOCKER_IMAGE_CACHE_REF: ${{ secrets.PROD_REGISTRY_SERVER }}/${{ github.repository }}:main-production
+
+    steps:
+      - name: 'Az CLI login'
+        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
+        with:
+          creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
+
+      - name: 'Docker login'
+        uses: azure/docker-login@83efeb77770c98b620c73055fbb59b2847e17dc0
+        with:
+          login-server: ${{ secrets.PROD_REGISTRY_SERVER }}
+          username: ${{ secrets.PROD_REGISTRY_USERNAME }}
+          password: ${{ secrets.PROD_REGISTRY_PASSWORD }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
+
+      - name: Check out repo
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        with:
+          ref: ${{ github.sha }}
+          # To prevent issues with cloning early access content later
+          persist-credentials: 'false'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
+        with:
+          node-version-file: 'package.json'
+          cache: npm
+
+      - name: Clone docs-early-access
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+        with:
+          repository: github/docs-early-access
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          path: docs-early-access
+
+      - name: Merge docs-early-access repo's folders
+        run: src/early-access/scripts/merge-early-access.sh
+
+      - uses: ./.github/actions/warmup-remotejson-cache
+        with:
+          restore-only: true
+
+      - uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - name: 'Build and push image'
+        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
+        with:
+          context: .
+          push: true
+          target: production
+          tags: ${{ env.DOCKER_IMAGE }}, ${{ env.DOCKER_IMAGE_CACHE_REF }}
+          cache-from: type=registry,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
+          cache-to: type=registry,mode=max,ref=${{ env.DOCKER_IMAGE_CACHE_REF }}
+          build-args: |
+            BUILD_SHA=${{ github.sha }}
+
+      - name: 'Update docker-compose.prod.yaml template file'
+        run: |
+          sed 's|#{IMAGE}#|${{ env.DOCKER_IMAGE }}|g' docker-compose.prod.tmpl.yaml > docker-compose.prod.yaml
+
+      - name: 'Apply updated docker-compose.prod.yaml config to canary slot'
+        run: |
+          az webapp config container set --multicontainer-config-type COMPOSE --multicontainer-config-file docker-compose.prod.yaml --slot canary -n ghdocs-prod -g docs-prod
+
+      # Watch canary slot instances to see when all the instances are ready
+      - name: Check that canary slot is ready
+        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        env:
+          CHECK_INTERVAL: 10000
+        with:
+          script: |
+            const { execSync } = require('child_process')
+
+            const getStatesForSlot = (slot) => {
+              return JSON.parse(
+                execSync(
+                  `az webapp list-instances --slot ${slot} --query "[].state" -n ghdocs-prod -g docs-prod`,
+                  { encoding: 'utf8' }
+                )
+              )
+            }
+
+            let hasStopped = false
+            const waitDuration = parseInt(process.env.CHECK_INTERVAL, 10) || 10000
+            async function doCheck() {
+              const states = getStatesForSlot('canary')
+              console.log(`Instance states:`, states)
+
+              // We must wait until at-least 1 instance has STOPPED to know we're looking at the "next" deployment and not the "previous" one
+              // That way we don't immediately succeed just because all the previous instances were READY
+              if (!hasStopped) {
+                hasStopped = states.some((s) => s === 'STOPPED')
+              }
+
+              const isAllReady = states.every((s) => s === 'READY')
+
+              if (hasStopped && isAllReady) {
+                process.exit(0) // success
+              }
+
+              console.log(`checking again in ${waitDuration}ms`)
+              setTimeout(doCheck, waitDuration)
+            }
+
+            doCheck()
+
+      # TODO - make a request to verify the canary app version aligns with *this* github action workflow commit sha
+      - name: 'Swap canary slot to production'
+        run: |
+          az webapp deployment slot swap --slot canary --target-slot production -n ghdocs-prod -g docs-prod
+
+      - name: Send Slack notification if workflow failed
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+        if: ${{ failure() }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: Production deployment (Azure) failed at commit ${{ github.sha }}. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

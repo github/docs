@@ -1,1 +1,0 @@
-1. Klicke auf der linken Seitenleiste auf **Privacy** (Datenschutz). ![Registerkarte „Privacy“ (Datenschutz) auf der Seitenleiste mit den Einstellungen](/assets/images/enterprise/management-console/sidebar-privacy.png)

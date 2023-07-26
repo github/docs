@@ -1,44 +1,42 @@
 ---
-title: GitHub Packages Documentation
+title: GitHub Packages documentation
 shortTitle: GitHub Packages
 intro: 'Learn to safely publish and consume packages, store your packages alongside your code, and share your packages privately with your team or publicly with the open source community. You can also automate your packages with {% data variables.product.prodname_actions %}.'
 introLinks:
   quickstart: /packages/quickstart
   reference: /packages/manage-packages
 featuredLinks:
-  guides:
+  startHere:
     - /packages/learn-github-packages
-    - /packages/guides/using-github-packages-with-github-actions
-    - /packages/manage-packages/installing-a-package
+    - /packages/managing-github-packages-using-github-actions-workflows
+    - /packages/learn-github-packages/installing-a-package
   popular:
-    - /packages/guides/configuring-npm-for-use-with-github-packages
-    - /packages/learn-github-packages/about-github-packages
-    - /packages/guides/configuring-apache-maven-for-use-with-github-packages
+    - /packages/working-with-a-github-packages-registry/working-with-the-npm-registry
+    - '{% ifversion docker-ghcr-enterprise-migration %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
+    - /packages/learn-github-packages
+    - /packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
   guideCards:
-    - /packages/guides/configuring-npm-for-use-with-github-packages
-    - /packages/guides/enabling-improved-container-support
-    - /packages/guides/configuring-rubygems-for-use-with-github-packages
+    - '{% ifversion docker-ghcr-enterprise-migration %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
+    - /packages/working-with-a-github-packages-registry/working-with-the-container-registry
+    - '{% ifversion packages-npm-v2 %}/packages/working-with-a-github-packages-registry/working-with-the-npm-registry{% endif %}'
+    - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry
 changelog:
-  - title: Packages container support is an opt-in beta
-    date: '2020-11-17'
-    href: https://docs.github.com/packages/getting-started-with-github-container-registry/enabling-improved-container-support
-  - title: Organization admins access to containers
-    date: '2020-11-16'
-    href: https://github.blog/changelog/2020-11-16-packages-organization-admins-access-to-containers/
-  - title: Packages now respects IP allow list settings
-    date: '2020-11-12'
-    href: https://github.blog/changelog/2020-11-12-packages-now-respects-ip-allow-list-settings/
+  label: packages
+  prefix: 'Packages: '
 redirect_from:
   - /github/managing-packages-with-github-packages
   - /categories/managing-packages-with-github-package-registry
   - /github/managing-packages-with-github-package-registry
 layout: product-landing
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+children:
+  - /quickstart
+  - /learn-github-packages
+  - /working-with-a-github-packages-registry
+  - /managing-github-packages-using-github-actions-workflows
 ---
-
-<!-- {% link_with_intro /quickstart %}  -->
-<!-- {% link_with_intro /guides %} -->
-<!-- {% link_with_intro /learn-github-packages %} -->
-<!-- {% link_with_intro /manage-packages %} -->
+<!--This section is needed to determine the order of the left sidebar for now-->

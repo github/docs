@@ -1,1 +1,0 @@
-Qualquer pessoa pode publicar uma ação em {% data variables.product.prodname_marketplace %}. {% data variables.product.prodname_dotcom %} verifica algumas organizações parceiras, mas, diferentemente dos aplicativos verificados, {% data variables.product.prodname_dotcom %} não revisa ou verifica ações individuais listadas em {% data variables.product.prodname_marketplace %}.

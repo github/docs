@@ -1,1 +1,0 @@
-1. Klicke auf der linken Seitenleiste auf **Billing** (Abrechnung). ![Registerkarte „Billing“ (Abrechnung) auf der Seitenleiste mit den Einstellungen des Enterprise-Kontos](/assets/images/help/business-accounts/settings-billing-tab.png)

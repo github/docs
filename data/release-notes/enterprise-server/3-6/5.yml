@@ -1,0 +1,45 @@
+date: '2022-12-13'
+sections:
+  security_fixes:
+    - |
+      **HIGH**: A path traversal vulnerability was identified in GitHub Enterprise Server that allowed remote code execution when building a GitHub Pages site. To exploit this vulnerability, an attacker would need permission to create and build a GitHub Pages site on the instance. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2022-46256](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-46256).
+    - |
+      **HIGH**: An incorrect authorization vulnerability allowed a scoped user-to-server token to escalate to full admin access for a repository. An attacker would require an account with admin access to install a malicious GitHub App. This vulnerability affected all versions of GitHub Enterprise Server prior to 3.7.0. This vulnerability was reported via the GitHub Bug Bounty program and has been assigned [CVE-2022-23741](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-23741).
+    - "**MEDIUM**: An information disclosure vulnerability was identified in GitHub Enterprise Server that allowed private repositories to be added to a GitHub Actions runner group via the API by a user who did not have access to those repositories, resulting in the repository names being shown in the UI. To exploit this vulnerability, an attacker would need access to the GHES instance, permissions to modify GitHub Actions runner groups, and successfully guess the obfuscated ID of private repositories. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2022-46257](https://www.cve.org/CVERecord?id=CVE-2022-46257)."
+  bugs:
+    - A race condition blocked upgrades to GitHub Enterprise Server 3.6 or later until a site administrator retried the upgrade.
+    - Site administrators were not able to manage security products settings for repositories they had unlocked.
+    - When a site administrator ran the `ghe-repl-status` command on a cache replica via the administrative shell (SSH), the command incorrectly reported overall Git and Alambic cluster replication status information as if it pertained only to cache replication.
+    - When a site administrator ran the `ghe-repl-sync-ca-certificates` command from an instances primary node via the administrative shell (SSH), the command only replicated CA certificates from the instances primary node to a single replica node. The command did not replicate the certificates to all available replica nodes.
+    - When using repository caching with an instance in a high availability configuration, if a Git client used SSH instead of HTTPS for a repositorys remote URL, Git LFS would fetch objects from the instances primary node instead of the appropriate cache replica node.
+    - Installation of GitHub Enterprise Server on the VMware ESXi hypervisor failed due to the generation of an OVA file with an invalid capacity value.
+    - When users performed an operation using the API, GitHub Enterprise Server enforced repository size quotas even when disabled globally.
+    - If a user uploaded more than one file while creating a new Gist, the user could not delete any files uploaded after the first.
+    - In some cases, searches via the API returned a `500` error.
+    - In some cases, when browsing repositories in the web interface, an erroneous banner indicated that a repository didn't contain a specific undefined path on the current branch.
+    - The `member` webhook event did not include the `from` and `to` field values for the `permission` field as part of the `changes` field.
+    - Adding a collaborator to a user-owned fork of a private, organization-owned repository with triage, maintain, or custom access resulted in a `500` error.
+    - In some cases, the page for setting up code scanning would erroneously report that GitHub Actions was not configured for the instance.
+    - After a user's account was deleted from the instance, image attachments that the user uploaded in comments were no longer visible in the web interface.
+    - A debug-level message appeared in a system log, which could consume space rapidly on the instance's root storage volume.
+  changes:
+    - To avoid failing domain verification due to the 63-character limit enforced by DNS providers for DNS records, the GitHub-generated `TXT` record to verify domain ownership is now limited to 63 characters.
+    - After an enterprise owner enables Dependabot alerts, GitHub Enterprise Server enqueues the synchronization of advisory data to ensure hourly updates from GitHub.com.
+    - A user's list of recently accessed repositories no longer includes deleted repositories.
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
+    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - In some cases, users cannot convert existing issues to discussions.
+    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - '{% data reusables.release-notes.repository-inconsistencies-errors %}'
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
+    - '{% data reusables.release-notes.user-already-taken %}'

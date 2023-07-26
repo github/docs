@@ -1,1 +1,0 @@
-Es posible que {% data variables.product.prodname_dotcom %} tarde algunos días en revisar tu aplicación. Una vez que aprobemos tu aplicación, tu perfil automáticamente estará activo en [{% data variables.product.prodname_sponsors %}](https://github.com/sponsors).

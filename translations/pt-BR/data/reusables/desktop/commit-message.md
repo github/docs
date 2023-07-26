@@ -1,1 +1,0 @@
-1. Na parte inferior da lista de alterações, no campo Summary (Resumo), digite uma mensagem de commit curta e significativa. Como alternativa, é possível adicionar mais informações sobre as alterações no campo Description (Descrição).

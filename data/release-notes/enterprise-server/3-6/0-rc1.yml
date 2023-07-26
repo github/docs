@@ -1,0 +1,297 @@
+date: '2022-07-26'
+release_candidate: true
+deprecated: true
+intro: |
+  {% note %}
+
+  **Note:** If {% data variables.location.product_location %} is running a release candidate build, you can't upgrade with a hotpatch. We recommend that you only run release candidates in a test environment.
+
+  {% endnote %}
+
+  For upgrade instructions, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+sections:
+  features:
+    - heading: Infrastructure
+      notes:
+        # https://github.com/github/releases/issues/2002
+        - |
+          Repository caching is generally available. Repository caching increases Git read performance for distributed developers, providing the data locality and convenience of geo-replication without impact on push workflows. With the general availability release, GitHub Enterprise Server caches both Git and Git LFS data. For more information, see "[AUTOTITLE](/admin/enterprise-management/caching-repositories/about-repository-caching)."
+
+    - heading: Instance security
+      notes:
+        # https://github.com/github/releases/issues/1569
+        - |
+          GitHub has changed the supported algorithms and hash functions for all SSH connections to GitHub Enterprise Server, disabled the unencrypted and unauthenticated Git protocol, and optionally allowed the advertisement of an Ed25519 host key. For more information, see the [GitHub Blog](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server/) and the following articles.
+
+          - "[Configuring SSH connections to your instance](/admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance)"
+          - "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#configuring-anonymous-git-read-access)"
+          - "[Configuring host keys for your instance](/admin/configuration/configuring-your-enterprise/configuring-host-keys-for-your-instance)"
+
+        # https://github.com/github/releases/issues/2341
+        - |
+          You can require TLS encryption for incoming SMTP connections to your instance. For more information, see "[Configuring email for notifications](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications)."
+
+    - heading: Audit logs
+      notes:
+        # https://github.com/github/releases/issues/1438
+        - |
+          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+
+    - heading: GitHub Connect
+      notes:
+        # https://github.com/github/releases/issues/2306
+        - |
+          Server Statistics is now generally available. Server Statistics collects aggregate usage data from your GitHub Enterprise Server instance, which you can use to better anticipate the needs of your organization, understand how your team works, and show the value you get from GitHub Enterprise Server. For more information, see "[About Server Statistics](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics)."
+
+    - heading: Administrator experience
+      notes:
+        # https://github.com/github/releases/issues/2351
+        - |
+          Enterprise owners can join organizations on the instance as a member or owner from the enterprise account's **Organizations** page. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+
+        # https://github.com/github/releases/issues/2221
+        - |
+          Enterprise owners can allow users to dismiss the configured global announcement banner. For more information, see "[Customizing user messages for your enterprise](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)."
+
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/2321
+        - |
+          Users on an instance with a GitHub Advanced Security license can opt to receive a webhook event that triggers when an organization owner or repository administrator enables or disables a code security or analysis feature. For more information, see the following documentation.
+
+          - "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis)" in the webhook documentation
+          - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
+          - "[Managing security and analysis features for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
+
+        # https://github.com/github/releases/issues/2191
+        - |
+          Users on an instance with a GitHub Advanced Security license can optionally add a comment when dismissing a code scanning alert in the web UI or via the REST API. Dismissal comments appear in the event timeline. Users can also add or retrieve a dismissal comment via the REST API. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests#dismissing-an-alert-on-your-pull-request)" and "[Code Scanning](/rest/code-scanning#update-a-code-scanning-alert)" in the REST API documentation.
+
+        # https://github.com/github/releases/issues/2228
+        - |
+          On instances with a GitHub Advanced Security license, secret scanning prevents the leak of secrets in the web editor. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)."
+
+        # https://github.com/github/releases/issues/2318
+        # https://github.com/github/releases/issues/2277
+        - |
+          Enterprise owners and users on an instance with a GitHub Advanced Security license can view secret scanning alerts and bypasses of secret scanning's push protection in the enterprise and organization audit logs, and via the REST API. For more information, see the following documentation.
+
+          - "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)"
+          - "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)"
+          - "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)"
+          - "[Secret Scanning](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)" in the REST API documentation
+
+        # https://github.com/github/releases/issues/2230
+        # https://github.com/github/releases/issues/2317
+        - |
+          Enterprise owners on an instance with a GitHub Advanced Security license can perform dry runs of custom secret scanning patterns for the enterprise, and all users can perform dry runs when editing a pattern. Dry runs allow you to understand a pattern's impact across the entire instance and hone the pattern before publication and generation of alerts. For more information, see "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+
+        # https://github.com/github/releases/issues/2236
+        - |
+          Users on an instance with a GitHub Advanced Security license can use `sort` and `direction` parameters in the REST API when retrieving secret scanning alerts, and sort based on the alert’s `created` or `updated` fields. The new parameters are available for the entire instance, or for individual organizations or repositories. For more information, see the following documentation.
+
+          - "[List secret scanning alerts for an enterprise](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)"
+          - "[List secret scanning alerts for an organization](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)"
+          - "[List secret scanning alerts for a repository](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)"
+          - "[Secret Scanning](/rest/secret-scanning)" in the REST API documentation
+
+        # https://github.com/github/releases/issues/2263
+        - |
+          The contents of the `github/codeql-go` repository have moved to the `github/codeql` repository, to live alongside similar libraries for all other programming languages supported by CodeQL. The open-source CodeQL queries, libraries, and extractor for analyzing codebases written in the Go programming language with GitHub's CodeQL code analysis tools can now be found in the new location. For more information, including guidance on migrating your existing workflows, see [github/codeql-go#741](https://github.com/github/codeql-go/issues/741).
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/2256
+        - |
+          Enterprise owners on instances with a GitHub Advanced Security license can see an overview of Dependabot alerts for the entire instance, including a repository-centric view of application security risks, and an alert-centric view of all secret scanning and Dependabot alerts. The views are in beta and subject to change, and alert-centric views for code scanning are planned for a future release of GitHub Enterprise Server. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)."
+
+        # https://github.com/github/releases/issues/2160
+        - |
+          Users can select multiple Dependabot alerts, then dismiss or reopen or dismiss the alerts. For example, from the **Closed alerts** tab, you can select multiple alerts that have been previously dismissed, and then reopen them all at once. For more information, see "[About Dependabot alerts](/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-alerts-for-vulnerable-dependencies)."
+
+        # https://github.com/github/releases/issues/2232
+        - |
+          Dependabot updates `@types` dependencies alongside corresponding packages in TypeScript projects. Before this change, users would see separate pull requests for a package and the corresponding `@types` package. This feature is automatically enabled for repositories containing `@types` packages in the project's `devDependencies` within the _package.json_ file. You can disable this behavior by setting the [`ignore`](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore) field in your `dependabot.yml` file to `@types/*`. For more information, see "[About Dependabot version updates](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)" and "[Configuration options for the _dependabot.yml_ file](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+
+    - heading: Code security
+      notes:
+        # https://github.com/github/releases/issues/2098
+        # https://github.com/github/releases/issues/2282
+        - |
+          GitHub Actions can enforce dependency reviews on users' pull requests by scanning for dependencies, and will warn users about associated security vulnerabilities. The `dependency-review-action` action is supported by a new API endpoint that diffs the dependencies between any two revisions. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."
+
+        # https://github.com/github/releases/issues/2243
+        - |
+          The dependency graph detects _Cargo.toml_ and _Cargo.lock_ files for Rust. These files will be displayed in the **Dependency graph** section of the **Insights** tab. Users will receive Dependabot alerts and updates for vulnerabilities associated with their Rust dependencies. Package metadata, including mapping packages to repositories, will be added at a later date. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+
+        # https://github.com/github/releases/issues/1766
+        - |
+          If GitHub Connect is enabled for your instance, users can contribute an improvement to a security advisory in the [GitHub Advisory Database](https://github.com/advisories). To contribute, click **Suggest improvements for this vulnerability** while viewing an advisory's details. For more information, see the following articles.
+
+          - "[Managing GitHub Connect](/admin/configuration/configuring-github-connect/managing-github-connect)"
+          - "[Browsing security vulnerabilities in the GitHub Advisory Database](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)" in the GitHub Enterprise Cloud documentation
+          - "[About GitHub Security Advisories for repositories](/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)" in the GitHub Enterprise Cloud documentation
+          - "[Editing security advisories in the GitHub Advisory Database](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)" in the GitHub Enterprise Cloud documentation
+
+    - heading: GitHub Actions
+      notes:
+        # https://github.com/github/releases/issues/2159
+        - |
+          Within a workflow that calls a reusable workflow, users can pass the secrets to the reusable workflow with `secrets: inherit`. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows#using-inputs-and-secrets-in-a-reusable-workflow)."
+
+        # https://github.com/github/releases/issues/2102
+        - |
+          When using GitHub Actions, to reduce the risk of merging a change that was not reviewed by another person into a protected branch, enterprise owners and repository administrators can prevent Actions from creating pull requests. Organization owners could previously enable this restriction. For more information, see the following articles.
+
+          - "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)"
+          - "[Disabling or limiting GitHub Actions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests)"
+          - "[Managing GitHub Actions settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"
+
+        # https://github.com/github/releases/issues/2155
+        - |
+          Users can write a single workflow triggered by `workflow_dispatch` and `workflow_call`, and use the `inputs` context to access input values. Previously, `workflow_dispatch` inputs were in the event payload, which increased difficulty for workflow authors who wanted to write one workflow that was both reusable and manually triggered. For workflows triggered by `workflow_dispatch`, inputs are still available in the `github.event.inputs` context to maintain compatibility.  For more information, see "[Contexts](/actions/learn-github-actions/contexts#inputs-context)."
+
+        # https://github.com/github/releases/issues/2103
+        - |
+          To summarize the result of a job, users can generate Markdown and publish the contents as a job summary. For example, after running tests with GitHub Actions, a summary can provide an overview of passed, failed, or skipped tests, potentially reducing the need to review the full log output. For more information, see "[Workflow commands for GitHub Actions](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)."
+
+        # https://github.com/github/releases/issues/2161
+        - |
+          To more easily diagnose job execution failures during a workflow re-run, users can enable debug logging, which outputs information about a job's execution and environment. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)" and "[Using workflow run logs](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+
+        # https://github.com/github/releases/issues/2140
+        - |
+          If you manage self-hosted runners for GitHub Actions, you can ensure a consistent state on the runner itself before and after a workflow run by defining scripts to execute. By using scripts, you no longer need to require that users manually incorporate these steps into workflows. Pre- and post-job scripts are in beta and subject to change. For more information, see "[Running scripts before or after a job](/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job)."
+
+    - heading: GitHub Packages
+      notes:
+        # https://github.com/github/releases/issues/2334
+        - |
+          Enterprise owners can migrate container images from the GitHub Docker registry to the GitHub Container registry. The Container registry provides the following benefits.
+
+          - Improves the sharing of containers within an organization
+          - Allows the application of granular access permissions
+          - Permits the anonymous sharing of public container images
+          - Implements OCI standards for hosting Docker images
+
+          The Container registry is in beta and subject to change. For more information, see "[Migrating your enterprise to the Container registry from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)."
+
+    - heading: Community experience
+      notes:
+        # https://github.com/github/releases/issues/2113
+        - |
+          GitHub Discussions is available for GitHub Enterprise Server. GitHub Discussions provides a central gathering space to ask questions, share ideas, and build connections. For more information, see "[GitHub Discussions](/discussions)."
+
+        # https://github.com/github/releases/issues/2259
+        - |
+          Enterprise owners can configure a policy to control whether people's usernames or full names are displayed within internal or public repositories. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-display-of-member-names-in-your-repositories)."
+
+    - heading: Organizations
+      notes:
+        # https://github.com/github/releases/issues/2019
+        - |
+          Users can create member-only READMEs for an organization. For more information, see "[Customizing your organization's profile](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
+
+        # https://github.com/github/releases/issues/2234
+        - |
+          Organization owners can pin a repository to an organization's profile directly from the repository via the new **Pin repository** dropdown. Pinned public repositories appear to all users of your instance, while public, private, and internal repositories are only visible to organization members.
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/releases/issues/2214
+        - |
+          While creating a fork, users can customize the fork's name. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
+
+        # https://github.com/github/releases/issues/1973
+        - |
+          Users can block creation of branches that match a configured name pattern with the **Restrict pushes that create matching branches** branch protection rule. For example, if a repository's default branch changes from `master` to `main`, a repository administrator can prevent any subsequent creation or push of the `master` branch. For more information, see 
+          "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#restrict-who-can-push-to-matching-branches)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
+
+        # https://github.com/github/releases/issues/2179
+        - |
+          Users can create a branch directly from a repository's **Branches** page by clicking the **New branch**. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+
+        # https://github.com/github/releases/issues/2220
+        - |
+          Users can delete a branch that's associated with an open pull request. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+
+        # https://github.com/github/releases/issues/2118
+        - |
+          Repositories with multiple licenses display all of the licenses in the "About" sidebar on the {% octicon "code" aria-label="The code icon" %} **Code** tab. For more information, see "[Licensing a repository](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
+
+        # https://github.com/github/releases/issues/2233
+        - When a user renames or moves a file to a new directory, if at least half of the file's contents are identical, the commit history indicates that the file was renamed, similar to `git log --follow`. For more information, see the [GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/).
+
+        # https://github.com/github/releases/issues/2093
+        - |
+          Users can require a successful deployment of a branch before anyone can merge the pull request associated with the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-deployments-to-succeed-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
+
+        # https://github.com/github/releases/issues/2073
+        - |
+          Enterprise owners can prevent organization owners from inviting collaborators to repositories on the instance. For more information, see "[Enforcing a policy for inviting collaborators to repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)."
+
+        # https://github.com/github/releases/issues/2173
+        - |
+          Users can grant exceptions to GitHub Apps for any branch protection rule that supports exceptions. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
+
+    - heading: Commits
+      notes:
+        # https://github.com/github/releases/issues/2306
+        - |
+          For public GPG signing keys that are expired or revoked, GitHub Enterprise Server verifies Git commit signatures and show commits as verified if the user made the commit while the key was still valid. Users can also upload expired or revoked GPG keys. For more information, see "[About commit signature verification](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+
+        # https://github.com/github/releases/issues/1977
+        - |
+          To affirm that a commit complies with the rules and licensing governing a repository, organization owners and repository administrators can now require developers to sign off on commits made through the web interface. For more information, see "[Managing the commit signoff policy for your organization](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)" and "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+
+    - heading: Pull requests
+      notes:
+        # https://github.com/github/releases/issues/2261
+        - |
+          Using the file tree located in the **Files changed** tab of a pull request, users can navigate modified files, understand the size and scope of changes, and focus reviews. The file tree appears if a pull request modifies at least two files, and the browser window is sufficiently wide. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)" and "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+
+        # https://github.com/github/releases/issues/2167
+        - |
+          Users can default to using pull requests titles as the commit message for all squash merges. For more information, see "[Configuring commit squashing for pull requests](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)."
+
+    - heading: Releases
+      notes:
+        # https://github.com/github/releases/issues/2281
+        - |
+          When viewing the details for a particular release, users can see the creation date for each release asset. For more information, see "[Viewing your repository's releases and tags](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+
+        # https://github.com/github/releases/issues/2279
+        - While creating a release with automatically generated release notes, users can see the tag identified as the previous release, then choose to select a different tag to specify as the previous release. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
+
+    - heading: Markdown
+      notes:
+        # https://github.com/github/releases/issues/2260
+        - |
+          Editing Markdown in the web interface has been improved.
+
+          - After a user selects text and pastes a URL, the selected text will become a Markdown link to the pasted URL.
+          - When a user pastes spreadsheet cells or HTML tables, the resulting text will render as a table.
+          - When a user copies text containing links, the pasted text will include the link as a Markdown link.
+
+          For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)."
+
+        # https://github.com/github/releases/issues/2258
+        - |
+          When editing a Markdown file in the web interface, clicking the **Preview** tab will automatically scroll to the place in the preview that you were editing. The scroll location is based on the position of your cursor before you clicked the **Preview** tab.
+
+  changes:
+    - Interactive elements in the web interface such as links and buttons show a visible outline when focused with a keyboard, to help users find the current position on a page. In addition, when focused, form fields have a higher contrast outline.
+    - If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved.
+
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
+    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - In some cases, users cannot convert existing issues to discussions.
+    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - '{% data reusables.release-notes.ghas-3.4-secret-scanning-known-issue %}'

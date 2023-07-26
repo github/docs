@@ -1,1 +1,0 @@
-Dado que las letras mayúsculas no son compatibles, debes usar minúscula para el propietario del repositorio si el nombre de usuario o el nombre de la organización de {% data variables.product.prodname_dotcom %} contiene letras mayúsculas.

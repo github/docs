@@ -1,0 +1,94 @@
+.markdownBody {
+  ol:not(:global(.no-styling)) {
+    counter-reset: li;
+    list-style: none;
+    position: relative;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+
+    > li {
+      padding: 0.5rem 0 0.5rem 2.5rem;
+      border: 0;
+      position: relative;
+      margin-bottom: 0.25rem;
+
+      &:before {
+        width: calc(1.5rem - 2px);
+        height: calc(1.5rem - 2px);
+        font-size: calc(1rem - 2px);
+        margin: 1px 0 0 0.5rem;
+        content: counter(li);
+        counter-increment: li;
+        position: absolute;
+        left: 0;
+        color: var(--color-canvas-default);
+        font-weight: 500;
+        text-align: center;
+        border-radius: 50%;
+        background-color: var(--color-fg-default);
+      }
+
+      &:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        line-height: 0;
+        height: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      p:first-child {
+        margin-top: 0;
+      }
+
+      p:not(:first-child) {
+        margin-top: 1rem;
+      }
+
+      [class~="ghd-tool"] {
+        margin-top: 1rem;
+      }
+
+      // for one level deep of nested ordered lists we switch bullet points
+      // from the custom numbers to letters
+      ol {
+        padding-left: 2em;
+        counter-reset: revert;
+
+        > li {
+          list-style-type: lower-alpha;
+          padding-left: 0.5rem;
+
+          &:before {
+            all: unset;
+          }
+
+          &:after {
+            all: unset;
+          }
+        }
+      }
+    }
+
+    ol li:before:global(.no-styling) {
+      display: none;
+    }
+  }
+
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Override primer style */
+.markdownBody div > ol:not([type]) {
+  list-style-type: none;
+}

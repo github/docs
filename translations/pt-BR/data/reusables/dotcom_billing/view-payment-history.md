@@ -1,1 +1,0 @@
-1. Em "Billing overview" (Visão geral de cobrança), clique em **View payment history** (Exibir histórico de pagamentos). ![Link View payment history (Exibir histórico de pagamentos)](/assets/images/help/billing/view-payment-history-link.png)

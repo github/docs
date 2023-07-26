@@ -1,1 +1,0 @@
-Cuando se [agrega un repositorio a un equipo](/v3/teams/#add-or-update-team-repository-permissions).

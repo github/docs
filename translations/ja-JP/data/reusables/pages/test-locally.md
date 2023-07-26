@@ -1,1 +1,0 @@
-変更がサイトの公開ソースにマージされると、サイトへの変更は自動的に公開されます。 まず変更をプレビューしたいなら、{% data variables.product.product_name %}ではなくローカルで変更を行えます。 そしてサイトをローカルでテストしてください。 詳しい情報については、「[Jekyll を使用して {% data variables.product.prodname_pages %} サイトをローカルでテストする](/articles/testing-your-github-pages-site-locally-with-jekyll)」を参照してください。

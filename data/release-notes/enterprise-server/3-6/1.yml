@@ -1,0 +1,41 @@
+date: '2022-08-30'
+sections:
+  bugs:
+    - After unlocking a repository for temporary access, a site administrator was unable to manage settings for security products in the repository. 
+    - Duplicate administrative SSH keys could appear in both the Management Console and the `/home/admin/.ssh/authorized_keys` file.
+    - The site admin page for individual users at <code>http(s)://<em>HOSTNAME</em>/stafftools/users/<em>USERNAME</em>/admin</code> contained functionality not intended for GitHub Enterprise Server.  
+    - In some cases, running `ghe-cluster-config-apply` could replicate an empty configuration to existing nodes in a cluster. 
+    - In some cases, configuration runs started with `ghe-config-apply` did not complete, or returned a `Container count mismatch` error. 
+    - After updating a self-signed TLS certificate on a GitHub Enterprise Server instance, UI elements on some pages in the web interface did not appear. 
+    - In some cases, background tasks could stall due to a library that was used concurrently despite not being thread-safe.
+    - The site admin bar at the top of the web interface contained a broken link to the SHA for the currently running version of the application.
+    - Organization owners were unable to set the level of access required to create discussions. 
+    - Discussions users were incorrectly directed to the community guidelines for GitHub.com.
+    - In some cases, users were incorrectly instructed to verify their email before creating a discussion.
+    - Alerts from secret scanning for GitHub Advanced Security customers were missing in the web UI and REST API if a site administrator did not upgrade directly to GitHub Enterprise Server 3.4. The alerts are now visible.
+  changes:
+    - Generation of support bundles is faster as a result of parallelized log sanitization. For more information about support bundles, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
+    - APIs that contain the `organization` or `org` route now accept either the organization's slug or ID. Previously, the APIs only accepted slugs, which caused `Link` headers for GitHub Advanced Security endpoints to be inaccessible. For more information, see "[Organizations](https://docs.github.com/rest/orgs/orgs)" in the REST API documentation. 
+    - The enterprise audit log now includes more user-generated events, such as `project.create`. The REST API also returns additional user-generated events, such as `repo.create`. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise)" and "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise#querying-the-audit-log-rest-api)."
+    - In some cases, cache replicas could reject some Git operations on recently updated repositories. For more information about repository caching, see "[AUTOTITLE](/admin/enterprise-management/caching-repositories/about-repository-caching)." 
+    - You can now configure the global announcement banner to be dismissable using the REST API. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner)." 
+    - '{% data reusables.release-notes.scim-in-3-6-series %} [Updated: 2023-04-17]'
+  known_issues:
+    - On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.
+    - Custom firewall rules are removed during the upgrade process.
+    - Git LFS tracked files [uploaded through the web interface](https://github.com/blog/2105-upload-files-to-your-repositories) are incorrectly added directly to the repository.
+    - When "Users can search GitHub.com" is enabled with GitHub Connect, issues in private and internal repositories are not included in GitHub.com search results.
+    - The {% data variables.product.prodname_registry %} npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - Resource limits that are specific to processing pre-receive hooks may cause some pre-receive hooks to fail.
+    - Actions services need to be restarted after restoring an instance from a backup taken on a different host.
+    - In a repository's settings, enabling the option to allow users with read access to create discussions does not enable this functionality.
+    - In some cases, users cannot convert existing issues to discussions.
+    - Custom patterns for secret scanning have `.*` as an end delimiter, specifically in the "After secret" field. This delimiter causes inconsistencies in scans for secrets across repositories, and you may notice gaps in a repository's history where no scans completed. Incremental scans may also be impacted. To prevent issues with scans, modify the end of the pattern to remove the `.*` delimiter.
+    - |
+      After upgrading a replica node to GitHub Enterprise Server 3.6.0 or later and restarting replication, in some situations Git replication may stop progressing and continue to show `WARNING: git replication is behind the primary …`. If you encounter this known issue contact GitHub Support. For more information, see "[Creating a support ticket](https://docs.github.com/en/enterprise-server@3.6/support/contacting-github-support/creating-a-support-ticket)." [Updated: 2022-10-03]
+    - |
+      GitHub Pages builds may time out on instances in AWS that are configured for high availability. [Updated: 2022-11-28]
+    - '{% data reusables.release-notes.babeld-max-threads-performance-issue %}'
+    - '{% data reusables.release-notes.git-push-known-issue %}'
+    - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue %}'
+    - '{% data reusables.release-notes.user-already-taken %}'

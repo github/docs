@@ -1,1 +1,0 @@
-{% data variables.product.prodname_desktop %}を最後に開いたリポジトリで起動するには、` github`と入力してください。 To launch {% data variables.product.prodname_desktop %} for a particular repository, type `github` followed by the path to the repository.

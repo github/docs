@@ -1,1 +1,0 @@
-SAML 单点登录可用于 {% data variables.product.prodname_ghe_cloud %}{% if currentVersion == "github-ae@latest" %} 和 {% data variables.product.prodname_ghe_managed %}{% endif %}。 更多信息请参阅“[GitHub's products](/articles/githubs-products)”。

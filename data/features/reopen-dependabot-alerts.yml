@@ -1,0 +1,6 @@
+# Reference 5861
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.4'
+  ghae: '>= 3.5'

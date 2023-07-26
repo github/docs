@@ -1,0 +1,1 @@
+Anyone with write access to a repository can modify the permissions granted to the `GITHUB_TOKEN`, adding or removing access as required, by editing the `permissions` key in the workflow file. For more information, see [`permissions`](/actions/using-workflows/workflow-syntax-for-github-actions#permissions).

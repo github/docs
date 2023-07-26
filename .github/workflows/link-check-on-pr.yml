@@ -1,0 +1,63 @@
+name: 'Link Checker: On PR'
+
+# **What it does**: Renders the content of every page and check all internal links on PR.
+# **Why we have it**: To make sure all links connect correctly on changed files.
+# **Who does it impact**: Docs content.
+
+on:
+  workflow_dispatch:
+  merge_group:
+  pull_request:
+
+permissions:
+  contents: read
+  # TODO: Uncomment if we uncomment below
+  # Needed for the 'trilom/file-changes-action' action
+  # pull-requests: read
+
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
+jobs:
+  check-links:
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/get-docs-early-access
+        if: ${{ github.repository == 'github/docs-internal' }}
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - name: Link check all pages (internal links only)
+        id: all_links
+        env:
+          LEVEL: 'critical'
+          ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          SHOULD_COMMENT: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT != '' }}
+          CHECK_EXTERNAL_LINKS: false
+          CREATE_REPORT: false
+          # Not strictly necessary bit it makes warmServer() a bit faster
+          # because it only bothers with English to begin with, which
+          # we're filtering on anyway once the list of all pages has
+          # been loaded.
+          ENABLED_LANGUAGES: en
+        run: node .github/actions-scripts/rendered-content-link-checker.js
+
+      - name: Upload artifact(s)
+        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
+        with:
+          name: artifacts
+          path: ./artifacts
+
+      - name: Fail if either check has broken links in its level
+        if: ${{ steps.changed_links.outputs.has_flaws_at_level == 'true' || steps.all_links.outputs.has_flaws_at_level == 'true' }}
+        run: |
+          exit 1

@@ -1,1 +1,0 @@
-1. Wähle in der Liste "Primary email address" (Primäre E-Mail-Adresse) diejenige E-Mail-Adresse, die Du mit Deinen webbasierten Git-Operationen verknüpfen möchtest. ![Auswahl für die primäre E-Mail-Adresse](/assets/images/help/settings/email_primary.png)

@@ -1,1 +1,0 @@
-1. En {% data variables.product.prodname_insights %}, da clic en **{% octicon "gear" aria-label="The gear icon" %} Configuración**. ![Pestaña Parámetros](/assets/images/help/insights/settings-tab.png)

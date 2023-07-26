@@ -1,80 +1,145 @@
-# The docs.github.com project has two repositories: github/docs (public) and github/docs-internal (private)
-#
-# This GitHub Actions workflow keeps the main branch of those two repos in sync.
-#
-# For more details, see https://github.com/repo-sync/repo-sync#how-it-works
-
 name: Repo Sync
+
+# **What it does**: GitHub Docs has two repositories: github/docs (public) and github/docs-internal (private).
+# This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
+# **Why we have it**: To keep the open-source repository up-to-date
+# while still having an internal repository for sensitive work.
+# **Who does it impact**: Open-source.
+# For more details, see https://github.com/repo-sync/repo-sync#how-it-works
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/15 * * * *' # every 15 minutes
+    - cron: '20,50 * * * *' # Run every hour at 20 and 50 minutes after
 
-env:
-  FREEZE: ${{ secrets.FREEZE }}
+permissions:
+  contents: write
+  pull-requests: write
 
 jobs:
-  check-freezer:
-    name: Check for deployment freezes
-    runs-on: ubuntu-latest
-    steps:
-      - name: Exit if repo is frozen
-        if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
   repo-sync:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     name: Repo Sync
-    needs: check-freezer
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
       - name: Sync repo to branch
         uses: repo-sync/github-sync@3832fe8e2be32372e1b3970bbae8e7079edeec88
-        env:
-          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
         with:
-          source_repo: ${{ secrets.SOURCE_REPO }} # https://${access_token}@github.com/github/the-other-repo.git
+          source_repo: https://${{ secrets.DOCS_BOT_PAT_WORKFLOW }}@github.com/github/${{ github.repository == 'github/docs-internal' && 'docs' || 'docs-internal' }}.git
           source_branch: main
           destination_branch: repo-sync
-          github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          github_token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
 
-      - name: Create pull request
-        uses: repo-sync/pull-request@33777245b1aace1a58c87a29c90321aa7a74bd7d
-        env:
-          GITHUB_TOKEN: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+      - name: Ship pull request
+        uses: actions/github-script@d7906e4ad0b1822421a7e6a35d5ca353c962f410
         with:
-          source_branch: repo-sync
-          destination_branch: main
-          pr_title: 'repo sync'
-          pr_body: "This is an automated pull request to sync changes between the public and private repos.\n\n:robot: This pull request should be merged (not squashed) to preserve continuity across repos, so please let a bot do the merging!"
-          pr_label: automerge,autoupdate,automated-reposync-pr
-          github_token: ${{ secrets.OCTOMERGER_PAT_WITH_REPO_AND_WORKFLOW_SCOPE }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+          result-encoding: string
+          script: |
+            const { owner, repo } = context.repo
+            const head = 'github:repo-sync'
+            const base = 'main'
 
-      - name: Find pull request
-        uses: juliangruber/find-pull-request-action@64d55773c959748ad30a4184f4dc102af1669f7b
-        id: find-pull-request
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          branch: repo-sync
-          base: main
+            async function closePullRequest(prNumber) {
+              console.log('Closing pull request', prNumber)
+              await github.rest.pulls.update({
+                owner,
+                repo,
+                pull_number: prNumber,
+                state: 'closed'
+              })
+              // Error loud here, so no try/catch
+              console.log('Closed pull request', prNumber)
+            }
 
-      - name: Approve pull request
-        if: ${{ steps.find-pull-request.outputs.number }}
-        uses: juliangruber/approve-pull-request-action@c530832d4d346c597332e20e03605aa94fa150a8
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ steps.find-pull-request.outputs.number }}
+            console.log('Closing any existing pull requests')
+            const { data: existingPulls } = await github.rest.pulls.list({ owner, repo, head, base })
+            if (existingPulls.length) {
+              console.log('Found existing pull requests', existingPulls.map(pull => pull.number))
+              for (const pull of existingPulls) {
+                await closePullRequest(pull.number)
+              }
+              console.log('Closed existing pull requests')
+            }
+
+            console.log('Creating a new pull request')
+            const body = `
+            This is an automated pull request to sync changes between the public and private repos.
+            Our bot will merge this pull request automatically.
+            To preserve continuity across repos, _do not squash_ this pull request.
+            `
+            let pull, pull_number
+            try {
+              const response = await github.rest.pulls.create({
+                owner,
+                repo,
+                head,
+                base,
+                title: 'Repo sync',
+                body,
+              })
+              pull = response.data
+              pull_number = pull.number
+              console.log('Created pull request successfully', pull.html_url)
+            } catch (err) {
+              // Don't error/alert if there's no commits to sync
+              if (err.message?.includes('No commits')) {
+                console.log(err.message)
+                return
+              }
+              throw err
+            }
+
+            console.log('Locking conversations to prevent spam')
+            try {
+              await github.rest.issues.lock({
+                ...context.repo,
+                issue_number: pull_number,
+                lock_reason: 'spam'
+              })
+              console.log('Locked the pull request to prevent spam')
+            } catch (error) {
+              console.error('Failed to lock the pull request.', error)
+              // Don't fail the workflow
+            }
+
+            console.log('Counting files changed')
+            const { data: prFiles } = await github.rest.pulls.listFiles({ owner, repo, pull_number })
+            if (prFiles.length) {
+              console.log(prFiles.length, 'files have changed')
+            } else {
+              console.log('No files changed, closing')
+              await closePullRequest(pull_number)
+              return
+            }
+
+            console.log('Checking for merge conflicts')
+            if (pull.mergeable_state === 'dirty') {
+              console.log('Pull request has a conflict', pull.html_url)
+              await closePullRequest(pull_number)
+              throw new Error('Pull request has a conflict, please resolve manually')
+            }
+            console.log('No detected merge conflicts')
+
+            console.log('Merging the pull request')
+            // Admin merge pull request to avoid squash
+            await github.rest.pulls.merge({
+              owner,
+              repo,
+              pull_number,
+              merge_method: 'merge',
+            })
+            // Error loud here, so no try/catch
+            console.log('Merged the pull request successfully')
 
       - name: Send Slack notification if workflow fails
-        uses: someimportantcompany/github-actions-slack-message@0b470c14b39da4260ed9e3f9a4f1298a74ccdefd
         if: failure()
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
           color: failure
-          text: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions?query=workflow%3A%22Repo+Sync%22
+          text: The last repo-sync run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/repo-sync.yml
