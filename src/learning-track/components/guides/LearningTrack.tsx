@@ -28,10 +28,7 @@ export const LearningTrack = ({ track }: Props) => {
         <div className="Box-header color-bg-subtle p-4 d-flex flex-1 flex-items-start flex-wrap">
           <div className="d-flex flex-auto flex-items-start col-7 col-md-7 col-xl-7">
             <div className="my-xl-0 mr-xl-3">
-              <h3
-                id={titleSlug}
-                className={cx('mb-3 color-text f3 text-semibold', styles.hashAnchor)}
-              >
+              <h3 id={titleSlug} className="mb-3 color-text f3 text-semibold">
                 <a className="color-unset" href={`#${titleSlug}`}>
                   {track?.title}
                 </a>

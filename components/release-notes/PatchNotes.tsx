@@ -3,8 +3,6 @@ import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
 import { HeadingLink } from 'components/article/HeadingLink'
 
-import styles from './PatchNotes.module.scss'
-
 const SectionToLabelMap: Record<string, string> = {
   features: 'Features',
   bugs: 'Bug fixes',
@@ -40,7 +38,7 @@ export function PatchNotes({ patch }: Props) {
                   const headingSlug = item.heading ? slug(item.heading) : `heading${i}`
                   return (
                     <li key={headingSlug}>
-                      <h4 id={headingSlug} className={cx(styles.sectionHeading)}>
+                      <h4 id={headingSlug}>
                         <a href={`#${headingSlug}`}>{item.heading}</a>
                       </h4>
                       <ul>
