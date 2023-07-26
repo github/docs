@@ -7,6 +7,7 @@ versions:
   ghae: '*'
   ghec: '*'
 type: how_to
+defaultPlatform: windows
 ---
 
 ## General

@@ -276,9 +276,13 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             <Tooltip
               className="mr-2"
               direction="w"
-              aria-label={isCopied ? 'Copied!' : 'Copy to clipboard'}
+              aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
             >
-              <button className="js-btn-copy btn-octicon" onClick={() => setCopied()}>
+              <button
+                aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
+                className="js-btn-copy btn-octicon"
+                onClick={() => setCopied()}
+              >
                 {isCopied ? <CheckIcon /> : <CopyIcon />}
               </button>
             </Tooltip>

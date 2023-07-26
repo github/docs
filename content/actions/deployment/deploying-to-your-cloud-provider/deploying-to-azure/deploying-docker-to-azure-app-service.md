@@ -40,7 +40,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
    For example, you can use the Azure CLI to create an Azure App Service web app:
 
-   ```bash copy
+   ```shell copy
    az webapp create \
        --name MY_WEBAPP_NAME \
        --plan MY_APP_SERVICE_PLAN \
@@ -63,8 +63,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
         --name MY_WEBAPP_NAME \
         --resource-group MY_RESOURCE_GROUP \
         --settings DOCKER_REGISTRY_SERVER_URL=https://ghcr.io DOCKER_REGISTRY_SERVER_USERNAME=MY_REPOSITORY_OWNER DOCKER_REGISTRY_SERVER_PASSWORD=MY_PERSONAL_ACCESS_TOKEN
-
-```
+   ```
 
 1. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 

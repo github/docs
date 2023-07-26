@@ -92,3 +92,7 @@ jobs:
 ```
 
 {% endraw %}
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}

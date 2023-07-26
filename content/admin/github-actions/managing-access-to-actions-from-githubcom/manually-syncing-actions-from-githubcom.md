@@ -68,6 +68,12 @@ This example demonstrates using the `actions-sync` tool to sync an individual ac
 
 1. Download and extract the latest [`actions-sync` release](https://github.com/actions/actions-sync/releases) for your machine's operating system.
 1. Create a directory to store cache files for the tool.
+1. In your terminal, change to the `bin` directory within the release directory you just extracted. For example:
+
+   ```shell
+   cd PATH/TO/gh_DATETIME_OS_ARCHITECTURE/bin
+   ```
+
 1. Run the `actions-sync sync` command:
 
    ```shell

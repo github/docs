@@ -1,6 +1,6 @@
 Portions have been adapted from https://github.com/actions/actions-runner-controller/ under the Apache-2.0 license:
 
-```
+```text
 Copyright 2019 Moto Ishizawa
 
 Licensed under the Apache License, Version 2.0 (the "License");

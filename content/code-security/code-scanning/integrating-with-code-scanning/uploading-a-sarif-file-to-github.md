@@ -155,6 +155,7 @@ jobs:
 
 ## Further reading
 
+{% ifversion code-scanning-tool-status-page %}- "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif)"{% endif %}
 - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)"
 - "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)"

@@ -23365,6 +23365,11 @@
           "href": "/graphql/reference/interfaces#subscribable"
         },
         {
+          "name": "SubscribableThread",
+          "id": "subscribablethread",
+          "href": "/graphql/reference/interfaces#subscribablethread"
+        },
+        {
           "name": "UniformResourceLocatable",
           "id": "uniformresourcelocatable",
           "href": "/graphql/reference/interfaces#uniformresourcelocatable"
@@ -24321,6 +24326,22 @@
           "id": "subscriptionstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#subscriptionstate"
+        },
+        {
+          "name": "viewerThreadSubscriptionFormAction",
+          "description": "<p>Identifies the viewer's thread subscription form action.</p>",
+          "type": "ThreadSubscriptionFormAction",
+          "id": "threadsubscriptionformaction",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionformaction"
+        },
+        {
+          "name": "viewerThreadSubscriptionStatus",
+          "description": "<p>Identifies the viewer's thread subscription status.</p>",
+          "type": "ThreadSubscriptionState",
+          "id": "threadsubscriptionstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionstate"
         }
       ]
     },
@@ -64588,6 +64609,31 @@
       ]
     },
     {
+      "name": "SubscribableThread",
+      "kind": "interfaces",
+      "id": "subscribablethread",
+      "href": "/graphql/reference/interfaces#subscribablethread",
+      "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
+      "fields": [
+        {
+          "name": "viewerThreadSubscriptionFormAction",
+          "description": "<p>Identifies the viewer's thread subscription form action.</p>",
+          "type": "ThreadSubscriptionFormAction",
+          "id": "threadsubscriptionformaction",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionformaction"
+        },
+        {
+          "name": "viewerThreadSubscriptionStatus",
+          "description": "<p>Identifies the viewer's thread subscription status.</p>",
+          "type": "ThreadSubscriptionState",
+          "id": "threadsubscriptionstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionstate"
+        }
+      ]
+    },
+    {
       "name": "TeamAuditEntryData",
       "kind": "interfaces",
       "id": "teamauditentrydata",
@@ -68874,6 +68920,72 @@
         {
           "name": "MEMBER",
           "description": "<p>User is a member of the team.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ThreadSubscriptionFormAction",
+      "kind": "enums",
+      "id": "threadsubscriptionformaction",
+      "href": "/graphql/reference/enums#threadsubscriptionformaction",
+      "description": "<p>The possible states of a thread subscription form action.</p>",
+      "values": [
+        {
+          "name": "NONE",
+          "description": "<p>The User cannot subscribe or unsubscribe to the thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBE",
+          "description": "<p>The User can subscribe to the thread.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBE",
+          "description": "<p>The User can unsubscribe to the thread.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ThreadSubscriptionState",
+      "kind": "enums",
+      "id": "threadsubscriptionstate",
+      "href": "/graphql/reference/enums#threadsubscriptionstate",
+      "description": "<p>The possible states of a subscription.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>The subscription status is currently disabled.</p>"
+        },
+        {
+          "name": "IGNORING_LIST",
+          "description": "<p>The User is never notified because they are ignoring the list.</p>"
+        },
+        {
+          "name": "IGNORING_THREAD",
+          "description": "<p>The User is never notified because they are ignoring the thread.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>The User is not recieving notifications from this thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_LIST",
+          "description": "<p>The User is notified becuase they are watching the list.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD",
+          "description": "<p>The User is notified because they are subscribed to the thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD_EVENTS",
+          "description": "<p>The User is notified because they chose custom settings for this thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD_TYPE",
+          "description": "<p>The User is notified because they chose custom settings for this thread.</p>"
+        },
+        {
+          "name": "UNAVAILABLE",
+          "description": "<p>The subscription status is currently unavailable.</p>"
         }
       ]
     },

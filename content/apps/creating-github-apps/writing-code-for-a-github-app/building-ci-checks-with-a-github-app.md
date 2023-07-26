@@ -657,7 +657,7 @@ In the code block that starts with `helpers do`, where it says `# ADD CREATE_CHE
 
 This code calls the "[AUTOTITLE](/rest/checks#create-a-check-run)" endpoint using the Octokit [create_check_run method](https://msp-greg.github.io/octokit/Octokit/Client/Checks.html#create_check_run-instance_method).
 
-To create a check run, only two input parameters are required: `name` and `head_sha`. In this code, we name the check run "Octo RuboCop," because we'll use RuboCop to implement the CI test later in the tutorial. But you can choose any name you'd like for the check run. For more information about RuboCop, see the [RuboCop documentation](https://rubocop.readthedocs.io/en/latest/).
+To create a check run, only two input parameters are required: `name` and `head_sha`. In this code, we name the check run "Octo RuboCop," because we'll use RuboCop to implement the CI test later in the tutorial. But you can choose any name you'd like for the check run. For more information about RuboCop, see the [RuboCop documentation](https://docs.rubocop.org/rubocop/index.html).
 
 You're only supplying the required parameters now to get the basic functionality working, but you'll update the check run later as you collect more information about the check run. By default, {% data variables.product.prodname_dotcom %} sets the `status` to `queued`.
 
@@ -768,7 +768,7 @@ The following steps will show you how to test that the code works, and that the 
 
 Now that you've got the interface created to receive API events and create check runs, you can create a check run that implements a CI test.
 
-RuboCop is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the Ruby Style Guide. For more information, see the [RuboCop documentation](https://rubocop.readthedocs.io/en/latest/).
+RuboCop is a Ruby code linter and formatter. It checks Ruby code to ensure that it complies with the Ruby Style Guide. For more information, see the [RuboCop documentation](https://docs.rubocop.org/rubocop/index.html).
 
 RuboCop has three primary functions:
 

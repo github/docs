@@ -43,8 +43,12 @@ The command will also detect a language and dbscheme to compile a query
 against, as these may also depend on autodetecting the language of a QL
 query.
 
-**The command is deeply internal and its behavior or existence may
-change without much notice as the QL language ecosystem evolves.**
+{% note %}
+
+**Note:** The command is deeply internal and its behavior or existence may
+change without much notice as the QL language ecosystem evolves.
+
+{% endnote %}
 
 ## Primary options
 

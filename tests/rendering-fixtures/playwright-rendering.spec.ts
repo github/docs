@@ -72,6 +72,24 @@ test.describe('platform picker', () => {
     await expect(page.getByRole('heading', { name: /Macintosh/ })).not.toBeVisible()
   })
 
+  test('minitoc matches picker', async ({ page }) => {
+    // default platform set to windows in fixture fronmatter
+    await page.goto('/get-started/liquid/platform-specific')
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Windows 95 was awesome' }),
+    ).toBeVisible()
+    await page.getByTestId('platform-picker').getByRole('link', { name: 'Linux' }).click()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'The year of Linux on the desktop' }),
+    ).toBeVisible()
+  })
+
   test('remember last clicked OS', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Windows' }).click()
@@ -97,20 +115,6 @@ test.describe('tool picker', () => {
     await expect(page.getByText('this is cli content')).not.toBeVisible()
     await expect(page.getByText('this is desktop content')).not.toBeVisible()
     await expect(page.getByText('this is webui content')).toBeVisible()
-
-    // Go to page again so that we start with the default webui content and can
-    // check the minitoc links
-    await page.goto('/get-started/liquid/tool-specific')
-    await expect(
-      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
-    ).toBeVisible()
-    await expect(
-      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
-    ).not.toBeVisible()
-    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
-    await expect(
-      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
-    ).not.toBeVisible()
   })
 
   test('prefer default tool', async ({ page }) => {
@@ -131,6 +135,24 @@ test.describe('tool picker', () => {
     await expect(page.getByText('this is cli content')).not.toBeVisible()
     await expect(page.getByText('this is desktop content')).not.toBeVisible()
     await expect(page.getByText('this is webui content')).toBeVisible()
+  })
+
+  test('minitoc matches picker', async ({ page }) => {
+    // default tool set to desktop in fixture fronmatter
+    await page.goto('/get-started/liquid/tool-specific')
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+    ).toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).not.toBeVisible()
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).toBeVisible()
   })
 })
 

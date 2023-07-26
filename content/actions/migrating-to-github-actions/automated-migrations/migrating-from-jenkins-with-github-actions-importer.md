@@ -73,16 +73,16 @@ The `configure` CLI command is used to set required credentials and options for 
 
    ```shell
    $ gh actions-importer configure
-  ✔ Which CI providers are you configuring?: Jenkins
-  Enter the following values (leave empty to omit):
-  ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
-  ✔ Base url of the GitHub instance: https://github.com
-  ✔ {% data variables.product.pat_generic_caps %} for Jenkins: ***************
-  ✔ Username of Jenkins user: admin
-  ✔ Base url of the Jenkins instance: https://localhost
-  Environment variables successfully updated.
-
+   ✔ Which CI providers are you configuring?: Jenkins
+   Enter the following values (leave empty to omit):
+   ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
+   ✔ Base url of the GitHub instance: https://github.com
+   ✔ {% data variables.product.pat_generic_caps %} for Jenkins: ***************
+   ✔ Username of Jenkins user: admin
+   ✔ Base url of the Jenkins instance: https://localhost
+   Environment variables successfully updated.
    ```
+
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
    ```shell
@@ -183,13 +183,13 @@ You can use the `migrate` command to convert a Jenkins pipeline and open a pull 
 
 To migrate a Jenkins pipeline to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing the `target-url` value with the URL for your {% data variables.product.product_name %} repository, and `my-jenkins-project` with the URL for your Jenkins job.
 
-```
+```shell
 gh actions-importer migrate jenkins --target-url https://github.com/:owner/:repo --output-dir tmp/migrate --source-url my-jenkins-project
 ```
 
 The command's output includes the URL to the pull request that adds the converted workflow to your repository. An example of a successful output is similar to the following:
 
-```
+```shell
 $ gh actions-importer migrate jenkins --target-url https://github.com/octo-org/octo-repo --output-dir tmp/migrate --source-url http://localhost:8080/job/monas_dev_work/job/monas_freestyle
 [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/actions-importer-20220916-014033.log'
 [2022-08-20 22:08:20] Pull request: 'https://github.com/octo-org/octo-repo/pull/1'
@@ -239,7 +239,7 @@ If you would like to supply multiple source files when running the `forecast` su
 
 In this example, {% data variables.product.prodname_actions_importer %} uses the specified Jenkinsfile as the source file to perform a dry run.
 
-```bash
+```shell
 gh actions-importer dry-run jenkins --output-dir path/to/output/ --source-file-path path/to/Jenkinsfile --source-url :url_to_jenkins_job
 ```
 
@@ -255,7 +255,7 @@ When you use the `--config-file-path` option with the `dry-run` or `migrate` sub
 
 In this example, {% data variables.product.prodname_actions_importer %} uses the specified YAML configuration file to perform an audit.
 
-```bash
+```shell
 gh actions-importer audit jenkins --output-dir path/to/output/ --config-file-path path/to/jenkins/config.yml
 ```
 
