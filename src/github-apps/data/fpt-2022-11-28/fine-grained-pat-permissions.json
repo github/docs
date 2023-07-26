@@ -3473,6 +3473,15 @@
     "displayTitle": "Repository permissions for \"Contents\"",
     "permissions": [
       {
+        "category": "repos",
+        "slug": "list-repository-activities",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/activity",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
         "category": "branches",
         "slug": "list-branches",
         "subcategory": "branches",
