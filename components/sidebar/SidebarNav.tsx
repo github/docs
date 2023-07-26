@@ -2,7 +2,6 @@ import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
 import { SidebarProduct } from 'src/landings/components/SidebarProduct'
-import { SidebarHomepage } from 'src/landings/components/SidebarHomepage'
 import { AllProductsLink } from './AllProductsLink'
 import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
 import { Link } from 'components/Link'
@@ -54,11 +53,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
         style={{ width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }}
         role="banner"
       >
-        {!currentProduct || currentProduct.id === 'search' ? (
-          <SidebarHomepage />
-        ) : (
-          <SidebarProduct />
-        )}
+        <SidebarProduct />
       </div>
     </div>
   )
