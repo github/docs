@@ -126,3 +126,21 @@
     white-space: normal;
   }
 }
+
+/* Responsive display utilities
+------------------------------------------------------------------------------*/
+
+// between Primer's xl and xxl widths, used to help prevent overlapping main
+// content and the minitoc sidebar
+
+.d-xxl-block {
+  @media (min-width: 1400px) {
+    display: block !important;
+  }
+}
+
+.d-xxl-none {
+  @media (min-width: 1400px) {
+    display: none !important;
+  }
+}
