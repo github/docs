@@ -52,7 +52,8 @@
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
-    "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write"
+    "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write",
+    "{content,data}/**/*.md": "src/content-linter/scripts/markdownlint.js --errors --paths"
   },
   "dependencies": {
     "@elastic/elasticsearch": "7.11.0",
