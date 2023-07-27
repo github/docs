@@ -31,9 +31,11 @@ When a change to an IdP group or a new team connection results in a {% data vari
 {% endnote %}
 
 When group membership changes on your IdP, your IdP sends a SCIM request with the changes to {% data variables.product.prodname_dotcom_the_website %} according to the schedule determined by your IdP, so change may not be immediate. Any requests that change team or organization membership will register in the audit log as changes made by the account used to configure user provisioning.
-{% data variables.product.prodname_dotcom %} also scans each mapped team and syncs membership with the group on your IdP daily. If a user is not already a member of the organization that contains the team, {% data variables.product.prodname_dotcom %} will add the user to the organization automatically.
+
+{% data variables.product.prodname_dotcom %} also runs a reconciliation job once per day, which synchronizes team membership with IdP group membership that is stored on {% data variables.product.prodname_dotcom %}, based on information previously sent from the IdP via SCIM. If this job finds that a user is a member of an IdP group in the enterprise, but they are not a member of the mapped team or its organization, the job will attempt to add the user to the organization and team.
 
 Teams connected to IdP groups cannot be parents of other teams nor a child of another team. If the team you want to connect to an IdP group is a parent or child team, we recommend creating a new team or removing the nested relationships that make your team a parent team.
+
 To manage repository access for any team in your enterprise, including teams connected to an IdP group, you must make changes on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)".
 
 ## Requirements for connecting IdP groups with teams
@@ -82,7 +84,7 @@ Organization owners can manage the existing connection between an IdP group and 
 
 ## Viewing IdP groups, group membership, and connected teams
 
-You can review a list of IdP groups, see any teams connected to an IdP group, and see the membership of each IdP group on {% data variables.product.product_name %}. You must edit the membership for a group on your IdP.
+Enterprise owners can review a list of IdP groups, each group's memberships, and any teams connected to each group. The IdP groups and memberships listed in this view are based on information sent from the IdP to {% data variables.product.prodname_dotcom %} via SCIM. You must edit the membership for a group on your IdP.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. To review a list of IdP groups, in the left sidebar, click {% octicon "key" aria-hidden="true" %} **Identity provider**.

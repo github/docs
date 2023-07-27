@@ -502,9 +502,9 @@ Each step must include an action. You can also choose to include whether a step 
 
 Use a consistent order to present information within each step.
 1. If the step is optional, indicate that first.
-2. When needed for clarity, or to reinforce the severity of a destructive or confusing action, explain the reason for or result of the step.
-3. Describe the location the user will find the action in.
-4. Action.
+1. When needed for clarity, or to reinforce the severity of a destructive or confusing action, explain the reason for or result of the step.
+1. Describe the location the user will find the action in.
+1. Action.
 
 **Use:** Optionally, to `REASON`, in `LOCATION`, take `ACTION`.
 
@@ -627,7 +627,7 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
-### {% data variables.product.prodname_GH_advanced_security %} (GHAS) 
+### {% data variables.product.prodname_GH_advanced_security %} (GHAS)
 
 Use the terms `licenses` and `active committers` when you refer to {% data variables.product.prodname_GH_advanced_security %} billing.
 
@@ -667,6 +667,7 @@ Each release note in a set describes one of the following changes.
 - [Security fixes](#security-fixes): fixes to flaws or unexpected behavior that have security implications
 - [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
 - [Changes](#changes): notable changes to past behavior
+- [Known issues](#known-issues): issues that {% data variables.product.company_short %} has identified, but cannot or has not yet prioritized
 - [Deprecations](#deprecations): removal of a feature or behavior
 - [Errata](#errata): correction to inaccurate release note or documentation
 
@@ -792,9 +793,8 @@ A release note for a known issue answers the following questions.
 
 > _AUDIENCE_ (**1**) _DESCRIPTION OF ISSUE_ (**2**) _DETAILS OF BEHAVIOR_ (**3**) _NEXT STEPS_ (**4**).
 
-- To clarify actors and impact, avoid passive language when possible.sent tense.
-- To reduce repetition and unnecessary words, "now" is usually implied.
 - To clarify actors and impact, avoid passive language when possible.
+- To reduce repetition and unnecessary words, "now" is usually implied.
 - If useful, include relevant links to GitHub Docs.
 - Known issues are also a [type of content on GitHub Docs](/contributing/writing-for-github-docs/content-model#known-issues). If useful, write or link to more in-depth and contextually relevant content in the docs.
 
@@ -839,9 +839,9 @@ Errata corrects inaccurate information previously published in the release notes
 Errata answers the following questions.
 
 1. If applicable, which section of the release notes or content on {% data variables.product.prodname_docs %} was affected?
-2. Did the incorrect information apply to me, with my role or access?
-3. What did the release note or documentation describe that was incorrect?
-4. When was the errata published?
+1. Did the incorrect information apply to me, with my role or access?
+1. What did the release note or documentation describe that was incorrect?
+1. When was the errata published?
 
 > _CONTENT_ (**1**) incorrectly indicated that _AUDIENCE_ (**2**) can _SUMMARY OF INACCURATE INFORMATION_ (**3**). [Updated: _PUBLICATION DATE_ **4**]
 
@@ -1224,10 +1224,10 @@ With {% data variables.product.company_short %}'s enterprise products, administr
 
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 
-- {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %} 
+- {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}
   - **Use:** With {% data variables.product.prodname_emus %} , you can create and manage user accounts for your enterprise members.
   - **Avoid:** With {% data variables.product.prodname_emus %} , you can create and manage the personal accounts for your enterprise members.
-- {% data variables.product.prodname_ghe_server %} 
+- {% data variables.product.prodname_ghe_server %}
   - **Use:** If you need to temporarily take over a user account...
   - **Avoid:** If you need to temporarily take over a personal account...
 - {% data variables.product.prodname_ghe_managed %}
