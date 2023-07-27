@@ -94,12 +94,12 @@ For help on provisioning users that have missing a missing SCIM linked identity,
 
 {% ifversion team-sync-manage-org-invites %}
 
-## Managing whether team sync can invite non-members to your organization
+## Managing whether team sync can re-invite non-members to your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
-1. Under "Team synchronization", select or deselect **Do not allow Team Sync to invite non-members to this organization.**
+1. Under "Team synchronization", select or deselect **Do not allow Team Sync to re-invite past members to this organization that were removed by an organization owner.**
 {% endif %}
 
 ## Disabling team synchronization
