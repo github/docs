@@ -30,9 +30,8 @@ test('view the for-playwright article', async ({ page }) => {
 })
 
 test('use sidebar to go to Hello World page', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/get-started')
 
-  await page.getByTestId('sidebar').getByText('Get started').click()
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
   await page.getByTestId('product-sidebar').getByText('Quickstart').click()
@@ -190,8 +189,7 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // Our TreeView sidebar only shows "2 levels". If you click and expand
   // the category, you'll be able to see the map-topic and the article
   // within.
-  await page.goto('/')
-  await page.getByTestId('sidebar').getByText('GitHub Actions').click()
+  await page.goto('/actions')
   await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
   await page.getByText('Map & Topic').click()
   await page.getByLabel('<article> link').click()
@@ -258,15 +256,15 @@ test('hovercards', async ({ page }) => {
 })
 
 test.describe('test nav at different viewports', () => {
-  test('x-large viewports - 1280+', async ({ page }) => {
+  test('xx-large viewports - 1400+', async ({ page }) => {
     page.setViewportSize({
-      width: 1300,
+      width: 1400,
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
 
-    // in article breadcrumbs at xl viewport should remove last breadcrumb so
-    // for this page we should only have 'Get Started / Foo'
+    // in article breadcrumbs at our custom xl viewport should remove last
+    // breadcrumb so for this page we should only have 'Get Started / Foo'
     expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()

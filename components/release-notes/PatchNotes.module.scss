@@ -1,13 +1,5 @@
 @import "@primer/css/support/index.scss";
 
-.sectionHeading {
-  scroll-margin-top: 105px !important; // 88 + 8 + 8 + 1
-
-  @include breakpoint(xl) {
-    scroll-margin-top: 65px !important; // 48 + 8 + 8 + 1
-  }
-}
-
 .aside {
   @include breakpoint(md) {
     width: 8rem;

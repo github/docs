@@ -2,7 +2,6 @@ import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
 import { SidebarProduct } from 'src/landings/components/SidebarProduct'
-import { SidebarHomepage } from 'src/landings/components/SidebarHomepage'
 import { AllProductsLink } from './AllProductsLink'
 import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
 import { Link } from 'components/Link'
@@ -21,12 +20,12 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
 
   return (
     <div
-      className={cx(variant === 'full' ? 'position-sticky d-none border-right d-xl-block' : '')}
+      className={cx(variant === 'full' ? 'position-sticky d-none border-right d-xxl-block' : '')}
       style={{ width: 326, height: 'calc(100vh - 65px)', top: '65px' }}
     >
       {variant === 'full' && currentProduct && (
         <nav
-          className={cx('d-none px-4 pb-3 border-bottom d-xl-block')}
+          className={cx('d-none px-4 pb-3 border-bottom d-xxl-block')}
           aria-labelledby="sidebar-header"
         >
           <AllProductsLink />
@@ -48,17 +47,13 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
       )}
       <div
         className={cx(
-          variant === 'overlay' ? 'd-xl-none' : 'border-right d-none d-xl-block',
+          variant === 'overlay' ? 'd-xxl-none' : 'border-right d-none d-xxl-block',
           'bg-primary overflow-y-auto flex-shrink-0',
         )}
         style={{ width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }}
         role="banner"
       >
-        {!currentProduct || currentProduct.id === 'search' ? (
-          <SidebarHomepage />
-        ) : (
-          <SidebarProduct />
-        )}
+        <SidebarProduct />
       </div>
     </div>
   )

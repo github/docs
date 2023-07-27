@@ -4063,6 +4063,12 @@
       "requestPath": "/repos/{owner}/{repo}"
     },
     {
+      "slug": "list-repository-activities",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/activity"
+    },
+    {
       "slug": "list-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",

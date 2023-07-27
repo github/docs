@@ -1,13 +1,10 @@
 import { useRef } from 'react'
 import dayjs from 'dayjs'
-import cx from 'classnames'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { PatchNotes } from './PatchNotes'
 import { Link } from 'components/Link'
 import { CurrentVersion, ReleaseNotePatch, GHESMessage } from './types'
-
-import styles from './PatchNotes.module.scss'
 
 type Props = {
   patch: ReleaseNotePatch
@@ -27,7 +24,7 @@ export function GHESReleaseNotePatch({
   const containerRef = useRef<HTMLDivElement>(null)
 
   return (
-    <div ref={containerRef} className={cx(styles.sectionHeading, 'mb-10 pb-6')} id={patch.version}>
+    <div ref={containerRef} className="mb-10 pb-6" id={patch.version}>
       <header
         style={{ zIndex: 1, marginTop: -1 }}
         className="container-xl border-top border-bottom px-3 pt-4 pb-2"

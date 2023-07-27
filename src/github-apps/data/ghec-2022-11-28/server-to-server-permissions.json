@@ -4981,6 +4981,17 @@
     "displayTitle": "Repository permissions for \"Contents\"",
     "permissions": [
       {
+        "category": "repos",
+        "slug": "list-repository-activities",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/activity",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
         "category": "branches",
         "slug": "list-branches",
         "subcategory": "branches",
