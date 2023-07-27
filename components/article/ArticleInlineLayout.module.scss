@@ -37,7 +37,7 @@
 .sidebarBox {
   border-bottom: 1px solid var(--color-border-default) !important;
 
-  @include breakpoint(xl) {
+  @media (min-width: 1400px) {
     border-bottom: none !important;
   }
 }

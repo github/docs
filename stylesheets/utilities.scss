@@ -130,8 +130,7 @@
 /* Responsive display utilities
 ------------------------------------------------------------------------------*/
 
-// between Primer's xl and xxl widths, used to help prevent overlapping main
-// content and the minitoc sidebar
+// used to help prevent overlapping main content and the minitoc sidebar
 
 .d-xxl-block {
   @media (min-width: 1400px) {
