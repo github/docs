@@ -1,4 +1,3 @@
-import cx from 'classnames'
 import { slug } from 'github-slugger'
 import { ReleaseNotePatch } from './types'
 import { HeadingLink } from 'components/article/HeadingLink'
@@ -23,34 +22,32 @@ export function PatchNotes({ patch }: Props) {
       {Object.entries(patch.sections).map(([key, sectionItems]) => {
         const sectionSlug = `${patch.version}-${key.replaceAll('_', '-')}`
         return (
-          <div key={key} className={cx('d-block d-xl-flex')}>
-            <div>
-              <HeadingLink as="h3" slug={sectionSlug}>
-                {`${patch.version}: ${SectionToLabelMap[key]}` || 'INVALID SECTION'}
-              </HeadingLink>
+          <div key={key}>
+            <HeadingLink as="h3" slug={sectionSlug}>
+              {`${patch.version}: ${SectionToLabelMap[key]}` || 'INVALID SECTION'}
+            </HeadingLink>
 
-              <ul>
-                {sectionItems.map((item, i) => {
-                  if (typeof item === 'string') {
-                    return <li key={item} dangerouslySetInnerHTML={{ __html: item }} />
-                  }
+            <ul>
+              {sectionItems.map((item, i) => {
+                if (typeof item === 'string') {
+                  return <li key={item} dangerouslySetInnerHTML={{ __html: item }} />
+                }
 
-                  const headingSlug = item.heading ? slug(item.heading) : `heading${i}`
-                  return (
-                    <li key={headingSlug}>
-                      <h4 id={headingSlug}>
-                        <a href={`#${headingSlug}`}>{item.heading}</a>
-                      </h4>
-                      <ul>
-                        {item.notes.map((note) => {
-                          return <li key={note} dangerouslySetInnerHTML={{ __html: note }} />
-                        })}
-                      </ul>
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
+                const headingSlug = item.heading ? slug(item.heading) : `heading${i}`
+                return (
+                  <li key={headingSlug}>
+                    <h4 id={headingSlug}>
+                      <a href={`#${headingSlug}`}>{item.heading}</a>
+                    </h4>
+                    <ul>
+                      {item.notes.map((note) => {
+                        return <li key={note} dangerouslySetInnerHTML={{ __html: note }} />
+                      })}
+                    </ul>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         )
       })}
