@@ -21,6 +21,21 @@ versions:
 - When making a style or structure decision, we consider the flow of information within the unit of content and the context of the information.
 - When a question specific to help documentation isn’t covered by the style guide, we think it through using these principles, then make a decision. If a reviewer asks about it, we're prepared to discuss the decision.
 
+## Audit log events
+
+We document each of the events that may appear in the audit logs for each type of account: user, organization, and enterprise.
+
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+- "[AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" {% ifversion fpt %}in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+
+When writing the description for an audit log event, describe the event that took place in a way that applies to all versions, using past tense and passive voice. Do not begin the sentence with phrases that are already implied by the context of the article, such as "Triggered by."
+
+- **Use**: The visibility of a repository was changed.
+- **Use**: Secret scanning was enabled for all new repositories.
+- **Avoid**: An organization owner disabled a two-factor authentication requirement for the organization.
+- **Avoid**: Triggered when a user updates which repositories a codespace can access.
+
 ## Callouts
 
 Callouts highlight important information that customers need to know. We use standard formatting and colors for different types of callouts across doc sets.
