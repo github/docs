@@ -49,6 +49,7 @@ Additional guidance for configuring the identity provider:
 
 - For security hardening, make sure you've reviewed "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)." For an example, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-subject-in-your-cloud-provider)."
 - For the `audience` setting,  `api://AzureADTokenExchange` is the recommended value, but you can also specify other values here.
+- If you are using a Github Enterprise instance, make sure to change the `Issuer` accordingly.
 
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
