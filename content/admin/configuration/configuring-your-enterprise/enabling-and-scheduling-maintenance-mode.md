@@ -21,6 +21,7 @@ topics:
   - Upgrades
 shortTitle: Configure maintenance mode
 ---
+
 ## About maintenance mode
 
 Some types of operations require that you take {% data variables.location.product_location %} offline and put it into maintenance mode:
@@ -50,6 +51,7 @@ You can perform initial validation of your maintenance operation by configuring 
 1. Under "Enable and schedule", select **Enable maintenance mode**, then decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
     - To enable maintenance mode immediately, select the dropdown menu and click **now**.
     - To schedule a maintenance window for a future time, select the dropdown menu and click a start time.
+{% data reusables.enterprise_management_console.custom-maintenance-message %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% ifversion ip-exception-list %}
@@ -69,6 +71,7 @@ You can also use a command-line utility to configure the IP exception list. For 
    ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Maintenance", is highlighted with an orange outline.](/assets/images/enterprise/management-console/maintenance-tab.png)
 1. Under "Enable and configure IP exception list", select **Enable IP exception list**.
 1. To the right of the checkbox for enabling the list, type a valid list of space-separated IP addresses or CIDR blocks that should be allowed to access {% data variables.location.product_location %}.
+{% data reusables.enterprise_management_console.custom-maintenance-message %}
 1. Click **Save**.
 
 {% endif %}
@@ -88,6 +91,12 @@ $ ghe-maintenance -q
 # Queries the current mode
 $ ghe-maintenance -s
 # Sets maintenance mode
+{%- ifversion custom-maintenance-mode-message %}
+$ ghe-maintenance -s "MESSAGE"
+# Sets maintenance mode with a custom message
+$ ghe-maintenance -m "MESSAGE"
+# Updates the custom message
+{%- endif %}
 $ ghe-maintenance -u
 # Unsets maintenance mode
 ```
@@ -103,6 +112,12 @@ $ ghe-cluster-maintenance -q
 # Queries the current mode
 $ ghe-cluster-maintenance -s
 # Sets maintenance mode
+{%- ifversion custom-maintenance-mode-message %}
+$ ghe-cluster-maintenance -s "MESSAGE"
+# Sets maintenance mode with a custom message
+$ ghe-cluster-maintenance -m "MESSAGE"
+# Updates the custom message
+{%- endif %}
 $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
