@@ -96,27 +96,27 @@ export const RestCollapsibleSection = (props: SectionProps) => {
     const title = miniTocItem.contents.title
     const isAnchorCurrent = visibleAnchor === miniTocAnchor
     return (
-      <a
-        id={miniTocAnchor}
+      <TreeView.Item
         key={miniTocAnchor}
-        onKeyPressCapture={(e) => {
-          if (e.code === 'Enter') {
-            document.getElementById(miniTocAnchor)?.click()
-            e?.stopPropagation()
-          }
-        }}
-        onClick={() => setVisibleAnchor(miniTocAnchor)}
-        href={miniTocAnchor}
-        className={cx(styles.operationWidth, 'color-fg-default no-underline')}
+        id={miniTocAnchor}
+        current={isAnchorCurrent}
+        defaultExpanded={isAnchorCurrent}
       >
-        <TreeView.Item
+        <a
           id={miniTocAnchor}
-          current={isAnchorCurrent}
-          defaultExpanded={isAnchorCurrent}
+          onKeyPressCapture={(e) => {
+            if (e.code === 'Enter') {
+              document.getElementById(miniTocAnchor)?.click()
+              e?.stopPropagation()
+            }
+          }}
+          onClick={() => setVisibleAnchor(miniTocAnchor)}
+          href={miniTocAnchor}
+          className={cx(styles.operationWidth, 'color-fg-default no-underline')}
         >
           {title}
-        </TreeView.Item>
-      </a>
+        </a>
+      </TreeView.Item>
     )
   }
 

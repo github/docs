@@ -55,13 +55,13 @@ Before you can use a {% data variables.product.prodname_codeql %} pack to analyz
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
-| <nobr>`<scope/name@version:path>`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the scope and name of one or more CodeQL query packs to download using a comma-separated list. Optionally, include the version to download and unzip. By default the latest version of this pack is downloaded. Optionally, include a path to a query, directory, or query suite to run. If no path is included, then run the default queries of this pack. |
+| <nobr>`<scope/name@version:path>`</nobr> | {% octicon "check" aria-label="Required" %} | Specify the scope and name of one or more {% data variables.product.prodname_codeql %} query packs to download using a comma-separated list. Optionally, include the version to download and unzip. By default the latest version of this pack is downloaded. Optionally, include a path to a query, directory, or query suite to run. If no path is included, then run the default queries of this pack. |
 | <nobr>`--github-auth-stdin`</nobr> | {% octicon "x" aria-label="Optional" %}  | Pass the CLI the {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication with {% data variables.product.company_short %}'s REST API from your secret store via standard input. This is not needed if the command has access to a `GITHUB_TOKEN` environment variable set with this token.
 
 {% ifversion query-pack-compatibility %}
 {% note %}
 
-**Note:** If you specify a particular version of a query pack to use, be aware that the version you specify may eventually become too old for the latest version of {% data variables.product.prodname_codeql %} to make efficient use of. To ensure optimal performance, if you need to specify exact query pack versions, you should reevaluate which versions you pin to whenever you upgrade the {% data variables.product.prodname_codeql %} CLI you're using.
+**Note:** If you specify a particular version of a query pack to use, be aware that the version you specify may eventually become too old for the latest version of {% data variables.product.prodname_codeql %} to make efficient use of. To ensure optimal performance, if you need to specify exact query pack versions, you should reevaluate which versions you pin to whenever you upgrade the {% data variables.product.prodname_codeql_cli %} you're using.
 
 For more information about pack compatibility, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs#about-codeql-pack-compatibility)."
 
@@ -103,7 +103,7 @@ $ echo $OCTO-ORG_ACCESS_TOKEN | codeql database analyze --download /codeql-dbs/e
 If you want to download a {% data variables.product.prodname_codeql %} pack without running it immediately, then you can use the `codeql pack download` command. This is useful if you want to avoid accessing the internet when running {% data variables.product.prodname_codeql %} queries. When you run the {% data variables.product.prodname_codeql %} analysis, you can specify packs, versions, and paths in the same way as in the previous example:
 
 ```shell
-echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download &lt;scope/name@version:path&gt; &lt;scope/name@version:path&gt; ...
+echo $OCTO-ORG_ACCESS_TOKEN | codeql pack download <scope/name@version:path> <scope/name@version:path> ...
 ```
 
 ### Downloading {% data variables.product.prodname_codeql %} packs from multiple {% data variables.product.company_short %} container registries

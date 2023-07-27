@@ -328,7 +328,7 @@ To send a header in a `curl` command, use the `--header` or `-H` flag followed b
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"{% ifversion api-date-versioning %} \
+--header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 

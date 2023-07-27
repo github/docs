@@ -34385,7 +34385,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     last: Int
 
     """
-    Filters users with query on user name and login
+    Filters users with query on user name and login.
     """
     query: String
   ): UserConnection!

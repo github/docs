@@ -110,7 +110,7 @@ You've successfully created, personalized, and run your first application within
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)"
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)"
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-with-github-cli)"

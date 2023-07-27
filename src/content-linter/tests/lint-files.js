@@ -445,7 +445,13 @@ describe('lint markdown content', () => {
         }
       })
 
-      const context = { currentLanguage: 'en' }
+      const context = {
+        currentLanguage: 'en',
+        // Any Liquid that might use our `ifversion` plugin requires and
+        // expects that there's a `currentVersionObj` object present in the
+        // environment.
+        currentVersionObj: {},
+      }
 
       // visit is not async-friendly so we need to do an async map to parse the YML snippets
       yamlScheduledWorkflows = (

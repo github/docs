@@ -38,6 +38,12 @@ You can reclaim a mannequin by sending an attribution invitation to an organizat
 
 The member can choose to accept or reject the invitation. After a member accepts an attribution invitation, all contributions previously attributed to the mannequin will be attributed to the member instead. In future migrations to the same organization, any contributions from the same mannequin will be automatically reclaimed for the same member.
 
+{% warning %}
+
+**Warning:** You cannot reclaim mannequins after you have transferred a repository to another organization. If you wish to transfer a repository to another organization after your migration, you must reclaim the mannequins before the transfer.
+
+{% endwarning %}
+
 {% data variables.product.prodname_importer_proper_name %} does not migrate user access to repositories. After reclaiming mannequins, if any of the members do not already have appropriate access to the repository via team membership, you must separately give the members access to the repository. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
 
 You can reclaim mannequins with {% data variables.product.prodname_cli %} (recommended) or the browser.
