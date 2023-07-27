@@ -113,8 +113,10 @@ children:
   - /overview
   - /installation
   - /configuration
+  - /administering-your-instance
   - /identity-and-access-management
-  - /user-management
+  - /managing-accounts-and-repositories
+  - /backing-up-and-restoring-your-instance
   - /policies
   - /monitoring-activity-in-your-enterprise
   - /enterprise-management

@@ -47,7 +47,7 @@ You can also archive an organization, instead of deleting it. Archiving an organ
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
 
 {% endnote %}
 {% endif %}
