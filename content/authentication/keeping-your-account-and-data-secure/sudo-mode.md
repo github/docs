@@ -44,7 +44,7 @@ After you authenticate to perform a sensitive action, your session is temporaril
 
 {% endif %}
 
-"sudo" is a reference to a program on Unix systems, where the name is short for "**su**peruser **do**." For more information, see [sudo](https://wikipedia.org/wiki/Sudo) on Wikipedia.
+"sudo" is a reference to a program on Unix systems, where the name is short for "**su**bstitute user **do**." For more information, see [sudo](https://wikipedia.org/wiki/Sudo) on Wikipedia.
 
 ## Confirming access for sudo mode
 
