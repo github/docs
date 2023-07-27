@@ -1,6 +1,6 @@
 ---
 title: query compile
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -33,8 +33,8 @@ codeql query compile [--check-only] [--keep-going] [--threads=<num>] [--ram=<MB>
 Compile or check QL code.
 
 Compile one or more queries. Usually the main outcome of this command is
-that the compiled version of the query is written to a *compilation
-cache* where it will be found when the query is later executed. Other
+that the compiled version of the query is written to a _compilation
+cache_ where it will be found when the query is later executed. Other
 output options are mostly for debugging.
 
 ## Primary options
@@ -47,7 +47,7 @@ output options are mostly for debugging.
 - A directory which will be searched recursively for .ql files.
 - A .qls file that defines a particular set of queries.
 - The basename of a "well-known" .qls file exported by one of the
-    installed QL packs.
+  installed QL packs.
 
 #### `-n, --check-only`
 
@@ -197,8 +197,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 
