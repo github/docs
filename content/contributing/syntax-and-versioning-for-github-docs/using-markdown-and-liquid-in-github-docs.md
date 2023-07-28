@@ -29,13 +29,12 @@ This example shows the correct way to align list items with multiple paragraphs 
 ```markdown
 1. Under your repository name, click **Actions**.
 
-   ![Actions tab in the main repository navigation](/assets/images/help/repository/actions-tab.png)
+   ![Screenshot of the tabs for the "github/docs" repository. The "Actions" tab is highlighted with an orange outline.](/assets/images/help/repository/actions-tab.png)
 
    This is another paragraph in the list.
-   
+
 1. This is the next item.
 ```
-
 
 This content is displayed on the {% data variables.product.prodname_docs %} site with the content under the first list item correctly aligned.
 
@@ -43,7 +42,7 @@ This content is displayed on the {% data variables.product.prodname_docs %} site
 
 1. Under your repository name, click **Actions**.
 
-   ![Actions tab in the main repository navigation](/assets/images/help/repository/actions-tab.png)
+   ![Screenshot of the tabs for the "github/docs" repository. The "Actions" tab is highlighted with an orange outline.](/assets/images/help/repository/actions-tab.png)
 
    This is another paragraph in the list.
 1. This is the next item.
@@ -139,12 +138,12 @@ For an example of an article that uses code annotations on {% data variables.pro
 
 ## Octicons
 
-Octicons are icons used across {% data variables.product.prodname_dotcom %}’s interface. We reference Octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific Octicons on the [Octicons site](https://primer.style/Octicons). 
+Octicons are icons used across {% data variables.product.prodname_dotcom %}’s interface. We reference Octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific Octicons on the [Octicons site](https://primer.style/Octicons).
 
 If you're referencing an Octicon that appears in the UI, identify whether the Octicon is the entire label of the UI element (for example, a button that is labeled only with "+") or whether it's only decorative, in addition to another label (for example, a button is labeled "+ Add message").
 
  - If the Octicon is the entire label, use your browser's developer tools to inspect the Octicon and determine what screen reader users will hear instead. Then, use that text for the `aria-label` (for example, `{% octicon "plus" aria-label="Add file" %}`). Occasionally, in the UI, the Octicon itself will not have an `aria-label`, but a surrounding element such as a `<summary>` or `<div>` tag will.
- - If the Octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the Octicon in the docs as well (for example, `"{% octicon "plus" aria-hidden="true" %} Add message"`). 
+ - If the Octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the Octicon in the docs as well (for example, `"{% octicon "plus" aria-hidden="true" %} Add message"`).
 
 If you're using the Octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the Octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#tables)."
 
@@ -325,7 +324,7 @@ If you create a table where the first column contains headers for the table rows
 | ------ | ---------------- |
 | Mona   | GitHub mascot    |
 | Tom    | Mouse antagonist |
-| Hobbes | Best friend      | 
+| Hobbes | Best friend      |
 ```
 
 ## Tables with codeblocks

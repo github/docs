@@ -1,5 +1,5 @@
 ---
-title: Discounted subscriptions for GitHub accounts
+title: Discounted plans for GitHub accounts
 intro: '{% data variables.product.product_name %} provides discounts to students, educators, educational institutions, nonprofits, and libraries.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/discounted-subscriptions-for-github-accounts
@@ -8,6 +8,7 @@ redirect_from:
   - /articles/discounted-billing-plans
   - /articles/discounted-subscriptions-for-github-accounts
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts
+  - /billing/managing-billing-for-your-github-account/discounted-subscriptions-for-github-accounts
 versions:
   fpt: '*'
   ghec: '*'
@@ -18,11 +19,11 @@ topics:
   - Discounts
   - Nonprofits
   - User account
-shortTitle: Discounted subscriptions
+shortTitle: Discounted plans
 ---
 {% tip %}
 
-**Tip**: Discounts for {% data variables.product.prodname_dotcom %} do not apply to subscriptions for other paid products and features.
+**Tip**: Discounts for an account's plan do not apply to other subscriptions or usage-based billing.
 
 {% endtip %}
 
@@ -38,7 +39,7 @@ Verified academic faculty can apply for {% data variables.product.prodname_team 
 
 {% data variables.product.product_name %} provides free {% data variables.product.prodname_team %} for organizations with unlimited private repositories, unlimited collaborators, and a full feature set to qualifying 501(c)3 (or equivalent) organizations and libraries. You can request a discount for your organization on [our nonprofit page](https://github.com/nonprofit).
 
-If your organization already has a paid subscription, your organization's last transaction will be refunded once your nonprofit discount has been applied.
+If your organization already has a paid plan, your organization's last transaction will be refunded once your nonprofit discount has been applied.
 
 ## Further reading
 

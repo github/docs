@@ -1,6 +1,6 @@
 ---
-title: Upgrading your GitHub subscription
-intro: 'You can upgrade the subscription for any type of account on {% data variables.location.product_location %} at any time.'
+title: Upgrading your account's plan
+intro: 'You can upgrade the plan for any type of account on {% data variables.location.product_location %} at any time.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/upgrading-your-github-subscription
   - /articles/upgrading-your-personal-account-s-billing-plan
@@ -19,6 +19,7 @@ redirect_from:
   - /articles/upgrading-your-github-billing-plan
   - /articles/upgrading-your-github-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/upgrading-your-github-subscription
+  - /billing/managing-billing-for-your-github-account/upgrading-your-github-subscription
 versions:
   fpt: '*'
   ghec: '*'
@@ -28,18 +29,20 @@ topics:
   - Troubleshooting
   - Upgrades
   - User account
-shortTitle: Upgrade your subscription
+shortTitle: Upgrade your plan
 ---
 
-## About subscription upgrades
+## About upgrades
 
 {% data reusables.accounts.accounts-billed-separately %}
 
-When you upgrade the subscription for an account, the upgrade changes the paid features available for that account only, and not any other accounts you use.
+Upgrading your plan does not affect other subscriptions or usage-based billing for your account. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
 
-## Upgrading your personal account's subscription
+## Upgrading your personal account's plan
 
-You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your personal account. Upgrading your personal account does not affect any organizations you may manage or repositories owned by those organizations. {% data reusables.gated-features.more-info %}
+You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your personal account.
+
+pgrading your personal account does not affect any organizations you may manage or repositories owned by those organizations. {% data reusables.gated-features.more-info %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -51,13 +54,15 @@ You can upgrade your personal account from {% data variables.product.prodname_fr
 {% data reusables.dotcom_billing.enter-payment-info %}
 {% data reusables.dotcom_billing.finish_upgrade %}
 
-## Managing your organization's subscription
+## Managing your organization's plan
 
-You can upgrade your organization's subscription to a different product, add seats to your existing product, or switch from per-repository to per-user pricing.
+You can upgrade your organization's plan, add seats to your existing plan, or switch from per-repository to per-user pricing.
 
-### Upgrading your organization's subscription
+### Upgrading your organization's plan
 
-You can upgrade your organization from {% data variables.product.prodname_free_team %} for an organization to {% data variables.product.prodname_team %} to access advanced collaboration and management tools for teams, or upgrade your organization to {% data variables.product.prodname_ghe_cloud %} for additional security, compliance, and deployment controls. Upgrading an organization does not affect your personal account or repositories owned by your personal account. {% data reusables.gated-features.more-info-org-products %}
+You can upgrade your organization from {% data variables.product.prodname_free_team %} for an organization to {% data variables.product.prodname_team %} to access advanced collaboration and management tools for teams, or upgrade your organization to {% data variables.product.prodname_ghe_cloud %} for additional security, compliance, and deployment controls.
+
+Upgrading an organization does not affect your personal account or repositories owned by your personal account. {% data reusables.gated-features.more-info-org-products %}
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -87,7 +92,7 @@ If you'd like additional users to have access to your {% data variables.product.
 
 ### Switching your organization from per-repository to per-user pricing
 
-{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+{% data reusables.dotcom_billing.switch-legacy-billing %} For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)."
 
 {% data reusables.organizations.billing-settings %}
 1. To the right of your plan name, select the **Edit** dropdown menu, then click **Edit plan**.
@@ -121,6 +126,6 @@ If you'd like additional users to have access to your {% data variables.product.
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/githubs-products)"
-- "[AUTOTITLE](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)"
+- "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
+- "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)"
 - "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."

@@ -1,11 +1,12 @@
 ---
-title: GitHub’s products
-intro: 'An overview of {% data variables.product.prodname_dotcom %}''s products and pricing plans.'
+title: GitHub’s plans
+intro: "An overview of {% data variables.product.prodname_dotcom %}'s pricing plans."
 redirect_from:
   - /articles/github-s-products
-  - /articles/githubs-products
-  - /github/getting-started-with-github/githubs-products
-  - /github/getting-started-with-github/learning-about-github/githubs-products
+  - /articles/githubs-plans
+  - /github/getting-started-with-github/githubs-plans
+  - /github/getting-started-with-github/learning-about-github/githubs-plans
+  - /get-started/learning-about-github/githubs-products
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,13 +19,13 @@ topics:
   - Desktop
   - Security
 ---
-## About {% data variables.product.prodname_dotcom %}'s products
+## About {% data variables.product.prodname_dotcom %}'s plans
 
-{% data variables.product.prodname_dotcom %} offers free and paid products for storing and collaborating on code. Some products apply only to personal accounts, while other plans apply only to organization and enterprise accounts. For more information about accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
+{% data variables.product.prodname_dotcom %} offers free and paid plans for storing and collaborating on code. Some plans are available only to personal accounts, while other plans are available only to organization and enterprise accounts. For more information about accounts, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
-See costs and features for each product at {% data variables.product.pricing_link %}. {% data reusables.products.product-roadmap %}
+See costs and features for each plan at {% data variables.product.pricing_link %}. {% data reusables.products.product-roadmap %}
 
-When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your product. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
+When you read {% data variables.product.prodname_docs %}, make sure to select the version that reflects your plan. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
 
 ## {% data variables.product.prodname_free_user %} for personal accounts
 
@@ -93,7 +94,7 @@ In addition to the features available with {% data variables.product.prodname_fr
   - Organization owners can choose to enable or disable {% data variables.product.prodname_github_codespaces %} for the organization's private {% ifversion ghec %}and internal {% endif %}repositories, and can pay for the usage of members and collaborators. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)" and [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
 {%- endif %}
 
-{% data variables.product.company_short %} bills for {% data variables.product.prodname_team %} on a per-user basis. For more information, see "[About per-user pricing]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing){% ifversion fpt %}."{% else %}" in the Free, Pro, & Team documentation.{% endif %}
+{% data variables.product.company_short %} bills for {% data variables.product.prodname_team %} on a per-user basis. For more information, see "[About per-user pricing]({% ifversion not fpt %}/free-pro-team@latest{% endif %}/billing/managing-the-plan-for-your-github-account/about-per-user-pricing){% ifversion fpt %}."{% else %}" in the Free, Pro, & Team documentation.{% endif %}
 
 {% data reusables.actions.actions-billing %}
 
@@ -124,4 +125,4 @@ You can set up trials to evaluate {% data variables.product.prodname_ghe_cloud %
 
 ## Further reading
 
-- "[About per-user pricing]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-billing-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+- "[About per-user pricing]({% ifversion not ghec %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)"{% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
