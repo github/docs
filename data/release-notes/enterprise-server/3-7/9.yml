@@ -19,6 +19,8 @@ sections:
     - If a site administrator provides an invalid configuration for blob storage for GitHub Actions or GitHub Packages on an instance, the preflight checks page displays details and troubleshooting information.
   known_issues:
     - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
       Custom firewall rules are removed during the upgrade process.

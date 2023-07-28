@@ -25,6 +25,8 @@ sections:
       People with administrative SSH access who generate a support bundle using the `ghe-support-bundle` or `ghe-cluster-support-bundle` utilities can specify the period of time to gather data with `-p` or `--period` without using spaces or quotes. For example, in addition to `'-p 5 days'` or `-p '4 days 10 hours'`,  `-p 5days` or `-p 4days10hours` are valid.
   known_issues:
     - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
       Custom firewall rules are removed during the upgrade process.
