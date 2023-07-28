@@ -13,6 +13,7 @@ redirect_from:
   - /categories/3/articles
   - /articles/managing-your-organization-s-paid-seats
   - /articles/managing-billing-for-your-github-account
+  - /billing/managing-billing-for-your-github-account
 versions:
   fpt: '*'
   ghec: '*'
