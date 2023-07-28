@@ -4,7 +4,7 @@ html,
 body {
   scroll-padding-top: 105px !important; // 88 + 8 + 8 + 1
 
-  @include breakpoint(xl) {
+  @media (min-width: 1400px) {
     scroll-padding-top: 65px !important; // 48 + 8 + 8 + 1
   }
 }

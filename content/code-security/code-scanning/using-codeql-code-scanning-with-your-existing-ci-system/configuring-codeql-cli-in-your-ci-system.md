@@ -47,9 +47,9 @@ You can display the command-line help for any command using the <nobr>`--help`</
 1. Check out the code that you want to analyze:
     - For a branch, check out the head of the branch that you want to analyze.
     - For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
-2. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see "[Creating databases for non-compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-non-compiled-languages)" and "[Creating databases for compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-compiled-languages)" in "Preparing your code for {% data variables.product.prodname_codeql %} analysis".
-3. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
-4. Run `codeql database create` from the checkout root of your repository and build the codebase.
+1. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see "[Creating databases for non-compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-non-compiled-languages)" and "[Creating databases for compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-compiled-languages)" in "Preparing your code for {% data variables.product.prodname_codeql %} analysis".
+1. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
+1. Run `codeql database create` from the checkout root of your repository and build the codebase.
 
    ```shell
    # Single supported language - create one CodeQL database
@@ -381,7 +381,7 @@ codeql database analyze codeql-dbs/python python-code-scanning.qls \
     --format=sarif-latest --sarif-category=python --output=python-results.sarif
 
 # Upload the SARIF file with the Java results: 'java-results.sarif'
-# The {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication 
+# The {% data variables.product.prodname_github_app %} or {% data variables.product.pat_generic %} created for authentication
 # with {% data variables.product.company_short %}'s REST API is available in the `GITHUB_TOKEN` environment variable.
 
 codeql github upload-results \
