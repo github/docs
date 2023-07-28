@@ -120,7 +120,9 @@ If you experience this problem, the following error will be in the mysql error l
 
 ### Avoiding this issue
 
-To avoid this issue, update the nomad timeout for MySQL before starting an upgrade to {% data variables.product.prodname_ghe_server %} 3.9
+We strongly recommend you upgrade your {% data variables.product.prodname_ghe_server %} instance to the latest patch version (3.7.14 or higher, or 3.8.7 or higher) before you upgrade to 3.9. These versions contain a fix for the upgrade issue.
+
+If you cannot upgrade {% data variables.location.product_location %}, then you can avoid the issue by updating the nomad timeout for MySQL before starting an upgrade to {% data variables.product.prodname_ghe_server %} 3.9:
 
 1. Put your instance into maintenance mode:
 
