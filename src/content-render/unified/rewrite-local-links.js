@@ -125,6 +125,19 @@ function getNewHref(node, languageCode, version) {
   const firstLinkSegment = href.split('/')[1]
   if (supportedPlans.has(firstLinkSegment.split('@')[0])) {
     newHref = path.posix.join('/', languageCode, href)
+  } else if (firstLinkSegment.includes('@')) {
+    // This could mean a bad typo!
+    // This can happend if you have something
+    // like `/enterprise-servr@3.9/foo/bar` which is a typo. I.e.
+    // `enterprise-servr` is not a valid plan, but it has a `@` character  in it.
+    console.warn(
+      `
+Warning! The first segment of the internal link has a '@' character in it
+but the plan is not recognized. This is likely a typo.
+Please inspect the link and fix it if it's a typo.
+Look for an internal link that starts with '${href}'.
+    `,
+    )
   }
 
   // If the link includes a deprecated version, do not update other than adding a language code
