@@ -8,6 +8,7 @@ on:
   pull_request:
     paths:
       - '/contributing/content-*.md'
+      - '/content/contributing/**.md'
 
 jobs:
   codeowners-content-strategy:
