@@ -45,7 +45,7 @@ jobs:
           # will be checked out
           repository: github/rest-api-description
           path: rest-api-description
-          ref: ${{ github.event.inputs.SOURCE_BRANCH }}
+          ref: ${{ inputs.SOURCE_BRANCH }}
 
       - uses: ./.github/actions/node-npm-setup
 

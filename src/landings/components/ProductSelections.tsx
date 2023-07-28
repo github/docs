@@ -5,7 +5,7 @@ import { ProductSelectionCard } from './ProductSelectionCard'
 
 export type ProductGroupT = {
   name: string
-  icon: string
+  icon?: string
   octicon: string
   children: Array<ProductT>
 }

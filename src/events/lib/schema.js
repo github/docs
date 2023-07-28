@@ -460,7 +460,7 @@ const preference = {
         'auto:light',
         'linux',
         'mac',
-        'windows'
+        'windows',
       ),
       description: 'The application, color_mode, or os selected by the user.',
     },

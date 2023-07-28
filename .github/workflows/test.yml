@@ -42,7 +42,6 @@ jobs:
             return [
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
               { name: 'content', path: 'tests/content', },
-              // { name: 'content-linter', path: 'src/content-linter/tests', },
               { name: 'content-render', path: 'src/content-render/tests', },
               { name: 'events', path: 'src/events/tests', },
               { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
@@ -53,6 +52,7 @@ jobs:
               { name: 'linting', path: 'src/content-linter/tests', },
               { name: 'observability', path: 'src/observability/tests' },
               { name: 'pageinfo', path: 'src/pageinfo/tests', },
+              { name: 'redirects', path: 'src/redirects/tests', },
               { name: 'rendering', path: 'tests/rendering', },
               { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
               { name: 'rest', path: 'src/rest/tests', },
@@ -179,6 +179,6 @@ jobs:
           # tests run only in English. The exception is the
           # `tests/translations/` suite which needs all languages to be set up.
           ENABLED_LANGUAGES: ${{ matrix.name == 'translations' && 'all' || '' }}
-          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures' || '' }}
+          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'tests/fixtures' || '' }}
           TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures/translations' || '' }}
         run: npm test -- ${{ matrix.path }}/

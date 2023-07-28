@@ -274,6 +274,8 @@ Configuration variables can be accessed across the workflow using `vars` context
 
 The default environment variables that {% data variables.product.prodname_dotcom %} sets are available to every step in a workflow.
 
+{% data reusables.actions.environment-variables-are-fixed %} For more information about setting environment variables, see "[Defining environment variables for a single workflow](#defining-environment-variables-for-a-single-workflow)" and "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)."
+
 We strongly recommend that actions use variables to access the filesystem rather than using hardcoded file paths. {% data variables.product.prodname_dotcom %} sets variables for actions to use in all runner environments.
 
 | Variable | Description |

@@ -1,7 +1,7 @@
 ---
 title: Check Suites
 intro: Use the REST API to manage check suites.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

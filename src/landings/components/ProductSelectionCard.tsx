@@ -6,6 +6,7 @@ import { useRouter } from 'next/router'
 import { useVersion } from 'components/hooks/useVersion'
 import { Link } from 'components/Link'
 import * as Octicons from '@primer/octicons-react'
+import { LinkExternalIcon } from '@primer/octicons-react'
 
 type ProductSelectionCardProps = {
   name: string
@@ -54,7 +55,7 @@ export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps)
   }
 
   return (
-    <div className="d-flex flex-column col-12 col-sm-6 col-lg-4 pb-4">
+    <div className="d-flex flex-column col-12 col-sm-6 col-lg-4 col-xl-3 pb-4">
       <div className="flex-auto ws-normal">
         <div className="d-flex flex-items-center">
           {icon(group)}
@@ -73,8 +74,16 @@ export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps)
 
               return (
                 <li key={product.name} className="pt-2">
-                  <Link href={href(product)} target={product.external ? '_blank' : undefined}>
+                  <Link
+                    href={group.name === 'More docs' ? product.href : href(product)}
+                    target={product.external ? '_blank' : undefined}
+                  >
                     {product.name}
+                    {group.name === 'More docs' && (
+                      <span className="ml-1">
+                        <LinkExternalIcon aria-label="(external site)" size="small" />
+                      </span>
+                    )}
                   </Link>
                 </li>
               )

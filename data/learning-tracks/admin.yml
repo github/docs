@@ -3,7 +3,6 @@ get_started_with_github_ae:
   description: >-
     Learn about {% data variables.product.prodname_ghe_managed %} and complete
     the initial configuration of a new enterprise.
-  featured_track: true
   versions:
     ghae: '*'
   guides:
@@ -20,7 +19,6 @@ deploy_an_instance:
   description: >-
     Install {% data variables.product.prodname_ghe_server %} on your platform of
     choice and configure SAML authentication.
-  featured_track: true
   versions:
     ghes: '*'
   guides:
@@ -192,7 +190,7 @@ get_started_with_your_enterprise_account:
   guides:
     - /admin/overview/about-enterprise-accounts
     - >-
-      /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
+      /billing/managing-the-plan-for-your-github-account/about-billing-for-your-enterprise
     - >-
       /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
     - >-

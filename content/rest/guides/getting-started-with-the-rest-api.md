@@ -130,7 +130,7 @@ To keep your token secure, you can store your token as a secret and run your scr
 
 {% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+If these options are not possible, consider using another CLI service to store your token securely.
 
 {% endwarning %}
 
@@ -155,7 +155,7 @@ To help keep your account secure, you can use {% data variables.product.prodname
 
 {% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+If these options are not possible, consider using another CLI service to store your token securely.
 
 {% endwarning %}
 
@@ -328,7 +328,7 @@ To send a header in a `curl` command, use the `--header` or `-H` flag followed b
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer <em>YOUR-TOKEN</em>"{% ifversion api-date-versioning %} \
+--header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
@@ -707,7 +707,7 @@ jq '.[] | {title: .title, authorID: .user.id}' data.json
 
 The previous two commands return something like:
 
-```
+```json
 {
   "title": "Update index.html",
   "authorID": 10701255
@@ -764,7 +764,7 @@ jq '.[] | {title: .title, authorID: .user.id}' data.json
 
 The previous two commands return something like:
 
-```
+```json
 {
   "title": "Update index.html",
   "authorID": 10701255

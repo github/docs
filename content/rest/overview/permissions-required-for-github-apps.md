@@ -1,6 +1,6 @@
 ---
 title: Permissions required for GitHub Apps
-intro: 'These are the permissions required for a {% data variables.product.prodname_github_app %} to use each REST API endpoint that works with {% data variables.product.prodname_github_app %}s.'
+intro: 'These are the permissions required for a {% data variables.product.prodname_github_app %} to use each REST API endpoint that works with {% data variables.product.prodname_github_apps %}.'
 redirect_from:
   - /v3/apps/permissions
   - /rest/reference/permissions-required-for-github-apps

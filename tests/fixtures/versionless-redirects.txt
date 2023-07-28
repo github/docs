@@ -8,14 +8,14 @@
 - /github/setting-up-and-managing-your-enterprise/about-enterprise-accounts
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/about-enterprise-accounts
 
-/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/roles-in-an-enterprise
 - /github/setting-up-and-managing-your-enterprise-account/roles-for-an-enterprise-account
 - /articles/permission-levels-for-a-business-account
 - /articles/roles-for-an-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/roles-in-an-enterprise
 
-/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
+/enterprise-cloud@latest/admin/configuration/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise
 - /admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/verifying-or-approving-a-domain-for-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/verifying-your-enterprise-accounts-domain
@@ -23,7 +23,7 @@
 - /early-access/github/articles/verifying-your-enterprise-accounts-domain
 - /github/setting-up-and-managing-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise-account
 
-/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account
+/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account
 - /billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise-account/viewing-the-subscription-and-usage-for-your-enterprise-account
@@ -64,7 +64,7 @@
 - /github/setting-up-and-managing-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account/enforcing-policies-for-advanced-security-in-your-enterprise-account
 
-/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
 - /github/setting-up-and-managing-your-enterprise-account/viewing-people-in-your-enterprise-account
 - /articles/viewing-people-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise
@@ -117,7 +117,7 @@
 - /graphql/guides/managing-enterprise-accounts
 - /v4/guides/managing-enterprise-accounts
 
-/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
+/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise
 - /admin/overview/managing-billing-for-your-enterprise
 - /admin/overview/managing-billing-for-github-enterprise
 
@@ -130,7 +130,7 @@
 /enterprise-cloud@latest/admin
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
 
-/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise-account/managing-users-in-your-enterprise-account
 - /articles/managing-users-in-your-enterprise-account
@@ -194,25 +194,25 @@
 - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
 - /admin/authentication/managing-your-enterprise-users-with-your-identity-provider/auditing-activity-in-your-enterprise
 
-/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 - /admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise
 
-/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise-account/viewing-and-managing-a-users-saml-access-to-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
 - /admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise
 
-/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/adding-organizations-to-your-enterprise-account
 - /articles/adding-organizations-to-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise-account/adding-organizations-to-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/adding-organizations-to-your-enterprise-account
 - /admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
 
-/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise-account/managing-unowned-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/managing-unowned-organizations-in-your-enterprise-account
@@ -246,19 +246,19 @@
 - /github/setting-up-and-managing-your-enterprise-account/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-licenses-for-visual-studio-subscription-with-github-enterprise
 
-/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
 - /github/setting-up-and-managing-your-enterprise-account/inviting-people-to-manage-your-enterprise-account
 - /articles/inviting-people-to-collaborate-in-your-business-account
 - /articles/inviting-people-to-manage-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/inviting-people-to-manage-your-enterprise
 
-/enterprise-cloud@latest/admin/user-management/managing-organizations-in-your-enterprise
+/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise
 - /articles/managing-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise-account/managing-organizations-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account
 
-/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise
+/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/managing-invoices-for-your-enterprise
 - /billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise
 
 /enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
@@ -271,7 +271,7 @@
 # This redirect ensures that the links don't resolve to the non-GHAE version
 # of the docs as this article only exists in the GHAE docs.
 
-/github-ae@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae
+/github-ae@latest/admin/overview/initializing-github-ae
 - /admin/configuration/configuring-your-enterprise/initializing-github-ae
 - /enterprise-server@latest/admin/configuration/configuring-your-enterprise/initializing-github-ae
 

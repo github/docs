@@ -108,7 +108,7 @@ export function PermissionsList({
               ) : null
 
               const additionalPermissions = operation['additional-permissions'].map(
-                (permission) => items[permission].displayTitle
+                (permission) => items[permission].displayTitle,
               )
               const permissionsClass = operation['additional-permissions'].length
                 ? ''

@@ -30,7 +30,7 @@ if (!fs.existsSync(directory)) {
 updateOrCreateToc(directory)
 
 console.log(
-  'Done! Review the new or updated index.md files and update the 1) order of the children 2) versions as needed'
+  'Done! Review the new or updated index.md files and update the 1) order of the children 2) versions as needed',
 )
 
 function updateOrCreateToc(directory) {

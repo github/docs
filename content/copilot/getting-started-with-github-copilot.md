@@ -173,16 +173,15 @@ If you use {% data variables.product.prodname_vs %}, you can view and incorporat
 ## Installing the {% data variables.product.prodname_vs %} extension
 
 To use {% data variables.product.prodname_copilot %}, you must first install the {% data variables.product.prodname_vs %} extension.
-1. In the Visual Studio menu bar, click **Extensions**, then click **Manage Extensions**.
 
-   ![Screenshot of the menu bar in Visual Studio. The "Extensions" menu is open, and the "Manage Extensions" option is highlighted with an orange outline.](/assets/images/help/copilot/visual-studio-toolbar.png)
+{% data reusables.copilot.vs-extensions %}
 1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the {% data variables.product.prodname_copilot %} extension, then click **Download**.
 
    ![Screenshot of a list of search results. Next to the {% data variables.product.prodname_copilot %} extension, the "Download" button is highlighted with an orange outline.](/assets/images/help/copilot/install-copilot-extension-visual-studio.png)
-1. Close the "Manage Extensions" window, then exit and relaunch {% data variables.product.prodname_vs %}.
+{% data reusables.copilot.vs-exit-and-relaunch %}
 1. Optionally, to check that {% data variables.product.prodname_copilot %} is installed and enabled, go back to **Manage Extensions**, click **Installed** to view your currently installed extensions, then click **{% data variables.product.prodname_copilot %}** to see status information.
   
-   ![Screenshot of a list of installed extensions in Visual Studio. The "{% data variables.product.prodname_copilot %}" extension is highlighted with an orange outline.](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
+   ![Screenshot of a list of installed extensions in {% data variables.product.prodname_vs %}. The "{% data variables.product.prodname_copilot %}" extension is highlighted with an orange outline.](/assets/images/help/copilot/installed-copilot-extension-visual-studio.png)
 1. Open or create a new project in {% data variables.product.prodname_vs %}.
 1. In the "Microsoft {% data variables.product.prodname_vs %}" dialog box, to copy your device activation code, click **OK**.
 1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
@@ -266,6 +265,9 @@ To use {% data variables.product.prodname_copilot %}, you must first install the
 1. If you have not previously authorized {% data variables.product.prodname_vscode %} in your {% data variables.product.prodname_dotcom %} account, you will be prompted to sign in to {% data variables.product.prodname_dotcom %} in {% data variables.product.prodname_vscode %}.
 
    - If you have previously authorized {% data variables.product.prodname_vscode %} for your account on {% data variables.product.prodname_dotcom %}, {% data variables.product.prodname_copilot %} will be automatically authorized.
+   - If you don't get the prompt to authorize, click the bell icon in the bottom panel of the {% data variables.product.prodname_vscode %} window.
+     
+     ![Screenshot of the {% data variables.product.prodname_vscode %} task bar with {% data variables.product.prodname_copilot %} icons. The bell icon is outlined in dark orange.](/assets/images/help/copilot/copilot-activate.png)
 
 1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_vscode %}**.
 1. To confirm the authentication, in {% data variables.product.prodname_vscode %}, in the "{% data variables.product.prodname_vscode %}" dialog box, click **Open**.
@@ -422,7 +424,7 @@ If you use Vim/Neovim, you can view and incorporate suggestions from {% data var
 
 For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovim, you can view the plugin documentation. To see the documentation, open Vim/Neovim and run the following command:
 
-```
+```shell
 :help copilot
 ```
 

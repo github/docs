@@ -13,7 +13,7 @@ redirect_from:
   - /apps/creating-github-apps/setting-up-a-github-app/making-your-github-app-available-for-github-enterprise-server
 ---
 
-## About developing {% data variables.product.prodname_github_app %}s for {% data variables.product.prodname_ghe_server %}
+## About developing {% data variables.product.prodname_github_apps %} for {% data variables.product.prodname_ghe_server %}
 
 If you want your {% data variables.product.prodname_github_app %} to be available to organizations in a {% data variables.product.prodname_ghe_server %} instance that you are not part of, you must take the following steps.
 
@@ -25,7 +25,7 @@ If {% data variables.product.prodname_ghe_server %} access is important, conside
 
 ## Each {% data variables.product.prodname_ghe_server %} instance must register their own {% data variables.product.prodname_github_app %}
 
-Organizations owned by a {% data variables.product.prodname_ghe_server %} instance cannot install {% data variables.product.prodname_github_app %}s registered on {% data variables.product.prodname_dotcom_the_website %} or on another {% data variables.product.prodname_ghe_server %} instance. Instead, they must register and install their own {% data variables.product.prodname_github_app %} for use on that instance.
+Organizations owned by a {% data variables.product.prodname_ghe_server %} instance cannot install {% data variables.product.prodname_github_apps %} registered on {% data variables.product.prodname_dotcom_the_website %} or on another {% data variables.product.prodname_ghe_server %} instance. Instead, they must register and install their own {% data variables.product.prodname_github_app %} for use on that instance.
 
 1. The app developer creates a manifest or URL parameters. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters)."
 1. The app developer shares the manifest or URL parameters with the {% data variables.product.prodname_ghe_server %} instance that wants to use the app. The same manifest or URL parameters can be shared with multiple {% data variables.product.prodname_ghe_server %} instances.
@@ -36,7 +36,7 @@ Organizations owned by a {% data variables.product.prodname_ghe_server %} instan
 
 ## The app code must be able to access the {% data variables.product.prodname_github_app %} credentials for the instance
 
-You app's code will need the credentials of the {% data variables.product.prodname_github_app %} that the {% data variables.product.prodname_ghe_server %} instance registered. It will also need the hostname of the instance. You have two options: get the credentials and hostname from the instance, or share the app code with the instance.
+You app's code will need the credentials of the {% data variables.product.prodname_github_app %} that the {% data variables.product.prodname_ghe_server %} instance registered. It will also need the hostname of the instance. You have two options: get the credentials and hostname from the instance, or have the {% data variables.product.prodname_ghe_server %} customer host and manage a self-hostable version of the app.
 
 ### Get the credentials from the {% data variables.product.prodname_ghe_server %} instance
 
@@ -52,9 +52,11 @@ Disadvantages:
 
 - The app developer must take precautions to avoid leaking data from the instance.
 
-### Share the app code with the {% data variables.product.prodname_ghe_server %} instance
+### Have the {% data variables.product.prodname_ghe_server %} customer host and manage a self-hostable version of the app
 
-The app developer can share the code for their app with the instance. Then, the instance can host the code on their own servers.
+The app developer can provide a self-hostable version of their app. Then, the site administrator can host the app according to app developer's setup and installation instructions.
+
+The method by which the self-hostable version of the app is created and shared is up to the app developer and depends on technology that the app uses.
 
 Advantages:
 

@@ -99,10 +99,11 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
    ![Screenshot of the Gateway with the "Connect to {% data variables.product.prodname_codespaces %}" button.](/assets/images/help/codespaces/jetbrains-gateway-connect.png)
 
 1. In the "Welcome to JetBrains Gateway" dialog, click **Sign In with {% data variables.product.prodname_dotcom %}**.
-1. Click the icon beside the one-time code to copy it, then click the login link.
+1. Click the icon beside the one-time code to copy it.
 
    ![Screenshot of a one-time login code. The copy icon beside the code is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-gateway-login-code.png)
 
+1. Click the login link, below the login code.
 1. If you are not currently signed in to {% data variables.product.prodname_dotcom %}, the sign-in page is displayed.
    - Enter your details and click **Sign in**.
    - Verify your authentication, for example by entering a two-factor authentication code.

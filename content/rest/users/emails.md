@@ -1,7 +1,7 @@
 ---
 title: Emails
 intro: Use the REST API to manage email addresses of authenticated users.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
   ghes: '*'

@@ -45,8 +45,6 @@ If you are a site administrator for {% data variables.location.product_location 
     <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
    ```shell
    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-
    ```
 
    {%- else %}
@@ -77,7 +75,7 @@ When you're prompted to "Enter a file in which to save the key", you can press *
    {% mac %}
 
    ```shell
-   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM: [Press enter]
+   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM): [Press enter]
    ```
 
    {% endmac %}

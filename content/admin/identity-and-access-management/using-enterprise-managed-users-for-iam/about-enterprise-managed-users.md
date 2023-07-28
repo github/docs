@@ -41,7 +41,7 @@ To use {% data variables.product.prodname_emus %}, you need a separate type of e
 
 {% note %}
 
-**Note:** There are multiple options for identity and access management with {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_emus %} is not the best solution for every customer. For more information about whether {% data variables.product.prodname_emus %} is right for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#identifying-the-best-authentication-method-for-your-enterprise)."
+**Note:** There are multiple options for identity and access management with {% data variables.product.prodname_ghe_cloud %}, and {% data variables.product.prodname_emus %} is not the best solution for every customer. For more information about whether {% data variables.product.prodname_emus %} is right for your enterprise, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/identifying-the-best-authentication-method-for-your-enterprise)."
 
 {% endnote %}
 
@@ -103,8 +103,9 @@ To discover how a member was added to an organization, you can filter the member
 - Outside collaborators are not supported by {% data variables.product.prodname_emus %}.
 - {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users)."
 - {% data variables.enterprise.prodname_managed_users_caps %} can only create and use codespaces that are owned and paid for by their organization or enterprise. This means that {% data variables.enterprise.prodname_managed_users %}:
-  - Can create codespaces for repositories owned by their organization, or forks of these repositories, provided that the organization has enabled billing for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+  - Can create codespaces for repositories owned by their organization, or forks of these repositories, provided that the organization can pay for {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
   - Cannot create codespaces for their personal repositories, other than forks of repositories owned by their organization; for any other repositories outside their organization; or from {% data variables.product.company_short %}'s public templates for {% data variables.product.prodname_github_codespaces %}.
+  - Cannot publish a codespace created from a template to a new repository.
 
 ## Getting started with {% data variables.product.prodname_emus %}
 

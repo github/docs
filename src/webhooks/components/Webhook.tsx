@@ -117,7 +117,7 @@ export function Webhook({ webhook }: Props) {
       undefined,
       {
         shallow: true,
-      }
+      },
     )
   }
 
@@ -138,7 +138,7 @@ export function Webhook({ webhook }: Props) {
     webhookFetcher,
     {
       revalidateOnFocus: false,
-    }
+    },
   )
 
   const currentWebhookActionType = selectedWebhookActionType || webhook.data.action
@@ -155,7 +155,7 @@ export function Webhook({ webhook }: Props) {
           dangerouslySetInnerHTML={{
             __html: t('webhooks.availability').replace(
               '{{ WebhookName }}',
-              currentWebhookAction.category
+              currentWebhookAction.category,
             ),
           }}
         />
@@ -182,7 +182,7 @@ export function Webhook({ webhook }: Props) {
           dangerouslySetInnerHTML={{
             __html: t('webhooks.webhook_payload_object').replace(
               '{{ WebhookName }}',
-              currentWebhookAction.category
+              currentWebhookAction.category,
             ),
           }}
         />
@@ -236,6 +236,7 @@ export function Webhook({ webhook }: Props) {
             bodyParameters={currentWebhookAction.bodyParameters || []}
             bodyParamExpandCallback={handleBodyParamExpansion}
             clickedBodyParameterName={clickedBodyParameterName}
+            variant="webhooks"
           />
         </div>
       </div>

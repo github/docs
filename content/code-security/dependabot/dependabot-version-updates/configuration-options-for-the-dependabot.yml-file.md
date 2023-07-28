@@ -38,7 +38,7 @@ Any options that also affect security updates are used the next time a security 
 
 {% endnote %}
 
-The _dependabot.yml_ file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
+The _dependabot.yml_ file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key. The file must start with `version: 2`.
 
 ## Configuration options for the _dependabot.yml_ file
 
@@ -372,11 +372,11 @@ For more information about the `@dependabot ignore` commands, see "[AUTOTITLE](/
 
 You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
 
-- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
-- `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager. For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax; for NuGet, use `7.*`.
-- `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
-
-If `versions` and `update-types` are used together, {% data variables.product.prodname_dependabot %} will ignore any update in either set.
+| Option | Description |
+|--------|-------------|
+|<code><span style="white-space: nowrap;">dependency-name</span></code> | Use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters.</br>For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`).</br>{% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %} |
+| `versions` | Use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager.</br>For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax; for NuGet, use `7.*`. |
+| <code><span style="white-space: nowrap;">update-types</span></code> | Use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies.</br>Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. |
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
@@ -391,11 +391,11 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "express"
-        # For Express, ignore all updates for version 4 and 5
+        # For Express, ignore all Dependabot updates for version 4 and 5
         versions: ["4.x", "5.x"]
         # For Lodash, ignore all updates
       - dependency-name: "lodash"
-        # For AWS SDK, ignore all patch updates
+        # For AWS SDK, ignore all patch updates for version updates only
       - dependency-name: "aws-sdk"
         update-types: ["version-update:semver-patch"]
 ```
@@ -798,53 +798,69 @@ updates:
 
 ### `versioning-strategy`
 
-When {% data variables.product.prodname_dependabot %} edits a manifest file to update a version, it uses the following overall strategies:
+When {% data variables.product.prodname_dependabot %} edits a manifest file to update a version, there are several different potential versioning strategies:
 
-- For apps, the version requirements are increased, for example: npm, pip and Composer.
-- For libraries, the range of versions is widened, for example: Bundler and Cargo.
+| Option | Action |
+|--------|--------|
+| `auto` | Try to differentiate between between apps and libraries. Use `increase` for apps and `widen` for libraries.|
+| `increase`| Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound. |
+| `increase-if-necessary` | Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint. |
+| `lockfile-only` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
+| `widen`| Widen the allowed version requirements to include both the new and old versions, when possible. Typically, this only increases the maximum allowed version requirement. |
+| N/A | Some package managers do not yet support configuring the `versioning-strategy` parameter. |
+
+The following table shows an example of how `versioning-strategy` can be used.
+
+| Current constraint | Current version | New version | Strategy | New constraint | 
+|--------------------|-----------------|-------------|----------|----------------|
+| ^1.0.0 | 1.0.0 | 1.2.0 | `widen` | ^1.0.0 |
+| ^1.0.0 | 1.0.0 | 1.2.0 | `increase` | ^1.2.0 |
+| ^1.0.0 | 1.0.0 | 1.2.0 | `increase-if-necessary` | ^1.0.0 |
+| ^1.0.0 | 1.0.0 | 2.0.0 | `widen` | >=1.0.0 <3.0.0 |
+| ^1.0.0 | 1.0.0 | 2.0.0 | `increase` | ^2.0.0 |
+| ^1.0.0 | 1.0.0 | 2.0.0 | `increase-if-necessary` | ^2.0.0 |
 
 Use the `versioning-strategy` option to change this behavior for supported package managers.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-Available update strategies
+Available update strategies:
 
-| Option | Supported by | Action |
-|--------|--------------|--------|
-| `lockfile-only` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
-| `auto` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Follow the default strategy described above.|
-| `widen`| `composer`, `npm` | Relax the version requirement to include both the new and old version, when possible. |
-| `increase`| `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %}  | Always increase the version requirement to match the new version. |
-| `increase-if-necessary` | `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %} | Increase the version requirement only when required by the new version. |
+| Ecosystem | Supported versioning strategies | Default strategy |
+|-----------|---------------------------------|------------------|
+| `bundler` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only` | `auto` |
+| `cargo` | `auto`, `lockfile-only` | `auto` |
+| `composer` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only`, `widen` | `auto` |
+| `docker` | N/A | N/A |
+| `github-actions` | N/A | N/A |
+| `gitsubmodule` | N/A | N/A |
+| `gomod` | N/A | N/A |
+| `gradle` | N/A | N/A |
+| `maven` | N/A | N/A |
+| `mix` | `auto`, `lockfile-only` | `auto` |
+| `npm` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only`, `widen` | `auto` |
+| `nuget` | N/A | N/A |
+| `pip` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only` | `auto` |
+| `pub` | `auto`, `increase`, `increase-if-necessary`, `widen` | `auto` |
+| `terraform` | N/A | N/A |
+
+{% note %}
+
+**Note:** `N/A` indicates that the package manager does not yet support configuring the `versioning-strategy` parameter. The strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in https://github.com/dependabot/dependabot-core/.
+
+{% endnote %}
 
 ```yaml
-# Customize the manifest version strategy
+# Example configuration for customizing the manifest version strategy
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    # Update the npm manifest file to relax
-    # the version requirements
-    versioning-strategy: widen
-
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
       interval: "weekly"
-    # Increase the version requirements for Composer
-    # only when required
+    # Increase the version requirements for Composer only when required
     versioning-strategy: increase-if-necessary
-
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    # Only allow updates to the lockfile for pip and
-    # ignore any version updates that affect the manifest
-    versioning-strategy: lockfile-only
 ```
 
 ## Configuration options for private registries
@@ -1230,7 +1246,7 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-   replaces-base: true
+    replaces-base: true
 ```
 
 {% endraw %}
@@ -1292,7 +1308,7 @@ There are currently no ecosystems in beta.
 
 version: 2
 enable-beta-ecosystems: true
-updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+updates:{% ifversion fpt or ghec or ghes %}
   - package-ecosystem: "beta-ecosystem"{% else %}
   - package-ecosystem: "pub"{% endif %}
     directory: "/"

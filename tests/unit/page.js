@@ -10,7 +10,7 @@ import nonEnterpriseDefaultVersion from '../../lib/non-enterprise-default-versio
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseServerVersions = Object.keys(allVersions).filter((v) =>
-  v.startsWith('enterprise-server@')
+  v.startsWith('enterprise-server@'),
 )
 
 // get the `free-pro-team` segment of `free-pro-team@latest`
@@ -88,7 +88,7 @@ describe('Page class', () => {
       let rendered = await page.render(context)
       let $ = cheerio.load(rendered)
       expect($.text()).toBe(
-        'This text should render on any actively supported version of Enterprise Server'
+        'This text should render on any actively supported version of Enterprise Server',
       )
       expect($.text()).not.toBe('This text should only render on non-Enterprise')
 
@@ -99,7 +99,7 @@ describe('Page class', () => {
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).toBe(
-        'This text should render on any actively supported version of Enterprise Server'
+        'This text should render on any actively supported version of Enterprise Server',
       )
       expect($.text()).not.toBe('This text should only render on non-Enterprise')
 
@@ -110,7 +110,7 @@ describe('Page class', () => {
       rendered = await page.render(context)
       $ = cheerio.load(rendered)
       expect($.text()).not.toBe(
-        'This text should render on any actively supported version of Enterprise Server'
+        'This text should render on any actively supported version of Enterprise Server',
       )
       expect($.text()).toBe('This text should only render on non-Enterprise')
     })
@@ -172,13 +172,13 @@ describe('Page class', () => {
       const pageVersions = page.permalinks.map((permalink) => permalink.pageVersion)
       expect(
         enterpriseServerReleases.supported.every((version) =>
-          pageVersions.includes(`enterprise-server@${version}`)
-        )
+          pageVersions.includes(`enterprise-server@${version}`),
+        ),
       ).toBe(true)
       expect(
         enterpriseServerReleases.deprecated.every(
-          (version) => !pageVersions.includes(`enterprise-server@${version}`)
-        )
+          (version) => !pageVersions.includes(`enterprise-server@${version}`),
+        ),
       ).toBe(true)
     })
 
@@ -188,14 +188,14 @@ describe('Page class', () => {
         'pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches'
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
-          .href
+          .href,
       ).toBe(`/en/${expectedPath}`)
       expect(
         page.permalinks.find(
           (permalink) =>
             permalink.pageVersion ===
-            `enterprise-server@${enterpriseServerReleases.oldestSupported}`
-        ).href
+            `enterprise-server@${enterpriseServerReleases.oldestSupported}`,
+        ).href,
       ).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}/${expectedPath}`)
     })
 
@@ -207,14 +207,14 @@ describe('Page class', () => {
       })
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
-          .href
+          .href,
       ).toBe('/en')
       expect(
         page.permalinks.find(
           (permalink) =>
             permalink.pageVersion ===
-            `enterprise-server@${enterpriseServerReleases.oldestSupported}`
-        ).href
+            `enterprise-server@${enterpriseServerReleases.oldestSupported}`,
+        ).href,
       ).toBe(`/en/enterprise-server@${enterpriseServerReleases.oldestSupported}`)
     })
 
@@ -227,10 +227,10 @@ describe('Page class', () => {
       expect(
         page.permalinks.find(
           (permalink) =>
-            permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`
-        ).href
+            permalink.pageVersion === `enterprise-server@${enterpriseServerReleases.latest}`,
+        ).href,
       ).toBe(
-        `/en/enterprise-server@${enterpriseServerReleases.latest}/products/admin/some-category/some-article`
+        `/en/enterprise-server@${enterpriseServerReleases.latest}/products/admin/some-category/some-article`,
       )
       const pageVersions = page.permalinks.map((permalink) => permalink.pageVersion)
       expect(pageVersions.length).toBeGreaterThan(1)
@@ -245,7 +245,7 @@ describe('Page class', () => {
       })
       expect(
         page.permalinks.find((permalink) => permalink.pageVersion === nonEnterpriseDefaultVersion)
-          .href
+          .href,
       ).toBe('/en/products/actions/some-category/some-article')
       expect(page.permalinks.length).toBe(1)
     })
@@ -289,15 +289,11 @@ describe('Page class', () => {
                   title: 'title',
                   description: 'description',
                   guides,
-                  featured_track:
-                    '{% if currentVersion == "free-pro-team@latest" %}true{% else %}false{% endif %}',
                 },
                 track_2: {
                   title: 'title',
                   description: 'description',
                   guides,
-                  featured_track:
-                    '{% if enterpriseServerVersions contains currentVersion %}true{% else %}false{% endif %}',
                 },
                 dotcom_only_track: {
                   title: 'title',
@@ -325,8 +321,6 @@ describe('Page class', () => {
       const dotcomTrackNames = page.learningTracks.map((t) => t.trackName)
       expect(dotcomTrackNames.includes('track_2')).toBe(true)
       expect(dotcomTrackNames.includes('dotcom_only_track')).toBe(true)
-      expect(page.featuredTrack.trackName === 'track_1').toBeTruthy()
-      expect(page.featuredTrack.trackName === 'track_2').toBeFalsy()
 
       // Switch to Enterprise.
       context.currentVersion = `enterprise-server@${latest}`
@@ -336,8 +330,6 @@ describe('Page class', () => {
       const ghesTrackNames = page.learningTracks.map((t) => t.trackName)
       expect(ghesTrackNames.includes('track_1')).toBe(true)
       expect(ghesTrackNames.includes('enterprise_only_track')).toBe(true)
-      expect(page.featuredTrack.trackName === 'track_1').toBeFalsy()
-      expect(page.featuredTrack.trackName === 'track_2').toBeTruthy()
     })
   })
 
@@ -619,6 +611,7 @@ describe('catches errors thrown in Page class', () => {
       const context = {
         page: { version: `enterprise-server@3.2` },
         currentVersion: `enterprise-server@3.2`,
+        currentVersionObj: {},
         currentProduct: 'snowbird',
         currentLanguage: 'en',
         currentPath: '/en/enterprise-server@3.2/optional/attributes',

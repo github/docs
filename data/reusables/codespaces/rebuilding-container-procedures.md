@@ -12,7 +12,7 @@ If you've changed a dev container configuration outside of {% data variables.pro
 
 1. In a terminal, enter the following command.
 
-   ```
+   ```shell
    gh codespace rebuild
    ```
 

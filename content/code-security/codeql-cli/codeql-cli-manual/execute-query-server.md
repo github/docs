@@ -1,6 +1,6 @@
 ---
 title: execute query-server
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -119,7 +119,7 @@ below this percentage.
 
 #### `--external=<pred>=<file.csv>`
 
-A CSV file that contains rows for external predicate *\<pred>*.
+A CSV file that contains rows for external predicate `<pred>`.
 Multiple `--external` options can be supplied.
 
 #### `--xterm-progress=<mode>`
