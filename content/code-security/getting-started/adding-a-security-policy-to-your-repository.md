@@ -60,4 +60,3 @@ By making security reporting instructions clearly available, you make it easy fo
 
 - "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"{% ifversion not ghae %}
 - "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"{% endif %}{% ifversion fpt or ghec %}
-- [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}
