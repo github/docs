@@ -7,6 +7,7 @@ redirect_from:
   - /github/getting-started-with-github/githubs-plans
   - /github/getting-started-with-github/learning-about-github/githubs-plans
   - /get-started/learning-about-github/githubs-products
+  - /github/getting-started-with-github/githubs-products
 versions:
   fpt: '*'
   ghes: '*'
