@@ -1,11 +1,11 @@
 ---
 title: Connecting an Azure subscription
-intro: 'Organization owners {% ifversion ghec %} and enterprise owners {% endif %}can connect an Azure Subscription to their account to enable and pay for any {% data variables.product.prodname_dotcom %} metered services.'
+intro: 'You can connect an Azure Subscription to your organization{% ifversion ghec %} or enterprise account{% endif %} to enable and pay for any {% data variables.product.prodname_dotcom %} metered services.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise
-  - /enterprise-cloud@latest/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise
+  - /enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise
 versions:
   fpt: '*'
   ghec: '*'
@@ -29,6 +29,7 @@ If your organization is a part of an enterprise account, you can only connect yo
 
 {% endnote %}
 {% endif %}
+
 After you connect an Azure subscription, you can also manage your spending limits.
 
 - "[AUTOTITLE](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages)"
@@ -43,7 +44,7 @@ If the user does not have adequate permissions, the user must obtain admin appro
 
 ## Connecting your Azure subscription to your organization account
 
-To connect your Azure subscription, you must have owner permissions to the subscription.
+To connect your Azure subscription, you must have owner permissions to the Azure subscription and be an organization owner on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -64,7 +65,7 @@ To connect your Azure subscription, you must have owner permissions to the subsc
 
 ## Connecting your Azure subscription to your enterprise account
 
-To connect your Azure subscription, you must have owner permissions to the subscription.
+To connect your Azure subscription, you must have owner permissions to the Azure subscription and be an enterprise owner on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

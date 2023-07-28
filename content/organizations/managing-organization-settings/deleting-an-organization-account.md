@@ -21,7 +21,7 @@ shortTitle: Delete organization
 {% ifversion fpt or ghec %}
 {% tip %}
 
-**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription) instead of deleting the organization and its content.
+**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan) instead of deleting the organization and its content.
 
 {% endtip %}
 

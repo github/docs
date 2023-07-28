@@ -1,6 +1,6 @@
 ---
-title: Viewing and managing pending changes to your subscription
-intro: You can view and cancel pending changes to your subscriptions before they take effect on your next billing date.
+title: Viewing and managing pending changes to your plan
+intro: You can view and cancel pending changes to your plan before they take effect on your next billing date.
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/viewing-and-managing-pending-changes-to-your-subscription
   - /articles/viewing-and-managing-pending-changes-to-your-personal-account-s-billing-plan
@@ -8,6 +8,7 @@ redirect_from:
   - /articles/viewing-and-managing-pending-changes-to-your-billing-plan
   - /articles/viewing-and-managing-pending-changes-to-your-subscription
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/viewing-and-managing-pending-changes-to-your-subscription
+  - /billing/managing-billing-for-your-github-account/viewing-and-managing-pending-changes-to-your-subscription
 versions:
   fpt: '*'
   ghec: '*'
@@ -15,13 +16,16 @@ type: how_to
 topics:
   - Organizations
   - User account
-shortTitle: Pending subscription changes
+shortTitle: Pending plan changes
 ---
-You can cancel pending changes to your account's subscription as well as pending changes to your subscriptions to other paid features and products.
 
-When you cancel a pending change, your subscription will not change on your next billing date (unless you make a subsequent change to your subscription before your next billing date).
+## About pending plan changes
 
-## Viewing and managing pending changes to your personal account's subscription
+You can cancel pending changes to your account's plan as well as pending changes to other subscriptions and usage-based billing.
+
+When you cancel a pending change, your plan will not change until your next billing date.
+
+## Viewing and managing pending changes to your personal account's plan
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
@@ -29,7 +33,7 @@ When you cancel a pending change, your subscription will not change on your next
 {% data reusables.dotcom_billing.cancel-pending-changes %}
 {% data reusables.dotcom_billing.confirm-cancel-pending-changes %}
 
-## Viewing and managing pending changes to your organization's subscription
+## Viewing and managing pending changes to your organization's plan
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.review-pending-changes %}
@@ -38,4 +42,4 @@ When you cancel a pending change, your subscription will not change on your next
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/githubs-products)"
+- "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"

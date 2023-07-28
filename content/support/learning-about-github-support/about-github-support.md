@@ -39,7 +39,6 @@ The support options available to {% data variables.product.prodname_dotcom %} us
 | {% data variables.product.prodname_ghe_cloud %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "check" aria-label="Available" %} | Available to purchase |
 | {% data variables.product.prodname_ghe_server %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "check" aria-label="Available" %} | Available to purchase |
 
-
 {% endrowheaders %}
 
 {% endif %}

@@ -190,7 +190,7 @@ get_started_with_your_enterprise_account:
   guides:
     - /admin/overview/about-enterprise-accounts
     - >-
-      /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
+      /billing/managing-the-plan-for-your-github-account/about-billing-for-your-enterprise
     - >-
       /admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
     - >-
