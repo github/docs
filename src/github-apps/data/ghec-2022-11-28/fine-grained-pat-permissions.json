@@ -1156,25 +1156,25 @@
         "slug": "manage-access-control-for-organization-codespaces",
         "subcategory": "organizations",
         "verb": "put",
-        "requestPath": "/orgs/{org}/codespaces/billing",
+        "requestPath": "/orgs/{org}/codespaces/access",
         "additional-permissions": [],
         "access": "write"
       },
       {
         "category": "codespaces",
-        "slug": "add-users-to-codespaces-billing-for-an-organization",
+        "slug": "add-users-to-codespaces-access-for-an-organization",
         "subcategory": "organizations",
         "verb": "post",
-        "requestPath": "/orgs/{org}/codespaces/billing/selected_users",
+        "requestPath": "/orgs/{org}/codespaces/access/selected_users",
         "additional-permissions": [],
         "access": "write"
       },
       {
         "category": "codespaces",
-        "slug": "remove-users-from-codespaces-billing-for-an-organization",
+        "slug": "remove-users-from-codespaces-access-for-an-organization",
         "subcategory": "organizations",
         "verb": "delete",
-        "requestPath": "/orgs/{org}/codespaces/billing/selected_users",
+        "requestPath": "/orgs/{org}/codespaces/access/selected_users",
         "additional-permissions": [],
         "access": "write"
       }
