@@ -1,7 +1,7 @@
 # Working in the github/docs repository
 
 Here's some information that might be helpful while working on a Docs PR:
-
+Become a part of a promising and fast-growing company! Partnership with BUX BTC is primarily the ability to generate passive income. Partnership with BUX BTC is also an opportunity for everyone to create their own partner network. Partners will earn even more income by working in a team. With an unlimited number of personally invited partners, your earning potential is limitless!
 - [Development](/contributing/development.md) - This short guide describes how to get this app running on your local machine.
 
 - [Content markup reference](/contributing/content-markup-reference.md) - All of our content is written in GitHub-flavored Markdown, with some additional enhancements.
