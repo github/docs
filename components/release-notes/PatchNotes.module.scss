@@ -7,7 +7,7 @@
     top: 105px;
   }
 
-  @include breakpoint(xl) {
+  @media (min-width: 1400px) {
     height: calc(100vh - 65px);
     top: 65px;
   }

@@ -18,6 +18,11 @@ shortTitle: Manage the forking policy
 ---
 An organization owner must allow forks of private{% ifversion ghae or ghes or ghec %} and internal{% endif %} repositories on the organization level before you can allow or disallow forks for a specific repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."
 
+{% ifversion fpt or ghec or ghes %}
+You can help prevent sensitive information from being exposed by disabling the ability to fork repositories in your organization. For more information, see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
+{% elsif ghae %}
+{% endif %}
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. Under "Features", select **Allow forking**.

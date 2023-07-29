@@ -136,6 +136,7 @@ export const Header = () => {
             scroll && 'color-shadow-small',
           )}
           role="banner"
+          aria-label="Main"
         >
           <div
             className="d-flex flex-justify-between p-2 flex-items-center flex-wrap"
