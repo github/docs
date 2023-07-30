@@ -15,7 +15,7 @@ versions:
   ghes: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
@@ -110,7 +110,7 @@ Hardware specification for macOS XL virtual machines:
 
 {% note %}
 
-**Note:** macOS XL runners are considered {% data variables.actions.hosted_runner %}s and are billed in the same way. This means macOS XL runners are not eligible for the use of entitlement minutes on private repositories. For both private and public repositories, when macOS XL runners are in use, they will always be billed at the per-minute rate. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners#understanding-billing)."
+**Note:** macOS XL runners are considered {% data variables.actions.hosted_runner %}s and are billed in the same way. This means macOS XL runners are not eligible for the use of included minutes on private repositories. For both private and public repositories, when macOS XL runners are in use, they will always be billed at the per-minute rate. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners#understanding-billing)."
 
 {% endnote %}
 

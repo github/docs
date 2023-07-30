@@ -116,7 +116,7 @@ export const ArticlePage = () => {
         </ArticleInlineLayout>
       ) : (
         <div className="container-xl px-3 px-md-6 my-4">
-          <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
+          <div className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>
             <Breadcrumbs />
           </div>
 

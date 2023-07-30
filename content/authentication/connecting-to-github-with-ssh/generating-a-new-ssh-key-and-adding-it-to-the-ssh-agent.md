@@ -45,8 +45,6 @@ If you are a site administrator for {% data variables.location.product_location 
     <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
    ```shell
    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-
    ```
 
    {%- else %}

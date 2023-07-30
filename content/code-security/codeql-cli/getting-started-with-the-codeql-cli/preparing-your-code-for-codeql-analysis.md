@@ -293,7 +293,7 @@ The following examples are designed to give you an idea of some of the build com
       codeql database create -l swift -c "xcodebuild build -target your-target" swift-database
    ```
 
-   You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that CodeQL requires for a successful scan.
+   You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that {% data variables.product.prodname_codeql %} requires for a successful scan.
 
 - Swift project built using a custom build script:
 

@@ -1,6 +1,6 @@
 ---
 title: database create
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -61,8 +61,8 @@ as it may recursively delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning). To run queries from this file in a
-later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
+to [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning). To run queries from
+this file in a later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`
 
@@ -85,14 +85,6 @@ GitHub API to attempt to automatically determine what languages to
 analyse. Note that to be able to do this, a GitHub PAT token must be
 supplied either in the environment variable GITHUB\_TOKEN or via standard
 input using the `--github-auth-stdin` option.
-
-#### `--[no-]calculate-baseline`
-
-\[Advanced] Calculate baseline information about the code being
-analyzed and add it to the database. By default, this is enabled unless
-the source root is the root of a filesystem. This flag can be used to
-either disable, or force the behavior to be enabled even in the root of
-the filesystem.
 
 #### `-s, --source-root=<dir>`
 
@@ -144,6 +136,16 @@ extractor.
 \[Advanced] Output a warning instead of failing if a database is empty
 because no source code was seen during the build. The empty database
 will be left unfinalized.
+
+### Baseline calculation options
+
+#### `--[no-]calculate-baseline`
+
+\[Advanced] Calculate baseline information about the code being
+analyzed and add it to the database. By default, this is enabled unless
+the source root is the root of a filesystem. This flag can be used to
+either disable, or force the behavior to be enabled even in the root of
+the filesystem.
 
 ### Extractor selection options
 

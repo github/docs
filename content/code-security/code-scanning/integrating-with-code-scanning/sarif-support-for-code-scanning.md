@@ -33,14 +33,6 @@ To upload a SARIF file from a third-party static code analysis engine, you'll ne
 
 If you're using {% data variables.product.prodname_actions %} with the {% data variables.code-scanning.codeql_workflow %} or using the {% data variables.product.prodname_codeql_cli %}, then the {% data variables.product.prodname_code_scanning %} results will automatically use the supported subset of SARIF 2.1.0. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning)" or "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system)."
 
-You can upload multiple SARIF files for the same commit, and display the data from each file as {% data variables.product.prodname_code_scanning %} results. When you upload multiple SARIF files for a commit, you must indicate a "category" for each analysis. The way to specify a category varies according to the analysis method:
-- Using the {% data variables.product.prodname_codeql_cli %} directly, pass the `--sarif-category` argument to the `codeql database analyze` command when you generate SARIF files. For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#about-generating-code-scanning-results-with-codeql-cli)."
-- Using {% data variables.product.prodname_actions %} with `codeql-action/analyze`, the category is set automatically from the workflow name and any matrix variables (typically, `language`). You can override this by specifying a `category` input for the action, which is useful when you analyze different sections of a mono-repository in a single workflow.
-- Using {% data variables.product.prodname_actions %} to upload results from other static analysis tools, then you must specify a `category` input if you upload more than one file of results for the same tool in one workflow. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
-- If you are not using either of these approaches, you must specify a unique `runAutomationDetails.id` in each SARIF file to upload. For more information about this property, see [`runAutomationDetails` object](#runautomationdetails-object) below.
-
-If you upload a second SARIF file for a commit with the same category and from the same tool, the earlier results are overwritten. However, if you try to upload multiple SARIF files for the same tool and category in a single {% data variables.product.prodname_actions %} workflow run, the misconfiguration is detected and the run will fail.
-
 {% data variables.product.prodname_dotcom %} uses properties in the SARIF file to display alerts. For example, the `shortDescription` and `fullDescription` appear at the top of a {% data variables.product.prodname_code_scanning %} alert. The `location` allows {% data variables.product.prodname_dotcom %} to show annotations in your code file. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository)."
 
 If you're new to SARIF and want to learn more, see Microsoft's [`SARIF tutorials`](https://github.com/microsoft/sarif-tutorials) repository.
@@ -100,57 +92,23 @@ The file is successfully uploaded as both absolute URIs use the same URI scheme 
 
 You can check a SARIF file is compatible with {% data variables.product.prodname_code_scanning %} by testing it against the {% data variables.product.prodname_dotcom %} ingestion rules. For more information, visit the [Microsoft SARIF validator](https://sarifweb.azurewebsites.net/).
 
-For each `gzip`-compressed SARIF file, SARIF upload supports a maximum size of 10 MB. Any uploads over this limit will be rejected. If your SARIF file is too large because it contains too many results, you should update the configuration to focus on results for the most important rules or queries.
+For each gzip-compressed SARIF file, SARIF upload supports a maximum size of 10 MB. Any uploads over this limit will be rejected. If your SARIF file is too large because it contains too many results, you should update the configuration to focus on results for the most important rules or queries.{% ifversion code-scanning-tool-status-page %} For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif/file-too-large)."{% endif %}
 
-{% data variables.product.prodname_code_scanning_caps %} supports uploading a maximum number of entries for the data objects in the following table. If any of these objects exceeds its maximum value the SARIF file is rejected. For some objects, there is an additional limit on the number of values that will be displayed. Whenever possible the most important values are shown. To get the most out of your analysis when it includes data above the supported limits, try to optimize the analysis configuration (for example, for the CodeQL tool, identify and disable the most noisy queries).
+{% data variables.product.prodname_code_scanning_caps %} supports uploading a maximum number of entries for the data objects in the following table. If any of these objects exceeds its maximum value the SARIF file is rejected. For some objects, there is also a additional limit on the number of values that will be displayed. Whenever possible the most important values are shown. To get the most out of your analysis when it includes data above the supported limits, try to optimize the analysis configuration (for example, for the {% data variables.product.prodname_codeql %} tool, identify and disable the most noisy queries).{% ifversion code-scanning-tool-status-page %} For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif/results-exceed-limit)."{% endif %}
 
-{% ifversion fpt or ghec or ghes > 3.8 %}
+{% data reusables.code-scanning.sarif-limits %}
 
-{% rowheaders %}
+{% ifversion code-scanning-tool-status-page %}For information about other errors, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif)"{% endif %}
 
-| **SARIF data** | **Maximum values** | **Additional limits** |
-|----------------|:------------------:|-----------------------|
-| Runs per file | 20 | None |
-| Results per run |  25,000 | Only the top 5,000 results will be included, prioritized by severity. |
-| Rules per run | 25,000 | None |
-| Tool extensions per run | 100 | None |
-| Thread Flow Locations per result | 10,000 | Only the top 1,000 Thread Flow Locations will be included, using prioritization. |
-| Location per result |  1,000 | Only 100 locations will be included. |
-| Tags per rule |  20 | Only 10 tags will be included. |
+## Uploading more than one SARIF file for a commit
 
-{% endrowheaders %}
+You can upload multiple SARIF files for the same commit, and display the data from each file as {% data variables.product.prodname_code_scanning %} results. When you upload multiple SARIF files for a commit, you must indicate a "category" for each analysis. The way to specify a category varies according to the analysis method:
+- Using the {% data variables.product.prodname_codeql_cli %} directly, pass the `--sarif-category` argument to the `codeql database analyze` command when you generate SARIF files. For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system#about-generating-code-scanning-results-with-codeql-cli)."
+- Using {% data variables.product.prodname_actions %} with `codeql-action/analyze`, the category is set automatically from the workflow name and any matrix variables (typically, `language`). You can override this by specifying a `category` input for the action, which is useful when you analyze different sections of a monorepo in a single workflow.
+- Using {% data variables.product.prodname_actions %} to upload results from other static analysis tools, then you must specify a `category` input if you upload more than one file of results for the same tool in one workflow. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github#uploading-a-code-scanning-analysis-with-github-actions)."
+- If you are not using either of these approaches, you must specify a unique `runAutomationDetails.id` in each SARIF file to upload. For more information about this property, see "[`runAutomationDetails` object](#runautomationdetails-object)."
 
-{% elsif ghes < 3.9 %}
-
-{% rowheaders %}
-
-| **SARIF data** | **Maximum values** | **Additional limits** |
-|----------------|:------------------:|-----------------------|
-| Runs per file | 15 |  None |
-| Results per run | 25,000 | Only the top 5,000 results will be included, prioritized by severity. |
-| Rules per run | 25,000 | None |
-| Tool extensions per run | 100 | None |
-| Thread Flow Locations per result | 10,000 | Only the top 1,000 Thread Flow Locations will be included, using prioritization. |
-| Location per result | 1,000 | Only 100 locations will be included. |
-| Tags per rule | 20 | Only 10 tags will be included. |
-
-{% endrowheaders %}
-
-{% else %}
-
-{% rowheaders %}
-
-| **SARIF data** | **Maximum values** | **Additional limits** |
-|----------------|:------------------:|-----------------------|
-| Runs per file | 15 | None |
-| Results per run | 25,000 | Only the top 5,000 results will be included, prioritized by severity. |
-| Rules per run | 25,000  | None |
-| Thread Flow Locations per result | 10,000 | Only the top 1,000 Thread Flow Locations will be included, using prioritization. |
-| Location per result |  1,000 | Only 100 locations will be included. | None |
-
-{% endrowheaders %}
-
-{% endif %}
+If you upload a second SARIF file for a commit with the same category and from the same tool, the earlier results are overwritten. However, if you try to upload multiple SARIF files for the same tool and category in a single {% data variables.product.prodname_actions %} workflow run, the misconfiguration is detected and the run will fail.
 
 ## Supported SARIF output file properties
 
@@ -204,11 +162,11 @@ This is where you store details of the rules that are run during analysis. Infor
 | `fullDescription.text` | {% octicon "check" aria-label="Required" %} | A description of the rule. {% data variables.product.prodname_code_scanning_caps %} displays the full description on {% data variables.product.prodname_dotcom %} next to the associated results. Limited to 1024 characters.
 | `defaultConfiguration.level` | {% octicon "x" aria-label="Optional" %} | Default severity level of the rule. {% data variables.product.prodname_code_scanning_caps %} uses severity levels to help you understand how critical the result is for a given rule. This value can be overridden by the `level` attribute in the `result` object. For more information, see the [`result` object](#result-object). Default: `warning`.
 | `help.text` | {% octicon "check" aria-label="Required" %} | Documentation for the rule using text format. {% data variables.product.prodname_code_scanning_caps %} displays this help documentation next to the associated results.
-| `help.markdown` |{% octicon "x" aria-label="Optional" %} | **Recommended.** Documentation for the rule using Markdown format. {% data variables.product.prodname_code_scanning_caps %} displays this help documentation next to the associated results. When `help.markdown` is available, it is displayed instead of `help.text`.
+| `help.markdown` |{% octicon "x" aria-label="Optional" %} | (Recommended) Documentation for the rule using Markdown format. {% data variables.product.prodname_code_scanning_caps %} displays this help documentation next to the associated results. When `help.markdown` is available, it is displayed instead of `help.text`.
 | `properties.tags[]` | {% octicon "x" aria-label="Optional" %} | An array of strings. {% data variables.product.prodname_code_scanning_caps %} uses `tags` to allow you to filter results on {% data variables.product.prodname_dotcom %}. For example, it is possible to filter to all results that have the tag `security`.
-| `properties.precision` | {% octicon "x" aria-label="Optional" %} | **Recommended.** A string that indicates how often the results indicated by this rule are true. For example, if a rule has a known high false-positive rate, the precision should be `low`. {% data variables.product.prodname_code_scanning_caps %} orders results by precision on {% data variables.product.prodname_dotcom %} so that the results with the highest `level`, and highest `precision` are shown first. Can be one of: `very-high`, `high`, `medium`, or `low`.
-| `properties.problem.severity` | {% octicon "x" aria-label="Optional" %} | **Recommended.** A string that indicates the level of severity of any alerts generated by a non-security query. This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `problem.severity`, and highest `precision` are shown first. Can be one of: `error`, `warning`, or `recommendation`.
-| `properties.security-severity` | {% octicon "x" aria-label="Optional" %} | **Recommended.** A string representing a score that indicates the level of severity, between 0.0 and 10.0, for security queries (`@tags` includes `security`). This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `security-severity`, and highest `precision` are shown first. {% data variables.product.prodname_code_scanning_caps %} translates numerical scores as follows: over 9.0 is `critical`, 7.0 to 8.9  is `high`, 4.0 to 6.9 is `medium` and 3.9 or less is `low`.
+| `properties.precision` | {% octicon "x" aria-label="Optional" %} | (Recommended) A string that indicates how often the results indicated by this rule are true. For example, if a rule has a known high false-positive rate, the precision should be `low`. {% data variables.product.prodname_code_scanning_caps %} orders results by precision on {% data variables.product.prodname_dotcom %} so that the results with the highest `level`, and highest `precision` are shown first. Can be one of: `very-high`, `high`, `medium`, or `low`.
+| `properties.problem.severity` | {% octicon "x" aria-label="Optional" %} | (Recommended) A string that indicates the level of severity of any alerts generated by a non-security query. This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `problem.severity`, and highest `precision` are shown first. Can be one of: `error`, `warning`, or `recommendation`.
+| `properties.security-severity` | {% octicon "x" aria-label="Optional" %} | (Recommended) A string representing a score that indicates the level of severity, between 0.0 and 10.0, for security queries (`@tags` includes `security`). This, with the `properties.precision` property, determines whether the results are displayed by default on {% data variables.product.prodname_dotcom %} so that the results with the highest `security-severity`, and highest `precision` are shown first. {% data variables.product.prodname_code_scanning_caps %} translates numerical scores as follows: over 9.0 is `critical`, 7.0 to 8.9  is `high`, 4.0 to 6.9 is `medium` and 3.9 or less is `low`.
 
 ### `result` object
 

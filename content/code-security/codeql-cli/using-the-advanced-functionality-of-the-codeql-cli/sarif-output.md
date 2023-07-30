@@ -32,7 +32,7 @@ This article is intended to be read alongside the detailed SARIF specification. 
 
 ### Changes between versions
 
-| CodeQL version | Format type | Changes |
+| {% data variables.product.prodname_codeql %} version | Format type | Changes |
 |----------------|-------------|---------|
 | 2.0.0 | `sarifv2.1.0` | First version of this format. |
 
@@ -117,7 +117,7 @@ This details each SARIF component that may be generated, along with any specific
 
 ### `result` object
 
-The composition of the results is dependent on the options provided to CodeQL. By default, the results are grouped by unique message format string and primary location. Thus, two results that occur at the same location with the same underlying message, will appear as a single result in the output. This behavior can be disabled by using the flag `--ungroup-results`, in which case no results are grouped.
+The composition of the results is dependent on the options provided to {% data variables.product.prodname_codeql %}. By default, the results are grouped by unique message format string and primary location. Thus, two results that occur at the same location with the same underlying message, will appear as a single result in the output. This behavior can be disabled by using the flag `--ungroup-results`, in which case no results are grouped.
 
 | JSON property name    | Always generated?| Notes|
 |-----------------------|--------------------|------|

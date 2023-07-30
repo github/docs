@@ -26,15 +26,16 @@ redirect_from:
 
 {% data reusables.codespaces.codespaces-free-for-personal-intro %}
 
-Charges are billed to an organization or enterprise when all of the following are true:
+Organizations can choose whether codespaces created from their repositories will be user-owned or organization-owned. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)." An organization pays for a codespace if all the following things are true. 
 
-- The repository from which a codespace is started (or the parent repository, in the case of a forked repository) is owned by an organization.
-- The organization is configured to be billed for codespaces created from the repository or forks of the repository.
-- The user creating the codespace belongs to the organization, or is an outside collaborator affiliated with the organization, and the organization has chosen to pay for this user's use of organization-owned codespaces.
+- The organization has chosen for codespaces to be organization-owned.
+{% data reusables.codespaces.when-an-org-pays %}
+
+For more information about enabling {% data variables.product.prodname_github_codespaces %} for users, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
 
 Otherwise use of {% data variables.product.prodname_github_codespaces %} applies to the personal account of the person who created the codespace, and either consumes some of the monthly included usage for their personal account, or their account is billed according to their usage in excess of their included quotas.
 
-For information about how to configure an organization to be billed for codespace usage, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)." The Free, Team, and Enterprise plans for organization and enterprise accounts do not include any free use of {% data variables.product.prodname_github_codespaces %}.
+The Free, Team, and Enterprise plans for organization and enterprise accounts do not include any free use of {% data variables.product.prodname_github_codespaces %}.
 
 {% ifversion ghec %}
 {% data reusables.codespaces.codespaces-unavailable-for-emus %}
@@ -101,7 +102,7 @@ If you enable prebuilding of codespaces this will incur additional charges. For 
 
 Billing for {% data variables.product.prodname_github_codespaces %} shares your account's existing payment method, and receipt. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date)."
 
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription)."
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 ## About billing for compute usage
 
@@ -215,11 +216,9 @@ Usage of codespaces created from a forked repository will be billed to your pers
 
 For example, consider a member, or outside collaborator, of an organization that has allowed billing for codespaces for that user. If the user has permission to fork an organization-owned private repository, they can subsequently create and use a codespace for the new repository at the organization's expense. This is because the organization is the owner of the parent repository. Note that the organization owner can remove the user's access to the private repository, the forked repository, and therefore also the codespace. The organization owner can also delete the parent repository which will also delete the forked repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository)."
 
-{% data reusables.codespaces.codespaces-disabling-org-billing %}
-
 ## How billing is handled when a repository is transferred to another organization
 
-Usage is calculated every hour. An organization pays for usage of codespaces created from any repository owned by the organization, where the organization settings permit the organization to be billed. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization#choose-who-can-create-codespaces-that-are-billed-to-your-organization)." When a repository is transferred out of your organization, ownership and billing responsibility for any codespaces associated with that repository will change accordingly.
+Usage is calculated every hour. An organization pays for usage of codespaces created from any repository owned by the organization, where the organization settings permit the organization to be billed. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)." When a repository is transferred out of your organization, ownership and billing responsibility for any codespaces associated with that repository will change accordingly.
 
 ## How billing is handled for {% data variables.product.prodname_github_codespaces %} templates
 

@@ -194,12 +194,12 @@ In general, you do not need to worry about where the {% data variables.code-scan
 ``` yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    db-location: {% raw %}'${{ github.workspace }}/codeql_dbs'{% endraw %}
+    db-location: {% raw %}'${{ github.runner_temp }}/my_location'{% endraw %}
 ```
 
 The {% data variables.code-scanning.codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
-If this parameter is not used, the {% data variables.code-scanning.codeql_workflow %} will create databases in a temporary location of its own choice.
+If this parameter is not used, the {% data variables.code-scanning.codeql_workflow %} will create databases in a temporary location of its own choice. Currently the default value is {% raw %}`${{ github.runner_temp }}/codeql_databases`{% endraw %}.
 
 ## Changing the languages that are analyzed
 
@@ -236,7 +236,7 @@ If your workflow does not contain a matrix called `language`, then {% data varia
 
 ## Analyzing Python dependencies
 
-For GitHub-hosted runners that use Linux only, the {% data variables.code-scanning.codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
+For GitHub-hosted runners that use Linux only, the {% data variables.code-scanning.codeql_workflow %} will try to auto-install Python dependencies to give more results for the {% data variables.product.prodname_codeql %} analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
 
 - If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
 
