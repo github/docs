@@ -126,6 +126,7 @@ const verify_signature = (req: Request) => {
     .createHmac("sha256", WEBHOOK_SECRET)
     .update(JSON.stringify(req.body))
     .digest("hex");
+  // Note: As noted above, you may consider using a function similar to timingSafeEqual() in Node.js if possible to mitigate timing attacks.
   return `sha256=${signature}` === req.headers.get("x-hub-signature-256");
 };
 
