@@ -121,7 +121,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
 
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token.  If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.
+  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. {% ifversion pat-v2 %}If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.{% endif %}
 
   {% endnote %}
 

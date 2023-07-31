@@ -4,6 +4,25 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Argument <code>hasIssuesEnabled: Boolean</code> added to field <code>Organization.repositories</code></p>",
+          "<p>Argument <code>hasIssuesEnabled: Boolean</code> added to field <code>Repository.forks</code></p>",
+          "<p>Argument <code>hasIssuesEnabled: Boolean</code> added to field <code>RepositoryOwner.repositories</code></p>",
+          "<p>Argument <code>hasIssuesEnabled: Boolean</code> added to field <code>Topic.repositories</code></p>",
+          "<p>Argument <code>hasIssuesEnabled: Boolean</code> added to field <code>User.repositories</code></p>",
+          "<p>Argument <code>hasIssues: Boolean</code> added to field <code>User.repositoriesContributedTo</code></p>",
+          "<p>Argument <code>hasIssuesEnabled: Boolean</code> added to field <code>User.watching</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-07-31"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>SubscribableThread</code> was added</p>",
           "<p>Type <code>ThreadSubscriptionFormAction</code> was added</p>",
           "<p>Type <code>ThreadSubscriptionState</code> was added</p>",
