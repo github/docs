@@ -38993,6 +38993,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isArchived",
               "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
               "type": {
@@ -58179,6 +58189,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isLocked",
               "description": "<p>If non-null, filters repositories according to whether they have been locked.</p>",
               "type": {
@@ -69767,6 +69787,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isLocked",
               "description": "<p>If non-null, filters repositories according to whether they have been locked.</p>",
               "type": {
@@ -72154,6 +72184,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isArchived",
               "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
               "type": {
@@ -72271,6 +72311,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssues",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -73467,6 +73517,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -77179,6 +77239,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
