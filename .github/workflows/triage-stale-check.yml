@@ -37,12 +37,17 @@ jobs:
       - uses: actions/stale@1160a2240286f5da8ec72b1c0816ce2481aabf84
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          # The hope is that by configuring this way, this job will not harass issues
+          stale-issue-message: 'This workflow is misconfigured please complain to staff.'
+          only-issue-labels: 'this-label-intentionally-not-left-blank'
+          exempt-issue-labels: 'never-stale'
+          days-before-issue-clone: -1 # Never close
           stale-pr-message: 'This is a gentle bump for the docs team that this PR is waiting for review.'
           days-before-pr-stale: 14
           days-before-pr-close: -1 # Never close
           remove-stale-when-updated: false
           operations-per-run: 100
-          only-labels: 'waiting for review'
+          only-pr-labels: 'waiting for review'
           # The hope is that by setting the stale-pr-label to the same label
           # as the label that the stale check looks for, this will result in
           # a comment being posted every 14 days as an infinite loop, which is what
