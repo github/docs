@@ -1,0 +1,4 @@
+# Reference: #9954
+# Documentation for larger-hosted runners with Azure Vnet injection public beta
+versions:
+  ghec: '*'
