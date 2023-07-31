@@ -1,4 +1,10 @@
 date: '2023-07-18'
+intro: |
+  {% warning %}
+
+  **Warning**: This release contains known issues that can impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.9.1-known-issues)" section of these release notes.
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |

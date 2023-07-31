@@ -5,7 +5,8 @@ redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-your-enterprise/connecting-an-azure-subscription-to-your-enterprise
-  - /enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise
+  - /billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise
+  - /billing/managing-billing-for-your-github-account/connecting-an-azure-subscription
 versions:
   fpt: '*'
   ghec: '*'

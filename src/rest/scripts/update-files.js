@@ -56,7 +56,10 @@ program
     'A list of undeprecated, published versions to build, separated by a space. Example `-v ghes-3.1` or `-v api.github.com github.ae`',
   )
   .option('-d --include-deprecated', 'Includes schemas that are marked as `deprecated: true`')
-  .option('-u --include-unpublished', 'Includes schemas that are marked as `published: false`')
+  .option(
+    '-u --include-unpublished',
+    'Includes operations that are marked as `published: false`. Does not include nodes that are marked as `x-unpublished`.',
+  )
   .option('-n --next', 'Generate the next OpenAPI calendar-date version.')
   .parse(process.argv)
 
@@ -212,10 +215,17 @@ async function getBundlerOptions() {
 }
 
 async function validateInputParameters() {
-  // The `--versions` and `--decorate-only` options cannot be used
+  // The `--versions` option cannot be used
+  // with the `--include-deprecated` option
+  if (includeDeprecated && versions) {
+    const errorMsg = `🛑 You cannot use the versions option with the include-deprecated option. This is not currently supported in the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
+    throw new Error(errorMsg)
+  }
+
+  // The `--decorate-only` option cannot be used
   // with the `--include-deprecated` or `--include-unpublished` options
-  if ((includeDeprecated || includeUnpublished) && (sourceRepo !== 'github' || versions)) {
-    const errorMsg = `🛑 You cannot use the versions option with the include-unpublished or include-deprecated options. This is not currently supported in the bundler.\nYou cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
+  if ((includeDeprecated || includeUnpublished) && sourceRepo !== 'github') {
+    const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 

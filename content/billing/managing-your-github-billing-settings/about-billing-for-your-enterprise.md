@@ -6,6 +6,7 @@ redirect_from:
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
   - /enterprise/admin/overview/managing-billing-for-github-enterprise
   - /admin/overview/managing-billing-for-github-enterprise
+  - /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
 versions:
   ghec: '*'
   ghes: '*'

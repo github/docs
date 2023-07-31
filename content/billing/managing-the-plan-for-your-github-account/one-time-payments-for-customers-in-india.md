@@ -3,6 +3,7 @@ title: One-time payments for customers in India
 intro: Customers in India who have been impacted by the Reserve Bank of India's recurring payment regulation can now make one-time payments for their GitHub subscriptions and services.
 redirect_from:
   - /early-access/billing/india-rbi-regulation
+  - /billing/managing-billing-for-your-github-account/one-time-payments-for-customers-in-india
 versions:
   fpt: '*'
   ghec: '*'

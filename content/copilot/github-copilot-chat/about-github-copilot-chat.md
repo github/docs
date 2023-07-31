@@ -116,3 +116,7 @@ One of the limitations of {% data variables.product.prodname_copilot_chat_short 
 ## Next steps
 
 - [Using {% data variables.product.prodname_copilot_chat %}](/copilot/github-copilot-chat/using-github-copilot-chat)
+
+## Further reading
+
+- [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)

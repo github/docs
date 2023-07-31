@@ -11,7 +11,7 @@ redirect_from:
   - /articles/organization-billing-plans
   - /articles/github-s-billing-plans
   - /articles/about-billing-for-github-accounts
-  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-the-plan-for-your-github-account/about-billing-for-github-accounts
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-billing-for-github-accounts
   - /billing/managing-billing-for-your-github-account/about-billing-for-github-accounts
 versions:
   fpt: '*'

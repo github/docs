@@ -4,7 +4,8 @@ intro: '{% ifversion fpt or ghec %}For organizations{% ifversion ghec %} and ent
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-per-user-pricing
   - /articles/about-per-user-pricing
-  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-the-plan-for-your-github-account/about-per-user-pricing
+  - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account/about-per-user-pricing
+  - /github/billing/managing-billing-for-your-github-account/about-per-user-pricing
 versions:
   fpt: '*'
   ghec: '*'

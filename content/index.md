@@ -141,6 +141,7 @@ childGroups:
       - sponsors
       - education
       - support
+      - contributing
   - name: More docs
     octicon: PencilIcon
     children:
