@@ -115,11 +115,11 @@ With your dev container configuration added and a basic understanding of what ev
    },
    ```
 
-1. Uncomment the `postCreateCommand` property and change its value to run the command `composer install` if the `composer.json` file exists.
+1. Uncomment the `postCreateCommand` property and add some text to the end to run the command `composer install` if a `composer.json` file exists. (The existing commands are just some setup procedures that allow Apache to access the files in the workspace.)
 
    ```json copy
    // Use 'postCreateCommand' to run commands after the container is created.
-   "postCreateCommand": "if [ -f composer.json ];then composer install;fi"
+   "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html; if [ -f composer.json ];then composer install;fi"
    ```
 
   The `devcontainer.json` file should now look similar to this, depending on which image you chose:
@@ -151,7 +151,7 @@ With your dev container configuration added and a basic understanding of what ev
      },
 
      // Use 'postCreateCommand' to run commands after the container is created.
-     "postCreateCommand": "if [ -f composer.json ];then composer install;fi"
+     "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html; if [ -f composer.json ];then composer install;fi"
 
      // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
      // "remoteUser": "root"
@@ -162,29 +162,29 @@ With your dev container configuration added and a basic understanding of what ev
 {% data reusables.codespaces.rebuild-command %}
 {% indented_data_reference reusables.codespaces.rebuild-reason %}
 
-   After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, installing your Composer dependencies, and the "Composer" extension will be available for use.
+   After the dev container is rebuilt, and your codespace becomes available again, the `postCreateCommand` will have been run, installing any Composer dependencies, and the "Composer" extension will be available for use.
 
 ## Step 4: Run your application
 
-In the previous section, you used the `postCreateCommand` to install a set of packages via the `composer install` command. With the dependencies now installed, you can run the application. However, in this scenario we first need to change the ports that Apache will listen on. We're forwarding port 8080, so we'll instruct Apache to use this port rather than the default port 80.
+In the previous section, you modified the `postCreateCommand` to install a set of packages via the `composer install` command. With the dependencies now installed, you can run the application. However, in this scenario we first need to change the ports that Apache will listen on. We're forwarding port 8080, so we'll instruct Apache to use this port rather than the default port 80.
 
 1. In the Terminal of your codespace, enter:
 
-```shell
-sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf
-```
+   ```shell
+   sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf
+   ```
 
 1. Then, enter:
 
-```shell
-sudo sed -i 's/80/8080/' /etc/apache2/sites-enabled/000-default.conf
-```
+   ```shell
+   sudo sed -i 's/<VirtualHost \*:80>/ServerName 127.0.0.1\n<VirtualHost \*:8080>/' /etc/apache2/sites-enabled/000-default.conf
+   ```
 
-1. Then start the Apache control interface:
+1. Then start Apache using its control tool:
 
-```shell
-apache2ctl start
-```
+   ```shell
+   apache2ctl start
+   ```
 
 1. When your project starts, you should see a "toast" notification message at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, telling you that your application is available on a forwarded port. To view the running application, click **Open in Browser**.
 
