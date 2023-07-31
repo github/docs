@@ -1375,6 +1375,7 @@ See the “[Product names](#product-names)” section of this guide.
 | sign up | signup |
 | recommended limit | soft limit |
 | email | e-mail |
+| frontmatter | front matter, front-matter |
 | on {% data variables.product.company_short %} | on a remote repository |
 | press (a key) | hit, tap |
 | type (in the user interface) | enter (in the user interface) |
