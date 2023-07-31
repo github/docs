@@ -18,7 +18,7 @@ You can export aggregated information about your enterprise's members as a membe
 The membership information report includes the following information.
 
 - Username and display name details
-- Whether the user has two-factor authentication enabled
+- Whether the user has two-factor authentication enabled {% ifversion mandatory-2fa-required-overview %}or is required to enable it{% endif %}
 - Whether the user is an organization owner or member
 - Datetime of the user's last activity (for a full list of relevant activity, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)")
 - Organizations with pending invitations
