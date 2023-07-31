@@ -2,7 +2,7 @@
 title: Managing commits
 intro: 'You can use {% data variables.product.prodname_desktop %} to amend, cherry-pick, reorder, revert, and squash commits.'
 versions:
-  fpt: '*'
+  feature: desktop
 children:
   - /reverting-a-commit-in-github-desktop
   - /cherry-picking-a-commit-in-github-desktop
