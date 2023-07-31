@@ -185,10 +185,9 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    ```
 
 1. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+{% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 {% data reusables.ssh.add-public-key-to-github %}
-
 {% endwindows %}
 
 {% linux %}
@@ -196,7 +195,7 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 {% data reusables.command_line.start_ssh_agent %}
 
 1. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+{% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
 
 {% data reusables.ssh.add-public-key-to-github %}
 
