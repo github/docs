@@ -168,7 +168,7 @@ To grant {% data variables.product.prodname_actions %} access, you can use {% da
 
 **For Layer 3/IP Layer filtering:**
 
-1. If no outbound internet traffic is allowed in your subnet, you must give {% data variables.product.prodname_actions %} access to specific IP ranges to allow communication from the virtual machine to the {% data variables.product.prodname_actions %} service and Azure dependency service. Save the following `.bicep` file. You will use this in the next step.
+1. If no outbound internet traffic is allowed in your subnet, you must give {% data variables.product.prodname_actions %} access to specific IP ranges to allow communication from the virtual machine to the {% data variables.product.prodname_actions %} service and Azure dependency service. Save the following `.bicep` file and name it `actions-nsg-deployment.bicep`. You will use this in the next step.
 
    ```yaml copy
    @description('NSG for outbound rules')
