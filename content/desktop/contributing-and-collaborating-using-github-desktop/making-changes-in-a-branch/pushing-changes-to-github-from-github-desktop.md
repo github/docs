@@ -8,7 +8,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/pushing-changes-to-github
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 ## About pushing changes to {% data variables.product.prodname_dotcom %}
 
