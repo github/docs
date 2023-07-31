@@ -34,11 +34,16 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
     ![Screenshot of the extensions icon in the Activity Bar.](/assets/images/help/copilot/vsc-extensions-icon.png)
 
-1. In the "Search Extensions in Marketplace" search box, search for the GitHub Copilot Chat extension, then click **Install**.
-1.  In the {% data variables.product.prodname_vscode %} window, click **Reload required** to update {% data variables.product.prodname_vscode %}.
-1. To confirm that {% data variables.product.prodname_copilot_chat %} has been successfully installed, in the activity bar on the left side of the {% data variables.product.prodname_vscode %} window, click the **GitHub Copilot Chat** icon to open the {% data variables.product.prodname_copilot_chat %} chat window.
+1. In the "Search Extensions in Marketplace" search box, search for the `{% data variables.product.prodname_copilot_chat %}` extension, then click **Install**.
 
-    ![Screenshot of the GitHub Copilot Chat icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
+    ![Screenshot of the {% data variables.product.prodname_copilot_chat %} extension in the Extensions Marketplace.](/assets/images/help/copilot/vscode-extension-search.png)
+
+1.  In the {% data variables.product.prodname_vscode %} window, click **Reload required** to update {% data variables.product.prodname_vscode %}.
+1. If you are prompted to sign in by a toast notification in the bottom right corner of {% data variables.product.prodname_vscode %}, click **Sign in to {% data variables.product.prodname_dotcom %}** and sign in with the same {% data variables.product.prodname_dotcom %} ID that has been granted access to the {% data variables.product.prodname_copilot_chat %} limited public beta.
+1. Follow the prompts in {% data variables.product.prodname_vscode %} and on {% data variables.product.prodname_dotcom %} in your browser to complete the sign in and authentication process.
+1. To confirm that {% data variables.product.prodname_copilot_chat %} has been successfully installed, in the activity bar on the left side of the {% data variables.product.prodname_vscode %} window, click the **{% data variables.product.prodname_copilot_chat %}** icon to open the {% data variables.product.prodname_copilot_chat %} chat window.
+
+    ![Screenshot of the {% data variables.product.prodname_copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
 
 {% note %}
 
@@ -50,9 +55,9 @@ To use {% data variables.product.prodname_copilot_chat %}, you must first instal
 
 {% data reusables.copilot.copilot-chat-exclusively-code-questions %}
 
-1. In the {% data variables.product.prodname_vscode %} activity bar, click the **GitHub Copilot Chat** icon to open the {% data variables.product.prodname_copilot_chat %} chat window.
+1. In the {% data variables.product.prodname_vscode %} activity bar, click the **{% data variables.product.prodname_copilot_chat %}** icon to open the {% data variables.product.prodname_copilot_chat %} chat window.
 
-    ![Screenshot of the GitHub Copilot Chat icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
+    ![Screenshot of the {% data variables.product.prodname_copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
 
 1. At the bottom of the {% data variables.product.prodname_copilot_chat %} window, in the **Ask {% data variables.product.prodname_copilot_short %} a question or type `/` for topics** text box, type a coding related question, then press **Enter**. For example, type "How do I write a function that returns the sum of two numbers?".
 1. {% data variables.product.prodname_copilot_chat %} will process your question and provide an answer, with code suggestions when appropriate, in the chat window.
@@ -100,6 +105,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 ## Further reading
 
+- [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"{% endif %}
 - "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
@@ -117,7 +123,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 {% data reusables.copilot.chat-subscription-prerequisite %}
 
-- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.5.1 or higher. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation. 
+- To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be running {% data variables.product.prodname_vs %} 2022 version 17.6 or higher. For more information, see the [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) documentation. 
 
 - To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must be signed into {% data variables.product.prodname_vs %} with the same {% data variables.product.prodname_dotcom %} ID that has been granted access to the {% data variables.product.prodname_copilot_chat %} limited public beta.
 
@@ -177,8 +183,9 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 ## Further reading
 
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"{% ifversion ghec %}
-- "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"{% endif %}
-- "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"
+- [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
+- [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot){% ifversion ghec %}
+- [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement){% endif %}
+- [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvisualstudio %}
