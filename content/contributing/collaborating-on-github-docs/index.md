@@ -9,5 +9,6 @@ children:
   - /about-contributing-to-github-docs
   - /using-git-on-github-docs
   - /using-the-todocs-placeholder-to-leave-notes
+  - /using-the-content-linter
   - /label-reference
 ---
