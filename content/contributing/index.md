@@ -1,5 +1,5 @@
 ---
-title: Contributing to GitHub Docs
+title: Contributing to GitHub Docs documentation
 shortTitle: Contribute to GitHub Docs
 intro: 'Learn about how the {% data variables.product.prodname_docs %} team creates documentation and how you can contribute.'
 layout: product-landing
