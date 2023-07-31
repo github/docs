@@ -1247,11 +1247,11 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`watch`](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch) | - `starred` | Last commit on default branch | Default branch |
+| [`watch`](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch) | - `started` | Last commit on default branch | Default branch |
 
 {% note %}
 
-**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `starred` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
+**Note**: {% data reusables.developer-site.multiple_activity_types %} Although only the `started` activity type is supported, specifying the activity type will keep your workflow specific if more activity types are added in the future. For information about each activity type, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#watch)." {% data reusables.developer-site.limit_workflow_to_activity_types %}
 
 {% endnote %}
 
@@ -1259,12 +1259,12 @@ jobs:
 
 Runs your workflow when the workflow's repository is starred. For information about the pull request APIs, see "[AUTOTITLE](/graphql/reference/mutations#addstar)" in the GraphQL API documentation or "[AUTOTITLE](/rest/activity#starring)" in the REST API documentation.
 
-For example, you can run a workflow when someone stars a repository, which is the `starred` activity type for a watch event.
+For example, you can run a workflow when someone stars a repository, which is the `started` activity type for a watch event.
 
 ```yaml
 on:
   watch:
-    types: [starred]
+    types: [started]
 ```
 
 ## `workflow_call`
