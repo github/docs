@@ -106,3 +106,5 @@ Commits made in a fork will not count toward your contributions. To make them co
 
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)"
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)"
+- Git Commit -m "Your First Commit"
+Git -m Main (Your Main Branch)
