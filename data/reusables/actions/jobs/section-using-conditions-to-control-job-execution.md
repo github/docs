@@ -1,7 +1,9 @@
 You can use the `jobs.<job_id>.if` conditional to prevent a job from running unless a condition is met. {% data reusables.actions.if-supported-contexts %}
 
 {% note %}
+
 **Note:** This if condition applies before `jobs.<job_id>.matrix`.
+
 {% endnote %}
 
 {% data reusables.actions.expression-syntax-if %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
