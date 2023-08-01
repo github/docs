@@ -62,6 +62,7 @@ jobs:
               context.payload.repository.full_name === 'github/docs-internal' &&
                 { name: 'translations', path: 'tests/translations', },
               { name: 'unit', path: 'tests/unit', },
+              // { name: 'tools', path: 'src/tools/tests', }
               { name: 'webhooks', path: 'src/webhooks/tests', },
             ].filter(Boolean)
 
