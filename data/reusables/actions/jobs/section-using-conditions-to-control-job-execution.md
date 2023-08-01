@@ -2,7 +2,7 @@ You can use the `jobs.<job_id>.if` conditional to prevent a job from running unl
 
 {% note %}
 
-**Note:** This if condition applies before `jobs.<job_id>.matrix`.
+**Note:** The `jobs.<job_id>.if` condition is evaluated before [`jobs.<job_id>.strategy.matrix`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix) is applied.
 
 {% endnote %}
 
