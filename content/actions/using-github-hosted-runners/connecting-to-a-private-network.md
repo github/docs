@@ -324,6 +324,12 @@ To grant {% data variables.product.prodname_actions %} access, you can use {% da
 
      The command will return the full payload for the created resource. The following is an example of a portion of the full payload. Note the `GitHubId` hash value. You will use this value to configure your {% data variables.product.company_short %}   settings.
 
+     {% note %}
+
+     **Note:** The `GitHubId` hash value returned in the payload for the created resource is the network settings resource ID you will use in the next steps while configuring VNET settings with {% data variables.product.company_short %}.
+
+     {% endnote %}
+
      ```json
      {
        "id": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/  GitHub.Network/networkSettings/RESOURCE_NAME",
