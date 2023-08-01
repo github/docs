@@ -21,7 +21,7 @@ jobs:
       - uses: actions/stale@1160a2240286f5da8ec72b1c0816ce2481aabf84
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          stale-issue-message: 'A stale label has been added to this issue becuase it has been open for 60 days with no activity. To keep this issue open, add a comment within 3 days.'
+          stale-issue-message: 'A stale label has been added to this issue because it has been open for 60 days with no activity. To keep this issue open, add a comment within 3 days.'
           days-before-issue-stale: 60
           days-before-issue-close: 3
           exempt-issue-labels: 'help wanted,never-stale,waiting for review'
