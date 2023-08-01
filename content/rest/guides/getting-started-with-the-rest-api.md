@@ -410,15 +410,11 @@ By default, the "List repository issues" operation returns thirty issues, sorted
 
 For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
-
-{% endnote %}
-
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 -f sort=updated -f direction=asc
 ```
+
+Some operations use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `-f repository_ids[]=REPOSITORY_A_ID -f repository_ids[]=REPOSITORY_B_ID`.
 
 {% endcli %}
 
@@ -448,6 +444,8 @@ curl --request GET \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer YOUR-TOKEN"
 ```
+
+Some operations use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `?repository_ids[]=REPOSITORY_A_ID&repository_ids[]=REPOSITORY_B_ID`.
 
 {% endcurl %}
 

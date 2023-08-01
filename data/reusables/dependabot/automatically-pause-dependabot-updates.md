@@ -5,7 +5,7 @@ The automatic deactivation of {% data variables.product.prodname_dependabot %} u
 An active repository is a repository for which a user (not {% data variables.product.prodname_dependabot %}) has carried out _any_ of the actions below in the last 90 days:
 
 - Merge or close a {% data variables.product.prodname_dependabot %} pull request on the repository.
-- Make a change to the _dependabot.yml_ file for the repository.
+- Make a change to the `dependabot.yml` file for the repository.
 - Manually trigger a security update or a version update.
 - Enable {% data variables.product.prodname_dependabot_security_updates %} for the repository.
 - Use `@dependabot` commands on pull requests.
@@ -16,4 +16,4 @@ When {% data variables.product.prodname_dependabot %} is paused, {% data variabl
 
 As soon as a maintainer interacts with a {% data variables.product.prodname_dependabot %} pull request again, {% data variables.product.prodname_dependabot %} will unpause itself:
 - Security updates are automatically resumed for {% data variables.product.prodname_dependabot_alerts %}.
-- Version updates are automatically resumed with the schedule specified in the _dependabot.yml_ file.
+- Version updates are automatically resumed with the schedule specified in the `dependabot.yml` file.
