@@ -16,7 +16,7 @@ topics:
   - Workflows
   - CI
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -46,6 +46,17 @@ This procedure demonstrates how to create a starter workflow and metadata file. 
 1. Create your new workflow file inside the `workflow-templates` directory.
 
    If you need to refer to a repository's default branch, you can use the `$default-branch` placeholder. When a workflow is created the placeholder will be automatically replaced with the name of the repository's default branch.
+
+   {% ifversion ghes %}
+   {% note %}
+
+   **Note:** The following values in the `runs-on` key are also treated as placeholders:
+
+   - "ubuntu-latest" is replaced with "[ self-hosted ]"
+   - "windows-latest" is replaced with "[ self-hosted, windows ]"
+   - "macos-latest" is replaced with "[ self-hosted, macOS ]"
+
+   {% endnote %}{% endif %}
 
    For example, this file named `octo-organization-ci.yml` demonstrates a basic workflow.
 
