@@ -86,11 +86,18 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
         : ''
   }
 
+  let urlArg = `${operation.serverUrl}${requestPath}`
+  // If the `requestPath` contains a `?` character, if you need to escape
+  // the whole URL otherwise, when you paste it into your terminal, it
+  // will fail because the `?` is a bash control character.
+  if (requestPath.includes('?')) {
+    urlArg = `"${urlArg}"`
+  }
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
     `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
     contentTypeHeader,
-    `${operation.serverUrl}${requestPath}`,
+    urlArg,
     requestBodyParams,
   ].filter(Boolean)
   return `curl -L \\\n  ${args.join(' \\\n  ')}`

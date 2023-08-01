@@ -29,18 +29,19 @@ You can access any advisory in the {% data variables.product.prodname_advisory_d
 
 1. Navigate to https://github.com/advisories.
 1. Optionally, to filter the list of advisories, use the search field or the drop-down menus at the top of the list.
-   {% tip %}
 
-   **Tip:** You can use the sidebar on the left to explore {% data variables.product.company_short %}-reviewed and unreviewed advisories separately, or to filter by ecosystem.
+   {% note %}
 
-   {% endtip %}
+   **Note:** You can use the sidebar on the left to explore {% data variables.product.company_short %}-reviewed and unreviewed advisories separately, or to filter by ecosystem.
+
+   {% endnote %}
+
 1. Click an advisory to view details. By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. {% ifversion GH-advisory-db-supports-malware %}To show malware advisories, use `type:malware` in the search bar.{% endif %}
-
-{% note %}
 
 The database is also accessible using the GraphQL API. {% ifversion GH-advisory-db-supports-malware %}By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`.{% endif %} For more information, see the "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#security_advisory)."
 
-{% endnote %}
+{% ifversion security-advisories-rest-api %}
+Additionally, you can access the {% data variables.product.prodname_advisory_database %} using the REST API. For more information, see "[AUTOTITLE](/rest/security-advisories/global-advisories)" in the REST API documentation.{% endif %}
 
 ## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
 

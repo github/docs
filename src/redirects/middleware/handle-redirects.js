@@ -36,9 +36,12 @@ export default function handleRedirects(req, res, next) {
   // The `q` param is deprecated, but we still need to support it in case
   // there are links out there that use it.
   const onSearch = req.path.endsWith('/search') || req.path.startsWith('/api/search')
+  // We have legacy links that links to the GraphQL Explorer with
+  // a `?query=...` in the URL. These should not redirect to the search page.
+  const onGraphqlExplorer = req.path.includes('/graphql/overview/explorer')
   const hasQ = 'q' in req.query
   const hasQuery = 'query' in req.query
-  if ((hasQ && !hasQuery) || (hasQuery && !onSearch)) {
+  if ((hasQ && !hasQuery) || (hasQuery && !onSearch && !onGraphqlExplorer)) {
     const language = getLanguage(req)
     const sp = new URLSearchParams(req.query)
     if (sp.has('q') && !sp.has('query')) {

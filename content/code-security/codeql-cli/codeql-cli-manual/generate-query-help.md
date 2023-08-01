@@ -1,6 +1,6 @@
 ---
 title: generate query-help
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -41,10 +41,10 @@ Generate end-user query help from .qhelp files.
 - A .qhelp file to render.
 - A .ql file with a corresponding .qhelp file to render.
 - A directory that will be searched recursively for .ql files with
-    corresponding .qhelp files.
+  corresponding .qhelp files.
 - A .qls file that defines a particular set of queries.
 - The basename of a "well-known" .qls file exported by one of the
-    installed QL packs.
+  installed QL packs.
 
 #### `--format=<format>`
 
@@ -119,8 +119,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 

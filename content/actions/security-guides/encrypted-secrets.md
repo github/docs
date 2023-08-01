@@ -69,7 +69,7 @@ Instead of using a {% data variables.product.pat_generic %}, consider using a {%
 
 {% note %}
 
-**Note:** You can use the REST API to manage secrets. For more information, see "[AUTOTITLE](/rest/actions#secrets)."
+**Note:** Users with collaborator access to a repository can use the REST API to manage secrets for that repository, and users with admin access to an organization can use the REST API to manage secrets for that organization. For more information, see "[AUTOTITLE](/rest/actions#secrets)."
 
 {% endnote %}
 
@@ -176,7 +176,7 @@ gh secret list --env ENV_NAME
 
 **Note:** By default, {% data variables.product.prodname_cli %} authenticates with the `repo` and `read:org` scopes. To manage organization secrets, you must additionally authorize the `admin:org` scope.
 
-```
+```shell
 gh auth login --scopes "admin:org"
 ```
 
@@ -321,7 +321,7 @@ To use secrets that are larger than 48 KB, you can use a workaround to store enc
 
 1. Run the following command from your terminal to encrypt the file containing your secret using `gpg` and the AES256 cipher algorithm. In this example, `my_secret.json` is the file containing the secret.
 
-   ```bash
+   ```shell
    gpg --symmetric --cipher-algo AES256 my_secret.json
    ```
 
@@ -337,14 +337,14 @@ To use secrets that are larger than 48 KB, you can use a workaround to store enc
 
    {% endwarning %}
 
-   ```bash
+   ```shell
    git add my_secret.json.gpg
    git commit -m "Add new encrypted secret JSON file"
    ```
 
 1. Create a shell script in your repository to decrypt the secret file. In this example, the script is named `decrypt_secret.sh`.
 
-   ```bash
+   ```shell copy
    #!/bin/sh
 
    # Decrypt the file
@@ -357,7 +357,7 @@ To use secrets that are larger than 48 KB, you can use a workaround to store enc
 
 1. Ensure your shell script is executable before checking it in to your repository.
 
-   ```bash
+   ```shell
    chmod +x decrypt_secret.sh
    git add decrypt_secret.sh
    git commit -m "Add new decryption script"
@@ -400,13 +400,13 @@ You can use Base64 encoding to store small binary blobs as secrets. You can then
 
 1. Use `base64` to encode your file into a Base64 string. For example:
 
-   ```
+   ```shell
    base64 -i cert.der -o cert.base64
    ```
 
 1. Create a secret that contains the Base64 string. For example:
 
-   ```
+   ```shell
    $ gh secret set CERTIFICATE_BASE64 < cert.base64
    ✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
    ```

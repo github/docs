@@ -1,3 +1,5 @@
+@import "stylesheets/breakpoint-xxl.scss";
+
 /* Code annotations
 ----------------------------------------------------------------------------*/
 
@@ -41,7 +43,7 @@
     margin: 0 calc((100vw - 720px - 4rem) / 2 * -1);
   }
 
-  @include breakpoint(xl) {
+  @include breakpoint-xxl {
     // 326px: navigation width
     margin: 0 max(-12rem, calc((100vw - 720px - 326px - 4rem) / 2 * -1));
   }

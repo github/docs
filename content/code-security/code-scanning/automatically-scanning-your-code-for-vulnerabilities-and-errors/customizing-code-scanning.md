@@ -158,11 +158,16 @@ This workflow scans:
 {% ifversion codeql-swift-beta %}
 {% note %}
 
-**Note**: Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}{% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, so you should consider only scanning the build step. For more information about configuring code scanning for Swift, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#considerations-for-building-swift)." For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
+**Notes**:
+
+- Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}{% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, so you should consider only scanning the build step. For more information about configuring code scanning for Swift, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages#considerations-for-building-swift)." For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
+
+- Code scanning of Swift code is not supported for runners that are part of an Actions Runner Controller (ARC), but you can have a mixture of both ARC runners and self-hosted macOS runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
 
 {% endnote %}
 
 {% endif %}
+
 If your code requires a specific operating system to compile, you can configure the operating system in your {% data variables.code-scanning.codeql_workflow %}. Edit the value of `jobs.analyze.runs-on` to specify the operating system for the machine that runs your {% data variables.product.prodname_code_scanning %} actions. {% ifversion ghes %}You specify the operating system by using an appropriate label as the second element in a two-element array, after `self-hosted`.{% else %}
 
 ``` yaml copy
@@ -194,12 +199,12 @@ In general, you do not need to worry about where the {% data variables.code-scan
 ``` yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    db-location: {% raw %}'${{ github.workspace }}/codeql_dbs'{% endraw %}
+    db-location: {% raw %}'${{ github.runner_temp }}/my_location'{% endraw %}
 ```
 
 The {% data variables.code-scanning.codeql_workflow %} will expect the path provided in `db-location` to be writable, and either not exist, or be an empty directory. When using this parameter in a job running on a self-hosted runner or using a Docker container, it's the responsibility of the user to ensure that the chosen directory is cleared between runs, or that the databases are removed once they are no longer needed. {% ifversion fpt or ghec or ghes %} This is not necessary for jobs running on {% data variables.product.prodname_dotcom %}-hosted runners, which obtain a fresh instance and a clean filesystem each time they run. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
-If this parameter is not used, the {% data variables.code-scanning.codeql_workflow %} will create databases in a temporary location of its own choice.
+If this parameter is not used, the {% data variables.code-scanning.codeql_workflow %} will create databases in a temporary location of its own choice. Currently the default value is {% raw %}`${{ github.runner_temp }}/codeql_databases`{% endraw %}.
 
 ## Changing the languages that are analyzed
 
@@ -236,7 +241,7 @@ If your workflow does not contain a matrix called `language`, then {% data varia
 
 ## Analyzing Python dependencies
 
-For GitHub-hosted runners that use Linux only, the {% data variables.code-scanning.codeql_workflow %} will try to auto-install Python dependencies to give more results for the CodeQL analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
+For GitHub-hosted runners that use Linux only, the {% data variables.code-scanning.codeql_workflow %} will try to auto-install Python dependencies to give more results for the {% data variables.product.prodname_codeql %} analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
 
 - If the repository contains code written in Python, the "Initialize CodeQL" step installs the necessary dependencies on the GitHub-hosted runner. If the auto-install succeeds, the action also sets the environment variable `CODEQL_PYTHON` to the Python executable file that includes the dependencies.
 

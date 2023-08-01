@@ -136,6 +136,7 @@ export const Header = () => {
             scroll && 'color-shadow-small',
           )}
           role="banner"
+          aria-label="Main"
         >
           <div
             className="d-flex flex-justify-between p-2 flex-items-center flex-wrap"
@@ -315,7 +316,7 @@ export const Header = () => {
             </div>
           </div>
           {!isHomepageVersion && !isSearchResultsPage && (
-            <div className="d-flex flex-items-center d-xl-none mt-2">
+            <div className="d-flex flex-items-center d-xxl-none mt-2">
               <div className={cx(styles.sidebarOverlayCloseButtonContainer, 'mr-2')}>
                 <IconButton
                   data-testid="sidebar-hamburger"

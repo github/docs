@@ -236,6 +236,7 @@ export function Webhook({ webhook }: Props) {
             bodyParameters={currentWebhookAction.bodyParameters || []}
             bodyParamExpandCallback={handleBodyParamExpansion}
             clickedBodyParameterName={clickedBodyParameterName}
+            variant="webhooks"
           />
         </div>
       </div>

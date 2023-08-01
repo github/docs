@@ -7,7 +7,7 @@ introLinks:
   quickstart: /codespaces/getting-started/quickstart
 featuredLinks:
   startHere:
-    - /codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization
+    - /codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization
     - /codespaces/getting-started/the-codespace-lifecycle
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
     - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces

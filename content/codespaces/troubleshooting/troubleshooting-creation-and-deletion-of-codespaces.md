@@ -20,12 +20,12 @@ If you have remaining monthly included usage of {% data variables.product.prodna
 
 You can also create a codespace for any private repository to which you have at least read access, provided this private repository is owned by a personal account. If a repository is private {% ifversion ghec %}or internal {% endif %}and is owned by an organization, you may or may not be able to create a codespace for that repository, depending on the settings of the organization or its parent enterprise.
 
-If you can't create a codespace for a repository, this may be due to one of the following reasons.
-- If you have used up your included monthly usage for {% data variables.product.prodname_github_codespaces %}, and have not set up a payment method and a spending limit, you can only create codespaces that are owned and paid for by an organization.
+If you can't create a codespace for a repository, this may be due to one of the following organization or enterprise settings.
+- Organization and enterprise owners can choose which users can access {% data variables.product.prodname_github_codespaces %} in an organization's private {% ifversion ghec %}and internal {% endif %} repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
 - Organization and enterprise owners can disable forking for some or all of an organization's private {% ifversion ghec %}and internal {% endif %}repositories. If you only have read access to a repository, and you cannot fork it, then you cannot create a codespace for that repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."{% ifversion ghec %}
 - {% data reusables.codespaces.emus-create-codespaces %}{% endif %}
 
-For more information about organization and enterprise settings that can affect whether you can create a codespace, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+For information about other organization and enterprise settings that can affect whether you can create a codespace, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#prerequisites-for-enabling-github-codespaces)."
 
 For more information about included usage for personal accounts, and setting a spending limit, see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)" and "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
 

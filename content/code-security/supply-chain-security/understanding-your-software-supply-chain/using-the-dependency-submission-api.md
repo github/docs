@@ -103,7 +103,7 @@ To generate an SBOM, you can use:
 You can use {% data variables.product.prodname_actions %} to generate an SBOM. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 {% endif %}
 
-Action | Details | <nobr>Maintained by {% data variables.product.prodname_dotcom %}</nobr>
+Action | Details | <span style="white-space: nowrap;">Maintained by {% data variables.product.prodname_dotcom %}</span>
 --- | --- | ---
 [SBOM-generator-action](https://github.com/marketplace/actions/sbom-generator-action) | Uses the information in your dependency graph to generate an SPDX SBOM | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
 [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |
@@ -111,7 +111,7 @@ Action | Details | <nobr>Maintained by {% data variables.product.prodname_dotcom
 
 You can then upload and submit the SBOM to the dependency submission API using one of the following actions so that you can receive {% data variables.product.prodname_dependabot_alerts %} on any dependencies that have known vulnerabilities. Actions that appear in both tables can be configured to both generate and submit an SBOM.
 
-Action | Details | <nobr>Maintained by {% data variables.product.prodname_dotcom %}</nobr>
+Action | Details | <span style="white-space: nowrap;">Maintained by {% data variables.product.prodname_dotcom %}</span>
 ---  | --- | ---
 [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) | Uses [Microsoft's SBOM Tool](https://github.com/microsoft/sbom-tool) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/microsoft/component-detection/blob/main/docs/feature-overview.md) | {% octicon "check" aria-label="Maintained by {% data variables.product.prodname_dotcom %}" %} |
 [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  | {% octicon "x" aria-label="Not maintained by {% data variables.product.prodname_dotcom %}" %} |

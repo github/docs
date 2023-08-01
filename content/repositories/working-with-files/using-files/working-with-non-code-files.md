@@ -244,7 +244,7 @@ You can customize the way features are displayed, such as specifying a particula
 
 - `marker-size` - `small`, `medium`, or `large`
 - `marker-color` - valid RGB hex color
-- `marker-symbol` - an icon ID from [the Maki project](http://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
+- `marker-symbol` - an icon ID from [the Maki project](https://mapbox.com/maki/) or a single alphanumeric character (a-z or 0-9).
 - `stroke` - color of a polygon edge or line (RGB)
 - `stroke-opacity` - opacity of a polygon edge or line (0.0 - 1.0)
 - `stroke-width` - width of a polygon edge or line
@@ -256,7 +256,7 @@ See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simpl
 
 ### Embedding your map elsewhere
 
-Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (e.g., [{% data variables.product.prodname_pages %}](http://pages.github.com)):
+Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (e.g., [{% data variables.product.prodname_pages %}](https://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>

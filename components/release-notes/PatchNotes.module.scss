@@ -1,9 +1,15 @@
-.sectionHeading {
-  scroll-margin-top: 70px !important;
-}
+@import "@primer/css/support/index.scss";
+@import "stylesheets/breakpoint-xxl.scss";
 
 .aside {
-  width: 260px;
-  height: calc(100vh - 70px);
-  top: 70px;
+  @include breakpoint(md) {
+    width: 8rem;
+    height: calc(100vh - 105px);
+    top: 105px;
+  }
+
+  @include breakpoint-xxl {
+    height: calc(100vh - 65px);
+    top: 65px;
+  }
 }

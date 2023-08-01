@@ -48,82 +48,70 @@ To create the GKE cluster, you will first need to authenticate using the `gcloud
 
 For example:
 
-{% raw %}
-
-```bash copy
+```shell copy
 $ gcloud container clusters create $GKE_CLUSTER \
 	--project=$GKE_PROJECT \
 	--zone=$GKE_ZONE
 ```
 
-{% endraw %}
-
 ### Enabling the APIs
 
 Enable the Kubernetes Engine and Container Registry APIs. For example:
 
-{% raw %}
-
-```bash copy
+```shell copy
 $ gcloud services enable \
 	containerregistry.googleapis.com \
 	container.googleapis.com
 ```
-
-{% endraw %}
 
 ### Configuring a service account and storing its credentials
 
 This procedure demonstrates how to create the service account for your GKE integration. It explains how to create the account, add roles to it, retrieve its keys, and store them as a base64-encoded encrypted repository secret named `GKE_SA_KEY`.
 
 1. Create a new service account:
-   {% raw %}
 
-   ```
+   ```shell copy
    gcloud iam service-accounts create $SA_NAME
    ```
 
-  {% endraw %}
 1. Retrieve the email address of the service account you just created:
-   {% raw %}
 
-   ```
+   ```shell copy
    gcloud iam service-accounts list
    ```
 
-  {% endraw %}
-1. Add roles to the service account. Note: Apply more restrictive roles to suit your requirements.
-   {% raw %}
+1. Add roles to the service account. 
 
-   ```
-   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+   {% note %}
+
+   **Note**: Apply more restrictive roles to suit your requirements.
+
+   {% endnote %}
+
+   ```shell copy
+   gcloud projects add-iam-policy-binding $GKE_PROJECT \
   	 --member=serviceAccount:$SA_EMAIL \
   	 --role=roles/container.admin
-   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+   gcloud projects add-iam-policy-binding $GKE_PROJECT \
   	 --member=serviceAccount:$SA_EMAIL \
   	 --role=roles/storage.admin
-   $ gcloud projects add-iam-policy-binding $GKE_PROJECT \
+   gcloud projects add-iam-policy-binding $GKE_PROJECT \
   	 --member=serviceAccount:$SA_EMAIL \
   	 --role=roles/container.clusterViewer
    ```
 
-   {% endraw %}
 1. Download the JSON keyfile for the service account:
-   {% raw %}
 
-   ```
+   ```shell copy
    gcloud iam service-accounts keys create key.json --iam-account=$SA_EMAIL
    ```
 
-   {% endraw %}
 1. Store the service account key as a secret named `GKE_SA_KEY`:
-   {% raw %}
 
-   ```
+   ```shell copy
    export GKE_SA_KEY=$(cat key.json | base64)
    ```
 
-   {% endraw %}
    For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ### Storing your project name

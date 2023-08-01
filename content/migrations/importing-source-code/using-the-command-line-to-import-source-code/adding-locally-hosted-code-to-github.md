@@ -98,7 +98,7 @@ After you've initialized a Git repository, you can push the repository to {% dat
 1. [Add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
 
    ```shell
-   $ git remote add origin &lt;REMOTE_URL>
+   $ git remote add origin <REMOTE_URL>
    # Sets the new remote
    $ git remote -v
    # Verifies the new remote URL
@@ -124,7 +124,7 @@ After you've initialized a Git repository, you can push the repository to {% dat
 1. In the Command prompt, [add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
 
    ```shell
-   $ git remote add origin &lt;REMOTE_URL>
+   $ git remote add origin <REMOTE_URL>
    # Sets the new remote
    $ git remote -v
    # Verifies the new remote URL
@@ -150,7 +150,7 @@ After you've initialized a Git repository, you can push the repository to {% dat
 1. [Add the URL for the remote repository](/get-started/getting-started-with-git/managing-remote-repositories) where your local repository will be pushed.
 
    ```shell
-   $ git remote add origin &lt;REMOTE_URL>
+   $ git remote add origin <REMOTE_URL>
    # Sets the new remote
    $ git remote -v
    # Verifies the new remote URL

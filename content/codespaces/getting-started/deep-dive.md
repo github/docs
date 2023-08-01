@@ -170,7 +170,7 @@ If you want to make changes to your codespace that will be more robust over rebu
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)"
 - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
 - "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)"
 - "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"

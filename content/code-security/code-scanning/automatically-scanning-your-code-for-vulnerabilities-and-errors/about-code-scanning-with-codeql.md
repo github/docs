@@ -39,7 +39,7 @@ There are two main ways to use {% data variables.product.prodname_codeql %} anal
 
 {% endif -%}
 
-- Run the {% data variables.product.prodname_codeql %} CLI directly in an external CI system and upload the results to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
+- Run the {% data variables.product.prodname_codeql_cli %} directly in an external CI system and upload the results to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
 
 {% ifversion ghes or ghae %}
 

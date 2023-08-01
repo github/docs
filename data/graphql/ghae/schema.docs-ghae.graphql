@@ -24245,6 +24245,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     first: Int
 
     """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
+
+    """
     If non-null, filters repositories according to whether they are archived and not maintained
     """
     isArchived: Boolean
@@ -34385,7 +34390,7 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     last: Int
 
     """
-    Filters users with query on user name and login
+    Filters users with query on user name and login.
     """
     query: String
   ): UserConnection!
@@ -34805,6 +34810,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
 
     """
     If non-null, filters repositories according to whether they have been locked
@@ -36779,6 +36789,11 @@ interface RepositoryOwner {
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
 
     """
     If non-null, filters repositories according to whether they are archived and not maintained
@@ -42657,6 +42672,11 @@ type Topic implements Node & Starrable {
     first: Int
 
     """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
+
+    """
     If non-null, filters repositories according to whether they have been locked
     """
     isLocked: Boolean
@@ -46448,6 +46468,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     first: Int
 
     """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
+
+    """
     If non-null, filters repositories according to whether they are archived and not maintained
     """
     isArchived: Boolean
@@ -46509,6 +46534,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssues: Boolean
 
     """
     If true, include user repositories
@@ -46832,6 +46862,11 @@ type User implements Actor & Node & ProfileOwner & ProjectOwner & RepositoryDisc
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
 
     """
     If non-null, filters repositories according to whether they have been locked
