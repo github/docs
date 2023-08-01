@@ -4,7 +4,7 @@ import { ArrowRightIcon, InfoIcon } from '@primer/octicons-react'
 import { useMainContext } from 'components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { Picker } from 'components/ui/Picker'
+import { Picker } from 'src/tools/components/Picker'
 
 import styles from './VersionPicker.module.scss'
 
