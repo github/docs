@@ -1,5 +1,5 @@
 ```yaml
-# dependabot.yml file with customized bundler configuration
+# `dependabot.yml` file with customized bundler configuration
 
 version: 2
 updates:
