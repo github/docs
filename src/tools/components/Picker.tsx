@@ -1,6 +1,5 @@
 import { ReactNode, useState } from 'react'
-import { ActionMenu, IconButton } from '@primer/react'
-import { Icon } from '@primer/octicons-react'
+import { ActionMenu } from '@primer/react'
 
 import { AnchorAlignment } from '@primer/behaviors'
 
@@ -8,7 +7,6 @@ import { Fields } from './Fields'
 
 interface Props {
   items: PickerItem[]
-  iconButton?: Icon
   onSelect?: (item: PickerItem) => void
   buttonBorder?: boolean
   pickerLabel?: string
@@ -16,6 +14,7 @@ interface Props {
   defaultText: string
   ariaLabel: string
   alignment: AnchorAlignment
+  descriptionFontSize?: number
   renderItem?: (item: PickerItem) => ReactNode | string
 }
 
@@ -31,39 +30,38 @@ export interface PickerItem {
 
 export const Picker = ({
   items,
-  iconButton,
   ariaLabel,
   pickerLabel,
+  buttonBorder,
   dataTestId,
   defaultText,
   onSelect,
-  buttonBorder,
   alignment,
+  descriptionFontSize,
   renderItem,
 }: Props) => {
   const [open, setOpen] = useState(false)
   const selectedOption = items.find((item) => item.selected === true)
   return (
     <ActionMenu open={open} onOpenChange={setOpen}>
-      {iconButton ? (
-        <ActionMenu.Anchor>
-          <IconButton icon={iconButton} aria-label={ariaLabel} />
-        </ActionMenu.Anchor>
-      ) : (
-        <ActionMenu.Button
-          aria-label={ariaLabel}
-          variant={buttonBorder ? 'default' : 'invisible'}
-          sx={{
-            color: `var(--color-fg-default)`,
-            width: '100%',
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
+      <ActionMenu.Button
+        aria-label={ariaLabel}
+        variant={buttonBorder ? 'default' : 'invisible'}
+        className="color-fg-default width-full p-1 pl-2 pr-2"
+        sx={{
+          height: 'auto',
+          textAlign: 'left',
+          'span:first-child': { display: 'inline' },
+        }}
+      >
+        {pickerLabel && <span style={{ whiteSpace: 'pre-wrap' }}>{`${pickerLabel}`}</span>}
+        <span
+          className={`f${descriptionFontSize} color-fg-muted text-normal`}
+          data-testid={dataTestId}
         >
-          {pickerLabel && <span className="color-fg-muted text-normal">{`${pickerLabel}: `}</span>}
-          <span data-testid={dataTestId}>{selectedOption?.text || defaultText}</span>
-        </ActionMenu.Button>
-      )}
+          {selectedOption?.text || defaultText}
+        </span>
+      </ActionMenu.Button>
       <ActionMenu.Overlay width="auto" align={alignment}>
         <Fields
           open={open}

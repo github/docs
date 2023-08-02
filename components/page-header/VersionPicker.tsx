@@ -9,10 +9,10 @@ import { Picker } from 'src/tools/components/Picker'
 import styles from './VersionPicker.module.scss'
 
 type Props = {
-  mediumOrLower?: boolean
+  xs?: boolean
 }
 
-export const VersionPicker = ({ mediumOrLower }: Props) => {
+export const VersionPicker = ({ xs }: Props) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions, page, enterpriseServerVersions } = useMainContext()
@@ -81,14 +81,14 @@ export const VersionPicker = ({ mediumOrLower }: Props) => {
   }
 
   return (
-    <div data-testid="version-picker">
+    <div data-testid="version-picker" className={xs ? 'd-flex' : ''}>
       <Picker
         defaultText={t('version_picker_default_text')}
         items={allLinks}
-        alignment="start"
-        pickerLabel="Version"
+        alignment="end"
+        pickerLabel={xs ? `Version\n` : `Version: `}
         dataTestId="field"
-        buttonBorder={mediumOrLower}
+        descriptionFontSize={xs ? 6 : 5}
         ariaLabel={`Select GitHub product version: current version is ${currentVersion}`}
         renderItem={(item) => {
           return (

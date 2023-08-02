@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { AnchoredOverlay, Button, Dialog, IconButton } from '@primer/react'
+import { ActionList, ActionMenu, Dialog, IconButton } from '@primer/react'
 import {
   KebabHorizontalIcon,
   LinkExternalIcon,
@@ -30,16 +30,13 @@ import styles from './Header.module.scss'
 export const Header = () => {
   const router = useRouter()
   const { error } = useMainContext()
-  const { isHomepageVersion, currentProduct, allVersions } = useMainContext()
+  const { isHomepageVersion, currentProduct } = useMainContext()
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [scroll, setScroll] = useState(false)
   const { hasAccount } = useHasAccount()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const openMenuOverlay = useCallback(() => setIsMenuOpen(true), [setIsMenuOpen])
-  const closeMenuOverlay = useCallback(() => setIsMenuOpen(false), [setIsMenuOpen])
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const openSidebar = useCallback(() => setIsSidebarOpen(true), [isSidebarOpen])
   const closeSidebar = useCallback(() => setIsSidebarOpen(false), [isSidebarOpen])
@@ -230,15 +227,12 @@ export const Header = () => {
 
               {/* The ... navigation menu at medium and smaller widths */}
               <div>
-                <AnchoredOverlay
-                  anchorRef={menuButtonRef}
-                  renderAnchor={(anchorProps) => (
-                    <Button
+                <ActionMenu aria-labelledby="menu-title">
+                  <ActionMenu.Anchor>
+                    <IconButton
                       data-testid="mobile-menu"
-                      className="px-2"
-                      {...anchorProps}
                       icon={KebabHorizontalIcon}
-                      aria-label="Open Menu Bar"
+                      aria-label="Open Menu"
                       sx={
                         isSearchOpen
                           ? // The ... menu button when the smaller width search UI is open.  Since the search
@@ -271,47 +265,56 @@ export const Header = () => {
                               },
                             }
                       }
+                    />
+                  </ActionMenu.Anchor>
+                  <ActionMenu.Overlay align="start">
+                    {/* Mobile Menu at XS browser width */}
+                    <ActionList
+                      sx={{
+                        '@media (min-width: 544px)': {
+                          display: 'none',
+                        },
+                      }}
                     >
-                      {}
-                    </Button>
-                  )}
-                  open={isMenuOpen}
-                  onOpen={openMenuOverlay}
-                  onClose={closeMenuOverlay}
-                  aria-labelledby="menu-title"
-                >
-                  <div
-                    data-testid="open-mobile-menu"
-                    className={cx('pt-2', !signupCTAVisible && 'pb-2', styles.menuOverlay)}
-                  >
-                    <span id="menu-title" className="f6 px-3 py-2 mb-1 d-block h6 color-fg-muted">
-                      {t('menu')}
-                    </span>
-                    <span className="px-2 pb-2 m-2 d-block d-sm-none">
-                      <VersionPicker mediumOrLower={true} />
-                    </span>
-                    <span className="px-2 pb-2 m-2 d-block">
-                      <LanguagePicker mediumOrLower={true} />
-                    </span>
-                    {isRestPage && allVersions[currentVersion].apiVersions.length > 0 && (
-                      <span className="px-2 pb-2 m-2 d-block">
-                        <ApiVersionPicker />
-                      </span>
-                    )}
+                      <ActionList.Group data-testid="open-xs-mobile-menu">
+                        <LanguagePicker xs={true} />
+                        <ActionList.Divider />
+                        <VersionPicker xs={true} />
+                        {signupCTAVisible && (
+                          <>
+                            <ActionList.Divider />
+                            <ActionList.LinkItem
+                              href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
+                              target="_blank"
+                              rel="noopener"
+                              data-testid="xs-mobile-signup"
+                              className="d-flex color-fg-muted"
+                            >
+                              {t`sign_up_cta`}
+                              <LinkExternalIcon
+                                className="height-full float-right"
+                                aria-label="(external site)"
+                              />
+                            </ActionList.LinkItem>
+                          </>
+                        )}{' '}
+                      </ActionList.Group>
+                    </ActionList>
+                    <LanguagePicker mediumOrLower={true} />
                     {signupCTAVisible && (
                       <Link
                         href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
                         target="_blank"
                         rel="noopener"
                         data-testid="mobile-signup"
-                        className="d-flex flex-justify-between flex-items-center color-fg-muted border-top px-3 py-3"
+                        className="hide-sm d-flex flex-justify-between flex-items-center color-fg-muted border-top px-3 py-3"
                       >
                         {t`sign_up_cta`}
                         <LinkExternalIcon aria-label="(external site)" />
                       </Link>
-                    )}
-                  </div>
-                </AnchoredOverlay>
+                    )}{' '}
+                  </ActionMenu.Overlay>
+                </ActionMenu>
               </div>
             </div>
           </div>
