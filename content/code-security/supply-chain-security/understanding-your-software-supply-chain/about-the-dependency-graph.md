@@ -88,6 +88,9 @@ The recommended formats explicitly define which versions are used for all direct
 | Maven | Java, Scala |  `pom.xml`  | `pom.xml`  |
 | npm | JavaScript |            `package-lock.json` | `package-lock.json`, `package.json`|
 | pip             | Python                    | `requirements.txt`, `pipfile.lock` | `requirements.txt`, `pipfile`, `pipfile.lock`, `setup.py` |
+{%- ifversion dependabot-dependency-graph-pnpm %}
+| pnpm             | JavaScript                    | `pnpm-lock.yaml` | `package.json`, `pnpm-lock.yaml` |
+{%- endif %}
 {%- ifversion dependency-graph-dart-support %}
 | pub             | Dart                    | `pubspec.lock` | `pubspec.yaml`, `pubspec.lock` |
 {%- endif %}
