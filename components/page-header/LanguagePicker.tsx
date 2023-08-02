@@ -4,7 +4,7 @@ import { GlobeIcon } from '@primer/octicons-react'
 import { useLanguages } from 'components/context/LanguagesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useUserLanguage } from 'components/hooks/useUserLanguage'
-import { Picker } from 'components/ui/Picker'
+import { Picker } from 'src/tools/components/Picker'
 
 type Props = {
   mediumOrLower?: boolean

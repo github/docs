@@ -19,7 +19,7 @@ For compiled languages like C/C++, C#, Go, and Java, {% data variables.product.p
 
 1. The {% data variables.product.prodname_codeql %} `autobuild` feature uses heuristics to build the code in a repository. However, sometimes this approach results in an incomplete analysis of a repository. For example, when multiple `build.sh` commands exist in a single repository, the analysis may not be complete since the `autobuild` step will only execute one of the commands, and therefore some source files may not be compiled.
 
-1. Some compilers do not work with {% data variables.product.prodname_codeql %} and can cause issues while analyzing the code. For example, Project Lombok uses non-public compiler APIs to modify compiler behavior. The assumptions used in these compiler modifications are not valid for {% data variables.product.prodname_codeql %}'s Java extractor, so the code cannot be analyzed.
+1. Some compilers do not work with {% data variables.product.prodname_codeql %} and can cause issues while analyzing the code. For example, most vendor-specific C compilers will not be recognized by {% data variables.product.prodname_codeql %}. C code will need to be compiled with a recognized compiler (for example GCC, Clang or MSVC) in order to be analyzed.
 
 If your {% data variables.product.prodname_codeql %} analysis scans fewer lines of code than expected, you can try replacing the `autobuild step`, or inspecting the copy of the source files in the {% data variables.product.prodname_codeql %} database.
 
