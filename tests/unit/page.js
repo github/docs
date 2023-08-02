@@ -333,45 +333,6 @@ describe('Page class', () => {
     })
   })
 
-  describe('includeGuides', () => {
-    let page
-
-    beforeEach(async () => {
-      page = await Page.init({
-        relativePath: 'article-with-includeGuides.md',
-        basePath: path.join(__dirname, '../fixtures'),
-        languageCode: 'en',
-      })
-    })
-
-    it('includes guide paths specified in frontmatter', async () => {
-      expect(page.includeGuides).toStrictEqual(['/path/guide1', '/path/guide2', '/path/guide3'])
-    })
-
-    // Docs Engineering issue: 971
-    it.skip('renders guides and topics', async () => {
-      /* getLinkData.mockImplementation(() => {
-        return [{
-          page: { topics: ['Spring', 'Summer'] }
-        }, {
-          page: { topics: ['Summer', 'Fall'] }
-        }, {
-          page: { topics: ['Fall', 'Winter'] }
-        }]
-      }) */
-      // const guides = ['/path/guide1', '/path/guide2', '/path/guide3']
-      const context = {
-        currentVersion: nonEnterpriseDefaultVersion,
-        currentLanguage: 'en',
-      }
-      await page.render(context)
-      // expect(getLinkData).toHaveBeenCalledWith(guides, context)
-      expect(page.includeGuides).toHaveLength(3)
-      expect(page.allTopics).toHaveLength(4)
-      expect(page.allTopics).toEqual(expect.arrayContaining(['Spring', 'Summer', 'Fall', 'Winter']))
-    })
-  })
-
   describe('videos', () => {
     let page
 
