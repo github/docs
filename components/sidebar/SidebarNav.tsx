@@ -26,11 +26,11 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
       {variant === 'full' && currentProduct && (
         <nav
           className={cx('d-none px-4 pb-3 border-bottom d-xxl-block')}
-          aria-labelledby="sidebar-header"
+          aria-labelledby="allproducts-menu"
         >
           <AllProductsLink />
           {currentProduct && (
-            <div className="mt-3" aria-label="sidebar-header">
+            <div className="mt-3" id="allproducts-menu" aria-label="all products menu">
               <Link
                 data-testid="sidebar-product-xl"
                 href={currentProduct.href}
@@ -51,9 +51,10 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
           'bg-primary overflow-y-auto flex-shrink-0',
         )}
         style={{ width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }}
-        role="banner"
       >
-        <SidebarProduct />
+        <nav aria-label="product menu">
+          <SidebarProduct />
+        </nav>
       </div>
     </div>
   )

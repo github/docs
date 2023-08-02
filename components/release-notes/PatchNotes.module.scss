@@ -1,4 +1,5 @@
 @import "@primer/css/support/index.scss";
+@import "stylesheets/breakpoint-xxl.scss";
 
 .aside {
   @include breakpoint(md) {
@@ -7,7 +8,7 @@
     top: 105px;
   }
 
-  @media (min-width: 1400px) {
+  @include breakpoint-xxl {
     height: calc(100vh - 65px);
     top: 65px;
   }
