@@ -321,15 +321,6 @@ describe('Page class', () => {
   })
 
   describe('page.versions frontmatter', () => {
-    // Docs Engineering issue: 972
-    test.skip('pages that apply to older enterprise versions', async () => {
-      // There are none of these in the content at this time!
-    })
-    // Docs Engineering issue: 972
-    test.skip('pages that apply to newer enterprise versions', async () => {
-      // There are none of these in the content at this time!
-    })
-
     test('pages that use short names in versions frontmatter', async () => {
       const page = await Page.init({
         relativePath: 'short-versions.md',
