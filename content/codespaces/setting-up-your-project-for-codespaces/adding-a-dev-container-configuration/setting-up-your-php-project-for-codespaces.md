@@ -170,19 +170,19 @@ In the previous section, you modified the `postCreateCommand` to install a set o
 
 1. In the Terminal of your codespace, enter:
 
-   ```shell
+   ```shell copy
    sudo sed -i 's/Listen 80$//' /etc/apache2/ports.conf
    ```
 
 1. Then, enter:
 
-   ```shell
+   ```shell copy
    sudo sed -i 's/<VirtualHost \*:80>/ServerName 127.0.0.1\n<VirtualHost \*:8080>/' /etc/apache2/sites-enabled/000-default.conf
    ```
 
 1. Then start Apache using its control tool:
 
-   ```shell
+   ```shell copy
    apache2ctl start
    ```
 
