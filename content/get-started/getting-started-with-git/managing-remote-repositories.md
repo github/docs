@@ -30,8 +30,8 @@ shortTitle: Manage remote repositories
 To add a new remote, use the `git remote add` command on the terminal, in the directory your repository is stored at.
 
 The `git remote add` command takes two arguments:
-* A remote name, for example, `origin`
-* A remote URL, for example, `https://{% data variables.command_line.backticks %}/OWNER/REPOSITORY.git`
+- A remote name, for example, `origin`
+- A remote URL, for example, `https://{% data variables.command_line.backticks %}/OWNER/REPOSITORY.git`
 
 For example:
 
@@ -57,9 +57,9 @@ $ git remote add origin https://{% data variables.command_line.codeblock %}/octo
 ```
 
 To fix this, you can:
-* Use a different name for the new remote.
-* Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
-* Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
+- Use a different name for the new remote.
+- Rename the existing remote repository before you add the new remote. For more information, see "[Renaming a remote repository](#renaming-a-remote-repository)" below.
+- Delete the existing remote repository before you add the new remote. For more information, see "[Removing a remote repository](#removing-a-remote-repository)" below.
 
 ## Changing a remote repository's URL
 
@@ -73,38 +73,46 @@ The `git remote set-url` command changes an existing remote repository URL.
 
 The `git remote set-url` command takes two arguments:
 
-* An existing remote name. For example, `origin` or `upstream` are two common choices.
-* A new URL for the remote. For example:
-  * If you're updating to use HTTPS, your URL might look like:
-```shell
-https://{% data variables.command_line.backticks %}/OWNER/REPOSITORY.git
-```
-  * If you're updating to use SSH, your URL might look like:
-```shell
-git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git
-```
+- An existing remote name. For example, `origin` or `upstream` are two common choices.
+- A new URL for the remote. For example:
+  - If you're updating to use HTTPS, your URL might look like:
+
+  ```shell
+  https://{% data variables.command_line.backticks %}/OWNER/REPOSITORY.git
+  ```
+
+  - If you're updating to use SSH, your URL might look like:
+
+  ```shell
+  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git
+  ```
 
 ### Switching remote URLs from SSH to HTTPS
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
-  ```shell
-  $ git remote -v
-  > origin  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git (fetch)
-  > origin  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git (push)
-  ```
-4. Change your remote's URL from SSH to HTTPS with the `git remote set-url` command.
-  ```shell
-  $ git remote set-url origin https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git
-  ```
-5. Verify that the remote URL has changed.
-  ```shell
-  $ git remote -v
-  # Verify new remote URL
-  > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (fetch)
-  > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (push)
-  ```
+1. Change the current working directory to your local project.
+1. List your existing remotes in order to get the name of the remote you want to change.
+
+   ```shell
+   $ git remote -v
+   > origin  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git (fetch)
+   > origin  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git (push)
+   ```
+
+1. Change your remote's URL from SSH to HTTPS with the `git remote set-url` command.
+
+   ```shell
+   git remote set-url origin https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git
+   ```
+
+1. Verify that the remote URL has changed.
+
+   ```shell
+   $ git remote -v
+   # Verify new remote URL
+   > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (fetch)
+   > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (push)
+   ```
 
 The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password. {% data reusables.user-settings.password-authentication-deprecation %}
 
@@ -113,24 +121,29 @@ You can [use a credential helper](/get-started/getting-started-with-git/caching-
 ### Switching remote URLs from HTTPS to SSH
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
-2. Change the current working directory to your local project.
-3. List your existing remotes in order to get the name of the remote you want to change.
-  ```shell
-  $ git remote -v
-  > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (fetch)
-  > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (push)
-  ```
-4. Change your remote's URL from HTTPS to SSH with the `git remote set-url` command.
-  ```shell
-  $ git remote set-url origin git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git
-  ```
-5. Verify that the remote URL has changed.
-  ```shell
-  $ git remote -v
-  # Verify new remote URL
-  > origin  git@{% data variables.command_line.codeblock %}: OWNER/REPOSITORY.git (fetch)
-  > origin  git@{% data variables.command_line.codeblock %}: OWNER/REPOSITORY.git (push)
-  ```
+1. Change the current working directory to your local project.
+1. List your existing remotes in order to get the name of the remote you want to change.
+
+   ```shell
+   $ git remote -v
+   > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (fetch)
+   > origin  https://{% data variables.command_line.codeblock %}/OWNER/REPOSITORY.git (push)
+   ```
+
+1. Change your remote's URL from HTTPS to SSH with the `git remote set-url` command.
+
+   ```shell
+   git remote set-url origin git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git
+   ```
+
+1. Verify that the remote URL has changed.
+
+   ```shell
+   $ git remote -v
+   # Verify new remote URL
+   > origin  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git (fetch)
+   > origin  git@{% data variables.command_line.codeblock %}:OWNER/REPOSITORY.git (push)
+   ```
 
 ### Troubleshooting: No such remote '[name]'
 
@@ -148,8 +161,8 @@ Check that you've correctly typed the remote name.
 Use the `git remote rename` command to rename an existing remote.
 
 The `git remote rename` command takes two arguments:
-* An existing remote name, for example, `origin`
-* A new name for the remote, for example, `destination`
+- An existing remote name, for example, `origin`
+- A new name for the remote, for example, `destination`
 
 ### Example of renaming a remote repository
 
@@ -192,7 +205,7 @@ This error means that the remote name you want to use already exists. To solve t
 Use the `git remote rm` command to remove a remote URL from your repository.
 
 The `git remote rm` command takes one argument:
-* A remote name, for example, `destination`
+- A remote name, for example, `destination`
 
 Removing the remote URL from your repository only unlinks the local and remote repositories. It does not delete the remote repository.
 

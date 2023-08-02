@@ -34,14 +34,10 @@ This procedure demonstrates how to configure autolinks to reference external res
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
 1. In the "Integrations" section of the sidebar, click **{% octicon "cross-reference" aria-hidden="true" %} Autolink references**.
-{% else %}
-1. In the left sidebar, click **Autolink references**.
-{% endif %}
 1. At the top right of the page, click **Add autolink reference**.
 
-  ![Screenshot of the "autolink references" page. The "Add autolink reference" button is highlighted by a dark orange outline.](/assets/images/help/repository/add-autolink-reference-details.png)
+   ![Screenshot of the "autolink references" page. The "Add autolink reference" button is highlighted by a dark orange outline.](/assets/images/help/repository/add-autolink-reference-details.png)
 {% ifversion autolink-reference-alphanumeric %}
 1. Select the format of the reference identifier used in the external resource, either **Alphanumeric** or **Numeric**.
 {% endif %}

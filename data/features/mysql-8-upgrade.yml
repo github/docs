@@ -1,0 +1,5 @@
+# Reference: #10286
+# MySQL 8 upgrade for GHES
+
+versions:
+  ghes: '>=3.7 <=3.10'

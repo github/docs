@@ -18,8 +18,7 @@ type: tutorial
 topics:
   - Workflows
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About workflow artifacts
@@ -51,8 +50,8 @@ Artifacts are uploaded during a workflow run, and you can view an artifact's nam
 
 To share data between jobs:
 
-* **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
-* **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
+- **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
+- **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
 
 The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
@@ -76,7 +75,7 @@ You can use the `upload-artifact` action to upload artifacts. When uploading an 
 
 For example, your repository or a web application might contain SASS and TypeScript files that you must convert to CSS and JavaScript. Assuming your build configuration outputs the compiled files in the `dist` directory, you would deploy the files in the `dist` directory to your web application server if all tests completed successfully.
 
-```
+```text
 |-- hello-world (repository)
 |   └── dist
 |   └── tests
@@ -92,7 +91,7 @@ This example shows you how to create a workflow for a Node.js project that build
 
 The workflow uploads the production artifacts in the `dist` directory, but excludes any markdown files. It also uploads the `code-coverage.html` report as another artifact.
 
-```yaml{:copy}
+```yaml copy
 name: Node CI
 
 on: [push]
@@ -126,7 +125,7 @@ jobs:
 
 You can define a custom retention period for individual artifacts created by a workflow. When using a workflow to create a new artifact, you can use `retention-days` with the `upload-artifact` action. This example demonstrates how to set a custom retention period of 5 days for the artifact named `my-artifact`:
 
-```yaml{:copy}
+```yaml copy
   - name: 'Upload Artifact'
     uses: {% data reusables.actions.action-upload-artifact %}
     with:
@@ -194,7 +193,7 @@ Job 3 displays the result uploaded in the previous job:
 
 The full math operation performed in this workflow example is `(3 + 7) x 9 = 90`.
 
-```yaml{:copy}
+```yaml copy
 name: Share data between jobs
 
 on: [push]

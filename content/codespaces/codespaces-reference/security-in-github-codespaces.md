@@ -78,7 +78,7 @@ Codespaces are designed to be security hardened by default. To help maintain thi
 
 ### Using secrets to access sensitive information
 
-Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME ` to see the value of a secret.
+Always use encrypted secrets when you want to use sensitive information (such as access tokens) in a codespace. You can access your secrets as environment variables in the codespace, including from the terminal. For example, you can launch a terminal within your codespace and use `echo $SECRET_NAME` to see the value of a secret.
 
 The secret values are copied to environment variables whenever the codespace is resumed or created and are also synced when they are changed.
 

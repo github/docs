@@ -1,6 +1,7 @@
 ---
 title: About code owners
 intro: You can use a CODEOWNERS file to define individuals or teams that are responsible for code in a repository.
+permissions: 'People with write permissions for the repository can create or edit the CODEOWNERS file and be listed as code owners. People with admin or owner permissions can require that pull requests have to be approved by code owners before they can be merged.'
 redirect_from:
   - /articles/about-codeowners
   - /articles/about-code-owners
@@ -15,8 +16,6 @@ versions:
 topics:
   - Repositories
 ---
-People with admin or owner permissions can set up a CODEOWNERS file in a repository.
-
 The people you choose as code owners must have write permissions for the repository. When the code owner is a team, that team must be visible and it must have write permissions, even if all the individual members of the team already have write permissions directly, through organization membership, or through another team membership.
 
 ## About code owners
@@ -39,7 +38,7 @@ To use a CODEOWNERS file, create a new file called `CODEOWNERS` in the root, `do
 
 Each CODEOWNERS file assigns the code owners for a single branch in the repository. Thus, you can assign different code owners for different branches, such as `@octo-org/codeowners-team` for a code base on the default branch and `@octocat` for a {% data variables.product.prodname_pages %} site on the `gh-pages` branch.
 
-For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for *.js* files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to *.js* files is opened between the head branch and `gh-pages`.
+For code owners to receive review requests, the CODEOWNERS file must be on the base branch of the pull request. For example, if you assign `@octocat` as the code owner for _.js_ files on the `gh-pages` branch of your repository, `@octocat` will receive review requests when a pull request with changes to _.js_ files is opened between the head branch and `gh-pages`.
 
 ## CODEOWNERS file size
 
@@ -51,7 +50,7 @@ To reduce the size of your CODEOWNERS file, consider using wildcard patterns to 
 
 {% warning %}
 
-**Warning:** There are some syntax rules for gitignore files that *do not work* in CODEOWNERS files:
+**Warning:** There are some syntax rules for gitignore files that _do not work_ in CODEOWNERS files:
 - Escaping a pattern starting with `#` using `\` so it is treated as a pattern and not a comment
 - Using `!` to negate a pattern
 - Using `[ ]` to define a character range
@@ -73,6 +72,7 @@ If any line in your CODEOWNERS file contains invalid syntax, the file will not b
 {% endif %}
 
 ### Example of a CODEOWNERS file
+
 ```
 # This is a comment.
 # Each line is a file pattern followed by one or more owners.
@@ -136,6 +136,7 @@ apps/ @octocat
 ```
 
 ## CODEOWNERS and branch protection
+
 Repository owners can add branch protection rules to ensure that changed code is reviewed by the owners of the changed files. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 ## Further reading

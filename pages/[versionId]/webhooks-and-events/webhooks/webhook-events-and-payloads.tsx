@@ -1,4 +1,1 @@
-export {
-  default,
-  getServerSideProps,
-} from '../../../../src/webhooks/pages/webhook-events-and-payloads'
+export { default, getServerSideProps } from 'src/webhooks/pages/webhook-events-and-payloads'

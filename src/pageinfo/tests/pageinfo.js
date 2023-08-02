@@ -13,7 +13,13 @@ describe('pageinfo api', () => {
     // alert in case it was accidentally forgotten.
     if (!process.env.ROOT) {
       console.warn(
-        'WARNING: The pageinfo tests require the ROOT environment variable to be set to the fixture root'
+        'WARNING: The pageinfo tests require the ROOT environment variable to be set to the fixture root',
+      )
+    }
+    // Ditto for fixture-based translations to work
+    if (!process.env.TRANSLATIONS_FIXTURE_ROOT) {
+      console.warn(
+        'WARNING: The pageinfo tests require the TRANSLATIONS_FIXTURE_ROOT environment variable to be set',
       )
     }
   })
@@ -31,7 +37,7 @@ describe('pageinfo api', () => {
     expect(info.product).toBe('Get started')
     expect(info.title).toBe('Quickstart')
     expect(info.intro).toBe(
-      'Get started using GitHub to manage Git repositories and collaborate with others.'
+      'Get started using GitHub to manage Git repositories and collaborate with others.',
     )
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
@@ -61,6 +67,13 @@ describe('pageinfo api', () => {
     expect(res.statusCode).toBe(400)
     const { error } = JSON.parse(res.body)
     expect(error).toBe("'pathname' query empty")
+  })
+
+  test('repeated pathname query string key', async () => {
+    const res = await get('/api/pageinfo/v1?pathname=a&pathname=b')
+    expect(res.statusCode).toBe(400)
+    const { error } = JSON.parse(res.body)
+    expect(error).toBe("Multiple 'pathname' keys")
   })
 
   test('redirects correct the URL', async () => {
@@ -187,5 +200,30 @@ describe('pageinfo api', () => {
     expect(res.statusCode).toBe(400)
     const { error } = JSON.parse(res.body)
     expect(error).toBe("'pathname' can not contain whitespace")
+  })
+
+  describe('translations', () => {
+    test('Japanese page', async () => {
+      const res = await get(makeURL('/ja/get-started/quickstart/hello-world'))
+      expect(res.statusCode).toBe(200)
+      const { info } = JSON.parse(res.body)
+      expect(info.product).toBe('はじめに')
+      expect(info.title).toBe('こんにちは World')
+      expect(info.intro).toBe('この Hello World 演習に従って、GitHub の使用を開始します。')
+    })
+
+    test('falls back to English if translation is not present', async () => {
+      const enRes = await get(makeURL('/en/get-started/quickstart'))
+      expect(enRes.statusCode).toBe(200)
+      // This page doesn't have a Japanese translation. I.e. it doesn't
+      // even exist on disk. So it'll fall back to English.
+      const translationRes = await get(makeURL('/ja/get-started/quickstart'))
+      expect(translationRes.statusCode).toBe(200)
+      const en = JSON.parse(enRes.body)
+      const translation = JSON.parse(translationRes.body)
+      expect(en.title).toBe(translation.title)
+      expect(en.intro).toBe(translation.intro)
+      expect(en.product).toBe(translation.product)
+    })
   })
 })

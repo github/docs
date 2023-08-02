@@ -5,18 +5,17 @@ intro: Use OpenID Connect within your workflows to authenticate with Amazon Web 
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
 
-OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Amazon Web Services (AWS), without needing to store the AWS credentials as long-lived {% data variables.product.prodname_dotcom %} secrets. 
+OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} workflows to access resources in Amazon Web Services (AWS), without needing to store the AWS credentials as long-lived {% data variables.product.prodname_dotcom %} secrets.
 
 This guide explains how to configure AWS to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and includes a workflow example for the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) that uses tokens to authenticate to AWS and access resources.
 
@@ -25,6 +24,16 @@ This guide explains how to configure AWS to trust {% data variables.product.prod
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
+
+{% ifversion ghes %}
+{% data reusables.actions.oidc-endpoints %}
+  <!-- This note is indented to align with the above reusable. -->
+  {% note %}
+
+  **Note:** {% data variables.product.prodname_dotcom %} does not natively support AWS session tags.
+
+  {% endnote %}
+{% endif %}
 
 ## Adding the identity provider to AWS
 
@@ -39,7 +48,7 @@ To configure the role and trust in IAM, see the AWS documentation for ["Assuming
 
 Edit the trust policy to add the `sub` field to the validation conditions. For example:
 
-```json{:copy}
+```json copy
 "Condition": {
   "StringEquals": {
     "{% ifversion ghes %}HOSTNAME/_services/token{% else %}token.actions.githubusercontent.com{% endif %}:aud": "sts.amazonaws.com",
@@ -50,7 +59,7 @@ Edit the trust policy to add the `sub` field to the validation conditions. For e
 
 In the following example, `StringLike` is used with a wildcard operator (`*`) to allow any branch, pull request merge branch, or environment from the `octo-org/octo-repo` organization and repository to assume a role in AWS.
 
-```json{:copy}
+```json copy
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -73,12 +82,11 @@ In the following example, `StringLike` is used with a wildcard operator (`*`) to
 }
 ```
 
-
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) action to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the [`aws-actions/configure-aws-credentials`](https://github.com/aws-actions/configure-aws-credentials) action to exchange the OIDC token (JWT) for a cloud access token.
 
 ### Adding permissions settings
 
@@ -92,7 +100,7 @@ The `aws-actions/configure-aws-credentials` action receives a JWT from the {% da
 - `<role-to-assume>`: Replace the example with your AWS role.
 - `<example-aws-region>`: Add the name of your AWS region here.
 
-```yaml{:copy}
+```yaml copy
 # Sample workflow to access AWS resources when workflow is tied to branch
 # The workflow Creates static website using aws s3
 name: AWS example workflow
@@ -122,3 +130,7 @@ jobs:
         run: |
           aws s3 cp ./index.html s3://{% raw %}${{ env.BUCKET_NAME }}{% endraw %}/
 ```
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}

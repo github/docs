@@ -14,11 +14,13 @@ redirect_from:
   - /codespaces/developing-in-codespaces/using-codespaces-for-pull-requests
 ---
 
+Using a codespace to work on a pull request gives you all the benefits of {% data variables.product.prodname_github_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/overview#benefits-of-github-codespaces)."
+
 ## About pull requests in {% data variables.product.prodname_github_codespaces %}
 
 {% data variables.product.prodname_github_codespaces %} provides you with many of the capabilities you might need to work with pull requests:
 
-- [Create a pull request](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - Using either the Terminal and Git commands or the Source Control view, you can create pull requests just as you would on {% data variables.product.prodname_dotcom_the_website %}. If the repository uses a pull request template, you'll be able to use this within the Source Control view.
+- [Create a pull request](/codespaces/developing-in-codespaces/using-source-control-in-your-codespace#raising-a-pull-request) - Using either the Terminal and Git commands or the "Source Control" view, you can create pull requests just as you would on {% data variables.product.prodname_dotcom_the_website %}. If the repository uses a pull request template, you'll be able to use this within the "Source Control" view.
 - [Open a pull request](#opening-a-pull-request-in-codespaces) – You can open an existing pull request in a codespace, provided you have codespace access to the branch that is being merged in.
 - [Review a pull request](#reviewing-a-pull-request-in-codespaces) - Once you have opened a pull request in a codespace, you can use the "GitHub Pull Request" view to add review comments and approve pull requests. You can also use {% data variables.product.prodname_github_codespaces %} to [view review comments](#view-comments-from-a-review-in-codespaces).
 
@@ -28,7 +30,7 @@ redirect_from:
 
 1. In the list of pull requests, click the pull request you'd like to open in {% data variables.product.prodname_codespaces %}.
 1. On the right-hand side of your screen, click **{% octicon "code" aria-hidden="true" %} Code**.
-1. In the {% data variables.product.prodname_codespaces %} tab, click the plus sign ({% octicon "plus" aria-label="The plus icon" %})
+1. In the {% data variables.product.prodname_codespaces %} tab, click {% octicon "plus" aria-label="Create a codespace on BRANCH" %}.
 
    ![Screenshot of the "Code" dropdown with the "{% data variables.product.prodname_codespaces %}" tab selected. The message "No codespaces" is displayed. The plus button is highlighted.](/assets/images/help/codespaces/open-with-codespaces-pr.png)
 

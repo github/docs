@@ -95,8 +95,8 @@ async function main(opts) {
       '\n',
       chalk.yellow(
         'Run this script again without --check to make all fixture data files up-to-date. ' +
-          'Then commit and check in.'
-      )
+          'Then commit and check in.',
+      ),
     )
   }
 

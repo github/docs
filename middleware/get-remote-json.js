@@ -3,7 +3,7 @@ import fs from 'fs'
 import crypto from 'crypto'
 
 import got from 'got'
-import statsd from '../lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 
 // The only reason this is exported is for the sake of the unit tests'
 // ability to test in-memory miss after purging this with a mutation
@@ -72,7 +72,7 @@ export default async function getRemoteJSON(url, config) {
       const res = await got(url, config)
       if (!res.headers['content-type'].startsWith('application/json')) {
         throw new Error(
-          `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`
+          `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`,
         )
       }
       cache.set(cacheKey, JSON.parse(res.body))

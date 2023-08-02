@@ -17,8 +17,7 @@ topics:
   - Action development
   - Docker
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -50,16 +49,17 @@ Before you begin, you'll need to create a {% data variables.product.prodname_dot
 
 1. From your terminal, change directories into your new repository.
 
-  ```shell{:copy}
-  cd hello-world-docker-action
-  ```
+   ```shell copy
+   cd hello-world-docker-action
+   ```
 
 ## Creating a Dockerfile
 
 In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. For more information, see "[AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions)."
 
 **Dockerfile**
-```Dockerfile{:copy}
+
+```Dockerfile copy
 # Container image that runs your code
 FROM alpine:3.10
 
@@ -76,7 +76,8 @@ Create a new `action.yml` file in the `hello-world-docker-action` directory you 
 
 {% raw %}
 **action.yml**
-```yaml{:copy}
+
+```yaml copy
 # action.yml
 name: 'Hello World'
 description: 'Greet someone and record the time'
@@ -94,6 +95,7 @@ runs:
   args:
     - ${{ inputs.who-to-greet }}
 ```
+
 {% endraw %}
 
 This metadata defines one `who-to-greet`  input and one `time` output parameter. To pass inputs to the Docker container, you should declare the input using `inputs` and pass the input in the `args` keyword. Everything you include in `args` is passed to the container, but for better discoverability for users of your action, we recommended using inputs.
@@ -110,33 +112,34 @@ Next, the script gets the current time and sets it as an output variable that ac
 
 1. Add the following code to your `entrypoint.sh` file.
 
-  **entrypoint.sh**
-  ```shell{:copy}
-  #!/bin/sh -l
+   **entrypoint.sh**
 
-  echo "Hello $1"
-  time=$(date)
+   ```shell copy
+   #!/bin/sh -l
+
+   echo "Hello $1"
+   time=$(date)
 {%- ifversion actions-save-state-set-output-envs %}
-  echo "time=$time" >> $GITHUB_OUTPUT
+   echo "time=$time" >> $GITHUB_OUTPUT
 {%- else %}
-  echo "::set-output name=time::$time"
+   echo "::set-output name=time::$time"
 {%- endif %}
-  ```
-  If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
+   ```
 
+   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
-  ```shell{:copy}
-  $ git add entrypoint.sh
-  $ git update-index --chmod=+x entrypoint.sh
-  ```
+   ```shell copy
+   $ git add entrypoint.sh
+   $ git update-index --chmod=+x entrypoint.sh
+   ```
 
 1. Optionally, to check the permission mode of the file in the git index, run the following command.
 
-  ```shell{:copy}
-  $ git ls-files --stage entrypoint.sh
-  ```
+   ```shell copy
+   git ls-files --stage entrypoint.sh
+   ```
 
    An output like `100755 e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 0       entrypoint.sh` means the file has the executable permission. In this example, `755` denotes the executable permission.
 
@@ -154,7 +157,8 @@ In your `hello-world-docker-action` directory, create a `README.md` file that sp
 - An example of how to use your action in a workflow.
 
 **README.md**
-```markdown{:copy}
+
+```markdown copy
 # Hello world docker action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
@@ -184,7 +188,7 @@ From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and
 
 It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
 
-```shell{:copy}
+```shell copy
 git add action.yml entrypoint.sh Dockerfile README.md
 git commit -m "My first action is ready"
 git tag -a -m "My first action release" v1
@@ -206,7 +210,8 @@ Now you're ready to test your action out in a workflow.
 The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
 
 **.github/workflows/main.yml**
-```yaml{:copy}
+
+```yaml copy
 on: [push]
 
 jobs:
@@ -229,7 +234,8 @@ jobs:
 Copy the following example workflow code into a `.github/workflows/main.yml` file in your action's repository. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}This private action can't be published to {% data variables.product.prodname_marketplace %}, and can only be used in this repository.{% endif %}
 
 **.github/workflows/main.yml**
-```yaml{:copy}
+
+```yaml copy
 on: [push]
 
 jobs:
@@ -251,6 +257,12 @@ jobs:
         run: echo "The time was {% raw %}${{ steps.hello.outputs.time }}"{% endraw %}
 ```
 
-From your repository, click the **Actions** tab, and select the latest workflow run. Under **Jobs** or in the visualization graph, click **A job to say hello**.
+{% data reusables.actions.test-private-action-example %}
 
-Click **Hello world action step**, and you should see "Hello Mona the Octocat" or the name you used for the `who-to-greet` input printed in the log. Click **Get the output time** to see the timestamp.
+## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}
+
+You can find many examples of Docker container actions on {% data variables.product.prodname_dotcom_the_website %}.
+
+- [github/issue-metrics](https://github.com/github/issue-metrics)
+- [microsoft/infersharpaction](https://github.com/microsoft/infersharpaction)
+- [microsoft/ps-docs](https://github.com/microsoft/ps-docs)

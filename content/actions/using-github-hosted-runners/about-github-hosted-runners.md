@@ -16,7 +16,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
@@ -42,7 +41,7 @@ The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-
 - The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`.
 - The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`.
 
-```yaml{:copy}
+```yaml copy
 name: Run commands on different operating systems
 on:
   push:
@@ -89,7 +88,7 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."
+**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations, with autoscaling enabled by default and optional dedicated IP addresses. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."
 
 {% endnote %}
 {% endif %}
@@ -104,9 +103,26 @@ Hardware specification for macOS virtual machines:
 - 14 GB of RAM
 - 14 GB of SSD space
 
+Hardware specification for macOS XL virtual machines:
+- 12-core CPU (x86_64)
+- 30 GB of RAM
+- 14 GB of SSD space
+
+{% note %}
+
+**Note:** macOS XL runners are considered {% data variables.actions.hosted_runner %}s and are billed in the same way. This means macOS XL runners are not eligible for the use of included minutes on private repositories. For both private and public repositories, when macOS XL runners are in use, they will always be billed at the per-minute rate. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners#understanding-billing)."
+
+{% endnote %}
+
 {% data reusables.actions.supported-github-runners %}
 
 Workflow logs list the runner used to run a job. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+
+### {% data variables.actions.hosted_runner_caps %}s
+
+{% data reusables.actions.about-larger-runners %}
+
+For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."
 
 ## Supported software
 
@@ -120,13 +136,13 @@ For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-w
 
 For the overall list of included tools for each runner operating system, see the links below:
 
-* [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
-* [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
-* [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
-* [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
-* [macOS 13](https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md)
-* [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
-* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
+- [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
+- [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
+- [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
+- [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
+- [macOS 13](https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md)
+- [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
+- [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 
@@ -205,6 +221,7 @@ Actions that run in Docker containers have static directories under the `/github
 - `/github/workflow`
 
 ## Further reading
+
 - "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
 - You can use a matrix strategy to run your jobs on multiple images. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 

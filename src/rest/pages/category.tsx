@@ -6,7 +6,7 @@ import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'components/context/AutomatedPageContext'
+} from 'src/automated-pipelines/components/AutomatedPageContext'
 import type { MiniTocItem } from 'components/context/ArticleContext'
 import {
   getTocLandingContextFromRequest,
@@ -14,7 +14,7 @@ import {
   TocLandingContext,
   TocLandingContextT,
 } from 'components/context/TocLandingContext'
-import { TocLanding } from 'components/landing/TocLanding'
+import { TocLanding } from 'src/landings/components/TocLanding'
 
 type MinitocItemsT = {
   restOperationsMiniTocItems: MiniTocItem[]
@@ -114,7 +114,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     let fullSubcategoryTitle
 
     const pageTocItem = tocLandingContext.tocItems.find(
-      (tocItem) => tocItem.fullPath === fullSubcategoryPath
+      (tocItem) => tocItem.fullPath === fullSubcategoryPath,
     )
 
     if (pageTocItem) {
@@ -134,7 +134,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       subCatOperations,
       currentLanguage,
       currentVersion,
-      req.context
+      req.context,
     )) as MinitocItemsT
 
     miniTocItems.restOperationsMiniTocItems.forEach((operationMinitoc) => {
@@ -190,7 +190,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       restOperations,
       currentLanguage,
       currentVersion,
-      req.context
+      req.context,
     )) as MinitocItemsT
 
     restOperationsMiniTocItems && miniTocItems.push(...restOperationsMiniTocItems)

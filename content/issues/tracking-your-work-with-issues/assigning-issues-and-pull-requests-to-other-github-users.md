@@ -45,4 +45,4 @@ Issues and pull requests in public repositories, and in private repositories for
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
+- "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"

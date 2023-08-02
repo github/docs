@@ -25,13 +25,13 @@ shortTitle: Enable Packages with MinIO
 Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your MinIO storage bucket. To help you quickly set up a MinIO bucket and navigate MinIO's customization options, see the "[AUTOTITLE](/admin/packages/quickstart-for-configuring-your-minio-storage-bucket-for-github-packages)."
 
 Ensure your MinIO external storage access key ID and secret have these permissions:
-  - `s3:PutObject`
-  - `s3:GetObject`
-  - `s3:ListBucketMultipartUploads`
-  - `s3:ListMultipartUploadParts`
-  - `s3:AbortMultipartUpload`
-  - `s3:DeleteObject`
-  - `s3:ListBucket`
+- `s3:PutObject`
+- `s3:GetObject`
+- `s3:ListBucketMultipartUploads`
+- `s3:ListMultipartUploadParts`
+- `s3:AbortMultipartUpload`
+- `s3:DeleteObject`
+- `s3:ListBucket`
 
 ## Enabling {% data variables.product.prodname_registry %} with MinIO external storage
 

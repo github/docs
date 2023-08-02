@@ -5,9 +5,8 @@ import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { PermissionsStatement } from 'components/ui/PermissionsStatement'
 import { RestOperation } from './RestOperation'
-import { useAutomatedPageContext } from 'components/context/AutomatedPageContext'
+import { useAutomatedPageContext } from 'src/automated-pipelines/components/AutomatedPageContext'
 import { Operation } from './types'
-import { ClientSideHighlight } from 'components/ClientSideHighlight'
 import { ClientSideRedirects } from 'src/rest/components/ClientSideRedirects'
 import { RestRedirect } from 'src/rest/components/RestRedirect'
 
@@ -40,7 +39,6 @@ export const RestReferencePage = ({ restOperations }: StructuredContentT) => {
       {/* Doesn't matter *where* this is included because it will
       never render anything. It always just return null. */}
       <ClientSideRedirects />
-      <ClientSideHighlight />
       <RestRedirect />
       <div className="px-3 px-md-6 my-4 container-xl" data-search="article-body">
         <h1 id="title-h1" className="mb-3">

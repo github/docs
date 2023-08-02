@@ -9,5 +9,3 @@ children:
   - /about-repository-caching
   - /configuring-a-repository-cache
 ---
-
-{% data reusables.enterprise.repository-caching-release-phase %}

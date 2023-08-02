@@ -29,21 +29,21 @@ After installing the JetBrains Gateway, you can set JetBrains as your default ed
 
 The basic process behind using a codespace in your JetBrains IDE is as follows.
 
-* In the JetBrains Gateway application you select one of your active or stopped codespaces.
-* You then choose which JetBrains IDE you want to use.
-* The selected JetBrains IDE is then downloaded to the remote virtual machine that hosts your codespace and source code.
-* The JetBrains thin client application is then downloaded to your local machine and started.
-* The client application connects to the full backend IDE.
-* You can work on your code in the client application in just the same way you would in a local environment.
+- In the JetBrains Gateway application you select one of your active or stopped codespaces.
+- You then choose which JetBrains IDE you want to use.
+- The selected JetBrains IDE is then downloaded to the remote virtual machine that hosts your codespace and source code.
+- The JetBrains thin client application is then downloaded to your local machine and started.
+- The client application connects to the full backend IDE.
+- You can work on your code in the client application in just the same way you would in a local environment.
 
 ## Prerequisites
 
 To work in a codespace in a JetBrains IDE you need:
 
-* A valid JetBrains license
-* The JetBrains Gateway application
-* {% data variables.product.prodname_cli %} version 2.18.0 or later
-* An existing codespace that's running an SSH server
+- A valid JetBrains license
+- The JetBrains Gateway application
+- {% data variables.product.prodname_cli %} version 2.18.0 or later
+- An existing codespace that's running an SSH server
 
 ### JetBrains license
 
@@ -65,7 +65,7 @@ The {% data variables.product.prodname_github_codespaces %} plugin for the JetBr
 
 Use this command to check your version of {% data variables.product.prodname_cli %}:
 
-```shell{:copy}
+```shell copy
 gh --version
 ```
 
@@ -99,13 +99,14 @@ The first time you use JetBrains Gateway for {% data variables.product.prodname_
    ![Screenshot of the Gateway with the "Connect to {% data variables.product.prodname_codespaces %}" button.](/assets/images/help/codespaces/jetbrains-gateway-connect.png)
 
 1. In the "Welcome to JetBrains Gateway" dialog, click **Sign In with {% data variables.product.prodname_dotcom %}**.
-1. Click the icon beside the one-time code to copy it, then click the login link.
+1. Click the icon beside the one-time code to copy it.
 
    ![Screenshot of a one-time login code. The copy icon beside the code is highlighted with a dark orange outline.](/assets/images/help/codespaces/jetbrains-gateway-login-code.png)
 
+1. Click the login link, below the login code.
 1. If you are not currently signed in to {% data variables.product.prodname_dotcom %}, the sign-in page is displayed.
-   * Enter your details and click **Sign in**.
-   * Verify your authentication, for example by entering a two-factor authentication code.
+   - Enter your details and click **Sign in**.
+   - Verify your authentication, for example by entering a two-factor authentication code.
 1. On the "Device activation" page, paste the copied code and click **Continue**.
 1. If you belong to organizations, the "Single sign-on to your organizations" page is displayed. Click **Authorize** beside the organizations you want to authorize the JetBrains Gateway to access, then click **Continue**.
 1. On the "Authorize {% data variables.product.prodname_github_codespaces %} for JetBrains" page, click **Authorize {% data variables.product.prodname_dotcom %}**.

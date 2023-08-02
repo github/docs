@@ -17,8 +17,7 @@ topics:
   - Action development
   - Fundamentals
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About custom actions
@@ -160,17 +159,17 @@ We recommend creating a README file to help people learn how to use your action.
 While both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_apps %} provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
 
 {% data variables.product.prodname_github_apps %}:
-* Run persistently and can react to events quickly.
-* Work great when persistent data is needed.
-* Work best with API requests that aren't time consuming.
-* Run on a server or compute infrastructure that you provide.
+- Run persistently and can react to events quickly.
+- Work great when persistent data is needed.
+- Work best with API requests that aren't time consuming.
+- Run on a server or compute infrastructure that you provide.
 
 {% data variables.product.prodname_actions %}:
-* Provide automation that can perform continuous integration and continuous deployment.
-* Can run directly on runner machines or in Docker containers.
-* Can include access to a clone of your repository, enabling deployment and publishing tools, code formatters, and command line tools to access your code.
-* Don't require you to deploy code or serve an app.
-* Have a simple interface to create and use secrets, which enables actions to interact with third-party services without needing to store the credentials of the person using the action.
+- Provide automation that can perform continuous integration and continuous deployment.
+- Can run directly on runner machines or in Docker containers.
+- Can include access to a clone of your repository, enabling deployment and publishing tools, code formatters, and command line tools to access your code.
+- Don't require you to deploy code or serve an app.
+- Have a simple interface to create and use secrets, which enables actions to interact with third-party services without needing to store the credentials of the person using the action.
 
 ## Further reading
 

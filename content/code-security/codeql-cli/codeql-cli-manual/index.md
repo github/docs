@@ -53,6 +53,7 @@ children:
   - /execute-query-server
   - /execute-query-server2
   - /execute-upgrades
+  - /generate-extensible-predicate-metadata
   - /generate-log-summary
   - /generate-query-help
   - /github-upload-results
@@ -74,6 +75,7 @@ children:
   - /query-run
   - /resolve-database
   - /resolve-extensions
+  - /resolve-extensions-by-pack
   - /resolve-extractor
   - /resolve-files
   - /resolve-languages

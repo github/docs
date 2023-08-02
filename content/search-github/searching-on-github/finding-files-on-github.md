@@ -28,15 +28,15 @@ topics:
 {% data reusables.repositories.navigate-to-repo %}
 1. In the file tree view, click the {% octicon "filter" aria-hidden="true" %} **Jump to file** search bar. You can also find the {% octicon "filter" aria-hidden="true" %} **Jump to file** search bar at the top of the integrated file editor.
 
-  ![Screenshot of the file tree view for a repository. A search bar, labeled "Jump to file", is outlined in dark orange.](/assets/images/help/repository/file-tree-view-jump-to-file.png)
+   ![Screenshot of the file tree view for a repository. A search bar, labeled "Jump to file", is outlined in dark orange.](/assets/images/help/repository/file-tree-view-jump-to-file.png)
 1. In the search bar, type the name of the file or directory you'd like to find.
 1. In the list of results, click the file or directory you wanted to find. You can view the file path for a directory or file below each search result.
 {% else %}
 {% data reusables.repositories.navigate-to-repo %}
 1. Above the list of files, click **Go to file**.
-  ![Screenshot of a row of buttons on the main page of a repository. The "Go to file" button is outlined in dark orange.](/assets/images/help/search/find-file-button.png)
+   ![Screenshot of a row of buttons on the main page of a repository. The "Go to file" button is outlined in dark orange.](/assets/images/help/search/find-file-button.png)
 1. In the search field, type the name of the file you'd like to find.
-  ![Screenshot of the search bar for finding a file in a repository. The search bar contains the term "readme" and under the search bar is a link to the file that is the result of the search, "README.md". The search bar is outlined in dark orange.](/assets/images/help/search/find-file-search-field.png)
+   ![Screenshot of the search bar for finding a file in a repository. The search bar contains the term "readme" and under the search bar is a link to the file that is the result of the search, "README.md". The search bar is outlined in dark orange.](/assets/images/help/search/find-file-search-field.png)
 1. In the list of results, click the file you wanted to find.
 {% endif %}
 
@@ -46,15 +46,15 @@ topics:
 
 By default, file finder results do not include files in the following directories if they exist at your repository root:
 
- - `.git`
- - `.hg`
- - `.sass-cache`
- - `.svn`
- - `build`
- - `dot_git`
- - `log`
- - `tmp`
- - `vendor`
+- `.git`
+- `.hg`
+- `.sass-cache`
+- `.svn`
+- `build`
+- `dot_git`
+- `log`
+- `tmp`
+- `vendor`
 
 You can override these default exclusions using a `.gitattributes` file.
 

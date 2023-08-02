@@ -26,12 +26,13 @@ To implement the port configuration specified in `devcontainer.json`, {% data va
 
 1. In the terminal in your codespace, enter the following command.
 
-   ```bash{:copy}
+   ```bash copy
    cat ~/.vscode-remote/data/Machine/settings.json
    ```
+
 1. Verify that the `settings.json` file contains lines like the following.
 
-   ```
+   ```json
     "remote.portsAttributes": {
         "3000": {
             "label": "Application",

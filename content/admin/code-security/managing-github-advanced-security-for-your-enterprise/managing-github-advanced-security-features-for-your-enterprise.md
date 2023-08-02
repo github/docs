@@ -56,4 +56,3 @@ When you enable one or more security and analysis features for existing reposito
   {% endnote %}
 
    ![Screenshot of the "Push protection" section of the settings for security and analysis features. The checkbox and the text field used for enabling a custom link are outlined in dark orange.](/assets/images/help/organizations/secret-scanning-custom-link.png){% endif %}
-

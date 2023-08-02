@@ -1,5 +1,4 @@
 import fs from 'fs/promises'
-import { fileURLToPath } from 'url'
 import path from 'path'
 import { isEqual, uniqWith } from 'lodash-es'
 import { jest } from '@jest/globals'
@@ -9,9 +8,7 @@ import patterns from '../../../lib/patterns.js'
 import frontmatter from '../../../lib/read-frontmatter.js'
 import { getDataByLanguage, getDeepDataByLanguage } from '../../../lib/get-data.js'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
-
-const pages = (await loadPages()).filter((page) => page.languageCode === 'en')
+const pages = await loadPages()
 
 // Given syntax like {% data foo.bar %} or {% indented_data_reference foo.bar spaces=3 %},
 // the following regex returns just the dotted path: foo.bar
@@ -23,8 +20,17 @@ const pages = (await loadPages()).filter((page) => page.languageCode === 'en')
 const getDataPathRegex =
   /{%\s*?(?:data|indented_data_reference)\s+?(\S+?)\s*?(?:spaces=\d\d?\s*?)?%}/
 
+const rawLiquidPattern = /{%\s*raw\s*%}.*?{%\s*endraw\s*%}/gs
+
 const getDataReferences = (content) => {
-  const refs = content.match(patterns.dataReference) || []
+  // When looking for things like `{% data reusables.foo %}` in the
+  // content, we first have to exclude any Liquid that isn't real.
+  // E.g.
+  //   {% raw %}
+  //     Here's an example: {% data reusables.foo.bar %}
+  //  {% endraw %}
+  const withoutRawLiquidBlocks = content.replace(rawLiquidPattern, '')
+  const refs = withoutRawLiquidBlocks.match(patterns.dataReference) || []
   return refs.map((ref) => ref.replace(getDataPathRegex, '$1'))
 }
 
@@ -35,12 +41,16 @@ describe('data references', () => {
     let errors = []
     expect(pages.length).toBeGreaterThan(0)
 
+    const checked = new Set()
     pages.forEach((page) => {
-      const file = path.join('content', page.relativePath)
       const pageRefs = getDataReferences(page.markdown)
-      pageRefs.forEach((key) => {
+      new Set(pageRefs).forEach((key) => {
+        if (checked.has(key)) return
         const value = getDataByLanguage(key, 'en')
-        if (typeof value !== 'string') errors.push({ key, value, file })
+        checked.add(key)
+        if (typeof value !== 'string') {
+          errors.push({ key, value, file: path.join('content', page.relativePath) })
+        }
       })
     })
 
@@ -55,14 +65,14 @@ describe('data references', () => {
     await Promise.all(
       pages.map(async (page) => {
         const metadataFile = path.join('content', page.relativePath)
-        const fileContents = await fs.readFile(path.join(__dirname, '../../..', metadataFile))
+        const fileContents = await fs.readFile(page.fullPath)
         const { data: metadata } = frontmatter(fileContents, { filepath: page.fullPath })
         const metadataRefs = getDataReferences(JSON.stringify(metadata))
         metadataRefs.forEach((key) => {
           const value = getDataByLanguage(key, 'en')
           if (typeof value !== 'string') errors.push({ key, value, metadataFile })
         })
-      })
+      }),
     )
 
     errors = uniqWith(errors, isEqual) // remove duplicates
@@ -77,20 +87,19 @@ describe('data references', () => {
 
     await Promise.all(
       reusables.map(async (reusablesPerFile) => {
-        let reusableFile = path.join(
-          __dirname,
-          '../../../data/reusables/',
-          getFilenameByValue(allReusables, reusablesPerFile)
-        )
-        reusableFile = await getFilepath(reusableFile)
-
         const reusableRefs = getDataReferences(JSON.stringify(reusablesPerFile))
 
         reusableRefs.forEach((key) => {
           const value = getDataByLanguage(key, 'en')
-          if (typeof value !== 'string') errors.push({ key, value, reusableFile })
+          if (typeof value !== 'string') {
+            const reusableFile = path.join(
+              'data/reusables',
+              getFilenameByValue(allReusables, reusablesPerFile),
+            )
+            errors.push({ key, value, reusableFile })
+          }
         })
-      })
+      }),
     )
 
     errors = uniqWith(errors, isEqual) // remove duplicates
@@ -105,20 +114,19 @@ describe('data references', () => {
 
     await Promise.all(
       variables.map(async (variablesPerFile) => {
-        let variableFile = path.join(
-          __dirname,
-          '../../../data/variables/',
-          getFilenameByValue(allVariables, variablesPerFile)
-        )
-        variableFile = await getFilepath(variableFile)
-
         const variableRefs = getDataReferences(JSON.stringify(variablesPerFile))
 
         variableRefs.forEach((key) => {
           const value = getDataByLanguage(key, 'en')
-          if (typeof value !== 'string') errors.push({ key, value, variableFile })
+          if (typeof value !== 'string') {
+            const variableFile = path.join(
+              'data/variables',
+              getFilenameByValue(allVariables, variablesPerFile),
+            )
+            errors.push({ key, value, variableFile })
+          }
         })
-      })
+      }),
     )
 
     errors = uniqWith(errors, isEqual) // remove duplicates
@@ -128,17 +136,4 @@ describe('data references', () => {
 
 function getFilenameByValue(object, value) {
   return Object.keys(object).find((key) => object[key] === value)
-}
-
-// if path exists, assume it's a directory; otherwise, assume a YML extension
-async function getFilepath(filepath) {
-  try {
-    await fs.stat(filepath)
-    filepath = filepath + '/'
-  } catch (_) {
-    filepath = filepath + '.yml'
-  }
-
-  // we only need the relative path
-  return filepath.replace(path.join(__dirname, '../../../'), '')
 }

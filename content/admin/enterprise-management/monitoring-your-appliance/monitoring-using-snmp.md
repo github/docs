@@ -25,14 +25,15 @@ SNMP is a common standard for monitoring devices over a network. We strongly rec
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.access-monitoring %}
 {% data reusables.enterprise_management_console.enable-snmp %}
-4. In the **Community string** field, enter a new community string. If left blank, this defaults to `public`.
+1. In the **Community string** field, enter a new community string. If left blank, this defaults to `public`.
 {% data reusables.enterprise_management_console.save-settings %}
-5. Test your SNMP configuration by running the following command on a separate workstation with SNMP support in your network:
-  ```shell
-  # community-string is your community string
-  # hostname is the IP or domain of your Enterprise instance
-  $ snmpget -v 2c -c COMMUNITY-STRING -O e HOSTNAME hrSystemDate.0
-  ```
+1. Test your SNMP configuration by running the following command on a separate workstation with SNMP support in your network:
+
+   ```shell
+   # community-string is your community string
+   # hostname is the IP or domain of your Enterprise instance
+   $ snmpget -v 2c -c COMMUNITY-STRING -O e HOSTNAME hrSystemDate.0
+   ```
 
 This should return the system time on {% data variables.location.product_location %} host.
 
@@ -49,18 +50,18 @@ If you enable SNMP v3, you can take advantage of increased user based security t
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.access-monitoring %}
 {% data reusables.enterprise_management_console.enable-snmp %}
-4. Select **SNMP v3**.
-5. Under "Username", type the unique username of your SNMP v3 user.
-6. Select the **Security Level** dropdown menu, then click the security level for your SNMP v3 user.
-7. For SNMP v3 users with the `authnopriv` security level, configure authentication.
+1. Select **SNMP v3**.
+1. Under "Username", type the unique username of your SNMP v3 user.
+1. Select the **Security Level** dropdown menu, then click the security level for your SNMP v3 user.
+1. For SNMP v3 users with the `authnopriv` security level, configure authentication.
     - {% data reusables.enterprise_management_console.authentication-password %}
     - {% data reusables.enterprise_management_console.authentication-protocol %}
-8. For SNMP v3 users with the `authpriv` security level, configure authentication.
+1. For SNMP v3 users with the `authpriv` security level, configure authentication.
     - {% data reusables.enterprise_management_console.authentication-password %}
     - {% data reusables.enterprise_management_console.authentication-protocol %}
     - Optionally, under "Privacy password", type the privacy password.
     - Next to "Privacy password", select the **Protocol** dropdown menu, then click the privacy protocol method you want to use.
-9. Click **Add user**.
+1. Click **Add user**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 ### Querying SNMP data
@@ -87,6 +88,7 @@ Of the available MIBs for SNMP, the most useful is `HOST-RESOURCES-MIB` (1.3.6.1
 | hrStorageAllocationUnits.1 | 1.3.6.1.2.1.25.2.3.1.4.1 | The size, in bytes, of an hrStorageAllocationUnit |
 
 For example, to query for `hrMemorySize` with SNMP v3, run the following command on a separate workstation with SNMP support in your network:
+
 ```shell
 # username is the unique username of your SNMP v3 user
 # auth password is the authentication password
@@ -99,6 +101,7 @@ $ snmpget -v 3 -u USERNAME -l authPriv \
 ```
 
 With SNMP v2c, to query for `hrMemorySize`, run the following command on a separate workstation with SNMP support in your network:
+
 ```shell
 # community-string is your community string
 # hostname is the IP or domain of your Enterprise instance

@@ -8,5 +8,7 @@ versions:
 children:
   - /troubleshooting-github-copilot-in-your-environment
   - /troubleshooting-certificate-errors-for-github-copilot
+  - /troubleshooting-firewall-settings-for-github-copilot
   - /troubleshooting-common-issues-with-github-copilot
+  - /troubleshooting-authentication-issues-with-github-copilot-chat
 ---

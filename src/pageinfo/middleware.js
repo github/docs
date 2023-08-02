@@ -1,8 +1,8 @@
 import express from 'express'
 
-import statsd from '../../lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 import { defaultCacheControl } from '../../middleware/cache-control.js'
-import catchMiddlewareError from '../../middleware/catch-middleware-error.js'
+import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import {
   SURROGATE_ENUMS,
   setFastlySurrogateKey,
@@ -11,7 +11,7 @@ import {
 import shortVersions from '../../middleware/contextualizers/short-versions.js'
 import contextualize from '../../middleware/context.js'
 import features from '../../middleware/contextualizers/features.js'
-import getRedirect from '../../lib/get-redirect.js'
+import getRedirect from '#src/redirects/lib/get-redirect.js'
 import { isArchivedVersionByPath } from '../../lib/is-archived-version.js'
 
 const router = express.Router()
@@ -20,6 +20,9 @@ const validationMiddleware = (req, res, next) => {
   const { pathname } = req.query
   if (!pathname) {
     return res.status(400).json({ error: `No 'pathname' query` })
+  }
+  if (Array.isArray(pathname)) {
+    return res.status(400).json({ error: "Multiple 'pathname' keys" })
   }
   if (!pathname.trim()) {
     return res.status(400).json({ error: `'pathname' query empty` })
@@ -170,10 +173,10 @@ router.get(
     setFastlySurrogateKey(
       res,
       `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(page.languageCode)}`,
-      true
+      true,
     )
     res.status(200).json({ info })
-  })
+  }),
 )
 
 // Alias for the latest version

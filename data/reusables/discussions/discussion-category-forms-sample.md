@@ -1,4 +1,4 @@
-```YAML{:copy}
+```YAML copy
 title: "[General] "
 labels: ["General Introduction"]
 body:

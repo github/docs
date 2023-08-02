@@ -12,8 +12,6 @@ redirect_from:
   - /early-access/enterprise-importer/completing-your-migration-with-github-enterprise-importer/reclaiming-mannequins-for-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About mannequins
 
 {% data reusables.enterprise-migration-tool.about-mannequins %}
@@ -40,6 +38,12 @@ You can reclaim a mannequin by sending an attribution invitation to an organizat
 
 The member can choose to accept or reject the invitation. After a member accepts an attribution invitation, all contributions previously attributed to the mannequin will be attributed to the member instead. In future migrations to the same organization, any contributions from the same mannequin will be automatically reclaimed for the same member.
 
+{% warning %}
+
+**Warning:** You cannot reclaim mannequins after you have transferred a repository to another organization. If you wish to transfer a repository to another organization after your migration, you must reclaim the mannequins before the transfer.
+
+{% endwarning %}
+
 {% data variables.product.prodname_importer_proper_name %} does not migrate user access to repositories. After reclaiming mannequins, if any of the members do not already have appropriate access to the repository via team membership, you must separately give the members access to the repository. For more information, see "[Managing an individual's access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
 
 You can reclaim mannequins with {% data variables.product.prodname_cli %} (recommended) or the browser.
@@ -64,11 +68,11 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
 
-   - To generate a CSV file with a list of mannequins for an organization, use the `gh gei generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
+- To generate a CSV file with a list of mannequins for an organization, use the `gh gei generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
 
 {% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
 
-    ```shell{:copy}
+    ```shell copy
     gh gei generate-mannequin-csv --github-target-org DESTINATION --output FILENAME.csv
     ```
 {% indented_data_reference reusables.enterprise-migration-tool.edit-csv spaces=4 %}
@@ -76,15 +80,16 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 
    {% data reusables.enterprise-migration-tool.reclaim-bulk-csv %}
 
-      ```shell{:copy}
+      ```shell copy
       gh gei reclaim-mannequin --github-target-org DESTINATION --csv FILENAME.csv
       ```
 
    {% data reusables.enterprise-migration-tool.reclaim-individual-mannequin %}
 
-      ```shell{:copy}
+      ```shell copy
       gh gei reclaim-mannequin --github-target-org DESTINATION --mannequin-user MANNEQUIN --target-user USERNAME
       ```
+
 {% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}
 
 #### Reclaiming mannequins with the {% data variables.product.prodname_ado2gh_cli_short %}
@@ -95,11 +100,11 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}
 
-   - To generate a CSV file with a list of mannequins for an organization, use the `gh ado2gh generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
+- To generate a CSV file with a list of mannequins for an organization, use the `gh ado2gh generate-mannequin-csv` command, replacing DESTINATION with the destination organization and FILENAME with a file name for the resulting CSV file.
 
 {% indented_data_reference reusables.enterprise-migration-tool.include-reclaimed spaces=4 %}
 
-      ```shell{:copy}
+      ```shell copy
       gh ado2gh generate-mannequin-csv --github-org DESTINATION --output FILENAME.csv
       ```
 {% indented_data_reference reusables.enterprise-migration-tool.edit-csv spaces=4 %}
@@ -107,15 +112,16 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 
     {% data reusables.enterprise-migration-tool.reclaim-bulk-csv %}
 
-      ```shell{:copy}
+      ```shell copy
       gh ado2gh reclaim-mannequin --github-org DESTINATION --csv FILENAME.csv
       ```
 
    {% data reusables.enterprise-migration-tool.reclaim-individual-mannequin %}
 
-      ```shell{:copy}
+      ```shell copy
       gh ado2gh reclaim-mannequin --github-org DESTINATION --mannequin-user MANNEQUIN --target-user USERNAME
       ```
+
 {% data reusables.enterprise-migration-tool.mannequin-reclaim-must-accept %}
 
 ### Reclaiming mannequins in your browser

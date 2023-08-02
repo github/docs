@@ -14,16 +14,19 @@ type: tutorial
 shortTitle: Remove self-hosted runners
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Removing a runner from a repository
 
 {% note %}
 
-**Note:** {% data reusables.actions.self-hosted-runner-removal-impact %}
+**Notes:**
 
-{% data reusables.actions.self-hosted-runner-auto-removal %}
+- {% data reusables.actions.self-hosted-runner-removal-impact %}
+- {% data reusables.actions.self-hosted-runner-auto-removal %}
+{%- ifversion actions-single-use-tokens %}
+- {% data reusables.actions.jit-runner-removal %}
+{%- endif %}
 
 {% endnote %}
 
@@ -40,9 +43,13 @@ To remove a self-hosted runner from a user repository you must be the repository
 
 {% note %}
 
-**Note:** {% data reusables.actions.self-hosted-runner-removal-impact %}
+**Notes:**
 
-{% data reusables.actions.self-hosted-runner-auto-removal %}
+- {% data reusables.actions.self-hosted-runner-removal-impact %}
+- {% data reusables.actions.self-hosted-runner-auto-removal %}
+{%- ifversion actions-single-use-tokens %}
+- {% data reusables.actions.jit-runner-removal %}
+{%- endif %}
 
 {% endnote %}
 
@@ -63,10 +70,13 @@ If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove 
 {% ifversion ghec or ghes or ghae %}
 {% note %}
 
-**Note:** {% data reusables.actions.self-hosted-runner-removal-impact %}
+**Notes:**
 
-{% data reusables.actions.self-hosted-runner-auto-removal %}
-
+- {% data reusables.actions.self-hosted-runner-removal-impact %}
+- {% data reusables.actions.self-hosted-runner-auto-removal %}
+{%- ifversion actions-single-use-tokens %}
+- {% data reusables.actions.jit-runner-removal %}
+{%- endif %}
 {% endnote %}
 
 To remove a self-hosted runner from an enterprise, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/actions#self-hosted-runners).

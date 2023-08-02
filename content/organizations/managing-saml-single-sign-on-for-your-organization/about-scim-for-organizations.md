@@ -41,7 +41,7 @@ Before you authorize the {% data variables.product.prodname_oauth_app %}, you mu
 
 **Note:** {% data reusables.scim.nameid-and-username-must-match %}
 
-{% endnote %} 
+{% endnote %}
 
 ## Further reading
 

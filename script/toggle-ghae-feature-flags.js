@@ -30,7 +30,7 @@ program
       'Documentation: https://github.com/github/docs-content/blob/main/docs-content-docs/docs-content-workflows/content-creation/versioning-documentation.md#internal-versioning-conventions-for-github-ae\n\n' +
       'Examples:\n' +
       `  ${scriptName} -f 'issue-1234, issue-5678'\n` +
-      `  ${scriptName} -f 'issue-1234' -c '3.5'`
+      `  ${scriptName} -f 'issue-1234' -c '3.5'`,
   )
   .option('-s, --show-flags', 'show list of existing flags')
   .option("-f, --toggle-flags '<flag-1>[,flag-2,...]'", 'toggle comma-separated list of flags')
@@ -77,7 +77,7 @@ if (options.toggleFlags) {
   // Refuse to proceed if repository has uncommitted changes.
 
   const localChangesCount = execSync(
-    `git status ${contentDir} ${reusablesDir} ${dataDir} --porcelain=v1 2>/dev/null | wc -l`
+    `git status ${contentDir} ${reusablesDir} ${dataDir} --porcelain=v1 2>/dev/null | wc -l`,
   ).toString()
 
   if (localChangesCount > 0) {
@@ -91,7 +91,7 @@ if (options.toggleFlags) {
 if (options.comparativeReplacement) {
   if (!options.comparativeReplacement.match(/\d\.\d+/)) {
     console.log(
-      `Error: you specified ${options.comparativeReplacement} for comparative replacement (must be #.# or #.##)`
+      `Error: you specified ${options.comparativeReplacement} for comparative replacement (must be #.# or #.##)`,
     )
     process.exit(1)
   }
@@ -108,7 +108,7 @@ if (options.comparativeReplacement) {
   const liquidVersion = options.comparativeReplacement.split('.', 2)
   if (liquidVersion[1] === '0') {
     console.log(
-      `Error: you specified ${options.comparativeReplacement} for comparative replacement (can't be #.0)`
+      `Error: you specified ${options.comparativeReplacement} for comparative replacement (can't be #.0)`,
     )
     process.exit(1)
   } else {
@@ -177,14 +177,14 @@ allFiles.forEach((file) => {
     if (deduplicatedLiquidMatches.length > 0) {
       matches.push(
         ...deduplicatedLiquidMatches.map((match) =>
-          match.trim().replace(`${plan}: `, '').replace(/['"]+/g, '')
-        )
+          match.trim().replace(`${plan}: `, '').replace(/['"]+/g, ''),
+        ),
       )
     }
 
     if (deduplicatedVersionMatches.length > 0) {
       matches.push(
-        ...deduplicatedVersionMatches.map((match) => match.trim().replace(plan + '-', ''))
+        ...deduplicatedVersionMatches.map((match) => match.trim().replace(plan + '-', '')),
       )
     }
   } else {
@@ -208,8 +208,8 @@ if (options.showFlags) {
       console.log(
         `\n🚩 \x1b[7m ${plan}-${flag} \x1b[0m \x1b[1m\x1b[34m\x1b[4m${flag.replace(
           'issue-',
-          'https://github.com/github/docs-content/issues/'
-        )}\x1b[0m`
+          'https://github.com/github/docs-content/issues/',
+        )}\x1b[0m`,
       )
     } else {
       console.log(`\n🚩 \x1b[43m ${plan}-${flag} \x1b[0m`)
@@ -256,7 +256,7 @@ if (options.showFlags) {
 
         newContent = fileContent.replace(
           yamlReplacementRegExp,
-          `${plan}: '${replacementYAMLValue}'`
+          `${plan}: '${replacementYAMLValue}'`,
         )
 
         // Update versions in Liquid conditionals.
@@ -284,7 +284,7 @@ if (options.showFlags) {
         if (flag.match(/^issue-[0-9]+$/)) {
           commitCommand = `${commitCommand} -m 'For ${flag.replace(
             'issue-',
-            'github/docs-content#'
+            'github/docs-content#',
           )}'`
         }
 

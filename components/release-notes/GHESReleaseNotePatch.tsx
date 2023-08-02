@@ -1,14 +1,10 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import dayjs from 'dayjs'
-import cx from 'classnames'
 
 import { useTranslation } from 'components/hooks/useTranslation'
 import { PatchNotes } from './PatchNotes'
 import { Link } from 'components/Link'
 import { CurrentVersion, ReleaseNotePatch, GHESMessage } from './types'
-import { useOnScreen } from 'components/hooks/useOnScreen'
-
-import styles from './PatchNotes.module.scss'
 
 type Props = {
   patch: ReleaseNotePatch
@@ -16,7 +12,6 @@ type Props = {
   latestPatch: string
   latestRelease: string
   message: GHESMessage
-  didEnterView: () => void
 }
 export function GHESReleaseNotePatch({
   patch,
@@ -24,24 +19,16 @@ export function GHESReleaseNotePatch({
   latestPatch,
   latestRelease,
   message,
-  didEnterView,
 }: Props) {
   const { t } = useTranslation('header')
   const containerRef = useRef<HTMLDivElement>(null)
-  const onScreen = useOnScreen(containerRef, { rootMargin: '-40% 0px -50%' })
-  useEffect(() => {
-    if (onScreen) {
-      didEnterView()
-    }
-  }, [onScreen])
 
   return (
-    <div
-      ref={containerRef}
-      className={cx(styles.sectionHeading, 'mb-10 pb-6 border-bottom border-top')}
-      id={patch.version}
-    >
-      <header style={{ zIndex: 1 }} className="container-xl border-bottom px-3 pt-4 pb-2">
+    <div ref={containerRef} className="mb-10 pb-6" id={patch.version}>
+      <header
+        style={{ zIndex: 1, marginTop: -1 }}
+        className="container-xl border-top border-bottom px-3 pt-4 pb-2"
+      >
         <div className="d-flex flex-justify-between flex-wrap">
           <h2 className="border-bottom-0 m-0 p-0 mt-2">
             {currentVersion.versionTitle}.{patch.patchVersion}
@@ -101,7 +88,7 @@ export function GHESReleaseNotePatch({
       <div className="container-xl px-3">
         <div className="mt-3" dangerouslySetInnerHTML={{ __html: patch.intro }} />
 
-        <PatchNotes patch={patch} withReleaseNoteLabel />
+        <PatchNotes patch={patch} />
       </div>
     </div>
   )

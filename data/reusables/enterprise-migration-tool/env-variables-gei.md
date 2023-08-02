@@ -2,14 +2,14 @@
 
    - If you're using Terminal, use the `export` command.
 
-      ```shell{:copy}
+      ```shell copy
       export GH_PAT="TOKEN"
      export GH_SOURCE_PAT="TOKEN"
       ```
 
    - If you're using PowerShell, use the `$env` command.
 
-      ```shell{:copy}
+      ```shell copy
       $env:GH_PAT="TOKEN"
      $env:GH_SOURCE_PAT="TOKEN"
       ```

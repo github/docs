@@ -69,6 +69,7 @@ shortTitle: Manage secret alerts
 {% endif %}
 
 {% ifversion secret-scanning-github-token-metadata %}
+
 ## Reviewing {% data variables.product.company_short %} token metadata
 
 {% note %}
@@ -116,6 +117,13 @@ Once a secret has been committed to a repository, you should consider the secret
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}
 
+{% ifversion secret-scanning-backfills %}
+Notifications are different for incremental scans and historical scans.
+
+### Incremental scans
+
+{% endif %}
+
 {% data reusables.secret-scanning.secret-scanning-configure-notifications %}
 
 {% ifversion secret-scanning-notification-settings %}
@@ -129,10 +137,25 @@ Once a secret has been committed to a repository, you should consider the secret
 1. On your notification settings page, under "Subscriptions", then under "Watching", select the **Notify me** dropdown.
 1. Select "Email" as a notification option, then click **Save**.
 
-   ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/secret-scanning-notification-options.png)
+   ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/repository-watching-notification-options.png)
 {% endif %}
 
-For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts)" and "[Configuring your watch settings for an individual repository](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository)."
+{% data reusables.notifications.watch-settings %}
+
+{% ifversion secret-scanning-backfills %}
+
+### Historical scans
+
+For historical scans, {% data variables.product.product_name %} notifies the following users:
+
+- Organization owners, enterprise owners, and security managers—whenever a historical scan is complete, even if no secrets are found.
+- Repository administrators, security managers, and users with custom roles with read/write access—whenever a historical scan detects a secret, and according to their notification preferences.
+
+We do _not_ notify commit authors.
+
+{% data reusables.notifications.watch-settings %}
+
+{% endif %}
 
 ## Auditing responses to secret scanning alerts
 

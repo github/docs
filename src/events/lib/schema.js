@@ -1,7 +1,7 @@
 import { languageKeys } from '../../../lib/languages.js'
 import { allVersionKeys } from '../../../lib/all-versions.js'
 import { productIds } from '../../../lib/all-products.js'
-import { allTools } from '../../../lib/all-tools.js'
+import { allTools } from '#src/tools/lib/all-tools.js'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$' // eslint-disable-line
 
@@ -460,7 +460,7 @@ const preference = {
         'auto:light',
         'linux',
         'mac',
-        'windows'
+        'windows',
       ),
       description: 'The application, color_mode, or os selected by the user.',
     },

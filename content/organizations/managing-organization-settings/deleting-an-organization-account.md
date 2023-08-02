@@ -17,10 +17,11 @@ shortTitle: Delete organization
 ---
 
 ## About deletion of your organization account
+
 {% ifversion fpt or ghec %}
 {% tip %}
 
-**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription) instead of deleting the organization and its content.
+**Tip**: If you want to cancel your paid subscription, you can [downgrade your organization to {% data variables.product.prodname_free_team %}](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan) instead of deleting the organization and its content.
 
 {% endtip %}
 
@@ -35,6 +36,10 @@ Deleting your organization account removes all repositories, forks of private re
 
 {% data reusables.package_registry.delete-account-namespace-retirement %}
 
+{% ifversion archive-organizations %}
+You can also archive an organization, instead of deleting it. Archiving an organization will make it read-only. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/archiving-an-organization)."
+{% endif %}
+
 ## Backing up your organization content
 
 {% ifversion not ghes %} After you delete an organization, {% data variables.product.company_short %} **cannot restore your content**. Therefore, before{% else %}Before{% endif %} you delete your organization, make sure you have a copy of all repositories, wikis, issues, and project boards from the account.
@@ -42,7 +47,7 @@ Deleting your organization account removes all repositories, forks of private re
 {% ifversion ghes %}
 {% note %}
 
-**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
+**Note:** If necessary, a site administrator for {% data variables.location.product_location %} may be able to partially restore a deleted organization. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/restoring-a-deleted-organization)."
 
 {% endnote %}
 {% endif %}

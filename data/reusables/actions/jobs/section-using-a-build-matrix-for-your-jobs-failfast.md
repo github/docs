@@ -6,7 +6,6 @@ You can control how job failures are handled with `jobs.<job_id>.strategy.fail-f
 
 You can use `jobs.<job_id>.strategy.fail-fast` and `jobs.<job_id>.continue-on-error` together. For example, the following workflow will start four jobs. For each job, `continue-on-error` is determined by the value of `matrix.experimental`. If any of the jobs with `continue-on-error: false` fail, all jobs that are in progress or queued will be cancelled. If the job with `continue-on-error: true` fails, the other jobs will not be affected.
 
-
 ```yaml
 jobs:
   test:

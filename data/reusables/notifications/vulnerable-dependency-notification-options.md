@@ -11,9 +11,11 @@
 
 **Note:** The email and web{% ifversion not ghae %}/{% data variables.product.prodname_mobile %}{% endif %} notifications are:
 
-- _per repository_ when {% data variables.product.prodname_dependabot %} is enabled on the repository, or when a new manifest file is committed to the repository.
+- _Per repository_ when {% data variables.product.prodname_dependabot %} is enabled on the repository, or when a new manifest file is committed to the repository.
 
-- _per organization_ when a new vulnerability is discovered.
+- _Per organization_ when a new vulnerability is discovered.
+
+- Sent when a new vulnerability is discovered. {% data variables.product.prodname_dotcom %} doesn't send notifications when vulnerabilities are updated.
 
 {% endnote %}
 

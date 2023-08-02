@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/configuring-git-for-github-desktop
   - /desktop/installing-and-configuring-github-desktop/configuring-git-for-github-desktop
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 ## About Git configuration for {% data variables.product.prodname_desktop %}
 
@@ -57,7 +57,7 @@ You can change the name and email address used to author commits in a specific r
 
 {% mac %}
 
-1.  To switch to the repository for which you want to set specific configuration, use the "Current Repository" dropdown menu.
+1. To switch to the repository for which you want to set specific configuration, use the "Current Repository" dropdown menu.
 
    ![Screenshot of the repository bar in GitHub Desktop. Next to "Current Repository", a dropdown icon is highlighted with an orange outline.](/assets/images/help/desktop/current-repo-dropdown.png)
 
@@ -80,7 +80,6 @@ You can change the name and email address used to author commits in a specific r
 {% data reusables.desktop.repository-settings-save %}
 
 {% endwindows %}
-
 
 ## Configuring your default branch for new repositories
 
@@ -109,7 +108,7 @@ You can configure the default branch that will be used when you create a new rep
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)"
+{% ifversion fpt or ghec or ghes %}- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account)"{% endif %}
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)"
 - "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)"
 - "[AUTOTITLE](/get-started/getting-started-with-git)"

@@ -42,7 +42,7 @@ You can also use the REST API to create repository security advisories. For more
 
      ![Screenshot of a draft security advisory. A dropdown menu, labeled "Choose a credit type," is highlighted with an orange outline.](/assets/images/help/security/security-advisories-choose-credit-type.png)
 
-    - Optionally, to remove someone, click {% octicon "x" aria-label="The icon to remove someone's credit" %} next to the credit type.{% endif %}
+   - Optionally, to remove someone, click {% octicon "x" aria-label="The icon to remove someone's credit" %} next to the credit type.{% endif %}
 1. Click **Create draft security advisory**.
 
 {% data reusables.repositories.security-advisory-credits-notification %}
