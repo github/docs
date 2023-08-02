@@ -53,9 +53,6 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 Escalation management | For High and Urgent priority tickets | For High and Urgent priority tickets
 Incident management | None | For Urgent priority tickets, as needed
 | Health Checks | {% ifversion not ghes %}None{% else %}Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated Health Check reports (see "[Generating a Health Check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)")</li>{% endif %}<li>Quarterly enhanced Health Checks, with findings, interpretations, and recommendations from a Customer Reliability Engineer (by request)</li></ul>    |
-{%- ifversion ghes %}
-| Crisis Prevention | None | Yearly participation in guided incident simulations to help you be prepared |
-{%- endif %}
 | Technical advisory hours| None | 12 hours per quarter |
 | Application upgrade assistance | None | By request |
 | Cloud planning | None | By request |

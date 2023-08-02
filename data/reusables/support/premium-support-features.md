@@ -7,8 +7,5 @@ In addition to all of the benefits of {% data variables.contact.enterprise_suppo
   - Available incident coordinator to manage technical resources within {% data variables.product.company_short %} until underlying issue is mitigated or fully resolved
 - Access to premium content
 - Health Checks
-{%- ifversion ghes %}
-- Crisis Prevention: Guided incident simulations that help you prepare for, and experience, an incident without risk. ({% data variables.product.premium_plus_support_plan %} only)
-{%- endif %}
 - Application upgrade assistance: Before you upgrade {% data variables.product.prodname_ghe_server %}, we review your upgrade plans, playbooks, and other documentation and answer questions specific to your environment ({% data variables.product.premium_plus_support_plan %} only)
 - Technical advisory hours ({% data variables.product.premium_plus_support_plan %} only)
