@@ -79,11 +79,11 @@ export const ApiVersionPicker = () => {
   // This only shows the REST Version picker if it's calendar date versioned
   return allVersions[currentVersion].apiVersions.length > 0 ? (
     <div className="mb-3">
-      <div data-testid="api-version-picker" className="width-full">
+      <div data-testid="api-version-picker">
         <Picker
           defaultText={currentDateDisplayText}
           items={apiVersionLinks}
-          pickerLabel="API Version"
+          pickerLabel="API Version: "
           alignment="start"
           buttonBorder={true}
           dataTestId="version"
