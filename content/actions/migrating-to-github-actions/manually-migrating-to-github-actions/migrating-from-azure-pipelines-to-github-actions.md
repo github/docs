@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_actions %} and Azure Pipelines share 
 redirect_from:
   - /actions/learn-github-actions/migrating-from-azure-pipelines-to-github-actions
   - /actions/migrating-to-github-actions/migrating-from-azure-pipelines-to-github-actions
+  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-azure-pipelines-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
