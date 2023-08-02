@@ -166,7 +166,7 @@ jobs:
 
           # Note that by default, this is '' (empty string) and that means
           # the same as not set within the script.
-          VERSION: ${{ github.event.inputs.version }}
+          VERSION: ${{ inputs.version }}
 
           # The sync-search-index recognizes this env var if you don't
           # use the `--popular-pags <PATH>` option.
@@ -188,7 +188,7 @@ jobs:
           # Must match what we used when scraping (npm run sync-search-indices)
           # otherwise the script will seek other versions from disk that might
           # not exist.
-          VERSION: ${{ github.event.inputs.version }}
+          VERSION: ${{ inputs.version }}
         run: |
           ./src/search/scripts/index-elasticsearch.js /tmp/records \
             --language ${{ matrix.language }} \

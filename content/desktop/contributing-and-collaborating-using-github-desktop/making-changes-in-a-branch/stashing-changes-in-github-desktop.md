@@ -3,7 +3,7 @@ title: Stashing changes in GitHub Desktop
 shortTitle: Stashing changes
 intro: 'You can temporarily save your changes without committing them to a branch by stashing the changes in {% data variables.product.prodname_desktop %}.'
 versions:
-  fpt: '*'
+  feature: desktop
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/stashing-changes
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/stashing-changes

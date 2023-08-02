@@ -1,5 +1,6 @@
 import { addError, forEachInlineChild } from 'markdownlint-rule-helpers'
 import { liquid } from '#src/content-render/index.js'
+import { allVersions } from '../../../../lib/all-versions.js'
 
 export const incorrectAltTextLength = {
   names: ['GHD003', 'incorrect-alt-text-length'],
@@ -11,7 +12,10 @@ export const incorrectAltTextLength = {
     forEachInlineChild(params, 'image', async function forToken(token) {
       let renderedString = token.content
       if (token.content.includes('{%') || token.content.includes('{{')) {
-        const context = { currentLanguage: 'en' }
+        const context = {
+          currentLanguage: 'en',
+          currentVersionObj: allVersions['free-pro-team@latest'],
+        }
         renderedString = await liquid.parseAndRender(token.content, context)
       }
 

@@ -145,7 +145,6 @@ You can filter discussions by specific labels that are applied to discussions.
 | :- | :- |
 | <code>label: <em>"LABEL NAME"</em></code> | [**label:"Product Feedback"**](https://github.com/search?utf8=%E2%9C%93&q=label%3A%22product+feedback%22&type=discussions) matches discussions that match the label "Product Feedback".
 
-
 ## Further reading
 
 - "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

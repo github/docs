@@ -31,7 +31,7 @@ You can centrally manage access to {% data variables.location.product_location %
 
 ### 5. Managing billing for {% data variables.location.product_location %}
 
-Owners of the subscription for {% data variables.location.product_location %} on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+Owners of the subscription for {% data variables.location.product_location %} on {% data variables.product.product_name %} can view billing details for {% data variables.product.product_name %} in the Azure portal. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."
 
 ## Part 2: Organizing and managing enterprise members
 

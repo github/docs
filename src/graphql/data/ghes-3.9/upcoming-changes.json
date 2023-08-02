@@ -221,16 +221,6 @@
       "owner": "alcere"
     }
   ],
-  "2023-02-10": [
-    {
-      "location": "PackageType.MAVEN",
-      "description": "<p><code>MAVEN</code> will be removed.</p>",
-      "reason": "<p>MAVEN will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
-      "date": "2023-02-10",
-      "criticality": "breaking",
-      "owner": "ankitkaushal01"
-    }
-  ],
   "2023-01-01": [
     {
       "location": "ProjectV2View.visibleFields",
@@ -247,34 +237,6 @@
       "date": "2023-01-01",
       "criticality": "breaking",
       "owner": "adamshwert"
-    }
-  ],
-  "2022-12-28": [
-    {
-      "location": "PackageType.RUBYGEMS",
-      "description": "<p><code>RUBYGEMS</code> will be removed.</p>",
-      "reason": "<p>RUBYGEMS will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
-      "date": "2022-12-28",
-      "criticality": "breaking",
-      "owner": "ankitkaushal01"
-    }
-  ],
-  "2022-11-21": [
-    {
-      "location": "PackageType.NUGET",
-      "description": "<p><code>NUGET</code> will be removed.</p>",
-      "reason": "<p>NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
-      "date": "2022-11-21",
-      "criticality": "breaking",
-      "owner": "s-anupam"
-    },
-    {
-      "location": "PackageType.NPM",
-      "description": "<p><code>NPM</code> will be removed.</p>",
-      "reason": "<p>NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
-      "date": "2022-11-21",
-      "criticality": "breaking",
-      "owner": "s-anupam"
     }
   ],
   "2022-10-01": [

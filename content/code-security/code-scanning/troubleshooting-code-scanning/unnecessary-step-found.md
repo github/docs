@@ -15,7 +15,7 @@ versions:
 
 If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
 
-```
+```shell
 Warning: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer
 necessary. Please remove this step as Code Scanning recommends analyzing the merge
 commit for best results.

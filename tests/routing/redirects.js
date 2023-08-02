@@ -85,6 +85,11 @@ describe('redirects', () => {
       const res = await get(reqPath)
       expect(res.statusCode).toBe(200)
     })
+
+    test('Do not redirect to search if on GraphQL Explorer "search"', async () => {
+      const res = await get('/en/graphql/overview/explorer?query=anything')
+      expect(res.statusCode).toBe(200)
+    })
   })
 
   describe('trailing slashes', () => {

@@ -3,17 +3,18 @@
 }
 
 .nested {
-  div ul div li {
+  ul div li {
     padding-left: 4em;
   }
-  div li {
+  li {
     padding-left: 2em;
   }
 }
 
 .miniToc {
-  div li a {
+  li a {
     padding: 4px 0 4px 0;
     margin-left: 7px;
+    overflow-wrap: anywhere;
   }
 }

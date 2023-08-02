@@ -14,7 +14,7 @@ import { program } from 'commander'
 import { execFileSync } from 'child_process'
 import frontmatter from '../../../lib/read-frontmatter.js'
 import patterns from '../../../lib/patterns.js'
-import addRedirectToFrontmatter from '../../../script/helpers/add-redirect-to-frontmatter.js'
+import addRedirectToFrontmatter from '#src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
 import walkFiles from '../../../script/helpers/walk-files.js'
 
 const contentFiles = walkFiles('content', '.md', { includeEarlyAccess: true })

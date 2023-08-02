@@ -110,7 +110,7 @@ The following scenario outlines what happens when a CI reports a failing status 
 1. The merge queue creates a temporary branch with the prefix of `main/pr-1` that contains code changes from the target branch and pull request #1. A `merge_group` webhook event of type `checks_requested` is dispatched and the merge queue will await a response from your CI provider.
 1. User adds pull request #2 to the merge queue.
 1. The merge queue creates a temporary branch with the prefix of `main/pr-2` that contains code changes from the target branch, pull request #1, and pull request #2, and dispatches webhooks.
-1.  When the {% data variables.product.product_name %} API receives a failing status for `main/pr-1`, the merge queue automatically removes pull request #1 from the merge queue.
+1. When the {% data variables.product.product_name %} API receives a failing status for `main/pr-1`, the merge queue automatically removes pull request #1 from the merge queue.
 1. The merge queue recreates the temporary branch with the prefix of `main/pr-2` to only contain changes from the target branch and pull request #2.
 1. When the {% data variables.product.product_name %} API receives successful CI responses for `merge_group` branch `main/pr-2`, the temporary branch `main/pr-2` will be merged in to the target branch without pull request #1 included.
 

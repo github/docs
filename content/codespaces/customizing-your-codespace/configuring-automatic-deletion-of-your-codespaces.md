@@ -94,6 +94,8 @@ Codespaces that you have exempted from automatic deletion are indicated in your 
 
 ## Setting a retention period for a codespace
 
+{% data reusables.codespaces.using-github-cli %}
+
 To set the codespace retention period when you create a codespace, use the `--retention-period` flag with the `codespace create` subcommand. Specify the period in days. The period must be between 0 and 30 days.
 
 ```shell
