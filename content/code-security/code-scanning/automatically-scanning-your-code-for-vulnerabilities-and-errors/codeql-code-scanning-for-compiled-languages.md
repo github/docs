@@ -1,7 +1,7 @@
 ---
-title: Configuring the CodeQL workflow for compiled languages
-shortTitle: Configure compiled languages
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.code-scanning.codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors.'
+title: CodeQL code scanning for compiled languages
+shortTitle: CodeQL for compiled languages
+intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.code-scanning.codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors. You can also use default setup for all compiled languages{% ifversion codeql-swift-advanced-setup %} (except for Swift, for which you must use advanced setup){% endif %}, which requires no {% data variables.code-scanning.codeql_workflow %} configuration.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
@@ -10,6 +10,7 @@ redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-the-codeql-workflow-for-compiled-languages
   - /code-security/secure-coding/configuring-the-codeql-workflow-for-compiled-languages
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/code-scanning-for-compiled-languages
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
 versions:
   fpt: '*'
@@ -153,6 +154,26 @@ The `autobuild` process tries to build the biggest target from an Xcode project 
 For more information about building Swift code, see "[Considerations for building Swift](#considerations-for-building-swift)."
 {% endif %}
 
+{% ifversion codeql-swift-beta %}
+
+### Considerations for building Swift
+
+{% data reusables.code-scanning.beta-swift-support %}
+
+Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
+
+Code scanning of Swift code is not supported for runners that are part of an Actions Runner Controller (ARC), but you can have a mixture of both ARC runners and self-hosted macOS runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
+
+`xcodebuild` and `swift build` are both supported for Swift builds. We recommend only targeting one architecture during the build. For example, `ARCH=arm64` for `xcodebuild`, or `--arch arm64` for `swift build`.
+
+You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that {% data variables.product.prodname_codeql %} requires for a successful scan.
+
+For Swift analysis, you must always explicitly install dependencies managed via CocoaPods or Carthage before generating the {% data variables.product.prodname_codeql %} database.
+
+For Swift, the `autobuild` process tries to build the biggest target from an Xcode project or workspace.
+
+{% endif %}
+
 ## Adding build steps for a compiled language
 
 {% data reusables.code-scanning.autobuild-add-build-steps %} For information on how to edit the workflow file, see  "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#editing-a-code-scanning-workflow)."
@@ -186,23 +207,3 @@ For more information about the `if` conditional, see "[AUTOTITLE](/actions/using
 For more tips and tricks about why `autobuild` won't build your code, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/automatic-build-failed-for-a-compiled-language)."
 
 If you added manual build steps for compiled languages and {% data variables.product.prodname_code_scanning %} is still not working on your repository, contact {% data variables.contact.contact_support %}.
-
-{% ifversion codeql-swift-beta %}
-
-### Considerations for building Swift
-
-{% data reusables.code-scanning.beta-swift-support %}
-
-Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
-
-Code scanning of Swift code is not supported for runners that are part of an Actions Runner Controller (ARC), but you can have a mixture of both ARC runners and self-hosted macOS runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
-
-`xcodebuild` and `swift build` are both supported for Swift builds. We recommend only targeting one architecture during the build. For example, `ARCH=arm64` for `xcodebuild`, or `--arch arm64` for `swift build`.
-
-You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that {% data variables.product.prodname_codeql %} requires for a successful scan.
-
-For Swift analysis, you must always explicitly install dependencies managed via CocoaPods or Carthage before generating the {% data variables.product.prodname_codeql %} database.
-
-For Swift, the `autobuild` process tries to build the biggest target from an Xcode project or workspace.
-
-{% endif %}

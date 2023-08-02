@@ -181,7 +181,7 @@ code_security_actions:
     - >-
       /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning
     - >-
-      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
+      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/code-scanning-for-compiled-languages
     - >-
       /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
     - >-
