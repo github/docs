@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_actions %} and Travis CI share multip
 redirect_from:
   - /actions/learn-github-actions/migrating-from-travis-ci-to-github-actions
   - /actions/migrating-to-github-actions/migrating-from-travis-ci-to-github-actions
+  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-travis-ci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'

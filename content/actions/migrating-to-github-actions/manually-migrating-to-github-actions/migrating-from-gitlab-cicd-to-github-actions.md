@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_actions %} and GitLab CI/CD share sev
 redirect_from:
   - /actions/learn-github-actions/migrating-from-gitlab-cicd-to-github-actions
   - /actions/migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions
+  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-gitlab-cicd-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'

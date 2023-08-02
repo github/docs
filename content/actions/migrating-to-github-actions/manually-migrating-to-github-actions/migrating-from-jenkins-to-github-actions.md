@@ -4,6 +4,7 @@ intro: '{% data variables.product.prodname_actions %} and Jenkins share multiple
 redirect_from:
   - /actions/learn-github-actions/migrating-from-jenkins-to-github-actions
   - /actions/migrating-to-github-actions/migrating-from-jenkins-to-github-actions
+  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-jenkins-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'
