@@ -43,9 +43,15 @@ topics:
 
 For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. Default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}{% ifversion codeql-swift-advanced-setup %} except for Swift, for which you must use advanced setup{% endif %}. For more information about advanced setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
 
+{% ifversion code-scanning-default-setup-self-hosted-310 %}
+You can use default setup with self-hosted runners for all languages except Swift. Default setup will always run the `autobuild` action, so you may need to configure your self-hosted runners to make sure they can run all necessary commands for C/C++, C#, and Java analysis. Analysis of Javascript/Typescript, Go, Ruby, Python, and Kotlin code does not currently require special configuration. For more information about best practices for setting up self-hosted runners for default setup, see the relevant sections for each language in this article. For example, for C/C++, see "[Setting up self-hosted runners for C/C++ default setup analysis](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages#setting-up-self-hosted-runners-for-cc-default-setup-analysis)."
+{% endif %}
+
 {% elsif code-scanning-without-workflow %}
 
 For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. Default setup does not support any compiled languages, so you must use advanced setup. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
+
+For information about the languages, libraries, and frameworks that are supported in the latest version of {% data variables.product.prodname_codeql %}, see "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#python-built-in-support)" in the CodeQL documentation. For information about the system requirements for running the latest version of CodeQL, see "[System requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/#additional-software-requirements)" in the CodeQL documentation.
 
 {% else %}
 
@@ -95,6 +101,24 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 1. If none are found, search subdirectories for a unique directory with a build system for C/C++.
 1. Run an appropriate command to configure the system.
 
+{% ifversion code-scanning-default-setup-self-hosted-310 %}
+#### Setting up self-hosted runners for C/C++ default setup analysis
+
+{% note %}
+
+**Note:** For default setup code scanning to work on self-hosted runners, the runners must be able to build the projects in question. The following guidance details tooling you will likely need, but it may not be exhaustive, and some of the tooling may not be required in certain cases.
+
+{% endnote %}
+
+All operating systems may require certain build systems (for example, Make, CMake, and Bazel) and utilities used by them, such as `python`, `perl`, `lex`, and `yacc`.
+
+Dependencies for Linux are normally resolved through the package distribution mechanism. For compilers, the `gcc` executable will likely be required. Specific projects may also require access to `clang` or `mscv` executables.
+
+On Windows, most projects will require Microsoft Build Tools (for `msbuild`).
+
+On macOS, you may need a full Xcode installation, but at a minimum projects will require Xcode Command Line Tools (for `clang`).
+{% endif %}
+
 ### `autobuild` for C#
 
 | Supported system type | System name |
@@ -108,6 +132,25 @@ The `autobuild` process attempts to autodetect a suitable build method for C# us
 1. Invoke `MSbuild` (Linux) or `MSBuild.exe` (Windows) on the solution or project file closest to the root.
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
 1. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
+
+{% ifversion code-scanning-default-setup-self-hosted-310 %}
+#### Setting up self-hosted runners for C# default setup analysis
+
+{% note %}
+
+**Note:** For default setup code scanning to work on self-hosted runners, the runners must be able to build the projects in question. The following guidance details tooling you will likely need, but it may not be exhaustive, and some of the tooling may not be required in certain cases.
+
+{% endnote %}
+
+For .NET core application development the .NET SDK is required (for `dotnet`). For .NET framework application development, default setup analysis on self-hosted runners will typically require the following tooling.
+
+On Windows: Microsoft Build Tools (for `msbuild`) and Nuget CLI (for `nuget`). If not available, Nuget CLI will attempt to download automatically.
+
+On Linux and MacOS: Mono Runtime (to run `mono`, `msbuild`, or `nuget`).
+
+For information about the differences between .NET Core and .NET Framework, see "[.NET vs. .NET Framework for server apps](https://learn.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server)" in Microsoft Learn.
+
+{% endif %}
 
 {% ifversion codeql-go-autobuild %}
 
@@ -125,6 +168,12 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 1. Finally, if configurations files for these dependency managers are not found, rearrange the repository directory structure suitable for addition to `GOPATH`, and use `go get` to install dependencies. The directory structure reverts to normal after extraction completes.
 1. Extract all Go code in the repository, similar to running `go build ./...`.
 
+{% note %}
+
+**Note:** If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.
+
+{% endnote %}
+
 {% endif %}
 
 ### `autobuild` for Java {% ifversion codeql-kotlin-beta %} and Kotlin {% endif %}
@@ -139,6 +188,30 @@ The `autobuild` process tries to determine the build system for Java codebases b
 1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
 1. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
 1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
+
+{% ifversion code-scanning-default-setup-self-hosted-310 %}
+#### Setting up self-hosted runners for Java default setup analysis
+
+{% note %}
+
+**Note:** For default setup code scanning to work on self-hosted runners, the runners must be able to build the projects in question. The following guidance details tooling you will likely need, but it may not be exhaustive, and some of the tooling may not be required in certain cases.
+
+{% endnote %}
+
+The required version(s) of Java should be present on the self-hosted runner:
+
+- If the runner will be used for analyzing repositories that need a single version of Java, then the appropriate JDK version needs to be installed, and needs to be present in the PATH variable (so that `java` and `javac` can be found).
+
+- If the runner will be used for analyzing repositories that need multiple versions of Java, then the appropriate JDK versions need to be installed, and can be specified via the `toolchains.xml` file. This is a configuration file, typically used by Apache Maven, that allows you to specify the location of the tools, the version of the tools, and any additional configuration that is required to use the tools. For more information, see "[Guide to Using Toolchains](https://maven.apache.org/guides/mini/guide-using-toolchains.html)" in the Apache Maven documentation.
+
+The following executables will likely be required for a range of Java projects, and should be present in the PATH variable, but they will not be essential in all cases:
+
+- `mvn` (Apache Maven)
+
+- `gradle` (Gradle)
+
+- `ant` (Apache Ant)
+{% endif %}
 
 {% ifversion codeql-swift-beta %}
 
