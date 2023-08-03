@@ -64,6 +64,23 @@ Your language and server implementations may differ from the following examples.
 
 - Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
+### Test values
+
+Regardless of programming language, these values can be used to know that the implementation is correct.
+
+```yaml
+Secret:          It's a Secret to Everybody
+Payload:         Hello, World!
+
+Algorithm:       SHA-256
+Signature:       757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17
+X-Hub-Signature: sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17
+
+Algorithm:       SHA-1
+Signature:       01dc10d0c83e72ed246219cdd91669667fe2ca59
+X-Hub-Signature: sha1=01dc10d0c83e72ed246219cdd91669667fe2ca59
+```
+
 ### Ruby example
 
 For example, you can define the following `verify_signature` function:
