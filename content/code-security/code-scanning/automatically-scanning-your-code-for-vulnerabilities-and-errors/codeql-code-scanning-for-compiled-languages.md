@@ -44,7 +44,7 @@ topics:
 For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. Default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}{% ifversion codeql-swift-advanced-setup %} except for Swift, for which you must use advanced setup{% endif %}. For more information about advanced setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
 
 {% ifversion code-scanning-default-setup-self-hosted-310 %}
-You can use default setup with self-hosted runners for all {% data variables.product.prodname_codeql %}-supported languages except Swift. Default setup will always run the `autobuild` action, so you may need to configure your self-hosted runners to make sure they can run all necessary commands for C/C++, C#, and Java analysis. Analysis of Javascript/Typescript, Go, Ruby, Python, and Kotlin code does not currently require special configuration. For more information about best practices for setting up self-hosted runners for default setup, see the relevant sections for each language in this article. For example, for C/C++, see "[Setting up self-hosted runners for C/C++ default setup analysis](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages#setting-up-self-hosted-runners-for-cc-default-setup-analysis)."
+You can use default setup with self-hosted runners for all {% data variables.product.prodname_codeql %}-supported languages except Swift. Default setup will always run the `autobuild` action, so you may need to configure your self-hosted runners to make sure they can run all necessary commands for C/C++, C#, and Java analysis. Analysis of Javascript/Typescript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.
 {% endif %}
 
 {% elsif code-scanning-without-workflow %}
@@ -77,7 +77,7 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 {% ifversion ghae %}
 **Note**: {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-**Note**: If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
+**Note**: If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion code-scanning-default-setup-self-hosted-310 %} For self-hosted runners, you should install dependencies in the directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. {% endif %} 
 {% endif %}
 
 {% endnote %}
@@ -88,6 +88,8 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 |----|----|
 | Operating system | Windows, macOS, and Linux |
 | Build system | Windows: MSbuild and build scripts<br/>Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
+
+For self-hosted runners, you will likely need to install the `gcc` compiler, and specific projects may also require access to `clang` or `mscv` executables. On Windows, most projects will require Microsoft Build Tools (for `msbuild`). On macOS, you may need a full Xcode installation, but at a minimum projects will require Xcode Command Line Tools (for `clang`). You will also need to install the build system (for example `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
 
 The behavior of the `autobuild` step varies according to the operating system that the extraction runs on. On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
 
@@ -101,24 +103,6 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 1. If none are found, search subdirectories for a unique directory with a build system for C/C++.
 1. Run an appropriate command to configure the system.
 
-{% ifversion code-scanning-default-setup-self-hosted-310 %}
-#### Setting up self-hosted runners for C/C++ default setup analysis
-
-{% note %}
-
-**Note:** For default setup code scanning to work on self-hosted runners, the runners must be able to build the projects in question. The following guidance details tooling you will likely need, but it may not be exhaustive, and some of the tooling may not be required in certain cases.
-
-{% endnote %}
-
-All operating systems may require certain build systems (for example, Make, CMake, and Bazel) and utilities used by them, such as `python`, `perl`, `lex`, and `yacc`.
-
-Dependencies for Linux are normally resolved through the package distribution mechanism. For compilers, the `gcc` executable will likely be required. Specific projects may also require access to `clang` or `mscv` executables.
-
-On Windows, most projects will require Microsoft Build Tools (for `msbuild`).
-
-On macOS, you may need a full Xcode installation, but at a minimum projects will require Xcode Command Line Tools (for `clang`).
-{% endif %}
-
 ### `autobuild` for C#
 
 | Supported system type | System name |
@@ -126,31 +110,14 @@ On macOS, you may need a full Xcode installation, but at a minimum projects will
 | Operating system | Windows and Linux |
 | Build system | .NET and MSbuild, as well as build scripts |
 
+For .NET Core application development on self-hosted runners, the .NET SDK is required (for `dotnet`). On Windows, you will also need Microsoft Build Tools (for `msbuild`) and Nuget CLI (for `nuget`). On Linux and MacOS, you will require Mono Runtime (to run `mono`, `msbuild`, or `nuget`).
+
 The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
 
 1. Invoke `dotnet build` on the solution (`.sln`) or project (`.csproj`) file closest to the root.
 1. Invoke `MSbuild` (Linux) or `MSBuild.exe` (Windows) on the solution or project file closest to the root.
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
 1. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
-
-{% ifversion code-scanning-default-setup-self-hosted-310 %}
-#### Setting up self-hosted runners for C# default setup analysis
-
-{% note %}
-
-**Note:** For default setup code scanning to work on self-hosted runners, the runners must be able to build the projects in question. The following guidance details tooling you will likely need, but it may not be exhaustive, and some of the tooling may not be required in certain cases.
-
-{% endnote %}
-
-For .NET core application development the .NET SDK is required (for `dotnet`). For .NET framework application development, default setup analysis on self-hosted runners will typically require the following tooling.
-
-On Windows: Microsoft Build Tools (for `msbuild`) and Nuget CLI (for `nuget`). If not available, Nuget CLI will attempt to download automatically.
-
-On Linux and MacOS: Mono Runtime (to run `mono`, `msbuild`, or `nuget`).
-
-For information about the differences between .NET Core and .NET Framework, see "[.NET vs. .NET Framework for server apps](https://learn.microsoft.com/en-us/dotnet/standard/choosing-core-framework-server)" in Microsoft Learn.
-
-{% endif %}
 
 {% ifversion codeql-go-autobuild %}
 
@@ -183,22 +150,7 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 | Operating system | Windows, macOS, and Linux (no restriction) |
 | Build system | Gradle, Maven and Ant |
 
-The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
-
-1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
-1. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
-1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
-
-{% ifversion code-scanning-default-setup-self-hosted-310 %}
-#### Setting up self-hosted runners for Java default setup analysis
-
-{% note %}
-
-**Note:** For default setup code scanning to work on self-hosted runners, the runners must be able to build the projects in question. The following guidance details tooling you will likely need, but it may not be exhaustive, and some of the tooling may not be required in certain cases.
-
-{% endnote %}
-
-The required version(s) of Java should be present on the self-hosted runner:
+If you're using self-hosted runners, the required version(s) of Java should be present:
 
 - If the runner will be used for analyzing repositories that need a single version of Java, then the appropriate JDK version needs to be installed, and needs to be present in the PATH variable (so that `java` and `javac` can be found).
 
@@ -207,11 +159,14 @@ The required version(s) of Java should be present on the self-hosted runner:
 The following executables will likely be required for a range of Java projects, and should be present in the PATH variable, but they will not be essential in all cases:
 
 - `mvn` (Apache Maven)
-
 - `gradle` (Gradle)
-
 - `ant` (Apache Ant)
-{% endif %}
+
+The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
+
+1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
+1. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
+1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
 
 {% ifversion codeql-swift-beta %}
 
