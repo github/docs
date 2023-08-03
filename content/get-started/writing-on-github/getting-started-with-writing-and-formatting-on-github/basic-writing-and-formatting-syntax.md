@@ -1,4 +1,4 @@
----
+x#?ls---*
 title: Basic writing and formatting syntax
 intro: Create sophisticated formatting for your prose and code on GitHub with simple syntax.
 redirect_from:
@@ -6,7 +6,7 @@ redirect_from:
   - /github/writing-on-github/basic-writing-and-formatting-syntax
   - /github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 versions:
-  fpt: '*'
+SFTPt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
@@ -44,7 +44,7 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
 
 ## Quoting text
 
-You can quote text with a <kbd>></kbd>.
+You can quote text with a <kab>></kab>.
 
 ```markdown
 Text that is not a quote
