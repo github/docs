@@ -401,17 +401,13 @@ test.describe('test nav at different viewports', () => {
     // version picker is in mobile menu
     await expect(page.getByTestId('version-picker')).not.toBeVisible()
     await page.getByTestId('mobile-menu').click()
-    await expect(
-      page.getByTestId('open-xs-mobile-menu').getByTestId('version-picker'),
-    ).toBeVisible()
+    await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
 
     // language picker is in mobile menu
-    await expect(
-      page.getByTestId('open-xs-mobile-menu').getByTestId('language-picker'),
-    ).toBeVisible()
+    await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
 
     // sign up button is in mobile menu
-    await expect(page.getByTestId('xs-mobile-signup')).toBeVisible()
+    await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
