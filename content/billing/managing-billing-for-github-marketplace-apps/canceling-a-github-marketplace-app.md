@@ -58,3 +58,14 @@ When you cancel a free trial on a paid plan, your subscription is immediately ca
 {% data reusables.organizations.billing_plans %}
 {% data reusables.marketplace.cancel-free-trial-billing-settings %}
 {% data reusables.marketplace.cancel-app %}
+
+
+## Canceling an app in your enterprise
+
+{% data reusables.marketplace.marketplace-enterprise-account %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.billing-tab %}
+1. In the "Marketplace apps" tab, find the app you want to cancel. 
+1. Next to the organization where you want to cancel the app, select **{% octicon "kebab-horizontal" aria-label="More" %}** and then click **Cancel plan**.
+2. Click **Confirm**.
