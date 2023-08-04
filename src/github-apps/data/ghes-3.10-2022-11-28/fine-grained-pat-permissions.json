@@ -1304,6 +1304,15 @@
       },
       {
         "category": "actions",
+        "slug": "create-configuration-for-a-just-in-time-runner-for-an-organization",
+        "subcategory": "self-hosted-runners",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/runners/generate-jitconfig",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "actions",
         "slug": "create-a-registration-token-for-an-organization",
         "subcategory": "self-hosted-runners",
         "verb": "post",
@@ -1993,6 +2002,24 @@
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}",
         "additional-permissions": [],
         "access": "read"
+      },
+      {
+        "category": "deployments",
+        "slug": "get-all-deployment-protection-rules-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
+        "additional-permissions": [],
+        "access": "read"
+      },
+      {
+        "category": "deployments",
+        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "additional-permissions": [],
+        "access": "read"
       }
     ]
   },
@@ -2128,6 +2155,15 @@
       },
       {
         "category": "actions",
+        "slug": "create-configuration-for-a-just-in-time-runner-for-a-repository",
+        "subcategory": "self-hosted-runners",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/generate-jitconfig",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "actions",
         "slug": "create-a-registration-token-for-a-repository",
         "subcategory": "self-hosted-runners",
         "verb": "post",
@@ -2240,6 +2276,15 @@
         "subcategory": "autolinks",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "repos",
+        "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
         "additional-permissions": [],
         "access": "write"
       },
@@ -2609,6 +2654,24 @@
         "subcategory": "branch-policies",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "deployments",
+        "slug": "create-a-custom-deployment-protection-rule-on-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
+        "additional-permissions": [],
+        "access": "write"
+      },
+      {
+        "category": "deployments",
+        "slug": "disable-a-custom-protection-rule-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}",
         "additional-permissions": [],
         "access": "write"
       },

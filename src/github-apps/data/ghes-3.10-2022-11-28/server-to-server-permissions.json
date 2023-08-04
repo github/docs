@@ -181,6 +181,23 @@
       }
     ]
   },
+  "enterprise_self_hosted_runners": {
+    "title": "enterprise self hosted runners",
+    "displayTitle": "Enterprise self hosted runners permissions",
+    "permissions": [
+      {
+        "category": "actions",
+        "slug": "create-configuration-for-a-just-in-time-runner-for-an-enterprise",
+        "subcategory": "self-hosted-runners",
+        "verb": "post",
+        "requestPath": "/enterprises/{enterprise}/actions/runners/generate-jitconfig",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": false,
+        "additional-permissions": []
+      }
+    ]
+  },
   "organization_administration": {
     "title": "Administration",
     "displayTitle": "Organization permissions for \"Administration\"",
@@ -1007,6 +1024,106 @@
       }
     ]
   },
+  "organization_personal_access_token_requests": {
+    "title": "Personal access token requests",
+    "displayTitle": "Organization permissions for \"Personal access token requests\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+        "subcategory": "personal-access-tokens",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/personal-access-token-requests",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens",
+        "subcategory": "personal-access-tokens",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/personal-access-token-requests",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "review-a-request-to-access-organization-resources-with-a-fine-grained-personal-access-token",
+        "subcategory": "personal-access-tokens",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "list-repositories-requested-to-be-accessed-by-a-fine-grained-personal-access-token",
+        "subcategory": "personal-access-tokens",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/personal-access-token-requests/{pat_request_id}/repositories",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      }
+    ]
+  },
+  "organization_personal_access_tokens": {
+    "title": "Personal access tokens",
+    "displayTitle": "Organization permissions for \"Personal access tokens\"",
+    "permissions": [
+      {
+        "category": "orgs",
+        "slug": "list-fine-grained-personal-access-tokens-with-access-to-organization-resources",
+        "subcategory": "personal-access-tokens",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/personal-access-tokens",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "update-the-access-to-organization-resources-via-fine-grained-personal-access-tokens",
+        "subcategory": "personal-access-tokens",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/personal-access-tokens",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "update-the-access-a-fine-grained-personal-access-token-has-to-organization-resources",
+        "subcategory": "personal-access-tokens",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "orgs",
+        "slug": "list-repositories-a-fine-grained-personal-access-token-has-access-to",
+        "subcategory": "personal-access-tokens",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/personal-access-tokens/{pat_id}/repositories",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      }
+    ]
+  },
   "organization_projects": {
     "title": "Projects",
     "displayTitle": "Organization permissions for \"Projects\"",
@@ -1560,6 +1677,17 @@
         "verb": "get",
         "requestPath": "/orgs/{org}/actions/runners/downloads",
         "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "actions",
+        "slug": "create-configuration-for-a-just-in-time-runner-for-an-organization",
+        "subcategory": "self-hosted-runners",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/actions/runners/generate-jitconfig",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
@@ -2401,6 +2529,28 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": []
+      },
+      {
+        "category": "deployments",
+        "slug": "get-all-deployment-protection-rules-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "deployments",
+        "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
       }
     ]
   },
@@ -2564,6 +2714,17 @@
       },
       {
         "category": "actions",
+        "slug": "create-configuration-for-a-just-in-time-runner-for-a-repository",
+        "subcategory": "self-hosted-runners",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runners/generate-jitconfig",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "actions",
         "slug": "create-a-registration-token-for-a-repository",
         "subcategory": "self-hosted-runners",
         "verb": "post",
@@ -2700,6 +2861,17 @@
         "subcategory": "autolinks",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+        "subcategory": "repos",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -3151,6 +3323,28 @@
         "subcategory": "branch-policies",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "deployments",
+        "slug": "create-a-custom-deployment-protection-rule-on-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "deployments",
+        "slug": "disable-a-custom-protection-rule-for-an-environment",
+        "subcategory": "protection-rules",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -4414,6 +4608,17 @@
     "title": "Deployments",
     "displayTitle": "Repository permissions for \"Deployments\"",
     "permissions": [
+      {
+        "category": "actions",
+        "slug": "review-custom-deployment-protection-rules-for-a-workflow-run",
+        "subcategory": "workflow-runs",
+        "verb": "post",
+        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/deployment_protection_rule",
+        "access": "write",
+        "user-to-server": false,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
       {
         "category": "actions",
         "slug": "review-pending-deployments-for-a-workflow-run",
