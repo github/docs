@@ -9,11 +9,10 @@ import * as Octicons from '@primer/octicons-react'
 import { LinkExternalIcon } from '@primer/octicons-react'
 
 type ProductSelectionCardProps = {
-  name: string
   group: ProductGroupT
 }
 
-export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps) => {
+export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { isFPT } = useMainContext()
@@ -61,7 +60,7 @@ export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps)
           {icon(group)}
 
           <div>
-            <h2 className="h3">{name}</h2>
+            <h2 className="h3">{group.name}</h2>
           </div>
         </div>
 
@@ -79,7 +78,7 @@ export const ProductSelectionCard = ({ name, group }: ProductSelectionCardProps)
                     target={product.external ? '_blank' : undefined}
                   >
                     {product.name}
-                    {group.name === 'More docs' && (
+                    {product.external && (
                       <span className="ml-1">
                         <LinkExternalIcon aria-label="(external site)" size="small" />
                       </span>

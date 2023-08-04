@@ -332,7 +332,7 @@ test.describe('test nav at different viewports', () => {
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
-    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await page.getByTestId('language-picker')
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // sign up button is in mobile menu
@@ -346,7 +346,41 @@ test.describe('test nav at different viewports', () => {
 
   test('small viewports - 544-767', async ({ page }) => {
     page.setViewportSize({
-      width: 500,
+      width: 555,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+
+    // header sign-up button is not visible
+    await expect(page.getByTestId('header-signup')).not.toBeVisible()
+
+    // language picker is not visible
+    await expect(page.getByTestId('language-picker')).not.toBeVisible()
+
+    // version picker is visible
+    await expect(
+      page.getByRole('button', {
+        name: 'Select GitHub product version: current version is free-pro-team@latest',
+      }),
+    ).toBeVisible()
+
+    // language picker is in mobile menu
+    await page.getByTestId('mobile-menu').click()
+    await page.getByTestId('language-picker')
+    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+
+    // sign up button is in mobile menu
+    await expect(page.getByTestId('mobile-signup')).toBeVisible()
+
+    // hamburger button for sidebar overlay is visible
+    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+    await page.getByTestId('sidebar-hamburger').click()
+    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+  })
+
+  test('x-small viewports - 0-544', async ({ page }) => {
+    page.setViewportSize({
+      width: 345,
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
@@ -373,7 +407,7 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
 
     // sign up button is in mobile menu
-    await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
+    await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()

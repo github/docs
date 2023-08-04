@@ -81,10 +81,12 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 In addition to supporting updates to `requirements.txt` files, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard.
 {% endif %}
 
-{% ifversion dependabot-updates-pnpm-support %}
-
 #### pnpm
 
+{% ifversion dependabot-dependency-graph-pnpm %}
+pnpm is supported for {% data variables.product.prodname_dependabot_version_updates %} and {% data variables.product.prodname_dependabot_security_updates %}.
+
+{% else %}
 pnpm is supported for {% data variables.product.prodname_dependabot_version_updates %} only. {% data variables.product.prodname_dependabot_security_updates %} are not currently supported.
 {% endif %}
 
