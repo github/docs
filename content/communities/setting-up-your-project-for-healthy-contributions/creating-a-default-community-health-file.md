@@ -42,7 +42,7 @@ Issue and pull request templates{% ifversion fpt or ghes or ghec %} and _config.
 `SECURITY.md` | A SECURITY file gives instructions for how to report a security vulnerability in your project. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."{% endif %}
 _SUPPORT.md_ | A SUPPORT file lets people know about ways to get help with your project. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-support-resources-to-your-project)."
 
-You cannot create a default license file. License files must be added to individual repositories so the file will be included when a project is cloned, packaged, or downloaded.
+You cannot create a default LICENSE file or a CODEOWNERS file. These files must be added to individual repositories so the file will be included when a project is cloned, packaged, or downloaded.
 
 ## Creating a repository for default files
 
