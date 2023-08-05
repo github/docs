@@ -47,7 +47,10 @@ export const Header = () => {
   const signupCTAVisible =
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
-  const { width } = useWidth()
+  const [windowSize, setWindowSize] = useState(0)
+  const handleWindowResize = useCallback(() => {
+    setWindowSize(window.innerWidth)
+  }, [])
 
   useEffect(() => {
     function onScroll() {
@@ -89,9 +92,11 @@ export const Header = () => {
     if (bodyDiv && body) {
       // The full sidebar automatically shows at the xl window size so unlock
       // scrolling if the overlay was opened and the window size is increased to xl.
-      body.style.overflow = isSidebarOpen && width && width < 1280 ? 'hidden' : 'auto'
+      body.style.overflow = isSidebarOpen && windowSize < 1280 ? 'hidden' : 'auto'
     }
-  }, [isSidebarOpen])
+    window.addEventListener('resize', handleWindowResize)
+    return () => window.removeEventListener('resize', handleWindowResize)
+  }, [isSidebarOpen, windowSize])
 
   // with client side navigation clicking sidebar overlay links doesn't dismiss
   // the overlay so we close it ourselves when the path changes
@@ -112,32 +117,6 @@ export const Header = () => {
       window.removeEventListener('hashchange', hashChangeHandler)
     }
   }, [])
-
-  function useWidth() {
-    const hasWindow = typeof window !== 'undefined'
-
-    function getWidth() {
-      const width = hasWindow ? window.innerWidth : null
-      return {
-        width,
-      }
-    }
-
-    const [width, setWidth] = useState(getWidth())
-
-    useEffect(() => {
-      if (hasWindow) {
-        const handleResize = function () {
-          setWidth(getWidth())
-        }
-
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
-      }
-    }, [hasWindow])
-
-    return width
-  }
 
   return (
     <>
@@ -289,37 +268,51 @@ export const Header = () => {
                     />
                   </ActionMenu.Anchor>
                   <ActionMenu.Overlay align="start">
-                    <ActionList>
-                      <ActionList.Group data-testid="open-mobile-menu">
-                        {width && width > 544 ? (
-                          <LanguagePicker mediumOrLower={true} />
-                        ) : (
-                          <LanguagePicker xs={true} />
-                        )}
+                    {/* Mobile Menu at XS browser width */}
+                    <ActionList
+                      sx={{
+                        '@media (min-width: 544px)': {
+                          display: 'none',
+                        },
+                      }}
+                    >
+                      <ActionList.Group data-testid="open-xs-mobile-menu">
+                        <LanguagePicker xs={true} />
                         <ActionList.Divider />
-                        {width && width < 545 && (
-                          <>
-                            <VersionPicker xs={true} />
-                            <ActionList.Divider />
-                          </>
-                        )}
+                        <VersionPicker xs={true} />
                         {signupCTAVisible && (
-                          <ActionList.LinkItem
-                            href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
-                            target="_blank"
-                            rel="noopener"
-                            data-testid="mobile-signup"
-                            className="d-flex color-fg-muted"
-                          >
-                            {t`sign_up_cta`}
-                            <LinkExternalIcon
-                              className="height-full float-right"
-                              aria-label="(external site)"
-                            />
-                          </ActionList.LinkItem>
+                          <>
+                            <ActionList.Divider />
+                            <ActionList.LinkItem
+                              href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
+                              target="_blank"
+                              rel="noopener"
+                              data-testid="xs-mobile-signup"
+                              className="d-flex color-fg-muted"
+                            >
+                              {t`sign_up_cta`}
+                              <LinkExternalIcon
+                                className="height-full float-right"
+                                aria-label="(external site)"
+                              />
+                            </ActionList.LinkItem>
+                          </>
                         )}{' '}
                       </ActionList.Group>
                     </ActionList>
+                    <LanguagePicker mediumOrLower={true} />
+                    {signupCTAVisible && (
+                      <Link
+                        href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
+                        target="_blank"
+                        rel="noopener"
+                        data-testid="mobile-signup"
+                        className="hide-sm d-flex flex-justify-between flex-items-center color-fg-muted border-top px-3 py-3"
+                      >
+                        {t`sign_up_cta`}
+                        <LinkExternalIcon aria-label="(external site)" />
+                      </Link>
+                    )}{' '}
                   </ActionMenu.Overlay>
                 </ActionMenu>
               </div>
