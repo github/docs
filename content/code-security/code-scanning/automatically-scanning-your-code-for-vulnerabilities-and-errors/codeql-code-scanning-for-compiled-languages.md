@@ -1,7 +1,7 @@
 ---
 title: CodeQL code scanning for compiled languages
 shortTitle: CodeQL for compiled languages
-intro: 'You can configure how {% data variables.product.prodname_dotcom %} uses the {% data variables.code-scanning.codeql_workflow %} to scan code written in compiled languages for vulnerabilities and errors. You can also use default setup for all compiled languages{% ifversion codeql-swift-advanced-setup %} (except for Swift, for which you must use advanced setup){% endif %}, which requires no {% data variables.code-scanning.codeql_workflow %} configuration.'
+intro: 'Understand the autobuild method {% data variables.product.prodname_codeql %} analysis uses to build code for compiled languages and learn how you can customize the build command if you need to.'
 product: '{% data reusables.gated-features.code-scanning %}'
 permissions: 'If you have write permissions to a repository, you can configure {% data variables.product.prodname_code_scanning %} for that repository.'
 redirect_from:
