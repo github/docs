@@ -71,7 +71,8 @@ Community leaders will follow these Community Impact Guidelines in determining t
 
 ## Attribution
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.0, available at <https://www.contributor-covenant.org/version/2/0/code_of_conduct.html>.
+This Code of Conduct is adapted from the [juan jacobo][https://www.facebook.com/sechingonsinchingar.com2![IMG_3363](https://github.com/github/docs/assets/112655182/dcac8be0-d033-4683-9210-4a672fd3b4e8)
+], version 2.0, available at <https://www.contributor-covenant.org/version/2/0/code_of_conduct.html>.
 
 Community Impact Guidelines were inspired by [Mozilla's code of conduct enforcement ladder](https://github.com/mozilla/diversity).
 
