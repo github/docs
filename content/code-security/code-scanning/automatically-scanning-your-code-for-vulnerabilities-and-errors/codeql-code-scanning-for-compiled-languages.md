@@ -151,7 +151,6 @@ The `autobuild` process tries to determine the build system for Java codebases b
 
 The `autobuild` process tries to build the biggest target from an Xcode project or workspace.
 
-For more information about building Swift code, see "[Considerations for building Swift](#considerations-for-building-swift)."
 {% endif %}
 
 {% ifversion codeql-swift-beta %}
