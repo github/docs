@@ -169,8 +169,6 @@ You can pass the `archive` and `test` options to `xcodebuild`. However, the stan
 
 For Swift analysis, you must always explicitly install dependencies managed via CocoaPods or Carthage before generating the {% data variables.product.prodname_codeql %} database.
 
-For Swift, the `autobuild` process tries to build the biggest target from an Xcode project or workspace.
-
 {% endif %}
 
 ## Adding build steps for a compiled language
