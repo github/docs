@@ -41,7 +41,7 @@ topics:
 
 {% ifversion code-scanning-without-workflow-310 %}
 
-For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. Default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}{% ifversion codeql-swift-advanced-setup %} except for Swift, for which you must use advanced setup{% endif %}. For more information about advanced setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
+For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you can use default setup, which analyzes your code and automatically configures your {% data variables.product.prodname_code_scanning %}, or advanced setup, which generates a workflow file you can edit. {% ifversion fpt or ghec %}Default setup can analyze all compiled languages supported by {% data variables.product.prodname_codeql %}{% endif %}. For more information about advanced setup, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
 
 {% ifversion code-scanning-default-setup-self-hosted-310 %}
 You can use default setup with self-hosted runners for all {% data variables.product.prodname_codeql %}-supported languages except Swift. Default setup will always run the `autobuild` action, so you should configure your self-hosted runners to make sure they can run all necessary commands for C/C++, C#, and Java analysis. Analysis of Javascript/Typescript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.
@@ -51,13 +51,13 @@ You can use default setup with self-hosted runners for all {% data variables.pro
 
 In {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, default setup does not support any compiled languages, so you must use advanced setup. Advanced setup generates a workflow file you can edit. The starter workflow files use `autobuild` to analyze compiled languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
 
-For information about the languages, libraries, and frameworks that are supported in the latest version of {% data variables.product.prodname_codeql %}, see "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#python-built-in-support)" in the {% data variables.product.prodname_codeql %} documentation. For information about the system requirements for running the latest version of {% data variables.product.prodname_codeql %}, see "[System requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/#additional-software-requirements)" in the {% data variables.product.prodname_codeql %} documentation.
-
 {% else %}
 
 You set up {% data variables.product.prodname_dotcom %} to run {% data variables.product.prodname_code_scanning %} for your repository by adding a {% data variables.product.prodname_actions %} workflow to the repository. For {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, you add the {% data variables.code-scanning.codeql_workflow %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-the-codeql-action)."
 
 {% endif %}
+
+For information about the languages, libraries, and frameworks that are supported in the latest version of {% data variables.product.prodname_codeql %}, see "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks)" in the {% data variables.product.prodname_codeql %} documentation. For information about the system requirements for running the latest version of {% data variables.product.prodname_codeql %}, see "[System requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/#additional-software-requirements)" in the {% data variables.product.prodname_codeql %} documentation.
 
 If your workflow uses a `language` matrix, `autobuild` attempts to build each of the compiled languages listed in the matrix. Without a matrix `autobuild` attempts to build the supported compiled language that has the most source files in the repository. With the exception of Go, analysis of other compiled languages in your repository will fail unless you supply explicit build commands.
 
@@ -77,10 +77,20 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 {% ifversion ghae %}
 **Note**: {% data reusables.actions.self-hosted-runners-software %}
 {% else %}
-**Note**: If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion code-scanning-default-setup-self-hosted-310 %} For self-hosted runners, you should install dependencies in the directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."{% endif %} 
+**Note**: If you use self-hosted runners for {% data variables.product.prodname_actions %}, you may need to install additional software to use the `autobuild` process. Additionally, if your repository requires a specific version of a build tool, you may need to install it manually. {% ifversion code-scanning-default-setup-self-hosted-310 %} For self-hosted runners, you should install dependencies in the directly in the runners themselves. We provide examples of common dependencies for C/C++, C#, and Java in each of the `autobuild` sections of this article for those languages. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."{% endif %}{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}-hosted runners are always run with the software required by `autobuild`.{% endif %}
 {% endif %}
 
 {% endnote %}
+
+{% ifversion code-scanning-without-workflow-310 %}
+
+If you enable default setup, the `autobuild` action will be used to build your code, as part of your automatically configured {% data variables.code-scanning.codeql_workflow %}. If you enable advanced setup, the basic {% data variables.code-scanning.codeql_workflow %} uses `autobuild`, but you can override this setting.
+
+{% else %}
+
+The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild` action to build your code, but you can override this setting.
+
+{% endif %}
 
 ### `autobuild` for C/C++
 
@@ -88,8 +98,6 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 |----|----|
 | Operating system | Windows, macOS, and Linux |
 | Build system | Windows: MSbuild and build scripts<br/>Linux and macOS: Autoconf, Make, CMake, qmake, Meson, Waf, SCons, Linux Kbuild, and build scripts |
-
-For self-hosted runners, you will likely need to install the `gcc` compiler, and specific projects may also require access to `clang` or `mscv` executables. On Windows, most projects will require Microsoft Build Tools (for `msbuild`). On macOS, you may need a full Xcode installation, but at a minimum projects will require Xcode Command Line Tools (for `clang`). You will also need to install the build system (for example `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
 
 The behavior of the `autobuild` step varies according to the operating system that the extraction runs on. On Windows, the `autobuild` step attempts to autodetect a suitable build method for C/C++ using the following approach:
 
@@ -102,6 +110,8 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 1. Look for a build system in the root directory.
 1. If none are found, search subdirectories for a unique directory with a build system for C/C++.
 1. Run an appropriate command to configure the system.
+
+For self-hosted runners, you will likely need to install the `gcc` compiler, and specific projects may also require access to `clang` or `mscv` executables. You will also need to install the build system (for example `msbuild`, `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
 
 ### `autobuild` for C#
 
@@ -162,6 +172,8 @@ The following executables will likely be required for a range of Java projects, 
 - `gradle` (Gradle)
 - `ant` (Apache Ant)
 
+You will also need to install the build system (for example `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
+
 The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
 
 1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
@@ -183,13 +195,13 @@ The `autobuild` process tries to build the biggest target from an Xcode project 
 
 {% ifversion codeql-swift-beta %}
 
-### Considerations for building Swift
-
 {% data reusables.code-scanning.beta-swift-support %}
 
 Code scanning of Swift code uses macOS runners by default. {% ifversion fpt or ghec %}Since {% data variables.product.company_short %}-hosted macOS runners are more expensive than Linux and Windows runners, we recommend that you build only the code that you want to analyze. For more information about pricing for {% data variables.product.company_short %}-hosted runners, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."{% endif %}
 
 Code scanning of Swift code is not supported for runners that are part of an Actions Runner Controller (ARC), but you can have a mixture of both ARC runners and self-hosted macOS runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)."
+
+#### Customizing Swift compilation in a {% data variables.code-scanning.codeql_workflow %}
 
 `xcodebuild` and `swift build` are both supported for Swift builds. We recommend only targeting one architecture during the build. For example, `ARCH=arm64` for `xcodebuild`, or `--arch arm64` for `swift build`.
 
