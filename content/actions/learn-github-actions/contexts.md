@@ -178,7 +178,7 @@ The `github` context contains information about the workflow run and the event t
 | `github.event_path` | `string` | The path to the file on the runner that contains the full event webhook payload. |
 | `github.graphql_url` | `string` | The URL of the {% data variables.product.prodname_dotcom %} GraphQL API. |
 | `github.head_ref` | `string` | The `head_ref` or source branch of the pull request in a workflow run. This property is only available when the event that triggers a workflow run is either `pull_request` or `pull_request_target`. |
-| `github.job` | `string` | The [`job_id`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_id) of the current job. <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |
+| `github.job` | `string` | The [`job_name`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) of the current job. <br /> Note: This context property is set by the Actions runner, and is only available within the execution `steps` of a job. Otherwise, the value of this property will be `null`. |
 {%- ifversion actions-oidc-custom-claims %}
 | `github.job_workflow_sha` | `string` | {% data reusables.actions.job-workflow-sha-description %} |
 {%- endif %}
