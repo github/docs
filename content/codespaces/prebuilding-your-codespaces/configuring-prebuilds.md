@@ -25,7 +25,7 @@ Prebuilds are created using {% data variables.product.prodname_actions %}. As a 
 
 You can set up prebuilds in any repository owned by a personal account. The prebuild will consume storage space that will either incur a billable charge or, for repositories owned by your personal account, will use some of your monthly included storage.
 
-For repositories owned by an organization, you can set up prebuilds if the organization is on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. Additionally, you must have added a payment method and set a spending limit for {% data variables.product.prodname_github_codespaces %} on the organization account or its parent enterprise. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account)" and "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
+For repositories owned by an organization, you can set up prebuilds if the organization is on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. Additionally, you must have added a payment method and set a spending limit for {% data variables.product.prodname_github_codespaces %} on the organization account or its parent enterprise. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-organization-account)" and "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
 ## Configuring prebuilds
 

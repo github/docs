@@ -20,11 +20,18 @@ You can authenticate to the GraphQL API using a {% data variables.product.pat_ge
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
-To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes or permissions you will need. For example, select the "issues:read" permission to read all of the issues in the repos your token has access to.
+To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes {% ifversion pat-v2 %}or permissions {% endif %}you will need.
+
+{% ifversion pat-v2 %}
+For example, select the "issues:read" permission to read all of the issues in the repos your token has access to.
 
 All {% data variables.product.pat_v2 %}s include read access to public repositories. To access public repositories with a {% data variables.product.pat_v1 %}, select the "public_repo" scope.
 
-If your token does not have the required scopes or permissions to access a resource, the API will return an error message that states the scopes or permissions your token needs.
+{% else %}
+For example, select the "read:user" scope to request data about users. Select the "public_repo" scope to request data about public repositories.
+
+{% endif %}
+If your token does not have the required scopes {% ifversion pat-v2 %}or permissions {% endif %}to access a resource, the API will return an error message that states the scopes {% ifversion pat-v2 %}or permissions {% endif %}your token needs.
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 

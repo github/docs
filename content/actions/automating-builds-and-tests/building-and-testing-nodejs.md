@@ -137,20 +137,7 @@ If you don't specify a Node.js version, {% data variables.product.prodname_dotco
 
 ### Example using npm
 
-This example installs the dependencies defined in the _package.json_ file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
-
-```yaml copy
-steps:
-- uses: {% data reusables.actions.action-checkout %}
-- name: Use Node.js
-  uses: {% data reusables.actions.action-setup-node %}
-  with:
-    node-version: '18.x'
-- name: Install dependencies
-  run: npm install
-```
-
-Using `npm ci` installs the versions in the _package-lock.json_ or _npm-shrinkwrap.json_ file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and "[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
+This example installs the versions in the _package-lock.json_ or _npm-shrinkwrap.json_ file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and "[Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable)."
 
 ```yaml copy
 steps:
@@ -163,9 +150,7 @@ steps:
   run: npm ci
 ```
 
-### Example using Yarn
-
-This example installs the dependencies defined in the _package.json_ file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
+Using `npm install` installs the dependencies defined in the _package.json_ file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
 
 ```yaml copy
 steps:
@@ -175,10 +160,12 @@ steps:
   with:
     node-version: '18.x'
 - name: Install dependencies
-  run: yarn
+  run: npm install
 ```
 
-Alternatively, you can pass `--frozen-lockfile` to install the versions in the `yarn.lock` file and prevent updates to the `yarn.lock` file.
+### Example using Yarn
+
+This example installs the dependencies defined in the _yarn.lock_ file and prevents updates to the _yarn.lock_ file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
 
 ```yaml copy
 steps:
@@ -189,6 +176,19 @@ steps:
     node-version: '18.x'
 - name: Install dependencies
   run: yarn --frozen-lockfile
+```
+
+Alternatively, you can install the dependencies defined in the _package.json_ file. 
+
+```yaml copy
+steps:
+- uses: {% data reusables.actions.action-checkout %}
+- name: Use Node.js
+  uses: {% data reusables.actions.action-setup-node %}
+  with:
+    node-version: '18.x'
+- name: Install dependencies
+  run: yarn
 ```
 
 ### Example using a private registry and creating the .npmrc file

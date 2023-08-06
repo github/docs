@@ -40,7 +40,7 @@ For example, this is the correct way to write list items with multiple paragraph
 ```markdown
 1. Under your repository name, click **Actions**.
 
-   ![Actions tab in the main repository navigation](/assets/images/help/repository/actions-tab.png)
+   ![Screenshot of the tabs for the "github/docs" repository. The "Actions" tab is highlighted with an orange outline.](/assets/images/help/repository/actions-tab.png)
 
    This is another paragraph in the list.
 1. This is the next item.
@@ -119,12 +119,12 @@ You can also add a header that includes the name of the language and a button to
 
 ## Octicons
 
-Octicons are icons used across GitHub’s interface. We reference octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific octicons on the [Octicons site](https://primer.style/octicons). 
+Octicons are icons used across GitHub’s interface. We reference octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific octicons on the [Octicons site](https://primer.style/octicons).
 
 If you're referencing an octicon that appears in the UI, identify whether the octicon is the entire label of the UI element (e.g., a button that is labeled only with "+") or whether it's only decorative, in addition to another label (e.g., a button is labeled "+ Add message").
 
  - If the octicon is the entire label, use your browser's developer tools to inspect the octicon and determine what screen reader users will hear instead. Then, use that text for the `aria-label` (e.g., `{% octicon "plus" aria-label="Add file" %}`). Occasionally, in the UI, the octicon itself will not have an `aria-label`, but a surrounding element such as a `<summary>` or `<div>` tag will.
- - If the octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the octicon in the docs as well (e.g., `"{% octicon "plus" aria-hidden="true" %} Add message"`). 
+ - If the octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the octicon in the docs as well (e.g., `"{% octicon "plus" aria-hidden="true" %} Add message"`).
 
 If you're using the octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see [Tables](./content-style-guide.md#use-clear-consistent-symbols-and-labels) in the style guide.
 
@@ -305,7 +305,7 @@ If you create a table where the first column contains headers for the table rows
 | --- | --- |
 | Mona | GitHub mascot |
 | Tom | Mouse antagonist |
-| Hobbes | Best friend | 
+| Hobbes | Best friend |
 ```
 
 ## Tables with codeblocks

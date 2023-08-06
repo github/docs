@@ -26,7 +26,7 @@ export const ArticleInlineLayout = ({
   return (
     <Box className={cx(styles.containerBox, className)}>
       {breadcrumbs && (
-        <Box gridArea="breadcrumbs" className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
+        <Box gridArea="breadcrumbs" className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>
           {breadcrumbs}
         </Box>
       )}

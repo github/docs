@@ -4,6 +4,11 @@ deprecated: false
 intro: |
   For upgrade instructions, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 
+  {% warning %}
+
+  **Warning**: This release contains known issues that can impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.9.0-known-issues)" section of these release notes.
+
+  {% endwarning %}
 sections:
   features:
     - heading: Instance administration
@@ -100,11 +105,11 @@ sections:
         # https://github.com/github/releases/issues/2911
         - |
           On an instance with GitHub Actions and the dependency graph enabled, as well as automatic access to GitHub.com actions using GitHub Connect, the web interface will suggest submission actions within a repository with supported languages. For more information, see the following documentation.
-          
+
           - "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)"
           - "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"
           - "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)"
-          
+
           For repositories that use a language that has a submission action, when users with write access visit their dependency graph (this page), we will show them a prompt that directs them to the Marketplace to find an action that would help them.
 
         # https://github.com/github/releases/issues/3007
@@ -282,7 +287,7 @@ sections:
         - |
           Users of the GraphQL API can revert a merged pull request by using the revertPullRequest mutation. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request)" and "[AUTOTITLE](/graphql/reference/mutations#revertpullrequest)" in the GraphQL API documentation.
 
-  changes: 
+  changes:
     # https://github.com/github/releases/issues/2909
     - |
       Field names for some service logs on GitHub Enterprise Server have changed as part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/). Additional field names will change in upcoming releases. If any tooling or processes in your environment rely on specific field names within logs, or log entries in specific files, the following changes may affect you.
@@ -342,7 +347,7 @@ sections:
       - To provide insight into the number of GitHub Advanced Security licenses used, active committers for the repository are visible. For repositories where GitHub Advanced Security is not enabled, the number indicates the number of licenses required to enable the feature.
       - Unsaved changes are now labeled with a "Modified" tag, and the "Save security settings" button now displays the total number of changes to save.
       - While a security feature is being enabled, the "Security coverage" view shows a status of "Updating..." to inform you of the ongoing process.
-      
+
       For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
 
     # https://github.com/github/releases/issues/2811
@@ -376,7 +381,9 @@ sections:
 
   known_issues:
     - |
-      If you upgrade from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9, the database server on your instance will be upgraded from MySQL 5.7 to MySQL 8.0. I/O utilization will increase as a result, and in some cases this may affect your instance's performance. Do not upgrade to this RC in a production environment, and ensure that you take and verify a backup of the instance before upgrading to the GA release. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
+      After an administrator upgrades from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9, I/O utilization will increase, and in some cases the instance's performance will be impacted. Reduced performance is due to the database server being upgraded from MySQL 5.7 to MySQL 8.0. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
     - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
@@ -402,7 +409,7 @@ sections:
     - |
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |
-      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`. 
+      When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."

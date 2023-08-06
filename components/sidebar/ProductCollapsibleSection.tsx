@@ -18,34 +18,34 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
     const isCurrent = routePath === page.href
 
     return (
-      <Link
-        role="group"
-        id={page.href}
-        href={page.href}
+      <TreeView.Item
+        id={page.href + ' item'}
         key={page.href}
-        className={cx('color-fg-default no-underline', isCurrent ? 'text-bold' : '')}
-        aria-label={page.title + ' link'}
-      >
-        <TreeView.Item
-          id={page.href + ' item'}
-          data-testid="sidebar-article"
-          current={isCurrent}
-          defaultExpanded={isCurrent}
-          onSelect={(e) => {
-            sendEvent({
-              type: EventType.navigate,
-              navigate_label: `product page navigate to: ${page.href}`,
-            })
+        data-testid="sidebar-article"
+        current={isCurrent}
+        defaultExpanded={isCurrent}
+        onSelect={(e) => {
+          sendEvent({
+            type: EventType.navigate,
+            navigate_label: `product page navigate to: ${page.href}`,
+          })
 
-            if (e.nativeEvent instanceof KeyboardEvent && e.nativeEvent.code === 'Enter') {
-              document.getElementById(page.href)?.click()
-              e?.stopPropagation()
-            }
-          }}
+          if (e.nativeEvent instanceof KeyboardEvent && e.nativeEvent.code === 'Enter') {
+            document.getElementById(page.href)?.click()
+            e?.stopPropagation()
+          }
+        }}
+      >
+        <Link
+          role="group"
+          id={page.href}
+          href={page.href}
+          className={cx('color-fg-default no-underline', isCurrent ? 'text-bold' : '')}
+          aria-label={page.title + ' link'}
         >
           {title}
-        </TreeView.Item>
-      </Link>
+        </Link>
+      </TreeView.Item>
     )
   }
 

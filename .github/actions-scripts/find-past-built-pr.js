@@ -25,6 +25,11 @@ async function main() {
     console.log('URL:', issue.html_url)
     number = issue.number
     if (number) {
+      // We've found the issue (pull request), but before we accept
+      // this `number`, check that the issue isn't locked.
+      if (issue.locked) {
+        number = ''
+      }
       break
     }
   }

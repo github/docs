@@ -94,7 +94,7 @@ featuredLinks:
     - '{% ifversion ghes %}/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-server{% endif %}'
     - '{% ifversion ghes %}/admin/installation{% endif %}'
     - '{% ifversion ghae %}/admin/identity-and-access-management/configuring-authentication-and-provisioning-for-your-enterprise-using-azure-ad{% endif %}'
-    - '{% ifversion ghae %}/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise{% endif %}'
+    - '{% ifversion ghae %}/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise{% endif %}'
     - '{% ifversion ghae %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
     - '{% ifversion ghae %}/admin/configuration/configuring-your-enterprise/deploying-github-ae{% endif %}'
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise{% endif %}'
@@ -113,8 +113,10 @@ children:
   - /overview
   - /installation
   - /configuration
+  - /administering-your-instance
   - /identity-and-access-management
-  - /user-management
+  - /managing-accounts-and-repositories
+  - /backing-up-and-restoring-your-instance
   - /policies
   - /monitoring-activity-in-your-enterprise
   - /enterprise-management
@@ -125,4 +127,3 @@ children:
   - /release-notes
   - /all-releases
 ---
-

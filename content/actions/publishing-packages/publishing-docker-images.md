@@ -15,6 +15,7 @@ topics:
   - Packaging
   - Publishing
   - Docker
+layout: inline
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}

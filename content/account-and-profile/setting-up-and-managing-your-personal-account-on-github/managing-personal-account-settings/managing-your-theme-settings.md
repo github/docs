@@ -33,8 +33,6 @@ If you have low vision, you may benefit from a high contrast theme, with greater
 1. Click the theme you'd like to use.
     - If you chose a single theme, click a theme.
 
-      
-
     - If you chose to follow your system settings, click a day theme and a night theme.{% ifversion fpt or ghec %}
     - If you would like to choose a theme which is currently in public beta, you will first need to enable it with feature preview. For more information, see "[AUTOTITLE](/get-started/using-github/exploring-early-access-releases-with-feature-preview)."{% endif %}
 

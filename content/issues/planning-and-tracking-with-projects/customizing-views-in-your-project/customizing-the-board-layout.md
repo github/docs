@@ -75,6 +75,18 @@ You can sort items by a field value.
 
 {% endif %}
 
+{% ifversion projects-v2-swimlanes %}
+
+## Grouping by field values
+
+You can use a custom field value to group items and create horizontal sections on your board. These sections provide an additional way to organize and visually separate items. Additionally, horizontal grouping allows you to differentiate work according to work streams, team members, or varying levels of urgency or priority.
+
+{% data reusables.projects.customize.update-status %}
+
+{% data reusables.projects.customize.group-fields %}
+
+{% endif %}
+
 {% ifversion projects-v2-numeric-summary %}
 
 ## Showing the sum of a number field

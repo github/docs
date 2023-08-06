@@ -52,7 +52,7 @@ To protect your production data, you can configure automated backups of {% data 
 
 ### 8. Managing billing for your enterprise
 
-Billing for all the organizations and {% data variables.product.product_name %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom %}.com services. Enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)."
+Billing for all the organizations and {% data variables.product.product_name %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services. Enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."
 
 ## Part 2: Organizing and managing your team
 

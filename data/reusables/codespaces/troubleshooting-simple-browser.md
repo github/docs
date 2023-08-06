@@ -32,7 +32,7 @@ To implement the port configuration specified in `devcontainer.json`, {% data va
 
 1. Verify that the `settings.json` file contains lines like the following.
 
-   ```
+   ```json
     "remote.portsAttributes": {
         "3000": {
             "label": "Application",

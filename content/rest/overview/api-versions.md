@@ -1,7 +1,7 @@
 ---
 title: API Versions
 shortTitle: API Versions
-intro: You must specify which REST API version to use whenever you make a request to the REST API.
+intro: Learn how to specify which REST API version to use whenever you make a request to the REST API.
 versions:
   feature: api-date-versioning
 ---

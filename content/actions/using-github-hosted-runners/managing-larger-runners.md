@@ -19,7 +19,7 @@ Enterprise owners can add {% data variables.actions.hosted_runner %}s to an ente
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.add-hosted-runner %}
-1. To allow organizations to access your {% data variables.actions.hosted_runner %}s, specify the list of organizations that can use it. For more information, see "[Managing access to your runners](#managing-access-to-your-runners)."
+{% data reusables.actions.org-access-to-github-hosted-runners %}
 
 {% endif %}
 
@@ -37,7 +37,7 @@ You can add a {% data variables.actions.hosted_runner %} to an organization, whe
 
 ## Allowing repositories to access {% data variables.actions.hosted_runner %}s
 
-Repositories are granted access to {% data variables.actions.hosted_runner %}s through runner groups. Enterprise administrators can choose which organizations are granted access to enterprise-level runner groups, and organization administrators control repository-level access to all {% data variables.actions.hosted_runner %}s. Organization administrators can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access. 
+Repositories are granted access to {% data variables.actions.hosted_runner %}s through runner groups. Enterprise administrators can choose which organizations are granted access to enterprise-level runner groups, and organization administrators control repository-level access to all {% data variables.actions.hosted_runner %}s. Organization administrators can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.
 
 - **For enterprise-level runner groups**: {% data reusables.actions.about-enterprise-level-runner-groups %}
 - **For organization-level runner groups**: {% data reusables.actions.about-organization-level-runner-groups %}

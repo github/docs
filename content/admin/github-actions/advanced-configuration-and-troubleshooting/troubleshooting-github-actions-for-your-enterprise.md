@@ -221,7 +221,7 @@ To install the official bundled actions and starter workflows within a designate
     ghe-config app.actions.github-org ORGANIZATION
     ```
 
-1.  To add the bundled actions to your organization, unset the SHA.
+1. To add the bundled actions to your organization, unset the SHA.
 
     ```shell
     ghe-config --unset 'app.actions.actions-repos-sha1sum'
