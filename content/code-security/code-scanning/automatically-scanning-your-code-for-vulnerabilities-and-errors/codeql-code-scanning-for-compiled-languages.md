@@ -82,16 +82,6 @@ If your workflow uses a `language` matrix, `autobuild` attempts to build each of
 
 {% endnote %}
 
-{% ifversion code-scanning-without-workflow-310 %}
-
-If you enable default setup, the `autobuild` action will be used to build your code, as part of your automatically configured {% data variables.code-scanning.codeql_workflow %}. If you enable advanced setup, the basic {% data variables.code-scanning.codeql_workflow %} uses `autobuild`, but you can override this setting.
-
-{% else %}
-
-The basic {% data variables.code-scanning.codeql_workflow %} uses the `autobuild` action to build your code, but you can override this setting.
-
-{% endif %}
-
 ### `autobuild` for C/C++
 
 | Supported system type | System name |
@@ -117,10 +107,8 @@ For self-hosted runners, you will likely need to install the `gcc` compiler, and
 
 | Supported system type | System name |
 |----|----|
-| Operating system | Windows and Linux |
+| Operating system | Windows, macOS, and Linux |
 | Build system | .NET and MSbuild, as well as build scripts |
-
-For .NET Core application development on self-hosted runners, the .NET SDK is required (for `dotnet`). On Windows, you will also need Microsoft Build Tools (for `msbuild`) and Nuget CLI (for `nuget`). On Linux and MacOS, you will require Mono Runtime (to run `mono`, `msbuild`, or `nuget`).
 
 The `autobuild` process attempts to autodetect a suitable build method for C# using the following approach:
 
@@ -128,6 +116,10 @@ The `autobuild` process attempts to autodetect a suitable build method for C# us
 1. Invoke `MSbuild` (Linux) or `MSBuild.exe` (Windows) on the solution or project file closest to the root.
 If `autobuild` detects multiple solution or project files at the same (shortest) depth from the top level directory, it will attempt to build all of them.
 1. Invoke a script that looks like a build script—_build_ and _build.sh_ (in that order, for Linux) or _build.bat_, _build.cmd_, _and build.exe_ (in that order, for Windows).
+
+For .NET Core application development on self-hosted runners, the .NET SDK is required (for `dotnet`).
+
+For .NET Framework application development, on Windows, you will need Microsoft Build Tools (for `msbuild`) and Nuget CLI (for `nuget`). On Linux and macOS, you will require Mono Runtime (to run `mono`, `msbuild`, or `nuget`).
 
 {% ifversion codeql-go-autobuild %}
 
@@ -147,7 +139,7 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 
 {% note %}
 
-**Note:** If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.
+**Note:** If you use default setup, it will look for a `go.mod` file to automatically install a compatible version of the Go language.{% ifversion code-scanning-default-setup-self-hosted-310 %} If you're using a self-hosted runner with default setup that doesn't have internet access, you can manually install a compatible version of Go.{% endif %}
 
 {% endnote %}
 
@@ -159,6 +151,12 @@ The `autobuild` process attempts to autodetect a suitable way to install the dep
 |----|----|
 | Operating system | Windows, macOS, and Linux (no restriction) |
 | Build system | Gradle, Maven and Ant |
+
+The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
+
+1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
+1. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
+1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
 
 If you're using self-hosted runners, the required version(s) of Java should be present:
 
@@ -173,12 +171,6 @@ The following executables will likely be required for a range of Java projects, 
 - `ant` (Apache Ant)
 
 You will also need to install the build system (for example `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
-
-The `autobuild` process tries to determine the build system for Java codebases by applying this strategy:
-
-1. Search for a build file in the root directory. Check for Gradle then Maven then Ant build files.
-1. Run the first build file found. If both Gradle and Maven files are present, the Gradle file is used.
-1. Otherwise, search for build files in direct subdirectories of the root directory. If only one subdirectory contains build files, run the first file identified in that subdirectory (using the same preference as for 1). If more than one subdirectory contains build files, report an error.
 
 {% ifversion codeql-swift-beta %}
 
