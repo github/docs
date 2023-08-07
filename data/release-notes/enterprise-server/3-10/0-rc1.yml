@@ -53,7 +53,7 @@ sections:
 
         # https://github.com/github/releases/issues/2844
         - |
-          To help repository administrators and security managers quickly enable automatic code scanning, default setup for code scanning supports compiled languages including Go, Java, and C. Default setup is now available for all languages supported by CodeQL, except Swift. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages)" and [Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) in the CodeQL documentation.
+          To help repository administrators and security managers quickly enable automatic code scanning without needing to configure a workflow, default setup for code scanning supports compiled languages including Go, Java, and C. Default setup is now available for all languages supported by CodeQL, except Swift. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages)" and [Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/) in the CodeQL documentation.
 
         # https://github.com/github/releases/issues/2843
         - |
