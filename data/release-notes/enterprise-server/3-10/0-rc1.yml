@@ -227,7 +227,7 @@ sections:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
     # https://github.com/github/ghes/issues/6877 - this will be resolved before GA; @davidjarzebowski will create a separate PR to remove it
     - |
-      Promoting a replica with `ghe-repl-promote` gets stuck on `Configuration phase 3`. This will be fixed when version 3.10.0 becomes generally available.
+      When promoting a replica with `ghe-repl-promote`, applying the configuration fails at `Configuration phase 3`. This will be fixed when version 3.10.0 becomes generally available.
     # https://github.com/github/ghes/issues/7048 - this will be resolved before GA; @davidjarzebowski will create a separate PR to remove it
     - |
       Instances running GitHub Enterprise Server 3.9.0 or 3.9.1 cannot upgrade to the 3.10.0 release candidate. The workaround to this issue is to first upgrade to the 3.9.2 patch before upgrading to the 3.10.0 release candidate. This will be fixed when version 3.10.0 goes GA, so that instances running 3.9.0 or 3.9.1 can upgrade to 3.10.0.
