@@ -67,7 +67,7 @@ export function EnabledList({
           })}
         </ul>
       </Fragment>
-    )
+    ),
   )
 
   return (

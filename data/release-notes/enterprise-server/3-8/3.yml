@@ -2,7 +2,7 @@ date: '2023-05-09'
 sections:
   security_fixes:
     - |
-      **MEDIUM**: Updated Git to include fixes from 2.40.1. For more information, see [Git security vulnerabilities announced](https://github.blog/2023-04-25-git-security-vulnerabilities-announced-4/) on the GitHub Blog. 
+      **MEDIUM**: Updated Git to include fixes from 2.40.1. For more information, see [Git security vulnerabilities announced](https://github.blog/2023-04-25-git-security-vulnerabilities-announced-4/) on the GitHub Blog. [Updated: 2023-07-24]
   bugs:
     - Users were unable to upload GIF files as attachments within a comment in an issue or pull request. 
     - |
@@ -26,6 +26,8 @@ sections:
       People with administrative SSH access who generate a support bundle using the `ghe-support-bundle` or `ghe-cluster-support-bundle` utilities can specify the period of time to gather data with `-p` or `--period` without using spaces or quotes. For example, in addition to `'-p 5 days'` or `-p '4 days 10 hours'`,  `-p 5days` or `-p 4days10hours` are valid.
     - After a site administrator exports a migration archive using GitHub Enterprise Importers `gh-migrator` utility, the link to the archive remains accessible for 48 hours instead of one hour. 
   known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
     - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |

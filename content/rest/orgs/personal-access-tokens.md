@@ -2,7 +2,7 @@
 title: Personal access tokens
 shortTitle: Personal access tokens
 intro: 'Use the REST API to manage {% data variables.product.pat_v2 %}s.'
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

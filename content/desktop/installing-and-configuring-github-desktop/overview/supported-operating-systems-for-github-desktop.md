@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/supported-operating-systems
   - /desktop/installing-and-configuring-github-desktop/overview/supported-operating-systems
 versions:
-  fpt: '*'
+  feature: desktop
 shortTitle: Supported OS
 ---
 ## About supported operating systems

@@ -61,7 +61,7 @@ console.warn = console.error = (...args) => {
 // Weird import syntax, but forces it to load after process.env... changes
 const { languageKeys } = await import('../../lib/languages.js')
 const { loadPages, loadPageMap } = await import('../../lib/page-data.js')
-const { precompileRedirects } = await import('../../lib/redirects/precompile.js')
+const { precompileRedirects } = await import('../../src/redirects/lib/precompile.js')
 const { allVersions, allVersionKeys } = await import('../../lib/all-versions.js')
 const { getProductStringFromPath } = await import('../../lib/path-utils.js')
 

@@ -1,7 +1,7 @@
 ---
 title: Repository Webhook Configuration
 intro: Use the REST API to manage the configuration for repository webhooks.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

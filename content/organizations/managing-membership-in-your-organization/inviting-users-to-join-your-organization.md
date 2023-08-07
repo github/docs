@@ -29,7 +29,7 @@ If an invitee's personal account has been flagged, the invitee won't be able to 
 
 {% endnote %}
 
-If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-per-user-pricing)."
+If your organization has a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)."
 
 {% data reusables.organizations.org-invite-scim %}
 

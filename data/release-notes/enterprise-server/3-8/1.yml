@@ -38,6 +38,8 @@ sections:
     - On an instance with a GitHub Advanced Security license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
   known_issues:
     - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
       On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.

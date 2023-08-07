@@ -1,7 +1,7 @@
 @import "@primer/css/support/index.scss";
 
 .codeBlock {
-  overflow: auto;
+  overflow-y: auto;
   margin-bottom: 1rem;
   line-height: 1.45;
   background-color: var(--color-canvas-subtle);
@@ -10,7 +10,6 @@
   code {
     background-color: transparent;
     padding: 8px 8px 16px;
-    white-space: pre;
     max-width: 90vw;
 
     @include breakpoint(lg) {

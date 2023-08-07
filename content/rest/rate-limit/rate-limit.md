@@ -1,7 +1,7 @@
 ---
 title: Rate limit
 intro: Use the REST API to check your current rate limit status.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -29,11 +29,11 @@ The REST API for searching items has a custom rate limit that is separate from t
 
 - The `integration_manifest` object provides your rate limit status for the `POST /app-manifests/{code}/conversions` operation. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest#3-you-exchange-the-temporary-code-to-retrieve-the-app-configuration)."
 
-{% ifversion fpt or ghec or ghes > 3.5 %}* The `dependency_snapshots` object provides your rate limit status for submitting snapshots to the dependency graph. For more information, see "[AUTOTITLE](/rest/dependency-graph)."{% endif %}
+{% ifversion fpt or ghec or ghes %}* The `dependency_snapshots` object provides your rate limit status for submitting snapshots to the dependency graph. For more information, see "[AUTOTITLE](/rest/dependency-graph)."{% endif %}
 
 - The `code_scanning_upload` object provides your rate limit status for uploading SARIF results to code scanning. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
 
-* The `actions_runner_registration` object provides your rate limit status for registering self-hosted runners in {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
+- The `actions_runner_registration` object provides your rate limit status for registering self-hosted runners in {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
 
 For more information on the headers and values in the rate limit response, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limit-http-headers)."
 

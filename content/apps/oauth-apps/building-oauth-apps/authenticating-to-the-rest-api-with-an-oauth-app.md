@@ -158,7 +158,7 @@ checked for those as well.
 Also, since there's a hierarchical relationship between scopes, you should
 check if you were granted any higher levels of the required scope. For example,
 if the application had asked for `user` scope, it won't have been granted explicitly the
-`user:email` scope. In that case, it would recieve a token with the `user` scope, which 
+`user:email` scope. In that case, it would receive a token with the `user` scope, which 
 would work for requesting the user's email address, even though it doesn't explicitly include
 `user:email` on the token. Checking for both `user` and `user:email` ensures that you 
 check for both scenarios. 

@@ -26,8 +26,8 @@ shortTitle: Audit log events
 | Action | Description
 |------------------|-------------------
 | `billing_plan_change` | Triggered when an organization's [billing cycle](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle) changes.
-| `plan_change` | Triggered when an organization's [subscription](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) changes.
-| `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process).
+| `plan_change` | Triggered when an organization's [plan](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans) changes.
+| `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process).
 | `pending_subscription_change` | Triggered when a [{% data variables.product.prodname_marketplace %} free trial starts or expires](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
 {% endif %}
 
@@ -318,8 +318,8 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `audit_log_export` | Triggered when an organization admin [creates an export of the organization audit log](#exporting-the-audit-log). If the export included a query, the log will list the query used and the number of audit log entries matching that query.
 | `block_user` | Triggered when an organization owner [blocks a user from accessing the organization's repositories](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization).
 | `cancel_invitation` | Triggered when an organization invitation has been revoked. {% endif %}{% ifversion org-enable-code-scanning %}
-| `codeql_disabled` | Triggered when an organization owner or person with admin access to the organization disables {% data variables.product.prodname_code_scanning %} for repositories that use the default setup for {% data variables.product.prodname_codeql %}.
-| `codeql_enabled` | Triggered when an organization owner or person with admin access to the organization enables {% data variables.product.prodname_code_scanning %} for repositories that are eligible to use the default setup for {% data variables.product.prodname_codeql %}. {% endif %}{% ifversion fpt or ghes or ghec %}
+| `codeql_disabled` | Triggered when an organization owner or person with admin access to the organization disables {% data variables.product.prodname_code_scanning %} for repositories that use default setup for {% data variables.product.prodname_codeql %}.
+| `codeql_enabled` | Triggered when an organization owner or person with admin access to the organization enables {% data variables.product.prodname_code_scanning %} for repositories that are eligible to use default setup for {% data variables.product.prodname_codeql %}. {% endif %}{% ifversion fpt or ghes or ghec %}
 | `create_actions_secret` | Triggered when a {% data variables.product.prodname_actions %} secret is created for an organization. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)."{% endif %} {% ifversion fpt or ghec %}
 | `disable_oauth_app_restrictions` | Triggered when an owner [disables {% data variables.product.prodname_oauth_app %} access restrictions](/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization) for your organization.{% ifversion ghec %}
 | `disable_saml` | Triggered when an organization admin disables SAML single sign-on for an organization.{% endif %}{% endif %}{% ifversion display-ip-org-audit-log %}
@@ -639,8 +639,8 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |------------------|-------------------
-| `disable` | Triggered when a repository owner or person with admin access to the repository disables {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_secret_scanning %} for a repository.
+| `disable` | Triggered when a repository owner or person with admin access to the repository disables {% data variables.product.prodname_secret_scanning %} push protection for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_secret_scanning %} push protection for a repository.
 
 {% endif %}
 

@@ -8,6 +8,8 @@ For new users, code annotations are a way to go beyond the high level overview o
 
 For more experienced users, code annotations can help them understand a code example and then tailor it to their specific needs. Annotations can explain why code was written a certain way so that the fundamentals are clear.
 
+You can annotate multiple code examples in a single article, but keep in mind that each annotation increases the complexity of an article and adds repetitive navigation tasks for people using screen readers. If you have multiple code examples in an article, consider whether they can be combined into a single example.
+
 ## Enabling and adding code annotations
 
 1. Specify the `layout: inline` frontmatter property for the article.
@@ -32,7 +34,7 @@ Within code sample annotations:
 - Multiple sequential comments will create a single annotation.
 - Lines that do not start with a comment tag and are empty or only contain spaces will be ignored.
 - You must start the code section with a single line comment. If the first line (or section) of the code does not need an annotation, you can use a comment tag with no text to create a blank annotation.
-- For HTML style, you can include a closing tag, `<!-- -->`, after your annotations to maintain syntax highlighting; this will not impact how the annotations render.
+- For HTML style, you should include a closing tag, `<!-- -->`, after your annotations to maintain syntax highlighting.
 
 ## Writing code annotations
 

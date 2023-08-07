@@ -20,8 +20,17 @@ const pages = await loadPages()
 const getDataPathRegex =
   /{%\s*?(?:data|indented_data_reference)\s+?(\S+?)\s*?(?:spaces=\d\d?\s*?)?%}/
 
+const rawLiquidPattern = /{%\s*raw\s*%}.*?{%\s*endraw\s*%}/gs
+
 const getDataReferences = (content) => {
-  const refs = content.match(patterns.dataReference) || []
+  // When looking for things like `{% data reusables.foo %}` in the
+  // content, we first have to exclude any Liquid that isn't real.
+  // E.g.
+  //   {% raw %}
+  //     Here's an example: {% data reusables.foo.bar %}
+  //  {% endraw %}
+  const withoutRawLiquidBlocks = content.replace(rawLiquidPattern, '')
+  const refs = withoutRawLiquidBlocks.match(patterns.dataReference) || []
   return refs.map((ref) => ref.replace(getDataPathRegex, '$1'))
 }
 
@@ -63,7 +72,7 @@ describe('data references', () => {
           const value = getDataByLanguage(key, 'en')
           if (typeof value !== 'string') errors.push({ key, value, metadataFile })
         })
-      })
+      }),
     )
 
     errors = uniqWith(errors, isEqual) // remove duplicates
@@ -85,12 +94,12 @@ describe('data references', () => {
           if (typeof value !== 'string') {
             const reusableFile = path.join(
               'data/reusables',
-              getFilenameByValue(allReusables, reusablesPerFile)
+              getFilenameByValue(allReusables, reusablesPerFile),
             )
             errors.push({ key, value, reusableFile })
           }
         })
-      })
+      }),
     )
 
     errors = uniqWith(errors, isEqual) // remove duplicates
@@ -112,12 +121,12 @@ describe('data references', () => {
           if (typeof value !== 'string') {
             const variableFile = path.join(
               'data/variables',
-              getFilenameByValue(allVariables, variablesPerFile)
+              getFilenameByValue(allVariables, variablesPerFile),
             )
             errors.push({ key, value, variableFile })
           }
         })
-      })
+      }),
     )
 
     errors = uniqWith(errors, isEqual) // remove duplicates

@@ -8,7 +8,7 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 ## About authentication
 

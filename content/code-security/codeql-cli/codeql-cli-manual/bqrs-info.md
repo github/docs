@@ -1,6 +1,6 @@
 ---
 title: bqrs info
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -56,7 +56,7 @@ Select output format, either `text` _(default)_ or `json`.
 
 \[Advanced] When given together with `--format=json`, compute a table
 of byte offsets that can later be given to the `--start-at` option of
-[codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode), to start streaming results at positions 0, *\<num>*, 2\**\<num>*, and so
+[codeql bqrs decode](/code-security/codeql-cli/codeql-cli-manual/bqrs-decode), to start streaming results at positions `0, <num>, 2*<num>` and so
 forth.
 
 #### `--paginate-result-set=<name>`

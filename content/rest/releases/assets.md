@@ -1,7 +1,7 @@
 ---
 title: Release Assets
 intro: Use the REST API to manage release assets.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

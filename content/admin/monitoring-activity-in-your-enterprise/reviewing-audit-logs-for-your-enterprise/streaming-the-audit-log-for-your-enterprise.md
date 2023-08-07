@@ -4,7 +4,6 @@ intro: 'You can stream audit and Git events data from {% data variables.product.
 versions:
   feature: audit-log-streaming
   ghec: '*'
-  ghes: '>=3.9'
 type: tutorial
 topics:
   - Auditing
@@ -229,6 +228,10 @@ To set up streaming to Google Cloud Storage, you must create a service account i
 
 To stream audit logs to Splunk's HTTP Event Collector (HEC) endpoint you must make sure that the endpoint is configured to accept HTTPS connections. For more information, see [Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) in the Splunk documentation.
 
+{% ifversion ghec %}
+To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the HEC endpoint, you can use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. For more information, see "[Meta](/rest/meta/meta#get-github-enterprise-cloud-meta-information)" in the REST API documentation.
+{% endif %}
+
 {% data reusables.enterprise.navigate-to-log-streaming-tab %}
 1. Select the **Configure stream** dropdown menu and click **Splunk**.
 
@@ -278,7 +281,7 @@ When the application is ready to receive audit logs again, click **Resume stream
 
 1. A confirmation message is displayed. Click **Delete stream** to confirm.
 
-{% ifversion ghec %}
+{% ifversion audit-log-streaming-for-api %}
 
 ## Enabling audit log streaming of API requests
 
@@ -293,4 +296,6 @@ When the application is ready to receive audit logs again, click **Resume stream
 {% data reusables.enterprise-accounts.audit-log-tab %}
 1. Under "Audit log", click **Settings**.
 1. Under "API Requests", select **Enable API Request Events**.
-1. {% endif %}
+1. Click **Save**.
+
+{% endif %}

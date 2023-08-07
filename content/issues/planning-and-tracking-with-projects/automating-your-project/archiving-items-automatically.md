@@ -15,7 +15,6 @@ topics:
 
 {% endif %}
 
-
 ## About automatically archiving items
 
 You can configure your project's built-in workflows to automatically archive items. Archiving items will help you stay below the limit of {% data variables.projects.item_limit %} items in each project.

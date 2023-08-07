@@ -39,11 +39,11 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Purge Fastly edge cache independent of language
-        if: ${{ github.event.inputs.nuke_all }}
+        if: ${{ inputs.nuke_all }}
         run: .github/actions-scripts/purge-fastly-edge-cache.js
 
       - name: Purge Fastly edge cache per language
-        if: ${{ !github.event.inputs.nuke_all }}
+        if: ${{ !inputs.nuke_all }}
         env:
-          LANGUAGES: ${{ github.event.inputs.languages }}
+          LANGUAGES: ${{ inputs.languages }}
         run: .github/actions-scripts/purge-fastly-edge-cache-per-language.js

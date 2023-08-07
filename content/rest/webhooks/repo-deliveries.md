@@ -1,7 +1,7 @@
 ---
 title: Repository Webhook Deliveries
 intro: Use the REST API interact with deliveries of repository webhooks.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
