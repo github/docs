@@ -254,7 +254,7 @@ sections:
         # https://github.com/github/releases/issues/2610
         # https://github.com/github/releases/issues/2626
         - |
-          Repository administrators can ensure the security and stability of branches by requiring pull request approval by someone other than the last pusher, or by locking the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#about-branch-protection-settings)."
+          Repository administrators can ensure the security and stability of branches by locking the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#lock-branch)."
 
         # https://github.com/github/releases/issues/2666
         - |
