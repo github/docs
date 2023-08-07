@@ -833,7 +833,7 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 {% warning %}
 
-**Warning:** Make sure the delimiter you're using cannot occur on its own line in the value. If the value is completely arbitrary then don't use this format at all. Write to a separate file instead.
+**Warning:** Make sure the delimiter you're using won't occur on a line of its own within the value. If the value is completely arbitrary then you shouldn't use this format. Write the value to a file instead.
 
 {% endwarning %}
 
