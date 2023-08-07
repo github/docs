@@ -39,12 +39,6 @@ sections:
           - Organization and enterprise owners can enable or disable the use of fine-grained personal access tokens in organization-owned repositories, and can use the REST API or GraphQL API to manage tokens in their organizations.
           - Users creating fine-grained tokens for an organization can add the `pre-receive hooks` permission to allow managing pre-receive hooks. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-the-github-enterprise-server-appliance)."
 
-    - heading: Policies
-      notes:
-        # https://github.com/github/releases/issues/2610
-        - |
-          Repository administrators can ensure the security and stability of branches by requiring pull request approval by someone other than the last pusher. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)."
-
     - heading: GitHub Advanced Security
       notes:
         # https://github.com/github/releases/issues/2798
@@ -154,6 +148,10 @@ sections:
         # https://github.com/github/releases/issues/3226
         - |
           To prevent unnecessary repository removal, the API for managing the repositories accessible by a GitHub App in your organization has been updated to fail early if the application is currently granted access to `all` repositories in the organization. This API can only be used to remove a repository when the application has been granted access to an explicit list of repositories. For more information, see "[AUTOTITLE](/rest/apps/installations#remove-a-repository-from-an-app-installation)."
+
+        # https://github.com/github/releases/issues/2610
+        - |
+          Repository administrators can ensure the security and stability of branches by requiring pull request approval by someone other than the last pusher. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)."
 
     - heading: Projects
       notes:
