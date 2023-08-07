@@ -228,11 +228,13 @@ sections:
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
     - |
+      We are aware of a known issue with `ghe-repl-promote` getting stuck on `Configuration phase 3`. This will be fixed when version 3.10 goes GA.
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      The GitHub Packages npm registry no longer returns a time value in metadata responses. This was done to allow for substantial performance improvements. We continue to have all the data necessary to return a time value as part of the metadata response and will resume returning this value in the future once we have solved the existing performance issues.
+    - |
       {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
-    - |
-      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
-    - |
-      When enabling CodeQL via default setup at scale, some checks related to GitHub Actions are omitted, potentially preventing the process from completing. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale)."
 
   deprecations:
     # https://github.com/github/releases/issues/2605
