@@ -4,6 +4,7 @@ intro: 'GitHub Actions and CircleCI share several similarities in configuration,
 redirect_from:
   - /actions/learn-github-actions/migrating-from-circleci-to-github-actions
   - /actions/migrating-to-github-actions/migrating-from-circleci-to-github-actions
+  - /actions/migrating-to-github-actions/manual-migrations/migrating-from-circleci-to-github-actions
 versions:
   fpt: '*'
   ghes: '*'

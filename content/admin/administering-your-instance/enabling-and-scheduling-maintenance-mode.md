@@ -49,11 +49,12 @@ You can perform initial validation of your maintenance operation by configuring 
 1. In the top navigation bar, click **Maintenance**.
 
    ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Maintenance", is highlighted with an orange outline.](/assets/images/enterprise/management-console/maintenance-tab.png)
-1. Under "Enable and schedule", select **Enable maintenance mode**, then decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
+1. Under "Enable and schedule", {% ifversion custom-maintenance-mode-message %}select **Enable maintenance mode**, then {% endif %}decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
     - To enable maintenance mode immediately, select the dropdown menu and click **now**.
     - To schedule a maintenance window for a future time, select the dropdown menu and click a start time.
 {% data reusables.enterprise_management_console.custom-maintenance-message %}
-{% data reusables.enterprise_management_console.save-settings %}
+{% ifversion custom-maintenance-mode-message %}1. When you're satisfied with the timing of the window and the optional message, click **Save**. If you selected "now", your instance will be put into maintenance mode immediately.
+{% else %}1. When you're satisfied with the timing of the window, select the checkbox next to "Enable maintenance mode". If you selected "now", your instance will be put into maintenance mode immediately.{% endif %}
 
 {% ifversion ip-exception-list %}
 

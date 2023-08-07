@@ -13,6 +13,7 @@ topics:
   - Advanced Security
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
+layout: inline # The supported secrets table expands with a11y options, this allows the page more room
 ---
 
 {% data reusables.secret-scanning.beta %}

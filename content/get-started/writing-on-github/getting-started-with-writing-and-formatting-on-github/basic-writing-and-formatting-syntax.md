@@ -16,7 +16,7 @@ shortTitle: Basic formatting syntax
 
 To create a heading, add one to six <kbd>#</kbd> symbols before your heading text. The number of <kbd>#</kbd> you use will determine the hierarchy level and typeface size of the heading.
 
-```markdown
+```
 # A first-level heading
 ## A second-level heading
 ### A third-level heading
@@ -39,8 +39,8 @@ You can indicate emphasis with bold, italic, strikethrough, subscript, or supers
 | Strikethrough | `~~ ~~` | None | `~~This was mistaken text~~` | ~~This was mistaken text~~ |
 | Bold and nested italic | `** **` and `_ _` | None | `**This text is _extremely_ important**` | **This text is _extremely_ important** |
 | All bold and italic | `*** ***` | None | `***All this text is important***` | ***All this text is important*** |
-| Subscript | `<sub> </sub>` | None | `<sub>This is a subscript text</sub>` | <sub>This is a subscript text</sub> |
-| Superscript | `<sup> </sup>` | None | `<sup>This is a superscript text</sup>` | <sup>This is a superscript text</sup> |
+| Subscript | `<sub> </sub>` | None | `This is a <sub>subscript</sub> text` | This is a <sub>subscript</sub> text |
+| Superscript | `<sup> </sup>` | None | `This is a <sup>superscript</sup> text` | This is a <sup>superscript</sup> text |
 
 ## Quoting text
 
@@ -56,11 +56,11 @@ Quoted text is indented, with a different type color.
 
 ![Screenshot of rendered GitHub Markdown showing sample quoted text. The quote is indented with a vertical line on the left, and its text is dark gray rather than black.](/assets/images/help/writing/quoted-text-rendered.png)
 
-{% tip %}
+{% note %}
 
-**Tip:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
+**Note:** When viewing a conversation, you can automatically quote text in a comment by highlighting the text, then typing <kbd>R</kbd>. You can quote an entire comment by clicking {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then **Quote reply**. For more information about keyboard shortcuts, see "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts)."
 
-{% endtip %}
+{% endnote %}
 
 ## Quoting code
 
@@ -126,11 +126,11 @@ You can also create a Markdown hyperlink by highlighting the text and using the 
 
 ![Screenshot of rendered GitHub Markdown showing how text within brackets, "GitHub Pages," appears as a blue hyperlink.](/assets/images/help/writing/link-rendered.png)
 
-{% tip %}
+{% note %}
 
-**Tip:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)."
+**Note:** {% data variables.product.product_name %} automatically creates links when valid URLs are written in a comment. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)."
 
-{% endtip %}
+{% endnote %}
 
 ## Section links
 
@@ -150,11 +150,11 @@ You can display an image by adding <kbd>!</kbd> and wrapping the alt text in `[ 
 
 {% data variables.product.product_name %} supports embedding images into your issues, pull requests{% ifversion fpt or ghec %}, discussions{% endif %}, comments  and `.md` files. You can display an image from your repository, add a link to an online image, or upload an image. For more information, see "[Uploading assets](#uploading-assets)."
 
-{% tip %}
+{% note %}
 
-**Tip:** When you want to display an image that is in your repository, use relative links instead of absolute links.
+**Note:** When you want to display an image that is in your repository, use relative links instead of absolute links.
 
-{% endtip %}
+{% endnote %}
 
 Here are some examples for using relative links to display an image.
 
@@ -218,11 +218,11 @@ To create a nested list using the web editor on {% data variables.product.produc
      - Second nested list item
 ```
 
-{% tip %}
+{% note %}
 
 **Note**: In the web-based editor, you can indent or dedent one or more lines of text by first highlighting the desired lines and then using <kbd>Tab</kbd> or <kbd>Shift</kbd>+<kbd>Tab</kbd> respectively.
 
-{% endtip %}
+{% endnote %}
 
 ![Screenshot of Markdown in Visual Studio Code showing how indented bullets align vertically with the first letter of the text lines above them.](/assets/images/help/writing/nested-list-alignment.png)
 
@@ -329,13 +329,46 @@ The footnote will render like this:
 
 ![Screenshot of rendered Markdown showing superscript numbers used to indicate footnotes, along with optional line breaks inside a note.](/assets/images/help/writing/footnote-rendered.png)
 
-{% tip %}
+{% note %}
 
 **Note**: The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown.
 
 Footnotes are not supported in wikis.
 
-{% endtip %}
+{% endnote %}
+
+{% ifversion markdown-alerts %}
+
+## Alerts
+
+{% note %}
+
+**Note**: The syntax used during the beta testing period is now deprecated and will be removed. You can use the syntax as described in this section.
+
+{% endnote %}
+
+Alerts are an extension of Markdown used to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
+
+We recommend restricting the use of alerts to one or two per article to avoid overloading the reader. Consecutive notes should be avoided.
+
+There are three types of alerts available.
+
+```
+> [!NOTE]
+> Highlights information that users should take into account, even when skimming.
+
+> [!IMPORTANT]
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]
+> Critical content demanding immediate user attention due to potential risks.
+```
+
+Here are the rendered alerts.
+
+![Screenshot of rendered Markdown showing how alerts render as colored boxes with icons.](/assets/images/help/writing/alerts-rendered.png)
+
+{% endif %}
 
 ## Hiding content with comments
 
@@ -355,11 +388,11 @@ You can tell {% data variables.product.product_name %} to ignore (or escape) Mar
 
 For more information on backslashes, see Daring Fireball's "[Markdown Syntax](https://daringfireball.net/projects/markdown/syntax#backslash)."
 
-{% tip %}
+{% note %}
 
 **Note**: The Markdown formatting will not be ignored in the title of an issue or a pull request.
 
-{% endtip %}
+{% endnote %}
 
 ## Disabling Markdown rendering
 

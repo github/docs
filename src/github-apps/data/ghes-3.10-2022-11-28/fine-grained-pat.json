@@ -193,6 +193,12 @@
       "requestPath": "/orgs/{org}/actions/runners/downloads"
     },
     {
+      "slug": "create-configuration-for-a-just-in-time-runner-for-an-organization",
+      "subcategory": "self-hosted-runners",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/actions/runners/generate-jitconfig"
+    },
+    {
       "slug": "create-a-registration-token-for-an-organization",
       "subcategory": "self-hosted-runners",
       "verb": "post",
@@ -509,6 +515,12 @@
       "subcategory": "self-hosted-runners",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/actions/runners/downloads"
+    },
+    {
+      "slug": "create-configuration-for-a-just-in-time-runner-for-a-repository",
+      "subcategory": "self-hosted-runners",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/actions/runners/generate-jitconfig"
     },
     {
       "slug": "create-a-registration-token-for-a-repository",
@@ -1761,6 +1773,30 @@
       "subcategory": "branch-policies",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment-branch-policies/{branch_policy_id}"
+    },
+    {
+      "slug": "get-all-deployment-protection-rules-for-an-environment",
+      "subcategory": "protection-rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules"
+    },
+    {
+      "slug": "create-a-custom-deployment-protection-rule-on-an-environment",
+      "subcategory": "protection-rules",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules"
+    },
+    {
+      "slug": "list-custom-deployment-rule-integrations-available-for-an-environment",
+      "subcategory": "protection-rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps"
+    },
+    {
+      "slug": "disable-a-custom-protection-rule-for-an-environment",
+      "subcategory": "protection-rules",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/{protection_rule_id}"
     }
   ],
   "emojis": [
@@ -3417,6 +3453,12 @@
       "subcategory": "autolinks",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}"
+    },
+    {
+      "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/automated-security-fixes"
     },
     {
       "slug": "list-codeowners-errors",

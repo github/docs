@@ -137,6 +137,9 @@ To use {% data variables.product.company_short %}-hosted runners with Azure VNET
 - Create an Azure VNET or use an existing one
 - Configure your Azure subscription
 - Grant {% data variables.product.prodname_actions %} access
+- Register the resource provider
+- Delegate the subnet
+- Create a network settings resource in Azure
 - Configure a private network in your {% data variables.product.company_short %} account settings
 - Enable the {% data variables.product.prodname_actions %} service
 - Create a VNET-injected runner group
@@ -153,12 +156,11 @@ Before configuring {% data variables.product.prodname_actions %} for VNET-inject
 
 {% endnote %}
 
-
 ### Granting {% data variables.product.prodname_actions %} access
 
 {% note %}
 
-**Note:**  Azure Firewall or other Azure integrated security systems like ZScaler must not conflict with the NSG rules.
+**Note:** Azure Firewall or other Azure integrated security systems like ZScaler must not conflict with the NSG rules.
 
 {% endnote %}
 
@@ -300,46 +302,58 @@ To grant {% data variables.product.prodname_actions %} access, you can use {% da
 
 1. Delegate the subnet to the `GitHub.Network/NetworkSettings` resource type. For more information, see [Add or remove a subnet delegation](https://learn.microsoft.com/en-us/azure/virtual-network/manage-subnet-delegation?tabs=manage-subnet-delegation-portal) in the Azure documentation.
 
-### Creating a network settings resource
+### Creating a network settings resource in Azure
 
-1. Create a network settings resource in Azure.
+1. Use the following GraphQL query to retrieve your enterprise `databaseId`. The enterprise `databaseId` is an integer you will use in the next step. For more information on working with GraphQL, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
 
-   1. Save the following template in a file named `networkSettingsPayload.json`.
-
-     ```json copy
+   ```graphql
+   query(
+     $slug: String!
+   ){
+     enterprise (slug: $slug)
      {
-       "location": "AZURE_REGION",
-       "properties": {
-       "subnetId": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/  providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME",
-         "organizationId": "GITHUB_ORGANIZATION_ID"
-       }
+       slug
+       databaseId
      }
-     ```
+   }
 
-   1. Use the following command in the Azure CLI to create a network settings resource in Azure. For more information, see [Azure Command-Line Interface (CLI) documentation](https://learn.microsoft.com/en-us/cli/azure/) in the Azure documentation.
+   ```
 
-     ```shell copy
-     az resource create -g RESOURCE_GROUP_NAME -n RESOURCE_NAME --resource-type GitHub.  Network/networkSettings --properties @networkSettingsPayload.json
-     ```
+{% indented_data_reference reusables.enterprise_migrations.retreive-enterprise-id-graphql spaces=3 %}
 
-     The command will return the full payload for the created resource. The following is an example of a portion of the full payload. Note the `GitHubId` hash value. You will use this value to configure your {% data variables.product.company_short %}   settings.
+1. Save the following template in a file named `networkSettingsPayload.json`. Replace `DATABASE_ID` with the enterprise `databaseId` integer you retrieved using GraphQL in the previous step.
 
-     {% note %}
+   ```json copy
+   {
+     "subnetId": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME",
+     "organizationId": "DATABASE_ID"
+   }
+   ```
 
-     **Note:** The `GitHubId` hash value returned in the payload for the created resource is the network settings resource ID you will use in the next steps while configuring VNET settings with {% data variables.product.company_short %}.
+1. Use the following command in the Azure CLI to create a network settings resource in Azure. For more information, see [Azure Command-Line Interface (CLI) documentation](https://learn.microsoft.com/en-us/cli/azure/) in the Azure documentation.
 
-     {% endnote %}
+   ```shell copy
+   az resource create -g RESOURCE_GROUP_NAME -n RESOURCE_NAME --resource-type GitHub.Network/networkSettings --properties @networkSettingsPayload.json
+   ```
 
-     ```json
-     {
-       "id": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/  GitHub.Network/networkSettings/RESOURCE_NAME",
-       "name": "RESOURCE_NAME",
-       "type": "github.network/networksettings",
-       "tags": {
-         "GitHubId": "00000000000000000000000000000000000"
-       },
+   The command will return the full payload for the created resource. The following is an example of a portion of the full payload.
+
+   {% note %}
+
+   **Note:** The `GitHubId` hash value returned in the payload for the created resource is the network settings resource ID you will use in the next steps while configuring VNET settings with {% data variables.product.company_short %}.
+
+   {% endnote %}
+
+   ```json
+   {
+     "id": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/GitHub.Network/networkSettings/RESOURCE_NAME",
+     "name": "RESOURCE_NAME",
+     "type": "github.network/networksettings",
+     "tags": {
+       "GitHubId": "00000000000000000000000000000000000"
      }
-     ```
+   }
+   ```
 
 ### Configuring VNET settings with {% data variables.product.company_short %}
 
