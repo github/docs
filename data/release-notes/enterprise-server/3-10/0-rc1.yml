@@ -230,7 +230,7 @@ sections:
       When promoting a replica with `ghe-repl-promote`, applying the configuration fails at `Configuration phase 3`. This will be fixed when version 3.10.0 becomes generally available.
     # https://github.com/github/ghes/issues/7048 - this will be resolved before GA; @davidjarzebowski will create a separate PR to remove it
     - |
-      Instances running GitHub Enterprise Server 3.9.0 or 3.9.1 cannot upgrade to the 3.10.0 release candidate. The workaround to this issue is to first upgrade to the 3.9.2 patch before upgrading to the 3.10.0 release candidate. This will be fixed when version 3.10.0 goes GA, so that instances running 3.9.0 or 3.9.1 can upgrade to 3.10.0.
+      Instances running GitHub Enterprise Server 3.9.0 or 3.9.1 cannot upgrade to the 3.10.0 release candidate. The workaround to this issue is to first upgrade to the 3.9.2 patch before upgrading to the 3.10.0 release candidate. This will be fixed when version 3.10.0 becomes generally available, so that instances running 3.9.0 or 3.9.1 can upgrade to 3.10.0.
     # https://github.com/github/mEAO/issues/1276 - this will be resolved before GA; @davidjarzebowski will create a separate PR to remove it
     - |
       On an instance with GitHub Connect and unified search enabled, users will receive a `500` error after performing a GitHub.com search then selecting Advanced search. This will be fixed when GitHub Enterprise Server 3.10.0 is generally available.
