@@ -20,6 +20,7 @@ permissions:
   id-token: write # This is required for requesting the JWT
 ```
 
+{% ifversion restricted-permissions-oidc %}
 You may need to specify additional permissions here, depending on your workflow's requirements.
 
 For reusable workflows that are owned by the same user, organization, or enterprise as the caller workflow, the OIDC token generated in the reusable workflow can be accessed from the caller's context. 
@@ -27,3 +28,4 @@ For reusable workflows outside your enterprise or organization, the `permissions
 This ensures that the OIDC token generated in the reusable workflow is only allowed to be consumed in the caller workflows when intended.
 
 For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+{% endif %}

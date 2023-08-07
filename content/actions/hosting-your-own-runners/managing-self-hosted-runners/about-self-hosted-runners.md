@@ -173,7 +173,7 @@ You must ensure that the machine has the appropriate network access to communica
 
 **Needed for essential operations:**
 
-```
+```shell copy
 github.com
 api.github.com
 *.actions.githubusercontent.com
@@ -181,20 +181,20 @@ api.github.com
 
 **Needed for downloading actions:**
 
-```
+```shell copy
 codeload.github.com
 ```
 
 **Needed for uploading/downloading job summaries and logs**
 
-```
+```shell copy
 actions-results-receiver-production.githubapp.com
 productionresultssa*.blob.core.windows.net
 ```
 
 **Needed for runner version updates:**
 
-```
+```shell copy
 objects.githubusercontent.com
 objects-origin.githubusercontent.com
 github-releases.githubusercontent.com
@@ -203,19 +203,19 @@ github-registry-files.githubusercontent.com
 
 **Needed for uploading/downloading caches and workflow artifacts:**
 
-```
+```shell copy
 *.blob.core.windows.net
 ```
 
 **Needed for retrieving OIDC tokens:**
 
-```
+```shell copy
 *.actions.githubusercontent.com
 ```
 
 **Needed for downloading or publishing packages or containers to {% data variables.product.prodname_dotcom %} Packages:**
 
-```
+```shell copy
 *.pkg.github.com
 ghcr.io
 ```
@@ -246,7 +246,7 @@ Self-hosted runners do not need to connect to {% data variables.product.prodname
 
 If you have enabled automatic access to {% data variables.product.prodname_dotcom_the_website %} actions, then the self-hosted runner will connect directly to {% data variables.product.prodname_dotcom_the_website %} to download actions. You must ensure that the machine has the appropriate network access to communicate with the {% data variables.product.prodname_dotcom %} URLs listed below.
 
-```
+```shell copy
 github.com
 api.github.com
 codeload.github.com

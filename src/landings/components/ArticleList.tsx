@@ -54,13 +54,14 @@ export const ArticleList = ({
                   borderRadius: 0,
                 },
               }}
+              tabIndex={undefined}
             >
               <BumpLink
                 as={Link}
                 href={link.href}
                 className="py-3"
                 title={
-                  !link.hideIntro && link.intro ? (
+                  link.intro ? (
                     <h3 className="f4" data-testid="link-with-intro-title">
                       <span>{link.fullTitle ? link.fullTitle : link.title}</span>
                     </h3>
@@ -71,7 +72,7 @@ export const ArticleList = ({
                   )
                 }
               >
-                {!link.hideIntro && link.intro && (
+                {link.intro && (
                   <TruncateLines as="p" maxLines={2} className="color-fg-muted mb-0 mt-1">
                     <span data-testid="link-with-intro-intro">{link.intro}</span>
                   </TruncateLines>

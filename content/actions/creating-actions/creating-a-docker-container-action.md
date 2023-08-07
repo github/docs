@@ -124,10 +124,9 @@ Next, the script gets the current time and sets it as an output variable that ac
 {%- else %}
    echo "::set-output name=time::$time"
 {%- endif %}
-
    ```
-   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
 
+   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
 
 1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
@@ -259,3 +258,11 @@ jobs:
 ```
 
 {% data reusables.actions.test-private-action-example %}
+
+## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}
+
+You can find many examples of Docker container actions on {% data variables.product.prodname_dotcom_the_website %}.
+
+- [github/issue-metrics](https://github.com/github/issue-metrics)
+- [microsoft/infersharpaction](https://github.com/microsoft/infersharpaction)
+- [microsoft/ps-docs](https://github.com/microsoft/ps-docs)

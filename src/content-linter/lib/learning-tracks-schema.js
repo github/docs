@@ -26,9 +26,6 @@ export default {
           type: 'array',
           items: { type: 'string' },
         },
-        featured_track: {
-          type: ['boolean', 'string'],
-        },
         versions: versionsProps,
       },
     },

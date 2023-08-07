@@ -32,7 +32,7 @@ Use `jobs.<job_id>.runs-on` to define the type of machine to run the job on.
 
   jobs:
     test:
-      runs-on: [self-hosted, "${{ github.event.inputs.chosen-os }}"]
+      runs-on: [self-hosted, "${{ inputs.chosen-os }}"]
       steps:
       - run: echo Hello world!
   ```

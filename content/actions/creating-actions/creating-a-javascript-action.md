@@ -285,3 +285,10 @@ jobs:
 
 - [`javascript-action` template repository](https://github.com/actions/javascript-action)
 - [`typescript-action` template repository](https://github.com/actions/typescript-action)
+
+## Example JavaScript actions on {% data variables.product.prodname_dotcom_the_website %}
+
+You can find many examples of JavaScript actions on {% data variables.product.prodname_dotcom_the_website %}.
+
+- [DevExpress/testcafe-action](https://github.com/DevExpress/testcafe-action)
+- [duckduckgo/privacy-configuration](https://github.com/duckduckgo/privacy-configuration)

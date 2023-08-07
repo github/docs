@@ -1,0 +1,22 @@
+date: '2023-07-28'
+intro: |
+  {% warning %}
+  
+  **Warning**: This release contains known issues that can impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.9.2-known-issues)" section of these release notes.
+  
+  {% endwarning %}
+sections:
+  known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
+      MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning. The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. 
+    - |
+      {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
+    - |
+      When enabling CodeQL via default setup [at scale](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale), some checks related to GitHub Actions are omitted, and the process may not complete.
+  changes:
+    - |
+      Added a pre-upgrade check to validate the GHES version and MySQL configuration before allowing an upgrade to 3.9.
+    - |
+      Adjusted the timeout threshold for shutting down MySQL to prevent premature termination when upgrading to GHES 3.9.

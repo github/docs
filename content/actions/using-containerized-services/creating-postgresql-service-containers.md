@@ -325,7 +325,7 @@ The script creates a table and populates it with placeholder data. To test that 
 
 When you run this workflow, you should see the following output in the "Connect to PostgreSQL" step, which confirms that you successfully created the PostgreSQL table and added data:
 
-```
+```json
 null [ { id: 1,
     firstname: 'Mona the',
     lastname: 'Octocat',

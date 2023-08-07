@@ -12,11 +12,16 @@ export function processLiquidPost(template) {
 }
 
 function allowHtmlInShell(template) {
-  // this workaround loses syntax highlighting but correctly handles tags like <em> and entities like &lt;
-  template = template.replace(
-    /``` ?shell\r?\n\s*?(\S[\s\S]*?)\r?\n.*?```/gm,
-    '<pre><code class="hljs language-shell">$1</code></pre>',
-  )
+  if (
+    (template.includes('<em>') && template.includes('</em>')) ||
+    template.includes('<span class="output">')
+  ) {
+    // this workaround loses syntax highlighting but correctly handles tags like <em> and entities like &lt;
+    template = template.replace(
+      /``` ?shell\r?\n\s*?(\S[\s\S]*?)\r?\n.*?```/gm,
+      '<pre><code class="hljs language-shell">$1</code></pre>',
+    )
+  }
   return template
 }
 

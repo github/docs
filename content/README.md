@@ -382,7 +382,7 @@ Sometimes you want to link to a Dotcom-only article in Enterprise content and yo
 "[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)"
 ```
 
-Sometimes the canonical home of content moves outside the docs site. None of the links included in [`lib/redirects/external-sites.json`](/lib/redirects/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.
+Sometimes the canonical home of content moves outside the docs site. None of the links included in [`src/redirects/lib/external-sites.json`](/src/redirects/lib/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.
 
 ### Legacy filepaths and redirects for links
 

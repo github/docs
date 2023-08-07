@@ -8,7 +8,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-a-remotes-url-from-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/changing-the-remote-url-for-a-repository-from-github-desktop
 versions:
-  fpt: '*'
+  feature: desktop
 shortTitle: Change the remote URL for a repository
 ---
 {% mac %}

@@ -12,7 +12,7 @@ import { mkdirp } from 'mkdirp'
 import { program } from 'commander'
 import { execSync } from 'child_process'
 import frontmatter from '../lib/read-frontmatter.js'
-import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
+import addRedirectToFrontmatter from '../src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
 import walkFiles from './helpers/walk-files.js'
 
 const contentFiles = walkFiles('content', '.md')
