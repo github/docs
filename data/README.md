@@ -1,5 +1,6 @@
 # Data
 
+
 This directory contains data files that are parsed and made available to pages in the `site.data` object.
 
 All YML and Markdown files in this directory are configured to be translated by default.
@@ -39,3 +40,4 @@ Learning tracks are a collection of articles that help you master a particular s
 ## Versioning
 
 Many YAML files in this directory's subdirectories, like [features](features), [glossaries](glossaries), [variables](variables), and [learning tracks](learning-tracks), as well as Markdown files within the [reusables](reusables) directory, can include YAML versioning or Liquid versioning within Markdown strings. See the README.md files in the subdirectories for details.
+
