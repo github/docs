@@ -10,7 +10,7 @@ sections:
     - |
       {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
     - |
-      MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning. The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. 
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
     - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
