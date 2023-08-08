@@ -47,8 +47,8 @@ If you have multiple GPG keys, you need to tell Git which one to use.
    Alternatively, if you use the `bash` shell, run this command:
 
    ```shell
-   $ if [ -r ~/.bash_profile ]; then echo -e '\nexport GPG_TTY=\$(tty)' >> ~/.bash_profile; \
-     else echo -e '\nexport GPG_TTY=\$(tty)' >> ~/.profile; fi
+   $ if [ -r ~/.bash_profile ]; then echo -e '\nexport GPG_TTY=$(tty)' >> ~/.bash_profile; \
+     else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.profile; fi
    ```
 
 1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
@@ -103,7 +103,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 1. To add your GPG key to your `.bashrc` startup file, run the following command:
 
    ```bash
-   [ -f ~/.bashrc ] && echo -e '\nexport GPG_TTY=\$(tty)' >> ~/.bashrc
+   [ -f ~/.bashrc ] && echo -e '\nexport GPG_TTY=$(tty)' >> ~/.bashrc
    ```
 
 {% endlinux %}
