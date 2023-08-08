@@ -83,6 +83,8 @@ When you change the **repository** or **organization** permissions of an app, ea
 
 Changing the permissions of an app may also change the webhooks that your app can subscribe to and the actions that your app can take with the API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
+When you change the permissions, the existing users of your app will receive the emails from GitHub which notify the change of the permissions and ask for reviewing them.
+
 {% data reusables.apps.navigate-to-app-settings-this-article %}
 1. In the {% data variables.product.prodname_github_apps %} settings sidebar, click **Permissions & events**.
 1. Under the sections "Repository permissions," "Organization permissions," and "Account permissions," modify the permissions you'd like to change. For each type of permission, select either "Read-only," "Read and write," or "No access" from the dropdown. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
