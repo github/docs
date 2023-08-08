@@ -14,4 +14,4 @@
 
 {% endrowheaders %}
 
-For more information about VPN Proxy support via self-signed certificates, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=vscode#configuring-proxy-settings-for-github-copilot-1)".
+For more information about VPN Proxy support via self-signed certificates, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=vscode#configuring-proxy-settings-for-github-copilot-1)." For more information about {% data variables.product.prodname_copilot_business_short %} audit logs, see "[AUTOTITLE](/copilot/managing-copilot-for-business/reviewing-your-organization-or-enterprises-audit-logs-for-copilot-for-business)."
