@@ -155,6 +155,10 @@ sections:
 
     - heading: Projects
       notes:
+        # https://github.com/github/releases/issues/2250
+        - |
+          Projects is no longer in public beta, and is now considered generally available. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+
         # https://github.com/github/releases/issues/3207
         - |
           To control the amount of work in progress and promote focus, on a board layout, users with admin access to a project can set a recommended limit on the number of items in a column. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-the-board-layout#setting-a-limit-on-the-number-of-items-in-a-column)."
