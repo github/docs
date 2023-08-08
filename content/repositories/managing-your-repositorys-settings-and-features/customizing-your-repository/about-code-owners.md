@@ -39,7 +39,6 @@ For code owners to receive review requests, the CODEOWNERS file must be on the b
 
 ## CODEOWNERS and forks
 
-Asides being used to tell at a glance who is responsible for a given file, CODEOWNERS are also used for triggering review requests for a pull request that modifies an owned file.
 
 Pull requests use the version of CODEOWNERS from the base branch of a pull request. A base branch is the branch that a pull request will modify if the pull request is merged. If the repo that you forked from is the base of your PR, then the PR will use the CODEOWNERS file from the repo that you forked from. If your PR is targeting a branch within your forked repo, then the PR will use the CODEOWNERS on that base branch in your forked repo.
 
