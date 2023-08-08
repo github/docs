@@ -55,5 +55,3 @@ gh issue transfer ISSUE {% ifversion ghes %}HOSTNAME/{% endif %}OWNER/REPO
 ## Further reading
 
 - "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)"
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"

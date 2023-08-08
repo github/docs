@@ -30,7 +30,7 @@ To use a JWT, pass it in the `Authorization` header of an API request. For examp
 curl --request GET \
 --url "{% data variables.product.api_url_pre %}/app" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR_JWT"{% ifversion api-date-versioning %}\
+--header "Authorization: Bearer YOUR_JWT"{% ifversion api-date-versioning %} \
 --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
@@ -86,7 +86,7 @@ puts jwt
 
 {% endnote %}
 
-```python{:copy}
+```python copy
 #!/usr/bin/env python3
 import jwt
 import time
@@ -122,7 +122,7 @@ payload = {
 jwt_instance = jwt.JWT()
 encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
 
-print(f"JWT:  ", encoded_jwt)
+print(f"JWT:  {encoded_jwt}")
 ```
 
 This script will prompt you for the file path where your private key is stored and for the ID of your app. Alternatively, you can pass those values as inline arguments when you execute the script.

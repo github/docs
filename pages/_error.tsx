@@ -50,14 +50,14 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
               language: expressRequest.language,
             },
             undefined,
-            2
+            2,
           ),
           headers: JSON.stringify(
             Object.fromEntries(
-              Object.entries(req.headers).filter(([k]) => OK_HEADER_KEYS.includes(k))
+              Object.entries(req.headers).filter(([k]) => OK_HEADER_KEYS.includes(k)),
             ),
             undefined,
-            2
+            2,
           ),
         })
 
@@ -67,7 +67,7 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
         // Otherwise, it should return `Array<Promise<Response | void>>`.
         if (!reported) {
           console.warn(
-            'The FailBot.report() returned undefined which means the error was NOT sent to Failbot.'
+            'The FailBot.report() returned undefined which means the error was NOT sent to Failbot.',
           )
         } else if (
           Array.isArray(reported) &&

@@ -23,11 +23,7 @@ export function GenericError() {
             We track these errors automatically, but if the problem persists please feel free to
             contact us.
           </p>
-          <a
-            id="contact-us"
-            href="https://support.github.com/contact"
-            className="btn btn-outline mt-2"
-          >
+          <a id="support" href="https://support.github.com" className="btn btn-outline mt-2">
             <CommentDiscussionIcon size="small" className="octicon mr-1" />
             Contact support
           </a>
@@ -43,7 +39,11 @@ export const SimpleHeader = () => {
   const router = useRouter()
   return (
     <div className="border-bottom color-border-muted no-print">
-      <header className="container-xl p-responsive py-3 position-relative d-flex width-full">
+      <header
+        className="container-xl p-responsive py-3 position-relative d-flex width-full"
+        role="banner"
+        aria-label="Main"
+      >
         <div className="d-flex flex-items-center" style={{ zIndex: 3 }} id="github-logo-mobile">
           <Link href={`/${router.locale}`}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}

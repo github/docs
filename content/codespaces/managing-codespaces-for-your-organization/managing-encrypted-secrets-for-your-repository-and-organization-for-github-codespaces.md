@@ -12,12 +12,14 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
-product: 'Encrypted secrets are available in all public repositories, in private repositories owned by personal accounts, and in private repositories owned by organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."'
+product: 'Encrypted secrets are available in all public repositories, in private repositories owned by personal accounts, and in private repositories owned by organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."'
 ---
 
 ## About secrets
 
-Secrets are encrypted environment variables that you create in an organization or  repository. The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. GitHub uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach GitHub and only decrypts them when you use them in a codespace.
+Secrets are encrypted environment variables that you create in the {% data variables.product.prodname_github_codespaces %} settings for an organization, a repository, or a personal account. For information on creating user-specific secrets, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+
+The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach {% data variables.product.prodname_dotcom %} and only decrypts them when you use them in a codespace.
 
 Organization-level secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets.
 
@@ -34,6 +36,10 @@ Organization-level secrets let you share secrets between multiple repositories, 
 You can store up to 100 secrets per organization and 100 secrets per repository.
 
 Secrets are limited to 48 KB in size.
+
+### Recommended secrets for a repository
+
+Your project may require specific user secrets. For example, to run the application in a codespace, the user may need to supply a personal API key. If this is the case, you can specify recommended secrets in the dev container configuration. The user will then be prompted to supply values for these secrets, if they haven't already created these personal secrets, when they use the advanced options page to create a codespace. If the user supplies a secret value for use in the codespace, this secret is added to their personal settings for {% data variables.product.prodname_codespaces %}. They will not have to enter a value for this secret when they create a codespace for this repository in future. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/configuring-dev-containers/specifying-recommended-secrets-for-a-repository)."
 
 ## Adding secrets for a repository
 

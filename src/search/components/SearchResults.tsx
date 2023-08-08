@@ -3,42 +3,30 @@ import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 
-import type { SearchResultsT, SearchResultHitT } from './types'
+import type { SearchResultsT, SearchResultHitT, SearchQueryT } from './types'
 import { useTranslation } from 'components/hooks/useTranslation'
-import { useNumberFormatter } from 'components/hooks/useNumberFormatter'
 import { Link } from 'components/Link'
-import { useQuery } from 'components/hooks/useQuery'
-import { sendEvent, EventType } from 'src/events/browser'
+import { sendEvent, EventType } from 'src/events/components/events'
 
 import styles from './SearchResults.module.scss'
 
 type Props = {
   results: SearchResultsT
-  query: string
+  search: SearchQueryT
 }
-export function SearchResults({ results, query }: Props) {
-  const { t } = useTranslation('search')
-  const { formatInteger } = useNumberFormatter()
-
+export function SearchResults({ results, search }: Props) {
   const pages = Math.ceil(results.meta.found.value / results.meta.size)
   const { page } = results.meta
 
   return (
     <div>
-      <Text role={'status'}>
-        {results.meta.found.value === 1
-          ? t('one_result')
-          : t('n_results').replace('{n}', formatInteger(results.meta.found.value))}
-      </Text>
-      <br />
-      <SearchResultHits hits={results.hits} query={query} />
+      <SearchResultHits hits={results.hits} search={search} />
       {pages > 1 && <ResultsPagination page={page} totalPages={pages} />}
     </div>
   )
 }
 
-function SearchResultHits({ hits, query }: { hits: SearchResultHitT[]; query: string }) {
-  const { debug } = useQuery()
+function SearchResultHits({ hits, search }: { hits: SearchResultHitT[]; search: SearchQueryT }) {
   return (
     <div>
       {hits.length === 0 && <NoSearchResults />}
@@ -46,10 +34,10 @@ function SearchResultHits({ hits, query }: { hits: SearchResultHitT[]; query: st
         <SearchResultHit
           key={hit.id}
           hit={hit}
-          query={query}
+          query={search.query}
           totalHits={hits.length}
           index={index}
-          debug={debug}
+          debug={search.debug}
         />
       ))}
     </div>
@@ -127,7 +115,7 @@ function SearchResultHit({
 function ResultsPagination({ page, totalPages }: { page: number; totalPages: number }) {
   const router = useRouter()
 
-  const [asPathRoot, asPathQuery = ''] = router.asPath.split('?')
+  const [asPathRoot, asPathQuery = ''] = router.asPath.split('#')[0].split('?')
 
   function hrefBuilder(page: number) {
     const params = new URLSearchParams(asPathQuery)

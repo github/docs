@@ -3,8 +3,13 @@ title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{
 featuredLinks:
   gettingStarted:
     - /get-started/quickstart/hello-world
+    - /rest
   popular:
-    - get-started
+    - /get-started
+    - /get-started/foo/bar
+    - /pages
+    - '{% ifversion ghec %}/get-started/versioning/only-ghec{% endif %}'
+    - /actions/category/map-topic
 redirect_from:
   - /olden-days
 versions: '*'
@@ -21,6 +26,7 @@ children:
   - pages
   - code-security
   - actions
+  - rest
   # - account-and-profile
   # - authentication
   # - repositories
@@ -35,7 +41,6 @@ children:
   # - packages
   # - search-github
   # - developers
-  # - rest
   # - graphql
   # - github-cli
   # - discussions
@@ -49,6 +54,11 @@ childGroups:
     octicon: RocketIcon
     children:
       - get-started
+  - name: CI/CD and DevOps
+    octicon: GearIcon
+    children:
+      - actions
+      - pages
 
 externalProducts:
   electron:

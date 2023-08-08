@@ -17,9 +17,9 @@ topics:
 shortTitle: Issues-only repository
 ---
 1. Create a **private** repository to host the source code from your project.
-2. Create a second repository with the permissions you desire to host the issue tracker.
-3. Add a README file to the issues repository explaining the purpose of this repository and linking to the issues section.
-4. Set your collaborators or teams to give access to the repositories as you desire.
+1. Create a second repository with the permissions you desire to host the issue tracker.
+1. Add a README file to the issues repository explaining the purpose of this repository and linking to the issues section.
+1. Set your collaborators or teams to give access to the repositories as you desire.
 
 Users with write access to both can reference and close issues back and forth across the repositories, but those without the required permissions will see references that contain a minimum of information.
 

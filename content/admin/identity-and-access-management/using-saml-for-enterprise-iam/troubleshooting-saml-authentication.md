@@ -17,21 +17,22 @@ topics:
 ---
 
 {% ifversion ghes %}
+
 ## About problems with SAML authentication
 
-{% data variables.product.product_name %} logs error messages for failed SAML authentication in the authentication log at _/var/log/github/auth.log_. You can review responses in this log file, and you can also configure more verbose logging.
+{% data variables.product.product_name %} logs error messages for failed SAML authentication in the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% elsif ghes < 3.9 %}authentication log{% endif %} at {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %}. You can review responses in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}these log files{% elsif ghes < 3.9 %}this log file{% endif %}, and you can also configure more verbose logging.
 
 For more information about SAML response requirements, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)."
 
 ## Configuring SAML debugging
 
-You can configure {% data variables.product.product_name %} to write verbose debug logs to _/var/log/github/auth.log_ for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
+You can configure {% data variables.product.product_name %} to write verbose debug logs for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
 
 {% warning %}
 
 **Warnings**:
 
-- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of your log may increase much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
+- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the log {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}files increase{% elsif ghes < 3.9 %}file increase{% endif %} much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
 - Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 {% endwarning %}
@@ -41,26 +42,26 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "SAML debugging", select the drop-down and click **Enabled**.
 1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
-1. Review the debug output in _/var/log/github/auth.log_ on {% data variables.location.product_location %}.
+1. Review the debug output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} on {% data variables.location.product_location %}.
 1. When you're done troubleshooting, select the drop-down and click **Disabled**.
 
-## Decoding responses in _auth.log_
+## Decoding responses
 
-Some output in _auth.log_ may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+Some output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 ```shell
-$ base64 --decode ENCODED_OUTPUT
+base64 --decode ENCODED_OUTPUT
 ```
 
 ## Error: "Another user already owns the account"
 
-When a user signs into {% data variables.location.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` to the account.
+When a user signs into {% data variables.location.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` and `nameid-format` to the account.
 
-When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` mapping to the IdP's response. If the `NameID` in the IdP's response no longer matches the `NameID` that {% data variables.product.product_name %} expects for the user, the sign-in will fail. The user will see the following message.
+When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` and `nameid-format` mapping to the IdP's response. If the `NameID`  or `nameid-format` in the IdP's response no longer matches the values that {% data variables.product.product_name %} expects for the user, the sign-in will fail. The user will see the following message.
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` and `nameid-format` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` and `nameid-format` on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
 
 ## Error: Recipient in SAML response was blank or not valid
 

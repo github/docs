@@ -41,24 +41,13 @@ After adding a new SSH authentication key to your account on {% ifversion ghae %
 {% data reusables.gpg.copy-ssh-public-key %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-4. Click **New SSH key** or **Add SSH key**.
+1. Click **New SSH key** or **Add SSH key**.
+1. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal laptop, you might call this key "Personal laptop".
 {% ifversion ssh-commit-verification %}
-  ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key-with-auth.png)
-{% else %}
-  ![SSH Key button](/assets/images/help/settings/ssh-add-ssh-key.png)
+1. Select the type of key, either authentication or signing. For more information about commit signing, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
 {% endif %}
-5. In the "Title" field, add a descriptive label for the new key. For example, if you're using a personal laptop, you might call this key "Personal laptop".
-{% ifversion ssh-commit-verification %}
-6. Select the type of key, either authentication or signing. For more information about commit signing, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
-{% endif %}
-7. Paste your public key into the "Key" field.
-{% ifversion ssh-commit-verification %}
-  ![The key field](/assets/images/help/settings/ssh-key-paste-with-type.png)
-{% else %}
-  ![The key field](/assets/images/help/settings/ssh-key-paste.png)
-{% endif %}
-8. Click **Add SSH key**.
-  ![The Add key button](/assets/images/help/settings/ssh-add-key.png)
+1. In the "Key" field, paste your public key.
+1. Click **Add SSH key**.
 {% data reusables.user-settings.sudo-mode-popup %}
 
 {% endwebui %}
@@ -92,6 +81,7 @@ gh ssh-key add ~/.ssh/id_ed25519.pub
 {% endcli %}
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
 
 - "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)"

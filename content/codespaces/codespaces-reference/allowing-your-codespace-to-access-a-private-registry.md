@@ -71,7 +71,7 @@ If you are setting the secrets at the user or organization level, make sure to a
 
 For a private image registry in Azure, you could create the following secrets:
 
-```
+```shell
 ACR_CONTAINER_REGISTRY_SERVER = mycompany.azurecr.io
 ACR_CONTAINER_REGISTRY_USER = acr-user-here
 ACR_CONTAINER_REGISTRY_PASSWORD = <PERSONAL_ACCESS_TOKEN>
@@ -87,7 +87,7 @@ Once you've added the secrets, you may need to stop and then start the codespace
 
 To access AWS Elastic Container Registry (ECR),  you can provide an AWS access key ID and secret key, and {% data variables.product.prodname_dotcom %}  can retrieve an access token for you and log in on your behalf.
 
-```
+```shell
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = <AWS_ACCESS_KEY_ID>
 *_CONTAINER_REGISTRY_PASSWORD = <AWS_SECRET_KEY>
@@ -95,9 +95,9 @@ To access AWS Elastic Container Registry (ECR),  you can provide an AWS access k
 
 You must also ensure you have the appropriate AWS IAM permissions to perform the credential swap (e.g. `sts:GetServiceBearerToken`) as well as the ECR read operation (either `AmazonEC2ContainerRegistryFullAccess` or `ReadOnlyAccess`).
 
-Alternatively, if you don't want GitHub to perform the credential swap on your behalf, you can provide an authorization token fetched via AWS's APIs or CLI.
+Alternatively, if you don't want {% data variables.product.prodname_dotcom %} to perform the credential swap on your behalf, you can provide an authorization token fetched via AWS's APIs or CLI.
 
-```
+```shell
 *_CONTAINER_REGISTRY_SERVER = <ECR_URL>
 *_CONTAINER_REGISTRY_USER = AWS
 *_CONTAINER_REGISTRY_PASSWORD = <TOKEN>

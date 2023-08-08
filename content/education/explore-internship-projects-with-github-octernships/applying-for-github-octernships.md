@@ -12,10 +12,10 @@ versions:
 
 To apply for internships, you must meet the following requirements:
 
-* You have been accepted to {% data variables.product.prodname_global_campus %}. For more information, including how to apply, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
-* You are at least 18 years old.
-* You have an active {% data variables.product.prodname_dotcom %} account.
-* You are a resident of one of the countries where {% data variables.product.prodname_octernships %} is available.
+- You have been accepted to {% data variables.product.prodname_global_campus %}. For more information, including how to apply, see "[AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student)."
+- You are at least 18 years old.
+- You have an active {% data variables.product.prodname_dotcom %} account.
+- You are a resident of one of the countries where {% data variables.product.prodname_octernships %} is available.
 
 You can find and apply for internships at [education.github.com/students/octernships](https://education.github.com/students/octernships). You can apply for up to four internships at any one time. In other words, you can always have up to four applications simultaneously, as many times as you would like, as long as you are an eligible student.
 
@@ -36,12 +36,11 @@ If you choose to accept an internship project, you will be asked to submit your 
 You can use the {% data variables.product.prodname_octernships %} website to find and apply to internships.
 
 1. Navigate to [education.github.com/students/octernship](https://education.github.com/students/octernships).
-2. If you are not already signed in, click **Sign in** on the top right of the website to sign in to your {% data variables.product.prodname_dotcom %} account.
-3. Click **Explore Octernships**.
-4. Browse the available opportunities and information, such as the closing date for submitting the assignment, and click **I'm interested** on an opportunity. If **I'm interested** is disabled, you are not eligible.
-5. Click the link in the confirmation dialog to view the repository containing your assignment.
-6. Accept **Terms of Service** of the program. You must accept it to move forward.
-7. Click the link in the confirmation dialog to view the repository containing your assignment.
+1. If you are not already signed in, click **Sign in** on the top right of the website to sign in to your {% data variables.product.prodname_dotcom %} account.
+1. Click **Explore Octernships**.
+1. Browse the available opportunities and information, such as the closing date for submitting the assignment, and click **I'm interested** on an opportunity. If **I'm interested** is disabled, you are not eligible.
+1. Click the link in the confirmation dialog to view the repository containing your assignment.
+1. Accept **Terms of Service** of the program. You must accept it to move forward.
 
 You can find all the projects that you have applied to, and links to the assignment repositories, on the left of the {% data variables.product.prodname_octernships %} dashboard.
 Use the assignment repository to complete the task provided by the organization and commit your work for the company to review.
@@ -55,10 +54,10 @@ If you get accepted or rejected by the organization, you will receive an email a
 If you are successful in your application, you will be notified by email. You can also visit your {% data variables.product.prodname_octernships %} dashboard to accept any successful applications. If no action is taken it will be declined automatically.
 
 1. Follow the link in your email or navigate to [education.github.com/students/octernships](https://education.github.com/students/octernships).
-2. If you are not already signed in, click **Sign in** on the top right of the website to sign in to your {% data variables.product.prodname_dotcom %} account.
-3. Projects that you have been accepted for are displayed above the others. To accept a project, click **Accept**.
-4. To enable the {% data variables.product.prodname_education %} team to invite you to the Discord server, type your Discord username in the text box. For more information, see the [Beginner's Guide to Discord](https://support.discord.com/hc/en-us/articles/360045138571-Beginner-s-Guide-to-Discord) in the Discord documentation.
-5. Click **I accept the project**.
+1. If you are not already signed in, click **Sign in** on the top right of the website to sign in to your {% data variables.product.prodname_dotcom %} account.
+1. Projects that you have been accepted for are displayed above the others. To accept a project, click **Accept**.
+1. To enable the {% data variables.product.prodname_education %} team to invite you to the Discord server, type your Discord username in the text box. For more information, see the [Beginner's Guide to Discord](https://support.discord.com/hc/en-us/articles/360045138571-Beginner-s-Guide-to-Discord) in the Discord documentation.
+1. Click **I accept the project**.
 
 ## Further reading
 

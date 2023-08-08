@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import yaml from 'js-yaml'
 import { groupBy } from 'lodash-es'
-import renderContent from '../../../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 
 export default async function processUpcomingChanges(upcomingChangesYml) {
   const upcomingChanges = yaml.load(upcomingChangesYml).upcoming_changes

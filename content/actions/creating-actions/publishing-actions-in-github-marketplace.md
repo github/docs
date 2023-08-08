@@ -24,6 +24,7 @@ Actions are published to {% data variables.product.prodname_marketplace %} immed
 
 - The action must be in a public repository.
 - Each repository must contain a single action.
+- Each repository must _not_ contain any workflow files.
 - The action's metadata file (`action.yml` or `action.yaml`) must be in the root directory of the repository.
 - The `name` in the action's metadata file must be unique.
   - The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
@@ -41,7 +42,11 @@ To draft a new release and publish the action to {% data variables.product.prodn
 1. Navigate to the action metadata file in your repository (`action.yml` or `action.yaml`), and you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. Click **Draft a release**.
 1. Under "Release Action", select **Publish this Action to the {% data variables.product.prodname_marketplace %}**.
 
-   If you can't select the checkbox, you must first click the link to read and accept the {% data variables.product.prodname_marketplace %} Developer Agreement.
+   {% note %}
+
+   **Note**: The "Publish" checkbox is disabled if the account that owns the repository has not yet accepted the {% data variables.product.prodname_marketplace %} Developer Agreement. If you own the repository or are an organization owner, click the link to "accept the GitHub Marketplace Developer Agreement", then accept the agreement. If there is no link, send the organization owner a link to this "Release Action" page and ask them to accept the agreement.
+
+   {% endnote %}
 1. If the labels in your metadata file contain any problems, you will see an error message. Address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message.
 1. Select the **Primary Category** dropdown menu and click a category that will help people find your action in {% data variables.product.prodname_marketplace %}.
 1. Optionally, select the **Another Category** dropdown menu and click a secondary category.
@@ -56,6 +61,11 @@ To remove a published action from {% data variables.product.prodname_marketplace
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
 {% data reusables.releases.edit-release %}
-4. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
-![Publish this action button](/assets/images/help/repository/actions-marketplace-unpublish.png)
-5. Click **Update release** at the bottom of the page.
+1. Select **Publish this action to the {% data variables.product.prodname_marketplace %}** to remove the check from the box.
+1. Click **Update release** at the bottom of the page.
+
+## About badges in {% data variables.product.prodname_marketplace %}
+
+Actions with the {% octicon "verified" aria-label="The verified badge" %}, or  verified creator badge,  indicate that {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization. Partners can email <a href="mailto:partnerships@github.com">partnerships@github.com</a> to request the verified creator badge.
+
+![Screenshot of {% data variables.product.prodname_actions %} with the verified creator badge.](/assets/images/marketplace/verified-creator-badge-for-actions.png)

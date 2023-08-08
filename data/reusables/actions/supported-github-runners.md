@@ -51,34 +51,33 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-macOS Monterey 12
+macOS 13 Ventura [Beta]
+</td>
+<td>
+<code>macos-13</code> or <code>macos-13-xl</code>
+</td>
+<td>
+None
+</td>
+<tr>
+<td>
+macOS 12 Monterey
 </td>
 <td>
 <code>macos-latest</code>, <code>macos-12</code>, <code>macos-latest-xl</code> or <code>macos-12-xl</code>
 </td>
 <td>
-The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels currently uses the macOS 12 runner image. For information about macOS XL runner (12-core) per-minute pricing, see "<a href="https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates">About billing for {% data variables.product.prodname_actions %}</a>."
+The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels currently uses the macOS 12 runner image.
 </td>
 </tr>
 <tr>
 <td>
-macOS Big Sur 11
+macOS 11 Big Sur
 </td>
 <td>
 <code>macos-11</code>
 </td>
 <td>None
-</td>
-</tr>
-<tr>
-<td>
-macOS Catalina 10.15 [deprecated]
-</td>
-<td>
-<code>macos-10.15</code>
-</td>
-<td>
-Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
 </td>
 </tr>
 </tbody>

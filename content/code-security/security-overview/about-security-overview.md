@@ -24,9 +24,7 @@ topics:
 shortTitle: Security overview
 ---
 
-{% ifversion ghes < 3.5 or ghae %}
 {% data reusables.security-overview.beta %}
-{% endif %}
 
 ## About security overview
 
@@ -54,7 +52,7 @@ There are also dedicated views for each type of security alert that you can use 
 
 ## About security overview for organizations
 
-The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %}For example, the team can use the "Security coverage" page to monitor the adoption of features across your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %}, or use the "Security risk" page to identify repositories with more than five open {% data variables.secret-scanning.alerts %}.{% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %}
+The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. {% ifversion security-overview-org-risk-coverage %} For example, the team can use the "Security coverage" view to monitor the adoption of features across your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %}, or use the "Security risk" view to identify repositories with more than five open {% data variables.secret-scanning.alerts %}. {% else %}For example, they can use the overview page to monitor adoption of features by your organization or by a specific team as you roll out {% data variables.product.prodname_GH_advanced_security %} to your enterprise, or to review all alerts of a specific type and severity level across all repositories in your organization.{% endif %} {% ifversion code-security-multi-repo-enablement %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."{% endif %}
 
 You can find security overview on the **Security** tab for any organization that's owned by an enterprise. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected. For information about permissions, see "[Permission to view data in security overview](#permission-to-view-data-in-security-overview)."
 
@@ -72,7 +70,7 @@ For more information about these views, see "[AUTOTITLE](/code-security/security
 
 ### Understanding the main security overview
 
-![Screenshot of security overview for an organization](/assets/images/help/security-overview/security-overview-org-legacy.png)
+![Screenshot of security overview for an organization.](/assets/images/help/security-overview/security-overview-org-legacy.png)
 
 Each repository is shown in security overview with an indicator for each type of security feature and how many alerts there are of each type. If a security feature is not enabled for a repository, the indicator for that feature will be grayed out. In addition, a risk score is calculated for each repository based on its code scanning, Dependabot and secret scanning alerts. This score is in beta and should be used with caution. Its algorithm and approach is subject to change.
 
@@ -86,17 +84,24 @@ Each repository is shown in security overview with an indicator for each type of
 
 {% endif %}
 
-{% ifversion ghec or ghes > 3.4 or ghae > 3.4 %}
+{% ifversion ghec or ghes or ghae %}
+
 ## About security overview for enterprises
 
-You can find security overview on the **Code Security** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise. You can view repositories owned by your enterprise that have security alerts, view all security alerts, or security feature-specific alerts from across your enterprise.
+You can find security overview on the **Code Security** tab for your enterprise. Each page displays aggregated and repository-specific security information for your enterprise. {% ifversion security-overview-org-risk-coverage-enterprise %}
 
-Enterprise owners can view alerts for organizations that they are an owner or a security manager of.{% ifversion ghec or ghes > 3.5 or ghae > 3.5 %} Enterprise owners will need to join an organization as an organization owner to see all of its alerts in the enterprise-level security overview. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."{% endif %}
+As with security overview for organizations, security overview for enterprises has multiple views that provide different ways to explore enablement and alert data.
 
+- Use the "Security coverage" view to assess the adoption of code security features across organizations in the enterprise. 
+- Use the "Security risk" view to assess the risk from security alerts of all types across organizations in the enterprise.
+- Use the individual security alert views to identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets.{% else %}You can view repositories owned by your enterprise that have security alerts, view all security alerts, or view security feature-specific alerts from across your enterprise.{% endif %}
+
+For information about permissions, see "[Permission to view data in security overview](#permission-to-view-data-in-security-overview)."
 
 {% endif %}
 
 {% ifversion ghes < 3.8 or ghae < 3.8 %}
+
 ## About security overview for teams
 
 You can find security overview on the **Security** tab for any team in an organization that's owned by an enterprise.
@@ -109,9 +114,11 @@ At the team level, security overview displays repository-specific security infor
 
 ## Permission to view data in security overview
 
-If you are an owner or security manager for an organization, you will see data for all the repositories in the organization in all views. 
+If you are an owner or security manager for an organization, you can see data for all the repositories in the organization in all views.{% ifversion security-overview-org-risk-coverage-enterprise %} You can see the data in the organization-level security overview, or see data for all organizations where you are an owner or security manager in the enterprise-level security overview.{% endif %}
 
-If you are an organization member, you will see data only where you have access to that data at the repository level.
+{% ifversion ghec or ghes or ghae > 3.5 %}If you are an enterprise owner, you will need to join an organization as an organization owner to view data for the organization's repositories in either the organization-level or enterprise-level overview. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."{% endif %}
+
+If you are an organization member, you can view security overview for the organization and see data for repositories where you have access.{% ifversion security-overview-org-risk-coverage-enterprise %} You can view this data in the organization-level overview, but you cannot access the enterprise-level overview.{% endif %}
 
 {% rowheaders %}
 

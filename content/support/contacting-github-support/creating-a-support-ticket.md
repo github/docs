@@ -45,6 +45,7 @@ You can create your ticket using the {% data variables.contact.support_portal %}
 After you create your ticket, you can view your ticket and the responses from {% data variables.contact.github_support %} on the {% data variables.contact.contact_landing_page_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/viewing-and-updating-support-tickets)."
 
 {% ifversion ghec or ghes %}
+
 ## Prerequisites
 
 {% ifversion ghec %}If you use an enterprise account, there{% else %}There{% endif %} are some steps you should follow before you start using the {% data variables.contact.enterprise_portal %}. For more information, see "[Getting started with the {% data variables.contact.enterprise_portal %}](/support/contacting-github-support/getting-started-with-the-github-support-portal)."
@@ -63,14 +64,15 @@ Providing {% data variables.contact.github_support %} with everything they need 
 - Include relevant logs and attach any screenshots that demonstrate the issue.
 
 {% ifversion ghes %}
+
 ## Choosing a contact person
 
 Especially for tickets with {% data variables.product.support_ticket_priority_urgent %} priority, the person contacting {% data variables.contact.github_support %} should:
 
- - Be knowledgeable in your internal systems, tools, policies, and practices.
- - Be a proficient user of {% data variables.product.product_name %}.
- - Have full access and permissions to any services that are required to troubleshoot the issue.
- - Be authorized to make the recommended changes to your network and any applicable products.
+- Be knowledgeable in your internal systems, tools, policies, and practices.
+- Be a proficient user of {% data variables.product.product_name %}.
+- Have full access and permissions to any services that are required to troubleshoot the issue.
+- Be authorized to make the recommended changes to your network and any applicable products.
 
 {% endif %}
 

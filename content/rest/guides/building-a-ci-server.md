@@ -22,8 +22,8 @@ in a {% data variables.product.product_name %} pull request. For more informatio
 This guide will use that API to demonstrate a setup that you can use.
 In our scenario, we will:
 
-* Run our CI suite when a Pull Request is opened (we'll set the CI status to pending).
-* When the CI is finished, we'll set the Pull Request's status accordingly.
+- Run our CI suite when a Pull Request is opened (we'll set the CI status to pending).
+- When the CI is finished, we'll set the Pull Request's status accordingly.
 
 Our CI system and host server will be figments of our imagination. They could be
 Travis, Jenkins, or something else entirely. The crux of this guide will be setting up
@@ -73,11 +73,11 @@ After that, you'll create a new webhook in your repository, feeding it the URL t
 Click **Update webhook**. You should see a body response of `Well, it worked!`.
 Great! Click on **Let me select individual events**, and select the following:
 
-* Status
-* Pull Request
+- Status
+- Pull Request
 
 These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
-occurs. Let's update our server to *just* handle the Pull Request scenario right now:
+occurs. Let's update our server to _just_ handle the Pull Request scenario right now:
 
 ``` ruby
 post '/event_handler' do
@@ -141,9 +141,9 @@ end
 
 We're doing three very basic things here:
 
-* we're looking up the full name of the repository
-* we're looking up the last SHA of the pull request
-* we're setting the status to "pending"
+- we're looking up the full name of the repository
+- we're looking up the last SHA of the pull request
+- we're setting the status to "pending"
 
 That's it! From here, you can run whatever process you need to in order to execute
 your test suite. Maybe you're going to pass off your code to Jenkins, or call
@@ -165,25 +165,21 @@ At GitHub, we've used a version of [Janky][janky] to manage our CI for years.
 The basic flow is essentially the exact same as the server we've built above.
 At GitHub, we:
 
-* Fire to Jenkins when a pull request is created or updated (via Janky)
-* Wait for a response on the state of the CI
-* If the code is green, we merge the pull request
+- Fire to Jenkins when a pull request is created or updated (via Janky)
+- Wait for a response on the state of the CI
+- If the code is green, we merge the pull request
 
 All of this communication is funneled back to our chat rooms. You don't need to
 build your own CI setup to use this example.
 You can always rely on [GitHub integrations][integrations].
 
-[deploy API]: /rest/reference/repos#deployments
 [status API]: /rest/commits/statuses
 [ngrok]: https://ngrok.com/
-[using ngrok]: /webhooks/configuring/#using-ngrok
+[using ngrok]: /webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads#using-ngrok
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/building-a-ci-server
 [Sinatra]: http://www.sinatrarb.com/
-[webhook]: /webhooks/
 [octokit.rb]: https://github.com/octokit/octokit.rb
-[access token]: /articles/creating-an-access-token-for-command-line-use
+[access token]: /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 [travis api]: https://api.travis-ci.com/docs/
 [janky]: https://github.com/github/janky
-[heaven]: https://github.com/atmos/heaven
-[hubot]: https://github.com/github/hubot
 [integrations]: https://github.com/integrations

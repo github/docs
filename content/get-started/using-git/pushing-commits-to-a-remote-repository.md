@@ -15,10 +15,11 @@ versions:
 shortTitle: Push commits to a remote
 ---
 ## About `git push`
+
 The `git push` command takes two arguments:
 
-* A remote name, for example, `origin`
-* A branch name, for example, `main`
+- A remote name, for example, `origin`
+- A branch name, for example, `main`
 
 For example:
 
@@ -71,7 +72,7 @@ git push REMOTE-NAME --tags
 The syntax to delete a branch is a bit arcane at first glance:
 
 ```shell
-git push REMOTE-NAME:BRANCH-NAME
+git push REMOTE-NAME :BRANCH-NAME
 ```
 
 Note that there is a space before the colon. The command resembles the same steps
@@ -92,7 +93,7 @@ your local Git clone:
 git remote add upstream THEIR_REMOTE_URL
 ```
 
-Now, you can fetch updates and branches from *their* fork:
+Now, you can fetch updates and branches from _their_ fork:
 
 ```shell
 git fetch upstream

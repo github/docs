@@ -17,7 +17,7 @@ describe('release notes', () => {
 
     nock('https://github.github.com')
       .get(
-        '/help-docs-archived-enterprise-versions/2.19/en/enterprise-server@2.19/admin/release-notes'
+        '/help-docs-archived-enterprise-versions/2.19/en/enterprise-server@2.19/admin/release-notes',
       )
       .reply(404)
     nock('https://github.github.com')
@@ -42,7 +42,7 @@ describe('release notes', () => {
     const $ = await getDOM(`/en/enterprise-server@${oldestSupportedGhes}/admin/release-notes`)
     expect($('h1').first().text()).toBe(`Enterprise Server ${oldestSupportedGhes} release notes`)
     expect(
-      $('h2').first().text().trim().startsWith(`Enterprise Server ${oldestSupportedGhes}`)
+      $('h2').first().text().trim().startsWith(`Enterprise Server ${oldestSupportedGhes}`),
     ).toBe(true)
   })
 
@@ -59,8 +59,38 @@ describe('release notes', () => {
     expect(sectionTitleMatch).toBe(true)
   })
 
-  it('sends a 404 if a bogus version is requested', async () => {
+  it('404 if a bogus version is requested', async () => {
     const res = await get('/en/enterprise-server@12345/admin/release-notes')
     expect(res.statusCode).toBe(404)
+  })
+
+  it('404 if a the pathname only ends with the /release-notes', async () => {
+    // enterprise-server
+    {
+      const res = await get(`/en/enterprise-server@latest/ANY/release-notes`, {
+        followAllRedirects: true,
+      })
+      expect(res.statusCode).toBe(404)
+    }
+    // github-ae
+    {
+      const res = await get('/en/github-ae@latest/ANY/release-notes')
+      expect(res.statusCode).toBe(404)
+    }
+  })
+
+  it('404 if a the pathname only ends with the /admin', async () => {
+    // enterprise-server
+    {
+      const res = await get(`/en/enterprise-server@latest/ANY/admin`, {
+        followAllRedirects: true,
+      })
+      expect(res.statusCode).toBe(404)
+    }
+    // github-ae
+    {
+      const res = await get('/en/github-ae@latest/ANY/admin')
+      expect(res.statusCode).toBe(404)
+    }
   })
 })

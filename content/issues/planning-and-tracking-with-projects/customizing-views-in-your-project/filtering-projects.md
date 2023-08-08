@@ -13,9 +13,9 @@ allowTitleToDifferFromFilename: true
 
 You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
 
-To filter a view, click {% octicon "filter" aria-label="The Filter icon" %} and start typing the fields and values you would like to filter for. As you type, possible values will appear. You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
+To filter a view, click {% octicon "filter" aria-label="Filter by keyword or by field" %} and start typing the fields and values you would like to filter for. As you type, possible values will appear. You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
 
-![Screenshot showing the location of the filter icon](/assets/images/help/projects-v2/filter-example.png)
+![Screenshot of "Mona's project". A field labeled "Filter by keyword or by field" is highlighted with an orange outline.](/assets/images/help/projects-v2/filter-example.png)
 
 In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
 

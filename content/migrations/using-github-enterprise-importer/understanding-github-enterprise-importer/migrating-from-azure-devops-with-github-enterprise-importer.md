@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migrating-from-azure-devops-with-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About migrations from Azure DevOps
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %} on a repository-by-repository basis. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)".
@@ -22,8 +20,8 @@ If you're migrating from Azure DevOps (ADO), you can use this guide to plan and 
 Enterprises who migrate from ADO to {% data variables.product.prodname_dotcom %} typically follow a multi-phase approach.
 
 1. Migrate repositories from ADO to {% data variables.product.prodname_dotcom %}.
-2. Migrate pipelines from Azure Pipelines to {% data variables.product.prodname_actions %}.
-3. Migrate remaining assets, such as boards and artifacts, from ADO to {% data variables.product.prodname_dotcom %}.
+1. Migrate pipelines from Azure Pipelines to {% data variables.product.prodname_actions %}.
+1. Migrate remaining assets, such as boards and artifacts, from ADO to {% data variables.product.prodname_dotcom %}.
 
 This guide will guide you through completing the first phase, migrating repositories to {% data variables.product.prodname_dotcom %}, and assumes you're using the {% data variables.product.prodname_ado2gh_cli %}.
 

@@ -21,3 +21,5 @@ project_v2_and_v1: '{% ifversion projects-v2 %}{% data variables.projects.projec
 # Limits
 item_limit: '1,200'
 archived_item_limit: '10,000'
+
+tasklists: 'tasklists (beta)'

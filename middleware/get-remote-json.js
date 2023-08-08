@@ -3,7 +3,7 @@ import fs from 'fs'
 import crypto from 'crypto'
 
 import got from 'got'
-import statsd from '../lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 
 // The only reason this is exported is for the sake of the unit tests'
 // ability to test in-memory miss after purging this with a mutation
@@ -42,8 +42,8 @@ export default async function getRemoteJSON(url, config) {
     const ROOT = process.env.GET_REMOTE_JSON_DISK_CACHE_ROOT || '.remotejson-cache'
 
     const onDisk = path.join(ROOT, `${tempFilename}.json`)
-    // Never even try reading from disk in production.
-    if (!inProd && fs.existsSync(onDisk)) {
+
+    try {
       const body = fs.readFileSync(onDisk, 'utf-8')
       // It might exist on disk, but it could be empty
       if (body) {
@@ -58,6 +58,10 @@ export default async function getRemoteJSON(url, config) {
           }
         }
       }
+    } catch (error) {
+      if (!(error instanceof SyntaxError || error.code === 'ENOENT')) {
+        throw error
+      }
     }
 
     if (!foundOnDisk) {
@@ -68,7 +72,7 @@ export default async function getRemoteJSON(url, config) {
       const res = await got(url, config)
       if (!res.headers['content-type'].startsWith('application/json')) {
         throw new Error(
-          `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`
+          `Fetching '${url}' resulted in a non-JSON response (${res.headers['content-type']})`,
         )
       }
       cache.set(cacheKey, JSON.parse(res.body))

@@ -24,7 +24,7 @@ Security advisories are published as JSON files in the Open Source Vulnerability
 
 {% data reusables.advisory-database.beta-malware-advisories %}
 
-Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects{% ifversion GH-advisory-db-supports-malware %} or for malicious open source software{% endif %}. 
+Each advisory in the {% data variables.product.prodname_advisory_database %} is for a vulnerability in open source projects{% ifversion GH-advisory-db-supports-malware %} or for malicious open source software{% endif %}.
 
 {% data reusables.repositories.a-vulnerability-is %} Vulnerabilities in code are usually introduced by accident and fixed soon after they are discovered. You should update your code to use the fixed version of the dependency as soon as it is available.
 
@@ -51,7 +51,8 @@ Generally, we name our supported ecosystems after the software programming langu
 - pip (registry: https://pypi.org/){% ifversion dependency-graph-dart-support %}
 - pub (registry: https://pub.dev/packages/registry){% endif %}
 - RubyGems (registry: https://rubygems.org/)
-- Rust (registry: https://crates.io/)
+- Rust (registry: https://crates.io/){% ifversion supply-chain-features-swift-support %}
+- Swift (registry: N/A){% endif %}
 
 If you have a suggestion for a new ecosystem we should support, please open an [issue](https://github.com/github/advisory-database/issues) for discussion.
 
@@ -59,11 +60,34 @@ If you enable {% data variables.product.prodname_dependabot_alerts %} for your r
 
 ### Unreviewed advisories
 
-Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed. 
+Unreviewed advisories are security vulnerabilites that we publish automatically into the {% data variables.product.prodname_advisory_database %}, directly from the National Vulnerability Database feed.
 
 {% data variables.product.prodname_dependabot %} doesn't create {% data variables.product.prodname_dependabot_alerts %} for unreviewed advisories as this type of advisory isn't checked for validity or completion.
 
 ## About information in security advisories
+
+In this section, you can find more detailed information about security advisories in the {% data variables.product.prodname_advisory_database %}, such as:
+- Advisory IDs and what format these identifiers use.
+- The CVSS levels we used to assign severity levels.
+
+### About GHSA IDs
+
+Each security advisory, regardless of its type, has a unique identifier referred to as a GHSA ID. A `GHSA-ID` qualifier is assigned when a new advisory is created on {% data variables.product.prodname_dotcom_the_website %} or added to the {% data variables.product.prodname_advisory_database %} from any of the supported sources.
+
+The syntax of GHSA IDs follows this format: `GHSA-xxxx-xxxx-xxxx` where:
+
+- `x` is a letter or a number from the following set: `23456789cfghjmpqrvwx`.
+- Outside the `GHSA` portion of the name:
+  - The numbers and letters are randomly assigned.
+  - All letters are lowercase.
+
+You can validate a GHSA ID using a regular expression.
+
+```bash copy
+/GHSA(-[23456789cfghjmpqrvwx]{4}){3}/
+```
+
+### About CVSS levels
 
 Each security advisory contains information about the vulnerability{% ifversion GH-advisory-db-supports-malware %} or malware,{% endif %} which may include the description, severity, affected package, package ecosystem, affected versions and patched versions, impact, and optional information such as references, workarounds, and credits. In addition, advisories from the National Vulnerability Database list contain a link to the CVE record, where you can read more details about the vulnerability, its CVSS scores, and its qualitative severity level. For more information, see the "[National Vulnerability Database](https://nvd.nist.gov/)" from the National Institute of Standards and Technology.
 

@@ -38,6 +38,7 @@ export type ArticleContextT = {
   detectedTools: Array<string>
   allTools: Record<string, string>
   supportPortalVaIframeProps: SupportPortalVaIframeProps
+  currentLayout?: string
 }
 
 export const ArticleContext = createContext<ArticleContextT | null>(null)
@@ -55,6 +56,10 @@ export const useArticleContext = (): ArticleContextT => {
 const PagePathToVaFlowMapping: Record<string, string> = {
   'content/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile.md':
     'contribution_troubleshooting',
+  'content/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials.md':
+    '2fa',
+  'content/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https.md':
+    'pages_ssl_check',
 }
 
 export const getArticleContextFromRequest = (req: any): ArticleContextT => {
@@ -63,7 +68,7 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
   if (page.effectiveDate) {
     if (isNaN(Date.parse(page.effectiveDate))) {
       throw new Error(
-        'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY'
+        'The "effectiveDate" frontmatter property is not valid. Please make sure it is YEAR-MONTH-DAY',
       )
     }
   }
@@ -97,5 +102,6 @@ export const getArticleContextFromRequest = (req: any): ArticleContextT => {
     detectedTools: page.detectedTools || [],
     allTools: page.allToolsParsed || [], // this is set at the page level, see lib/page.js
     supportPortalVaIframeProps,
+    currentLayout: req.context.currentLayoutName,
   }
 }

@@ -1,0 +1,7 @@
+.fadeBottom {
+  background: linear-gradient(to top, var(--color-canvas-default), transparent);
+}
+
+.removeHoverEvents {
+  pointer-events: none;
+}

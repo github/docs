@@ -7,14 +7,9 @@
 #
 # [end-readme]
 
-# Translations are never tested in preview environments
-# but let's keep the empty directory.
-rm -rf translations
-mkdir translations
-
 # The assumption here is that a preview build will not
 # need these legacy redirects. Only the redirects from
 # front-matter will be at play.
 # These static redirects json files are notoriously large
-echo '[]' > lib/redirects/static/archived-frontmatter-valid-urls.json
-echo '{}' > lib/redirects/static/archived-redirects-from-213-to-217.json
+echo '[]' > src/redirects/lib/static/archived-frontmatter-valid-urls.json
+echo '{}' > src/redirects/lib/static/archived-redirects-from-213-to-217.json

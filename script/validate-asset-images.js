@@ -69,14 +69,14 @@ async function main(opts) {
         basename !== 'README.md' &&
         !filePath.startsWith(EXCLUDE_DIR)
       )
-    }
+    },
   )
   const results = (await Promise.all(files.map(checkFile))).filter(Boolean)
   for (const [level, filePath, error] of results) {
     console.log(
       level === CRITICAL ? chalk.red(level) : chalk.yellow(level),
       chalk.bold(path.relative(ROOT, filePath)),
-      error
+      error,
     )
     if (level === CRITICAL) {
       errors++

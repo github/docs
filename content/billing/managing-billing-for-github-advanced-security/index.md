@@ -11,10 +11,12 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
+  - /setting-up-a-trial-of-github-advanced-security
   - /about-billing-for-github-advanced-security
   - /signing-up-for-github-advanced-security
-  - /viewing-your-github-advanced-security-usage
+  - /viewing-committer-information-for-github-advanced-security
   - /managing-your-github-advanced-security-licensing
+  - /viewing-your-github-advanced-security-usage
 
 ---
 

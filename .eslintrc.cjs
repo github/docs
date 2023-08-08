@@ -6,14 +6,14 @@ module.exports = {
     node: true,
   },
   parser: '@babel/eslint-parser',
-  extends: ['eslint:recommended', 'standard', 'prettier'],
+  extends: ['eslint:recommended', 'standard', 'plugin:import/errors', 'prettier'],
   parserOptions: {
     ecmaVersion: 11,
     requireConfigFile: 'false',
     babelOptions: { configFile: './.babelrc' },
     sourceType: 'module',
   },
-  ignorePatterns: ['tmp/*', '!/.*', '/.next/', 'script/bookmarklets/*'],
+  ignorePatterns: ['tmp/*', '!/.*', '/.next/', 'script/bookmarklets/*', 'rest-api-description/'],
   rules: {
     'import/no-extraneous-dependencies': ['error', { packageDir: '.' }],
   },
@@ -39,4 +39,10 @@ module.exports = {
       },
     },
   ],
+  settings: {
+    'import/resolver': {
+      typescript: true,
+      node: true
+    }
+  }
 }

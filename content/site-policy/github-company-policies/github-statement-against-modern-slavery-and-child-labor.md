@@ -9,7 +9,7 @@ topics:
   - Policy
   - Legal
 ---
-*2018 statement*
+_2018 statement_
 
 According to the International Labour Organization (ILO), [40 million people were victims of modern slavery and 152 million children were subject to child labor](https://www.ilo.org/global/about-the-ilo/newsroom/news/WCMS_574717/lang--en/index.htm) globally in 2016. As the [ILO reports](https://www.ilo.org/global/topics/forced-labour/lang--en/index.htm):
    - 1 in 4 victims of modern slavery are children.

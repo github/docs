@@ -40,7 +40,7 @@ For more information about forks, see "[AUTOTITLE](/pull-requests/collaborating-
 {% ifversion fpt or ghec %}
 1. Select **Create a new repository**.
 
-   ![Use this template button](/assets/images/help/repository/use-this-template-button.png)
+   ![Screenshot of the "Use this template" button and the dropdown menu expanded to show the "Open in a codespace" option.](/assets/images/help/repository/use-this-template-button.png)
 
    {% note %}
 

@@ -28,17 +28,23 @@ You can use the former primary appliance as the new replica appliance if the fai
 ## Configuring a former primary appliance as a new replica
 
 1. Connect to the former primary appliance's IP address using SSH.
-  ```shell
-  $ ssh -p 122 admin@ FORMER_PRIMARY_IP 
-  ```
+
+   ```shell
+   ssh -p 122 admin@ FORMER_PRIMARY_IP 
+   ```
+
 1. Enable maintenance mode on the former primary appliance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode)."
 1. On the former primary appliance, run `ghe-repl-setup` with the IP address of the former replica.
-  ```shell
-  $ ghe-repl-setup  FORMER_REPLICA_IP 
-  ```
+
+   ```shell
+   ghe-repl-setup  FORMER_REPLICA_IP 
+   ```
+
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. To verify the connection to the new primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
-  ```shell
-  $ ghe-repl-setup  FORMER_REPLICA_IP 
-  ```
+
+   ```shell
+   ghe-repl-setup  FORMER_REPLICA_IP 
+   ```
+
 {% data reusables.enterprise_installation.replication-command %}

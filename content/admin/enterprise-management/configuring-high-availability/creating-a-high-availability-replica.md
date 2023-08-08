@@ -23,15 +23,19 @@ shortTitle: Create HA replica
 1. In a browser, navigate to the new replica appliance's IP address and upload your {% data variables.product.prodname_enterprise %} license.
 {% data reusables.enterprise_installation.replica-steps %}
 1. Connect to the replica appliance's IP address using SSH.
-  ```shell
-  $ ssh -p 122 admin@REPLICA_IP
-  ```
+
+   ```shell
+   ssh -p 122 admin@REPLICA_IP
+   ```
+
 {% data reusables.enterprise_installation.generate-replication-key-pair %}
 {% data reusables.enterprise_installation.add-ssh-key-to-primary %}
 1. To verify the connection to the primary and enable replica mode for the new replica, run `ghe-repl-setup` again.
-  ```shell
-  $ ghe-repl-setup PRIMARY_IP
-  ```
+
+   ```shell
+   ghe-repl-setup PRIMARY_IP
+   ```
+
 {% data reusables.enterprise_installation.replication-command %}
 {% data reusables.enterprise_installation.verify-replication-channel %}
 
@@ -42,48 +46,62 @@ This example configuration uses a primary and two replicas, which are located in
 {% data reusables.enterprise_clustering.network-latency %} If latency is more than 70 milliseconds, we recommend cache replica nodes instead. For more information, see "[AUTOTITLE](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
 
 1. Create the first replica the same way you would for a standard two node configuration by running `ghe-repl-setup` on the first replica.
-  ```shell
-  (replica1)$ ghe-repl-setup PRIMARY_IP
-  (replica1)$ ghe-repl-start
-  ```
-2. Create a second replica and use the `ghe-repl-setup --add` command. The `--add` flag prevents it from overwriting the existing replication configuration and adds the new replica to the configuration.
-  ```shell
-  (replica2)$ ghe-repl-setup --add PRIMARY_IP
-  (replica2)$ ghe-repl-start
-  ```
-3. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
 
-  On the primary:
-  ```shell
-  (primary)$ ghe-repl-node --datacenter [PRIMARY DC NAME]
-  ```
-  On the first replica:
-  ```shell
-  (replica1)$ ghe-repl-node --datacenter [FIRST REPLICA DC NAME]
-  ```
-  On the second replica:
-  ```shell
-  (replica2)$ ghe-repl-node --datacenter [SECOND REPLICA DC NAME]
-  ```
-  {% tip %}
+   ```shell
+   (replica1)$ ghe-repl-setup PRIMARY_IP
+   (replica1)$ ghe-repl-start
+   ```
 
-  **Tip:** You can set the `--datacenter` and `--active` options at the same time.
+1. Create a second replica and use the `ghe-repl-setup --add` command. The `--add` flag prevents it from overwriting the existing replication configuration and adds the new replica to the configuration.
 
-  {% endtip %}
-4. An active replica node will store copies of the appliance data and service end user requests. An inactive node will store copies of the appliance data but will be unable to service end user requests. Enable active mode using the `--active` flag or inactive mode using the `--inactive` flag.
+   ```shell
+   (replica2)$ ghe-repl-setup --add PRIMARY_IP
+   (replica2)$ ghe-repl-start
+   ```
 
-  On the first replica:
-  ```shell
-  (replica1)$ ghe-repl-node --active
-  ```
-  On the second replica:
-  ```shell
-  (replica2)$ ghe-repl-node --active
-  ```
-5. To apply the configuration, use the `ghe-config-apply` command on the primary.
-  ```shell
-  (primary)$ ghe-config-apply
-  ```
+1. By default, replicas are configured to the same datacenter, and will now attempt to seed from an existing node in the same datacenter. Configure the replicas for different datacenters by setting a different value for the datacenter option. The specific values can be anything you would like as long as they are different from each other. Run the `ghe-repl-node` command on each node and specify the datacenter.
+
+   On the primary:
+
+   ```shell
+   (primary)$ ghe-repl-node --datacenter [PRIMARY DC NAME]
+   ```
+
+   On the first replica:
+
+   ```shell
+   (replica1)$ ghe-repl-node --datacenter [FIRST REPLICA DC NAME]
+   ```
+
+   On the second replica:
+
+   ```shell
+   (replica2)$ ghe-repl-node --datacenter [SECOND REPLICA DC NAME]
+   ```
+
+   {% tip %}
+
+   **Tip:** You can set the `--datacenter` and `--active` options at the same time.
+
+   {% endtip %}
+1. An active replica node will store copies of the appliance data and service end user requests. An inactive node will store copies of the appliance data but will be unable to service end user requests. Enable active mode using the `--active` flag or inactive mode using the `--inactive` flag.
+
+   On the first replica:
+
+   ```shell
+   (replica1)$ ghe-repl-node --active
+   ```
+
+   On the second replica:
+
+   ```shell
+   (replica2)$ ghe-repl-node --active
+   ```
+
+1. To apply the configuration, use the `ghe-config-apply` command on the primary.
+   ```shell
+   (primary)$ ghe-config-apply
+   ```
 
 ## Configuring DNS for geo-replication
 

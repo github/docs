@@ -23,9 +23,8 @@ allowTitleToDifferFromFilename: true
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} you want to edit.
 {% data reusables.project-management.click-menu %}
-{% data reusables.project-management.click-edit-sidebar-menu-project-board %} 
-4. Modify the {% data variables.projects.projects_v1_board %} name and description as needed, then click **Save project**.
-![Fields with the project board name and description, and Save project button](/assets/images/help/projects/edit-project-board-save-button.png)
+{% data reusables.project-management.click-edit-sidebar-menu-project-board %}
+1. Modify the {% data variables.projects.projects_v1_board %} name and description as needed, then click **Save project**.
 
 ## Further reading
 

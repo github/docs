@@ -60,7 +60,7 @@ You can choose how to sort the list of discussions.
 {% data reusables.discussions.discussions-tab %}
 1. To the right of the **Search all discussions** field, select the **Sort by** dropdown menu, and click a time period.
 
-   ![Buttons for sorting discussions](/assets/images/help/discussions/sort-discussions-buttons.png)
+   ![Screenshot of a row of buttons for sorting discussions. A button labeled "Sort by: Latest activity" is highlighted with an orange outline.](/assets/images/help/discussions/sort-discussions-buttons.png)
 
     - Sort by **Latest activity** to display the discussions with the most recent activity at the top of the list.
     - Sort by **Date created** to display the discussions that were created most recently at the top of the list.

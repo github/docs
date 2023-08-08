@@ -62,6 +62,7 @@ If your workflows use sensitive data, such as passwords or certificates, you can
 This example job demonstrates how to reference an existing secret as an environment variable, and send it as a parameter to an example command.
 
 {% raw %}
+
 ```yaml
 jobs:
   example-job:
@@ -73,6 +74,7 @@ jobs:
         run: |
           example-command "$super_secret"
 ```
+
 {% endraw %}
 
 For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
@@ -123,11 +125,12 @@ jobs:
 For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 
 {% ifversion actions-caching %}
+
 ### Caching dependencies
 
 If your jobs regularly reuse dependencies, you can consider caching these files to help improve performance. Once the cache is created, it is available to all workflows in the same repository.
 
-This example demonstrates how to cache the ` ~/.npm` directory:
+This example demonstrates how to cache the `~/.npm` directory:
 
 ```yaml
 jobs:
@@ -187,13 +190,14 @@ jobs:
 
 A workflow will only run on a runner that has all the labels in the `runs-on` array. The job will preferentially go to an idle self-hosted runner with the specified labels. {% ifversion fpt or ghec %}If none are available and a {% data variables.product.prodname_dotcom %}-hosted runner with the specified labels exists, the job will go to a {% data variables.product.prodname_dotcom %}-hosted runner.{% endif %}
 
-To learn more about self-hosted runner labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)."
+To learn more about self-hosted runner labels, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)."
 
 {% ifversion fpt or ghec %}
 To learn more about {% data variables.product.prodname_dotcom %}-hosted runner labels, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
 {% endif %}
 
 ### Reusing workflows
+
 {% data reusables.actions.reusable-workflows %}
 
 ### Using environments

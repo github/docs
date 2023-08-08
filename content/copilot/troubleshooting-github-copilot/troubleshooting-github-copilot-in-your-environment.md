@@ -3,10 +3,10 @@ title: Troubleshooting GitHub Copilot in your environment
 intro: 'Troubleshoot {% data variables.product.prodname_copilot %} related errors in your IDE.'
 product: '{% data reusables.gated-features.copilot %}'
 redirect_from:
-  - /copilot/troubleshooting-github-copilot-in-visual-studio
-  - /copilot/troubleshooting-github-copilot-in-visual-studio-code
-  - /copilot/troubleshooting-github-copilot-in-a-jetbrains-ide
-  - /copilot/troubleshooting-github-copilot-in-neovim
+  - /copilot/troubleshooting-github-copilot/troubleshooting-github-copilot-in-visual-studio
+  - /copilot/troubleshooting-github-copilot/troubleshooting-github-copilot-in-visual-studio-code
+  - /copilot/troubleshooting-github-copilot/troubleshooting-github-copilot-in-a-jetbrains-ide
+  - /copilot/troubleshooting-github-copilot/troubleshooting-github-copilot-in-neovim
 topics:
   - Copilot
   - Logging
@@ -48,12 +48,9 @@ For more information, see the [Locating IDE log files](https://intellij-support.
 1. Go to **Show Log in**.
 1. Open the `idea.log` in your preferred editor and look for any errors related to {% data variables.product.prodname_dotcom%} or {% data variables.product.prodname_copilot%}.
 
-
 {% endjetbrains %}
 
 {% visualstudio %}
-
-
 
 ## Viewing logs in {% data variables.product.prodname_vs %}
 
@@ -84,7 +81,7 @@ Alternatively, you can open the log folder for {% data variables.product.prodnam
       - Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
    - For Windows or Linux:
       - Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
-2. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
+1. Type "Logs", and then select **Developer: Open Extension Logs Folder** from the list.
 
 ## Viewing network connectivity diagnostics logs
 
@@ -119,13 +116,12 @@ In rare cases, errors might not be propagated to the corresponding error handler
 
 {% endvscode %}
 
-{% neovim %}
+{% vimneovim %}
 
 ## Checking if {% data variables.product.prodname_copilot%} is operational
 
-To check if GitHub Copilot is operational, run the following command in Neovim:
-
+To check if GitHub Copilot is operational, run the following command in Vim/Neovim:
 
     :Copilot status
 
-{% endneovim %}
+{% endvimneovim %}

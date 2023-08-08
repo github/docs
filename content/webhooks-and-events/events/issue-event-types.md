@@ -383,7 +383,6 @@ This event is available for the following issue types.
 
 {% endrowheaders %}
 
-
 ### Properties for disconnected
 
 {% data reusables.issue-events.issue-event-common-properties %}
@@ -419,6 +418,7 @@ This event is available for the following issue types.
 |Pull requests| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
+
 ## head_ref_force_pushed
 
 The pull request's HEAD branch was force pushed.
@@ -916,6 +916,7 @@ This event is available for the following issue types.
 |Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
+
 ### Properties for unpinned
 
 {% data reusables.issue-events.issue-event-common-properties %}
@@ -940,6 +941,7 @@ This event is available for the following issue types.
 {% data reusables.issue-events.issue-event-common-properties %}
 
 {% ifversion fpt or ghec %}
+
 ## user_blocked
 
 An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).

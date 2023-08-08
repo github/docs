@@ -11,7 +11,7 @@
 
 1. Under "Poll question", type a question for your poll.
 1. Under "Poll options", type at least two options for your poll.
-1. Optionally, to add an extra poll option, click **{% octicon "plus" aria-label="The plus icon" %} Add an option**.
+1. Optionally, to add an extra poll option, click **{% octicon "plus" aria-hidden="true" %} Add an option**.
 
    ![Screenshot of the page to start a new poll. The plus icon and "Add an option" are outlined in dark orange.](/assets/images/help/discussions/new-poll-add-option.png)
 

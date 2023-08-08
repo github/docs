@@ -23,7 +23,7 @@ permissions:
 # This allows a subsequently queued workflow run to take priority over
 # previously queued runs but NOT interrupt currently executing runs
 concurrency:
-  group: 'staging-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || github.event.inputs.PR_NUMBER }}'
+  group: 'staging-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
   cancel-in-progress: true
 
 jobs:
@@ -36,16 +36,16 @@ jobs:
       name: staging-env
       url: ${{ env.APP_URL }}
     env:
-      PR_NUMBER: ${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
-      COMMIT_REF: ${{ github.event.pull_request.head.sha || github.event.inputs.COMMIT_REF }}
-      IMAGE_REPO: ${{ github.repository }}/pr-${{ github.event.number || github.event.inputs.PR_NUMBER || github.run_id }}
+      PR_NUMBER: ${{ github.event.number || inputs.PR_NUMBER || github.run_id }}
+      COMMIT_REF: ${{ github.event.pull_request.head.sha || inputs.COMMIT_REF }}
+      IMAGE_REPO: ${{ github.repository }}/pr-${{ github.event.number || inputs.PR_NUMBER || github.run_id }}
       RESOURCE_GROUP_NAME: docs-staging
       APP_SERVICE_NAME: ghdocs-staging
       SLOT_NAME: canary
 
     steps:
       - name: 'Az CLI login'
-        uses: azure/login@1f63701bf3e6892515f1b7ce2d2bf1708b46beaf
+        uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2 # pin @v1.4.6
         with:
           creds: ${{ secrets.PROD_AZURE_CREDENTIALS }}
 
@@ -60,7 +60,7 @@ jobs:
         uses: docker/setup-buildx-action@95cb08cb2672c73d4ffd2f422e6d11953d2a9c70
 
       - name: Check out repo
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           ref: ${{ env.COMMIT_REF }}
           # To prevent issues with cloning early access content later
@@ -80,15 +80,15 @@ jobs:
           cache: npm
 
       - name: Clone docs-early-access
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           repository: github/docs-early-access
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           path: docs-early-access
           ref: main
 
       - name: Merge docs-early-access repo's folders
-        run: .github/actions-scripts/merge-early-access.sh
+        run: src/early-access/scripts/merge-early-access.sh
 
       - name: 'Build and push image'
         uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671

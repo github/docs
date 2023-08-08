@@ -33,14 +33,16 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 1. Move into the directory for your Subversion repository.
 1. To get a list of authors in your Subversion project and store the list in `authors.txt`, run the following script:
 
-   ```shell{:copy}
-   svn log -q | grep -e '^r' | awk 'BEGIN { FS = "|" } ; { print "$2 = $2\" }' | sort | uniq > authors.txt
+   ```shell copy
+   svn log -q | grep -e '^r' | awk 'BEGIN { FS = "|" } ; { print $2" = "$2 }' | sed 's/^[ \t]*//' | sort | uniq > authors.txt
    ```
+
 1. Update your `authors.txt` file, mapping the author name used in the Subversion repository to the name you want to use in your Git repository, with the following format:
 
    ```
    octocat = The Octocat <octocat@github.com>
    ```
+
 1. To convert your Subversion repository to a Git repository, use `git svn`.
 
    - If your Subversion repository has a standard format, with “trunk”, “branches”, and “tags” folders, run `git svn clone -s URL PATH/TO/DESTINATION --authors-file PATH/TO/AUTHORS.TXT`, replacing `URL` with the URL of the Subversion repository, `PATH/TO/DESTINATION` with the path to the directory you want to clone the repository into, and `PATH/TO/AUTHORS.TXT` with the path to your `authors.txt` file.

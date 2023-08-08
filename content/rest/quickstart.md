@@ -82,8 +82,9 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
+
   {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-   
+
    on:
      workflow_dispatch:
    jobs:
@@ -92,16 +93,17 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-   
+
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
            run: |
              gh api repos/octocat/Spoon-Knife/issues
+
    ```
 
 {% endcli %}
@@ -128,7 +130,7 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
 
    You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   If these options are not possible, consider using another CLI service to store your token securely.
 
    {% endwarning %}
 
@@ -227,8 +229,9 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
+
   {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-   
+
    on:
      workflow_dispatch:
    jobs:
@@ -237,7 +240,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Check out repo content
            uses: {% data reusables.actions.action-checkout %}
-   
+
          - name: Setup Node
            uses: {% data reusables.actions.action-setup-node %}
            with:
@@ -249,7 +252,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
    
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
@@ -259,6 +262,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
              node .github/actions-scripts/use-the-api.mjs
            env:
              TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
+
    ```
 
 {% endjavascript %}
@@ -269,6 +273,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
 ### Using `curl` in the command line
 
+{% ifversion ghes or ghae %}
 {% note %}
 
 **Notes:**
@@ -277,6 +282,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 - If you want to make API requests from the command line, {% data variables.product.prodname_dotcom %} recommends that you use {% data variables.product.prodname_cli %}, which simplifies authentication and requests. For more information about getting started with the REST API using {% data variables.product.prodname_cli %}, see the {% data variables.product.prodname_cli %} version of this article.
 
 {% endnote %}
+{% endif %}
 
 1. Install `curl` if it isn't already installed on your machine. To check if `curl` is installed, execute `curl --version` in the command line. If the output is information about the version of `curl`, it is installed. If you get a message similar to `command not found: curl`, you need to download and install `curl`. For more information, see [the curl project download page](https://curl.se/download.html).
 1. Create an access token. For example, create a {% data variables.product.pat_generic %} or a {% data variables.product.prodname_github_app %} user access token. For more information, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" or "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
@@ -291,7 +297,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    You can also use {% data variables.product.prodname_cli %} instead of `curl`. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
 
-   If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+   If these options are not possible, consider using another CLI service to store your token securely.
 
    {% endwarning %}
 
@@ -352,8 +358,9 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
+
   {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
-   
+
    on:
      workflow_dispatch:
    jobs:
@@ -362,11 +369,11 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate_token
-           uses: tibdex/github-app-token@36464acb844fc53b9b8b2401da68844f6b05ebb0
+           uses: tibdex/github-app-token@c2055a00597a80f713b78b1650e8d3418f4d9a65
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-   
+
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
@@ -375,6 +382,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
              --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
              --header "Accept: application/vnd.github+json" \
              --header "Authorization: Bearer $GH_TOKEN"
+
    ```
 
 {% endcurl %}

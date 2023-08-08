@@ -19,12 +19,17 @@ export default async function ghesReleaseNotesContext(req, res, next) {
       : next()
   }
 
+  // For example, the URL is something like /enterprise-server@3.7/xxx/admin
+  // or /enterprise-server@3.7/xxxx/release-notes
+  // Then it should not bother because it'll be a 404 anyway.
+  if (!req.context.page) return next()
+
   // Returns [{version, patches: [{version, patchVersion, intro, date, sections: { features: [], bugs: []...}} ]}]
   req.context.ghesReleases = formatReleases(ghesReleaseNotes)
 
   // Find the notes for the current release only
   const currentReleaseNotes = req.context.ghesReleases.find(
-    (r) => r.version === requestedRelease
+    (r) => r.version === requestedRelease,
   ).patches
 
   // Run the current release notes through the markdown rendering pipeline.
@@ -39,10 +44,10 @@ export default async function ghesReleaseNotesContext(req, res, next) {
       const ghesReleaseNotes = getReleaseNotes('enterprise-server', 'en')
       enContext.ghesReleases = formatReleases(ghesReleaseNotes)
       const currentReleaseNotes = enContext.ghesReleases.find(
-        (r) => r.version === requestedRelease
+        (r) => r.version === requestedRelease,
       ).patches
       return renderPatchNotes(currentReleaseNotes, enContext)
-    }
+    },
   )
 
   // GHES release notes on docs started with 2.20 but older release notes exist on enterprise.github.com.

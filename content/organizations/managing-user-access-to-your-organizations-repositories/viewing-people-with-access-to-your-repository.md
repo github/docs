@@ -30,6 +30,7 @@ Organizations that use {% data variables.product.prodname_ghe_cloud %} can also 
 You can see a combined overview of teams and people with access to your repository in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#about-access-management-for-repositories)."
 
 {% ifversion ghec or ghes or ghae %}
+
 ## Exporting a list of people with access to your repository
 
 {% ifversion ghec %}

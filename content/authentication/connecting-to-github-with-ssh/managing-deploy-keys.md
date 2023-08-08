@@ -26,19 +26,19 @@ In many cases, especially in the beginning of a project, SSH agent forwarding is
 
 ### Pros of SSH agent forwarding
 
-* You do not have to generate or keep track of any new keys.
-* There is no key management; users have the same permissions on the server that they do locally.
-* No keys are stored on the server, so in case the server is compromised, you don't need to hunt down and remove the compromised keys.
+- You do not have to generate or keep track of any new keys.
+- There is no key management; users have the same permissions on the server that they do locally.
+- No keys are stored on the server, so in case the server is compromised, you don't need to hunt down and remove the compromised keys.
 
 ### Cons of SSH agent forwarding
 
-* Users **must** SSH in to deploy; automated deploy processes can't be used.
-* SSH agent forwarding can be troublesome to run for Windows users.
+- Users **must** SSH in to deploy; automated deploy processes can't be used.
+- SSH agent forwarding can be troublesome to run for Windows users.
 
 ### Set up SSH agent forwarding
 
 1. Turn on agent forwarding locally. See [our guide on SSH agent forwarding][ssh-agent-forwarding] for more information.
-2. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
+1. Set your deploy scripts to use agent forwarding. For example, on a bash script, enabling agent forwarding would look something like this:
 `ssh -A serverA 'bash -s' < deploy.sh`
 
 ## HTTPS cloning with OAuth tokens
@@ -47,18 +47,18 @@ If you don't want to use SSH keys, you can use HTTPS with OAuth tokens.
 
 ### Pros of HTTPS cloning with OAuth tokens
 
-* Anyone with access to the server can deploy the repository.
-* Users don't have to change their local SSH settings.
-* Multiple tokens (one for each user) are not needed; one token per server is enough.
-* A token can be revoked at any time, turning it essentially into a one-use password.
+- Anyone with access to the server can deploy the repository.
+- Users don't have to change their local SSH settings.
+- Multiple tokens (one for each user) are not needed; one token per server is enough.
+- A token can be revoked at any time, turning it essentially into a one-use password.
 {% ifversion ghes %}
-* Generating new tokens can be easily scripted using [the OAuth API](/rest/oauth-authorizations#create-a-new-authorization).
+- Generating new tokens can be easily scripted using [the OAuth API](/rest/oauth-authorizations#create-a-new-authorization).
 {% endif %}
 
 ### Cons of HTTPS cloning with OAuth tokens
 
-* You must make sure that you configure your token with the correct access scopes.
-* Tokens are essentially passwords, and must be protected the same way.
+- You must make sure that you configure your token with the correct access scopes.
+- Tokens are essentially passwords, and must be protected the same way.
 
 ### Set up HTTPS cloning with OAuth tokens
 
@@ -72,26 +72,26 @@ See [our guide on creating a {% data variables.product.pat_generic %}](/authenti
 
 ### Pros of deploy keys
 
-* Anyone with access to the repository and server has the ability to deploy the project.
-* Users don't have to change their local SSH settings.
-* Deploy keys are read-only by default, but you can give them write access when adding them to a repository.
+- Anyone with access to the repository and server has the ability to deploy the project.
+- Users don't have to change their local SSH settings.
+- Deploy keys are read-only by default, but you can give them write access when adding them to a repository.
 
 ### Cons of deploy keys
 
-* Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
-* Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
+- Deploy keys only grant access to a single repository. More complex projects may have many repositories to pull to the same server.
+- Deploy keys are usually not protected by a passphrase, making the key easily accessible if the server is compromised.
 
 ### Set up deploy keys
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server, and remember where you save the generated public and private rsa key pair.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. In the sidebar, click **Deploy Keys**.
+1. In the sidebar, click **Deploy Keys**.
 1. Click **Add deploy key**.
-4. In the "Title" field, provide a title.
+1. In the "Title" field, provide a title.
 1. In the "Key" field, paste your public key.
-5. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
-6. Click **Add key**.
+1. Select **Allow write access** if you want this key to have write access to the repository. A deploy key with write access lets a deployment push to the repository.
+1. Click **Add key**.
 
 ### Using multiple repositories on one server
 
@@ -109,21 +109,21 @@ Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif 
         IdentityFile=/home/user/.ssh/repo-1_deploy_key
 ```
 
-* `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
-* `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
-* `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
+- `Host {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-0` - The repository's alias.
+- `Hostname {% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}` - Configures the hostname to use with the alias.
+- `IdentityFile=/home/user/.ssh/repo-0_deploy_key` - Assigns a private key to the alias.
 
 You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
 
 ```bash
-$ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
+git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com{% endif %}-repo-1:OWNER/repo-1.git
 ```
 
 ## {% data variables.product.prodname_github_app %} installation access tokens
 
 If your server needs to access repositories across one or more organizations, you can use a GitHub App to define the access you need, and then generate _tightly-scoped_, installation access tokens from that GitHub App. The installation access tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
 
-Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the installation access tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, installation access tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/creating-github-apps/rate-limits-for-github-apps).
+Since GitHub Apps are a first class actor on  {% data variables.product.product_name %}, the installation access tokens are decoupled from any GitHub user, which makes them comparable to "service tokens". Additionally, installation access tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps).
 
 ### Pros of installation access tokens
 
@@ -141,7 +141,7 @@ Since GitHub Apps are a first class actor on  {% data variables.product.product_
 
 1. Determine if your GitHub App should be public or private. If your GitHub App will only act on repositories within your organization, you likely want it private.
 1. Determine the permissions your GitHub App requires, such as read-only access to repository contents.
-1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
+1. Create your GitHub App via your organization's settings page. For more information, see [Creating a GitHub App](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app).
 1. Note your GitHub App `id`.
 1. Generate and download your GitHub App's private key, and store this safely. For more information, see [Generating a private key](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
 1. Install your GitHub App on the repositories it needs to act upon, optionally you may install the GitHub App on all repositories in your organization.
@@ -161,7 +161,7 @@ If your server needs to access multiple repositories, you can create a new accou
 
 **Tip:** Our [terms of service][tos] state:
 
-> *Accounts registered by "bots" or other automated methods are not permitted.*
+> _Accounts registered by "bots" or other automated methods are not permitted._
 
 This means that you cannot automate the creation of accounts. But if you want to create a single machine user for automating tasks such as deploy scripts in your project or organization, that is totally cool.
 
@@ -171,27 +171,27 @@ This means that you cannot automate the creation of accounts. But if you want to
 
 ### Pros of machine users
 
-* Anyone with access to the repository and server has the ability to deploy the project.
-* No (human) users need to change their local SSH settings.
-* Multiple keys are not needed; one per server is adequate.
+- Anyone with access to the repository and server has the ability to deploy the project.
+- No (human) users need to change their local SSH settings.
+- Multiple keys are not needed; one per server is adequate.
 
 ### Cons of machine users
 
-* Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
-* Machine user keys, like deploy keys, are usually not protected by a passphrase.
+- Only organizations can restrict machine users to read-only access. Personal repositories always grant collaborators read/write access.
+- Machine user keys, like deploy keys, are usually not protected by a passphrase.
 
 ### Set up machine users
 
 1. [Run the `ssh-keygen` procedure][generating-ssh-keys] on your server and attach the public key to the machine user account.
-2. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.
+1. Give the machine user account access to the repositories you want to automate. You can do this by adding the account as a [collaborator][collaborator], as an [outside collaborator][outside-collaborator], or to a [team][team] in an organization.
 
-[ssh-agent-forwarding]: /guides/using-ssh-agent-forwarding/
-[generating-ssh-keys]: /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/#generating-a-new-ssh-key
-[tos]: /free-pro-team@latest/github/site-policy/github-terms-of-service/
-[git-automation]: /articles/git-automation-with-oauth-tokens
-[collaborator]: /articles/inviting-collaborators-to-a-personal-repository
-[outside-collaborator]: /articles/adding-outside-collaborators-to-repositories-in-your-organization
-[team]: /articles/adding-organization-members-to-a-team
+[ssh-agent-forwarding]: /authentication/connecting-to-github-with-ssh/using-ssh-agent-forwarding
+[generating-ssh-keys]: /authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key
+[tos]: /free-pro-team@latest/site-policy/github-terms/github-terms-of-service
+[collaborator]: /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository
+[outside-collaborator]: /organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization
+[team]: /organizations/organizing-members-into-teams/adding-organization-members-to-a-team
 
 ## Further reading
+
 - [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

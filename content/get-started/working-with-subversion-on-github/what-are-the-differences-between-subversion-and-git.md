@@ -15,7 +15,7 @@ shortTitle: Subversion & Git differences
 ---
 ## Directory structure
 
-Each *reference*, or labeled snapshot of a commit, in a project is organized within specific subdirectories, such as `trunk`, `branches`, and `tags`. For example, an SVN project with two features under development might look like this:
+Each _reference_, or labeled snapshot of a commit, in a project is organized within specific subdirectories, such as `trunk`, `branches`, and `tags`. For example, an SVN project with two features under development might look like this:
 
       sample_project/trunk/README.md
       sample_project/trunk/lib/widget.rb
@@ -26,11 +26,11 @@ Each *reference*, or labeled snapshot of a commit, in a project is organized wit
 
 An SVN workflow looks like this:
 
-* The `trunk` directory represents the latest stable release of a project.
-* Active feature work is developed within subdirectories under `branches`.
-* When a feature is finished, the feature directory is merged into `trunk` and removed.
+- The `trunk` directory represents the latest stable release of a project.
+- Active feature work is developed within subdirectories under `branches`.
+- When a feature is finished, the feature directory is merged into `trunk` and removed.
 
-Git projects are also stored within a single directory. However, Git obscures the details of its references by storing them in a special *.git* directory. For example, a Git project with two features under development might look like this:
+Git projects are also stored within a single directory. However, Git obscures the details of its references by storing them in a special _.git_ directory. For example, a Git project with two features under development might look like this:
 
       sample_project/.git
       sample_project/README.md
@@ -38,18 +38,18 @@ Git projects are also stored within a single directory. However, Git obscures th
 
 A Git workflow looks like this:
 
-* A Git repository stores the full history of all of its branches and tags within the *.git* directory.
-* The latest stable release is contained within the default branch.
-* Active feature work is developed in separate branches.
-* When a feature is finished, the feature branch is merged into the default branch and deleted.
+- A Git repository stores the full history of all of its branches and tags within the _.git_ directory.
+- The latest stable release is contained within the default branch.
+- Active feature work is developed in separate branches.
+- When a feature is finished, the feature branch is merged into the default branch and deleted.
 
 Unlike SVN, with Git the directory structure remains the same, but the contents of the files change based on your branch.
 
 ## Including subprojects
 
-A *subproject* is a project that's developed and managed somewhere outside of your main project. You typically import a subproject to add some functionality to your project without needing to maintain the code yourself. Whenever the subproject is updated, you can synchronize it with your project to ensure that everything is up-to-date.
+A _subproject_ is a project that's developed and managed somewhere outside of your main project. You typically import a subproject to add some functionality to your project without needing to maintain the code yourself. Whenever the subproject is updated, you can synchronize it with your project to ensure that everything is up-to-date.
 
-In SVN, a subproject is called an *SVN external*. In Git, it's called a *Git submodule*. Although conceptually similar, Git submodules are not kept up-to-date automatically; you must explicitly ask for a new version to be brought into your project.
+In SVN, a subproject is called an _SVN external_. In Git, it's called a _Git submodule_. Although conceptually similar, Git submodules are not kept up-to-date automatically; you must explicitly ask for a new version to be brought into your project.
 
 For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
 

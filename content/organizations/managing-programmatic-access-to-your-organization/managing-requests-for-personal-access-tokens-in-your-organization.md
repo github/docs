@@ -22,7 +22,7 @@ When organization members create a {% data variables.product.pat_v2 %} to access
 
 {% ifversion pat-v2-org-admin-api %}
 
-Organization admins can also use the REST API to review and manage {% data variables.product.pat_v2 %} requests. These endpoints can only be called by {% data variables.product.prodname_github_apps %}, and cannot be called with {% data variables.product.pat_generic_plural %} or {% data variables.product.prodname_oauth_apps %}. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens)."
+Organization owners can also use the REST API to review and manage {% data variables.product.pat_v2 %} requests. These endpoints can only be called by {% data variables.product.prodname_github_apps %}, and cannot be called with {% data variables.product.pat_generic_plural %} or {% data variables.product.prodname_oauth_apps %}. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens)."
 
 {% endif %}
 
@@ -30,7 +30,7 @@ Organization admins can also use the REST API to review and manage {% data varia
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
 1. Click the name of the token that you want to approve or deny.
 1. Review the access and permissions that the token is requesting.
 1. To grant the token access to the organization, click **Approve**. To deny the token access to the organization, click **Deny**.
@@ -40,8 +40,7 @@ Alternatively, you can approve or deny multiple tokens at once:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-label="The key icon" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Pending requests**. If any tokens are pending approval for your organization, they will be displayed.
 {% data reusables.user-settings.patv2-filters %}
 1. Select each token that you want to approve or reject.
 1. Select the **request selected...** dropdown menu and click **Approve...** or **Deny...**.
-
