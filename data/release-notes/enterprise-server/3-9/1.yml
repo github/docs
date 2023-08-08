@@ -98,6 +98,10 @@ sections:
     - |
       On an instance with multiple nodes, internal tooling to repair repositories now attempts to resolve problems within the entire repository network.
   known_issues:
+      {% warning %}
+        The known issues originally published on DATE ommitted a number of known issues that still existed.
+        The list below was updated on 2023-08-08.
+      {% endwarning %}
     - |
       After an administrator upgrades from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9, I/O utilization will increase, and in some cases the instance's performance will be impacted. Reduced performance is due to the database server being upgraded from MySQL 5.7 to MySQL 8.0. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
     - |
