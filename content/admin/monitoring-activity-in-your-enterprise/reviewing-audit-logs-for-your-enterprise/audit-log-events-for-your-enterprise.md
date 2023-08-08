@@ -52,8 +52,8 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | Action | Description
 |--------|-------------
 | `account.billing_plan_change` | An organization's billing cycle changed. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
-| `account.plan_change` | An organization's subscription changed. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)."
-| `account.pending_plan_change` | An organization owner or billing manager canceled or downgraded a paid subscription. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+| `account.plan_change` | An organization's plan changed. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans)."
+| `account.pending_plan_change` | An organization owner or billing manager canceled or downgraded a paid plan. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 | `account.pending_subscription_change` | A {% data variables.product.prodname_marketplace %} free trial started or expired. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)."
 {%- endif %}
 

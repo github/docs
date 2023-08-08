@@ -20,7 +20,7 @@ If you're trying to push to or pull from the repository from which you created t
 
 You may see these errors if you use a dotfiles repository with {% data variables.product.prodname_github_codespaces %}, and you have configured Git to use a protocol other than HTTPS for transferring data to the remote repository. For example, you may have configured Git to use SSH by including lines like the following in a config file in your dotfiles.
 
-```
+```shell
 [url "git@github.com:"]
   insteadOf = https://github.com/
 ```

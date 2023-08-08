@@ -23,6 +23,7 @@
     "fixture-test": "cross-env ROOT=tests/fixtures npm test -- tests/rendering-fixtures",
     "index-test-fixtures": "node src/search/scripts/index-elasticsearch.js -l en -l ja -V ghae -V dotcom --index-prefix tests -- src/search/tests/fixtures/search-indexes",
     "lint": "eslint '**/*.{js,mjs,ts,tsx}'",
+    "lint-content": "src/content-linter/scripts/markdownlint.js",
     "lint-translation": "cross-env NODE_OPTIONS=--experimental-vm-modules jest src/content-linter/tests/lint-files.js",
     "openapi-docs": "src/rest/docs.js",
     "playwright-test": "playwright test --project=\"Google Chrome\"",
@@ -51,7 +52,8 @@
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
-    "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write"
+    "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write",
+    "{content,data}/**/*.md": "src/content-linter/scripts/markdownlint.js --errors --paths"
   },
   "dependencies": {
     "@elastic/elasticsearch": "7.11.0",
@@ -87,7 +89,7 @@
     "gray-matter": "^4.0.3",
     "hast-util-from-parse5": "^7.1.0",
     "hast-util-to-string": "^2.0.0",
-    "hastscript": "^7.0.2",
+    "hastscript": "^8.0.0",
     "helmet": "^7.0.0",
     "highlight.js": "11.7.0",
     "highlightjs-curl": "^1.3.0",
@@ -110,6 +112,7 @@
     "morgan": "^1.10.0",
     "msgpack5rpc": "^1.1.0",
     "next": "12.2.4",
+    "ora": "^7.0.1",
     "parse5": "7.1.2",
     "port-used": "^2.0.8",
     "react": "^17.0.2",

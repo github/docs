@@ -21,6 +21,21 @@ versions:
 - When making a style or structure decision, we consider the flow of information within the unit of content and the context of the information.
 - When a question specific to help documentation isn’t covered by the style guide, we think it through using these principles, then make a decision. If a reviewer asks about it, we're prepared to discuss the decision.
 
+## Audit log events
+
+We document each of the events that may appear in the audit logs for each type of account: user, organization, and enterprise.
+
+- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/security-log-events)"
+- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization)"
+- "[AUTOTITLE]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)" {% ifversion fpt %}in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+
+When writing the description for an audit log event, describe the event that took place in a way that applies to all versions, using past tense and passive voice. Do not begin the sentence with phrases that are already implied by the context of the article, such as "Triggered by."
+
+- **Use**: The visibility of a repository was changed.
+- **Use**: Secret scanning was enabled for all new repositories.
+- **Avoid**: An organization owner disabled a two-factor authentication requirement for the organization.
+- **Avoid**: Triggered when a user updates which repositories a codespace can access.
+
 ## Callouts
 
 Callouts highlight important information that customers need to know. We use standard formatting and colors for different types of callouts across doc sets.
@@ -169,9 +184,9 @@ Avoid using footnotes where possible. Consider instead whether you could use a [
 
 If you must use footnotes:
 
-* Use numbers. Do not use typographical symbols or special characters.
-* Place footnote markers in square brackets: `[1]`.
-* Do not use superscript.
+- Use numbers. Do not use typographical symbols or special characters.
+- Place footnote markers in square brackets: `[1]`.
+- Do not use superscript.
 
 ## Headers
 
@@ -485,8 +500,8 @@ Capitalize the first letter in each line of a list. Use periods at the end of li
 
 When writing a list of items that consist of primary and secondary text, such as a `term` and its definition, use a colon delimiter. The secondary text should be capitalized as if it was the beginning of the line. For example:
 
-* `foo`: Something that provides bar.
-* `bar`: Something provided by foo.
+- `foo`: Something that provides bar.
+- `bar`: Something provided by foo.
 
 Formatting unordered lists:
 - If the order of items in the list is not important, alphabetize the list items.
@@ -502,9 +517,9 @@ Each step must include an action. You can also choose to include whether a step 
 
 Use a consistent order to present information within each step.
 1. If the step is optional, indicate that first.
-2. When needed for clarity, or to reinforce the severity of a destructive or confusing action, explain the reason for or result of the step.
-3. Describe the location the user will find the action in.
-4. Action.
+1. When needed for clarity, or to reinforce the severity of a destructive or confusing action, explain the reason for or result of the step.
+1. Describe the location the user will find the action in.
+1. Action.
 
 **Use:** Optionally, to `REASON`, in `LOCATION`, take `ACTION`.
 
@@ -616,8 +631,8 @@ For more information, see "[Using SHAs](/actions/learn-github-actions/finding-an
 ### {% data variables.product.prodname_codespaces %}
 
 When referring to the product {% data variables.product.prodname_codespaces %}, always include "{% data variables.product.company_short %}", except in these circumstances:
-* In the `shortTitle` front matter (i.e. the abbreviated version of the article title).
-* In subheadings within an article, if "{% data variables.product.prodname_codespaces %}" has already been used anywhere in the article prior to the subheading.
+- In the `shortTitle` front matter (i.e. the abbreviated version of the article title).
+- In subheadings within an article, if "{% data variables.product.prodname_codespaces %}" has already been used anywhere in the article prior to the subheading.
 
 Variables: `{% raw %}{% data variables.product.prodname_github_codespaces %}{% endraw %}` ("GitHub Codespaces") and `{% raw %}{% data variables.product.prodname_codespaces %}{% endraw %}` ("Codespaces").
 
@@ -627,7 +642,7 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
-### {% data variables.product.prodname_GH_advanced_security %} (GHAS) 
+### {% data variables.product.prodname_GH_advanced_security %} (GHAS)
 
 Use the terms `licenses` and `active committers` when you refer to {% data variables.product.prodname_GH_advanced_security %} billing.
 
@@ -667,6 +682,7 @@ Each release note in a set describes one of the following changes.
 - [Security fixes](#security-fixes): fixes to flaws or unexpected behavior that have security implications
 - [Bug fixes](#bug-fixes): fixes to flaws or unexpected behavior
 - [Changes](#changes): notable changes to past behavior
+- [Known issues](#known-issues): issues that {% data variables.product.company_short %} has identified, but cannot or has not yet prioritized
 - [Deprecations](#deprecations): removal of a feature or behavior
 - [Errata](#errata): correction to inaccurate release note or documentation
 
@@ -792,9 +808,8 @@ A release note for a known issue answers the following questions.
 
 > _AUDIENCE_ (**1**) _DESCRIPTION OF ISSUE_ (**2**) _DETAILS OF BEHAVIOR_ (**3**) _NEXT STEPS_ (**4**).
 
-- To clarify actors and impact, avoid passive language when possible.sent tense.
-- To reduce repetition and unnecessary words, "now" is usually implied.
 - To clarify actors and impact, avoid passive language when possible.
+- To reduce repetition and unnecessary words, "now" is usually implied.
 - If useful, include relevant links to GitHub Docs.
 - Known issues are also a [type of content on GitHub Docs](/contributing/writing-for-github-docs/content-model#known-issues). If useful, write or link to more in-depth and contextually relevant content in the docs.
 
@@ -839,9 +854,9 @@ Errata corrects inaccurate information previously published in the release notes
 Errata answers the following questions.
 
 1. If applicable, which section of the release notes or content on {% data variables.product.prodname_docs %} was affected?
-2. Did the incorrect information apply to me, with my role or access?
-3. What did the release note or documentation describe that was incorrect?
-4. When was the errata published?
+1. Did the incorrect information apply to me, with my role or access?
+1. What did the release note or documentation describe that was incorrect?
+1. When was the errata published?
 
 > _CONTENT_ (**1**) incorrectly indicated that _AUDIENCE_ (**2**) can _SUMMARY OF INACCURATE INFORMATION_ (**3**). [Updated: _PUBLICATION DATE_ **4**]
 
@@ -966,7 +981,7 @@ For example in the following table, in order to make sense of the "Yes" and "No"
   </tr>
 </table>
 
-To add row headers for a Markdown table, wrap the table in the Liquid tags `{% rowheaders %} {% endrowheaders %}`. For more information about using row headers, see "[Table row headers](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#table-row-headers)" in the content markup reference.
+To add row headers for a Markdown table, wrap the table in the Liquid tags `{% raw %}{% rowheaders %} {% endrowheaders %}{% endraw %}`. For more information about using row headers, see "[Table row headers](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#table-row-headers)" in the content markup reference.
 
 ### Include a value for every cell
 Every cell in a table must contain a value. If the table has row headers, the first cell (cell A1) can be empty.
@@ -977,10 +992,10 @@ If there is no data, use "None" or "Not applicable". Do not use "NA" or "N/A".
 
 For tables that use symbols:
 
-* Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
-* Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji.
-* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
-* Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
+- Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
+- Use [octicons](https://github.com/github/docs/blob/main/contributing/content-markup-reference.md#octicons) or SVG. Do not use emoji.
+- Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+- Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
 Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page "[AUTOTITLE](/support/learning-about-github-support/about-github-support)", some features are marked as "Available to purchase".
 
@@ -994,7 +1009,6 @@ All columns in a table should be left-aligned, except for columns containing onl
 Table content is left-aligned by default. Use Markdown table formatting, colons (`:`) to either the right or left of the dashes in the header row, to specify the alignment of each column. Read "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables#formatting-content-within-your-table)" for more information.
 
 The following example shows part of a table from "[AUTOTITLE](/free-pro-team@latest/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
-
 
 <table>
 <thead>
@@ -1053,13 +1067,15 @@ The following example shows part of a table from "[AUTOTITLE](/free-pro-team@lat
 </tbody>
 </table>
 
-````
+The table is generated with the following alignment syntax.
+
+```text
 | Option              | Required | Security Updates | Version Updates | Description                    |
 |---------------------|:--------:|:----------------:|:---------------:|--------------------------------|
-| `package-ecosystem` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Package manager to use         |
-| `directory`         |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| Location of package manifests  |
-| `schedule.interval` |{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}| How often to check for updates |
-````
+| `package-ecosystem` |{% raw %}{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}{% endraw %}| Package manager to use         |
+| `directory`         |{% raw %}{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}{% endraw %}| Location of package manifests  |
+| `schedule.interval` |{% raw %}{% octicon "check" aria-label="Supported" %}|{% octicon "x" aria-label="Not supported" %}|{% octicon "check" aria-label="Supported" %}{% endraw %}| How often to check for updates |
+```
 
 ## Titles
 
@@ -1223,10 +1239,10 @@ With {% data variables.product.company_short %}'s enterprise products, administr
 
 If the reader manages an enterprise account, and you're describing the people's accounts that they manage, use "user account." This applies to the following products.
 
-- {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %} 
+- {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}
   - **Use:** With {% data variables.product.prodname_emus %} , you can create and manage user accounts for your enterprise members.
   - **Avoid:** With {% data variables.product.prodname_emus %} , you can create and manage the personal accounts for your enterprise members.
-- {% data variables.product.prodname_ghe_server %} 
+- {% data variables.product.prodname_ghe_server %}
   - **Use:** If you need to temporarily take over a user account...
   - **Avoid:** If you need to temporarily take over a personal account...
 - {% data variables.product.prodname_ghe_managed %}
@@ -1236,7 +1252,7 @@ If the reader manages an enterprise account, and you're describing the people's 
 The following documentation should reference "user accounts."
 
 - The "[AUTOTITLE](/enterprise-cloud@latest/admin)" product
-- Enterprise-specific billing documentation, like "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
+- Enterprise-specific billing documentation, like "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
 - Content within other products that's intended for an administrative audience, like "[AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)" in the "Code security" product or "[AUTOTITLE](/enterprise-cloud@latest/get-started/signing-up-for-github/setting-up-a-trial-of-github-enterprise-cloud)" in the "Get started" product
 - Enterprise-specific API content, like the "[AUTOTITLE](/enterprise-cloud@latest/rest/reference/enterprise-admin)" REST API reference documentation
 
@@ -1359,6 +1375,7 @@ See the “[Product names](#product-names)” section of this guide.
 | sign up | signup |
 | recommended limit | soft limit |
 | email | e-mail |
+| frontmatter | front matter, front-matter |
 | on {% data variables.product.company_short %} | on a remote repository |
 | press (a key) | hit, tap |
 | type (in the user interface) | enter (in the user interface) |

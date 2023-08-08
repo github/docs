@@ -18,7 +18,7 @@ shortTitle: Prevent data leaks
 
 As an organization owner, preventing exposure of private or sensitive data should be a top priority. Whether intentional or accidental, data leaks can cause substantial risk to the parties involved. While {% data variables.product.prodname_dotcom %} takes measures to help protect you against data leaks, you are also responsible for administering your organization to harden security.
 
-There are several key components when it comes to defending against data leaks: 
+There are several key components when it comes to defending against data leaks:
 
 - Taking a proactive approach towards prevention
 - Early detection of possible leaks
@@ -28,7 +28,7 @@ The best approach will depend on the type of organization you're managing. For e
 
 ## Secure accounts
 
-Security best practices include:
+Protect your organization's repositories and settings by implementing security best practices, including enabling 2FA and requiring it for all members, and establishing strong password guidelines.
 
 {% ifversion ghec %}- Enabling secure authentication processes by using SAML and SCIM integrations, as well as 2FA authentication whenever possible. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)," "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)," and "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)." {% endif %}
 
@@ -67,13 +67,13 @@ No matter how well you tighten your organization to prevent data leaks, some may
 {% ifversion fpt or ghec %}
 There are two forms of {% data variables.product.prodname_secret_scanning %} available: **{% data variables.secret-scanning.partner_alerts_caps %}** and **{% data variables.secret-scanning.user_alerts_caps %}**.
 
-- {% data variables.secret-scanning.partner_alerts_caps %}—These are enabled by default and automatically run on all public repositories and public npm packages. 
+- {% data variables.secret-scanning.partner_alerts_caps %}—These are enabled by default and automatically run on all public repositories and public npm packages.
 - {% data variables.secret-scanning.user_alerts_caps %}—To get additional scanning capabilities for your organization, you need to enable {% data variables.secret-scanning.user_alerts %}.
 
-  When enabled, {% data variables.secret-scanning.user_alerts %} can be detected on the following types of repository:{% ifversion fpt %}   
+  When enabled, {% data variables.secret-scanning.user_alerts %} can be detected on the following types of repository:{% ifversion fpt %}
    - Public repositories owned by personal accounts on {% data variables.product.prodname_dotcom_the_website %}
    - Public repositories owned by organizations
-   - Private and internal repositorites owned by organizations using {% data variables.product.prodname_ghe_cloud %}, when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% elsif ghec %} 
+   - Private and internal repositorites owned by organizations using {% data variables.product.prodname_ghe_cloud %}, when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% elsif ghec %}
    - Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} (for free)
    - Private and internal repositorites when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}
 {% endif %}
@@ -98,7 +98,7 @@ If a user pushes sensitive data, ask them to remove it by using the `git filter-
 
 At the organization level, if you're unable to coordinate with the user who pushed the sensitive data to remove it, we recommend you contact [GitHub Support](https://support.github.com/contact) with the concerning commit SHA.
 
-If you're unable to coordinate directly with the repository owner to remove data that you're confident you own, you can fill out a DMCA takedown notice form and tell GitHub Support. For more information, see [DMCA takedown notice](https://support.github.com/contact/dmca-takedown). 
+If you're unable to coordinate directly with the repository owner to remove data that you're confident you own, you can fill out a DMCA takedown notice form and tell GitHub Support. For more information, see [DMCA takedown notice](https://support.github.com/contact/dmca-takedown).
 
 {% note %}
 

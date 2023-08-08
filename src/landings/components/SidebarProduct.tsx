@@ -61,7 +61,10 @@ export const SidebarProduct = () => {
                         e.nativeEvent instanceof KeyboardEvent &&
                         e.nativeEvent.code === 'Enter'
                       ) {
-                        document.getElementById(childPage.href)?.click()
+                        // Need to grab the a tag inside the TreeView.Item
+                        const aLink = document.getElementById(childPage.href)?.firstChild?.lastChild
+                          ?.lastChild?.lastChild as HTMLElement
+                        if (aLink) aLink.click()
                         e?.stopPropagation()
                       }
                     }}
@@ -119,27 +122,27 @@ export const SidebarProduct = () => {
               return (
                 <div key={childTitle}>
                   {childPage.href.includes('quickstart') ? (
-                    <Link
-                      href={childPage.href}
-                      className={cx('d-block no-underline width-full color-fg-default')}
+                    <TreeView.Item
+                      id={childPage.href}
+                      key={childPage.href + i}
+                      current={isActive}
+                      onSelect={(e) => {
+                        if (
+                          e.nativeEvent instanceof KeyboardEvent &&
+                          e.nativeEvent.code === 'Enter'
+                        ) {
+                          document.getElementById(childPage.href)?.click()
+                          e?.stopPropagation()
+                        }
+                      }}
                     >
-                      <TreeView.Item
-                        id={childPage.href}
-                        key={childPage.href + i}
-                        current={isActive}
-                        onSelect={(e) => {
-                          if (
-                            e.nativeEvent instanceof KeyboardEvent &&
-                            e.nativeEvent.code === 'Enter'
-                          ) {
-                            document.getElementById(childPage.href)?.click()
-                            e?.stopPropagation()
-                          }
-                        }}
+                      <Link
+                        href={childPage.href}
+                        className={cx('d-block no-underline width-full color-fg-default')}
                       >
                         {childTitle}
-                      </TreeView.Item>
-                    </Link>
+                      </Link>
+                    </TreeView.Item>
                   ) : (
                     <TreeView.Item
                       id={childPage.href}

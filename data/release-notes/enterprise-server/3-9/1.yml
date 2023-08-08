@@ -1,95 +1,105 @@
 date: '2023-07-18'
+intro: |
+  {% warning %}
+
+  **Warning**: This release contains known issues that can impact the performance of your instance. Before you upgrade, make sure you've read the "[Known issues](#3.9.1-known-issues)" section of these release notes.
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
-      An attacker with access to the password hash of the root site administrator user for the instance's Management Console could make requests to the password API endpoint from outside of the instance. 
+      **MEDIUM**: An attacker with write access to a repository could craft a pull request that would hide commits made in its source branch. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and has been assigned [CVE-2023-23764](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23764). [Updated: 2023-07-26]
     - |
-      Packages have been updated to the latest security versions. 
+      An attacker with access to the password hash of the root site administrator user for the instance's Management Console could make requests to the password API endpoint from outside of the instance.
+    - |
+      Packages have been updated to the latest security versions.
   bugs:
     - |
-      In some cases, users could reopen a pull request that should not have been able to be reopened. 
+      In some cases, users could reopen a pull request that should not have been able to be reopened.
     - |
-      If MinIO was configured for external blob storage on an instance with GitHub Actions enabled and MinIO was configured for bucket replication, the instance's credential validation with MinIO would occasionally fail. 
+      If MinIO was configured for external blob storage on an instance with GitHub Actions enabled and MinIO was configured for bucket replication, the instance's credential validation with MinIO would occasionally fail.
     - |
-      Customers who use Azure Blob store as the remote blob provider to back GitHub Packages would have validation errors if the `EndpointSuffix` part of their Connection string was anything other than `core.windows.net`.  Now all valid `EndpointSuffix` are accepted. 
+      Customers who use Azure Blob store as the remote blob provider to back GitHub Packages would have validation errors if the `EndpointSuffix` part of their Connection string was anything other than `core.windows.net`.  Now all valid `EndpointSuffix` are accepted.
     - |
-      When a user viewed a Jupyter notebook, GitHub Enterprise Server returned a `500` error code if the instance was configured with a self-signed TLS certificate. 
+      When a user viewed a Jupyter notebook, GitHub Enterprise Server returned a `500` error code if the instance was configured with a self-signed TLS certificate.
     - |
-      After creation of a blob object from the web UI, pre-receive hook events were missing from the instance's audit log. 
+      After creation of a blob object from the web UI, pre-receive hook events were missing from the instance's audit log.
     - |
-      On an instance with an outbound web proxy server configured, the proxy interfered with internal operations that used `nomad alloc exec`. 
+      On an instance with an outbound web proxy server configured, the proxy interfered with internal operations that used `nomad alloc exec`.
     - |
-      On an instance in a cluster configuration, the `ghe-cluster-balance` behaved inconsistently when displaying status or managing jobs with more than one task group. 
+      On an instance in a cluster configuration, the `ghe-cluster-balance` behaved inconsistently when displaying status or managing jobs with more than one task group.
     - |
-      `.topojson` files would not render correctly, but files that conformed to the TopoJSON spec that used a `.geojson` extension would render correctly. 
+      `.topojson` files would not render correctly, but files that conformed to the TopoJSON spec that used a `.geojson` extension would render correctly.
     - |
-      On an instance configured for LDAP authentication, if the LDAP server sent an empty string for the `sshPublicKey` attribute, LDAP user sync would fail. 
+      On an instance configured for LDAP authentication, if the LDAP server sent an empty string for the `sshPublicKey` attribute, LDAP user sync would fail.
     - |
-      REST API endpoints for managing GitHub Enterprise Server are now functional. For more information, see "[Manage GitHub Enterprise Server](/rest/enterprise-admin/manage-ghes?apiVersion=2022-11-28)" in the REST API documentation. 
+      REST API endpoints for managing GitHub Enterprise Server are now functional. For more information, see "[Manage GitHub Enterprise Server](/rest/enterprise-admin/manage-ghes?apiVersion=2022-11-28)" in the REST API documentation.
     - |
-      After creation of a new Management Console user, the Management Console did not display the button to copy the new users invitation. 
+      After creation of a new Management Console user, the Management Console did not display the button to copy the new users invitation.
     - |
-      On an instance with Dependabot enabled, in some situations, Dependabot alerts were not updated when a user pushed to a repository. 
+      On an instance with Dependabot enabled, in some situations, Dependabot alerts were not updated when a user pushed to a repository.
     - |
-      In some cases, pull requests with more than 25 rich-diff renderable files required that users toggle the diff type to correctly render the files over the 25-file limit. 
+      In some cases, pull requests with more than 25 rich-diff renderable files required that users toggle the diff type to correctly render the files over the 25-file limit.
     - |
-      In rare circumstances, Git commits signed with SSH keys using the RSA algorithm would incorrectly indicate the signature was invalid. 
+      In rare circumstances, Git commits signed with SSH keys using the RSA algorithm would incorrectly indicate the signature was invalid.
     - |
-      After a migration using GitHub Enterprise Importer, some repository autolink references were created with an incorrect format. 
+      After a migration using GitHub Enterprise Importer, some repository autolink references were created with an incorrect format.
     - |
-      In some cases on an instance without a GitHub Advanced Security license, Redis exceeded the maximum default memory allocation, causing `500` errors for the instance's users. 
+      In some cases on an instance without a GitHub Advanced Security license, Redis exceeded the maximum default memory allocation, causing `500` errors for the instance's users.
     - |
-      On an instance with many organizations, the enterprise security overview page returned a `500` error. 
+      On an instance with many organizations, the enterprise security overview page returned a `500` error.
     - |
-      On an instance that was not configured to deliver email notifications using SMTP, background jobs to deliver email were enqueued unnecessarily. 
+      On an instance that was not configured to deliver email notifications using SMTP, background jobs to deliver email were enqueued unnecessarily.
     - |
-      Users were unable to configure a SSH certificate authority for an organization. 
+      Users were unable to configure a SSH certificate authority for an organization.
     - |
-      An erroneous "Blocked Copilot Repositories" link was visible in site admin pages for organizations. 
+      An erroneous "Blocked Copilot Repositories" link was visible in site admin pages for organizations.
     - |
-      On an instance with GitHub Actions enabled and a GitHub Advanced Security license, repository-level runner scale sets were not accounted for when determining whether default setup for code scanning could be used. 
+      On an instance with GitHub Actions enabled and a GitHub Advanced Security license, repository-level runner scale sets were not accounted for when determining whether default setup for code scanning could be used.
     - |
-      Events related to repository notifications did not appear in the audit log. 
+      Events related to repository notifications did not appear in the audit log.
     - |
-      On an instance with a GitHub Advanced Security license and secret scanning enabled, in some cases, a committer would not receive an email notification for a secret scanning alert where push protections were bypassed. 
+      On an instance with a GitHub Advanced Security license and secret scanning enabled, in some cases, a committer would not receive an email notification for a secret scanning alert where push protections were bypassed.
     - |
-      On an instance with a GitHub Advanced Security license, if a user filtered by a custom pattern on an organizations "Code & security analysis" page using an invalid query, the entire GitHub Advanced Security disappeared and an error reading "Sorry, something went wrong loading GitHub Advanced Security settings" appeared. 
+      On an instance with a GitHub Advanced Security license, if a user filtered by a custom pattern on an organizations "Code & security analysis" page using an invalid query, the entire GitHub Advanced Security disappeared and an error reading "Sorry, something went wrong loading GitHub Advanced Security settings" appeared.
     - |
-      On an instance with a GitHub Advanced Security license, if a user browsed to the alerts page for secret scanning without signing in, the instance responded with a `500` error. 
+      On an instance with a GitHub Advanced Security license, if a user browsed to the alerts page for secret scanning without signing in, the instance responded with a `500` error.
     - |
-      On an instance with a GitHub Advanced Security license and secret scanning enabled, output from Git for a push blocked by push protection always included an `http://` link. 
+      On an instance with a GitHub Advanced Security license and secret scanning enabled, output from Git for a push blocked by push protection always included an `http://` link.
     - |
-      On an instance with GitHub Actions enabled, links to `http(s)://HOSTNAME/features/actions` from the web UI returned a `500` error. 
+      On an instance with GitHub Actions enabled, links to `http(s)://HOSTNAME/features/actions` from the web UI returned a `500` error.
     - |
-      If a user added a new item to a projects roadmap view, and the item was outside of the viewport, the view would crash and display "This project failed to load". 
+      If a user added a new item to a projects roadmap view, and the item was outside of the viewport, the view would crash and display "This project failed to load".
     - |
-      The audit log reported the incorrect target repository for pre-receive hook failures. 
+      The audit log reported the incorrect target repository for pre-receive hook failures.
     - |
-      Users can add issues and pull requests from any organization to a project, and are no longer limited to the user or organization of the project. 
+      Users can add issues and pull requests from any organization to a project, and are no longer limited to the user or organization of the project.
     - |
-      On an instance with GitHub Actions enabled and a GitHub Advanced Security license, enterprise-level runner scale sets with the `code-scanning` label were not sufficient to allow default setup for code scanning. 
+      On an instance with GitHub Actions enabled and a GitHub Advanced Security license, enterprise-level runner scale sets with the `code-scanning` label were not sufficient to allow default setup for code scanning.
     - |
-      On an instance in a high availability configuration, existing nodes with out-of-sync repositories prevented new nodes from replicating those repositories. 
+      On an instance in a high availability configuration, existing nodes with out-of-sync repositories prevented new nodes from replicating those repositories.
     - |
-      On an instance with multiple nodes, `ERROR`-level "resolver failed" errors no longer appear in system logs when the instance is unable to resolve an offline fileserver. The messages are now `DEBUG`-level. 
+      On an instance with multiple nodes, `ERROR`-level "resolver failed" errors no longer appear in system logs when the instance is unable to resolve an offline fileserver. The messages are now `DEBUG`-level.
     - |
-      On an instance with a GitHub Advanced Security license that was also configured for a timezone greater than UTC, the list of secret scanning alerts displayed a "Loading secrets failed" error if a user sorted secrets by date in descending order. 
+      On an instance with a GitHub Advanced Security license that was also configured for a timezone greater than UTC, the list of secret scanning alerts displayed a "Loading secrets failed" error if a user sorted secrets by date in descending order.
     - |
-      Code Scanning workflow runs now only request the `code-scanning` label so that they can be used with runner scale sets. 
+      Code Scanning workflow runs now only request the `code-scanning` label so that they can be used with runner scale sets.
     - |
-      On an instance with subdomain isolation disabled, Mermaid diagrams in the web UI displayed an "Unable to render rich display" error and failed to render. 
+      On an instance with subdomain isolation disabled, Mermaid diagrams in the web UI displayed an "Unable to render rich display" error and failed to render.
   changes:
     - |
-      On an instance in a cluster configuration, the `ghe-cluster-config-check` command-line utility will return an affirmative message when no warnings or errors are detected. The affirmative message is "Configuration validation complete. No errors found." 
+      On an instance in a cluster configuration, the `ghe-cluster-config-check` command-line utility will return an affirmative message when no warnings or errors are detected. The affirmative message is "Configuration validation complete. No errors found."
     - |
-      During initialization of a cluster configuration, output from the `ghe-cluster-config-init` command-line utility is improved and simplified. 
+      During initialization of a cluster configuration, output from the `ghe-cluster-config-init` command-line utility is improved and simplified.
     - |
-      The API endpoint for management of the GitHub Enterprise Server instance was unavailable prior to initial configuration of the instance. 
+      The API endpoint for management of the GitHub Enterprise Server instance was unavailable prior to initial configuration of the instance.
     - |
-      The Management Console displays a warning about unexpected consequences that may result from modification of the instance's hostname after initial configuration. 
+      The Management Console displays a warning about unexpected consequences that may result from modification of the instance's hostname after initial configuration.
     - |
-      On an instance with multiple nodes, internal tooling to repair repositories now attempts to resolve problems within the entire repository network. 
+      On an instance with multiple nodes, internal tooling to repair repositories now attempts to resolve problems within the entire repository network.
   known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
     - |
       The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
     - |

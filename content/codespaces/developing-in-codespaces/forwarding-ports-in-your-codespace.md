@@ -146,14 +146,14 @@ Copy the address and paste it somewhere for later use.
 
 1. Start an SSH session for your codespace.
 
-   ```
+   ```shell
    gh codespace ssh
    ```
 
 1. If you have more than one codespace, select the appropriate codespace from the list that's displayed.
 1. Display the `GITHUB_TOKEN`.
 
-   ```
+   ```shell
    echo $GITHUB_TOKEN
    ```
 
@@ -169,7 +169,7 @@ Copy the address and paste it somewhere for later use.
 
 1. Exit the SSH session.
 
-   ```
+   ```shell
    exit
    ```
 

@@ -1,6 +1,6 @@
 import { filterTokens } from 'markdownlint-rule-helpers'
 
-import { addFixErrorDetail } from '../helpers.js'
+import { addFixErrorDetail } from '../helpers/utils.js'
 import { languageKeys } from '../../../../lib/languages.js'
 
 export const internalLinksLang = {

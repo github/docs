@@ -128,6 +128,21 @@ export default class extends Tag {
       throw new TokenizationError(SyntaxHelp, this.tagToken)
     }
 
+    if (!this.currentVersionObj) {
+      console.warn(
+        `
+        If this happens, it means the context prepared for rendering Liquid
+        did not supply an object called 'currentVersionObj'.
+        To fix the error, find the code that prepares the context before
+        calling 'liquid.parseAndRender' and make sure there's an object
+        called 'currentVersionObj' included there.
+      `
+          .replace(/\n\s+/g, ' ')
+          .trim(),
+      )
+      throw new Error('currentVersionObj not found in environment context.')
+    }
+
     const currentRelease = this.currentVersionObj.hasNumberedReleases
       ? this.currentVersionObj.currentRelease
       : this.currentVersionObj.internalLatestRelease

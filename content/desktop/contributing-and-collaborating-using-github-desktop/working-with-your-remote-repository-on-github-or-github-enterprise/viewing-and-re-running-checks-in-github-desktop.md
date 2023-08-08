@@ -3,7 +3,7 @@ title: Viewing and re-running checks in GitHub Desktop
 shortTitle: Viewing and re-running checks
 intro: 'You can view the status of checks and re-run them in {% data variables.product.prodname_desktop %}.'
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 ## About checks in {% data variables.product.prodname_desktop %}
 

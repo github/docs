@@ -80,16 +80,16 @@ The `configure` CLI command is used to set required credentials and options for 
 
    ```shell
    $ gh actions-importer configure
-  ✔ Which CI providers are you configuring?: Travis CI
-  Enter the following values (leave empty to omit):
-  ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
-  ✔ Base url of the GitHub instance: https://github.com
-  ✔ {% data variables.product.pat_generic_caps %} for Travis CI: ***************
-  ✔ Base url of the Travis CI instance: https://travis-ci.com
-  ✔ Travis CI organization name: actions-importer-labs
-  Environment variables successfully updated.
-
+   ✔ Which CI providers are you configuring?: Travis CI
+   Enter the following values (leave empty to omit):
+   ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
+   ✔ Base url of the GitHub instance: https://github.com
+   ✔ {% data variables.product.pat_generic_caps %} for Travis CI: ***************
+   ✔ Base url of the Travis CI instance: https://travis-ci.com
+   ✔ Travis CI organization name: actions-importer-labs
+   Environment variables successfully updated.
    ```
+
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
    ```shell
@@ -174,13 +174,13 @@ You can use the `migrate` command to convert a Travis CI pipeline and open a pul
 
 To migrate a Travis CI pipeline to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing the `target-url` value with the URL for your {% data variables.product.prodname_dotcom %} repository, and `my-travis-ci-repository` with the name of your Travis CI repository.
 
-```
+```shell
 gh actions-importer migrate travis-ci --target-url https://github.com/octo-org/octo-repo --output-dir tmp/migrate --travis-ci-repository my-travis-ci-repository
 ```
 
 The command's output includes the URL to the pull request that adds the converted workflow to your repository. An example of a successful output is similar to the following:
 
-```
+```shell
 $ gh actions-importer migrate travis-ci --target-url https://github.com/octo-org/octo-repo --output-dir tmp/migrate --travis-ci-repository my-travis-ci-repository
 [2022-08-20 22:08:20] Logs: 'tmp/migrate/log/actions-importer-20220916-014033.log'
 [2022-08-20 22:08:20] Pull request: 'https://github.com/octo-org/octo-repo/pull/1'
@@ -228,7 +228,7 @@ gh actions-importer dry-run travis-ci --output-dir ./path/to/output/ --travis-ci
 
 You can use this argument to specify whether {% data variables.product.prodname_actions_importer %} should include inactive repositories in an audit. If this option is not set, inactive repositories are not included in audits.
 
-```
+```shell
 gh actions-importer dry-run travis-ci --output-dir ./path/to/output/ --travis-ci-repository my-travis-ci-repository --allow-inactive-repositories
 ```
 
@@ -242,7 +242,7 @@ By default, {% data variables.product.prodname_actions_importer %} fetches pipel
 
 In this example, {% data variables.product.prodname_actions_importer %} uses the specified YAML configuration file to perform an audit.
 
-```bash
+```shell
 gh actions-importer audit travis-ci --output-dir ./path/to/output/ --config-file-path ./path/to/travis-ci/config.yml
 ```
 
@@ -262,7 +262,7 @@ In this example, {% data variables.product.prodname_actions_importer %} uses the
 
 The pipeline is selected by matching the `repository_slug` in the configuration file to the value of the `--travis-ci-repository` option. The `path` is then used to pull the specified source file.
 
-```bash
+```shell
 gh actions-importer dry-run travis-ci --travis-ci-repository travis-org-name/travis-repo-name --output-dir ./output/ --config-file-path ./path/to/travis-ci/config.yml
 ```
 

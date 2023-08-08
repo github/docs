@@ -9,7 +9,8 @@ versions:
 topics:
   - Codespaces
 children:
-  - /enabling-github-codespaces-for-your-organization
+  - /enabling-or-disabling-github-codespaces-for-your-organization
+  - /choosing-who-owns-and-pays-for-codespaces-in-your-organization
   - /listing-the-codespaces-in-your-organization
   - /managing-the-cost-of-github-codespaces-in-your-organization
   - /managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces

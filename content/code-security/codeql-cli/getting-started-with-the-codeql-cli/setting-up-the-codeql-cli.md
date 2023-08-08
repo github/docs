@@ -74,7 +74,6 @@ From macOS version 10.15 ("Catalina") onwards you need to ensure that your web b
 1. Click the **General** Tab.
 1. Ensure the check-box labeled **Open "safe" files after downloading** is unchecked.
 
-
 ### 2. Extract the zip archive
 
 For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply extract the zip archive.
@@ -211,7 +210,7 @@ see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/c
 
 {% note %}
 
-**Important:** There are different versions of the {% data variables.product.prodname_codeql %} queries available for different users. Check out the correct version for your use case:
+**Note:** There are different versions of the {% data variables.product.prodname_codeql %} queries available for different users. Check out the correct version for your use case:
 
 - For the queries that are intended to be used with the latest {% data variables.product.prodname_codeql_cli %} release, check out the branch tagged `codeql-cli/latest`. You should use this branch for databases you’ve built using the {% data variables.product.prodname_codeql_cli %}, fetched from code scanning on {% data variables.product.prodname_dotcom %}, or recently downloaded from {% data variables.product.prodname_dotcom_the_website %}.
 - For the most up to date {% data variables.product.prodname_codeql %} queries, check out the `main` branch. This branch represents the very latest version of {% data variables.product.prodname_codeql %}’s analysis.

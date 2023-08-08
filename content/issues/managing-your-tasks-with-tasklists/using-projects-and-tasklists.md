@@ -1,6 +1,6 @@
 ---
 title: 'Using projects and tasklists'
-intro: 'When issues in your project are tracked by tasklists or contain tasklists, you can use them to create views and filters. You can also browse any linked issues when you display the details for an issue.'
+intro: 'When issues in your project are tracked by tasklists or contain tasklists, you can use them to create views and filters. {% ifversion projects-v2-tasklists-without-breadcrumbs %}{% else %}You can also browse any linked issues when you display the details for an issue.{% endif %}'
 allowTitleToDifferFromFilename: true
 versions:
   feature: projects-v2-tasklists
@@ -41,17 +41,20 @@ tracked-by:"<OWNER>/<REPO>#<ISSUE NUMBER>","<OWNER>/<REPO>#<ISSUE NUMBER>"
 
 For more information about this field, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-tracks-and-tracked-by-fields)."
 
+{% ifversion projects-v2-tasklists-without-breadcrumbs %}{% else %}
+
 ## Navigating issue hierarchy with a breadcrumb menu
 
 When the issues added to your project are either tracked by tasklists or contain tasklists, the project side-panel allows you to quickly move through the associated issues. Clicking on either the issues in the tasklists or the breadcrumb menu will open that issue in the side-panel.
 
 1. In your project, click on an issue that either contains a tasklist or is tracked by a tasklist in another issue.
 1. In the issue that opens in the side-bar, you can navigate through the associated issues.
-   * To navigate down the issue hierarchy, and view the tasks that comprise the current issue, click on issues in the tasklist.  
+   - To navigate down the issue hierarchy, and view the tasks that comprise the current issue, click on issues in the tasklist.  
     
      ![Screenshot of the header of an issue comment. In the right corner, a horizontal kebab icon is outlined in dark orange.](/assets/images/help/projects-v2/side-panel-tasklist.png)
     
-   * To navigate up the issue hierarchy, and view the issues that include the current issue as a task, click on an issue number in the breadcrumb menu.  
+   - To navigate up the issue hierarchy, and view the issues that include the current issue as a task, click on an issue number in the breadcrumb menu.  
     
      ![Screenshot of the header of an issue comment. In the right corner, a horizontal kebab icon is outlined in dark orange.](/assets/images/help/projects-v2/breadcrumb-menu.png)
     
+{% endif %}

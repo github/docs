@@ -11,7 +11,6 @@
     background-color: transparent;
     padding: 8px 8px 16px;
     max-width: 90vw;
-    white-space: pre-wrap;
 
     @include breakpoint(lg) {
       max-width: 40vw;

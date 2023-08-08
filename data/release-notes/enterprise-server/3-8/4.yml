@@ -16,6 +16,8 @@ sections:
     - People with administrative SSH access to an instance can configure the maximum memory usage in gigabytes for Redis using `ghe-config redis.max-memory-gb VALUE`. 
   known_issues:
     - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
       Custom firewall rules are removed during the upgrade process.
