@@ -244,7 +244,7 @@ sections:
       Instances running GitHub Enterprise Server 3.9.0 or 3.9.1 cannot upgrade to the 3.10.0 release candidate. The workaround to this issue is to first upgrade to the 3.9.2 patch before upgrading to the 3.10.0 release candidate. This will be fixed when version 3.10.0 becomes generally available, so that instances running 3.9.0 or 3.9.1 can upgrade to 3.10.0.
     # https://github.com/github/mEAO/issues/1276 - this will be resolved before GA; @davidjarzebowski will create a separate PR to remove it
     - |
-      On an instance with GitHub Connect and unified search enabled, users will receive a `500` error after performing a GitHub.com search then selecting Advanced search. This will be fixed when GitHub Enterprise Server 3.10.0 is generally available.
+      On an instance with GitHub Connect and unified search enabled, users will receive a `500` error after performing a GitHub.com search then selecting Advanced search. This will be fixed when version 3.10.0 becomes generally available.
     - |
       After an administrator upgrades from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9 or 3.10, I/O utilization will increase, and in some cases the instance's performance will be impacted. Reduced performance is due to the database server being upgraded from MySQL 5.7 to MySQL 8.0. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
     - |
