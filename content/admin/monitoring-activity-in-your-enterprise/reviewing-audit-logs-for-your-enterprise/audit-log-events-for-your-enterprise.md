@@ -300,6 +300,17 @@ Action                        | Description
 | `config_entry.update` | A configuration setting was edited. These events are only visible in the site admin audit log. The type of events recorded relate to:</br>- Enterprise settings and policies</br>- Organization and repository permissions and settings</br>- Git, Git LFS, {% data variables.product.prodname_github_connect %}, {% data variables.product.prodname_registry %}, project, and code security settings.
 {%- endif %}
 
+## `copilot` category actions
+
+| Action | Description
+|--------|-------------{% ifversion ghec %}
+|`copilot.cfb_enterprise_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the enterprise level.
+|`copilot.clickwrap_save_event`|{% endif %}
+|`copilot.cfb_org_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the organization level.
+|`copilot.cfb_seat_added`| A seat was added to the {% data variables.product.prodname_copilot_business_short %} subscription.
+|`copilot.cfb_seat_cancelled`| A seat was cancelled from the {% data variables.product.prodname_copilot_business_short %} subscription.
+|`copilot.cfb_seat_management_changed`| The seat management setting was changed for the {% data variables.product.prodname_copilot_business_short %} subscription.
+
 ## `dependabot_alerts` category actions
 
 | Action | Description

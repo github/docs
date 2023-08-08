@@ -1,0 +1,1 @@
+Audit logs for {% data variables.product.prodname_copilot %} are available for organizations and enterprise accounts with a {% data variables.product.prodname_copilot_business_short %} subscription.
