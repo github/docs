@@ -172,7 +172,7 @@
     "csp-parse": "0.0.2",
     "dedent": "^1.0.1",
     "eslint": "8.45.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
