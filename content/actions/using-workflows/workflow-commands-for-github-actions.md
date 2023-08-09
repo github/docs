@@ -735,8 +735,6 @@ console.log("The running PID from the main action is: " +  process.env.STATE_pro
 
 During the execution of a workflow, the runner generates temporary files that can be used to perform certain actions. The path to these files are exposed via environment variables. You will need to use UTF-8 encoding when writing to these files to ensure proper processing of the commands. Multiple commands can be written to the same file, separated by newlines.
 
-Most commands in the following examples use double quotes for echoing strings, which will attempt to interpolate characters like `$` for shell variable names. To always use literal values in quoted strings, you can use single quotes instead.
-
 {% powershell %}
 
 {% note %}
@@ -812,9 +810,7 @@ steps:
   - name: Use the value
     id: step_two
     run: |
-{% raw %}
-      echo "${{ env.action_state }}" # This will output 'yellow'
-{% endraw %}
+      printf '%s\n' "$action_state" # This will output 'yellow'
 ```
 
 {% endbash %}
@@ -830,9 +826,7 @@ steps:
   - name: Use the value
     id: step_two
     run: |
-{% raw %}
-      Write-Output "${{ env.action_state }}" # This will output 'yellow'
-{% endraw %}
+      Write-Output "$env:action_state" # This will output 'yellow'
 ```
 
 {% endpowershell %}
@@ -849,13 +843,13 @@ For multiline strings, you may use a delimiter with the following syntax.
 
 {% warning %}
 
-**Warning:** Make sure the delimiter you're using is randomly generated and unique for each run. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#understanding-the-risk-of-script-injections)".
+**Warning:** Make sure the delimiter you're using won't occur on a line of its own within the value. If the value is completely arbitrary then you shouldn't use this format. Write the value to a file instead.
 
 {% endwarning %}
 
 #### Example of a multiline string
 
-This example selects a random value for `$EOF` as a delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
+This example uses `EOF` as the delimiter, and sets the `JSON_RESPONSE` environment variable to the value of the `curl` response.
 
 {% bash %}
 
@@ -864,10 +858,11 @@ steps:
   - name: Set the value in bash
     id: step_one
     run: |
-      EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
-      echo "JSON_RESPONSE<<$EOF" >> "$GITHUB_ENV"
-      curl https://example.com >> "$GITHUB_ENV"
-      echo "$EOF" >> "$GITHUB_ENV"
+      {
+        echo 'JSON_RESPONSE<<EOF'
+        curl https://example.com
+        echo EOF
+      } >> "$GITHUB_ENV"
 ```
 
 {% endbash %}
@@ -879,10 +874,9 @@ steps:
   - name: Set the value in pwsh
     id: step_one
     run: |
-      -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)}) | set EOF
-      "JSON_RESPONSE<<$EOF" >> $env:GITHUB_ENV
+      "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
       (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
-      "$EOF" >> $env:GITHUB_ENV
+      "EOF" >> $env:GITHUB_ENV
     shell: pwsh
 ```
 
@@ -921,9 +915,9 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
         id: random-color-generator
         run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
       - name: Get color
-{% raw %}
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-{% endraw %}
+        env:{% raw %}
+          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
+        run: echo "The selected color is $SELECTED_COLOR"
 ```
 
 {% endbash %}
@@ -938,9 +932,9 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
         run: |
             "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
       - name: Get color
-{% raw %}
-        run: Write-Output "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-{% endraw %}
+        env:{% raw %}
+          SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
+        run: Write-Output "The selected color is $env:SELECTED_COLOR"
 ```
 
 {% endpowershell %}
