@@ -39,4 +39,4 @@ Only include a maximum of eight different tools in an article. Including more to
 ## Adding new tools
 If a writer determines that adding a new tool is the only way to accurately document something, they should explain their reasoning in the content planning stage. Whoever reviews content plan should consider if there are any alternative ways to address the documentation need without adding a new tool. If a new tool is the only way to create accurate documentation, the new tool should be added. If there is an alternative content solution that does not add a new tool, that option should be used.
 
-To add a new tool, add an entry to the `allTools` object in the [`lib/all-tools.js`](https://github.com/github/docs/blob/main/lib/all-tools.js) file as a key-value pair. Add new tools in alphabetical order.
+To add a new tool, add an entry to the `allTools` object in the [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) file as a key-value pair. Add new tools in alphabetical order.
