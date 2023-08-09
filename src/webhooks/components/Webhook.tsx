@@ -1,5 +1,5 @@
 import { ActionList, ActionMenu, Flash } from '@primer/react'
-import { useState, KeyboardEvent, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
@@ -122,10 +122,7 @@ export function Webhook({ webhook }: Props) {
   }
 
   // callback to trigger useSWR() hook after a nested property is clicked
-  function handleBodyParamExpansion(event: KeyboardEvent<HTMLElement>) {
-    // need to cast it because 'closest' isn't necessarily available on
-    // event.target
-    const target = event.target as HTMLElement
+  function handleBodyParamExpansion(target: HTMLDetailsElement) {
     setClickedBodyParameterName(target.closest('details')?.dataset.nestedParamId)
   }
 
