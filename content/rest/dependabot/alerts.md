@@ -5,7 +5,7 @@ shortTitle: Alerts
 intro: >-
   Use the REST API to interact with {% data
   variables.product.prodname_dependabot %} alerts for a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
   ghes: '>=3.8'

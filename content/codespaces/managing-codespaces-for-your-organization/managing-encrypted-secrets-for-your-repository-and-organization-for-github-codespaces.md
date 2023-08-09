@@ -12,7 +12,7 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
-product: 'Encrypted secrets are available in all public repositories, in private repositories owned by personal accounts, and in private repositories owned by organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."'
+product: 'Encrypted secrets are available in all public repositories, in private repositories owned by personal accounts, and in private repositories owned by organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."'
 ---
 
 ## About secrets

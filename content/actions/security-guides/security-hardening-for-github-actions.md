@@ -76,7 +76,7 @@ A script injection attack can occur directly within a workflow's inline script. 
 
 {% raw %}
 
-```
+```yaml
       - name: Check PR title
         run: |
           title="${{ github.event.pull_request.title }}"
@@ -116,7 +116,7 @@ The recommended approach is to create an action that processes the context value
 
 {% raw %}
 
-```
+```yaml
 uses: fakeaction/checktitle@v3
 with:
     title: ${{ github.event.pull_request.title }}
@@ -132,7 +132,7 @@ The following example uses Bash to process the `github.event.pull_request.title`
 
 {% raw %}
 
-```
+```yaml
       - name: Check PR title
         env:
           TITLE: ${{ github.event.pull_request.title }}
@@ -165,7 +165,7 @@ With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{
 {% data reusables.advanced-security.starter-workflows-beta %}
 {% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-using-starter-workflows)."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)."
 
 {% endif %}
 
@@ -255,7 +255,7 @@ Workflows triggered using the `pull_request` event have read-only permissions an
 
   {% raw %}
 
-  ```
+  ```yaml
   uses: fakeaction/publish@v3
   with:
       key: ${{ secrets.PUBLISH_KEY }}

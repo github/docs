@@ -27,7 +27,11 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
 - sends an email alert to organization or personal account owners, security managers, and repository administrators who are watching the repository, with a link to the secret and the reason why it was allowed.{% endif %}
 
-You can monitor security alerts to discover when users are bypassing push protections and creating alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)".
+You can monitor security alerts to discover when users are bypassing push protections and creating alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
+
+{% ifversion security-overview-push-protection-metrics-page %}
+If you are an organization owner or security manager, you can view metrics on how push protection is performing across your organization. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization)."
+{% endif %}
 
 {% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
@@ -159,7 +163,7 @@ If you confirm a secret is real and that you intend to fix it later, you should 
 
 {% data reusables.secret-scanning.push-protection-multiple-branch-note %}
 
-{% ifversion ghes < 3.6 or ghae < 3.6 %}
+{% ifversion ghae < 3.6 %}
 
 {% tip %}
 

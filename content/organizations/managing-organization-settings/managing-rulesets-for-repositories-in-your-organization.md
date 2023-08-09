@@ -9,8 +9,6 @@ topics:
 shortTitle: Manage rulesets
 ---
 
-{% data reusables.repositories.rulesets-public-beta %}
-
 ## About managing rulesets for an organization
 
 You can create rulesets in your organization to control how users can interact with repositories in your organization. You can control things like who can push commits to a certain branch and how the commits must be formatted, or who can delete or rename a tag. You can also prevent people from renaming repositories.
@@ -19,7 +17,7 @@ When you create a ruleset for an organization, you use `fnmatch` syntax to defin
 
 {% data reusables.repositories.ruleset-bypass %}
 
-You can use the REST API to manage rulesets. For more information, see "[AUTOTITLE](/rest/orgs/rules)."
+You can use the REST and GraphQL APIs to manage rulesets. For more information, see "[AUTOTITLE](/rest/orgs/rules)" and "[AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset)."
 
 If a repository is targeted by a ruleset created at organization level, only owners of the organization can edit this ruleset. However, people with admin access to the repository, or with a custom role including the "edit repository rules" permission, can create additional rulesets at the repository level. The rules in these rulesets will be aggregated with the rules defined at organization level. The result is that creating a new ruleset can make the rules targeting a branch or tag more restrictive, but never less restrictive. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
@@ -37,11 +35,22 @@ Forks do not inherit rulesets from their upstream repositories. However, forks o
 {% data reusables.repositories.create-ruleset-step %}
 {% data reusables.repositories.rulesets-general-step %}
 {% data reusables.repositories.rulesets-bypass-step %}
-1. In the "Target repositories" section, select **Add a target** to add repositories. You can include all repositories in your organization, or you can use `fnmatch` syntax to include or exclude repository names based on a pattern. For more information, see "[Using `fnmatch` syntax](#using-fnmatch-syntax)."
+1. In the "Target repositories" section, select {% octicon "goal" aria-hidden="true" %} **Target: REPOSITORIES**, then click:
+    - **All repositories** to target all repositories in the organization,
+    - **Dynamic list of repositories** to target a dynamically updated list of repositories based on their names, or
+    - **Select repositories** to target a static list of repositories that you manually select.
+1. If you chose to target a dynamic list of repositories, in the "Targeting criteria" section:
+     - Select **Add a target** {% octicon "triangle-down" aria-hidden="true" %}, then click **Include by pattern** or **Exclude by pattern**.
+     - In the modal dialog that appears, enter a repository naming pattern using `fnmatch` syntax, then click **Add Inclusion pattern** or **Add Exclusion pattern**. For more information on `fnmatch` syntax, see "[Using `fnmatch` syntax](#using-fnmatch-syntax)."
+     - Optionally, on the ruleset configuration page, select **Prevent renaming of target repositories**.
 
-   You can add multiple targeting criteria to the same ruleset. For example, you could include any repositories matching the pattern `*cat*`, then specifically exclude a repository matching the pattern `not-a-cat`.
+    {% note %}
 
-   Optionally, to prevent users from renaming any of the targeted repositories, select **Prevent renaming of target repositories**.
+    **Note:** You can add multiple targeting criteria to the same ruleset. For example, you could include any repositories matching the pattern `*cat*`, then specifically exclude a repository matching the pattern `not-a-cat`.
+
+    {% endnote %}
+
+1. If you chose to target a static list of select repositories, in the "Targeting criteria" section, select {% octicon "repo" aria-hidden="true" %} **Select repositories**, then search for the name of each repository you would like to target. Select each repository from the search results.
 {% data reusables.repositories.rulesets-target-branches %}
 {% data reusables.repositories.rulesets-protections-step %}
 {% data reusables.repositories.rulesets-metadata-step %}

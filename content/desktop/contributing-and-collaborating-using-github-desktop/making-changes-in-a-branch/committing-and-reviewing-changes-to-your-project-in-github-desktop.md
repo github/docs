@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/committing-and-reviewing-changes-to-your-project
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project
 versions:
-  fpt: '*'
+  feature: desktop
 shortTitle: Commit & review changes
 ---
 ## About commits

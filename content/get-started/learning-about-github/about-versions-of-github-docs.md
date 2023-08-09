@@ -7,25 +7,25 @@ shortTitle: Docs versions
 
 ## About versions of {% data variables.product.prodname_docs %}
 
-{% data variables.product.company_short %} offers different products for storing and collaborating on code. The product you use determines which features are available to you. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
+{% data variables.product.company_short %} offers different plans for storing and collaborating on code. The plan you use determines which features are available to you. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
-This website, {% data variables.product.prodname_docs %}, provides documentation for all of {% data variables.product.company_short %}'s products. If the content you're reading applies to more than one product, you can choose the version of the documentation that's relevant to you by selecting the product you're currently using.
+This website, {% data variables.product.prodname_docs %}, provides documentation for all of {% data variables.product.company_short %}'s plans. If the content you're reading applies to more than one plan, you can choose the version of the documentation that's relevant to you by selecting the plan you're currently using.
 
-At the top of a page on {% data variables.product.prodname_docs %}, select the dropdown menu and click a product. If your browser window is not wide enough to display the full navigation bar, you may need to click {% octicon "three-bars" aria-label="The three bars icon" %} first.
+At the top of a page on {% data variables.product.prodname_docs %}, select the dropdown menu and click a plan. If your browser window is not wide enough to display the full navigation bar, you may need to click {% octicon "kebab-horizontal" aria-label="Open Menu Bar" %} first.
 
 ![Screenshot of the header of {% data variables.product.prodname_docs %}. The "Version" dropdown menu is expanded and highlighted with an orange outline.](/assets/images/help/docs/version-picker.png)
 
 {% note %}
 
-**Note**: You can try changing the version now. You're viewing {% ifversion ghes %}a{% else %}the{% endif %} {% ifversion fpt %}Free, Pro, & Team{% else %}{% data variables.product.product_name %}{% endif %} version of this article.
+**Note**: You can try changing the version now. You're viewing {% ifversion ghes %}a{% else %}the{% endif %} **{% ifversion fpt %}Free, Pro, & Team{% else %}{% data variables.product.product_name %}{% endif %}** version of this article.
 
 {% endnote %}
 
 ## Determining which {% data variables.product.company_short %} product you use
 
-You can determine which {% data variables.product.company_short %} product you're currently using by reviewing the URL in the address bar of your browser and the heading for the {% data variables.product.prodname_dotcom %} website you're on.
+You can determine which {% data variables.product.company_short %} plan you're currently using by reviewing the URL in the address bar of your browser and the heading for the {% data variables.product.prodname_dotcom %} website you're on.
 
-You may use more than one {% data variables.product.company_short %} product. For example, you might contribute to open source on {% data variables.product.prodname_dotcom_the_website %} and collaborate on code on your employer's {% data variables.product.prodname_ghe_server %} instance. You may need to view different versions of the same article at different times, depending on the problem you're currently trying to solve.
+You may use more than one {% data variables.product.company_short %} plan. For example, you might contribute to open source on {% data variables.product.prodname_dotcom_the_website %} and collaborate on code on your employer's {% data variables.product.prodname_ghe_server %} instance. You may need to view different versions of the same article at different times, depending on the problem you're currently trying to solve.
 
 ### {% data variables.product.prodname_dotcom_the_website %} plans or {% data variables.product.prodname_ghe_cloud %}
 

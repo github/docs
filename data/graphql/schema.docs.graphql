@@ -14922,6 +14922,31 @@ type EnvironmentEdge {
 }
 
 """
+Properties by which environments connections can be ordered
+"""
+enum EnvironmentOrderField {
+  """
+  Order environments by name.
+  """
+  NAME
+}
+
+"""
+Ordering options for environments
+"""
+input Environments {
+  """
+  The direction in which to order environments by the specified field.
+  """
+  direction: OrderDirection!
+
+  """
+  The field to order environments by.
+  """
+  field: EnvironmentOrderField!
+}
+
+"""
 An external identity provisioned by SAML SSO or SCIM. If SAML is configured on
 the organization, the external identity is visible to (1) organization owners,
 (2) organization owners' personal access tokens (classic) with read:org or
@@ -16765,7 +16790,7 @@ union IpAllowListOwner = App | Enterprise | Organization
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
 """
-type Issue implements Assignable & Closable & Comment & Deletable & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type Issue implements Assignable & Closable & Comment & Deletable & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & SubscribableThread & UniformResourceLocatable & Updatable & UpdatableComment {
   """
   Reason that the conversation was locked.
   """
@@ -17412,6 +17437,16 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
   """
   viewerSubscription: SubscriptionState
+
+  """
+  Identifies the viewer's thread subscription form action.
+  """
+  viewerThreadSubscriptionFormAction: ThreadSubscriptionFormAction
+
+  """
+  Identifies the viewer's thread subscription status.
+  """
+  viewerThreadSubscriptionStatus: ThreadSubscriptionState
 }
 
 """
@@ -27750,6 +27785,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     first: Int
 
     """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
+
+    """
     If non-null, filters repositories according to whether they are archived and not maintained
     """
     isArchived: Boolean
@@ -28078,6 +28118,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     of a sponsorship.
     """
     includeAsSponsor: Boolean = false
+
+    """
+    Whether or not to include private activities in the result set. Defaults to including public and private activities.
+    """
+    includePrivate: Boolean = true
 
     """
     Returns the last _n_ elements from the list.
@@ -41771,7 +41816,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     last: Int
 
     """
-    Filters users with query on user name and login
+    Filters users with query on user name and login.
     """
     query: String
   ): UserConnection!
@@ -42149,6 +42194,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Returns the last _n_ elements from the list.
     """
     last: Int
+
+    """
+    Ordering options for the environments
+    """
+    orderBy: Environments = {field: NAME, direction: ASC}
   ): EnvironmentConnection!
 
   """
@@ -42186,6 +42236,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
 
     """
     If non-null, filters repositories according to whether they have been locked
@@ -44382,6 +44437,11 @@ interface RepositoryOwner {
     first: Int
 
     """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
+
+    """
     If non-null, filters repositories according to whether they are archived and not maintained
     """
     isArchived: Boolean
@@ -45513,7 +45573,7 @@ enum RequestableCheckStatusState {
 """
 Types that can be requested reviewers.
 """
-union RequestedReviewer = Mannequin | Team | User
+union RequestedReviewer = Bot | Mannequin | Team | User
 
 """
 The connection type for RequestedReviewer.
@@ -47623,6 +47683,11 @@ interface Sponsorable {
     of a sponsorship.
     """
     includeAsSponsor: Boolean = false
+
+    """
+    Whether or not to include private activities in the result set. Defaults to including public and private activities.
+    """
+    includePrivate: Boolean = true
 
     """
     Returns the last _n_ elements from the list.
@@ -50340,7 +50405,8 @@ input StartRepositoryMigrationInput {
   clientMutationId: String
 
   """
-  Whether to continue the migration on error. Defaults to `false`.
+  Whether to continue the migration on error. Defaults to `false`. We strongly
+  recommend setting this to `true` for the smoothest migration experience.
   """
   continueOnError: Boolean
 
@@ -50893,6 +50959,23 @@ interface Subscribable {
   Identifies if the viewer is watching, not watching, or ignoring the subscribable entity.
   """
   viewerSubscription: SubscriptionState
+}
+
+"""
+Entities that can be subscribed to for web and email notifications.
+"""
+interface SubscribableThread {
+  id: ID!
+
+  """
+  Identifies the viewer's thread subscription form action.
+  """
+  viewerThreadSubscriptionFormAction: ThreadSubscriptionFormAction
+
+  """
+  Identifies the viewer's thread subscription status.
+  """
+  viewerThreadSubscriptionStatus: ThreadSubscriptionState
 }
 
 """
@@ -53220,6 +53303,76 @@ type TextMatchHighlight {
 }
 
 """
+The possible states of a thread subscription form action
+"""
+enum ThreadSubscriptionFormAction {
+  """
+  The User cannot subscribe or unsubscribe to the thread
+  """
+  NONE
+
+  """
+  The User can subscribe to the thread
+  """
+  SUBSCRIBE
+
+  """
+  The User can unsubscribe to the thread
+  """
+  UNSUBSCRIBE
+}
+
+"""
+The possible states of a subscription.
+"""
+enum ThreadSubscriptionState {
+  """
+  The subscription status is currently disabled.
+  """
+  DISABLED
+
+  """
+  The User is never notified because they are ignoring the list
+  """
+  IGNORING_LIST
+
+  """
+  The User is never notified because they are ignoring the thread
+  """
+  IGNORING_THREAD
+
+  """
+  The User is not recieving notifications from this thread
+  """
+  NONE
+
+  """
+  The User is notified becuase they are watching the list
+  """
+  SUBSCRIBED_TO_LIST
+
+  """
+  The User is notified because they are subscribed to the thread
+  """
+  SUBSCRIBED_TO_THREAD
+
+  """
+  The User is notified because they chose custom settings for this thread.
+  """
+  SUBSCRIBED_TO_THREAD_EVENTS
+
+  """
+  The User is notified because they chose custom settings for this thread.
+  """
+  SUBSCRIBED_TO_THREAD_TYPE
+
+  """
+  The subscription status is currently unavailable.
+  """
+  UNAVAILABLE
+}
+
+"""
 A topic aggregates entities that are related to a subject.
 """
 type Topic implements Node & Starrable {
@@ -53266,6 +53419,11 @@ type Topic implements Node & Starrable {
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
 
     """
     If non-null, filters repositories according to whether they have been locked
@@ -57821,6 +57979,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     first: Int
 
     """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
+
+    """
     If non-null, filters repositories according to whether they are archived and not maintained
     """
     isArchived: Boolean
@@ -57882,6 +58045,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssues: Boolean
 
     """
     If true, include user repositories
@@ -58161,6 +58329,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     of a sponsorship.
     """
     includeAsSponsor: Boolean = false
+
+    """
+    Whether or not to include private activities in the result set. Defaults to including public and private activities.
+    """
+    includePrivate: Boolean = true
 
     """
     Returns the last _n_ elements from the list.
@@ -58499,6 +58672,11 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     Returns the first _n_ elements from the list.
     """
     first: Int
+
+    """
+    If non-null, filters repositories according to whether they have issues enabled
+    """
+    hasIssuesEnabled: Boolean
 
     """
     If non-null, filters repositories according to whether they have been locked

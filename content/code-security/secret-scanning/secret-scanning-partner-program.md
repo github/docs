@@ -138,7 +138,7 @@ Content-Length: 83
 **Note**: The key id and signature from the example payload is derived from a test key.
 The public key for them is:
 
-```
+```shell
 -----BEGIN PUBLIC KEY-----
 MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsz9ugWDj5jK5ELBK42ynytbo38gP
 HzZFI03Exwz8Lh/tCfL3YxwMdLjB+bMznsanlhK0RwcGP3IDb34kQDIo3Q==
@@ -377,7 +377,7 @@ When we report secrets to you, we send a JSON array with each element containing
 
 You can send us the raw token:
 
-```
+```json
 [
   {
     "token_raw": "The raw token",
@@ -389,7 +389,7 @@ You can send us the raw token:
 
 You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
 
-```
+```json
 [
   {
     "token_hash": "The SHA-256 hashed form of the raw token",

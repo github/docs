@@ -8,7 +8,7 @@ intro: >-
 permissions: >-
   Users with write access to a repository can manage {% data
   variables.product.prodname_codespaces %} repository secrets.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

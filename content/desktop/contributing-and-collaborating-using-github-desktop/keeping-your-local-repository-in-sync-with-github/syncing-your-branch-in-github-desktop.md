@@ -7,7 +7,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/syncing-your-branch
   - /desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 ## About branch synchronization
 

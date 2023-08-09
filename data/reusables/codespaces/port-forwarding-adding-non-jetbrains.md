@@ -1,12 +1,14 @@
-## Adding a port to the codespace configuration
+## Automatically forwarding a port
 
-You can add a forwarded port to the {% data variables.product.prodname_github_codespaces %} configuration for the repository, so the port will automatically be forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
+You can add a forwarded port to the {% data variables.product.prodname_github_codespaces %} configuration for the repository, so that the port will be automatically forwarded for all codespaces created from the repository. After you update the configuration, any previously created codespaces must be rebuilt for the change to apply. For more information about the dev container configuration file, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#applying-configuration-changes-to-a-codespace)."
 
-You can manually configure forwarded ports in a `.devcontainer.json` file using the `forwardPorts` property, or you can use the "Ports" panel in a codespace that you've opened in the browser or the {% data variables.product.prodname_vscode_shortname %} desktop application.
+1. In your codespace, open the dev container configuration file you want to update. Typically this file is `.devcontainer/devcontainer.json`.
+1. Add the `forwardPorts` property.
 
-{% data reusables.codespaces.navigate-to-ports-tab %}
-1. Right click the port you want to add to the codespace configuration, then click **Set Label and Update devcontainer.json**.
+   ```json
+   "forwardPorts": [NUMBER],
+   ```
 
-   ![Screenshot of the pop-up menu for a forwarded port, with the "Set Label and Update devcontainer.json" option highlighted with an orange outline.](/assets/images/help/codespaces/update-devcontainer-to-add-port-option.png)
+   Replace `NUMBER` with the port number you want to forward. This can be a comma-separated list of port numbers.
 
-{% data reusables.codespaces.type-port-label %}
+1. Save the file.

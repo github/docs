@@ -226,6 +226,22 @@ The value of this parameter is a string specifying the data type of the input. T
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs %}
 
+### Defining access for the `GITHUB_TOKEN` scopes
+
+{% data reusables.actions.github-token-available-permissions %}
+
+#### Changing the permissions in a forked repository
+
+{% data reusables.actions.forked-write-permission %}
+
+### Setting the `GITHUB_TOKEN` permissions for all jobs in a workflow
+
+You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow. 
+
+#### Example: Setting the `GITHUB_TOKEN` permissions for an entire workflow
+
+{% data reusables.actions.jobs.setting-permissions-all-jobs-example %}
+
 ## `env`
 
 A `map` of variables that are available to the steps of all jobs in the workflow. You can also set variables that are only available to the steps of a single job or to a single step. For more information, see [`jobs.<job_id>.env`](#jobsjob_idenv) and [`jobs.<job_id>.steps[*].env`](#jobsjob_idstepsenv).
@@ -269,7 +285,17 @@ env:
 
 {% data reusables.actions.jobs.section-assigning-permissions-to-jobs-specific %}
 
-### Example: Setting permissions for a specific job
+{% data reusables.actions.github-token-scope-descriptions %}
+
+### Defining access for the `GITHUB_TOKEN` scopes
+
+{% data reusables.actions.github-token-available-permissions %}
+
+#### Changing the permissions in a forked repository
+
+{% data reusables.actions.forked-write-permission %}
+
+#### Example: Setting the `GITHUB_TOKEN` permissions for one job in a workflow
 
 {% data reusables.actions.jobs.setting-permissions-specific-jobs-example %}
 
@@ -1162,5 +1188,5 @@ Path patterns must match the whole path, and start from the repository's root.
 | `'**/*src/**'` | Any file in a folder with a `src` suffix anywhere in the repository. | `a/src/app.js`<br/><br/>`my-src/code/js/app.js`
 | `'**/*-post.md'` | A file with the suffix `-post.md` anywhere in the repository. | `my-post.md`<br/><br/>`path/their-post.md` |
 | `'**/migrate-*.sql'` | A file with the prefix `migrate-` and suffix `.sql` anywhere in the repository. | `migrate-10909.sql`<br/><br/>`db/migrate-v1.0.sql`<br/><br/>`db/sept/migrate-v1.sql` |
-| `*.md`<br/><br/>`!README.md` | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
-| `*.md`<br/><br/>`!README.md`<br/><br/>`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths. | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`|
+| `'*.md'`<br/><br/>`'!README.md'` | Using an exclamation mark (`!`) in front of a pattern negates it. When a file matches a pattern and also matches a negative pattern defined later in the file, the file will not be included. | `hello.md`<br/><br/>_Does not match_<br/><br/>`README.md`<br/><br/>`docs/hello.md` |
+| `'*.md'`<br/><br/>`'!README.md'`<br/><br/>`README*` | Patterns are checked sequentially. A pattern that negates a previous pattern will re-include file paths. | `hello.md`<br/><br/>`README.md`<br/><br/>`README.doc`|

@@ -26523,6 +26523,11 @@
           "href": "/graphql/reference/interfaces#subscribable"
         },
         {
+          "name": "SubscribableThread",
+          "id": "subscribablethread",
+          "href": "/graphql/reference/interfaces#subscribablethread"
+        },
+        {
           "name": "UniformResourceLocatable",
           "id": "uniformresourcelocatable",
           "href": "/graphql/reference/interfaces#uniformresourcelocatable"
@@ -27750,6 +27755,22 @@
           "id": "subscriptionstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#subscriptionstate"
+        },
+        {
+          "name": "viewerThreadSubscriptionFormAction",
+          "description": "<p>Identifies the viewer's thread subscription form action.</p>",
+          "type": "ThreadSubscriptionFormAction",
+          "id": "threadsubscriptionformaction",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionformaction"
+        },
+        {
+          "name": "viewerThreadSubscriptionStatus",
+          "description": "<p>Identifies the viewer's thread subscription status.</p>",
+          "type": "ThreadSubscriptionState",
+          "id": "threadsubscriptionstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionstate"
         }
       ]
     },
@@ -38972,6 +38993,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isArchived",
               "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
               "type": {
@@ -39602,6 +39633,17 @@
               "name": "includeAsSponsor",
               "defaultValue": false,
               "description": "<p>Whether to include those events where this sponsorable acted as the sponsor.\nDefaults to only including events where this sponsorable was the recipient\nof a sponsorship.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "includePrivate",
+              "defaultValue": true,
+              "description": "<p>Whether or not to include private activities in the result set. Defaults to including public and private activities.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",
@@ -58069,6 +58111,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the environments.</p>",
+              "type": {
+                "name": "Environments",
+                "id": "environments",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#environments"
+              }
             }
           ]
         },
@@ -58134,6 +58186,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -69725,6 +69787,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isLocked",
               "description": "<p>If non-null, filters repositories according to whether they have been locked.</p>",
               "type": {
@@ -72112,6 +72184,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isArchived",
               "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
               "type": {
@@ -72229,6 +72311,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssues",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -72775,6 +72867,17 @@
               "name": "includeAsSponsor",
               "defaultValue": false,
               "description": "<p>Whether to include those events where this sponsorable acted as the sponsor.\nDefaults to only including events where this sponsorable was the recipient\nof a sponsorship.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "includePrivate",
+              "defaultValue": true,
+              "description": "<p>Whether or not to include private activities in the result set. Defaults to including public and private activities.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",
@@ -73414,6 +73517,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
               }
             },
             {
@@ -77129,6 +77242,16 @@
               }
             },
             {
+              "name": "hasIssuesEnabled",
+              "description": "<p>If non-null, filters repositories according to whether they have issues enabled.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
               "name": "isArchived",
               "description": "<p>If non-null, filters repositories according to whether they are archived and not maintained.</p>",
               "type": {
@@ -77529,6 +77652,17 @@
               "name": "includeAsSponsor",
               "defaultValue": false,
               "description": "<p>Whether to include those events where this sponsorable acted as the sponsor.\nDefaults to only including events where this sponsorable was the recipient\nof a sponsorship.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            },
+            {
+              "name": "includePrivate",
+              "defaultValue": true,
+              "description": "<p>Whether or not to include private activities in the result set. Defaults to including public and private activities.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",
@@ -78027,6 +78161,31 @@
           "id": "subscriptionstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#subscriptionstate"
+        }
+      ]
+    },
+    {
+      "name": "SubscribableThread",
+      "kind": "interfaces",
+      "id": "subscribablethread",
+      "href": "/graphql/reference/interfaces#subscribablethread",
+      "description": "<p>Entities that can be subscribed to for web and email notifications.</p>",
+      "fields": [
+        {
+          "name": "viewerThreadSubscriptionFormAction",
+          "description": "<p>Identifies the viewer's thread subscription form action.</p>",
+          "type": "ThreadSubscriptionFormAction",
+          "id": "threadsubscriptionformaction",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionformaction"
+        },
+        {
+          "name": "viewerThreadSubscriptionStatus",
+          "description": "<p>Identifies the viewer's thread subscription status.</p>",
+          "type": "ThreadSubscriptionState",
+          "id": "threadsubscriptionstate",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#threadsubscriptionstate"
         }
       ]
     },
@@ -79246,6 +79405,19 @@
         {
           "name": "SERVER",
           "description": "<p>The user is part of a GitHub Enterprise Server deployment.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnvironmentOrderField",
+      "kind": "enums",
+      "id": "environmentorderfield",
+      "href": "/graphql/reference/enums#environmentorderfield",
+      "description": "<p>Properties by which environments connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "NAME",
+          "description": "<p>Order environments by name.</p>"
         }
       ]
     },
@@ -84250,6 +84422,72 @@
       ]
     },
     {
+      "name": "ThreadSubscriptionFormAction",
+      "kind": "enums",
+      "id": "threadsubscriptionformaction",
+      "href": "/graphql/reference/enums#threadsubscriptionformaction",
+      "description": "<p>The possible states of a thread subscription form action.</p>",
+      "values": [
+        {
+          "name": "NONE",
+          "description": "<p>The User cannot subscribe or unsubscribe to the thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBE",
+          "description": "<p>The User can subscribe to the thread.</p>"
+        },
+        {
+          "name": "UNSUBSCRIBE",
+          "description": "<p>The User can unsubscribe to the thread.</p>"
+        }
+      ]
+    },
+    {
+      "name": "ThreadSubscriptionState",
+      "kind": "enums",
+      "id": "threadsubscriptionstate",
+      "href": "/graphql/reference/enums#threadsubscriptionstate",
+      "description": "<p>The possible states of a subscription.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>The subscription status is currently disabled.</p>"
+        },
+        {
+          "name": "IGNORING_LIST",
+          "description": "<p>The User is never notified because they are ignoring the list.</p>"
+        },
+        {
+          "name": "IGNORING_THREAD",
+          "description": "<p>The User is never notified because they are ignoring the thread.</p>"
+        },
+        {
+          "name": "NONE",
+          "description": "<p>The User is not recieving notifications from this thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_LIST",
+          "description": "<p>The User is notified becuase they are watching the list.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD",
+          "description": "<p>The User is notified because they are subscribed to the thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD_EVENTS",
+          "description": "<p>The User is notified because they chose custom settings for this thread.</p>"
+        },
+        {
+          "name": "SUBSCRIBED_TO_THREAD_TYPE",
+          "description": "<p>The User is notified because they chose custom settings for this thread.</p>"
+        },
+        {
+          "name": "UNAVAILABLE",
+          "description": "<p>The subscription status is currently unavailable.</p>"
+        }
+      ]
+    },
+    {
       "name": "TopicSuggestionDeclineReason",
       "kind": "enums",
       "id": "topicsuggestiondeclinereason",
@@ -86069,6 +86307,11 @@
       "href": "/graphql/reference/unions#requestedreviewer",
       "description": "<p>Types that can be requested reviewers.</p>",
       "possibleTypes": [
+        {
+          "name": "Bot",
+          "id": "bot",
+          "href": "/graphql/reference/objects#bot"
+        },
         {
           "name": "Mannequin",
           "id": "mannequin",
@@ -91782,6 +92025,31 @@
       ]
     },
     {
+      "name": "Environments",
+      "kind": "inputObjects",
+      "id": "environments",
+      "href": "/graphql/reference/input-objects#environments",
+      "description": "<p>Ordering options for environments.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The direction in which to order environments by the specified field.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order environments by.</p>",
+          "type": "EnvironmentOrderField!",
+          "id": "environmentorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#environmentorderfield"
+        }
+      ]
+    },
+    {
       "name": "FileAddition",
       "kind": "inputObjects",
       "id": "fileaddition",
@@ -95342,7 +95610,7 @@
         },
         {
           "name": "continueOnError",
-          "description": "<p>Whether to continue the migration on error. Defaults to <code>false</code>.</p>",
+          "description": "<p>Whether to continue the migration on error. Defaults to <code>false</code>. We strongly\nrecommend setting this to <code>true</code> for the smoothest migration experience.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

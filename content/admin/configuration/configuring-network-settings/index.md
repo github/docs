@@ -17,12 +17,11 @@ children:
   - /configuring-dns-nameservers
   - /configuring-a-hostname
   - /validating-your-domain-settings
-  - /configuring-tls
-  - /enabling-subdomain-isolation
   - /configuring-an-outbound-web-proxy-server
   - /configuring-built-in-firewall-rules
   - /network-ports
   - /using-github-enterprise-server-with-a-load-balancer
+  - /configuring-time-synchronization
 shortTitle: Configure network settings
 ---
 

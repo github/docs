@@ -8,6 +8,7 @@ import { visit, SKIP } from 'unist-util-visit'
 import { remove } from 'unist-util-remove'
 
 import { languageKeys } from '../../../lib/languages.js'
+import { MARKDOWN_OPTIONS } from '../../content-linter/lib/helpers/unified-formatter-options.js'
 
 const { targetDirectory, removeKeywords } = JSON.parse(
   await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'),
@@ -217,7 +218,7 @@ export async function convertContentToDocs(content, frontmatterDefaults = {}) {
   // remove the first heading from the AST because that becomes frontmatter
   remove(ast, (node) => node.type === 'heading' && node.depth === 1)
 
-  return { content: toMarkdown(ast), data: frontmatter }
+  return { content: toMarkdown(ast, MARKDOWN_OPTIONS), data: frontmatter }
 }
 
 // performs a get request for a aka.ms url and returns the redirect url

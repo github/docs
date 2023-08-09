@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to manage collaborators on a {% data
   variables.projects.projects_v1_board %}.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

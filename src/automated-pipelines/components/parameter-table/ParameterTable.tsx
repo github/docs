@@ -16,6 +16,7 @@ type Props = {
   bodyParameters: Array<BodyParameter>
   bodyParamExpandCallback?: KeyboardEventHandler<HTMLButtonElement> | undefined
   clickedBodyParameterName?: string | undefined
+  variant?: 'rest' | 'webhooks'
 }
 
 export function ParameterTable({
@@ -27,6 +28,7 @@ export function ParameterTable({
   bodyParameters,
   bodyParamExpandCallback = undefined,
   clickedBodyParameterName = '',
+  variant = 'rest',
 }: Props) {
   const { t } = useTranslation(['parameter_table', 'products'])
   const queryParams = parameters.filter((param) => param.in === 'query')
@@ -40,28 +42,21 @@ export function ParameterTable({
         </h3>
       )}
 
-      <table
-        className={cx(styles.parameterTable)}
-        summary="Column one has the type of parameter and the other columns show the name, type, and description of the parameters"
-      >
-        <thead>
-          <tr>
-            <th
-              id="header"
-              scope="col"
-              className={cx(headers.length === 0 && 'visually-hidden', 'text-bold pl-0')}
-            >
-              {t('headers')}
-            </th>
-          </tr>
-          <tr className="visually-hidden">
-            <th scope="col">{`${t('name')}, ${t('type')}, ${t('description')}`}</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {headers.length > 0 && (
-            <>
+      {headers.length > 0 && (
+        <>
+          {/* <h4 id="headers-table-heading">{t('headers')}</h4> */}
+          <table
+            className={cx(styles.parameterTable)}
+            summary="Column one describes the parameter. The first line includes the name, type, and whether the parameter is required. The second line is a description of the parameter."
+            aria-labelledby="headers-table-heading"
+          >
+            <caption className="mt-3 mb-3 h5 float-left">{t('headers')}</caption>
+            <thead className="visually-hidden">
+              <tr>
+                <th scope="col">{`${t('name')}, ${t('type')}, ${t('description')}`}</th>
+              </tr>
+            </thead>
+            <tbody>
               {headers.map((header, index) => (
                 <ParameterRow
                   rowParams={header}
@@ -70,19 +65,26 @@ export function ParameterTable({
                   key={`${index}-${header.name}`}
                 />
               ))}
-            </>
-          )}
+            </tbody>
+          </table>
+        </>
+      )}
 
-          {pathParams.length > 0 && (
-            <>
-              <tr className="border-top-0">
-                <th className="text-bold pl-0 border-top-0" scope="colgroup">
-                  {t('path')}
-                </th>
+      {pathParams.length > 0 && (
+        <>
+          {/* <h4 id="path-table-heading">{t('path')}</h4> */}
+          <table
+            className={cx(styles.parameterTable)}
+            summary="Column one describes the parameter. The first line includes the name, type, and whether the parameter is required. The second line is a description of the parameter."
+            aria-labelledby="path-table-heading"
+          >
+            <caption className="mt-3 mb-3 h5 float-left">{t('path')}</caption>
+            <thead className="visually-hidden">
+              <tr>
+                <th scope="col">{`${t('name')}, ${t('type')}, ${t('description')}`}</th>
               </tr>
-              <tr className="visually-hidden">
-                <th scope="colgroup">{`${t('name')}, ${t('type')}, ${t('description')}`}</th>
-              </tr>
+            </thead>
+            <tbody>
               {pathParams.map((param, index) => (
                 <ParameterRow
                   rowParams={{
@@ -97,20 +99,26 @@ export function ParameterTable({
                   key={`${index}-${param}`}
                 />
               ))}
-            </>
-          )}
+            </tbody>
+          </table>
+        </>
+      )}
 
-          {queryParams.length > 0 && (
-            <>
-              <tr className="border-top-0">
-                <th className="text-bold pl-0" scope="colgroup">
-                  {t('query')}
-                </th>
+      {queryParams.length > 0 && (
+        <>
+          {/* <h4 id="query-table-heading">{t('query')}</h4> */}
+          <table
+            className={cx(styles.parameterTable)}
+            summary="Column one describes the parameter. The first line includes the name, type, and whether the parameter is required. The second line is a description of the parameter."
+            aria-labelledby="query-table-heading"
+          >
+            <caption className="mt-3 mb-3 h5 float-left">{t('query')}</caption>
+            <thead className="visually-hidden">
+              <tr>
+                <th scope="col">{`${t('name')}, ${t('type')}, ${t('description')}`}</th>
               </tr>
-              <tr className="visually-hidden">
-                <th scope="colgroup">{`${t('name')}, ${t('type')}, ${t('description')}`}</th>
-              </tr>
-
+            </thead>
+            <tbody>
               {queryParams.map((param, index) => (
                 <ParameterRow
                   rowParams={{
@@ -125,22 +133,28 @@ export function ParameterTable({
                   key={`${index}-${param}`}
                 />
               ))}
-            </>
-          )}
+            </tbody>
+          </table>
+        </>
+      )}
 
-          {bodyParameters.length > 0 && (
-            <>
-              <tr className="border-top-0">
-                {/* webhooks don't have a 'Parameters' table heading text so
-                 we adjust the size of the body params heading in that case */}
-                <th scope="colgroup" className={cx(heading ? 'text-bold' : 'h4', 'pl-0')}>
-                  {t('body')}
-                </th>
+      {bodyParameters.length > 0 && (
+        <>
+          {/* <h4 id="body-table-heading">{variant === 'rest' ? t('body') : t('webhook-body')}</h4> */}
+          <table
+            className={cx(styles.parameterTable)}
+            summary="Column one describes the parameter. The first line includes the name, type, and whether the parameter is required. The second line is a description of the parameter."
+            aria-labelledby="body-table-heading"
+          >
+            <caption className="mt-3 mb-3 h5 float-left">
+              {variant === 'rest' ? t('body') : t('webhook-body')}
+            </caption>
+            <thead className="visually-hidden">
+              <tr>
+                <th scope="col">{`${t('name')}, ${t('type')}, ${t('description')}`}</th>
               </tr>
-              <tr className="visually-hidden">
-                <th scope="colgroup">{`${t('name')}, ${t('type')}, ${t('description')}`}</th>
-              </tr>
-
+            </thead>
+            <tbody>
               {bodyParameters.map((param, index) => (
                 <ParameterRow
                   bodyParamExpandCallback={bodyParamExpandCallback}
@@ -150,10 +164,10 @@ export function ParameterTable({
                   key={`${index}-${param}`}
                 />
               ))}
-            </>
-          )}
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        </>
+      )}
     </>
   )
 }

@@ -92,7 +92,7 @@ The best way to avoid this problem is to stay up to date with the most recently 
 
 For example, a project with a dependency on `A` version `~2.0.0` which has a transitive dependency on `B` version `~1.0.0` which has resolved to `1.0.1`.
 
-```
+```shell
 my project
 |
 --> A (2.0.0) [~2.0.0]

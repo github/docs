@@ -19,7 +19,7 @@ permissions:
 jobs:
   first-responder-triage-pr:
     name: Triage PR to FR project board
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]' && github.actor != 'docs-bot'
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]' && github.event.pull_request.head.ref != 'repo-sync'
     runs-on: ubuntu-latest
 
     steps:

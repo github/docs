@@ -10,6 +10,7 @@ export default async (
   rawLinks,
   context,
   option = { title: true, intro: true, fullTitle: false },
+  maxLinks = Infinity,
 ) => {
   if (!rawLinks) return
 
@@ -17,9 +18,9 @@ export default async (
     return await processLink(rawLinks, context, option)
   }
 
-  const links = (
-    await Promise.all(rawLinks.map((link) => processLink(link, context, option)))
-  ).filter(Boolean)
+  const links = (await Promise.all(rawLinks.map((link) => processLink(link, context, option))))
+    .filter(Boolean)
+    .slice(0, maxLinks)
 
   return links
 }

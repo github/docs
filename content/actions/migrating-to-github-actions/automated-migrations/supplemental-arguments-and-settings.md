@@ -90,7 +90,7 @@ You can use the `--features` option to limit the features used in workflows that
 
 For example:
 
-```bash
+```shell
 gh actions-importer dry-run ... --features ghes-3.3
 ```
 
@@ -108,7 +108,7 @@ gh actions-importer list-features
 
 You should see an output similar to the following.
 
-```
+```shell
 Available feature flags:
 
 actions/cache (disabled):
@@ -138,13 +138,13 @@ To toggle feature flags, you can use either of the following methods:
 You can use the `--enable-features` and `--disable-features` options to select specific features to enable or disable for the duration of the command.
 For example, the following command disables use of `actions/cache` and `composite-actions`:
 
-```bash
+```shell
 gh actions-importer dry-run ... --disable-features=composite-actions actions/cache
 ```
 
 You can use the `configure --features` command to interactively configure feature flags and automatically write them to your environment:
 
-```bash
+```shell
 $ gh actions-importer configure --features
 
 ✔ Which features would you like to configure?: actions/cache, reusable-workflows
@@ -158,7 +158,7 @@ $ gh actions-importer configure --features
 
 By default, {% data variables.product.prodname_actions_importer %} caches responses from network requests to reduce network load and reduce run time. You can use the `--no-http-cache` option to disable the network cache. For example:
 
-```bash
+```shell
 gh actions-importer forecast ... --no-http-cache
 ```
 
@@ -166,11 +166,10 @@ gh actions-importer forecast ... --no-http-cache
 
 When running {% data variables.product.prodname_actions_importer %}, path arguments are relative to the container's disk, so absolute paths relative to the container's host machine are not supported. When {% data variables.product.prodname_actions_importer %} is run, the container's `/data` directory is mounted to the directory where {% data variables.product.prodname_actions_importer %} is run.
 
-For example, the following command outputs the {% data variables.product.prodname_actions_importer %} audit summary to the `/Users/mona/out` directory:
+For example, the following command, when used in the `/Users/mona` directory, outputs the {% data variables.product.prodname_actions_importer %} audit summary to the `/Users/mona/out` directory:
 
-```console
-# Current directory: /Users/mona
-$ gh actions-importer audit --output-dir /data/out
+```shell
+gh actions-importer audit --output-dir /data/out
 ```
 
 ## Using a proxy
@@ -182,7 +181,7 @@ To access servers that are configured with a HTTP proxy, you must set the follow
 
 For example:
 
-```sh
+```shell
 export OCTOKIT_PROXY=https://proxy.example.com:8443
 export HTTPS_PROXY=$OCTOKIT_PROXY
 ```
@@ -193,7 +192,7 @@ If the proxy requires authentication, a username and password must be included i
 
 By default, {% data variables.product.prodname_actions_importer %} verifies SSL certificates when making network requests. You can disable SSL certificate verification with the `--no-ssl-verify` option. For example:
 
-```bash
+```shell
 gh actions-importer audit --output-dir ./output --no-ssl-verify
 ```
 

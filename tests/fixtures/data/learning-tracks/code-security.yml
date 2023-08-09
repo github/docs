@@ -1,7 +1,6 @@
 foo_bar:
   title: Fix the plumbing
   description: A couple easy ones
-  featured_track: '{% ifversion fpt or ghec %}true{% else %}false{% endif %}'
   guides:
     - /code-security/getting-started/quickstart
     - /code-security/getting-started/securing-your-organization
