@@ -1,10 +1,11 @@
 ---
-title: Reviewing your organization or enterprise's audit logs for Copilot for Business
+title: Reviewing your organization{% ifversion ghec%} or enterprise{% endif %}'s audit logs for Copilot for Business
 intro: 'Review the audit logs for your {% data variables.product.prodname_copilot_business_short %} subscription to understand what actions have been taken and by which users.'
+allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
 product: '{% data reusables.gated-features.copilot-audit-logs %}'
-permissions: 'Organization and enterprise owners can interact with the audit log.'
+permissions: 'Organization{% ifversion ghec %} and enterprise{% endif %} owners can interact with the audit log.'
 topics:
   - Copilot
 shortTitle: Audit logs
