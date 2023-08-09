@@ -62,7 +62,7 @@ If your app makes a GraphQL API query or mutation with insufficient permissions,
 
 ## Choosing permissions for Git access
 
-If you want your app to use an installation or user access token to authenticate for HTTP-based Git access, you should request the "Contents" repository permission. If your app specifically needs to access or edit Actions files in the `.workflows` directory, request the "Workflows" repository permission.
+If you want your app to use an installation or user access token to authenticate for HTTP-based Git access, you should request the "Contents" repository permission. If your app specifically needs to access or edit Actions files in the `.github/workflows` directory, request the "Workflows" repository permission.
 
 You can then use the access token as the HTTP password. Replace `TOKEN` with the access token:
 
