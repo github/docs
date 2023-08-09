@@ -42,7 +42,7 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-3. Under "External load balancers", select **Enable support for PROXY protocol**.
+1. Under "External load balancers", select **Enable support for PROXY protocol**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.proxy_protocol_ports %}
@@ -60,7 +60,7 @@ We strongly recommend enabling PROXY protocol support for both your instance and
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
-3. Under **External load balancers**, select **Allow HTTP X-Forwarded-For header**.
+1. Under **External load balancers**, select **Allow HTTP X-Forwarded-For header**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 {% data reusables.enterprise_clustering.without_proxy_protocol_ports %}

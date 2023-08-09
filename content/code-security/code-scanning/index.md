@@ -20,5 +20,7 @@ children:
   - /automatically-scanning-your-code-for-vulnerabilities-and-errors
   - /integrating-with-code-scanning
   - /using-codeql-code-scanning-with-your-existing-ci-system
+  - /troubleshooting-code-scanning
+  - /troubleshooting-sarif
 ---
 

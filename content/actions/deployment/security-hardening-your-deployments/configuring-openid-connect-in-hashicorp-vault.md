@@ -5,7 +5,7 @@ intro: Use OpenID Connect within your workflows to authenticate with HashiCorp V
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
@@ -34,11 +34,11 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
 1. Enable the JWT `auth` method, and use `write` to apply the configuration to your Vault.
    For `oidc_discovery_url` and `bound_issuer` parameters, use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}. These parameters allow the Vault server to verify the received JSON Web Tokens (JWT) during the authentication process.
 
-   ```sh{:copy}
+   ```shell copy
    vault auth enable jwt
    ```
 
-   ```sh{:copy}
+   ```shell copy
    vault write auth/jwt/config \
      bound_issuer="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}" \
      oidc_discovery_url="{% ifversion ghes %}https://HOSTNAME/_services/token{% else %}https://token.actions.githubusercontent.com{% endif %}"
@@ -52,9 +52,9 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
    {% endnote %}
    {% endif %}
 
-2. Configure a policy that only grants access to the specific paths your workflows will use to retrieve secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
+1. Configure a policy that only grants access to the specific paths your workflows will use to retrieve secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
 
-   ```sh{:copy}
+   ```shell copy
    vault policy write myproject-production - <<EOF
    # Read-only permission on 'secret/data/production/*' path
 
@@ -63,9 +63,10 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
    }
    EOF
    ```
-3. Configure roles to group different policies together. If the authentication is successful, these policies are attached to the resulting Vault access token.
 
-   ```sh{:copy}
+1. Configure roles to group different policies together. If the authentication is successful, these policies are attached to the resulting Vault access token.
+
+   ```shell copy
    vault write auth/jwt/role/myproject-production -<<EOF
    {
      "role_type": "jwt",
@@ -90,7 +91,7 @@ For more information, see the HashiCorp Vault [documentation](https://www.vaultp
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the [`hashicorp/vault-action`](https://github.com/hashicorp/vault-action) action to exchange the OIDC token (JWT) for a cloud access token.
 
 To add OIDC integration to your workflows that allow them to access secrets in Vault, you will need to add the following code changes:
 
@@ -124,7 +125,7 @@ This example demonstrates how to create a job that requests a secret from HashiC
 - `<Role name>`: Replace this with the role you've set in the HashiCorp Vault trust relationship.
 - `<Secret-Path>`: Replace this with the path to the secret you're retrieving from HashiCorp Vault. For example: `secret/data/production/ci npmToken`.
 
-```yaml{:copy}
+```yaml copy
 jobs:
   retrieve-secret:
     runs-on: ubuntu-latest
@@ -160,9 +161,9 @@ jobs:
 By default, the Vault server will automatically revoke access tokens when their TTL is expired, so you don't have to manually revoke the access tokens. However, if you do want to revoke access tokens immediately after your job has completed or failed, you can manually revoke the issued token using the [Vault API](https://www.vaultproject.io/api/auth/token#revoke-a-token-self).
 
 1. Set the `exportToken` option to `true` (default: `false`). This exports the issued Vault access token as an environment variable: `VAULT_TOKEN`.
-2. Add a step to call the [Revoke a Token (Self)](https://www.vaultproject.io/api/auth/token#revoke-a-token-self) Vault API to revoke the access token.
+1. Add a step to call the [Revoke a Token (Self)](https://www.vaultproject.io/api/auth/token#revoke-a-token-self) Vault API to revoke the access token.
 
-```yaml{:copy}
+```yaml copy
 jobs:
   retrieve-secret:
     runs-on: ubuntu-latest
@@ -190,3 +191,7 @@ jobs:
           curl -X POST -sv -H "X-Vault-Token: {% raw %}${{ env.VAULT_TOKEN }}{% endraw %}" \
             <Vault URL>/v1/auth/token/revoke-self
 ```
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}

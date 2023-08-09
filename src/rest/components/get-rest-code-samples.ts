@@ -49,7 +49,7 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   if (codeSample?.request?.bodyParameters) {
     requestBodyParams = `-d '${JSON.stringify(codeSample.request.bodyParameters).replace(
       /'/g,
-      "'\\''"
+      "'\\''",
     )}'`
 
     const contentType = codeSample.request.contentType
@@ -70,22 +70,34 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     }
   }
 
-  let authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
-  if (operation.subcategory === 'management-console') {
+  let authHeader
+  let apiVersionHeader
+
+  if (operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes') {
     authHeader = '-u "api_key:your-password"'
+    apiVersionHeader = ''
+  } else {
+    authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
+
+    apiVersionHeader =
+      allVersions[currentVersion].apiVersions.length > 0 &&
+      allVersions[currentVersion].latestApiVersion
+        ? ` \\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+        : ''
   }
 
-  const apiVersionHeader =
-    allVersions[currentVersion].apiVersions.length > 0 &&
-    allVersions[currentVersion].latestApiVersion
-      ? `\\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
-      : ''
-
+  let urlArg = `${operation.serverUrl}${requestPath}`
+  // If the `requestPath` contains a `?` character, if you need to escape
+  // the whole URL otherwise, when you paste it into your terminal, it
+  // will fail because the `?` is a bash control character.
+  if (requestPath.includes('?')) {
+    urlArg = `"${urlArg}"`
+  }
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
     `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
     contentTypeHeader,
-    `${operation.serverUrl}${requestPath}`,
+    urlArg,
     requestBodyParams,
   ].filter(Boolean)
   return `curl -L \\\n  ${args.join(' \\\n  ')}`
@@ -159,7 +171,7 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
     requestBodyParams,
   ].filter(Boolean)
   return `# GitHub CLI api\n# https://cli.github.com/manual/gh_api\n\ngh api \\\n  ${args.join(
-    ' \\\n  '
+    ' \\\n  ',
   )}`
 }
 

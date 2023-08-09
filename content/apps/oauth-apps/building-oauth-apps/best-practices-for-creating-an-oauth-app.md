@@ -1,29 +1,29 @@
 ---
-title: Best practices for creating an OAuth App
+title: Best practices for creating an OAuth app
 shortTitle: Best practices
-intro: 'Follow these best practices to improve the security and performance of your OAuth App.'
+intro: 'Follow these best practices to improve the security and performance of your {% data variables.product.prodname_oauth_app %}.'
 versions:
   fpt: '*'
   ghes: '*'
   ghae: '*'
   ghec: '*'
 topics:
-  - OAuth Apps
+  - OAuth apps
 ---
 
 ## Use a {% data variables.product.prodname_github_app %} instead
 
-If possible, consider using a {% data variables.product.prodname_github_app %} instead of an OAuth App. In general, {% data variables.product.prodname_github_app %}s are preferred over {% data variables.product.prodname_oauth_app %}s. {% data variables.product.prodname_github_app %}s use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. These properties can harden the security of your app by limiting the damage that could be done if your app's credentials are leaked.
+If possible, consider using a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}. In general, {% data variables.product.prodname_github_apps %} are preferred over {% data variables.product.prodname_oauth_apps %}. {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. These properties can harden the security of your app by limiting the damage that could be done if your app's credentials are leaked.
 
-Similar to {% data variables.product.prodname_oauth_app %}s, {% data variables.product.prodname_github_app %}s can still use OAuth 2.0 and generate a type of OAuth token (called a user access token) and take actions on behalf of a user. However, {% data variables.product.prodname_github_app %}s can also act independently of a user.
+Similar to {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can still use OAuth 2.0 and generate a type of OAuth token (called a user access token) and take actions on behalf of a user. However, {% data variables.product.prodname_github_apps %} can also act independently of a user.
 
-For more information about {% data variables.product.prodname_github_app %}s, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+For more information about {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
 
 ## Use minimal scopes
 
-Your OAuth App should only request the scopes that the app needs to perform its intended functionality. If any tokens for your app become compromised, this will limit the amount of damage that can occur. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
+Your {% data variables.product.prodname_oauth_app %} should only request the scopes that the app needs to perform its intended functionality. If any tokens for your app become compromised, this will limit the amount of damage that can occur. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
 
 ## Secure your app's credentials
 
@@ -45,7 +45,7 @@ If your app is a native client, client-side app, or runs on a user device (as op
 
 ## Use the appropriate token type
 
-OAuth Apps can generate user access tokens in order to make authenticated API requests. Your app should never use a {% data variables.product.pat_generic %} or {% data variables.product.company_short %} password to authenticate.
+{% data variables.product.prodname_oauth_apps %} can generate user access tokens in order to make authenticated API requests. Your app should never use a {% data variables.product.pat_generic %} or {% data variables.product.company_short %} password to authenticate.
 
 ## Make a plan for handling security breaches
 

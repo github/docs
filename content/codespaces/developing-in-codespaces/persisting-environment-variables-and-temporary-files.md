@@ -36,7 +36,7 @@ There are three ways that you can set persistent custom environment variables fo
 
 Edit the `devcontainer.json` configuration file for the repository, and use the `remoteEnv` property to set the environment variable value:
 
-```
+```json
 {
     "remoteEnv": {
       "VARNAME": "value"
@@ -80,4 +80,4 @@ If you have temporary files that you want to be available the next time you star
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"
+- "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"

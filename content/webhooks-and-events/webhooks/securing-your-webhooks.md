@@ -27,13 +27,13 @@ To set your token on GitHub:
 {% data reusables.repositories.sidebar-settings %}
 1. In the left sidebar, click **{% octicon "webhook" aria-hidden="true" %} Webhooks**.
 1. Next to the webhook, click **Edit**.
-2. In the "Secret" field, type a random string with high entropy. You can generate a string with `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` in the terminal, for example.
-3. Click **Update Webhook**.
+1. In the "Secret" field, type a random string with high entropy. You can generate a string with `ruby -rsecurerandom -e 'puts SecureRandom.hex(20)'` in the terminal, for example.
+1. Click **Update Webhook**.
 
 Next, set up an environment variable on your server that stores this token. Typically, this is as simple as running:
 
 ```shell
-$ export SECRET_TOKEN=YOUR-TOKEN
+export SECRET_TOKEN=YOUR-TOKEN
 ```
 
 **Never** hardcode the token into your app!
@@ -60,9 +60,9 @@ You should calculate a hash using your `SECRET_TOKEN`, and ensure that the resul
 
 Your language and server implementations may differ from the following examples. However, there are a number of very important things to point out:
 
-* No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
+- No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
 
-* Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
+- Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
 ### Ruby example
 
@@ -116,7 +116,7 @@ def verify_signature(payload_body, secret_token, signature_header):
 
 For example, you can define the following `verify_signature` function and call it when you receive a webhook payload:
 
-```javascript{:copy}
+```javascript copy
 import * as crypto from "crypto";
 
 const WEBHOOK_SECRET: string = process.env.WEBHOOK_SECRET;

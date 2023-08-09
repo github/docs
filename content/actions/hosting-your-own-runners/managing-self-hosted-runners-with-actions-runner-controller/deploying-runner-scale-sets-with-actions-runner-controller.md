@@ -12,8 +12,6 @@ topics:
 defaultPlatform: linux
 ---
 
-{% data reusables.actions.actions-runner-controller-beta %}
-
 [Legal notice](#legal-notice)
 
 ## About runner scale sets
@@ -47,7 +45,7 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
     - Set the `GITHUB_CONFIG_URL` value to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
     - This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you want to install. You can find the list of releases in the [`actions-runner-controller`](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set) repository.
 
-      ```bash{:copy}
+      ```bash copy
       INSTALLATION_NAME="arc-runner-set"
       NAMESPACE="arc-runners"
       GITHUB_CONFIG_URL="https://github.com/<your_enterprise/org/repo>"
@@ -62,9 +60,9 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
 
       {% data reusables.actions.actions-runner-controller-helm-chart-options %}
 
-2. To check your installation, run the following command in your terminal.
+1. To check your installation, run the following command in your terminal.
 
-    ```bash{:copy}
+    ```bash copy
     helm list -A
     ```
 
@@ -76,9 +74,9 @@ You can deploy runner scale sets with ARC's Helm charts or by deploying the nece
     arc-runner-set  arc-systems     1               2023-04-12 11:46:13.451041354 +0000 UTC deployed        gha-runner-scale-set-0.4.0                  0.4.0
     ```
 
-3. To check the manager pod, run the following command in your terminal.
+1. To check the manager pod, run the following command in your terminal.
 
-    ```bash{:copy}
+    ```bash copy
     kubectl get pods -n arc-systems
     ```
 
@@ -218,7 +216,7 @@ proxy:
 
 ARC supports using anonymous or authenticated proxies. If you use authenticated proxies, you will need to set the `credentialSecretRef` value to reference a Kubernetes secret. You can create a secret with your proxy credentials with the following command.
 
-```bash{:copy}
+```bash copy
   kubectl create secret generic proxy-auth \
     --namespace=my_namespace \
     --from-literal=username=proxyUsername \
@@ -516,6 +514,24 @@ template:
 ```
 
 {% data reusables.actions.actions-runner-controller-helm-chart-options %}
+
+{% ifversion ghes %}
+
+## Using ARC with Dependabot and Code Scanning
+
+You can use {% data variables.product.prodname_actions_runner_controller %} to create dedicated runners for your GitHub Enterprise Server instance that {% data variables.product.prodname_dependabot %} can use to help secure and maintain the dependencies used in repositories on your enterprise. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)."
+
+You can also use ARC with CodeQL to identify vulnerabilities and errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+
+{% data variables.product.prodname_actions_runner_controller %} does not use labels to route jobs to specific runner scale sets. Instead, to designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or code scanning with CodeQL, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or code scanning jobs.
+
+{% note %}
+
+The [Dependabot Action](https://github.com/github/dependabot-action) is used to run {% data variables.product.prodname_dependabot %} updates via {% data variables.product.prodname_actions %}. This action requires Docker as a dependency. For this reason, you can only use {% data variables.product.prodname_actions_runner_controller %} with {% data variables.product.prodname_dependabot %} when Docker-in-Docker (DinD) mode is enabled. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#using-docker-in-docker-or-kubernetes-mode-for-containers)."
+
+{% endnote %}
+
+{% endif %}
 
 ## Using ARC across organizations
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Cookies from 'js-cookie'
+import Cookies from '../lib/cookies'
 
 enum CssColorMode {
   auto = 'auto',

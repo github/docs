@@ -50,7 +50,8 @@ Each time you create a new release, you can trigger a workflow to publish your p
 You can define a new Maven repository in the publishing block of your _build.gradle_ file that points to your package repository.  For example, if you were deploying to the Maven Central Repository through the OSSRH hosting project, your _build.gradle_ could specify a repository with the name `"OSSRH"`.
 
 {% raw %}
-```groovy{:copy}
+
+```groovy copy
 plugins {
   ...
   id 'maven-publish'
@@ -71,11 +72,12 @@ publishing {
   }
 }
 ```
+
 {% endraw %}
 
 With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by running the `gradle publish` command. In the deploy step, you’ll need to set environment variables for the username and password or token that you use to authenticate to the Maven repository. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-```yaml{:copy}
+```yaml copy
 
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
@@ -94,7 +96,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
       - name: Publish package
@@ -122,7 +124,8 @@ You can define a new Maven repository in the publishing block of your _build.gra
 For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _build.gradle_ would look similar to the below example.
 
 {% raw %}
-```groovy{:copy}
+
+```groovy copy
 plugins {
   ...
   id 'maven-publish'
@@ -143,11 +146,12 @@ publishing {
   }
 }
 ```
+
 {% endraw %}
 
 With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by running the `gradle publish` command.
 
-```yaml{:copy}
+```yaml copy
 
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
@@ -168,7 +172,7 @@ jobs:
       - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
       - name: Publish package
@@ -195,7 +199,8 @@ For example, if you deploy to the Central Repository through the OSSRH hosting p
 If your organization is named "octocat" and your repository is named "hello-world", then the configuration in _build.gradle_ would look similar to the below example.
 
 {% raw %}
-```groovy{:copy}
+
+```groovy copy
 plugins {
   ...
   id 'maven-publish'
@@ -224,11 +229,12 @@ publishing {
   }
 }
 ```
+
 {% endraw %}
 
 With this configuration, you can create a workflow that publishes your package to both the Maven Central Repository and {% data variables.product.prodname_registry %} by running the `gradle publish` command.
 
-```yaml{:copy}
+```yaml copy
 
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
@@ -250,7 +256,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@ccb4328a959376b642e027874838f60f8e596de3
       - name: Publish package

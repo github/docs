@@ -8,9 +8,10 @@ import { visit, SKIP } from 'unist-util-visit'
 import { remove } from 'unist-util-remove'
 
 import { languageKeys } from '../../../lib/languages.js'
+import { MARKDOWN_OPTIONS } from '../../content-linter/lib/helpers/unified-formatter-options.js'
 
 const { targetDirectory, removeKeywords } = JSON.parse(
-  await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8')
+  await readFile(path.join('src/codeql-cli/lib/config.json'), 'utf-8'),
 )
 const RELATIVE_LINK_PATH = targetDirectory.replace('content', '')
 const LAST_PRIMARY_HEADING = 'Options'
@@ -141,7 +142,7 @@ export async function convertContentToDocs(content, frontmatterDefaults = {}) {
     if (node.type === 'text' && node.value.includes('{.interpreted-text')) {
       const paragraph = ancestors[ancestors.length - 1].children
       const docRoleTagChild = paragraph.findIndex(
-        (child) => child.value && child.value.includes('{.interpreted-text')
+        (child) => child.value && child.value.includes('{.interpreted-text'),
       )
       const link = paragraph[docRoleTagChild - 1]
       // If child node is already a link node, skip it
@@ -153,7 +154,7 @@ export async function convertContentToDocs(content, frontmatterDefaults = {}) {
       // rule, we may need to modify this code to handle it.
       if (link.type !== 'inlineCode') {
         throw new Error(
-          'Unexpected node type. The node before a text node with {.interpreted-text role="doc"} should be an inline code or link node.'
+          'Unexpected node type. The node before a text node with {.interpreted-text role="doc"} should be an inline code or link node.',
         )
       }
 
@@ -209,7 +210,7 @@ export async function convertContentToDocs(content, frontmatterDefaults = {}) {
       // rewrite the aka.ms link
       node.children[0].value = 'AUTOTITLE'
       node.url = url
-    })
+    }),
   )
 
   // remove the program section from the AST
@@ -217,7 +218,7 @@ export async function convertContentToDocs(content, frontmatterDefaults = {}) {
   // remove the first heading from the AST because that becomes frontmatter
   remove(ast, (node) => node.type === 'heading' && node.depth === 1)
 
-  return { content: toMarkdown(ast), data: frontmatter }
+  return { content: toMarkdown(ast, MARKDOWN_OPTIONS), data: frontmatter }
 }
 
 // performs a get request for a aka.ms url and returns the redirect url

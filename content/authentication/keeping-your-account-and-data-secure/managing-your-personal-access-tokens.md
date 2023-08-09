@@ -76,7 +76,7 @@ If you choose to use a {% data variables.product.pat_v1 %}, keep in mind that it
 - To access {% data variables.product.company_short %} from the command line, you can use [{% data variables.product.prodname_cli %}](/github-cli/github-cli/about-github-cli) or [Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) instead of creating a {% data variables.product.pat_generic %}.
 - When using a {% data variables.product.pat_generic %} in a {% data variables.product.prodname_actions %} workflow, consider whether you can use the built-in `GITHUB_TOKEN` instead. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."
 
-If these options are not possible, and you must create a {% data variables.product.pat_generic %}, consider using another service such as the [1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely, or 1Password's [{% data variables.product.company_short %} shell plugin](https://developer.1password.com/docs/cli/shell-plugins/github/) to securely authenticate to {% data variables.product.prodname_cli %}.
+If these options are not possible, and you must create a {% data variables.product.pat_generic %}, consider using another CLI service to store your token securely.
 
 When using a {% data variables.product.pat_generic %} in a script, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."{%- ifversion ghec or fpt %} You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
@@ -136,13 +136,13 @@ If you selected an organization as the resource owner and the organization requi
 {% data reusables.user-settings.developer_settings %}
 {% ifversion pat-v2 %}1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.{% else %}{% data reusables.user-settings.personal_access_tokens %}{% endif %}
 {% ifversion pat-v2%}1. Select **Generate new token**, then click **Generate new token (classic)**.{% else %}{% data reusables.user-settings.generate_new_token %}{% endif %}
-5. In the "Note" field, give your token a descriptive name.
-6. To give your token an expiration, select **Expiration**, then choose a default option or click **Custom** to enter a date.
-7. Select the scopes you'd like to grant this token. To use your token to access repositories from the command line, select **repo**. A token with no assigned scopes can only access public information. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
-8. Click **Generate token**.
+1. In the "Note" field, give your token a descriptive name.
+1. To give your token an expiration, select **Expiration**, then choose a default option or click **Custom** to enter a date.
+1. Select the scopes you'd like to grant this token. To use your token to access repositories from the command line, select **repo**. A token with no assigned scopes can only access public information. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes)".
+1. Click **Generate token**.
 1. Optionally, to copy the new token to your clipboard, click {% octicon "copy" aria-label="Copy token" %}.
 
-   ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal_access_tokens.png){% ifversion fpt or ghec %}
+   ![Screenshot of the "{% data variables.product.pat_generic_caps_plural %}" page. Next to a blurred-out token, an icon of two overlapping squares is outlined in orange.](/assets/images/help/settings/personal-access-tokens.png){% ifversion fpt or ghec %}
 1. To use your token to access resources owned by an organization that uses SAML single sign-on, authorize the token. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
 
 ## Deleting a {% data variables.product.pat_generic %}

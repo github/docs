@@ -6,7 +6,7 @@ const ClientSideRedirectExceptions = dynamic(
   () => import('src/rest/components/ClientSideRedirectExceptions'),
   {
     ssr: false,
-  }
+  },
 )
 
 export function ClientSideRedirects() {

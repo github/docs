@@ -45,7 +45,7 @@ topics:
 {% data reusables.repositories.choose-repo-visibility %}
 1. If you're not using a template, there are a number of optional items you can pre-populate your repository with. If you're importing an existing repository to {% data variables.product.product_name %}, don't choose any of these options, as you may introduce a merge conflict. You can add or create new files using the user interface or choose to add new files using the command line later. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line)," "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line)," and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts)."
     - You can create a README, which is a document describing your project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
-    - You can create a *.gitignore* file, which is a set of ignore rules. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."{% ifversion fpt or ghec %}
+    - You can create a _.gitignore_ file, which is a set of ignore rules. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."{% ifversion fpt or ghec %}
     - You can choose to add a software license for your project. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {% data reusables.repositories.create-repo %}
@@ -54,9 +54,10 @@ topics:
 {% endif %}
 
 {% ifversion create-new-repos-with-query-params %}
+
 ## Creating a new repository from a URL query
 
-You can use query parameters to pre-fill form fields when creating a new repository. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {% data variables.product.prodname_dotcom %}. To specify values for the predefined query parameters, you must match the key and value pair. 
+You can use query parameters to pre-fill form fields when creating a new repository. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {% data variables.product.prodname_dotcom %}. To specify values for the predefined query parameters, you must match the key and value pair.
 
 Pre-filling form fields with a URL query may be useful if you often want to create repositories with the same default settings. For example, a teacher may want each student in a class to create a repository in their personal account with the same name, description and visibility. Using a URL query, the teacher can create a link that pre-fills the repository name, description and visibility fields and share it with the whole class.
 

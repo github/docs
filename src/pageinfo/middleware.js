@@ -11,7 +11,7 @@ import {
 import shortVersions from '../../middleware/contextualizers/short-versions.js'
 import contextualize from '../../middleware/context.js'
 import features from '../../middleware/contextualizers/features.js'
-import getRedirect from '../../lib/get-redirect.js'
+import getRedirect from '#src/redirects/lib/get-redirect.js'
 import { isArchivedVersionByPath } from '../../lib/is-archived-version.js'
 
 const router = express.Router()
@@ -173,10 +173,10 @@ router.get(
     setFastlySurrogateKey(
       res,
       `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(page.languageCode)}`,
-      true
+      true,
     )
     res.status(200).json({ info })
-  })
+  }),
 )
 
 // Alias for the latest version

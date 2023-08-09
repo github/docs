@@ -54,7 +54,8 @@ In this workflow, you can use the `setup-java` action. This action installs the 
 For example, if you were deploying to the Maven Central Repository through the OSSRH hosting project, your _pom.xml_ could specify a distribution management repository with the `id` of `ossrh`.
 
 {% raw %}
-```xml{:copy}
+
+```xml copy
 <project ...>
   ...
   <distributionManagement>
@@ -66,13 +67,14 @@ For example, if you were deploying to the Maven Central Repository through the O
   </distributionManagement>
 </project>
 ```
+
 {% endraw %}
 
 With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by specifying the repository management `id` to the `setup-java` action. You’ll also need to provide environment variables that contain the username and password to authenticate to the repository.
 
 In the deploy step, you’ll need to set the environment variables to the username that you authenticate with to the repository, and to a secret that you’ve configured with the password or token to authenticate with.  For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-```yaml{:copy}
+```yaml copy
 name: Publish package to the Maven Central Repository
 on:
   release:
@@ -86,7 +88,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -118,7 +120,8 @@ For a Maven-based project, you can make use of these settings by creating a dist
 For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _pom.xml_ would look similar to the below example.
 
 {% raw %}
-```xml{:copy}
+
+```xml copy
 <project ...>
   ...
   <distributionManagement>
@@ -130,11 +133,12 @@ For example, if your organization is named "octocat" and your repository is name
   </distributionManagement>
 </project>
 ```
+
 {% endraw %}
 
 With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by making use of the automatically generated _settings.xml_.
 
-```yaml{:copy}
+```yaml copy
 name: Publish package to GitHub Packages
 on:
   release:
@@ -150,7 +154,7 @@ jobs:
       - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
@@ -171,7 +175,7 @@ You can publish your packages to both the Maven Central Repository and {% data v
 
 Ensure your _pom.xml_ file includes a distribution management repository for both your {% data variables.product.prodname_dotcom %} repository and your Maven Central Repository provider. For example, if you deploy to the Central Repository through the OSSRH hosting project, you might want to specify it in a distribution management repository with the `id` set to `ossrh`, and you might want to specify {% data variables.product.prodname_registry %} in a distribution management repository with the `id` set to `github`.
 
-```yaml{:copy}
+```yaml copy
 name: Publish package to the Maven Central Repository and GitHub Packages
 on:
   release:
@@ -188,7 +192,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -201,7 +205,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:

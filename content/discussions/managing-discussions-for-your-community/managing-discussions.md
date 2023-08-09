@@ -54,10 +54,10 @@ This is what it looks like when you have a globally pinned discussion and a disc
 ![Screenshot of a globally pinned discussion and a discussion pinned to the Ideas category.](/assets/images/help/discussions/overview-pinned-discussions.png)
 
 ### Pinning a discussion globally
+
 {% endif %}
 
 You can pin up to four important discussions above the list of discussions for the repository or organization.
-
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -73,6 +73,7 @@ You can pin up to four important discussions above the list of discussions for t
 1. Click **Pin discussion**.
 
 {% ifversion discussions-category-specific-pins %}
+
 ### Pinning a discussion to a category
 
 You can pin up to four important discussions above the list of discussions in a specific category.
@@ -116,11 +117,12 @@ You can unpin a globally pinned discussion. This will not delete the discussion,
 {% data reusables.discussions.click-discussion-in-list %}
 1. In the right sidebar, click {% octicon "pin" aria-hidden="true" %} **Unpin discussion**.
 
-   ![Screenshot of the "Unpin discussion" option in right sidebar for discussion.](/assets/images/help/discussions/click-unpin-discussion.png)
+   ![Screenshot of the right sidebar of a discussion. The "Unpin discussion" option is highlighted with an orange outline.](/assets/images/help/discussions/click-unpin-discussion.png)
 
 1. Read the warning, then click **Unpin discussion**.
 
 {% ifversion discussions-category-specific-pins %}
+
 ### Unpinning a discussion from a category
 
 You can unpin a discussion pinned to a specific category. This will not delete the discussion, but the discussion will no longer be displayed at the top of the category.
@@ -165,6 +167,7 @@ To transfer a discussion, you must have permissions to create discussions in the
 1. Read the warning, then click **Delete this discussion**.
 
 {% ifversion discussions-closable %}
+
 ## Closing a discussion
 
 {% data reusables.discussions.closing-discussions %}
@@ -178,6 +181,7 @@ To transfer a discussion, you must have permissions to create discussions in the
 {% endif %}
 
 {% ifversion converting-issues-to-discussions %}
+
 ## Converting issues based on labels
 
 You can convert all issues with the same label to discussions in bulk. Future issues with this label will also automatically convert to the discussion and category you configure.

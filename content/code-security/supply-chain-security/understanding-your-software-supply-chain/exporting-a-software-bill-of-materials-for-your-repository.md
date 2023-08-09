@@ -29,7 +29,7 @@ If your company provides software to the US federal government per [Executive Or
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Dependency graph**.
-1. On the top right side of the **Dependencies** tab, click **Export SBOM** to generate an SBOM file for download from your browser. 
+1. On the top right side of the **Dependencies** tab, click **Export SBOM** to generate an SBOM file for download from your browser.
 
 ## Exporting a software bill of material for your repository using the REST API
 

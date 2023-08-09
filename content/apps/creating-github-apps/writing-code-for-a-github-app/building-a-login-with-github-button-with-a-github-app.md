@@ -44,29 +44,29 @@ To follow this tutorial, you must install the Sinatra and dotenv gems in your Ru
 
 1. If you don't already have Bundler installed, run the following command in your terminal:
 
-   ```
+   ```shell
    gem install bundler
    ```
 
 1. If you don't already have a Gemfile for your app, run the following command in your terminal:
 
-   ```
+   ```shell
    bundle init
    ```
 
 1. If you don't already have a Gemfile.lock for your app, run the following command in your terminal:
 
-   ```
+   ```shell
    bundle install
    ```
 
 1. Install the gems by running the following commands in your terminal:
 
-   ```
+   ```shell
    bundle add sinatra
    ```
 
-   ```
+   ```shell
    bundle add dotenv
    ```
 
@@ -85,7 +85,7 @@ This tutorial will show you how to store the client ID and client secret in envi
 1. Add `.env` to your `.gitignore` file. This will prevent you from accidentally committing your client secret. For more information about `.gitignore` files, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."
 1. Add the following contents to your `.env` file. Replace `YOUR_CLIENT_ID` with the client ID of your app. Replace `YOUR_CLIENT_SECRET` with the client secret for your app.
 
-   ```
+   ```text
    CLIENT_ID="YOUR_CLIENT_ID"
    CLIENT_SECRET="YOUR_CLIENT_SECRET"
    ```
@@ -99,7 +99,7 @@ These steps lead you through writing code to generate a user access token. To sk
 1. In the same directory as your `.env` file, create a Ruby file to hold the code that will generate a user access token. This tutorial will name the file `app.rb`.
 1. At the top of `app.rb`, add these dependencies:
 
-   ```ruby{:copy}
+   ```ruby copy
    require "sinatra"
    require "dotenv/load"
    require "net/http"
@@ -110,14 +110,14 @@ These steps lead you through writing code to generate a user access token. To sk
 
 1. Add the following code to `app.rb`, to get your app's client ID and client secret from your `.env` file.
 
-   ```ruby{:copy}
+   ```ruby copy
    CLIENT_ID = ENV.fetch("CLIENT_ID")
    CLIENT_SECRET = ENV.fetch("CLIENT_SECRET")
    ```
 
 1. Add the following code to `app.rb` to display a link that will prompt users to authenticate your app.
 
-   ```ruby{:copy}
+   ```ruby copy
    get "/" do
      link = '<a href="{% data variables.product.oauth_host_code %}/login/oauth/authorize?client_id=<%= CLIENT_ID %>">Login with GitHub</a>'
      erb link
@@ -126,7 +126,7 @@ These steps lead you through writing code to generate a user access token. To sk
 
 1. Add the following code to `app.rb` to handle requests to your app's callback URL and get the `code` parameter from the request. Replace `CALLBACK_URL` with the callback URL for your app, minus the domain. For example, if your callback URL is `http://localhost:4567/github/callback`, replace `CALLBACK_URL` with `/github/callback`.
 
-   ```ruby{:copy}
+   ```ruby copy
    get "CALLBACK_URL" do
      code = params["code"]
      render = "Successfully authorized! Got code #{code}."
@@ -140,7 +140,7 @@ These steps lead you through writing code to generate a user access token. To sk
 
    `app.rb` now looks like this, where `CALLBACK_URL` is the callback URL for your app, minus the domain:
 
-   ```ruby{:copy}
+   ```ruby copy
    require "sinatra"
    require "dotenv/load"
    require "net/http"
@@ -179,7 +179,7 @@ These steps lead you through writing code to generate a user access token. To sk
    - The handler for the callback URL request now calls `exchange_code` to exchange the code parameter for a user access token.
    - The callback page now shows text to indicate that a token was generated. If the token generation was not successful, the page will indicate that failure.
 
-   ```ruby{:copy}
+   ```ruby copy
    require "sinatra"
    require "dotenv/load"
    require "net/http"
@@ -248,7 +248,7 @@ These steps lead you through writing code to generate a user access token. To sk
 
    Add this function to `app.rb` to get information about the user with the `/user` REST API endpoint:
 
-   ```ruby{:copy}
+   ```ruby copy
    def user_info(token)
      uri = URI("{% data variables.product.api_url_code %}/user")
 
@@ -267,7 +267,7 @@ These steps lead you through writing code to generate a user access token. To sk
 
    Update the callback handler to call the `user_info` function and to display the user's name and GitHub login. Remember to replace `CALLBACK_URL` with the callback URL for your app, minus the domain.
 
-   ```ruby{:copy}
+   ```ruby copy
    get "CALLBACK_URL" do
      code = params["code"]
 
@@ -297,7 +297,7 @@ This is the full code example that was outlined in the previous section.
 
 Replace `CALLBACK_URL` with the callback URL for your app, minus the domain. For example, if your callback URL is `http://localhost:4567/github/callback`, replace `CALLBACK_URL` with `/github/callback`.
 
-```ruby{:copy}
+```ruby copy
 require "sinatra"
 require "dotenv/load"
 require "net/http"

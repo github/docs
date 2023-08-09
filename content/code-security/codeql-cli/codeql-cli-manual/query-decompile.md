@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql query decompile [--output=<file>] <options>... -- <file>
 ```
 

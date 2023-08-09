@@ -28,12 +28,13 @@ In some cases, such as hardware failure, the underlying software that that manag
 
 1. To see a list of allocations, run the following command. The utility displays healthy allocations in green. If any jobs are not properly distributed, the utility displays the allocation's count in red.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-cluster-balance status
    ```
+
 1. If a job is not properly distributed, inspect the allocations by running the following command. Replace JOB with a single job or comma-delimited list of jobs.
 
-   ```shell{:copy}
+   ```shell copy
     ghe-cluster-balance status -j JOB
    ```
 
@@ -45,14 +46,14 @@ After you determine which jobs are unbalanced across your cluster's nodes, you c
 
 1. To perform a dry run and see the result of rebalancing without making changes, run the following command. Replace JOB with a single job or comma-delimited list of jobs.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-cluster-balance rebalance --dry-run -j JOB
    ```
 
    For example, to perform a dry run of rebalancing jobs for your instance's HTTP server and authorization service, you can run `ghe-cluster-balance rebalance --dry-run -j github-unicorn,authzd`.
 1. To rebalance, run the following command. Replace JOB with a single job or comma-delimited list of jobs.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-cluster-balance rebalance -j JOB
    ```
 
@@ -68,14 +69,16 @@ You can schedule rebalancing of jobs on your cluster by setting and applying con
 
 1. To configure automatic, hourly balancing of jobs, run the following command.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config app.cluster-rebalance.enabled true
    ```
+
 1. Optionally, you can override the default schedule by defining a cron expression. For example, run the following command to balance jobs every three hours.
 
-   ```shell{:copy}
+   ```shell copy
    ghe-config app.cluster-rebalance.schedule '0 */3 * * *'
    ```
+
 {% data reusables.enterprise.apply-configuration %}
 
 ## Further reading

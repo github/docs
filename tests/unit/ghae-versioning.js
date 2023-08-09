@@ -1,6 +1,11 @@
 import { allVersions } from '../../lib/all-versions.js'
-import { liquid } from '../../lib/render-content/index.js'
+import { liquid } from '#src/content-render/index.js'
 import shortVersionsMiddleware from '../../middleware/contextualizers/short-versions.js'
+
+const contextualize = (req) => {
+  req.context.currentVersionObj = req.context.allVersions[req.context.currentVersion]
+  shortVersionsMiddleware(req, null, () => {})
+}
 
 describe('ifversion conditionals', () => {
   const req = {}
@@ -9,7 +14,7 @@ describe('ifversion conditionals', () => {
       allVersions,
       currentVersion: 'github-ae@latest',
     }
-    await shortVersionsMiddleware(req, null, () => {})
+    contextualize(req)
   })
 
   test('greater than', async () => {

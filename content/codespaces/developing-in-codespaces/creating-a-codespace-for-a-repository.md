@@ -22,7 +22,7 @@ shortTitle: Create a codespace for a repo
 
 You can use {% data variables.product.prodname_github_codespaces %} on your personal {% data variables.product.prodname_dotcom_the_website %} account, with the quota of free use included each month for accounts on the Free and Pro plans. {% data reusables.codespaces.codespaces-continue-by-paying %}
 
-Organizations can enable members and outside collaborators to create and use codespaces at the organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)."
+Organizations can enable members and outside collaborators to create and use codespaces at the organization's expense. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization)."
 
 {% data reusables.codespaces.when-you-can-create-codespaces %}
 
@@ -82,11 +82,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
 1. Create your codespace, either using the default options, or after configuring advanced options:
 
-   * **Use the default options**
+   - **Use the default options**
 
       To create a codespace using the default options, click {% octicon "plus" aria-label="Create a codespace on BRANCH" %}. <br/><br/>
 
-   * **Configure advanced options**
+   - **Configure advanced options**
 
       To configure advanced options for your codespace, such as a different machine type or a particular `devcontainer.json` file:
 
@@ -104,11 +104,11 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
          **Notes**
 
-         * You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
-         * The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
-         * For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
-         * For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
-         * {% data reusables.codespaces.codespaces-machine-type-availability %}
+         - You can bookmark the options page to give you a quick way to create a codespace for this repository and branch.
+         - The [https://github.com/codespaces/new](https://github.com/codespaces/new) page provides a quick way to create a codespace for any repository and branch. You can get to this page quickly by typing `codespace.new` into your browser's address bar.
+         - For more information about dev container configuration files, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+         - For more information about machine types, see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace#about-machine-types)."
+         - {% data reusables.codespaces.codespaces-machine-type-availability %}
 
          {% endnote %}
 
@@ -165,5 +165,7 @@ For full details of the options for this command, see [the {% data variables.pro
 {% endcli %}
 
 ## Further reading
+
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
 - "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"
+- "[AUTOTITLE](/rest/codespaces)" (REST API reference)

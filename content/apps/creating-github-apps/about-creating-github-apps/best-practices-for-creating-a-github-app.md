@@ -19,6 +19,10 @@ When you register a {% data variables.product.prodname_github_app %}, select the
 
 When your {% data variables.product.prodname_github_app %} creates an installation access token or user access token, you can further limit the repositories that the app can access and the permissions that the token has. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)."
 
+## Use multiple callback URLs
+
+When you register a {% data variables.product.prodname_github_app %}, you can specify callback URLs that users will be redirected to after they authorize your app. The most secure approach is to use multiple callback URLs so that there is an exact match with the URL users are redirected to. You should avoid using wildcards in callback URLs. For more information on callback URLs, see "[AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-user-authorization-callback-url)."
+
 ## Stay under the rate limit
 
 Subscribe to webhook events instead of polling the API for data. This will help your {% data variables.product.prodname_github_app %} stay within the API rate limit. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
@@ -65,7 +69,7 @@ If your app is a native client, client-side app, or runs on a user device (as op
 
 ## Use the appropriate token type
 
-{% data variables.product.prodname_github_app %}s can generate installation access tokens or user access tokens in order to make authenticated API requests.
+{% data variables.product.prodname_github_apps %} can generate installation access tokens or user access tokens in order to make authenticated API requests.
 
 Installation access tokens will attribute activity to your app. These are useful for automations that act independently of users.
 
@@ -81,7 +85,7 @@ When you use a user access token, you should track which organizations the token
 
 ## Expire tokens
 
-{% data variables.product.company_short %} strongly encourages you to use user access tokens that expire. If you previously opted out of using user access tokens that expire but want to reenable this feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
+{% data variables.product.company_short %} strongly encourages you to use user access tokens that expire. If you previously opted out of using user access tokens that expire but want to re-enable this feature, see "[AUTOTITLE](/apps/maintaining-github-apps/activating-optional-features-for-github-apps)."
 
 Installation access tokens expire after one hour, expiring user access tokens expire after eight hours, and refresh tokens expire after six months. However, you can also revoke tokens as soon as you no longer need them. For more information, see "[AUTOTITLE](/rest/apps/installations#revoke-an-installation-access-token)" to revoke an installation access token and "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)" to revoke a user access token.
 

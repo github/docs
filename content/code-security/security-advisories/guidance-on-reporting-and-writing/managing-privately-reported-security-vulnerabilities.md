@@ -16,7 +16,7 @@ shortTitle: Manage vulnerability reports
 
 ## About privately reporting a security vulnerability
 
-Private vulnerability reporting makes it easy for security researchers to report vulnerabilities directly to you using a simple form. 
+Private vulnerability reporting makes it easy for security researchers to report vulnerabilities directly to you using a simple form.
 
 When a security researcher reports a vulnerability privately, you are notified and can choose to either accept it, ask more questions, or reject it. If you accept the report, you're ready to collaborate on a fix for the vulnerability in private with the security researcher.
 
@@ -32,8 +32,8 @@ For more information about configuring notification preferences, see "[AUTOTITLE
 1. Click the advisory you want to review. An advisory that was reported privately has a status of `Triage`.
   
    ![Screenshot of a "Security Advisories" list.](/assets/images/help/security/advisory-list.png)
-   
-2. Carefully review the report, then choose how to proceed.
+
+1. Carefully review the report, then choose how to proceed.
    - To collaborate on a patch in private, click **Start a temporary private fork** to create a place for further discussions with the contributor. This does not change the status of the proposed advisory from `Triage`.
    - To accept the reported vulnerability, click **Accept and open as draft** to accept the vulnerability report as a draft advisory on {% data variables.product.prodname_dotcom %}. If you choose this option:
       - This doesn't make the report public.

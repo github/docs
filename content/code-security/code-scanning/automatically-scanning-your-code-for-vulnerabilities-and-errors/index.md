@@ -16,20 +16,20 @@ topics:
   - Code scanning
 children:
   - /about-code-scanning
-  - /about-code-scanning-alerts
-  - /triaging-code-scanning-alerts-in-pull-requests
-  - /configuring-code-scanning-for-a-repository
-  - /about-the-tool-status-page
-  - /managing-code-scanning-alerts-for-your-repository
-  - /tracking-code-scanning-alerts-in-issues-using-task-lists
-  - /customizing-code-scanning
   - /about-code-scanning-with-codeql
+  - /configuring-default-setup-for-code-scanning
+  - /configuring-default-setup-for-code-scanning-at-scale
+  - /codeql-code-scanning-for-compiled-languages
+  - /configuring-advanced-setup-for-code-scanning
+  - /customizing-code-scanning
+  - /configuring-advanced-setup-for-code-scanning-with-codeql-at-scale
   - /recommended-hardware-resources-for-running-codeql
-  - /built-in-codeql-query-suites
-  - /configuring-the-codeql-workflow-for-compiled-languages
-  - /configuring-code-scanning-at-scale
-  - /troubleshooting-your-default-setup-for-codeql
-  - /troubleshooting-the-codeql-workflow
   - /running-codeql-code-scanning-in-a-container
+  - /about-code-scanning-alerts
+  - /managing-code-scanning-alerts-for-your-repository
+  - /triaging-code-scanning-alerts-in-pull-requests
+  - /tracking-code-scanning-alerts-in-issues-using-task-lists
+  - /about-the-tool-status-page
+  - /built-in-codeql-query-suites
   - /viewing-code-scanning-logs
 ---

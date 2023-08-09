@@ -9,13 +9,15 @@ describe('footer', () => {
   describe('"contact us" link', () => {
     test('leads to support from articles', async () => {
       const $ = await getDOM(
-        `/en/${nonEnterpriseDefaultVersion}/get-started/quickstart/hello-world`
+        `/en/${nonEnterpriseDefaultVersion}/get-started/quickstart/hello-world`,
       )
       expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
 
     test('leads to support on 404 pages', async () => {
-      const $ = await getDOM('/delicious-snacks/donuts.php', { allow404: true })
+      // Important to use the prefix /en/ on the failing URL or else
+      // it will render a very basic plain text 404 response.
+      const $ = await getDOM('/en/delicious-snacks/donuts.php', { allow404: true })
       expect($('a#support').attr('href')).toBe('https://support.github.com')
     })
   })
@@ -31,7 +33,7 @@ describe('footer', () => {
     test('codespaces product landing page leads to discussions page', async () => {
       const $ = await getDOM('/en/get-started')
       expect($('a#ask-community').attr('href')).toBe(
-        'https://hubgit.com/orgs/community/discussions/categories/get-started'
+        'https://hubgit.com/orgs/community/discussions/categories/get-started',
       )
     })
   })
@@ -40,7 +42,7 @@ describe('footer', () => {
     test('leads to https://github.community/ when clicking on the community link', async () => {
       const $ = await getDOM(`/en/get-started/quickstart/hello-world`)
       expect($('a#ask-community').attr('href')).toBe(
-        'https://github.com/orgs/community/discussions'
+        'https://github.com/orgs/community/discussions',
       )
     })
   })

@@ -26,7 +26,7 @@ describe('siteTree', () => {
   test('object order and structure', () => {
     expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[1].href).toBe('/en/get-started')
     expect(siteTree.en[nonEnterpriseDefaultVersion].childPages[1].childPages[0].href).toBe(
-      '/en/get-started/quickstart'
+      '/en/get-started/quickstart',
     )
   })
 
@@ -43,7 +43,7 @@ describe('siteTree', () => {
 
       // Confirm the raw title contains Liquid
       expect(pageWithDynamicTitle.page.title).toEqual(
-        'Installing {% data variables.product.prodname_enterprise %}'
+        'Installing {% data variables.product.prodname_enterprise %}',
       )
     })
   })

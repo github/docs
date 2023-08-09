@@ -52,9 +52,11 @@ To keep your credentials secure, we recommend you save your {% data variables.pr
 
 {% ifversion fpt or ghec %}
 {% raw %}
+
 ```shell
-$ cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
+cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u USERNAME --password-stdin
 ```
+
 {% endraw %}
 {% endif %}
 
@@ -63,17 +65,21 @@ $ cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <em>USERNAME</
 If your instance has subdomain isolation enabled:
 {% endif %}
 {% raw %}
+
 ```shell
-$ cat ~/TOKEN.txt | docker login docker.HOSTNAME -u USERNAME --password-stdin
+cat ~/TOKEN.txt | docker login docker.HOSTNAME -u USERNAME --password-stdin
 ```
+
 {% endraw %}
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
 
 {% raw %}
+
 ```shell
-$ cat ~/TOKEN.txt | docker login HOSTNAME -u USERNAME --password-stdin
+cat ~/TOKEN.txt | docker login HOSTNAME -u USERNAME --password-stdin
 ```
+
 {% endraw %}
 {% endif %}
 
@@ -98,67 +104,87 @@ For more information, see "[Docker login](https://docs.docker.com/engine/referen
 {% data reusables.package_registry.viewing-packages %}
 
 1. Determine the image name and ID for your docker image using `docker images`.
+
    ```shell
    $ docker images
    > <&nbsp>
    > REPOSITORY        TAG        IMAGE ID       CREATED      SIZE
    > IMAGE_NAME        VERSION    IMAGE_ID       4 weeks ago  1.11MB
    ```
-2. Using the Docker image ID, tag the docker image, replacing *OWNER* with the name of the personal account or organization that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *VERSION* with package version at build time.
+
+1. Using the Docker image ID, tag the docker image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image,{% ifversion ghes or ghae %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and VERSION with package version at build time.
    {% ifversion fpt or ghec %}
+
    ```shell
-   $ docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
    ```
+
    {% else %}
    {% ifversion ghes %}
    If your instance has subdomain isolation enabled:
    {% endif %}
+
    ```shell
-   $ docker tag IMAGE_ID docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   docker tag IMAGE_ID docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
    ```
+
    {% ifversion ghes %}
    If your instance has subdomain isolation disabled:
+
    ```shell
-   $ docker tag IMAGE_ID HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   docker tag IMAGE_ID HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
    ```
+
    {% endif %}
    {% endif %}
-3. If you haven't already built a docker image for the package, build the image, replacing *OWNER* with the name of the personal account or organization that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image, *VERSION* with package version at build time,{% ifversion ghes or ghae %} *HOSTNAME* with the hostname of {% data variables.location.product_location %},{% endif %} and *PATH* to the image if it isn't in the current working directory.
+1. If you haven't already built a docker image for the package, build the image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image, VERSION with package version at build time,{% ifversion ghes or ghae %} HOSTNAME with the hostname of {% data variables.location.product_location %},{% endif %} and PATH to the image if it isn't in the current working directory.
    {% ifversion fpt or ghec %}
+
    ```shell
-   $ docker build -t docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
+   docker build -t docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
    ```
+
    {% else %}
    {% ifversion ghes %}
    If your instance has subdomain isolation enabled:
    {% endif %}
+
    ```shell
-   $ docker build -t docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
+   docker build -t docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
    ```
+
    {% ifversion ghes %}
    If your instance has subdomain isolation disabled:
+
    ```shell
-   $ docker build -t HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
+   docker build -t HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION PATH
    ```
+
    {% endif %}
    {% endif %}
-4. Publish the image to {% data variables.product.prodname_registry %}.
+1. Publish the image to {% data variables.product.prodname_registry %}.
    {% ifversion fpt or ghec %}
+
    ```shell
-   $ docker push docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   docker push docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
    ```
+
    {% else %}
    {% ifversion ghes %}
    If your instance has subdomain isolation enabled:
    {% endif %}
+
    ```shell
-   $ docker push docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   docker push docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
    ```
+
    {% ifversion ghes %}
    If your instance has subdomain isolation disabled:
+
    ```shell
-   $ docker push HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+   docker push HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
    ```
+
    {% endif %}
    {% endif %}
    {% note %}
@@ -176,13 +202,14 @@ These examples assume your instance has subdomain isolation enabled.
 You can publish version 1.0 of the `monalisa` image to the `octocat/octo-app` repository using an image ID.
 
 {% ifversion fpt or ghec %}
+
 ```shell
 $ docker images
 
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
-# Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
+# Tag the image with OWNER/REPO/IMAGE_NAME
 $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
@@ -197,7 +224,7 @@ $ docker images
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
-# Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
+# Tag the image with OWNER/REPO/IMAGE_NAME
 $ docker tag c75bebcdd211 docker.HOSTNAME/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
@@ -209,8 +236,9 @@ $ docker push docker.HOSTNAME/octocat/octo-app/monalisa:1.0
 You can publish a new Docker image for the first time and name it `monalisa`.
 
 {% ifversion fpt or ghec %}
+
 ```shell
-# Build the image with docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Build the image with docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
 
@@ -219,39 +247,47 @@ $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 ```
 
 {% else %}
+
 ```shell
-# Build the image with docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Build the image with docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.HOSTNAME/octocat/octo-app/monalisa:1.0 .
 
 # Push the image to {% data variables.product.prodname_registry %}
 $ docker push docker.HOSTNAME/octocat/octo-app/monalisa:1.0
 ```
+
 {% endif %}
 
 ## Downloading an image
 
 {% data reusables.package_registry.docker_registry_deprecation_status %}
 
-You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing *OWNER* with the name of the personal account or organization that owns the repository, *REPOSITORY* with the name of the repository containing your project, *IMAGE_NAME* with name of the package or image,{% ifversion ghes or ghae %} *HOSTNAME* with the host name of {% data variables.location.product_location %}, {% endif %} and *TAG_NAME* with tag for the image you want to install.
+You can use the `docker pull` command to install a docker image from {% data variables.product.prodname_registry %}, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image,{% ifversion ghes or ghae %} HOSTNAME with the host name of {% data variables.location.product_location %}, {% endif %} and TAG_NAME with tag for the image you want to install.
 
 {% ifversion fpt or ghec %}
+
 ```shell
-$ docker pull docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
+docker pull docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 ```
+
 {% else %}
 <!--Versioning out this "subdomain isolation enabled" line because it's the only option for GHES 2.22 so it can be misleading.-->
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
 {% endif %}
+
 ```shell
-$ docker pull docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
+docker pull docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 ```
+
 {% ifversion ghes %}
 If your instance has subdomain isolation disabled:
+
 ```shell
-$ docker pull HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
+docker pull HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:TAG_NAME
 ```
+
 {% endif %}
 {% endif %}
 

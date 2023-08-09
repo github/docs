@@ -26,5 +26,4 @@ For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphq
 
 {% endnote %}
 
-
 <!-- Content after this section is automatically generated -->

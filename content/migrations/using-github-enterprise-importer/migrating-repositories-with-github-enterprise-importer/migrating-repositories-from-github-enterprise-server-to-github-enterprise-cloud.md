@@ -23,9 +23,9 @@ If you choose to use the API, you'll need to write your own scripts or use an HT
 To migrate your repositories from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} with the APIs, you will:
 
 1. Create a {% data variables.product.pat_generic %} for both the source and destination organization
-2. Fetch the `ownerId` of the destination organization on {% data variables.product.prodname_ghe_cloud %}
-3. Set up a migration source via {% data variables.product.prodname_dotcom_the_website %}'s GraphQL API to identify where you're migrating from
-4. For each repository you want to migrate, repeat these steps.
+1. Fetch the `ownerId` of the destination organization on {% data variables.product.prodname_ghe_cloud %}
+1. Set up a migration source via {% data variables.product.prodname_dotcom_the_website %}'s GraphQL API to identify where you're migrating from
+1. For each repository you want to migrate, repeat these steps.
    - Use the REST API on {% data variables.location.product_location_enterprise %} to generate migration archives for your repository
    - Upload your migration archives to a location where they can be accessed by {% data variables.product.prodname_dotcom_the_website %}
    - Start your migration using the GraphQL API for {% data variables.product.prodname_dotcom_the_website %}, passing in your archive URLs
@@ -390,7 +390,7 @@ If you want to migrate a single repository, skip to the next step.
 
 For {% data variables.product.prodname_ghe_server %} 3.8 or later, or if you're using 3.7 or lower with Azure Blob Storage, use the following flags:
 
-```shell{:copy}
+```shell copy
 gh gei generate-script --github-source-org SOURCE \
   --github-target-org DESTINATION \
   --output FILENAME \
@@ -399,7 +399,7 @@ gh gei generate-script --github-source-org SOURCE \
 
 If you're using {% data variables.product.prodname_ghe_server %} 3.7 or lower with AWS S3, use the following flags:
 
-```shell{:copy}
+```shell copy
 gh gei generate-script --github-source-org SOURCE \
   --github-target-org DESTINATION \
   --output FILENAME \
@@ -426,9 +426,9 @@ gh gei generate-script --github-source-org SOURCE \
 When you migrate repositories, the {% data variables.product.prodname_gei_cli %} performs the following steps:
 
 1. Connects to {% data variables.location.product_location_enterprise %} and generates two migration archives per repository, one for the Git source and one for the metadata
-2. Uploads the migration archives to the blob storage provider of your choice
-3. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
-4. Deletes the migration archive
+1. Uploads the migration archives to the blob storage provider of your choice
+1. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
+1. Deletes the migration archive from your local machine
 
 ### Migrate multiple repositories
 
@@ -453,20 +453,20 @@ If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or
 
 If you're using {% data variables.product.prodname_ghe_server %} 3.8 or later, use the following flags:
 
-```shell{:copy}
+```shell copy
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME --ghes-api-url GHES-API-URL
 ```
 
 If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier and using Azure Blob Storage as your blob storage provider, use the following flags to authenticate:
 
-```shell{:copy}
+```shell copy
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME \
     --ghes-api-url GHES-API-URL --azure-storage-connection-string "AZURE_STORAGE_CONNECTION_STRING"
 ```
 
 If you're migrating from {% data variables.product.prodname_ghe_server %} 3.7 or earlier and using Amazon S3 as your blob storage provider, use the following flags to authenticate:
 
-```shell{:copy}
+```shell copy
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME \
     --ghes-api-url GHES-API-URL --aws-bucket-name "AWS-BUCKET-NAME"
 ```

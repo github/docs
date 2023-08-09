@@ -1,19 +1,26 @@
-import { addError, forEachInlineChild } from 'markdownlint-rule-helpers'
+import { forEachInlineChild } from 'markdownlint-rule-helpers'
+
+import { addFixErrorDetail } from '../helpers/utils.js'
 
 export const imageFileKebab = {
-  names: ['MD115', 'image-file-kebab'],
+  names: ['GHD004', 'image-file-kebab'],
   description: 'Image file names should always be lowercase kebab case',
-  severity: 'PLACEHOLDER',
+  severity: 'warning',
   tags: ['accessibility', 'images'],
-  function: function MD115(params, onError) {
+  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
+  function: function GHD005(params, onError) {
     forEachInlineChild(params, 'image', async function forToken(token) {
       const imageFileName = token.attrs[0][1].split('/').pop().split('.')[0]
       const nonKebabRegex = /([A-Z]|_)/
+      const suggestedFileName = imageFileName.toLowerCase().replace(/_/g, '-')
       if (imageFileName.match(nonKebabRegex)) {
-        addError(
+        addFixErrorDetail(
           onError,
           token.lineNumber,
-          `The image file name: ${token.attrs[0][1]}, is not lowercase kebab case.`
+          imageFileName,
+          suggestedFileName,
+          [token.line.indexOf(imageFileName) + 1, imageFileName.length],
+          null, // Todo add fix
         )
       }
     })

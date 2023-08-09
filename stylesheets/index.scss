@@ -1,5 +1,7 @@
-@import "@primer/css/color-modes/index.scss";
-@import "@primer/css/core/index.scss";
+@import "@primer/css/color-modes/index.scss"; // Must come first
+@import "@primer/css/core/index.scss"; // Must come second
+
+// Primer components
 @import "@primer/css/markdown/index.scss";
 @import "@primer/css/forms/index.scss";
 @import "@primer/css/navigation/index.scss";
@@ -8,12 +10,19 @@
 @import "@primer/css/alerts/index.scss";
 @import "@primer/css/popover/index.scss";
 
-@import "extended-markdown.scss";
-@import "markdown-overrides.scss";
+// Primer and native tag overrides
 @import "headings.scss";
+@import "markdown-overrides.scss";
 @import "images.scss";
-@import "shadows.scss";
-@import "syntax-highlighting.scss";
-@import "utilities.scss";
-@import "links.scss";
+@import "scroll-top.scss";
+
+// Components
 @import "heading-links.scss";
+@import "syntax-highlighting.scss";
+@import "spotlight.scss";
+@import "annotate.scss";
+@import "hover-card.scss";
+
+// Utility classes
+@import "utilities.scss";
+@import "shadows.scss";

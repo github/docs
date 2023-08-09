@@ -66,14 +66,16 @@ You can bookmark the address of this page if you want to get back to it quickly 
    ![Screenshot of the "Open in" dialog, with "Open in Visual Studio Code" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
 
    You can open the codespace in:
-   * Your browser
-   * {% data variables.product.prodname_vscode %}
-   * JetBrains Gateway
-   * JupyterLab
+   - Your browser
+   - {% data variables.product.prodname_vscode %}
+   - JetBrains Gateway
+   - JupyterLab
 
    {% data reusables.codespaces.application-installed-locally %}
 
    If you choose **JupyterLab**, the JupyterLab application must be installed in the codespace. {% data reusables.codespaces.jupyterlab-in-default-image %}
+
+{% data reusables.codespaces.linking-to-an-existing-codespace %}
 
 {% endwebui %}
 
@@ -100,16 +102,21 @@ You can also access the commands listed above by navigating to the Remote Explor
 ![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted in the right-click menu.](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
 
 {% data reusables.codespaces.remote-explorer %}
+
+{% data reusables.codespaces.linking-to-an-existing-codespace %}
+
 {% endvscode %}
 
 {% cli %}
 
 ## Reopening an existing codespace
 
+{% data reusables.codespaces.using-github-cli %}
+
 1. In a terminal, enter one of the following {% data variables.product.prodname_cli %} commands.
    - To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace code
      ```
 
@@ -121,13 +128,13 @@ You can also access the commands listed above by navigating to the Remote Explor
 
    - To open a codespace in the browser, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace code --web
      ```
 
    - To open a codespace in JupyterLab, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace jupyter
      ```
 
@@ -139,7 +146,7 @@ You can also access the commands listed above by navigating to the Remote Explor
 
    - To access a codespace from the command line, over SSH, enter:
 
-     ```shell{:copy}
+     ```shell copy
      gh codespace ssh
      ```
 
@@ -157,3 +164,7 @@ For more information, see [`gh codespace code`](https://cli.github.com/manual/gh
 {% data reusables.codespaces.opening-codespace-in-jetbrains %}
 
 {% endjetbrains %}
+
+## Further reading
+
+- "[AUTOTITLE](/rest/codespaces)" (REST API reference)

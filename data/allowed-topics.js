@@ -103,7 +103,7 @@ export default [
   'Node',
   'Nonprofits',
   'Notifications',
-  'OAuth Apps',
+  'OAuth apps',
   'Open Source',
   'Organizations',
   'Packages',

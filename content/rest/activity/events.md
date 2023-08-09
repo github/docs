@@ -3,7 +3,7 @@ title: Events
 intro: >-
   Use the REST API to interact with {% data variables.product.prodname_dotcom %}
   events.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -35,6 +35,5 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 ```
 
 Only events created within the past 90 days will be included in timelines. Events older than 90 days will not be included (even if the total number of events in the timeline is less than 300).
-
 
 <!-- Content after this section is automatically generated -->

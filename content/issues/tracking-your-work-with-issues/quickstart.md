@@ -80,7 +80,7 @@ Click **Submit new issue** to create your issue. You can edit any of the above f
 
 After your issue is created, continue the conversation by adding comments to the issue. You can @mention collaborators or teams to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. For more information, see "[AUTOTITLE](/get-started/writing-on-github)."
 
-![Screenshot of an issue comment. The header says "octocat commented now" and the body says "@hubot Do we also need to update the rocket logic?".](/assets/images/help/issues/issue-comment.png)
+![Screenshot of an issue comment. The header says "octocat commented now" and the body says "@hubot Do we also need to update the rocket logic?"](/assets/images/help/issues/issue-comment.png)
 
 ## Next steps
 

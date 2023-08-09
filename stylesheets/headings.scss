@@ -8,9 +8,4 @@ h6 {
     color: unset;
     text-decoration: none;
   }
-
-  // Lower because of the sticky header
-  &:target {
-    scroll-margin-top: 75px;
-  }
 }

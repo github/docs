@@ -12,7 +12,7 @@ import { mkdirp } from 'mkdirp'
 import { program } from 'commander'
 import { execSync } from 'child_process'
 import frontmatter from '../lib/read-frontmatter.js'
-import addRedirectToFrontmatter from './helpers/add-redirect-to-frontmatter.js'
+import addRedirectToFrontmatter from '../src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
 import walkFiles from './helpers/walk-files.js'
 
 const contentFiles = walkFiles('content', '.md')
@@ -22,7 +22,7 @@ program
   .description('Move a category-level docs set to the product level.')
   .requiredOption(
     '-c, --category <PATH>',
-    'Provide the path of the existing category, e.g., github/github-pages'
+    'Provide the path of the existing category, e.g., github/github-pages',
   )
   .requiredOption('-p, --product <PATH>', 'Provide the path of the new product, e.g., pages')
   .parse(process.argv)
@@ -69,11 +69,11 @@ async function main() {
   const oldProductTocPath = path.posix.join(oldProductPath, 'index.md')
   const productToc = frontmatter(fs.readFileSync(oldProductTocPath, 'utf8'))
   productToc.data.children = productToc.data.children.filter(
-    (child) => child !== `/${oldCategoryId}`
+    (child) => child !== `/${oldCategoryId}`,
   )
   fs.writeFileSync(
     oldProductTocPath,
-    frontmatter.stringify(productToc.content, productToc.data, { lineWidth: 10000 })
+    frontmatter.stringify(productToc.content, productToc.data, { lineWidth: 10000 }),
   )
 
   // Add the new product to the homepage TOC.
@@ -82,7 +82,7 @@ async function main() {
   homepageToc.data.children.push(newProduct)
   fs.writeFileSync(
     homepage,
-    frontmatter.stringify(homepageToc.content, homepageToc.data, { lineWidth: 10000 })
+    frontmatter.stringify(homepageToc.content, homepageToc.data, { lineWidth: 10000 }),
   )
 
   console.log(`Moved ${oldCategory} files to ${newProduct}, added redirects, and updated TOCs!`)

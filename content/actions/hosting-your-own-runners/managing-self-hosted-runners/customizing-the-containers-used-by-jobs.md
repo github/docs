@@ -89,7 +89,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 
 #### Example input for `prepare_job`
 
-```json{:copy}
+```json copy
 {
   "command": "prepare_job",
   "responseFile": "/users/octocat/runner/_work/{guid}.json",
@@ -176,7 +176,7 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 
 This example output is the contents of the `responseFile` defined in the input above.
 
-```json{:copy}
+```json copy
 {
   "state": {
     "network": "example_network_53269bd575972817b43f7733536b200c",
@@ -220,7 +220,7 @@ No arguments are provided for `cleanup_job`.
 
 #### Example input for `cleanup_job`
 
-```json{:copy}
+```json copy
 {
   "command": "cleanup_job",
   "responseFile": null,
@@ -276,7 +276,7 @@ The `run_container_step` command is called once for each container action in you
 
 If you're using a Docker image, you can specify the image name in the `"image":` parameter.
 
-```json{:copy}
+```json copy
 {
   "command": "run_container_step",
   "responseFile": null,
@@ -352,7 +352,7 @@ If you're using a Docker image, you can specify the image name in the `"image":`
 
 If your container is defined by a Dockerfile, this example demonstrates how to specify the path to a `Dockerfile` in your input, using the `"dockerfile":` parameter.
 
-```json{:copy}
+```json copy
 {
   "command": "run_container_step",
   "responseFile": null,
@@ -445,7 +445,7 @@ No output is expected for `run_container_step`.
 
 #### Example input for `run_script_step`
 
-```json{:copy}
+```json copy
 {
   "command": "run_script_step",
   "responseFile": null,
@@ -510,12 +510,12 @@ The custom script must be located on the runner, but should not be stored in the
 
 The script is automatically executed when the runner has the following environment variable containing an absolute path to the script:
 
-- `ACTIONS_RUNNER_CONTAINER_HOOK`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
+- `ACTIONS_RUNNER_CONTAINER_HOOKS`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
 
 To set this environment variable, you can either add it to the operating system, or add it to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run the script at `/Users/octocat/runner/index.js` before each container-based job runs:
 
 ```bash
-ACTIONS_RUNNER_CONTAINER_HOOK=/Users/octocat/runner/index.js
+ACTIONS_RUNNER_CONTAINER_HOOKS=/Users/octocat/runner/index.js
 ```
 
 If you want to ensure that your job always runs inside a container, and subsequently always applies your container customizations, you can set the `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` variable on the self hosted runner to `true`. This will fail jobs that do not specify a job container.
@@ -524,7 +524,7 @@ If you want to ensure that your job always runs inside a container, and subseque
 
 ### No timeout setting
 
-There is currently no timeout setting available for the script executed by `ACTIONS_RUNNER_CONTAINER_HOOK`. As a result, you could consider adding timeout handling to your script.
+There is currently no timeout setting available for the script executed by `ACTIONS_RUNNER_CONTAINER_HOOKS`. As a result, you could consider adding timeout handling to your script.
 
 ### Reviewing the workflow run log
 
