@@ -76,6 +76,7 @@ If you have a public dotfiles repository for {% data variables.product.prodname_
 Finally, if you created the codespace from a repository, the entire history of the repository is copied down with a full clone. If you created the codespace from a template, the full history of the template repository is not preserved; instead, unless you are using the blank template, you will start with an initial commit for the contents of the template repository.
 
 During post-creation setup you'll still be able to use the integrated terminal and make edits to your files, but take care to avoid any race conditions between your work and the commands that are running.
+
 ## {% data variables.product.prodname_codespaces %} lifecycle
 
 ### Saving files in your codespace
@@ -169,7 +170,7 @@ If you want to make changes to your codespace that will be more robust over rebu
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-github-codespaces-for-your-organization)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)"
 - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-the-cost-of-github-codespaces-in-your-organization)"
 - "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration)"
 - "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)"

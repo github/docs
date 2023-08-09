@@ -19,7 +19,7 @@ topics:
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a Python project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 {% note %}
 
@@ -53,7 +53,7 @@ Before creating your {% data variables.product.prodname_actions %} workflow, you
 
 1. Add an app setting called `SCM_DO_BUILD_DURING_DEPLOYMENT` and set the value to `1`.
 
-5. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
+1. Optionally, configure a deployment environment. {% data reusables.actions.about-environments %}
 
 ## Creating the workflow
 

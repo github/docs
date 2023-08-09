@@ -13,4 +13,4 @@
 
 {% endrowheaders %}
 
-For more information about VPN Proxy support via self-signed certificates, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=vscode#configuring-proxy-settings-for-github-copilot-1)". 
+For more information about VPN Proxy support via self-signed certificates, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=vscode#configuring-proxy-settings-for-github-copilot-1)".

@@ -29,6 +29,7 @@ The instructions below will guide you through configuring your environment to us
 ### Prerequisites
 
 - A Bamboo account or organization with projects and pipelines that you want to convert to {% data variables.product.prodname_actions %} workflows.
+- Bamboo version of 7.1.1 or greater.
 - Access to create a Bamboo {% data variables.product.pat_generic %} for your account or organization.
 {% data reusables.actions.actions-importer-prerequisites %}
 
@@ -47,6 +48,7 @@ There are some limitations when migrating from Bamboo to {% data variables.produ
 - Pattern match labeling is not transformed because there is no equivalent in {% data variables.product.prodname_actions %}.
 - All artifacts are transformed into an `actions/upload-artifact`, regardless of whether they are `shared` or not, so they can be downloaded from any job in the workflow.
 - Permissions are not transformed because there is no suitable equivalent in {% data variables.product.prodname_actions %}.
+- {% data variables.product.prodname_actions_importer %} supports Bamboo version between 7.1.1 and 8.1.1, however, project and plan variables will not be migrated.
 
 #### Manual tasks
 
@@ -69,7 +71,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    After creating the token, copy it and save it in a safe location for later use.
 1. Create a Bamboo {% data variables.product.pat_generic %}. For more information, see [{% data variables.product.pat_generic_title_case_plural %}](https://confluence.atlassian.com/bamboo/personal-access-tokens-976779873.html) in the Bamboo documentation.
-   
+
    Your token must have the following permissions, depending on which resources will be transformed.
 
    Resource Type | View | View Configuration | Edit
@@ -96,7 +98,7 @@ The `configure` CLI command is used to set required credentials and options for 
    An example of the `configure` command is shown below:
 
    ```shell
-   $ gh actions-importer configure 
+   $ gh actions-importer configure
    ✔ Which CI providers are you configuring?: Bamboo
    Enter the following values (leave empty to omit):
    ✔ {% data variables.product.pat_generic_caps %} for GitHub: ***************
@@ -105,6 +107,7 @@ The `configure` CLI command is used to set required credentials and options for 
    ✔ Base url of the Bamboo instance: https://bamboo.example.com
    Environment variables successfully updated.
    ```
+
 1. In your terminal, run the {% data variables.product.prodname_actions_importer %} `update` CLI command to connect to {% data variables.product.prodname_registry %} {% data variables.product.prodname_container_registry %} and ensure that the container image is updated to the latest version:
 
    ```shell
@@ -162,7 +165,6 @@ For example:
 gh actions-importer forecast bamboo --project PAN --output-dir tmp/forecast_reports
 ```
 
-
 ### Inspecting the forecast report
 
 The `forecast_report.md` file in the specified output directory contains the results of the forecast.
@@ -174,7 +176,7 @@ Listed below are some key terms that can appear in the forecast report:
 - **Execution time** describes the amount of time a runner spent on a job. This metric can be used to help plan for the cost of {% data variables.product.prodname_dotcom %}-hosted runners.
   - This metric is correlated to how much you should expect to spend in {% data variables.product.prodname_actions %}. This will vary depending on the hardware used for these minutes. You can use the [{% data variables.product.prodname_actions %} pricing calculator](https://github.com/pricing/calculator) to estimate the costs.
 - **Queue time** metrics describe the amount of time a job spent waiting for a runner to be available to execute it.
-- **Concurrent jobs** metrics describe the amount of jobs running at any given time. This metric can be used to 
+- **Concurrent jobs** metrics describe the amount of jobs running at any given time. This metric can be used to
 
 ## Perform a dry-run migration of a Bamboo pipeline
 
@@ -182,7 +184,8 @@ You can use the `dry-run` command to convert a Bamboo pipeline to an equivalent 
 
 ### Running a dry-run migration for a build plan
 
-To perform a dry run of migrating your Bamboo build plan to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing `:my_plan_slug` with the plan's project and plan key in the format `<projectKey>-<planKey>` (for example: `PAN-SCRIP`). 
+To perform a dry run of migrating your Bamboo build plan to {% data variables.product.prodname_actions %}, run the following command in your terminal, replacing `:my_plan_slug` with the plan's project and plan key in the format `<projectKey>-<planKey>` (for example: `PAN-SCRIP`).
+
 ```shell
 gh actions-importer dry-run bamboo build --plan-slug :my_plan_slug --output-dir tmp/dry-run
 ```
@@ -309,7 +312,7 @@ gh actions-importer dry-run bamboo build --plan-slug IN-COM -o tmp/bamboo --conf
 The following table shows the type of properties that {% data variables.product.prodname_actions_importer %} is currently able to convert.
 
 | Bamboo                              | GitHub Actions                                  |  Status                |
-| :---------------------------------- | :-----------------------------------------------| ---------------------: |         
+| :---------------------------------- | :-----------------------------------------------| ---------------------: |
 | `environments`                      | `jobs`                                          |  Supported             |
 | `environments.<environment_id>`     | `jobs.<job_id>`                                 |  Supported             |
 | `<job_id>.artifacts`                | `jobs.<job_id>.steps.actions/upload-artifact`   |  Supported             |
@@ -372,7 +375,6 @@ For more information about supported Bamboo concept and plugin mappings, see the
 | `bamboo.shortJobName`                            | {% raw %}`${{ github.job }}`{% endraw %}
 | `bamboo.shortPlanKey`                            | {% raw %}`${{ github.workflow }}`{% endraw %}
 | `bamboo.shortPlanName`                           | {% raw %}`${{ github.workflow }}`{% endraw %}
-
 
 {% note %}
 

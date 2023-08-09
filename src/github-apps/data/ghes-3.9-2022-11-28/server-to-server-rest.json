@@ -19,66 +19,6 @@
       "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy"
     },
     {
-      "slug": "get-github-actions-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions"
-    },
-    {
-      "slug": "set-github-actions-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions"
-    },
-    {
-      "slug": "list-selected-organizations-enabled-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations"
-    },
-    {
-      "slug": "set-selected-organizations-enabled-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations"
-    },
-    {
-      "slug": "enable-a-selected-organization-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations/{org_id}"
-    },
-    {
-      "slug": "disable-a-selected-organization-for-github-actions-in-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "delete",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/organizations/{org_id}"
-    },
-    {
-      "slug": "get-allowed-actions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/selected-actions"
-    },
-    {
-      "slug": "set-allowed-actions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/selected-actions"
-    },
-    {
-      "slug": "get-default-workflow-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "get",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-    },
-    {
-      "slug": "set-default-workflow-permissions-for-an-enterprise",
-      "subcategory": "permissions",
-      "verb": "put",
-      "requestPath": "/enterprises/{enterprise}/actions/permissions/workflow"
-    },
-    {
       "slug": "get-github-actions-cache-usage-for-an-organization",
       "subcategory": "cache",
       "verb": "get",
@@ -161,54 +101,6 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/orgs/{org}/actions/permissions/workflow"
-    },
-    {
-      "slug": "list-required-workflows",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/actions/required_workflows"
-    },
-    {
-      "slug": "create-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/actions/required_workflows"
-    },
-    {
-      "slug": "get-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "update-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "patch",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "delete-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}"
-    },
-    {
-      "slug": "sets-repositories-for-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories"
-    },
-    {
-      "slug": "add-a-repository-to-a-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "put",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
-    },
-    {
-      "slug": "remove-a-selected-repository-from-required-workflow",
-      "subcategory": "required-workflows",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/actions/required_workflows/{required_workflow_id}/repositories/{repository_id}"
     },
     {
       "slug": "list-self-hosted-runner-groups-for-an-organization",
@@ -457,18 +349,6 @@
       "requestPath": "/orgs/{org}/actions/variables/{name}/repositories/{repository_id}"
     },
     {
-      "slug": "list-repository-required-workflows",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows"
-    },
-    {
-      "slug": "get-a-required-workflow-entity-for-a-repository",
-      "subcategory": "required-workflows",
-      "verb": "get",
-      "requestPath": "/repos/{org}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}"
-    },
-    {
       "slug": "list-artifacts-for-a-repository",
       "subcategory": "artifacts",
       "verb": "get",
@@ -617,12 +497,6 @@
       "subcategory": "permissions",
       "verb": "put",
       "requestPath": "/repos/{owner}/{repo}/actions/permissions/workflow"
-    },
-    {
-      "slug": "list-workflow-runs-for-a-required-workflow",
-      "subcategory": "workflow-runs",
-      "verb": "get",
-      "requestPath": "/repos/{owner}/{repo}/actions/required_workflows/{required_workflow_id_for_repo}/runs"
     },
     {
       "slug": "list-self-hosted-runners-for-a-repository",

@@ -25,12 +25,14 @@ topics:
 Pairs pushed to different files, or not pushed to the same repository, will not result in alerts. For more information about the supported pattern pairs, see the table in "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns)."
 
 {% ifversion secret-scanning-validity-check %}
+
 ## About legacy GitHub tokens
 
 For {% data variables.product.prodname_dotcom %} tokens, we check the validity of the secret to determine whether the secret is active or inactive. This means that for legacy tokens, {% data variables.product.prodname_secret_scanning %} won't detect a {% data variables.product.prodname_ghe_server %} {% data variables.product.pat_generic %} on {% data variables.product.prodname_ghe_cloud %}. Similarly, a {% data variables.product.prodname_ghe_cloud %} {% data variables.product.pat_generic %} won't be found on {% data variables.product.prodname_ghe_server %}.
 
 {% endif %}
 {% ifversion secret-scanning-push-protection %}
+
 ## Push protection limitations
 
 If push protection did not detect a secret that you think should have been detected, then you should first check that push protection supports the secret type in the list of supported secrets. For further information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."

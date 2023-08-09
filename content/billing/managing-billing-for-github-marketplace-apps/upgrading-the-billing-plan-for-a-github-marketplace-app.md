@@ -40,3 +40,17 @@ When you upgrade an app, your payment method is charged a prorated amount based 
 {% data reusables.marketplace.choose-new-plan %}
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
+
+## Upgrading an app in your enterprise
+
+{% data reusables.marketplace.marketplace-enterprise-account %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.billing-tab %}
+1. In the "Marketplace apps" tab, find the app you want to uprade. 
+1. Next to the organization where you want to upgrade the app, select **{% octicon "kebab-horizontal" aria-label="More" %}** and then click **Change plan**.
+2. Select the **Edit your plan** dropdown and click an account's plan to edit.
+{% data reusables.marketplace.choose-new-plan %}
+{% data reusables.marketplace.choose-new-quantity %}
+{% data reusables.marketplace.issue-plan-changes %}
+

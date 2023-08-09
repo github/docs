@@ -7,7 +7,8 @@ name: Codeowners - Content Strategy
 on:
   pull_request:
     paths:
-      - '/contributing/content-*.md'
+      - 'contributing/content-*.md'
+      - 'content/contributing/**.md'
 
 jobs:
   codeowners-content-strategy:
@@ -16,6 +17,6 @@ jobs:
     steps:
       - name: Add Content Strategy as a reviewer
         env:
-          GH_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR: ${{ github.event.pull_request.html_url }}
         run: gh pr edit $PR --add-reviewer github/docs-content-strategy

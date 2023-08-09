@@ -31,8 +31,8 @@ topics:
 With repository security advisories, you can:
 
 1. Create a draft security advisory, and use the draft to privately discuss the impact of the vulnerability on your project. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)."
-2. Privately collaborate to fix the vulnerability in a temporary private fork.
-3. Publish the security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory)."
+1. Privately collaborate to fix the vulnerability in a temporary private fork.
+1. Publish the security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory)."
 
 {% data reusables.repositories.security-advisories-republishing %}
 

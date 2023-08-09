@@ -42,16 +42,17 @@ jobs:
             return [
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
               { name: 'content', path: 'tests/content', },
-              // { name: 'content-linter', path: 'src/content-linter/tests', },
+              { name: 'content-render', path: 'src/content-render/tests', },
               { name: 'events', path: 'src/events/tests', },
               { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
               { name: 'github-apps', path: 'src/github-apps/tests', },
               { name: 'graphql', path: 'src/graphql/tests', },
               { name: 'landings', path: 'src/landings/tests', },
+              // { name: 'learning-track', path: 'src/learning-track/tests', },
               { name: 'linting', path: 'src/content-linter/tests', },
-              { name: 'meta', path: 'tests/meta', },
               { name: 'observability', path: 'src/observability/tests' },
               { name: 'pageinfo', path: 'src/pageinfo/tests', },
+              { name: 'redirects', path: 'src/redirects/tests', },
               { name: 'rendering', path: 'tests/rendering', },
               { name: 'rendering-fixtures', path: 'tests/rendering-fixtures', },
               { name: 'rest', path: 'src/rest/tests', },
@@ -61,6 +62,7 @@ jobs:
               context.payload.repository.full_name === 'github/docs-internal' &&
                 { name: 'translations', path: 'tests/translations', },
               { name: 'unit', path: 'tests/unit', },
+              // { name: 'tools', path: 'src/tools/tests', }
               { name: 'webhooks', path: 'src/webhooks/tests', },
             ].filter(Boolean)
 
@@ -89,7 +91,7 @@ jobs:
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.name == 'rendering-fixtures' }}
@@ -114,7 +116,7 @@ jobs:
         if: ${{ matrix.name == 'translations' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Gather files changed
         if: ${{ matrix.name == 'linting' }}
@@ -178,6 +180,6 @@ jobs:
           # tests run only in English. The exception is the
           # `tests/translations/` suite which needs all languages to be set up.
           ENABLED_LANGUAGES: ${{ matrix.name == 'translations' && 'all' || '' }}
-          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures' || '' }}
+          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'tests/fixtures' || '' }}
           TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures/translations' || '' }}
         run: npm test -- ${{ matrix.path }}/

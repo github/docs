@@ -19,7 +19,7 @@ shortTitle: Quickstart
 
 ## Introduction
 
-You only need a {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}. 
+You only need a {% data variables.product.prodname_dotcom %} repository to create and run a {% data variables.product.prodname_actions %} workflow. In this guide, you'll add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}.
 
 The following example shows you how {% data variables.product.prodname_actions %} jobs can be automatically triggered, where they run, and how they can interact with the code in your repository.
 
@@ -51,6 +51,7 @@ The following example shows you how {% data variables.product.prodname_actions %
              ls {% raw %}${{ github.workspace }}{% endraw %}
          - run: echo "🍏 This job's status is {% raw %}${{ job.status }}{% endraw %}."
    ```
+
 1. Scroll to the bottom of the page and select **Create a new branch for this commit and start a pull request**. Then, to create a pull request, click **Propose new file**.
 
    ![Screenshot of the "Commit new file" area of the page.](/assets/images/help/repository/actions-quickstart-commit-new-file.png)
@@ -71,7 +72,7 @@ Committing the workflow file to a branch in your repository triggers the `push` 
 1. The log shows you how each of the steps was processed. Expand any of the steps to view its details.
 
    ![Screenshot of steps run by the workflow.](/assets/images/help/repository/actions-quickstart-logs.png)
-   
+
    For example, you can see the list of files in your repository:
    ![Screenshot of the "List files in the repository" step expanded to show the log output. The output for the step is highlighted with a dark orange highlight.](/assets/images/help/repository/actions-quickstart-log-detail.png)
 

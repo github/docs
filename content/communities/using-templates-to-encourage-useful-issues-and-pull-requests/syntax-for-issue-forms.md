@@ -84,9 +84,9 @@ Note: Please search to see if an issue already exists for the bug you encountere
 {% raw %}<{% endraw %}!--
 Example: steps to reproduce the behavior:
 1. In this environment...
-2. With this config...
-3. Run '...'
-4. See error...
+1. With this config...
+1. Run '...'
+1. See error...
 --{% raw %}>{% endraw %}
 
 ### Environment:
@@ -109,7 +109,7 @@ Links? References? Anything that will give us more context about the issue that 
 name: 🐞 Bug
 description: File a bug/issue
 title: "[BUG] <title>"
-labels: [Bug, Needs Triage]
+labels: ["Bug", "Needs Triage"]
 body:
 - type: checkboxes
   attributes:
@@ -136,9 +136,9 @@ body:
     description: Steps to reproduce the behavior.
     placeholder: |
       1. In this environment...
-      2. With this config...
-      3. Run '...'
-      4. See error...
+      1. With this config...
+      1. Run '...'
+      1. See error...
   validations:
     required: false
 - type: textarea

@@ -173,6 +173,7 @@ You can also use URL query parameters to fill custom text fields that you have d
 {% endif %}
 
 {% ifversion code-scanning-task-lists %}
+
 ## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
 
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}

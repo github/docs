@@ -3,6 +3,7 @@
    ```bash copy
    gh extension install github/gh-actions-importer
    ```
+
 1. Verify that the extension is installed:
 
    ```bash

@@ -23,10 +23,10 @@ featuredLinks:
 changelog:
   label: desktop
   versions:
-    fpt: '*'
+    feature: desktop
 layout: product-landing
 versions:
-  fpt: '*'
+  feature: desktop
 topics:
   - Desktop
   - Repositories

@@ -51,7 +51,7 @@ Overwrite each input file with a formatted version of its content.
 #### `--[no-]check-only`
 
 Instead of writing output, exit with status 1 if any input files
-*differ* from their correct formatting. A message telling which files
+_differ_ from their correct formatting. A message telling which files
 differed will be printed to standard error unless you also give `-qq`.
 
 #### `-b, --backup=<ext>`

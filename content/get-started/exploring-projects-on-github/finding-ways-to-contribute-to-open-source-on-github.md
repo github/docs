@@ -41,14 +41,16 @@ If you encounter a bug in an open source project, check if the bug has already b
 There are a variety of ways that you can contribute to open source projects.
 
 ### Reproducing a reported bug
-You can contribute to an open source project by validating an issue or adding additional context to an existing issue. 
+
+You can contribute to an open source project by validating an issue or adding additional context to an existing issue.
 
 ### Testing a pull request
+
 You can contribute to an open source project by merging a pull request into your local copy of the project and testing the changes. Add the outcome of your testing in a comment on the pull request.
 
 ### Updating issues
-You can contribute to an open source project by adding additional information to existing issues.
 
+You can contribute to an open source project by adding additional information to existing issues.
 
 ## Further reading
 

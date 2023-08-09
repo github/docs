@@ -29,7 +29,6 @@ Cancellations and downgrades take effect on the first day of the next billing cy
 
 Each `marketplace_purchase` webhook payload will have the following information:
 
-
 Key | Type | Description
 ----|------|-------------
 `action` | `string` | The action performed to generate the webhook. Can be `purchased`, `cancelled`, `pending_change`, `pending_change_cancelled`, or `changed`. For more information, see the example webhook payloads below. **Note:** The `pending_change` and `pending_change_cancelled` payloads contain the same keys as shown in the [`changed` payload example](#example-webhook-payload-for-a-changed-event).

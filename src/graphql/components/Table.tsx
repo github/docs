@@ -63,7 +63,7 @@ export function Table({ fields }: Props) {
                     dangerouslySetInnerHTML={{
                       __html: t('graphql.reference.arguments').replace(
                         '{{ GraphQLItemTitle }}',
-                        field.name
+                        field.name,
                       ),
                     }}
                   />

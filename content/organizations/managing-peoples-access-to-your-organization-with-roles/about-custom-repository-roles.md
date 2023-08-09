@@ -61,6 +61,7 @@ After choosing an inherited role, you can select additional permissions for your
 You can only choose an additional permission if it's not already included in the inherited role. For example, if the inherited role offers **Write** access to a repository, then the "Close a pull request" permission will already be included in the inherited role.
 
 {% ifversion discussions %}
+
 ### Discussions
 
 - Create a discussion category
@@ -105,7 +106,9 @@ For more information, see "[AUTOTITLE](/discussions)."
 - Set interaction limits
 {%- endif %}
 - Set the social preview
-- Push commits to protected branches (branch protection rules will still apply)
+- Push commits to protected branches
+  - Base role must be `write`
+  - Branch protection rules will still apply
 - Create protected tags
 - Delete protected tags
 {%- ifversion bypass-branch-protections %}

@@ -1,11 +1,14 @@
-import { addError, filterTokens } from 'markdownlint-rule-helpers'
+import { filterTokens } from 'markdownlint-rule-helpers'
+
+import { addFixErrorDetail } from '../helpers/utils.js'
 
 export const internalLinksSlash = {
-  names: ['MD113', 'internal-links-slash'],
+  names: ['GHD006', 'internal-links-slash'],
   description: 'Internal links must start with a /',
   severity: 'error',
   tags: ['links', 'url'],
-  function: function MD113(params, onError) {
+  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
+  function: function GHD007(params, onError) {
     filterTokens(params, 'inline', (token) => {
       let linkHref = ''
       let internalLinkHasSlash = true
@@ -26,19 +29,12 @@ export const internalLinksSlash = {
           }
         } else if (child.type === 'link_close') {
           if (!internalLinkHasSlash) {
-            addError(
-              onError,
-              child.lineNumber,
-              `This relative link: ${linkHref} on line ${child.lineNumber} must start with a /`,
-              undefined,
-              undefined,
-              {
-                lineNumber: child.lineNumber,
-                editColumn: token.line.indexOf('(') + 2,
-                deleteCount: 0,
-                insertText: '/',
-              }
-            )
+            addFixErrorDetail(onError, child.lineNumber, `/${linkHref}`, linkHref, undefined, {
+              lineNumber: child.lineNumber,
+              editColumn: token.line.indexOf('(') + 2,
+              deleteCount: 0,
+              insertText: '/',
+            })
             internalLinkHasSlash = true
           }
         }

@@ -12,7 +12,7 @@ redirect_from:
 
 ## About {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. You can receive suggestions from {% data variables.product.prodname_copilot %} either by starting to write the code you want to use, or by writing a natural language comment describing what you want the code to do. {% data variables.product.prodname_copilot %} analyzes the context in the file you are editing, as well as related files, and offers suggestions from within your text editor. {% data variables.product.prodname_copilot %} is powered by OpenAI Codex, a new AI system created by OpenAI.
+{% data variables.product.prodname_copilot %} is an AI pair programmer that offers autocomplete-style suggestions as you code. You can receive suggestions from {% data variables.product.prodname_copilot %} either by starting to write the code you want to use, or by writing a natural language comment describing what you want the code to do. {% data variables.product.prodname_copilot %} analyzes the context in the file you are editing, as well as related files, and offers suggestions from within your text editor. {% data variables.product.prodname_copilot %} is powered by a generative AI model developed by {% data variables.product.prodname_dotcom %}, OpenAI, and Microsoft.
 
 {% data variables.product.prodname_copilot %} is trained on all languages that appear in public repositories. For each language, the quality of suggestions you receive may depend on the volume and diversity of training data for that language. For example, JavaScript is well-represented in public repositories and is one of {% data variables.product.prodname_copilot %}'s best supported languages. Languages with less representation in public repositories may produce fewer or less robust suggestions.
 
@@ -80,7 +80,6 @@ To ensure the protection of sensitive data such as user edit actions, source cod
 - Strict access control: Access to the data is tightly regulated and limited to specific individuals, including:
     - Named {% data variables.product.company_short %} personnel working on the {% data variables.product.prodname_copilot %} team or the {% data variables.product.company_short %} platform health team.
     - Microsoft personnel involved with the {% data variables.product.prodname_copilot %} team.
-    - OpenAI personnel actively contributing to {% data variables.product.prodname_copilot %}.
 - Role-based access controls and multi-factor authentication: People who require access to code snippet data must adhere to role-based access controls. Additionally, multi-factor authentication is implemented to add an extra layer of security, ensuring that only authorized individuals can access the data.
 
 ### How can users of {% data variables.product.prodname_copilot_for_individuals %} control use of their Code Snippets Data?

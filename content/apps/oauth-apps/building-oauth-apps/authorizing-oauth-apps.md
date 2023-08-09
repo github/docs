@@ -23,9 +23,9 @@ topics:
 
 **Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}.
 
-Both {% data variables.product.prodname_oauth_app %}s and {% data variables.product.prodname_github_app %}s use OAuth 2.0.
+Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
 
-{% data variables.product.prodname_github_app %}s can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_app %}s use fine grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+{% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 {% endnote %}
 
@@ -49,8 +49,8 @@ To authorize your {% data variables.product.prodname_oauth_app %}, consider whic
 The web application flow to authorize users for your app is:
 
 1. Users are redirected to request their GitHub identity
-2. Users are redirected back to your site by GitHub
-3. Your app accesses the API with the user's access token
+1. Users are redirected back to your site by GitHub
+1. Your app accesses the API with the user's access token
 
 ### 1. Request a user's GitHub identity
 
@@ -88,7 +88,7 @@ Parameter name | Type | Description
 
 By default, the response takes the following form:
 
-```
+```shell
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer
 ```
 
@@ -144,8 +144,8 @@ Before you can use the device flow to authorize and identify users, you must fir
 ### Overview of the device flow
 
 1. Your app requests device and user verification codes and gets the authorization URL where the user will enter the user verification code.
-2. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
-3.  The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
+1. The app prompts the user to enter a user verification code at {% data variables.product.device_authorization_url %}.
+1. The app polls for the user authentication status. Once the user has authorized the device, the app will be able to make API calls with a new access token.
 
 ### Step 1: App requests the device and user verification codes from GitHub
 
@@ -162,7 +162,7 @@ Parameter name | Type | Description
 
 By default, the response takes the following form:
 
-```
+```shell
 device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
 ```
 
@@ -222,7 +222,7 @@ Parameter name | Type | Description
 
 By default, the response takes the following form:
 
-```
+```shell
 access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&token_type=bearer&scope=repo%2Cgist
 ```
 
@@ -297,7 +297,7 @@ The optional `redirect_uri` parameter can also be used for loopback URLs. If the
 
 For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri`:
 
-```
+```http
 http://127.0.0.1:1234/path
 ```
 
@@ -319,7 +319,7 @@ You can link to authorization information for an {% data variables.product.prodn
 
 To build this link, you'll need your {% data variables.product.prodname_oauth_app %}'s `client_id` that you received from GitHub when you registered the application.
 
-```
+```http
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
 ```
 

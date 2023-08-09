@@ -73,7 +73,7 @@ If an action is defined in the same repository where your workflow file uses the
 
 Example repository file structure:
 
-```
+```shell
 |-- hello-world (repository)
 |   |__ .github
 |       └── workflows
@@ -125,7 +125,6 @@ jobs:
 ```
 
 For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
-
 
 ## Using release management for your custom actions
 

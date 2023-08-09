@@ -3,14 +3,14 @@ import { useTranslation } from 'components/hooks/useTranslation'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { ActionList } from '@primer/react'
 import { useState } from 'react'
-import { FeaturedTrack } from 'src/landings/components/ProductGuidesContext'
+import { LearningTrack as LearningTrackT } from 'src/landings/components/ProductGuidesContext'
 import { TruncateLines } from 'components/ui/TruncateLines'
 import { slug } from 'github-slugger'
 import styles from './LearningTrack.module.scss'
 import { Link } from 'components/Link'
 
 type Props = {
-  track: FeaturedTrack
+  track: LearningTrackT
 }
 
 const DEFAULT_VISIBLE_GUIDES = 4
@@ -28,10 +28,7 @@ export const LearningTrack = ({ track }: Props) => {
         <div className="Box-header color-bg-subtle p-4 d-flex flex-1 flex-items-start flex-wrap">
           <div className="d-flex flex-auto flex-items-start col-7 col-md-7 col-xl-7">
             <div className="my-xl-0 mr-xl-3">
-              <h3
-                id={titleSlug}
-                className={cx('mb-3 color-text f3 text-semibold', styles.hashAnchor)}
-              >
+              <h3 id={titleSlug} className="mb-3 color-text f3 text-semibold">
                 <a className="color-unset" href={`#${titleSlug}`}>
                   {track?.title}
                 </a>
@@ -44,9 +41,9 @@ export const LearningTrack = ({ track }: Props) => {
           <Link
             {...{ 'aria-label': `${track?.title} - ${t('start_path')}` }}
             className="d-inline-flex btn no-wrap mt-3 mt-md-0 flex-items-center flex-justify-center"
-            href={`${track?.guides && track?.guides[0].href}?learn=${
-              track?.trackName
-            }&learnProduct=${track?.trackProduct}`}
+            href={`${
+              track?.guides && track?.guides[0].href
+            }?learn=${track?.trackName}&learnProduct=${track?.trackProduct}`}
           >
             <span>{t('start_path')}</span>
             <ArrowRightIcon size={20} className="ml-2" />

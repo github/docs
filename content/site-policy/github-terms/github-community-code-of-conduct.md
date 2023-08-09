@@ -32,7 +32,7 @@ Treat GitHub Community with respect. We are a shared resource — a place to sha
 
 The following are not hard and fast rules, merely aids to the human judgment of our community. Use these guidelines to keep this a clean, well-lighted place for civilized public discourse.
 
-### *Best Practices for Maintaining a Strong Community*
+### _Best Practices for Maintaining a Strong Community_
 
 The primary purpose of the GitHub community is to collaborate on software projects. We are committed to maintaining a community where users are free to express themselves and challenge one another's ideas, both technical and otherwise. At the same time, it's important that users remain respectful and allow space for others to contribute openly. In order to foster both a safe and productive environment, we encourage our community members to look to these guidelines to inform how they interact on our platform. Below, you’ll find some suggestions for how to have successful interactions as a valued member of the GitHub community.
 
@@ -40,7 +40,7 @@ The primary purpose of the GitHub community is to collaborate on software projec
 
      - **Be welcoming and open-minded** - New users join our community each day. Some are well-established developers, while others are just beginning. Be open to other ideas and experience levels. Make room for opinions other than your own and be welcoming to new collaborators and those just getting started.
 
-     - **Be respectful** - Working in a collaborative environment means disagreements may happen. But remember to criticize ideas, not people. Share thoughtful, constructive criticism and be courteous to those you interact with. If you’re unable to engage respectfully, consider taking a step back or using some of our moderation tools to deescalate a tense situation. 
+     - **Be respectful** - Working in a collaborative environment means disagreements may happen. But remember to criticize ideas, not people. Share thoughtful, constructive criticism and be courteous to those you interact with. If you’re unable to engage respectfully, consider taking a step back or using some of our moderation tools to deescalate a tense situation.
 
      - **Be empathetic** - GitHub is a global community with people from a wide variety of backgrounds and perspectives, many of which may not be your own. Try to put yourself in others’ shoes and understand their feelings before you address them. Do your best to help make GitHub a community where others feel safe to make contributions, participate in discussions, and share different ideas.  
 
@@ -51,7 +51,7 @@ The primary purpose of the GitHub community is to collaborate on software projec
   - **Be clear and stay on topic.** GitHub Community is for collaboration, sharing ideas, and helping each other get stuff done. Off-topic comments are a distraction (sometimes welcome, but usually not) from getting work done and being productive. Staying on topic helps produce positive and productive discussions.
 
     This applies to sharing links, as well. Any links shared in GitHub Community discussions should be shared with the intent of providing relevant and appropriate information. Links should not be posted to simply drive traffic or attention to a site. Links should always be accompanied by a full explanation of the content and purpose of the link. Posting links, especially unsolicited ones, without relevant and valuable context can come across as advertising or serving even more malicious purposes.
-    
+
   - **Share mindfully.** When asking others to give you feedback or collaborate on a project, only share valuable and relevant resources to provide context. Don't post links that don't add value to the discussion, and don't post unsolicited links to your own projects or sites on other user's threads.
 
     Additionally, don't share sensitive information. This includes your own email address. We don't allow the sharing of such information in GitHub Community, as it can create security and privacy risks for the poster, as well as other users. If you'd like to invite other GitHub users to collaborate on a project or work with you, share a link to the repository in which the project you are working on exists. By sharing the link to your project repo - with some information on what your project is and what kind of help or feedback you're looking for - you can invite others to collaborate with you via issues or pull requests without having to share your private information. You can also add others as outside collaborators on your project repo to give them special permissions to help you develop your project.
@@ -67,7 +67,7 @@ The primary purpose of the GitHub community is to collaborate on software projec
 - Be trustworthy.
   - **Always be honest.** Don’t knowingly share incorrect information or intentionally mislead other GitHub Community participants. If you don’t know the answer to someone’s question but still want to help, you can try helping them research or find resources instead. GitHub staff will also be active in GitHub Community, so if you’re unsure of an answer, it’s likely a moderator will be able to help.
 
-### *What is not Allowed*
+### _What is not Allowed_
 
 GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), which are part of GitHub's [Terms of Service](/site-policy/github-terms/github-terms-of-service), set a baseline for what is not allowed on GitHub. Since GitHub Community is on GitHub.com, these terms and restrictions apply to GitHub Community, including the following restrictions:
 
@@ -81,7 +81,7 @@ GitHub's [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-a
 
 ## Enforcement
 
-### *What GitHub Community Participants Can Do*
+### _What GitHub Community Participants Can Do_
 
 - **If you see a problem, report it.** Moderators have special authority; they are responsible for this GitHub Community. But so are you. With your help, moderators can be community facilitators, not just janitors or police.
 

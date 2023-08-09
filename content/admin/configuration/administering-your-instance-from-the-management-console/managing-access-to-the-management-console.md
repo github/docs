@@ -15,6 +15,7 @@ topics:
 {% data reusables.enterprise_site_admin_settings.management-console-access %} For more information about {% data variables.enterprise.management_console %} access, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console)."
 
 {% ifversion enterprise-management-console-multi-user-auth %}
+
 ## Types of {% data variables.enterprise.management_console %} accounts
 
 There are two types of user accounts for the {% data variables.enterprise.management_console %} on a {% data variables.product.product_name %} instance. The root site administrator account authenticates with a password established during the initial setup of {% data variables.location.product_location %}.
@@ -63,6 +64,7 @@ If you have not configured email notifications for {% data variables.location.pr
 {% endif %}
 
 {% ifversion enterprise-authentication-rate-limits %}
+
 ## Configuring rate limits for authentication to the {% data variables.enterprise.management_console %}
 
 You can configure the lockout time and login attempt limits for the {% data variables.enterprise.management_console %}. If you configure rate limits, the limits apply to both the root site administrator and any {% data variables.enterprise.management_console %} users.

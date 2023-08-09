@@ -4,7 +4,7 @@
 {% mac %}
 
    ```shell
-   $ pbcopy &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+   $ pbcopy < ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
    # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
    ```
 
@@ -17,7 +17,7 @@
 {% windows %}
 
    ```shell
-   $ clip &lt; ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
+   $ clip < ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
    # Copies the contents of the id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub file to your clipboard
    ```
 
