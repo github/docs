@@ -6,6 +6,7 @@ redirect_from:
   - /articles/converting-an-organization-member-to-an-outside-collaborator
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-organization-member-to-an-outside-collaborator
   - /organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator
+  - /organizations/managing-user-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator
 versions:
   fpt: '*'
   ghes: '*'
@@ -19,7 +20,7 @@ shortTitle: Convert member to collaborator
 
 ## About conversion of organization members to outside collaborators
 
-You can convert a member of an organization to an outside collaborator. For more information about outside collaborators, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
+You can convert a member of an organization to an outside collaborator. For more information about outside collaborators, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)."
 
 {% ifversion fpt or ghec %}If the organization is owned by an enterprise, converting{% elsif ghes or ghae %}Converting{% endif %} an organization member to an outside collaborator may be restricted. For more information, see "[Enforcing repository management policies in your enterprise]({% ifversion fpt %}/enterprise-cloud@latest{% endif %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-{% ifversion fpt or ghec %}outside-{% endif %}collaborators-to-repositories){% ifversion ghec or ghes or ghae %}."{% elsif fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
@@ -34,7 +35,7 @@ After converting an organization member to an outside collaborator, they'll only
 
 For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-We recommend reviewing the organization member's access to repositories to ensure their access is as you expect. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)."
+We recommend reviewing the organization member's access to repositories to ensure their access is as you expect. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)."
 
 When you convert an organization member to an outside collaborator, their privileges as organization members are saved for three months so that you can restore their membership privileges if you{% ifversion fpt or ghec %} invite them to rejoin{% else %} add them back to{% endif %} your organization within that time frame. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization)."
 
@@ -56,9 +57,3 @@ When you convert an organization member to an outside collaborator, their privil
 
    ![Screenshot of the list of organization members. Above the list, a dropdown menu, labeled "2 members selected..." is outlined in dark orange.](/assets/images/help/teams/user-bulk-management-options.png)
 1. Read the information about converting members to outside collaborators, then click **Convert to outside collaborator**.
-
-## Further reading
-
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/removing-an-outside-collaborator-from-an-organization-repository)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-outside-collaborator-to-an-organization-member)"

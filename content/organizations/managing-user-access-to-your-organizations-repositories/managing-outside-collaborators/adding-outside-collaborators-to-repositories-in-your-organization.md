@@ -5,6 +5,7 @@ redirect_from:
   - /articles/adding-outside-collaborators-to-repositories-in-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-outside-collaborators-to-repositories-in-your-organization
   - /organizations/managing-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization
+  - /organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization
 versions:
   fpt: '*'
   ghes: '*'

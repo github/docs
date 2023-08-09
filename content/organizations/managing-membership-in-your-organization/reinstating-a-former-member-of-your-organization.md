@@ -26,7 +26,7 @@ If a user is removed from your organization in one of the following ways, the us
 {%- endif %}{% ifversion not ghae %}
 - The user was removed from your organization because you've required members and outside collaborators to enable two-factor authentication (2FA). For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)."{% endif %}{% ifversion fpt or ghec %}
 - The user was removed from your organization because you enforced SAML single sign-on. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}
-- You converted an organization member to an outside collaborator. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)."
+- You converted an organization member to an outside collaborator. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator)."
 
 You can restore the user's privileges if you {% ifversion fpt or ghec %}invite{% else %}add{% endif %} them back to the organization within that time frame.
 
@@ -84,7 +84,3 @@ If an organization member was removed from the organization because they did not
 {% ifversion fpt or ghec %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
-
-## Further reading
-
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)"

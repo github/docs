@@ -5,6 +5,7 @@ permissions: Organization owners can set base permissions for an organization.
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/setting-base-permissions-for-an-organization
   - /organizations/managing-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization
+  - /organizations/managing-user-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization
 versions:
   fpt: '*'
   ghes: '*'
@@ -25,7 +26,7 @@ You can set base permissions that apply to all members of an organization when a
 If someone with admin access to an organization's repository grants a member a higher level of access for the repository, the higher level of access overrides the base permission.
 
 {% ifversion custom-repository-roles %}
-If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+If you've created a custom repository role with an inherited role that is lower access than your organization's base permissions, any members assigned to that role will default to the organization's base permissions rather than the inherited role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
 {% endif %}
 
 {% note %}
@@ -44,5 +45,5 @@ If you've created a custom repository role with an inherited role that is lower 
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)"
