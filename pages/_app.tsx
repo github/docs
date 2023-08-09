@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
-import { ThemeProvider, SSRProvider } from '@primer/react'
+import { ThemeProvider } from '@primer/react'
 
 import '../stylesheets/index.scss'
 
@@ -86,18 +86,16 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
           content="c1kuD-K2HIVF635lypcsWPoD4kilo5-jA_wBFyT4uMY"
         />
       </Head>
-      <SSRProvider>
-        <ThemeProvider
-          colorMode={theme.component.colorMode}
-          dayScheme={theme.component.dayScheme}
-          nightScheme={theme.component.nightScheme}
-          preventSSRMismatch
-        >
-          <LanguagesContext.Provider value={languagesContext}>
-            <Component {...pageProps} />
-          </LanguagesContext.Provider>
-        </ThemeProvider>
-      </SSRProvider>
+      <ThemeProvider
+        colorMode={theme.component.colorMode}
+        dayScheme={theme.component.dayScheme}
+        nightScheme={theme.component.nightScheme}
+        preventSSRMismatch
+      >
+        <LanguagesContext.Provider value={languagesContext}>
+          <Component {...pageProps} />
+        </LanguagesContext.Provider>
+      </ThemeProvider>
     </>
   )
 }
