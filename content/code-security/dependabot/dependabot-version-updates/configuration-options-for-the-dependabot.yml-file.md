@@ -802,7 +802,7 @@ When {% data variables.product.prodname_dependabot %} edits a manifest file to u
 
 | Option | Action |
 |--------|--------|
-| `auto` | Try to differentiate between between apps and libraries. Use `increase` for apps and `widen` for libraries.|
+| `auto` | Try to differentiate between apps and libraries. Use `increase` for apps and `widen` for libraries.|
 | `increase`| Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound. |
 | `increase-if-necessary` | Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint. |
 | `lockfile-only` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |

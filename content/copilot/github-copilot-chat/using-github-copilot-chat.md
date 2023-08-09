@@ -133,7 +133,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat %}, you 
 
 To use {% data variables.product.prodname_copilot_chat %} with {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_vs %} extension. 
 {% data reusables.copilot.vs-extensions %}
-1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for the "{% data variables.product.prodname_vs %} Extension for {% data variables.product.prodname_copilot %} Preview", then click **Download**.
+1. In the "Manage Extensions" window, click **Visual Studio Marketplace**, search for "{% data variables.product.prodname_copilot_chat %}", then click **Download**.
 {% data reusables.copilot.vs-exit-and-relaunch %}
 
 {% note %}

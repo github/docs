@@ -422,17 +422,17 @@ Every article includes a few standard elements, and may include conditional or o
 Within an article, there is a standard order of content sections. Every article contains required elements. Articles will also contain conditional elements and optional elements outlined in content design or creation. See the guidelines below for more details.
 
 1. Title
-2. Product callout (conditional)
-3. Intro
-4. Permissions statement (conditional)
-5. Tool switcher (conditional)
-6. Table of contents
-7. Conceptual content
-8. Referential content
-9. Prerequisites
-10. Procedural content
-11. Troubleshooting content
-12. Further reading (conditional)
+1. Product callout (conditional)
+1. Intro
+1. Permissions statement (conditional)
+1. Tool switcher (conditional)
+1. Table of contents
+1. Conceptual content
+1. Referential content
+1. Prerequisites
+1. Procedural content
+1. Troubleshooting content
+1. Further reading (conditional)
 
 ![Screenshot of article with title, intro, permissions, product callout, conceptual section, procedural section, and table of contents labeled.](/assets/images/contributing/illustration-of-article-contents.png)
 
@@ -449,14 +449,13 @@ Titles can be challenging. Use these general guidelines to help create clear, he
   - Avoid: Using the workflow editor sidebar
   - Avoid: Example
   - Titles have hard limits for length to keep them easy to understand (and easier to render on the site): 
-     - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 27 characters
-     - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 30 characters
-     - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) < 31 characters, ideally 20-25 characters
+     - Category titles: 67 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 26 characters
+     - Map topic titles: 63 characters and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 29 characters
+     - Article titles: 80 characters, 60 if possible, and [`shortTitle`](https://github.com/github/docs/tree/main/content#shorttitle) 30 characters, ideally 20-25 characters
 - Titles are consistent across a content type
   - See specific guidelines for each content type
-  - Titles aren’t repetitive––vary the verbs used for procedure or map topic titles when possible
 - Titles are general enough to scale with product changes, reflect all of the content within the article, or include content on multiple products
-  - Use: "GitHub's billing plans"
+  - Use: "{% data variables.product.company_short %}'s billing plans"
   - Avoid: "Billing plans for user and organization accounts"
 - Titles use consistent terminology
   - Develop and follow patterns within a category or on similar subjects
