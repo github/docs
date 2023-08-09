@@ -1,24 +1,25 @@
 ---
-title: Protecting pushes with secret scanning
+title: Push protection for repositories and organizations
 intro: 'You can use {% data variables.product.prodname_secret_scanning %} to prevent supported secrets from being pushed into your {% ifversion secret-scanning-enterprise-level %}enterprise,{% endif %} organization{% ifversion secret-scanning-enterprise-level %},{% endif %} or repository by enabling push protection.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
   feature: secret-scanning-push-protection
 redirect_from:
   - /early-access/code-security/secret-scanning/protecting-pushes-with-secret-scanning
+  - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
 type: how_to
 topics:
   - Secret scanning
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Enable push protection
+shortTitle: Push protection for repositories
 ---
 
 {% data reusables.secret-scanning.beta %}
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
-## About push protection for secrets
+## About push protection for repositories and organizations
 
 Up to now, {% data variables.product.prodname_secret_scanning %} checks for secrets _after_ a push and alerts users to exposed secrets. {% data reusables.secret-scanning.push-protection-overview %} {% ifversion secret-scanning-push-protection-custom-patterns %}{% data variables.product.prodname_secret_scanning_caps %} can also check pushes for custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."{% endif %}
 
@@ -36,6 +37,12 @@ If you are an organization owner or security manager, you can view metrics on ho
 {% data reusables.secret-scanning.bypass-reasons-and-alerts %}
 
 For information on the secrets and service providers supported for push protection, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-patterns#supported-secrets)."
+
+{% ifversion secret-scanning-push-protection-for-users %}
+
+{% data reusables.secret-scanning.push-protection-for-users %}
+
+{% endif %}
 
 ## Enabling {% data variables.product.prodname_secret_scanning %} as a push protection
 

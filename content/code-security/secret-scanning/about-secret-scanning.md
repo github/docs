@@ -59,6 +59,12 @@ If your project communicates with an external service, you might use a token or 
 
 {% endif %}
 
+{% ifversion secret-scanning-push-protection-for-users %}
+
+{% data reusables.secret-scanning.push-protection-for-users %}
+
+{% endif %}
+
 {% ifversion fpt or ghec %}
 
 ## About {% data variables.secret-scanning.partner_alerts %}
