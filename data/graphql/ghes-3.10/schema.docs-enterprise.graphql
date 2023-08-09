@@ -17286,6 +17286,10 @@ Represents the language of a repository.
 """
 type LanguageEdge {
   cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
   node: Language!
 
   """
@@ -34083,6 +34087,10 @@ type ReactingUserEdge {
   A cursor for use in pagination.
   """
   cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
   node: User!
 
   """
@@ -42567,6 +42575,10 @@ type StargazerEdge {
   A cursor for use in pagination.
   """
   cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
   node: User!
 
   """
@@ -42660,6 +42672,10 @@ type StarredRepositoryEdge {
   A cursor for use in pagination.
   """
   cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
   node: Repository!
 
   """
@@ -44834,6 +44850,10 @@ type TeamMemberEdge {
   The HTTP URL to the organization's member access page.
   """
   memberAccessUrl: URI!
+
+  """
+  The item at the end of the edge.
+  """
   node: User!
 
   """
@@ -45232,6 +45252,10 @@ type TeamRepositoryEdge {
   A cursor for use in pagination.
   """
   cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
   node: Repository!
 
   """
