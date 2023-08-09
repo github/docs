@@ -67,6 +67,8 @@ You must start replication on each node using the `ghe-repl-start` command-line 
 
 Replication requires that the primary node and all replica nodes can communicate with each other over the network. At minimum, ensure that ports 122/TCP and 1194/UDP are open for bidirectional communication between all of your instance's nodes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)."
 
+{% data reusables.enterprise_clustering.network-latency %} You can use `ping` or another network administration utility to test the network connectivity between nodes.
+
 ### Under-replication
 
 If you run the `ghe-repl-status` command-line utility on a replica node and Git repositories, repository networks, or storage objects are under-replicated, one or more replica nodes are not fully synchronized with the primary node. Under-replication may occur if the primary node is unable to communicate with the replica nodes, or if the replica nodes are unable to communicate with the primary node.
