@@ -1,0 +1,4 @@
+# Breadcrumbs in a project's side panel
+versions:
+  fpt: '*'
+  ghec: '*'

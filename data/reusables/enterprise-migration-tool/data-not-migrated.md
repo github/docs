@@ -12,6 +12,12 @@ Currently, the following data is **not** migrated.
 - Any {% data variables.product.prodname_projects_v2 %} (the new projects experience)
 - Discussions at the repository level
 - Packages in {% data variables.product.prodname_registry %}
-- GitHub Apps
+- GitHub Apps and GitHub App installations
 - Fork relationships between repositories (see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)")
 - References between pull requests and issues in different repositories (see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls)")
+- Tag protection rules
+- Repository stars
+- Repository watchers
+- Commit status checks
+- Edit history of issue comments and pull request comments
+- Users' profiles, SSH keys or signing keys

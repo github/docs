@@ -19,9 +19,9 @@ children:
   - /about-code-scanning-with-codeql
   - /configuring-default-setup-for-code-scanning
   - /configuring-default-setup-for-code-scanning-at-scale
+  - /codeql-code-scanning-for-compiled-languages
   - /configuring-advanced-setup-for-code-scanning
   - /customizing-code-scanning
-  - /configuring-the-codeql-workflow-for-compiled-languages
   - /configuring-advanced-setup-for-code-scanning-with-codeql-at-scale
   - /recommended-hardware-resources-for-running-codeql
   - /running-codeql-code-scanning-in-a-container

@@ -4,13 +4,14 @@ import { GlobeIcon } from '@primer/octicons-react'
 import { useLanguages } from 'components/context/LanguagesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
 import { useUserLanguage } from 'components/hooks/useUserLanguage'
-import { Picker } from 'src/tools/components/Picker'
+import { ActionList, ActionMenu, IconButton, Link } from '@primer/react'
 
 type Props = {
+  xs?: boolean
   mediumOrLower?: boolean
 }
 
-export const LanguagePicker = ({ mediumOrLower }: Props) => {
+export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
   const router = useRouter()
   const { languages } = useLanguages()
   const { setUserLanguageCookie } = useUserLanguage()
@@ -37,39 +38,80 @@ export const LanguagePicker = ({ mediumOrLower }: Props) => {
   // in a "denormalized" way.
   const routerPath = router.asPath.split('#')[0]
 
-  return (
-    <div data-testid="language-picker">
-      <Picker
-        defaultText={t('language_picker_default_text')}
-        items={langs.map((lang) => ({
-          text: lang.nativeName || lang.name,
-          selected: lang === selectedLang,
-          href: `/${lang.code}${routerPath}`,
-          extra: {
-            locale: lang.code,
-          },
-        }))}
-        pickerLabel={mediumOrLower ? 'Language' : ''}
-        iconButton={mediumOrLower ? undefined : GlobeIcon}
-        onSelect={(item) => {
-          if (item.extra?.locale) {
-            try {
-              setUserLanguageCookie(item.extra.locale)
-            } catch (err) {
-              // You can never be too careful because setting a cookie
-              // can fail. For example, some browser
-              // extensions disallow all setting of cookies and attempts
-              // at the `document.cookie` setter could throw. Just swallow
-              // and move on.
-              console.warn('Unable to set preferred language cookie', err)
-            }
+  // languageList is specifically <ActionList.Item>'s which are reused
+  // for menus that behave differently at the breakpoints.
+  const languageList = langs.map((lang) => (
+    <ActionList.Item
+      key={`/${lang.code}${routerPath}`}
+      selected={lang === selectedLang}
+      as={Link}
+      href={`/${lang.code}${routerPath}`}
+      onSelect={() => {
+        if (lang.code) {
+          try {
+            setUserLanguageCookie(lang.code)
+          } catch (err) {
+            // You can never be too careful because setting a cookie
+            // can fail. For example, some browser
+            // extensions disallow all setting of cookies and attempts
+            // at the `document.cookie` setter could throw. Just swallow
+            // and move on.
+            console.warn('Unable to set preferred language cookie', err)
           }
-        }}
-        buttonBorder={mediumOrLower}
-        dataTestId="default-language"
-        ariaLabel={`Select language: current language is ${selectedLang.name}`}
-        alignment={mediumOrLower ? 'start' : 'end'}
-      />
+        }
+      }}
+    >
+      <span data-testid="default-language">{lang.nativeName || lang.name}</span>
+    </ActionList.Item>
+  ))
+
+  // At large breakpoints, we return the full <ActionMenu> with just the languages,
+  // at smaller breakpoints, we return just the <ActionList> with its items so that
+  // the <Header> component can place it inside its own <ActionMenu> with multiple
+  // groups, language being just one of those groups.
+  return (
+    <div data-testid="language-picker" className="d-flex">
+      {xs ? (
+        <>
+          {/* XS Mobile Menu */}
+          <ActionMenu>
+            <ActionMenu.Anchor>
+              <ActionMenu.Button
+                variant="invisible"
+                className="color-fg-default width-full"
+                aria-label={`Select language: current language is ${selectedLang.name}`}
+                sx={{
+                  height: 'auto',
+                  textAlign: 'left',
+                  'span:first-child': { display: 'inline' },
+                }}
+              >
+                <span style={{ whiteSpace: 'pre-wrap' }}>{t('language_picker_label') + '\n'}</span>
+                <span className="color-fg-muted text-normal f6">{selectedLang.name}</span>
+              </ActionMenu.Button>
+            </ActionMenu.Anchor>
+            <ActionMenu.Overlay align="start">
+              <ActionList selectionVariant="single">{languageList}</ActionList>
+            </ActionMenu.Overlay>
+          </ActionMenu>
+        </>
+      ) : mediumOrLower ? (
+        <ActionList className="hide-sm" selectionVariant="single">
+          <ActionList.Group title={t('language_picker_label')}>{languageList}</ActionList.Group>
+        </ActionList>
+      ) : (
+        <ActionMenu>
+          <ActionMenu.Anchor>
+            <IconButton
+              icon={GlobeIcon}
+              aria-label={`Select language: current language is ${selectedLang.name}`}
+            />
+          </ActionMenu.Anchor>
+          <ActionMenu.Overlay align="end">
+            <ActionList selectionVariant="single">{languageList}</ActionList>
+          </ActionMenu.Overlay>
+        </ActionMenu>
+      )}
     </div>
   )
 }
