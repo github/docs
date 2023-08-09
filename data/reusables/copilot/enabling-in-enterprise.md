@@ -8,4 +8,4 @@
     - To enable {% data variables.product.prodname_copilot %} for all organizations in your enterprise, both current and future, select **Allow for all organizations**.
     - To enable {% data variables.product.prodname_copilot %} for specific organizations, select **Allow for specific organizations**.
 1. If you selected **Allow for specific organizations**, select the organizations you want to enable {% data variables.product.prodname_copilot %} for. Alternatively, you can select the organizations you want to disable {% data variables.product.prodname_copilot %} access for.
-1. To finish setting up your {% data variables.product.prodname_copilot_for_business %} subscription, click **Save**. Organization administrators will receive an email with instructions on how to add members to {% data variables.product.prodname_copilot %}.
+1. To finish setting up your {% data variables.product.prodname_copilot_for_business %} subscription, click **Save**. Organization owners will receive an email with instructions on how to add members to {% data variables.product.prodname_copilot %}.

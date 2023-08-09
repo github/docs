@@ -251,10 +251,9 @@ sections:
         - |
           To avoid providing full administrative access to a repository when unnecessary, repository administrators can create a custom role that allows users to bypass branch protections. To enforce branch protections for all users with administrative access or bypass permissions, administrators can enable **Do not allow bypassing the above settings**. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization#repository)" and "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#do-not-allow-bypassing-the-above-settings)."
 
-        # https://github.com/github/releases/issues/2610
         # https://github.com/github/releases/issues/2626
         - |
-          Repository administrators can ensure the security and stability of branches by requiring pull request approval by someone other than the last pusher, or by locking the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#about-branch-protection-settings)."
+          Repository administrators can ensure the security and stability of branches by locking the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#lock-branch)."
 
         # https://github.com/github/releases/issues/2666
         - |
@@ -483,3 +482,7 @@ sections:
 
   errata:
     - '{% data reusables.release-notes.github-actions-secrets-encryption-docs %}'
+
+    # https://github.com/github/releases/issues/2626
+    - |
+      "[Repositories](#3.8.0-repositories)" incorrectly indicated that repository administrators can require pull request approval by someone other than the last pusher. This feature is unavailable in GitHub Enterprise Server 3.8, and is available in GitHub Enterprise Server 3.10. For more information, see "[AUTOTITLE](/enterprise-server@3.10/admin/release-notes#repositories)." [Updated 2023-08-07]

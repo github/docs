@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import { GlobeIcon, KebabHorizontalIcon } from '@primer/octicons-react'
+import { GlobeIcon } from '@primer/octicons-react'
 
 import { useLanguages } from 'components/context/LanguagesContext'
 import { useTranslation } from 'components/hooks/useTranslation'
@@ -103,7 +103,7 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
         <ActionMenu>
           <ActionMenu.Anchor>
             <IconButton
-              icon={mediumOrLower ? KebabHorizontalIcon : GlobeIcon}
+              icon={GlobeIcon}
               aria-label={`Select language: current language is ${selectedLang.name}`}
             />
           </ActionMenu.Anchor>

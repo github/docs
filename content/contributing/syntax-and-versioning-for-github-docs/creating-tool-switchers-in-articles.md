@@ -20,7 +20,7 @@ When someone knows how they want to do a task and doesn’t need to see addition
 ## Using tool tags
 We use tool tags to divide information for each tool. On rare occasions, we will add new tools.
 
-Tool tags are a key value pair. The key is the tag you use to refer to the tool in the article and the value is how the tool will be identified on the tool picker at the top of the article. The existing tools are in [`lib/all-tools.js`](https://github.com/github/docs/blob/main/lib/all-tools.js) in the {% data variables.product.prodname_docs %} repository.
+Tool tags are a key value pair. The key is the tag you use to refer to the tool in the article and the value is how the tool will be identified on the tool picker at the top of the article. The existing tools are in [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) in the {% data variables.product.prodname_docs %} repository.
 
 ### When to use tool tags
 We only use tool tags if an article must have tool-specific information to help people accomplish their tasks. If the conceptual information or procedural steps for a task are significantly different depending on what tool someone uses, and we want people to be able to accomplish the task with different tools, we use tool tags to present the relevant information in an article.
