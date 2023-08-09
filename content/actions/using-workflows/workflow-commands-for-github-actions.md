@@ -46,7 +46,7 @@ Write-Output "::workflow-command parameter1={data},parameter2={data}::{command v
 
 {% note %}
 
-**Note:** Workflow command and parameter names are not case-sensitive.
+**Note:** Workflow command and parameter names are case insensitive.
 
 {% endnote %}
 
@@ -769,6 +769,8 @@ jobs:
 
 ## Setting an environment variable
 
+{% data reusables.actions.environment-variables-as-case-sensitive %}
+
 {% bash %}
 
 ```bash copy
@@ -793,7 +795,7 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 
 {% endpowershell %}
 
-You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access. The names of environment variables are case-sensitive, and you can include punctuation. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)."
+You can make an environment variable available to any subsequent steps in a workflow job by defining or updating the environment variable and writing this to the `GITHUB_ENV` environment file. The step that creates or updates the environment variable does not have access to the new value, but all subsequent steps in a job will have access.
 
 {% data reusables.actions.environment-variables-are-fixed %} For more information about the default environment variables, see "[AUTOTITLE](/actions/learn-github-actions/environment-variables#default-environment-variables)."
 
