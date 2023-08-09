@@ -86,7 +86,10 @@ Keep lines in code samples to about 60 characters, to avoid requiring readers to
 
 Within code blocks:
 - Specify the language of the sample after the first code fence. For a list of all supported languages, see "[Code languages](https://github.com/github/docs/blob/main/data/variables/code-languages.yml)" in the `github/docs` repository.
-- Do not use markup before the command output.
+- Do not use HTML to style or markup a code block.
+- Style any placeholders that people need to replace with their own values in all caps.
+  - **Use:** `git checkout -b BRANCH-NAME`
+  - **Avoid:** `git checkout -b <branch-name>`
 - Only use `$` before the command itself if you’re showing the command’s output in the same block.
   - If you show a command and the command's output, do not make the code block copyable.
 - If your code example includes `{` or `}` that should render, wrap that section in <code>&#123% raw %&#125;</code> <code>&#123% endraw %&#125;</code> to disable Liquid processing for that section.
@@ -102,7 +105,7 @@ Within code blocks:
     GITHUB_TOKEN: $&#123;&#123; secrets.GITHUB_TOKEN &#125;&#125;
     </pre>
 
-- If your code example includes content that should be parsed (for example, HTML tags to format text), wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
+- If your code example includes content that should be parsed, wrap that section in `<pre>` `</pre>` tags to parse rather than escape the content in the section.
 
 ### Commands
 
@@ -375,12 +378,12 @@ This text is only an example. Always use the license text from the project you a
 `````
 ## Legal notice
 
-Portions have been adapted from [PROJECT](/link/to/project) under the MIT license:
+Portions have been adapted from [PROJECT](/LINK/TO/PROJECT) under the MIT license:
 
 ```
 MIT License
 
-Copyright <YEAR> <COPYRIGHT HOLDER>
+Copyright YEAR COPYRIGHT-HOLDER
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -403,13 +406,13 @@ For any link that points to another {% data variables.product.prodname_docs %} p
 
 Usage examples:
 
-- For links to other pages: `For more information, see "[AUTOTITLE](/path/to/page)."`
-- For links to sections in other pages: `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
-- For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME)."`
+- For links to other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE)."`
+- For links to sections in other pages: `For more information, see "[AUTOTITLE](/PATH/TO/PAGE#SECTION-LINK)."`
+- For links to a page with a tool selected: `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/PATH/TO/PAGE?tool=TOOLNAME)."`
 
-Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[Header text](#section-link)."`
+Same-page section links do **not** work with `AUTOTITLE`. Instead, type out the full header text: `For more information, see "[HEADER-TITLE](#SECTION-LINK)."`
 
-For links to external documentation, type out the full article name: `For more information, see [Page or article title](https://some-docs.com/path/to/page) in the X documentation.`
+For links to external documentation, type out the full article name: `For more information, see [PAGE-TITLE](https://some-docs.com/PATH/TO/PAGE) in the XYZ documentation.`
 
 Do not include quotation marks within a hyperlink.
 
@@ -464,12 +467,12 @@ For more information, see "[HEADER TITLE](#HEADER-TITLE)."
 To link to a specific header in a different article, use this format:
 
 ```
-For more information, see "[AUTOTITLE](path-to-article#HEADER-TITLE)."
+For more information, see "[AUTOTITLE](PATH-TO-ARTICLE#HEADER-TITLE)."
 ```
 
 To link to two or more specific headers in a different article, use this format:
 ```
-For more information, see "[HEADER 1](path-to-article#HEADER-1)" and "[HEADER 2](path-to-article#HEADER-2)" in "ARTICLE TITLE."
+For more information, see "[HEADER-TITLE-1](PATH-TO-ARTICLE#SECTION-LINK-1)" and "[HEADER-TITLE-2](PATH-TO-ARTICLE#SECTION-LINK-2)" in "ARTICLE-TITLE."
 ```
 
 ### Links to a specific tool
@@ -508,6 +511,19 @@ Formatting unordered lists:
 - If the order is important, then order the list by the importance to the reader (for example, moving from broadest audience and applicability to a more specialized audience).
 
 When introducing a list, avoid phrasing like “the following” or “these”, terms which are difficult to localize. Instead, be descriptive, yet general enough to allow a list to scale or change without having to update the description.
+
+## Placeholders
+
+Style any placeholder text in all caps. If a placeholder is multiple words, connect the words with dashes (kebab-case). If you use a placeholder, explain what someone might replace it with. This helps people modify examples to fit their needs and helps identify placeholders for people who use assistive technology.
+
+**Use:**
+- In the following example, replace YOUR-REPOSITORY with the name of your repository. `git init YOUR-REPOSITORY`
+- Click **Add USERNAME.** Where USERNAME is the username of the person you want to add.
+
+**Avoid:**
+- `git init your repository`
+- `git init <your-repository>`
+- Click **Add _username_.**
 
 ## Procedural steps
 
@@ -1114,7 +1130,7 @@ Use bold to describe UI elements that can be interacted with.
 
 Use code formatting for branch names.
 - `main`
-- `<username>.github.io`
+- `USERNAME.github.io`
 
 ### Buttons
 
