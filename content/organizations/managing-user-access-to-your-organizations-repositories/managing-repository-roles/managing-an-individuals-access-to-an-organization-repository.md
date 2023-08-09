@@ -7,6 +7,7 @@ redirect_from:
   - /articles/managing-an-individuals-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-an-individuals-access-to-an-organization-repository
   - /organizations/managing-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository
+  - /organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository
 versions:
   fpt: '*'
   ghes: '*'
@@ -32,4 +33,4 @@ You can give a person access to a repository or change a person's level of acces
 ## Further reading
 
 {% ifversion fpt or ghec %}- "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"{% endif %}
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"

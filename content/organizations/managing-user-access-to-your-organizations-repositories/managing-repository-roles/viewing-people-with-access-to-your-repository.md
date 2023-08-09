@@ -5,6 +5,7 @@ redirect_from:
   - /articles/viewing-people-with-access-to-your-repository
   - /github/setting-up-and-managing-organizations-and-teams/viewing-people-with-access-to-your-repository
   - /organizations/managing-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository
+  - /organizations/managing-user-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository
 versions:
   fpt: '*'
   ghes: '*'
@@ -22,7 +23,7 @@ permissions: Organization owners can view people with access to a repository.
 You can use this information to help off-board people, gather data for compliance, and other general security checkups.
 
 {% ifversion fpt %}
-Organizations that use {% data variables.product.prodname_ghe_cloud %} can also export a CSV list of people who have access to a repository. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/viewing-people-with-access-to-your-repository).
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can also export a CSV list of people who have access to a repository. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/viewing-people-with-access-to-your-repository).
 {% endif %}
 
 ## Viewing people with access to your repository
