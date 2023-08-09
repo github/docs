@@ -39588,6 +39588,10 @@ type RepositoryCollaboratorEdge {
   A cursor for use in pagination.
   """
   cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
   node: User!
 
   """
