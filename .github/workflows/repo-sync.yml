@@ -86,7 +86,8 @@ jobs:
               console.log('Created pull request successfully', pull.html_url)
             } catch (err) {
               // Don't error/alert if there's no commits to sync
-              if (err.message?.includes('No commits')) {
+              // Don't throw if > 100 pulls with same head_sha issue
+              if (err.message?.includes('No commits') || err.message?.includes('same head_sha')) {
                 console.log(err.message)
                 return
               }

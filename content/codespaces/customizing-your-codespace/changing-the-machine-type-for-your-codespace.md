@@ -32,9 +32,9 @@ For information on choosing a machine type when you create a codespace, see "[AU
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
-   The number of cores, and the currently used storage space, are displayed for each codespace. Hover over the number of cores to display a tooltip that also shows the RAM and disk capacity of the machine.
+   The number of cores, memory, storage capacity, and currently used storage are displayed for each codespace. Some details are omitted if you are using a narrow browser window.
 
-   ![Screenshot of a list of codespaces. A tooltip for the first codespace reads "16 core, 32 GB RAM, 128 GB."](/assets/images/help/codespaces/your-codespaces-list.png)
+   ![Screenshot of a list of three codespaces on the https://github.com/codespaces page."](/assets/images/help/codespaces/your-codespaces-list.png)
 
 {% data reusables.codespaces.ellipsis-settings %}
 1. Click **Change machine type**.
