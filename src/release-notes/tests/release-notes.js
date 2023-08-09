@@ -1,8 +1,8 @@
 import { describe, jest } from '@jest/globals'
 
-import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
-import { get } from '../helpers/e2etest.js'
-import Page from '../../lib/page.js'
+import enterpriseServerReleases from '../../../lib/enterprise-server-releases.js'
+import { get } from '../../../tests/helpers/e2etest.js'
+import Page from '../../../lib/page.js'
 
 // The English content page's `versions:` frontmatter is the source
 // of (convenient) truth about which versions of this page is available.
