@@ -31,7 +31,7 @@ In your IdP, you can give each {% data variables.enterprise.prodname_managed_use
 
 {% endif %}
 
-You can grant {% data variables.enterprise.prodname_managed_users %} access to and the ability to contribute to repositories within your enterprise, but {% data variables.enterprise.prodname_managed_users %} cannot create public content or collaborate with other users, organizations, and enterprises on the rest of {% data variables.product.prodname_dotcom %}. For more information, see "[Abilities and restrictions of {% data variables.enterprise.prodname_managed_users %}](#abilities-and-restrictions-of-enterprise-managed-users)."
+You can grant {% data variables.enterprise.prodname_managed_users %} access to and the ability to contribute to repositories within your enterprise, but {% data variables.enterprise.prodname_managed_users %} cannot create public content or collaborate with other users, organizations, and enterprises on the rest of {% data variables.product.prodname_dotcom %}. For more information, see "[Abilities and restrictions of {% data variables.enterprise.prodname_managed_users %}](#abilities-and-restrictions-of-managed-user-accounts)."
 
 The usernames of your enterprise's {% data variables.enterprise.prodname_managed_users %} and their profile information, such as display names and email addresses, are set by through your IdP and cannot be changed by the users themselves. For more information, see "[Usernames and profile information](#usernames-and-profile-information)."
 

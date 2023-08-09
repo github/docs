@@ -329,7 +329,7 @@ A `map` of variables that are available to all steps in the job. You can set var
 
 {% data reusables.repositories.actions-env-var-note %}
 
-## Example of `jobs.<job_id>.env`
+### Example of `jobs.<job_id>.env`
 
 ```yaml
 jobs:

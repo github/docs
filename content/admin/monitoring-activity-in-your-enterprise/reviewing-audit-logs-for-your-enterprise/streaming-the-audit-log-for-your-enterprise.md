@@ -40,6 +40,12 @@ Enterprise owners can set up{% ifversion pause-audit-log-stream %}, pause,{% end
 
 All streamed audit logs are sent as compressed JSON files. The filename format is in`YYYY/MM/HH/MM/<uuid>.json.gz`.
 
+{% note %}
+
+**Note**: {% data variables.product.prodname_dotcom %} uses an at-least-once delivery method. Due to certain network or system issues, some events may be duplicated.
+
+{% endnote %}
+
 ## Setting up audit log streaming
 
 You set up the audit log stream on {% data variables.product.product_name %} by following the instructions for your provider.
