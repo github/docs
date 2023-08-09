@@ -75,6 +75,8 @@ You can bookmark the address of this page if you want to get back to it quickly 
 
    If you choose **JupyterLab**, the JupyterLab application must be installed in the codespace. {% data reusables.codespaces.jupyterlab-in-default-image %}
 
+{% data reusables.codespaces.linking-to-an-existing-codespace %}
+
 {% endwebui %}
 
 {% vscode %}
@@ -100,6 +102,9 @@ You can also access the commands listed above by navigating to the Remote Explor
 ![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted in the right-click menu.](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
 
 {% data reusables.codespaces.remote-explorer %}
+
+{% data reusables.codespaces.linking-to-an-existing-codespace %}
+
 {% endvscode %}
 
 {% cli %}
@@ -159,3 +164,7 @@ For more information, see [`gh codespace code`](https://cli.github.com/manual/gh
 {% data reusables.codespaces.opening-codespace-in-jetbrains %}
 
 {% endjetbrains %}
+
+## Further reading
+
+- "[AUTOTITLE](/rest/codespaces)" (REST API reference)

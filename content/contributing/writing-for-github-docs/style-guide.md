@@ -631,7 +631,7 @@ For more information, see "[Using SHAs](/actions/learn-github-actions/finding-an
 ### {% data variables.product.prodname_codespaces %}
 
 When referring to the product {% data variables.product.prodname_codespaces %}, always include "{% data variables.product.company_short %}", except in these circumstances:
-- In the `shortTitle` front matter (i.e. the abbreviated version of the article title).
+- In the `shortTitle` front matter.
 - In subheadings within an article, if "{% data variables.product.prodname_codespaces %}" has already been used anywhere in the article prior to the subheading.
 
 Variables: `{% raw %}{% data variables.product.prodname_github_codespaces %}{% endraw %}` ("GitHub Codespaces") and `{% raw %}{% data variables.product.prodname_codespaces %}{% endraw %}` ("Codespaces").
@@ -1084,24 +1084,22 @@ Use quotation marks around article titles, whether the article is hosted on GitH
 For further guidance, see “[Formatting titles](https://docs.microsoft.com/style-guide/text-formatting/formatting-titles)” in Microsoft’s Style Guide.
 
 ## Short titles
-We use short titles to populate the sidebar navigation. They should give users contextual understanding of the article, but align to the following standards:
+We use short titles to populate the sidebar navigation. Since short titles appear in the sidebar navigation, they can use context to convey meaning and be slightly less precise than full titles. The goal of short titles is to help people find the content that they are looking for without having sidebar navigation items that are too long. Short titles give people contextual understanding of an article and align to the following standards.
 
-- Short titles are 2-3 words long, yet should still convey the full meaning of the title.
-- To help cut words, look at the title in context:
-  - Are there words in the breadcrumb that you can omit in the short title?
-  - Remove repeated words possible
-- Don’t introduce new words in short titles that aren’t in the full title
-- Short titles should be parallel to short titles for similar content
-  - **Use:**
-    - Organizations and teams
-    - Enterprise accounts
-- Short titles should still mimic format of the full title
-  - For task-based titles, if there’s a preposition or object or it’s otherwise awkward to shorten, try to find a verb but you can use a nouns when needed
+- Short titles are 2-3 words long.
+  - For categories, short titles must be less than 27 characters.
+  - For map topics, short titles must be less than 30 characters.
+  - For articles, short titles must be less than 31 characters and are ideally between 20 and 25 characters.
+- Short titles use the base form of verbs instead of gerunds.
+  - **Use:** "Configure notifications" instead of "Configuring notifications."
+- Short titles for categories, map topics, and articles can omit product and feature names if it is clear what product or feature they relate to.
+  - **Use:** "Configure notifications" as the short title for "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)" since the article is in the "{% data variables.product.prodname_dependabot_alerts %}" map topic.
+- Short titles do not introduce new words that are not in the full title.
+- Short titles should be parallel to short titles for similar content.
+  - **Use:** "Organizations and teams" and "Enterprise accounts"
+  - **Avoid:** "Organizations and teams" and "Managing enterprise accounts"
 
-| Instead of | Use |
-|---|---|
-| Authenticating to {% data variables.product.company_short %} | Authentication |
-| Installing and configuring GHE Server | Installation and configuration |
+Writing short titles can be challenging. To help get short titles under the character count, consider the short title in context. Remove any repeated words if possible and any product or feature names that are in the map topic or category that the content belongs to.
 
 ## User interface elements
 

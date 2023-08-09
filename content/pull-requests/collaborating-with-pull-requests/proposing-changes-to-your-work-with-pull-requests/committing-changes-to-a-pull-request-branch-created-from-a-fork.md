@@ -88,7 +88,7 @@ Only the user who created the pull request can give you permission to push commi
 1. After you commit your changes to the head branch of the pull request you can push your changes up to the original pull request directly. In this example, the head branch is `test-branch`:
 
    ```shell
-   $ git push origin <em>test-branch</em>
+   $ git push origin test-branch
    > Counting objects: 32, done.
    > Delta compression using up to 8 threads.
    > Compressing objects: 100% (26/26), done.
