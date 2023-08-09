@@ -106,7 +106,7 @@
     "lodash-es": "^4.17.21",
     "lowdb": "6.0.0",
     "mdast-util-from-markdown": "^2.0.0",
-    "mdast-util-to-hast": "^12.3.0",
+    "mdast-util-to-hast": "^13.0.1",
     "mdast-util-to-markdown": "2.0.0",
     "mdast-util-to-string": "^4.0.0",
     "morgan": "^1.10.0",

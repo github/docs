@@ -4,9 +4,12 @@ import pick from 'lodash/pick'
 
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import { DefaultLayout } from 'components/DefaultLayout'
-import { GHAEReleaseNotes } from 'components/release-notes/GHAEReleaseNotes'
-import { GHESReleaseNotes } from 'components/release-notes/GHESReleaseNotes'
-import { GHAEReleaseNotesContextT, GHESReleaseNotesContextT } from 'components/release-notes/types'
+import { GHAEReleaseNotes } from 'src/release-notes/components/GHAEReleaseNotes'
+import { GHESReleaseNotes } from 'src/release-notes/components/GHESReleaseNotes'
+import {
+  GHAEReleaseNotesContextT,
+  GHESReleaseNotesContextT,
+} from 'src/release-notes/components/types'
 
 const liquid = new Liquid()
 type Props = {

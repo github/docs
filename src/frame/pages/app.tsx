@@ -4,8 +4,6 @@ import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
 
-import '../stylesheets/index.scss'
-
 import { initializeEvents } from 'src/events/components/events'
 import { initializeExperiments } from 'src/events/components/experiment'
 import {
