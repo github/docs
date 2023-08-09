@@ -94,7 +94,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
    ```shell
    $ ssh-add -l -E sha256
-   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
   
 {% endlinux %}
