@@ -37,7 +37,9 @@ Prerequisites for repository transfers:
 - Internal repositories can only be transferred to an organization in the enterprise. You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
 {%- endif %}
 
-{% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
+{% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}
+
+If the transferred repository contains an action listed on {% data variables.product.prodname_marketplace %}, or had more than 100 clones or more than 100 uses of {% data variables.product.prodname_actions %} in the week prior to the transfer, {% data variables.product.prodname_dotcom %} permanently retires the owner name and repository name combination (`OWNER/REPOSITORY-NAME`) when you transfer the repository. If you try to create a repository using a retired owner name and repository name combination, you will see the error: "The repository `REPOSITORY_NAME` has been retired and cannot be reused."{% endif %}
 
 ### What's transferred with a repository?
 
