@@ -245,8 +245,7 @@ export function Webhook({ webhook }: Props) {
         <>
           <h3>{t('webhooks.webhook_payload_example')}</h3>
           <div
-            className={cx(styles.payloadExample, 'border-top rounded-1 my-0')}
-            style={{ maxHeight: '32rem' }}
+            className={cx(styles.payloadExample, 'border rounded-1 my-0')}
             data-highlight={'json'}
           >
             <code>{JSON.stringify(webhook.data.payloadExample, null, 2)}</code>
