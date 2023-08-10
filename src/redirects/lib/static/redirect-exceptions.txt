@@ -37,3 +37,6 @@
 
 /github-ae@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning
 - /github-ae@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
+
+/billing/managing-your-github-billing-settings/redeeming-a-coupon
+- /enterprise-cloud@latest/billing/managing-your-github-billing-settings/redeeming-a-coupon
