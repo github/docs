@@ -114,7 +114,7 @@ def verify_signature(payload_body, secret_token, signature_header):
 
 ### JavaScript example
 
-For example, you can define the following `verifySignature` function and call it in any JavaScript environment - Node.js, Bun, Deno, etc - when you receive a webhook payload:
+For example, you can define the following `verifySignature` function and call it in any JavaScript environment when you receive a webhook payload:
 
 ```javascript
 let encoder = new TextEncoder();
