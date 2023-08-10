@@ -80,6 +80,7 @@ If your implementation is correct and uses the SHA-1 algorithm, the signatures t
 
 - signature: 01dc10d0c83e72ed246219cdd91669667fe2ca59
 - x-hub-signature: sha1=01dc10d0c83e72ed246219cdd91669667fe2ca59
+
 ### Ruby example
 
 For example, you can define the following `verify_signature` function:
