@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # To update the sha, run `docker pull node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
-FROM node:18.14-alpine@sha256:045b1a1c90bdfd8fcaad0769922aa16c401e31867d8bf5833365b0874884bbae as base
+FROM node:18-alpine@sha256:58878e9e1ed3911bdd675d576331ed8838fc851607aed3bb91e25dfaffab3267 as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -45,10 +45,11 @@ RUN npm prune --production
 FROM all_deps as builder
 
 COPY stylesheets ./stylesheets
-COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
 COPY src ./src
+# The star is because it's an optional directory
+COPY .remotejson-cache* ./.remotejson-cache
 # Certain content is necessary for being able to build
 COPY content/index.md ./content/index.md
 COPY content/rest ./content/rest
@@ -90,6 +91,7 @@ COPY --chown=node:node assets ./assets
 COPY --chown=node:node content ./content
 COPY --chown=node:node lib ./lib
 COPY --chown=node:node src ./src
+COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
 COPY --chown=node:node middleware ./middleware
 COPY --chown=node:node data ./data
 COPY --chown=node:node next.config.js ./
@@ -107,7 +109,7 @@ FROM preview as production
 
 # Override what was set for previews
 # Make this match the default of `Object.keys(languages)` in lib/languages.js
-ENV ENABLED_LANGUAGES "en,zh,ja,es,pt,de,fr,ru,ko"
+ENV ENABLED_LANGUAGES "en,zh,es,pt,ru,ja,fr,de,ko"
 
 # Copy in all translations
 COPY --chown=node:node translations ./translations

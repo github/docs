@@ -1,0 +1,6 @@
+# Reference: #11069
+# Swift support for Dependabot PRs
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.10'

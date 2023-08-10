@@ -13,16 +13,11 @@ custom reporters for different types of test output, etc.
 ### Install optional dependencies
 
 We typically rely on CI to run our tests, so some large test-only
-dependencies are considered **optional** (for example, puppeteer). To run the tests locally, you'll
+dependencies are considered **optional**. To run the tests locally, you'll
 need to make sure optional dependencies are installed by running:
 
 ```sh
 npm ci --include=optional
-```
-
-If you run into the error "Could not find expected browser (chrome) locally", you may need to install the expected chromium version manually with:
-```
-node node_modules/puppeteer/install.js
 ```
 
 ### Running all the tests
@@ -120,3 +115,7 @@ jest tests/rendering/ -b
 ### Fixture based testing
 
 See [Fixture content](./fixtures/README.md).
+
+### Headless tests with Playwright
+
+See [Headless tests with Playwright](./PLAYWRIGHT.md)

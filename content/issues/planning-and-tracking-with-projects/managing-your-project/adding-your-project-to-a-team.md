@@ -22,36 +22,24 @@ Teams are granted read permissions on any project they are added to. This permis
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
-1. Click {% octicon "project" aria-label="The Projects icon" %} **Projects**.
-   
-   ![Screenshot showing the team projects tab.](/assets/images/help/organizations/team-project-board-button.png)
-   
-1. Click **Add project**.
-   
-   ![Screenshot showing the "Add project" button.](/assets/images/help/organizations/team-project-add-project.png)
-   
-1. Start typing the name of the project you want to add and then select the project in the list of matches.  
-   
+1. Click {% octicon "project" aria-hidden="true" %} **Projects**.
+
+   ![Screenshot of the main page for a team. In the horizontal navigation bar, the "Projects" tab is outlined in dark orange.](/assets/images/help/organizations/team-project-board-button.png)
+
+1. Click **Link a project**.
+1. In the search field, start typing the name of the project you want to add and then select the project in the list of matches.
+
    {% note %}
-   
+
    **Note:** If this change will result in increased project permissions for the team's members, {% data variables.product.product_name %} will prompt you to confirm your choice.
-   
+
    {% endnote %}
-   
-   ![Screenshot showing the "Add project" form.](/assets/images/help/organizations/team-project-search.png)
-   
 
 ## Removing a project from a team
 
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
-   
-   ![Screenshot showing the "Manage access" item](/assets/images/help/projects-v2/manage-access.png)
-   
 1. Next to the team that you want to remove from the project, click **Remove**.
-   
-   ![Screenshot showing removing a collaborator](/assets/images/help/projects-v2/access-remove-member.png)
-   
 
 {% ifversion projects-v1 %}
 

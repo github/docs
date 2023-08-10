@@ -31,10 +31,14 @@ topics:
 With repository security advisories, you can:
 
 1. Create a draft security advisory, and use the draft to privately discuss the impact of the vulnerability on your project. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)."
-2. Privately collaborate to fix the vulnerability in a temporary private fork.
-3. Publish the security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory)."
+1. Privately collaborate to fix the vulnerability in a temporary private fork.
+1. Publish the security advisory to alert your community of the vulnerability once a patch is released. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory)."
 
 {% data reusables.repositories.security-advisories-republishing %}
+
+{% ifversion repository-security-advisories-API %}
+You can also use the REST API to create, list, and update repository security advisories. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories)" in the REST API documentation.
+{% endif %}
 
 You can give credit to individuals who contributed to a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory#about-credits-for-security-advisories)."
 
@@ -48,7 +52,7 @@ If a security advisory is specifically for npm, we also publish the advisory to 
 
 ## CVE identification numbers
 
-{% data variables.product.prodname_security_advisories %} builds upon the foundation of the Common Vulnerabilities and Exposures (CVE) list. The security advisory form on {% data variables.product.prodname_dotcom %} is a standardized form that matches the CVE description format. 
+{% data variables.product.prodname_security_advisories %} builds upon the foundation of the Common Vulnerabilities and Exposures (CVE) list. The security advisory form on {% data variables.product.prodname_dotcom %} is a standardized form that matches the CVE description format.
 
 {% data variables.product.prodname_dotcom %} is a CVE Numbering Authority (CNA) and is authorized to assign CVE identification numbers. For more information, see "[About CVE](https://www.cve.org/About/Overview)" and "[CVE Numbering Authorities](https://www.cve.org/ProgramOrganization/CNAs)" on the CVE website.
 

@@ -23,3 +23,7 @@ children:
   - /disabling-two-factor-authentication-for-your-personal-account
 shortTitle: Secure your account with 2FA
 ---
+
+{% ifversion mandatory-2fa-dotcom-contributors %}
+{% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
+{% endif %}

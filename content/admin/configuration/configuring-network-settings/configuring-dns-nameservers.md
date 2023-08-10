@@ -23,22 +23,22 @@ The nameservers you specify must resolve {% data variables.location.product_loca
 ## Configuring nameservers using the virtual machine console
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
-2. Configure nameservers for your instance.
+1. Configure nameservers for your instance.
 {% data reusables.enterprise_installation.vm-console-done %}
 
 ## Configuring nameservers using the administrative shell
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 
-2. To edit your nameservers, use the `ghe-setup-network` command in visual mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)."
+1. To edit your nameservers, use the `ghe-setup-network` command in visual mode. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-setup-network)."
 
-  ```shell
-  ghe-setup-network -v
-  ```
+   ```shell
+   ghe-setup-network -v
+   ```
 
-5. To add your new nameserver entries to {% data variables.location.product_location %}, run the following:
+1. To add your new nameserver entries to {% data variables.location.product_location %}, run the following:
 
-  ```shell
-  sudo service resolvconf restart
-  sudo service dnsmasq restart
-  ```
+   ```shell
+   sudo service resolvconf restart
+   sudo service dnsmasq restart
+   ```

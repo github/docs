@@ -37,6 +37,7 @@ export default {
   webpack: (config) => {
     config.experiments = config.experiments || {}
     config.experiments.topLevelAwait = true
+    config.resolve.fallback = { fs: false }
     return config
   },
 
@@ -56,5 +57,12 @@ export default {
     // but many of our pages are much larger.
     // The warning is: https://nextjs.org/docs/messages/large-page-data
     largePageDataBytes: 1024 * 1024, // 1 MB
+
+    // This makes it so that going Back will scroll to the previous position
+    scrollRestoration: true,
+  },
+
+  compiler: {
+    styledComponents: true,
   },
 }

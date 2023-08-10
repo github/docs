@@ -16,16 +16,22 @@ on:
 
 permissions:
   issues: write
+  pull-requests: write
 
 jobs:
   noResponse:
     runs-on: ubuntu-latest
-    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    if: github.repository == 'github/docs'
     steps:
-      - uses: lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb
+      - uses: actions/stale@184e7afe930f6b5c7ce52c4b3f087692c6e912f3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          closeComment: >
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          only-labels: 'more-information-needed'
+          days-before-stale: -1
+          days-before-issue-stale: 14
+          days-before-close: -1
+          days-before-issue-close: 0
+          close-issue-message: >
             This issue has been automatically closed because there has been no response
             to our request for more information from the original author. With only the
             information that is currently in the issue, we don't have enough information

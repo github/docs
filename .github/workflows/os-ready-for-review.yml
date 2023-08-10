@@ -22,7 +22,7 @@ jobs:
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: triggered-by-member
         with:
-          github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
@@ -44,7 +44,7 @@ jobs:
           exit 1
 
       - name: Check out repo content
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
       - name: Setup Node.js
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516
@@ -59,7 +59,7 @@ jobs:
         run: |
           node .github/actions-scripts/ready-for-docs-review.js
         env:
-          TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id || github.event.issue.node_id }}

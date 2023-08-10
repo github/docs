@@ -1,0 +1,1 @@
+**Note:** If your organization chooses to receive email updates from sponsored accounts, you can select a specific email address to receive those emails. For more information, see "[Managing updates from accounts your organization sponsors](/organizations/managing-organization-settings/managing-updates-from-accounts-your-organization-sponsors)."

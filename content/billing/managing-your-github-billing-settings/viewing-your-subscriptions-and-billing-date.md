@@ -23,7 +23,7 @@ shortTitle: Subscriptions & billing date
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.billing_plans %}
-{% data reusables.dotcom_billing.next_billing_date %}
+{% data reusables.dotcom_billing.next_billing_date_personal_account %}
 
 ## Finding your organization's next billing date
 
@@ -33,11 +33,16 @@ shortTitle: Subscriptions & billing date
 {% data reusables.dotcom_billing.next_billing_date %}
 
 {% ifversion ghec %}
+
 ## Finding your enterprise account's next billing date
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-You cannot view your next billing date if your enterprise account is invoiced.
+{% note %}
+
+**Note:** You cannot view your next billing date if your enterprise account is invoiced.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -47,4 +52,4 @@ You cannot view your next billing date if your enterprise account is invoiced.
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)"
+- "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans)"

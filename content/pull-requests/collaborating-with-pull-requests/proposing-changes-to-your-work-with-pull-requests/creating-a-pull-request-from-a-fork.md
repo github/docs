@@ -22,16 +22,21 @@ If your pull request compares your topic branch with a branch in the upstream re
 
 1. Navigate to the original repository where you created your fork.
 {% data reusables.repositories.new-pull-request %}
-3. On the Compare page, click **compare across forks**.
-  ![Compare across forks link](/assets/images/help/pull_requests/compare-across-forks-link.png)
-4. In the "base branch" drop-down menu, select the branch of the upstream repository you'd like to merge changes into.
-  ![Drop-down menus for choosing the base fork and branch](/assets/images/help/pull_requests/choose-base-fork-and-branch.png)
-5. In the "head fork" drop-down menu, select your fork, then use the "compare branch" drop-down menu to select the branch you made your changes in.
-  ![Drop-down menus for choosing the head fork and compare branch](/assets/images/help/pull_requests/choose-head-fork-compare-branch.png)
+1. On the page to create a new pull request, click **compare across forks**.
+
+   ![Screenshot of the page to open a pull request. The "compare across forks" link is outlined in dark orange.](/assets/images/help/pull_requests/compare-across-forks-link.png)
+
+1. In the "base branch" dropdown menu, select the branch of the upstream repository you'd like to merge changes into.
+
+   ![Screenshot of the page to open a new pull request. The dropdown menus for choosing the base repository and branch are outlined in dark orange.](/assets/images/help/pull_requests/choose-base-fork-and-branch.png)
+
+1. In the "head fork" dropdown menu, select your fork, then use the "compare branch" drop-down menu to select the branch you made your changes in.
+
+   ![Screenshot of the page to open a new pull request. The dropdown menus for choosing the head repository and compare branch are outlined in dark orange.](/assets/images/help/pull_requests/choose-head-fork-compare-branch.png)
+
 {% data reusables.repositories.pr-title-description %}
 {% data reusables.repositories.allow-maintainers-user-forks %}
 
-  ![allow-maintainers-to-make-edits-checkbox](/assets/images/help/pull_requests/allow-maintainers-to-make-edits.png)
 {% data reusables.repositories.create-pull-request %}
 
 {% data reusables.repositories.asking-for-review %}

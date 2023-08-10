@@ -17,7 +17,6 @@ Now that we understand [the basics of webhooks][webhooks-overview], let's go thr
 
 Creating a webhook is a two-step process. You'll first need to set up what events your webhook should listen to. After that, you'll set up your server to receive and manage the payload.
 
-
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 ## Exposing localhost to the internet
@@ -39,7 +38,7 @@ First of all, we need to expose our local development environment to the interne
 After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. `4567` is the port number on which our server will listen for messages. You should see a line that looks something like this:
 
 ```shell
-$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
 Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
@@ -47,6 +46,8 @@ Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.
 ## Setting up a webhook
 
 You can install webhooks on an organization or on a specific repository.
+
+{% data reusables.organizations.owners-and-admins-can %} manage webhooks for an organization. {% data reusables.organizations.new-org-permissions-more-info %}
 
 To set up a webhook, go to the settings page of your repository or organization. From there, click **Webhooks**, then **Add webhook**.
 
@@ -94,6 +95,12 @@ Now that you've created the webhook, it's time to set up our local server to tes
 
 To configure a webhook for all events, use the wildcard (`*`) character to specify the webhook events. When you add the wildcard event, we'll replace any existing events you have configured with the wildcard event and send you payloads for all supported events. You'll also automatically get any new events we might add in the future.
 
-[webhooks-overview]: /webhooks/
-[webhook-api]: /rest/reference/repos#hooks
-[hooks-api]: /webhooks/#events
+[webhooks-overview]: /webhooks-and-events/webhooks/about-webhooks
+[webhook-api]: /rest/repos#hooks
+[hooks-api]: /webhooks-and-events/webhooks/about-webhooks#events
+
+### Ping event
+
+{% data reusables.webhooks.ping_short_desc %}
+
+For more information about the `ping` event webhook payload, see the [`ping`](/webhooks-and-events/webhooks/webhook-events-and-payloads#ping) event.

@@ -23,8 +23,8 @@ A remote URL is Git's fancy way of saying "the place where your code is stored."
 
 You can only push to two types of URL addresses:
 
-* An HTTPS URL like `https://{% data variables.command_line.backticks %}/user/repo.git`
-* An SSH URL, like `git@{% data variables.command_line.backticks %}:user/repo.git`
+- An HTTPS URL like `https://{% data variables.command_line.backticks %}/user/repo.git`
+- An SSH URL, like `git@{% data variables.command_line.backticks %}:user/repo.git`
 
 Git associates a remote URL with a name, and your default remote is usually called `origin`.
 
@@ -34,7 +34,7 @@ You can use the `git remote add` command to match a remote URL with a name.
 For example, you'd type the following in the command line:
 
 ```shell
-git remote add origin &lt;REMOTE_URL>
+git remote add origin <REMOTE_URL>
 ```
 
 This associates the name `origin` with the `REMOTE_URL`.
@@ -86,11 +86,12 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
 
 {% ifversion not ghae %}
+
 ## Cloning with Subversion
 
 {% data reusables.subversion.sunset %}
 
-You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.prodname_dotcom %}. Subversion offers a different feature set than Git. For more information, see "[AUTOTITLE](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git)"
+You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.prodname_dotcom %}. Subversion offers a different feature set than Git. For more information, see "[AUTOTITLE](/get-started/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git)"
 
-You can also access repositories on {% data variables.product.prodname_dotcom %} from Subversion clients. For more information, see "[AUTOTITLE](/get-started/importing-your-projects-to-github/working-with-subversion-on-github/support-for-subversion-clients)."
+You can also access repositories on {% data variables.product.prodname_dotcom %} from Subversion clients. For more information, see "[AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients)."
 {% endif %}

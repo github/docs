@@ -17,7 +17,7 @@ import path from 'path'
 
 import { program } from 'commander'
 import chalk from 'chalk'
-import mkdirp from 'mkdirp'
+import { mkdirp } from 'mkdirp'
 
 // Here, write down all the files that are actually part of the rendering
 // functionality yet live in data.
@@ -95,8 +95,8 @@ async function main(opts) {
       '\n',
       chalk.yellow(
         'Run this script again without --check to make all fixture data files up-to-date. ' +
-          'Then commit and check in.'
-      )
+          'Then commit and check in.',
+      ),
     )
   }
 

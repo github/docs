@@ -49,7 +49,7 @@ If you already have a profile README, you can edit it from your profile page.
 {% data reusables.profile.navigating-to-profile %}
 1. Click the {% octicon "pencil" aria-label="Edit this file" %} next to your profile README.
 
-   ![Screenshot of @octocat's profile README. A pencil icon is highlighted with an orange outline.](/assets/images/help/profile/edit-profile-readme.png)
+   ![Screenshot of @octocat's profile README. A pencil icon is outlined in dark orange.](/assets/images/help/profile/edit-profile-readme.png)
 
 {% endif %}
 
@@ -61,13 +61,14 @@ By using the HTML `<picture>` element with the `prefers-color-scheme` media feat
 
 1. Copy and paste the following markup into your {% ifversion ghae %}`about-me.md`{% else %}`README.md`{% endif %} file.
 
-   ```HTML{:copy}
+   ```HTML copy
    <picture>
     <source media="(prefers-color-scheme: dark)" srcset="YOUR-DARKMODE-IMAGE">
     <source media="(prefers-color-scheme: light)" srcset="YOUR-LIGHTMODE-IMAGE">
     <img alt="YOUR-ALT-TEXT" src="YOUR-DEFAULT-IMAGE">
    </picture>
    ```
+
 1. Replace the placeholders in the markup with the URLs of your chosen images. Alternatively, to try the feature first, you can copy the URLs from our example below.
 
    - Replace `YOUR-DARKMODE-IMAGE` with the URL of an image to display for visitors using dark mode.
@@ -84,7 +85,7 @@ For more information on using images in Markdown, see "[AUTOTITLE](/get-started/
 
 ### How the image looks
 
-![Screenshot of the "Preview" tab of a comment, in light mode. An image of a smiling sun is displayed.](/assets/images/help/writing/lightmode-image-example.png)
+![Screenshot of the "Preview" tab of a {% data variables.product.prodname_dotcom %} comment, in light mode. An image of a smiling sun fills the box.](/assets/images/help/writing/lightmode-image-example.png)
 
 ## Adding a table
 
@@ -98,15 +99,17 @@ You can use Markdown tables to organize information. Here, you'll use a table to
 
    Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotcom %}'s mascot.
    ```
+
 1. Two lines below this paragraph, insert a table by copying and pasting the following markup.
 
-   ```Markdown{:copy}
+   ```Markdown copy
    | Rank | THING-TO-RANK |
    |-----:|---------------|
    |     1|               |
    |     2|               |
    |     3|               |
    ```
+
 1. In the column on the right, replace `THING-TO-RANK` with "Languages," "Hobbies," or anything else, and fill in the column with your list of things.
 1. To check the table has rendered correctly, click the **Preview** tab.
 
@@ -128,7 +131,7 @@ Hi, I'm Mona. You might recognize me as {% data variables.product.prodname_dotco
 
 ### How the table looks
 
-![Screenshot of the "Preview" tab of a comment. Under the "About me" heading is a rendered table with a ranked list of languages.](/assets/images/help/writing/markdown-table-example.png)
+![Screenshot of the "Preview" tab of a {% data variables.product.prodname_dotcom %} comment. Under the "About me" heading is a rendered table with a ranked list of languages.](/assets/images/help/writing/markdown-table-example.png)
 
 ## Adding a collapsed section
 
@@ -136,7 +139,7 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 
 1. To create a collapsed section for the table you created, wrap your table in `<details>` tags like in the following example.
 
-   ```HTML{:copy}
+   ```HTML copy
    <details>
    <summary>My top THINGS-TO-RANK</summary>
 
@@ -144,12 +147,14 @@ To keep your content tidy, you can use the `<details>` tag to create an expandib
 
    </details>
    ```
+
 1. Between the `<summary>` tags, replace `THINGS-TO-RANK` with whatever you ranked in your table.
 1. Optionally, to make the section display as open by default, add the `open` attribute to the `<details>` tag.
 
    ```HTML
    <details open>
    ```
+
 1. To check the collapsed section has rendered correctly, click the **Preview** tab.
 
 ### Example of a collapsed section
@@ -180,6 +185,7 @@ Markdown has many other options for formatting your content. Here, you'll add a 
    ```Markdown
    ---
    ```
+
 1. Below the `---` line, add a quote by typing markup like the following.
 
    ```Markdown
@@ -200,7 +206,7 @@ Markdown has many other options for formatting your content. Here, you'll add a 
 
 ### How the quote looks
 
-![Screenshot of the "Preview" tab of a comment. A quote is indented below a thick horizontal line.](/assets/images/help/writing/markdown-quote-example.png)
+![Screenshot of the "Preview" tab of a {% data variables.product.prodname_dotcom %} comment. A quote is indented below a thick horizontal line.](/assets/images/help/writing/markdown-quote-example.png)
 
 ## Adding a comment
 

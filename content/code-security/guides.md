@@ -24,11 +24,15 @@ includeGuides:
   - /code-security/getting-started/github-security-features
   - /code-security/getting-started/securing-your-organization
   - /code-security/getting-started/securing-your-repository
+  - /code-security/getting-started/dependabot-quickstart-guide
+  - /code-security/getting-started/auditing-security-alerts
+  - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
   - /code-security/secret-scanning/about-secret-scanning
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning
   - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
+  - /code-security/secret-scanning/push-protection-for-users
   - /code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection
   - /code-security/secret-scanning/secret-scanning-patterns
   - /code-security/secret-scanning/troubleshooting-secret-scanning
@@ -37,12 +41,14 @@ includeGuides:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning-at-scale
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/troubleshooting-the-codeql-workflow
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs
   - /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
   - /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning
@@ -66,9 +72,9 @@ includeGuides:
   - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
   - /code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability
   - /code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities
-  - /code-security/security-overview/about-the-security-overview
-  - /code-security/security-overview/filtering-alerts-in-the-security-overview
-  - /code-security/security-overview/viewing-the-security-overview
+  - /code-security/security-overview/about-security-overview
+  - /code-security/security-overview/filtering-alerts-in-security-overview
+  - /code-security/security-overview/assessing-code-security-risk
   - /code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates
   - /code-security/dependabot/working-with-dependabot/automating-dependabot-with-github-actions
   - /code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
@@ -91,8 +97,10 @@ includeGuides:
   - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
   - /code-security/dependabot/working-with-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies
   - /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
+  - /code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph
+  - /code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---

@@ -1,6 +1,5 @@
 // https://jestjs.io/docs/en/configuration.html
 
-const isBrowser = process.env.BROWSER
 const isActions = Boolean(process.env.GITHUB_ACTIONS)
 
 const reporters = ['default']
@@ -10,6 +9,7 @@ if (isActions) {
 }
 
 export default {
+  preset: 'ts-jest',
   coverageThreshold: {
     global: {
       branches: 95,
@@ -18,7 +18,6 @@ export default {
       statements: -5,
     },
   },
-  preset: isBrowser ? 'jest-puppeteer' : undefined,
   moduleNameMapper: {
     // fix for "Unexpected token 'export'" error when running jest
     '@primer/behaviors': '<rootDir>/node_modules/@primer/behaviors/dist/cjs/index.js',
@@ -26,14 +25,13 @@ export default {
   reporters,
   modulePathIgnorePatterns: ['assets/'],
   setupFilesAfterEnv: ['./jest.setup.js', 'jest-expect-message'],
-  ...(isBrowser ? {} : { testEnvironment: 'node' }),
+  testEnvironment: 'node',
   testPathIgnorePatterns: [
     'node_modules/',
     'vendor/',
     'tests/fixtures/',
     'tests/helpers/',
     'tests/javascripts/',
-    ...(isBrowser ? [] : ['tests/browser/browser.js']),
   ],
   testMatch: ['**/tests/**/*.js'],
   testLocationInResults: isActions,

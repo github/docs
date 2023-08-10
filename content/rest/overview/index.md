@@ -14,15 +14,17 @@ children:
   - /resources-in-the-rest-api
   - /api-versions
   - /media-types
-  - /other-authentication-methods
+  - /authenticating-to-the-rest-api
+  - /keeping-your-api-credentials-secure
   - /troubleshooting
   - /libraries
   - /openapi-description
-  - /endpoints-available-for-github-apps
+  - /endpoints-available-for-github-app-installation-access-tokens
+  - /endpoints-available-for-github-app-user-access-tokens
   - /endpoints-available-for-fine-grained-personal-access-tokens
   - /permissions-required-for-github-apps
-  - /breaking-changes
   - /permissions-required-for-fine-grained-personal-access-tokens
+  - /breaking-changes
 redirect_from:
   - /developers/overview
 ---

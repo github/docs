@@ -1,2 +1,3 @@
-1. Under your repository name, click {% octicon "book" aria-label="Book symbol" %} **Wiki**.
-![Wiki menu link](/assets/images/help/wiki/wiki_menu_link.png)
+1. Under your repository name, click {% octicon "book" aria-hidden="true" %} **Wiki**.
+
+   ![Screenshot of the menu in a repository. The "Wiki" option is outlined in dark orange.](/assets/images/help/wiki/wiki-menu-link.png)

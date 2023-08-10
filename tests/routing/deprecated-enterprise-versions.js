@@ -29,11 +29,11 @@ describe('enterprise deprecation', () => {
 
   test('workaround for lost frontmatter redirects works in deprecated enterprise content >=2.13', async () => {
     const res = await get(
-      '/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page'
+      '/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page',
     )
     expect(res.statusCode).toBe(301)
     expect(res.headers.location).toBe(
-      '/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile'
+      '/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile',
     )
   })
 
@@ -41,7 +41,7 @@ describe('enterprise deprecation', () => {
     const res = await get('/enterprise/2.19/admin/categories/time')
     expect(res.statusCode).toBe(302)
     expect(res.headers.location).toBe(
-      '/en/enterprise-server@2.19/admin/configuration/configuring-time-synchronization'
+      '/en/enterprise-server@2.19/admin/configuration/configuring-time-synchronization',
     )
   })
 
@@ -49,7 +49,7 @@ describe('enterprise deprecation', () => {
     expect(enterpriseServerReleases.deprecated.includes('2.13')).toBe(true)
     const $ = await getDOM('/en/enterprise/2.13/user/articles/about-branches')
     expect($.res.statusCode).toBe(200)
-    expect($('h1').text()).toBe('About branches')
+    expect($('h1').first().text()).toBe('About branches')
   })
 
   test('sets the expected headers for deprecated Enterprise pages', async () => {
@@ -114,7 +114,7 @@ describe('recently deprecated redirects', () => {
 
   test('redirects enterprise-server 3.0 with actual redirect without language', async () => {
     const res = await get(
-      '/enterprise-server@3.0/github/getting-started-with-github/githubs-products'
+      '/enterprise-server@3.0/github/getting-started-with-github/githubs-products',
     )
     expect(res.statusCode).toBe(302)
     expect(res.headers['set-cookie']).toBeUndefined()
@@ -126,14 +126,14 @@ describe('recently deprecated redirects', () => {
     // This is based on
     // https://github.com/github/help-docs-archived-enterprise-versions/blob/master/3.0/redirects.json
     expect(res.headers.location).toBe(
-      '/en/enterprise-server@3.0/get-started/learning-about-github/githubs-products'
+      '/en/enterprise-server@3.0/get-started/learning-about-github/githubs-products',
     )
   })
 
   test('follow redirects enterprise-server 3.0 with actual redirect without language', async () => {
     const res = await get(
       '/enterprise-server@3.0/github/getting-started-with-github/githubs-products',
-      { followAllRedirects: true }
+      { followAllRedirects: true },
     )
     expect(res.statusCode).toBe(200)
   })
@@ -214,7 +214,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('text/css; charset=utf-8')
   })
 
-  it('returns the expected JS file > 2.18', async () => {
+  it('returns the expected JS file > 2.18 by using Referrer', async () => {
     const result = await get('/enterprise/2.18/dist/index.js', {
       headers: {
         Referrer: '/en/enterprise/2.18',
@@ -223,6 +223,24 @@ describe('JS and CSS assets', () => {
     expect(result.statusCode).toBe(200)
     expect(result.headers['x-is-archived']).toBe('true')
     expect(result.headers['content-type']).toBe('application/javascript; charset=utf-8')
+  })
+
+  it("can not return the archived asset if there's no Referrer", async () => {
+    const result = await get('/enterprise/2.18/dist/index.js', {
+      headers: {
+        // No Referrer header set at all.
+      },
+    })
+    expect(result.statusCode).toBe(404)
+  })
+
+  it('can not return the archived asset if empty Referrer', async () => {
+    const result = await get('/enterprise/2.18/dist/index.js', {
+      headers: {
+        Referrer: '',
+      },
+    })
+    expect(result.statusCode).toBe(404)
   })
 
   it('returns the expected JS file', async () => {
@@ -254,7 +272,7 @@ describe('JS and CSS assets', () => {
         headers: {
           Referrer: '/en/enterprise/2.17',
         },
-      }
+      },
     )
     expect(result.statusCode).toBe(200)
     expect(result.headers['x-is-archived']).toBe('true')

@@ -1,12 +1,13 @@
 ---
 title: Running CodeQL code scanning in a container
-shortTitle: '{% data variables.product.prodname_code_scanning_capc %} in a container'
+shortTitle: '{% data variables.product.prodname_code_scanning_caps %} in a container'
 intro: 'You can run {% data variables.product.prodname_code_scanning %} in a container by ensuring that all processes run in the same container.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/running-codeql-code-scanning-in-a-container
   - /code-security/secure-coding/running-codeql-code-scanning-in-a-container
   - /code-security/secure-coding/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
+  - /github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
 versions:
   fpt: '*'
   ghes: '*'
@@ -42,9 +43,9 @@ You must run {% data variables.product.prodname_codeql %} inside the container i
 
 You may have difficulty running {% data variables.product.prodname_code_scanning %} if the container you're using is missing certain dependencies (for example, Git must be installed and added to the PATH variable). If you encounter dependency issues, review the list of software typically included on {% data variables.product.prodname_dotcom %}'s runner images. For more information, see the version-specific `readme` files in these locations:
 
-* Linux: https://github.com/actions/runner-images/tree/main/images/linux
-* macOS: https://github.com/actions/runner-images/tree/main/images/macos
-* Windows: https://github.com/actions/runner-images/tree/main/images/win
+- Linux: https://github.com/actions/runner-images/tree/main/images/linux
+- macOS: https://github.com/actions/runner-images/tree/main/images/macos
+- Windows: https://github.com/actions/runner-images/tree/main/images/win
 
 ## Example workflow
 

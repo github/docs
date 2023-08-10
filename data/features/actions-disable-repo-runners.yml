@@ -1,0 +1,6 @@
+# Reference: #10198
+# Documentation for the ability to disable repo-level self-hosted runners
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.10'

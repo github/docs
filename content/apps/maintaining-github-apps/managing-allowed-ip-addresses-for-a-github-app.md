@@ -1,6 +1,6 @@
 ---
 title: Managing allowed IP addresses for a GitHub App
-intro: 'You can add an IP allow list to your {% data variables.product.prodname_github_app %} to prevent your app from being blocked by an organization''s own allow list.'
+intro: 'You can add an IP allow list to your {% data variables.product.prodname_github_app %} registration to prevent your app from being blocked by an organization''s own allow list.'
 versions:
   fpt: '*'
   ghae: '*'
@@ -18,14 +18,15 @@ Enterprise and organization owners can restrict access to assets by configuring 
 
 When an organization has an allow list, third-party applications that connect via a {% data variables.product.prodname_github_app %} will be denied access unless both of the following are true:
 
-* The creator of the {% data variables.product.prodname_github_app %} has configured an allow list for the application that specifies the IP addresses at which their application runs. See below for details of how to do this.
-* The organization owner has chosen to permit the addresses in the {% data variables.product.prodname_github_app %}'s allow list to be added to their own allow list. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+- The creator of the {% data variables.product.prodname_github_app %} has configured an allow list for the application that specifies the IP addresses at which their application runs. See below for details of how to do this.
+- The organization owner has chosen to permit the addresses in the {% data variables.product.prodname_github_app %}'s allow list to be added to their own allow list. For more information, see "[Managing allowed IP addresses for your organization](/{% ifversion fpt %}enterprise-cloud@latest/{% endif %}organizations/keeping-your-organization-secure/managing-allowed-ip-addresses-for-your-organization#using-github-actions-with-an-ip-allow-list){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 
-## Adding an IP address allow list to a {% data variables.product.prodname_github_app %}
+## Adding an IP address allow list to a {% data variables.product.prodname_github_app %} registration
 
 {% data reusables.identity-and-permissions.ipv6-allow-lists %}
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.apps.settings-step %}
 {% data reusables.user-settings.developer_settings %}

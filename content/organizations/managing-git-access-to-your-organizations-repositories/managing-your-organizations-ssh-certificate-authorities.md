@@ -25,6 +25,8 @@ You can allow members to access your organization's repositories using SSH certi
 
 If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)."
 
+{% data reusables.enterprise.certificate-authority-usage %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}

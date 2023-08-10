@@ -35,7 +35,7 @@ As a best practice, we encourage you to include the license file with your proje
 
 ## Searching GitHub by license type
 
-You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword:
+You can filter repositories based on their license or license family using the `license` qualifier and the exact license keyword.
 
 License | License keyword
 ---  | ---
@@ -46,6 +46,8 @@ License | License keyword
 | BSD 2-clause "Simplified" license | `bsd-2-clause` |
 | BSD 3-clause "New" or "Revised" license | `bsd-3-clause` |
 | BSD 3-clause Clear license | `bsd-3-clause-clear` |
+| BSD 4-clause "Original" or "Old" license | `bsd-4-clause` |
+| BSD Zero-Clause license | `0bsd` |
 | Creative Commons license family | `cc` |
 | Creative Commons Zero v1.0 Universal | `cc0-1.0` |
 | Creative Commons Attribution 4.0 | `cc-by-4.0` |
@@ -78,16 +80,16 @@ When you search by a family license, your results will include all licenses in t
 
 ## Detecting a license
 
-[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's *LICENSE* file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](https://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's _LICENSE_ file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](https://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
-If your repository is using a license that is listed on the Choose a License website and it's not displaying clearly at the top of the repository page, it may contain multiple licenses or other complexity. To have your license detected, simplify your *LICENSE* file and note the complexity somewhere else, such as your repository's *README* file.
+If your repository is using a license that is listed on the Choose a License website and it's not displaying clearly at the top of the repository page, it may contain multiple licenses or other complexity. To have your license detected, simplify your _LICENSE_ file and note the complexity somewhere else, such as your repository's _README_ file.
 
 ## Applying a license to a repository with an existing license
 
 {% ifversion fpt or ghec %}
 The license picker is only available when you create a new project on GitHub.
 
-![Screenshot of license picker on GitHub.com](/assets/images/help/repository/repository-license-picker.png)
+![Screenshot the "Choose a license" section of the new repository page, including a dropdown menu labeled "License."](/assets/images/help/repository/repository-license-picker.png)
 {% endif %}
 
 You can manually add a license using the browser. For more information on adding a license to a repository, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)."

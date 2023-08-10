@@ -16,15 +16,15 @@ With {% data variables.product.prodname_discussions %}, the community for your p
 - Upvote discussions and comments to give higher visibility to ideas you find valuable
 - Foster an inviting atmosphere for visitors and contributors to discuss goals, development, administration, and workflows
 
-![Screenshot of the "Discussions" page for a {% data variables.product.company_short %} repository.](/assets/images/help/discussions/hero.png)
+![Screenshot of the "Discussions" page for a {% data variables.product.company_short %} repository, showing a list of discussions such as "Feedback on the new layout" and "Project direction".](/assets/images/help/discussions/hero.png)
 
 You might use repository discussions to discuss topics that are specific to the repository. If your project spans multiple repositories, you might use organization discussions to discuss topics that aren't specific to a single repository in your organization.
 
-You don't need to close a discussion like you close an issue or a pull request.
+{% ifversion discussions-closable %}{% data reusables.discussions.closing-discussions %} For more information, see "[Closing a discussion](/discussions/managing-discussions-for-your-community/managing-discussions#closing-a-discussion)."{% else %}You don't need to close a discussion like you close an issue or a pull request.{% endif %}
 
 If a repository administrator or project maintainer enables {% data variables.product.prodname_discussions %} for a repository, anyone who has access to the repository can create and participate in discussions for the repository. If an organization owner enables {% data variables.product.prodname_discussions %} for an organization, anyone who can view the source repository can create an organization discussion.
 
-Repository administrators and project maintainers can manage discussions and discussion categories in a repository, and pin discussions to increase the visibility of the discussion. Moderators and collaborators can mark comments as answers, lock discussions, and convert issues to discussions. Similarly, for organization discussions, the role of a user in the source repository determines how a user can interact with organization discussions. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+Repository administrators and project maintainers can manage discussions and discussion categories in a repository, and pin discussions to increase the visibility of the discussion. Moderators and collaborators can mark comments as answers, lock discussions, and convert issues to discussions. Similarly, for organization discussions, the role of a user in the source repository determines how a user can interact with organization discussions. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
 For more information about management of discussions, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions)."
 
@@ -40,13 +40,16 @@ For more information on creating polls, see "[AUTOTITLE](/discussions/collaborat
 
 ## About discussion organization
 
-You can organize discussions with categories and labels.
+You can organize discussions with categories{% ifversion discussions-category-section %}, sections, {% endif %} and labels.
 
 {% data reusables.discussions.you-can-categorize-discussions %} {% data reusables.discussions.about-categories-and-formats %} {% data reusables.discussions.repository-category-limit %}
 
 For discussions with a question/answer format, an individual comment within the discussion can be marked as the discussion's answer. {% data reusables.discussions.github-recognizes-members %}
 
 {% data reusables.discussions.about-announcement-format %}
+
+{% ifversion discussions-category-section %}
+{% data reusables.discussions.category-sections %}{% endif %}
 
 For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
 

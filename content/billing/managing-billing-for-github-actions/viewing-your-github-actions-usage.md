@@ -37,6 +37,7 @@ Organization owners and billing managers can view {% data variables.product.prod
 {% data reusables.dotcom_billing.actions-packages-report-download-org-account %}
 
 {% ifversion ghec %}
+
 ## Viewing {% data variables.product.prodname_actions %} usage for your enterprise account
 
 Enterprise owners and billing managers can view {% data variables.product.prodname_actions %} usage for an enterprise account.
@@ -50,7 +51,10 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Under "Actions", view your usage minutes.
+1. Under "Actions monthly usage," view your usage minutes.
+
+   You can expand this section to show a breakdown of the usage by runner type.
+
 1. Under your usage minutes, view details of usage of data transfer by each organization in your enterprise account.
 {% data reusables.dotcom_billing.actions-packages-storage-enterprise-account %}
 {% data reusables.enterprise-accounts.actions-packages-report-download-enterprise-accounts %}

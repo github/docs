@@ -48,6 +48,14 @@ Use one of your recovery codes to automatically regain entry into your account. 
 1. Under "Having problems?", click **Use a recovery code{% ifversion fpt or ghec %} or request a reset{% endif %}**.
 1. Type one of your recovery codes, then click **Verify**.
 
+{% ifversion passkeys %}
+
+## Authenticating with a passkey
+
+If you have added a passkey to your account, you can use your passkey to automatically regain access to your account. Passkeys satisfy both password and 2FA requirements, so you don't need to know your password in order to recover your account. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+
+{% endif %}
+
 ## Authenticating with a security key
 
 If you configured two-factor authentication using a security key, you can use your security key as a secondary authentication method to automatically regain access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
@@ -101,3 +109,7 @@ You can use your two-factor authentication credentials or two-factor authenticat
 1. A member of {% data variables.contact.github_support %} will review your request and email you within three business days. If your request is approved, you'll receive a link to complete your account recovery process. If your request is denied, the email will include a way to contact support with any additional questions.
 
 {% endif %}
+
+## Further reading
+
+- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)"

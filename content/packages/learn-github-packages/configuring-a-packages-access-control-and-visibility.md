@@ -17,7 +17,7 @@ shortTitle: Access control & visibility
 
 A package can inherit its visibility and access permissions from a repository, or, for registries that support granular permissions, you can set the visibility and permissions of the package separately from a repository.
 
-For the list of registries that support granular permisions, and for more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
+For the list of registries that support granular permissions, and for more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
 
 {% else %}
 A package inherits the permissions and visibility of the repository in which the package is published.
@@ -28,15 +28,15 @@ For more information about permissions for packages, packages-related scopes for
 
 {% ifversion packages-registries-v2 %}
 
-## About inheritance of access permissions and visibility
+## About inheritance of access permissions
 
 In registries that support granular permissions, packages are scoped to a personal account or organization. In these registries, you can publish a package without linking the package to a repository, then determine who can access the package by setting access permissions and visibility in the package's settings.
 
-If you publish a package that is linked to a repository, the package automatically inherits the visibility of the linked repository. {% ifversion packages-inherit-permissions %}By default, the package also inherits the access permissions of the linked repository. For example, a user who has read access to the linked repository will also have read access to the package. When a package automatically inherits access permissions, {% data variables.product.prodname_actions %} workflows in the linked repository also automatically get access to the package.
+{% ifversion packages-inherit-permissions %}By default, if you publish a package that is linked to a repository, the package automatically inherits the access permissions (but not the visibility) of the linked repository. For example, a user who has read access to the linked repository will also have read access to the package. When a package automatically inherits access permissions, {% data variables.product.prodname_actions %} workflows in the linked repository also automatically get access to the package.
 
 A package only inherits the access permissions of a linked repository automatically if you link the repository to the package before you publish the package, such as by adding the `org.opencontainers.image.source` Docker label to a container image. If you connect a published package to a repository from the package's settings page, the package will retain its existing access permissions, and will not inherit the access permissions of the repository unless you explicitly select this option. Additionally, organizations can disable automatic inheritance of access permissions for all new packages scoped to their organization. For more information, see "[Disabling automatic inheritance of access permissions in an organization](#disabling-automatic-inheritance-of-access-permissions-in-an-organization)" below.
 
-When a package inherits permissions from a repository, to grant or remove access to your package, you must configure the permissions settings of the linked repository. If you want to set a package's access settings separately from the repository linked to the package, you must remove the inherited permissions from the package{% else %}You can also choose to have the package inherit the access permissions of the linked repository{% endif %}. For more information, see "[Selecting whether a package inherits permissions from a repository](#selecting-whether-a-package-inherits-permissions-from-a-repository)" below.
+When a package inherits permissions from a repository, to grant or remove access to your package, you must configure the permissions settings of the linked repository. If you want to set a package's access settings separately from the repository linked to the package, you must remove the inherited permissions from the package{% else %}You can choose to have a package inherit the access permissions of a linked repository{% endif %}. For more information, see "[Selecting whether a package inherits permissions from a repository](#selecting-whether-a-package-inherits-permissions-from-a-repository)" below.
 
 If you publish a package in a registry that only supports repository-scoped permissions, the package is always linked to a repository, and always inherits the permissions of the linked repository.
 
@@ -72,9 +72,10 @@ If your package is private or internal and scoped to an organization, then you c
 The selected users or teams will automatically be given access and don't need to accept an invitation first.
 
 {% ifversion packages-registries-v2 %}
+
 ## Selecting whether a package inherits permissions from a repository
 
-{% ifversion packages-inherit-permissions %}By default, if publish a package that is linked to a repository, the package inherits{% else %}If you link a package to a repository, you can choose whether or not the package inherits{% endif %} the access permissions of the linked repository. We recommend you let packages inherit their permissions from a repository, because this simplifies the process of managing access to a package.
+{% ifversion packages-inherit-permissions %}By default, if you publish a package that is linked to a repository, the package inherits{% else %}If you link a package to a repository, you can choose whether or not the package inherits{% endif %} the access permissions of the linked repository. We recommend you let packages inherit their permissions from a repository, because this simplifies the process of managing access to a package.
 
 When a package inherits permissions from a repository, to grant or remove access to your package, you must configure the permissions of the linked repository.
 
@@ -163,6 +164,7 @@ To further customize access to your package, see "[Configuring access to package
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Ensuring {% data variables.product.prodname_github_codespaces %} access to your package
 
 By default, a codespace can seamlessly access certain packages in registries that support granular permissions, such as packages published in the same repository with the **Inherit access** option selected. For the list of {% data variables.product.prodname_registry %} registries that support granular permissions and seamless {% data variables.product.prodname_github_codespaces %} access, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#granular-permissions-for-userorganization-scoped-packages)."
@@ -175,24 +177,23 @@ Once you've selected the package you're interested in sharing with codespaces in
 
 {% data reusables.package_registry.package-settings-option %}
 
-2. Under "Manage Codespaces access", click **Add repository**.
+1. Under "Manage Codespaces access", click **Add repository**.
 
    ![Screenshot of the "Manage Codespaces access" section of the package settings page. The "Add repository" button is highlighted with an orange outline.](/assets/images/help/package-registry/manage-codespaces-access-blank.png)
 
-3. Search for the repository you want to add.
+1. Search for the repository you want to add.
 
-4. Repeat for any additional repositories you would like to allow access.
+1. Repeat for any additional repositories you would like to allow access.
 
-5. If the codespaces for a repository no longer need access to a package, you can remove access. Click **{% octicon "trash" aria-label="remove access to repository from this package" %}**.
+1. If the codespaces for a repository no longer need access to a package, you can remove access. Click **{% octicon "trash" aria-label="remove access to repository from this package" %}**.
 
    ![Screenshot of the "Manage Codespaces access" section of the package settings page. The trash icon is highlighted with an orange outline.](/assets/images/help/package-registry/manage-codespaces-access-item.png)
 
 {% endif %}
+
 ## Configuring visibility of packages for your personal account
 
-When you first publish a package that is scoped to your personal account, the default visibility is private and only you can see the package. You can modify a private or public  package's access by changing the access settings.
-
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+When you first publish a package that is scoped to your personal account, the default visibility is private and only you can see the package. You can modify a private or public  package's access by changing the access settings. Once you make your package public, you cannot make your package private again.
 
 {% data reusables.package_registry.package-settings-option %}
 1. At the bottom of the page, under "Danger Zone", click **Change visibility**.
@@ -220,9 +221,7 @@ For registries that support granular permissions, you can choose the visibility 
 
 ## Configuring visibility of packages for an organization
 
-When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your package through the access settings.
-
-A public package can be accessed anonymously without authentication. Once you make your package public, you cannot make your package private again.
+When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your package through the access settings. Once you make your package public, you cannot make your package private again.
 
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}

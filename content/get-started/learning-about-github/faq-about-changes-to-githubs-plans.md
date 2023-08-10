@@ -27,13 +27,14 @@ GitHub announced the following plans and pricing changes:
 
 ## How can I upgrade my plan?
 
-To upgrade your personal account's plan, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-personal-accounts-subscription)." To upgrade your organization's plan, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/upgrading-your-github-subscription#upgrading-your-organizations-subscription)."
+To upgrade your account's plan, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan)."
 
 ## How can I downgrade my plan?
 
-To downgrade your personal account's plan, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-personal-accounts-subscription)." To downgrade your organization's plan, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#downgrading-your-organizations-subscription)."
+To downgrade your personal account or organizations's plan, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan)."
 
 ## If I downgrade from GitHub Team or a Legacy plan to GitHub Free, what features will I lose?
+
 - Required reviewers in private repositories
 - Protected branches in private repositories
 - Code owners in private repositories
@@ -63,7 +64,7 @@ Customers who are currently paying annually for Pro and Team plans and signed up
 
 ## What is the difference between GitHub Free for individual developers and GitHub Free for organizations?
 
-For details on the differences for each GitHub Free product, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
+For details on the differences for each GitHub Free product, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
 ## How can I get more Actions minutes if I need more than allocated in the GitHub Team plan?
 
@@ -71,15 +72,15 @@ Most small teams use fewer than 3,000 Actions minutes/month, but some teams migh
 
 ## How do the seat limit changes affect me?
 
-Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription#removing-paid-seats-from-your-organization)."
+Now that {% data variables.product.prodname_team %} has no minimum seat requirement, if you are using fewer than five seats in your organization, you can remove paid seats to reduce your bill. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan#removing-paid-seats-from-your-organization)."
 
 ## Is anything changing for teams on the GitHub Team for Open Source plan?
 
-If your organization account currently uses the GitHub Team for Open Source plan, you’ve been automatically moved to GitHub Free, which includes private repositories with unlimited collaborators, 2,000 Actions minutes for private repositories, and GitHub Community Support. Actions minutes and Packages storage are still free for your public repositories.
+If your organization account currently uses the GitHub Team for Open Source plan, you’ve been automatically moved to GitHub Free, which includes private repositories with unlimited collaborators, 2,000 Actions minutes for private repositories, and GitHub Community on Discussions. Actions minutes and Packages storage are still free for your public repositories.
 
-## What is GitHub Community Support?
+## What is GitHub Community on Discussions?
 
-GitHub Community Support includes support through our [{% data variables.product.prodname_github_community %} discussions](https://github.com/orgs/community/discussions), where you can browse solutions from the GitHub community, ask new questions, and share ideas. GitHub Community Support is staffed by Support Engineers on the GitHub Team, who moderate {% data variables.product.prodname_github_community %} along with our most active community members. If you need to report spam, report abuse, or have issues with account access, you can send a message to our Support Team on https://support.github.com/.
+[GitHub Community](https://github.com/community) is built to support all GitHub users on their educational journey, via Discussions. It is a resource hub, learning portal, and inspiration station, all in one. Regardless of how big or small your challenge is, all resources and information will be accessible in a true open source fashion. If you need to report spam, report abuse, or have issues with account access, you can send a message to our Support Team on https://support.github.com/.
 
 ## How does this change affect education benefits?
 

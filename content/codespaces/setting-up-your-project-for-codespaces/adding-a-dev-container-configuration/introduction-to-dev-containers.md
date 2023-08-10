@@ -42,8 +42,8 @@ If you create a codespace from a repository without a `devcontainer.json` file, 
 The `devcontainer.json` file is usually located in the `.devcontainer` directory of your repository. Alternatively, you can locate it directly in the root of the repository, in which case the file name must begin with a period: `.devcontainer.json`.
 
 If you want to have a choice of dev container configurations in your repository, any alternatives to the  `.devcontainer/devcontainer.json` (or `.devcontainer.json`) file must be located in their own subdirectory at the path `.devcontainer/SUBDIRECTORY/devcontainer.json`. For example, you could have a choice of two configurations:
-* `.devcontainer/database-dev/devcontainer.json`
-* `.devcontainer/gui-dev/devcontainer.json`
+- `.devcontainer/database-dev/devcontainer.json`
+- `.devcontainer/gui-dev/devcontainer.json`
 
 When you have multiple `devcontainer.json` files in your repository, each codespace is created from only one of the configurations. Settings cannot be imported or inherited between `devcontainer.json` files. If a `devcontainer.json` file in a custom subdirectory has dependent files, such as the Dockerfile or scripts that are run by commands in the `devcontainer.json` file, it's recommended that you co-locate these files in the same subdirectory.
 
@@ -83,7 +83,7 @@ The following example uses four instructions:
 
 `RUN` updates package lists and runs a script. You can also use a `RUN` instruction to install software, as shown by the commented out instructions. To run multiple commands, use `&&` to combine the commands into a single `RUN` statement.
 
-```Dockerfile{:copy}
+```Dockerfile copy
 ARG VARIANT="16-buster"
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
@@ -104,7 +104,7 @@ For more information about Dockerfile instructions, see "[Dockerfile reference](
 
 To use a Dockerfile as part of a dev container configuration, reference it in your `devcontainer.json` file by using the `dockerfile` property.
 
-```json{:copy}
+```json copy
 {
   ...
   "build": { "dockerfile": "Dockerfile" },
@@ -124,7 +124,7 @@ The default configuration is a good option if you're working on a small project 
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default Linux image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
+**Note**: {% data variables.product.prodname_dotcom %} does not charge for storage of containers built from the default Linux image. For more information about billing for codespace storage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage)." {% data reusables.codespaces.check-for-default-image %}
 
 {% endnote %}
 
@@ -136,11 +136,11 @@ Using a predefined configuration is a great idea if you need some additional ext
 
 You can add a predefined dev container configuration either while working in a codespace, or while working on a repository locally. To do this in {% data variables.product.prodname_vscode_shortname %} while you are working locally, and not connected to a codespace, you must have the "Dev Containers" extension installed and enabled. For more information about this extension, see the [{% data variables.product.prodname_vs_marketplace_shortname %}](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers). The following procedure describes the process when you are using a codespace. The steps in {% data variables.product.prodname_vscode_shortname %} when you are not connected to a codespace are very similar.
 
-1. Access the {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "dev container". Click **Codespaces: Configure Dev Container**.
+1. Access the {% data variables.product.prodname_vscode_command_palette %} (<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd> / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>), then start typing "add dev". Click **Codespaces: Add Dev Container Configuration Files**.
 
-   ![Screenshot of the Command Palette, filtered to show only the "Codespaces: Configure Dev Container" option.](/assets/images/help/codespaces/add-prebuilt-container-command.png)
+   ![Screenshot of the Command Palette, with "add dev" entered and "Codespaces: Add Dev Container Configuration Files" listed.](/assets/images/help/codespaces/add-prebuilt-container-command.png)
 
-1. Click **Start from scratch**.
+1. Click **Create a new configuration**.
 1. Click **Show All Definitions**.
 
    ![Screenshot of the "Add Dev Container Configuration Files" menu with the dropdown showing various options, including "Show All Definitions."](/assets/images/help/codespaces/show-all-definitions.png)
@@ -151,7 +151,7 @@ You can add a predefined dev container configuration either while working in a c
 
 1. Follow the prompts to customize your definition.
 1. Click **OK**.
-1. If you are working in a codespace, apply your changes, by clicking **Rebuild now** in the message at the bottom right of the window. For more information about rebuilding your container, see "[Applying changes to your configuration](#applying-configuration-changes-to-a-codespace)."
+1. If you are working in a codespace, apply your changes by clicking **Rebuild now** in the pop-up at the bottom right of the window. For more information about rebuilding your container, see "[Applying configuration changes to a codespace](#applying-configuration-changes-to-a-codespace)."
 
    ![Screenshot of the message: "We've noticed a change to the dev container configuration." Below this is the "Rebuild Now" button.](/assets/images/help/codespaces/rebuild-prompt.png)
 
@@ -163,25 +163,25 @@ You can add a predefined dev container configuration either while working in a c
 
 If none of the predefined configurations meets your needs, you can create a custom configuration by writing your own `devcontainer.json` file.
 
-* If you're adding a single `devcontainer.json` file that will be used by everyone who creates a codespace from your repository, create the file within a `.devcontainer` directory at the root of the repository.
-* If you want to offer users a choice of configuration, you can create multiple custom `devcontainer.json` files, each located within a separate subdirectory of the `.devcontainer` directory.
+- If you're adding a single `devcontainer.json` file that will be used by everyone who creates a codespace from your repository, create the file within a `.devcontainer` directory at the root of the repository.
+- If you want to offer users a choice of configuration, you can create multiple custom `devcontainer.json` files, each located within a separate subdirectory of the `.devcontainer` directory.
 
    {% note %}
 
    **Notes**:
-   - You can't locate your `devcontainer.json` files in directories more than one level below `.devcontainer`. For example, a file at `.devcontainer/teamA/devcontainer.json` will work, but `.devcontainer/teamA/testing/devcontainer.json` will not.
-   - {% data reusables.codespaces.configuration-choice-templates %} For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
+  - You can't locate your `devcontainer.json` files in directories more than one level below `.devcontainer`. For example, a file at `.devcontainer/teamA/devcontainer.json` will work, but `.devcontainer/teamA/testing/devcontainer.json` will not.
+  - {% data reusables.codespaces.configuration-choice-templates %} For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/setting-up-a-template-repository-for-github-codespaces)."
 
    {% endnote %}
 
-   If multiple `devcontainer.json` files are found in the repository, they are listed in the codespace creation options page. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+   If multiple `devcontainer.json` files are found in the repository, they are listed in the **Dev container configuration** dropdown on the codespace creation options page. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
 
    ![Screenshot of the codespace creation options page, showing a dropdown listing a choice of configuration files.](/assets/images/help/codespaces/configuration-file-choice.png)
 
 ### Adding a `devcontainer.json` file
 
 If you don't already have a `devcontainer.json` file in your repository, you can quickly add one from {% data variables.product.prodname_dotcom_the_website %}.
-1. Navigate to your repository and click the **{% octicon "code" aria-label="The code icon" %} Code** dropdown.
+1. Navigate to your repository and click the **{% octicon "code" aria-hidden="true" %} Code** dropdown.
 1. In the **Codespaces** tab, click the ellipsis (**...**), then select **Configure dev container**.
 
    ![Screenshot of the "Code" dropdown, and, within it, another dropdown with the "Configure dev container" option highlighted.](/assets/images/help/codespaces/configure-dev-container.png)
@@ -193,6 +193,8 @@ If your repository already contains one or more `devcontainer.json` files, then 
 ### Default configuration selection during codespace creation
 
 If `.devcontainer/devcontainer.json` or `.devcontainer.json` exists, it will be the default selection in the list of available configuration files when you create a codespace. If neither file exists, the default dev container configuration will be selected by default.
+
+In the following screenshot, the repository does not contain `.devcontainer/devcontainer.json` or `.devcontainer.json` files, so the default dev container configuration is selected. However, two alternative configuration files have been defined in subdirectories of the `.devcontainer` directory, so these are listed as options.
 
 ![Screenshot of the "Dev container configuration" dropdown with the default configuration choice selected.](/assets/images/help/codespaces/configuration-file-choice-default.png)
 
@@ -220,38 +222,19 @@ If a setting is defined in multiple scopes, Workspace settings take priority, th
 
 You can define default interface settings for {% data variables.product.prodname_vscode_shortname %} in two places.
 
-* Interface settings defined in the `.vscode/settings.json` file in your repository are applied as Workspace-scoped settings in the codespace.
-* Interface settings defined in the `settings` key in the `devcontainer.json` file are applied as Remote [Codespaces]-scoped settings in the codespace.
+- Interface settings defined in the `.vscode/settings.json` file in your repository are applied as Workspace-scoped settings in the codespace.
+- Interface settings defined in the `settings` key in the `devcontainer.json` file are applied as Remote [Codespaces]-scoped settings in the codespace.
 
 ## Applying configuration changes to a codespace
 
 Changes to a configuration will be applied the next time you create a codespace. However, you can apply your changes to an existing codespace by rebuilding the container. You can do this within a codespace in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application, or you can use {% data variables.product.prodname_cli %}.
 
+{% data reusables.codespaces.rebuild-note %}
+
 ### Rebuilding the dev container in the {% data variables.product.prodname_vscode_shortname %} web client or desktop application
 
 {% data reusables.codespaces.rebuild-command %}
-1. {% data reusables.codespaces.recovery-mode %}
-
-   ![Screenshot of a message saying that the codespace is running in recovery mode. Below the message are buttons labeled "Cancel" and "View creation log."](/assets/images/help/codespaces/recovery-mode-error-message.png)
-
-   - To diagnose the error by reviewing the creation logs, click **View creation log**.
-   - To fix the errors identified in the logs, update your `devcontainer.json` file.
-   - To apply the changes, rebuild your container.
-
-### Using {% data variables.product.prodname_cli %} to rebuild a dev container
-
-If you've changed a dev container configuration outside of VS Code (for example, on {% data variables.product.prodname_dotcom_the_website %} or in a JetBrains IDE), you can use {% data variables.product.prodname_cli %} to rebuild the dev container for an existing codespace.
-
-1. In a terminal, enter the following command.
-
-   ```
-   gh cs rebuild
-   ```
-
-   Your codespaces are listed.
-
-1. Use the arrow keys on your keyboard to highlight the required codespace, then press <kbd>Enter</kbd>.
-
+{% data reusables.codespaces.rebuilding-container-procedures %}
 
 ## Further reading
 

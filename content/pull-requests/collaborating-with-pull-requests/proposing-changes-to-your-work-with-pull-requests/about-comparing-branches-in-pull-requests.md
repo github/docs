@@ -22,7 +22,7 @@ shortTitle: Compare branches
 {% endnote %}
 
 You can view proposed changes in a pull request in the Files changed tab.
-![Pull Request Files changed tab](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
+![Screenshot of the tabs for a pull request. The "Files changed" tab is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
 
 Rather than viewing the commits themselves, you can view the proposed changes as they'll appear in the files once the pull request is merged. The files appear in alphabetical order within the Files changed tab. Additions to the files appear in green and are prefaced by a `+` sign while content that has been removed appears in red and is prefaced by a `-` sign.
 
@@ -42,21 +42,22 @@ You have several options for viewing a diff:
 
 You can also choose to ignore whitespace changes to get a more accurate view of the substantial changes in a pull request.
 
-![Diff viewing options menu](/assets/images/help/pull_requests/diff-settings-menu.png)
+![Screenshot of the "Files changed" tab for a pull request. The "Diff view" menu is outlined in dark orange.](/assets/images/help/pull_requests/diff-settings-menu.png)
 
 To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
 
-  ![File filter drop-down menu](/assets/images/help/pull_requests/file-filter-menu.png)
+![Screenshot of the file filter dropdown menu. The menu is expanded and outlined in dark orange.](/assets/images/help/pull_requests/file-filter-menu.png)
 
 ## Reasons diffs will not display
+
 - You've exceeded the total limit of files or certain file types. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#limits-for-viewing-content-and-diffs-in-a-repository)."
-- Your file matches a rule in the repository's *.gitattributes* file to block that file from displaying by default. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)."
+- Your file matches a rule in the repository's _.gitattributes_ file to block that file from displaying by default. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)."
 
 ## Three-dot and two-dot Git diff comparisons
 
 There are two comparison methods for the `git diff` command; two-dot (`git diff A..B`) and three-dot (`git diff A...B`). By default, pull requests on {% data variables.product.prodname_dotcom %} show a three-dot diff.
 
-### Three-dot Git diff comparison 
+### Three-dot Git diff comparison
 
 The three-dot comparison shows the difference between the latest common commit of both branches (merge base) and the most recent version of the topic branch.
 
@@ -76,7 +77,7 @@ For more information about Git commands to compare changes, see "[Git diff optio
 
 ## About three-dot comparison on {% data variables.product.prodname_dotcom %}
 
-Since the three-dot comparison compares with the merge base, it is focusing on "what a pull request introduces". 
+Since the three-dot comparison compares with the merge base, it is focusing on "what a pull request introduces".
 
 When you use a two-dot comparison, the diff changes when the base branch is updated, even if you haven't made any changes to the topic branch. Additionally, a two-dot comparison focuses on the base branch. This means that anything you add is displayed as missing from the base branch, as if it was a deletion, and vice versa. As a result, the changes the topic branch introduces become ambiguous.
 

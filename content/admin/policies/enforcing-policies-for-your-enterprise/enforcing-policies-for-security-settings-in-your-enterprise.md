@@ -30,6 +30,10 @@ You can enforce policies to control the security settings for organizations owne
 
 ## Requiring two-factor authentication for organizations in your enterprise
 
+{% ifversion mandatory-2fa-dotcom-contributors %}
+{% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
+{% endif %}
+
 {% ifversion ghes%}If {% data variables.location.product_location %} uses LDAP or built-in authentication, enterprise{% else %}Enterprise{% endif %} owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use two-factor authentication to secure their user accounts.
 
 Before you can require 2FA for all organizations owned by your enterprise, you must enable two-factor authentication for your own account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa)."
@@ -46,13 +50,23 @@ Before you can require 2FA for all organizations owned by your enterprise, you m
 
 Before you require use of two-factor authentication, we recommend notifying organization members, outside collaborators, and billing managers and asking them to set up 2FA for their accounts. Organization owners can see if members and outside collaborators already use 2FA on each organization's People page. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled)."
 
+{% ifversion mandatory-2fa-dotcom-contributors %}
+
+{% note %}
+
+**Note**: Some of the users in your organizations may have been selected for mandatory two-factor authentication enrollment by  {% data variables.product.prodname_dotcom_the_website %}, but it has no impact on how you enable the 2FA requirement for the organizations in your enterprise. If you enable the 2FA requirement for organizations in your enterprise, all users without 2FA currently enabled will be removed from the organizations, including those that are required to enable it by {% data variables.product.prodname_dotcom_the_website %}.
+
+{% endnote %}
+
+{% endif %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
-4. Under "Two-factor authentication", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Two-factor authentication", select **Require two-factor authentication for all organizations in your business**, then click **Save**.
-6. If prompted, read the information about members and outside collaborators who will be removed from the organizations owned by your enterprise. To confirm the change, type your enterprise's name, then click **Remove members & require two-factor authentication**.
-7. Optionally, if any members or outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
+1. Under "Two-factor authentication", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Two-factor authentication", select **Require two-factor authentication for all organizations in your business**, then click **Save**.
+1. If prompted, read the information about members and outside collaborators who will be removed from the organizations owned by your enterprise. To confirm the change, type your enterprise's name, then click **Remove members & require two-factor authentication**.
+1. Optionally, if any members or outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable two-factor authentication before they can accept your invitation.
 
 {% endif %}
 
@@ -65,6 +79,8 @@ You can use a SSH certificate authorities (CA) to allow members of any organizat
 ### Adding an SSH certificate authority
 
 If you require SSH certificates for your enterprise, enterprise members should use a special URL for Git operations over SSH. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities#about-ssh-urls-with-ssh-certificates)."
+
+ {% data reusables.enterprise.certificate-authority-usage %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -82,6 +98,7 @@ Deleting a CA cannot be undone. If you want to use the same CA in the future, yo
 {% data reusables.organizations.delete-ssh-ca %}
 
 {% ifversion sso-redirect %}
+
 ## Managing SSO for unauthenticated users
 
 {% data reusables.enterprise-managed.sso-redirect-release-phase %}
@@ -102,8 +119,6 @@ To prevent confusion from your developers, you can change this behavior so that 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "Single sign-on settings", select or deselect **Automatically redirect users to sign in**.
-
-   ![Checkbox to automatically redirect users to sign in](/assets/images/enterprise/security/Enterprise-Redirect-Users-To-Sign-In-Checkbox.png)
 {% endif %}
 
 ## Further reading

@@ -40,15 +40,20 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 ### Changing the duration of a legacy per-repository plan
 
 {% data reusables.organizations.billing-settings %}
-4. Under "Billing overview", next to your plan, click **Change plan**.
-5. At the top right corner, click **Switch to monthly billing** or **Switch to yearly billing**.
+1. Under "Billing overview", next to your plan, click **Change plan**.
+1. At the top right corner, click **Switch to monthly billing** or **Switch to yearly billing**.
 
 {% ifversion ghec %}
+
 ## Changing the duration of your enterprise account's billing cycle
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-You cannot change the duration of your billing cycle if your enterprise account is invoiced.
+{% note %}
+
+**Note:** You cannot change the duration of your billing cycle if your enterprise account is invoiced.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

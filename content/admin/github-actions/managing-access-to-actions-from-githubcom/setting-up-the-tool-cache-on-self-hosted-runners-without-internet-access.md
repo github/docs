@@ -14,8 +14,7 @@ topics:
   - Networking
   - Storage
 shortTitle: Tool cache for offline runners
----
-{% data reusables.actions.enterprise-beta %}
+--- 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About the included setup actions and the runner tool cache
@@ -36,9 +35,9 @@ You can populate the runner tool cache by running a {% data variables.product.pr
 
 ## Prerequisites
 
-* Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 10 and 12.
-* Access to a repository on {% data variables.product.prodname_dotcom_the_website %} that you can use to run a workflow.
-* Access to your self-hosted runner's file system to populate the tool cache folder.
+- Determine which development environments your self-hosted runners will need. The following example demonstrates how to populate a tool cache for the `setup-node` action, using Node.js versions 10 and 12.
+- Access to a repository on {% data variables.product.prodname_dotcom_the_website %} that you can use to run a workflow.
+- Access to your self-hosted runner's file system to populate the tool cache folder.
 
 ## Populating the tool cache for a self-hosted runner
 
@@ -75,6 +74,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
            with:
              path: {% raw %}${{runner.tool_cache}}/tool_cache.tar.gz{% endraw %}
    ```
+
 1. Download the tool cache artifact from the workflow run. For instructions on downloading artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
 1. Transfer the tool cache artifact to your self hosted runner and extract it to the local tool cache directory. The default tool cache directory is `RUNNER_DIR/_work/_tool`. If the runner hasn't processed any jobs yet, you might need to create the `_work/_tool` directories.
 

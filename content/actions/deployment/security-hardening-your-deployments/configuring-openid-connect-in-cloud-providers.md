@@ -5,13 +5,12 @@ intro: Use OpenID Connect within your workflows to authenticate with cloud provi
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>=3.5'
+  ghes: '*'
 type: tutorial
 topics:
   - Security
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -30,7 +29,7 @@ To use OIDC, you will first need to configure your cloud provider to trust {% da
 
 To update your workflows for OIDC, you will need to make two changes to your YAML:
 1. Add permissions settings for the token.
-2. Use the official action from your cloud provider to exchange the OIDC token (JWT) for a cloud access token.
+1. Use the official action from your cloud provider to exchange the OIDC token (JWT) for a cloud access token.
 
 If your cloud provider doesn't yet offer an official action, you can update your workflows to perform these steps manually.
 
@@ -51,8 +50,8 @@ If you're not using an official action, then {% data variables.product.prodname_
 To update your workflows using this approach, you will need to make three changes to your YAML:
 
 1. Add permissions settings for the token.
-2. Add code that requests the OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider.
-3. Add code that exchanges the OIDC token with your cloud provider for an access token.
+1. Add code that requests the OIDC token from {% data variables.product.prodname_dotcom %}'s OIDC provider.
+1. Add code that exchanges the OIDC token with your cloud provider for an access token.
 
 ### Requesting the JWT using the Actions core toolkit
 
@@ -78,7 +77,7 @@ jobs:
 
 ### Requesting the JWT using environment variables
 
-The following example demonstrates how to use enviroment variables to request a JSON Web Token.
+The following example demonstrates how to use environment variables to request a JSON Web Token.
 
 For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
 
@@ -134,3 +133,7 @@ The steps for exchanging the OIDC token for an access token will vary for each c
 
 Once you've obtained the access token, you can use specific cloud actions or scripts to authenticate to the cloud provider and deploy to its resources. These steps could differ for each cloud provider.
 In addition, the default expiration time of this access token could vary between each cloud and can be configurable at the cloud provider's side.
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}

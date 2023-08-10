@@ -29,14 +29,13 @@ After you've enabled version updates, you can confirm that your configuration is
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
 {% data reusables.dependabot.click-dependabot-tab %}
-1. Optionally, to view the files monitored for a package manager, click the associated {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-  ![Monitored dependency files](/assets/images/help/dependabot/monitored-dependency-files.png)
+1. Optionally, to view the files monitored for a package manager, to the right of the package manager, click {% octicon "kebab-horizontal" aria-label="Show monitored" %}.
+
+   ![Screenshot of the {% data variables.product.prodname_dependabot %} tab under "Insights". A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/dependabot/monitored-dependency-files.png)
 
 If any dependencies are missing, check the log files for errors. If any package managers are missing, review the configuration file.
 
 ## Viewing {% data variables.product.prodname_dependabot %} log files
 
-1. On the **{% data variables.product.prodname_dependabot %}** tab, click **Last checked *TIME* ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates.
-  ![View log file](/assets/images/help/dependabot/last-checked-link.png)
-2. Optionally, to rerun the version check, click **Check for updates**.
-  ![Check for updates](/assets/images/help/dependabot/check-for-updates.png)
+1. On the **{% data variables.product.prodname_dependabot %}** tab, click **Last checked _TIME_ ago** to see the log file that {% data variables.product.prodname_dependabot %} generated during the last check for version updates.
+1. Optionally, to rerun the version check, click **Check for updates**.

@@ -15,15 +15,17 @@ versions:
 topics:
   - Pull requests
 ---
-Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the *pending*, *passing*, or *failing* state of status checks next to individual commits in your pull request.
+Status checks are based on external processes, such as continuous integration builds, which run for each push you make to a repository. You can see the _pending_, _passing_, or _failing_ state of status checks next to individual commits in your pull request.
 
-![List of commits and statuses](/assets/images/help/pull_requests/commit-list-statuses.png)
+![Screenshot of a list of commits and statuses.](/assets/images/help/pull_requests/commit-list-statuses.png)
 
 Anyone with write permissions to a repository can set the state for any status check in the repository.
 
 You can see the overall state of the last commit to a branch on your repository's branches page or in your repository's list of pull requests.
 
 {% data reusables.pull_requests.required-checks-must-pass-to-merge %}
+
+{% data reusables.actions.workflows.skipped-job-status-checks-passing %}
 
 ## Types of status checks on {% data variables.product.product_name %}
 
@@ -40,8 +42,6 @@ Organization owners and users with push access to a repository can create checks
 
 When _checks_ are set up in a repository, pull requests have a **Checks** tab where you can view detailed build output from status checks and rerun failed checks.
 
-![Status checks within a pull request](/assets/images/help/pull_requests/checks.png)
-
 {% note %}
 
 **Note:** The **Checks** tab only gets populated for pull requests if you set up _checks_, not _statuses_, for the repository.
@@ -50,11 +50,9 @@ When _checks_ are set up in a repository, pull requests have a **Checks** tab wh
 
 When a specific line in a commit causes a check to fail, you will see details about the failure, warning, or notice next to the relevant code in the **Files** tab of the pull request.
 
-![Details of a status check](/assets/images/help/pull_requests/checks-detailed.png)
+You can navigate between the checks summaries for various commits in a pull request, using the commit drop-down menu under the **Checks** tab.
 
-You can navigate between the checks summaries for various commits in a pull request, using the commit drop-down menu under the **Conversation** tab.
-
-![Check summaries for different commits in a drop-down menu](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
+![Screenshot of the "Checks" tab of a pull request. The "Checks" tab and the dropdown menu to select a commit are both outlined in dark orange.](/assets/images/help/pull_requests/checks-summary-for-various-commits.png)
 
 ### Skipping and requesting checks for individual commits
 
@@ -65,13 +63,16 @@ You can also skip workflow runs triggered by the `push` and `pull_request` event
 Alternatively, to skip or request _all_ checks for your commit, add one of the following trailer lines to the end of your commit message:
 
 - To _skip checks_ for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `skip-checks: true`:
+
   ```shell
   $ git commit -m "Update README
   >
   >
   skip-checks: true"
   ```
+
 - To _request_ checks for a commit, type your commit message and a short, meaningful description of your changes. After your commit description, before the closing quotation, add two empty lines followed by `request-checks: true`:
+
   ```shell
   $ git commit -m "Refactor usability tests
   >
@@ -80,6 +81,7 @@ Alternatively, to skip or request _all_ checks for your commit, add one of the f
   ```
 
 {% ifversion status-check-retention %}
+
 ### Retention of status checks
 
 {% data reusables.pull_requests.retention-checks-data %}

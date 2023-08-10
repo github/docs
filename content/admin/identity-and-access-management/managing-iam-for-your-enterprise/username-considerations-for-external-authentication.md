@@ -46,22 +46,25 @@ If you use an enterprise with {% data variables.product.prodname_emus %}, member
 {% endif %}
 
 {% ifversion ghec %}
+
 ## About usernames for {% data variables.enterprise.prodname_managed_users %}
 
-When your {% data variables.enterprise.prodname_emu_enterprise %} is created, you will choose a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} The setup user who configures SAML SSO has a username in the format of **@<em>SHORT-CODE</em>_admin**. 
+When your {% data variables.enterprise.prodname_emu_enterprise %} is created, you will choose a short code that will be used as the suffix for your enterprise members' usernames. {% data reusables.enterprise-accounts.emu-shortcode %} The setup user who configures SAML SSO has a username in the format of **@SHORT-CODE_admin**.
 
-When you provision a new user from your identity provider, the new {% data variables.enterprise.prodname_managed_user %} will have a {% data variables.product.prodname_dotcom %} username in the format of **@<em>IDP-USERNAME</em>_<em>SHORT-CODE</em>**. The <em>IDP-USERNAME</em> component is formed by normalizing the SCIM `userName` attribute value sent from the IdP. 
+When you provision a new user from your identity provider, the new {% data variables.enterprise.prodname_managed_user %} will have a {% data variables.product.prodname_dotcom %} username in the format of **@IDP-USERNAME_SHORT-CODE**. The IDP-USERNAME component is formed by normalizing the SCIM `userName` attribute value sent from the IdP.
 
 | Identity provider                 | {% data variables.product.prodname_dotcom %} username  |
 |-----------------------------------|----------------------|
-| Azure Active Directory (Azure AD) | _IDP-USERNAME_ is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
-| Okta                              | _IDP-USERNAME_ is the normalized username attribute provided by the IdP.               |
+| Azure Active Directory (Azure AD) | IDP-USERNAME is formed by normalizing the characters preceding the `@` character in the UPN (User Principal Name), which does not include the `#EXT#` for guest accounts. |
+| Okta                              | IDP-USERNAME is the normalized username attribute provided by the IdP.               |
 
-These rules may result in your IdP providing the same _IDP-USERNAME_ for multiple users. For example, for Azure AD, the following UPNs will result in the same username:
+These rules may result in your IdP providing the same IDP-USERNAME for multiple users. For example, for Azure AD, the following UPNs will result in the same username:
 
 - `bob@contoso.com`
 - `bob@fabrikam.com`
 - `bob#EXT#fabrikamcom@contoso.com`
+- `bob_example#EXT#fabrikamcom@contoso.com`
+- `bob_example.com#EXT#fabrikamcom@contoso.com`
 
 This will cause a username conflict, and only the first user will be provisioned. For more information, see "[Resolving username problems](#resolving-username-problems)."
 {% endif %}
@@ -84,7 +87,7 @@ When you configure SAML authentication, {% data variables.product.product_name %
 
 1. Usernames created from email addresses are created from the normalized characters that precede the `@` character.
 
-1. Usernames created from domain accounts are created from the normalized characters after the `\\` separator. 
+1. Usernames created from domain accounts are created from the normalized characters after the `\\` separator.
 
 1. If multiple accounts are normalized into the same {% data variables.product.product_name %} username, only the first user account is created. Subsequent users with the same username won't be able to sign in. {% ifversion ghec %}For more information, see "[Resolving username problems](#resolving-username-problems)."{% endif %}
 
@@ -102,6 +105,7 @@ When you configure SAML authentication, {% data variables.product.product_name %
 | `mona.lisa.the.octocat.from.github.united.states@example.com` | `mona-lisa-the-octocat-from-github-united-states{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it exceeds the 39-character limit. |
 
 {% ifversion not ghec %}
+
 ### About username normalization with SAML
 
 {% ifversion ghes %}If you configure SAML authentication for {% data variables.location.product_location %}, {% endif %}{% data variables.product.product_name %} determines each person's username by one of the following assertions in the SAML response, ordered by descending priority.
@@ -118,18 +122,20 @@ When you configure SAML authentication, {% data variables.product.product_name %
 {% ifversion ghes %}
 {% note %}
 
-**Note**: If the `NameID` for a user does change on the IdP, the person will see an error message when signing into {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+**Note**: If the `NameID` for a user does change on the IdP, the person will see an error message when signing in to {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
 
 {% endnote %}
 {% endif %}
 {% endif %}
 
 {% ifversion ghec %}
+
 ## Resolving username problems
 
-When a new user is being provisioned, if the username is longer than 39 characters (including underscore and short code), or conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error. 
+When a new user is being provisioned, if the username is longer than 39 characters (including underscore and short code), or conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error.
 
 To resolve this problem, you must make one of the following changes in your IdP so that all normalized usernames will be within the character limit and unique.
+
 - Change the `userName` attribute value for individual users that are causing problems
 - Change the `userName` attribute mapping for all users
 - Configure a custom `userName` attribute for all users
@@ -150,7 +156,7 @@ To resolve username problems in Azure AD, either modify the User Principal Name 
 1. In the left sidebar, click **Provisioning**.
 1. Click **Edit Provisioning**.
 1. Expand **Mappings**, then click **Provision Azure Active Directory Users**.
-1. Click the {% data variables.product.prodname_dotcom %} `userName` attribute mapping. 
+1. Click the {% data variables.product.prodname_dotcom %} `userName` attribute mapping.
 1. Change the attribute mapping.
    - To map an existing attribute in Azure AD to the `userName` attribute in {% data variables.product.prodname_dotcom %}, click your desired attribute field. Then, save and wait for a provisioning cycle to occur within about 40 minutes.
    - To use an expression instead of an existing attribute, change the Mapping type to "Expression", then add a custom expression that will make this value unique for all users. For example, you could use `[FIRST NAME]-[LAST NAME]-[EMPLOYEE ID]`. For more information, see [Reference for writing expressions for attribute mappings in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/app-provisioning/functions-for-customizing-application-data) in Microsoft Docs.

@@ -1,7 +1,7 @@
 ---
 title: Starring
 intro: Use the REST API to bookmark a repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -32,6 +32,5 @@ There is one supported custom media type for these endpoints. When you use this 
     application/vnd.github.star+json
 
 For more information about media types, see "[AUTOTITLE](/rest/overview/media-types)."
-
 
 <!-- Content after this section is automatically generated -->

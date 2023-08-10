@@ -16,7 +16,7 @@ shortTitle: About merge methods
 ---
 {% data reusables.pull_requests.configure_pull_request_merges_intro %} You can enforce one type of merge method, such as commit squashing or rebasing, by only enabling the desired method for your repository.
 
-{% ifversion fpt or ghec %}
+{% ifversion merge-queue %}
 {% note %}
 
 **Note:** When using the merge queue, you no longer get to choose the merge method, as this is controlled by the queue. {% data reusables.pull_requests.merge-queue-references %}
@@ -26,7 +26,7 @@ shortTitle: About merge methods
 
 {% data reusables.pull_requests.default_merge_option %}
 
-The default merge method creates a merge commit. You can prevent anyone from pushing merge commits to a protected branch by enforcing a linear commit history. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-linear-history)."
+The default merge method creates a merge commit. You can prevent anyone from pushing merge commits to a protected branch by enforcing a linear commit history. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-linear-history)."
 
 ## Squashing your merge commits
 

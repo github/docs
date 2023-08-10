@@ -23,7 +23,7 @@ Gists can be {% ifversion ghae %}internal{% else %}public{% endif %} or secret. 
 
 Secret gists don't show up in {% data variables.gists.discover_url %} and are not searchable unless you are logged in and are the author of the secret gist. Secret gists aren't private. If you send the URL of a secret gist to {% ifversion ghae %}another enterprise member{% else %}a friend{% endif %}, they'll be able to see it. However, if {% ifversion ghae %}any other enterprise member{% else %}someone you don't know{% endif %} discovers the URL, they'll also be able to see your gist. If you need to keep your code away from prying eyes, you may want to [create a private repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) instead.
 
-{% data reusables.gist.cannot-convert-public-gists-to-secret %}
+{% data reusables.gist.cannot-convert-public-gists-to-secret %}. However, a secret gist can be made public by editing the gist and updating the visibility to public.
 
 {% ifversion ghes %}
 
@@ -44,7 +44,7 @@ You can pin gists to your profile so other people can see them easily. For more 
 
 {% endif %}
 
-You can discover {% ifversion ghae %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. Gist search uses the same search syntax as [code search](/search-github/searching-on-github/searching-code).
+You can discover {% ifversion ghae %}internal{% else %}public{% endif %} gists others have created by going to the {% data variables.gists.gist_homepage %} and clicking **All Gists**. This will take you to a page of all gists sorted and displayed by time of creation or update. You can also search gists by language with {% data variables.gists.gist_search_url %}. {% ifversion ghes or ghae %}Gist search uses the same search syntax as [code search](/search-github/searching-on-github/searching-code).{% endif %}
 
 Since gists are Git repositories, you can view their full commit history, complete with diffs. You can also fork or clone gists. For more information, see "[AUTOTITLE](/get-started/writing-on-github/editing-and-sharing-content-with-gists/forking-and-cloning-gists)."
 
@@ -69,11 +69,11 @@ Alternatively, you can drag and drop a text file from your desktop directly into
 {% endnote %}
 
 1. Sign in to {% data variables.product.product_name %}.
-2. Navigate to your {% data variables.gists.gist_homepage %}.
-3. Optionally, in the "Gist description" field, type a description for your gist.
-4. In the "Filename including extension" field, type a file name for your gist, including the file extensions.
-5. In the file contents field, type the text of your gist.
-6. Optionally, to create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
+1. Navigate to your {% data variables.gists.gist_homepage %}.
+1. Optionally, in the "Gist description" field, type a description for your gist.
+1. In the "Filename including extension" field, type a file name for your gist, including the file extensions.
+1. In the file contents field, type the text of your gist.
+1. Optionally, to create {% ifversion ghae %}an internal{% else %}a public{% endif %} gist, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %}, then click **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
 
    ![Screenshot of the visibility dropdown menu for a new gist. Next to a button labeled "Create secret gist", a dropdown icon is outlined in dark orange.]{% ifversion ghae %}(/assets/images/help/gist/gist-visibility-drop-down-ae.png){% else %}(/assets/images/help/gist/gist-visibility-drop-down.png){% endif %}
-7. Click **Create secret Gist** or **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.
+1. Click **Create secret Gist** or **Create {% ifversion ghae %}internal{% else %}public{% endif %} gist**.

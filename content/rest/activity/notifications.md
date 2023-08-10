@@ -3,7 +3,7 @@ title: Notifications
 intro: >-
   Use the REST API to manage {% data variables.product.product_name %}
   notifications.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -43,7 +43,7 @@ $    -H "If-Modified-Since: Thu, 25 Oct 2012 15:16:27 GMT"
 
 These GET endpoints return a `reason` key. These `reason`s correspond to events that trigger a notification.
 
-These are the potential `reason`s for receiving a notification:
+There are a few potential `reason`s for receiving a notification.
 
 Reason Name | Description
 ------------|------------
@@ -63,6 +63,5 @@ Reason Name | Description
 Note that the `reason` is modified on a per-thread basis, and can change, if the `reason` on a later notification is different.
 
 For example, if you are the author of an issue, subsequent notifications on that issue will have a `reason` of `author`. If you're then  **@mentioned** on the same issue, the notifications you fetch thereafter will have a `reason` of `mention`. The `reason` remains as `mention`, regardless of whether you're ever mentioned again.
-
 
 <!-- Content after this section is automatically generated -->

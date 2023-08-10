@@ -19,7 +19,7 @@ topics:
 
 {% data reusables.sponsors.sponsorship-details %}
 
-{% data reusables.sponsors.no-fees %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)."
+{% data reusables.sponsors.no-fees %}
 
 {% data reusables.sponsors.you-can-be-a-sponsored-developer %} For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/about-github-sponsors-for-open-source-contributors)" and "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)."
 
@@ -48,6 +48,7 @@ Donations between sponsored developers will not be matched.
 {% data reusables.sponsors.feedback %}
 
 ## Further reading
+
 - "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors)"
 - "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors)"
 - "[AUTOTITLE](/search-github/searching-on-github/searching-users#search-based-on-ability-to-sponsor)"

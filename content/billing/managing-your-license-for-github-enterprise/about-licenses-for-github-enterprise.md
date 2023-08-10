@@ -15,6 +15,12 @@ shortTitle: About licenses
 
 {% data reusables.enterprise.about-deployment-methods %}
 
+{% ifversion ghec %}
+
+{% data reusables.enterprise.invoiced-customer-to-access-ghes %}
+
+{% endif %}
+
 {% data reusables.enterprise-licensing.unique-user-licensing-model %}
 
 To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} deployments.
@@ -39,6 +45,6 @@ If you have any questions about renewing your license, contact {% data variables
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise)"
+- "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
 - [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/) website
 - "[Setting up a {% data variables.product.prodname_ghe_server %} instance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/installation/setting-up-a-github-enterprise-server-instance)"

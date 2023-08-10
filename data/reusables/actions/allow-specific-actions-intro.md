@@ -1,5 +1,6 @@
 <a name="allowing-select-actions-to-run"></a>
 <a name="allowing-specific-actions-to-run"></a>
+
 ### Allowing select actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} to run
 
 When you choose {% data reusables.actions.policy-label-for-select-actions-workflows %}, local actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} are allowed, and there are additional options for allowing other specific actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}:
@@ -10,7 +11,7 @@ When you choose {% data reusables.actions.policy-label-for-select-actions-workfl
 
   To restrict access to specific tags or commit SHAs of an action{% ifversion actions-workflow-policy %} or reusable workflow{% endif %}, use the same syntax used in the workflow to select the action{% ifversion actions-workflow-policy %} or reusable workflow{% endif %}.
   
-  - For an action, the syntax is `<OWNER>/<REPO>@<TAG OR SHA>`. For example, use `actions/javascript-action@v1.0.1` to select a tag or `actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89` to select a SHA. For more information, see "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)."
+  - For an action, the syntax is `<OWNER>/<REPO>@<TAG OR SHA>`. For example, use `actions/javascript-action@v1.0.1` to select a tag or `actions/javascript-action@a824008085750b8e136effc585c3cd6082bd575f` to select a SHA. For more information, see "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions#using-release-management-for-your-custom-actions)."
   {%- ifversion actions-workflow-policy %}
   - For a reusable workflow, the syntax is `<OWNER>/<REPO>/<PATH>/<FILENAME>@<TAG OR SHA>`. For example, `octo-org/another-repo/.github/workflows/workflow.yml@v1`. For more information, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows#calling-a-reusable-workflow)."
   {%- endif %}

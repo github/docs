@@ -36,11 +36,16 @@ shortTitle: Upgrade Git LFS storage
 {% data reusables.large_files.pack_confirm %}
 
 {% ifversion ghec %}
+
 ## Purchasing additional storage and bandwidth for an enterprise account
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
-If your enterprise account is invoiced, you may not be able to purchase Git LFS data packs on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+{% note %}
+
+**Note:** If your enterprise account is invoiced, you may not be able to purchase Git LFS data packs on {% data variables.product.prodname_dotcom %}. Instead, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% endnote %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}

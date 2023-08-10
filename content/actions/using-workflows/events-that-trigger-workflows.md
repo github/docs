@@ -41,7 +41,7 @@ Some events have multiple activity types. For these events, you can specify whic
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." For information about the branch protection rule APIs, see "[AUTOTITLE](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[AUTOTITLE](/rest/branches)" in the REST API documentation.
+Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)." For information about the branch protection rule APIs, see "[AUTOTITLE](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[AUTOTITLE](/rest/branches)" in the REST API documentation.
 
 For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
 
@@ -109,7 +109,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`create`](/webhooks-and-events/webhooks/webhook-events-and-payloads#create) | n/a | Last commit on the created branch or tag | Branch or tag created |
+| [`create`](/webhooks-and-events/webhooks/webhook-events-and-payloads#create) | Not applicable | Last commit on the created branch or tag | Branch or tag created |
 
 {% note %}
 
@@ -130,7 +130,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`delete`](/webhooks-and-events/webhooks/webhook-events-and-payloads#delete) | n/a | Last commit on default branch | Default branch |
+| [`delete`](/webhooks-and-events/webhooks/webhook-events-and-payloads#delete) | Not applicable | Last commit on default branch | Default branch |
 
 {% data reusables.actions.branch-requirement %}
 
@@ -153,7 +153,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`deployment`](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment) | n/a | Commit to be deployed | Branch or tag to be deployed (empty if created with a commit SHA)|
+| [`deployment`](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment) | Not applicable | Commit to be deployed | Branch or tag to be deployed (empty if created with a commit SHA)|
 
 Runs your workflow when someone creates a deployment in the workflow's repository. Deployments created with a commit SHA may not have a Git ref. For information about the APIs to create a deployment, see "[AUTOTITLE](/graphql/reference/mutations#createdeployment)" in the GraphQL API documentation or "[AUTOTITLE](/rest/repos#deployments)" in the REST API documentation.
 
@@ -168,7 +168,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`deployment_status`](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment_status) | n/a | Commit to be deployed | Branch or tag to be deployed (empty if commit)|
+| [`deployment_status`](/webhooks-and-events/webhooks/webhook-events-and-payloads#deployment_status) | Not applicable | Commit to be deployed | Branch or tag to be deployed (empty if commit)|
 
 {% note %}
 
@@ -186,6 +186,7 @@ on:
 ```
 
 {% ifversion discussions %}
+
 ## `discussion`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -244,7 +245,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`fork`](/webhooks-and-events/webhooks/webhook-events-and-payloads#fork) | n/a | Last commit on default branch |  Default branch |
+| [`fork`](/webhooks-and-events/webhooks/webhook-events-and-payloads#fork) | Not applicable | Last commit on default branch |  Default branch |
 
 {% data reusables.actions.branch-requirement %}
 
@@ -261,7 +262,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`gollum`](/webhooks-and-events/webhooks/webhook-events-and-payloads#gollum) | n/a | Last commit on default branch |  Default branch |
+| [`gollum`](/webhooks-and-events/webhooks/webhook-events-and-payloads#gollum) | Not applicable | Last commit on default branch |  Default branch |
 
 {% data reusables.actions.branch-requirement %}
 
@@ -381,15 +382,13 @@ on:
     types: [created, deleted]
 ```
 
-{% ifversion fpt or ghec  %}
+{% ifversion merge-queue  %}
 
 ## `merge_group`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
 | [`merge_group`](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
-
-{% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 
@@ -409,6 +408,7 @@ on:
 ```
 
 {% endif %}
+
 ## `milestone`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -439,7 +439,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`page_build`](/webhooks-and-events/webhooks/webhook-events-and-payloads#page_build) | n/a | Last commit on default branch | n/a |
+| [`page_build`](/webhooks-and-events/webhooks/webhook-events-and-payloads#page_build) | Not applicable | Last commit on default branch | Not applicable |
 
 {% data reusables.actions.branch-requirement %}
 
@@ -570,7 +570,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`public`](/webhooks-and-events/webhooks/webhook-events-and-payloads#public) | n/a | Last commit on default branch |  Default branch |
+| [`public`](/webhooks-and-events/webhooks/webhook-events-and-payloads#public) | Not applicable | Last commit on default branch |  Default branch |
 
 {% data reusables.actions.branch-requirement %}
 
@@ -864,7 +864,7 @@ To run a job based on the pull request's head branch name (as opposed to the pul
 
 ```yaml
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
 jobs:
@@ -928,7 +928,7 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`push`](/webhooks-and-events/webhooks/webhook-events-and-payloads#push) | n/a | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
+| [`push`](/webhooks-and-events/webhooks/webhook-events-and-payloads#push) | Not applicable | When you delete a branch, the SHA in the workflow run (and its associated refs) reverts to the default branch of the repository. | Updated ref |
 
 {% note %}
 
@@ -942,7 +942,7 @@ jobs:
 
 {% endnote %}
 
-Runs your workflow when you push a commit or tag.
+Runs your workflow when you push a commit or tag, or when you clone a repository.
 
 For example, you can run a workflow when the `push` event occurs.
 
@@ -1041,7 +1041,23 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[AUTOTITLE](/packages)."
+{% note %}
+
+**Note**: When pushing multi-architecture container images, this event occurs once per manifest, so you might observe your workflow triggering multiple times. To mitigate this, and only run your workflow job for the event that contains the actual image tag information, use a conditional:
+
+{% raw %}
+
+```yaml
+jobs:
+    job_name:
+        if: ${{ github.event.registry_package.package_version.container_metadata.tag.name != '' }}
+```
+
+{% endraw %}
+
+{% endnote %}
+
+Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
 
 For example, you can run a workflow when a new package version has been `published`.
 
@@ -1071,7 +1087,7 @@ on:
 
 {% note %}
 
-**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable _and_ pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
 
 {% endnote %}
 
@@ -1100,7 +1116,7 @@ When you make a request to create a `repository_dispatch` event, you must specif
 ```yaml
 on:
   repository_dispatch:
-    types: [on-demand-test]
+    types: [test_result]
 ```
 
 {% note %}
@@ -1138,11 +1154,20 @@ jobs:
         run: echo $MESSAGE
 ```
 
+{% note %}
+
+**Notes**:
+
+- The maximum number of top-level properties in `client_payload` is 10.
+- The payload can contain a maximum of 65,535 characters.
+
+{% endnote %}
+
 ## `schedule`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| n/a | n/a | Last commit on default branch | Default branch | When the scheduled workflow is set to run. A scheduled workflow uses [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). For more information, see "[AUTOTITLE](/actions/using-workflows#triggering-a-workflow-with-events)." |
+| Not applicable | Not applicable | Last commit on default branch | Default branch | When the scheduled workflow is set to run. A scheduled workflow uses [POSIX cron syntax](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/crontab.html#tag_20_25_07). For more information, see "[AUTOTITLE](/actions/using-workflows#triggering-a-workflow-with-events)." |
 
 {% data reusables.actions.schedule-delay %}
 
@@ -1152,7 +1177,7 @@ The `schedule` event allows you to trigger a workflow at a scheduled time.
 
 Cron syntax has five fields separated by a space, and each field represents a unit of time.
 
-```
+```text
 ┌───────────── minute (0 - 59)
 │ ┌───────────── hour (0 - 23)
 │ │ ┌───────────── day of the month (1 - 31)
@@ -1187,7 +1212,7 @@ Notifications for scheduled workflows are sent to the user who last modified the
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`status`](/webhooks-and-events/webhooks/webhook-events-and-payloads#status) | n/a | Last commit on default branch | n/a |
+| [`status`](/webhooks-and-events/webhooks/webhook-events-and-payloads#status) | Not applicable | Last commit on default branch | Not applicable |
 
 {% data reusables.actions.branch-requirement %}
 
@@ -1246,7 +1271,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| Same as the caller workflow | n/a | Same as the caller workflow | Same as the caller workflow |
+| Same as the caller workflow | Not applicable | Same as the caller workflow | Same as the caller workflow |
 
 `workflow_call` is used to indicate that a workflow can be called by another workflow. When a workflow is triggered with the `workflow_call` event, the event payload in the called workflow is the same event payload from the calling workflow. For more information see, "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
 
@@ -1260,9 +1285,11 @@ on: workflow_call
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | ------------------ | ------------ | ------------ | ------------------|
-| [workflow_dispatch](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_dispatch) | n/a | Last commit on the `GITHUB_REF` branch or tag | Branch or tag that received dispatch |
+| [workflow_dispatch](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_dispatch) | Not applicable | Last commit on the `GITHUB_REF` branch or tag | Branch or tag that received dispatch |
 
-To manually trigger a workflow, use the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow)."
+{% data reusables.actions.branch-requirement %}
+
+To enable a workflow to be triggered manually, you need to configure the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow)."
 
 ```yaml
 on: workflow_dispatch
@@ -1314,11 +1341,11 @@ jobs:
 
 If you run this workflow from a browser you must enter values for the required inputs manually before the workflow will run.
 
-![Entering inputs for a workflow](/assets/images/help/images/workflow-dispatch-inputs.png)
+![Screenshot of a list of workflow runs. A dropdown menu, labeled "Run workflow" and expanded to show input fields, is outlined in dark orange.](/assets/images/help/actions/workflow-dispatch-inputs.png)
 
 You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. For example:
 
-```
+```shell
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 

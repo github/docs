@@ -28,13 +28,13 @@ You can also enable activity limitations on all repositories owned by your perso
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the sidebar, select **{% octicon "comment-discussion" aria-label="The comment-discussion icon" %} Moderation options**, then click **Interaction limits**.
+1. In the sidebar, select **{% octicon "comment-discussion" aria-hidden="true" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
-  ![Temporary interaction limit options](/assets/images/help/repository/temporary-interaction-limits-options.png)
 
 ## Further reading
+
 - "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)"
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
 - "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

@@ -15,24 +15,24 @@ topics:
 ---
 When you rename a repository, all existing information, with the exception of project site URLs, is automatically redirected to the new name, including:
 
-* Issues
-* Wikis
-* Stars
-* Followers
+- Issues
+- Wikis
+- Stars
+- Followers
 
 For more information on project sites, see "[AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites)."
 
 In addition to redirecting web traffic, all `git clone`, `git fetch`, or `git push` operations targeting the previous location will continue to function as if made on the new location. However, to reduce confusion, we strongly recommend updating any existing local clones to point to the new repository URL. You can do this by using `git remote` on the command line:
 
 ```shell
-$ git remote set-url origin NEW_URL
+git remote set-url origin NEW_URL
 ```
 
 For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
 
 {% ifversion fpt or ghec %}
 
-If you plan to rename a repository that has a {% data variables.product.prodname_pages %} site, we recommend using a custom domain for your site. This ensures that the site's URL isn't impacted by renaming the repository. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)." 
+If you plan to rename a repository that has a {% data variables.product.prodname_pages %} site, we recommend using a custom domain for your site. This ensures that the site's URL isn't impacted by renaming the repository. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages)."
 
 {% endif %}
 
@@ -50,6 +50,5 @@ If you plan to rename a repository that has a {% data variables.product.prodname
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under the **Repository Name** heading, type the new name of your repository.
-   ![Repository rename](/assets/images/help/repository/repository-name-change.png)
-4. Click **Rename**. You're done!
+1. In the **Repository Name** field, type the new name of your repository.
+1. Click **Rename**.

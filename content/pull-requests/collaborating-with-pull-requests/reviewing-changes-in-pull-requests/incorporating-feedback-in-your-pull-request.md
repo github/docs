@@ -24,16 +24,18 @@ To quickly incorporate more than one suggested change into a single commit, you 
 Each person who suggested a change included in the commit will be a co-author of the commit. The person who applies the suggested changes will be a co-author and the committer of the commit. For more information about the term committer in Git, see "[Git Basics - Viewing the Commit History](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)" from the _Pro Git_ book site.
 
 {% data reusables.repositories.sidebar-pr %}
-2. In the list of pull requests, click the pull request you'd like to apply a suggested change to.
-3. Navigate to the first suggested change you'd like to apply.
+1. In the list of pull requests, click the pull request you'd like to apply a suggested change to.
+1. Navigate to the first suggested change you'd like to apply.
     - To apply the change in its own commit, click **Commit suggestion**.
-  ![Commit suggestion button](/assets/images/help/pull_requests/commit-suggestion-button.png)
+
+       ![Screenshot of a review comment with a suggestion. The "Commit suggestion" option is outlined in dark orange.](/assets/images/help/pull_requests/commit-suggestion-button.png)
+
     - To add the suggestion to a batch of changes, click **Add suggestion to batch**. Continue to add the suggested changes you want to include in a single commit. When you've finished adding suggested changes, click **Commit suggestions**.
-  ![Add suggestion to batch button](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
-4. In the commit message field, type a short, meaningful commit message that describes the change you made to the file or files.
-![Commit message field](/assets/images/help/pull_requests/suggested-change-commit-message-field.png)
-5. Click **Commit changes.**
-![Commit changes button](/assets/images/help/pull_requests/commit-changes-button.png)
+
+      ![Screenshot of a review comment with a suggestion. The "Add suggestion to batch" option is outlined in dark orange.](/assets/images/help/pull_requests/add-suggestion-to-batch.png)
+
+1. In the commit message field, type a short, meaningful commit message that describes the change you made to the file or files.
+1. Click **Commit changes.**
 
 ## Re-requesting a review
 

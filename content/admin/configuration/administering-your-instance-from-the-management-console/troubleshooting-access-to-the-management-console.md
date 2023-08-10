@@ -21,20 +21,22 @@ If you experience problems accessing the Management Console, you can try the fol
 The {% data variables.enterprise.management_console %} locks after {% ifversion enterprise-authentication-rate-limits %}the number of failed login attempts configured by your authentication policies. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console)."{% else %}ten failed login attempts are made in the span of ten minutes. You must wait for the login screen to automatically unlock before attempting to log in again. The login screen automatically unlocks as soon as the previous ten minute period contains fewer than ten failed login attempts. The counter resets after a successful login occurs.{% endif %}
 
 {% ifversion enterprise-management-console-multi-user-auth %}
+
 ### Unlocking the root site administrator account
+
 {% endif %}
 
 {% data reusables.enterprise_management_console.unlocking-management-console-with-shell %}
 
 {% ifversion enterprise-management-console-multi-user-auth %}
+
 ### Unlocking a {% data variables.enterprise.management_console %} user account
 
 The root site administrator can unlock access to the {% data variables.enterprise.management_console %} for other user accounts.
 
 {% data reusables.enterprise_site_admin_settings.sign-in-as-root-administrator %}
 {% data reusables.enterprise_site_admin_settings.click-user-management %}
-1. Locked user accounts will appear as "State: blocked". To unblock the user and allow authentication, to the right of the user's details, click {% octicon "law" aria-label="The law icon" %}.
-
+1. Locked user accounts will appear as "State: blocked". To unblock the user and allow authentication, to the right of the user's details, click {% octicon "law" aria-label="Unblock user" %}.
 
 {%- endif %}
 

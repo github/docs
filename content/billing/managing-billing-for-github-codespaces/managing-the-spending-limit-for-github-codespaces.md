@@ -26,17 +26,16 @@ redirect_from:
 
 Once you've reached your spending limit, you will no longer be able to create new codespaces, and you won't be able to start existing codespaces. Any existing codespaces that are still running will be shut down in a short time, but you will not be charged for usage after you have reached your spending limit.
 
-{% ifversion ghec %}
 ## Using your Azure Subscription
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
-{% endif %}
+
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 ## Managing the {% data variables.product.prodname_github_codespaces %} spending limit for your personal account
 
 You can set a spending limit for {% data variables.product.prodname_github_codespaces %} for your own personal account.
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing_plans %}
+{% data reusables.user-settings.billing_plans_spending %}
 {% data reusables.dotcom_billing.manage-spending-limit %}
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}
@@ -57,6 +56,7 @@ Organizations owners and billing managers can manage the spending limit for {% d
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 {% ifversion ghec %}
+
 ## Managing the {% data variables.product.prodname_github_codespaces %} spending limit for your enterprise account
 
 Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an enterprise account.
@@ -64,9 +64,9 @@ Enterprise owners and billing managers can manage the spending limit for {% data
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.billing-tab %}
-1. Click **Spending Limit**.
+1. On the "Billing" page, click the **Spending limit** tab.
 
-   ![Spending limit tab](/assets/images/help/settings/spending-limit-tab-enterprise.png)
+   ![Screenshot of the "Billing" page. A tab labeled "Spending limit" is highlighted with an orange outline.](/assets/images/help/settings/spending-limit-tab-enterprise.png)
 
 {% data reusables.codespaces.monthly-spending-limit-codespaces %}
 {% data reusables.dotcom_billing.update-spending-limit %}
@@ -84,7 +84,7 @@ You can turn off these notifications at any time from the "Billing and plans" pa
 
 For personal accounts only, you can also choose to turn off email notifications that are sent when you have used 75%, 90%, and 100% of the free usage included with your personal account. To do this, clear the **Included resources alerts** checkbox.
 
-![Screenshot of the "Email alerts" settings. Checkboxes labeled "Included resources alerts" and "Spending limit alerts" are both selected.](/assets/images/help/codespaces/codespaces-spending-limit-notifications.png)
+![Screenshot of the "Email alerts" settings. The options "Included resources alerts" and "Spending limit alerts" are both selected.](/assets/images/help/codespaces/codespaces-spending-limit-notifications.png)
 
 ## Further reading
 

@@ -16,8 +16,7 @@ topics:
   - Maven
 shortTitle: Build & test Java with Maven
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -36,7 +35,7 @@ You should be familiar with YAML and the syntax for {% data variables.product.pr
 - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[AUTOTITLE](/actions/learn-github-actions)"
 
-We recommend that you have a basic understanding of Java and the Maven framework. For more information, see the [Maven Getting Started Guide](http://maven.apache.org/guides/getting-started/index.html) in the Maven documentation.
+We recommend that you have a basic understanding of Java and the Maven framework. For more information, see the [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html) in the Maven documentation.
 
 {% data reusables.actions.enterprise-setup-prereq %}
 
@@ -48,7 +47,7 @@ To get started quickly, you can choose the preconfigured Maven starter workflow 
 
 You can also add this workflow manually by creating a new file in the `.github/workflows` directory of your repository.
 
-```yaml{:copy}
+```yaml copy
 name: Java CI
 
 on: [push]
@@ -71,8 +70,8 @@ jobs:
 This workflow performs the following steps:
 
 1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
-3. The "Build with Maven" step runs the Maven `package` target in non-interactive mode to ensure that your code builds, tests pass, and a package can be created.
+1. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
+1. The "Build with Maven" step runs the Maven `package` target in non-interactive mode to ensure that your code builds, tests pass, and a package can be created.
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 
@@ -88,7 +87,7 @@ The starter workflow will run the `package` target by default. In the default Ma
 
 If you use different commands to build your project, or you want to use a different target, you can specify those. For example, you may want to run the `verify` target that's configured in a _pom-ci.xml_ file.
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}
@@ -105,7 +104,7 @@ steps:
 
 You can cache your dependencies to speed up your workflow runs. After a successful run, your local Maven repository will be stored in a cache. In future workflow runs, the cache will be restored so that dependencies don't need to be downloaded from remote Maven repositories. You can cache dependencies simply using the [`setup-java` action](https://github.com/marketplace/actions/setup-java-jdk) or can use [`cache` action](https://github.com/actions/cache) for custom and more advanced configuration.
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - name: Set up JDK 11
@@ -128,7 +127,7 @@ After your build has succeeded and your tests have passed, you may want to uploa
 
 Maven will usually create output files like JARs, EARs, or WARs in the `target` directory. To upload those as artifacts, you can copy them into a new directory that contains artifacts to upload. For example, you can create a directory called `staging`. Then you can upload the contents of that directory using the `upload-artifact` action.
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: {% data reusables.actions.action-setup-java %}

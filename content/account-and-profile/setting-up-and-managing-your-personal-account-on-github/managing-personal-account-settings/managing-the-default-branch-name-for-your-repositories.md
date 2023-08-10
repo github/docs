@@ -24,12 +24,9 @@ When you create a new repository on {% data variables.location.product_location 
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.repo-tab %}
-3. Under "Repository default branch", click **Change default branch name now**.
-    ![Override button](/assets/images/help/settings/repo-default-name-button.png)
-4. Type the default name that you would like to use for new branches.
-    ![Text box for entering default name](/assets/images/help/settings/repo-default-name-text.png)
-5. Click **Update**.
-    ![Update button](/assets/images/help/settings/repo-default-name-update.png)
+1. Under "Repository default branch", click **Change default branch name now**.
+1. In the text field, type the default name that you would like to use for new branches.
+1. Click **Update**.
 
 ## Further reading
 

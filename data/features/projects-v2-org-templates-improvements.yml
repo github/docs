@@ -1,0 +1,7 @@
+# Issues 10697
+# Extra data transferred in org templates and copying projects
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'
+  ghae: '>=3.11'

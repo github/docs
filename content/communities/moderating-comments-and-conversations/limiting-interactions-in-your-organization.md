@@ -30,19 +30,18 @@ Organization owners and moderators can also block users for a specific amount of
 
 ## Limiting interactions in your organization
 
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. _For organization owners:_ In the "Access" section of the sidebar, select **{% octicon "report" aria-label="The report icon" %} Moderation**, then click **Interaction limits**.
+1. _For organization owners:_ In the "Access" section of the sidebar, select **{% octicon "report" aria-hidden="true" %} Moderation**, then click **Interaction limits**.
 
    _For organization moderators:_ In the sidebar, click **Interaction limits**.
 
 {% data reusables.community.set-interaction-limit %}
-  ![Temporary interaction limit options](/assets/images/help/organizations/organization-temporary-interaction-limits-options.png)
 
 ## Further reading
+
 - "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)"
 - "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"
 - "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-moderators-in-your-organization)"

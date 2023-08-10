@@ -1,6 +1,6 @@
 ---
 title: Reviewing GitHub Apps installed in your organization
-intro: You can review the permission levels for your organization's installed integrations and  configure each integration's access to organization repositories.
+intro: "You can review the permissions and change the repository access for {% data variables.product.prodname_github_apps %} installed on your organization. You can also temporarily or permanently prevent a {% data variables.product.prodname_github_app %} from accessing resources owned by your organization."
 redirect_from:
   - /articles/reviewing-your-organization-s-installed-integrations
   - /articles/reviewing-your-organizations-installed-integrations
@@ -16,21 +16,9 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Review installed integrations
+shortTitle: Review installed GitHub Apps
 ---
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% ifversion fpt or ghec or ghes > 3.4 or ghae > 3.4 %}
-1. In the "Integrations" section of the sidebar, click **{% octicon "apps" aria-label="The apps icon" %} {% data variables.product.prodname_github_apps %}**.
-{% else %}
-1. In the left sidebar, click **Installed {% data variables.product.prodname_github_apps %}**.
-  ![Installed {% data variables.product.prodname_github_apps %} tab in the organization settings sidebar](/assets/images/help/organizations/org-settings-installed-github-apps.png)
-{% endif %}
-2. Next to the {% data variables.product.prodname_github_app %} you'd like to review, click **Configure**.
-  ![Configure button](/assets/images/help/organizations/configure-installed-integration-button.png)
-6. Review the {% data variables.product.prodname_github_app %}'s permissions and repository access.
-  ![Option to give the {% data variables.product.prodname_github_app %} access to all repositories or specific repositories](/assets/images/help/organizations/toggle-integration-repo-access.png)
-    - To give the {% data variables.product.prodname_github_app %} access to all of your organization's repositories, select **All repositories**.
-    - To choose specific repositories to give the application access to, select **Only select repositories**, then type a repository name.
-7. Click **Save**.
+Organization owners can review the {% data variables.product.prodname_github_apps %} that are installed on their organization. They can view the permissions granted to the app and change the repositories that the {% data variables.product.prodname_github_app %} can access. They can also suspend or delete the {% data variables.product.prodname_github_app %} to prevent the app from accessing resources owned by the organization. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)."
+
+Organization owners can also use the REST API to view the {% data variables.product.prodname_github_apps %} installed on their organization, along with the permissions and repository access granted to each {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-app-installations-for-an-organization)."

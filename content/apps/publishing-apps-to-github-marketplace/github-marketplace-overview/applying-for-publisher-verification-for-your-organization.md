@@ -11,6 +11,9 @@ redirect_from:
   - /developers/github-marketplace/github-marketplace-overview/applying-for-publisher-verification-for-your-organization
 shortTitle: Publisher verification
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 Publisher verification ensures that {% data variables.product.prodname_dotcom %} has a way to contact you, that you've enabled two-factor authentication for your organization, and that your organization's domain has been verified.
 
 Once your organization has been verified, you can publish paid plans for your app. For information, see "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)."
@@ -19,21 +22,16 @@ To offer paid plans for your app, the app must be owned by an organization and y
 
 ## Requesting publisher verification
 
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, click **Developer settings**.
-  ![Developer settings option in the organization settings sidebar](/assets/images/marketplace/developer-settings-in-org-settings.png)
+1. At the bottom of the left sidebar, click **Developer settings**.
 1. Under "Developer settings", click **Publisher Verification**.
-  ![Publisher verification option in the organization settings sidebar](/assets/images/marketplace/publisher-verification-settings-option.png)
 1. Under "Publisher Verification", complete the information in the checklist:
    - Ensure that your basic profile information is present and accurate. Also, make sure that you've included the best email address for support and updates from {% data variables.product.company_short %}.
    - Ensure that Two-factor authentication is enabled for your organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."
    - Submit a verified domain and ensure that a "Verified" badge displays on your organization's profile page. For related information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)."
 
-  ![Publisher Verification checklist](/assets/images/marketplace/publisher-verification-checklist.png)
-
-2. Click **Request Verification**. {% data variables.product.company_short %} will review your details and let you know once your publisher verification is complete.
+1. Click **Request Verification**. {% data variables.product.company_short %} will review your details and let you know once your publisher verification is complete.
 
 ## Further reading
 

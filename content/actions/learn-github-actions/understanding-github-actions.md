@@ -15,9 +15,9 @@ versions:
 type: overview
 topics:
   - Fundamentals
+layout: inline
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -46,7 +46,7 @@ For more information about introducing {% data variables.product.prodname_action
 
 You can configure a {% data variables.product.prodname_actions %} _workflow_ to be triggered when an _event_ occurs in your repository, such as a pull request being opened or an issue being created.  Your workflow contains one or more _jobs_ which can run in sequential order or in parallel.  Each job will run inside its own virtual machine _runner_, or inside a container, and has one or more _steps_ that either run a script that you define or run an _action_, which is a reusable extension that can simplify your workflow.
 
-![Workflow overview](/assets/images/help/images/overview-actions-simple.png)
+![Diagram of an event triggering Runner 1 to run Job 1, which triggers Runner 2 to run Job 2. Each of the jobs is broken into multiple steps.](/assets/images/help/actions/overview-actions-simple.png)
 
 ### Workflows
 
@@ -95,6 +95,7 @@ For more information, see "[AUTOTITLE](/actions/creating-actions)."
 {% data reusables.actions.contacting-support %}
 
 {% ifversion ghec or ghes or ghae %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"

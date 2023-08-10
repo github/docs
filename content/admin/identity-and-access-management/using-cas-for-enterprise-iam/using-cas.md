@@ -36,17 +36,15 @@ If you configure CAS, people with accounts on your identity provider (IdP) do no
 
 ## CAS attributes
 
-The following attributes are available.
+The `username` attribute is required and should be set to the {% data variables.product.prodname_ghe_server %} username.
 
-| Attribute name           | Type     | Description |
-|--------------------------|----------|-------------|
-| `username`               | Required | The {% data variables.product.prodname_ghe_server %} username. |
+No other attributes are available.
 
 ## Configuring CAS
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.authentication %}
-3. Under "Authentication", select **CAS**.
-4. {% data reusables.enterprise_user_management.built-in-authentication-option %}
-5. In the **Server URL** field, type the full URL of your CAS server. If your CAS server uses a certificate that can't be validated by {% data variables.product.prodname_ghe_server %}, you can use the `ghe-ssl-ca-certificate-install` command to install it as a trusted certificate. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-install)."
+1. Under "Authentication", select **CAS**.
+1. {% data reusables.enterprise_user_management.built-in-authentication-option %}
+1. In the **Server URL** field, type the full URL of your CAS server. If your CAS server uses a certificate that can't be validated by {% data variables.product.prodname_ghe_server %}, you can use the `ghe-ssl-ca-certificate-install` command to install it as a trusted certificate. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-ca-certificate-install)."

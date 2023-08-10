@@ -16,6 +16,9 @@ topics:
   - Marketplace
 shortTitle: Webhooks for plan changes
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 The {% data variables.product.prodname_marketplace %} event webhook can only be set up from your application's {% data variables.product.prodname_marketplace %} listing page. You can configure all other events from your [application's developer settings page](https://github.com/settings/developers). If you haven't created a {% data variables.product.prodname_marketplace %} listing, read "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/listing-an-app-on-github-marketplace/drafting-a-listing-for-your-app)" to learn how.
 
 ## Creating a webhook
@@ -42,4 +45,4 @@ By default, webhook deliveries are "Active." You can choose to disable the deliv
 
 Once you've configured your {% data variables.product.prodname_marketplace %} webhook, you'll be able to inspect `POST` request payloads from the **Webhook** page of your application's [{% data variables.product.prodname_marketplace %} listing](https://github.com/marketplace/manage). GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
 
-![Inspect recent {% data variables.product.prodname_marketplace %} webhook deliveries](/assets/images/marketplace/marketplace_webhook_deliveries.png)
+![Screenshot of the recent webhook deliveries for the {% data variables.product.prodname_marketplace %} listing.](/assets/images/marketplace/marketplace-webhook-deliveries.png)

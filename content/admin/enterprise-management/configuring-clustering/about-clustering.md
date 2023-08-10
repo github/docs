@@ -1,6 +1,7 @@
 ---
 title: About clustering
-intro: '{% data variables.product.prodname_ghe_server %} clustering allows services that make up {% data variables.product.prodname_ghe_server %} to be scaled out across multiple nodes.'
+intro: "The cluster topology for {% data variables.product.prodname_ghe_server %} is designed to support tens of thousands of users where other topologies would experience resource exhaustion. In a cluster, the instance's services scale horizontally across multiple nodes."
+product: "{% data variables.product.company_short %} determines eligibility for clustering, and must enable the configuration for your instance's license. Clustering requires careful planning and additional administrative overhead."
 redirect_from:
   - /enterprise/admin/clustering/overview
   - /enterprise/admin/clustering/about-clustering
@@ -20,22 +21,25 @@ topics:
   - Clustering
   - Enterprise
 ---
-## Clustering architecture
 
-{% data variables.product.prodname_ghe_server %} is comprised of a set of services. In a cluster, these services run across multiple nodes and requests are load balanced between them. Changes are automatically stored with redundant copies on separate nodes. Most of the services are equal peers with other instances of the same service. The exceptions to this are the `mysql-server` and `redis-server` services. These operate with a single _primary_ node with one or more _replica_ nodes.
+## About clustering for {% data variables.product.product_name %}
 
-Learn more about [services required for clustering](/admin/enterprise-management/configuring-clustering/about-cluster-nodes#services-required-for-clustering).
+The cluster topology for {% data variables.product.prodname_ghe_server %} provides horizontal scaling for companies with tens of thousands of developers. {% data variables.product.company_short %} recommends clustering if a single primary node would routinely experience resource exhaustion.
 
-## Is clustering right for my organization?
+In a cluster, the instance provides services and distributes data across multiple virtual machines (VMs) that run the {% data variables.product.product_name %}  software. Each VM is called a node. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)."
 
-{% data reusables.enterprise_clustering.clustering-scalability %} However, setting up a redundant and scalable cluster can be complex and requires careful planning. This additional complexity will need to be planned for during installation, disaster recovery scenarios, and upgrades.
+<a name="is-clustering-right-for-my-organization"></a>
 
-{% data variables.product.prodname_ghe_server %} requires low latency between nodes and is not intended for redundancy across geographic locations.
+## Is clustering right for my environment?
 
-Clustering provides redundancy, but it is not intended to replace a High Availability configuration. For more information, see [High Availability configuration](/admin/enterprise-management/configuring-high-availability). A primary/secondary failover configuration is far simpler than clustering and will serve the needs of many organizations. For more information, see [Differences between Clustering and High Availability](/admin/enterprise-management/configuring-clustering/differences-between-clustering-and-high-availability-ha).
+{% data reusables.enterprise_clustering.clustering-scalability %} However, setting up a redundant and scalable cluster requires careful planning. Compared to other topologies like high availability (HA), additional complexity affects installation, configuration, disaster recovery, and upgrades.
+
+{% data variables.product.product_name %} requires low latency between nodes and is not intended for redundancy across geographic locations.
+
+Clustering provides redundancy, but it is not intended to replace a high-availability configuration. Configuration and maintenance of a high-availability configuration is far simpler than clustering and will accommodate most environments. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability) and [AUTOTITLE](/admin/enterprise-management/configuring-clustering/differences-between-clustering-and-high-availability-ha).
 
 {% data reusables.package_registry.packages-cluster-support %}
 
 ## How do I get access to clustering?
 
-Clustering is designed for specific scaling situations and is not intended for every organization. If clustering is something you'd like to consider, please contact your dedicated representative or {% data variables.contact.contact_enterprise_sales %}.
+{% data variables.product.company_short %} designed the cluster topology for specific scaling situations. Clustering is not intended for every company or environment. If you're interested in clustering for your environment, contact your dedicated account manager or {% data variables.contact.contact_enterprise_sales %}.

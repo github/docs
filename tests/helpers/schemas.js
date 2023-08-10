@@ -17,8 +17,16 @@ export const formatAjvErrors = (errors = []) => {
       const split = errorObj.instancePath.split('/')
       split.shift()
 
+      // handle additional properties error specifically since we can call out
+      // which property shouldn't be there
+      let additionalProperties = ''
+
+      if (errorObj.keyword === 'additionalProperties') {
+        additionalProperties = `: additional property is '${errorObj.params.additionalProperty}'`
+      }
+
       if (split.length === 0) {
-        return `at '/' (top-level): ${errorObj.message}`
+        return `at '/' (top-level): ${errorObj.message}${additionalProperties}`
       }
 
       const schemaErrorPath = split
@@ -30,14 +38,6 @@ export const formatAjvErrors = (errors = []) => {
           }
         })
         .join(' > ')
-
-      // handle additional properties error specifically since we can call out
-      // which property shouldn't be there
-      let additionalProperties = ''
-
-      if (errorObj.keyword === 'additionalProperties') {
-        additionalProperties = `: additional property is '${errorObj.params.additionalProperty}'`
-      }
 
       return `at '${schemaErrorPath}': ${errorObj.message}${additionalProperties}`
     })

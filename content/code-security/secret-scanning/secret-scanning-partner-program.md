@@ -14,9 +14,9 @@ topics:
 shortTitle: Partner program
 ---
 
-{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories, and can be enabled on private repositories by repository administrators or organization owners. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
+{% data variables.product.prodname_dotcom %} scans repositories for known secret formats to prevent fraudulent use of credentials that were committed accidentally. {% data variables.product.prodname_secret_scanning_caps %} happens by default on public repositories and public npm packages. Repository administrators and organization owners can also enable {% data variables.product.prodname_secret_scanning %} on private repositories. As a service provider, you can partner with {% data variables.product.prodname_dotcom %} so that your secret formats are included in our {% data variables.product.prodname_secret_scanning %}.
 
-When a match of your secret format is found in a public repository, a payload is sent to an HTTP endpoint of your choice.
+When a match of your secret format is found in a public source, a payload is sent to an HTTP endpoint of your choice.
 
 When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
 
@@ -24,7 +24,7 @@ This article describes how you can partner with {% data variables.product.prodna
 
 ## The {% data variables.product.prodname_secret_scanning %} process
 
-The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint.
+The following diagram summarizes the {% data variables.product.prodname_secret_scanning %} process for public repositories, with any matches sent to a service provider's verify endpoint. A similar process sends service providers tokens exposed in public packages on the npm registry.
 
 ![Diagram showing the process of scanning for a secret and sending matches to a service provider's verify endpoint.](/assets/images/help/security/secret-scanning-flow.png)
 
@@ -32,7 +32,7 @@ The following diagram summarizes the {% data variables.product.prodname_secret_s
 
 1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
 1. Identify the relevant secrets you want to scan for and create regular expressions to capture them.
-1. For secret matches found in public repositories, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
+1. For secret matches found publicly, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %}  that contain the {% data variables.product.prodname_secret_scanning %} message payload.
 1. Implement signature verification in your secret alert service.
 1. Implement secret revocation and user notification in your secret alert service.
 1. Provide feedback for false positives (optional).
@@ -47,15 +47,15 @@ You will receive details on the {% data variables.product.prodname_secret_scanni
 
 To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the following pieces of information for each secret that you want included in the {% data variables.product.prodname_secret_scanning %} program:
 
-* A unique, human readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
-* A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
-* The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
+- A unique, human readable name for the secret type. We'll use this to generate the `Type` value in the message payload later.
+- A regular expression which finds the secret type. Be as precise as possible, because this will reduce the number of false positives.
+- The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. This does not have to be unique for each secret type.
 
 Send this information to <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
 
 ### Create a secret alert service
 
-Create a public, internet accessible HTTP endpoint at the URL you provided to us. When a match of your regular expression is found in a public repository, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
+Create a public, internet accessible HTTP endpoint at the URL you provided to us. When a match of your regular expression is found publicly, {% data variables.product.prodname_dotcom %} will send an HTTP `POST` message to your endpoint.
 
 #### Example request body
 
@@ -72,25 +72,26 @@ Create a public, internet accessible HTTP endpoint at the URL you provided to us
 
 The message body is a JSON array that contains one or more objects, with each object representing a single secret match. Your endpoint should be able to handle requests with a large number of matches without timing out. The keys for each secret match are:
 
-* **token**: The value of the secret match.
-* **type**: The unique name you provided to identify your regular expression.
-* **url**: The public URL where the match was found (may be empty)
-* **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
+- **token**: The value of the secret match.
+- **type**: The unique name you provided to identify your regular expression.
+- **url**: The public URL where the match was found (may be empty)
+- **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
 
 The list of valid values for `source` are:
 
-* content
-* commit
-* pull_request_description
-* pull_request_comment
-* issue_description
-* issue_comment
-* discussion_body
-* discussion_comment
-* commit_comment
-* gist_content
-* gist_comment
-* unknown
+- content
+- commit
+- pull_request_description
+- pull_request_comment
+- issue_description
+- issue_comment
+- discussion_body
+- discussion_comment
+- commit_comment
+- gist_content
+- gist_comment
+- npm_package
+- unknown
 
 ### Implement signature verification in your secret alert service
 
@@ -99,8 +100,8 @@ to validate the messages you receive are genuinely from {% data variables.produc
 
 The two HTTP headers to look for are:
 
-* `GITHUB-PUBLIC-KEY-IDENTIFIER`: Which `key_identifier` to use from our API
-* `GITHUB-PUBLIC-KEY-SIGNATURE`: Signature of the payload
+- `GITHUB-PUBLIC-KEY-IDENTIFIER`: Which `key_identifier` to use from our API
+- `GITHUB-PUBLIC-KEY-SIGNATURE`: Signature of the payload
 
 You can retrieve the {% data variables.product.prodname_dotcom %} secret scanning public key from https://api.github.com/meta/public_keys/secret_scanning and validate the message using the `ECDSA-NIST-P256V1-SHA256` algorithm. The endpoint
 will provide several `key_identifier` and public keys. You can determine which public
@@ -137,7 +138,7 @@ Content-Length: 83
 **Note**: The key id and signature from the example payload is derived from a test key.
 The public key for them is:
 
-```
+```shell
 -----BEGIN PUBLIC KEY-----
 MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEsz9ugWDj5jK5ELBK42ynytbo38gP
 HzZFI03Exwz8Lh/tCfL3YxwMdLjB+bMznsanlhK0RwcGP3IDb34kQDIo3Q==
@@ -150,6 +151,7 @@ The following code snippets demonstrate how you could perform signature validati
 The code examples assume you've set an environment variable called `GITHUB_PRODUCTION_TOKEN` with a generated [{% data variables.product.pat_generic %}](https://github.com/settings/tokens) to avoid hitting rate limits. The {% data variables.product.pat_generic %} does not need any scopes/permissions.
 
 **Validation sample in Go**
+
 ```golang
 package main
 
@@ -280,6 +282,7 @@ type asn1Signature struct {
 ```
 
 **Validation sample in Ruby**
+
 ```ruby
 require 'openssl'
 require 'net/http'
@@ -320,6 +323,7 @@ puts openssl_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature),
 ```
 
 **Validation sample in JavaScript**
+
 ```js
 const crypto = require("crypto");
 const axios = require("axios");
@@ -363,7 +367,7 @@ const verify_signature = async (payload, signature, keyID) => {
 
 ### Implement secret revocation and user notification in your secret alert service
 
-For {% data variables.product.prodname_secret_scanning %} in public repositories, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
+For {% data variables.product.prodname_secret_scanning %} found publicly, you can enhance your secret alert service to revoke the exposed secrets and notify the affected users. How you implement this in your secret alert service is up to you, but we recommend considering any secrets that {% data variables.product.prodname_dotcom %} sends you messages about as public and compromised.
 
 ### Provide feedback for false positives
 
@@ -373,7 +377,7 @@ When we report secrets to you, we send a JSON array with each element containing
 
 You can send us the raw token:
 
-```
+```json
 [
   {
     "token_raw": "The raw token",
@@ -382,9 +386,10 @@ You can send us the raw token:
   }
 ]
 ```
+
 You may also provide the token in hashed form after performing a one way cryptographic hash of the raw token using SHA-256:
 
-```
+```json
 [
   {
     "token_hash": "The SHA-256 hashed form of the raw token",
@@ -393,6 +398,7 @@ You may also provide the token in hashed form after performing a one way cryptog
   }
 ]
 ```
+
 A few important points:
 - You should only send us either the raw form of the token ("token_raw"), or the hashed form ("token_hash"), but not both.
 - For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.

@@ -32,17 +32,19 @@ For information on choosing a machine type when you create a codespace, see "[AU
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
-   The current machine type for each of your codespaces is displayed.
+   The number of cores, memory, storage capacity, and currently used storage are displayed for each codespace. Some details are omitted if you are using a narrow browser window.
 
-   !['Your codespaces' list](/assets/images/help/codespaces/your-codespaces-list.png)
+   ![Screenshot of a list of three codespaces on the https://github.com/codespaces page."](/assets/images/help/codespaces/your-codespaces-list.png)
 
 {% data reusables.codespaces.ellipsis-settings %}
 1. Click **Change machine type**.
 
-   !['Change machine type' menu option](/assets/images/help/codespaces/change-machine-type-menu-option.png)
+   ![Screenshot of the dropdown menu for a codespace. The "Change machine type" option is highlighted.](/assets/images/help/codespaces/change-machine-type-menu-option.png)
+
 1. If multiple machine types are available for your codespace, choose the type of machine you want to use.
 
-   ![Dialog showing available machine types to choose](/assets/images/help/codespaces/change-machine-type-choice.png)
+   ![Screenshot of a dialog showing two available machine types: 2-core and 4-core.](/assets/images/help/codespaces/change-machine-type-choice.png)
+
 1. Click **Update codespace**.
 
 {% endwebui %}
@@ -55,16 +57,19 @@ For information on choosing a machine type when you create a codespace, see "[AU
 
 {% cli %}
 
+{% data reusables.codespaces.using-github-cli %}
+
 You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variables.product.prodname_cli %} command to change the machine type of a codespace. To use this command, you'll first need to find out the available machine types for your codespace.
 
 1. To view your list of codespaces, in a terminal, enter the following command.
 
-   ```
+   ```shell
    gh codespace list
    ```
+
 1. Optionally, to find the current machine type for a codespace, enter the following command.
 
-   ```
+   ```shell
    gh api /user/codespaces/CODESPACE-NAME
    ```
 
@@ -75,14 +80,14 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
    Details for the current machine are listed under the `machine` field.
 1. To find the available machine types for a codespace, enter the following command.
 
-   ```
+   ```shell
    gh api /user/codespaces/CODESPACE-NAME/machines
    ```
 
    Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`.
 1. To change the machine type for a codespace, enter the following command.
 
-   ```
+   ```shell
    gh codespace edit --machine MACHINE-TYPE-NAME
    ```
 

@@ -15,7 +15,7 @@ topics:
   - Pull requests
 shortTitle: Transfer an issue
 ---
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
 {% note %}
 
@@ -33,13 +33,10 @@ People or teams who are mentioned in the issue will receive a notification letti
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-issues %}
-3. In the list of issues, click the issue you'd like to transfer.
-4. In the right sidebar, click **Transfer issue**.
-![Button to transfer issue](/assets/images/help/repository/transfer-issue.png)
-5. Use the **Choose a repository** drop-down menu, and select the repository you want to transfer the issue to.
-![Choose a repository selection](/assets/images/help/repository/choose-a-repository.png)
-6. Click **Transfer issue**.
-![Transfer issue button](/assets/images/help/repository/transfer-issue-button.png)
+1. In the list of issues, click the issue you'd like to transfer.
+1. In the right sidebar, click **Transfer issue**.
+1. Select the **Choose a repository** dropdown menu, and click the repository you want to transfer the issue to.
+1. Click **Transfer issue**.
 
 {% endwebui %}
 
@@ -58,5 +55,3 @@ gh issue transfer ISSUE {% ifversion ghes %}HOSTNAME/{% endif %}OWNER/REPO
 ## Further reading
 
 - "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)"
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"

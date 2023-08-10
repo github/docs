@@ -6,14 +6,16 @@
   - [Usage](#usage)
 - [Callout tags](#callout-tags)
   - [Usage](#usage-1)
-- [Code sample syntax highlighting](#code-sample-syntax-highlighting)
+- [Code sample annotations](#code-sample-annotations)
   - [Usage](#usage-2)
-- [Octicons](#octicons)
+- [Code sample syntax highlighting](#code-sample-syntax-highlighting)
   - [Usage](#usage-3)
-- [Operating system tags](#operating-system-tags)
+- [Octicons](#octicons)
   - [Usage](#usage-4)
-- [Tool tags](#tool-tags)
+- [Operating system tags](#operating-system-tags)
   - [Usage](#usage-5)
+- [Tool tags](#tool-tags)
+  - [Usage](#usage-6)
 - [Reusable and variable strings of text](#reusable-and-variable-strings-of-text)
 - [Tables with codeblocks](#tables-with-codeblocks)
 - [Internal links with AUTOTITLE](#internal-links-with-autotitle)
@@ -38,7 +40,7 @@ For example, this is the correct way to write list items with multiple paragraph
 ```markdown
 1. Under your repository name, click **Actions**.
 
-   ![Actions tab in the main repository navigation](/assets/images/help/repository/actions-tab.png)
+   ![Screenshot of the tabs for the "github/docs" repository. The "Actions" tab is highlighted with an orange outline.](/assets/images/help/repository/actions-tab.png)
 
    This is another paragraph in the list.
 1. This is the next item.
@@ -62,35 +64,71 @@ Callouts highlight important information that customers need to know. We use sta
 
 For information on when to use callout tags, see the [style guide](content-style-guide.md).
 
+## Code sample annotations
+Code sample annotations help explain longer code examples by rendering comments as annotations next to the sample code. This lets us write longer explanations of code without cluttering the code itself. Code samples with annotations are rendered in a two pane layout with the code sample on the left and the annotations on the right. The annotations are visually emphasized when someone hovers their cursor over the code example.
+
+Code annotations only work in articles with the `layout: inline` frontmatter property. See "[Code annotations](./code-annotations.md)" for more information on how to write and style code annotations.
+
+### Usage
+
+    ```yaml annotate
+    # The name of the workflow as it will appear in the "Actions" tab of the GitHub repository.
+    name: Post welcome comment
+    # The `on` keyword lets you define the events that trigger when the workflow is run.
+    on:
+      # Add the `pull_request` event, so that the workflow runs automatically
+      # every time a pull request is created.
+      pull_request:
+        types: [opened]
+    # Modifies the default permissions granted to `GITHUB_TOKEN`.
+    permissions:
+      pull-requests: write
+    # Defines a job with the ID `build` that is stored within the `jobs` key.
+    jobs:
+      build:
+        name: Post welcome comment
+        # Configures the operating system the job runs on.
+        runs-on: ubuntu-latest
+        # The `run` keyword tells the job to execute the [`gh pr comment`](https://cli.github.com/manual/gh_pr_comment) command on the runner.
+        steps:
+          - run: gh pr comment $PR_URL --body "Welcome to the repository!"
+            env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              PR_URL: ${{ github.event.pull_request.html_url }}
+    ```
+
 ## Code sample syntax highlighting
 
-To render syntax highlighting in command line instructions, we use triple backticks followed by the term `shell`.
+To render syntax highlighting in command line instructions, we use triple backticks followed by the language of the sample. For a list of all supported languages, see the [Code languages](https://github.com/github/docs/blob/main/data/variables/code-languages.yml) file.
+
+Do not use HTML to style or modify code samples.
 
 ### Usage
 
     ```shell
-    git init YOUR_REPO
+    git init YOUR-REPO
     ```
 
-This syntax highlighting renders light text on a dark background, and should be reserved for command line instructions.
+Within the code sample syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. Introduce and explain any placeholders before the code sample so that people know what to replace the placeholder text with and because screen readers may not differentiate between upper and lowercase text, so placeholders may not be immediately apparent when read aloud. For example, "In the following example, replace `YOUR-USERNAME` with your GitHub username."
 
-Within the command-line syntax, use all uppercase text to indicate placeholder text or content that varies for each user, such as a user or repository name. By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content (for example, to italicize text within `<em>` tags instead of passing the tags through literally), wrap the codeblock in `<pre>` `</pre>` tags.
+By default, codeblocks will escape the content within the triple backticks. If you need to write sample code that parses the content, wrap the codeblock in `<pre>` `</pre>` tags.
 
 **Copy-able code blocks**
 
 You can also add a header that includes the name of the language and a button to copy the contents of the code block:
 
-    ```js{:copy}
+    ```javascript copy
     const copyMe = true
     ```
 
 ## Octicons
 
-Octicons are icons used across GitHub’s interface. We reference octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific octicons on the [Octicons site](https://primer.style/octicons). 
+Octicons are icons used across GitHub’s interface. We reference octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific octicons on the [Octicons site](https://primer.style/octicons).
 
-If you're referencing an octicon that appears in the UI, use your browser's developer tools to check whether the octicon is hidden to screen readers with the `aria-hidden=true` attribute.  For example, when a button is labeled "+ Add message" for sighted users, the plus icon is decorative and therefore hidden to screen readers, which instead read only "Add message."
-- If the octicon is hidden with `aria-hidden="true"`, use `aria-hidden="true"` in the Liquid syntax for the octicon in the docs (e.g., `"{% octicon "plus" aria-hidden="true" %} Add message"`). 
-- If the octicon is not hidden, the screen reader will read the octicon's `aria-label`, and we should use that same `aria-label` in the docs for consistency. For example, a button may be labeled with _only_ the "plus" icon for sighted users, while a screen reader will read "Add file." We should reflect this experience in the docs with `{% octicon "plus" aria-label="Add file" %}`.
+If you're referencing an octicon that appears in the UI, identify whether the octicon is the entire label of the UI element (e.g., a button that is labeled only with "+") or whether it's only decorative, in addition to another label (e.g., a button is labeled "+ Add message").
+
+- If the octicon is the entire label, use your browser's developer tools to inspect the octicon and determine what screen reader users will hear instead. Then, use that text for the `aria-label` (e.g., `{% octicon "plus" aria-label="Add file" %}`). Occasionally, in the UI, the octicon itself will not have an `aria-label`, but a surrounding element such as a `<summary>` or `<div>` tag will.
+- If the octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the octicon in the docs as well (e.g., `"{% octicon "plus" aria-hidden="true" %} Add message"`).
 
 If you're using the octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see [Tables](./content-style-guide.md#use-clear-consistent-symbols-and-labels) in the style guide.
 
@@ -246,6 +284,33 @@ These instructions are pertinent to javascript users.
 Reusable strings (commonly called content references or conrefs) contain content that’s used in more than one place in our documentation and allow us to change the content in a single location rather than every place the string appears.
 
 For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables, see the [reusables README](../data/reusables/README.md). For more information about variables, see the [variables README](../data/variables/README.md).
+
+## Table row headers
+
+If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag `{% rowheaders %} {% endrowheaders %}`. For more information, see "[Use proper markup for row and column headers](./content-style-guide.md#use-proper-markup-for-row-and-column-headers)" in the style guide.
+
+### Example table with row headers
+
+```
+{% rowheaders %}
+
+| | Mona | Tom | Hobbes |
+|---|---|---|---|
+|Type of cat| Octo | Tuxedo | Tiger |
+|Likes to swim in the ocean| Yes | No | No |
+
+{% endrowheaders %}
+```
+
+### Example table without row headers
+
+```
+| Name | Vocation |
+| --- | --- |
+| Mona | GitHub mascot |
+| Tom | Mouse antagonist |
+| Hobbes | Best friend |
+```
 
 ## Tables with codeblocks
 

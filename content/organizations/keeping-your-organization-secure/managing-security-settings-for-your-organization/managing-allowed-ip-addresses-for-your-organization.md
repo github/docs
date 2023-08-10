@@ -16,17 +16,20 @@ permissions: Organization owners can manage allowed IP addresses for an organiza
 
 ## About allowed IP addresses
 
-You can restrict access to private organization assets by configuring an allow list for specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+By default, authorized users can access your organization's resources from any IP address. You can restrict access to your organization's private resources by configuring a list that allows or denies access from specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
+
+{% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
 {% ifversion ghec %}
 {% note %}
 
-**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+**Notes:**
+
+- Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+- If you configure an IP allow list for your organization you won't be able to use {% data variables.product.prodname_github_codespaces %} for repositories owned by the organization.
 
 {% endnote %}
 {% endif %}
-
-{% data reusables.identity-and-permissions.ip-allow-lists-cidr-notation %}
 
 ## About IP allow list management
 
@@ -41,6 +44,7 @@ You can also configure allowed IP addresses at the enterprise account level, and
 {% data reusables.identity-and-permissions.about-adding-ip-allow-list-entries %}
 
 {% data reusables.identity-and-permissions.ipv6-allow-lists %}
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -99,6 +103,8 @@ For more information about how to create an allow list for a {% data variables.p
 {% data reusables.identity-and-permissions.check-ip-address-step %}
 
 ## Deleting an allowed IP address
+
+{% data reusables.identity-and-permissions.ip-address-add-or-remove-caching %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

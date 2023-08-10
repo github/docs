@@ -8,7 +8,7 @@
 
 import fs from 'fs'
 import path from 'path'
-import glob from 'glob'
+import { globSync } from 'glob'
 import { program } from 'commander'
 import { createOperations, processOperations } from './utils/get-operations.js'
 
@@ -16,13 +16,13 @@ program
   .description('Generate dereferenced OpenAPI and decorated schema files.')
   .requiredOption(
     '-f, --files [files...]',
-    'A list of OpenAPI description files to check. Can parse literal glob patterns.'
+    'A list of OpenAPI description files to check. Can parse literal glob patterns.',
   )
   .parse(process.argv)
 
 const filenames = program.opts().files
 
-const filesToCheck = filenames.flatMap((filename) => glob.sync(filename))
+const filesToCheck = filenames.flatMap((filename) => globSync(filename))
 
 if (filesToCheck.length) {
   check(filesToCheck)
@@ -49,7 +49,7 @@ async function check(files) {
     } catch (error) {
       console.error(error)
       console.log(
-        `🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema in file ${filename}. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.`
+        `🐛 Whoops! It looks like the decorator script wasn't able to parse the dereferenced schema in file ${filename}. A recent change may not yet be supported by the decorator. Please reach out in the #docs-engineering slack channel for help.`,
       )
       process.exit(1)
     }

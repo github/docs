@@ -16,8 +16,8 @@ In this example, `job1` must complete successfully before `job2` begins, and `jo
 The jobs in this example run sequentially:
 
 1. `job1`
-2. `job2`
-3. `job3`
+1. `job2`
+1. `job3`
 
 ### Example: Not requiring successful dependent jobs
 
