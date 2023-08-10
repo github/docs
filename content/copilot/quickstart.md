@@ -33,7 +33,6 @@ Before you can start using {% data variables.product.prodname_copilot %}, you wi
 
 ## Signing up for {% data variables.product.prodname_copilot %} for your organization account
 
-
 Before you can start using {% data variables.product.prodname_copilot %} in your organization account, you will need to set up a subscription.
 
 {% data reusables.copilot.signup-procedure-org %}
@@ -64,7 +63,6 @@ Before you can start using {% data variables.product.prodname_copilot %} in your
 For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/enabling-and-setting-up-github-copilot-for-business)."
 
 {% endif %}
-
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for {% data variables.product.prodname_vscode %}
 

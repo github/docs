@@ -10,7 +10,7 @@ export default function features(req, res, next) {
   Object.entries(getFeaturesByVersion(req.context.currentVersion)).forEach(
     ([featureName, isFeatureAvailableInCurrentVersion]) => {
       req.context[featureName] = isFeatureAvailableInCurrentVersion
-    }
+    },
   )
 
   return next()
@@ -34,7 +34,7 @@ function getFeaturesByVersion(currentVersion) {
       const { versions } = feature
       const applicableVersions = getApplicableVersions(
         versions,
-        path.join(ROOT, `data/features/${featureName}.yml`)
+        path.join(ROOT, `data/features/${featureName}.yml`),
       )
 
       // Adding the resulting boolean to the context object gives us the ability to use

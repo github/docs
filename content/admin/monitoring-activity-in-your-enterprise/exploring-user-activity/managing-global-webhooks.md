@@ -60,11 +60,11 @@ For example, you can configure {% data variables.location.product_location %} to
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-5. Next to the webhook you'd like to edit, click **Edit**.
+1. Next to the webhook you'd like to edit, click **Edit**.
 
-  ![Screenshot of the "Webhooks" page. To the right of a webhook, the "Edit" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
-6. Update the webhook's settings.
-7. Click **Update webhook**.
+   ![Screenshot of the "Webhooks" page. To the right of a webhook, the "Edit" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/edit-global-webhook-button.png)
+1. Update the webhook's settings.
+1. Click **Update webhook**.
 
 ## Deleting a global webhook
 
@@ -80,9 +80,9 @@ For example, you can configure {% data variables.location.product_location %} to
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-5. In the list of webhooks, click the URL of the webhook for which you'd like to see deliveries.
+1. In the list of webhooks, click the URL of the webhook for which you'd like to see deliveries.
 
-  ![Screenshot of a list of global webhooks. The URL link to view a webhook is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)
-6. Under "Recent deliveries", click a delivery GUID to view details.
+   ![Screenshot of a list of global webhooks. The URL link to view a webhook is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)
+1. Under "Recent deliveries", click a delivery GUID to view details.
 
-  ![Screenshot of the "Recent deliveries" list for a global webhook. A delivery GUID in the list of deliveries is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/global-webhooks-recent-deliveries.png)
+   ![Screenshot of the "Recent deliveries" list for a global webhook. A delivery GUID in the list of deliveries is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/global-webhooks-recent-deliveries.png)

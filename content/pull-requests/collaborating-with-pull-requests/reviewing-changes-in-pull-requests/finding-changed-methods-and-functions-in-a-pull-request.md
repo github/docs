@@ -18,11 +18,11 @@ shortTitle: Methods & functions
 Anyone with read access to a repository can see a summary list of the functions and methods changes in certain files of a pull request.
 
 The summary list of methods and functions is created from these supported file types:
-  - Go
-  - JavaScript (includes Typescript, Flow, and other types of JavaScript)
-  - PHP
-  - Python
-  - Ruby
+- Go
+- JavaScript (includes Typescript, Flow, and other types of JavaScript)
+- PHP
+- Python
+- Ruby
 
 {% data reusables.repositories.sidebar-pr %}
 1. In the list of pull requests, click the pull request where you'd like to find the changed functions and methods.
@@ -35,7 +35,7 @@ The summary list of methods and functions is created from these supported file t
 
  {% note %}
 
- **Note:** If you don't see the functions or methods you expected, confirm that your code compiles and doesn't contain errors. Only functions and methods changed in this pull request and found in *.go*, *.js*, *.ts*, *.py*, *.php*, and *.rb* files appear in the drop-down menu.
+ **Note:** If you don't see the functions or methods you expected, confirm that your code compiles and doesn't contain errors. Only functions and methods changed in this pull request and found in _.go_, _.js_, _.ts_, _.py_, _.php_, and _.rb_ files appear in the drop-down menu.
 
  {% endnote %}
 

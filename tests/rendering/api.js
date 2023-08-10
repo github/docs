@@ -14,6 +14,6 @@ describe('general /api pages', () => {
   test("any /api/* URL that isn't found should be JSON", async () => {
     const res = await get('/api/yadayada')
     expect(res.statusCode).toBe(404)
-    expect(JSON.parse(res.text).error).toBe('/yadayada not found')
+    expect(JSON.parse(res.body).error).toBe('/yadayada not found')
   })
 })

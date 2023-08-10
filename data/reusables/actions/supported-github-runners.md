@@ -51,18 +51,17 @@ Ubuntu 20.04
 </tr>
 <tr>
 <td>
-Ubuntu 18.04 [deprecated]
+macOS 13 Ventura [Beta]
 </td>
 <td>
-<code>ubuntu-18.04</code>
+<code>macos-13</code> or <code>macos-13-xl</code>
 </td>
 <td>
-Migrate to <code>ubuntu-20.04</code> or <code>ubuntu-22.04</code>. For more information, see <A href="https://github.blog/changelog/2022-08-09-github-actions-the-ubuntu-18-04-actions-runner-image-is-being-deprecated-and-will-be-removed-by-12-1-22/">this GitHub blog post</A>.
+None
 </td>
-</tr>
 <tr>
 <td>
-macOS Monterey 12
+macOS 12 Monterey
 </td>
 <td>
 <code>macos-latest</code>, <code>macos-12</code>, <code>macos-latest-xl</code> or <code>macos-12-xl</code>
@@ -73,23 +72,12 @@ The <code>macos-latest</code> and <code>macos-latest-xl</code> workflow labels c
 </tr>
 <tr>
 <td>
-macOS Big Sur 11
+macOS 11 Big Sur
 </td>
 <td>
 <code>macos-11</code>
 </td>
 <td>None
-</td>
-</tr>
-<tr>
-<td>
-macOS Catalina 10.15 [deprecated]
-</td>
-<td>
-<code>macos-10.15</code>
-</td>
-<td>
-Migrate to <code>macOS-11</code> or <code>macOS-12</code>. For more information, see <A href="https://github.blog/changelog/2022-07-20-github-actions-the-macos-10-15-actions-runner-image-is-being-deprecated-and-will-be-removed-by-8-30-22/">this GitHub blog post</A>.
 </td>
 </tr>
 </tbody>

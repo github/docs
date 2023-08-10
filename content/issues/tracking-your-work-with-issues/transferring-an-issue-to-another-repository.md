@@ -15,7 +15,7 @@ topics:
   - Pull requests
 shortTitle: Transfer an issue
 ---
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
 {% note %}
 
@@ -55,5 +55,3 @@ gh issue transfer ISSUE {% ifversion ghes %}HOSTNAME/{% endif %}OWNER/REPO
 ## Further reading
 
 - "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)"
-- "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization)"

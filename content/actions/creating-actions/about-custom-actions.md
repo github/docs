@@ -17,8 +17,7 @@ topics:
   - Action development
   - Fundamentals
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About custom actions
@@ -137,7 +136,7 @@ Each Git commit receives a calculated SHA value, which is unique and immutable. 
 
 ```yaml
 steps:
-    - uses: actions/javascript-action@172239021f7ba04fe7327647b213799853a9eb89
+    - uses: actions/javascript-action@a824008085750b8e136effc585c3cd6082bd575f
 ```
 
 ## Creating a README file for your action
@@ -153,24 +152,24 @@ We recommend creating a README file to help people learn how to use your action.
 
 ## Comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/about-apps)."
+{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
 
 ### Strengths of GitHub Actions and GitHub Apps
 
 While both {% data variables.product.prodname_actions %} and {% data variables.product.prodname_github_apps %} provide ways to build automation and workflow tools, they each have strengths that make them useful in different ways.
 
 {% data variables.product.prodname_github_apps %}:
-* Run persistently and can react to events quickly.
-* Work great when persistent data is needed.
-* Work best with API requests that aren't time consuming.
-* Run on a server or compute infrastructure that you provide.
+- Run persistently and can react to events quickly.
+- Work great when persistent data is needed.
+- Work best with API requests that aren't time consuming.
+- Run on a server or compute infrastructure that you provide.
 
 {% data variables.product.prodname_actions %}:
-* Provide automation that can perform continuous integration and continuous deployment.
-* Can run directly on runner machines or in Docker containers.
-* Can include access to a clone of your repository, enabling deployment and publishing tools, code formatters, and command line tools to access your code.
-* Don't require you to deploy code or serve an app.
-* Have a simple interface to create and use secrets, which enables actions to interact with third-party services without needing to store the credentials of the person using the action.
+- Provide automation that can perform continuous integration and continuous deployment.
+- Can run directly on runner machines or in Docker containers.
+- Can include access to a clone of your repository, enabling deployment and publishing tools, code formatters, and command line tools to access your code.
+- Don't require you to deploy code or serve an app.
+- Have a simple interface to create and use secrets, which enables actions to interact with third-party services without needing to store the credentials of the person using the action.
 
 ## Further reading
 

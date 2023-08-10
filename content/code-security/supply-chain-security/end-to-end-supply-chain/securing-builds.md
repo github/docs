@@ -30,9 +30,9 @@ There are several security capabilities a build system should have:
 
 1. The build steps should be clear and repeatable.
 
-2. You should know exactly what was running during the build process.
+1. You should know exactly what was running during the build process.
 
-3. Each build should start in a fresh environment, so a compromised build doesn't persist to affect future builds.
+1. Each build should start in a fresh environment, so a compromised build doesn't persist to affect future builds.
 
 {% data variables.product.prodname_actions %} can help you meet these capabilities. Build instructions are stored in your repository, alongside your code. You choose what environment your build runs on, including Windows, Mac, Linux, or runners you host yourself. Each build starts with a fresh runner image, making it difficult for an attack to persist in your build environment.
 
@@ -46,7 +46,7 @@ After your build process is secure, you want to prevent someone from tampering w
 
 How exactly you sign your build will depend on what sort of code you're writing, and who your users are. Often it's difficult to know how to securely store the private key. One basic option here is to use {% data variables.product.prodname_actions %} encrypted secrets, although you'll need to be careful to limit who has access to those {% data variables.product.prodname_actions %} workflows. {% ifversion fpt or ghec %}If your private key is stored in another system accessible over the public internet (like Microsoft Azure, or HashiCorp Vault), a more advanced option is to authenticate with OpenID Connect, so you don't have to share secrets across systems.{% endif %} If your private key is only accessible from a private network, another option is to use self-hosted runners for {% data variables.product.prodname_actions %}.
 
-For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"{% ifversion fpt or ghec %}, "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)",{% endif %} and "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)"{% ifversion fpt or ghec %}, "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)",{% endif %} and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 
 ## Harden security for {% data variables.product.prodname_actions %}
 

@@ -38,7 +38,7 @@ You can check for known issues and log new issues with the {% data variables.pro
 
 If you are using an Insiders build and notice broken behavior, we recommend switching to {% data variables.product.prodname_vscode %} Stable and trying again.
 
-Click {% octicon "gear" aria-label="The manage icon" %} in the bottom left of the editor and select **Switch to Stable Version...**. If the {% data variables.product.prodname_vscode_shortname %} web client doesn't load, or the {% octicon "gear" aria-label="The manage icon" %} icon isn't available, you can force switching to {% data variables.product.prodname_vscode %} Stable by appending `?vscodeChannel=stable` to your codespace URL and loading the codespace at that URL.
+Click {% octicon "gear" aria-label="Manage" %} in the bottom left of the editor and select **Switch to Stable Version...**. If the {% data variables.product.prodname_vscode_shortname %} web client doesn't load, or {% octicon "gear" aria-label="Manage" %} isn't available, you can force switching to {% data variables.product.prodname_vscode %} Stable by appending `?vscodeChannel=stable` to your codespace URL and loading the codespace at that URL.
 
 If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stable, check for known issues and, if required, log a new issue with the {% data variables.product.prodname_vscode_shortname %} experience, in the [`microsoft/vscode`](https://github.com/microsoft/vscode/issues?q=is%3Aissue+is%3Aopen+codespaces) repository.
 
@@ -80,12 +80,12 @@ If you are using a machine with 4 or more cores and the performance you are expe
 
 The recommended heap size varies according to the machine type of your codespace.
 
-| Machine type        | Maximum heap size |
-| ------------------- | ----------------- |
-| 4 core, 8 GB RAM    | 2048 MiB          |
-| 8 core, 16 GB RAM   | 4096 MiB          |
-| 16 cores, 32 GB RAM | 8192 MiB          |
-| 32 cores, 64 GB RAM | 16,384 MiB        |
+| Machine type         | Maximum heap size |
+| -------------------- | ----------------- |
+| 4 core, 16 GB RAM    | 2048 MiB          |
+| 8 core, 32 GB RAM    | 4096 MiB          |
+| 16 cores, 64 GB RAM  | 8192 MiB          |
+| 32 cores, 128 GB RAM | 16,384 MiB        |
 
 If the heap size is below the recommended value, a message is displayed when your codespace starts, suggesting that you increase the heap size. You can click the link in the message to increase the heap size automatically.
 

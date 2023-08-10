@@ -18,7 +18,7 @@ Until you add an image, repository links expand to show basic information about 
 
 ## Adding an image to customize the social media preview of your repository
 
-{% ifversion not ghae %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
+{% ifversion repo-rules %}You can upload an image to a public repository, or to a private repository to which you have previously uploaded an image. Your image can only be shared from a public repository.{% else %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
 
 {% tip %}
 
@@ -28,11 +28,11 @@ Until you add an image, repository links expand to show basic information about 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Social preview," click **Edit**
+1. Under "Social preview", click **Edit**.
     - To add a new image, click **Upload an image...**.
-    - To remove an image, click **Remove image**
+    - To remove an image, click **Remove image**.
 
-    ![Social preview dropdown](/assets/images/help/repository/social-preview.png)
+    ![Screenshot of the "Social Preview" section. The "Edit" button is highlighted with an orange outline, and a dropdown displays the options for uploading or removing an image.](/assets/images/help/repository/social-preview.png)
 
 ## About transparency
 

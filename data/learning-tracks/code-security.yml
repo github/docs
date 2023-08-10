@@ -3,7 +3,6 @@ security_advisories:
   description: >-
     Using repository security advisories to privately fix a reported
     vulnerability and get a CVE.
-  featured_track: '{% ifversion fpt or ghec %}true{% else %}false{% endif %}'
   guides:
     - >-
       /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
@@ -51,6 +50,8 @@ dependabot_alerts:
       endif %}
     - >-
       /code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts
+    - >-
+      /code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts
     - >-
       /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
     - >-
@@ -129,6 +130,10 @@ secret_scanning:
       %}/code-security/secret-scanning/protecting-pushes-with-secret-scanning{%
       endif %}
     - >-
+      {% ifversion secret-scanning-push-protection-for-users
+      %}/code-security/secret-scanning/push-protection-for-users{%
+      endif %}
+    - >-
       {% ifversion secret-scanning-push-protection
       %}/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection{%
       endif %}
@@ -172,7 +177,6 @@ code_security_actions:
   description: >-
     Check your default branch and every pull request to keep vulnerabilities and
     errors out of your repository.
-  featured_track: '{% ifversion ghae or ghes %}true{% else %}false{% endif %}'
   guides:
     - >-
       /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
@@ -181,7 +185,7 @@ code_security_actions:
     - >-
       /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning
     - >-
-      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
+      /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages
     - >-
       /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
     - >-

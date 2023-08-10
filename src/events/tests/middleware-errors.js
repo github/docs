@@ -1,7 +1,7 @@
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
-import { formatErrors } from '../middleware-errors.js'
-import { schemas } from '../schema.js'
+import { formatErrors } from '../lib/middleware-errors.js'
+import { schemas } from '../lib/schema.js'
 
 const ajv = new Ajv()
 addFormats(ajv)

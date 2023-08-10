@@ -92,13 +92,13 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
-* Forward the port on which the application runs on the remote machine to your local machine.
-* Run `dotnet restore`, after the dev container is created, to restore the dependencies required by the application.
-* Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
+- Forward the port on which the application runs on the remote machine to your local machine.
+- Run `dotnet restore`, after the dev container is created, to restore the dependencies required by the application.
+- Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
 {% data reusables.codespaces.add-comma-after-features %}
 
-   ```json{:copy}
+   ```json copy
      "features": {
        "ghcr.io/devcontainers/features/dotnet:1": {}
      },
@@ -109,14 +109,14 @@ With your dev container configuration added and a basic understanding of what ev
 
 1. Uncomment the `forwardPorts` property and change its value to port `5000` only.
 
-   ```json{:copy}
+   ```json copy
    // Use 'forwardPorts' to make a list of ports inside the container available locally.
    "forwardPorts": [5000],
    ```
 
 1. Uncomment the `postCreateCommand` property.
 
-   ```json{:copy}
+   ```json copy
    // Use 'postCreateCommand' to run commands after the container is created.
    "postCreateCommand": "dotnet restore",
    ```

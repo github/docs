@@ -36,7 +36,7 @@ There are three ways that you can set persistent custom environment variables fo
 
 Edit the `devcontainer.json` configuration file for the repository, and use the `remoteEnv` property to set the environment variable value:
 
-```
+```json
 {
     "remoteEnv": {
       "VARNAME": "value"
@@ -76,4 +76,8 @@ If you want to set a personalized environment variable for all codespaces that y
 
 The `/tmp` directory is an exception because it is mounted into the container, but it is not persistent. Therefore, the contents of the `/tmp` directory are persisted over a rebuild, but are cleared each time the codespace stops. For example, the `/tmp` directory is cleared when a codespace session times out after a period of inactivity. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/setting-your-timeout-period-for-github-codespaces)."
 
-If you have temporary files that you want to be available the next time you start the codespace, do not save them in the `/tmp` directory. 
+If you have temporary files that you want to be available the next time you start the codespace, do not save them in the `/tmp` directory.
+
+## Further reading
+
+- "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-shell-in-a-codespace)"

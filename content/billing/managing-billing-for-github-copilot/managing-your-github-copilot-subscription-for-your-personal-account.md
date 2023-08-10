@@ -39,6 +39,7 @@ You can cancel your {% data variables.product.prodname_copilot_individuals_short
    - If you have a paid subscription, click **Cancel {% data variables.product.prodname_copilot %}**.
    - If you are within your {% data reusables.copilot.trial-period %}-day trial period, click **Cancel trial**.
 
+     ![Screenshot of the {% data variables.product.prodname_copilot %} section of the "Plans and usage" page. The edit dropdown is expanded and the "Cancel trial" option is highlighted in dark orange.](/assets/images/help/copilot/copilot-cancel-trial.png)
 
 1. In the "Cancel {% data variables.product.prodname_copilot %}" modal, click **I understand, cancel {% data variables.product.prodname_copilot %}**
 

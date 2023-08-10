@@ -27,9 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # need to use a token from a user with access to github/github for this step
-      GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+      GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
-      REPORT_AUTHOR: docubot
+      REPORT_AUTHOR: docs-bot
       REPORT_LABEL: github github broken link report
       REPORT_REPOSITORY: github/docs-content
     steps:
@@ -39,7 +39,7 @@ jobs:
           exit 1 # prevents further steps from running
 
       - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
         with:
           # To prevent issues with cloning early access content later
           persist-credentials: 'false'
@@ -48,7 +48,7 @@ jobs:
 
       - uses: ./.github/actions/get-docs-early-access
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Build server
         run: npm run build
@@ -57,6 +57,7 @@ jobs:
         env:
           NODE_ENV: production
           PORT: 4000
+          ENABLED_LANGUAGES: en
         run: |
 
           node server.js &
@@ -65,22 +66,18 @@ jobs:
 
       - name: Run broken github/github link check
         run: |
-          script/check-github-github-links.js > broken_github_github_links.md
+          script/check-github-github-links.js broken_github_github_links.md
 
-      # check-github-github-links.js returns 0 if no links are broken, and 1 if any links
-      # are broken. When an Actions step's exit code is 1, the action run's job status
-      # is failure and the run ends. The following steps create an issue for the
-      # broken link report only if any links are broken, so `if: ${{ failure() }}`
-      # ensures the steps run despite the previous step's failure of the job.
-      #
-      # https://docs.github.com/actions/reference/context-and-expression-syntax-for-github-actions#job-status-check-functions
-
-      - if: ${{ failure() && env.FREEZE != 'true' }}
-        name: Get title for issue
+      - name: Get title for issue
+        # If the file 'broken_github_github_links.md' got created,
+        # the hash of it will not be an empty string. That means if found
+        # broken links, we want to create an issue.
+        if: ${{ hashFiles('broken_github_github_links.md') != '' && env.FREEZE != 'true' }}
         id: check
         run: echo "title=$(head -1 broken_github_github_links.md)" >> $GITHUB_OUTPUT
-      - if: ${{ failure() && env.FREEZE != 'true'}}
-        name: Create issue from file
+
+      - name: Create issue from file
+        if: ${{ hashFiles('broken_github_github_links.md') != '' && env.FREEZE != 'true' }}
         id: github-github-broken-link-report
         uses: peter-evans/create-issue-from-file@433e51abf769039ee20ba1293a088ca19d573b7f
         with:
@@ -89,3 +86,12 @@ jobs:
           content-filepath: ./broken_github_github_links.md
           repository: ${{ env.REPORT_REPOSITORY }}
           labels: ${{ env.REPORT_LABEL }}
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+        if: ${{ failure() && env.FREEZE != 'true' }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last "Check Broken Docs Links in github/github" run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/check-broken-links-github-github.yml

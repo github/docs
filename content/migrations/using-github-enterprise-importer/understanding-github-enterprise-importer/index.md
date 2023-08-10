@@ -16,5 +16,3 @@ redirect_from:
   - /early-access/github/migrating-with-github-enterprise-importer/understanding-github-enterprise-importer
   - /early-access/enterprise-importer/understanding-github-enterprise-importer
 ---
-
-{% data reusables.enterprise-migration-tool.release-phase %}

@@ -5,7 +5,7 @@ intro: 'Use GitHub Desktop to manage your projects, create meaningful commits, a
 redirect_from:
   - /desktop/contributing-to-projects
 versions:
-  fpt: '*'
+  feature: desktop
 children:
   - /adding-and-cloning-repositories
   - /making-changes-in-a-branch

@@ -15,17 +15,17 @@ shortTitle: Integrator best practices
 ---
 
 
-Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users *and* ensure that it's reliably interacting with the API.
+Interested in integrating with the GitHub platform? [You're in good company](https://github.com/integrations). This guide will help you build an app that provides the best experience for your users _and_ ensure that it's reliably interacting with the API.
 
 ## Secure payloads delivered from GitHub
 
-It's very important that you secure [the payloads sent from GitHub][event-types]. Although no personal information (like passwords) is ever transmitted in a payload, leaking *any* information is not good. Some information that might be sensitive include committer email address or the names of private repositories.
+It's very important that you secure [the payloads sent from GitHub][event-types]. Although no personal information (like passwords) is ever transmitted in a payload, leaking _any_ information is not good. Some information that might be sensitive include committer email address or the names of private repositories.
 
 There are several steps you can take to secure receipt of payloads delivered by GitHub:
 
 1. Ensure that your receiving server is on an HTTPS connection. By default, GitHub will verify SSL certificates when delivering payloads.{% ifversion fpt or ghec %}
 1. You can add [the IP address we use when delivering hooks](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses) to your server's allow list. To ensure that you're always checking the right IP address, you can [use the `/meta` endpoint](/rest/meta#meta) to find the address we use.{% endif %}
-1. Provide [a secret token](/webhooks-and-events/webhooks/securing-your-webhooks) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token *per user* of your service. That way, if one token is compromised, no other user would be affected.
+1. Provide [a secret token](/webhooks-and-events/webhooks/securing-your-webhooks) to ensure payloads are definitely coming from GitHub. By enforcing a secret token, you're ensuring that any data received by your server is absolutely coming from GitHub. Ideally, you should provide a different secret token _per user_ of your service. That way, if one token is compromised, no other user would be affected.
 
 ## Favor asynchronous work over synchronous
 
@@ -39,7 +39,7 @@ Note that even with a background job running, GitHub still expects your server t
 
 Every webhook has its own "Recent Deliveries" section, which lists whether a deployment was successful or not.
 
-![Screenshot of the "Recent Deliveries" tab on the "Manage webhook" page.](/assets/images/help/webhooks/webhooks_recent_deliveries.png)
+![Screenshot of the "Recent Deliveries" tab on the "Manage webhook" page.](/assets/images/help/webhooks/webhooks-recent-deliveries.png)
 
 You should make use of proper HTTP status codes in order to inform users. You can use codes like `201` or `202` to acknowledge receipt of payload that won't be processed (for example, a payload delivered by a branch that's not the default). Reserve the `500` error code for catastrophic failures.
 
@@ -47,7 +47,7 @@ You should make use of proper HTTP status codes in order to inform users. You ca
 
 Users can dig into the server responses you send back to GitHub. Ensure that your messages are clear and informative.
 
-![Screenshot of the "Response" tab of a webhook delivery, including the "Headers" and "Body" sections.](/assets/images/help/webhooks/payload_response_tab.png)
+![Screenshot of the "Response" tab of a webhook delivery, including the "Headers" and "Body" sections.](/assets/images/help/webhooks/payload-response-tab.png)
 
 ## Follow any redirects that the API sends you
 
@@ -137,26 +137,27 @@ In this example the `closed` action is checked first before calling the `process
 
 The {% data variables.product.company_short %} API rate limit ensures that the API is fast and available for everyone.
 
-If you hit a rate limit, it's expected that you stop making requests until after the time specified by the `x-ratelimit-reset` header. Failure to do so may result in the banning of your app. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
+If you hit a rate limit, you should stop making requests until after the time specified by the `x-ratelimit-reset` header. Failure to do so may result in the banning of your integration. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#rate-limiting)."
 
-## Dealing with secondary rate limits
+### Dealing with secondary rate limits
 
-{% data variables.product.company_short %} may use secondary rate limits to ensure API availability. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)."
+{% data variables.product.company_short %} may also use secondary rate limits to ensure API availability. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#secondary-rate-limits)."
 
 To avoid hitting this limit, you should ensure your application follows the guidelines below.
 
-* Make authenticated requests, or use your application's client ID and secret. Unauthenticated
+- Make authenticated requests, or use your application's client ID and secret. Unauthenticated
   requests are subject to more aggressive secondary rate limiting.
-* Make requests for a single user or client ID serially. Do not make requests for a single user
+- Make requests for a single user or client ID serially. Do not make requests for a single user
   or client ID concurrently.
-* If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
+- If you're making a large number of `POST`, `PATCH`, `PUT`, or `DELETE` requests for a single user
   or client ID, wait at least one second between each request.
-* When you have been limited, wait before retrying your request.
-   * If the `Retry-After` response header is present, retry your request after the time specified in the header. The value of the
+- When you have been limited, wait before retrying your request.
+  - If the `Retry-After` response header is present, retry your request after the time specified in the header. The value of the
   `Retry-After` header will always be an integer, representing the number of seconds you should wait
   before making requests again. For example, `Retry-After: 30` means you should wait 30 seconds
   before sending more requests.
-   * Otherwise, retry your request after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header will always be an integer representing the time at which the current rate limit window resets in [UTC epoch seconds](http://en.wikipedia.org/wiki/Unix_time).
+  - If the `x-ratelimit-remaining` header is `0`, retry your request after the time specified by the `x-ratelimit-reset` header. The `x-ratelimit-reset` header will always be an integer representing the time at which the current rate limit window resets in [UTC epoch seconds](https://en.wikipedia.org/wiki/Unix_time).
+  - Otherwise, wait for an exponentially increasing amount of time between retries, and throw an error after a specific number of retries.
 
 {% data variables.product.company_short %} reserves the right to change these guidelines as needed to ensure availability.
 
@@ -170,4 +171,4 @@ Rather than ignore repeated `4xx` and `5xx` status codes, you should ensure that
 
 Intentionally ignoring repeated validation errors may result in the suspension of your app for abuse.
 
-[event-types]: /webhooks/event-payloads
+[event-types]: /webhooks-and-events/webhooks/webhook-events-and-payloads

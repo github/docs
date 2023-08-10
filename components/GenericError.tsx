@@ -23,11 +23,7 @@ export function GenericError() {
             We track these errors automatically, but if the problem persists please feel free to
             contact us.
           </p>
-          <a
-            id="contact-us"
-            href="https://support.github.com/contact"
-            className="btn btn-outline mt-2"
-          >
+          <a id="support" href="https://support.github.com" className="btn btn-outline mt-2">
             <CommentDiscussionIcon size="small" className="octicon mr-1" />
             Contact support
           </a>
@@ -43,16 +39,20 @@ export const SimpleHeader = () => {
   const router = useRouter()
   return (
     <div className="border-bottom color-border-muted no-print">
-      <header className="container-xl p-responsive py-3 position-relative d-flex width-full">
+      <header
+        className="container-xl p-responsive py-3 position-relative d-flex width-full"
+        role="banner"
+        aria-label="Main"
+      >
         <div className="d-flex flex-items-center" style={{ zIndex: 3 }} id="github-logo-mobile">
-          <Link href={`/${router.locale}`}>
+          <Link href={`/${router.locale}`} passHref legacyBehavior>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a aria-hidden="true" tabIndex={-1}>
               <MarkGithubIcon size={32} className="color-fg-default" />
             </a>
           </Link>
 
-          <Link href={`/${router.locale}`}>
+          <Link href={`/${router.locale}`} passHref legacyBehavior>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="h4 color-fg-default no-underline no-wrap pl-2">GitHub Docs</a>
           </Link>
@@ -64,42 +64,44 @@ export const SimpleHeader = () => {
 
 export const SimpleFooter = () => {
   return (
-    <footer className="py-6 text-small">
-      <div className="container-xl d-flex px-3 px-md-6 flex-justify-center">
-        <ul className="d-flex list-style-none flex-wrap flex-justify-center">
+    <footer className="py-6">
+      <div className="container-xl px-3 px-md-6">
+        <ul className="d-flex flex-wrap list-style-none">
           <li className="d-flex mr-xl-3 color-fg-muted">
-            <MarkGithubIcon className="mr-2 mr-xl-3" size={20} />
             <span>&copy; {new Date().getFullYear()} GitHub, Inc.</span>
           </li>
           <li className="ml-3">
-            <a href="/site-policy/github-terms/github-terms-of-service">Terms</a>
+            <a className="text-underline" href="/site-policy/github-terms/github-terms-of-service">
+              Terms
+            </a>
           </li>
           <li className="ml-3">
-            <a href="/site-policy/privacy-policies/github-privacy-statement">Privacy </a>
+            <a
+              className="text-underline"
+              href="/site-policy/privacy-policies/github-privacy-statement"
+            >
+              Privacy{' '}
+            </a>
           </li>
           <li className="ml-3">
-            <a href="https://github.com/security">Security</a>
+            <a className="text-underline" href="https://www.githubstatus.com/">
+              Status
+            </a>
           </li>
           <li className="ml-3">
-            <a href="https://www.githubstatus.com/">Status</a>
+            <a className="text-underline" href="https://github.com/pricing">
+              Pricing
+            </a>
           </li>
           <li className="ml-3">
-            <a href="/">Help</a>
+            <a className="text-underline" href="https://services.github.com/">
+              Expert services
+            </a>
           </li>
           <li className="ml-3">
-            <a href="https://support.github.com">Contact GitHub</a>
-          </li>
-          <li className="ml-3">
-            <a href="https://github.com/pricing">Pricing</a>
-          </li>
-          <li className="ml-3">
-            <a href="/developers">Developer API</a>
-          </li>
-          <li className="ml-3">
-            <a href="https://services.github.com/">Training</a>
-          </li>
-          <li className="ml-3">
-            <a href="https://github.com/about">About</a>
+            <a className="text-underline" href="https://github.blog/">
+              Blog
+            </a>
           </li>
         </ul>
       </div>

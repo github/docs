@@ -11,16 +11,14 @@ topics:
   - CD
   - Azure Kubernetes Service
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
 
 ## Introduction
 
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a project to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/).
 
-{% ifversion fpt or ghec or ghes > 3.4 %}
+{% ifversion fpt or ghec or ghes %}
 
 {% note %}
 
@@ -52,7 +50,7 @@ Under the workflow `env` key, change the following values:
 
 This workflow uses the `helm` render engine for the [`azure/k8s-bake` action](https://github.com/Azure/k8s-bake). If you will use the `helm` render engine, change the value of `CHART_PATH` to the path to your helm file. Change `CHART_OVERRIDE_PATH` to an array of override file paths. If you use a different render engine, update the input parameters sent to the `azure/k8s-bake` action.
 
-```yaml{:copy}
+```yaml copy
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
 {% data reusables.actions.actions-use-sha-pinning-comment %}
@@ -78,12 +76,12 @@ jobs:
     - uses: {% data reusables.actions.action-checkout %}
 
     - name: Azure Login
-      uses: azure/login@89d153571fe9a34ed70fcf9f1d95ab8debea7a73
+      uses: azure/login@14a755a4e2fd6dff25794233def4f2cf3f866955
       with:
         creds: {% raw %}${{ secrets.AZURE_CREDENTIALS }}{% endraw %}
 
     - name: Build image on ACR
-      uses: azure/CLI@7378ce2ca3c38b4b063feb7a4cbe384fef978055
+      uses: azure/CLI@61bb69d64d613b52663984bf12d6bac8fd7b3cc8
       with:
         azcliversion: 2.29.1
         inlineScript: |
@@ -91,7 +89,7 @@ jobs:
           az acr build -t  -t {% raw %}${{ env.REGISTRY_URL }}{% endraw %}/{% raw %}${{ env.PROJECT_NAME }}{% endraw %}:{% raw %}${{ github.sha }}{% endraw %}
     
     - name: Gets K8s context
-      uses: azure/aks-set-context@4e5aec273183a197b181314721843e047123d9fa
+      uses: azure/aks-set-context@94ccc775c1997a3fcfbfbce3c459fec87e0ab188
       with:
           creds: {% raw %}${{ secrets.AZURE_CREDENTIALS }}{% endraw %}
           resource-group: {% raw %}${{ env.RESOURCE_GROUP }}{% endraw %}
@@ -99,7 +97,7 @@ jobs:
       id: login
 
     - name: Configure deployment
-      uses: azure/k8s-bake@773b6144a3732e3bf4c78b146a0bb9617b2e016b
+      uses: azure/k8s-bake@61041e8c2f75c1f01186c8f05fb8b24e1fc507d8
       with:
         renderEngine: 'helm'
         helmChart: {% raw %}${{ env.CHART_PATH }}{% endraw %}
@@ -110,7 +108,7 @@ jobs:
       id: bake
 
     - name: Deploys application
-    - uses: Azure/k8s-deploy@c8fbd76ededaad2799c054a9fd5d0fa5d4e9aee4
+    - uses: Azure/k8s-deploy@dd4bbd13a5abd2fc9ca8bdcb8aee152bb718fa78
       with:
         manifests: {% raw %}${{ steps.bake.outputs.manifestsBundle }}{% endraw %}
         images: |
@@ -123,6 +121,6 @@ jobs:
 
 The following resources may also be useful:
 
-* For the original starter workflow, see [`azure-kubernetes-service.yml `](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
-* The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+- For the original starter workflow, see [`azure-kubernetes-service.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-kubernetes-service.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
+- The actions used to in this workflow are the official Azure [`Azure/login`](https://github.com/Azure/login),[`Azure/aks-set-context`](https://github.com/Azure/aks-set-context), [`Azure/CLI`](https://github.com/Azure/CLI), [`Azure/k8s-bake`](https://github.com/Azure/k8s-bake), and [`Azure/k8s-deploy`](https://github.com/Azure/k8s-deploy)actions.
+- For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.

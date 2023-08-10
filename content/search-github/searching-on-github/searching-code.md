@@ -1,27 +1,29 @@
 ---
-title: Searching code
-intro: 'You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination.'
+title: Searching code {% ifversion code-search-code-view %}(legacy){% endif %}
+intro: '{% ifversion code-search-code-view %}You only need to use the legacy code search syntax if you are using the code search API{% else %}You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination{% endif %}.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
   - /github/searching-for-information-on-github/searching-code-for-exact-matches
   - /github/searching-for-information-on-github/searching-code
   - /github/searching-for-information-on-github/searching-on-github/searching-code
+allowTitleToDifferFromFilename: true  
 versions:
   fpt: '*'
+  ghec: '*'
   ghes: '*'
   ghae: '*'
-  ghec: '*'
 topics:
   - GitHub search
 ---
+{% ifversion code-search-code-view %}
+{% note %}
 
-{% ifversion github-code-search %}
-  {% note %}
+**Note:** This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search#search-code).
 
-  **Note:** {% data reusables.search.classic-search-code-search-note %}
+For information on the code search syntax that you can use on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
 
-  {% endnote %}
+{% endnote %}
 {% endif %}
 
 {% data reusables.search.you-can-search-globally %} For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
@@ -79,7 +81,7 @@ You can use the `path` qualifier to search for source code that appears at a spe
 
 ## Search by language
 
-You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github/linguist repository](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github-linguist/linguist repository](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -102,8 +104,8 @@ The `filename` qualifier matches code files with a certain filename. You can als
 | Qualifier  | Example
 | ------------- | -------------
 | <code>filename:<em>FILENAME</em></code> | [**filename:linguist**](https://github.com/search?utf8=%E2%9C%93&q=filename%3Alinguist&type=Code) matches files named "linguist."
-| <code>filename:<em>FILENAME</em></code> | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches *.vimrc* files with the word "commands."
-| <code>filename:<em>FILENAME</em></code> | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named *test_helper* within the *test* directory.
+| <code>filename:<em>FILENAME</em></code> | [**filename:.vimrc commands**](https://github.com/search?q=filename%3A.vimrc+commands&type=Code) matches _.vimrc_ files with the word "commands."
+| <code>filename:<em>FILENAME</em></code> | [**filename:test_helper path:test language:ruby**](https://github.com/search?q=minitest+filename%3Atest_helper+path%3Atest+language%3Aruby&type=Code) matches Ruby files named _test_helper_ within the _test_ directory.
 
 ## Search by file extension
 

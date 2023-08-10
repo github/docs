@@ -1,6 +1,6 @@
 import { afterEach } from '@jest/globals'
 import nock from 'nock'
-import { publish } from '../hydro.js'
+import { publish } from '../lib/hydro.js'
 
 describe('Hydro', () => {
   const secret = '3BD22A91'
@@ -61,7 +61,7 @@ describe('Hydro', () => {
         { schema: 'docs.v0.ExampleEvent', value: { event_id: 'FA36EA6D' } },
         { schema: 'docs.v0.ExampleEvent', value: { event_id: '4F60C35A' } },
       ],
-      config
+      config,
     )
     expect(scope.isDone()).toBeTruthy()
   })

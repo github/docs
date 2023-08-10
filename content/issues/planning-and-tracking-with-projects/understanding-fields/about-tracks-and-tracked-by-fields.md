@@ -9,7 +9,11 @@ topics:
   - Projects
 ---
 
-{% data reusables.projects.tasklists-release-stage %}
+{% note %}
+
+**Note:** Tasklists and the tracks and tracked by fields for Projects are currently in beta and subject to change.
+
+{% endnote %}
 
 You can enable the Tracks and Tracked by fields on your projects to see the relationships between your issues as you add subtasks in tasklists. For more information about creating issue hierarchies in tasklists, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
 
@@ -29,12 +33,9 @@ You can enable the Tracked by field to see which issues are tracking an item in 
 
 1. In table view, in the rightmost field header, click {% octicon "plus" aria-label="the plus icon" %}.
 
-   ![Screenshot showing new field button](/assets/images/help/projects-v2/new-field-button.png)
+   ![Screenshot of a project. The "Add field" button, indicated by a plus icon, is highlighted with an orange outline.](/assets/images/help/projects-v2/new-field-button.png)
 
 1. Under "Hidden fields", click **Tracked by**.
-
-   ![Screenshot showing the field menu](/assets/images/help/projects-v2/select-tracked-by-field.png)
-
 
 ## Enabling the Tracks field
 
@@ -42,8 +43,6 @@ You can enable the Tracks field to see what other issues an item in your project
 
 1. In table view, in the rightmost field header, click {% octicon "plus" aria-label="the plus icon" %}.
 
-   ![Screenshot showing new field button](/assets/images/help/projects-v2/new-field-button.png)
+   ![Screenshot of a project. The "Add field" button, indicated by a plus icon, is highlighted with an orange outline.](/assets/images/help/projects-v2/new-field-button.png)
 
 1. Under "Hidden fields", click **Tracks**.
-
-   ![Screenshot showing the field menu](/assets/images/help/projects-v2/select-tracks-field.png)

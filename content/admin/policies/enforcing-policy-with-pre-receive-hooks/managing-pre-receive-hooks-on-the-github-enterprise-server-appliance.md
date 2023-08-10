@@ -25,9 +25,9 @@ shortTitle: Manage pre-receive hooks
 1. Select the **Environment** dropdown menu, then click the environment on which you want the hook to run.
 1. Under "Script," select the **Select hook repository** dropdown menu, then click the repository that contains your pre-receive hook script.
 1. Select the **Select file** drop-down menu, then click the filename of the pre-receive hook script.
-1.  To enforce your script, select **Use the exit-status to accept or reject pushes**. Deselecting this option allows you to test the script while the exit-status value is ignored. In this mode, the output of the script will be visible to the user in the command-line but not on the web interface.
+1. To enforce your script, select **Use the exit-status to accept or reject pushes**. Deselecting this option allows you to test the script while the exit-status value is ignored. In this mode, the output of the script will be visible to the user in the command-line but not on the web interface.
 1. If you want the pre-receive hook to run on all repositories, select **Enable this pre-receive hook on all repositories by default**.
-1.  To allow organization members with admin or owner permissions to select whether they wish to enable or disable this pre-receive hook, select **Administrators can enable and disable this hook**.
+1. To allow organization members with admin or owner permissions to select whether they wish to enable or disable this pre-receive hook, select **Administrators can enable and disable this hook**.
 
 ## Editing pre-receive hooks
 
@@ -41,16 +41,16 @@ shortTitle: Manage pre-receive hooks
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-2. Next to the pre-receive hook that you want to delete, click **Delete**.
+1. Next to the pre-receive hook that you want to delete, click **Delete**.
 
 ## Configure pre-receive hooks for an organization
 
-An organization administrator can only configure hook permissions for an organization if the site administrator selected the **Administrators can enable or disable this hook** option when they created the pre-receive hook. To configure pre-receive hooks for a repository, you must be an organization administrator or owner.
+An organization owner can only configure hook permissions for an organization if the site administrator selected the **Administrators can enable or disable this hook** option when they created the pre-receive hook. To configure pre-receive hooks for a repository, you must be an organization owner.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-4. In the left sidebar, click **Hooks**.
-5. Next to the pre-receive hook that you want to configure, select the **Hook permissions** dropdown menu, then click an option.
+1. In the left sidebar, click **Hooks**.
+1. Next to the pre-receive hook that you want to configure, select the **Hook permissions** dropdown menu, then click an option.
 
 ## Configure pre-receive hooks for a repository
 

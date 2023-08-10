@@ -1,10 +1,10 @@
 {%- ifversion rename-and-transfer-repository %}
 1. At the bottom of the page, in the "Danger Zone" section, click **Transfer**.
 1. Read the information about transferring a repository, then, under "New owner", choose how to specify the new owner.
-  - To choose one of your organizations, select **Select one of my organizations**.
+   - To choose one of your organizations, select **Select one of my organizations**.
 
-      - Select the dropdown menu and click an organization.
-      - Optionally, in the "Repository name" field, type a new name for the repository.
+     - Select the dropdown menu and click an organization.
+     - Optionally, in the "Repository name" field, type a new name for the repository.
 
        {% note %}
 

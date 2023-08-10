@@ -1,4 +1,4 @@
-import statsd from '../lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 
 export default function abort(req, res, next) {
   // If the client aborts the connection, send an error

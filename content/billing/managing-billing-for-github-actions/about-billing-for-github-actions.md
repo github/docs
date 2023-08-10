@@ -15,13 +15,17 @@ shortTitle: Billing for GitHub Actions
 ---
 ## About billing for {% data variables.product.prodname_actions %}
 
+{% ifversion billing-auth-and-capture %}
+
+{% data reusables.billing.authorization-charge %}
+
+{% endif %}
+
 {% data reusables.actions.actions-billing %}
 
 {% data reusables.actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
 
-{% ifversion ghec %}
-If you purchased {% data variables.product.prodname_enterprise %} through a Microsoft Enterprise Agreement, you can connect your Azure Subscription ID to your enterprise account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription-to-your-enterprise)."
-{% endif %}
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 Minutes reset every month, while storage usage does not.
 
@@ -29,11 +33,11 @@ Minutes reset every month, while storage usage does not.
 
 {% note %}
 
-**Note**: Entitlement minutes cannot be used for Windows and Ubuntu runners over 2-cores. These runners will always be charged for, including in public repos. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+**Note**: Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repos. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
 
 {% endnote %}
 
-|Product | Storage | Minutes (per month)|
+|Plan | Storage | Minutes (per month)|
 |------- | ------- | ---------|
 | {% data variables.product.prodname_free_user %} | 500 MB | 2,000 |
 | {% data variables.product.prodname_pro %} | 1 GB | 3,000 |
@@ -65,10 +69,11 @@ The storage used by a repository is the total storage used by {% data variables.
 
 {% data reusables.billing.billing-hosted-runners %}
 
-- The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
+- The number of jobs you can run concurrently across all repositories in your user or organization account depends on your GitHub plan. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
 - {% data reusables.user-settings.context_switcher %}
+- {% data reusables.actions.about-larger-runners-billing %}
 - For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners)."
-- Entitlement minutes cannot be used for {% data variables.actions.hosted_runner %}s.
+- Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
 - The {% data variables.actions.hosted_runner %}s are not free for public repositories.
 
 ## Calculating minute and storage spending

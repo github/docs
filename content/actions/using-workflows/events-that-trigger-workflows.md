@@ -41,7 +41,7 @@ Some events have multiple activity types. For these events, you can specify whic
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)." For information about the branch protection rule APIs, see "[AUTOTITLE](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[AUTOTITLE](/rest/branches)" in the REST API documentation.
+Runs your workflow when branch protection rules in the workflow repository are changed. For more information about branch protection rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)." For information about the branch protection rule APIs, see "[AUTOTITLE](/graphql/reference/objects#branchprotectionrule)" in the GraphQL API documentation or "[AUTOTITLE](/rest/branches)" in the REST API documentation.
 
 For example, you can run a workflow when a branch protection rule has been `created` or `deleted`:
 
@@ -186,6 +186,7 @@ on:
 ```
 
 {% ifversion discussions %}
+
 ## `discussion`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -381,15 +382,13 @@ on:
     types: [created, deleted]
 ```
 
-{% ifversion fpt or ghec  %}
+{% ifversion merge-queue  %}
 
 ## `merge_group`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
 | [`merge_group`](/webhooks-and-events/webhooks/webhook-events-and-payloads#merge_group) | `checks_requested` | SHA of the merge group | Ref of the merge group |
-
-{% data reusables.pull_requests.merge-queue-beta %}
 
 {% note %}
 
@@ -409,6 +408,7 @@ on:
 ```
 
 {% endif %}
+
 ## `milestone`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -942,7 +942,7 @@ jobs:
 
 {% endnote %}
 
-Runs your workflow when you push a commit or tag.
+Runs your workflow when you push a commit or tag, or when you clone a repository.
 
 For example, you can run a workflow when the `push` event occurs.
 
@@ -1041,7 +1041,23 @@ on:
 
 {% data reusables.actions.branch-requirement %}
 
-Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[AUTOTITLE](/packages)."
+{% note %}
+
+**Note**: When pushing multi-architecture container images, this event occurs once per manifest, so you might observe your workflow triggering multiple times. To mitigate this, and only run your workflow job for the event that contains the actual image tag information, use a conditional:
+
+{% raw %}
+
+```yaml
+jobs:
+    job_name:
+        if: ${{ github.event.registry_package.package_version.container_metadata.tag.name != '' }}
+```
+
+{% endraw %}
+
+{% endnote %}
+
+Runs your workflow when activity related to {% data variables.product.prodname_registry %} occurs in your repository. For more information, see "[{% data variables.product.prodname_registry %} Documentation](/packages)."
 
 For example, you can run a workflow when a new package version has been `published`.
 
@@ -1071,7 +1087,7 @@ on:
 
 {% note %}
 
-**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable *and* pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
+**Note:** The `prereleased` type will not trigger for pre-releases published from draft releases, but the `published` type will trigger. If you want a workflow to run when stable _and_ pre-releases publish, subscribe to `published` instead of `released` and `prereleased`.
 
 {% endnote %}
 
@@ -1100,7 +1116,7 @@ When you make a request to create a `repository_dispatch` event, you must specif
 ```yaml
 on:
   repository_dispatch:
-    types: [on-demand-test]
+    types: [test_result]
 ```
 
 {% note %}
@@ -1138,6 +1154,15 @@ jobs:
         run: echo $MESSAGE
 ```
 
+{% note %}
+
+**Notes**:
+
+- The maximum number of top-level properties in `client_payload` is 10.
+- The payload can contain a maximum of 65,535 characters.
+
+{% endnote %}
+
 ## `schedule`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -1152,7 +1177,7 @@ The `schedule` event allows you to trigger a workflow at a scheduled time.
 
 Cron syntax has five fields separated by a space, and each field represents a unit of time.
 
-```
+```text
 ┌───────────── minute (0 - 59)
 │ ┌───────────── hour (0 - 23)
 │ │ ┌───────────── day of the month (1 - 31)
@@ -1262,6 +1287,8 @@ on: workflow_call
 | ------------------ | ------------ | ------------ | ------------------|
 | [workflow_dispatch](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_dispatch) | Not applicable | Last commit on the `GITHUB_REF` branch or tag | Branch or tag that received dispatch |
 
+{% data reusables.actions.branch-requirement %}
+
 To enable a workflow to be triggered manually, you need to configure the `workflow_dispatch` event. You can manually trigger a workflow run using the {% data variables.product.product_name %} API, {% data variables.product.prodname_cli %}, or {% data variables.product.product_name %} browser interface. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow)."
 
 ```yaml
@@ -1318,7 +1345,7 @@ If you run this workflow from a browser you must enter values for the required i
 
 You can also pass inputs when you run a workflow from a script, or by using {% data variables.product.prodname_cli %}. For example:
 
-```
+```shell
 gh workflow run run-tests.yml -f logLevel=warning -f tags=false -f environment=staging
 ```
 

@@ -38,13 +38,14 @@ Within conversations on {% data variables.product.product_name %}, references to
 | `#` and issue or pull request number | #26 | [#26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `GH-` and issue or pull request number | GH-26 | [GH-26](https://github.com/jlord/sheetsee.js/issues/26) |
 | `Username/Repository#` and issue or pull request number | jlord/sheetsee.js#26 | [jlord/sheetsee.js#26](https://github.com/jlord/sheetsee.js/issues/26)
-| `Organization_name/Repository#` and issue or pull request number | github/linguist#4039 | [github/linguist#4039](https://github.com/github/linguist/pull/4039)
+| `Organization_name/Repository#` and issue or pull request number | github-linguist/linguist#4039 | [github-linguist/linguist#4039](https://github.com/github-linguist/linguist/pull/4039)
 
 {% ifversion fpt or ghec %}
 If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
 {% endif %}
 
 ## Labels
+
 When referencing the URL of a label in Markdown, the label is automatically rendered. Only labels of the same repository are rendered, URLs pointing to a label from a different repository are rendered as any [URL](/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls#urls).
 
 The URL of a label can be found by navigating to the labels page and clicking on a label. For example, the URL of the label "enhancement" in our public [docs repository](https://github.com/github/docs/) is
@@ -52,6 +53,7 @@ The URL of a label can be found by navigating to the labels page and clicking on
 ```md
 https://github.com/github/docs/labels/enhancement
 ```
+
 {% note %}
 
 **Note:** If the label name contains a period (`.`), the label will not automatically render from the label URL.

@@ -12,8 +12,6 @@ redirect_from:
   - /early-access/enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-githubcom-to-github-enterprise-cloud
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
 
 {% data reusables.enterprise-migration-tool.tool-options %}
@@ -167,11 +165,13 @@ mutation startRepositoryMigration (
 
 {% data reusables.enterprise-migration-tool.generate-migration-script %}
 
+If you want to migrate a single repository, skip to the next step.
+
 ### Generating a migration script
 
 {% data reusables.enterprise-migration-tool.gh-gei-generate-script %}
 
-```shell{:copy}
+```shell copy
 gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATION --output FILENAME
 ```
 
@@ -182,6 +182,8 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 ### Reviewing the migration script
 
 {% data reusables.enterprise-migration-tool.review-migration-script %}
+
+{% data reusables.enterprise-migration-tool.skip-releases %}
 
 ## Step 5: Migrate repositories
 
@@ -195,11 +197,9 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 
 {% data reusables.enterprise-migration-tool.gei-migrate-repo %}
 
-```shell{:copy}
-gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME --wait
+```shell copy
+gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME
 ```
-
-{% data reusables.enterprise-migration-tool.wait-flag %}
 
 {% data reusables.enterprise-migration-tool.skip-releases %}
 

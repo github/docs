@@ -24,7 +24,7 @@ If a site administrator disables the merge conflict editor for pull requests bet
 
 {% warning %}
 
-**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/get-started/quickstart/github-glossary#base-branch) of your pull request is merged into the [head branch](/get-started/quickstart/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+**Warning:** When you resolve a merge conflict on {% data variables.product.product_name %},  the entire [base branch](/get-started/quickstart/github-glossary#base-branch) of your pull request is merged into the [head branch](/get-started/quickstart/github-glossary#head-branch). Make sure you really want to commit to this branch. If the head branch is the default branch of your repository, you'll be given the option of creating a new branch to serve as the head branch for your pull request. If the head branch is protected you won't be able to merge your conflict resolution into it, so you'll be prompted to create a new head branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 {% endwarning %}
 

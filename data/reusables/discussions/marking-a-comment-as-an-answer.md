@@ -4,7 +4,7 @@ When you mark a question as an answer, {% data variables.product.product_name %}
 
 ![Screenshot of a comment marked as the answer to a discussion.](/assets/images/help/discussions/comment-marked-as-answer.png)
 
-You can't mark a threaded comment in response to a comment as the answer to a discussion. You also can't mark a minimized comment as the answer to a discussion.
+{% ifversion discussions-mark-threaded-comment-as-answer %}You can also mark a threaded comment (in response to a comment) as the answer to a discussion. You can't mark a minimized comment as the answer to a discussion. {% else %}You can't mark a threaded comment in response to a comment as the answer to a discussion. You also can't mark a minimized comment as the answer to a discussion.{% endif %}
 
 {% data reusables.discussions.navigate-to-repo-or-org %}
 {% data reusables.discussions.discussions-tab %}
@@ -17,4 +17,4 @@ You can't mark a threaded comment in response to a comment as the answer to a di
 
    ![Screenshot of a discussion comment. A button, labeled "Mark as answer", is outlined in dark orange.](/assets/images/help/discussions/comment-mark-as-answer-button.png)
 
-2. Optionally, to unmark a comment as the answer, click **Unmark as answer**.
+1. Optionally, to unmark a comment as the answer, click **Unmark as answer**.

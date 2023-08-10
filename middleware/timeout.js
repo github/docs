@@ -1,6 +1,6 @@
 import timeout from 'express-timeout-handler'
 
-import statsd from '../lib/statsd.js'
+import statsd from '#src/observability/lib/statsd.js'
 import { MAX_REQUEST_TIMEOUT } from '../lib/constants.js'
 
 export default timeout.handler({

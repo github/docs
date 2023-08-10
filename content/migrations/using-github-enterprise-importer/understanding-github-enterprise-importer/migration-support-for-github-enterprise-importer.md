@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migration-support-for-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About migration support for {% data variables.product.prodname_importer_proper_name %}
 
 {% data variables.product.prodname_importer_proper_name %} can migrate to {% data variables.product.prodname_ghe_cloud %} from any of our supported migration sources. The data included in each migration depends on the source.
@@ -29,12 +27,12 @@ You can only use {% data variables.product.prodname_importer_proper_name %} to m
 
 We currently only support migrating the following repository data from Azure DevOps to {% data variables.product.prodname_ghe_cloud %}.
 
-  - Git source (including commit history)
-  - Pull requests
-  - User history for pull requests
-  - Work item links on pull requests
-  - Attachments on pull requests
-  - Branch protections for the repository (user-scoped branch protections not included)
+- Git source (including commit history)
+- Pull requests
+- User history for pull requests
+- Work item links on pull requests
+- Attachments on pull requests
+- Branch protections for the repository (user-scoped branch protections not included)
 
 If you want to migrate Azure Pipelines to {% data variables.product.prodname_actions %}, contact your {% data variables.product.prodname_dotcom %} account manager.
 
@@ -47,7 +45,7 @@ Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitb
 If your migration source is Bitbucket Server, you can migrate repositories. We currently only support migrating the following repository data from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %}.
 
 - Git source (including commit history)
-- Pull requests (including pull request reviews, required reviewers, comments and attachments)
+- Pull requests (including comments, pull request reviews, pull request review comments at the file and line level, required reviewers, and attachments)
 
 Currently, the following data is **not** migrated.
 
@@ -82,29 +80,29 @@ Team membership is **not** migrated. After the migration, you'll need to add mem
 
 When you migrate a repository, either directly or as part of an organization migration, only the following data is migrated.
 
-  - Git source (including commit history)
-  - Pull requests
-  - Issues
-  - Milestones
-  - Wikis
-  - Projects (classic) at the repository level
-  - {% data variables.product.prodname_actions %} workflows
-  - Commit comments
-  - Active webhooks
-  - Repository topics
-  - Repository settings
-     - Branch protections (see ["Branch protections"](#branch-protections) for more details)
-     - {% data variables.product.prodname_pages %} settings
-     - Autolink references
-     - {% data variables.product.prodname_GH_advanced_security %} settings
-     - Pull request settings
-       - Automatically delete head branches
-       - Allow auto-merge
-       - Allow merge commits (commit message setting is reset to the default message)
-       - Allow squash merging (commit message setting is reset to the default message)
-       - Allow rebase merging
-  - Releases (up to 10 GB per repository)
-  - User history for the above data
+- Git source (including commit history)
+- Pull requests
+- Issues
+- Milestones
+- Wikis
+- Projects (classic) at the repository level
+- {% data variables.product.prodname_actions %} workflows
+- Commit comments
+- Active webhooks
+- Repository topics
+- Repository settings
+  - Branch protections (see ["Branch protections"](#branch-protections) for more details)
+  - {% data variables.product.prodname_pages %} settings
+  - Autolink references
+  - {% data variables.product.prodname_GH_advanced_security %} settings
+  - Pull request settings
+    - Automatically delete head branches
+    - Allow auto-merge
+    - Allow merge commits (commit message setting is reset to the default message)
+    - Allow squash merging (commit message setting is reset to the default message)
+    - Allow rebase merging
+- Releases (up to 10 GB per repository)
+- User history for the above data
 
 {% data reusables.enterprise-migration-tool.data-not-migrated %}
 - User access to the repository
@@ -113,7 +111,7 @@ When you migrate a repository directly, teams and team access to repositories ar
 
 ### Branch protections
 
-Branch protections apply a specified set of rules to a specific branch name or branch name pattern. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches)."
+Branch protections apply a specified set of rules to a specific branch name or branch name pattern. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
 
 Branch protections will always be migrated, but certain rules will not be migrated. The following branch protection rules are not migrated.
 
@@ -180,3 +178,4 @@ There are limits to what {% data variables.product.prodname_importer_proper_name
 - **{% data variables.large_files.product_name_short %} objects not migrated**: The {% data variables.product.prodname_importer_secondary_name %} can migrate repositories that use {% data variables.large_files.product_name_short %}, but the LFS objects themselves will not be migrated. They can be pushed to your migration destination as a follow-up task after the migration is complete. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects)."
 - **Follow-up tasks required:** When migrating between {% data variables.product.prodname_dotcom %} products, certain settings are not migrated and must be reconfigured in the new repository. For a list of follow-up tasks you'll need to complete after each migration, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer#completing-follow-up-tasks)."
 - **Delayed code search functionality:** Re-indexing the search index can take a few hours after a repository is migrated, and code searches may return unexpected results until re-indexing is complete.
+- **Rulesets configured for your organization can cause migrations to fail**: For example, if you configured a rule that requires email addresses for commit authors to end with `@monalisa.cat`, and the repository you're migrating contains commits that don't comply with this rule, your migration will fail. For more information about rulesets, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."

@@ -27,10 +27,11 @@ function RenderTocItem(item: MiniTocItem) {
   }, [])
 
   return (
-    <div className={cx(styles.nested, item.platform)}>
+    <>
       <NavList.Item
         aria-current={item.contents.href === currentAnchor && 'location'}
         href={item.contents.href}
+        className={cx(styles.nested, item.platform)}
       >
         {item.contents.title}
       </NavList.Item>
@@ -46,7 +47,7 @@ function RenderTocItem(item: MiniTocItem) {
           ))}
         </ul>
       )}
-    </div>
+    </>
   )
 }
 
@@ -65,7 +66,11 @@ export function MiniTocs({ miniTocItems }: MiniTocsPropsT) {
         {t('miniToc')}
       </Heading>
 
-      <NavList className={cx(styles.miniToc, 'my-2')} aria-labelledby="in-this-article">
+      <NavList
+        data-testid="minitoc"
+        className={cx(styles.miniToc, 'my-2')}
+        aria-labelledby="in-this-article"
+      >
         {miniTocItems.map((items, i) => {
           return (
             <RenderTocItem

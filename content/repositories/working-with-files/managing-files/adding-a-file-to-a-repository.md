@@ -33,14 +33,13 @@ Files that you add to a repository via a browser are limited to {% data variable
 {% endtip %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Above the list of files, select the **Add file** dropdown menu and click **Upload files**.
+1. Above the list of files, select the **Add file** dropdown menu and click **Upload files**. Alternatively, you can drag and drop files into your browser.
 
    ![Screenshot of the main page of the repository. Above the list of a files, a button, labeled "Add file," is outlined in dark orange.](/assets/images/help/repository/upload-files-button.png)
 1. To select the files you want to upload, drag and drop the file or folder, or click **choose your files**.
-{% data reusables.files.write_commit_message %}
+{% data reusables.files.commit-message %}
 {% data reusables.files.choose_commit_branch %}
-1. Click **Commit changes**.
-![Commit changes button](/assets/images/help/repository/commit-changes-button.png)
+1. Click **Propose changes**.
 
 ## Adding a file to a repository using the command line
 
@@ -60,18 +59,23 @@ You can upload an existing file to a repository on {% ifversion ghae %}{% data v
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
 {% data reusables.git.stage_for_commit %}
-  ```shell
-  $ git add .
-  # Adds the file to your local repository and stages it for commit. {% data reusables.git.unstage-codeblock %}
-  ```
+
+   ```shell
+   $ git add .
+   # Adds the file to your local repository and stages it for commit. {% data reusables.git.unstage-codeblock %}
+   ```
+
 {% data reusables.git.commit-file %}
-  ```shell
-  $ git commit -m "Add existing file"
-  # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
-  ```
+
+   ```shell
+   $ git commit -m "Add existing file"
+   # Commits the tracked changes and prepares them to be pushed to a remote repository. {% data reusables.git.reset-head-to-previous-commit-codeblock %}
+   ```
+
 {% data reusables.git.git-push %}
 
 {% ifversion fpt or ghec %}
+
 ## Further reading
 
 - "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"

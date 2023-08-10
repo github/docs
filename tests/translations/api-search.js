@@ -16,7 +16,7 @@ describeIfElasticsearchURL('search v1 middleware in non-English', () => {
     sp.set('language', 'ja')
     const res = await get('/api/search/v1?' + sp)
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.text)
+    const results = JSON.parse(res.body)
 
     expect(results.meta).toBeTruthy()
     expect(results.meta.found.value).toBeGreaterThanOrEqual(1)

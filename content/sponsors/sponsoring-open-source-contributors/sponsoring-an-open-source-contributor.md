@@ -102,7 +102,7 @@ Before you can sponsor an account, you must have a verified email address. For m
   If you are a member of multiple organizations, to see all of your organizations, click **See more** {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %}.
 1. Optionally, to download a CSV file of developers who maintain your account's or organization's dependencies, click **results as CSV**.
 
-  ![Screenshot of the "Explore {% data variables.product.prodname_sponsors %}" page. A link with the text "results as CSV" is outlined in dark orange.](/assets/images/help/sponsors/download-dependencies-csv.png)
+   ![Screenshot of the "Explore {% data variables.product.prodname_sponsors %}" page. A link with the text "results as CSV" is outlined in dark orange.](/assets/images/help/sponsors/download-dependencies-csv.png)
 
   To sponsor these maintainers using the downloaded file, in the corresponding cells of the "Sponsorship amount in USD" column, input sponsorship amounts in US dollars for each maintainer you want to sponsor.
 

@@ -12,19 +12,19 @@ topics:
 shortTitle: Manage vulnerability reports
 ---
 
-{% data reusables.security-advisory.private-vulnerability-reporting-beta %}
-
 {% data reusables.security-advisory.private-vulnerability-reporting-enable %}
 
 ## About privately reporting a security vulnerability
 
-Private vulnerability reporting makes it easy for security researchers to report vulnerabilities directly to you using a simple form. 
+Private vulnerability reporting makes it easy for security researchers to report vulnerabilities directly to you using a simple form.
 
 When a security researcher reports a vulnerability privately, you are notified and can choose to either accept it, ask more questions, or reject it. If you accept the report, you're ready to collaborate on a fix for the vulnerability in private with the security researcher.
 
 ## Managing security vulnerabilities that are privately reported
 
-{% data variables.product.prodname_dotcom %} notifies repository maintainers when security researchers privately report vulnerabilities in their repository, and sends notifications if maintainers watch the repository or if they have notifications enabled for the repository. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+{% data reusables.security-advisory.private-vulnerability-reporting-configure-notifications %}
+
+For more information about configuring notification preferences, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository#configuring-notifications-for-private-vulnerability-reporting)."
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
@@ -32,8 +32,8 @@ When a security researcher reports a vulnerability privately, you are notified a
 1. Click the advisory you want to review. An advisory that was reported privately has a status of `Triage`.
   
    ![Screenshot of a "Security Advisories" list.](/assets/images/help/security/advisory-list.png)
-   
-2. Carefully review the report, then choose how to proceed.
+
+1. Carefully review the report, then choose how to proceed.
    - To collaborate on a patch in private, click **Start a temporary private fork** to create a place for further discussions with the contributor. This does not change the status of the proposed advisory from `Triage`.
    - To accept the reported vulnerability, click **Accept and open as draft** to accept the vulnerability report as a draft advisory on {% data variables.product.prodname_dotcom %}. If you choose this option:
       - This doesn't make the report public.

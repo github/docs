@@ -12,8 +12,7 @@ topics:
   - Billing
 shortTitle: Workflow billing & limits
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About billing for {% data variables.product.prodname_actions %}
@@ -23,7 +22,7 @@ shortTitle: Workflow billing & limits
 {% ifversion fpt or ghec %}
 {% data reusables.actions.actions-billing %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners)."
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -41,7 +40,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 
 {% note %}
 
-**Note:** For self-hosted runners, different usage limits apply. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)."
+**Note:** For self-hosted runners, different usage limits apply. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
 
 {% endnote %}
 
@@ -75,19 +74,19 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
-Usage limits apply to self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/about-self-hosted-runners#usage-limits)."
+Usage limits apply to self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Usage policy
 
 In addition to the usage limits, you must ensure that you use {% data variables.product.prodname_actions %} within the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service). For more information on {% data variables.product.prodname_actions %}-specific terms, see the [GitHub Additional Product Terms](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#a-actions-usage).
 {% endif %}
 
 {% ifversion fpt or ghes or ghec %}
-## Billing for reusable workflows
 
-{% data reusables.actions.reusable-workflows-enterprise-beta %}
+## Billing for reusable workflows
 
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
 

@@ -3,7 +3,7 @@ title: Configuring GitHub Copilot in your environment
 shortTitle: In your environment
 intro: 'You can enable, configure, or disable {% data variables.product.prodname_copilot %} in a supported IDE.'
 product: '{% data reusables.gated-features.copilot %}'
-redirect_from: 
+redirect_from:
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-visual-studio-code
   - /copilot/configuring-github-copilot/configuring-github-copilot-in-a-jetbrains-ide
@@ -20,13 +20,11 @@ versions:
 
 If you use a JetBrains IDE, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within your IDE or on {% data variables.product.prodname_dotcom_the_website %}. This article describes how to configure {% data variables.product.prodname_copilot %} in the IntelliJ IDE, but the user interfaces of other JetBrains IDEs may differ.
 
-{% data reusables.copilot.dotcom-settings %}
-
 ## Prerequisites
 
 To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot?tool=jetbrains)."
 
-## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
 You can use the default keyboard shortcuts for inline suggestions in your JetBrains IDE when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command. For more information on rebinding keyboard shortcuts in your JetBrains IDE, see the JetBrains documentation. For example, you can view the [IntelliJ IDEA](https://www.jetbrains.com/help/idea/mastering-keyboard-shortcuts.html#choose-keymap) documentation.
 
@@ -73,7 +71,7 @@ You can enable or disable {% data variables.product.prodname_copilot %} from wit
 
 1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable it globally, or for the language of the file you are currently editing. To disable globally, click **Disable Completions**. Alternatively, click the language-specific button to disable {% data variables.product.prodname_copilot %} for the specified language.
 
-    ![Screenshot of the menu to disable {% data variables.product.prodname_copilot %} globally or for the current language in a JetBrains IDE](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
+    ![Screenshot of the menu to disable {% data variables.product.prodname_copilot %} globally or for the current language in a JetBrains IDE.](/assets/images/help/copilot/disable-copilot-global-or-langugage-jetbrains.png)
 
 ## Configuring advanced settings for {% data variables.product.prodname_copilot %}
 
@@ -85,16 +83,6 @@ You can manage advanced settings for {% data variables.product.prodname_copilot 
    - To adjust the behavior and appearance of code suggestions, and whether to automatically check for updates, select or deselect the corresponding checkboxes.
    - If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
    - Under "Disabled languages," use the checkboxes to select or deselect the languages you want to disable {% data variables.product.prodname_copilot %} for.
-
-## Configuring proxy settings for {% data variables.product.prodname_copilot %}
-
-You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in a JetBrains IDE. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication.
-
-1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
-1. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
-1. Select **Manual proxy configuration**, and then select **HTTP**.
-1. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
-1. Optionally, in the left sidebar, click **Tools** and then click **Server Certificates**. Then select or deselect **Accept non-trusted certificates automatically**, depending on whether you want to accept non-trusted certificates automatically.
 
 {% data reusables.copilot.dotcom-settings %}
 
@@ -110,9 +98,11 @@ If you use {% data variables.product.prodname_vs %}, {% data variables.product.p
 
 To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot?tool=visualstudio)."
 
-## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
+## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
 You can use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Tools settings for {% data variables.product.prodname_vs %} using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by its command name in the Keyboard Shortcuts editor.
+
+### Using default keyboard shortcuts
 
 | Action | Shortcut | Command name |
 |:---|:---|:---|
@@ -120,22 +110,22 @@ You can use the default keyboard shortcuts in {% data variables.product.prodname
 |Show previous inline suggestion|<kbd>Alt</kbd>+<kbd>,</kbd>|Tools.Previoussuggestion|
 |Trigger inline suggestion|<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>\</kbd>|Edit.Copilot.TriggerInlineSuggestion|
 
-## Rebinding keyboard shortcuts
+### Rebinding keyboard shortcuts
 
 If you don't want to use the default keyboard shortcuts in {% data variables.product.prodname_vs %} when using {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Keyboard editor using your preferred keyboard shortcuts for each specific command.
 
-1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
+1. In the {% data variables.product.prodname_vs %} menu bar, under **Tools**, click **Options**.
 
-   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
+   ![Screenshot of the {% data variables.product.prodname_vs %} menu bar. The "Tools" menu is expanded, and the "Options" item is highlighted with an orange outline.](/assets/images/help/copilot/vs-toolbar-options.png)
 
 1. In the "Options" dialog, under **Environment**, click **Keyboard**.
 1. Under "Show commands containing:", search for the command you want to rebind.
 
-   ![Screenshot of the show commands containing search bar](/assets/images/help/copilot/vs-show-commands-containing.png)
+   ![Screenshot of the "Show commands containing" search bar. The string "tools.next" is entered in the search field.](/assets/images/help/copilot/vs-show-commands-containing.png)
 
 1. Under "Press shortcut keys," type the shortcut you want to assign to the command, then click **Assign**.
 
-   ![Screenshot of the keyboard shortcut assignment](/assets/images/help/copilot/vs-rebind-shortcut.png)
+   ![Screenshot of the fields for entering a new keyboard shortcut assignment.](/assets/images/help/copilot/vs-rebind-shortcut.png)
 
 {% data reusables.copilot.enabling-or-disabling-vs %}
 
@@ -143,13 +133,12 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 If you use ReSharper, {% data variables.product.prodname_copilot %} may work best when you configure ReSharper to use {% data variables.product.prodname_copilot %}'s native IntelliSense. For more information about ReSharper, see the [ReSharper documentation](https://www.jetbrains.com/resharper/documentation/documentation.html)
 
-1. In the {% data variables.product.prodname_vs %} toolbar, under **Tools**, click **Options**.
-   ![Screenshot of the Options option in the {% data variables.product.prodname_vs %} toolbar](/assets/images/help/copilot/vs-toolbar-options.png)
+1. In the {% data variables.product.prodname_vs %} menu bar, under **Tools**, click **Options**.
+   ![Screenshot of {% data variables.product.prodname_vs %} menu bar. In the "Tools" menu, the "Options" item is highlighted with an orange outline.](/assets/images/help/copilot/vs-toolbar-options.png)
 1. In the "Options" dialog, under **Environment**, click **IntelliSense** and then click **General**.
 1. Under "General" select **{% data variables.product.prodname_vs %}** and then click **Save**.
 
 {% data reusables.copilot.dotcom-settings %}
-
 
 {% endvisualstudio %}
 
@@ -165,7 +154,9 @@ To configure {% data variables.product.prodname_copilot %} in {% data variables.
 
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
-You can use the default keyboard shortcuts in {% data variables.product.prodname_vscode %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Keyboard Shortcuts editor using your preferred keyboard shortcuts for each specific command. You can search for each keyboard shortcut by command name in the Keyboard Shortcuts editor.
+You can use the default keyboard shortcuts in {% data variables.product.prodname_vscode %} when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts in the Keyboard Shortcuts editor using your preferred keyboard shortcuts for each specific command. For more information, see "[Rebinding keyboard shortcuts](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=vscode#rebinding-keyboard-shortcuts-1)."
+
+You can search for each keyboard shortcut by command name in the Keyboard Shortcuts editor.
 
 ### Keyboard shortcuts for macOS
 
@@ -209,14 +200,14 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 ### Rebinding keyboard shortcuts for macOS
 
-1. Click **Code**, click **Preferences**, then click **Keyboard Shortcuts**.
+1. In the menu bar, click **Code**, click **Preferences**, then click **Keyboard Shortcuts**.
 
-   ![Screenshot of Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts-mac.png)
+   ![Screenshot of the menu bar in {% data variables.product.prodname_vscode %}, with the "Code" menu expanded. In the "Preferences" sub-menu, the "Keyboard Shortcuts" option is highlighted in blue.](/assets/images/help/copilot/vsc-keyboard-shortcuts-mac.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 1. Next to the command you want to change, click the pencil icon.
 
-   ![Screenshot of Keyboard shortcut editor](/assets/images/help/copilot/vsc-edit-shortcuts-mac.png)
+   ![Screenshot of the "Keyboard Shortcuts" editor. Next to a command labeled "Accept Inline Suggestion," a pencil icon is highlighted with an orange outline.](/assets/images/help/copilot/vsc-edit-shortcuts-mac.png)
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
@@ -224,12 +215,12 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. Click the **File** menu, click **Preferences**, then click **Keyboard Shortcuts**.
 
-   ![Screenshot of Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
+   ![Screenshot of the menu bar in {% data variables.product.prodname_vscode %}, with the "File" menu expanded. In the "Preferences" sub-menu, the "Keyboard Shortcuts" option is highlighted with an orange outline.](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 1. Next to the command you want to change, click the pencil icon.
 
-   ![Screenshot of Keyboard shortcut editor](/assets/images/help/copilot/vsc-edit-shortcuts.png)
+   ![Screenshot of "Keyboard Shortcuts" editor. Next to a command labeled "Accept Inline Suggestion," a pencil icon is highlighted with an orange outline.](/assets/images/help/copilot/vsc-edit-shortcuts.png)
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
 
@@ -237,15 +228,14 @@ If you don't want to use the default keyboard shortcuts in {% data variables.pro
 
 1. Click the **File** menu, click **Preferences**, then click **Keyboard Shortcuts**.
 
-   ![Screenshot of Visual Studio Code keyboard shortcuts](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
+   ![Screenshot of the menu bar in {% data variables.product.prodname_vscode %}, with the "File" menu expanded. In the "Preferences" sub-menu, the "Keyboard Shortcuts" option is highlighted with an orange outline.](/assets/images/help/copilot/vsc-keyboard-shortcuts.png)
 
 1. In the "Keyboard Shortcuts" editor, search for the command name of the keyboard shortcut you want to change.
 1. Next to the command you want to change, click the pencil icon.
 
-   ![Screenshot of Keyboard shortcut editor](/assets/images/help/copilot/vsc-edit-shortcuts.png)
+   ![Screenshot of "Keyboard Shortcuts" editor. Next to a command labeled "Accept Inline Suggestion," a pencil icon is highlighted with an orange outline.](/assets/images/help/copilot/vsc-edit-shortcuts.png)
 
 1. Type the keystrokes you want to use for the command, then press <kbd>Enter</kbd>/<kbd>Return</kbd>.
-
 
 {% data reusables.copilot.enabling-or-disabling-in-vsc %}
 
@@ -290,11 +280,11 @@ You can specify which languages you want to enable or disable {% data variables.
 {% data reusables.user-settings.access_authorized_github_apps %}
 1. If the **{% data variables.product.prodname_copilot %}** plugin is listed, click **Revoke**.
 
-After revoking authorization, {% data variables.product.prodname_vscode %} will be able to continue using {% data variables.product.prodname_copilot %} in a current session for a maximum of 30 minutes. After that time, you will need to re-authorize {% data variables.product.prodname_copilot %} for use in {% data variables.product.prodname_vscode %} again.
+After revoking authorization, {% data variables.product.prodname_vscode %} will be able to continue using {% data variables.product.prodname_copilot %} in a current session for a maximum of 30 minutes. After that time, you will need to reauthorize {% data variables.product.prodname_copilot %} for use in {% data variables.product.prodname_vscode %} again.
 
 ## Re-authorizing {% data variables.product.prodname_copilot %}
 
-After you have revoked authorization, if you want to continue using {% data variables.product.prodname_copilot %}, you will need to complete the re-authorization process.
+After you have revoked authorization, if you want to continue using {% data variables.product.prodname_copilot %}, you will need to complete the reauthorization process.
 
 1. In the bottom left corner of {% data variables.product.prodname_vscode %}, click the **Accounts** icon, hover over your username, and click **Sign out**.
 
@@ -304,35 +294,27 @@ After you have revoked authorization, if you want to continue using {% data vari
 
 1. In the bottom left corner of {% data variables.product.prodname_vscode %}, click the **Accounts** icon, hover over your username, and click **Sign in with {% data variables.product.prodname_dotcom %} to use {% data variables.product.prodname_copilot %}**.
 
-  ![Screenshot of the accounts menu in {% data variables.product.prodname_vscode %}. The "Sign in with {% data variables.product.prodname_dotcom %} to use {% data variables.product.prodname_copilot %} (1)" option is outlined in dark orange.](/assets/images/help/copilot/vsc-sign-in.png)
+   ![Screenshot of the accounts menu in {% data variables.product.prodname_vscode %}. The "Sign in with {% data variables.product.prodname_dotcom %} to use {% data variables.product.prodname_copilot %} (1)" option is outlined in dark orange.](/assets/images/help/copilot/vsc-sign-in.png)
 
 1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Continue**.
 1. In the "Open {% data variables.product.prodname_vscode %}?" pop-up, click **Open {% data variables.product.prodname_vscode %}**.
-
-## Configuring proxy settings for {% data variables.product.prodname_copilot %}
-
-You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in {% data variables.product.prodname_vscode %}. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication.
-
-{% data reusables.copilot.vscode-settings %}
-1. In the left-side panel of the settings tab, click **Application** and then select **Proxy**.
-1. In the textbox under "Proxy", type the address of your proxy server, for example `http://localhost:3128`. Alternatively, {% data variables.product.prodname_copilot %} will use the `http_proxy` and `https_proxy` variables from your environment.
-1. Optionally, under "Proxy Authorization", click **Edit in settings.json** and add your required value to send as the `Proxy-Authorization` header for every network request.
-1. Optionally, under "Proxy Strict SSL", select or deselect the checkbox to enable or disable strict SSL.
 
 {% data reusables.copilot.dotcom-settings %}
 
 {% endvscode %}
 
-{% neovim %}
+{% vimneovim %}
 
-## Configuring {% data variables.product.prodname_copilot %} in Neovim
+## Configuring {% data variables.product.prodname_copilot %} in Vim/Neovim
 
-For guidance on configuring {% data variables.product.prodname_copilot %} in Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Neovim by running the following command:
-
+For guidance on configuring {% data variables.product.prodname_copilot %} in Vim/Neovim, invoke the {% data variables.product.prodname_copilot %} documentation in Vim/Neovim by running the following command:
 
     :help copilot
 
+## Rebinding keyboard shortcuts
+
+You can rebind the keyboard shortcuts in Vim/Neovim when using {% data variables.product.prodname_copilot %} to use your preferred keyboard shortcuts for each specific command. For more information, see the [Map](https://neovim.io/doc/user/map.html) article in the Neovim documentation.
+
 {% data reusables.copilot.dotcom-settings %}
 
-{% endneovim %}
-
+{% endvimneovim %}

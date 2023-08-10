@@ -21,7 +21,7 @@ You can add personal information about yourself in your bio, like previous place
 
 {% data reusables.profile.profile-readme %}
 
-![Profile README file displayed on profile](/assets/images/help/repository/profile-with-readme.png)
+![Screenshot of the profile page for @octocato. In the top-right corner, a profile README greets the viewer and lists information about the user's work.](/assets/images/help/repository/profile-with-readme.png)
 
 {% endif %}
 
@@ -33,7 +33,12 @@ People who visit your profile can also see the following information.
 - Repositories you've starred{% ifversion fpt or ghec %} and organized into lists{% endif %}. For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)."
 - An overview of your activity in organizations, repositories, and teams you're most active in. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile)."{% ifversion fpt or ghec %}
 - Badges and Achievements that highlight your activity and show if you use {% data variables.product.prodname_pro %} or participate in programs like the {% data variables.product.prodname_arctic_vault %}, {% data variables.product.prodname_sponsors %}, or the {% data variables.product.company_short %} Developer Program. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#displaying-badges-on-your-profile)."{% endif %}
+{%- ifversion profile-pronouns %}
 - Your pronouns if you've set them. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#adding-pronouns-to-your-profile).
+{%- endif %}
+{%- ifversion fpt or ghec %}
+- Mutual connections you share with someone who is viewing your profile. The person viewing your profile can see which of the people they follow are also followed by you.
+{%- endif %}
 
 You can also set a status on your profile to provide information about your availability. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status)."
 

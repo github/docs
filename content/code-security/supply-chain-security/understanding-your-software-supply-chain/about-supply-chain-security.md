@@ -31,7 +31,7 @@ You add dependencies directly to your supply chain when you specify them in a ma
 The supply chain features on {% data variables.product.product_name %} are:
 - **Dependency graph**
 - **Dependency review**
-- **{% data variables.product.prodname_dependabot_alerts %} **
+- **{% data variables.product.prodname_dependabot_alerts %}**
 {% ifversion fpt or ghec or ghes %}- **{% data variables.product.prodname_dependabot_updates %}**
   - **{% data variables.product.prodname_dependabot_security_updates %}**
   - **{% data variables.product.prodname_dependabot_version_updates %}**{% endif %}
@@ -83,8 +83,8 @@ For more information about dependency review, see "[AUTOTITLE](/code-security/su
 The term "{% data variables.product.prodname_dependabot %}" encompasses the following features:
 - {% data variables.product.prodname_dependabot_alerts %}—Displayed notification on the **Security** tab for the repository, and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
 - {% data variables.product.prodname_dependabot_updates %}:
-   - {% data variables.product.prodname_dependabot_security_updates %}—Triggered updates to upgrade your dependencies to a secure version when an alert is triggered.
-   - {% data variables.product.prodname_dependabot_version_updates %}—Scheduled updates to keep your dependencies up to date with the latest version.
+  - {% data variables.product.prodname_dependabot_security_updates %}—Triggered updates to upgrade your dependencies to a secure version when an alert is triggered.
+  - {% data variables.product.prodname_dependabot_version_updates %}—Scheduled updates to keep your dependencies up to date with the latest version.
 
 {% endif %}
 
@@ -114,29 +114,30 @@ The term "{% data variables.product.prodname_dependabot %}" encompasses the foll
 
 - {% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies and sends {% data variables.product.prodname_dependabot_alerts %} when:
 {% ifversion fpt or ghec %}
-   - A new advisory is added to the {% data variables.product.prodname_advisory_database %}.{% else %}
-   - New advisory data is synchronized to {% data variables.location.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
-   - The dependency graph for the repository changes.
+  - A new advisory is added to the {% data variables.product.prodname_advisory_database %}.{% else %}
+  - New advisory data is synchronized to {% data variables.location.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
+  - The dependency graph for the repository changes.
 - {% data variables.product.prodname_dependabot_alerts %} are displayed {% ifversion fpt or ghec or ghes %} on the **Security** tab for the repository and{% endif %} in the repository's dependency graph. The alert includes {% ifversion fpt or ghec or ghes %}a link to the affected file in the project, and {% endif %}information about a fixed version.
 
 For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
 
 {% ifversion fpt or ghec or ghes %}
+
 #### What are Dependabot updates
 
 There are two types of {% data variables.product.prodname_dependabot_updates %}: {% data variables.product.prodname_dependabot %} _security_ updates and _version_ updates. {% data variables.product.prodname_dependabot %} generates automatic pull requests to update your dependencies in both cases, but there are several differences.
 
 {% data variables.product.prodname_dependabot_security_updates %}:
- - Triggered by a {% data variables.product.prodname_dependabot %} alert
- - Update dependencies to the minimum version that resolves a known vulnerability
- - Supported for ecosystems the dependency graph supports
- - Does not require a configuration file, but you can use one to override the default behavior
+- Triggered by a {% data variables.product.prodname_dependabot %} alert
+- Update dependencies to the minimum version that resolves a known vulnerability
+- Supported for ecosystems the dependency graph supports
+- Does not require a configuration file, but you can use one to override the default behavior
 
 {% data variables.product.prodname_dependabot_version_updates %}:
- - Requires a configuration file
- - Run on a schedule you configure
- - Update dependencies to the latest version that matches the configuration
- - Supported for a different group of ecosystems
+- Requires a configuration file
+- Run on a schedule you configure
+- Update dependencies to the latest version that matches the configuration
+- Supported for a different group of ecosystems
 
 For more information about {% data variables.product.prodname_dependabot_updates %}, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates)."
 {% endif %}

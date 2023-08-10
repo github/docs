@@ -26,15 +26,15 @@ When you enable {% data variables.product.prodname_secret_scanning %}, you shoul
 
 There are a few approaches for tackling newly committed credentials, but one example approach would be:
 
-1. **Notify**: Use webhooks to ensure that any new secret alerts are seen by the right teams as quickly as possible. A webhook fires when a secret alert is either created, resolved, or reopened. You can then parse the webhook payload, and integrate it into any tools you and your team use such Slack, Teams, Splunk, or email. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks)" and "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert)."
-2. **Follow Up**: Create a high-level remediation process that works for all secret types. For example, you could contact the developer who committed the secret and their technical lead on that project, highlighting the dangers of committing secrets to GitHub, and asking the them to revoke, and update the detected secret.
+1. Notify: Use webhooks to ensure that any new secret alerts are seen by the right teams as quickly as possible. A webhook fires when a secret alert is either created, resolved, or reopened. You can then parse the webhook payload, and integrate it into any tools you and your team use such Slack, Teams, Splunk, or email. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks)" and "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert)."
+1. Follow Up: Create a high-level remediation process that works for all secret types. For example, you could contact the developer who committed the secret and their technical lead on that project, highlighting the dangers of committing secrets to GitHub, and asking the them to revoke, and update the detected secret.
 
-  {% note %}
+   {% note %}
 
-  **Note:** You can automate this step. For large enterprises and organizations with hundreds of repositories, manually following up is unsustainable. You could incorporate automation into the webhook process defined in the first step. The webhook payload contains repository and organization information about the leaked secret. Using this information, you can contact the current maintainers on the repository and create an email/message to the responsible people or open an issue.
+   **Note:** You can automate this step. For large enterprises and organizations with hundreds of repositories, manually following up is unsustainable. You could incorporate automation into the webhook process defined in the first step. The webhook payload contains repository and organization information about the leaked secret. Using this information, you can contact the current maintainers on the repository and create an email/message to the responsible people or open an issue.
 
-  {% endnote %}
-3. **Educate**: Create an internal training document assigned to the developer who committed the secret. Within this training document, you can explain the risks created by committing secrets and direct them to your best practice information about using secrets securely in development. If the a developer doesn't learn from the experience and continues to commit secrets, you could create an escalation process, but education usually works well.
+   {% endnote %}
+1. **Educate**: Create an internal training document assigned to the developer who committed the secret. Within this training document, you can explain the risks created by committing secrets and direct them to your best practice information about using secrets securely in development. If the a developer doesn't learn from the experience and continues to commit secrets, you could create an escalation process, but education usually works well.
 
 Repeat the last two steps for any new secrets leaked. This process encourages developers to take responsibility for managing the secrets used in their code securely, and allows you to measure the reduction in newly committed secrets.
 
@@ -54,31 +54,31 @@ Once you have decided on the secret types, you can do the following:
 
 1. Define a process for remediating each type of secret. The actual procedure for each secret type is often drastically different. Write down the process for each type of secret in a document or internal knowledge base.
 
-  {% note %}
+   {% note %}
 
-  **Note:** When you create the process for revoking secrets, try and give the responsibility for revoking secrets to the team maintaining the repository instead of a central team. One of the principles of GHAS is developers taking ownership of security and having the responsibility of fixing security issues, especially if they have created them.
+   **Note:** When you create the process for revoking secrets, try and give the responsibility for revoking secrets to the team maintaining the repository instead of a central team. One of the principles of GHAS is developers taking ownership of security and having the responsibility of fixing security issues, especially if they have created them.
 
-  {% endnote %}
+   {% endnote %}
 
-2. When you have created the process that teams will follow for revoking credentials, you can collate information about the types of secrets and other metadata associated with the leaked secrets so you can discern who to communicate the new process to.
-  {% ifversion not ghae %}
-  You can use security overview to collect this information. For more information about using security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."{% endif %}
+1. When you have created the process that teams will follow for revoking credentials, you can collate information about the types of secrets and other metadata associated with the leaked secrets so you can discern who to communicate the new process to.
+   {% ifversion not ghae %}
+   You can use security overview to collect this information. For more information about using security overview, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."{% endif %}
 
-  Some information you may want to collect includes:
+   Some information you may want to collect includes:
 
-    - Organization
-    - Repository
-    - Secret type
-    - Secret value
-    - Maintainers on repository to contact
+   - Organization
+   - Repository
+   - Secret type
+   - Secret value
+   - Maintainers on repository to contact
 
-  {% note %}
+   {% note %}
 
-  **Note:** Use the UI if you have few secrets leaked of that type. If you have hundreds of leaked secrets, use the API to collect information. For more information, see "[AUTOTITLE](/rest/secret-scanning)."
+   **Note:** Use the UI if you have few secrets leaked of that type. If you have hundreds of leaked secrets, use the API to collect information. For more information, see "[AUTOTITLE](/rest/secret-scanning)."
 
-  {% endnote %}
+   {% endnote %}
 
-3. After you collect information about leaked secrets, create a targeted communication plan for the users who maintain the repositories affected by each secret type. You could use email, messaging, or even create GitHub issues in the affected repositories. If you can use APIs provided by these tools to send out the communications in an automated manner, this will make it easier for you to scale across multiple secret types.
+1. After you collect information about leaked secrets, create a targeted communication plan for the users who maintain the repositories affected by each secret type. You could use email, messaging, or even create GitHub issues in the affected repositories. If you can use APIs provided by these tools to send out the communications in an automated manner, this will make it easier for you to scale across multiple secret types.
 
 ## 3. Expand the program to include more secret types and custom patterns
 

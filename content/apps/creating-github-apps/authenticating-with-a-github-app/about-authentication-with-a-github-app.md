@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 topics:
   - GitHub Apps
-shortTitle: Authentication overview
+shortTitle: About authentication
 redirect_from:
   - /apps/building-integrations/setting-up-and-registering-github-apps/about-authentication-options-for-github-apps
   - /apps/building-github-apps/authentication-options-for-github-apps

@@ -30,7 +30,7 @@ If you follow the syntax for the {% data variables.product.prodname_advisory_dat
 - {% data variables.product.prodname_dependabot %} will have the information to accurately identify repositories that are affected and send them {% data variables.product.prodname_dependabot_alerts %} to notify them.
 - Community members are less likely to suggest edits to your advisory to fix missing or incorrect information.
 
-You add or edit a repository advisory using the _Draft security advisory_ form. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)." 
+You add or edit a repository advisory using the _Draft security advisory_ form. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory)."
 
 You suggest an improvement to an existing global advisory using the _Improve security advisory_ form. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database)."
 
@@ -49,14 +49,14 @@ We recommend that you use the **Package name** field to specify which packages a
 We recommend that you use the **Affected versions** field to specify which versions are affected because this information is required for "{% data variables.product.company_short %}-reviewed" advisories in the {% data variables.product.prodname_advisory_database %}. Version information is optional for repository-level security advisories, but including this information early simplifies the review process when you publish your security advisory.
 
 - A valid affected version string consists of one of the following:
-   - A lower bound operator sequence.
-   - An upper bound operator sequence.
-   - Both an upper and lower bound operator sequence.
-   - A specific version sequence using the equality (`=`) operator.
+  - A lower bound operator sequence.
+  - An upper bound operator sequence.
+  - Both an upper and lower bound operator sequence.
+  - A specific version sequence using the equality (`=`) operator.
 - Each operator sequence must be specified as the operator, a single space, and then the version.
-   - Valid operators are `=`, `<`, `<=`, `>`, or `>=`.
-   - The version must begin with a number followed by any number of numbers, letters, dots, dashes, or underscores (anything other than a space or comma)
-   - When specifying both an upper and lower bound sequence, the lower bound must come first, followed by a comma and a single space, then the upper bound.
+  - Valid operators are `=`, `<`, `<=`, `>`, or `>=`.
+  - The version must begin with a number followed by any number of numbers, letters, dots, dashes, or underscores (anything other than a space or comma)
+  - When specifying both an upper and lower bound sequence, the lower bound must come first, followed by a comma and a single space, then the upper bound.
    {% note %}
 
    **Note:** Affected version strings cannot contain leading or trailing spaces.
@@ -69,16 +69,16 @@ We recommend that you use the **Affected versions** field to specify which versi
   {% note %}
 
   **Notes:** The lower-bound limitation:
-   - is due to incompatibilities with the OSV (Open Source Vulnerability) schema.
-   - only applies when you make a suggestion on an existing advisory in the {% data variables.product.prodname_advisory_database %}.
+  - is due to incompatibilities with the OSV (Open Source Vulnerability) schema.
+  - only applies when you make a suggestion on an existing advisory in the {% data variables.product.prodname_advisory_database %}.
 
   {% endnote %}
 
 - You cannot specify multiple affected version ranges in the same field, such as `> 2.0, < 2.3, > 3.0, < 3.2`.To specify more than one range, you must create a new **Affected products** section for each range, by clicking the **+ Add another affected product** button.
 
   ![Screenshot of the "Affected products" area of the security advisory form. A link, labeled "Add another affected product", is highlighted with a dark orange outline.](/assets/images/help/security/security-advisory-add-another-affected-product.png)
- - If the affected version range includes only a single upper or lower bound:
-   - The implicit value is always `> 0` if the lower bound is not explicitly specified.
-   - The implicit value is always infinity if the upper bound is not explicitly specified.
+- If the affected version range includes only a single upper or lower bound:
+  - The implicit value is always `> 0` if the lower bound is not explicitly specified.
+  - The implicit value is always infinity if the upper bound is not explicitly specified.
 
 For more information about the {% data variables.product.prodname_advisory_database %}, see [https://github.com/github/advisory-database](https://github.com/github/advisory-database).

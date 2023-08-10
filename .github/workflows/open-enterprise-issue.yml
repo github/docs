@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -28,25 +28,25 @@ jobs:
         run: |
           .github/actions-scripts/check-for-enterprise-issues-by-label.js
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 
       - name: Update enterprise dates
         if: steps.existingIssue.outputs.deprecationIssue == 'false' || steps.existingIssue.outputs.releaseIssue == 'false'
         run: |
-          script/update-enterprise-dates.js
+          src/ghes-releases/scripts/update-enterprise-dates.js
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 
       - name: Create an enterprise release issue
         if: steps.existingIssue.outputs.releaseIssue == 'false'
         run: |
           .github/actions-scripts/create-enterprise-issue.js release
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 
       - name: Create an enterprise deprecation issue
         if: steps.existingIssue.outputs.deprecationIssue == 'false'
         run: |
           .github/actions-scripts/create-enterprise-issue.js deprecation
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}

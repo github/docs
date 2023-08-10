@@ -40,9 +40,12 @@ You can migrate your project boards to the new {% data variables.product.prodnam
 ## Migrating a user project board
 
 {% data reusables.projects.enable-migration %}
-{% data reusables.profile.access_profile %}
-1. On the top of your profile page, in the main navigation, click {% octicon "table" aria-label="The project board icon" %} **Projects**.
-  ![Screenshot showing the 'Projects' tab](/assets/images/help/projects-v2/tab-projects.png)
+1. In the top right corner of {% data variables.product.prodname_dotcom_the_website %}, click your profile photo, then click **Your projects**.
+
+   ![Screenshot showing the profile photo menu. The "Your projects" link is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-profile-menu.png)
+
+1. On the top of your profile page, in the main navigation, click {% octicon "table" aria-hidden="true" %} **Projects**.
+   ![Screenshot showing the tabs on a user profile. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png)
 1. Above the list of projects, click **Projects (classic)**.
 {% data reusables.projects.migrate-project-steps %}
 
@@ -56,7 +59,6 @@ You can migrate your project boards to the new {% data variables.product.prodnam
 
 {% data reusables.projects.enable-migration %}
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click {% octicon "table" aria-label="The project board icon" %} **Projects**.
-![Project tab](/assets/images/help/projects-v2/repo-tabs-projects.png)
+1. Under your repository name, click {% octicon "table" aria-hidden="true" %} **Projects**.
 1. In the left sidebar, click **Projects (classic)**.
 {% data reusables.projects.migrate-project-steps %}

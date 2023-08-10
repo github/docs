@@ -21,7 +21,7 @@ topics:
 
 ## Storage architecture
 
-{% data variables.product.product_name %} requires two storage volumes, one mounted to the *root filesystem* path (`/`) and the other to the *user filesystem* path (`/data/user`). This architecture simplifies the upgrade, rollback, and recovery procedures by separating the running software environment from persistent application data.
+{% data variables.product.product_name %} requires two storage volumes, one mounted to the _root filesystem_ path (`/`) and the other to the _user filesystem_ path (`/data/user`). This architecture simplifies the upgrade, rollback, and recovery procedures by separating the running software environment from persistent application data.
 
 The root filesystem is included in the distributed machine image. It contains the base operating system and the {% data variables.product.product_name %} application environment. The root filesystem should be treated as ephemeral. Any data on the root filesystem will be replaced when upgrading to future {% data variables.product.product_name %} releases.
 
@@ -82,7 +82,7 @@ For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-ent
 
 {% data variables.product.product_name %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Debian distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
 
-Currently, the base operating system for {% data variables.product.product_name %} is Debian 10 (Buster), which receives support under the Debian Long Term Support program. 
+Currently, the base operating system for {% data variables.product.product_name %} is Debian 10 (Buster), which receives support under the Debian Long Term Support program.
 
 Regular patch updates are released on the {% data variables.product.product_name %} [releases](https://enterprise.github.com/releases) page, and the [release notes](/admin/release-notes) page provides more information. These patches typically contain upstream vendor and project security patches after they've been tested and quality approved by our engineering team. There can be a slight time delay from when the upstream update is released to when it's tested and bundled in an upcoming {% data variables.product.product_name %} patch release.
 
