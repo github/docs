@@ -305,7 +305,7 @@ Action                        | Description
 | Action | Description
 |--------|-------------{% ifversion ghec %}
 |`copilot.cfb_enterprise_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the enterprise level.
-|`copilot.clickwrap_save_event`|{% endif %}
+|`copilot.clickwrap_save_event`|The {% data variables.product.prodname_copilot %} Product Specific Terms were accepted.{% endif %}
 |`copilot.cfb_org_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the organization level.
 |`copilot.cfb_seat_added`| A seat was added to the {% data variables.product.prodname_copilot_business_short %} subscription.
 |`copilot.cfb_seat_cancelled`| A seat was cancelled from the {% data variables.product.prodname_copilot_business_short %} subscription.
