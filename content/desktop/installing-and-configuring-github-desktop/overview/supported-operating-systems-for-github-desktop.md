@@ -63,3 +63,14 @@ To troubleshoot, contact your system administrator.
 This error can occur when Mandatory ASLR is enabled. Enabling Mandatory ASLR affects the MSYS2 core library, which {% data variables.product.prodname_desktop %} relies upon to emulate process forking.
 
 To troubleshoot this error, either disable Mandatory ASLR or explicitly allow all executables under `<Git>\usr\bin` which depend on MSYS2.
+
+### `This operating system is no longer supported. Software updates have been disabled` notification
+
+This notification is shown if you are running a version of Windows that is no longer compatible with {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} supports {% data variables.desktop.windows-versions %}. If you are running a supported Windows operating system and are seeing this notification, this may be because compatibility mode has been enabled for {% data variables.product.prodname_desktop %}. To check if compatibility mode is enabled, follow these steps.
+
+1. Open the Windows **Start Menu**.
+1. Search for "{% data variables.product.prodname_desktop %}".
+1. Select and hold (or right-click) **{% data variables.product.prodname_desktop %}** and click **Open file location**.
+1. Select and hold (or right-click) the {% data variables.product.prodname_desktop %} shortcut and click **Properties**.
+1. Select the **Compatibility** tab.
+1. In the "Compatibility mode" section, ensure that the **Run this program in compatibility mode** checkbox is deselected.

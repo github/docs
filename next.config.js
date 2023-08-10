@@ -61,4 +61,8 @@ export default {
     // This makes it so that going Back will scroll to the previous position
     scrollRestoration: true,
   },
+
+  compiler: {
+    styledComponents: true,
+  },
 }

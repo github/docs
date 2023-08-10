@@ -17,6 +17,6 @@ In order for repository members to see a project listed in a repository, they mu
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
 1. Click {% octicon "table" aria-hidden="true" %} **Projects**.
    ![Screenshot showing a repository's tabs. The "Projects" tab is highlighted with an orange outline.](/assets/images/help/projects-v2/repo-tab.png)
-1. Click **Add project**.
+1. Click **Link project**.
 1. In the search bar that appears, search for projects that are owned by the same user or organization that owns the repository.
 1. Click on a project to list it in your repository.

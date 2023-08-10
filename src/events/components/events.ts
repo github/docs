@@ -57,7 +57,6 @@ export enum EventType {
   hover = 'hover',
   search = 'search',
   searchResult = 'searchResult',
-  navigate = 'navigate',
   survey = 'survey',
   experiment = 'experiment',
   preference = 'preference',
@@ -77,6 +76,7 @@ type SendEventProps = {
   exit_scroll_flip?: number
   link_url?: string
   link_samesite?: boolean
+  link_container?: string
   hover_url?: string
   hover_samesite?: boolean
   search_query?: string
@@ -86,7 +86,6 @@ type SendEventProps = {
   search_result_total?: number
   search_result_rank?: number
   search_result_url?: string
-  navigate_label?: string
   survey_token?: string // Honeypot, doesn't exist in schema
   survey_vote?: boolean
   survey_comment?: string
@@ -95,6 +94,7 @@ type SendEventProps = {
   experiment_variation?: string
   experiment_success?: boolean
   clipboard_operation?: string
+  clipboard_target?: string
   preference_name?: string
   preference_value?: string
 }
@@ -282,7 +282,11 @@ function initCopyButtonEvent() {
     const target = evt.target as HTMLElement
     const button = target.closest('.js-btn-copy') as HTMLButtonElement
     if (!button) return
-    sendEvent({ type: EventType.navigate, navigate_label: 'copy icon button' })
+    sendEvent({
+      type: EventType.clipboard,
+      clipboard_operation: 'copy',
+      clipboard_target: '.js-btn-copy',
+    })
   })
 }
 
@@ -292,10 +296,14 @@ function initLinkEvent() {
     const link = target.closest('a[href]') as HTMLAnchorElement
     if (!link) return
     const sameSite = link.origin === location.origin
+    const container = ['header', 'nav', 'article', 'toc', 'footer'].find((name) =>
+      target.closest(`[data-container="${name}"]`),
+    )
     sendEvent({
       type: EventType.link,
       link_url: link.href,
       link_samesite: sameSite,
+      link_container: container,
     })
   })
 }
@@ -353,9 +361,4 @@ export function initializeEvents() {
   initClipboardEvent()
   initCopyButtonEvent()
   initPrintEvent()
-  // survey event in ./survey.js
-  // experiment event in ./experiment.js
-  // search and search_result event in ./search.js
-  // redirect event in middleware/record-redirect.js
-  // preference event in ./display-tool-specific-content.js
 }
