@@ -64,6 +64,23 @@ Your language and server implementations may differ from the following examples.
 
 - Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
+### Test values
+
+Regardless of the programming language that you use to implement HMAC verification in your code, you can use the following `secret` and `payload` values to verify that your implementation is correct.
+
+- secret: "It's a Secret to Everybody"
+- payload: "Hello, World!"
+
+If your implementation is correct and uses the SHA-256 algorithm, the signatures that you generate should match the following signature values:
+
+- signature: 757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17
+- x-hub-signature: sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17
+
+If your implementation is correct and uses the SHA-1 algorithm, the signatures that you generate should match the following signature values:
+
+- signature: 01dc10d0c83e72ed246219cdd91669667fe2ca59
+- x-hub-signature: sha1=01dc10d0c83e72ed246219cdd91669667fe2ca59
+
 ### Ruby example
 
 For example, you can define the following `verify_signature` function:
