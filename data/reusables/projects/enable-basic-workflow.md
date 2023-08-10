@@ -1,17 +1,21 @@
+{% ifversion projects-v2-workflows-ui-refresh %}
+
 {% data reusables.projects.access-workflows %}
-1. Under **Default workflows**, click on the workflow that you want to edit.
-   
-   ![Screenshot showing default workflows](/assets/images/help/projects-v2/default-workflows.png)
+1. Under "Default workflows", click on the workflow that you want to edit.
+1. In the top right, click **Edit**.
 
-2. If the workflow can apply to both issues and pull requests, next to **When**, check the item type(s) that you want to act on.
-   
-   ![Screenshot showing the "when" configuration for a workflow](/assets/images/help/projects-v2/workflow-when.png)
+   ![Screenshot showing a project's menu bar. The "Edit" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/workflow-start-editing.png)
 
-3. Next to **Set**, choose the value that you want to set the status to.
-   
-   ![Screenshot showing the "set" configuration for a workflow](/assets/images/help/projects-v2/workflow-set.png)
+1. Select whether the workflow should apply to issues, pull requests, or both.
+1. Under "Set value", choose the value that you want to set the status to.
+1. To save your changes and enable the workflow, click **Save and turn on workflow**.
 
-4. If the workflow is disabled, click the toggle next to **Off** to enable the workflow.
-   
-   ![Screenshot showing the "On/Off" control for a workflow](/assets/images/help/projects-v2/workflow-enable.png)
-   
+{% else %}
+
+{% data reusables.projects.access-workflows %}
+1. Under "Default workflows", click on the workflow that you want to edit.
+1. Select whether the workflow should apply to issues, pull requests, or both.
+1. Next to "Set", choose the value that you want to set the status to.
+1. If the workflow is disabled, click the toggle next to "Off" to enable the workflow.
+
+{% endif %}

@@ -31,8 +31,7 @@ You can also use the "Filter cards" search bar at the top of each {% data variab
 - Filter cards by repository in an organization-wide {% data variables.projects.projects_v1_board %} using `repo:ORGANIZATION/REPOSITORY`
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} that contains the cards you want to filter.
-2. Above the project card columns, click into the "Filter cards" search bar and type a search query to filter the cards.
-![Filter card search bar](/assets/images/help/projects/filter-card-search-bar.png)
+1. Above the project card columns, click into the "Filter cards" search bar and type a search query to filter the cards.
 
 {% tip %}
 
@@ -42,6 +41,6 @@ You can also use the "Filter cards" search bar at the top of each {% data variab
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_projects_v1 %}](/articles/about-project-boards)"
-- "[Adding issues and pull requests to a {% data variables.product.prodname_project_v1 %}](/articles/adding-issues-and-pull-requests-to-a-project-board)"
-- "[Adding notes to a {% data variables.product.prodname_project_v1 %}](/articles/adding-notes-to-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)"
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board)"

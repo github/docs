@@ -22,16 +22,17 @@ If you have a specific requirement that isn't met by this environment, such as s
 
 ## Creating a pre-receive hook environment using Docker
 
-You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](http://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
+You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](https://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
 
 {% data reusables.linux.ensure-docker %}
-2. Create the file `Dockerfile.alpine-3.3` that contains this information:
+1. Create the file `Dockerfile.alpine-3.3` that contains this information:
 
    ```
    FROM gliderlabs/alpine:3.3
    RUN apk add --no-cache git bash
    ```
-3. From the working directory that contains `Dockerfile.alpine-3.3`, build an image:
+
+1. From the working directory that contains `Dockerfile.alpine-3.3`, build an image:
 
    ```shell
    $ docker build -f Dockerfile.alpine-3.3 -t pre-receive.alpine-3.3 .
@@ -43,15 +44,17 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    >  ---> 0250ab3be9c5
    > Successfully built 0250ab3be9c5
    ```
-4. Create a container:
+
+1. Create a container:
 
    ```shell
-   $ docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
+   docker create --name pre-receive.alpine-3.3 pre-receive.alpine-3.3 /bin/true
    ```
-5. Export the Docker container to a `gzip` compressed `tar` file:
+
+1. Export the Docker container to a `gzip` compressed `tar` file:
 
    ```shell
-   $ docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
+   docker export pre-receive.alpine-3.3 | gzip > alpine-3.3.tar.gz
    ```
 
    This file `alpine-3.3.tar.gz` is ready to be uploaded to the {% data variables.product.prodname_ghe_server %} appliance.
@@ -59,10 +62,11 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 ## Creating a pre-receive hook environment using chroot
 
 1. Create a Linux `chroot` environment.
-2. Create a `gzip` compressed `tar` file of the `chroot` directory.
+1. Create a `gzip` compressed `tar` file of the `chroot` directory.
+
    ```shell
-   $ cd /path/to/chroot
-   $ tar -czf /path/to/pre-receive-environment.tar.gz .
+   cd /path/to/chroot
+   tar -czf /path/to/pre-receive-environment.tar.gz .
    ```
 
    {% note %}
@@ -74,28 +78,24 @@ You can use a Linux container management tool to build a pre-receive hook enviro
 
    {% endnote %}
 
-For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the *Debian Wiki*, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the *Ubuntu Community Help Wiki*, or "[Installing Alpine Linux in a chroot](http://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the *Alpine Linux Wiki*.
+For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the _Debian Wiki_, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the _Ubuntu Community Help Wiki_, or "[Installing Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the _Alpine Linux Wiki_.
 
 ## Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.hooks-tab %}
-5. Click **Manage environments**.
-![Manage Environments](/assets/images/enterprise/site-admin-settings/manage-pre-receive-environments.png)
-6. Click **Add environment**.
-![Add Environment](/assets/images/enterprise/site-admin-settings/add-pre-receive-environment.png)
-7. Enter the desired name in the **Environment name** field.
-![Environment name](/assets/images/enterprise/site-admin-settings/pre-receive-environment-name.png)
-8. Enter the URL of the `*.tar.gz` file that contains your environment.
-![Upload environment from a URL](/assets/images/enterprise/site-admin-settings/upload-environment-from-url.png)
-9. Click **Add environment**.
-![Add environment button](/assets/images/enterprise/site-admin-settings/add-environment-button.png)
+1. Click **Manage environments**.
+1. Click **Add environment**.
+1. In the "Environment name" field, enter the desired name.
+1. In the "Upload environment from a URL" field, enter the URL of the `*.tar.gz` file that contains your environment.
+1. Click **Add environment**.
 
 ## Uploading a pre-receive hook environment via the administrative shell
+
 1. Upload a readable `*.tar.gz` file that contains your environment to a web host and copy the URL or transfer the file to the {% data variables.product.prodname_ghe_server %} appliance via `scp`. When using `scp`, you may need to adjust the `*.tar.gz` file permissions so that the file is world readable.
-1.  Connect to the administrative shell.
-2.  Use the `ghe-hook-env-create` command and type the name you want for the environment as the first argument and the full local path or URL of a `*.tar.gz` file that contains your environment as the second argument.
+1. Connect to the administrative shell.
+1. Use the `ghe-hook-env-create` command and type the name you want for the environment as the first argument and the full local path or URL of a `*.tar.gz` file that contains your environment as the second argument.
 
    ```shell
    admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine-3.3.tar.gz

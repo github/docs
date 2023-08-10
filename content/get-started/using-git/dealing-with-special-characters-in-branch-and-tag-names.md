@@ -23,27 +23,38 @@ For example, the `$` character is used by many shells to refer to a variable. Mo
 
 Most branch and tag names with special characters can be handled by including the name in single quotes, for example `'hello-$USER'`.
 
-* In the [Bash](https://www.gnu.org/software/bash/) shell, enclosing a string of characters in single quotes preserves the literal value of the characters within the single quotes.
-* [Zsh](https://www.zsh.org/) behaves similar to Bash, however this behavior is configurable using the `RC_QUOTES` option.
-* [PowerShell](https://microsoft.com/powershell) also treats characters literally when inside single quotes.
+- In the [Bash](https://www.gnu.org/software/bash/) shell, enclosing a string of characters in single quotes preserves the literal value of the characters within the single quotes.
+- [Zsh](https://www.zsh.org/) behaves similar to Bash, however this behavior is configurable using the `RC_QUOTES` option.
+- [PowerShell](https://microsoft.com/powershell) also treats characters literally when inside single quotes.
 
 For these shells, the main exception is when the branch or tag name itself contains a single quote. In this case, you should consult the official documentation for your shell:
 
-* [Bash documentation](https://www.gnu.org/software/bash/manual/)
-* [Zsh documentation](https://zsh.sourceforge.io/Doc/)
-* [Fish documentation](https://fishshell.com/docs/current/)
-* [PowerShell documentation](https://docs.microsoft.com/en-gb/powershell/)
+- [Bash documentation](https://www.gnu.org/software/bash/manual/)
+- [Zsh documentation](https://zsh.sourceforge.io/Doc/)
+- [Fish documentation](https://fishshell.com/docs/current/)
+- [PowerShell documentation](https://docs.microsoft.com/en-gb/powershell/)
 
 ## Naming branches and tags
 
 If possible, create branch and tag names that don't contain special characters, as these would need to be escaped. A safe default set of characters to use for branch names and tag names is:
 
-* The English alphabet (`a` to `z` and `A` to `Z`)
-* Numbers (`0` to `9`)
-* A limited set of punctuation characters:
-  * period (`.`)
-  * hyphen (`-`)
-  * underscore (`_`)
-  * forward slash (`/`)
+- The English alphabet (`a` to `z` and `A` to `Z`)
+- Numbers (`0` to `9`)
+- A limited set of punctuation characters:
+  - period (`.`)
+  - hyphen (`-`)
+  - underscore (`_`)
+  - forward slash (`/`)
 
 To avoid confusion, you should start branch names with a letter.
+
+{% ifversion fpt or ghec or ghes > 3.8 %}
+
+## Restrictions on names in {% data variables.product.prodname_dotcom %}
+
+{% data variables.product.prodname_dotcom %} restricts a small number of branch and tag names from being pushed up.
+Those restrictions are:
+- No names which look like Git object IDs (40 characters containing only 0-9 and A-F), to prevent confusion with actual Git object IDs.
+- No names beginning with `refs/`, to prevent confusion with the full name of Git refs. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
+
+{% endif %}

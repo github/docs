@@ -9,22 +9,21 @@ versions:
 topics:
   - API
 shortTitle: Using the API
-miniTocMaxHeadingLevel: 3
 ---
 
 ## About the {% data variables.product.prodname_dotcom %} REST API
 
-This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or cURL. For a quickstart guide, see "[Quickstart for GitHub REST API](/rest/quickstart)."
+This article describes how to use the {% data variables.product.prodname_dotcom %} REST API using {% data variables.product.prodname_cli %}, JavaScript, or `curl`. For a quickstart guide, see "[AUTOTITLE](/rest/quickstart)."
 
 When you make a request to the REST API, you will specify an HTTP method and a path. Additionally, you might also specify request headers and path, query, or body parameters. The API will return the response status code, response headers, and potentially a response body.
 
 The REST API reference documentation describes the HTTP method, path, and parameters for every operation. It also displays example requests and responses for each operation. For more information, see the [REST reference documentation](/rest).
 
-For more information about {% data variables.product.company_short %}'s APIs, see "[About {% data variables.product.company_short %}'s APIs](/developers/overview/about-githubs-apis)."
+For more information about {% data variables.product.company_short %}'s APIs, see "[AUTOTITLE](/rest/overview/about-githubs-apis)."
 
 ## Making a request
 
-To make a request, first find the HTTP method and the path for the operation that you want to use. For example, the "Get Octocat" operation uses the `GET` method and the `/octocat` path. For the full reference documentation for this operation, see "[Get Octocat](/rest/meta#get-octocat)."
+To make a request, first find the HTTP method and the path for the operation that you want to use. For example, the "Get Octocat" operation uses the `GET` method and the `/octocat` path. For the full reference documentation for this operation, see "[AUTOTITLE](/rest/meta#get-octocat)."
 
 {% cli %}
 
@@ -52,7 +51,7 @@ gh api /octocat --method GET
 
 {% endnote %}
 
-To make a request using JavaScript, you can use Octokit.js. For more information, see [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+To make a request using JavaScript, you can use Octokit.js. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
 
 First, create an instance of `Octokit`.{% ifversion ghes or ghae %} Set the base URL to `{% data variables.product.api_url_code %}`. Replace `[hostname]` with the name of {% data variables.location.product_location %}.{% endif %}
 
@@ -83,7 +82,7 @@ curl --request GET \
 
 {% note %}
 
-**Note**: If you get a message similar to "command not found: curl", you may need to download and install cURL. For more information, see [the cURL project download page](https://curl.se/download.html).
+**Note**: If you get a message similar to "command not found: curl", you may need to download and install `curl`. For more information, see [the curl project download page](https://curl.se/download.html).
 
 {% endnote %}
 
@@ -99,11 +98,13 @@ Many operations require authentication or return additional information if you a
 
 You can authenticate your request by adding a token.
 
-If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. The REST API operations used in this article require `repo` scope for {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} or, unless otherwise noted, read-only access to public repositories for {% data variables.product.pat_v2 %}s{% endif %}. Other operations may require different scopes{% ifversion pat-v2%} or permissions{% endif %}. For more information about creating a {% data variables.product.pat_generic %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you want to use the {% data variables.product.company_short %} REST API for personal use, you can create a {% data variables.product.pat_generic %}. The REST API operations used in this article require `repo` scope for {% data variables.product.pat_v1_plural %}{% ifversion pat-v2 %} or, unless otherwise noted, read-only access to public repositories for {% data variables.product.pat_v2 %}s{% endif %}. Other operations may require different scopes{% ifversion pat-v2%} or permissions{% endif %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[Creating a GitHub App](/developers/apps/building-github-apps/creating-a-github-app)", "[Authenticating with GitHub Apps](/developers/apps/building-github-apps/authenticating-with-github-apps), and "[Identifying and authorizing users for GitHub Apps](/developers/apps/building-github-apps/identifying-and-authorizing-users-for-github-apps)."
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. If an operation is available to {% data variables.product.prodname_github_apps %}, the REST reference documentation for that operation will say "Works with GitHub Apps." The REST API operations used in this article require `issues` read and write permissions for {% data variables.product.prodname_github_apps %}. Other operations may require different permissions. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)", "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app), and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
 
-If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
+If you want to use the API in a {% data variables.product.prodname_actions %} workflow, {% data variables.product.company_short %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. You can grant permissions to the `GITHUB_TOKEN` with the `permissions` key. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token)."
+
+For more information about best practices you can use to keep your tokens secure, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)."
 
 ### Authentication example
 
@@ -125,11 +126,11 @@ You can use the `--scopes` flag to specify what scopes you want. If you want to 
 
 **Warning**: Treat your access token like a password.
 
-To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+To keep your token secure, you can store your token as a secret and run your script through {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and run your script in {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+If these options are not possible, consider using another CLI service to store your token securely.
 
 {% endwarning %}
 
@@ -150,15 +151,15 @@ const octokit = new Octokit({ {% ifversion ghes or ghae %}
 
 **Warning**: Treat your access token like a password.
 
-To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of cURL. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
+To help keep your account secure, you can use {% data variables.product.prodname_cli %} instead of `curl` commands. {% data variables.product.prodname_cli %} will take care of authentication for you. For more information, see the {% data variables.product.prodname_cli %} version of this page.
 
-{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[Managing encrypted secrets for your codespaces](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
+{% ifversion ghec or fpt %}You can also store your token as a {% data variables.product.prodname_codespaces %} secret and use the command line through {% data variables.product.prodname_codespaces %}. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."{% endif %}
 
-If these options are not possible, consider using another service such as [the 1Password CLI](https://developer.1password.com/docs/cli/secret-references/) to store your token securely.
+If these options are not possible, consider using another CLI service to store your token securely.
 
 {% endwarning %}
 
-With cURL, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
+In `curl` commands, you will send an `Authorization` header with your token. Replace `YOUR-TOKEN` with your token:
 
 ```shell
 curl --request GET \
@@ -178,9 +179,9 @@ curl --request GET \
 
 {% cli %}
 
-You can also use the `run` keyword to execute {% data variables.product.prodname_cli %} commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+You can also use the `run` keyword to execute {% data variables.product.prodname_cli %} commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-Instead of using the `gh auth login` command, pass your token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+Instead of using the `gh auth login` command, pass your token as an environment variable called `GH_TOKEN`. {% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ```yaml
 jobs:
@@ -198,9 +199,9 @@ jobs:
 
 {% javascript %}
 
-You can also use the `run` keyword to execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+You can also use the `run` keyword to execute your JavaScript scripts in your {% data variables.product.prodname_actions %} workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 The following example workflow:
 
@@ -270,9 +271,9 @@ jobs:
 
 {% curl %}
 
-You can also use the `run` keyword to execute cURL commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+You can also use the `run` keyword to execute `curl` commands in your {% data variables.product.prodname_actions %} workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
-{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[Automatic token authentication](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[Encrypted secrets](/actions/security-guides/encrypted-secrets)."
+{% data variables.product.prodname_dotcom %} recommends that you authenticate with the built-in `GITHUB_TOKEN` instead of creating a token. If this is not possible, store your token as a secret and replace `GITHUB_TOKEN` in the example below with the name of your secret. For more information about `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)." For more information about secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
 
 ```yaml
 jobs:
@@ -299,7 +300,7 @@ Most operations specify that you should pass an `Accept` header with a value of 
 To send a header with {% data variables.product.prodname_cli %}, use the `--header` or `-H` flag followed by the header in `key: value` format.
 
 ```shell
-gh api --header 'Accept: application/vnd.github+json' --method GET /octocat
+gh api --header 'Accept: application/vnd.github+json'{% ifversion api-date-versioning %} --header 'X-GitHub-Api-Version:{{ allVersions[currentVersion].latestApiVersion }}'{% endif %} --method GET /octocat
 ```
 
 {% endcli %}
@@ -311,7 +312,8 @@ The Octokit.js library automatically passes the `Accept: application/vnd.github+
 ```javascript
 await octokit.request("GET /octocat", {
   headers: {
-    "content-type": "text/plain",
+    "content-type": "text/plain",{% ifversion api-date-versioning %}
+    "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",{% endif %}
   },
 });
 ```
@@ -320,20 +322,21 @@ await octokit.request("GET /octocat", {
 
 {% curl %}
 
-To send a header with cURL, use the `--header` or `-H` flag followed by the header in `key: value` format.
+To send a header in a `curl` command, use the `--header` or `-H` flag followed by the header in `key: value` format.
 
 ```shell
 curl --request GET \
 --url "https://api.github.com/octocat" \
 --header "Accept: application/vnd.github+json" \
---header "Authorization: Bearer YOUR-TOKEN"
+--header "Authorization: Bearer YOUR-TOKEN"{% ifversion api-date-versioning %} \
+--header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"{% endif %}
 ```
 
 {% endcurl %}
 
 ## Using path parameters
 
-Path parameters modify the operation path. For example, the "List repository issues" path is `/repos/{owner}/{repo}/issues`. The curly brackets `{}` denote path parameters that you need to  specify. In this case, you must specify the repository owner and name. For the reference documentation for this operation, see "[List repository issues](/rest/issues/issues#list-repository-issues)."
+Path parameters modify the operation path. For example, the "List repository issues" path is `/repos/{owner}/{repo}/issues`. The curly brackets `{}` denote path parameters that you need to  specify. In this case, you must specify the repository owner and name. For the reference documentation for this operation, see "[AUTOTITLE](/rest/issues/issues#list-repository-issues)."
 
 {% cli %}
 
@@ -407,15 +410,17 @@ By default, the "List repository issues" operation returns thirty issues, sorted
 
 For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
 
-{% note %}
-
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
-
-{% endnote %}
-
 ```shell
 gh api --header 'Accept: application/vnd.github+json' --method GET /repos/octocat/Spoon-Knife/issues -F per_page=2 -f sort=updated -f direction=asc
 ```
+
+Some operations use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `-f repository_ids[]=REPOSITORY_A_ID -f repository_ids[]=REPOSITORY_B_ID`.
+
+{% note %}
+
+In order to use {% data variables.product.prodname_cli %} with query parameters that are arrays, you must use {% data variables.product.prodname_cli %} version 2.31.0 or greater. For upgrade instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
+
+{% endnote %}
 
 {% endcli %}
 
@@ -437,7 +442,7 @@ await octokit.request("GET /repos/{owner}/{repo}/issues", {
 
 {% curl %}
 
-For cURL, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
+For `curl` commands, add a `?` to the end of the path, then append your query parameter name and value in the form `parameter_name=value`. Separate multiple query parameters with `&`.
 
 ```shell
 curl --request GET \
@@ -446,28 +451,30 @@ curl --request GET \
 --header "Authorization: Bearer YOUR-TOKEN"
 ```
 
+Some operations use query parameters that are arrays. To send an array in the query string, use the query parameter once per array item, and append `[]` after the query parameter name. For example, to provide an array of two repository IDs, use `?repository_ids[]=REPOSITORY_A_ID&repository_ids[]=REPOSITORY_B_ID`.
+
 {% endcurl %}
 
 The operation returns a list of issues and data about each issue. For more information about using the response, see the "[Using the response](#using-the-response)" section.
 
 ## Using body parameters
 
-Body parameters allow you to pass additional data to the API. For example, the "Create an issue" operation requires you to specify a title for the new issue. It also lets you specify other information, such as text to put in the issue body. For the full reference documentation for this operation, see "[Create an issue](/rest/issues/issues#create-an-issue)."
+Body parameters allow you to pass additional data to the API. For example, the "Create an issue" operation requires you to specify a title for the new issue. It also lets you specify other information, such as text to put in the issue body. For the full reference documentation for this operation, see "[AUTOTITLE](/rest/issues/issues#create-an-issue)."
 
 The "Create an issue" operation uses the same path as the "List repository issues" operation in the examples above, but it uses a `POST` method instead of a `GET` method.
 
 {% cli %}
 
-For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters.
+For {% data variables.product.prodname_cli %}, use the `-F` flag to pass a parameter that is a number, Boolean, or null. Use `-f` to pass string parameters. If the parameter is an array, you must append `[]` to the parameter name.
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_cli %} does not currently accept parameters that are arrays. For more information, see [this issue](https://github.com/cli/cli/issues/1484).
+In order to use {% data variables.product.prodname_cli %} with body parameters that are arrays, you must use {% data variables.product.prodname_cli %} version 2.21.0 or greater. For upgrade instructions, see the [{% data variables.product.prodname_cli %} repository](https://github.com/cli/cli#installation).
 
 {% endnote %}
 
 ```shell
-gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octocat/Spoon-Knife/issues -f title="Created with the REST API" -f body="This is a test issue created by the REST API"
+gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octocat/Spoon-Knife/issues -f title="Created with the REST API" -f body="This is a test issue created by the REST API" -f "labels[]=bug"
 ```
 
 {% endcli %}
@@ -478,7 +485,7 @@ gh api --header 'Accept: application/vnd.github+json' --method POST /repos/octoc
 
 {% note %}
 
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[AUTOTITLE](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 {% endnote %}
 
@@ -503,13 +510,13 @@ await octokit.request("POST /repos/{owner}/{repo}/issues", {
 
 {% note %}
 
-If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[Create a repo](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[Creating a {% data variables.product.pat_generic %}](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you are using a {% data variables.product.pat_v2 %}, you must replace `octocat/Spoon-Knife` with a repository that you own or that is owned by an organization that you are a member of. Your token must have access to that repository and have read and write permissions for repository issues. For more information about creating a repository, see "[AUTOTITLE](/get-started/quickstart/create-a-repo)." For more information about granting access and permissions to a {% data variables.product.pat_v2 %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
 {% endnote %}
 
 {% endif %}
 
-For cURL, use the `--data` flag to pass the body parameters in a JSON object.
+For `curl` commands, use the `--data` flag to pass the body parameters in a JSON object.
 
 ```shell
 curl --request POST \
@@ -704,7 +711,7 @@ jq '.[] | {title: .title, authorID: .user.id}' data.json
 
 The previous two commands return something like:
 
-```
+```json
 {
   "title": "Update index.html",
   "authorID": 10701255
@@ -715,7 +722,7 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/).
 
 {% endcli %}
 
@@ -761,7 +768,7 @@ jq '.[] | {title: .title, authorID: .user.id}' data.json
 
 The previous two commands return something like:
 
-```
+```json
 {
   "title": "Update index.html",
   "authorID": 10701255
@@ -772,12 +779,12 @@ The previous two commands return something like:
 }
 ```
 
-For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/) and [jq play](https://jqplay.org/).
+For more information about jq, see [the jq documentation](https://stedolan.github.io/jq/).
 
 {% endcurl %}
 
 ## Next steps
 
-This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information about these operations, see "[Create an issue comment](/rest/issues#create-an-issue-comment)" and "[Update an issue](/rest/issues/issues#update-an-issue)."
+This article demonstrated how to list and create issues in a repository. For more practice, try to comment on an issue, edit the title of an issue, or close an issue. For more information about these operations, see "[AUTOTITLE](/rest/issues#create-an-issue-comment)" and "[AUTOTITLE](/rest/issues/issues#update-an-issue)."
 
 For more information about the operations that you can use, see the [REST reference documentation](/rest).

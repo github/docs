@@ -10,8 +10,9 @@
 import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
-import renderedContentLinkChecker from '../.github/actions/rendered-content-link-checker.js'
+import renderedContentLinkChecker from '../.github/actions-scripts/rendered-content-link-checker.js'
 import { getCoreInject, getUploadArtifactInject } from './helpers/action-injections.js'
+import { allVersions } from '../lib/all-versions.js'
 import github from './helpers/github.js'
 
 const STATIC_PREFIXES = {
@@ -30,34 +31,51 @@ program
   .addOption(
     new Option(
       '-L, --level <LEVEL>',
-      'Level of broken link to be marked as a flaw (default: "warning")'
-    ).choices(['all', 'warning', 'critical'])
+      'Level of broken link to be marked as a flaw (default: "warning")',
+    ).choices(['all', 'warning', 'critical']),
   )
   .option('-f, --filter <FILTER...>', 'Search filter(s) on the paths')
+  .option(
+    '-V, --version <VERSION...>',
+    "Specific versions to only do (e.g. 'free-pro-team@latest')",
+    (version) => {
+      if (!(version in allVersions)) {
+        for (const [key, data] of Object.entries(allVersions)) {
+          if (version === data.miscVersionName) {
+            return key
+          }
+        }
+        throw new InvalidArgumentError(
+          `'${version}' is not a recognized version. (not one of ${Object.keys(allVersions)})`,
+        )
+      }
+      return version
+    },
+  )
   .option('-v, --verbose', 'Verbose outputs')
   .option(
     '--create-report',
-    'Create a report issue in report-repository if there are flaws. (default: false)'
+    'Create a report issue in report-repository if there are flaws. (default: false)',
   )
   .option(
     '--report-repository <REPOSITORY>',
-    'Repository to create issue in. (default: "github/docs-content")'
+    'Repository to create issue in. (default: "github/docs-content")',
   )
   .option(
     '--link-reports',
-    'If comments should be made on previous report and new report "linking" them. (default: false)'
+    'If comments should be made on previous report and new report "linking" them. (default: false)',
   )
   .option(
     '--report-author <AUTHOR>',
-    'Previous author of report PR for linking. (default: "docubot")'
+    'Previous author of report PR for linking. (default: "docs-bot")',
   )
   .option(
     '--report-label <LABEL>',
-    'Label to assign to report issue. (default: "broken link report")'
+    'Label to assign to report issue. (default: "broken link report")',
   )
   .option(
     '--comment-on-pr <URI>',
-    'For debugging. Comment on a PR in form "owner/repo-name:pr_number"'
+    'For debugging. Comment on a PR in form "owner/repo-name:pr_number"',
   )
   .option('--should-comment', 'Comments failed links on PR')
   .option('--check-anchors', "Validate links that start with a '#' too")
@@ -95,7 +113,7 @@ program
       }
 
       return resolvedPath
-    }
+    },
   )
   .arguments('[files...]', 'Specific files to check')
   .parse(process.argv)
@@ -129,5 +147,5 @@ renderedContentLinkChecker(
   {
     ...opts,
     files,
-  }
+  },
 )

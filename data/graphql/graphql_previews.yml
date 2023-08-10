@@ -52,8 +52,8 @@
     - UpdateRefsInput
     - UpdateRefsPayload
   owning_teams:
-    - '@github/reponauts'
-- title: Access to a Repositories Dependency Graph
+    - '@github/repos'
+- title: Access to a Repository's Dependency Graph
   description: This preview adds support for reading a dependency graph for a repository.
   toggled_by: ':hawkgirl-preview'
   announcement: null
@@ -66,7 +66,6 @@
     - DependencyGraphDependency
     - DependencyGraphDependencyEdge
     - DependencyGraphDependencyConnection
-    - DependencyGraphPackageRelease.dependencies
   owning_teams:
     - '@github/dependency-graph'
 - title: Project Event Details

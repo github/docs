@@ -21,6 +21,8 @@ children:
   - /enforcing-policies-for-security-settings-in-your-enterprise
   - /enforcing-policies-for-dependency-insights-in-your-enterprise
   - /enforcing-policies-for-github-actions-in-your-enterprise
+  - /enforcing-policies-for-github-copilot-in-your-enterprise
+  - /enforcing-policies-for-github-codespaces-in-your-enterprise
   - /enforcing-policies-for-code-security-and-analysis-for-your-enterprise
   - /enforcing-policies-for-personal-access-tokens-in-your-enterprise
 shortTitle: Enforce policies

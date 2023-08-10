@@ -11,15 +11,14 @@ type: overview
 topics:
   - Fundamentals
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
 
 {% data variables.product.prodname_actions %} allow you to customize your workflows to meet the unique needs of your application and team. In this guide, we'll discuss some of the essential customization techniques such as using variables, running scripts, and sharing data and artifacts between jobs.
 
-##  Using variables in your workflows
+## Using variables in your workflows
 
 {% data variables.product.prodname_actions %} include default environment variables for each workflow run. If you need to use custom environment variables, you can set these in your YAML workflow file. This example demonstrates how to create custom variables named `POSTGRES_HOST` and `POSTGRES_PORT`. These variables are then available to the `node client.js` script.
 
@@ -34,7 +33,7 @@ jobs:
             POSTGRES_PORT: 5432
 ```
 
-For more information, see "[Using environment variables](/actions/configuring-and-managing-workflows/using-environment-variables)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)."
 
 ## Adding scripts to your workflow
 
@@ -58,7 +57,7 @@ jobs:
         shell: bash
 ```
 
-For more information, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
 
 ## Sharing data between jobs
 
@@ -95,8 +94,8 @@ jobs:
 
 To download an artifact from the same workflow run, your download job should specify `needs: upload-job-name` so it doesn't start until the upload job finishes.
 
-For more information about artifacts, see "[Persisting workflow data using artifacts](/actions/configuring-and-managing-workflows/persisting-workflow-data-using-artifacts)."
+For more information about artifacts, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[Managing complex workflows](/actions/learn-github-actions/managing-complex-workflows)."
+To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/using-workflows/about-workflows)."

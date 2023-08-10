@@ -1,0 +1,1 @@
+For participants in the private beta of SCIM for GitHub Enterprise Server, custom mappings for SAML user attributes are not supported in this release. Custom mappings are supported in GitHub Enterprise Server 3.7.5 and later. [Updated: 2023-04-17]

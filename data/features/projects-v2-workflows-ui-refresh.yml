@@ -1,0 +1,5 @@
+# Issue 9608
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'

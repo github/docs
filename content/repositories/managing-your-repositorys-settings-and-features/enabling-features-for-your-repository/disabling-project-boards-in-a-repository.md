@@ -16,11 +16,10 @@ topics:
 shortTitle: 'Disable {% data variables.projects.projects_v1_boards %}'
 allowTitleToDifferFromFilename: true
 ---
-When you disable {% data variables.projects.projects_v1_boards %}, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or [audit logs](/articles/reviewing-your-security-log/).
+When you disable {% data variables.projects.projects_v1_boards %}, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or [audit logs](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-3. Under "Features," unselect the **Projects** checkbox.
-  ![Remove Projects checkbox](/assets/images/help/projects/disable-projects-checkbox.png)
+1. Under "Features," unselect the **Projects** checkbox.
 
-After {% data variables.projects.projects_v1_boards %} are disabled, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. {% data reusables.organizations.disable_project_board_results %}
+After {% data variables.projects.projects_v1_boards %} are disabled, existing {% data variables.projects.projects_v1_boards %} are inaccessible at their previous URLs. If you decide to re-enable project boards, any project boards that were previously added will be available.

@@ -18,9 +18,12 @@ shortTitle: Set repo management policy
 
 Owners can set permissions for deleting or transferring repositories in an organization.
 
+{% ifversion fpt or ghec or ghes %}
+Limiting the ability to delete or transfer repositories helps prevent sensitive information from being exposed. For more information, see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
+{% endif %}
+
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.member-privileges %}
-5. Under "Repository deletion and transfer", select or deselect **Allow members to delete or transfer repositories for this organization**.
-![Checkbox to allow members to delete repositories](/assets/images/help/organizations/disallow-members-to-delete-repositories.png)
-6. Click **Save**.
+1. Under "Repository deletion and transfer", select or deselect **Allow members to delete or transfer repositories for this organization**.
+1. Click **Save**.

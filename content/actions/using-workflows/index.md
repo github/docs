@@ -23,10 +23,13 @@ versions:
 children:
   - /about-workflows
   - /triggering-a-workflow
+  - /manually-running-a-workflow
+  - /disabling-and-enabling-a-workflow
   - /events-that-trigger-workflows
   - /workflow-syntax-for-github-actions
   - /workflow-commands-for-github-actions
   - /reusing-workflows
+  - /required-workflows
   - /caching-dependencies-to-speed-up-workflows
   - /storing-workflow-data-as-artifacts
   - /creating-starter-workflows-for-your-organization

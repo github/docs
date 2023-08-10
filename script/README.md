@@ -32,7 +32,7 @@ Runs tests. Equivalent of `npm test`.
 
 ### [`anonymize-branch.js`](anonymize-branch.js)
 
-Flatten all the commits in the current branch into a single anonymized @Octomerger commit
+Flatten all the commits in the current branch into a single anonymized @docs-bot commit
 
 Usage: script/anonymize-branch.js <new-commit-message> [base-branch] Example: script/anonymize-branch.js "nothing to see here" If the optional [base-branch] argument is omitted, it will default to `main`
 
@@ -256,71 +256,6 @@ This script is run on a writer's machine while developing Early Access content l
 ---
 
 
-### [`enterprise-server-deprecations/archive-version.js`](enterprise-server-deprecations/archive-version.js)
-
-Run this script during the Enterprise deprecation process to download static copies of all pages for the oldest supported Enterprise version. See the Enterprise deprecation issue template for instructions.
-
-NOTE: If you get this error:
-
-   Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'website-scraper' ...
-
-it's because you haven't installed all the *optional* dependencies. To do that, run:
-
-   npm install --include=optional
-
-
----
-
-
-### [`enterprise-server-deprecations/remove-static-files.js`](enterprise-server-deprecations/remove-static-files.js)
-
-This script removes the static GraphQL, REST, and webhook files for any deprecated GHES versions.
-
----
-
-
-### [`enterprise-server-deprecations/remove-version-markup.js`](enterprise-server-deprecations/remove-version-markup.js)
-
-Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that contain the deprecated Enterprise version. See the Enterprise deprecation issue template for instructions.
-
----
-
-
-### [`enterprise-server-releases/add-ghec-to-fpt.js`](enterprise-server-releases/add-ghec-to-fpt.js)
-
-Run this script to add versions frontmatter and Liquid conditionals for GitHub Enterprise Cloud, based on anything currently versioned for the specified release of free-pro-team.
-
----
-
-
-### [`enterprise-server-releases/create-graphql-files.js`](enterprise-server-releases/create-graphql-files.js)
-
-This script creates the static GraphQL files for a new version.
-
----
-
-
-### [`enterprise-server-releases/create-rest-files.js`](enterprise-server-releases/create-rest-files.js)
-
-This script first copies the dereferenced schema from the previous GHES version for the new one. It then replaces references to the previous version's docs URL (e.g., enterprise-server@3.0) with the new version (e.g., enterprise-server@3.1). Finally, it generates a new decorated file from the new dereferenced file to ensure that the dereferenced and decorated files match.
-
----
-
-
-### [`enterprise-server-releases/create-webhook-files.js`](enterprise-server-releases/create-webhook-files.js)
-
-This script creates new static webhook payload files for a new version.
-
----
-
-
-### [`enterprise-server-releases/release-banner.js`](enterprise-server-releases/release-banner.js)
-
-This script creates or removes a release candidate banner for a specified version.
-
----
-
-
 ### [`find-orphaned-assets.js`](find-orphaned-assets.js)
 
 Print a list of all the asset files that can't be found mentioned in any of the source files (content & code).
@@ -405,13 +340,6 @@ Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it w
 ---
 
 
-### [`helpers/get-version-blocks.js`](helpers/get-version-blocks.js)
-
-
-
----
-
-
 ### [`helpers/git-utils.js`](helpers/git-utils.js)
 
 
@@ -425,19 +353,6 @@ Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it w
 
 ---
 
-
-### [`helpers/remove-deprecated-frontmatter.js`](helpers/remove-deprecated-frontmatter.js)
-
-
-
----
-
-
-### [`helpers/remove-liquid-statements.js`](helpers/remove-liquid-statements.js)
-
-
-
----
 
 
 ### [`helpers/retry-on-error-test.js`](helpers/retry-on-error-test.js)
@@ -458,78 +373,9 @@ A helper that returns an array of files for a given path and file extension.
 ---
 
 
-### [`i18n/fix-translation-errors.js`](i18n/fix-translation-errors.js)
-
-Run this script to fix known frontmatter errors by copying values from english file Currently only fixing errors in: 'type', 'changelog' Please double check the changes created by this script before committing.
-
----
-
-
-### [`i18n/homogenize-frontmatter.js`](i18n/homogenize-frontmatter.js)
-
-Run this script to fix known frontmatter errors by copying values from english file Translatable properties are designated in the frontmatter JSON schema
-
----
-
-
-### [`i18n/lint-translation-files.js`](i18n/lint-translation-files.js)
-
-Use this script as part of the translation merge process to output a list of either parsing or rendering errors in translated files and run script/i18n/reset-translated-file.js on them.
-
----
-
-
-### [`i18n/msft-report-reset-files.js`](i18n/msft-report-reset-files.js)
-
-
-
----
-
-
-### [`i18n/msft-reset-files-with-broken-liquid-tags.js`](i18n/msft-reset-files-with-broken-liquid-tags.js)
-
-
-
----
-
-
-### [`i18n/msft-tokens.js`](i18n/msft-tokens.js)
-
-
-
----
-
-
-### [`i18n/prune-stale-files.js`](i18n/prune-stale-files.js)
-
-
-
----
-
-
-### [`i18n/reset-translated-file.js`](i18n/reset-translated-file.js)
-
-This is a convenience script for replacing the contents of translated files with the English content from their corresponding source file.
-
-Usage: script/i18n/reset-translated-file.js <filename>
-
-Examples:
-
-$ script/i18n/reset-translated-file.js translations/es-XL/content/actions/index.md
-
----
-
-
 ### [`i18n/test-html-pages.js`](i18n/test-html-pages.js)
 
 
-
----
-
-
-### [`i18n/test-render-translation.js`](i18n/test-render-translation.js)
-
-Run this script to test-render all the translation files that have been changed (when compared to the `main` branch).
 
 ---
 
@@ -544,14 +390,6 @@ Run this script to test-render all the translation files that have been changed 
 ### [`list-image-sizes.js`](list-image-sizes.js)
 
 This script lists all local image files, sorted by their dimensions.
-
-NOTE: If you get this error:
-
-   Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'image-size' ...
-
-it's because you haven't installed all the *optional* dependencies. To do that, run:
-
-   npm install --include=optional
 
 ---
 
@@ -580,13 +418,6 @@ This is a temporary script to visualize which pages have liquid (and conditional
 ### [`prevent-pushes-to-main.js`](prevent-pushes-to-main.js)
 
 This script is intended to be used as a git "prepush" hook. If the current branch is main, it will exit unsuccessfully and prevent the push.
-
----
-
-
-### [`prevent-translation-commits.js`](prevent-translation-commits.js)
-
-This script is run as a git precommit hook (installed by husky after npm install). It detects changes to files the in the translations folder and prevents the commit if any changes exist.
 
 ---
 
@@ -695,13 +526,6 @@ Run this script to pull openAPI files from github/github, dereference them, and 
 ---
 
 
-### [`rest/utils/rest-api-overrides.json`](rest/utils/rest-api-overrides.json)
-
-
-
----
-
-
 ### [`rest/utils/webhook-schema.js`](rest/utils/webhook-schema.js)
 
 
@@ -722,7 +546,7 @@ See how a piece of text gets turned into tokens by the different analyzers. Requ
 
 Example:
 
-   ./script/search/analyze-text.js my words to tokenize
+   ./src/scripts/search/analyze-text.js my words to tokenize
 
 ---
 
@@ -831,13 +655,6 @@ Find and replace lightweight feature flags for GitHub AE content.
 ---
 
 
-### [`update-enterprise-dates.js`](update-enterprise-dates.js)
-
-This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json and updates `lib/enterprise-dates.json`, which the site uses for various functionality.
-
----
-
-
 ### [`update-internal-links.js`](update-internal-links.js)
 
 Run this script to find internal links in all content and data Markdown files, check if either the title or link (or both) are outdated, and automatically update them if so.
@@ -852,5 +669,3 @@ Exceptions: * Links with fragments (e.g., [Bar](/foo#bar)) will get their root l
 This script crawls the script directory, hooks on special comment markers in each script, and adds the comment to `script/README.md`.
 
 ---
-
-

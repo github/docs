@@ -15,16 +15,15 @@ shortTitle: Upgrade to Corporate ToS
 
 The Standard Terms of Service is an agreement between {% data variables.product.prodname_dotcom %} and you as an individual. To enter into an agreement with {% data variables.product.prodname_dotcom %} on behalf of an entity, such as a company, non-profit, or group, organization owners can upgrade to the Corporate Terms of Service.
 
-1. Navigate to your organization's settings and scroll to the **Terms of Service** box. ![scroll to the Terms of Service](/assets/images/help/organizations/account-settings-tos.png)
+You can upgrade to the Corporate Terms of Service instead of using the Standard Terms of Service to help prevent sensitive information from being exposed. For more information see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
 
-2. After you've read the Corporate Terms of Service, click **Sign corporate terms**. ![select 'Sign corporate terms'](/assets/images/help/organizations/button-sign-corporate-tos.png)
-
-3. Select **Yes, I want to sign these terms on behalf of my business.**
-  ![Check box to sign on behalf of your business](/assets/images/help/organizations/sign-on-behalf-business.png)
-4. Type the name of the company, non-profit, or group that owns the organization account. This is the entity that will enter into an agreement with {% data variables.product.prodname_dotcom %}.
-  ![Business name field](/assets/images/help/organizations/business-name-field.png)
-5. To agree to the Corporate Terms of Service on behalf of your entity, click **Accept terms**.
-  ![Accept terms button](/assets/images/help/organizations/accept-terms-button.png)
+1. Navigate to your organization's settings and scroll to the **Terms of Service** section.
+1. Click **Read the Corporate Terms of Service**.
+1. After you've read the Corporate Terms of Service, click **Sign corporate terms**.
+1. Select **Yes, I want to sign these terms on behalf of my business.**
+1. In the text field, type the name of the company, non-profit, or group that owns the organization account. This is the entity that will enter into an agreement with {% data variables.product.prodname_dotcom %}.
+1. To agree to the Corporate Terms of Service on behalf of your entity, click **Accept terms**.
 
 ## Further reading
-- "[GitHub Corporate Terms of Service](/free-pro-team@latest/github/site-policy/github-corporate-terms-of-service)"
+
+- "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-corporate-terms-of-service)"

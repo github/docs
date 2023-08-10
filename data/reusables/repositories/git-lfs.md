@@ -1,1 +1,1 @@
-If you exceed the limit of 5GB, any new files added to the repository will be rejected silently by Git LFS.
+If you exceed the per file limit of {% ifversion ghae %}200 MiB{% else %}5 GB{% endif %}, the file will be rejected silently by Git LFS.

@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { graphql } from '@octokit/graphql'
 
 import {
@@ -56,7 +57,7 @@ async function run() {
       headers: {
         authorization: `token ${process.env.TOKEN}`,
       },
-    }
+    },
   )
 
   // Get the project ID
@@ -86,7 +87,7 @@ async function run() {
 
   // If the item is a PR, determine the feature and size
   let feature = ''
-  let sizeType = '' // You don't need to use a field ID if you want the value to be empty
+  let sizeType = sizeS // We need to set something in case this is an issue
   if (data.item.__typename === 'PullRequest') {
     // Get the
     // - number of files changed
@@ -156,17 +157,17 @@ async function run() {
         headers: {
           authorization: `token ${process.env.TOKEN}`,
         },
-      }
+      },
     )
     const docsPRData =
       contributorData.user.contributionsCollection.pullRequestContributionsByRepository.filter(
-        (item) => item.repository.nameWithOwner === 'github/docs'
+        (item) => item.repository.nameWithOwner === 'github/docs',
       )[0]
     const prCount = docsPRData ? docsPRData.contributions.totalCount : 0
 
     const docsIssueData =
       contributorData.user.contributionsCollection.issueContributionsByRepository.filter(
-        (item) => item.repository.nameWithOwner === 'github/docs'
+        (item) => item.repository.nameWithOwner === 'github/docs',
       )[0]
     const issueCount = docsIssueData ? docsIssueData.contributions.totalCount : 0
 
@@ -212,7 +213,6 @@ async function run() {
     authorID,
     headers: {
       authorization: `token ${process.env.TOKEN}`,
-      'GraphQL-Features': 'projects_next_graphql',
     },
   })
   console.log('Done populating fields for item')

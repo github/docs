@@ -26,6 +26,7 @@ When your profile is private, the following content is hidden from your profile 
 - Follow and Sponsor buttons.
 - Organization memberships.
 - Stars, projects, packages, and sponsoring tabs.
+- Your pronouns.
 
 {% note %}
 
@@ -41,6 +42,7 @@ When your profile is private, your {% data variables.product.prodname_dotcom_the
 
 - Activity feeds for other users.
 - Discussions leaderboards.
+- Site-wide search results.
 - The [Trending](https://github.com/trending) page.
 
 {% note %}

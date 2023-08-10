@@ -1,5 +1,4 @@
 import findPageInSiteTree from '../../lib/find-page-in-site-tree.js'
-import { liquid } from '../../lib/render-content/index.js'
 
 // This module adds either flatTocItems or nestedTocItems to the context object for
 // product, categorie, and map topic TOCs that don't have other layouts specified.
@@ -36,7 +35,7 @@ export default async function genericToc(req, res, next) {
   const treePage = findPageInSiteTree(
     req.context.currentProductTree,
     req.context.currentEnglishTree,
-    req.pagePath
+    req.pagePath,
   )
 
   // By default, only include hidden child items on a TOC page if it's an Early Access category or
@@ -92,16 +91,16 @@ async function getTocItems(node, context, opts) {
   return await Promise.all(
     node.childPages.filter(filterHidden).map(async (child) => {
       const { page } = child
-      // The rawTitle never contains Markdown but it might contain Liquid
-      const title = page.rawTitle.includes('{')
-        ? await liquid.parseAndRender(page.rawTitle, context)
-        : page.rawTitle
+      const title = await page.renderProp('rawTitle', context, { textOnly: true })
       let intro = null
       if (opts.renderIntros) {
         intro = ''
         if (page.rawIntro) {
           // The intro can contain Markdown even though it might not
           // contain any Liquid.
+          // Deliberately don't use `textOnly:true` here because we intend
+          // to display the intro, in a table of contents component,
+          // with the HTML (dangerouslySetInnerHTML).
           intro = await page.renderProp('rawIntro', context)
         }
       }
@@ -121,6 +120,6 @@ async function getTocItems(node, context, opts) {
         intro,
         childTocItems,
       }
-    })
+    }),
   )
 }

@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react'
-import Cookies from 'js-cookie'
+import Cookies from 'components/lib/cookies'
 import { useRouter } from 'next/router'
 
 import { useLanguages } from 'components/context/LanguagesContext'
-import { PREFERRED_LOCALE_COOKIE_NAME } from '../../lib/constants.js'
+import { USER_LANGUAGE_COOKIE_NAME } from '../../lib/constants.js'
 
 export function useUserLanguage() {
   const { locale } = useRouter()
-  const [userLanguage, setUserLanguage] = useState<string>('en')
+  const [userLanguage, setUserLanguage] = useState('en')
   const { languages } = useLanguages()
 
   useEffect(() => {
     const languagePreferred = [
-      Cookies.get(PREFERRED_LOCALE_COOKIE_NAME),
+      Cookies.get(USER_LANGUAGE_COOKIE_NAME),
       navigator.language,
       ...navigator.languages,
     ]
@@ -28,5 +28,10 @@ export function useUserLanguage() {
     }
   }, [locale])
 
-  return { userLanguage }
+  function setUserLanguageCookie(language: string) {
+    Cookies.set(USER_LANGUAGE_COOKIE_NAME, language)
+    setUserLanguage(language)
+  }
+
+  return { userLanguage, setUserLanguageCookie }
 }

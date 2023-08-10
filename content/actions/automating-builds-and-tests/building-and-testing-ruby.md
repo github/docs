@@ -14,8 +14,7 @@ topics:
   - Ruby
 shortTitle: Build & test Ruby
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -56,7 +55,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
           ruby-version: '3.1'
       - name: Install dependencies
@@ -76,7 +75,7 @@ The `setup-ruby` action takes a Ruby version as an input and configures that ver
 ```yaml
 steps:
 - uses: {% data reusables.actions.action-checkout %}
-- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+- uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
   with:
     ruby-version: '3.1' # Not needed with a .ruby-version file
 - run: bundle install
@@ -90,14 +89,16 @@ Alternatively, you can check a `.ruby-version` file  into the root of your repos
 You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 3.1, 3.0, and 2.7.
 
 {% raw %}
+
 ```yaml
 strategy:
   matrix:
     ruby-version: ['3.1', '3.0', '2.7']
 ```
+
 {% endraw %}
 
-Each version of Ruby specified in the `ruby-version` array creates a job that runs the same steps. The {% raw %}`${{ matrix.ruby-version }}`{% endraw %} context is used to access the current job's version. For more information about matrix strategies and contexts, see "[Workflow syntax for {% data variables.product.prodname_actions %}](/actions/learn-github-actions/workflow-syntax-for-github-actions)" and "[Contexts](/actions/learn-github-actions/contexts)."
+Each version of Ruby specified in the `ruby-version` array creates a job that runs the same steps. The {% raw %}`${{ matrix.ruby-version }}`{% endraw %} context is used to access the current job's version. For more information about matrix strategies and contexts, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)" and "[AUTOTITLE](/actions/learn-github-actions/contexts)."
 
 The full updated workflow with a matrix strategy could look like this:
 
@@ -126,7 +127,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: {% raw %}Set up Ruby ${{ matrix.ruby-version }}{% endraw %}
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
           ruby-version: {% raw %}${{ matrix.ruby-version }}{% endraw %}
       - name: Install dependencies
@@ -142,7 +143,7 @@ The `setup-ruby` action will automatically install bundler for you. The version 
 ```yaml
 steps:
 - uses: {% data reusables.actions.action-checkout %}
-- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+- uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
   with:
     ruby-version: '3.1'
 - run: bundle install
@@ -157,19 +158,21 @@ The `setup-ruby` actions provides a method to automatically handle the caching o
 To enable caching, set the following.
 
 {% raw %}
+
 ```yaml
 steps:
-- uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+- uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
     with:
       bundler-cache: true
 ```
+
 {% endraw %}
 
 This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.
 
 **Caching without setup-ruby**
 
-For greater control over caching, you can use the `actions/cache` action directly. For more information, see "[Caching dependencies to speed up workflows](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+For greater control over caching, you can use the `actions/cache` action directly. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
 
 ```yaml
 steps:
@@ -231,7 +234,7 @@ jobs:
     continue-on-error: {% raw %}${{ endsWith(matrix.ruby, 'head') || matrix.ruby == 'debug' }}{% endraw %}
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+      - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
           ruby-version: {% raw %}${{ matrix.ruby }}{% endraw %}
       - run: bundle install
@@ -256,7 +259,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+      - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
           ruby-version: 2.6
       - run: bundle install
@@ -297,7 +300,7 @@ jobs:
     steps:
       - uses: {% data reusables.actions.action-checkout %}
       - name: Set up Ruby 2.6
-        uses: ruby/setup-ruby@477b21f02be01bcb8030d50f37cfec92bfa615b6
+        uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
         with:
           ruby-version: 2.6
       - run: bundle install

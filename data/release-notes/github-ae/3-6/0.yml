@@ -1,0 +1,302 @@
+date: '2023-02-16'
+sections:
+  features:
+    - heading: 'Administrator experience'
+      notes:
+        # https://github.com/github/releases/issues/2351
+        - |
+          Enterprise owners can join organizations on GitHub AE as a member or owner from the enterprise account's **Organizations** page. For more information, see "[Managing your role in an organization owned by your enterprise](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+
+    - heading: 'Identity and access management'
+      notes:
+        # https://github.com/github/releases/issues/1945
+        - |
+          Custom repository roles are generally available. With custom repository roles, organization owners now have more granular control over the repository access permissions they can grant to users. Custom repository roles are also fully supported by the REST API. For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)" and "[Organizations](/rest/reference/orgs#list-custom-repository-roles-in-an-organization)" in the REST API documentation.
+
+    - heading: 'Policies'
+      notes:
+        # https://github.com/github/releases/issues/2073
+        - |
+          Enterprise owners can prevent organization owners from inviting collaborators to GitHub AE repositories. For more information, see "[Enforcing a policy for inviting collaborators to repositories](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)."
+
+    - heading: 'GitHub Advanced Security'
+      notes:
+        # https://github.com/github/releases/issues/2321
+        - |
+          Users can opt to receive a webhook event that triggers when someone enables or disables a code security or analysis feature for an organization or repository. For more information, see the following documentation.
+
+          - "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis)" in the webhook documentation
+          - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
+          - "[Managing security and analysis features for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
+        # https://github.com/github/releases/issues/2318, https://github.com/github/releases/issues/2277
+        - |
+          Enterprise owners and users can view secret scanning alerts and bypasses of secret scanning's push protection in the enterprise and organization audit logs, and via the REST API. For more information, see the following documentation.
+
+          - "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)"
+          - "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)"
+          - "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)"
+          - "[Secret Scanning](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)" in the REST API documentation
+        # https://github.com/github/releases/issues/1909
+        - |
+          Organization owners can now configure two new permissions for secret scanning when managing custom repository roles.
+
+          - View secret scanning results
+          - Dismiss or reopen secret scanning results
+
+          For more information, see "[Managing custom repository roles for an organization](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+        # https://github.com/github/releases/issues/1703, https://github.com/github/releases/issues/2084
+        - |
+          Users can execute a dry run of custom secret scanning patterns at the enterprise, organization, or repository level, depending on their access. Dry runs allow users to review and hone their patterns before publishing them and generating alerts. You can compose a pattern, then use **Save and dry run** to retrieve results. The scans typically take just a few seconds, but GitHub AE will also notify users via email when dry run results are ready. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)" and "[Defining custom patterns for secret scanning](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)."
+        # https://github.com/github/releases/issues/2076
+        - |
+          Users can enable secret scanning for archived repositories using the UI or API. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)," "[About archived repositories](/repositories/archiving-a-github-repository/archiving-repositories)," and "[Repositories](/rest/repos/repos#update-a-repository)" in the REST API documentation.
+        # https://github.com/github/releases/issues/2228
+        - |
+          Secret scanning prevents the leak of secrets in the web editor. For more information, see "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#using-secret-scanning-as-a-push-protection-from-the-web-ui)."
+        # https://github.com/github/releases/issues/2097
+        - |
+          Code scanning now detects a larger number of CWEs, and CodeQL code scanning fully supports the standard language features in the following language releases.
+
+          - C# 10 / .NET 6
+          - Python 3.10
+          - Java 17
+          - TypeScript 4.5
+
+          For more information, see the [GitHub Blog](https://github.blog/changelog/2022-02-25-code-scanning-detects-more-security-issues-supports-new-language-versions/).
+        # https://github.com/github/releases/issues/1792
+        - |
+          Organization owners and security managers can view code scanning alerts in an organization's **Security** tab. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        # https://github.com/github/releases/issues/2049
+        - |
+          The code scanning alert page now always shows the alert status and information for the default branch. There is a new "Affected branches" panel in the sidebar where you can see the status of the alert in other branches. If the alert does not exist in your default branch, the alert page will show the status as "In branch" or "In pull request" for the location where the alert was last seen. This improvement makes it easier to understand the status of alerts which have been introduced into the code base. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-alert-details)." The alert list page is not changed and can be filtered by `branch`. You can use the code scanning API to retrieve more detailed branch information for alerts. For more information, see "[Code Scanning](/rest/code-scanning)" in the REST API documentation.
+        # https://github.com/github/releases/issues/2050
+        - |
+          Code scanning now shows the details of the analysis origin of an alert. If an alert has more than one analysis origin, it is shown in the "Affected branches" sidebar and in the alert timeline. Users can hover over the analysis origin icon in the "Affected branches" sidebar to see the alert status in each analysis origin. If an alert only has a single analysis origin, no information about analysis origins is displayed on the alert page. These improvements will make it easier to understand alerts. In particular, it will help users understand those that have multiple analysis origins. This is especially useful for setups with multiple analysis configurations, such as monorepos. For more information, see "[About code scanning alerts](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts#about-analysis-origins)."
+        # https://github.com/github/releases/issues/2236
+        - |
+          Users can use `sort` and `direction` parameters in the REST API when retrieving secret scanning alerts, and sort based on the alert’s `created` or `updated` fields. The new parameters are available for all of your GitHub AE deployment, or for individual organizations or repositories. For more information, see the following documentation.
+
+          - "[List secret scanning alerts for an enterprise](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)"
+          - "[List secret scanning alerts for an organization](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)"
+          - "[List secret scanning alerts for a repository](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)"
+          - "[Secret Scanning](/rest/secret-scanning)" in the REST API documentation
+        # https://github.com/github/releases/issues/2149
+        - |
+          Users can opt to receive a webhook that triggers when a secret is detected in a new location. The `secret_scanning_alert_location` webhook event includes location details, like the commit SHA, and the associated alert for the detection. A location is created for every new file path containing the detected secret. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#secret_scanning_alert_location)."
+        # https://github.com/github/releases/issues/2191
+        - |
+          Users can optionally add a comment when dismissing a code scanning alert in the web UI or via the REST API. Dismissal comments appear in the event timeline. Users can also add or retrieve a dismissal comment via the REST API. For more information, see "[Triaging code scanning alerts in pull requests](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests#dismissing-an-alert-on-your-pull-request)" and "[Code Scanning](/rest/code-scanning#update-a-code-scanning-alert)" in the REST API documentation.
+        # https://github.com/github/releases/issues/1763
+        - |
+          Users can now retrieve code scanning alerts for an organization using the REST API. This new API endpoint supplements the existing endpoint for repositories. For more information, see "[Code Scanning](/rest/code-scanning)" in the REST API documentation.
+        # https://github.com/github/releases/issues/2263
+        - |
+          The contents of the `github/codeql-go` repository have moved to the `github/codeql` repository, to live alongside similar libraries for all other programming languages supported by CodeQL. The open-source CodeQL queries, libraries, and extractor for analyzing codebases written in the Go programming language with GitHub's CodeQL code analysis tools can now be found in the new location. For more information, including guidance on migrating your existing workflows, see [github/codeql-go#741](https://github.com/github/codeql-go/issues/741).
+
+    - heading: 'Dependabot'
+      notes:
+        # https://github.com/github/releases/issues/2256
+        - |
+          Enterprise owners can see an overview of Dependabot alerts across the GitHub AE deployment, including a repository-centric view of application security risks, and an alert-centric view of all secret scanning and Dependabot alerts. The views are in beta and subject to change. For more information, see "[Viewing the security overview](/code-security/security-overview/viewing-the-security-overview#viewing-the-security-overview-for-an-enterprise)."
+        # https://github.com/github/releases/issues/1992
+        - |
+          Organization owners and security managers can view Dependabot alerts in an organization's **Security** tab. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        # https://github.com/github/releases/issues/1923
+        - |
+          Users can reopen a dismissed Dependabot alert using the web UI. This does not affect Dependabot pull requests or the GraphQL API. For more information, see "[About Dependabot alerts](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+        # https://github.com/github/releases/issues/1922
+        - |
+          Users can view fixed alerts from Dependabot with the GraphQL API. Users can also access and filter by state, as well as by unique numeric identifier, and filter by state on the vulnerability alert object. The following fields now exist for a `RepositoryVulnerabilityAlert`.
+
+          - `number`
+          - `fixed_at`
+          - `fix_reason`
+          - `state`
+
+          For more information, see "[Objects](/graphql/reference/objects#repositoryvulnerabilityalert)" in the GraphQL API documentation.
+
+    - heading: 'Code security'
+      notes:
+        # https://github.com/github/releases/issues/2096
+        - |
+          Organization owners and security managers can use the security overview for an organization to view a repository-centric view of application security risks, or an alert-centric view of all code scanning, Dependabot, and secret scanning alerts for all repositories in an organization. For more information, see "[About the security overview](/code-security/security-overview/about-the-security-overview)."
+        # https://github.com/github/releases/issues/2098, https://github.com/github/releases/issues/2282
+        - |
+          GitHub Actions can enforce dependency reviews on users' pull requests by scanning for dependencies, and will warn users about associated security vulnerabilities. The `dependency-review-action` action is supported by a new API endpoint that diffs the dependencies between any two revisions. For more information, see "[About dependency review](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."
+        # https://github.com/github/releases/issues/1913
+        - |
+          The dependency graph detects YAML files for GitHub Actions workflows. GitHub AE will display the workflow files within the **Insights** tab's dependency graph section. Repositories that publish actions will also be able to see the number of repositories that depend on that action from the "Used By" control on the repository homepage. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+        # https://github.com/github/releases/issues/2243
+        - |
+          The dependency graph detects `Cargo.toml` and `Cargo.lock` files for Rust. These files will be displayed in the **Dependency graph** section of the **Insights** tab. Users will receive Dependabot alerts and updates for vulnerabilities associated with their Rust dependencies. Package metadata, including mapping packages to repositories, will be added at a later date. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+        # https://github.com/github/releases/issues/1766
+        - |
+          If GitHub Connect is enabled for GitHub AE, users can contribute an improvement to a security advisory in the [GitHub Advisory Database](https://github.com/advisories). To contribute, click **Suggest improvements for this vulnerability** while viewing an advisory's details. For more information, see the following articles.
+
+          - "[Managing GitHub Connect](/admin/configuration/configuring-github-connect/managing-github-connect)"
+          - "[Browsing security vulnerabilities in the GitHub Advisory Database](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)" in the GitHub Enterprise Cloud documentation
+          - "[About GitHub Security Advisories for repositories](/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)" in the GitHub Enterprise Cloud documentation
+          - "[Editing security advisories in the GitHub Advisory Database](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/editing-security-advisories-in-the-github-advisory-database)" in the GitHub Enterprise Cloud documentation
+
+    - heading: 'GitHub Actions'
+      notes:
+        # https://github.com/github/releases/issues/2014
+        - |
+          People who maintain self-hosted runners now have more control over when the runners perform software updates. If you specify the `--disableupdate` flag to the runner, the runner will not try to perform an automatic software update if a newer version of the runner software is available. This allows updates to the self-hosted runner on a custom schedule, and is especially convenient if a self-hosted runner is in a container. For compatibility with the GitHub Actions service, runner software must be updated within 30 days of a new runner version being available. For more information about installation of the latest runner version, see the installation instructions for [the latest release in `actions/runner`](https://github.com/actions/runner/releases).
+        # https://github.com/github/releases/issues/2102
+        - |
+          When using GitHub Actions, to reduce the risk of merging a change that was not reviewed by another person into a protected branch, enterprise owners and repository administrators can prevent Actions from creating pull requests. Organization owners could previously enable this restriction. For more information, see the following articles.
+
+          - "[Enforcing policies for GitHub Actions in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#preventing-github-actions-from-creating-or-approving-pull-requests)"
+          - "[Disabling or limiting GitHub Actions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-creating-or-approving-pull-requests)"
+          - "[Managing GitHub Actions settings for a repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)"
+        # https://github.com/github/releases/issues/2013
+        - |
+          Organization owners can increase the security of CI/CD workflows on self-hosted runners by choosing which workflows can access a runner group. Previously, any workflow in a repository, such as an issue labeler, could access the self-hosted runners available to an organization. For more information, see "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups#changing-what-workflows-can-access-a-runner-group)" and the [GitHub Blog](https://github.blog/2022-03-23-github-actions-secure-self-hosted-runners-specific-workflows/).
+        # https://github.com/github/releases/issues/1959
+        - |
+          Organization owners can control whether GitHub Actions can approve pull requests. This feature protects against a user using GitHub Actions to satisfy the "Required approvals" branch protection requirement and merging a change that was not reviewed by another user. To prevent breaking existing workflows, **Allow GitHub Actions reviews to count towards required approval** is enabled by default. Organization owners can disable the feature in the organization's GitHub Actions settings. For more information, see "[Disabling or limiting GitHub Actions for your organization](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#preventing-github-actions-from-approving-pull-requests)."
+        # https://github.com/github/releases/issues/2155
+        - |
+          Users can write a single workflow triggered by `workflow_dispatch` and `workflow_call`, and use the `inputs` context to access input values. Previously, `workflow_dispatch` inputs were in the event payload, which increased difficulty for workflow authors who wanted to write one workflow that was both reusable and manually triggered. For workflows triggered by `workflow_dispatch`, inputs are still available in the `github.event.inputs` context to maintain compatibility. For more information, see "[Contexts](/actions/learn-github-actions/contexts#inputs-context)."
+        # https://github.com/github/releases/issues/1503
+        - |
+          Users can now re-run only failed jobs or an individual job in a GitHub Actions workflow run. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)."
+        # https://github.com/github/releases/issues/2103
+        - |
+          To summarize the result of a job, users can generate Markdown and publish the contents as a job summary. For example, after running tests with GitHub Actions, a summary can provide an overview of passed, failed, or skipped tests, potentially reducing the need to review the full log output. For more information, see "[Workflow commands for GitHub Actions](/actions/using-workflows/workflow-commands-for-github-actions#adding-a-job-summary)."
+        # https://github.com/github/releases/issues/2161
+        - |
+          To more easily diagnose job execution failures during a workflow re-run, users can enable debug logging, which outputs information about a job's execution and environment. For more information, see "[Re-running workflows and jobs](/actions/managing-workflow-runs/re-running-workflows-and-jobs)" and "[Using workflow run logs](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs#viewing-logs-to-diagnose-failures)."
+        # https://github.com/github/releases/issues/2140
+        - |
+          If you manage self-hosted runners for GitHub Actions, you can ensure a consistent state on the runner itself before and after a workflow run by defining scripts to execute. By using scripts, you no longer need to require that users manually incorporate these steps into workflows. Pre- and post-job scripts are in beta and subject to change. For more information, see "[Running scripts before or after a job](/actions/hosting-your-own-runners/running-scripts-before-or-after-a-job)."
+
+    - heading: 'Community experience'
+      notes:
+        # https://github.com/github/releases/issues/2259
+        - |
+          Enterprise owners can configure a policy to control whether people's usernames or full names are displayed within internal repositories. For more information, see "[Enforcing repository management policies in your enterprise](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-the-display-of-member-names-in-your-repositories)."
+
+    - heading: 'Organizations'
+      notes:
+        # https://github.com/github/releases/issues/2234
+        - |
+          Organization owners can pin a repository to an organization's profile directly from the repository via the new **Pin repository** dropdown.
+
+    - heading: 'Repositories'
+      notes:
+        # https://github.com/github/releases/issues/2214
+        - |
+          While creating a fork, users can customize the fork's name. For more information, see "[Fork a repo](/get-started/quickstart/fork-a-repo)."
+        # https://github.com/github/releases/issues/2220
+        - |
+          Users can delete a branch that's associated with an open pull request. For more information, see "[Creating and deleting branches within your repository](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+        # https://github.com/github/releases/issues/1994
+        - |
+          CODEOWNERS has received the following improvements.
+
+          - Syntax errors are now surfaced when viewing a CODEOWNERS file from the web UI. Previously, when a line in a CODEOWNERS file had a syntax error, the error would be ignored or in some cases cause the entire CODEOWNERS file to not load. GitHub Apps and Actions can access the same list of errors using new REST and GraphQL APIs. For more information, see "[Repositories](/rest/repos/repos#list-codeowners-errors)" in the REST API documentation or "[Objects](/graphql/reference/objects#repositorycodeowners)" in the GraphQL API documentation.
+          - After someone creates a new pull request or pushes new changes to a draft pull request, any code owners that will be requested for review are now listed in the pull request under "Reviewers". This feature gives you an early look at who will be requested to review once the pull request is marked ready for review.
+          - Comments in CODEOWNERS files can now appear at the end of a line, not just on dedicated lines.
+
+          For more information, see "[About code owners](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners)."
+        # https://github.com/github/releases/issues/2233
+        - |
+          When a user renames or moves a file to a new directory, if at least half of the file's contents are identical, the commit history indicates that the file was renamed, similar to `git log --follow`. For more information, see the [GitHub Blog](https://github.blog/changelog/2022-06-06-view-commit-history-across-file-renames-and-moves/).
+        # https://github.com/github/releases/issues/2093
+        - |
+          Users can require a successful deployment of a branch before anyone can merge the pull request associated with the branch. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-deployments-to-succeed-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
+        # https://github.com/github/releases/issues/1793
+        - |
+          Repository administrators can now configure tag protection rules to protect a repository's tags. Once protected by a tag protection rule, tags matching a specified name pattern can only be created and deleted by users with maintain or admin access to the repository. For more information, see "[Configuring tag protection rules](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules)."
+        # https://github.com/github/releases/issues/2090
+        - |
+          Users can ignore revisions in the blame view by creating a `.git-blame-ignore-revs` file in the root of a repository. For more information, see "[Viewing a file](/repositories/working-with-files/using-files/viewing-a-file#ignore-commits-in-the-blame-view)."
+        # https://github.com/github/releases/issues/2173
+        - |
+          Users can grant exceptions to GitHub Apps for any branch protection rule that supports exceptions. For more information, see "[About apps](/developers/apps/getting-started-with-apps/about-apps)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
+
+    - heading: 'Commits'
+      notes:
+        # https://github.com/github/releases/issues/2306
+        - |
+          For public GPG signing keys that are expired or revoked, GitHub AE verifies Git commit signatures and show commits as verified if the user made the commit while the key was still valid. Users can also upload expired or revoked GPG keys. For more information, see "[About commit signature verification](/authentication/managing-commit-signature-verification/about-commit-signature-verification)."
+        # https://github.com/github/releases/issues/1977
+        - |
+          To affirm that a commit complies with the rules and licensing governing a repository, organization owners and repository administrators can now require developers to sign off on commits made through the web interface. For more information, see "[Managing the commit signoff policy for your organization](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)" and "[Managing the commit signoff policy for your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository)."
+
+    - heading: 'Pull requests'
+      notes:
+        # https://github.com/github/releases/issues/2261
+        - |
+          Using the file tree located in the **Files changed** tab of a pull request, users can navigate modified files, understand the size and scope of changes, and focus reviews. The file tree appears if a pull request modifies at least two files, and the browser window is sufficiently wide. For more information, see "[Reviewing proposed changes in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)" and "[Filtering files in a pull request](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+        # https://github.com/github/releases/issues/2167
+        - |
+          Users can default to using pull requests titles as the commit message for all squash merges. For more information, see "[Configuring commit squashing for pull requests](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/configuring-commit-squashing-for-pull-requests)."
+        # https://github.com/github/releases/issues/1566
+        - |
+          The **Update branch** button on the pull request page lets users update a pull request's branch with the latest changes from the base branch. This is useful for verifying that the pull request's changes are compatible with the current version of the base branch before you merge. Two enhancements provide more ways to keep a branch up to date.
+
+          - When a pull request's topic branch is out of date with the base branch, users can update the branch by rebasing on the latest version of the base branch. Rebasing applies the changes from the topic branch onto the latest version of the base branch, resulting in a branch with a linear history since no merge commit is created. To update by rebasing, click the drop-down menu next to the **Update Branch** button, click **Update with rebase**, and then click **Rebase branch**. Previously, **Update branch** performed a traditional merge that always resulted in a merge commit in your pull request branch. This option is still available, but now users have the choice. For more information, see "[Keeping your pull request in sync with the base branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
+          - A new repository setting allows the **Update branch** button to always be available when a pull request's topic branch is not up to date with the base branch. Previously, this button was only available when the **Require branches to be up to date before merging** branch protection setting was enabled. People with admin or maintainer access can manage the **Always suggest updating pull request branches** setting from the **Pull Requests** section in repository settings. For more information, see "[Managing suggestions to update pull request branches](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-suggestions-to-update-pull-request-branches)."
+
+    - heading: 'Releases'
+      notes:
+        # https://github.com/github/releases/issues/2281
+        - |
+          When viewing the details for a particular release, users can see the creation date for each release asset. For more information, see "[Viewing your repository's releases and tags](/repositories/releasing-projects-on-github/viewing-your-repositorys-releases-and-tags)."
+        # https://github.com/github/releases/issues/2279
+        - |
+          While creating a release with automatically generated release notes, users can see the tag identified as the previous release, then choose to select a different tag to specify as the previous release. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
+    # https://github.com/github/releases/issues/2028
+    - heading: 'Gist'
+      notes:
+        - |
+          Gists now only show the 30 most recent comments when first displayed. Users can click **Load earlier comments...** to view more. This allows gists that have many comments to appear more quickly. For more information, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+
+    - heading: 'Markdown'
+      notes:
+        # https://github.com/github/releases/issues/2260
+        - |
+          Editing Markdown in the web interface has been improved.
+
+          - After a user selects text and pastes a URL, the selected text will become a Markdown link to the pasted URL.
+          - When a user pastes spreadsheet cells or HTML tables, the resulting text will render as a table.
+          - When a user copies text containing links, the pasted text will include the link as a Markdown link.
+
+          For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)."
+        # https://github.com/github/releases/issues/2258
+        - |
+          When editing a Markdown file in the web interface, clicking the **Preview** tab will automatically scroll to the place in the preview that you were editing. The scroll location is based on the position of the cursor before clicking the **Preview** tab.
+
+    - heading: 'Accessibility'
+      notes:
+        # https://github.com/github/releases/issues/2011
+        - |
+          A light high-contrast theme, with greater contrast between foreground and background elements, is now available. For more information, see "[Managing your theme settings](/account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/managing-your-theme-settings)."
+
+  changes:
+    # https://github.com/github/releases/issues/2071
+    - |
+      Lists of repositories owned by a user or organization now have an additional filter option, "Templates", making it easier to find template repositories.
+    # https://github.com/github/releases/issues/1947
+    - |
+      GitHub AE can display several common image formats, including PNG, JPG, GIF, PSD, and SVG, and provides several ways to compare differences between versions. When reviewing added or changed images in a pull request, previews of those images are now shown by default. Previously, users would see a message indicating that binary files could not be shown, and would need to toggle the "Display rich diff" option. For more information, see  "[Working with non-code files](/repositories/working-with-files/using-files/working-with-non-code-files)."
+    # https://github.com/github/releases/issues/2036
+    - |
+      Settings pages for users, organizations, repositories, and teams have been redesigned, grouping similar settings pages into sections for improved information architecture and discoverability. For more information, see the [GitHub Changelog](https://github.blog/changelog/2022-02-02-redesign-of-githubs-settings-pages/).
+    - |
+      Interactive elements in the web interface such as links and buttons show a visible outline when focused with a keyboard, to help users find the current position on a page. In addition, when focused, form fields have a higher contrast outline.
+    # https://github.com/github/releases/issues/2129
+    - |
+      Focusing or hovering over a label now displays a tooltip with the label's description.
+    - |
+      If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels, and projects will all be preserved.
+    # https://github.com/github/releases/issues/2063
+    - |
+      To use the device authorization flow for OAuth and GitHub Apps, app authors must manually enable the feature. This change reduces the likelihood of apps being used in phishing attacks against GitHub AE users by ensuring integrators are aware of the risks and make a conscious choice to support this form of authentication. Users who own or manage an OAuth App or GitHub App and want to use the device flow can enable it for an app via the app's settings page. The device flow API endpoints will respond with status code `400` to apps that have not enabled this feature. For more information, see "[Authorizing OAuth Apps](/developers/apps/building-oauth-apps/authorizing-oauth-apps#device-flow)."
+
+  deprecations:
+    - |
+      The theme picker for GitHub Pages has been removed from the Pages settings. For more information about configuration of themes for GitHub Pages, see "[Adding a theme to your GitHub Pages site using Jekyll](/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)."

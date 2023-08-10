@@ -18,7 +18,7 @@ There are three types of repository submissions:
 
 Consider what the main purpose of your repository is when choosing the type of submission for your repository.
 
-To promote your project and make it more discoverable to other students, you should assign one or more topics and {% data variables.product.prodname_student_pack %} offers to your repository. For more information, see "[Classifying your repository with topics](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
+To promote your project and make it more discoverable to other students, you should assign one or more topics and {% data variables.product.prodname_student_pack %} offers to your repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
 
 Once a repository has been submitted to {% data variables.product.prodname_community_exchange %}, it will be published immediately with the purpose, topics, and offers you've chosen. The {% data variables.product.prodname_community_exchange %} community moderates all repository submissions.
 
@@ -39,17 +39,14 @@ For a submission with a purpose of `Collaborate`, your repository must have:
 - One or more issues for collaborators to work on.
 - CONTRIBUTING.md file to communicate how to contribute to your project.
 
-A good repository submission for both `Learn` and `Collaborate` purposes, is a repository that follows community standards. For more information, see "[About community profiles for public repositories](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
+A good repository submission for both `Learn` and `Collaborate` purposes, is a repository that follows community standards. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
 
 ## Submitting your repository
 
 1. From your {% data variables.product.prodname_global_campus %} dashboard, navigate to the {% data variables.product.prodname_community_exchange %} home page.
 1. Above the list of repositories, to the right of the search and dropdown filters, click **Add repository**.
-  ![Screenshot of the Add repository button](/assets/images/help/education/community-exchange-submission-add-repo.png)
-1. Use the **What is the purpose of your submission?** drop-down menu and select one or more entries matching your submission.
-  ![Screenshot of the purpose dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-purpose.png)
-1. Use the **Which repository would you like to use?** drop-down menu and select the repository for your submission. If the submission criteria hasn't been met, you will be notified of the missing items.
-  ![Screenshot of the repository dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-repo.png)
+   ![Screenshot of a row of buttons and dropdown menus. The "Add repository" button is outlined in dark orange.](/assets/images/help/education/community-exchange-submission-add-repo.png)
+1. In the pop-up window, use the **What is the purpose of your submission?** drop-down menu and select one or more entries matching your submission.
+1. Use the **Which repository would you like to use?** drop-down menu and select the repository for your submission. If the submission criteria hasn't been met, you will be notified of the missing items, and you can click on **Edit your repository** if you want to view the repository and make changes to meet the criteria.
 1. Use the **Which offers did you use for your project?** drop-down menu and select one or more entries matching your submission.
-  ![Screenshot of the offers dropdown for a repository submission](/assets/images/help/education/community-exchange-repo-submission-offers.png)
 1. Click **Submit the project**.

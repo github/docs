@@ -1,12 +1,12 @@
 import path from 'path'
 import { existsSync } from 'fs'
 
+import { ROOT } from '../lib/constants.js'
 import Page from '../lib/page.js'
-import { languageKeys } from '../lib/languages.js'
+import { languagePrefixPathRegex } from '../lib/languages.js'
 
-const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})(/|$)`)
 const englishPrefixRegex = /^\/en(\/|$)/
-const CONTENT_ROOT = 'content'
+const CONTENT_ROOT = path.join(ROOT, 'content')
 
 export default async function findPage(
   req,
@@ -14,16 +14,28 @@ export default async function findPage(
   next,
   // Express won't execute these but it makes it easier to unit test
   // the middleware.
-  { isDev = process.env.NODE_ENV === 'development', contentRoot = CONTENT_ROOT } = {}
+  { isDev = process.env.NODE_ENV === 'development', contentRoot = CONTENT_ROOT } = {},
 ) {
   // Filter out things like `/will/redirect` or `/_next/data/...`
-  if (!languagePrefixRegex.test(req.pagePath)) {
+  if (!languagePrefixPathRegex.test(req.pagePath)) {
     return next()
   }
 
   let page = req.context.pages[req.pagePath]
   if (page && isDev && englishPrefixRegex.test(req.pagePath)) {
     page = await rereadByPath(req.pagePath, contentRoot, req.context.currentVersion)
+
+    // This can happen if the page we just re-read has changed which
+    // versions it's available in (the `versions` frontmatter) meaning
+    // it might no longer be available on the current URL.
+    if (!page.applicableVersions.includes(req.context.currentVersion)) {
+      return res
+        .status(404)
+        .send(
+          `After re-reading the page, '${req.context.currentVersion}' is no longer an applicable version. ` +
+            'A restart is required.',
+        )
+    }
   }
 
   if (page) {
@@ -45,8 +57,8 @@ export default async function findPage(
 }
 
 async function rereadByPath(uri, contentRoot, currentVersion) {
-  const languageCode = uri.match(languagePrefixRegex)[1]
-  const withoutLanguage = uri.replace(languagePrefixRegex, '/')
+  const languageCode = uri.match(languagePrefixPathRegex)[1]
+  const withoutLanguage = uri.replace(languagePrefixPathRegex, '/')
   const withoutVersion = withoutLanguage.replace(`/${currentVersion}`, '')
   // TODO: Support loading translations the same way.
   // NOTE: No one is going to test translations like this in development

@@ -10,8 +10,7 @@ versions:
   ghae: '*'
   ghec: '*'
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% data reusables.repositories.permissions-statement-read %}
@@ -29,7 +28,7 @@ versions:
 
 {% data reusables.cli.cli-learn-more %}
 
-### Viewing recent workflow runs
+## Viewing recent workflow runs
 
 To list the recent workflow runs, use the `run list` subcommand.
 
@@ -49,7 +48,7 @@ To only return runs for the specified workflow, you can use the `-w` or `--workf
 gh run list --workflow WORKFLOW
 ```
 
-### Viewing details for a specific workflow run
+## Viewing details for a specific workflow run
 
 To display details for a specific workflow run, use the `run view` subcommand. Replace `run-id` with the ID of the run that you want to view. If you don't specify a `run-id`, {% data variables.product.prodname_cli %} returns an interactive menu for you to choose a recent run.
 

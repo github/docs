@@ -42,7 +42,7 @@ A GraphQL schema may use the term _implements_ to define how an object inherits 
 
 Here's a contrived example of a schema that defines interface `X` and object `Y`:
 
-```
+```graphql
 interface X {
   some_field: String!
   other_field: String!
@@ -59,13 +59,13 @@ This means object `Y` requires the same fields/arguments/return types that inter
 
 In the reference docs, you'll find that:
 
-* Each [object](/graphql/reference/objects) lists the interface(s) _from which it inherits_ under **Implements**.
+- Each [object](/graphql/reference/objects) lists the interface(s) _from which it inherits_ under **Implements**.
 
-* Each [interface](/graphql/reference/interfaces) lists the objects _that inherit from it_ under **Implementations**.
+- Each [interface](/graphql/reference/interfaces) lists the objects _that inherit from it_ under **Implementations**.
 
 ## Connection
 
-Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[Migrating from REST to GraphQL](/graphql/guides/migrating-from-rest-to-graphql)."
+Connections let you query related objects as part of the same call. With connections, you can use a single GraphQL call where you would have to use multiple calls to a REST API. For more information, see "[AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql)."
 
 It's helpful to picture a graph: dots connected by lines. The dots are nodes, the lines are edges. A connection defines a relationship between nodes.
 
@@ -75,13 +75,13 @@ Edges represent connections between nodes. When you query a connection, you trav
 
 ## Node
 
-_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[Using Global Node IDs](/graphql/guides/using-global-node-ids)."
+_Node_ is a generic term for an object. You can look up a node directly, or you can access related nodes via a connection. If you specify a `node` that does not return a [scalar](/graphql/reference/scalars), you must include subfields until all fields return scalars. For information on accessing node IDs via the REST API and using them in GraphQL queries, see "[AUTOTITLE](/graphql/guides/using-global-node-ids)."
 
 ## Discovering the GraphQL API
 
 GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This means you can query a GraphQL schema for details about itself.
 
-* Query `__schema` to list all types defined in the schema and get details about each:
+- Query `__schema` to list all types defined in the schema and get details about each:
 
   ```graphql
   query {
@@ -98,7 +98,7 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   }
   ```
 
-* Query `__type` to get details about any type:
+- Query `__type` to get details about any type:
 
   ```graphql
   query {
@@ -113,20 +113,20 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
   }
   ```
 
-* You can also run an _introspection query_ of the schema via a `GET` request:
+- You can also run an _introspection query_ of the schema via a `GET` request:
 
   ```shell
-  $ curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
+  curl -H "Authorization: bearer TOKEN" {% data variables.product.graphql_url_pre %}
   ```
-  
+
   {% note %}
 
-  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. The GraphQL API only supports authentication using a {% data variables.product.pat_v1 %}. For more information, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)." 
+  **Note**: If you get the response `"message": "Bad credentials"` or `401 Unauthorized`, check that you are using a valid token. {% ifversion pat-v2 %}If you receive a `403` error with `Resource not accessible by {% data variables.product.pat_generic %}`, ensure that your {% data variables.product.pat_v2 %} is targeted to the correct resource owner. For example, it must target the organization that owns the repository you are trying to access.{% endif %}
 
   {% endnote %}
-  
+
   The results are in JSON, so we recommend pretty-printing them for easier reading and searching. You can use a command-line tool like [jq](https://stedolan.github.io/jq/) or pipe the results into `python -m json.tool` for this purpose.
-  
+
   Alternatively, you can pass the `idl` media type to return the results in IDL format, which is a condensed version of the schema:
 
   ```shell
@@ -140,4 +140,4 @@ GraphQL is [introspective](https://graphql.github.io/learn/introspection/). This
 
   {% endnote %}
 
-  For more information about performing queries, see "[Forming calls with GraphQL](/graphql/guides/forming-calls-with-graphql)."
+  For more information about performing queries, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."

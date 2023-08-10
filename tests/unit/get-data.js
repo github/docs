@@ -10,7 +10,8 @@ import { DataDirectory } from '../helpers/data-directory.js'
 describe('get-data', () => {
   let dd
   const enDirBefore = languages.en.dir
-  const jaDirBefore = languages.ja.dir
+  // Only `en` is available in jest tests, so pretend we also have Japanese
+  languages.ja = Object.assign({}, languages.en, {})
 
   beforeAll(() => {
     dd = new DataDirectory({
@@ -58,14 +59,13 @@ describe('get-data', () => {
           },
         },
       },
-      jaTranslationsRoot
+      jaTranslationsRoot,
     )
   })
 
   afterAll(() => {
     dd.destroy()
     languages.en.dir = enDirBefore
-    languages.ja.dir = jaDirBefore
   })
 
   test('getDataByLanguage variables English', () => {
@@ -217,7 +217,8 @@ front: >'matter
 describe('get-data on corrupt translations', () => {
   let dd
   const enDirBefore = languages.en.dir
-  const jaDirBefore = languages.ja.dir
+  // Only `en` is available in jest tests, so pretend we also have Japanese
+  languages.ja = Object.assign({}, languages.en, {})
 
   beforeAll(() => {
     dd = new DataDirectory({
@@ -250,7 +251,7 @@ describe('get-data on corrupt translations', () => {
           },
         },
       },
-      jaTranslationsRoot
+      jaTranslationsRoot,
     )
     const ymlFile = path.join(jaTranslationsRoot, 'data', 'variables', 'everything.yml')
     console.assert(fs.existsSync(ymlFile), `${ymlFile} wasn't created`)
@@ -263,7 +264,6 @@ describe('get-data on corrupt translations', () => {
   afterAll(() => {
     dd.destroy()
     languages.en.dir = enDirBefore
-    languages.ja.dir = jaDirBefore
   })
 
   test('getDataByLanguage on a corrupt .yml file', () => {

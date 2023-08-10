@@ -1,6 +1,4 @@
-import { cacheControlFactory } from './cache-control.js'
-
-const cacheControl = cacheControlFactory(60 * 60 * 24)
+import { defaultCacheControl } from './cache-control.js'
 
 export default function fastHead(req, res, next) {
   const { context } = req
@@ -8,7 +6,7 @@ export default function fastHead(req, res, next) {
   if (page) {
     // Since the *presence* is not affected by the request, we can cache
     // this and allow the CDN to hold on to it.
-    cacheControl(res)
+    defaultCacheControl(res)
 
     return res.status(200).send('')
   }
