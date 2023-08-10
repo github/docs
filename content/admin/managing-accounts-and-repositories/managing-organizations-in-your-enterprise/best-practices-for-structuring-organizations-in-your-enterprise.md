@@ -56,7 +56,7 @@ The simplest organizational structure is a single organization, where members ar
 
 This structure works best for small companies, such as startups, where everyone collaborates on everything. It can work for medium-sized companies as well, if trust is high.
 
-To use this archetype, set the base permissions for the organization to "Write" or "Read." For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization)."
+To use this archetype, set the base permissions for the organization to "Write" or "Read." For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
 
 ### Single organization with teams for repository access
 

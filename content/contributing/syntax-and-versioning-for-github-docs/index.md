@@ -9,6 +9,7 @@ children:
   - /versioning-documentation
   - /using-markdown-and-liquid-in-github-docs
   - /changing-an-articles-title
+  - /configuring-redirects
   - /creating-tool-switchers-in-articles
   - /annotating-code-examples
 ---

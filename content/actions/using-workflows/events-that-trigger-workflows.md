@@ -942,7 +942,7 @@ jobs:
 
 {% endnote %}
 
-Runs your workflow when you push a commit or tag.
+Runs your workflow when you push a commit or tag, or when you clone a repository.
 
 For example, you can run a workflow when the `push` event occurs.
 

@@ -245,6 +245,11 @@ const link = {
       type: 'boolean',
       description: 'If the link stays on docs.github.com.',
     },
+    link_container: {
+      type: 'string',
+      enum: ['header', 'nav', 'article', 'toc', 'footer'],
+      description: 'The part of the page whwere the user clicked the link.',
+    },
   },
 }
 
@@ -334,23 +339,6 @@ const searchResult = {
   },
 }
 
-const navigate = {
-  type: 'object',
-  additionalProperties: false,
-  required: ['type', 'context'],
-  properties: {
-    context,
-    type: {
-      type: 'string',
-      pattern: '^navigate$',
-    },
-    navigate_label: {
-      type: 'string',
-      description: 'An identifier for where the user is navigating.',
-    },
-  },
-}
-
 const survey = {
   type: 'object',
   additionalProperties: false,
@@ -418,6 +406,10 @@ const clipboard = {
       type: 'string',
       description: 'Which clipboard operation the user is performing.',
       enum: ['copy', 'paste', 'cut'],
+    },
+    clipboard_target: {
+      type: 'string',
+      description: 'How the user got the contents into their clipboard.',
     },
   },
 }
@@ -496,7 +488,6 @@ export const schemas = {
   hover,
   search,
   searchResult,
-  navigate,
   survey,
   experiment,
   clipboard,
@@ -512,7 +503,6 @@ export const hydroNames = {
   hover: 'docs.v0.HoverEvent',
   search: 'docs.v0.SearchEvent',
   searchResult: 'docs.v0.SearchResultEvent',
-  navigate: 'docs.v0.NavigateEvent',
   survey: 'docs.v0.SurveyEvent',
   experiment: 'docs.v0.ExperimentEvent',
   clipboard: 'docs.v0.ClipboardEvent',

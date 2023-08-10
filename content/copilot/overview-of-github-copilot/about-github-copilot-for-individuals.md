@@ -48,17 +48,19 @@ You have the ability to manage and make choices regarding the collection, retent
 
 ### What data does {% data variables.product.prodname_copilot_for_individuals %} collect?
 
-{% data variables.product.prodname_copilot_for_individuals %} utilizes data from file content and additional sources to enhance its functionality. This data collection process is aimed at improving the service and involves the gathering and analysis of certain information.
+{% data variables.product.prodname_copilot_for_individuals %} relies on file content and additional data to work. It collects data to provide the service, some of which is then retained for further analysis and product improvements. {% data variables.product.prodname_copilot %} processes the following data for individual users.
 
-{% data reusables.copilot.user-engagement-data %}
+### User Engagement Data
+
+When you use {% data variables.product.prodname_copilot %} it will collect usage information about events generated when interacting with the IDE or editor. These events include user edit actions like if Suggestions are accepted or dismissed, and error and general usage data to identify metrics like latency and features engagement. This information may include personal data, such as pseudonymous identifiers.
 
 #### Prompts
 
-{% data reusables.copilot.prompts %} These Prompts are only sent in real time unless you have chosen to enable telemetry collection, in which case they are retained.
+A Prompt is the bundle of contextual information the {% data variables.product.prodname_copilot %} extension sends when a user is working on a file and pauses typing, or when the user opens the {% data variables.product.prodname_copilot_short %} pane. Prompts are retained unless you have disabled code snippet collection in your settings. 
 
 #### Suggestions
 
-{% data reusables.copilot.suggestions %} By default, Suggestions are only sent in real time. However, if you have enabled telemetry collection, {% data variables.product.prodname_copilot %} retains these Suggestions.
+A Suggestion is one or more lines of proposed text returned to the {% data variables.product.prodname_copilot %} extension after a Prompt is received and processed by the AI-model. Suggestions are retained unless you disable code snippet collection in your settings. 
 
 ### How is the data in {% data variables.product.prodname_copilot_for_individuals %} used and shared?
 
