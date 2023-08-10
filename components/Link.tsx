@@ -25,7 +25,12 @@ export function Link(props: Props) {
   }
 
   return (
-    <NextLink href={locale ? `/${locale}${href}` : href || ''} locale={locale || false}>
+    <NextLink
+      href={locale ? `/${locale}${href}` : href || ''}
+      locale={locale || false}
+      passHref
+      legacyBehavior
+    >
       {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
       <a rel={isExternal ? 'noopener' : ''} {...restProps} />
     </NextLink>

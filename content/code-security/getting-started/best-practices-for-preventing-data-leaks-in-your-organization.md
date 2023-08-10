@@ -36,7 +36,9 @@ Protect your organization's repositories and settings by implementing security b
 
 - Encouraging your users to create strong passwords and secure them appropriately, by following {% data variables.product.prodname_dotcom %}’s recommended password guidelines. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
 
-- Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
+- Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."{% ifversion secret-scanning-push-protection-for-users %}
+
+- Encouraging your users to enable push protection for users so that no matter which public repository they push to, they will be protected. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."{% endif %}
 
 For more detailed information about securing accounts, see "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)."
 

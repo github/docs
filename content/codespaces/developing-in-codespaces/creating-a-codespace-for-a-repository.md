@@ -168,3 +168,4 @@ For full details of the options for this command, see [the {% data variables.pro
 
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace)"
 - "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/setting-up-your-repository/facilitating-quick-creation-and-resumption-of-codespaces)"
+- "[AUTOTITLE](/rest/codespaces)" (REST API reference)

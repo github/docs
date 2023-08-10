@@ -15,7 +15,7 @@ topics:
 shortTitle: Set collaborator policy
 ---
 
-{% data reusables.organizations.about-outside-collaborators %} For more information, see "[Adding outside collaborators to repositories in your organization](/organizations/managing-user-access-to-your-organizations-repositories/adding-outside-collaborators-to-repositories-in-your-organization)."
+{% data reusables.organizations.about-outside-collaborators %} For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)."
 
 By default, anyone with admin access to a repository can invite outside collaborators to work on the repository. You can choose to restrict the ability to add outside collaborators to organization owners only.
 

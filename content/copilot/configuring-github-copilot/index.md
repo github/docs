@@ -10,5 +10,6 @@ children:
   - /configuring-github-copilot-settings-on-githubcom
   - /configuring-github-copilot-in-your-environment
   - /configuring-github-copilot-settings-in-your-organization
+  - /configuring-network-settings-for-github-copilot
 ---
 
