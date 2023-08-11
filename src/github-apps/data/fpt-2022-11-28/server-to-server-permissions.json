@@ -7724,17 +7724,6 @@
     "permissions": [
       {
         "category": "security-advisories",
-        "slug": "list-repository-security-advisories-for-an-organization",
-        "subcategory": "repository-advisories",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/security-advisories",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": []
-      },
-      {
-        "category": "security-advisories",
         "slug": "list-repository-security-advisories",
         "subcategory": "repository-advisories",
         "verb": "get",

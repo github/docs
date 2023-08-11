@@ -6311,15 +6311,6 @@
     "permissions": [
       {
         "category": "security-advisories",
-        "slug": "list-repository-security-advisories-for-an-organization",
-        "subcategory": "repository-advisories",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/security-advisories",
-        "additional-permissions": [],
-        "access": "write"
-      },
-      {
-        "category": "security-advisories",
         "slug": "list-repository-security-advisories",
         "subcategory": "repository-advisories",
         "verb": "get",
