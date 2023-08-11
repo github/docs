@@ -62,6 +62,8 @@ GitHub makes extra security features available to customers under an Advanced Se
 
 Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, GitHub Enterprise Server, or GitHub AE, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. For GitHub Enterprise Cloud users, some Advanced Security features also require the use of GitHub Actions.
 
+For secret scanning with GitHub Advanced Security, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns) provides more details on which partners support the validity check.
+
 ## Advisory Database
 
 The GitHub Advisory Database allows you to browse or search for vulnerabilities that affect open source projects on GitHub.
