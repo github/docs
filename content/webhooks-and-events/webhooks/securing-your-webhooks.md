@@ -62,7 +62,7 @@ Your language and server implementations may differ from the following examples.
 
 - No matter which implementation you use, the hash signature starts with `sha256=`, using the key of your secret token and your payload body.
 
-- Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
+- Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] or [`crypto.timingSafeEqual`][timingSafeEqual] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators, or regular loops in JIT-optimized languages.
 
 ### Test values
 
@@ -194,7 +194,9 @@ const verify_signature = (req: Request) => {
     .createHmac("sha256", WEBHOOK_SECRET)
     .update(JSON.stringify(req.body))
     .digest("hex");
-  return `sha256=${signature}` === req.headers.get("x-hub-signature-256");
+  let trusted = Buffer.from(`sha256=${signature}`, 'ascii');
+  let untrusted =  Buffer.from(req.headers.get("x-hub-signature-256"), 'ascii');
+  return crypto.timingSafeEqual(trusted, untrusted);
 };
 
 const handleWebhook = (req: Request, res: Response) => {
@@ -207,3 +209,4 @@ const handleWebhook = (req: Request, res: Response) => {
 ```
 
 [secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare
+[timingSafeEqual]: https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b
