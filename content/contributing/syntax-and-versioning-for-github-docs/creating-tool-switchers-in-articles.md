@@ -20,7 +20,7 @@ When someone knows how they want to do a task and doesn’t need to see addition
 ## Using tool tags
 We use tool tags to divide information for each tool. On rare occasions, we will add new tools.
 
-Tool tags are a key value pair. The key is the tag you use to refer to the tool in the article and the value is how the tool will be identified on the tool picker at the top of the article. The existing tools are in [`lib/all-tools.js`](https://github.com/github/docs/blob/main/lib/all-tools.js) in the {% data variables.product.prodname_docs %} repository.
+Tool tags are a key value pair. The key is the tag you use to refer to the tool in the article and the value is how the tool will be identified on the tool picker at the top of the article. The existing tools are in [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) in the {% data variables.product.prodname_docs %} repository.
 
 ### When to use tool tags
 We only use tool tags if an article must have tool-specific information to help people accomplish their tasks. If the conceptual information or procedural steps for a task are significantly different depending on what tool someone uses, and we want people to be able to accomplish the task with different tools, we use tool tags to present the relevant information in an article.
@@ -39,4 +39,4 @@ Only include a maximum of eight different tools in an article. Including more to
 ## Adding new tools
 If a writer determines that adding a new tool is the only way to accurately document something, they should explain their reasoning in the content planning stage. Whoever reviews content plan should consider if there are any alternative ways to address the documentation need without adding a new tool. If a new tool is the only way to create accurate documentation, the new tool should be added. If there is an alternative content solution that does not add a new tool, that option should be used.
 
-To add a new tool, add an entry to the `allTools` object in the [`lib/all-tools.js`](https://github.com/github/docs/blob/main/lib/all-tools.js) file as a key-value pair. Add new tools in alphabetical order.
+To add a new tool, add an entry to the `allTools` object in the [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) file as a key-value pair. Add new tools in alphabetical order.

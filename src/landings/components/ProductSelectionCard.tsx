@@ -1,9 +1,6 @@
-import { ProductT, useMainContext } from 'components/context/MainContext'
 import type { ProductGroupT } from 'src/landings/components/ProductSelections'
 
 import React from 'react'
-import { useRouter } from 'next/router'
-import { useVersion } from 'components/hooks/useVersion'
 import { Link } from 'components/Link'
 import * as Octicons from '@primer/octicons-react'
 import { LinkExternalIcon } from '@primer/octicons-react'
@@ -13,24 +10,8 @@ type ProductSelectionCardProps = {
 }
 
 export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
-  const router = useRouter()
-  const { currentVersion } = useVersion()
-  const { isFPT } = useMainContext()
-
-  function href(product: ProductT) {
-    return `${!product.external ? `/${router.locale}` : ''}${
-      product.versions?.includes(currentVersion) && !isFPT
-        ? `/${currentVersion}/${product.id}`
-        : product.href
-    }`
-  }
-
   const groupIcon = {
     height: '22px',
-  }
-
-  function showProduct(product: ProductT) {
-    return isFPT || product.versions?.includes(currentVersion) || product.external
   }
 
   function icon(group: ProductGroupT) {
@@ -67,16 +48,9 @@ export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
         <div className="pt-2 mb-4 text-normal">
           <ul className="list-style-none">
             {group.children.map((product) => {
-              if (!showProduct(product)) {
-                return null
-              }
-
               return (
                 <li key={product.name} className="pt-2">
-                  <Link
-                    href={group.name === 'More docs' ? product.href : href(product)}
-                    target={product.external ? '_blank' : undefined}
-                  >
+                  <Link href={product.href} target={product.external ? '_blank' : undefined}>
                     {product.name}
                     {product.external && (
                       <span className="ml-1">

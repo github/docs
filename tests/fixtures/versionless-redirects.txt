@@ -261,7 +261,7 @@
 /enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/managing-invoices-for-your-enterprise
 - /billing/managing-billing-for-your-github-account/managing-invoices-for-your-enterprise
 
-/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
+/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization
 - /organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization
 
 # The initializing-github-ae.md article is referenced in these code files:

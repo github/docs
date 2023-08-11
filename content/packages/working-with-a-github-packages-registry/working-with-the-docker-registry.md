@@ -54,7 +54,7 @@ To keep your credentials secure, we recommend you save your {% data variables.pr
 {% raw %}
 
 ```shell
-cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u <em>USERNAME</em> --password-stdin
+cat ~/TOKEN.txt | docker login https://docker.pkg.github.com -u USERNAME --password-stdin
 ```
 
 {% endraw %}
@@ -209,7 +209,7 @@ $ docker images
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
-# Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
+# Tag the image with OWNER/REPO/IMAGE_NAME
 $ docker tag c75bebcdd211 docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
@@ -224,7 +224,7 @@ $ docker images
 > REPOSITORY           TAG      IMAGE ID      CREATED      SIZE
 > monalisa             1.0      c75bebcdd211  4 weeks ago  1.11MB
 
-# Tag the image with <em>OWNER/REPO/IMAGE_NAME</em>
+# Tag the image with OWNER/REPO/IMAGE_NAME
 $ docker tag c75bebcdd211 docker.HOSTNAME/octocat/octo-app/monalisa:1.0
 
 # Push the image to {% data variables.product.prodname_registry %}
@@ -238,7 +238,7 @@ You can publish a new Docker image for the first time and name it `monalisa`.
 {% ifversion fpt or ghec %}
 
 ```shell
-# Build the image with docker.pkg.github.com/<em>OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Build the image with docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.pkg.github.com/octocat/octo-app/monalisa:1.0 .
 
@@ -249,7 +249,7 @@ $ docker push docker.pkg.github.com/octocat/octo-app/monalisa:1.0
 {% else %}
 
 ```shell
-# Build the image with docker.<em>HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION</em>
+# Build the image with docker.HOSTNAME/OWNER/REPOSITORY/IMAGE_NAME:VERSION
 # Assumes Dockerfile resides in the current working directory (.)
 $ docker build -t docker.HOSTNAME/octocat/octo-app/monalisa:1.0 .
 
