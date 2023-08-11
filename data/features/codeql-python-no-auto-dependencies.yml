@@ -1,0 +1,7 @@
+# Reference: #11342
+# Documentation on the disabling of automatically dependency installation for CodeQL analysis of Python (advanced setup)
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'
+  ghae: '>= 3.11'

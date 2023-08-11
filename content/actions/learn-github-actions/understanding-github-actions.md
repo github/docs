@@ -15,6 +15,7 @@ versions:
 type: overview
 topics:
   - Fundamentals
+layout: inline
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}

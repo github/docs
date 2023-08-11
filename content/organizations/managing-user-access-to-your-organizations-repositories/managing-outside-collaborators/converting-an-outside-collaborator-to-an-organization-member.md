@@ -5,6 +5,7 @@ redirect_from:
   - /articles/converting-an-outside-collaborator-to-an-organization-member
   - /github/setting-up-and-managing-organizations-and-teams/converting-an-outside-collaborator-to-an-organization-member
   - /organizations/managing-access-to-your-organizations-repositories/converting-an-outside-collaborator-to-an-organization-member
+  - /organizations/managing-user-access-to-your-organizations-repositories/converting-an-outside-collaborator-to-an-organization-member
 versions:
   fpt: '*'
   ghes: '*'
@@ -39,7 +40,3 @@ If your organization [requires members to use two-factor authentication](/organi
 {% ifversion fpt or ghec %}
 {% data reusables.organizations.user_must_accept_invite_email %} {% data reusables.organizations.cancel_org_invite %}
 {% endif %}
-
-## Further reading
-
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)"

@@ -6,6 +6,7 @@ redirect_from:
   - /articles/managing-team-access-to-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/managing-team-access-to-an-organization-repository
   - /organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository
+  - /organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository
 versions:
   fpt: '*'
   ghes: '*'
@@ -41,4 +42,4 @@ If a team has direct access to a repository, you can remove that team's access t
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)"

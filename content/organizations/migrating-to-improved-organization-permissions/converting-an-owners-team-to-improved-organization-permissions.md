@@ -25,7 +25,7 @@ You have a few options to convert your legacy Owners team:
 
 {% tip %}
 
-   **Note:** Because "admin" is a term for organization members with specific access to certain repositories in the organization, we recommend you avoid that term in any team name you decide on. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+   **Note:** Because "admin" is a term for organization members with specific access to certain repositories in the organization, we recommend you avoid that term in any team name you decide on. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
 {% endtip %}
 

@@ -9,7 +9,6 @@ export type ProductT = {
   href: string
   id: string
   name: string
-  versions?: Array<string>
 }
 
 type VersionItem = {
@@ -70,7 +69,6 @@ export type MainContextT = {
   currentProduct?: ProductT
   currentLayoutName: string
   isHomepageVersion: boolean
-  isFPT: boolean
   data: DataT
   error: string
   currentCategory?: string
@@ -132,7 +130,6 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
     isHomepageVersion: req.context.page?.documentType === 'homepage',
-    isFPT: req.context.currentVersion === 'free-pro-team@latest',
     error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,

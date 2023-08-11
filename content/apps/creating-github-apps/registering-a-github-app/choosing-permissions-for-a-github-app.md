@@ -54,6 +54,8 @@ For example, to use the `GET /orgs/{org}/dependabot/secrets` endpoint, your app 
 
 If your app makes a REST API request with insufficient permissions, the API will return a `403` response.
 
+{% data reusables.rest-api.permission-header %}
+
 ## Choosing permissions for GraphQL API access
 
 For GraphQL requests, you should test your app to ensure that it has the required permissions for the GraphQL queries and mutations that you want to make.

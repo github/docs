@@ -64,6 +64,23 @@ Your language and server implementations may differ from the following examples.
 
 - Using a plain `==` operator is **not advised**. A method like [`secure_compare`][secure_compare] performs a "constant time" string comparison, which helps mitigate certain timing attacks against regular equality operators.
 
+### Test values
+
+Regardless of the programming language that you use to implement HMAC verification in your code, you can use the following `secret` and `payload` values to verify that your implementation is correct.
+
+- secret: "It's a Secret to Everybody"
+- payload: "Hello, World!"
+
+If your implementation is correct and uses the SHA-256 algorithm, the signatures that you generate should match the following signature values:
+
+- signature: 757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17
+- x-hub-signature: sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17
+
+If your implementation is correct and uses the SHA-1 algorithm, the signatures that you generate should match the following signature values:
+
+- signature: 01dc10d0c83e72ed246219cdd91669667fe2ca59
+- x-hub-signature: sha1=01dc10d0c83e72ed246219cdd91669667fe2ca59
+
 ### Ruby example
 
 For example, you can define the following `verify_signature` function:
@@ -110,6 +127,57 @@ def verify_signature(payload_body, secret_token, signature_header):
     expected_signature = "sha256=" + hash_object.hexdigest()
     if not hmac.compare_digest(expected_signature, signature_header):
         raise HTTPException(status_code=403, detail="Request signatures didn't match!")
+```
+
+### JavaScript example
+
+For example, you can define the following `verifySignature` function and call it in any JavaScript environment when you receive a webhook payload:
+
+```javascript
+let encoder = new TextEncoder();
+
+async function verifySignature(secret, header, payload) {
+    let parts = header.split("=");
+    let sigHex = parts[1];
+
+    let algorithm = { name: "HMAC", hash: { name: 'SHA-256' } };
+
+    let keyBytes = encoder.encode(secret);
+    let extractable = false;
+    let key = await crypto.subtle.importKey(
+        "raw",
+        keyBytes,
+        algorithm,
+        extractable,
+        [ "sign", "verify" ],
+    );
+
+    let sigBytes = hexToBytes(sigHex);
+    let dataBytes = encoder.encode(payload);
+    let equal = await crypto.subtle.verify(
+        algorithm.name,
+        key,
+        sigBytes,
+        dataBytes,
+    );
+
+    return equal;
+}
+
+function hexToBytes(hex) {
+    let len = hex.length / 2;
+    let bytes = new Uint8Array(len);
+
+    let index = 0;
+    for (let i = 0; i < hex.length; i += 2) {
+        let c = hex.slice(i, i + 2);
+        let b = parseInt(c, 16);
+        bytes[index] = b;
+        index += 1;
+    }
+
+    return bytes;
+}
 ```
 
 ### Typescript example

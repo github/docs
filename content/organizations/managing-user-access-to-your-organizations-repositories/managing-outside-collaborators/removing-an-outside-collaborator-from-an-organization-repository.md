@@ -5,6 +5,7 @@ redirect_from:
   - /articles/removing-an-outside-collaborator-from-an-organization-repository
   - /github/setting-up-and-managing-organizations-and-teams/removing-an-outside-collaborator-from-an-organization-repository
   - /organizations/managing-access-to-your-organizations-repositories/removing-an-outside-collaborator-from-an-organization-repository
+  - /organizations/managing-user-access-to-your-organizations-repositories/removing-an-outside-collaborator-from-an-organization-repository
 versions:
   fpt: '*'
   ghes: '*'
