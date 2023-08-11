@@ -47,10 +47,25 @@ async function main() {
   // In practice it appears to list those that are oldest first.
   // But to guarantee that it reaches the oldest, we paginate over
   // all of them.
-  const allWorkflows = await github.paginate('GET /repos/{owner}/{repo}/actions/workflows', {
-    owner,
-    repo,
-  })
+  let allWorkflows = []
+
+  try {
+    allWorkflows = await github.paginate('GET /repos/{owner}/{repo}/actions/workflows', {
+      owner,
+      repo,
+    })
+  } catch (error) {
+    // Generally, if it fails, it's because of a network error or
+    // because busy servers. It's not our fault, but considering that
+    // this script is supposed to run on frequent schedule, we don't
+    // need to fret. We'll just try again next time.
+    if (error instanceof RequestError && error.status >= 500) {
+      console.log(`RequestError: ${error.message}`)
+      console.log(`  status: ${error.status}`)
+    } else {
+      throw error
+    }
+  }
 
   const validWorkflows = allWorkflows.filter((w) => !w.path.startsWith('dynamic/'))
 
