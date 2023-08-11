@@ -34,7 +34,6 @@
    ```
 
    {% endnote %}
-
 {% endwindows %}
 {% linux %}
 
