@@ -111,6 +111,7 @@ export const RestCollapsibleSection = (props: SectionProps) => {
           }}
           onClick={() => setVisibleAnchor(miniTocAnchor)}
           href={miniTocAnchor}
+          style={{ display: 'block' }}
           className={cx(styles.operationWidth, 'color-fg-default no-underline')}
         >
           {title}
