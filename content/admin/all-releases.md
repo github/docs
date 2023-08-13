@@ -1,4 +1,4 @@
----
+---{% if currentDate < deprecationDate %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %}content/admin/all-releases.md
 title: GitHub Enterprise Server releases
 intro: '{% data variables.product.company_short %} releases new versions of {% data variables.product.product_name %} regularly. You can review supported versions, see deprecation dates, and browse documentation for the release you''ve deployed.'
 allowTitleToDifferFromFilename: true
