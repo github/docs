@@ -3,7 +3,7 @@
 // [start-readme]
 //
 // This script creates or updates an index.md file for a given directory.
-// It will add `children` frontmatter in alphabetical order and create versions: { fpt: '*', ghes: '*', ghae: '*', ghec: '*' }.
+// It will add `children` frontmatter in alphabetical order and create versions: '*'.
 // It also prints a helpful message to update those values manually if needed.
 //
 // [end-readme]
@@ -52,7 +52,7 @@ function updateOrCreateToc(directory) {
     content = ''
     data = {
       title: sentenceCase(path.basename(directory)), // fake the title of the index.md from the directory name
-      versions: { fpt: '*', ghes: '*', ghae: '*', ghec: '*' }, // default to all versions
+      versions: '*', // default to all versions
     }
   }
 

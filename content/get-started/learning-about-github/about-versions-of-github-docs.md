@@ -1,11 +1,7 @@
 ---
 title: About versions of GitHub Docs
 intro: 'You can read documentation that reflects the {% data variables.product.company_short %} product you''re currently using.'
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+versions: '*'
 shortTitle: Docs versions
 ---
 

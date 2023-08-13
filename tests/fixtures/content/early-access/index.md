@@ -1,11 +1,7 @@
 ---
 title: Early Access documentation
 hidden: true
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+versions: '*'
 children:
   - /secrets
 ---

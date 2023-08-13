@@ -1,10 +1,6 @@
 ---
 title: Mariana Trench
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+versions: '*'
 hidden: true
 ---
 

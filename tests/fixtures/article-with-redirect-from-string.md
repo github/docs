@@ -1,9 +1,5 @@
 ---
 title: Article with redirect_from string
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+versions: '*'
 redirect_from: /redirect-string
 ---

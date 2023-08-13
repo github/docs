@@ -1,10 +1,6 @@
 ---
 title: Good sample page
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+versions: '*'
 ---
 
 {% data variables.stuff.foo %}

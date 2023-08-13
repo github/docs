@@ -1,10 +1,6 @@
 ---
 title: Deeper secrets
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
+versions: '*'
 hidden: true
 children:
   - /mariana-trench
