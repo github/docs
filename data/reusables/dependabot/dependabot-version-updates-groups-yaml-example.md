@@ -1,6 +1,23 @@
 ```yaml
-# `dependabot.yml` file with customized bundler configuration
+# `dependabot.yml` file using the `dependency-type` option to group updates
+# in conjunction with `patterns` and `exclude-patterns`.
 
+groups:
+  production-dependencies:
+    dependency-type: "production"
+  development-dependencies:
+    dependency-type: "development"
+    exclude-patterns:
+    - "rubocop*"
+  rubocop:
+    patterns:
+    - "rubocop*"
+```
+
+```yaml
+# `dependabot.yml` file with customized bundler configuration
+# In this example, the name of the group is `dev-dependencies`, and
+# only the `patterns` and `exclude-patterns` options are used.
 version: 2
 updates:
   # Keep bundler dependencies up to date
