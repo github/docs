@@ -2286,7 +2286,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
         "additional-permissions": [],
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "branches",
