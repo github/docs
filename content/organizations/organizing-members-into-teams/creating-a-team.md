@@ -42,7 +42,7 @@ Only organization owners and maintainers of a parent team can create a new child
 {% data reusables.organizations.team_visibility %}
 {% data reusables.organizations.team-notifications %}
 {% data reusables.organizations.create_team %}
-1. Optionally, [give the team access to organization repositories](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository).
+1. Optionally, [give the team access to organization repositories](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository).
 
 {% ifversion ghes %}
 

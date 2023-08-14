@@ -142,6 +142,7 @@ export const Header = () => {
   return (
     <>
       <div
+        data-container="header"
         className={cx(
           'border-bottom d-unset color-border-muted no-print z-3 color-bg-default',
           styles.header,

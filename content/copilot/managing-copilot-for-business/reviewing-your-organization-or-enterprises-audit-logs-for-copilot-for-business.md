@@ -46,4 +46,4 @@ You can search for any of the {% data variables.product.prodname_copilot %} audi
 |`cfb_seat_assignment_created`| A seat was assigned to a user with no other active seat assignment.
 |`cfb_seat_assignment_unassigned`| A seat was unassigned from a user.
 |`copilot.editor_chat_setting`| Confirms the status of the editor chat setting. Possible values: `enabled`, `disabled`, `unconfigured`{% ifversion ghec %} `no policy`{% endif %}.
-|`code_referencing_setting`| Confirms the status of the code referencing setting. Possible values: `enabled`, `disabled`, `unconfigured`{% ifversion ghec %} `no policy`{% endif %}.
+|`copilot.code_referencing_setting`| Confirms the status of the code referencing setting. Possible values: `enabled`, `disabled`, `unconfigured`{% ifversion ghec %} `no policy`{% endif %}.
