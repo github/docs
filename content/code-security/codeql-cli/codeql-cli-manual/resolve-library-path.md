@@ -43,12 +43,8 @@ The command will also detect a language and dbscheme to compile a query
 against, as these may also depend on autodetecting the language of a QL
 query.
 
-{% note %}
-
-**Note:** The command is deeply internal and its behavior or existence may
-change without much notice as the QL language ecosystem evolves.
-
-{% endnote %}
+**The command is deeply internal and its behavior or existence may
+change without much notice as the QL language ecosystem evolves.**
 
 ## Primary options
 
@@ -145,7 +141,7 @@ directory.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of \<registry\_url>=\<token> pairs.
+a comma-separated list of `<registry_url>=<token>` pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`
