@@ -51,7 +51,7 @@ To ensure that commits are attributed to you and appear in your contributions gr
 
 {% note %}
 
-**Note:** If you created your account on {% data variables.location.product_location %} _after_ July 18, 2017, your `noreply` email address for {% data variables.product.product_name %} is an ID number and your username in the form of <code>ID+USERNAME@users.noreply.github.com</code>. If you created your account on {% data variables.location.product_location %} _prior to_ July 18, 2017, your `noreply` email address from {% data variables.product.product_name %} is <code>USERNAME@users.noreply.github.com</code>. You can get an ID-based `noreply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
+**Note:** If you created your account on {% data variables.location.product_location %} _after_ July 18, 2017, your `noreply` email address for {% data variables.product.product_name %} is an ID number and your username in the form of <code>ID+USERNAME@users.noreply.github.com</code>. If you created your account on {% data variables.location.product_location %} _prior to_ July 18, 2017, and enabled **Keep my email address private** prior to that date, your `noreply` email address from {% data variables.product.product_name %} is <code>USERNAME@users.noreply.github.com</code>. You can get an ID-based `noreply` email address for {% data variables.product.product_name %} by selecting (or deselecting and reselecting) **Keep my email address private** in your email settings.
 
 {% endnote %}
 
@@ -85,7 +85,7 @@ You can use the `git config` command to change the email address you associate w
 
    ```shell
    $ git config --global user.email
-   <span class="output">email@example.com</span>
+   email@example.com
    ```
 
 1. {% data reusables.user-settings.link_email_with_your_account %}
@@ -109,7 +109,7 @@ You can change the email address associated with commits you make in a single re
 
    ```shell
    $ git config user.email
-   <span class="output">email@example.com</span>
+   email@example.com
    ```
 
 1. {% data reusables.user-settings.link_email_with_your_account %}

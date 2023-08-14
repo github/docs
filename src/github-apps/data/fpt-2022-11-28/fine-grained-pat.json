@@ -1322,19 +1322,19 @@
       "slug": "manage-access-control-for-organization-codespaces",
       "subcategory": "organizations",
       "verb": "put",
-      "requestPath": "/orgs/{org}/codespaces/billing"
+      "requestPath": "/orgs/{org}/codespaces/access"
     },
     {
-      "slug": "add-users-to-codespaces-billing-for-an-organization",
+      "slug": "add-users-to-codespaces-access-for-an-organization",
       "subcategory": "organizations",
       "verb": "post",
-      "requestPath": "/orgs/{org}/codespaces/billing/selected_users"
+      "requestPath": "/orgs/{org}/codespaces/access/selected_users"
     },
     {
-      "slug": "remove-users-from-codespaces-billing-for-an-organization",
+      "slug": "remove-users-from-codespaces-access-for-an-organization",
       "subcategory": "organizations",
       "verb": "delete",
-      "requestPath": "/orgs/{org}/codespaces/billing/selected_users"
+      "requestPath": "/orgs/{org}/codespaces/access/selected_users"
     },
     {
       "slug": "list-organization-secrets",
@@ -3747,6 +3747,12 @@
       "requestPath": "/repos/{owner}/{repo}"
     },
     {
+      "slug": "list-repository-activities",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/activity"
+    },
+    {
       "slug": "list-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
@@ -4053,6 +4059,18 @@
   ],
   "security-advisories": [
     {
+      "slug": "list-global-security-advisories",
+      "subcategory": "global-advisories",
+      "verb": "get",
+      "requestPath": "/advisories"
+    },
+    {
+      "slug": "get-a-global-security-advisory",
+      "subcategory": "global-advisories",
+      "verb": "get",
+      "requestPath": "/advisories/{ghsa_id}"
+    },
+    {
       "slug": "list-repository-security-advisories",
       "subcategory": "repository-advisories",
       "verb": "get",
@@ -4081,6 +4099,12 @@
       "subcategory": "repository-advisories",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}"
+    },
+    {
+      "slug": "request-a-cve-for-a-repository-security-advisory",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve"
     }
   ],
   "teams": [

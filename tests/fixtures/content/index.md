@@ -12,7 +12,11 @@ featuredLinks:
     - /actions/category/map-topic
 redirect_from:
   - /olden-days
-versions: '*'
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   # The list of childen in the fixtures has to be the same names
   # as we use in the real content. It can have fewer but can't include

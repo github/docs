@@ -53,7 +53,6 @@ Then, when told to fetch `https://github.example.com/myorg/myrepo`, Git will ins
       ```
       ghe-repl-setup -a PRIMARY-IP
       ```
-
 1. To configure the repository cache, use the `ghe-repl-node` command and include the necessary parameters.
     - Set a `cache-location` for the repository cache, replacing _CACHE-LOCATION_ with an alphanumeric identifier, such as the region where the cache is deployed.  The _CACHE-LOCATION_ value must not be any of the subdomains reserved for use with subdomain isolation, such as `assets` or `media`.  For a list of reserved names, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)."
     - Set a `cache-domain` for the repository cache, replacing _EXTERNAL-CACHE-DOMAIN_ with the hostname Git clients will use to access the repository cache. If you do not specify a `cache-domain`, {% data variables.product.product_name %} will prepend the _CACHE-LOCATION_ value as a subdomain to the hostname configured for your instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
@@ -81,7 +80,7 @@ Data location policies affect only Git content. Content in the database, such as
 
 {% note %}
 
-**Note:** Data location policies are not the same as access control. You must use repository roles to control which users may access a repository. For more information about repository roles, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+**Note:** Data location policies are not the same as access control. You must use repository roles to control which users may access a repository. For more information about repository roles, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
 {% endnote %}
 

@@ -28,3 +28,4 @@ shortTitle: Review OAuth apps
 {% ifversion fpt or ghec %}
 - "[AUTOTITLE](/get-started/exploring-integrations/about-integrations)"{% endif %}
 - "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)"
+- "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/internal-oauth-apps)"

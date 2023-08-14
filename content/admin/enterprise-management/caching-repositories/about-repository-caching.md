@@ -14,6 +14,8 @@ A repository cache eliminates the need for {% data variables.product.product_nam
 
 The repository cache listens to the primary instance, whether that's a single instance or a geo-replicated set of instances, for changes to Git data. CI farms and other read-heavy consumers clone and fetch from the repository cache instead of the primary instance. Changes are propagated across the network, at periodic intervals, once per cache instance rather than once per client. Git data will typically be visible on the repository cache within several minutes after the data is pushed to the primary instance.  {% ifversion ghes %}The [`cache_sync` webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads#cache_sync) can be used by CI systems to react to data being available in the cache.{% endif %}
 
+{% data variables.product.product_name %} caches both Git and {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) data.
+
 You have fine-grained control over which repositories are allowed to sync to the repository cache. Git data will only be replicated to the locations you specify.
 
 {% data reusables.enterprise.repository-caching-config-summary %} For more information, see "[AUTOTITLE](/admin/enterprise-management/caching-repositories/configuring-a-repository-cache)."
