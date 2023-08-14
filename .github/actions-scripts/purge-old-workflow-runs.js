@@ -25,6 +25,7 @@ import fs from 'fs'
 import assert from 'node:assert/strict'
 
 import { getOctokit } from '@actions/github'
+import { RequestError } from '@octokit/request-error'
 
 main()
 async function main() {
@@ -46,15 +47,32 @@ async function main() {
   // In practice it appears to list those that are oldest first.
   // But to guarantee that it reaches the oldest, we paginate over
   // all of them.
-  const allWorkflows = await github.paginate('GET /repos/{owner}/{repo}/actions/workflows', {
-    owner,
-    repo,
-  })
+  let allWorkflows = []
+
+  try {
+    allWorkflows = await github.paginate('GET /repos/{owner}/{repo}/actions/workflows', {
+      owner,
+      repo,
+    })
+  } catch (error) {
+    // Generally, if it fails, it's because of a network error or
+    // because busy servers. It's not our fault, but considering that
+    // this script is supposed to run on frequent schedule, we don't
+    // need to fret. We'll just try again next time.
+    if (error instanceof RequestError && error.status >= 500) {
+      console.log(`RequestError: ${error.message}`)
+      console.log(`  status: ${error.status}`)
+    } else {
+      throw error
+    }
+  }
+
+  const validWorkflows = allWorkflows.filter((w) => !w.path.startsWith('dynamic/'))
 
   const sortByDate = (a, b) => a.updated_at.localeCompare(b.updated_at)
   const workflows = [
-    ...allWorkflows.filter((w) => !fs.existsSync(w.path)).sort(sortByDate),
-    ...allWorkflows.filter((w) => fs.existsSync(w.path)).sort(sortByDate),
+    ...validWorkflows.filter((w) => !fs.existsSync(w.path)).sort(sortByDate),
+    ...validWorkflows.filter((w) => fs.existsSync(w.path)).sort(sortByDate),
   ]
 
   let deletions = 0
@@ -65,11 +83,25 @@ async function main() {
         ? `${workflow.path} still exists on disk`
         : `${workflow.path} no longer exists on disk`,
     )
-    deletions += await deleteWorkflowRuns(github, owner, repo, workflow, {
-      dryRun: DRY_RUN,
-      minAgeDays: MIN_AGE_DAYS,
-      maxDeletions: MAX_DELETIONS - deletions,
-    })
+    try {
+      deletions += await deleteWorkflowRuns(github, owner, repo, workflow, {
+        dryRun: DRY_RUN,
+        minAgeDays: MIN_AGE_DAYS,
+        maxDeletions: MAX_DELETIONS - deletions,
+      })
+    } catch (error) {
+      // Generally, if it fails, it's because of a network error or
+      // because busy servers. It's not our fault, but considering that
+      // this script is supposed to run on frequent schedule, we don't
+      // need to fret. We'll just try again next time.
+      if (error instanceof RequestError && error.status >= 500) {
+        console.log(`RequestError: ${error.message}`)
+        console.log(`  status: ${error.status}`)
+        break
+      } else {
+        throw error
+      }
+    }
 
     if (deletions >= MAX_DELETIONS) {
       console.log(`Reached max number of deletions: ${MAX_DELETIONS}`)

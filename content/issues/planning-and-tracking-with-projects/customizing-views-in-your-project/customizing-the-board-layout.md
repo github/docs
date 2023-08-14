@@ -59,6 +59,14 @@ In the board layout, you can can choose which columns to display. The available 
 1. Select the columns you want to show.
 {% endif %}
 
+{% ifversion projects-v2-slice-panel %}
+
+## Slicing by field values
+
+{% data reusables.projects.customize.slice-panel %}
+
+{% endif %} 
+
 {% ifversion projects-v2-consistent-sorting %}
 
 ## Sorting by field values

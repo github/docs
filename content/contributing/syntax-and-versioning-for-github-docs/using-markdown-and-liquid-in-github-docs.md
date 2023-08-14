@@ -186,7 +186,7 @@ These instructions are pertinent to Windows users.
 {% endwindows %}{% endraw %}
 ```
 
-You can define a default platform in an article's YAML frontmatter. For more information, see the [frontmatter documentation](https://github.com/github/docs/blob/main/content/README.md#frontmatter).
+You can define a default platform in an article's YAML frontmatter. For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#defaultplatform)."
 
 ## Tool tags
 
@@ -194,7 +194,7 @@ We occasionally need to write documentation for different tools ({% data variabl
 
 On rare occasions, we will add new tools. Before adding a new tool, read "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/creating-tool-switchers-in-articles)." To add a new tool, add an entry to the `allTools` object in [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) as a key-value pair. The key is the tag you'll use to refer to the tool in the article, and the value is how the tool will be identified on the tool picker at the top of the article.
 
-You can define a default tool for an article in the YAML frontmatter. For more information, see the [frontmatter documentation](https://github.com/github/docs/blob/main/content/README.md#frontmatter).
+You can define a default tool for an article in the YAML frontmatter. For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#defaulttool)."
 
 ### Example usage of tool tags
 
@@ -343,11 +343,64 @@ If this happens, add the following CSS style to the `<table>` HTML tag:
 
 For a current example of this usage, see "[AUTOTITLE](/actions/examples)."
 
-## Internal links with AUTOTITLE
+## Links
+
+Links to docs in the `docs` repository must start with a product ID (like `/actions` or `/admin`) and contain the entire filepath, but not the file extension. For example, `/actions/creating-actions/about-custom-actions`.
+
+Image paths must start with `/assets` and contain the entire filepath including the file extension. For example, `/assets/images/help/settings/settings-account-delete.png`.
+
+The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](https://github.com/github/docs/blob/main/src/content-render/unified/rewrite-local-links.js).
+
+For example, if you include the following link in a content file:
+
+```
+/github/writing-on-github/creating-a-saved-reply
+```
+When viewed on {% data variables.product.prodname_dotcom_the_website %} docs, the link gets rendered with the language code:
+```
+/en/github/writing-on-github/creating-a-saved-reply
+```
+and when viewed on {% data variables.product.prodname_ghe_server %} docs, the version is included as well:
+```
+/en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
+```
+For more information about links, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#links)."
+
+### Permalinks
+
+Because the site is dynamic, it does not build HTML files for each different version of an article. Instead it generates a "permalink" for every version of the article. It does this based on the article's [`versions` frontmatter](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#versions).
+
+{% note %}
+
+**Note**: As of early 2021, the `free-pro-team@latest` version is not included in URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
+
+{% endnote %}
+
+For example, an article that is available in currently supported versions will have permalink URLs like the following:
+
+- `/en/get-started/quickstart/set-up-git`
+- `/en/enterprise-cloud@latest/get-started/quickstart/set-up-git`
+- `/en/enterprise-server@3.10/get-started/quickstart/set-up-git`
+- `/en/enterprise-server@3.9/get-started/quickstart/set-up-git`
+- `/en/enterprise-server@3.8/get-started/quickstart/set-up-git`
+- `/en/enterprise-server@3.7/get-started/quickstart/set-up-git`
+- `/en/enterprise-server@3.6/get-started/quickstart/set-up-git`
+
+An article that is not available in {% data variables.product.prodname_ghe_server %} will have just one permalink:
+
+- `/en/get-started/quickstart/set-up-git`
+
+{% note %}
+
+**Note:** If you are a content contributor, you don't need to worry about supported versions when adding a link to a document. Following the examples above, if you want to reference an article, you can just use its relative location: `/github/getting-started-with-github/set-up-git`.
+
+{% endnote %}
+
+### Internal links with AUTOTITLE
 
 When linking to another {% data variables.product.prodname_docs %} page, use standard Markdown syntax like `[]()`, but type `AUTOTITLE` instead of the page title. The {% data variables.product.prodname_docs %} application will replace `AUTOTITLE` with the title of the linked page during rendering. This special keyword is case-sensitive, so take care with your typing or the replacement will not work.
 
-### Example usage of internal links with AUTOTITLE
+#### Example usage of internal links with AUTOTITLE
 
 - `For more information, see "[AUTOTITLE](/path/to/page)."`
 - `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
@@ -359,4 +412,31 @@ When linking to another {% data variables.product.prodname_docs %} page, use sta
 
 {% endnote %}
 
-For more information about links, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#links)."
+### Linking to the current article in a different version of the docs
+
+Sometimes you may want to link from an article to the same article in a different product version. For example:
+
+- You mention some functionality that is not available for free, pro, or team plans and you want to link to the {% data variables.product.prodname_ghe_cloud %} version of the same page.
+- The {% data variables.product.prodname_ghe_server %} version of an article describes a feature that shipped with that version, but site administrators can upgrade to the latest version of the feature that's in use on {% data variables.product.prodname_ghe_cloud %}.
+
+You can link directly to a different version of the page using the `currentArticle` property. This means that the link will continue to work directly even if the article URL changes.
+
+```markdown
+{% raw %}{% ifversion fpt %}For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest{{ currentArticle }}).{% endif %}{% endraw %}
+```
+
+### Preventing transformations
+
+Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, you should include the preferred version in the path.
+
+```markdown
+"[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)"
+```
+
+Sometimes the canonical home of content moves outside the docs site. None of the links included in [`src/redirects/lib/external-sites.json`](https://github.com/github/docs/blob/main/src/redirects/lib/external-sites.json) get rewritten. See  [`contributing/redirects.md`](https://github.com/github/docs/blob/main/contributing/redirects.md) for more info about this type of redirect.
+
+### Legacy filepaths and redirects for links
+
+Our docs contain links that use legacy filepaths such as `/article/article-name` or `/github/article-name`. Our docs also contain links that refer to articles by past names. Both of these link types function properly because of redirects, but they are bugs.
+
+When you add a link to an article, use the current filepath and article name.

@@ -9,6 +9,8 @@ versions:
 topics:
   - Accounts
 shortTitle: Manage cookie preferences
+redirect_from:
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
 ---
 
 ## About cookie preferences on enterprise marketing pages

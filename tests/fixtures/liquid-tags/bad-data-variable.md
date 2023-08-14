@@ -1,6 +1,10 @@
 ---
 title: Sample page
-versions: '*'
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 ---
 
 {% data foo.bar.tipu %}
