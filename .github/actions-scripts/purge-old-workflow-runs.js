@@ -25,7 +25,6 @@ import fs from 'fs'
 import assert from 'node:assert/strict'
 
 import { getOctokit } from '@actions/github'
-import { RequestError } from '@octokit/request-error'
 
 main()
 async function main() {
@@ -33,7 +32,7 @@ async function main() {
   const MAX_DELETIONS = parseInt(JSON.parse(process.env.MAX_DELETIONS || '100'))
   const MIN_AGE_DAYS = parseInt(process.env.MIN_AGE_DAYS || '90', 10)
 
-  const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/')
+  const [owner, repo] = (process.env.GITHUB_REPOSITORY || 'github/docs-internal').split('/')
   if (!owner || !repo) {
     throw new Error('GITHUB_REPOSITORY environment variable not set')
   }
@@ -55,13 +54,16 @@ async function main() {
       repo,
     })
   } catch (error) {
+    console.log('Error happened when getting workflows')
+    console.warn('Status: %O', error.status)
+    console.warn('Message: %O', error.message)
+
     // Generally, if it fails, it's because of a network error or
     // because busy servers. It's not our fault, but considering that
     // this script is supposed to run on frequent schedule, we don't
     // need to fret. We'll just try again next time.
-    if (error instanceof RequestError && error.status >= 500) {
-      console.log(`RequestError: ${error.message}`)
-      console.log(`  status: ${error.status}`)
+    if (isOperationalError(error.status, error.message)) {
+      return
     } else {
       throw error
     }
@@ -90,13 +92,15 @@ async function main() {
         maxDeletions: MAX_DELETIONS - deletions,
       })
     } catch (error) {
+      console.log("Error happened when calling 'deleteWorkflowRuns'")
+      console.warn('Status: %O', error.status)
+      console.warn('Message: %O', error.message)
+
       // Generally, if it fails, it's because of a network error or
       // because busy servers. It's not our fault, but considering that
       // this script is supposed to run on frequent schedule, we don't
       // need to fret. We'll just try again next time.
-      if (error instanceof RequestError && error.status >= 500) {
-        console.log(`RequestError: ${error.message}`)
-        console.log(`  status: ${error.status}`)
+      if (isOperationalError(error.status, error.message)) {
         break
       } else {
         throw error
@@ -109,6 +113,20 @@ async function main() {
     }
   }
   console.log(`Deleted ${deletions} runs in total`)
+}
+
+function isOperationalError(status, message) {
+  if (status && status >= 500) {
+    return true
+  }
+  if (/Unable to delete logs while the workflow is running/.test(message)) {
+    return true
+  }
+  if (status === 403 && /API rate limit exceeded/.test(message)) {
+    return true
+  }
+
+  return false
 }
 
 async function deleteWorkflowRuns(
