@@ -4237,7 +4237,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
   ): Blame!
 
   """
-  We recommend using the `changedFielsIfAvailable` field instead of
+  We recommend using the `changedFilesIfAvailable` field instead of
   `changedFiles`, as `changedFiles` will cause your request to return an error
   if GitHub is unable to calculate the number of changed files.
   """
@@ -8668,8 +8668,6 @@ type DependencyGraphDependency @preview(toggledBy: "hawkgirl-preview") {
 
   """
   The name of the package in the canonical form used by the package manager.
-  This may differ from the original textual form (see packageLabel), for example
-  in a package manager that uses case-insensitive comparisons.
   """
   packageName: String!
 
@@ -11248,7 +11246,8 @@ type Enterprise implements AnnouncementBanner & Node {
   ): OrganizationConnection!
 
   """
-  Enterprise information only visible to enterprise owners.
+  Enterprise information visible to enterprise owners or enterprise owners'
+  personal access tokens (classic) with read:enterprise or admin:enterprise scope.
   """
   ownerInfo: EnterpriseOwnerInfo
 
@@ -11661,6 +11660,8 @@ type EnterpriseFailedInvitationEdge {
 
 """
 An identity provider configured to provision identities for an enterprise.
+Visible to enterprise owners or enterprise owners' personal access tokens
+(classic) with read:enterprise or admin:enterprise scope.
 """
 type EnterpriseIdentityProvider implements Node {
   """
@@ -11976,7 +11977,8 @@ type EnterpriseOutsideCollaboratorEdge {
 }
 
 """
-Enterprise information only visible to enterprise owners.
+Enterprise information visible to enterprise owners or enterprise owners'
+personal access tokens (classic) with read:enterprise or admin:enterprise scope.
 """
 type EnterpriseOwnerInfo {
   """
@@ -12145,7 +12147,8 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
-  A list of domains owned by the enterprise.
+  A list of domains owned by the enterprise. Visible to enterprise owners or
+  enterprise owners' personal access tokens (classic) with admin:enterprise scope.
   """
   domains(
     """
@@ -12221,6 +12224,8 @@ type EnterpriseOwnerInfo {
 
   """
   The IP addresses that are allowed to access resources owned by the enterprise.
+  Visible to enterprise owners or enterprise owners' personal access tokens
+  (classic) with admin:enterprise scope.
   """
   ipAllowListEntries(
     """
@@ -12821,8 +12826,7 @@ type EnterpriseOwnerInfo {
   ): OrganizationConnection!
 
   """
-  The SAML Identity Provider for the enterprise. When used by a GitHub App,
-  requires an installation token with read and write access to members.
+  The SAML Identity Provider for the enterprise.
   """
   samlIdentityProvider: EnterpriseIdentityProvider
 
@@ -13831,7 +13835,13 @@ type EnvironmentEdge {
 }
 
 """
-An external identity provisioned by SAML SSO or SCIM.
+An external identity provisioned by SAML SSO or SCIM. If SAML is configured on
+the organization, the external identity is visible to (1) organization owners,
+(2) organization owners' personal access tokens (classic) with read:org or
+admin:org scope, (3) GitHub App with an installation token with read or write
+access to members. If SAML is configured on the enterprise, the external
+identity is visible to (1) enterprise owners, (2) enterprise owners' personal
+access tokens (classic) with read:enterprise or admin:enterprise scope.
 """
 type ExternalIdentity implements Node {
   """
@@ -15528,7 +15538,7 @@ union IpAllowListOwner = App | Enterprise | Organization
 """
 An Issue is a place to discuss ideas, enhancements, tasks, and bugs for a project.
 """
-type Issue implements Assignable & Closable & Comment & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
+type Issue implements Assignable & Closable & Comment & Deletable & Labelable & Lockable & Node & ProjectV2Owner & Reactable & RepositoryNode & Subscribable & UniformResourceLocatable & Updatable & UpdatableComment {
   """
   Reason that the conversation was locked.
   """
@@ -16045,6 +16055,11 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
   Indicates if the object can be closed by the viewer.
   """
   viewerCanClose: Boolean!
+
+  """
+  Check if the current viewer can delete this object.
+  """
+  viewerCanDelete: Boolean!
 
   """
   Can user react to this subject
@@ -16591,6 +16606,31 @@ type IssueTemplate {
   about: String
 
   """
+  The suggested assignees.
+  """
+  assignees(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): UserConnection!
+
+  """
   The suggested issue body.
   """
   body: String
@@ -16599,6 +16639,36 @@ type IssueTemplate {
   The template filename.
   """
   filename: String!
+
+  """
+  The suggested issue labels
+  """
+  labels(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+
+    """
+    Ordering options for labels returned from the connection.
+    """
+    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+  ): LabelConnection
 
   """
   The template name.
@@ -17875,6 +17945,36 @@ type MarkFileAsViewedPayload {
 }
 
 """
+Autogenerated input type of MarkProjectV2AsTemplate
+"""
+input MarkProjectV2AsTemplateInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the Project to mark as a template.
+  """
+  projectId: ID! @possibleTypes(concreteTypes: ["ProjectV2"])
+}
+
+"""
+Autogenerated return type of MarkProjectV2AsTemplate
+"""
+type MarkProjectV2AsTemplatePayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The project.
+  """
+  projectV2: ProjectV2
+}
+
+"""
 Autogenerated input type of MarkPullRequestReadyForReview
 """
 input MarkPullRequestReadyForReviewInput {
@@ -18612,6 +18712,12 @@ interface Migration {
   The migration state.
   """
   state: MigrationState!
+
+  """
+  The number of warnings encountered for this migration. To review the warnings,
+  check the [Migration Log](https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer).
+  """
+  warningsCount: Int!
 }
 
 """
@@ -20188,6 +20294,16 @@ type Mutation {
   ): MarkFileAsViewedPayload
 
   """
+  Mark a project as a template. Note that only projects which are owned by an Organization can be marked as a template.
+  """
+  markProjectV2AsTemplate(
+    """
+    Parameters for MarkProjectV2AsTemplate
+    """
+    input: MarkProjectV2AsTemplateInput!
+  ): MarkProjectV2AsTemplatePayload
+
+  """
   Marks a pull request ready for review.
   """
   markPullRequestReadyForReview(
@@ -20588,6 +20704,16 @@ type Mutation {
   ): UnmarkIssueAsDuplicatePayload
 
   """
+  Unmark a project as a template.
+  """
+  unmarkProjectV2AsTemplate(
+    """
+    Parameters for UnmarkProjectV2AsTemplate
+    """
+    input: UnmarkProjectV2AsTemplateInput!
+  ): UnmarkProjectV2AsTemplatePayload
+
+  """
   Unminimizes a comment on an Issue, Commit, Pull Request, or Gist
   """
   unminimizeComment(
@@ -20968,6 +21094,16 @@ type Mutation {
   ): UpdateProjectV2Payload
 
   """
+  Update the collaborators on a team or a project
+  """
+  updateProjectV2Collaborators(
+    """
+    Parameters for UpdateProjectV2Collaborators
+    """
+    input: UpdateProjectV2CollaboratorsInput!
+  ): UpdateProjectV2CollaboratorsPayload
+
+  """
   Updates a draft issue within a Project.
   """
   updateProjectV2DraftIssue(
@@ -21196,17 +21332,17 @@ Metadata for an audit entry with action oauth_application.*
 """
 interface OauthApplicationAuditEntryData {
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 }
@@ -21251,12 +21387,12 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   actorUrl: URI
 
   """
-  The application URL of the OAuth Application.
+  The application URL of the OAuth application.
   """
   applicationUrl: URI
 
   """
-  The callback URL of the OAuth Application.
+  The callback URL of the OAuth application.
   """
   callbackUrl: URI
 
@@ -21267,17 +21403,17 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -21307,12 +21443,12 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
   organizationUrl: URI
 
   """
-  The rate limit of the OAuth Application.
+  The rate limit of the OAuth application.
   """
   rateLimit: Int
 
   """
-  The state of the OAuth Application.
+  The state of the OAuth application.
   """
   state: OauthApplicationCreateAuditEntryState
 
@@ -21338,21 +21474,21 @@ type OauthApplicationCreateAuditEntry implements AuditEntry & Node & OauthApplic
 }
 
 """
-The state of an OAuth Application when it was created.
+The state of an OAuth application when it was created.
 """
 enum OauthApplicationCreateAuditEntryState {
   """
-  The OAuth Application was active and allowed to have OAuth Accesses.
+  The OAuth application was active and allowed to have OAuth Accesses.
   """
   ACTIVE
 
   """
-  The OAuth Application was in the process of being deleted.
+  The OAuth application was in the process of being deleted.
   """
   PENDING_DELETION
 
   """
-  The OAuth Application was suspended from generating OAuth Accesses due to abuse or security concerns.
+  The OAuth application was suspended from generating OAuth Accesses due to abuse or security concerns.
   """
   SUSPENDED
 }
@@ -22902,17 +23038,17 @@ type OrgOauthAppAccessApprovedAuditEntry implements AuditEntry & Node & OauthApp
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -23008,17 +23144,17 @@ type OrgOauthAppAccessDeniedAuditEntry implements AuditEntry & Node & OauthAppli
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -23114,17 +23250,17 @@ type OrgOauthAppAccessRequestedAuditEntry implements AuditEntry & Node & OauthAp
   id: ID!
 
   """
-  The name of the OAuth Application.
+  The name of the OAuth application.
   """
   oauthApplicationName: String
 
   """
-  The HTTP path for the OAuth Application
+  The HTTP path for the OAuth application
   """
   oauthApplicationResourcePath: URI
 
   """
-  The HTTP URL for the OAuth Application
+  The HTTP URL for the OAuth application
   """
   oauthApplicationUrl: URI
 
@@ -25233,7 +25369,10 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   resourcePath: URI!
 
   """
-  The Organization's SAML identity providers
+  The Organization's SAML identity provider. Visible to (1) organization owners,
+  (2) organization owners' personal access tokens (classic) with read:org or
+  admin:org scope, (3) GitHub App with an installation token with read or write
+  access to members.
   """
   samlIdentityProvider: OrganizationIdentityProvider
 
@@ -25275,6 +25414,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
     If true, filters teams that are mapped to an LDAP Group (Enterprise only)
     """
     ldapMapped: Boolean
+
+    """
+    If non-null, filters teams according to notification setting
+    """
+    notificationSetting: TeamNotificationSetting
 
     """
     Ordering options for teams returned from the connection
@@ -25592,7 +25736,10 @@ type OrganizationEnterpriseOwnerEdge {
 }
 
 """
-An Identity Provider configured to provision SAML and SCIM identities for Organizations
+An Identity Provider configured to provision SAML and SCIM identities for
+Organizations. Visible to (1) organization owners, (2) organization owners'
+personal access tokens (classic) with read:org or admin:org scope, (3) GitHub
+App with an installation token with read or write access to members.
 """
 type OrganizationIdentityProvider implements Node {
   """
@@ -25964,6 +26111,11 @@ enum OrganizationMigrationState {
   FAILED
 
   """
+  The Octoshift migration has invalid credentials.
+  """
+  FAILED_VALIDATION
+
+  """
   The Octoshift migration is in progress.
   """
   IN_PROGRESS
@@ -25972,6 +26124,11 @@ enum OrganizationMigrationState {
   The Octoshift migration has not started.
   """
   NOT_STARTED
+
+  """
+  The Octoshift migration needs to have its credentials validated.
+  """
+  PENDING_VALIDATION
 
   """
   The Octoshift migration is performing post repository migrations.
@@ -26488,25 +26645,16 @@ enum PackageType {
   A maven package.
   """
   MAVEN
-    @deprecated(
-      reason: "MAVEN will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2023-02-10 UTC."
-    )
 
   """
   An npm package.
   """
   NPM
-    @deprecated(
-      reason: "NPM will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-11-21 UTC."
-    )
 
   """
   A nuget package.
   """
   NUGET
-    @deprecated(
-      reason: "NUGET will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-11-21 UTC."
-    )
 
   """
   A python package.
@@ -26517,9 +26665,6 @@ enum PackageType {
   A rubygems package.
   """
   RUBYGEMS
-    @deprecated(
-      reason: "RUBYGEMS will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2022-12-28 UTC."
-    )
 }
 
 """
@@ -28543,6 +28688,71 @@ type ProjectV2 implements Closable & Node & Updatable {
 }
 
 """
+Possible collaborators for a project.
+"""
+union ProjectV2Actor = Team | User
+
+"""
+The connection type for ProjectV2Actor.
+"""
+type ProjectV2ActorConnection {
+  """
+  A list of edges.
+  """
+  edges: [ProjectV2ActorEdge]
+
+  """
+  A list of nodes.
+  """
+  nodes: [ProjectV2Actor]
+
+  """
+  Information to aid in pagination.
+  """
+  pageInfo: PageInfo!
+
+  """
+  Identifies the total count of items in the connection.
+  """
+  totalCount: Int!
+}
+
+"""
+An edge in a connection.
+"""
+type ProjectV2ActorEdge {
+  """
+  A cursor for use in pagination.
+  """
+  cursor: String!
+
+  """
+  The item at the end of the edge.
+  """
+  node: ProjectV2Actor
+}
+
+"""
+A collaborator to update on a project. Only one of the userId or teamId should be provided.
+"""
+input ProjectV2Collaborator {
+  """
+  The role to grant the collaborator
+  """
+  role: ProjectV2Roles!
+
+  """
+  The ID of the team as a collaborator.
+  """
+  teamId: ID @possibleTypes(concreteTypes: ["Team"])
+
+  """
+  The ID of the user as a collaborator.
+  """
+  userId: ID @possibleTypes(concreteTypes: ["User"])
+}
+
+"""
 The connection type for ProjectV2.
 """
 type ProjectV2Connection {
@@ -28929,7 +29139,7 @@ type ProjectV2Item implements Node {
   databaseId: Int
 
   """
-  A specific field value given a field name
+  The field value of the first project field which matches the 'name' argument that is set on the item.
   """
   fieldValueByName(
     """
@@ -28939,7 +29149,7 @@ type ProjectV2Item implements Node {
   ): ProjectV2ItemFieldValue
 
   """
-  List of field values
+  The field values that are set on the item.
   """
   fieldValues(
     """
@@ -29831,6 +30041,31 @@ interface ProjectV2Recent {
 }
 
 """
+The possible roles of a collaborator on a project.
+"""
+enum ProjectV2Roles {
+  """
+  The collaborator can view, edit, and maange the settings of the project
+  """
+  ADMIN
+
+  """
+  The collaborator has no direct access to the project
+  """
+  NONE
+
+  """
+  The collaborator can view the project
+  """
+  READER
+
+  """
+  The collaborator can view and edit the project
+  """
+  WRITER
+}
+
+"""
 A single select field inside a project.
 """
 type ProjectV2SingleSelectField implements Node & ProjectV2FieldCommon {
@@ -29858,7 +30093,12 @@ type ProjectV2SingleSelectField implements Node & ProjectV2FieldCommon {
   """
   Options for the single select field
   """
-  options: [ProjectV2SingleSelectFieldOption!]!
+  options(
+    """
+    Filter returned options to only those matching these names, case insensitive.
+    """
+    names: [String!]
+  ): [ProjectV2SingleSelectFieldOption!]!
 
   """
   The project that contains this field.
@@ -33211,11 +33451,6 @@ The possible item types found in a timeline.
 """
 enum PullRequestTimelineItemsItemType {
   """
-  Represents an 'added_to_merge_queue' event on a given pull request.
-  """
-  ADDED_TO_MERGE_QUEUE_EVENT
-
-  """
   Represents a 'added_to_project' event on a given issue or pull request.
   """
   ADDED_TO_PROJECT_EVENT
@@ -33419,11 +33654,6 @@ enum PullRequestTimelineItemsItemType {
   Represents a 'referenced' event on a given `ReferencedSubject`.
   """
   REFERENCED_EVENT
-
-  """
-  Represents a 'removed_from_merge_queue' event on a given pull request.
-  """
-  REMOVED_FROM_MERGE_QUEUE_EVENT
 
   """
   Represents a 'removed_from_project' event on a given issue or pull request.
@@ -33734,7 +33964,8 @@ type Query {
   ): RateLimit
 
   """
-  Hack to workaround https://github.com/facebook/relay/issues/112 re-exposing the root query object
+  Workaround for re-exposing the root query object. (Refer to
+  https://github.com/facebook/relay/issues/112 for more information.)
   """
   relay: Query!
 
@@ -37949,6 +38180,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   allowUpdateBranch: Boolean!
 
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   A list of users that can be assigned to issues in this repository.
   """
   assignableUsers(
@@ -39039,7 +39275,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
   ): PullRequestConnection!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
@@ -39792,6 +40028,11 @@ A subset of repository info.
 """
 interface RepositoryInfo {
   """
+  Identifies the date and time when the repository was archived.
+  """
+  archivedAt: DateTime
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -39912,7 +40153,7 @@ interface RepositoryInfo {
   owner: RepositoryOwner!
 
   """
-  Identifies when the repository was last pushed to.
+  Identifies the date and time when the repository was last pushed to.
   """
   pushedAt: DateTime
 
@@ -40132,6 +40373,12 @@ type RepositoryMigration implements Migration & Node {
   The migration state.
   """
   state: MigrationState!
+
+  """
+  The number of warnings encountered for this migration. To review the warnings,
+  check the [Migration Log](https://docs.github.com/en/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer).
+  """
+  warningsCount: Int!
 }
 
 """
@@ -40752,14 +40999,6 @@ type RepositoryVulnerabilityAlert implements Node & RepositoryNode {
   The user who dismissed the alert
   """
   dismisser: User
-
-  """
-  The reason the alert was marked as fixed.
-  """
-  fixReason: String
-    @deprecated(
-      reason: "The `fixReason` field is being removed. You can still use `fixedAt` and `dismissReason`. Removal on 2023-04-01 UTC."
-    )
 
   """
   When was the alert fixed?
@@ -42095,6 +42334,11 @@ enum SecurityAdvisoryEcosystem {
   Rust crates
   """
   RUST
+
+  """
+  Swift packages
+  """
+  SWIFT
 }
 
 """
@@ -43612,6 +43856,11 @@ type Team implements MemberStatusable & Node & Subscribable {
   newTeamUrl: URI!
 
   """
+  The notification setting that the team has set.
+  """
+  notificationSetting: TeamNotificationSetting!
+
+  """
   The organization that owns this team.
   """
   organization: Organization!
@@ -44904,6 +45153,21 @@ enum TeamMembershipType {
 }
 
 """
+The possible team notification values.
+"""
+enum TeamNotificationSetting {
+  """
+  No one will receive notifications.
+  """
+  NOTIFICATIONS_DISABLED
+
+  """
+  Everyone will receive notifications when the team is @mentioned.
+  """
+  NOTIFICATIONS_ENABLED
+}
+
+"""
 Ways in which team connections can be ordered.
 """
 input TeamOrder {
@@ -46178,6 +46442,36 @@ type UnmarkIssueAsDuplicatePayload {
   The issue or pull request that was marked as a duplicate.
   """
   duplicate: IssueOrPullRequest
+}
+
+"""
+Autogenerated input type of UnmarkProjectV2AsTemplate
+"""
+input UnmarkProjectV2AsTemplateInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The ID of the Project to unmark as a template.
+  """
+  projectId: ID! @possibleTypes(concreteTypes: ["ProjectV2"])
+}
+
+"""
+Autogenerated return type of UnmarkProjectV2AsTemplate
+"""
+type UnmarkProjectV2AsTemplatePayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The project.
+  """
+  projectV2: ProjectV2
 }
 
 """
@@ -47950,6 +48244,61 @@ type UpdateProjectPayload {
 }
 
 """
+Autogenerated input type of UpdateProjectV2Collaborators
+"""
+input UpdateProjectV2CollaboratorsInput {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The collaborators to update.
+  """
+  collaborators: [ProjectV2Collaborator!]!
+
+  """
+  The ID of the project to update the collaborators for.
+  """
+  projectId: ID! @possibleTypes(concreteTypes: ["ProjectV2"])
+}
+
+"""
+Autogenerated return type of UpdateProjectV2Collaborators
+"""
+type UpdateProjectV2CollaboratorsPayload {
+  """
+  A unique identifier for the client performing the mutation.
+  """
+  clientMutationId: String
+
+  """
+  The collaborators granted a role
+  """
+  collaborators(
+    """
+    Returns the elements in the list that come after the specified cursor.
+    """
+    after: String
+
+    """
+    Returns the elements in the list that come before the specified cursor.
+    """
+    before: String
+
+    """
+    Returns the first _n_ elements from the list.
+    """
+    first: Int
+
+    """
+    Returns the last _n_ elements from the list.
+    """
+    last: Int
+  ): ProjectV2ActorConnection
+}
+
+"""
 Autogenerated input type of UpdateProjectV2DraftIssue
 """
 input UpdateProjectV2DraftIssueInput {
@@ -49063,7 +49412,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   isEmployee: Boolean!
 
   """
-  Whether or not this user is following the viewer. Inverse of viewer_is_following
+  Whether or not this user is following the viewer. Inverse of viewerIsFollowing
   """
   isFollowingViewer: Boolean!
 
@@ -49930,7 +50279,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
   viewerCanFollow: Boolean!
 
   """
-  Whether or not this user is followed by the viewer. Inverse of is_following_viewer.
+  Whether or not this user is followed by the viewer. Inverse of isFollowingViewer.
   """
   viewerIsFollowing: Boolean!
 
@@ -50531,7 +50880,7 @@ interface Votable {
 """
 A workflow contains meta information about an Actions workflow file.
 """
-type Workflow implements Node {
+type Workflow implements Node & UniformResourceLocatable {
   """
   Identifies the date and time when the object was created.
   """
@@ -50547,6 +50896,11 @@ type Workflow implements Node {
   The name of the workflow.
   """
   name: String!
+
+  """
+  The HTTP path for this workflow
+  """
+  resourcePath: URI!
 
   """
   The runs of the workflow.
@@ -50587,6 +50941,11 @@ type Workflow implements Node {
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+
+  """
+  The HTTP URL for this workflow
+  """
+  url: URI!
 }
 
 """
@@ -50637,6 +50996,11 @@ type WorkflowRun implements Node & UniformResourceLocatable {
   The event that triggered the workflow run
   """
   event: String!
+
+  """
+  The workflow file
+  """
+  file: WorkflowRunFile
   id: ID!
 
   """
@@ -50728,6 +51092,53 @@ type WorkflowRunEdge {
   The item at the end of the edge.
   """
   node: WorkflowRun
+}
+
+"""
+An executed workflow file for a workflow run.
+"""
+type WorkflowRunFile implements Node & UniformResourceLocatable {
+  id: ID!
+
+  """
+  The path of the workflow file relative to its repository.
+  """
+  path: String!
+
+  """
+  The direct link to the file in the repository which stores the workflow file.
+  """
+  repositoryFileUrl: URI!
+
+  """
+  The repository name and owner which stores the workflow file.
+  """
+  repositoryName: URI!
+
+  """
+  The HTTP path for this workflow run file
+  """
+  resourcePath: URI!
+
+  """
+  The parent workflow run execution for this file.
+  """
+  run: WorkflowRun!
+
+  """
+  The HTTP URL for this workflow run file
+  """
+  url: URI!
+
+  """
+  If the viewer has permissions to push to the repository which stores the workflow.
+  """
+  viewerCanPushRepository: Boolean!
+
+  """
+  If the viewer has permissions to read the repository which stores the workflow.
+  """
+  viewerCanReadRepository: Boolean!
 }
 
 """
