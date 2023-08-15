@@ -962,6 +962,7 @@ ghe-repl-start
 This utility displays the status of replication on a node, returning an `OK`, `WARNING` or `CRITICAL` status for each datastore's replication stream. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration)."
 
 - If any of the replication channels are in a `WARNING` state, the command will exit with code `1`.
+- If you have not started replication, the command will exit with code `1`.
 - If any of the channels are in a `CRITICAL` state, the command will exit with code `2`.
 - The output conforms to the expectations of Nagios' check_by_ssh plugin. For more information, see the [check_by_ssh plugin](https://nagios-plugins.org/doc/man/check_by_ssh.html) on the official Nagios plugins page.
 

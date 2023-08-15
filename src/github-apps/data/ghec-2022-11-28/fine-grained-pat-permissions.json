@@ -2748,7 +2748,7 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
         "additional-permissions": [],
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "repos",
@@ -6890,6 +6890,15 @@
     "title": "Repository security advisories",
     "displayTitle": "Repository permissions for \"Repository security advisories\"",
     "permissions": [
+      {
+        "category": "security-advisories",
+        "slug": "list-repository-security-advisories-for-an-organization",
+        "subcategory": "repository-advisories",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/security-advisories",
+        "additional-permissions": [],
+        "access": "write"
+      },
       {
         "category": "security-advisories",
         "slug": "list-repository-security-advisories",

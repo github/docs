@@ -55,7 +55,7 @@ To ensure that commits are attributed to you and appear in your contributions gr
 
 {% endnote %}
 
-If you use your `noreply` email address for {% data variables.product.product_name %} to make commits and then [change your username](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username), those commits will not be associated with your account on {% data variables.location.product_location %}. This does not apply if you're using the ID-based `noreply` address from {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/changing-your-github-username)."{% endif %}
+If you use your `noreply` email address for {% data variables.product.product_name %} to make commits and then [change your username](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username), those commits will not be associated with your account on {% data variables.location.product_location %}. This does not apply if you're using the ID-based `noreply` address from {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username)."{% endif %}
 
 ## Setting your commit email address on {% data variables.product.prodname_dotcom %}
 
@@ -85,7 +85,7 @@ You can use the `git config` command to change the email address you associate w
 
    ```shell
    $ git config --global user.email
-   <span class="output">email@example.com</span>
+   email@example.com
    ```
 
 1. {% data reusables.user-settings.link_email_with_your_account %}
@@ -109,7 +109,7 @@ You can change the email address associated with commits you make in a single re
 
    ```shell
    $ git config user.email
-   <span class="output">email@example.com</span>
+   email@example.com
    ```
 
 1. {% data reusables.user-settings.link_email_with_your_account %}
