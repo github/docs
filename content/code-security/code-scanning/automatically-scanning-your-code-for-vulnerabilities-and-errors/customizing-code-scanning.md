@@ -237,9 +237,18 @@ If your workflow does not contain a matrix called `language`, then {% data varia
     languages: cpp, csharp, python
 ```
 
-{% ifversion fpt or ghec %}
+{% ifversion codeql-python-no-auto-dependencies %}
 
 ## Analyzing Python dependencies
+
+{% note %}
+
+**Notes:** 
+- As of July 12, 2023, automatic dependency installation is disabled by default for new users of {% data variables.product.prodname_codeql %} for Python, with new users defined as those who have no prior Python projects set up for code scanning with {% data variables.product.prodname_codeql %} via advanced setup.
+- Existing code scanning users that have already set up {% data variables.product.prodname_codeql %} to scan at least one Python project will not see any changes in behavior, even to newly configured repositories. However, for improved scan times, we encourage users to disable dependency installation by setting `setup-python-dependencies: false` in the "Initialize CodeQL" step of the workflow.
+- Automatic installation of dependencies will be deprecated for all users by the end of 2023.
+
+{% endnote %}
 
 For GitHub-hosted runners that use Linux only, the {% data variables.code-scanning.codeql_workflow %} will try to auto-install Python dependencies to give more results for the {% data variables.product.prodname_codeql %} analysis. You can control this behavior by specifying the `setup-python-dependencies` parameter for the action called by the "Initialize CodeQL" step. By default, this parameter is set to `true`:
 

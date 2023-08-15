@@ -261,7 +261,7 @@ $ ghe-restore -c 169.154.1.1
 > WARNING: All data on GitHub Enterprise appliance 169.154.1.1 (v2.9.0)
 >          will be overwritten with data from snapshot 20170329T150710.
 > Please verify that this is the correct restore host before continuing.
-> Type 'yes' to continue: <em>yes</em>
+> Type 'yes' to continue: yes
 
 > Starting restore of 169.154.1.1:122 from snapshot 20170329T150710
 # ...output truncated

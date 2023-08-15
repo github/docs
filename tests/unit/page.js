@@ -341,7 +341,7 @@ describe('Page class', () => {
         basePath: path.join(__dirname, '../../content'),
         languageCode: 'en',
       })
-      expect(page.versions).toBe('*')
+      expect(page.versions).toEqual({ fpt: '*', ghae: '*', ghec: '*', ghes: '*' })
     })
 
     test('enterprise admin index page', async () => {

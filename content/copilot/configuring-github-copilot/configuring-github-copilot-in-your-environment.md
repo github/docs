@@ -84,16 +84,6 @@ You can manage advanced settings for {% data variables.product.prodname_copilot 
    - If you have selected to receive automatic updates, you can choose whether to receive stable, but less frequent updates, or nightly updates, which may be less stable. Click the **Update channel** dropdown and select **Stable** for stable updates, or **Nightly** for nightly updates.
    - Under "Disabled languages," use the checkboxes to select or deselect the languages you want to disable {% data variables.product.prodname_copilot %} for.
 
-## Configuring proxy settings for {% data variables.product.prodname_copilot %}
-
-You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in a JetBrains IDE. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication.
-
-1. In your JetBrains IDE, click the **File** menu, then click **Settings**.
-1. Under **Appearance & Behavior**, click **System Settings** and then click **HTTP Proxy**.
-1. Select **Manual proxy configuration**, and then select **HTTP**.
-1. In the "Host name" field, enter the hostname of your proxy server, and in the "Port number" field, enter the port number of your proxy server.
-1. Optionally, in the left sidebar, click **Tools** and then click **Server Certificates**. Then select or deselect **Accept non-trusted certificates automatically**, depending on whether you want to accept non-trusted certificates automatically.
-
 {% data reusables.copilot.dotcom-settings %}
 
 {% endjetbrains %}
@@ -308,16 +298,6 @@ After you have revoked authorization, if you want to continue using {% data vari
 
 1. In your browser, {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Continue**.
 1. In the "Open {% data variables.product.prodname_vscode %}?" pop-up, click **Open {% data variables.product.prodname_vscode %}**.
-
-## Configuring proxy settings for {% data variables.product.prodname_copilot %}
-
-You can configure {% data variables.product.prodname_copilot %} to connect through an HTTP proxy server in {% data variables.product.prodname_vscode %}. {% data variables.product.prodname_copilot %} supports basic HTTP proxy setups, with or without basic authentication.
-
-{% data reusables.copilot.vscode-settings %}
-1. In the left-side panel of the settings tab, click **Application** and then select **Proxy**.
-1. In the textbox under "Proxy", type the address of your proxy server, for example `http://localhost:3128`. Alternatively, {% data variables.product.prodname_copilot %} will use the `http_proxy` and `https_proxy` variables from your environment.
-1. Optionally, under "Proxy Authorization", click **Edit in settings.json** and add your required value to send as the `Proxy-Authorization` header for every network request.
-1. Optionally, under "Proxy Strict SSL", select or deselect the checkbox to enable or disable strict SSL.
 
 {% data reusables.copilot.dotcom-settings %}
 

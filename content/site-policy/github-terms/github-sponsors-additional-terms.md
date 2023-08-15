@@ -30,7 +30,7 @@ Your participation in the GitHub Sponsors Program (the "Program") is subject to 
 
 "**USD**" means United States Dollar.
 
-## 1. Acceptable Use.
+## 2. Acceptable Use.
 
 ### 2.1. GitHub Sponsors Program
 

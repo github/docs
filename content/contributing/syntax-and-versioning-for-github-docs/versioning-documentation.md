@@ -24,15 +24,15 @@ There are two types of versioning syntax for {% data variables.product.prodname_
       PRODUCT: 'VERSIONS'
       ...
     ```
-    
+
     The following example shows content versioned for {% data variables.product.prodname_dotcom_the_website %}, and all versions of {% data variables.product.prodname_ghe_server %}.
-    
+
     ```yaml
     versions:
       fpt: *
       ghes: *
     ```
-    
+
 - Liquid: Used within Markdown files in `content/` and `data/reusables/`, variable strings within YAML files in `data/variables/`, or strings within `data/glossaries/external.yml`. Indicates which text should appear when a reader chooses a version for content that has multiple versions defined by YAML front matter.
 
     - Product-based versioning:
@@ -40,7 +40,7 @@ There are two types of versioning syntax for {% data variables.product.prodname_
       ```javascript
       {% raw %}{% ifversion SHORT-PRODUCT-NAME %} ... {% endif %}{% endraw %}
       ```
-    
+
     - Feature-based versioning:
 
       ```javascript
@@ -156,6 +156,38 @@ When at least one operand must be true for the condition to be true, use the ope
 
 Do not use the operators `&&` or `||`. Liquid does not recognize them, and the content will not render in the intended versions.
 
+### Whitespace control
+
+When using Liquid conditionals in lists or tables, you can use [whitespace control](https://shopify.github.io/liquid/basics/whitespace/) characters to prevent the addition of newlines and other whitespace that would break the list or table rendering.
+
+You can add a hyphen (`-`) on either the left, right, or both sides to indicate that there should be no newline or other whitespace on that side.
+
+```
+{% raw %}{%- ifversion fpt %}{% endraw %}
+```
+
+For example, to version a table row, instead of adding liquid versioning for the row starting at the end of the previous row, like this:
+
+```
+Column A | Column B | Column C
+---------|----------|---------
+This row is for all versions | B1 | C1{% raw %}{% ifversion ghes %}{% endraw %}
+This row is for GHES only | B2 | C2{% raw %}{% endif %}{% endraw %}
+This row is for all versions | B3 | C3
+```
+
+You can include the liquid versioning on its own line and use whitespace control to strip the newline to the left of the liquid tag. This makes reading the source much easier, without breaking the rendering of the table:
+
+```
+Column A | Column B | Column C
+---------|----------|---------
+This row is for all versions | B1 | C1
+{% raw %}{%- ifversion ghes %}{% endraw %}
+This row is for GHES only | B2 | C2
+{% raw %}{%- endif %}{% endraw %}
+This row is for all versions | B3 | C3
+```
+
 ## About feature-based versioning
 
 When you document any new change or feature, use feature-based versioning.
@@ -208,7 +240,7 @@ You cannot use `feature:` to specify multiple concurrent versions, as this is no
 
 ### Schema enforcement
 
-The schema for validating the feature versioning lives in [`src/content-linter/lib/feature-versions-schema.js`](https://github.com/github/docs/blob/main/src/content-linter/lib/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](https://github.com/github/docs/blob/main/tests/linting/lint-versioning.js).
+The schema for validating the feature versioning lives in [`src/content-linter/lib/feature-versions-schema.js`](https://github.com/github/docs/blob/main/src/content-linter/lib/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](https://github.com/github/docs/blob/main/src/content-linter/tests/lint-versioning.js).
 
 ## Versioning for {% data variables.product.prodname_ghe_managed %}
 
@@ -227,7 +259,7 @@ You can version documentation to appear in the current {% data variables.product
 
 ### About the displayed version of {% data variables.product.prodname_ghe_managed %} documentation
 
-We display one version of {% data variables.product.prodname_ghe_managed %} documentation on {% data variables.product.prodname_docs %}: the latest.  We define "latest" in the site's source, within [`all-versions.js`](https://github.com/github/docs/blob/main/lib/all-versions.js#L58). In almost all cases, this value is a safe place to determine the latest public release of {% data variables.product.prodname_ghe_managed %}. 
+We display one version of {% data variables.product.prodname_ghe_managed %} documentation on {% data variables.product.prodname_docs %}: the latest.  We define "latest" in the site's source, within [`all-versions.js`](https://github.com/github/docs/blob/main/lib/all-versions.js#L58). In almost all cases, this value is a safe place to determine the latest public release of {% data variables.product.prodname_ghe_managed %}.
 
 "Latest" corresponds with the latest version of {% data variables.product.prodname_ghe_managed %} that we've deployed to the first customer using the product in production. Generally, {% data variables.product.company_short %} upgrades all production customers on {% data variables.product.prodname_ghe_managed %} to the latest version around the same time, so Product considers only showing the latest documentation an acceptable compromise.
 
@@ -248,7 +280,7 @@ For the reader, gaining a general understanding is more important than reading d
 ### When modifying an existing content file, review existing versioning early and often
 
 Staying cognizant of existing versioning will help ensure that you write relevant versioning statements, and can help remind you to version new content accurately.
-   
+
 - Do review the entire page's versioning in the front matter as soon as you begin editing.
 - Do review the versioning around content that you're editing.
 - Do review the rendered version of changes that you're making, and switch to each available version for the page as part of your self-review.
@@ -257,10 +289,10 @@ Staying cognizant of existing versioning will help ensure that you write relevan
 
 Use versioning syntax within a sentence or paragraph to differentiate prose for two different plans or products. A contributor can edit just one paragraph with versioning statements, instead of needing to consider larger blocks of versioned text and modify similar but differently versioned prose in two places. A reviewer can suggest a change once, instead of needing to leave the same suggestion in multiple places. But if the behavior differs dramatically or versioning within the sentence or paragraph becomes complicated or difficult for a contributor to parse, consider repeating yourself to make the prose easier to maintain.
 
-- Do use versioning syntax inline within paragraphs to avoid repeating sentences or entire paragraphs.  
-  
+- Do use versioning syntax inline within paragraphs to avoid repeating sentences or entire paragraphs.
+
   > You can do {% raw %}{% ifversion fpt %}something{% elsif ghec %}something else{% endif %}{% endraw %}.
-  
+
 - Do use your judgment: for prose that would be complicated to write or read without lots of versioning syntax within a sentence or paragraph, consider repeating the entire paragraph in a version block for each relevant product.
 
   > {% raw %}{% ifversion fpt %}

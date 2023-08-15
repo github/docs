@@ -36,7 +36,9 @@ Protect your organization's repositories and settings by implementing security b
 
 - Encouraging your users to create strong passwords and secure them appropriately, by following {% data variables.product.prodname_dotcom %}’s recommended password guidelines. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password)."
 
-- Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."
+- Establishing an internal security policy in {% data variables.product.prodname_dotcom %}, so users know the appropriate steps to take and who to contact if an incident is suspected. For more information, see "[AUTOTITLE](/code-security/getting-started/adding-a-security-policy-to-your-repository)."{% ifversion secret-scanning-push-protection-for-users %}
+
+- Encouraging your users to enable push protection for users so that no matter which public repository they push to, they will be protected. For more information, see "[AUTOTITLE](/code-security/secret-scanning/push-protection-for-users)."{% endif %}
 
 For more detailed information about securing accounts, see "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)."
 
@@ -52,8 +54,8 @@ Restrict repository creation to private or internal. |  "[AUTOTITLE](/organizati
 Disable repository deletion and transfer. | "[AUTOTITLE](/organizations/managing-organization-settings/setting-permissions-for-deleting-or-transferring-repositories)"
 Scope {% data variables.product.pat_generic %}s to the minimum permissions necessary. | None
 Secure your code by converting public repositories to private whenever appropriate. You can alert the repository owners of this change automatically using a {% data variables.product.prodname_github_app %}. | [Prevent-Public-Repos](https://github.com/apps/prevent-public-repos) in {% data variables.product.prodname_marketplace %}
-Confirm your organization’s identity by verifying your domain and restricting email notifications to only verified email domains. | "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec or ghes %}" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization){% endif %}"
-Ensure your organization has upgraded to the Corporate Terms of Service instead of using the Standard Terms of Service. | "[AUTOTITLE](/free-pro-team@latest/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)"
+Confirm your organization’s identity by verifying your domain and restricting email notifications to only verified email domains. | "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec or ghes %}" and "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization){% endif %}"{% ifversion fpt or ghec %}
+Ensure your organization has upgraded to the {% data variables.product.company_short %} Customer Agreement instead of using the Standard Terms of Service. | "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)"{% endif %}
 Prevent contributors from making accidental commits. | "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository#avoiding-accidental-commits-in-the-future)"
 
 ## Detect data leaks
