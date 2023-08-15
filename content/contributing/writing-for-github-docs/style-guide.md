@@ -754,6 +754,12 @@ A release note for a security fix answers the following questions.
 
 - > **MEDIUM**: An attacker could embed dangerous links in the instance's web UI because pull request preview links did not properly sanitize URLs. This vulnerability was reported via the [{% data variables.product.company_short %} Bug Bounty program](https://bounty.github.com).
 
+#### Base image and package updates
+
+We also include base image and dependent package updates in the "Security fixes" section, since these updates often address security issues. We consolidate all of these updates in the following note.
+
+> Packages have been updated to the latest security versions.
+
 ### Bug fixes
 
 A release note for a bug fix describes a correction to an undesired or otherwise unexpected behavior. Generally, notes for bug fixes are only part of patch releases.

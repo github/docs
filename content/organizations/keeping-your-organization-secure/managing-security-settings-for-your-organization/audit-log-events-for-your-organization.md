@@ -380,7 +380,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `update_member` | Triggered when an owner changes a person's role from owner to member or member to owner.
 | `update_member_repository_creation_permission` | Triggered when an owner changes the create repository permission for organization members.{% ifversion fpt or ghec %}
 | `update_saml_provider_settings` | Triggered when an organization's SAML provider settings are updated.
-| `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the Corporate Terms of Service. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
+| `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the {% data variables.product.company_short %} Customer Agreement. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."{% endif %}
 
 {% ifversion ghec %}
 
