@@ -89,8 +89,8 @@ You can make and save changes to the files in your repository. On {% data variab
 1. In the editor, write a bit about yourself. Try using different Markdown elements.
 {% ifversion code-search-code-view %}
 1. Click **Commit changes...**.
-1. In the "Propose changes" box, write a commit message that describes your changes.
-1. Click **Propose changes**.
+1. In the "Commit changes" box, write a commit message that describes your changes.
+1. Click **Commit changes**.
 {% else %}
 1. In the "Commit changes" box, write a commit message that describes your changes.
 1. Click **Commit changes**.
