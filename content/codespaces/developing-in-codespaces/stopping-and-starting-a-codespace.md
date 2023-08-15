@@ -12,11 +12,11 @@ topics:
 shortTitle: Stop a codespace
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About stopping and starting a codespace
 
@@ -56,11 +56,11 @@ gh codespace stop
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 You can stop a codespace from the "Your codespaces" page (see [the web browser instructions](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=webui#stopping-a-codespace)) or by using {% data variables.product.prodname_cli %} (see [the CLI instructions](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace?tool=cli#stopping-a-codespace)).
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## Restarting a codespace
 
@@ -99,11 +99,11 @@ When you restart a codespace you can choose to open it in {% data variables.prod
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.opening-codespace-in-jetbrains %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## Further reading
 
