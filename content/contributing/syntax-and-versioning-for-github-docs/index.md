@@ -7,6 +7,7 @@ versions:
   feature: 'contributing'
 children:
   - /versioning-documentation
+  - /using-yaml-frontmatter
   - /using-markdown-and-liquid-in-github-docs
   - /changing-an-articles-title
   - /configuring-redirects
