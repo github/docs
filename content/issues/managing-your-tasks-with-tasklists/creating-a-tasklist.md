@@ -47,7 +47,6 @@ Once you have started editing your tasklist Markdown, you can add new tasks by p
 
 - A draft task. Draft tasks are text that can later be converted into issues.
 - The full link to an issue or pull request.  For example, `https://github.com/octo-org/octo-repo/issues/45`. If an issue or pull request is in the same repository as your tasklist, you can use the #ISSUE-NUMBER shorthand syntax. For example, `#45`.
-- If an issue or pull request is in the same repository as your tasklist, you can use the #ISSUE-NUMBER shorthand syntax.  For example, `#45`.
 
 If you add a draft task, it must meet these requirements:
 
