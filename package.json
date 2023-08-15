@@ -182,7 +182,7 @@
     "jest-slow-test-reporter": "^1.0.0",
     "json-schema-merge-allof": "^0.8.1",
     "kill-port": "2.0.1",
-    "lint-staged": "^13.0.1",
+    "lint-staged": "^14.0.0",
     "make-promises-safe": "^5.1.0",
     "markdownlint": "^0.28.2",
     "markdownlint-rule-helpers": "^0.19.0",
