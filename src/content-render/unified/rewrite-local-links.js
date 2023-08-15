@@ -14,7 +14,7 @@ import findPage from '../../../lib/find-page.js'
 const isProd = process.env.NODE_ENV === 'production'
 
 const supportedPlans = new Set(Object.values(allVersions).map((v) => v.plan))
-const externalRedirects = readJsonFile('./lib/redirects/external-sites.json')
+const externalRedirects = readJsonFile('./src/redirects/lib/external-sites.json')
 
 // Meaning it can be 'AUTOTITLE ' or ' AUTOTITLE' or 'AUTOTITLE'
 const AUTOTITLE = /^\s*AUTOTITLE\s*$/
@@ -70,7 +70,7 @@ export default function rewriteLocalLinks(context) {
             ) {
               throw new Error(
                 `Found link text '${child.value}', expected 'AUTOTITLE'. ` +
-                  `Find the mention of the link text '${child.value}' and change it to 'AUTOTITLE'. Case matters.`
+                  `Find the mention of the link text '${child.value}' and change it to 'AUTOTITLE'. Case matters.`,
               )
             }
           }
@@ -86,7 +86,7 @@ export default function rewriteLocalLinks(context) {
           if (child.value && AUTOTITLE.test(child.value)) {
             throw new Error(
               `Found anchor link with text AUTOTITLE ('${node.properties.href}'). ` +
-                'Update the anchor link with text that is not AUTOTITLE.'
+                'Update the anchor link with text that is not AUTOTITLE.',
             )
           }
         }
@@ -125,6 +125,19 @@ function getNewHref(node, languageCode, version) {
   const firstLinkSegment = href.split('/')[1]
   if (supportedPlans.has(firstLinkSegment.split('@')[0])) {
     newHref = path.posix.join('/', languageCode, href)
+  } else if (firstLinkSegment.includes('@')) {
+    // This could mean a bad typo!
+    // This can happend if you have something
+    // like `/enterprise-servr@3.9/foo/bar` which is a typo. I.e.
+    // `enterprise-servr` is not a valid plan, but it has a `@` character  in it.
+    console.warn(
+      `
+Warning! The first segment of the internal link has a '@' character in it
+but the plan is not recognized. This is likely a typo.
+Please inspect the link and fix it if it's a typo.
+Look for an internal link that starts with '${href}'.
+    `,
+    )
   }
 
   // If the link includes a deprecated version, do not update other than adding a language code

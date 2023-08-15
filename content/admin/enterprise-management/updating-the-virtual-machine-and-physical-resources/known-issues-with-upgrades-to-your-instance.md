@@ -23,7 +23,7 @@ shortTitle: Known issues with upgrades
 
 If you upgrade from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9 or later, an upgrade to the database software on your instance will increase I/O utilization. In some cases, this may affect your instance's performance.
 
-{% data variables.product.prodname_ghe_server %} includes a MySQL database server supported by the InnoDB storage engine. {% data variables.product.prodname_ghe_server %} 3.8 and earlier use MySQL 5.7. In October 2023, Oracle will end extended support for MySQL 5.1. For more information, see [Oracle Lifetime Support Policy](https://www.oracle.com/us/support/library/lifetime-support-technology-069183.pdf) on the Oracle Support website.
+{% data variables.product.prodname_ghe_server %} includes a MySQL database server supported by the InnoDB storage engine. {% data variables.product.prodname_ghe_server %} 3.8 and earlier use MySQL 5.7. In October 2023, Oracle will end extended support for MySQL 5.7. For more information, see [Oracle Lifetime Support Policy](https://www.oracle.com/us/support/library/lifetime-support-technology-069183.pdf) on the Oracle Support website.
 
 To future-proof {% data variables.product.prodname_ghe_server %} and provide the latest security updates, bug fixes, and performance improvements, {% data variables.product.prodname_ghe_server %} 3.9 and later use MySQL 8.0. MySQL 8.0 achieves a higher number of queries per second (QPS) due to a redesigned REDO log. For more information, see [MySQL Performance: 8.0 re-designed REDO log & ReadWrite Workloads Scalability](http://dimitrik.free.fr/blog/archives/2017/10/mysql-performance-80-redesigned-redo-log-readwrite-workloads-scalability.html) on DimitriK's (dim) Weblog.
 
@@ -107,5 +107,81 @@ You can reduce pending operations, increase IOPS, and improve performance by pro
 Finally, if you're willing to help {% data variables.product.company_short %}  understand the real-world impact of the upgrade to MySQL 8, you can provide the data you've collected to {% data variables.contact.github_support %}. Provide the baseline and post-upgrade observations from the monitor dashboard, along with a support bundle that covers the period when you collected data. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)" and "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support)."
 
 The data you submit helps {% data variables.product.company_short %} continue to provide a performant product, but {% data variables.product.company_short %} does not guarantee any additional mitigation steps or changes to the product as a result of the data you provide.
+
+## MySQL does not start after upgrade to {% data variables.product.prodname_ghe_server %} 3.9
+
+During an upgrade to {% data variables.product.prodname_ghe_server %} 3.9, if MySQL did not gracefully shut down during the shutdown of the {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 instance, MySQL will attempt to go through crash recovery when the {% data variables.product.prodname_ghe_server %} 3.9 instance starts up. Since {% data variables.product.prodname_ghe_server %} 3.7 and 3.8 uses MySQL 5.7 and {% data variables.product.prodname_ghe_server %} 3.9 has been upgraded to MySQL 8.0, MySQL will not be able to complete crash recovery.
+
+If you experience this problem, the following error will be in the mysql error log (`/var/log/mysql/mysql.err`):
+
+```shell copy
+[ERROR] [MY-012526] [InnoDB] Upgrade after a crash is not supported. This redo log was created with MySQL 5.7.40. Please follow the instructions at http://dev.mysql.com/doc/refman/8.0/en/upgrading.html
+```
+
+### Avoiding this issue
+
+We strongly recommend you upgrade your {% data variables.product.prodname_ghe_server %} instance to the latest patch version (3.7.14 or higher, or 3.8.7 or higher) before you upgrade to 3.9. These versions contain a fix for the upgrade issue.
+
+If you cannot upgrade {% data variables.location.product_location %}, then you can avoid the issue by updating the nomad timeout for MySQL before starting an upgrade to {% data variables.product.prodname_ghe_server %} 3.9:
+
+1. Put your instance into maintenance mode:
+
+  ```shell copy
+  ghe-maintenance -s
+  ```
+1. Update consul template for nomad:
+
+  ```shell copy
+  sudo sed -i.bak '/kill_signal/i \      kill_timeout = "10m"' /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl
+  ```
+1. Render consul template for nomad:
+
+  ```shell copy
+  sudo consul-template -once -template /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl:/etc/nomad-jobs/mysql/mysql.hcl
+  ```
+1. Verify current `kill_timeout` setting:
+
+  ```shell copy
+  nomad job inspect mysql | grep KillTimeout
+  ```
+  
+  Expected response:
+  
+  ```shell copy
+  "KillTimeout": 5000000000
+  ```
+1. Stop MySQL:
+
+  ```shell copy
+  nomad job stop mysql
+  ```
+1. Run new MySQL job:
+
+  ```shell copy
+  nomad job run /etc/nomad-jobs/mysql/mysql.hcl
+  ```
+1. Verify kill_timeout has been updated:
+
+  ```shell copy
+  nomad job inspect mysql | grep KillTimeout
+  ```
+  Expected response:
+  
+  ```shell copy
+  "KillTimeout": 600000000000,
+  ```
+1. Take instance out of maintenance mode:
+
+  ```shell copy
+  ghe-maintenance -u
+  ```
+
+Now that the nomad timeout for MySQL has been updated you can upgrade your {% data variables.product.prodname_ghe_server %} instance to 3.9.
+
+### Mitigating a failed restart of MySQL
+
+If you're affected by this problem, restore your {% data variables.product.prodname_ghe_server %} instance to the state it was in prior to the upgrade attempt, and then follow the steps from the previous section.
+
+For more information about restoring from a failed upgrade, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#restoring-from-a-failed-upgrade)."
 
 {% endif %}

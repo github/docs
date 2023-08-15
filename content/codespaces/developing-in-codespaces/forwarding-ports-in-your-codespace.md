@@ -14,11 +14,11 @@ topics:
   - Developer
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About forwarded ports
 
@@ -63,8 +63,8 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 {% data reusables.codespaces.using-tools-to-access-ports-1 %}
 {% data reusables.codespaces.find-address-and-token %}
 {% data reusables.codespaces.using-tools-to-access-ports-2 %}
-{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 
 {% endwebui %}
 
@@ -97,8 +97,8 @@ By default, {% data variables.product.prodname_github_codespaces %} forwards por
 {% data reusables.codespaces.using-tools-to-access-ports-1 %}
 {% data reusables.codespaces.find-address-and-token %}
 {% data reusables.codespaces.using-tools-to-access-ports-2 %}
-{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 {% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
+{% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
 
 {% endvscode %}
 
@@ -146,14 +146,14 @@ Copy the address and paste it somewhere for later use.
 
 1. Start an SSH session for your codespace.
 
-   ```
+   ```shell
    gh codespace ssh
    ```
 
 1. If you have more than one codespace, select the appropriate codespace from the list that's displayed.
 1. Display the `GITHUB_TOKEN`.
 
-   ```
+   ```shell
    echo $GITHUB_TOKEN
    ```
 
@@ -169,20 +169,21 @@ Copy the address and paste it somewhere for later use.
 
 1. Exit the SSH session.
 
-   ```
+   ```shell
    exit
    ```
 
 {% data reusables.codespaces.using-tools-to-access-ports-2 %}
+{% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
 {% data reusables.codespaces.port-forwarding-labeling-non-jetbrains %}
+
+### Seeing port labels on the command line
 
 You can see the port labels when you list the forwarded ports for a codespace. To do this, use the `gh codespace ports` command and then select a codespace.
 
-{% data reusables.codespaces.port-forwarding-adding-non-jetbrains %}
-
 {% endcli %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Forwarding a port
 
@@ -190,4 +191,4 @@ For information on how to forward a port in a codespace to a port on your local 
 
 Alternatively, you can use {% data variables.product.prodname_cli %} to forward a port. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this page.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}

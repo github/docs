@@ -26,20 +26,20 @@ export async function getSchemas(directory = OPEN_API_RELEASES_DIR) {
     const yamlContent = yaml.load(content)
 
     const releaseMatch = Object.keys(configData.versionMapping).find((name) =>
-      fileBaseName.startsWith(name)
+      fileBaseName.startsWith(name),
     )
     if (!releaseMatch) {
       throw new Error(
         `🛑 The file ${fileBaseName} does not match any known docs version name. (not one of ${Object.keys(
-          configData.versionMapping
-        )})`
+          configData.versionMapping,
+        )})`,
       )
     }
     const docsName =
       configData.versionMapping[fileBaseName] ||
       fileBaseName.replace(releaseMatch, configData.versionMapping[releaseMatch])
     const isDeprecatedInDocs = !Object.keys(allVersions).find(
-      (version) => allVersions[version].openApiVersionName === docsName
+      (version) => allVersions[version].openApiVersionName === docsName,
     )
     if (!yamlContent.published) {
       unpublished.push(newFileName)

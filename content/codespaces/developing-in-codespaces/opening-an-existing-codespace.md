@@ -12,11 +12,11 @@ topics:
 shortTitle: Open an existing codespace
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 You can reopen any of your active or stopped codespaces on {% data variables.product.prodname_dotcom_the_website %}, in a JetBrains IDE, in {% data variables.product.prodname_vscode %}, or by using {% data variables.product.prodname_cli %}. You can't reopen a codespace that has been deleted. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle)."
 
@@ -75,6 +75,8 @@ You can bookmark the address of this page if you want to get back to it quickly 
 
    If you choose **JupyterLab**, the JupyterLab application must be installed in the codespace. {% data reusables.codespaces.jupyterlab-in-default-image %}
 
+{% data reusables.codespaces.linking-to-an-existing-codespace %}
+
 {% endwebui %}
 
 {% vscode %}
@@ -100,11 +102,16 @@ You can also access the commands listed above by navigating to the Remote Explor
 ![Screenshot of a codespace selected in the Remote Explorer, with "Open in Browser" highlighted in the right-click menu.](/assets/images/help/codespaces/open-codespace-remote-explorer.png)
 
 {% data reusables.codespaces.remote-explorer %}
+
+{% data reusables.codespaces.linking-to-an-existing-codespace %}
+
 {% endvscode %}
 
 {% cli %}
 
 ## Reopening an existing codespace
+
+{% data reusables.codespaces.using-github-cli %}
 
 1. In a terminal, enter one of the following {% data variables.product.prodname_cli %} commands.
    - To open a codespace in {% data variables.product.prodname_vscode_shortname %}, enter:
@@ -150,10 +157,14 @@ For more information, see [`gh codespace code`](https://cli.github.com/manual/gh
 
 {% endcli %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Reopening an existing codespace
 
 {% data reusables.codespaces.opening-codespace-in-jetbrains %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
+
+## Further reading
+
+- "[AUTOTITLE](/rest/codespaces)" (REST API reference)

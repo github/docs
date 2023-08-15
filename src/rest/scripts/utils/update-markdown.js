@@ -11,7 +11,7 @@ import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../../lib/index.js'
 import { deprecated } from '../../../../lib/enterprise-server-releases.js'
 
 const { frontmatterDefaults, targetDirectory } = JSON.parse(
-  await readFile('src/rest/lib/config.json', 'utf-8')
+  await readFile('src/rest/lib/config.json', 'utf-8'),
 )
 
 export async function updateRestFiles() {
@@ -34,7 +34,9 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
     // Ignore any deprecated versions. This allows us to stop supporting
     // the most recent deprecated version but still allow data to exist.
     // This makes the deprecation steps easier.
-    .filter((file) => !deprecated.some((depVersion) => file.includes(`ghes-${depVersion}`)))
+    .filter((file) => {
+      return !deprecated.some((depVersion) => file.split(path.sep).includes(depVersion))
+    })
 
   const restVersions = {}
 
@@ -62,7 +64,7 @@ async function getDataFrontmatter(dataDirectory, schemaFilename) {
 }
 
 /*
-  Take an object that includes the version frontmatter 
+  Take an object that includes the version frontmatter
   that should be applied to the Markdown page that corresponds
   to the category and subcategory. The format looks like this:
   {

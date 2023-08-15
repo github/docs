@@ -6,6 +6,7 @@ import { SupportPortalVaIframe, SupportPortalVaIframeProps } from './SupportPort
 import styles from './ArticleInlineLayout.module.scss'
 
 type Props = {
+  breadcrumbs?: React.ReactNode
   intro?: React.ReactNode
   topper?: React.ReactNode
   toc?: React.ReactNode
@@ -14,6 +15,7 @@ type Props = {
   supportPortalVaIframeProps?: SupportPortalVaIframeProps
 }
 export const ArticleInlineLayout = ({
+  breadcrumbs,
   intro,
   topper,
   toc,
@@ -23,34 +25,44 @@ export const ArticleInlineLayout = ({
 }: Props) => {
   return (
     <Box className={cx(styles.containerBox, className)}>
-      {topper && <Box gridArea="topper">{topper}</Box>}
-      {toc && (
+      {breadcrumbs && (
+        <Box gridArea="breadcrumbs" className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>
+          {breadcrumbs}
+        </Box>
+      )}
+      <Box className={cx(styles.contentBox)}>
+        {topper && <Box gridArea="topper">{topper}</Box>}
+
+        {intro && (
+          <Box id="article-intro" gridArea="intro">
+            {intro}
+          </Box>
+        )}
+
+        {toc && (
+          <Box
+            data-container="toc"
+            gridArea="sidebar"
+            alignSelf="flex-start"
+            className={cx(styles.sidebarBox, 'border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0')}
+          >
+            {toc}
+          </Box>
+        )}
+
         <Box
-          gridArea="sidebar"
-          alignSelf="flex-start"
-          className={cx(styles.sidebarBox, 'border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0')}
+          data-container="article"
+          gridArea="content"
+          data-search="article-body"
+          className={cx(styles.articleContainer, className)}
         >
-          {toc}
+          {supportPortalVaIframeProps &&
+            supportPortalVaIframeProps.supportPortalUrl &&
+            supportPortalVaIframeProps.vaFlowUrlParameter && (
+              <SupportPortalVaIframe supportPortalVaIframeProps={supportPortalVaIframeProps} />
+            )}
+          {children}
         </Box>
-      )}
-
-      {intro && (
-        <Box id="article-intro" gridArea="intro">
-          {intro}
-        </Box>
-      )}
-
-      <Box
-        gridArea="content"
-        data-search="article-body"
-        className={cx(styles.articleContainer, className)}
-      >
-        {supportPortalVaIframeProps &&
-          supportPortalVaIframeProps.supportPortalUrl &&
-          supportPortalVaIframeProps.vaFlowUrlParameter && (
-            <SupportPortalVaIframe supportPortalVaIframeProps={supportPortalVaIframeProps} />
-          )}
-        {children}
       </Box>
     </Box>
   )

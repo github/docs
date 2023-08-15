@@ -7,7 +7,8 @@ name: Codeowners - Content Strategy
 on:
   pull_request:
     paths:
-      - '/contributing/content-*.md'
+      - 'contributing/content-*.md'
+      - 'content/contributing/**.md'
 
 jobs:
   codeowners-content-strategy:

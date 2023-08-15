@@ -9,7 +9,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches
 versions:
-  fpt: '*'
+  feature: desktop
 
 ---
 ## About managing branches

@@ -23,7 +23,7 @@ The steps described below assume you have GitHub Codespaces set up to edit files
    In most cases, the path to the file, below the `content` directory, matches the path in URL, minus the `.md` file name extension. For example, the source for the article <code>https<span></span>://docs.github.com/en/**codespaces/getting-started/quickstart**</code> is the markdown file <code>content/**codespaces/getting-started/quickstart**.md</code>.
 1. Edit the markdown file as required.
 1. Save your changes.
-1. Commit and push your changes, either using the Source Control pane, or using Git commands from the Terminal. For more information, see "[About Git](https://docs.github.com/en/get-started/using-git/about-git)."
+1. Commit and push your changes, either using the "Source Control" view, or using Git commands from the Terminal. For more information, see "[About Git](https://docs.github.com/en/get-started/using-git/about-git)."
 1. Go to the **Pull requests** tab of the `github/docs` repository: https://github.com/github/docs/pulls
 1. Click **New pull request**.
 1. If you're an open source contributor: click **compare across forks** and choose the forked repository you created, and your working branch.<br>

@@ -1,7 +1,7 @@
 ---
 title: Deployments
 intro: Use the REST API to create and delete deployments and deployment environments.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -24,7 +24,7 @@ GitHub dispatches `deployment` and `deployment_status` events when new deploymen
 
 Below is a simple sequence diagram for how these interactions would work.
 
-```
+```text
 +---------+             +--------+            +-----------+        +-------------+
 | Tooling |             | GitHub |            | 3rd Party |        | Your Server |
 +---------+             +--------+            +-----------+        +-------------+

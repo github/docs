@@ -45,8 +45,6 @@ If you are a site administrator for {% data variables.location.product_location 
     <!-- GitHub AE is FIPS 140-2 compliant. FIPS does not yet permit keys that use the ed25519 algorithm. -->
    ```shell
    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-   ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-
    ```
 
    {%- else %}
@@ -77,7 +75,7 @@ When you're prompted to "Enter a file in which to save the key", you can press *
    {% mac %}
 
    ```shell
-   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM: [Press enter]
+   > Enter a file in which to save the key (/Users/YOU/.ssh/id_ALGORITHM): [Press enter]
    ```
 
    {% endmac %}
@@ -186,8 +184,9 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    > Agent pid 59566
    ```
 
-1. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+1. Add your SSH private key to the ssh-agent.
+{% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent spaces=3 %}
+{% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent-commandline spaces=3 %}
 
 {% data reusables.ssh.add-public-key-to-github %}
 
@@ -197,8 +196,9 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
 {% data reusables.command_line.start_ssh_agent %}
 
-1. Add your SSH private key to the ssh-agent. {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-   {% data reusables.ssh.add-ssh-key-to-ssh-agent-commandline %}
+1. Add your SSH private key to the ssh-agent.
+{% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent spaces=3 %}
+{% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent-commandline spaces=3 %}
 
 {% data reusables.ssh.add-public-key-to-github %}
 

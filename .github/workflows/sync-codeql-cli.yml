@@ -46,7 +46,7 @@ jobs:
           token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           repository: github/semmle-code
           path: semmle-code
-          ref: ${{ github.event.inputs.SOURCE_BRANCH }}
+          ref: ${{ inputs.SOURCE_BRANCH }}
 
       - uses: ./.github/actions/node-npm-setup
 

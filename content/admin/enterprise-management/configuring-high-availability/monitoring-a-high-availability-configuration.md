@@ -3,7 +3,7 @@ title: Monitoring a high-availability configuration
 intro: "After configuration of high availability for {% data variables.location.product_location %}, you can monitor the status of data replication among to your instance's replica nodes."
 versions:
   ghes: '*'
-permissions: Site administrators can monitor a high-availablity configuration for a {% data variables.product.product_name %} instance.
+permissions: Site administrators can monitor a high-availability configuration for a {% data variables.product.product_name %} instance.
 type: how_to
 topics:
   - Enterprise
@@ -66,6 +66,8 @@ You must start replication on each node using the `ghe-repl-start` command-line 
 ### Communication issues between nodes
 
 Replication requires that the primary node and all replica nodes can communicate with each other over the network. At minimum, ensure that ports 122/TCP and 1194/UDP are open for bidirectional communication between all of your instance's nodes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)."
+
+{% data reusables.enterprise_clustering.network-latency %} You can use `ping` or another network administration utility to test the network connectivity between nodes.
 
 ### Under-replication
 

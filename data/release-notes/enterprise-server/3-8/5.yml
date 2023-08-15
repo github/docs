@@ -4,8 +4,6 @@ sections:
     - |
       **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. GitHub has requested CVE ID [CVE-2023-23765](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23765) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
     - |
-      **MEDIUM**: Updated Git to include fixes from [2.40.1](https://github.blog/2023-04-25-git-security-vulnerabilities-announced-4/). 
-    - |
       If a user's request to the instance's API included authentication credentials within a URL parameter, administrators could see the credentials in JSON within the instance's audit log. 
     - Packages have been updated to the latest security versions. 
   bugs:
@@ -19,6 +17,8 @@ sections:
   changes:
     - If a configuration runs fails due to Elasticsearch errors, `ghe-config-apply` displays a more actionable error message. 
   known_issues:
+    - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
     - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |

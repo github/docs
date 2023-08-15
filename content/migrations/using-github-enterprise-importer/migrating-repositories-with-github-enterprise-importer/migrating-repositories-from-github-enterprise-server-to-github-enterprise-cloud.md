@@ -419,6 +419,8 @@ gh gei generate-script --github-source-org SOURCE \
 
 {% data reusables.enterprise-migration-tool.review-migration-script %}
 
+{% data reusables.enterprise-migration-tool.skip-releases %}
+
 ## Step 6: Migrate repositories
 
 {% data reusables.enterprise-migration-tool.migrate-repos-gei %}
@@ -428,7 +430,7 @@ When you migrate repositories, the {% data variables.product.prodname_gei_cli %}
 1. Connects to {% data variables.location.product_location_enterprise %} and generates two migration archives per repository, one for the Git source and one for the metadata
 1. Uploads the migration archives to the blob storage provider of your choice
 1. Starts your migration in {% data variables.product.prodname_ghe_cloud %}, using the URLs of the archives stored with your blob storage provider
-1. Deletes the migration archive
+1. Deletes the migration archive from your local machine
 
 ### Migrate multiple repositories
 

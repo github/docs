@@ -83,7 +83,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const showExampleOptionMediaType =
     languageExamples.length > 1 &&
     !languageExamples.every(
-      (example) => example.response.contentType === languageExamples[0].response.contentType
+      (example) => example.response.contentType === languageExamples[0].response.contentType,
     )
   const exampleSelectOptions = languageExamples.map((example, index) => ({
     text: showExampleOptionMediaType
@@ -276,9 +276,13 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             <Tooltip
               className="mr-2"
               direction="w"
-              aria-label={isCopied ? 'Copied!' : 'Copy to clipboard'}
+              aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
             >
-              <button className="js-btn-copy btn-octicon" onClick={() => setCopied()}>
+              <button
+                aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
+                className="js-btn-copy btn-octicon"
+                onClick={() => setCopied()}
+              >
                 {isCopied ? <CheckIcon /> : <CopyIcon />}
               </button>
             </Tooltip>
@@ -290,7 +294,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
           className={cx(
             styles.codeBlock,
             styles.requestCodeBlock,
-            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`
+            `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
         >
@@ -350,7 +354,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               className={cx(
                 styles.codeBlock,
                 styles.responseCodeBlock,
-                'border-top rounded-1 my-0'
+                'border-top rounded-1 my-0',
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}

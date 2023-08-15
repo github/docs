@@ -21,7 +21,7 @@ topics:
 
 ## About log forwarding
 
-Any log collection system that supports syslog-style log streams is supported (e.g., [Logstash](http://logstash.net/) and [Splunk](http://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
+Any log collection system that supports syslog-style log streams is supported (e.g., [Logstash](https://www.elastic.co/products/logstash) and [Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 
 When you enable log forwarding, you must upload a CA certificate to encrypt communications between syslog endpoints. Your appliance and the remote syslog server will perform two-way SSL, each providing a certificate to the other and validating the certificate which is received.
 

@@ -33,7 +33,7 @@ curl --include --request GET \
 
 If the response is paginated, the link header will look something like this:
 
-```
+```http
 link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="prev", <https://api.github.com/repositories/1300192/issues?page=4>; rel="next", <https://api.github.com/repositories/1300192/issues?page=515>; rel="last", <https://api.github.com/repositories/1300192/issues?page=1>; rel="first"
 ```
 
@@ -54,7 +54,7 @@ curl --include --request GET \
 --header "Accept: application/vnd.github+json"
 ```
 
-The URLs in the link header use query parameters to indicate what page of results to return. The query parameters in the link URLs may differ between endpoints: each paginated endpoint will use the `page`, `before`/`after`, or `since` query parameters. (Some endpoints use the `since` parameter for something other than pagination.) In all cases, you can use the URLs in the link header to fetch additional pages of results. For more information about query parameters see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#using-query-parameters)."  
+The URLs in the link header use query parameters to indicate what page of results to return. The query parameters in the link URLs may differ between endpoints: each paginated endpoint will use the `page`, `before`/`after`, or `since` query parameters. (Some endpoints use the `since` parameter for something other than pagination.) In all cases, you can use the URLs in the link header to fetch additional pages of results. For more information about query parameters see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#using-query-parameters)."
 
 ## Changing the number of items per page
 
@@ -70,7 +70,7 @@ curl --include --request GET \
 
 The `per_page` parameter will automatically be included in the link header. For example:
 
-```
+```http
 link: <https://api.github.com/repositories/1300192/issues?per_page=2&page=2>; rel="next", <https://api.github.com/repositories/1300192/issues?per_page=2&page=7715>; rel="last"
 ```
 
@@ -169,7 +169,7 @@ function parseData(data) {
   // Pull out the array of items
   const namespaceKey = Object.keys(data)[0];
   data = data[namespaceKey];
-  
+
   return data;
 }
 
