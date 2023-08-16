@@ -340,9 +340,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 
 {% note %}
 
-**Note:**
-
-- If you need to use a workflow run's URL from within a job, you can combine these variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
+**Note:** If you need to use a workflow run's URL from within a job, you can combine these variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
 
 {% endnote %}
 
