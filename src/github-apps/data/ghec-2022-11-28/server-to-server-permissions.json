@@ -4127,6 +4127,28 @@
       },
       {
         "category": "repos",
+        "slug": "enable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "put",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
+        "slug": "disable-private-vulnerability-reporting-for-a-repository",
+        "subcategory": "repos",
+        "verb": "delete",
+        "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": []
+      },
+      {
+        "category": "repos",
         "slug": "create-a-repository-ruleset",
         "subcategory": "rules",
         "verb": "post",
