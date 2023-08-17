@@ -1,1 +1,5 @@
-Above commands are executed to start the `ssh-agent` manually in your environment. If the commands fail, please check the relevant documentation for your environment to start `ssh-agent`
+{% tip %}
+
+**Note:** The eval commands above start ssh-agent manually in your environment. These commands may fail if ssh-agent already runs as a background system service. If that happens, we recommend you check the relevant documentation for your environment.
+
+{% endtip %}
