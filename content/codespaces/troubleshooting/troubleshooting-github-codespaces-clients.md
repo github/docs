@@ -12,11 +12,11 @@ redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 {% webui %}
 
@@ -68,7 +68,7 @@ If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stabl
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Troubleshooting JetBrains IDEs
 
@@ -146,4 +146,4 @@ If you encounter problems with key validation, try upgrading your version of {% 
 
 For help with issues specific to the JetBrains IDE you are using, or the JetBrains Gateway application, see "[Product Support](https://www.jetbrains.com/support/)" on the JetBrains website.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
