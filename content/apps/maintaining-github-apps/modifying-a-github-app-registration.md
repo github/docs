@@ -79,11 +79,9 @@ If you select **Request user authorization (OAuth) during installation**, you wi
 
 You can change the access permissions that are granted to your {% data variables.product.prodname_github_app %} using the following steps.
 
-When you change the **repository** or **organization** permissions of an app, each account where the app is installed will need to approve the new permissions. When you change the **account** permissions of an app, each user that has authorized the app will need to approve the permission changes. Updated permissions won't take effect on an installation or user authorization until the new permissions are approved. You can use the [installation webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to find out when people accept new permissions for your app.
+When you change the **repository** or **organization** permissions of an app, each account where the app is installed will need to approve the new permissions. When you change the **account** permissions of an app, each user that has authorized the app will need to approve the permission changes. In both cases, the existing users of your app will receive the emails from GitHub which notify the change of the permissions and ask for reviewing those changes. Updated permissions won't take effect on an installation or user authorization until the new permissions are approved. You can use the [installation webhook](/webhooks-and-events/webhooks/webhook-events-and-payloads?actionType=new_permissions_accepted#installation) to find out when people accept new permissions for your app.
 
 Changing the permissions of an app may also change the webhooks that your app can subscribe to and the actions that your app can take with the API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
-
-When you change the permissions, the existing users of your app will receive the emails from GitHub which notify the change of the permissions and ask for reviewing them.
 
 {% data reusables.apps.navigate-to-app-settings-this-article %}
 1. In the {% data variables.product.prodname_github_apps %} settings sidebar, click **Permissions & events**.
