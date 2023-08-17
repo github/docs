@@ -14,13 +14,11 @@ export const ProductArticlesList = () => {
 
   return (
     <div className="d-flex gutter flex-wrap" data-testid="product-articles-list">
-      {currentProductTree.childPages.map((treeNode, i) => {
-        if (treeNode.childPages.length === 0) {
-          return null
-        }
-
-        return <ProductTreeNodeList key={treeNode.href + i} treeNode={treeNode} />
-      })}
+      {currentProductTree.childPages
+        .filter((treeNode) => treeNode.childPages.length)
+        .map((treeNode) => {
+          return <ProductTreeNodeList key={treeNode.href} treeNode={treeNode} />
+        })}
     </div>
   )
 }
