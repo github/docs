@@ -449,9 +449,9 @@ test.describe('test nav at different viewports', () => {
 
 test.describe('survey', () => {
   test('happy path, thumbs up and enter email', async ({ page }) => {
-    await page.goto('/get-started/foo/for-playwright')
-
     let fulfilled = 0
+    // Important to set this up *before* interacting with the page
+    // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
@@ -461,6 +461,8 @@ test.describe('survey', () => {
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
     })
+
+    await page.goto('/get-started/foo/for-playwright')
 
     // The label is visually an SVG. Finding it by its `for` value feels easier.
     await page.locator('[for=survey-yes]').click()
@@ -468,15 +470,16 @@ test.describe('survey', () => {
     await page.getByPlaceholder('email@example.com').fill('test@example.com')
 
     await page.getByRole('button', { name: 'Send' }).click()
-    // Because it sent one about the thumbs and then another with the email.
-    expect(fulfilled).toBe(2)
+    // One for the page view event, one for the thumbs up click, one for
+    // the submission.
+    expect(fulfilled).toBe(1 + 2)
     await expect(page.getByTestId('survey-end')).toBeVisible()
   })
 
   test('thumbs down without filling in the form sends an API POST', async ({ page }) => {
-    await page.goto('/get-started/foo/for-playwright')
-
     let fulfilled = 0
+    // Important to set this up *before* interacting with the page
+    // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
@@ -487,8 +490,11 @@ test.describe('survey', () => {
       // See https://github.com/microsoft/playwright/issues/12231
     })
 
+    await page.goto('/get-started/foo/for-playwright')
+
     await page.locator('[for=survey-yes]').click()
-    expect(fulfilled).toBe(1)
+    // One for the page view event and one for the thumbs up click
+    expect(fulfilled).toBe(1 + 1)
 
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await page.getByRole('button', { name: 'Cancel' }).click()

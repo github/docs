@@ -22,7 +22,7 @@ Until you add an image, repository links expand to show basic information about 
 
 {% tip %}
 
-**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend keeping the image at 640 by 320 pixels.
+**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend a size of at least 640 by 320 pixels (1280 by 640 pixels for best display).
 
 {% endtip %}
 
