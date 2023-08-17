@@ -331,9 +331,11 @@ If you use the same configuration as in the example above, bumping the `requests
 
 {% data reusables.dependabot.dependabot-version-updates-groups-beta %}
 
+{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
 
-{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+{% data reusables.dependabot.dependabot-version-updates-groups-semver %}
 
 {% data reusables.dependabot.dependabot-version-updates-supported-options-for-groups %}
 
@@ -807,7 +809,7 @@ When {% data variables.product.prodname_dependabot %} edits a manifest file to u
 
 The following table shows an example of how `versioning-strategy` can be used.
 
-| Current constraint | Current version | New version | Strategy | New constraint | 
+| Current constraint | Current version | New version | Strategy | New constraint |
 |--------------------|-----------------|-------------|----------|----------------|
 | ^1.0.0 | 1.0.0 | 1.2.0 | `widen` | ^1.0.0 |
 | ^1.0.0 | 1.0.0 | 1.2.0 | `increase` | ^1.2.0 |
