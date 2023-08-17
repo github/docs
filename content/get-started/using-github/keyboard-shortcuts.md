@@ -94,7 +94,7 @@ If you view a code file in a repository using the **Code** view and click on any
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>Shift</kbd>+<kbd>J</kbd>| Highlights the line that is currently selected by the cursor within the code file
-|<kbd>Shift</kbd>+<kbd>F10</kbd> | If a line of code is currently selected, this shortcut opens the line menu for that line, appearing under {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} to the left of the line
+|<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>C</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> (Windows/Linux) | If a line of code is currently selected, this shortcut opens the line menu for that line, appearing under {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} to the left of the line
 |<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Control</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Highlights the code symbol currently selected by the cursor and all other occurrences of the symbol in the code, and shows the symbol in the symbols pane
 {% endif %}
 

@@ -10,5 +10,6 @@ children:
   - /squashing-commits-in-github-desktop
   - /amending-a-commit-in-github-desktop
   - /managing-tags-in-github-desktop
+  - /checking-out-a-commit-in-github-desktop
 ---
 
