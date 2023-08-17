@@ -6,6 +6,7 @@ redirect_from:
   - /github/setting-up-and-managing-your-github-user-account/permission-levels-for-user-owned-project-boards
   - /github/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-user-owned-project-boards
   - /account-and-profile/setting-up-and-managing-your-github-user-account/managing-user-account-settings/permission-levels-for-user-owned-project-boards
+  - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-project-board-owned-by-a-personal-account
 versions:
   fpt: '*'
   ghes: '*'
@@ -27,7 +28,7 @@ There are three levels of permissions for project board collaborators:
 
 The project board owner and collaborators with admin access have full control of the project board. In addition to all the permissions allowed by project board collaborators, a project board owner and collaborator with admin access can:
 
-- [Manage, view, and add collaborators](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-access-to-your-personal-accounts-project-boards)
+- [Manage, view, and add collaborators](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards)
 - [Configure a project board as {% ifversion ghae %}internal{% else %}public{% endif %} or private](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)
 - [Delete a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)
 - [Close a project board](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
@@ -61,4 +62,4 @@ You can change the project board's visibility from private to {% ifversion ghae 
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-access-to-your-personal-accounts-project-boards)"
+- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/managing-access-to-your-personal-accounts-project-boards)"

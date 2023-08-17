@@ -56,6 +56,6 @@ Enterprise accounts are a feature of {% data variables.product.prodname_ghe_clou
 
 ## Terms of service and data protection for organizations
 
-An entity, such as a company, non-profit, or group, can agree to the Standard Terms of Service or the Corporate Terms of Service for their organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."
+An entity, such as a company, non-profit, or group, can agree to the Standard Terms of Service or the {% data variables.product.company_short %} Customer Agreement for their organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."
 
 {% endif %}
