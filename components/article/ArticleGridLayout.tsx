@@ -26,6 +26,7 @@ export const ArticleGridLayout = ({
       {topper && <Box gridArea="topper">{topper}</Box>}
       {toc && (
         <Box
+          data-container="toc"
           gridArea="sidebar"
           alignSelf="flex-start"
           className={cx(styles.sidebarBox, 'border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0')}
@@ -40,7 +41,7 @@ export const ArticleGridLayout = ({
         </Box>
       )}
 
-      <Box gridArea="content" data-search="article-body">
+      <Box data-container="article" gridArea="content" data-search="article-body">
         {supportPortalVaIframeProps &&
           supportPortalVaIframeProps.supportPortalUrl &&
           supportPortalVaIframeProps.vaFlowUrlParameter && (

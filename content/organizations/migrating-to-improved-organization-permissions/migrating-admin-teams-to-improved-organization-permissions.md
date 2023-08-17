@@ -23,7 +23,7 @@ Legacy admin teams are teams that were created with the admin permission level u
 
 You can remove this ability by migrating your legacy admin teams to the improved organization permissions.
 
-For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
 {% warning %}
 

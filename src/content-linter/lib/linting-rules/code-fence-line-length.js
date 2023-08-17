@@ -1,6 +1,6 @@
 import { addError, ellipsify } from 'markdownlint-rule-helpers'
 
-import { getCodeFenceTokens, getCodeFenceLines } from '../helpers.js'
+import { getCodeFenceTokens, getCodeFenceLines } from '../helpers/utils.js'
 
 export const codeFenceLineLength = {
   names: ['GHD001', 'code-fence-line-length'],

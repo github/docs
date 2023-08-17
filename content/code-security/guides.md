@@ -26,11 +26,13 @@ includeGuides:
   - /code-security/getting-started/securing-your-repository
   - /code-security/getting-started/dependabot-quickstart-guide
   - /code-security/getting-started/auditing-security-alerts
+  - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
   - /code-security/secret-scanning/about-secret-scanning
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning
   - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
+  - /code-security/secret-scanning/push-protection-for-users
   - /code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection
   - /code-security/secret-scanning/secret-scanning-patterns
   - /code-security/secret-scanning/troubleshooting-secret-scanning
@@ -39,7 +41,7 @@ includeGuides:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning

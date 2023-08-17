@@ -445,7 +445,13 @@ describe('lint markdown content', () => {
         }
       })
 
-      const context = { currentLanguage: 'en' }
+      const context = {
+        currentLanguage: 'en',
+        // Any Liquid that might use our `ifversion` plugin requires and
+        // expects that there's a `currentVersionObj` object present in the
+        // environment.
+        currentVersionObj: {},
+      }
 
       // visit is not async-friendly so we need to do an async map to parse the YML snippets
       yamlScheduledWorkflows = (
@@ -463,6 +469,14 @@ describe('lint markdown content', () => {
     })
 
     test('placeholder string is not present in any markdown files', async () => {
+      // this article explains how to use todocs placeholder text so shouldn't fail this test
+      if (
+        markdownRelPath ===
+          'content/contributing/collaborating-on-github-docs/using-the-todocs-placeholder-to-leave-notes.md' ||
+        markdownRelPath === 'content/contributing/collaborating-on-github-docs/index.md'
+      ) {
+        return
+      }
       const matches = rawContent.match(placeholderRegex) || []
       const placeholderStr = matches.length === 1 ? 'placeholder' : 'placeholders'
       const errorMessage = `

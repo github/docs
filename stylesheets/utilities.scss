@@ -1,3 +1,5 @@
+@import "stylesheets/breakpoint-xxl.scss";
+
 .color-unset {
   color: unset;
 }
@@ -124,5 +126,22 @@
     overflow: visible;
     clip: auto;
     white-space: normal;
+  }
+}
+
+/* Responsive display utilities
+------------------------------------------------------------------------------*/
+
+// used to help prevent overlapping main content and the minitoc sidebar
+
+.d-xxl-block {
+  @include breakpoint-xxl {
+    display: block !important;
+  }
+}
+
+.d-xxl-none {
+  @include breakpoint-xxl {
+    display: none !important;
   }
 }

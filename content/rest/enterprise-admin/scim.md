@@ -22,7 +22,7 @@ These endpoints are based on SCIM 2.0. For more information, refer to your IdP's
 
 An IdP can use the following root URL to communicate with the endpoints in this category for a {% data variables.product.product_name %} instance.
 
-```
+```http
 {% data variables.product.api_url_code %}/scim/v2/
 ```
 
@@ -45,7 +45,7 @@ To authenticate API requests, the person who configures SCIM on the IdP must use
 {% endnote %}
 
 ### Mapping of SAML and SCIM data
-  
+
 The {% data variables.product.product_name %} instance links each user who authenticates successfully with SAML SSO to a SCIM identity. To link the identities successfully, the SAML IdP and the SCIM integration must use matching SAML `NameID` and SCIM `userName` values for each user.
 
 {% ifversion ghes > 3.7 %}

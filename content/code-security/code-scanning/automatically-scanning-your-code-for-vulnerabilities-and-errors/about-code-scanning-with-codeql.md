@@ -39,7 +39,7 @@ There are two main ways to use {% data variables.product.prodname_codeql %} anal
 
 {% endif -%}
 
-- Run the {% data variables.product.prodname_codeql %} CLI directly in an external CI system and upload the results to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
+- Run the {% data variables.product.prodname_codeql_cli %} directly in an external CI system and upload the results to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/about-codeql-code-scanning-in-your-ci-system)."
 
 {% ifversion ghes or ghae %}
 
@@ -76,7 +76,7 @@ These queries must belong to a published {% data variables.product.prodname_code
 - {% data variables.product.prodname_ql %} packs do not include transitive dependencies, so queries in the pack can depend only on the standard libraries (that is, the libraries referenced by an `import LANGUAGE` statement in your query), or libraries in the same {% data variables.product.prodname_ql %} pack as the query.
 - {% data variables.product.prodname_codeql %} query packs (beta) can be downloaded from multiple GitHub container registries. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
 
-For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
+For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
 
 {% data reusables.code-scanning.beta-codeql-packs-cli %}
 

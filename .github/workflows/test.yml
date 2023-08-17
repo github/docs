@@ -62,6 +62,7 @@ jobs:
               context.payload.repository.full_name === 'github/docs-internal' &&
                 { name: 'translations', path: 'tests/translations', },
               { name: 'unit', path: 'tests/unit', },
+              // { name: 'tools', path: 'src/tools/tests', }
               { name: 'webhooks', path: 'src/webhooks/tests', },
             ].filter(Boolean)
 
@@ -151,11 +152,7 @@ jobs:
           echo __ format, write to get_diff_files.txt __
           echo $DIFF | tr '\n' ' ' > get_diff_files.txt
 
-      - name: Cache nextjs build
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('package*.json') }}
+      - uses: ./.github/actions/cache-nextjs
 
       - name: Run build script
         run: npm run build
@@ -179,6 +176,6 @@ jobs:
           # tests run only in English. The exception is the
           # `tests/translations/` suite which needs all languages to be set up.
           ENABLED_LANGUAGES: ${{ matrix.name == 'translations' && 'all' || '' }}
-          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures' || '' }}
+          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'tests/fixtures' || '' }}
           TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures/translations' || '' }}
         run: npm test -- ${{ matrix.path }}/

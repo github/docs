@@ -26,8 +26,8 @@ shortTitle: Audit log events
 | Action | Description
 |------------------|-------------------
 | `billing_plan_change` | Triggered when an organization's [billing cycle](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle) changes.
-| `plan_change` | Triggered when an organization's [subscription](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) changes.
-| `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process).
+| `plan_change` | Triggered when an organization's [plan](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans) changes.
+| `pending_plan_change` | Triggered when an organization owner or billing manager [cancels or downgrades a paid subscription](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process).
 | `pending_subscription_change` | Triggered when a [{% data variables.product.prodname_marketplace %} free trial starts or expires](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace).
 {% endif %}
 
@@ -380,7 +380,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `update_member` | Triggered when an owner changes a person's role from owner to member or member to owner.
 | `update_member_repository_creation_permission` | Triggered when an owner changes the create repository permission for organization members.{% ifversion fpt or ghec %}
 | `update_saml_provider_settings` | Triggered when an organization's SAML provider settings are updated.
-| `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the Corporate Terms of Service. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
+| `update_terms_of_service` | Triggered when an organization changes between the Standard Terms of Service and the {% data variables.product.company_short %} Customer Agreement. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."{% endif %}
 
 {% ifversion ghec %}
 
@@ -669,9 +669,9 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |------------------|-------------------
-|`create` | Triggered when an organization owner creates a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`destroy` | Triggered when an organization owner deletes a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`update` | Triggered when an organization owner edits an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+|`create` | Triggered when an organization owner creates a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
+|`destroy` | Triggered when an organization owner deletes a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
+|`update` | Triggered when an organization owner edits an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
 
 {% endif %}
 {% ifversion ghec or ghes or ghae %}

@@ -52,8 +52,8 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | Action | Description
 |--------|-------------
 | `account.billing_plan_change` | An organization's billing cycle changed. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
-| `account.plan_change` | An organization's subscription changed. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)."
-| `account.pending_plan_change` | An organization owner or billing manager canceled or downgraded a paid subscription. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+| `account.plan_change` | An organization's plan changed. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans)."
+| `account.pending_plan_change` | An organization owner or billing manager canceled or downgraded a paid plan. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 | `account.pending_subscription_change` | A {% data variables.product.prodname_marketplace %} free trial started or expired. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)."
 {%- endif %}
 
@@ -734,7 +734,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org.cancel_business_invitation` | An invitation for an organization to join an enterprise was revoked. {% ifversion ghec %}For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %}
 | `org.cancel_invitation` | An invitation sent to a user to join an organization was revoked.
 | `org.clear_actions_settings` |  An organization owner cleared {% data variables.product.prodname_actions %} policy settings for an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)."
-| `org.clear_default_repository_permission` | An organization owner cleared the base repository permission policy setting for an organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)."
+| `org.clear_default_repository_permission` | An organization owner cleared the base repository permission policy setting for an organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization#setting-base-permissions)."
 | `org.clear_member_team_creation_permission` | An organization owner cleared the new teams creation setting for an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."
 | `org.clear_reader_discussion_creation_permission` | An organization owner cleared the new discussion creation setting for an organization. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."{% endif %}
 | `org.clear_members_can_create_repos`                 | An organization owner cleared a restriction on repository creation in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)."
@@ -865,7 +865,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org.update_new_repository_default_branch_setting` | An organization owner changed the name of the default branch for new repositories in the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."
 {%- ifversion ghec or ghae %}
 | `org.update_saml_provider_settings` | An organization's SAML provider settings were updated.
-| `org.update_terms_of_service` | An organization changed between the Standard Terms of Service and the Corporate Terms of Service. {% ifversion ghec %}For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
+| `org.update_terms_of_service` | An organization changed between the Standard Terms of Service and the {% data variables.product.company_short %} Customer Agreement. {% ifversion ghec %}For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."{% endif %}
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
@@ -1331,9 +1331,9 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-|`create` | An organization owner created a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`destroy` | An organization owner deleted a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`update` | An organization owner edited an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+|`create` | An organization owner created a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
+|`destroy` | An organization owner deleted a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
+|`update` | An organization owner edited an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}

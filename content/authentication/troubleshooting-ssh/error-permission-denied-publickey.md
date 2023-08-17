@@ -77,6 +77,9 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 1. {% data reusables.desktop.windows_git_bash_turn_on_ssh_agent %}
 
   {% data reusables.desktop.windows_git_for_windows_turn_on_ssh_agent %}
+  
+  {% indented_data_reference reusables.desktop.note-start-ssh-agent spaces=3 %}
+  
 1. Verify that you have a private key generated and loaded into SSH.
 
    ```shell
@@ -94,7 +97,7 @@ $ ssh -T git@{% data variables.command_line.codeblock %}
 
    ```shell
    $ ssh-add -l -E sha256
-   > 2048 <em>SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ</em> /Users/<em>USERNAME</em>/.ssh/id_rsa (RSA)
+   > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
   
 {% endlinux %}

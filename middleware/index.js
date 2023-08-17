@@ -38,8 +38,8 @@ import earlyAccessLinks from '#src/early-access/middleware/early-access-links.js
 import categoriesForSupport from './categories-for-support.js'
 import triggerError from '#src/observability/middleware/trigger-error.js'
 import secretScanning from './contextualizers/secret-scanning.js'
-import ghesReleaseNotes from './contextualizers/ghes-release-notes.js'
-import ghaeReleaseNotes from './contextualizers/ghae-release-notes.js'
+import ghesReleaseNotes from '#src/release-notes/middleware/ghes-release-notes.js'
+import ghaeReleaseNotes from '#src/release-notes/middleware/ghae-release-notes.js'
 import whatsNewChangelog from './contextualizers/whats-new-changelog.js'
 import layout from './contextualizers/layout.js'
 import currentProductTree from './contextualizers/current-product-tree.js'
@@ -49,7 +49,6 @@ import glossaries from './contextualizers/glossaries.js'
 import features from './contextualizers/features.js'
 import productExamples from './contextualizers/product-examples.js'
 import productGroups from './contextualizers/product-groups.js'
-import homepageLinks from './contextualizers/homepage-links.js'
 import featuredLinks from '#src/landings/middleware/featured-links.js'
 import learningTrack from '#src/learning-track/middleware/learning-track.js'
 import next from './next.js'
@@ -289,7 +288,6 @@ export default function (app) {
   app.use(asyncMiddleware(instrument(contextualizeSearch, './search/middleware/contextualize')))
   app.use(asyncMiddleware(instrument(featuredLinks, './featured-links')))
   app.use(asyncMiddleware(instrument(learningTrack, './learning-track')))
-  app.use(asyncMiddleware(instrument(homepageLinks, './homepage-links')))
 
   if (ENABLE_FASTLY_TESTING) {
     // The fastlyCacheTest middleware is intended to be used with Fastly to test caching behavior.

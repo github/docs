@@ -1,3 +1,5 @@
+@import "stylesheets/breakpoint-xxl.scss";
+
 .markdownBody {
   table {
     display: table;
@@ -42,11 +44,15 @@
       position: sticky;
       vertical-align: top;
       z-index: 0;
-      top: 64px;
+      top: 105px; // 88 + 8 + 8 + 1
       background: var(--color-canvas-default);
       box-shadow: 0 3px 0 0 var(--color-canvas-subtle);
       padding: 0.75rem 0.5rem;
       border: 0;
+
+      @include breakpoint-xxl {
+        top: 65px !important; // 48 + 8 + 8 + 1
+      }
     }
 
     th[align="center"] {
@@ -66,10 +72,6 @@
       padding: 0.75rem 0.5rem;
       border: 0;
       vertical-align: top;
-
-      sup {
-        z-index: -1;
-      }
     }
 
     // markdown that has been converted to HTML is often wrapped in <p> tags

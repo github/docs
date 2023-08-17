@@ -274,6 +274,8 @@ Configuration variables can be accessed across the workflow using `vars` context
 
 The default environment variables that {% data variables.product.prodname_dotcom %} sets are available to every step in a workflow.
 
+Because default environment variables are set by {% data variables.product.prodname_dotcom %} and not defined in a workflow, they are not accessible through the `env` context. However, most of the default variables have a corresponding, and similarly named, context property. For example, the value of the `GITHUB_REF` variable can be read during workflow processing using the {% raw %}`${{ github.ref }}`{% endraw %} context property.
+
 {% data reusables.actions.environment-variables-are-fixed %} For more information about setting environment variables, see "[Defining environment variables for a single workflow](#defining-environment-variables-for-a-single-workflow)" and "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-environment-variable)."
 
 We strongly recommend that actions use variables to access the filesystem rather than using hardcoded file paths. {% data variables.product.prodname_dotcom %} sets variables for actions to use in all runner environments.
@@ -338,10 +340,7 @@ We strongly recommend that actions use variables to access the filesystem rather
 
 {% note %}
 
-**Note:**
-
-- If you need to use a workflow run's URL from within a job, you can combine these variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
-- Most of the default variables have a corresponding, and similarly named, context property. For example, the value of the `GITHUB_REF` variable can be read during workflow processing using the {% raw %}`${{ github.ref }}`{% endraw %} context property.
+**Note:** If you need to use a workflow run's URL from within a job, you can combine these variables: `$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID`
 
 {% endnote %}
 
