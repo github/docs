@@ -46,7 +46,7 @@ const ProductTreeNodeList = ({ treeNode }: { treeNode: ProductTreeNode }) => {
                 },
               }}
             >
-              <Link className="d-block width-full" href={childNode.href}>
+              <Link className="d-block width-full text-underline" href={childNode.href}>
                 {childNode.title}
                 {childNode.childPages.length > 0 ? (
                   <small className="color-fg-muted d-inline-block">

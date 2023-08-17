@@ -6,7 +6,6 @@ import { Link } from 'components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { FeaturedLink } from 'src/landings/components/ProductLandingContext'
 import { useMainContext } from 'components/context/MainContext'
-import { TruncateLines } from 'components/ui/TruncateLines'
 import { BumpLink } from 'components/ui/BumpLink'
 
 export type ArticleListPropsT = {
@@ -73,9 +72,9 @@ export const ArticleList = ({
                 }
               >
                 {link.intro && (
-                  <TruncateLines as="p" maxLines={2} className="color-fg-muted mb-0 mt-1">
-                    <span data-testid="link-with-intro-intro">{link.intro}</span>
-                  </TruncateLines>
+                  <p className="color-fg-muted mb-0 mt-1" data-testid="link-with-intro-intro">
+                    {link.intro}
+                  </p>
                 )}
                 {link.date && (
                   <time
