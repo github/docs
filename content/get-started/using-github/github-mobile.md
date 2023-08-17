@@ -39,7 +39,7 @@ To install {% data variables.product.prodname_mobile %} for Android or iOS, see 
 
 ## Managing accounts
 
-You can be simultaneously signed into mobile with one personal account on {% data variables.product.prodname_dotcom_the_website %} and one personal account on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
+You can be simultaneously signed into mobile with multiple accounts on {% data variables.product.prodname_dotcom_the_website %} and on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
@@ -55,11 +55,13 @@ During the beta for {% data variables.product.prodname_mobile %} with {% data va
 
 ### Adding, switching, or signing out of accounts
 
-You can sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap {% octicon "plus" aria-hidden="true" %} **Add Enterprise Account**. Follow the prompts to sign in.
+You can sign into mobile with any {% data variables.product.company_short %} account, either on {% data variables.product.prodname_dotcom_the_website %} or on {% data variables.product.prodname_ghe_server %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap {% octicon "plus" aria-hidden="true" %} **Add Enterprise Account**. Follow the prompts to sign in. 
 
-After you sign into mobile with a personal account on {% data variables.product.prodname_ghe_server %}, you can switch between the account and your account on {% data variables.product.prodname_dotcom_the_website %}. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap the account you want to switch to.
+After signing in with an account on {% data variables.product.prodname_ghe_server %}, you can switch between any other accounts you're currently logged into within the app. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, then tap the account you want to switch to.
 
-If you no longer need to access data for your personal account on {% data variables.product.prodname_ghe_server %} from {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
+If you no longer need to access your account on {% ifversion ghec or ghes%}{% data variables.product.prodname_ghe_server %} from{% endif %} {% data variables.product.prodname_mobile %}, you can sign out of the account. At the bottom of the app, long-press {% octicon "person" aria-hidden="true" %} **Profile**, swipe left on the account to sign out of, then tap **Sign out**.
+
+Alternatively, once logged into one account, access the account switcher to log into other accounts or log out of an existing account by navigating to the {% octicon "person" aria-hidden="true" %} **Profile** tab, then tapping {% octicon "gear" aria-hidden="true" %}, and then tapping **Manage Accounts**.
 
 ## Supported languages for {% data variables.product.prodname_mobile %}
 
