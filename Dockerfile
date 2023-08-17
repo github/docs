@@ -5,7 +5,7 @@
 # --------------------------------------------------------------------------------
 # To update the sha, run `docker pull node:$VERSION-alpine`
 # look for something like: `Digest: sha256:0123456789abcdef`
-FROM node:18.16-alpine@sha256:1ccc70acda680aa4ba47f53e7c40b2d4d6892de74817128e0662d32647dd7f4d as base
+FROM node:18-alpine@sha256:3482a20c97e401b56ac50ba8920cc7b5b2022bfc6aa7d4e4c231755770cf892f as base
 
 # This directory is owned by the node user
 ARG APP_HOME=/home/node/app
@@ -45,7 +45,6 @@ RUN npm prune --production
 FROM all_deps as builder
 
 COPY stylesheets ./stylesheets
-COPY pages ./pages
 COPY components ./components
 COPY lib ./lib
 COPY src ./src

@@ -301,15 +301,23 @@ This list describes the recommended approaches for accessing repository data wit
 1. **SSH keys on a personal account**
     - Workflows should never use the SSH keys on a personal account. Similar to {% data variables.product.pat_v1_plural %}, they grant read/write permissions to all of your personal repositories as well as all the repositories you have access to through organization membership.  This indirectly grants broad access to all write-access users of the repository the workflow is in. If you're intending to use an SSH key because you only need to perform repository clones or pushes, and do not need to interact with public APIs, then you should use individual deploy keys instead.
 
+## Hardening for {% data variables.product.prodname_dotcom %}-hosted runners
+
+{% data variables.product.prodname_dotcom %}-hosted runners take measures to help you mitigate security risks.
+
 {% ifversion actions-sbom %}
 
-## Reviewing the supply chain for {% data variables.product.prodname_dotcom %}-hosted runners
+### Reviewing the supply chain for {% data variables.product.prodname_dotcom %}-hosted runners
 
 You can view a software bill of materials (SBOM) to see what software was pre-installed on the {% data variables.product.prodname_dotcom %}-hosted runner image used during your workflow runs. You can provide your users with the SBOM which they can run through a vulnerability scanner to validate if there are any vulnerabilities in the product. If you are building artifacts, you can include this SBOM in your bill of materials for a comprehensive list of everything that went into creating your software.
 
 SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.<IMAGE-NAME>.json.zip` can be found in the attachments of each release.
 
 {% endif %}
+
+### Denying access to hosts
+
+{% data reusables.actions.runners-etc-hosts-file %}{%ifversion fpt or ghec or ghes %}For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
 ## Hardening for self-hosted runners
 

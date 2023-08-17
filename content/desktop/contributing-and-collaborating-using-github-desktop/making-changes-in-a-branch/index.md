@@ -4,7 +4,7 @@ intro: 'Use your favorite text editor, such as [{% data variables.product.prodna
 redirect_from:
   - /desktop/contributing-to-projects/making-changes-in-a-branch
 versions:
-  fpt: '*'
+  feature: desktop
 children:
   - /managing-branches-in-github-desktop
   - /committing-and-reviewing-changes-to-your-project-in-github-desktop

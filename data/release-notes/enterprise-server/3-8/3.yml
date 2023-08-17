@@ -27,6 +27,8 @@ sections:
     - After a site administrator exports a migration archive using GitHub Enterprise Importers `gh-migrator` utility, the link to the archive remains accessible for 48 hours instead of one hour. 
   known_issues:
     - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
       Custom firewall rules are removed during the upgrade process.

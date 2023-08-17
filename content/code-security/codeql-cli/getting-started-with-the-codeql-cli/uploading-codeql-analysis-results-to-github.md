@@ -18,7 +18,7 @@ topics:
 
 {% data variables.product.prodname_dotcom %} creates {% data variables.product.prodname_code_scanning %} alerts in a repository using information from Static Analysis Results Interchange Format (SARIF) files. SARIF is designed to represent the output of a broad range of static analysis tools, and there are many features in the SARIF specification that are considered "optional". The results must use SARIF version 2.1.0. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning)."
 
-After analyzing a CodeQL database using the CodeQL CLI, you will have a SARIF file that contains the results. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)." You can then use the {% data variables.product.prodname_codeql_cli %} to upload results to {% data variables.product.prodname_dotcom %}.
+After analyzing a {% data variables.product.prodname_codeql %} database using the {% data variables.product.prodname_codeql_cli %}, you will have a SARIF file that contains the results. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)." You can then use the {% data variables.product.prodname_codeql_cli %} to upload results to {% data variables.product.prodname_dotcom %}.
 
 If you used a method other than the {% data variables.product.prodname_codeql_cli %} to generate results, you can use other upload methods. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github)."
 

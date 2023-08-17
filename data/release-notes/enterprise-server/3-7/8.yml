@@ -42,6 +42,8 @@ sections:
     - The default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv)."
   known_issues:
     - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
       On a freshly set up {% data variables.product.prodname_ghe_server %} instance without any users, an attacker could create the first admin user.

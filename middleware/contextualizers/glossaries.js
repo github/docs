@@ -69,7 +69,9 @@ export default async function glossaries(req, res, next) {
     )
   ).filter(Boolean)
 
-  req.context.glossaries = glossaries.sort((a, b) => a.term.localeCompare(b.term))
+  req.context.glossaries = glossaries.sort((a, b) =>
+    a.term.localeCompare(b.term, req.context.currentLanguage),
+  )
 
   return next()
 }
