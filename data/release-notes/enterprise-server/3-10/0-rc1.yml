@@ -133,6 +133,10 @@ sections:
         - |
           To prevent unnecessary transfer of OIDC tokens between workflows, to fetch an OIDC token generated within a reusable workflow that is outside their enterprise or organization, users must set the `id-token` permission to `write` in the workflow or specific job where the reusable workflow is called. For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-cloud-providers#adding-permissions-settings)."
 
+        # https://github.com/github/docs-content/issues/9102
+        - |
+          Repository administrators, organization owners, and users with the `manage_runners:enterprise` scope for enterprises can use the REST API to create ephemeral, just-in-time (JIT) runners that can perform at most one job before being automatically removed from the repository, organization, or enterprise. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-just-in-time-runners)."
+
     - heading: Community experience
       notes:
         # https://github.com/github/releases/issues/2673
