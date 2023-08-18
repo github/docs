@@ -15,6 +15,7 @@ children:
   - /using-ssh-over-the-https-port
   - /recovering-your-ssh-key-passphrase
   - /deleted-or-missing-ssh-keys
+  - /error-host-key-verification-failed
   - /error-permission-denied-publickey
   - /error-bad-file-number
   - /error-key-already-in-use

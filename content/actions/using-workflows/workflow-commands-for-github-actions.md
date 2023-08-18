@@ -760,7 +760,7 @@ jobs:
     steps:
       - shell: pwsh
         run: |
-          "mypath" >> $env:GITHUB_PATH
+          "mypath" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 
 {% endnote %}
@@ -784,7 +784,7 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 - Using PowerShell version 6 and higher:
 
   ```pwsh copy
-  "{environment_variable_name}={value}" >> $env:GITHUB_ENV
+  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Append
   ```
 
 - Using PowerShell version 5.1 and below:
@@ -824,7 +824,7 @@ steps:
   - name: Set the value
     id: step_one
     run: |
-      "action_state=yellow" >> $env:GITHUB_ENV
+      "action_state=yellow" | Out-File -FilePath $env:GITHUB_ENV -Append
   - name: Use the value
     id: step_two
     run: |
@@ -876,9 +876,10 @@ steps:
   - name: Set the value in pwsh
     id: step_one
     run: |
-      "JSON_RESPONSE<<EOF" >> $env:GITHUB_ENV
-      (Invoke-WebRequest -Uri "https://example.com").Content >> $env:GITHUB_ENV
-      "EOF" >> $env:GITHUB_ENV
+      $EOF = -join (1..15 | ForEach {[char]((48..57)+(65..90)+(97..122) | Get-Random)})
+      "JSON_RESPONSE<<$EOF" | Out-File -FilePath $env:GITHUB_ENV -Append
+      (Invoke-WebRequest -Uri "https://example.com").Content | Out-File -FilePath $env:GITHUB_ENV -Append
+      "$EOF" | Out-File -FilePath $env:GITHUB_ENV -Append
     shell: pwsh
 ```
 
@@ -901,7 +902,7 @@ echo "{name}={value}" >> "$GITHUB_OUTPUT"
 {% powershell %}
 
 ```pwsh copy
-"{name}=value" >> $env:GITHUB_OUTPUT
+"{name}=value" | Out-File -FilePath $env:GITHUB_OUTPUT- Append
 ```
 
 {% endpowershell %}
@@ -932,7 +933,7 @@ This example demonstrates how to set the `SELECTED_COLOR` output parameter and l
       - name: Set color
         id: random-color-generator
         run: |
-            "SELECTED_COLOR=green" >> $env:GITHUB_OUTPUT
+            "SELECTED_COLOR=green" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
       - name: Get color
         env:{% raw %}
           SELECTED_COLOR: ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}{% endraw %}
@@ -957,7 +958,7 @@ echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
 {% powershell %}
 
 ```pwsh copy
-"{markdown content}" >> $env:GITHUB_STEP_SUMMARY
+"{markdown content}" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
 {% endpowershell %}
@@ -981,7 +982,7 @@ echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 {% powershell %}
 
 ```pwsh copy
-"### Hello world! :rocket:" >> $env:GITHUB_STEP_SUMMARY
+"### Hello world! :rocket:" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
 {% endpowershell %}
@@ -1013,18 +1014,18 @@ For multiline Markdown content, you can use `>>` to continuously append content 
 ```yaml
 - name: Generate list using Markdown
   run: |
-    "This is the lead in sentence for the list" >> $env:GITHUB_STEP_SUMMARY
-    "" >> $env:GITHUB_STEP_SUMMARY # this is a blank line
-    "- Lets add a bullet point" >> $env:GITHUB_STEP_SUMMARY
-    "- Lets add a second bullet point" >> $env:GITHUB_STEP_SUMMARY
-    "- How about a third one?" >> $env:GITHUB_STEP_SUMMARY
+    "This is the lead in sentence for the list" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append # this is a blank line
+    "- Lets add a bullet point" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "- Lets add a second bullet point" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "- How about a third one?" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
 ```
 
 {% endpowershell %}
 
 ### Overwriting job summaries
 
-To clear all content for the current step, you can use `>` to overwrite any previously added content.
+To clear all content for the current step, you can use `>` to overwrite any previously added content in Bash, or remove `-Append` in PowerShell
 
 #### Example of overwriting job summaries
 
@@ -1044,8 +1045,8 @@ To clear all content for the current step, you can use `>` to overwrite any prev
 ```yaml
 - name: Overwrite Markdown
   run: |
-    "Adding some Markdown content" >> $env:GITHUB_STEP_SUMMARY
-    "There was an error, we need to clear the previous Markdown with some new content." > $env:GITHUB_STEP_SUMMARY
+    "Adding some Markdown content" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    "There was an error, we need to clear the previous Markdown with some new content." | Out-File -FilePath $env:GITHUB_STEP_SUMMARY
 ```
 
 {% endpowershell %}
@@ -1072,8 +1073,8 @@ To completely remove a summary for the current step, the file that `GITHUB_STEP_
 ```yaml
 - name: Delete all summary content
   run: |
-    "Adding Markdown content that we want to remove before the step ends" >> $env:GITHUB_STEP_SUMMARY
-    rm $env:GITHUB_STEP_SUMMARY
+    "Adding Markdown content that we want to remove before the step ends" | Out-File -FilePath $env:GITHUB_STEP_SUMMARY -Append
+    Remove-Item $env:GITHUB_STEP_SUMMARY
 ```
 
 {% endpowershell %}
@@ -1101,7 +1102,7 @@ echo "{path}" >> $GITHUB_PATH
 {% powershell %}
 
 ```pwsh copy
-"{path}" >> $env:GITHUB_PATH
+"{path}" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 
 {% endpowershell %}
@@ -1123,7 +1124,7 @@ echo "$HOME/.local/bin" >> $GITHUB_PATH
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
 ```pwsh copy
-"$env:HOMEPATH/.local/bin" >> $env:GITHUB_PATH
+"$env:HOMEPATH/.local/bin" | Out-File -FilePath $env:GITHUB_PATH -Append
 ```
 
 {% endpowershell %}
