@@ -41,7 +41,11 @@ git rm --cached FILENAME
 
 ## Configuring ignored files for all repositories on your computer
 
-You can also create a global _.gitignore_ file to define a list of rules for ignoring files in every Git repository on your computer. For example, you might create the file at _~/.gitignore_global_ and add some rules to it.
+You can also create a global .gitignore file to define a list of rules for ignoring files in every Git repository on your computer. 
+
+By default, Git ignores files listed in the global configuration file ~/.config/git/ignore.
+
+Additionally, you can set it up on your own. For example, you might create the file at ~/.gitignore_global and add some rules to it.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
