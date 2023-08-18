@@ -19,7 +19,7 @@ export function LearningTrackCard({ track }: Props) {
     >
       <div className="d-flex flex-column width-full">
         <h2 className="h4">
-          <Link href={`/${locale}/${trackProduct}/guides`} className="mb-1">
+          <Link href={`/${locale}/${trackProduct}/guides`} className="mb-1 text-underline">
             {trackTitle}
           </Link>
         </h2>
