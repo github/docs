@@ -262,6 +262,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                   }}
                   tabIndex={0}
                   selected={optionKey === selectedLanguage}
+                  aria-current={optionKey === selectedLanguage}
                   className="pr-3 mr-0"
                   sx={{
                     cursor: 'pointer',
@@ -303,12 +304,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       </div>
 
       {/* Response section */}
-      <div
+      <h4
         className="mt-5 mb-2 h5"
         dangerouslySetInnerHTML={{
           __html: displayedExample.response.description || t('rest.reference.response'),
         }}
-      ></div>
+      ></h4>
 
       <div className="border rounded-1">
         {displayedExample.response.schema ? (
