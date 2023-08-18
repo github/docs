@@ -261,9 +261,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                     }
                   }}
                   tabIndex={0}
-                  selected={optionKey === selectedLanguage}
                   aria-current={optionKey === selectedLanguage}
-                  className="pr-3 mr-0"
+                  className={cx('pr-3 mr-0', optionKey === selectedLanguage && 'PRC-selected')}
                   sx={{
                     cursor: 'pointer',
                   }}
@@ -329,8 +328,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                     }
                   }}
                   tabIndex={0}
-                  selected={optionKey === selectedResponse}
-                  className="pr-3 mr-0 ml-2"
+                  aria-current={optionKey === selectedResponse}
+                  className={cx('pr-3 mr-0 ml-2', optionKey === selectedResponse && 'PRC-selected')}
                   sx={{
                     cursor: 'pointer',
                   }}
