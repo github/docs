@@ -2,7 +2,7 @@ date: '2023-06-20'
 sections:
   security_fixes:
     - |
-      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. GitHub has requested CVE ID [CVE-2023-23765](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23765) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
+      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
     - |
       If a user's request to the instance's API included authentication credentials within a URL parameter, administrators could see the credentials in JSON within the instance's audit log. 
     - Packages have been updated to the latest security versions. 
