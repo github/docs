@@ -22,7 +22,7 @@ versions:
 
 Environments are used to describe a general deployment target like `production`, `staging`, or `development`. When a {% data variables.product.prodname_actions %} workflow deploys to an environment, the environment is displayed on the main page of the repository. For more information about viewing deployments to environments, see "[AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history)."
 
-You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the environment protection rules pass.
+You can configure environments with protection rules and secrets. When a workflow job references an environment, the job won't start until all of the environment's protection rules pass. A job also cannot access secrets that are defined in an environment until all the deployment protection rules pass.
 
 {% ifversion actions-break-glass %}Optionally, you can bypass an environment's protection rules and force all pending jobs referencing the environment to proceed. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments#bypassing-environment-protection-rules)."{% endif %}
 
@@ -54,7 +54,7 @@ For more information on reviewing jobs that reference an environment with requir
 
 {% ifversion fpt %}{% note %}
 
-**Note:** Required reviewers are only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
+**Note:** If you are on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} plan, required reviewers are only available for public repositories.
 
 {% endnote %}{% endif %}
 
@@ -64,7 +64,7 @@ Use a wait timer to delay a job for a specific amount of time after the job is i
 
 {% ifversion fpt %}{% note %}
 
-**Note:** Wait timers are only available for public repositories for users on {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, and {% data variables.product.prodname_team %} plans.
+**Note:** If you are on a {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, or {% data variables.product.prodname_team %} plan, wait timers are only available for public repositories.
 
 {% endnote %}{% endif %}
 

@@ -418,13 +418,13 @@ Action                        | Description
 
 | Action | Description
 |--------|-------------
-| `environment.add_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was created via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.add_protection_rule` | A {% data variables.product.prodname_actions %} deployment protection rule was created via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
 | `environment.create_actions_secret` | A secret was created for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
 | `environment.delete` | An environment was deleted via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
 | `environment.remove_actions_secret` | A secret was deleted for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.remove_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was deleted via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.remove_protection_rule` | A {% data variables.product.prodname_actions %} deployment protection rule was deleted via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
 | `environment.update_actions_secret` | A secret was updated for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.update_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was updated via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.update_protection_rule` | A {% data variables.product.prodname_actions %} deployment protection rule was updated via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
 {%- endif %}
 
 {%- ifversion ghae %}
