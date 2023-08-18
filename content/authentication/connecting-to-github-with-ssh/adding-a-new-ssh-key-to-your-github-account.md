@@ -75,7 +75,7 @@ To include a title for the new key, use the `-t` or `--title` flag.
 gh ssh-key add KEY-FILE --title "personal laptop"
 ```
 
-If you generated your SSH key by following the instructions in "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", you can add the key to your account with this command.
+If you generated your SSH key by following the instructions in "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)", you can add the key to your account with this command. If you're prompted to request additional scopes, follow the instructions in the command line.
 
 ```shell
 gh ssh-key add ~/.ssh/id_ed25519.pub
