@@ -143,6 +143,13 @@ If you publish a package that is linked to a repository, {% data variables.produ
 
 {% endnote %}
 
+{% tip %}
+
+**Tip:** Remember that your workflow's job(s) might require additional permissions to access packages, see the `packages` scope in "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
+
+{% endtip %}
+
+
 ### {% data variables.product.prodname_actions %} access for packages scoped to personal accounts
 
 {% data reusables.package_registry.package-settings-option %}
