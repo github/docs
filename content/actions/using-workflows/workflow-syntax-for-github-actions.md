@@ -712,7 +712,7 @@ For information about the software included on GitHub-hosted runners, see "[AUTO
 For built-in shell keywords, we provide the following defaults that are executed by {% data variables.product.prodname_dotcom %}-hosted runners. You should use these guidelines when running shell scripts.
 
 - `bash`/`sh`:
-  - By default, fail-fast behavior is enfored using `set -e` for `sh` and `bash` both. When `shell: bash` is specified, `-o pipefail` is also appied to enforce early exit from pipelines in case of non-zero exit status.
+  - By default, fail-fast behavior is enforced using `set -e` for `sh` and `bash` both. When `shell: bash` is specified, `-o pipefail` is also applied to enforce early exit from pipelines in case of non-zero exit status.
   - You can take full control over shell parameters by providing a template string to the shell options. For example, `bash {0}`.
   - `sh`-like shells exit with the exit code of the last command executed in a script, which is also the default behavior for actions. The runner will report the status of the step as fail/succeed based on this exit code.
 
