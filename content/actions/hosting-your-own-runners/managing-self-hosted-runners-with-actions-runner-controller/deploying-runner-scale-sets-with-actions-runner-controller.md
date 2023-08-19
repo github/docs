@@ -501,10 +501,10 @@ template:
     - name: runner
       image: ghcr.io/actions/actions-runner:latest
       command: ["/home/runner/run.sh"]
-    resources:
-      limits:
-        cpu: 500m
-        memory: 512Mi
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
       securityContext:
         readOnlyRootFilesystem: true
         allowPrivilegeEscalation: false
