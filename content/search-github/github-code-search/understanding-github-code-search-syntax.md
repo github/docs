@@ -60,7 +60,7 @@ To search for a phrase containing a quotation mark, you can escape the quotation
 You can also use quoted strings in qualifiers, for example:
 
 ```
-path: git language: "protocol buffers"
+path:git language:"protocol buffers"
 ```
 
 ## Using boolean operations
@@ -75,7 +75,7 @@ To search for documents containing either one term or the other, you can use the
 sparse OR index
 ```
 
-To exclude files from your search results, you can use the `NOT` operator. For example, to exclude file in the `__testing__` directory, you can search:
+To exclude files from your search results, you can use the `NOT` operator. For example, to exclude files in the `__testing__` directory, you can search:
 
 ```
 "fatal error" NOT path:__testing__

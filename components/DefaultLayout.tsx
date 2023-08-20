@@ -113,7 +113,7 @@ export const DefaultLayout = (props: Props) => {
       </a>
       <Header />
       <div className="d-lg-flex">
-        <SidebarNav />
+        {isHomepageVersion ? null : <SidebarNav />}
         {/* Need to set an explicit height for sticky elements since we also
           set overflow to auto */}
         <div className="flex-column flex-1 min-width-0">
@@ -123,7 +123,7 @@ export const DefaultLayout = (props: Props) => {
 
             {props.children}
           </main>
-          <footer>
+          <footer data-container="footer">
             <SupportSection />
             <LegalFooter />
             <ScrollButton

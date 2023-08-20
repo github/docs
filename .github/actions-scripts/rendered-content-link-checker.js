@@ -12,7 +12,7 @@ import { JSONFile } from 'lowdb/node'
 import shortVersions from '../../middleware/contextualizers/short-versions.js'
 import contextualize from '../../middleware/context.js'
 import features from '../../middleware/contextualizers/features.js'
-import getRedirect from '../../lib/get-redirect.js'
+import getRedirect from '../../src/redirects/lib/get-redirect.js'
 import warmServer from '../../lib/warm-server.js'
 import { liquid } from '../../src/content-render/index.js'
 import { deprecated } from '../../lib/enterprise-server-releases.js'
@@ -73,7 +73,7 @@ const linksToSkip = linksToSkipFactory(excludedLinks)
 const CONTENT_ROOT = path.resolve('content')
 
 const deprecatedVersionPrefixesRegex = new RegExp(
-  `enterprise(-server@|/)(${deprecated.join('|')})(/|$)`
+  `enterprise(-server@|/)(${deprecated.join('|')})(/|$)`,
 )
 
 // When this file is invoked directly from action as opposed to being imported
@@ -228,7 +228,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
 
   if (checkExternalLinks && pages.length >= 100) {
     core.warning(
-      `Warning! Checking external URLs can be time costly. You're testing ${pages.length} pages.`
+      `Warning! Checking external URLs can be time costly. You're testing ${pages.length} pages.`,
     )
   }
 
@@ -238,8 +238,8 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
   const t0 = new Date().getTime()
   const flawsGroups = await Promise.all(
     pages.map((page) =>
-      processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB, versions)
-    )
+      processPage(core, page, pageMap, redirects, opts, externalLinkCheckerDB, versions),
+    ),
   )
   const t1 = new Date().getTime()
   debugTimeEnd(core, 'processPages')
@@ -283,7 +283,7 @@ async function main(core, octokit, uploadArtifact, opts = {}) {
       core.setOutput('has_flaws_at_level', flawsInLevel.length > 0)
       if (failOnFlaw) {
         core.setFailed(
-          `${flaws.length + 1} broken links found. See action artifact uploads for details`
+          `${flaws.length + 1} broken links found. See action artifact uploads for details`,
         )
       }
     }
@@ -395,7 +395,7 @@ async function linkReports(core, octokit, newReport, opts) {
         body,
       })
       core.info(
-        `Linked old report to new report via comment on old report: #${previousReport.number}.`
+        `Linked old report to new report via comment on old report: #${previousReport.number}.`,
       )
     } catch (error) {
       core.setFailed(`Error commenting on previousReport, #${previousReport.number}`)
@@ -566,7 +566,7 @@ function printGlobalCacheHitRatio(core) {
       `Cache hit ratio: ${hits.toLocaleString()} of ${(misses + hits).toLocaleString()} (${(
         (100 * hits) /
         (misses + hits)
-      ).toFixed(1)}%)`
+      ).toFixed(1)}%)`,
     )
   }
 }
@@ -619,7 +619,7 @@ async function processPage(core, page, pageMap, redirects, opts, db, versions) {
       })
       .map((permalink) => {
         return processPermalink(core, permalink, page, pageMap, redirects, opts, db)
-      })
+      }),
   )
 
   const allFlaws = allFlawsEach.flat()
@@ -687,7 +687,7 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
         checkExternalLinks,
         externalServerErrorsAsWarning,
         { verbose, patient },
-        db
+        db,
       )
 
       if (flaw) {
@@ -704,7 +704,7 @@ async function processPermalink(core, permalink, page, pageMap, redirects, opts,
           globalHrefCheckCache.set(href, flaw)
         }
       }
-    })
+    }),
   )
 
   for (const flaw of newFlaws) {
@@ -748,7 +748,7 @@ async function uploadJsonFlawsArtifact(
   uploadArtifact,
   flaws,
   { verboseUrl = null } = {},
-  artifactName = 'all-rendered-link-flaws.json'
+  artifactName = 'all-rendered-link-flaws.json',
 ) {
   const printableFlaws = {}
   for (const { page, permalink, href, text, src, flaw } of flaws) {
@@ -833,7 +833,7 @@ async function checkHrefLink(
   checkExternalLinks = false,
   externalServerErrorsAsWarning = false,
   { verbose = false, patient = false } = {},
-  db = null
+  db = null,
 ) {
   if (href === '#') {
     if (checkAnchors) {
@@ -883,7 +883,7 @@ async function checkHrefLink(
       if (pathname.split('/')[1] in STATIC_PREFIXES) {
         const staticFilePath = path.join(
           STATIC_PREFIXES[pathname.split('/')[1]],
-          pathname.split(path.sep).slice(2).join(path.sep)
+          pathname.split(path.sep).slice(2).join(path.sep),
         )
         if (!fs.existsSync(staticFilePath)) {
           return { CRITICAL: `Static file not found ${staticFilePath} (${pathname})` }
@@ -1045,7 +1045,7 @@ async function innerFetch(core, url, config = {}) {
     })
     if (verbose) {
       core.info(
-        `External URL ${useGET ? 'GET' : 'HEAD'} ${url}: ${r.statusCode} (retries: ${retries})`
+        `External URL ${useGET ? 'GET' : 'HEAD'} ${url}: ${r.statusCode} (retries: ${retries})`,
       )
     }
 
@@ -1055,7 +1055,7 @@ async function innerFetch(core, url, config = {}) {
     if (r.statusCode === 429) {
       let sleepTime = Math.min(
         60_000,
-        Math.max(10_000, getRetryAfterSleep(r.headers['retry-after']))
+        Math.max(10_000, getRetryAfterSleep(r.headers['retry-after'])),
       )
       // Sprinkle a little jitter so it doesn't all start again all
       // at the same time
@@ -1067,8 +1067,8 @@ async function innerFetch(core, url, config = {}) {
       if (verbose)
         core.info(
           chalk.yellow(
-            `Rate limited on ${hostname} (${url}). Sleeping for ${(sleepTime / 1000).toFixed(1)}s`
-          )
+            `Rate limited on ${hostname} (${url}). Sleeping for ${(sleepTime / 1000).toFixed(1)}s`,
+          ),
         )
       await sleep(sleepTime)
       return innerFetch(core, url, Object.assign({}, config, { retries: retries + 1 }))
@@ -1115,7 +1115,7 @@ function checkImageSrc(src, $) {
   if (prefix in STATIC_PREFIXES) {
     const staticFilePath = path.join(
       STATIC_PREFIXES[prefix],
-      pathname.split(path.sep).slice(2).join(path.sep)
+      pathname.split(path.sep).slice(2).join(path.sep),
     )
     if (!fs.existsSync(staticFilePath)) {
       return { CRITICAL: `Static file not found (${pathname})` }
@@ -1129,8 +1129,8 @@ function summarizeFlaws(core, flaws) {
   if (flaws.length) {
     core.info(
       chalk.bold(
-        `Found ${flaws.length.toLocaleString()} flaw${flaws.length === 1 ? '' : 's'} in total.`
-      )
+        `Found ${flaws.length.toLocaleString()} flaw${flaws.length === 1 ? '' : 's'} in total.`,
+      ),
     )
   } else {
     core.info(chalk.green('No flaws found! 💖'))
@@ -1140,7 +1140,7 @@ function summarizeFlaws(core, flaws) {
 function summarizeCounts(core, pages, tookSeconds) {
   const count = pages.map((page) => page.permalinks.length).reduce((a, b) => a + b, 0)
   core.info(
-    `Tested ${count.toLocaleString()} permalinks across ${pages.length.toLocaleString()} pages`
+    `Tested ${count.toLocaleString()} permalinks across ${pages.length.toLocaleString()} pages`,
   )
   core.info(`Took ${Math.floor(tookSeconds)} seconds. (~${(tookSeconds / 60).toFixed(1)} minutes)`)
   const permalinksPerSecond = count / tookSeconds

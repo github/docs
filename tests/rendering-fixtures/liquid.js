@@ -1,28 +1,28 @@
 import { getDataByLanguage } from '../../lib/get-data.js'
 import { getDOM } from '../helpers/e2etest.js'
 
-describe('extended Markdown', () => {
+describe('spotlight', () => {
   test('renders styled warnings', async () => {
     const $ = await getDOM('/get-started/liquid/warnings')
-    const nodes = $('div.extended-markdown.warning')
+    const nodes = $('.ghd-spotlight-warning')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the warning.')).toBe(true)
-    expect(nodes.hasClass('color-border-danger')).toBe(true)
+    expect(nodes.hasClass('color-border-danger-emphasis')).toBe(true)
     expect(nodes.hasClass('color-bg-danger')).toBe(true)
   })
 
   test('renders styled danger', async () => {
     const $ = await getDOM('/get-started/liquid/danger')
-    const nodes = $('div.extended-markdown.danger')
+    const nodes = $('.ghd-spotlight-danger')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('Danger, Will Robinson.')).toBe(true)
-    expect(nodes.hasClass('color-border-danger')).toBe(true)
+    expect(nodes.hasClass('color-border-danger-emphasis')).toBe(true)
     expect(nodes.hasClass('color-bg-danger')).toBe(true)
   })
 
   test('renders styled tips', async () => {
     const $ = await getDOM('/get-started/liquid/tips')
-    const nodes = $('div.extended-markdown.tip')
+    const nodes = $('.ghd-spotlight-tip')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the tip.')).toBe(true)
     expect(nodes.hasClass('color-border-accent-emphasis')).toBe(true)
@@ -31,13 +31,15 @@ describe('extended Markdown', () => {
 
   test('renders styled notes', async () => {
     const $ = await getDOM('/get-started/liquid/notes')
-    const nodes = $('div.extended-markdown.note')
+    const nodes = $('.ghd-spotlight-note')
     expect(nodes.length).toBe(1)
     expect(nodes.text().includes('This is inside the note.')).toBe(true)
     expect(nodes.hasClass('color-border-accent-emphasis')).toBe(true)
     expect(nodes.hasClass('color-bg-accent')).toBe(true)
   })
+})
 
+describe('raw', () => {
   test('renders raw', async () => {
     const $ = await getDOM('/get-started/liquid/raw')
     const lead = $('[data-testid="lead"]').html()
@@ -46,25 +48,29 @@ describe('extended Markdown', () => {
     expect(code).toMatch('{% data foo.bar.buzz %}')
     expect(code).toMatch('{{ page.title }}')
   })
+})
 
+describe('tool', () => {
   test('renders platform-specific content', async () => {
     const $ = await getDOM('/get-started/liquid/platform-specific')
-    expect($('.extended-markdown.mac p').length).toBe(1)
-    expect($('.extended-markdown.mac p').text().includes('mac specific content')).toBe(true)
-    expect($('.extended-markdown.windows p').length).toBe(1)
-    expect($('.extended-markdown.windows p').text().includes('windows specific content')).toBe(true)
-    expect($('.extended-markdown.linux p').length).toBe(1)
-    expect($('.extended-markdown.linux p').text().includes('linux specific content')).toBe(true)
+    expect($('.ghd-tool.mac p').length).toBe(1)
+    expect($('.ghd-tool.mac p').text().includes('mac specific content')).toBe(true)
+    expect($('.ghd-tool.windows p').length).toBe(1)
+    expect($('.ghd-tool.windows p').text().includes('windows specific content')).toBe(true)
+    expect($('.ghd-tool.linux p').length).toBe(1)
+    expect($('.ghd-tool.linux p').text().includes('linux specific content')).toBe(true)
   })
 
   test('renders expected mini TOC headings in platform-specific content', async () => {
     const $ = await getDOM('/get-started/liquid/platform-specific')
     expect($('h2#in-this-article').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.mac').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.windows').length).toBe(1)
-    expect($('h2#in-this-article + nav ul div.extended-markdown.linux').length).toBe(1)
+    expect($('h2#in-this-article + nav ul .ghd-tool.mac').length).toBe(1)
+    expect($('h2#in-this-article + nav ul .ghd-tool.windows').length).toBe(1)
+    expect($('h2#in-this-article + nav ul .ghd-tool.linux').length).toBe(1)
   })
+})
 
+describe('post', () => {
   test('whitespace control', async () => {
     const $ = await getDOM('/get-started/liquid/whitespace')
     const html = $('#article-contents').html()
@@ -83,7 +89,9 @@ describe('extended Markdown', () => {
       expect(html).toMatch('Cramped')
     }
   })
+})
 
+describe('rowheaders', () => {
   test('rowheaders', async () => {
     const $ = await getDOM('/get-started/liquid/table-row-headers')
     const tables = $('#article-contents table')
@@ -138,9 +146,9 @@ describe('extended Markdown', () => {
     totalAssertions += $('tbody th', firstTable).length
     expect.assertions(totalAssertions)
   })
+})
 
-  // tests for ifversion
-
+describe('ifversion', () => {
   // the matchesPerVersion object contains a list of conditions that
   // should match per version tested, but we also operate against it
   // to find out versions that shouldn't match
@@ -154,7 +162,7 @@ describe('extended Markdown', () => {
       'condition-l',
     ],
     'enterprise-cloud@latest': ['condition-c', 'condition-j', 'condition-l'],
-    'enterprise-server@3.5': [
+    'enterprise-server@3.6': [
       'condition-c',
       'condition-e',
       'condition-f',
@@ -166,7 +174,7 @@ describe('extended Markdown', () => {
       'condition-n',
       'condition-o',
     ],
-    'enterprise-server@3.6': [
+    'enterprise-server@3.7': [
       'condition-c',
       'condition-e',
       'condition-f',
@@ -201,7 +209,7 @@ describe('extended Markdown', () => {
       unwantedConditions.forEach((condition) => {
         expect(html).not.toMatch(condition)
       })
-    }
+    },
   )
 })
 

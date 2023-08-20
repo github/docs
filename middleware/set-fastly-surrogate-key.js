@@ -18,7 +18,9 @@ export function setFastlySurrogateKey(res, enumKey, isCustomKey = false) {
   if (process.env.NODE_ENV !== 'production') {
     if (!isCustomKey && !Object.values(SURROGATE_ENUMS).includes(enumKey)) {
       throw new Error(
-        `Unrecognizes surrogate enumKey. ${enumKey} is not one of ${Object.values(SURROGATE_ENUMS)}`
+        `Unrecognizes surrogate enumKey. ${enumKey} is not one of ${Object.values(
+          SURROGATE_ENUMS,
+        )}`,
       )
     }
   }

@@ -7,7 +7,7 @@ intro: >-
 permissions: >-
   People with owner or admin access to temporarily restrict which type of user
   can comment, open issues, or create pull requests in a public repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

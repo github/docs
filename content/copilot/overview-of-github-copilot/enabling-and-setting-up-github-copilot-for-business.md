@@ -42,3 +42,10 @@ Once an enterprise owner has enabled {% data variables.product.prodname_copilot_
 ## Assigning {% data variables.product.prodname_copilot %} seats
 
 To give people or teams within your organization access to {% data variables.product.prodname_copilot %}, you need to assign them a {% data variables.product.prodname_copilot %} seat. {% ifversion ghec %}Once a {% data variables.product.prodname_ghe_cloud %} admin enables a {% data variables.product.prodname_copilot_business_short %} subscription in your organization, you can assign {% data variables.product.prodname_copilot %} seats to individuals and teams in your organization.{% endif %} To enable access for all current and future users in your organization, or specific users in your organization, follow the steps in "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization#configuring-access-to-github-copilot-in-your-organization)."
+
+## Configuring network settings
+
+If members of your organization will be using {% data variables.product.prodname_copilot %} on your company's corporate network, you may need to configure network settings so that members can use {% data variables.product.prodname_copilot %} successfully.
+
+- If you use an HTTP proxy server on your network, you can configure {% data variables.product.prodname_copilot %} to connect via this server. To  successfully intercept and inspect {% data variables.product.prodname_copilot %}'s secure connection, you may need to install custom SSL certificates on your users' machines. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot)."
+- If you use a firewall, you may need to add certain domains to the firewall's allowlist. For more information, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-firewall-settings-for-github-copilot)."

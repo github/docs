@@ -1,0 +1,6 @@
+# Issue 10918
+# Stricter permissions for securely enabling OpenID Connect (OIDC) in a reusable workflows
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

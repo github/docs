@@ -39,16 +39,20 @@ export const SimpleHeader = () => {
   const router = useRouter()
   return (
     <div className="border-bottom color-border-muted no-print">
-      <header className="container-xl p-responsive py-3 position-relative d-flex width-full">
+      <header
+        className="container-xl p-responsive py-3 position-relative d-flex width-full"
+        role="banner"
+        aria-label="Main"
+      >
         <div className="d-flex flex-items-center" style={{ zIndex: 3 }} id="github-logo-mobile">
-          <Link href={`/${router.locale}`}>
+          <Link href={`/${router.locale}`} passHref legacyBehavior>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a aria-hidden="true" tabIndex={-1}>
               <MarkGithubIcon size={32} className="color-fg-default" />
             </a>
           </Link>
 
-          <Link href={`/${router.locale}`}>
+          <Link href={`/${router.locale}`} passHref legacyBehavior>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="h4 color-fg-default no-underline no-wrap pl-2">GitHub Docs</a>
           </Link>

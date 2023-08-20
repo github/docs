@@ -103,7 +103,7 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 1. To add your GPG key to your `.bashrc` startup file, run the following command:
 
    ```bash
-   [ -f ~/.bashrc ] && echo -e '\nexport GPG_TTY=\$(tty)' >> ~/.bashrc
+   [ -f ~/.bashrc ] && echo -e '\nexport GPG_TTY=$(tty)' >> ~/.bashrc
    ```
 
 {% endlinux %}

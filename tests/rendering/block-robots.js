@@ -60,7 +60,7 @@ describe('block robots', () => {
     expect(allowIndex('/en/actions/overview/intro')).toBe(true)
     expect(allowIndex(`/en/enterprise/${enterpriseServerReleases.latest}/user/actions`)).toBe(true)
     expect(
-      allowIndex(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/actions`)
+      allowIndex(`/en/enterprise/${enterpriseServerReleases.oldestSupported}/user/actions`),
     ).toBe(true)
   })
 

@@ -58,7 +58,7 @@ The best way to improve the security of {% ifversion fpt %}your personal account
 
 As a best practice, to ensure both security and reliable access to your account, you should always have at least two second-factor credentials registered on your account. Extra credentials ensures that even if you lose access to one credential, you won't be locked out of your account.{% ifversion fpt or ghec %}
 
-Additionally, you should prefer security keys and authenticator apps (called TOTP apps) over use of SMS whenever possible. SMS-based 2FA does not provide the same level of protection as TOTP apps or security keys, and it is no longer recommended under the [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) digital identity guidelines.
+Additionally, you should prefer{% ifversion passkeys %} passkeys,{% endif %} security keys and authenticator apps (called TOTP apps) over use of SMS whenever possible. SMS-based 2FA does not provide the same level of protection as TOTP apps{% ifversion passkeys %}, passkeys,{% endif %} or security keys, and it is no longer recommended under the [NIST 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) digital identity guidelines.
 
 {% endif %}{% ifversion mandatory-2fa-dotcom-contributors %}{% ifversion ghec %}
 If service accounts in your organization have been selected for 2FA enrollment by {% data variables.product.prodname_dotcom %}, their tokens and keys will continue to work after the deadline without interruption. Only access to {% data variables.product.prodname_dotcom %} through the website UI will be blocked until the account has enabled 2FA. We recommend setting up TOTP as the second factor for service accounts, and storing the TOTP secret exposed during setup in your company's shared password manager, with access to the secrets controlled through SSO.
@@ -147,7 +147,6 @@ Hardware-backed SSH keys are quite secure, but the hardware requirement might no
 ## Next steps
 
 - "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
-
 - "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-code)"
-
-- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+- "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"{% ifversion fpt or ghec or ghes %}
+- "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"{% endif %}

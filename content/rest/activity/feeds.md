@@ -3,7 +3,7 @@ title: Feeds
 intro: >-
   Use the REST API to interact with {% data variables.product.prodname_dotcom %}
   feeds.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

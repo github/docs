@@ -94,8 +94,8 @@ If you view a code file in a repository using the **Code** view and click on any
 | Keyboard shortcut | Description
 |-----------|------------
 |<kbd>Shift</kbd>+<kbd>J</kbd>| Highlights the line that is currently selected by the cursor within the code file
-|<kbd>Shift</kbd>+<kbd>F10</kbd> | If a line of code is currently selected, this shortcut opens the line menu for that line, appearing under {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} to the left of the line
-|<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Control</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Highlights the code symbol currently selected by the cursor and all other occurences of the symbol in the code, and shows the symbol in the symbols pane
+|<kbd>Shift</kbd>+<kbd>Option</kbd>+<kbd>C</kbd> (Mac) or </br> <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>C</kbd> (Windows/Linux) | If a line of code is currently selected, this shortcut opens the line menu for that line, appearing under {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} to the left of the line
+|<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Control</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Highlights the code symbol currently selected by the cursor and all other occurrences of the symbol in the code, and shows the symbol in the symbols pane
 {% endif %}
 
 ## Comments
@@ -105,7 +105,7 @@ If you view a code file in a repository using the **Code** view and click on any
 |<kbd>Command</kbd>+<kbd>B</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>B</kbd> (Windows/Linux) | Inserts Markdown formatting for bolding text
 |<kbd>Command</kbd>+<kbd>I</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>I</kbd> (Windows/Linux) | Inserts Markdown formatting for italicizing text
 |<kbd>Command</kbd>+<kbd>E</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>E</kbd> (Windows/Linux) | Inserts Markdown formatting for code or a command within a line
-|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% ifversion fpt or ghae > 3.5 or ghes > 3.5 or ghec %}
+|<kbd>Command</kbd>+<kbd>K</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>K</kbd> (Windows/Linux) | Inserts Markdown formatting for creating a link{% ifversion fpt or ghae > 3.5 or ghes or ghec %}
 |<kbd>Command</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>V</kbd> (Windows/Linux) | Creates a Markdown link when applied over highlighted text{% endif %}
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) | Toggles between the **Write** and **Preview** comment tabs
 |<kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Mac) or </br> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> (Windows/Linux) | Pastes HTML link as plain text

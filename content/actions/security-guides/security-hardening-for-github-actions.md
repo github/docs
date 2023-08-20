@@ -76,7 +76,7 @@ A script injection attack can occur directly within a workflow's inline script. 
 
 {% raw %}
 
-```
+```yaml
       - name: Check PR title
         run: |
           title="${{ github.event.pull_request.title }}"
@@ -116,7 +116,7 @@ The recommended approach is to create an action that processes the context value
 
 {% raw %}
 
-```
+```yaml
 uses: fakeaction/checktitle@v3
 with:
     title: ${{ github.event.pull_request.title }}
@@ -132,7 +132,7 @@ The following example uses Bash to process the `github.event.pull_request.title`
 
 {% raw %}
 
-```
+```yaml
       - name: Check PR title
         env:
           TITLE: ${{ github.event.pull_request.title }}
@@ -165,7 +165,7 @@ With this approach, the value of the {% raw %}`${{ github.event.issue.title }}`{
 {% data reusables.advanced-security.starter-workflows-beta %}
 {% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.product_name %} provides starter workflows for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short%}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party starter workflows available.
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-using-starter-workflows)."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)."
 
 {% endif %}
 
@@ -255,7 +255,7 @@ Workflows triggered using the `pull_request` event have read-only permissions an
 
   {% raw %}
 
-  ```
+  ```yaml
   uses: fakeaction/publish@v3
   with:
       key: ${{ secrets.PUBLISH_KEY }}
@@ -281,7 +281,9 @@ The attacker server can use the {% ifversion fpt or ghec %}{% data variables.pro
 
 {% data variables.product.prodname_actions %} is intentionally scoped for a single repository at a time. The `GITHUB_TOKEN` grants the same level of access as a write-access user, because any write-access user can access this token by creating or modifying a workflow file, elevating the permissions of the `GITHUB_TOKEN` if necessary. Users have specific permissions for each repository, so allowing the `GITHUB_TOKEN` for one repository to grant access to another would impact the {% data variables.product.prodname_dotcom %} permission model if not implemented carefully. Similarly, caution must be taken when adding {% data variables.product.prodname_dotcom %} authentication tokens to a workflow, because this can also affect the {% data variables.product.prodname_dotcom %} permission model by inadvertently granting broad access to collaborators.
 
-We have [a plan on the {% data variables.product.prodname_dotcom %} roadmap](https://github.com/github/roadmap/issues/74) to support a flow that allows cross-repository access within {% data variables.product.product_name %}, but this is not yet a supported feature. Currently, the only way to perform privileged cross-repository interactions is to place a {% data variables.product.prodname_dotcom %} authentication token or SSH key as a secret within the workflow. Because many authentication token types do not allow for granular access to specific resources, there is significant risk in using the wrong token type, as it can grant much broader access than intended.
+If your organization is owned by an enterprise account, then you can share and reuse {% data variables.product.prodname_actions %} by storing them in internal repositories. For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."
+
+You can perform other privileged, cross-repository interactions by referencing a {% data variables.product.prodname_dotcom %} authentication token or SSH key as a secret within the workflow. Because many authentication token types do not allow for granular access to specific resources, there is significant risk in using the wrong token type, as it can grant much broader access than intended.
 
 This list describes the recommended approaches for accessing repository data within a workflow, in descending order of preference:
 
@@ -299,15 +301,23 @@ This list describes the recommended approaches for accessing repository data wit
 1. **SSH keys on a personal account**
     - Workflows should never use the SSH keys on a personal account. Similar to {% data variables.product.pat_v1_plural %}, they grant read/write permissions to all of your personal repositories as well as all the repositories you have access to through organization membership.  This indirectly grants broad access to all write-access users of the repository the workflow is in. If you're intending to use an SSH key because you only need to perform repository clones or pushes, and do not need to interact with public APIs, then you should use individual deploy keys instead.
 
+## Hardening for {% data variables.product.prodname_dotcom %}-hosted runners
+
+{% data variables.product.prodname_dotcom %}-hosted runners take measures to help you mitigate security risks.
+
 {% ifversion actions-sbom %}
 
-## Reviewing the supply chain for {% data variables.product.prodname_dotcom %}-hosted runners
+### Reviewing the supply chain for {% data variables.product.prodname_dotcom %}-hosted runners
 
 You can view a software bill of materials (SBOM) to see what software was pre-installed on the {% data variables.product.prodname_dotcom %}-hosted runner image used during your workflow runs. You can provide your users with the SBOM which they can run through a vulnerability scanner to validate if there are any vulnerabilities in the product. If you are building artifacts, you can include this SBOM in your bill of materials for a comprehensive list of everything that went into creating your software.
 
 SBOMs are available for Ubuntu, Windows, and macOS runner images. You can locate the SBOM for your build in the release assets at https://github.com/actions/runner-images/releases. An SBOM with a filename in the format of `sbom.<IMAGE-NAME>.json.zip` can be found in the attachments of each release.
 
 {% endif %}
+
+### Denying access to hosts
+
+{% data reusables.actions.runners-etc-hosts-file %}{%ifversion fpt or ghec or ghes %}For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners)."{% endif %}
 
 ## Hardening for self-hosted runners
 

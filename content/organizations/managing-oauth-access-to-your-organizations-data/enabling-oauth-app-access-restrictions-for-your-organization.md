@@ -12,10 +12,12 @@ versions:
 topics:
   - Organizations
   - Teams
-shortTitle: Restrict {% data variables.product.prodname_oauth_app %}s
+shortTitle: Restrict {% data variables.product.prodname_oauth_apps %}
 ---
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
+
+Even if you restrict {% data variables.product.prodname_oauth_apps %} access in your organization, users can still authorize internal {% data variables.product.prodname_oauth_apps %} and use them to access data from the organization. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/internal-oauth-apps)."
 
 {% warning %}
 

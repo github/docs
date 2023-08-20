@@ -9,13 +9,6 @@ export type ProductT = {
   href: string
   id: string
   name: string
-  versions?: Array<string>
-}
-
-type SimpleProductT = {
-  href: string
-  name: string
-  external: boolean
 }
 
 type VersionItem = {
@@ -34,9 +27,7 @@ type VersionItem = {
 }
 
 export type ProductTreeNode = {
-  documentType: 'article' | 'mapTopic'
   title: string
-  shortTitle: string
   href: string
   childPages: Array<ProductTreeNode>
 }
@@ -71,7 +62,6 @@ export type MainContextT = {
     maptopic?: BreadcrumbT
     article?: BreadcrumbT
   }
-  homepageLinks: Array<SimpleProductT>
   communityRedirect: {
     name: string
     href: string
@@ -79,7 +69,6 @@ export type MainContextT = {
   currentProduct?: ProductT
   currentLayoutName: string
   isHomepageVersion: boolean
-  isFPT: boolean
   data: DataT
   error: string
   currentCategory?: string
@@ -89,6 +78,7 @@ export type MainContextT = {
   allVersions: Record<string, VersionItem>
   currentVersion?: string
   currentProductTree?: ProductTreeNode | null
+  sidebarTree?: ProductTreeNode | null
   featureFlags: FeatureFlags
   page: {
     documentType: string
@@ -127,14 +117,19 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     delete req.context.site.data.ui.ms
   }
 
+  const { documentType } = req.context.page
+
+  // Every product landing page has a listing of all articles.
+  // It's used by the <ProductArticlesList> component.
+  const includeFullProductTree = documentType === 'product'
+  const includeSidebarTree = documentType !== 'homepage'
+
   return {
     breadcrumbs: req.context.breadcrumbs || {},
-    homepageLinks: req.context.homepageLinks || null,
     communityRedirect: req.context.page?.communityRedirect || {},
     currentProduct: req.context.productMap[req.context.currentProduct] || null,
     currentLayoutName: req.context.currentLayoutName,
     isHomepageVersion: req.context.page?.documentType === 'homepage',
-    isFPT: req.context.currentVersion === 'free-pro-team@latest',
     error: req.context.error ? req.context.error.toString() : '',
     data: {
       ui: req.context.site.data.ui,
@@ -142,13 +137,13 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
       reusables: {
         enterprise_deprecation: {
           version_was_deprecated: req.context.getDottedData(
-            'reusables.enterprise_deprecation.version_was_deprecated'
+            'reusables.enterprise_deprecation.version_was_deprecated',
           ),
           version_will_be_deprecated: req.context.getDottedData(
-            'reusables.enterprise_deprecation.version_will_be_deprecated'
+            'reusables.enterprise_deprecation.version_will_be_deprecated',
           ),
           deprecation_details: req.context.getDottedData(
-            'reusables.enterprise_deprecation.deprecation_details'
+            'reusables.enterprise_deprecation.deprecation_details',
           ),
         },
         policies: {
@@ -166,14 +161,14 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     relativePath: req.context.page?.relativePath,
     page: {
       languageVariants: req.context.page.languageVariants,
-      documentType: req.context.page.documentType,
+      documentType,
       type: req.context.page.type || null,
       title: req.context.page.title,
       fullTitle: req.context.page.fullTitle,
       topics: req.context.page.topics || [],
       introPlainText: req.context.page?.introPlainText,
       permalinks: req.context.page?.permalinks.map((obj: any) =>
-        pick(obj, ['title', 'pageVersion', 'href', 'relativePath', 'languageCode'])
+        pick(obj, ['title', 'pageVersion', 'href', 'relativePath', 'languageCode']),
       ),
       hidden: req.context.page.hidden || false,
       noEarlyAccessBanner: req.context.page.noEarlyAccessBanner || false,
@@ -190,7 +185,14 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     // This is a slimmed down version of `req.context.currentProductTree`
     // that only has the minimal titles stuff needed for sidebars and
     // any page that is hidden is omitted.
-    currentProductTree: req.context.currentProductTreeTitlesExcludeHidden || null,
+    // However, it's not needed on most pages. For example, on article pages,
+    // you don't need it. It's similar to the minimal product tree but,
+    // has the full length titles and not just the short titles.
+    currentProductTree:
+      (includeFullProductTree && req.context.currentProductTreeTitlesExcludeHidden) || null,
+    // The minimal product tree is needed on all pages that depend on
+    // the product sidebar or the rest sidebar.
+    sidebarTree: (includeSidebarTree && req.context.sidebarTree) || null,
     featureFlags: {},
     searchVersions: req.context.searchVersions,
     nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,

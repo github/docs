@@ -16,7 +16,7 @@ topics:
   - Desktop
   - Security
 children:
-  - /githubs-products
+  - /githubs-plans
   - /about-versions-of-github-docs
   - /github-language-support
   - /types-of-github-accounts
@@ -24,4 +24,3 @@ children:
   - /about-github-advanced-security
   - /faq-about-changes-to-githubs-plans
 ---
-

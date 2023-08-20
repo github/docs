@@ -44,20 +44,19 @@ Your instance validates the hostnames for proxy exclusion using the list of IANA
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.privacy %}
 1. Under **HTTP Proxy Server**, type the URL of your proxy server.
-1. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. To exclude all hosts in a domain from requiring proxy access, you must use `.` as a wildcard prefix, such as `.octo-org.tentacle`.
+1. Optionally, under **HTTP Proxy Exclusion**, type any hosts that do not require proxy access, separating hosts with commas. The following rules apply to top-level domains (TLDs) and IP addresses that you exclude from the proxy.
 
-   {%- ifversion ghes < 3.9 %}
-   {% note %}
+   - When you exclude a TLD, you can exclude all hosts in a domain from requiring proxy access using `.` as a wildcard prefix, such as `.octo-org.tentacle`.
+   - {% ifversion ghes < 3.9 %}In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, your{% else %}Your{% endif %} instance validates the hostnames you exclude using the list of IANA's registered TLDs. For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
+     - When you exclude additional unregistered TLDs, you must use `.` as a wildcard prefix. If the TLD is `tentacle`, you must exclude `.tentacle`. You cannot exclude an unregistered TLD without the preceding `.`.
+   - You can exclude a full, valid IPv4 or IPv6 address.
+   - You cannot exclude an IPv4 or IPv6 address using a preceding or trailing dot as a wildcard.
 
-   **Note**: In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, your instance validates the hostnames using the list of IANA's registered top-level domains (TLDs). For more information, see the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website. If you want to exclude an unregistered TLD, see "[Excluding additional unregistered TLDs from the proxy](#excluding-additional-unregistered-tlds-from-the-proxy)."
-
-   {% endnote %}
-   {%- endif %}
 {% data reusables.enterprise_management_console.save-settings %}
 
 ## Excluding additional unregistered TLDs from the proxy
 
-{% ifversion ghes < 3.9 %}In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.5 %}5.15{% elsif ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, you{% elsif ghes > 3.8 %}You{% endif %} can configure your instance's proxy settings to exclude unregistered TLDs that aren't specified in the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
+{% ifversion ghes < 3.9 %}In {% data variables.product.product_name %} 3.{% ifversion ghes = 3.6 %}6.11{% elsif ghes = 3.7%}7.8{% elsif ghes = 3.8 %}8.1{% endif %} and later, you{% elsif ghes > 3.8 %}You{% endif %} can configure your instance's proxy settings to exclude unregistered TLDs that aren't specified in the [list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) on the IANA website.
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. Enter the following command, replacing COMMA-SEPARATED-TLD-LIST with a comma-separated list of TLDs.

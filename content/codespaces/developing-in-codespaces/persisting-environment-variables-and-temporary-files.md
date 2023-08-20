@@ -36,7 +36,7 @@ There are three ways that you can set persistent custom environment variables fo
 
 Edit the `devcontainer.json` configuration file for the repository, and use the `remoteEnv` property to set the environment variable value:
 
-```
+```json
 {
     "remoteEnv": {
       "VARNAME": "value"
