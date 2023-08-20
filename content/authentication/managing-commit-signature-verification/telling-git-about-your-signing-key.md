@@ -47,8 +47,8 @@ If you have multiple GPG keys, you need to tell Git which one to use.
    Alternatively, if you use the `bash` shell, run this command:
 
    ```shell
-   $ if [ -r ~/.bash_profile ]; then echo -e '\nexport GPG_TTY=\$(tty)' >> ~/.bash_profile; \
-     else echo -e '\nexport GPG_TTY=\$(tty)' >> ~/.profile; fi
+   $ if [ -r ~/.bash_profile ]; then echo -e '\nexport GPG_TTY=$(tty)' >> ~/.bash_profile; \
+     else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.profile; fi
    ```
 
 1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
