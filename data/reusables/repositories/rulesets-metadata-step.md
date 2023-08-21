@@ -1,10 +1,10 @@
+{% data reusables.repositories.rulesets-metadata-restrictions-notes %}
+
 1. Optionally, in the "Metadata restrictions" section, to add a rule to control the metadata of commits being pushed to the branch or tag, click {% octicon "plus" aria-label="Add metadata restriction" %}.
 
    ![Screenshot of the "Metadata restriction" section. To the right of the header, a plus icon is highlighted with an orange outline.](/assets/images/help/repository/add-metadata-restriction.png)
 
-{% indented_data_reference reusables.repositories.rulesets-metadata-restrictions-notes spaces=3 %}
-
-1. If you're adding a metadata restriction, configure the settings for the metadata restriction rule, then click **Add**. You can add multiple restrictions to the same ruleset.
+1. Configure the settings for the metadata restriction rule, then click **Add**. You can add multiple restrictions to the same ruleset.
 
    For most requirements, such as "Must start with a matching pattern," the pattern you enter is interpreted literally, and wildcards are not supported. For example, the `*` character only represents the literal `*` character.
 

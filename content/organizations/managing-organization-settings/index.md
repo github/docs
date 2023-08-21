@@ -46,6 +46,7 @@ children:
   - /disabling-insights-for-projects-in-your-organization
   - /managing-base-permissions-for-projects
   - /allowing-project-visibility-changes-in-your-organization
+  - /creating-rulesets-for-repositories-in-your-organization
   - /managing-rulesets-for-repositories-in-your-organization
 shortTitle: Manage organization settings
 ---
