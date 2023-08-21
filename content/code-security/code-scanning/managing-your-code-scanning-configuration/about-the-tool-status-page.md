@@ -6,6 +6,8 @@ intro: The {% data variables.code-scanning.tool_status_page %} shows useful info
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   feature: code-scanning-tool-status-page
+redirect_from:
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page
 type: overview
 topics:
   - Advanced Security
@@ -61,9 +63,9 @@ This view will also show error messages. For more information, see "[Debugging u
 
 ### How {% data variables.product.prodname_codeql %} defines scanned files
 
-A file is reported as scanned by {% data variables.product.prodname_codeql %} if some of the lines of code in that file were processed. If you're using a standard configuration of the {% data variables.product.prodname_codeql %} action, the scanned files shown in the {% data variables.code-scanning.tool_status_page %} will include source code files for all languages that {% data variables.product.prodname_codeql %} can analyze. If you use advanced setup, you can optionally define which files for interpreted languages should be scanned using the `paths` and `paths-ignore` configuration properties. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning)."
+A file is reported as scanned by {% data variables.product.prodname_codeql %} if some of the lines of code in that file were processed. If you're using a standard configuration of the {% data variables.product.prodname_codeql %} action, the scanned files shown in the {% data variables.code-scanning.tool_status_page %} will include source code files for all languages that {% data variables.product.prodname_codeql %} can analyze. If you use advanced setup, you can optionally define which files for interpreted languages should be scanned using the `paths` and `paths-ignore` configuration properties. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)" and "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
 
-For compiled languages, the {% data variables.code-scanning.tool_status_page %} reports files that were present before running autobuild or any manual build steps. This means that files generated during the build process are not shown in the {% data variables.code-scanning.tool_status_page %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages#about-autobuild-for-codeql)."
+For compiled languages, the {% data variables.code-scanning.tool_status_page %} reports files that were present before running autobuild or any manual build steps. This means that files generated during the build process are not shown in the {% data variables.code-scanning.tool_status_page %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-autobuild-for-codeql)."
 
 The tool status page will calculate the percentage of files that were scanned by {% data variables.product.prodname_codeql %} for each language supported by {% data variables.product.prodname_codeql %}. This percentage respects any files excluded by the `paths` and `paths-ignore` configuration properties.
 
@@ -97,7 +99,7 @@ To remove a configuration, select the configuration you want to delete. Then cli
 
 {% note %}
 
-**Note:** You can only use the {% data variables.code-scanning.tool_status_page %} to remove configurations for the default branch of a repository. For information about removing configurations from non-default branches, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+**Note:** You can only use the {% data variables.code-scanning.tool_status_page %} to remove configurations for the default branch of a repository. For information about removing configurations from non-default branches, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
 
 {% endnote %}
 
@@ -109,7 +111,7 @@ For integrated tools such as {% data variables.product.prodname_codeql %}, you c
 
 - If the language has a high scanned percentage, this shows that code scanning is scanning that language as expected.
 - If the language has a low scanned percentage, you may wish to investigate diagnostic output produced by {% data variables.product.prodname_codeql %} for that language: for more information see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected)."
-- If the language has a scanned percentage of zero, you may have source code in your repository written in languages supported by {% data variables.product.prodname_codeql %} but not currently being analyzed with {% data variables.product.prodname_codeql %}. In this case, you may wish to update your setup to start analyzing these additional languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#changing-the-languages-that-are-analyzed)."
+- If the language has a scanned percentage of zero, you may have source code in your repository written in languages supported by {% data variables.product.prodname_codeql %} but not currently being analyzed with {% data variables.product.prodname_codeql %}. In this case, you may wish to update your setup to start analyzing these additional languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#changing-the-languages-that-are-analyzed)."
 
 {% note %}
 
