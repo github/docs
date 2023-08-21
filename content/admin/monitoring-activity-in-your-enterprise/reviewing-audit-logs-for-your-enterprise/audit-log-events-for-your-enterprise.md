@@ -1128,7 +1128,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repo.clear_actions_settings` | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.
 | `repo.code_scanning_analysis_deleted` | Code scanning analysis for a repository was deleted. For more information, see "[AUTOTITLE](/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."
 {%- ifversion remove-code-scanning-configurations %}
-| `repo.code_scanning_configuration_for_branch_deleted` | A {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository was deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+| `repo.code_scanning_configuration_for_branch_deleted` | A {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository was deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
 {%- endif %}
 | `repo.config`         | A repository administrator blocked force pushes. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
 {%- ifversion fpt or ghec %}

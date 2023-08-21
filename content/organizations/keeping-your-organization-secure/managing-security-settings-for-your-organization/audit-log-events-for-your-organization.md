@@ -531,7 +531,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `advanced_security_enabled` | Triggered when a repository administrator enables {% data variables.product.prodname_GH_advanced_security %} features for the repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).".
 | `archived` | Triggered when a repository admin [archives a repository](/repositories/archiving-a-github-repository/archiving-repositories).
 {%- ifversion remove-code-scanning-configurations %}
-| `code_scanning_configuration_for_branch_deleted` | Triggered when a {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository is deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+| `code_scanning_configuration_for_branch_deleted` | Triggered when a {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository is deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
 {%- endif %}
 {%- ifversion ghes %}
 | `config.disable_anonymous_git_access` | Triggered when [anonymous Git read access is disabled](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/enabling-anonymous-git-read-access-for-a-repository) in a public repository.
