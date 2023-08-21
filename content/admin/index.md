@@ -119,7 +119,7 @@ children:
   - /backing-up-and-restoring-your-instance
   - /policies
   - /monitoring-activity-in-your-enterprise
-  - /enterprise-management
+  - /monitoring-managing-and-updating-your-instance
   - /github-actions
   - /packages
   - /code-security

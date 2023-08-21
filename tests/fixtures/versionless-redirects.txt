@@ -70,7 +70,7 @@
 - /github/setting-up-and-managing-your-enterprise/viewing-people-in-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/managing-users-in-your-enterprise/viewing-people-in-your-enterprise
 
-/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks
+/enterprise-cloud@latest/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks
 - /github/setting-up-and-managing-your-enterprise/managing-organizations-in-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
 - /articles/configuring-webhooks-for-organization-events-in-your-business-account
 - /articles/configuring-webhooks-for-organization-events-in-your-enterprise-account

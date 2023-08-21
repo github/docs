@@ -1,6 +1,7 @@
 ---
 title: 'Installing {% data variables.product.prodname_enterprise %}'
-shortTitle: Installing
+allowTitleToDifferFromFilename: true
+shortTitle: Installation
 intro: 'System administrators and operations and security specialists can install {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /enterprise/admin-guide
