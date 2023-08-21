@@ -1045,7 +1045,7 @@ When a job is used to call a reusable workflow, you can use `with` to provide a 
 
 Any inputs that you pass must match the input specifications defined in the called workflow.
 
-Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not be available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
+Unlike [`jobs.<job_id>.steps[*].with`](#jobsjob_idstepswith), the inputs you pass with `jobs.<job_id>.with` are not available as environment variables in the called workflow. Instead, you can reference the inputs by using the `inputs` context.
 
 ### Example of `jobs.<job_id>.with`
 
