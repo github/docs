@@ -123,15 +123,15 @@ $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_r
 The {% data variables.product.prodname_registry %} registry stores npm packages within your organization or personal account, and allows you to associate a package with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
 
 {% data reusables.package_registry.publishing-user-scoped-packages %} For more information on linking a published package with a repository, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
-{% endif %}
 
-By default, your package is published in the {% data variables.product.prodname_dotcom %} repository that you specify in the name field of the _package.json_ file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. If you're running [npm v8.5.3](https://github.com/npm/cli/releases/tag/v8.5.3) or later, you can add a summary for the package listing page by including a _README.md_ file in your package directory. For more information, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" and "[How to create Node.js Modules](https://docs.npmjs.com/getting-started/creating-node-modules)" in the npm documentation.
+You can connect a package to a repository as soon as the package is published by including a `repository` field in the `package.json` file. You can also use this method to connect multiple packages to the same repository. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
+{% else %}
+By default, your package is published in the {% data variables.product.prodname_dotcom %} repository that you specify in the `name` field of the `package.json` file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `repository` field in the `package.json` file. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
+{% endif %}
 
 {% data reusables.package_registry.auto-inherit-permissions-note %}
 
-You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `URL` field in the _package.json_ file. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
-
-You can set up the scope mapping for your project using either a local _.npmrc_ file in the project or using the `publishConfig` option in the _package.json_. {% data variables.product.prodname_registry %} only supports scoped npm packages. Scoped packages have names with the format of `@NAMESPACE/PACKAGE-NAME`. Scoped packages always begin with an `@` symbol. You may need to update the name in your _package.json_ to use the scoped name. For example, if you're the user `octocat` and your package is named `test`, you would assign the scoped package name as follows: `"name": "@octocat/test"`.
+You can set up the scope mapping for your project using either a local `.npmrc` file in the project or using the `publishConfig` option in the `package.json`. {% data variables.product.prodname_registry %} only supports scoped npm packages. Scoped packages have names with the format of `@NAMESPACE/PACKAGE-NAME`. Scoped packages always begin with an `@` symbol. You may need to update the name in your `package.json` to use the scoped name. For example, if you're the user `octocat` and your package is named `test`, you would assign the scoped package name as follows: `"name": "@octocat/test"`.
 
 {% data reusables.package_registry.viewing-packages %}
 
@@ -142,15 +142,15 @@ You can use an _.npmrc_ file to configure the scope mapping for your project. In
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Verify the name of your package in your project's _package.json_. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your _package.json_ should be `@my-org/test`.
+1. Verify the name of your package in your project's `package.json`. The `name` field must contain the scope and the name of the package. For example, if your package is called "test", and you are publishing to the "My-org" {% data variables.product.prodname_dotcom %} organization, the `name` field in your `package.json` should be `@my-org/test`.
 {% data reusables.package_registry.verify_repository_field %}
 {% data reusables.package_registry.publish_package %}
 
-### Publishing a package using `publishConfig` in the _package.json_ file
+### Publishing a package using `publishConfig` in the `package.json` file
 
-You can use `publishConfig` element in the _package.json_ file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
+You can use `publishConfig` element in the `package.json` file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
 
-1. Edit the _package.json_ file for your package and include a `publishConfig` entry.
+1. Edit the `package.json` file for your package and include a `publishConfig` entry.
    {% ifversion ghes %}
    If your instance has subdomain isolation enabled:
    {% endif %}
@@ -176,7 +176,7 @@ You can use `publishConfig` element in the _package.json_ file to specify the re
 
 ## Publishing multiple packages to the same repository
 
-To publish multiple packages {% ifversion packages-npm-v2 %}and link them {% endif %}to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the _package.json_ file for each package.
+To publish multiple packages {% ifversion packages-npm-v2 %}and link them {% endif %}to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the `package.json` file for each package. For more information, see "[Creating a package.json file](https://docs.npmjs.com/creating-a-package-json-file)" and "[Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules)" in the npm documentation.
 
 To ensure the repository's URL is correct, replace `REPOSITORY` with the name of the repository containing the package you want to publish, and `OWNER` with the name of the personal account or organization on {% data variables.product.prodname_dotcom %} that owns the repository.
 
@@ -188,7 +188,7 @@ To ensure the repository's URL is correct, replace `REPOSITORY` with the name of
 
 ## Installing a package
 
-You can install packages from {% data variables.product.prodname_registry %} by adding the packages as dependencies in the _package.json_ file for your project. For more information on using a _package.json_ in your project, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" in the npm documentation.
+You can install packages from {% data variables.product.prodname_registry %} by adding the packages as dependencies in the `package.json` file for your project. For more information on using a `package.json` in your project, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" in the npm documentation.
 
 By default, you can add packages from one organization. For more information, see "[Installing packages from other organizations](#installing-packages-from-other-organizations)."
 
@@ -201,7 +201,7 @@ By default, you can only use npm packages hosted on your enterprise, and you wil
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
 {% data reusables.package_registry.add-npmrc-to-repo-step %}
-1. Configure _package.json_ in your project to use the package you are installing. To add your package dependencies to the _package.json_ file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from _npmjs.com_, specify the full name, such as `@babel/core` or `@lodash`. Replace `ORGANIZATION_NAME/PACKAGE_NAME` with your package dependency.
+1. Configure `package.json` in your project to use the package you are installing. To add your package dependencies to the `package.json` file for {% data variables.product.prodname_registry %}, specify the full-scoped package name, such as `@my-org/server`. For packages from _npmjs.com_, specify the full name, such as `@babel/core` or `@lodash`. Replace `ORGANIZATION_NAME/PACKAGE_NAME` with your package dependency.
 
    ```json
    {
