@@ -39,6 +39,8 @@ jobs:
             // one has ability to clone the remote (private) translations
             // repos.
             // You can run multiple paths per suite as space-separated in `path`.
+            // Note that *if you add* to this, remember to also add that
+            // to the **required checks** in the branch protection rules.
             return [
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
               { name: 'content', path: 'tests/content', },
