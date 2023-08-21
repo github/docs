@@ -29,6 +29,8 @@ async function main() {
     repo,
   })
 
+  console.log(`Found ${environments.length.toLocaleString()} environments in total`)
+
   let countDeletions = 0
   for (const environment of environments) {
     const ageDays = (Date.now() - Date.parse(environment.created_at)) / 1000 / 60 / 60 / 24

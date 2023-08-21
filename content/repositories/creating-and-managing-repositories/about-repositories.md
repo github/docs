@@ -120,9 +120,7 @@ Most of the limits below affect both {% data variables.product.product_name %} a
 
 ### Text limits
 
-Text files over **512 KB** are always displayed as plain text. Code is not syntax highlighted, and prose files are not converted to HTML (such as Markdown, AsciiDoc, _etc._).
-
-Text files over **5 MB** are only available through their raw URLs, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
+{% data variables.product.prodname_dotcom %} displays formatted previews of some files, such as Markdown and Mermaid diagrams. {% data variables.product.prodname_dotcom %} always attempts to render these previews if the files are small (generally less than 2 MB), but more complex files may time out and either fall back to plain text or not be displayed at all. These files are always available in their raw formats, which are served through `{% data variables.product.raw_github_com %}`; for example, `https://{% data variables.product.raw_github_com %}/octocat/Spoon-Knife/master/index.html`. Click the **Raw** button to get the raw URL for a file.
 
 ### Diff limits
 

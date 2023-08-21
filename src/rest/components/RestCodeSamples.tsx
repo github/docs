@@ -261,8 +261,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                     }
                   }}
                   tabIndex={0}
-                  selected={optionKey === selectedLanguage}
-                  className="pr-3 mr-0"
+                  aria-current={optionKey === selectedLanguage}
+                  className={cx('pr-3 mr-0', optionKey === selectedLanguage && 'PRC-selected')}
                   sx={{
                     cursor: 'pointer',
                   }}
@@ -303,12 +303,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       </div>
 
       {/* Response section */}
-      <div
+      <h4
         className="mt-5 mb-2 h5"
         dangerouslySetInnerHTML={{
           __html: displayedExample.response.description || t('rest.reference.response'),
         }}
-      ></div>
+      ></h4>
 
       <div className="border rounded-1">
         {displayedExample.response.schema ? (
@@ -328,8 +328,8 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                     }
                   }}
                   tabIndex={0}
-                  selected={optionKey === selectedResponse}
-                  className="pr-3 mr-0 ml-2"
+                  aria-current={optionKey === selectedResponse}
+                  className={cx('pr-3 mr-0 ml-2', optionKey === selectedResponse && 'PRC-selected')}
                   sx={{
                     cursor: 'pointer',
                   }}

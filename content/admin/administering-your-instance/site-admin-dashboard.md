@@ -17,23 +17,13 @@ topics:
 ---
 To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-hidden="true" %}.
 
-{% ifversion ghes %}
-
-## Search
-
-Refer to this section of the site admin dashboard to search for users and repositories, and to query the [audit log](#audit-log).
-
-{% else %}
+{% ifversion ghae %}
 
 ## License info & search
 
 Refer to this section of the site admin dashboard to check your current {% data variables.product.prodname_enterprise %} license; to search for users and repositories; and to query the [audit log](#audit-log).
 
 {% endif %}
-
-## {% data variables.enterprise.management_console %}
-
-Here you can launch the {% data variables.enterprise.management_console %} to manage virtual appliance settings such as the domain, authentication, and SSL.
 
 ## Explore
 
@@ -186,34 +176,6 @@ For example, the following words are reserved, among others:
 - `support`
 
 For the full list or reserved words, navigate to "Reserved logins" in the site admin dashboard.
-
-{% ifversion ghas-committers-calculator %}
-
-## {% data variables.product.prodname_advanced_security %} Committers
-
-With the site admin dashboard, you can see the number of active committers that are currently using {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}, and you can calculate how many new or additional {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} would be used if you enabled {% data variables.product.prodname_GH_advanced_security %} for more organizations and repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-advanced-security/viewing-committer-information-for-github-advanced-security)."
-
-{% endif %}
-
-## Enterprise overview
-
-Refer to this section of the site admin dashboard to manage organizations, people, policies, and settings.
-
-## Repositories
-
-This is a list of the repositories on {% data variables.location.product_location %}. You can click on a repository name and access functions for administering the repository.
-
-- [Blocking force pushes to a repository](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)
-- [Configuring {% data variables.large_files.product_name_long %}](/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise#configuring-git-large-file-storage-for-an-individual-repository)
-- [Archiving and unarchiving repositories](/repositories/archiving-a-github-repository)
-
-## All users
-
-Here you can see all of the users on {% data variables.location.product_location %}, and [initiate an SSH key audit](/admin/user-management/managing-users-in-your-enterprise/auditing-ssh-keys).
-
-## Site admins
-
-Here you can see all of the administrators on {% data variables.location.product_location %}, and [initiate an SSH key audit](/admin/user-management/managing-users-in-your-enterprise/auditing-ssh-keys).
 
 ## Dormant users
 
