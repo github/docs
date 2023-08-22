@@ -21,6 +21,22 @@ export default function toggleAnnotation() {
   const annotationButtons = Array.from(document.querySelectorAll('div.BtnGroup button'))
   if (!annotationButtons.length) return
 
+  if (!document.getElementById('tooltip-inline')) {
+    const theSpan = document.createElement('span')
+    theSpan.id = 'tooltip-inline'
+    theSpan.classList.add('visually-hidden')
+    theSpan.innerText = 'Render annotations inline with the code sample.'
+    document.body.appendChild(theSpan)
+  }
+
+  if (!document.getElementById('tooltip-beside')) {
+    const theSpan = document.createElement('span')
+    theSpan.id = 'tooltip-beside'
+    theSpan.classList.add('visually-hidden')
+    theSpan.innerText = 'Render annotations beside the code sample.'
+    document.body.appendChild(theSpan)
+  }
+
   const cookie = validateMode(Cookies.get('annotate-mode')) // will default to beside
   displayAnnotationMode(annotationButtons, cookie)
 
@@ -46,9 +62,13 @@ function setActive(annotationButtons: Array<Element>, targetMode?: string) {
   targetMode = validateMode(targetMode)
   annotationButtons.forEach((el) => {
     if (el.getAttribute('value') === targetMode) {
-      el.ariaSelected = 'true'
+      el.ariaCurrent = 'true'
+      el.classList.add('selected')
       activeElements.push(el)
-    } else el.removeAttribute('aria-selected')
+    } else {
+      el.removeAttribute('aria-current')
+      el.classList.remove('selected')
+    }
   })
 
   if (!activeElements.length)
