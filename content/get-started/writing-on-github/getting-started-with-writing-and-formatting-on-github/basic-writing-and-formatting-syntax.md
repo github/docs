@@ -251,6 +251,7 @@ You can create multiple levels of nested lists using the same method. For exampl
 
 For more examples, see the [GitHub Flavored Markdown Spec](https://github.github.com/gfm/#example-265).
 
+{% ifversion task-lists-v1 %}
 ## Task lists
 
 {% data reusables.repositories.task-list-markdown %}
@@ -260,6 +261,7 @@ If a task list item description begins with a parenthesis, you'll need to escape
 `- [ ] \(Optional) Open a followup issue`
 
 For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
+{% endif %}
 
 ## Mentioning people and teams
 
