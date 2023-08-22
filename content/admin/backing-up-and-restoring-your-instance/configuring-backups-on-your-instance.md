@@ -84,7 +84,6 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
    cd backup-utils
    ```
 
-{% data reusables.enterprise_backup_utilities.enterprise-backup-utils-update-repo %}
 1. To copy the included `backup.config-example` file to `backup.config`, run the following command.
 
    ```shell
