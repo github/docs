@@ -113,7 +113,7 @@ const context = {
     browser: {
       type: 'string',
       description: 'The type of browser the user is browsing with.',
-      enum: ['chrome', 'safari', 'firefox', 'edge', 'ie', 'other'],
+      enum: ['chrome', 'safari', 'firefox', 'edge', 'opera', 'other'],
       default: 'other',
     },
     browser_version: {
