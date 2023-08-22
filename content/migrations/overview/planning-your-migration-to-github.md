@@ -164,7 +164,7 @@ For some migration paths, we offer specialist tools that allow you to migrate so
   </tr>
   <tr>
     <th scope="row"><b>Bitbucket Server</b></th>
-    <td><ul><li><code>bbs-exporter</code> (expert-led migrations only)</li><li>{% data variables.product.prodname_importer_proper_name %} (private beta)</li></ul></td>
+    <td><ul><li><code>bbs-exporter</code> (expert-led migrations only)</li><li>{% data variables.product.prodname_importer_proper_name %} (public beta)</li></ul></td>
     <td><code>bbs-exporter</code> (expert-led migrations only)</td>
   </tr>
   <tr>

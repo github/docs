@@ -123,7 +123,7 @@ export const DefaultLayout = (props: Props) => {
 
             {props.children}
           </main>
-          <footer>
+          <footer data-container="footer">
             <SupportSection />
             <LegalFooter />
             <ScrollButton

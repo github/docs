@@ -198,6 +198,10 @@ Since there are so many IP address ranges for {% data variables.product.prodname
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
+## The `etc/hosts` file
+
+{% data reusables.actions.runners-etc-hosts-file %}
+
 ## File systems
 
 {% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.

@@ -782,8 +782,8 @@ You can find the node ID of a {% data variables.product.product_name %} user or 
 
 ```shell
 curl --request GET \
-  --url https://api.github.com/users/<em>GITHUB_OWNER</em> \
-  --header 'Authorization: token <em>TOKEN</em>' \
+  --url https://api.github.com/users/GITHUB_OWNER \
+  --header 'Authorization: token TOKEN' \
   --header 'Accept: application/vnd.github+json'
 ```
 
@@ -792,7 +792,7 @@ curl --request GET \
 {% cli %}
 
 ```shell
-gh api -H "Accept: application/vnd.github+json" /users/<em>GITHUB_OWNER</em>
+gh api -H "Accept: application/vnd.github+json" /users/GITHUB_OWNER
 ```
 
 {% endcli %}
@@ -804,8 +804,8 @@ To create the project, replace `OWNER_ID` with the node ID of the new project ow
 ```shell
 curl --request POST \
   --url https://api.github.com/graphql \
-  --header 'Authorization: token <em>TOKEN</em>' \
-  --data '{"query":"mutation {createProjectV2(input: {ownerId: \"<em>OWNER_ID</em>\" title: \"<em>PROJECT_NAME</em>\"}) {projectV2 {id}}}"}'
+  --header 'Authorization: token TOKEN' \
+  --data '{"query":"mutation {createProjectV2(input: {ownerId: \"OWNER_ID\" title: \"PROJECT_NAME\"}) {projectV2 {id}}}"}'
 ```
 
 {% endcurl %}
@@ -817,8 +817,8 @@ gh api graphql -f query='
   mutation{
     createProjectV2(
       input: {
-        ownerId: "<em>OWNER_ID</em>",
-        title: "<em>PROJECT_NAME</em>"
+        ownerId: "OWNER_ID",
+        title: "PROJECT_NAME"
       }
     ){
       projectV2 {

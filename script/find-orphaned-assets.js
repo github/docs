@@ -101,7 +101,7 @@ async function main(opts) {
     'script',
     'stylesheets',
     'contributing',
-    'pages',
+    'src',
     '.github/actions-scripts',
   ]
 

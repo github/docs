@@ -9,6 +9,7 @@ if (isActions) {
 }
 
 export default {
+  preset: 'ts-jest',
   coverageThreshold: {
     global: {
       branches: 95,

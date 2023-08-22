@@ -31,7 +31,11 @@ export function Table({ fields }: Props) {
               <p>
                 <code>{field.name}</code> (
                 <code>
-                  <Link href={field.href} locale={locale}>
+                  <Link
+                    href={field.href}
+                    locale={locale}
+                    aria-label={[field.name, field.type, 'type definition'].join(' ')}
+                  >
                     {field.type}
                   </Link>
                 </code>

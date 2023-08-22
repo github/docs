@@ -33,7 +33,7 @@ The default idle timeout, which stops a codespace after a period of inactivity, 
 
 You can see the storage usage for each of your codespaces on the "Your codespaces" page at [github.com/codespaces](https://github.com/codespaces).
 
-![Screenshot of a list of two codespaces on GitHub. The codespaces are named "Document codespace navigation" and "Furious snibble."](/assets/images/help/codespaces/click-name-codespace.png)
+![Screenshot of a list of three codespaces on the https://github.com/codespaces page."](/assets/images/help/codespaces/your-codespaces-list.png)
 
 {% note %}
 

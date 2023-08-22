@@ -331,26 +331,24 @@ If you use the same configuration as in the example above, bumping the `requests
 
 {% data reusables.dependabot.dependabot-version-updates-groups-beta %}
 
-{% data reusables.dependabot.dependabot-version-updates-groups-about %}
-
 {% data reusables.dependabot.dependabot-version-updates-groups-supported %}
 
-When you first configure a group, you specify a group name that will display in pull request titles and branch names. In the example below, the name of the group is `dev-dependencies`.
+{% data reusables.dependabot.dependabot-version-updates-groups-about %}
 
-You then define `patterns` (strings of characters) that match with a dependency name (or multiple dependency names) to include those dependencies in the group.
+{% data reusables.dependabot.dependabot-version-updates-groups-semver %}
 
-If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal.
+{% data reusables.dependabot.dependabot-version-updates-supported-options-for-groups %}
 
-You can also use `exclude-patterns` to exclude certain dependencies from the group. If a dependency is excluded from a group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version.
+{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
 
-Note that you can't use `@dependabot ignore` with pull requests for grouped updates. If you want to ignore version updates for a dependency, you must configure an [`ignore`](#ignore) rule for the dependency in the `dependabot.yml` file.
+If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal. {% data variables.product.prodname_dotcom %} reports in the logs if a group is empty. For more information, see "[{% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-fails-to-group-a-set-of-dependencies-into-a-single-pull-request)."
 
 When a scheduled update runs, {% data variables.product.prodname_dependabot %} will refresh pull requests for grouped updates using the following rules:
 - if all the same dependencies need to be updated to the same versions, {% data variables.product.prodname_dependabot %} will rebase the branch.
 - if all the same dependencies need to be updated, but a newer version has become available for one (or more) of the dependencies, {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 - if the dependencies to be updated have changed - for example, if another dependency in the group now has an update available - {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 
-{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+You can also manage pull requests for grouped version updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-version-updates-with-comment-commands)."
 
 {% endif %}
 
@@ -364,7 +362,7 @@ Dependencies can be ignored either by adding them to `ignore` or by using the `@
 
 Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
 
-You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
+You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`, or by using the `@dependabot show DEPENDENCY_NAME ignore conditions` comment command. If you wish to unblock updates for a dependency ignored this way, re-open the pull request. This clears the `ignore` conditions that were set when the pull request was closed and resumes those {% data variables.product.prodname_dependabot %} version updates for the dependency. To update the dependency to a newer version, merge the pull request. {% ifversion dependabot-version-updates-groups %}In pull requests for grouped version updates, you can also use the `@dependabot unignore` commands to clear `ignore` settings for dependencies.{% endif %}
 
 For more information about the `@dependabot ignore` commands, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
@@ -802,7 +800,7 @@ When {% data variables.product.prodname_dependabot %} edits a manifest file to u
 
 | Option | Action |
 |--------|--------|
-| `auto` | Try to differentiate between between apps and libraries. Use `increase` for apps and `widen` for libraries.|
+| `auto` | Try to differentiate between apps and libraries. Use `increase` for apps and `widen` for libraries.|
 | `increase`| Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound. |
 | `increase-if-necessary` | Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint. |
 | `lockfile-only` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
@@ -811,7 +809,7 @@ When {% data variables.product.prodname_dependabot %} edits a manifest file to u
 
 The following table shows an example of how `versioning-strategy` can be used.
 
-| Current constraint | Current version | New version | Strategy | New constraint | 
+| Current constraint | Current version | New version | Strategy | New constraint |
 |--------------------|-----------------|-------------|----------|----------------|
 | ^1.0.0 | 1.0.0 | 1.2.0 | `widen` | ^1.0.0 |
 | ^1.0.0 | 1.0.0 | 1.2.0 | `increase` | ^1.2.0 |

@@ -80,8 +80,8 @@ Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SA
 
 To reduce the number of paid seats your organization uses, you can remove members from your organization or convert members to outside collaborators and give them access to only public repositories. For more information, see:
 - "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)"
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Current plan", next to your current plan, select the **Edit** dropdown menu, then click **Remove seats**.

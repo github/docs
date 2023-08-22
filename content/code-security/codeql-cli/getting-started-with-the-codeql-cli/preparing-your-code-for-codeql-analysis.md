@@ -25,20 +25,20 @@ make sure that you also update the MS short link: https://aka.ms/codeql-docs/ind
 
 Before you analyze your code using {% data variables.product.prodname_codeql %}, you need to create a {% data variables.product.prodname_codeql %} database containing all the data required to run queries on your code. You can create {% data variables.product.prodname_codeql %} databases yourself using the {% data variables.product.prodname_codeql_cli %}.
 
-{% data variables.product.prodname_codeql %} analysis relies on extracting relational data from your code, and using it to build a [{% data variables.product.prodname_codeql %} database](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#codeql-database). {% data variables.product.prodname_codeql %} databases contain all of the important information about a codebase, which can be analyzed by executing {% data variables.product.prodname_codeql %} queries against it. 
+{% data variables.product.prodname_codeql %} analysis relies on extracting relational data from your code, and using it to build a [{% data variables.product.prodname_codeql %} database](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#codeql-database). {% data variables.product.prodname_codeql %} databases contain all of the important information about a codebase, which can be analyzed by executing {% data variables.product.prodname_codeql %} queries against it.
 
 Before you generate a {% data variables.product.prodname_codeql %} database, you need to:
 
 1. Install and set up the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
-2. Check out the code that you want to analyze:
+1. Check out the code that you want to analyze:
     - For a branch, check out the head of the branch that you want to analyze.
     - For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
-3. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see "[Creating databases for non-compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-non-compiled-languages)" and "[Creating databases for compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-compiled-languages)" in "Preparing your code for {% data variables.product.prodname_codeql %} analysis".
-4. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
+1. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see "[Creating databases for non-compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-non-compiled-languages)" and "[Creating databases for compiled languages](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#creating-databases-for-compiled-languages)" in "Preparing your code for {% data variables.product.prodname_codeql %} analysis".
+1. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
 
 Once the codebase is ready, you can run `codeql database create` to create the database.
 
-For information about using the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, see [Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system). For information about enabling {% data variables.product.prodname_codeql %} code scanning using {% data variables.product.prodname_actions %}, see {% ifversion code-scanning-without-workflow %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-default-setup-for-code-scanning)" and {% endif %}"[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning)."
+For information about using the {% data variables.product.prodname_codeql_cli %} in a third-party CI system to create results to display in {% data variables.product.prodname_dotcom %} as code scanning alerts, see [Configuring {% data variables.product.prodname_codeql_cli %} in your CI system](/code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system). For information about enabling {% data variables.product.prodname_codeql %} code scanning using {% data variables.product.prodname_actions %}, see {% ifversion code-scanning-without-workflow %}"[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)" and {% endif %}"[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning)."
 
 ## Running `codeql database create`
 
@@ -77,7 +77,7 @@ You can specify additional options depending on the location of your source file
 | <nobr>`--db-cluster`</nobr> | {% octicon "x" aria-label="Optional" %} | Use in multi-language codebases to generate one database for each language specified by <nobr>`--language`</nobr>. |
 | <nobr>`--no-run-unnecessary-builds`</nobr> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript). |
 | <nobr>`--source-root`</nobr> | {% octicon "x" aria-label="Optional" %} | Use if you run the CLI outside the checkout root of the repository. By default, the `database create` command assumes that the current directory is the root directory for the source files, use this option to specify a different location. |
-| <nobr>`--codescanning-config`</nobr> | {% octicon "x" aria-label="Optional" %} | Advanced. Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-a-custom-configuration-file)" and "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create#--codescanning-configfile)." |
+| <nobr>`--codescanning-config`</nobr> | {% octicon "x" aria-label="Optional" %} | Advanced. Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-a-custom-configuration-file)" and "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create#--codescanning-configfile)." |
 
 You can specify extractor options to customize the behavior of extractors that create {% data variables.product.prodname_codeql %} databases. For more information, see
 "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/extractor-options)."
@@ -275,7 +275,7 @@ The following examples are designed to give you an idea of some of the build com
 - Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
 
 	   It's a good idea to ensure that the project is in a clean state and that there are no build artefacts available.
-	
+
 	   ```shell
 	   xcodebuild clean -all
 	   codeql database create -l swift swift-database

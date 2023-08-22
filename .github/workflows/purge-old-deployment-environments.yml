@@ -10,7 +10,7 @@ name: Purge old deployment environments
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+    - cron: '20 */3 * * *' # Run every 3 hours at 20 minutes past the hour
 
 permissions:
   contents: write

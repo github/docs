@@ -95,8 +95,8 @@ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else 
 {% data reusables.package_registry.authenticate-step %}
 
 1. Build the package from the _gemspec_ to create the _.gem_ package. Replace `GEM_NAME` with the name of your gem.
-   
-   ```
+
+   ```shell
    gem build GEM_NAME.gemspec
    ```
 
@@ -108,7 +108,7 @@ bundle config https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else 
 
    {% endnote %}
 
-   ```
+   ```shell
    $ gem push --key github \
    --host https://{% ifversion fpt or ghec %}rubygems.pkg.github.com{% else %}REGISTRY_URL{% endif %}/NAMESPACE \
    GEM_NAME-0.0.1.gem
@@ -169,7 +169,7 @@ You can use gems from {% data variables.product.prodname_registry %} much like y
 
 1. Install the package:
 
-  ```
+  ```shell
   gem install GEM_NAME --version "0.1.1"
   ```
 

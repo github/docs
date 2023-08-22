@@ -58,9 +58,9 @@ For more information, see [{% data variables.product.prodname_enterprise_backup_
 
 ## Installing {% data variables.product.prodname_enterprise_backup_utilities %}
 
-To install {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, we recommend cloning the project's Git repository. This approach allows you to fetch new releases directly using Git, and your existing backup configuration file, `backup.config`, will be preserved when installing a new version.
+To install {% data variables.product.prodname_enterprise_backup_utilities %} on your backup host, we recommend you download the relevant {% data variables.product.prodname_enterprise_backup_utilities %} release as a compressed archive, then extract and install the contents. For more information, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the github/backup-utils repository.
 
-Alternatively, if the host machine can't access the internet, you can download each {% data variables.product.prodname_enterprise_backup_utilities %} release as a compressed archive, then extract and install the contents. For more information, see [Getting started](https://github.com/github/backup-utils/blob/master/docs/getting-started.md) in the {% data variables.product.prodname_enterprise_backup_utilities %} project documentation.
+Downloading the release as a compressed archive ensures you are using the correct version of {% data variables.product.prodname_enterprise_backup_utilities %} for {% data variables.location.product_location %}, and that your existing backup configuration file, `backup.config`, will be preserved when installing a new version.
 
 Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data directory variable in your `backup.config` file. Snapshots need to be stored on a filesystem which supports symbolic and hard links.
 
@@ -70,10 +70,12 @@ Backup snapshots are written to the disk path set by the `GHE_DATA_DIR` data dir
 
 {% endnote %}
 
-1. To clone the [{% data variables.product.prodname_enterprise_backup_utilities %} project repository](https://github.com/github/backup-utils/) to a local directory on your backup host, run the following command.
+1. Download the relevant {% data variables.product.prodname_enterprise_backup_utilities %} release from the [Releases](https://github.com/github/backup-utils/releases) page of the github/backup-utils repository.
 
-   ```
-   git clone https://github.com/github/backup-utils.git /path/to/target/directory/backup-utils
+1. To extract the repository using tar, run the following command.
+
+   ```shell
+   tar -xzvf /path/to/github-backup-utils-vMAJOR.MINOR.PATCH.tar.gz
    ```
 
 1. To change into the local repository directory, run the following command.
@@ -259,7 +261,7 @@ $ ghe-restore -c 169.154.1.1
 > WARNING: All data on GitHub Enterprise appliance 169.154.1.1 (v2.9.0)
 >          will be overwritten with data from snapshot 20170329T150710.
 > Please verify that this is the correct restore host before continuing.
-> Type 'yes' to continue: <em>yes</em>
+> Type 'yes' to continue: yes
 
 > Starting restore of 169.154.1.1:122 from snapshot 20170329T150710
 # ...output truncated

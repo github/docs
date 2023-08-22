@@ -33,7 +33,7 @@ You can use a credit card to sponsor an account on {% data variables.product.pro
 
 {% data reusables.sponsors.no-fees %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)."
 
-When you sponsor an account using a credit card, the change will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
+When you sponsor an account using a credit card, the charge will become effective immediately. {% data reusables.sponsors.prorated-sponsorship %}
 
 We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
 

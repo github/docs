@@ -418,13 +418,13 @@ Action                        | Description
 
 | Action | Description
 |--------|-------------
-| `environment.add_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was created via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.add_protection_rule` | A {% data variables.product.prodname_actions %} deployment protection rule was created via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
 | `environment.create_actions_secret` | A secret was created for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
 | `environment.delete` | An environment was deleted via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
 | `environment.remove_actions_secret` | A secret was deleted for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.remove_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was deleted via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.remove_protection_rule` | A {% data variables.product.prodname_actions %} deployment protection rule was deleted via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
 | `environment.update_actions_secret` | A secret was updated for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.update_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was updated via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.update_protection_rule` | A {% data variables.product.prodname_actions %} deployment protection rule was updated via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
 {%- endif %}
 
 {%- ifversion ghae %}
@@ -734,7 +734,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org.cancel_business_invitation` | An invitation for an organization to join an enterprise was revoked. {% ifversion ghec %}For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %}
 | `org.cancel_invitation` | An invitation sent to a user to join an organization was revoked.
 | `org.clear_actions_settings` |  An organization owner cleared {% data variables.product.prodname_actions %} policy settings for an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)."
-| `org.clear_default_repository_permission` | An organization owner cleared the base repository permission policy setting for an organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)."
+| `org.clear_default_repository_permission` | An organization owner cleared the base repository permission policy setting for an organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization#setting-base-permissions)."
 | `org.clear_member_team_creation_permission` | An organization owner cleared the new teams creation setting for an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."
 | `org.clear_reader_discussion_creation_permission` | An organization owner cleared the new discussion creation setting for an organization. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."{% endif %}
 | `org.clear_members_can_create_repos`                 | An organization owner cleared a restriction on repository creation in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)."
@@ -865,7 +865,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org.update_new_repository_default_branch_setting` | An organization owner changed the name of the default branch for new repositories in the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."
 {%- ifversion ghec or ghae %}
 | `org.update_saml_provider_settings` | An organization's SAML provider settings were updated.
-| `org.update_terms_of_service` | An organization changed between the Standard Terms of Service and the Corporate Terms of Service. {% ifversion ghec %}For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
+| `org.update_terms_of_service` | An organization changed between the Standard Terms of Service and the {% data variables.product.company_short %} Customer Agreement. {% ifversion ghec %}For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."{% endif %}
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
@@ -1128,7 +1128,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repo.clear_actions_settings` | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.
 | `repo.code_scanning_analysis_deleted` | Code scanning analysis for a repository was deleted. For more information, see "[AUTOTITLE](/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."
 {%- ifversion remove-code-scanning-configurations %}
-| `repo.code_scanning_configuration_for_branch_deleted` | A {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository was deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+| `repo.code_scanning_configuration_for_branch_deleted` | A {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository was deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
 {%- endif %}
 | `repo.config`         | A repository administrator blocked force pushes. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
 {%- ifversion fpt or ghec %}
@@ -1331,9 +1331,9 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-|`create` | An organization owner created a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`destroy` | An organization owner deleted a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`update` | An organization owner edited an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+|`create` | An organization owner created a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
+|`destroy` | An organization owner deleted a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
+|`update` | An organization owner edited an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}

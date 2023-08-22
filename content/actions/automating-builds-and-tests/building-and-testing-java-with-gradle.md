@@ -35,7 +35,7 @@ You should be familiar with YAML and the syntax for {% data variables.product.pr
 - "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
 - "[AUTOTITLE](/actions/learn-github-actions)"
 
-We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see [Getting Started](https://docs.gradle.org/current/userguide/getting_started.html) in the Gradle documentation.
+We recommend that you have a basic understanding of Java and the Gradle framework. For more information, see the [Gradle User Manual](https://docs.gradle.org/current/userguide/userguide.html).
 
 {% data reusables.actions.enterprise-setup-prereq %}
 

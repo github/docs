@@ -13,6 +13,7 @@ redirect_from:
   - /actions/using-workflows/advanced-workflow-features
 topics:
   - Workflows
+layout: inline
 ---
 
 ## About workflows

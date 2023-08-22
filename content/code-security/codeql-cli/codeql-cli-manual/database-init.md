@@ -74,7 +74,7 @@ as it may recursively delete the entire database directory.
 \[Advanced] Read a Code Scanning configuration file specifying options
 on how to create the CodeQL databases and what queries to run in later
 steps. For more details on the format of this configuration file, refer
-to [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning). To run queries from
+to [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning). To run queries from
 this file in a later step, invoke [codeql database analyze](/code-security/codeql-cli/codeql-cli-manual/database-analyze) without any other queries specified.
 
 #### `--[no-]db-cluster`
@@ -159,7 +159,7 @@ default to <https://github.com/>
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of \<registry\_url>=\<token> pairs.
+a comma-separated list of `<registry_url>=<token>` pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`
@@ -178,16 +178,16 @@ registry, you can instead authenticate using the simpler
 parent process of the CodeQL CLI whose name matches this argument. If
 more than one parent process has this name, the one lowest in the
 process tree will be selected. This option overrides
-`--trace-process-level`, so if both are used passed only this option
-will be used.
+`--trace-process-level`, so if both are passed, only this option will be
+used.
 
 #### `--trace-process-level=<process-level>`
 
 \[Windows only] When initializing tracing, inject the tracer this many
 parents above the current process, with 0 corresponding to the process
-that is invoking the CodeQL CLI. The CLI's default behaviour if no
+that is invoking the CodeQL CLI. The CLI's default behavior if no
 arguments are passed is to inject into the parent of the calling
-process.
+process, with some special cases for GitHub Actions and Azure Pipelines.
 
 ### Options to configure indirect build tracing
 

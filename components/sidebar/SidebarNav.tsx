@@ -20,6 +20,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
 
   return (
     <div
+      data-container="nav"
       className={cx(variant === 'full' ? 'position-sticky d-none border-right d-xxl-block' : '')}
       style={{ width: 326, height: 'calc(100vh - 65px)', top: '65px' }}
     >

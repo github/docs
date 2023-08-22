@@ -94,6 +94,28 @@ Organization owners and repository administrators can only grant access to view 
      ![Screenshot of the list of users with access to alerts. To the right of @octocat, an x icon is outlined in dark orange.](/assets/images/help/repository/security-and-analysis-security-alerts-username-x.png)
 1. Click **Save changes**.
 
+{% ifversion secret-scanning-validity-check-partner-patterns %}
+
+## Allowing validity checks for partner patterns in a repository
+
+{% data reusables.secret-scanning.validity-check-partner-patterns-beta %}
+{% data reusables.gated-features.partner-pattern-validity-check-ghas %}
+
+You can allow {% data variables.product.prodname_secret_scanning %} to automatically check the validity of a secret found in your repository by sending it to the relevant partner. Alternatively, organization owners and enterprise administrators can enable the feature for all repositories in the organization or enterprise settings. For more information, see "[Allowing validity checks for partner patterns in an organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)" and "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise)."
+
+{% note %}
+
+**Note:** When you enable automatic validity checks for a repository, you also allow on-demand validity checks to be performed for patterns detected in that repository. 
+
+{% endnote %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.sidebar-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+{% data reusables.secret-scanning.validity-check-auto-enable %}
+
+{% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"

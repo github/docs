@@ -159,7 +159,7 @@
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise.
 {%- endif %}
 {%- ifversion custom-repository-roles %}
-| `role` | Contains activities related to [custom repository roles](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization).
+| `role` | Contains activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 {%- endif %}
 {%- ifversion ghec or ghes or ghae %}
 | `secret_scanning`   | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} in existing repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."

@@ -18,9 +18,11 @@ export function LearningTrackCard({ track }: Props) {
       className="py-3 px-4 rounded color-bg-default border d-flex flex-justify-between mb-4 mx-2"
     >
       <div className="d-flex flex-column width-full">
-        <Link href={`/${locale}/${trackProduct}/guides`} className="h4 color-fg-default mb-1">
-          {trackTitle}
-        </Link>
+        <h2 className="h4">
+          <Link href={`/${locale}/${trackProduct}/guides`} className="mb-1 text-underline">
+            {trackTitle}
+          </Link>
+        </h2>
         <span className="f5 color-fg-muted">
           {t('current_progress')
             .replace('{n}', numberOfGuides)
