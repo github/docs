@@ -95,6 +95,6 @@ sections:
     - |
       When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
     - |
-      On an instance with subdomain isolation disabled, Mermaid diagrams in the web UI display an "Unable to render rich display" error and fail to render.
+      {% data reusables.release-notes.mermaid-rendering-known-issue %}
     - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}

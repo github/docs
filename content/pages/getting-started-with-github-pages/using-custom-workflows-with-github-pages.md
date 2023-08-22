@@ -45,7 +45,7 @@ The `deploy-pages` action handles the necessary setup for deploying artifacts. T
 
 - The job must have a minimum of `pages: write` and `id-token: write` permissions.
 - The `needs` parameter must be set to the `id` of the build step. Not setting this parameter may result in an independent deployment that continuously searches for an artifact that hasn't been created.
-- An `environment` must be established to enforce branch/environment protection rules. The default environment is `github-pages`.
+- An `environment` must be established to enforce branch/deployment protection rules. The default environment is `github-pages`.
 - To specify the URL of the page as an output, utilize the `url:` field.
 
 For more information, see the [`deploy-pages`](https://github.com/marketplace/actions/deploy-github-pages-site) action.
