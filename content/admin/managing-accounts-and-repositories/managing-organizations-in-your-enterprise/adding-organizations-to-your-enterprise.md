@@ -79,7 +79,7 @@ Enterprise owners can transfer existing organizations between enterprise account
 
 {% note %}
 
-**Note:** You cannot transfer an existing organization to or from an {% data variables.enterprise.prodname_emu_enterprise %}.
+**Note:** You cannot transfer an existing organization to or from an {% data variables.enterprise.prodname_emu_enterprise %} or an enterprise account that is currently enrolled in a trial of {% data variables.product.prodname_ghe_cloud %}.
 
 {% endnote %}
 
