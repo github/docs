@@ -501,10 +501,10 @@ template:
     - name: runner
       image: ghcr.io/actions/actions-runner:latest
       command: ["/home/runner/run.sh"]
-    resources:
-      limits:
-        cpu: 500m
-        memory: 512Mi
+      resources:
+        limits:
+          cpu: 500m
+          memory: 512Mi
       securityContext:
         readOnlyRootFilesystem: true
         allowPrivilegeEscalation: false
@@ -521,7 +521,7 @@ template:
 
 You can use {% data variables.product.prodname_actions_runner_controller %} to create dedicated runners for your GitHub Enterprise Server instance that {% data variables.product.prodname_dependabot %} can use to help secure and maintain the dependencies used in repositories on your enterprise. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates#system-requirements-for-dependabot-runners)."
 
-You can also use ARC with CodeQL to identify vulnerabilities and errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+You can also use ARC with CodeQL to identify vulnerabilities and errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
 
 {% data variables.product.prodname_actions_runner_controller %} does not use labels to route jobs to specific runner scale sets. Instead, to designate a runner scale set for {% data variables.product.prodname_dependabot %} updates or code scanning with CodeQL, use a descriptive installation name in your Helm chart, such as `dependabot` or `code-scanning`. You can then set the `runs-on` value in your workflows to the installation name, and use the designated runner scale set for {% data variables.product.prodname_dependabot %} updates or code scanning jobs.
 

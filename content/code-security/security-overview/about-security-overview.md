@@ -76,7 +76,7 @@ Each repository is shown in security overview with an indicator for each type of
 
 | Indicator | Meaning |
 | -------- | -------- |
-| {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_caps %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)." |
+| {% octicon "code-square" aria-label="Code scanning alerts" %} | {% data variables.product.prodname_code_scanning_caps %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)." |
 | {% octicon "key" aria-label="Secret scanning alerts" %} | {% data variables.product.prodname_secret_scanning_caps %} alerts. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)." |
 | {% octicon "hubot" aria-label="Dependabot alerts" %} | {% data variables.product.prodname_dependabot_alerts %}. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)." |
 | {% octicon "check" aria-label="Enabled" %} | The security feature is enabled, but does not raise alerts in this repository. |

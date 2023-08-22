@@ -48,7 +48,7 @@ If you know you are connecting via a proxy, make sure the proxy is configured co
 {% data variables.product.prodname_copilot %} uses custom code to connect to proxies. This means a proxy setup that is supported by your editor is not necessarily supported by {% data variables.product.prodname_copilot %}. Some common causes for errors related to proxies are:
 
 - If your proxy's URL starts `https://`, it is not currently supported by {% data variables.product.prodname_copilot %}.
-- You may need to authenticate to the proxy. {% data variables.product.prodname_copilot %} supports basic authentication. Depending on your editor, you may be able to enter your credentials in the editor, or you may need to include the credentials directly in the proxy URL.
+- You may need to authenticate to the proxy. {% data variables.product.prodname_copilot %} supports basic authentication or authentication with Kerberos. If you are using Kerberos, ensure you have a valid ticket for the proxy service and that you are using the correct service principal name for the service. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot#authentication-with-kerberos)."
 - {% data variables.product.prodname_copilot %} may reject custom certificates. For more information, see "[Troubleshooting certificate-related errors](#troubleshooting-certificate-related-errors)."
 
 ## Troubleshooting certificate-related errors

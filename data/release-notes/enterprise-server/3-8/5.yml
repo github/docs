@@ -13,7 +13,6 @@ sections:
     - After an enterprise owner set a permanent rate limit for a users GitHub App at `http(s)://HOSTNAME/stafftools/users/USERNAME/installations`, the instance did not respect the rate limit. 
     - On an instance with multiple nodes, when using the `spokesctl` command-line utility to manage repositories with replicas that failed to fully create, the utility would spuriously attempt to repair healthy replicas. 
     - On an instance with a GitHub Advanced Security license and code scanning enabled, code scanning could not process some SARIF files produced by newer versions of CodeQL. 
-    - On an instance with subdomain isolation disabled, Mermaid diagrams in the web UI displayed an "Unable to render rich display" error and failed to render. 
   changes:
     - If a configuration runs fails due to Elasticsearch errors, `ghe-config-apply` displays a more actionable error message. 
   known_issues:
@@ -38,6 +37,6 @@ sections:
     - |
       When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
     - |
-      On an instance with subdomain isolation disabled, Mermaid diagrams in the web UI display an "Unable to render rich display" error and fail to render.
+      {% data reusables.release-notes.mermaid-rendering-known-issue %}
     - |
       Organization owners cannot register a new SSH certificate authorities (CAs) due to an erroneous suggestion to start a trial. Organization SSH CAs configured before an upgrade to an affected version are still usable after the upgrade. Enterprise owners can can still register SSH CAs for all organizations.
