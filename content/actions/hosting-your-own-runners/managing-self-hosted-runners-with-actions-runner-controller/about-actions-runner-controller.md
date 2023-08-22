@@ -21,7 +21,7 @@ The following diagram illustrates the architecture of ARC's autoscaling runner s
 
 {% note %}
 
-**Note:** To view the following diagram in a larger size, see the [Autoscaling Runner Scale Sets mode](https://github.com/actions/actions-runner-controller/blob/master/docs/preview/gha-runner-scale-set-controller/README.md#how-it-works) documentation in the Actions Runner Controller repository.
+**Note:** To view the following diagram in a larger size, see the [Autoscaling Runner Scale Sets mode](https://github.com/actions/actions-runner-controller/blob/master/docs/gha-runner-scale-set-controller/README.md#how-it-works) documentation in the Actions Runner Controller repository.
 
 {% endnote %}
 
