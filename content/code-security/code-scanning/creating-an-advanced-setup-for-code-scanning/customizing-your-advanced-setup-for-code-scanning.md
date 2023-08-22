@@ -239,7 +239,7 @@ If your workflow does not contain a matrix called `language`, then {% data varia
 
 {% note %}
 
-**Notes:** 
+**Notes:**
 - As of July 12, 2023, automatic dependency installation is disabled by default for new users of {% data variables.product.prodname_codeql %} for Python, with new users defined as those who have no prior Python projects set up for code scanning with {% data variables.product.prodname_codeql %} via advanced setup.
 - Existing code scanning users that have already set up {% data variables.product.prodname_codeql %} to scan at least one Python project will not see any changes in behavior, even to newly configured repositories. However, for improved scan times, we encourage users to disable dependency installation by setting `setup-python-dependencies: false` in the "Initialize CodeQL" step of the workflow.
 - Automatic installation of dependencies will be deprecated for all users by the end of 2023.
