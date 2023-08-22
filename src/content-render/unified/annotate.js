@@ -135,7 +135,6 @@ function getSubnav() {
       value: 'beside',
       type: 'button',
       className: 'BtnGroup-item btn btn-sm',
-      ariaDescribedBy: 'tooltip-beside',
     },
     ['Beside'],
   )
@@ -146,7 +145,6 @@ function getSubnav() {
       value: 'inline',
       type: 'button',
       className: 'BtnGroup-item btn btn-sm',
-      ariaDescribedBy: 'tooltip-inline',
     },
     ['Inline'],
   )
