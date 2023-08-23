@@ -6,6 +6,8 @@ name: Sync Audit Log data
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   contents: write
@@ -97,11 +99,17 @@ jobs:
             --repo github/docs-internal \
             --label audit-log-pipeline
 
-      # - name: Send Slack notification if workflow fails
-      #   uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
-      #   if: ${{ failure() && env.FREEZE != 'true' }}
-      #   with:
-      #     channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
-      #     bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-      #     color: failure
-      #     text: The last sync-audit-logs run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/sync-audit-logs.yml
+          # can't approve your own PR
+          unset $GITHUB_TOKEN
+          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+          gh pr review --approve
+          gh pr merge --auto
+
+      - name: Send Slack notification if workflow fails
+        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+        if: ${{ failure() && env.FREEZE != 'true' }}
+        with:
+          channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          color: failure
+          text: The last sync-audit-logs run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/sync-audit-logs.yml
