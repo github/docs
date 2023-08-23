@@ -4,7 +4,6 @@ import { TreeView } from '@primer/react'
 import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
 import { RestCollapsibleSection } from 'src/rest/components/RestCollapsibleSection'
 import { ProductCollapsibleSection } from 'components/sidebar/ProductCollapsibleSection'
@@ -19,7 +18,6 @@ export const SidebarProduct = () => {
     // more "compressed" tree that is as light as possible.
     sidebarTree,
   } = useMainContext()
-  const { t } = useTranslation(['products'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
 
   useEffect(() => {
@@ -41,7 +39,7 @@ export const SidebarProduct = () => {
 
   const productSection = () => (
     <div className="ml-3" data-testid="product-sidebar">
-      <TreeView aria-label="product sidebar">
+      <TreeView aria-label="Product sidebar">
         {sidebarTree &&
           sidebarTree.childPages.map((childPage, i) => {
             const isStandaloneCategory = childPage.childPages.length === 0
@@ -113,7 +111,7 @@ export const SidebarProduct = () => {
     return (
       <>
         <div className="ml-3">
-          <TreeView aria-label="rest sidebar">
+          <TreeView aria-label="REST sidebar">
             {conceptualPages.map((childPage, i) => {
               const childTitle = childPage.title
               const isActive =
@@ -164,17 +162,9 @@ export const SidebarProduct = () => {
             })}
           </TreeView>
         </div>
-        <div className="my-3">
-          <div
-            role="separator"
-            aria-hidden="true"
-            data-view-component="true"
-            className="mb-3"
-          ></div>
-          <span data-testid="rest-sidebar-reference" className={cx('f6 pl-3 color-fg-muted')}>
-            {t('rest.reference.api_reference')}
-          </span>
-        </div>
+
+        <hr data-testid="rest-sidebar-reference" />
+
         <TreeView>
           {restPages.map((childPage, i) => {
             const childTitle = childPage.title

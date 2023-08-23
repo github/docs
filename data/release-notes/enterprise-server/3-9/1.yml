@@ -85,8 +85,6 @@ sections:
       On an instance with a GitHub Advanced Security license that was also configured for a timezone greater than UTC, the list of secret scanning alerts displayed a "Loading secrets failed" error if a user sorted secrets by date in descending order.
     - |
       Code Scanning workflow runs now only request the `code-scanning` label so that they can be used with runner scale sets.
-    - |
-      On an instance with subdomain isolation disabled, Mermaid diagrams in the web UI displayed an "Unable to render rich display" error and failed to render.
   changes:
     - |
       On an instance in a cluster configuration, the `ghe-cluster-config-check` command-line utility will return an affirmative message when no warnings or errors are detected. The affirmative message is "Configuration validation complete. No errors found."
@@ -135,4 +133,7 @@ sections:
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
-
+    - |
+      {% data reusables.release-notes.mermaid-rendering-known-issue %} [Updated: 2023-08-18]
+    - |
+      {% data reusables.release-notes.migrations-missing-section-known-issue %} [Updated: 2023-08-18]

@@ -15,7 +15,7 @@ topics:
   - Alerts
   - Organizations
   - Teams
-shortTitle: Filtering security overview
+shortTitle: Filter security overview
 redirect_from:
   - /code-security/security-overview/filtering-alerts-in-the-security-overview
 ---

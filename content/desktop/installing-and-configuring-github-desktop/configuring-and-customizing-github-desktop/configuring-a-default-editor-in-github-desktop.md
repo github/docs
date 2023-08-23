@@ -113,7 +113,7 @@ If you want to open another repository in the default editor, you can use the re
 {% mac %}
 
 **Tip:** You can use the <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
-    
+
 {% endmac %}
 
 {% windows %}
@@ -127,5 +127,4 @@ If you want to open another repository in the default editor, you can use the re
 ## Opening a file in the default editor
 
 1. Navigate to the "Changes" tab in the left sidebar.
-2. Double-click on the file, or right-click on the file and select **Open in default editor**.
-    
+1. Double-click on the file, or right-click on the file and select **Open in default editor**.

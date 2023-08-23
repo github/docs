@@ -89,7 +89,7 @@ export const Survey = () => {
       <h3 id="survey-title" className="f4 mb-3">{t`able_to_find`}</h3>
 
       {/* Honeypot: token isn't a real field */}
-      <input type="text" className="d-none" name="survey-token" aria-hidden="true" />
+      <input type="text" className="d-none" name="survey-token" />
 
       {state !== ViewState.END && (
         <div className="radio-group mb-2" role="radiogroup" aria-labelledby="survey-title">

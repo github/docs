@@ -116,7 +116,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [12, 14, 16]
+        node: [14, 16]
     steps:
       - uses: {% data reusables.actions.action-setup-node %}
         with:

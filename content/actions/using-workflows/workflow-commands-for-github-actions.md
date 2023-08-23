@@ -902,7 +902,7 @@ echo "{name}={value}" >> "$GITHUB_OUTPUT"
 {% powershell %}
 
 ```pwsh copy
-"{name}=value" | Out-File -FilePath $env:GITHUB_OUTPUT- Append
+"{name}=value" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 ```
 
 {% endpowershell %}

@@ -10,4 +10,4 @@ versions:
 
 {% data reusables.code-scanning.beta %}
 
-For more information on viewing your last scan's log, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs#viewing-the-logging-output-from-code-scanning)."
+For more information on viewing your last scan's log, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs#viewing-the-logging-output-from-code-scanning)."

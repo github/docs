@@ -109,7 +109,7 @@ Many {% data variables.product.prodname_GH_advanced_security %} features are ava
 
 ### {% data variables.product.prodname_code_scanning_caps %}
 
-Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+Automatically detect security vulnerabilities and coding errors in new or modified code. Potential problems are highlighted, with detailed information, allowing you to fix the code before it's merged into your default branch. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)."
 
 ### {% data variables.secret-scanning.user_alerts_caps %}
 
