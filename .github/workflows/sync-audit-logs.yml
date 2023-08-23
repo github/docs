@@ -106,7 +106,7 @@ jobs:
 
           # Actions can't merge the PR so back to docs-bot to merge the PR
           unset GITHUB_TOKEN
-          gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}"
+          gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}"
           gh pr merge --auto --delete-branch
 
       - name: Send Slack notification if workflow fails
