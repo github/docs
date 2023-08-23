@@ -60,7 +60,7 @@ jobs:
             exit 1
           fi
 
-      - name: Create pull request
+      - name: Create and merge pull request
         env:
           # Needed for gh
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
@@ -99,11 +99,15 @@ jobs:
             --repo github/docs-internal \
             --label audit-log-pipeline
 
-          # can't approve your own PR
+          # can't approve your own PR, approve with Actions
           unset GITHUB_TOKEN
           gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
           gh pr review --approve
-          gh pr merge --auto
+
+          # Actions can't merge the PR so back to docs-bot to merge the PR
+          unset GITHUB_TOKEN
+          gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}"
+          gh pr merge --auto --delete-branch
 
       - name: Send Slack notification if workflow fails
         uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
