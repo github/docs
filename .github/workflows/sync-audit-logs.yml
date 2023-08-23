@@ -100,7 +100,7 @@ jobs:
             --label audit-log-pipeline
 
           # can't approve your own PR
-          unset $GITHUB_TOKEN
+          unset GITHUB_TOKEN
           gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
           gh pr review --approve
           gh pr merge --auto
