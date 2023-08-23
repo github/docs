@@ -53,7 +53,6 @@ export function Search() {
           <label className="text-normal width-full">
             <span
               className="visually-hidden"
-              aria-label={t`label`}
               aria-describedby={t`description`}
             >{t`placeholder`}</span>
             <TextInput

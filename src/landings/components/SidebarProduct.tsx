@@ -39,7 +39,7 @@ export const SidebarProduct = () => {
 
   const productSection = () => (
     <div className="ml-3" data-testid="product-sidebar">
-      <TreeView aria-label="product sidebar">
+      <TreeView aria-label="Product sidebar">
         {sidebarTree &&
           sidebarTree.childPages.map((childPage, i) => {
             const isStandaloneCategory = childPage.childPages.length === 0
@@ -111,7 +111,7 @@ export const SidebarProduct = () => {
     return (
       <>
         <div className="ml-3">
-          <TreeView aria-label="rest sidebar">
+          <TreeView aria-label="REST sidebar">
             {conceptualPages.map((childPage, i) => {
               const childTitle = childPage.title
               const isActive =
