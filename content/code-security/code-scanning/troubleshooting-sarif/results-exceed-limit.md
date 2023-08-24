@@ -3,7 +3,6 @@ title: 'SARIF results exceed one or more limits'
 shortTitle: Results exceed limits
 allowTitleToDifferFromFilename: true
 intro: 'Learn how to resolve problems when a SARIF file is rejected by {% data variables.product.prodname_code_scanning %} because one or more limits is exceeded.'
-product: '{% data reusables.gated-features.code-scanning %}'
 type: reference
 topics:
   - Code scanning
@@ -67,7 +66,7 @@ The simplest approach is generate a new SARIF file for each run and upload each 
 There are two possible approaches here.
 
 1. Reduce the number of rules you use to analyze the code. For more information, see "[Defining the query suite to run](/code-security/code-scanning/troubleshooting-sarif/file-too-large#defining-the-query-suite-to-run)" and "[Excluding a query from analysis](/code-security/code-scanning/troubleshooting-sarif/file-too-large#excluding-a-query-from-analysis)" in "SARIF results file too large."
-2. Run the analysis twice, each time with a different set of rules, and upload both results files to {% data variables.product.prodname_code_scanning %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#uploading-more-than-one-sarif-file-for-a-commit)."
+1. Run the analysis twice, each time with a different set of rules, and upload both results files to {% data variables.product.prodname_code_scanning %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#uploading-more-than-one-sarif-file-for-a-commit)."
 
 ## Fixing "Analysis SARIF file rejected due to extension limits"
 

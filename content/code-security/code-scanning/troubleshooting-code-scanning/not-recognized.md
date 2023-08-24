@@ -3,7 +3,6 @@ title: 'Error: "is not a .ql file, .qls file, a directory, or a query pack speci
 shortTitle: Not recognized
 intro: '{% data variables.product.prodname_codeql %} was unable to locate one of the queries or sets of queries that are specified for analysis.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'
