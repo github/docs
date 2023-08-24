@@ -141,6 +141,7 @@ You can use the `cache-dependency-path` parameter for cases when multiple depend
           go-version: '1.17'
           cache-dependency-path: subdir/go.sum
 ```
+
 {% else %}
 
 When caching is enabled, the `setup-go` action searches for the dependency file, `go.sum`, in the repository root and uses the hash of the dependency file as a part of the cache key.
@@ -162,6 +163,7 @@ Alternatively, you can use the `cache-dependency-path` parameter for cases when 
           cache: true
           cache-dependency-path: subdir/go.sum
 ```
+
 {% endif %}
 
 If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."

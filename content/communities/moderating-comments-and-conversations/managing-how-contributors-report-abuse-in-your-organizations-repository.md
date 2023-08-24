@@ -21,7 +21,6 @@ You can enable or disable reported content for public repositories owned by an o
 
    - **Prior contributors and collaborators** will be selected by default for repositories created after March 3, 2023.
 
-
 ## Further reading
 
 - "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-reported-content-in-your-organizations-repository)"

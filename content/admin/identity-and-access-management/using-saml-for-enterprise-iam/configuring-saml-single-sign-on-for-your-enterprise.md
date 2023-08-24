@@ -67,11 +67,17 @@ After a user successfully authenticates on your IdP, the user's SAML session for
 
 {% data reusables.saml.saml-supported-idps %}
 
-{% ifversion ghec %}
+For more information about connecting Azure AD to your enterprise, see [Tutorial: Azure Active Directory SSO integration with GitHub Enterprise Cloud - Enterprise Account](https://learn.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-cloud-enterprise-account-tutorial) in Microsoft Docs.
+
+{% ifversion ghes or ghae %}
 
 ## Username considerations with SAML
 
-{% ifversion ghec %}If you use {% data variables.product.prodname_emus %}, {% endif %}{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+{% data reusables.enterprise_user_management.consider-usernames-for-external-authentication %} For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+
+{% endif %}
+
+{% ifversion ghec %}
 
 ## Enforcing SAML single-sign on for organizations in your enterprise account
 
@@ -90,7 +96,7 @@ For more detailed information about how to enable SAML using Okta, see "[AUTOTIT
 1. Optionally, in the **Issuer** field, type your SAML issuer URL to verify the authenticity of sent messages.
 1. Under **Public Certificate**, paste a certificate to verify SAML responses.
 {% data reusables.saml.edit-signature-and-digest-methods %}
-1. Before enabling SAML SSO for your enterprise, click **Test SAML configuration** to ensure that the information you've entered is correct.
+1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration** . {% data reusables.saml.test-must-succeed %}
 1. Click **Save**.
 {% data reusables.enterprise-accounts.download-recovery-codes %}
 

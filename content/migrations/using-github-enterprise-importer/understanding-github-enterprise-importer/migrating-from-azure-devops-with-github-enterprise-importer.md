@@ -20,8 +20,8 @@ If you're migrating from Azure DevOps (ADO), you can use this guide to plan and 
 Enterprises who migrate from ADO to {% data variables.product.prodname_dotcom %} typically follow a multi-phase approach.
 
 1. Migrate repositories from ADO to {% data variables.product.prodname_dotcom %}.
-2. Migrate pipelines from Azure Pipelines to {% data variables.product.prodname_actions %}.
-3. Migrate remaining assets, such as boards and artifacts, from ADO to {% data variables.product.prodname_dotcom %}.
+1. Migrate pipelines from Azure Pipelines to {% data variables.product.prodname_actions %}.
+1. Migrate remaining assets, such as boards and artifacts, from ADO to {% data variables.product.prodname_dotcom %}.
 
 This guide will guide you through completing the first phase, migrating repositories to {% data variables.product.prodname_dotcom %}, and assumes you're using the {% data variables.product.prodname_ado2gh_cli %}.
 
@@ -130,7 +130,7 @@ TEAM-PROJECT</em>-Admins | Admin
 
 To give access to migrated repositories, you can add people to these teams. You can do this manually on {% data variables.product.prodname_dotcom %}, or if you chose to link the teams to Azure Active Directory (AAD) groups during your migration, by managing group membership in AAD. For more information about manually managing team membership, see "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
 
-If you aren't using the ADO2GH CLI, or if you require a permissions configuration that is more advanced than this default, configure permissions for your migrated repositories. You can modify the migration script to suit your needs, or you can manually configure permissions after your migration. For more information about managing access to repositories on {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."
+If you aren't using the ADO2GH CLI, or if you require a permissions configuration that is more advanced than this default, configure permissions for your migrated repositories. You can modify the migration script to suit your needs, or you can manually configure permissions after your migration. For more information about managing access to repositories on {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
 1. Decide what permissions structure you require in {% data variables.product.prodname_dotcom %}.
 1. If different than the default, make a plan for setting up team membership and permissions.

@@ -31,7 +31,7 @@ describe('junk paths', () => {
       expect(res.statusCode).toBe(404)
       expect(res.headers['content-type']).toMatch('text/plain')
       expect(res.headers['cache-control']).toMatch('public')
-    }
+    },
   )
 
   test('any URL that ends with /index.md redirects', async () => {
@@ -89,7 +89,7 @@ describe('404 pages and their content-type', () => {
       expect(res.statusCode).toBe(404)
       expect(res.headers['content-type']).toMatch('text/plain')
       expect(res.headers['cache-control']).toMatch('public')
-    }
+    },
   )
   test('valid language prefix 404 response is HTML', async () => {
     const res = await get('/en/something-that-doesnt-existent')

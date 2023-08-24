@@ -124,7 +124,6 @@ For example, you can create a TopoJSON map by specifying coordinates and shapes.
 
 For more information on working with `.geojson` and `.topojson` files, see "[AUTOTITLE](/repositories/working-with-files/using-files/working-with-non-code-files#mapping-geojson-files-on-github)."
 
-
 ## Creating STL 3D models
 
 You can use ASCII STL syntax directly in markdown to create interactive 3D models. To display a model, add ASCII STL syntax inside a fenced code block with the `stl` syntax identifier. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-and-highlighting-code-blocks)."

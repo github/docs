@@ -29,7 +29,9 @@ We do not recommend customizing UFW as it can complicate some troubleshooting is
 ## Viewing the default firewall rules
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To view the default firewall rules, use the `sudo ufw status` command. You should see output similar to this:
+
+1. To view the default firewall rules, use the `sudo ufw status` command. You should see output similar to this:
+
    ```shell
    $ sudo ufw status
    > Status: active
@@ -66,13 +68,15 @@ We do not recommend customizing UFW as it can complicate some troubleshooting is
 {% endwarning %}
 
 1. Configure a custom firewall rule.
-2. Check the status of each new rule with the `status numbered` command.
+1. Check the status of each new rule with the `status numbered` command.
    ```shell
-   $ sudo ufw status numbered
+   sudo ufw status numbered
    ```
-3. To back up your custom firewall rules, use the `cp`command to move the rules to a new file.
+
+1. To back up your custom firewall rules, use the `cp`command to move the rules to a new file.
+
    ```shell
-   $ sudo cp -r /etc/ufw ~/ufw.backup
+   sudo cp -r /etc/ufw ~/ufw.backup
    ```
 
 After you upgrade {% data variables.location.product_location %}, you must reapply your custom firewall rules. We recommend that you create a script to reapply your firewall custom rules.
@@ -88,15 +92,21 @@ If something goes wrong after you change the firewall rules, you can reset the r
 {% endwarning %}
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-2. To restore the previous backup rules, copy them back to the firewall with the `cp` command.
+
+1. To restore the previous backup rules, copy them back to the firewall with the `cp` command.
+
    ```shell
-   $ sudo cp -f ~/ufw.backup/*rules /etc/ufw
+   sudo cp -f ~/ufw.backup/*rules /etc/ufw
    ```
-3. Restart the firewall with the `systemctl` command.
+
+1. Restart the firewall with the `systemctl` command.
+
    ```shell
-   $ sudo systemctl restart ufw
+   sudo systemctl restart ufw
    ```
-4. Confirm that the rules are back to their defaults with the `ufw status` command.
+
+1. Confirm that the rules are back to their defaults with the `ufw status` command.
+
    ```shell
    $ sudo ufw status
    > Status: active

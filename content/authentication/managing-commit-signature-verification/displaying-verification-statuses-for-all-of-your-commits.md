@@ -34,4 +34,4 @@ You should only enable vigilant mode if you sign all of your commits and tags an
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.ssh %}
-3. Under "Vigilant mode," select **Flag unsigned commits as unverified**.
+1. Under "Vigilant mode," select **Flag unsigned commits as unverified**.

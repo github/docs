@@ -70,8 +70,8 @@ jobs:
 This workflow performs the following steps:
 
 1. The `checkout` step downloads a copy of your repository on the runner.
-2. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
-3. The "Build with Ant" step runs the default target in your `build.xml` in non-interactive mode.
+1. The `setup-java` step configures the Eclipse Temurin (Java) 17 JDK by Eclipse Adoptium.
+1. The "Build with Ant" step runs the default target in your `build.xml` in non-interactive mode.
 
 The default starter workflows are excellent starting points when creating your build and test workflow, and you can customize the starter workflow to suit your project’s needs.
 

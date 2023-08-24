@@ -21,7 +21,9 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
 
-      - uses: ./.github/actions/node-npm-setup
+      # - uses: ./.github/actions/node-npm-setup
+      - name: Install dependencies
+        run: npm install
 
       # Note that we don't check out docs-early-access, Elasticsearch,
       # or any remote translations. Nothing fancy here!

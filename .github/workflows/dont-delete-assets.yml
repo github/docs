@@ -24,8 +24,8 @@ permissions:
 
 jobs:
   dont-delete-assets:
-    # It's 'docubot' that creates those PR from "Delete orphaned assets"
-    if: github.event.pull_request.user.login != 'docubot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
+    # It's 'docs-bot' that creates those PR from "Delete orphaned assets"
+    if: github.event.pull_request.user.login != 'docs-bot' && (github.repository == 'github/docs-internal' || github.repository == 'github/docs')
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo

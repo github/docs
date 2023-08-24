@@ -37,7 +37,7 @@ When you first share the URL for an assignment with a student, the student must 
 
 You must have an organization account on {% data variables.product.product_name %} to manage classrooms on {% data variables.product.prodname_classroom %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts#organization-accounts)" and "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
 
-You must authorize the OAuth app for {% data variables.product.prodname_classroom %} for your organization to manage classrooms for your organization account. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+You must authorize the {% data variables.product.prodname_oauth_app %} for {% data variables.product.prodname_classroom %} for your organization to manage classrooms for your organization account. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
 
 ## Creating a classroom
 

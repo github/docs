@@ -52,7 +52,7 @@ async function main(opts, args) {
     }
   }
   const suspects = Object.fromEntries(
-    Object.entries(counts).filter(([, shas]) => Object.keys(shas).length > 1)
+    Object.entries(counts).filter(([, shas]) => Object.keys(shas).length > 1),
   )
 
   const countSuspects = Object.keys(suspects).length
@@ -70,8 +70,8 @@ async function main(opts, args) {
         console.log(chalk.bold('Suspect:'), `${action}@${chalk.yellow(sha)}`)
         console.log(
           `is only used ${count} time${count === 1 ? '' : 's'} (${((100 * count) / total).toFixed(
-            1
-          )}%) compared to ${mostPopular[1]} (used ${mostPopular[0]} times)`
+            1,
+          )}%) compared to ${mostPopular[1]} (used ${mostPopular[0]} times)`,
         )
         console.log(chalk.bold(`Consider changing to ${action}@${mostPopular[1]}`))
         console.log('in...')

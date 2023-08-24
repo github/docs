@@ -19,7 +19,7 @@ shortTitle: Use actions
 
 Most official {% data variables.product.prodname_dotcom %}-authored actions are automatically bundled with {% data variables.product.prodname_ghe_managed %}, and are captured at a point in time from {% data variables.product.prodname_marketplace %}. When your {% data variables.product.prodname_ghe_managed %} instance is updated, the bundled official actions are also updated.
 
-The bundled official actions include `actions/checkout`, `actions/upload-artifact`, `actions/download-artifact`, `actions/labeler`, and various `actions/setup-` actions, among others. To see which of the official actions are included, browse to the following organizations on your instance: 
+The bundled official actions include `actions/checkout`, `actions/upload-artifact`, `actions/download-artifact`, `actions/labeler`, and various `actions/setup-` actions, among others. To see which of the official actions are included, browse to the following organizations on your instance:
 - <code>https://<em>HOSTNAME</em>/actions</code>
 - <code>https://<em>HOSTNAME</em>/github</code>
 

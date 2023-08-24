@@ -35,11 +35,11 @@ To install the {% data variables.product.prodname_classroom %} extension, run `g
 To use `gh` to work with {% data variables.product.prodname_classroom %}, type `gh classroom SUBCOMMAND`.
 
 As an example of a series of commands you might use to work with {% data variables.product.prodname_classroom %}, you could:
-* List your classrooms:<br>
+- List your classrooms:<br>
   `gh classroom list`
-* List the assignments for a specific classroom:<br>
+- List the assignments for a specific classroom:<br>
   `gh classroom assignments`
-* View information for a specific assignment:<br>
+- View information for a specific assignment:<br>
   `gh classroom assignment`
 
 ## `gh` subcommands for {% data variables.product.prodname_classroom %} <!-- omit in toc -->
@@ -71,7 +71,6 @@ gh classroom assignments
 ```
 
 Display a list of assignments for a classroom.
-
 
 ### List accepted assignments
 

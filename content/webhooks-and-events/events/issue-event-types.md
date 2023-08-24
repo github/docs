@@ -383,7 +383,6 @@ This event is available for the following issue types.
 
 {% endrowheaders %}
 
-
 ### Properties for disconnected
 
 {% data reusables.issue-events.issue-event-common-properties %}
@@ -781,7 +780,7 @@ Name | Type | Description
 `body` | `string` | The review summary text.
 `commit_id` | `string` | The SHA of the latest commit in the pull request at the time of the review.
 `submitted_at` | `string` | The timestamp indicating when the review was submitted.
-`state` | `string` | The state of the submitted review. Can be one of: `commented`, `changes_requested`, or `approved`.
+`state` | `string` | The state of the submitted review. Can be one of: `commented`, `changes_requested`, `approved` or `dismissed`.
 `html_url` | `string` | The HTML URL of the review.
 `pull_request_url` | `string` | The REST API URL to retrieve the pull request.
 `author_association` | `string` | The permissions the user has in the issue's repository. For example, the value would be `"OWNER"` if the owner of repository created a comment.
@@ -942,6 +941,7 @@ This event is available for the following issue types.
 {% data reusables.issue-events.issue-event-common-properties %}
 
 {% ifversion fpt or ghec %}
+
 ## user_blocked
 
 An organization owner blocked a user from the organization. This was done [through one of the blocked user's comments on the issue](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization#blocking-a-user-in-a-comment).

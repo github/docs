@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 // "legacy" javascript needed to maintain existing functionality
 // typically operating on elements **within** an article.
 import copyCode from 'components/lib/copy-code'
-import localization from 'components/lib/localization'
+import toggleAnnotation from 'components/lib/toggle-annotations'
 import wrapCodeTerms from 'components/lib/wrap-code-terms'
 
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
@@ -39,8 +39,8 @@ import { useEffect } from 'react'
 
 function initiateArticleScripts() {
   copyCode()
-  localization()
   wrapCodeTerms()
+  toggleAnnotation()
 }
 
 type Props = {

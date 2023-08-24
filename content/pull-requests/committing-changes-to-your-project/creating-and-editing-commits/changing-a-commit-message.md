@@ -23,8 +23,8 @@ In Git, the text of the commit message is part of the commit. Changing the commi
 If the commit only exists in your local repository and has not been pushed to {% data variables.location.product_location %}, you can amend the commit message with the `git commit --amend` command.
 
 1. On the command line, navigate to the repository that contains the commit you want to amend.
-2. Type `git commit --amend` and press **Enter**.
-3. In your text editor, edit the commit message, and save the commit.
+1. Type `git commit --amend` and press **Enter**.
+1. In your text editor, edit the commit message, and save the commit.
     - You can add a co-author by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
 {% ifversion fpt or ghec %}
     - You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)"
@@ -51,9 +51,10 @@ We strongly discourage force pushing, since this changes the history of your rep
 **Changing the message of the most recently pushed commit**
 
 1. Follow the [steps above](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message#commit-has-not-been-pushed-online) to amend the commit message.
-2. Use the `push --force-with-lease` command to force push over the old commit.
+1. Use the `push --force-with-lease` command to force push over the old commit.
+
    ```shell
-   $ git push --force-with-lease origin EXAMPLE-BRANCH
+   git push --force-with-lease origin EXAMPLE-BRANCH
    ```
 
 **Changing the message of older or multiple commit messages**
@@ -61,12 +62,13 @@ We strongly discourage force pushing, since this changes the history of your rep
 If you need to amend the message for multiple commits or an older commit, you can use interactive rebase, then force push to change the commit history.
 
 1. On the command line, navigate to the repository that contains the commit you want to amend.
-2. Use the `git rebase -i HEAD~n` command to display a list of the last `n` commits in your default text editor.
+1. Use the `git rebase -i HEAD~n` command to display a list of the last `n` commits in your default text editor.
 
    ```shell
    # Displays a list of the last 3 commits on the current branch
    $ git rebase -i HEAD~3
    ```
+
    The list will look similar to the following:
 
    ```shell
@@ -92,17 +94,21 @@ If you need to amend the message for multiple commits or an older commit, you ca
    #
    # Note that empty commits are commented out
    ```
-3. Replace `pick` with `reword` before each commit message you want to change.
+
+1. Replace `pick` with `reword` before each commit message you want to change.
+
    ```shell
    pick e499d89 Delete CNAME
    reword 0c39034 Better README
    reword f7fde4a Change the commit message but push the same commit.
    ```
-4. Save and close the commit list file.
-5. In each resulting commit file, type the new commit message, save the file, and close it.
-6. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+
+1. Save and close the commit list file.
+1. In each resulting commit file, type the new commit message, save the file, and close it.
+1. When you're ready to push your changes to GitHub, use the push --force command to force push over the old commit.
+
    ```shell
-   $ git push --force origin EXAMPLE-BRANCH
+   git push --force origin EXAMPLE-BRANCH
    ```
 
 For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
@@ -121,4 +127,4 @@ If you have included sensitive information in a commit message, force pushing a 
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"

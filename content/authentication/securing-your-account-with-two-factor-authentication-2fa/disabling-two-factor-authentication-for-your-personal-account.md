@@ -21,7 +21,7 @@ shortTitle: Disable 2FA
 We strongly recommend using two-factor authentication to secure your account. If you need to disable 2FA, we recommend re-enabling it as soon as possible.
 
 {% ifversion mandatory-2fa-dotcom-contributors %}
-If you are part of the group that {% data variables.product.prodname_dotcom %} is requiring to enroll in 2FA in 2023, you cannot disable 2FA. A banner will display in your authentication settings to remind you that you are not allowed to disable 2FA. For more information about our 2023 2FA enrollment rollout for contributors to {% data variables.product.prodname_dotcom_the_website %}, see [this blog post](https://github.blog/2023-03-09-raising-the-bar-for-software-security-github-2fa-begins-march-13). 
+If you are part of the group that {% data variables.product.prodname_dotcom %} is requiring to enroll in 2FA in 2023, you cannot disable 2FA. A banner will display in your authentication settings to remind you that you are not allowed to disable 2FA. For more information about our 2023 2FA enrollment rollout for contributors to {% data variables.product.prodname_dotcom_the_website %}, see [this blog post](https://github.blog/2023-03-09-raising-the-bar-for-software-security-github-2fa-begins-march-13).
 {% endif %}
 
 {% warning %}
@@ -34,7 +34,7 @@ If your organization requires two-factor authentication and you're a member, own
 
 To remove yourself from your organization:
 - As an organization member or owner, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)."
-- As an outside collaborator, ask an organization owner or repository administrator to remove you from the organization's repositories. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/removing-an-outside-collaborator-from-an-organization-repository)."
+- As an outside collaborator, ask an organization owner or repository administrator to remove you from the organization's repositories. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/removing-an-outside-collaborator-from-an-organization-repository)."
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}

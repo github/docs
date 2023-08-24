@@ -36,7 +36,7 @@ Show the version of the CodeQL toolchain.
 
 #### `--format=<fmt>`
 
-Select output format. Choices include `text` *(default)* ,`terse`, and
+Select output format. Choices include `text` _(default)_ ,`terse`, and
 `json`.
 
 ### Common options

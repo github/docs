@@ -1,17 +1,18 @@
 # Using videos in GitHub Docs content
 
-Videos are used in conjunction with written text to help users understand content in the GitHub docs.
+Videos are rarely used in the GitHub Docs. When videos are necessary to provide the best user experience for an article, they are used in conjunction with written text. Videos are not a replacement for written content.
 
 Use these guidelines to determine if a video is appropriate to include in an article or on a landing page in the GitHub docs. If you have questions about whether or not a video would be a good addition to the docs, contact the Docs Content Strategy team.
 
 If you add a link to a video or embed a video in the GitHub Docs, add the video's metadata to the "[Videos in GitHub Docs](#videos-in-github-docs)" section below.
 
-The Docs team does not create or maintain video content. Videos are purely supplemental to help communicate significant or complex topics, and should be used sparingly because they aren't a content type owned by the Docs team.
+The Docs team does not create or maintain video content. Videos are purely supplemental to help communicate significant or complex topics, and should be used sparingly because they are not a content type owned by the Docs team.
 
 ## Video checklist
 
 Use this checklist to quickly determine if a video might be appropriate to add to an article or landing page.
 
+- [ ] Is the video the only way to communicate the information?
 - [ ] Does GitHub own the video?
 - [ ] Is the video well produced? (See the [Best practices](#best-practices) below for more information)
 - [ ] Is the video accessible? (See the [Accessibility requirements](#accessibility-requirements))
@@ -30,6 +31,8 @@ If no, create an issue with an appropriate target date to review or remove the v
 
 ## Best practices
 
+Use these best practices to help determine if a video is well produced and is of a high enough quality to be included in the GitHub Docs.
+
 Good videos introduce an instructional agenda that includes steps and goals so that someone watching quickly knows what they will learn. Videos are demonstrative, both showing and explaining the relevant steps that are performed. Videos should be engaging and encouraging. Videos must be well produced to be included in the GitHub docs. A well produced video meets accessibility requirements, has professional narration (if it is a narrated video), has clear visuals, and comes from a reputable source such as GitHub or Microsoft.
 
 Videos are broadly grouped into three categories: product overviews, feature videos, and tutorials. These descriptions are generalizations of each video type. Some videos might not fit perfectly in one category, but can still be useful without meeting the exact guidelines.
@@ -39,25 +42,22 @@ Videos are broadly grouped into three categories: product overviews, feature vid
 - **Length**: Less than a minute
 - **Possible audiences**: People who want to know if a feature is useful for their goals, people who are new to GitHub and trying to understand what the products do
 - **Possible locations in the docs**: Landing pages and guides
-- **Example**: "[GitHub Discussions in 60 seconds](https://www.youtube.com/watch?time_continue=28&v=IpBw2SJkFyk&feature=emb_title)" on the [Discussions landing page](https://docs.github.com/en/discussions)
 
 ### Feature videos
 - **Purpose**: Supplement conceptual or procedural content
 - **Length**: As short as possible, without exceeding five minutes. Break longer content into multiple shorter, focused videos
 - **Possible audiences**: People who are learning about or how to use a feature
 - **Possible locations in the docs**: Guides, conceptual articles, procedural articles
-- **Example:** "[Pull Requests • GitHub & Git Foundations](https://www.youtube.com/watch?v=d5wpJ5VimSU&list=PLg7s6cbtAD15G8lNyoaYDuKZSKyJrgwB-&index=20)" in "[Git and GitHub learning resources](https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources#tune-in)"
 
 ### Tutorials
 - **Purpose**: Help novice users get going with a product, drive adoption, or explain complex functionalities
 - **Length**: Individual videos should be five minutes or less. Complex topics can have a series of shorter videos spread across an article. Total length should be a maximum of 15 minutes
 - **Possible audiences**: New users of features or products
 - **Possible locations**: Guides
-- **Example:** "[Setting up your GitHub Enterprise licenses with Visual Studio subscriptions](https://www.youtube.com/watch?v=P_zBgp_BE_I)" in "[Setting up Visual Studio subscriptions with GitHub Enterprise](https://docs.github.com/en/enterprise-cloud@latest/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise#about-setup-of-visual-studio-subscriptions-with-github-enterprise)"
 
 ## When to use videos
 
-We might use videos instead of other visuals such as screenshots or diagrams when it is important to show movement or changes in state, like when someone navigates from one screen to another or demos a feature that involves progressing through multiple menus.
+We might use videos instead of other visuals such as screenshots or diagrams when it is important to show movement or changes in state, like when someone navigates from one screen to another or demos a feature that involves progressing through multiple menus. However, screenshots or text may be sufficient to explain these procedures.
 
 Videos can also be helpful to introduce features or products where a 30 second video can supplement information that requires multiple paragraphs to write.
 
@@ -65,7 +65,7 @@ Use videos that explain the value of the procedure or concept that they are show
 
 ## When to not use videos
 
-Do not use videos for features that change quickly and may make videos out of date. Do not use videos that contradict the written content or violate any parts of the [content style guide](./content-style-guide.md). Do not use videos that just show a task without explaining or elaborating on the procedure.
+Do not use videos for features that change quickly and may make videos out of date. Do not use videos that contradict the written content or violate any parts of the [content style guide](./content-style-guide.md). Do not use videos that just show a task without explaining or elaborating on the procedure. Do not use a video just because a video exists. Videos must be useful and relevant to our users, which includes staying accurate over time.
 
 ## Accessibility requirements
 
@@ -171,71 +171,16 @@ Product: Codespaces
 Versions: fpt, ghec
 Date added: 2021-05-11
 Location: /content/codespaces/index.md
-Transcript: TBD
-```
-
-```
-Title: GitHub Discussions in 60 seconds
-URL: https://www.youtube-nocookie.com/embed/IpBw2SJkFyk
-Description: A 1 minute overview of GitHub Discussions.
-Product: Discussions
-Versions: fpt, ghec, ghes > 3.5
-Date added: 2021-01-20
-Location: /content/discussions/index.md
-Transcript: TBD
-```
-
-```
-Title: Planning at scale with Issues – GitHub Universe 2021
-URL: https://www.youtube-nocookie.com/embed/ha1KHcPMAEk
-Description: A 20 minute presentation by Mario Rodriguez.Nbobigogc
-Product: Issues
-Versions: All
-Date added: YYYY-MM-DD
-Location: /content/issues/index.md
-Transcript: TBD
-```
-
-```
-Title: Planning at GitHub (Projects + Issues) - GitHub Universe 2021
-URL: https://www.youtube-nocookie.com/embed/HwpVvDURHKw
-Description: A 20 minute presentation by Matt Butler.
-Product: Issues
-Versions: All
-Date added: 2022-01-19
-Location: /content/issues/index.md
-Transcript: TBD
-```
-
-```
-Title: Issue Forms for open source - GitHub Universe 2021
-URL: https://www.youtube-nocookie.com/embed/2Yh8ueUE0oY
-Description: A 20 minute presentation by Luke Hefson.
-Product: Issues
-Versions: All
-Date added: 2022-01-19
-Location: /content/issues/index.md
-Transcript: TBD
-```
-
-```
-Title: GitHub Issues
-URL: https://www.youtube-nocookie.com/embed/uiaLWluYJsA
-Description: A 2.5 minute overview of Issues for planning and tracking work.
-Product: Issues
-Versions: All
-Date added: 2022-02-02
-Location: /content/issues/index.md
-Transcript: TBD
+Transcript: /video-transcripts/transcript-codespaces-your-instant-dev-box-in-the-cloud
 ```
 
 ```
 Title: Using Projects for feature planning
-URL: https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y?list=PL0lo9MOBetEG8TZty9Z38oSZAY8FjkaB7&index=1
-Description: A 3 minute introduction to Projects for developers.
-Product: Issues, Projects
-Versions: All
-Date added: 2022-08-01
+URL: https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y
+Description: Check out all the cool new things you can do with your GitHub Projects powered by GitHub Issues
+Product: Issues
+Versions: projects-v2
+Date added: 2023-05-09
 Location: /content/issues/index.md
-Transcript: TBD
+Transcript: /video-transcripts/transcript-using-projects-for-feature-planning
 ```

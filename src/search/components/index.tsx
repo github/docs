@@ -63,7 +63,7 @@ export function Search({ search }: Props) {
         <ValidationErrors errors={validationErrors} />
       ) : null}
 
-      {results ? <SearchResults results={results} query={query} /> : null}
+      {results ? <SearchResults results={results} search={search.search} /> : null}
     </div>
   )
 }

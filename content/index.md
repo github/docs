@@ -42,7 +42,11 @@ redirect_from:
   - /github/enforcing-best-practices-with-github-policies/sharing
   - /early-access/github/enforcing-best-practices-with-github-policies/syntax
   - /github/enforcing-best-practices-with-github-policies/syntax
-versions: '*'
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 children:
   - search
   - get-started
@@ -76,6 +80,7 @@ children:
   - early-access
   - support
   - video-transcripts
+  - contributing
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -118,6 +123,8 @@ childGroups:
     octicon: ProjectIcon
     children:
       - issues
+      - issues/planning-and-tracking-with-projects
+      - issues/managing-your-tasks-with-tasklists
       - search-github
   - name: Developers
     octicon: CodeSquareIcon
@@ -138,6 +145,13 @@ childGroups:
       - sponsors
       - education
       - support
+      - contributing
+  - name: More docs
+    octicon: PencilIcon
+    children:
+      - electron
+      - codeql
+      - npm
 externalProducts:
   electron:
     id: electron

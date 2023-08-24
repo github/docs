@@ -38,7 +38,7 @@ jobs:
         id: get-number
         timeout-minutes: 3
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCUBOT_REPO_PAT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
         run: .github/actions-scripts/find-past-built-pr.js
 
       - name: Find content directory changes comment

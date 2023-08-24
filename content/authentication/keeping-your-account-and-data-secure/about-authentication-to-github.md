@@ -21,7 +21,7 @@ To keep your account secure, you must authenticate before you can access{% ifver
 You can access your resources in {% data variables.product.product_name %} in a variety of ways: in the browser, via {% data variables.product.prodname_desktop %} or another desktop application, with the API, or via the command line. Each way of accessing {% data variables.product.product_name %} supports different modes of authentication.
 {%- ifversion not fpt %}
 - Your identity provider (IdP){% endif %}{% ifversion not ghae %}
-- Username and password with two-factor authentication{% endif %}
+- Username and password with two-factor authentication{% ifversion passkeys %}, or a passkey{% endif %}{% endif %}
 - {% data variables.product.pat_generic_caps %}
 - SSH key
 
@@ -37,7 +37,7 @@ You can authenticate to {% data variables.product.product_name %} in your browse
 
 If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate to {% data variables.product.product_name %} in your browser using your IdP. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#authenticating-as-a-managed-user){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
 
-If you're not a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate using your {% data variables.product.prodname_dotcom_the_website %} username and password. You may also use two-factor authentication and SAML single sign-on, which can be required by organization and enterprise owners.
+If you're not a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will authenticate using your {% data variables.product.prodname_dotcom_the_website %} username and password{% ifversion passkeys %}, or a passkey{% endif %}. You may also use two-factor authentication and SAML single sign-on, which can be required by organization and enterprise owners.
 
 {% else %}
 
@@ -66,7 +66,10 @@ You can authenticate to {% data variables.product.product_name %} in your browse
     **Note:** {% data reusables.two_fa.unlink-email-address %}
 
     {% endnote %}
-    {% endif %}
+    {% endif %}{% ifversion passkeys %}
+- **Passkey** (opt-in beta)
+  - You can add a passkey to your account to enable a secure, passwordless login. Passkeys satisfy both password and 2FA requirements, so you can complete your sign in with a single step. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)" and "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."{% endif %}
+
 {% ifversion ghes %}
 - **External authentication**
   - Your site administrator may configure {% data variables.location.product_location %} to use external authentication instead of a username and password. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#external-authentication)."{% endif %}{% ifversion fpt or ghec %}
@@ -76,6 +79,7 @@ You can authenticate to {% data variables.product.product_name %} in your browse
 {% endif %}
 
 ## Authenticating with {% data variables.product.prodname_desktop %}
+
 You can authenticate with {% data variables.product.prodname_desktop %} using your browser. For more information, see "[AUTOTITLE](/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github-in-github-desktop)."
 
 ## Authenticating with the API
@@ -90,7 +94,7 @@ If you want to use the {% data variables.product.company_short %} REST API for p
 
 If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-You can also create an OAuth token with an {% data variables.product.prodname_oauth_app %} to access the REST API. However, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %} instead. {% data variables.product.prodname_github_app %}s allow more control over the access and permission that the app has.
+You can also create an OAuth token with an {% data variables.product.prodname_oauth_app %} to access the REST API. However, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %} instead. {% data variables.product.prodname_github_apps %} allow more control over the access and permission that the app has.
 
 ### Authenticating to the API in a {% data variables.product.prodname_actions %} workflow
 
@@ -121,6 +125,7 @@ If you authenticate with {% data variables.product.prodname_cli %}, the CLI will
 If you authenticate without {% data variables.product.prodname_cli %}, you will need to generate an SSH public/private keypair on your local machine and add the public key to your account on {% ifversion ghae %}{% data variables.product.product_name %}{% else %}{% data variables.location.product_location %}{% endif %}. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)." Every time you use Git to authenticate with {% data variables.product.product_name %}, you'll be prompted to enter your SSH key passphrase, unless you've [stored the key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent).
 
 {% ifversion fpt or ghec %}
+
 ### Authorizing for SAML single sign-on
 
 To use a {% data variables.product.pat_generic %} or SSH key to access resources owned by an organization that uses SAML single sign-on, you must also authorize the personal token or SSH key. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" or "[AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}{% endif %}

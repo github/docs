@@ -89,11 +89,13 @@ Alternatively, you can check a `.ruby-version` file  into the root of your repos
 You can add a matrix strategy to run your workflow with more than one version of Ruby. For example, you can test your code against the latest patch releases of versions 3.1, 3.0, and 2.7.
 
 {% raw %}
+
 ```yaml
 strategy:
   matrix:
     ruby-version: ['3.1', '3.0', '2.7']
 ```
+
 {% endraw %}
 
 Each version of Ruby specified in the `ruby-version` array creates a job that runs the same steps. The {% raw %}`${{ matrix.ruby-version }}`{% endraw %} context is used to access the current job's version. For more information about matrix strategies and contexts, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)" and "[AUTOTITLE](/actions/learn-github-actions/contexts)."
@@ -156,12 +158,14 @@ The `setup-ruby` actions provides a method to automatically handle the caching o
 To enable caching, set the following.
 
 {% raw %}
+
 ```yaml
 steps:
 - uses: ruby/setup-ruby@ec02537da5712d66d4d50a0f33b7eb52773b5ed1
     with:
       bundler-cache: true
 ```
+
 {% endraw %}
 
 This will configure bundler to install your gems to `vendor/cache`. For each successful run of your workflow, this folder will be cached by {% data variables.product.prodname_actions %} and re-downloaded for subsequent workflow runs. A hash of your gemfile.lock and the Ruby version are used as the cache key. If you install any new gems, or change a version, the cache will be invalidated and bundler will do a fresh install.

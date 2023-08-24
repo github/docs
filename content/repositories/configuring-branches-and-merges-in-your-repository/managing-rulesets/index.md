@@ -8,9 +8,9 @@ topics:
   - Repositories
 children:
   - /about-rulesets
+  - /creating-rulesets-for-a-repository
   - /managing-rulesets-for-a-repository
   - /available-rules-for-rulesets
   - /troubleshooting-rules
 shortTitle: Manage rulesets
 ---
-

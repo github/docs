@@ -15,7 +15,7 @@ import got from 'got'
 import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
 import { archivedCacheControl, languageCacheControl } from './cache-control.js'
 import { pathLanguagePrefixed, languagePrefixPathRegex } from '../lib/languages.js'
-import getRedirect, { splitPathByLanguage } from '../lib/get-redirect.js'
+import getRedirect, { splitPathByLanguage } from '../src/redirects/lib/get-redirect.js'
 import getRemoteJSON from './get-remote-json.js'
 
 const REMOTE_ENTERPRISE_STORAGE_URL = 'https://githubdocs.azureedge.net/enterprise'
@@ -34,10 +34,10 @@ function splitByLanguage(uri) {
 // `readJsonFileLazily()` function will, at import-time, check that
 // the path does exist.
 const archivedRedirects = readCompressedJsonFileFallbackLazily(
-  './lib/redirects/static/archived-redirects-from-213-to-217.json'
+  './src/redirects/lib/static/archived-redirects-from-213-to-217.json',
 )
 const archivedFrontmatterValidURLS = readCompressedJsonFileFallbackLazily(
-  './lib/redirects/static/archived-frontmatter-valid-urls.json'
+  './src/redirects/lib/static/archived-frontmatter-valid-urls.json',
 )
 
 // Combine all the things you need to make sure the response is

@@ -45,7 +45,7 @@ Available since `v2.12.6`.
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
-but a directory that *contains* databases, and all of those databases
+but a directory that _contains_ databases, and all of those databases
 will be processed together.
 
 #### `--format=<format>`
@@ -67,7 +67,7 @@ of SARIF between different CodeQL versions.
 #### `--[no-]db-cluster`
 
 Indicates that the directory given on the command line is not a database
-itself, but a directory that *contains* one or more databases under
+itself, but a directory that _contains_ one or more databases under
 construction. Those databases will be processed together.
 
 #### `-o, --output=<output>`
@@ -92,9 +92,9 @@ languages or different parts of the code.
 If you analyze the same version of a code base in several different ways
 (e.g., for different languages) and upload the results to GitHub for
 presentation in Code Scanning, this value should differ between each of
-the analyses, which tells Code Scanning that the analyses *supplement*
-rather than *supersede* each other. (The values should be consistent
-between runs of the same analysis for *different* versions of the code
+the analyses, which tells Code Scanning that the analyses _supplement_
+rather than _supersede_ each other. (The values should be consistent
+between runs of the same analysis for _different_ versions of the code
 base.)
 
 This value will appear (with a trailing slash appended if not already

@@ -15,20 +15,20 @@ topics:
 shortTitle: Develop in a codespace
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About development with {% data variables.product.prodname_github_codespaces %}
 
 You can develop code in a codespace using your choice of tool:
 
-* A command shell, via an SSH connection initiated using {% data variables.product.prodname_cli %}.
-* One of the JetBrains IDEs, via the JetBrains Gateway.
-* The {% data variables.product.prodname_vscode %} desktop application.
-* A browser-based version of {% data variables.product.prodname_vscode %}.
+- A command shell, via an SSH connection initiated using {% data variables.product.prodname_cli %}.
+- One of the JetBrains IDEs, via the JetBrains Gateway.
+- The {% data variables.product.prodname_vscode %} desktop application.
+- A browser-based version of {% data variables.product.prodname_vscode %}.
 
 {% webui %}
 
@@ -69,7 +69,7 @@ For troubleshooting information, see "[AUTOTITLE](/codespaces/troubleshooting/tr
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 The tabs in this article allow you to switch between information for each of these ways of working. You're currently on the tab for JetBrains IDEs.
 
@@ -89,14 +89,14 @@ Within the {% data variables.product.prodname_github_codespaces %} documentation
 
 The main components of the user interface are:
 1. **Navigation bar** - This displays the path to the currently selected file or directory. Use the buttons to the right of the navigation bar to perform various actions, including building, running, or debugging the project, or running Git commands to commit and push your changes.
-2. **Project tool window** - This shows you the structure of your project and allows you to open files in the editor.
-3. **{% data variables.product.prodname_github_codespaces %} tool window** - This is displayed by clicking the {% data variables.product.prodname_github_codespaces %} plugin in the bar to the left of the tool window. It displays information about your codespace, including its display name and machine type. The buttons at the top of this tool window allow you to:
-   * Refresh the details in the tool window for the active codespace
-   * Display the "Your codespaces" web page
-   * View the codespace creation logs
-4. **Editor** - This is where you edit your files. You can right-click the tab for a file to access options such as moving the tab to a new window.
-5. **Terminal** - This is displayed by clicking **Terminal** in the tool window bar at the bottom of the main window (just above the status bar). The integrated terminal allows you to perform command-line tasks without having to switch to a dedicated terminal application.
-6. **Status bar** - Hover over the icon at the left of the status bar to see a list of tools. Click the icon to hide or show the tool window bars. The right side of the status bar shows information about the project, including the current Git branch.
+1. **Project tool window** - This shows you the structure of your project and allows you to open files in the editor.
+1. **{% data variables.product.prodname_github_codespaces %} tool window** - This is displayed by clicking the {% data variables.product.prodname_github_codespaces %} plugin in the bar to the left of the tool window. It displays information about your codespace, including its display name and machine type. The buttons at the top of this tool window allow you to:
+   - Refresh the details in the tool window for the active codespace
+   - Display the "Your codespaces" web page
+   - View the codespace creation logs
+1. **Editor** - This is where you edit your files. You can right-click the tab for a file to access options such as moving the tab to a new window.
+1. **Terminal** - This is displayed by clicking **Terminal** in the tool window bar at the bottom of the main window (just above the status bar). The integrated terminal allows you to perform command-line tasks without having to switch to a dedicated terminal application.
+1. **Status bar** - Hover over the icon at the left of the status bar to see a list of tools. Click the icon to hide or show the tool window bars. The right side of the status bar shows information about the project, including the current Git branch.
 
 For more information about the IntelliJ IDEA user interface, see the [JetBrains documentation for IntelliJ IDEA](https://www.jetbrains.com/help/idea/guided-tour-around-the-user-interface.html).
 
@@ -116,11 +116,11 @@ For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/usin
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
-* "[AUTOTITLE](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
-* "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)"
+- "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-your-jetbrains-ide)"
+- "[AUTOTITLE](/codespaces/codespaces-reference/using-the-github-codespaces-plugin-for-jetbrains)"
+- "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-github-codespaces-clients)"
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 {% cli %}
 

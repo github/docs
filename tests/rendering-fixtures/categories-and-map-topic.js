@@ -31,7 +31,7 @@ describe('map topics', () => {
     const firstArticleIntro = $('[data-testid=table-of-contents] p').first()
     // Its HTML in the intro is escaped and Markdown converted
     expect(firstArticleIntro.html()).toMatch(
-      'This page uses &lt; and &gt; in the title and <code>shortTitle</code>'
+      'This page uses &lt; and &gt; in the title and <code>shortTitle</code>',
     )
   })
 })

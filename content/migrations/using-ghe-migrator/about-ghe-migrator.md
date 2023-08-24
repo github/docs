@@ -22,7 +22,7 @@ There are three types of migrations you can perform:
 
 - A migration from a {% data variables.product.prodname_ghe_server %} instance to another existing {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by any user or organization on the instance. Before performing a migration, you must have site administrator access to both instances.
 - A migration from a {% data variables.product.prodname_dotcom_the_website %} organization to a {% data variables.product.prodname_ghe_server %} instance. You can migrate any number of repositories owned by the organization. Before performing a migration, you must have [administrative access](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization) to the {% data variables.product.prodname_dotcom_the_website %} organization as well as site administrator access to the target instance.
-- *Trial runs* are migrations that import data to a [staging instance]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance). These can be useful to see what *would* happen if a migration were applied to {% data variables.location.product_location %}. **We strongly recommend that you perform a trial run on a staging instance before importing data to your production instance.**
+- _Trial runs_ are migrations that import data to a [staging instance]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance). These can be useful to see what _would_ happen if a migration were applied to {% data variables.location.product_location %}. **We strongly recommend that you perform a trial run on a staging instance before importing data to your production instance.**
 
 {% note %}
 
@@ -32,7 +32,7 @@ There are three types of migrations you can perform:
 
 ## Migrated data
 
-With ghe-migrator, everything revolves around a repository. Most data associated with a repository can be migrated. For example, a repository within an organization will migrate the repository *and* the organization, as well as any users, teams, issues, and pull requests associated with the repository.
+With ghe-migrator, everything revolves around a repository. Most data associated with a repository can be migrated. For example, a repository within an organization will migrate the repository _and_ the organization, as well as any users, teams, issues, and pull requests associated with the repository.
 
 The items in the table below can be migrated with a repository. Any items not shown in the list of migrated data can not be migrated, including {% data variables.large_files.product_name_short %} assets.
 

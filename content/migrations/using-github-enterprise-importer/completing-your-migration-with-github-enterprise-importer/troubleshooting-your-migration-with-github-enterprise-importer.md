@@ -113,7 +113,7 @@ If you're running Bitbucket Data Center in cluster mode with multiple notes, you
 
 ### `Repository rule violations found` error
 
-If you receive a `Repository rule violations found` error, such as `GH013: Repository rule violations found for refs/heads/main`, data in the origin repository conflicts with rulesets (public beta) configured on the destination organization. For more information, see "[AUTOTITLE]({% ifversion repo-rules %}{% else %}/enterprise-cloud@latest{% endif %}/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+If you receive a `Repository rule violations found` error, such as `GH013: Repository rule violations found for refs/heads/main`, data in the origin repository conflicts with rulesets configured on the destination organization. For more information, see "[AUTOTITLE]({% ifversion repo-rules %}{% else %}/enterprise-cloud@latest{% endif %}/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
 You can temporarily disable your rulesets during your migration, or you can use bypass mode or the bypass list to exempt your migration from configured rules. For more information, see "[AUTOTITLE]({% ifversion repo-rules-enterprise %}{% else %}/enterprise-cloud@latest{% endif %}/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)."
 
@@ -121,7 +121,7 @@ You can temporarily disable your rulesets during your migration, or you can use 
 
 If you receive a `Git source migration failed` error with `GH007: Your push would publish a private email address`,  the Git source you're trying to migrate includes commits authored by an email address that you have blocked from being pushed to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE]({% ifversion not fpt or ghec %}/enterprise-cloud@latest{% endif %}/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address){% ifversion fpt or ghec %}."{% else %}" in the  {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
-To resolve this error, you can either rewrite the Git history to remove the email address, or you can disable the "Block command line pushes that expose my email" setting. 
+To resolve this error, you can either rewrite the Git history to remove the email address, or you can disable the "Block command line pushes that expose my email" setting.
 
 ## Troubleshooting successful migrations
 
@@ -169,6 +169,21 @@ Be aware that the affected comments will not be in the migrated repository, but 
 You can either update these references after the migration, or you can preserve your team names by renaming the source organization so that you can use the original name for your destination organization.
 
 For example, if your source organization is `@octo-org`, and your `CODEOWNERS` file includes a reference to the team `@octo-org/octo-team`, you could rename the source organization to `@octo-org-temp` before your migration, allowing you to use `@octo-org` as the name of the new organization. Then, the migrated team would be called `@octo-org/octo-team`, and the `CODEOWNERS` file in the migrated repository will work as expected.
+
+## Locked repositories
+
+After a migration, you may find that your source or destination repositories are locked, disabling access to the repository's code and all of its resources, such as issues and pull requests. For more information about locked repositories, see "[AUTOTITLE](/migrations/overview/about-locked-repositories)."
+
+The process for unlocking a repository depends on the {% data variables.product.prodname_dotcom %} product where the repository is stored.
+
+- If the locked repository is on {% data variables.product.prodname_ghe_server %}, a site administrator can unlock the repository using the site admin dashboard. For more information, see "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-repositories-in-your-enterprise/locking-a-repository){% ifversion ghes %}."{% else %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% endif %}
+- If the locked repository is on {% data variables.product.prodname_dotcom_the_website %}, you can contact {% data variables.contact.contact_support %} to unlock the repository.
+
+{% note %}
+
+**Note:** If your migration failed, not all of your data was migrated. If you choose to unlock and use the repository, there will be data loss. Deleting the locked repository and retrying the migration may be a better option.
+
+{% endnote %}
 
 ## Contacting {% data variables.contact.github_support %}
 

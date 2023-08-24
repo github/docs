@@ -21,18 +21,18 @@ export default async function syncSearchIndexes({
 
   // build indices for a specific language if provided; otherwise build indices for all languages
   const languagesToBuild = Object.keys(languages).filter((lang) =>
-    notLanguage ? notLanguage !== lang : language ? language === lang : true
+    notLanguage ? notLanguage !== lang : language ? language === lang : true,
   )
 
   // build indices for a specific version if provided; otherwise build indices for all versions
   const versionsToBuild = Object.keys(allVersions).filter((ver) =>
-    version ? version === ver : true
+    version ? version === ver : true,
   )
 
   console.log(
     `Building indices for ${chalk.yellow(language || 'all languages')} and ${chalk.yellow(
-      version || 'all versions'
-    )}.\n`
+      version || 'all versions',
+    )}.\n`,
   )
 
   // Exclude WIP pages, hidden pages, index pages, etc
@@ -71,7 +71,7 @@ export default async function syncSearchIndexes({
         pageVersion,
         languageCode,
         redirects,
-        config
+        config,
       )
       countRecordsTotal += records.length
       const fileWritten = await writeIndexRecords(indexName, records, outDirectory)

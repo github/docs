@@ -27,9 +27,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       # need to use a token from a user with access to github/github for this step
-      GITHUB_TOKEN: ${{ secrets.DOCS_BOT_FR }}
+      GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
       FIRST_RESPONDER_PROJECT: Docs content first responder
-      REPORT_AUTHOR: docubot
+      REPORT_AUTHOR: docs-bot
       REPORT_LABEL: github github broken link report
       REPORT_REPOSITORY: github/docs-content
     steps:
@@ -48,7 +48,7 @@ jobs:
 
       - uses: ./.github/actions/get-docs-early-access
         with:
-          token: ${{ secrets.DOCUBOT_REPO_PAT }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Build server
         run: npm run build

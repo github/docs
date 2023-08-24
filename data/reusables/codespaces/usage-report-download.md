@@ -2,7 +2,7 @@
 
    ![Screenshot of the "Billing and plans" settings. A button, labeled "Get usage report", is highlighted with an orange outline.](/assets/images/help/billing/actions-packages-report-download.png)
 
-   The data used for this report is updated daily. 
+   The data used for this report is updated daily.
 
    To see the costs for {% data variables.product.prodname_github_codespaces %} compute usage and storage, filter the report to show only rows that mention "Codespaces" in the `Product` column.
 

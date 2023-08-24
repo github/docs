@@ -62,10 +62,10 @@ describe('Liquid references', () => {
         const matches = content.match(liquidRefsWithLinkBreaksRegex) || []
         const errorMessage = formatRefError(
           'Found unexpected line breaks in Liquid reference:',
-          matches
+          matches,
         )
         expect(matches.length, errorMessage).toBe(0)
-      }
+      },
     )
 
     // Also test the "data/variables/" YAML files
@@ -95,7 +95,7 @@ describe('Liquid references', () => {
 
       const errorMessage = formatRefError(
         'Found unexpected line breaks in Liquid reference:',
-        matches
+        matches,
       )
       expect(matches.length, errorMessage).toBe(0)
     })

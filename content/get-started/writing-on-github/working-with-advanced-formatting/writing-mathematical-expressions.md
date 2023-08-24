@@ -29,6 +29,7 @@ This sentence uses `$` delimiters to show math inline:  $\sqrt{3x-1}+(1+x)^2$
 ![Screenshot of rendered Markdown showing how a mathematical expression displays on {% data variables.product.prodname_dotcom %}. The equation is the square root of 3 x minus 1 plus open paren 1 plus x close paren squared.](/assets/images/help/writing/inline-math-markdown-rendering.png)
 
 {% ifversion math-backtick-syntax %}
+
 ````
 This sentence uses $\` and \`$ delimiters to show math inline:  $`\sqrt{3x-1}+(1+x)^2`$
 ````
@@ -58,6 +59,7 @@ Alternatively, you can use the <code>\`\`\`math</code> code block syntax to disp
 \left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 ```
 ````
+
 {% endif %}
 
 ## Writing dollar signs in line with and within mathematical expressions
@@ -82,6 +84,6 @@ To display a dollar sign as a character in the same line as a mathematical expre
 
 ## Further reading
 
-* [The MathJax website](http://mathjax.org)
-* [Getting started with writing and formatting on GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
-* [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
+- [The MathJax website](http://mathjax.org)
+- [Getting started with writing and formatting on GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)
+- [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)

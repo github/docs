@@ -60,7 +60,7 @@ One person may be able to complete the tasks because the person has all of the r
 
     {% endtip %}
 
-After {% data variables.visual_studio.prodname_vss_ghe %} is set up for subscribers on your team, enterprise owners can review licensing information on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
+After {% data variables.visual_studio.prodname_vss_ghe %} is set up for subscribers on your team, enterprise owners can review licensing information on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account)."
 
 ## Further reading
 

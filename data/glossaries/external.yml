@@ -338,8 +338,7 @@
     that they configure and control.
 - term: integration
   description: >-
-    A third-party application that integrates with GitHub. These can be GitHub
-    Apps, OAuth Apps, or webhooks.
+    A third-party application that integrates with GitHub. These are often {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_actions %}, or custom actions. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-building-integrations)."
 - term: issue
   description: >-
     Issues are suggested improvements, tasks or questions related to the
@@ -459,12 +458,12 @@
   description: >-
     Updates, delivered by either the web or email depending on your settings,
     that give you information about the activities you're interested in.
-- term: OAuth App
+- term: OAuth app
   description: >-
     A third-party application that uses access tokens rather than passwords to
     access information for users.
 - term: OAuth token
-  description: The access token used in OAuth Apps to access information for users.
+  description: The access token used by {% data variables.product.prodname_oauth_apps %} to access information for users.
 - term: outside collaborator
   description: >-
     A user who has been given access to one or more of an organization’s
@@ -659,7 +658,7 @@
     use it across GitHub in issues and pull requests.
 - term: scope
   description: >-
-    Named groups of permissions that an OAuth App can request to access both
+    Named groups of permissions that an {% data variables.product.prodname_oauth_app %} or {% data variables.product.pat_v1 %} can request to access both
     public and non-public data.
 - term: seat
   description: >-

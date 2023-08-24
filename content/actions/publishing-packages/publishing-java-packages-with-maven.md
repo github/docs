@@ -54,6 +54,7 @@ In this workflow, you can use the `setup-java` action. This action installs the 
 For example, if you were deploying to the Maven Central Repository through the OSSRH hosting project, your _pom.xml_ could specify a distribution management repository with the `id` of `ossrh`.
 
 {% raw %}
+
 ```xml copy
 <project ...>
   ...
@@ -66,6 +67,7 @@ For example, if you were deploying to the Maven Central Repository through the O
   </distributionManagement>
 </project>
 ```
+
 {% endraw %}
 
 With this configuration, you can create a workflow that publishes your package to the Maven Central Repository by specifying the repository management `id` to the `setup-java` action. You’ll also need to provide environment variables that contain the username and password to authenticate to the repository.
@@ -86,7 +88,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -118,6 +120,7 @@ For a Maven-based project, you can make use of these settings by creating a dist
 For example, if your organization is named "octocat" and your repository is named "hello-world", then the {% data variables.product.prodname_registry %} configuration in _pom.xml_ would look similar to the below example.
 
 {% raw %}
+
 ```xml copy
 <project ...>
   ...
@@ -130,6 +133,7 @@ For example, if your organization is named "octocat" and your repository is name
   </distributionManagement>
 </project>
 ```
+
 {% endraw %}
 
 With this configuration, you can create a workflow that publishes your package to {% data variables.product.prodname_registry %} by making use of the automatically generated _settings.xml_.
@@ -150,7 +154,7 @@ jobs:
       - uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Publish package
         run: mvn --batch-mode deploy
         env:
@@ -188,7 +192,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
           server-id: ossrh
           server-username: MAVEN_USERNAME
           server-password: MAVEN_PASSWORD
@@ -201,7 +205,7 @@ jobs:
         uses: {% data reusables.actions.action-setup-java %}
         with:
           java-version: '11'
-          distribution: 'adopt'
+          distribution: 'temurin'
       - name: Publish to GitHub Packages
         run: mvn --batch-mode deploy
         env:

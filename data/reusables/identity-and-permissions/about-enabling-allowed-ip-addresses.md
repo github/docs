@@ -3,7 +3,7 @@ After you create an IP allow list, you can enable allowed IP addresses. When you
 {% ifversion ghec %}
 {% note %}
 
-**Note:** 
+**Note:**
 
 After you enable an IP allow list for your organization you won't be able to use {% data variables.product.prodname_github_codespaces %} for repositories owned by the organization.
 

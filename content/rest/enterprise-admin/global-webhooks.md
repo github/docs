@@ -1,7 +1,7 @@
 ---
 title: Global Webhooks
 intro: Use the REST API to manage global webhooks for your enterprise.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghae: '*'
   ghes: '*'
 topics:
@@ -18,6 +18,5 @@ Global webhooks are automatically installed on your enterprise. You can use glob
 Global webhooks can subscribe to the [organization](/webhooks-and-events/webhooks/webhook-events-and-payloads#organization), [user](/webhooks-and-events/webhooks/webhook-events-and-payloads#user), [repository](/webhooks-and-events/webhooks/webhook-events-and-payloads#repository), [team](/webhooks-and-events/webhooks/webhook-events-and-payloads#team), [member](/webhooks-and-events/webhooks/webhook-events-and-payloads#member), [membership](/webhooks-and-events/webhooks/webhook-events-and-payloads#membership), [fork](/webhooks-and-events/webhooks/webhook-events-and-payloads#fork), and [ping](/webhooks-and-events/webhooks/about-webhooks#ping-event) event types.
 
 {% data reusables.user-settings.enterprise-admin-api-classic-pat-only %}
-
 
 <!-- Content after this section is automatically generated -->

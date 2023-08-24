@@ -54,7 +54,7 @@ For more information about the identity providers (IdPs) that {% data variables.
 
 1. Under "Public Certificate," paste a certificate to verify SAML responses.
 {% data reusables.saml.edit-signature-and-digest-methods %}
-1. Before enabling SAML SSO for your organization, click **Test SAML configuration** to ensure that the information you've entered is correct.
+1. Before enabling SAML SSO for your organization, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
    {% tip %}
 
    **Tip:** {% data reusables.saml.testing-saml-sso %}

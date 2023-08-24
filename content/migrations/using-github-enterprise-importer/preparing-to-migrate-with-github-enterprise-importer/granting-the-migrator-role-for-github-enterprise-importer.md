@@ -67,7 +67,6 @@ After you grant the migrator role, make sure the migrator uses a {% data variabl
    gh gei grant-migrator-role --github-org ORGANIZATION --actor ACTOR --actor-type TYPE
    ```
 
-
 {% endcli %}
 
 {% api %}

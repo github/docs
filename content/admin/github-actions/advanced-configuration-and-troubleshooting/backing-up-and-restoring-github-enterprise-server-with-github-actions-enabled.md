@@ -29,8 +29,9 @@ To restore a backup of {% data variables.location.product_location %} with {% da
 1. SSH into the destination instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
    ```shell copy
-   $ ssh -p 122 admin@HOSTNAME
+   ssh -p 122 admin@HOSTNAME
    ```
+
 1. Configure the destination instance to use the same external storage service for {% data variables.product.prodname_actions %} as the source instance by entering one of the following commands.
 {% indented_data_reference reusables.actions.configure-storage-provider-platform-commands spaces=3 %}
 {% data reusables.actions.configure-storage-provider %}
@@ -39,6 +40,7 @@ To restore a backup of {% data variables.location.product_location %} with {% da
    ```shell copy
    ghe-config app.actions.enabled true
    ```
+
 {% data reusables.actions.apply-configuration-and-enable %}
 1. After {% data variables.product.prodname_actions %} is configured and enabled, to restore the rest of the data from the backup, use the `ghe-restore` command. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance#restoring-a-backup)."
 1. Re-register your self-hosted runners on the destination instance. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."

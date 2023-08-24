@@ -19,7 +19,7 @@ When an organization pays by invoice, they will not be charged the 3% credit car
 
 Sign up to pay by invoice by contacting {% data variables.contact.contact_support %}.
 
-Organizations paying by invoice will be invoiced separately for their {% data variables.product.prodname_sponsors %} payments and their other payments to {% data variables.product.company_short %}. Organizations can be invoiced for sponsorships and pay via credit card for other payments to {% data variables.product.company_short %}. 
+Organizations paying by invoice will be invoiced separately for their {% data variables.product.prodname_sponsors %} payments and their other payments to {% data variables.product.company_short %}. Organizations can be invoiced for sponsorships and pay via credit card for other payments to {% data variables.product.company_short %}.
 
 ## Understanding your Sponsors invoice
 

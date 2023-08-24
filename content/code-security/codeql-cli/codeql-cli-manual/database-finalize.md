@@ -42,13 +42,13 @@ Finalize a database that was created with [codeql database init](/code-security/
 have been prepared for extraction with [codeql database init](/code-security/codeql-cli/codeql-cli-manual/database-init).
 
 If the `--db-cluster` option is given, this is not a database itself,
-but a directory that *contains* databases, and all of those databases
+but a directory that _contains_ databases, and all of those databases
 will be processed together.
 
 #### `--[no-]db-cluster`
 
 Indicates that the directory given on the command line is not a database
-itself, but a directory that *contains* one or more databases under
+itself, but a directory that _contains_ one or more databases under
 construction. Those databases will be processed together.
 
 #### `--additional-dbs=<database>[:<database>...]`
@@ -93,7 +93,7 @@ database's extractor.
 Use this many threads for the import operation.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`
@@ -136,7 +136,7 @@ Select how aggressively to trim the cache. Choices include:
 `brutal`: Remove the entire cache, trimming down to the state of a
 freshly extracted dataset
 
-`normal` *(default)*: Trim everything except explicitly "cached"
+`normal` _(default)_: Trim everything except explicitly "cached"
 predicates.
 
 `light`: Simply make sure the defined size limits for the disk cache are

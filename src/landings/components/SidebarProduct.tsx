@@ -4,7 +4,6 @@ import { TreeView } from '@primer/react'
 import cx from 'classnames'
 
 import { useMainContext } from 'components/context/MainContext'
-import { useTranslation } from 'components/hooks/useTranslation'
 import { Link } from 'components/Link'
 import { RestCollapsibleSection } from 'src/rest/components/RestCollapsibleSection'
 import { ProductCollapsibleSection } from 'components/sidebar/ProductCollapsibleSection'
@@ -12,8 +11,13 @@ import { ProductCollapsibleSection } from 'components/sidebar/ProductCollapsible
 export const SidebarProduct = () => {
   const router = useRouter()
   const sidebarRef = useRef<HTMLDivElement>(null)
-  const { currentProduct, currentProductTree } = useMainContext()
-  const { t } = useTranslation(['products'])
+
+  const {
+    currentProduct,
+    // For the sidebar we only need the short titles so we can use the
+    // more "compressed" tree that is as light as possible.
+    sidebarTree,
+  } = useMainContext()
   const isRestPage = currentProduct && currentProduct.id === 'rest'
 
   useEffect(() => {
@@ -26,7 +30,7 @@ export const SidebarProduct = () => {
     if (!router.asPath.includes('#')) window?.scrollTo(0, 0)
   }, [])
 
-  if (!currentProductTree) {
+  if (!sidebarTree) {
     return null
   }
 
@@ -35,11 +39,11 @@ export const SidebarProduct = () => {
 
   const productSection = () => (
     <div className="ml-3" data-testid="product-sidebar">
-      <TreeView aria-label="product sidebar">
-        {currentProductTree &&
-          currentProductTree.childPages.map((childPage, i) => {
-            const isStandaloneCategory = childPage.documentType === 'article'
-            const childTitle = childPage.shortTitle || childPage.title
+      <TreeView aria-label="Product sidebar">
+        {sidebarTree &&
+          sidebarTree.childPages.map((childPage, i) => {
+            const isStandaloneCategory = childPage.childPages.length === 0
+            const childTitle = childPage.title
             const isActive =
               routePath.includes(childPage.href + '/') || routePath === childPage.href
 
@@ -55,7 +59,10 @@ export const SidebarProduct = () => {
                         e.nativeEvent instanceof KeyboardEvent &&
                         e.nativeEvent.code === 'Enter'
                       ) {
-                        document.getElementById(childPage.href)?.click()
+                        // Need to grab the a tag inside the TreeView.Item
+                        const aLink = document.getElementById(childPage.href)?.firstChild?.lastChild
+                          ?.lastChild?.lastChild as HTMLElement
+                        if (aLink) aLink.click()
                         e?.stopPropagation()
                       }
                     }}
@@ -89,51 +96,51 @@ export const SidebarProduct = () => {
   )
 
   const restSection = () => {
-    const conceptualPages = currentProductTree.childPages.filter(
+    const conceptualPages = sidebarTree.childPages.filter(
       (page) =>
         page.href.includes('guides') ||
         page.href.includes('overview') ||
-        page.href.includes('quickstart')
+        page.href.includes('quickstart'),
     )
-    const restPages = currentProductTree.childPages.filter(
+    const restPages = sidebarTree.childPages.filter(
       (page) =>
         !page.href.includes('guides') &&
         !page.href.includes('overview') &&
-        !page.href.includes('quickstart')
+        !page.href.includes('quickstart'),
     )
     return (
       <>
         <div className="ml-3">
-          <TreeView aria-label="rest sidebar">
+          <TreeView aria-label="REST sidebar">
             {conceptualPages.map((childPage, i) => {
-              const childTitle = childPage.shortTitle || childPage.title
+              const childTitle = childPage.title
               const isActive =
                 routePath.includes(childPage.href + '/') || routePath === childPage.href
 
               return (
                 <div key={childTitle}>
                   {childPage.href.includes('quickstart') ? (
-                    <Link
-                      href={childPage.href}
-                      className={cx('d-block no-underline width-full color-fg-default')}
+                    <TreeView.Item
+                      id={childPage.href}
+                      key={childPage.href + i}
+                      current={isActive}
+                      onSelect={(e) => {
+                        if (
+                          e.nativeEvent instanceof KeyboardEvent &&
+                          e.nativeEvent.code === 'Enter'
+                        ) {
+                          document.getElementById(childPage.href)?.click()
+                          e?.stopPropagation()
+                        }
+                      }}
                     >
-                      <TreeView.Item
-                        id={childPage.href}
-                        key={childPage.href + i}
-                        current={isActive}
-                        onSelect={(e) => {
-                          if (
-                            e.nativeEvent instanceof KeyboardEvent &&
-                            e.nativeEvent.code === 'Enter'
-                          ) {
-                            document.getElementById(childPage.href)?.click()
-                            e?.stopPropagation()
-                          }
-                        }}
+                      <Link
+                        href={childPage.href}
+                        className={cx('d-block no-underline width-full color-fg-default')}
                       >
                         {childTitle}
-                      </TreeView.Item>
-                    </Link>
+                      </Link>
+                    </TreeView.Item>
                   ) : (
                     <TreeView.Item
                       id={childPage.href}
@@ -155,21 +162,12 @@ export const SidebarProduct = () => {
             })}
           </TreeView>
         </div>
-        <div className="my-3">
-          <div
-            role="separator"
-            aria-hidden="true"
-            data-view-component="true"
-            className="mb-3"
-          ></div>
-          <span data-testid="rest-sidebar-reference" className={cx('f6 pl-3 color-fg-muted')}>
-            {t('rest.reference.api_reference')}
-          </span>
-        </div>
+
+        <hr data-testid="rest-sidebar-reference" />
+
         <TreeView>
           {restPages.map((childPage, i) => {
-            const isStandaloneCategory = childPage.documentType === 'article'
-            const childTitle = childPage.shortTitle || childPage.title
+            const childTitle = childPage.title
 
             return (
               <RestCollapsibleSection
@@ -177,7 +175,6 @@ export const SidebarProduct = () => {
                 routePath={routePath}
                 title={childTitle}
                 page={childPage}
-                isStandaloneCategory={isStandaloneCategory}
               />
             )
           })}

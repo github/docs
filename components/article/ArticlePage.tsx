@@ -7,16 +7,16 @@ import { Callout } from 'components/ui/Callout'
 import { DefaultLayout } from 'components/DefaultLayout'
 import { ArticleTitle } from 'components/article/ArticleTitle'
 import { useArticleContext } from 'components/context/ArticleContext'
-import { LearningTrackNav } from './LearningTrackNav'
+import { LearningTrackNav } from 'src/learning-track/components/article/LearningTrackNav'
 import { MarkdownContent } from 'components/ui/MarkdownContent'
 import { Lead } from 'components/ui/Lead'
 import { PermissionsStatement } from 'components/ui/PermissionsStatement'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { ArticleInlineLayout } from './ArticleInlineLayout'
-import { PlatformPicker } from 'components/article/PlatformPicker'
-import { ToolPicker } from 'components/article/ToolPicker'
+import { PlatformPicker } from 'src/tools/components/PlatformPicker'
+import { ToolPicker } from 'src/tools/components/ToolPicker'
 import { MiniTocs } from 'components/ui/MiniTocs'
-import { LearningTrackCard } from 'components/article/LearningTrackCard'
+import { LearningTrackCard } from 'src/learning-track/components/article/LearningTrackCard'
 import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { Link } from 'components/Link'
@@ -104,20 +104,22 @@ export const ArticlePage = () => {
       <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
       {router.pathname.includes('/rest/') && <RestRedirect />}
-      <div className="container-xl px-3 px-md-6 my-4">
-        <div className={cx('d-none d-xl-block mt-3 mr-auto width-full')}>
-          <Breadcrumbs />
-        </div>
-        {currentLayout === 'inline' ? (
-          <ArticleInlineLayout
-            supportPortalVaIframeProps={supportPortalVaIframeProps}
-            topper={<ArticleTitle>{title}</ArticleTitle>}
-            intro={introProp}
-            toc={toc}
-          >
-            {articleContents}
-          </ArticleInlineLayout>
-        ) : (
+      {currentLayout === 'inline' ? (
+        <ArticleInlineLayout
+          supportPortalVaIframeProps={supportPortalVaIframeProps}
+          topper={<ArticleTitle>{title}</ArticleTitle>}
+          intro={introProp}
+          toc={toc}
+          breadcrumbs={<Breadcrumbs />}
+        >
+          {articleContents}
+        </ArticleInlineLayout>
+      ) : (
+        <div className="container-xl px-3 px-md-6 my-4">
+          <div className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>
+            <Breadcrumbs />
+          </div>
+
           <ArticleGridLayout
             supportPortalVaIframeProps={supportPortalVaIframeProps}
             topper={<ArticleTitle>{title}</ArticleTitle>}
@@ -126,14 +128,14 @@ export const ArticlePage = () => {
           >
             {articleContents}
           </ArticleGridLayout>
-        )}
 
-        {isLearningPath ? (
-          <div className="mt-4">
-            <LearningTrackNav track={currentLearningTrack} />
-          </div>
-        ) : null}
-      </div>
+          {isLearningPath ? (
+            <div className="mt-4">
+              <LearningTrackNav track={currentLearningTrack} />
+            </div>
+          ) : null}
+        </div>
+      )}
     </DefaultLayout>
   )
 }

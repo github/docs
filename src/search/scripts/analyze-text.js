@@ -44,7 +44,7 @@ const shortNames = Object.fromEntries(
       ? info.miscBaseName + info.currentRelease
       : info.miscBaseName
     return [shortName, info]
-  })
+  }),
 )
 
 const allVersionKeys = Object.keys(shortNames)
@@ -54,7 +54,7 @@ program
   .option('-v, --verbose', 'Verbose outputs')
   .addOption(new Option('-V, --version <VERSION>', 'Specific version').choices(allVersionKeys))
   .addOption(
-    new Option('-l, --language <LANGUAGE>', 'Which language to focus on').choices(languageKeys)
+    new Option('-l, --language <LANGUAGE>', 'Which language to focus on').choices(languageKeys),
   )
   .option('-u, --elasticsearch-url <url>', 'If different from $ELASTICSEARCH_URL')
   .argument('<text>', 'text to tokenize')
@@ -67,7 +67,7 @@ async function main(opts, args) {
   if (!opts.elasticsearchUrl && !process.env.ELASTICSEARCH_URL) {
     throw new Error(
       'Must passed the elasticsearch URL option or ' +
-        'set the environment variable ELASTICSEARCH_URL'
+        'set the environment variable ELASTICSEARCH_URL',
     )
   }
   let node = opts.elasticsearchUrl || process.env.ELASTICSEARCH_URL

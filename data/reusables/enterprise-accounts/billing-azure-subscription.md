@@ -1,1 +1,5 @@
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for any {% data variables.product.prodname_dotcom %} metered services. For example, {% data variables.product.prodname_github_codespaces %} usage, and for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} usage, beyond the amounts included with your account, or {% data variables.product.prodname_copilot_business_short %}.
+You can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise account{% endif%} to enable and pay for any {% data variables.product.prodname_dotcom %} metered services. For example:
+
+- {% data variables.product.prodname_github_codespaces %} usage
+- {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %} overages (usage beyond the amounts included with your plan)
+- {% data variables.product.prodname_copilot_business_short %}

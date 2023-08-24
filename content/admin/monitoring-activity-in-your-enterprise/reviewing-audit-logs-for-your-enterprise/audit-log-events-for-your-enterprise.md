@@ -36,6 +36,7 @@ topics:
 {% endnote %}
 
 {% ifversion ghec%}
+
 ## About audit log events for your enterprise
 
 The scope of the events that appear in your enterprise's audit log depend on whether your enterprise uses {% data variables.product.prodname_emus %}. For more information about {% data variables.product.prodname_emus %}, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
@@ -45,17 +46,19 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {% endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `account` category actions
 
 | Action | Description
 |--------|-------------
 | `account.billing_plan_change` | An organization's billing cycle changed. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
-| `account.plan_change` | An organization's subscription changed. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts)."
-| `account.pending_plan_change` | An organization owner or billing manager canceled or downgraded a paid subscription. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)."
+| `account.plan_change` | An organization's plan changed. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-billing-for-plans)."
+| `account.pending_plan_change` | An organization owner or billing manager canceled or downgraded a paid plan. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)."
 | `account.pending_subscription_change` | A {% data variables.product.prodname_marketplace %} free trial started or expired. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/about-billing-for-github-marketplace)."
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `advisory_credit` category actions
 
 | Action | Description
@@ -73,6 +76,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 | `artifact.destroy`    | A workflow run artifact was manually deleted.
 
 {%- ifversion audit-log-streaming %}
+
 ## `audit_log_streaming` category actions
 
 | Action | Description
@@ -84,6 +88,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `billing` category actions
 
 | Action | Description
@@ -201,6 +206,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 {% endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
+
 ## `business_secret_scanning_custom_pattern` category actions
 
 Action                        | Description
@@ -212,6 +218,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion secret-scanning-custom-pattern-push-protection-audit %}
+
 ## `business_secret_scanning_custom_pattern_push_protection` category actions
 
 Action                        | Description
@@ -256,6 +263,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `codespaces` category actions
 
 | Action | Description
@@ -272,6 +280,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `commit_comment` category actions
 
 | Action | Description
@@ -281,6 +290,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghes %}
+
 ## `config_entry` category actions
 
 | Action | Description
@@ -311,6 +321,7 @@ Action                        | Description
 | `dependabot_repository_access.repositories_updated` | The repositories that {% data variables.product.prodname_dependabot %} can access were updated.
 
 {%- ifversion fpt or ghec or ghes %}
+
 ## `dependabot_security_updates` category actions
 
 | Action | Description
@@ -341,6 +352,7 @@ Action                        | Description
 | `dependency_graph_new_repos.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the dependency graph for all new repositories.
 
 {%- ifversion ghec or ghes %}
+
 ## `dotcom_connection` category actions
 
 | Action | Description
@@ -381,6 +393,7 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion ghec %}
+
 ## `enterprise_domain` category actions
 
 | Action | Description
@@ -400,20 +413,22 @@ Action                        | Description
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `environment` category actions
 
 | Action | Description
 |--------|-------------
-| `environment.add_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was created via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.add_protection_rule` | A {% data variables.product.prodname_actions %} deployment protection rule was created via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
 | `environment.create_actions_secret` | A secret was created for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
 | `environment.delete` | An environment was deleted via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#deleting-an-environment)."
 | `environment.remove_actions_secret` | A secret was deleted for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.remove_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was deleted via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.remove_protection_rule` | A {% data variables.product.prodname_actions %} deployment protection rule was deleted via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
 | `environment.update_actions_secret` | A secret was updated for a {% data variables.product.prodname_actions %} environment via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-secrets)."
-| `environment.update_protection_rule` | A {% data variables.product.prodname_actions %} environment protection rule was updated via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
+| `environment.update_protection_rule` | A {% data variables.product.prodname_actions %} deployment protection rule was updated via the API. For more information, see "[AUTOTITLE](/actions/deployment/targeting-different-environments/using-environments-for-deployment#environment-protection-rules)."
 {%- endif %}
 
 {%- ifversion ghae %}
+
 ## `external_group` category actions
 
 | Action | Description
@@ -425,6 +440,7 @@ Action                        | Description
 | `external_group.update` | An Okta group's settings were updated. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."
 
 ## `external_identity` category actions
+
 | Action | Description
 |--------|-------------
 | `external_identity.deprovision` | A user was removed from an Okta group and was subsequently deprovisioned from {% data variables.product.prodname_ghe_managed %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/mapping-okta-groups-to-teams)."
@@ -433,6 +449,7 @@ Action                        | Description
 {%- endif %}
 
 {% ifversion git-events-audit-log %}
+
 ## `git` category actions
 
 {% ifversion enable-git-events %}
@@ -496,6 +513,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `integration_installation_request.close` | A request to install an integration for use in an enterprise or organization was either approved or denied by an owner, or canceled by the member who opened the request.
 
 {%- ifversion ghec or ghae %}
+
 ## `ip_allow_list` category actions
 
 | Action | Description
@@ -541,6 +559,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `issues.deletes_policy_cleared` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} cleared the policy setting for allowing members to delete issues in an enterprise. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues)."
 
 {% ifversion management-console-events-audit-log %}
+
 ## `management_console` category actions
 
 | Action | Description
@@ -573,7 +592,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `management_console.slack_app_generate` | An app for the Slack integration was generated. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
 | `management_console.slack_app_update` | The app-level token for the Slack integration was updated. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/github-extensions-and-integrations#team-communication-tools)." |
 | `management_console.smtp_test` | An SMTP configuration was tested while enabling email notifications for the instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-email-for-notifications#testing-email-delivery)." |
-| `management_console.ssh_command` | A command was run using the administrative shell (SSH). For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)." 
+| `management_console.ssh_command` | A command was run using the administrative shell (SSH). For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 | `management_console.storage_actions_test` | A storage configuration for {% data variables.product.prodname_actions %} was tested. For more information, see "[AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server)." |
 | `management_console.storage_migrations_test` | A storage configuration for {% data variables.product.prodname_importer_proper_name %} was tested. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer/migrating-repositories-from-github-enterprise-server-to-github-enterprise-cloud)." |
 | `management_console.storage_packages_test` | A storage configuration for {% data variables.product.prodname_registry %} was tested. For more information, see "[AUTOTITLE](/admin/packages)." |
@@ -586,6 +605,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {% endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `marketplace_agreement_signature` category actions
 
 | Action | Description
@@ -626,6 +646,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `members_can_create_public_pages.enable` |  The ability for members to publish public {% data variables.product.prodname_pages %} was enabled. Members can publish public {% data variables.product.prodname_pages %} in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `members_can_delete_repos` category actions
 
 | Action | Description
@@ -646,9 +667,9 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `migration.create` | A migration file was created for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance.
-| `migration.destroy_file` | A migration file for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance was deleted.
-|  `migration.download` | A migration file for transferring data from a *source* location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a *target* {% data variables.product.prodname_ghe_server %} instance was downloaded.
+| `migration.create` | A migration file was created for transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance.
+| `migration.destroy_file` | A migration file for transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance was deleted.
+|  `migration.download` | A migration file for transferring data from a _source_ location (such as a {% data variables.product.prodname_dotcom_the_website %} organization or a {% data variables.product.prodname_ghe_server %} instance) to a _target_ {% data variables.product.prodname_ghe_server %} instance was downloaded.
 {%- endif %}
 
 ## `oauth_access` category actions
@@ -664,32 +685,31 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `oauth_application.create`           | An [OAuth application][] was created for a user or organization account.
-| `oauth_application.destroy`          | An [OAuth application][] was deleted from a user or organization account.
+| `oauth_application.create`           | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) was created for a user or organization account.
+| `oauth_application.destroy`          | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) was deleted from a user or organization account.
 {%- ifversion fpt or ghec %}
-| `oauth_application.generate_client_secret`   | An [OAuth application][]'s secret key was generated.
-| `oauth_application.remove_client_secret`     | An [OAuth application][]'s secret key was deleted.
+| `oauth_application.generate_client_secret`   | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app)'s secret key was generated.
+| `oauth_application.remove_client_secret`     | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app)'s secret key was deleted.
 {%- endif %}
-| `oauth_application.reset_secret`      | An [OAuth application][]'s secret key was reset.
+| `oauth_application.reset_secret`      | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app)'s secret key was reset.
 {%- ifversion fpt or ghec %}
-| `oauth_application.revoke_all_tokens` | All user tokens for an [OAuth application][] were requested to be revoked.
+| `oauth_application.revoke_all_tokens` | All user tokens for an [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) were requested to be revoked.
 {%- endif %}
-| `oauth_application.revoke_tokens`     | Token(s) for an [OAuth application][] were revoked.
-| `oauth_application.transfer`          | An [OAuth application][] was transferred from one user or organization account to another.
+| `oauth_application.revoke_tokens`     | Token(s) for an [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) were revoked.
+| `oauth_application.transfer`          | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) was transferred from one user or organization account to another.
 {%- ifversion ghes or ghae %}
-| `oauth_application.unsuspend`         | An [OAuth application][] was unsuspended for a user or organization account.
+| `oauth_application.unsuspend`         | An [{% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app) was unsuspended for a user or organization account.
 {%- endif %}
 
-  [OAuth application]: /apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app
-
 {%- ifversion fpt or ghec %}
+
 ## `oauth_authorization` category actions
 
 | Action | Description
 |--------|-------------
-| `oauth_authorization.create`          | An authorization for an OAuth application was created. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
-| `oauth_authorization.destroy`          | An authorization for an OAuth application was deleted. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
-| `oauth_authorization.update`          | An authorization for an OAuth application was updated. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+| `oauth_authorization.create`          | An authorization for an {% data variables.product.prodname_oauth_app %} was created. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+| `oauth_authorization.destroy`          | An authorization for an {% data variables.product.prodname_oauth_app %} was deleted. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+| `oauth_authorization.update`          | An authorization for an {% data variables.product.prodname_oauth_app %} was updated. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
 {%- endif %}
 
 ## `org` category actions
@@ -714,7 +734,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org.cancel_business_invitation` | An invitation for an organization to join an enterprise was revoked. {% ifversion ghec %}For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#inviting-an-organization-to-join-your-enterprise-account)."{% endif %}
 | `org.cancel_invitation` | An invitation sent to a user to join an organization was revoked.
 | `org.clear_actions_settings` |  An organization owner cleared {% data variables.product.prodname_actions %} policy settings for an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#managing-github-actions-permissions-for-your-organization)."
-| `org.clear_default_repository_permission` | An organization owner cleared the base repository permission policy setting for an organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/setting-base-permissions-for-an-organization#setting-base-permissions)."
+| `org.clear_default_repository_permission` | An organization owner cleared the base repository permission policy setting for an organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization#setting-base-permissions)."
 | `org.clear_member_team_creation_permission` | An organization owner cleared the new teams creation setting for an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization)."
 | `org.clear_reader_discussion_creation_permission` | An organization owner cleared the new discussion creation setting for an organization. {% ifversion fpt or ghec %}For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-discussion-creation-for-repositories-in-your-organization)."{% endif %}
 | `org.clear_members_can_create_repos`                 | An organization owner cleared a restriction on repository creation in an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)."
@@ -809,8 +829,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org.secret_scanning_push_protection_custom_message_updated` | The custom message triggered by an attempted push to a push-protected repository was updated for your organization. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#enabling-secret-scanning-as-a-push-protection-for-an-organization)."
 {%- endif %}
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
-| `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for secret scanning. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for secret scanning.
+| `org.secret_scanning_push_protection_disable` | An organization owner or administrator disabled push protection for {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `org.secret_scanning_push_protection_enable` | An organization owner or administrator enabled push protection for {% data variables.product.prodname_secret_scanning %}.
 {%- endif %}
 | `org.self_hosted_runner_online` | The runner application was started. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
 | `org.self_hosted_runner_offline` | The runner application was stopped. Can only be viewed using the REST API; not visible in the UI or JSON/CSV export. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner)."
@@ -845,10 +865,11 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org.update_new_repository_default_branch_setting` | An organization owner changed the name of the default branch for new repositories in the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)."
 {%- ifversion ghec or ghae %}
 | `org.update_saml_provider_settings` | An organization's SAML provider settings were updated.
-| `org.update_terms_of_service` | An organization changed between the Standard Terms of Service and the Corporate Terms of Service. {% ifversion ghec %}For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-corporate-terms-of-service)."{% endif %}
+| `org.update_terms_of_service` | An organization changed between the Standard Terms of Service and the {% data variables.product.company_short %} Customer Agreement. {% ifversion ghec %}For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."{% endif %}
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `org_credential_authorization` category actions
 
 | Action | Description
@@ -859,6 +880,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
+
 ## `org_secret_scanning_custom_pattern` category actions
 
 | Action | Description
@@ -878,6 +900,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `organization_default_label.destroy` | A default label for repositories in an organization was deleted. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#deleting-a-default-label)."
 
 {%- ifversion fpt or ghec or ghes %}
+
 ## `organization_domain` category actions
 
 | Action | Description
@@ -897,6 +920,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion not ghes %}
+
 ## `packages` category actions
 
 | Action | Description
@@ -908,6 +932,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `pages_protected_domain` category actions
 
 | Action | Description
@@ -935,6 +960,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion ghes %}
+
 ## `pre_receive_environment` category actions
 
 | Action | Description
@@ -965,6 +991,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `private_repository_forking.enable` | An enterprise owner{% ifversion ghes %} or site administrator{% endif %} enabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are always allowed to be forked. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-forking-policy-for-your-repository), "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and for enterprises "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
 
 {%- ifversion fpt or ghec %}
+
 ## `profile_picture` category actions
 
 | Action | Description
@@ -989,6 +1016,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `project.update_user_permission` | An organization member or outside collaborator was added to or removed from a project board or had their permission level changed. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)."
 
 {%- ifversion projects-v2 %}
+
 ## `project_field` category actions
 
 | Action | Description
@@ -1100,7 +1128,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repo.clear_actions_settings` | A repository administrator cleared {% data variables.product.prodname_actions %} policy settings for a repository.
 | `repo.code_scanning_analysis_deleted` | Code scanning analysis for a repository was deleted. For more information, see "[AUTOTITLE](/rest/code-scanning#delete-a-code-scanning-analysis-from-a-repository)."
 {%- ifversion remove-code-scanning-configurations %}
-| `repo.code_scanning_configuration_for_branch_deleted` | A {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository was deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
+| `repo.code_scanning_configuration_for_branch_deleted` | A {% data variables.product.prodname_code_scanning %} configuration for a branch of a repository was deleted. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch)."
 {%- endif %}
 | `repo.config`         | A repository administrator blocked force pushes. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise)."
 {%- ifversion fpt or ghec %}
@@ -1160,6 +1188,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repo.update_member` | A user's permission to a repository was changed.
 
 {%- ifversion fpt or ghec %}
+
 ## `repository_advisory` category actions
 
 | Action | Description
@@ -1177,8 +1206,8 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repository_content_analysis.enable` | An organization owner or repository administrator [enabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
-| `repository_content_analysis.disable` | An organization owner or repository administrator [disabled data use settings for a private repository](/get-started/privacy-on-github/managing-data-use-settings-for-your-private-repository).
+| `repository_content_analysis.enable` | An organization owner or repository administrator enabled data use settings for a private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories)."
+| `repository_content_analysis.disable` | An organization owner or repository administrator disabled data use settings for a private repository.
 
 ## `repository_dependency_graph` category actions
 
@@ -1213,6 +1242,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repository_projects_change.enable` | Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `repository_secret_scanning` category actions
 
 | Action | Description
@@ -1241,15 +1271,16 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repository_secret_scanning_custom_pattern_push_protection.enabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was enabled for your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
 | `repository_secret_scanning_custom_pattern_push_protection.disabled` | Push protection for a custom pattern for {% data variables.product.prodname_secret_scanning %} was disabled for your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."{%- endif %}
 
-
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
+
 ## `repository_secret_scanning_push_protection` category actions
 
 | Action | Description
 |------------------|-------------------
-| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
-| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} push protection for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
+| `repository_secret_scanning_push_protection.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} push protection for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."
 {%- endif %}
+
 ## `repository_visibility_change` category actions
 
 | Action | Description
@@ -1267,6 +1298,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `repository_vulnerability_alert.resolve` | Someone with write{% ifversion dependabot-alerts-permissions-write-maintain %} or maintain{% endif %} access to a repository pushed changes to update and resolve a {% data variables.product.prodname_dependabot %} alert in a project dependency.
 
 {%- ifversion fpt or ghec %}
+
 ## `repository_vulnerability_alerts` category actions
 
 | Action | Description
@@ -1284,6 +1316,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `required_status_check.destroy` | A status check was no longer marked as required for a protected branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)."
 
 {%- ifversion ghec or ghes %}
+
 ## `restrict_notification_delivery` category actions
 
 | Action | Description
@@ -1293,24 +1326,27 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion custom-repository-roles %}
+
 ## `role` category actions
 
 | Action | Description
 |--------|-------------
-|`create` | An organization owner created a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`destroy` | An organization owner deleted a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
-|`update` | An organization owner edited an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-repository-roles-for-an-organization)."
+|`create` | An organization owner created a new custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
+|`destroy` | An organization owner deleted a custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
+|`update` | An organization owner edited an existing custom repository role. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/about-custom-repository-roles)."
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `secret_scanning` category actions
 
 | Action | Description
 |--------|-------------
-| `secret_scanning.disable` | An organization owner disabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
-| `secret_scanning.enable` | An organization owner enabled secret scanning for all existing{% ifversion ghec %} private or internal{% endif %} repositories.
+| `secret_scanning.disable` | An organization owner disabled {% data variables.product.prodname_secret_scanning %} for all existing{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+| `secret_scanning.enable` | An organization owner enabled {% data variables.product.prodname_secret_scanning %} for all existing{% ifversion ghec %} private or internal{% endif %} repositories.
 
 {% ifversion secret-scanning-alert-audit-log %}
+
 ## `secret_scanning_alert` category actions
 
 | Action | Description
@@ -1324,11 +1360,12 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `secret_scanning_new_repos.disable` | An organization owner disabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
-| `secret_scanning_new_repos.enable` | An organization owner enabled secret scanning for all new{% ifversion ghec %} private or internal{% endif %} repositories.
+| `secret_scanning_new_repos.disable` | An organization owner disabled {% data variables.product.prodname_secret_scanning %} for all new{% ifversion ghec %} private or internal{% endif %} repositories. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
+| `secret_scanning_new_repos.enable` | An organization owner enabled {% data variables.product.prodname_secret_scanning %} for all new{% ifversion ghec %} private or internal{% endif %} repositories.
 {%- endif %}
 
 {% ifversion secret-scanning-push-protection-bypasses %}
+
 ## `secret_scanning_push_protection` category actions
 
 | Action | Description
@@ -1336,6 +1373,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `bypass` | Triggered when a user bypasses the push protection on a secret detected by secret scanning. For more information, see "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning#bypassing-push-protection-for-a-secret)."{% endif %}
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `security_key` category actions
 
 | Action | Description
@@ -1345,6 +1383,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion fpt or ghec %}
+
 ## `sponsors` category actions
 
 | Action | Description
@@ -1371,6 +1410,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion ghec or ghes or ghae %}
+
 ## `ssh_certificate_authority` category actions
 
 | Action | Description
@@ -1387,6 +1427,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {% ifversion sso-redirect %}
+
 ## `sso_redirect` category actions
 
 {% data reusables.enterprise-managed.sso-redirect-release-phase %}
@@ -1446,6 +1487,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 | `team.update_repository_permission` | A team's permission to a repository was changed.
 
 {% ifversion team-discussions %}
+
 ## `team_discussions` category actions
 
 | Action | Description
@@ -1456,6 +1498,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 {% endif %}
 
 {%- ifversion ghec %}
+
 ## `team_sync_tenant` category actions
 
 | Action | Description
@@ -1466,6 +1509,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 {%- endif %}
 
 {%- ifversion fpt or ghes %}
+
 ## `two_factor_authentication` category actions
 
 | Action | Description
@@ -1481,6 +1525,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
   [2fa]: /authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication
 
 {%- ifversion fpt or ghes or ghae %}
+
 ## `user` category actions
 
 | Action | Description
@@ -1533,6 +1578,7 @@ For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-yo
 {%- endif %}
 
 {%- ifversion ghec or ghes %}
+
 ## `user_license` category actions
 
 | Action | Description

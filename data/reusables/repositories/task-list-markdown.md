@@ -6,4 +6,4 @@ To create a task list, preface list items with a hyphen and space followed by `[
 - [ ] Add delight to the experience when all tasks are complete :tada:
 ```
 
-![Rendered task list.](/assets/images/help/writing/task-list-rendered-simple.png)
+![Screenshot showing the rendered version of the markdown. The references to issues are rendered as issue titles.](/assets/images/help/writing/task-list-rendered-simple.png)

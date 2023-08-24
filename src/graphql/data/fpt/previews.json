@@ -67,8 +67,7 @@
       "DependencyGraphManifestConnection",
       "DependencyGraphDependency",
       "DependencyGraphDependencyEdge",
-      "DependencyGraphDependencyConnection",
-      "DependencyGraphPackageRelease.dependencies"
+      "DependencyGraphDependencyConnection"
     ],
     "owning_teams": [
       "@github/dependency-graph"

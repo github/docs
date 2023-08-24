@@ -68,8 +68,8 @@ export async function getWebhooks(version) {
     webhooksCache.set(
       openApiVersion,
       readCompressedJsonFileFallback(
-        path.join(WEBHOOK_DATA_DIR, openApiVersion, WEBHOOK_SCHEMA_FILENAME)
-      )
+        path.join(WEBHOOK_DATA_DIR, openApiVersion, WEBHOOK_SCHEMA_FILENAME),
+      ),
     )
   }
 

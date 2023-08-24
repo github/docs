@@ -56,6 +56,7 @@ For example, anyone with read permissions for a repository can install a package
 {% data reusables.package_registry.public-or-private-packages %}
 
 {% ifversion fpt or ghec %}
+
 ## About billing for {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %} {% data reusables.package_registry.packages-spending-limit-brief %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
@@ -66,6 +67,7 @@ For example, anyone with read permissions for a repository can install a package
 <!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the language support article accordingly. -->
 
 {% data variables.product.prodname_registry %} uses the native package tooling commands you're already familiar with to publish and install package versions.
+
 ### Support for package registries
 
 | Language | Description | Package format | Package client |
@@ -91,6 +93,7 @@ For more information about configuring your package client for use with {% data 
 {% ifversion fpt or ghec %}
 For more information about Docker and the {% data variables.product.prodname_container_registry %}, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-container-registry)."
 {% endif %}
+
 ## Authenticating to {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.authenticate-packages %}
@@ -114,9 +117,9 @@ If you have feedback or feature requests for {% data variables.product.prodname_
 
 Contact {% data variables.contact.github_support %} about {% data variables.product.prodname_registry %} using [our contact form](https://support.github.com/contact?form%5Bsubject%5D=Re:%20GitHub%20Packages) if:
 
-* You experience anything that contradicts the documentation
-* You encounter vague or unclear errors
-* Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
+- You experience anything that contradicts the documentation
+- You encounter vague or unclear errors
+- Your published package contains sensitive data, such as GDPR violations, API Keys, or personally identifying information
 
 {% else %}
 If you need support for {% data variables.product.prodname_registry %}, please contact your site administrators.

@@ -10,7 +10,7 @@ versions:
 shortTitle: Integrate Jira
 ---
 
-{% ifversion ghes > 3.4 or ghae > 3.4 %}
+{% ifversion ghes or ghae %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. In the left sidebar, select **{% octicon "code" aria-hidden="true" %} Developer settings**, then click **OAuth Apps**.

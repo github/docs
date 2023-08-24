@@ -78,7 +78,9 @@ For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-
 For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)."
 
 {% ifversion ghec %}
+
 ## Limitations for {% data variables.product.prodname_emus %}
+
 If you're a {% data variables.enterprise.prodname_managed_user %}, your use of {% data variables.product.prodname_pages %} is limited.
 
 - {% data variables.product.prodname_pages %} sites can only be published from repositories owned by organizations.
@@ -114,20 +116,22 @@ We recommend Jekyll, a static site generator with built-in support for {% data v
 {% data variables.product.prodname_pages %} sites created after June 15, 2016, and using `github.io` domains are served over HTTPS. If you created your site before June 15, 2016, you can enable HTTPS support for traffic to your site. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https)."
 
 ### Prohibited uses
+
 {% endif %}
 {% data variables.product.prodname_pages %} is not intended for or allowed to be used as a free web-hosting service to run your online business, e-commerce site, or any other website that is primarily directed at either facilitating commercial transactions or providing commercial software as a service (SaaS). {% data reusables.pages.no_sensitive_data_pages %}
 
 In addition, your use of {% data variables.product.prodname_pages %} is subject to the [GitHub Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service), including the restrictions on get-rich-quick schemes, sexually obscene content, and violent or threatening content or activity.
 
 ### Usage limits
+
 {% data variables.product.prodname_pages %} sites are subject to the following usage limits:
 
 - {% data variables.product.prodname_pages %} source repositories have a recommended limit of 1 GB.{% ifversion fpt or ghec %} For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github#file-and-repository-size-limitations)"{% endif %}
 - Published {% data variables.product.prodname_pages %} sites may be no larger than 1 GB.
 - {% data variables.product.prodname_pages %} deployments will timeout if they take longer than 10 minutes.
 {% ifversion fpt or ghec %}
-- {% data variables.product.prodname_pages %} sites have a *soft* bandwidth limit of 100 GB per month.
-- {% data variables.product.prodname_pages %} sites have a *soft* limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
+- {% data variables.product.prodname_pages %} sites have a _soft_ bandwidth limit of 100 GB per month.
+- {% data variables.product.prodname_pages %} sites have a _soft_ limit of 10 builds per hour.{% ifversion pages-custom-workflow %} This limit does not apply if you build and publish your site with a custom {% data variables.product.prodname_actions %} workflow {% endif %}
 - In order to provide consistent quality of service for all {% data variables.product.prodname_pages %} sites, rate limits may apply. These rate limits are not intended to interfere with legitimate uses of {% data variables.product.prodname_pages %}. If your request triggers rate limiting, you will receive an appropriate response with an HTTP status code of `429`, along with an informative HTML body.
 
 If your site exceeds these usage quotas, we may not be able to serve your site, or you may receive a polite email from {% data variables.contact.contact_support %} suggesting strategies for reducing your site's impact on our servers, including putting a third-party content distribution network (CDN) in front of your site, making use of other {% data variables.product.prodname_dotcom %} features such as releases, or moving to a different hosting service that might better fit your needs.
@@ -141,6 +145,7 @@ A MIME type is a header that a server sends to a browser, providing information 
 While you can't specify custom MIME types on a per-file or per-repository basis, you can add or modify MIME types for use on {% data variables.product.prodname_pages %}. For more information, see [the mime-db contributing guidelines](https://github.com/jshttp/mime-db#adding-custom-media-types).
 
 {% ifversion fpt %}
+
 ## Data collection
 
 When a {% data variables.product.prodname_pages %} site is visited, the visitor's IP address is logged and stored for security purposes, regardless of whether the visitor has signed into {% data variables.product.prodname_dotcom %} or not. For more information about {% data variables.product.prodname_dotcom %}'s security practices, see [{% data variables.product.prodname_dotcom %} Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).

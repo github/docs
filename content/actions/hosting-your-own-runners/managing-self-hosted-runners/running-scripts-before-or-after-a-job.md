@@ -63,7 +63,6 @@ ACTIONS_RUNNER_HOOK_JOB_STARTED=/cleanup_script.sh
 
 ## Troubleshooting
 
-
 ### No timeout setting
 
 There is currently no timeout setting available for scripts executed by `ACTIONS_RUNNER_HOOK_JOB_STARTED` or `ACTIONS_RUNNER_HOOK_JOB_COMPLETED`. As a result, you could consider adding timeout handling to your script.

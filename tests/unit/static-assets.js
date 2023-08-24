@@ -7,7 +7,7 @@ import archivedEnterpriseVersionsAssets from '../../middleware/archived-enterpri
 
 function mockRequest(path, { headers }) {
   const _headers = Object.fromEntries(
-    Object.entries(headers || {}).map(([key, value]) => [key.toLowerCase(), value])
+    Object.entries(headers || {}).map(([key, value]) => [key.toLowerCase(), value]),
   )
   return {
     path,

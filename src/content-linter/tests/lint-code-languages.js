@@ -5,7 +5,7 @@ import yaml from 'js-yaml'
 
 const allFiles = walkFiles('content', '.md').concat(walkFiles('data', '.md'))
 const languages = Object.keys(
-  yaml.load(fs.readFileSync('./data/variables/code-languages.yml', 'utf8'))
+  yaml.load(fs.readFileSync('./data/variables/code-languages.yml', 'utf8')),
 )
 
 describe.skip('lint-code-languages', () => {

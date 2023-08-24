@@ -12,14 +12,11 @@ topics:
 defaultPlatform: linux
 ---
 
-{% data reusables.actions.actions-runner-controller-beta %}
-
 [Legal notice](#legal-notice)
 
 ## Overview
 
 You can authenticate {% data variables.product.prodname_actions_runner_controller %} (ARC) to the {% data variables.product.prodname_dotcom %} API by using a {% data variables.product.prodname_github_app %} or by using a {% data variables.product.pat_v1 %}.
-
 
 {% note %}
 

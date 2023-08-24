@@ -10,7 +10,7 @@ import {
 
 describe('anchor-redirect api', () => {
   const clientSideRedirects = JSON.parse(
-    fs.readFileSync('src/rest/data/client-side-rest-api-redirects.json', 'utf-8')
+    fs.readFileSync('src/rest/data/client-side-rest-api-redirects.json', 'utf-8'),
   )
 
   test('returns correct redirect to url', async () => {

@@ -1,5 +1,5 @@
 ---
-title: GitHub Actions Documentation
+title: GitHub Actions documentation
 shortTitle: GitHub Actions
 intro: 'Automate, customize, and execute your software development workflows right in your repository with {% data variables.product.prodname_actions %}. You can discover, create, and share actions to perform any job you''d like, including CI/CD, and combine actions in a completely customized workflow.'
 introLinks:

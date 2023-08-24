@@ -81,7 +81,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
       mainContext: await getMainContext(req, res),
       productGroups: req.context.productGroups,
       gettingStartedLinks: req.context.featuredLinks.gettingStarted.map(
-        ({ title, href, intro }: any) => ({ title, href, intro })
+        ({ title, href, intro }: any) => ({ title, href, intro }),
       ),
       popularLinks: req.context.featuredLinks.popular.map(({ title, href, intro }: any) => ({
         title,

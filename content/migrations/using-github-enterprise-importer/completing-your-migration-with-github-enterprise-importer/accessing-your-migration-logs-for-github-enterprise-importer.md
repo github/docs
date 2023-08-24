@@ -47,7 +47,6 @@ You can download the latest migration log for an individual repository with the 
 - [Downloading a repository migration log with the {% data variables.product.prodname_bbs2gh_cli_short %}](#downloading-a-repository-migration-log-with-the-bbs2gh-extension)
 - [Downloading a repository migration log with the {% data variables.product.prodname_gei_cli_short %}](#downloading-a-repository-migration-log-with-the-gei-extension)
 
-
 Migration logs are available to download for 24 hours after the migration is completed.
 
 ### Downloading a repository migration log with the {% data variables.product.prodname_ado2gh_cli_short %}

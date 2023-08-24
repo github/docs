@@ -67,7 +67,7 @@ and code 1 otherwise.
 
 Select output format. Choices include:
 
-`text` *(default)*: Print the path to the found extractor pack to
+`text` _(default)_: Print the path to the found extractor pack to
 standard output.
 
 `json`: Print the path to the found extractor pack as a JSON string.

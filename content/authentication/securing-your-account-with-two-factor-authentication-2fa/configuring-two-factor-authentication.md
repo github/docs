@@ -54,11 +54,7 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 
 ## Configuring two-factor authentication using a TOTP mobile app
 
-A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps such as:
-- [1Password](https://support.1password.com/one-time-passwords/)
-- [Authy](https://authy.com/guides/github/)
-- [LastPass Authenticator](https://lastpass.com/auth/)
-- [Microsoft Authenticator](https://www.microsoft.com/en-us/security/mobile-authenticator-app/)
+A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. We recommend using cloud-based TOTP apps.
 
 {% tip %}
 
@@ -107,8 +103,10 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 {% data reusables.user-settings.security %}
 {% data reusables.two_fa.enable-two-factor-authentication %}
 1. At the bottom of the page, next to "SMS authentication", click **Select**.
+1. Complete the CAPTCHA challenge, which helps protect against spam and abuse.
 1. Under "Setup SMS authentication", select your country code and type your mobile phone number, including the area code. When your information is correct, click **Send authentication code**.
 1. You'll receive a text message with a security code. On {% data variables.product.product_name %}, type the code into the field under "Verify the code sent to your phone" and click **Continue**.
+   - If you need to edit the phone number you entered, you'll need to complete another CAPTCHA challenge.
 {% data reusables.two_fa.save_your_recovery_codes_during_2fa_setup %}
 {% data reusables.two_fa.backup_options_during_2fa_enrollment %}
 
@@ -118,12 +116,22 @@ Before using this method, be sure that you can receive text messages. Carrier ra
 
 {% data reusables.two_fa.after-2fa-add-security-key %}
 
+{% ifversion passkeys %}
+{% note %}
+
+**Note:** {% data reusables.passkeys.after-2fa-optional-add-passkey %} For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+
+Passkeys are in public beta and are subject to change.
+
+{% endnote %}
+{% endif %}
+
 On most devices and browsers, you can use a physical security key over USB or NFC. Most browsers can use the fingerprint reader, facial recognition, or password/PIN on your device as a security key as well.
 
 Registering a security key for your account is available after enabling 2FA with a TOTP application{% ifversion fpt or ghec %} or a text message{% endif %}. If you lose your security key, you'll still be able to use your phone's code to sign in.
 
 1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
-1. Ensure that you have a WebAuthn compatible security key inserted into your device, or that your device has a built-in authenticator such as Windows Hello, Face ID, or Touch ID. Most computers, phones, and tablets support this as an easier-to-use alternative to physical security keys. 
+1. Ensure that you have a WebAuthn compatible security key inserted into your device, or that your device has a built-in authenticator such as Windows Hello, Face ID, or Touch ID. Most computers, phones, and tablets support this as an easier-to-use alternative to physical security keys.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 1. Next to "Security keys", click **Add**.
@@ -136,6 +144,7 @@ Registering a security key for your account is available after enabling 2FA with
 {% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## Configuring two-factor authentication using {% data variables.product.prodname_mobile %}
 
 You can use {% data variables.product.prodname_mobile %} for 2FA when signing into your {% data variables.product.prodname_dotcom %} account in a web browser. 2FA with {% data variables.product.prodname_mobile %} does not rely on TOTP, and instead uses public-key cryptography to secure your account.

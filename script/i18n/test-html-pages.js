@@ -48,7 +48,7 @@ async function main() {
   for (const language of languageCodes) {
     for (const version of versions) {
       const pages = allPages.filter(
-        (page) => page.languageCode === language && page.applicableVersions.includes(version)
+        (page) => page.languageCode === language && page.applicableVersions.includes(version),
       )
 
       const permalinks = pages

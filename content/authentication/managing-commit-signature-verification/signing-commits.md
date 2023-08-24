@@ -35,24 +35,28 @@ You can also manually configure [gpg-agent](http://linux.die.net/man/1/gpg-agent
 If you have multiple keys or are attempting to sign commits or tags with a key that doesn't match your committer identity, you should [tell Git about your signing key](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key).
 
 1. When committing changes in your local branch, add the -S flag to the git commit command:
+
    ```shell
    $ git commit -S -m "YOUR_COMMIT_MESSAGE"
    # Creates a signed commit
    ```
-2. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
-3. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.product_name %}:
+
+1. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
+1. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.product_name %}:
+
    ```shell
    $ git push
    # Pushes your local commits to the remote repository
    ```
-4. On {% data variables.product.product_name %}, navigate to your pull request.
+
+1. On {% data variables.product.product_name %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
-5. To view more detailed information about the verified signature, click **Verified.**
+1. To view more detailed information about the verified signature, click **Verified.**
 
    ![Screenshot of a commit in the commit list for a repository. "Verified" is highlighted with an orange outline.](/assets/images/help/commits/verified-commit.png)
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)"{% endif %}
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
+- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"{% ifversion fpt or ghec %}
+- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)"{% endif %}

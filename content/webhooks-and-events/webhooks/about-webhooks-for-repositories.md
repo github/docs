@@ -1,0 +1,73 @@
+---
+title: About webhooks for repositories
+intro: You can use repository webhooks to subscribe to specific events in a repository.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+topics:
+  - Webhooks
+---
+
+## About webhooks for repositories
+
+Repository webhooks allow you to receive HTTP `POST` payloads whenever certain events happen in a repository. {% data reusables.webhooks.webhooks-rest-api-links %}
+
+If you would like to set up a single webhook to receive events from all of your organization's repositories, see our REST API documentation for [Organization Webhooks](/rest/orgs#webhooks).
+
+In addition to the REST API, {% data variables.product.prodname_dotcom %} can also serve as a [PubSubHubbub](#pubsubhubbub) hub for repositories.
+
+### Receiving Webhooks
+
+In order for {% data variables.product.product_name %} to send webhook payloads, your server needs to be accessible from the Internet. We also highly suggest using SSL so that we can send encrypted payloads over HTTPS.
+
+#### Webhook headers
+
+{% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/webhooks-and-events/webhooks/webhook-events-and-payloads#delivery-headers) for details.
+
+### PubSubHubbub
+
+GitHub can also serve as a [PubSubHubbub](https://github.com/pubsubhubbub/PubSubHubbub) hub for all repositories. PSHB is a simple publish/subscribe protocol that lets servers register to receive updates when a topic is updated. The updates are sent with an HTTP POST request to a callback URL.
+Topic URLs for a GitHub repository's pushes are in this format:
+
+`https://github.com/{owner}/{repo}/events/{event}`
+
+The event can be any available webhook event. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+
+#### Response format
+
+The default format is what [existing post-receive hooks should expect](/get-started/exploring-integrations/about-webhooks): A JSON body sent as the `payload` parameter in a POST.  You can also specify to receive the raw JSON body with either an `Accept` header, or a `.json` extension.
+
+    Accept: application/json
+    https://github.com/{owner}/{repo}/events/push.json
+
+#### Callback URLs
+
+Callback URLs can use the HTTP protocol.
+
+    # Send updates to a PostBin bin
+    https://www.toptal.com/developers/postbin/123
+
+#### Subscribing
+
+The GitHub PubSubHubbub endpoint is `{% data variables.product.api_url_code %}/hub`, which takes the following parameters.
+
+Name | Type | Required | Description
+-----|------|-------|-------
+``hub.mode``|`string` | {% octicon "check" aria-label="Required" %} | Either `subscribe` or `unsubscribe`.
+``hub.topic``|`string` | {% octicon "check" aria-label="Required" %} | The URI of the GitHub repository to subscribe to.  The path must be in the format of `/{owner}/{repo}/events/{event}`.
+``hub.callback``|`string` | {% octicon "x" aria-label="Optional" %} | The URI to receive the updates to the topic.
+``hub.secret``|`string` | {% octicon "x" aria-label="Optional" %} | A shared secret key that generates a hash signature of the outgoing body content.  You can verify a push came from GitHub by comparing the raw request body with the contents of the {% ifversion fpt or ghes or ghec %}`X-Hub-Signature` or `X-Hub-Signature-256` headers{% elsif ghae %}`X-Hub-Signature-256` header{% endif %}. You can see [the PubSubHubbub documentation](https://pubsubhubbub.github.io/PubSubHubbub/pubsubhubbub-core-0.4.html#authednotify) for more details.
+
+An example request with curl looks like:
+
+``` shell
+curl --header "Authorization: Bearer YOUR-TOKEN" -i \
+  {% data variables.product.api_url_pre %}/hub \
+  -F "hub.mode=subscribe" \
+  -F "hub.topic=https://github.com/{owner}/{repo}/events/push" \
+  -F "hub.callback=https://www.toptal.com/developers/postbin/123"
+```
+
+PubSubHubbub requests can be sent multiple times. If the hook already exists, it will be modified according to the request.

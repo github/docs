@@ -22,7 +22,6 @@ To offer paid plans for your app, the app must be owned by an organization and y
 
 ## Requesting publisher verification
 
-
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 1. At the bottom of the left sidebar, click **Developer settings**.

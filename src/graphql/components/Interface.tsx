@@ -20,7 +20,7 @@ export function Interface({ item, objects }: Props) {
   const implementedBy = objects.filter(
     (object) =>
       object.implements &&
-      object.implements.some((implementsItem) => implementsItem.name === item.name)
+      object.implements.some((implementsItem) => implementsItem.name === item.name),
   )
 
   return (

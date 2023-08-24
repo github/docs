@@ -44,7 +44,7 @@ such remote-tracking branch names to `origin/foo`.
 
 ## Fetching changes from a remote repository
 
-Use `git fetch` to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags *without* merging those changes into your own branches.
+Use `git fetch` to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags _without_ merging those changes into your own branches.
 
 If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
 

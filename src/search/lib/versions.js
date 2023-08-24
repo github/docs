@@ -9,5 +9,5 @@ export default Object.fromEntries(
     versionObject.plan === 'enterprise-server'
       ? versionObject.currentRelease
       : versionObject.miscBaseName,
-  ])
+  ]),
 )

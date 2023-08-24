@@ -38,7 +38,7 @@ With issue forms, you can create templates that have web form fields using the {
 
 {% data reusables.repositories.issue-template-config %} For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#configuring-the-template-chooser)."
 
-Issue templates are stored on the repository's default branch, in a hidden `.github/ISSUE_TEMPLATE` directory. If you create a template in another branch, it will not be available for collaborators to use. Issue template filenames are not case sensitive, and need a *.md* extension.{% ifversion issue-forms %} Issue templates created with issue forms need a *.yml* extension.{% endif %} {% data reusables.repositories.valid-community-issues %}
+Issue templates are stored on the repository's default branch, in a hidden `.github/ISSUE_TEMPLATE` directory. If you create a template in another branch, it will not be available for collaborators to use. Issue template filenames are not case sensitive, and need a _.md_ extension.{% ifversion issue-forms %} Issue templates created with issue forms need a _.yml_ extension.{% endif %} {% data reusables.repositories.valid-community-issues %}
 
 It is possible to manually create a single issue template in Markdown using the legacy issue template workflow, and project contributors will automatically see the template's contents in the issue body. However, we recommend using the upgraded multiple issue template builder{% ifversion issue-forms %} or issue forms{% endif %} to create issue templates. For more information about the legacy workflow, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository)."
 
@@ -48,6 +48,6 @@ It is possible to manually create a single issue template in Markdown using the 
 
 When you add a pull request template to your repository, project contributors will automatically see the template's contents in the pull request body.
 
-You must create templates on the repository's default branch. Templates created in other branches are not available for collaborators to use. You can store your pull request template in the repository's visible root directory, the `docs` folder, or the hidden `.github` directory. Pull request template filenames are not case sensitive, and can have an extension such as *.md* or *.txt*.
+You must create templates on the repository's default branch. Templates created in other branches are not available for collaborators to use. You can store your pull request template in the repository's visible root directory, the `docs` folder, or the hidden `.github` directory. Pull request template filenames are not case sensitive, and can have an extension such as _.md_ or _.txt_.
 
 For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)."

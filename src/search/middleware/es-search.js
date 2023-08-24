@@ -233,7 +233,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
           },
         },
         { [matchPhraseStrategy]: { headings: { boost: BOOST_PHRASE * BOOST_HEADINGS, query } } },
-      ]
+      ],
     )
     // If the content is short, it is given a disproportionate advantage
     // in search ranking. For example, our category and map-topic pages
@@ -251,7 +251,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
               content_explicit: { boost: BOOST_EXPLICIT * BOOST_PHRASE, query },
             },
           },
-        ]
+        ],
       )
     }
   }
@@ -304,7 +304,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
               content: { boost: BOOST_CONTENT * BOOST_AND, query, operator: 'AND' },
             },
           },
-        ]
+        ],
       )
     }
     matchQueries.push(
@@ -321,7 +321,7 @@ function getMatchQueries(query, { usePrefixSearch, fuzzy }) {
         { [matchStrategy]: { title: { boost: BOOST_TITLE, query } } },
         { [matchStrategy]: { headings: { boost: BOOST_HEADINGS, query } } },
         { [matchStrategy]: { content: { boost: BOOST_CONTENT, query } } },
-      ]
+      ],
     )
   }
 
@@ -376,7 +376,7 @@ function getHits(hits, { indexName, debug, includeTopics, highlightFields, inclu
     //   }
     // even if there was a match on 'title'.
     const hitHighlights = Object.fromEntries(
-      highlightFields.map((key) => [key, (hit.highlight && hit.highlight[key]) || []])
+      highlightFields.map((key) => [key, (hit.highlight && hit.highlight[key]) || []]),
     )
 
     const result = {

@@ -15,6 +15,7 @@ versions:
 type: overview
 topics:
   - Fundamentals
+layout: inline
 ---
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
@@ -94,6 +95,7 @@ For more information, see "[AUTOTITLE](/actions/creating-actions)."
 {% data reusables.actions.contacting-support %}
 
 {% ifversion ghec or ghes or ghae %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)"

@@ -17,7 +17,6 @@ Now that we understand [the basics of webhooks][webhooks-overview], let's go thr
 
 Creating a webhook is a two-step process. You'll first need to set up what events your webhook should listen to. After that, you'll set up your server to receive and manage the payload.
 
-
 {% data reusables.webhooks.webhooks-rest-api-links %}
 
 ## Exposing localhost to the internet
@@ -39,7 +38,7 @@ First of all, we need to expose our local development environment to the interne
 After installing `ngrok`, you can expose your localhost by running `./ngrok http 4567` on the command line. `4567` is the port number on which our server will listen for messages. You should see a line that looks something like this:
 
 ```shell
-$ Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
+Forwarding  http://7e9ea9dc.ngrok.io -> 127.0.0.1:4567
 ```
 
 Make a note of the `*.ngrok.io` URL. We'll use it to set up our webhook.

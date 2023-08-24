@@ -31,6 +31,35 @@ After setting up a subscription, you can enable {% data variables.product.prodna
 
 {% data variables.product.prodname_copilot_business_short %} subscriptions are billed monthly, based on the number of {% data variables.product.prodname_copilot %} seats assigned to users within your organization{% ifversion ghec %} or enterprise{% endif %}. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-for-business)."
 
+## Requesting or granting access to {% data variables.product.prodname_copilot_for_business %}
+
+Organization members can request access to {% data variables.product.prodname_copilot_for_business %} from their organization's owners.
+
+### Submitting a request for {% data variables.product.prodname_copilot_for_business %}
+
+As a member of an organization, you can request access to {% data variables.product.prodname_copilot_for_business %} from your organization's owners. This can be done through a few different ways, including:
+
+- From the [{% data variables.product.prodname_copilot %} settings](https://github.com/settings/copilot) for your personal account
+
+  ![Screenshot of the {% data variables.product.prodname_copilot %} settings page. A button labelled "Ask admin for access" is outlined in dark orange.](/assets/images/help/copilot/request-cfb-access-settings.png)
+
+- From an empty repository in the organization
+
+  ![Screenshot from the top of an empty repository with the option ask admin for access to {% data variables.product.prodname_copilot_for_business %}.](/assets/images/help/copilot/request-cfb-access-empty-repo.png)
+
+- During creation of a pull request in a repository in the organization
+
+### Managing requests for {% data variables.product.prodname_copilot_for_business %}
+
+As an owner of an organization, you can manage requests for {% data variables.product.prodname_copilot_for_business %} from your organization's settings. Additionally, {% data variables.product.prodname_dotcom %} sends you a weekly email with a summary of all pending requests.
+
+{% data reusables.profile.access_org %}
+{% data reusables.organizations.org-list %}
+1. In the "Access" section of the sidebar, click {% octicon "bell" aria-label="The notifications bell" %} **Requests from members**.
+1. To accept the request and grant the member access to {% data variables.product.prodname_copilot_for_business %}, click **Buy {% data variables.product.prodname_copilot_business_short %}**.
+
+All requests for {% data variables.product.prodname_copilot_for_business %} are grouped together under "{% data variables.product.prodname_copilot_business_short %}".
+
 ## About privacy for {% data variables.product.prodname_copilot_for_business %}
 
 You have the ability to manage and make choices regarding the collection, retention, and processing of your data, allowing you to maintain control over your privacy while using {% data variables.product.prodname_copilot_for_business %}.
@@ -53,10 +82,10 @@ You have the ability to manage and make choices regarding the collection, retent
 
 User Engagement Data is used by {% data variables.product.company_short %} and Microsoft to provide the service and to enable improvements.
 
-* Evaluating {% data variables.product.prodname_copilot %}: The impact of {% data variables.product.prodname_copilot %} on users is assessed by measuring its positive effects and benefits.
-* Fine-tuning ranking and sorting algorithms: The data helps in the optimization and improvement of algorithms used for ranking and sorting suggestions, thereby enhancing the overall user experience.
-* Detecting abuse and policy violations: The data is examined to investigate and identify any potential misuse or violation of the Acceptable Use Policies associated with {% data variables.product.prodname_copilot %}.
-* Conducting experiments and research: The data is used for conducting experiments and research related to developers and their utilization of developer tools and services. This aids in gaining valuable insights into user behavior and preferences.
+- Evaluating {% data variables.product.prodname_copilot %}: The impact of {% data variables.product.prodname_copilot %} on users is assessed by measuring its positive effects and benefits.
+- Fine-tuning ranking and sorting algorithms: The data helps in the optimization and improvement of algorithms used for ranking and sorting suggestions, thereby enhancing the overall user experience.
+- Detecting abuse and policy violations: The data is examined to investigate and identify any potential misuse or violation of the Acceptable Use Policies associated with {% data variables.product.prodname_copilot %}.
+- Conducting experiments and research: The data is used for conducting experiments and research related to developers and their utilization of developer tools and services. This aids in gaining valuable insights into user behavior and preferences.
 
 ### How can users of {% data variables.product.prodname_copilot_for_business %} control use of their data?
 

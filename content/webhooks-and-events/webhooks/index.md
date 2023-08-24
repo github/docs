@@ -10,6 +10,7 @@ topics:
   - Webhooks
 children:
   - /about-webhooks
+  - /about-webhooks-for-repositories
   - /creating-webhooks
   - /configuring-your-server-to-receive-payloads
   - /testing-webhooks

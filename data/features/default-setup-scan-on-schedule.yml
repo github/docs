@@ -1,0 +1,8 @@
+# Default setup for code scanning now scans on a weekly schedule
+# Reference: #9103
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.10'
+  ghae: '>3.10'

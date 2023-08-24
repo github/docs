@@ -27,10 +27,11 @@ function RenderTocItem(item: MiniTocItem) {
   }, [])
 
   return (
-    <div className={cx(styles.nested, item.platform)}>
+    <>
       <NavList.Item
         aria-current={item.contents.href === currentAnchor && 'location'}
         href={item.contents.href}
+        className={cx(styles.nested, item.platform)}
       >
         {item.contents.title}
       </NavList.Item>
@@ -46,7 +47,7 @@ function RenderTocItem(item: MiniTocItem) {
           ))}
         </ul>
       )}
-    </div>
+    </>
   )
 }
 

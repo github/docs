@@ -51,6 +51,6 @@ async function main() {
     openPullNumbers.map(async (pullNumber) => {
       await createIssueComment(options.owner, options.repo, pullNumber, comment)
       console.log(`Added a comment to PR #${pullNumber}`)
-    })
+    }),
   )
 }

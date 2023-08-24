@@ -3,7 +3,7 @@ title: Organization webhooks
 allowTitleToDifferFromFilename: true
 shortTitle: Webhooks
 intro: Use the REST API to interact with webhooks in an organization.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -23,8 +23,8 @@ All actions against organization webhooks require the authenticated user to be a
 
 In order to protect sensitive data which may be present in webhook configurations, we also enforce the following access control rules:
 
-- OAuth applications cannot list, view, or edit webhooks which they did not create.
-- Users cannot list, view, or edit webhooks which were created by OAuth applications.
+- {% data variables.product.prodname_oauth_apps %} cannot list, view, or edit webhooks which they did not create.
+- Users cannot list, view, or edit webhooks which were created by {% data variables.product.prodname_oauth_apps %}.
 
 ### Receiving Webhooks
 
@@ -35,6 +35,5 @@ For more best practices, [see our guide](/rest/guides/best-practices-for-integra
 #### Webhook headers
 
 {% data variables.product.product_name %} will send along several HTTP headers to differentiate between event types and payload identifiers. See [webhook headers](/webhooks-and-events/webhooks/webhook-events-and-payloads#delivery-headers) for details.
-
 
 <!-- Content after this section is automatically generated -->

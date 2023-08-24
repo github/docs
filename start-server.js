@@ -24,7 +24,7 @@ async function checkPortAvailability() {
   if (portInUse) {
     console.log(`\n\n\nPort ${port} is not available. You may already have a server running.`)
     console.log(
-      `Try running \`npx kill-port ${port}\` to shut down all your running node processes.\n\n\n`
+      `Try running \`npx kill-port ${port}\` to shut down all your running node processes.\n\n\n`,
     )
     console.log('\x07') // system 'beep' sound
     process.exit(1)

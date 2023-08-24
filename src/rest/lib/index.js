@@ -103,7 +103,7 @@ export async function getRestMiniTocItems(
   restOperations,
   language,
   version,
-  context
+  context,
 ) {
   const apiDate = apiVersion || NOT_API_VERSIONED
 

@@ -50,8 +50,8 @@ Artifacts are uploaded during a workflow run, and you can view an artifact's nam
 
 To share data between jobs:
 
-* **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
-* **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
+- **Uploading files**: Give the uploaded file a name and upload the data before the job ends.
+- **Downloading files**: You can only download artifacts that were uploaded during the same workflow run. When you download a file, you can reference it by name.
 
 The steps of a job share the same environment on the runner machine, but run in their own individual processes. To pass data between steps in a job, you can use inputs and outputs. For more information about inputs and outputs, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
 
@@ -75,7 +75,7 @@ You can use the `upload-artifact` action to upload artifacts. When uploading an 
 
 For example, your repository or a web application might contain SASS and TypeScript files that you must convert to CSS and JavaScript. Assuming your build configuration outputs the compiled files in the `dist` directory, you would deploy the files in the `dist` directory to your web application server if all tests completed successfully.
 
-```
+```text
 |-- hello-world (repository)
 |   └── dist
 |   └── tests

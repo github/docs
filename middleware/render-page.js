@@ -52,7 +52,7 @@ export default async function renderPage(req, res) {
   if (!page) {
     if (process.env.NODE_ENV !== 'test' && context.redirectNotFound) {
       console.error(
-        `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`
+        `\nTried to redirect to ${context.redirectNotFound}, but that page was not found.\n`,
       )
     }
 

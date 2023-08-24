@@ -2,8 +2,7 @@
 title: Merging a pull request with a merge queue
 intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.product_name %} will merge the pull requests for you once all required checks have passed.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: merge-queue
 topics:
   - Pull requests
 shortTitle: Merge PR with merge queue
@@ -13,8 +12,6 @@ redirect_from:
 defaultTool: webui
 product: '{% data reusables.gated-features.merge-queue %}'
 ---
-
-{% data reusables.pull_requests.merge-queue-beta %}
 
 ## About merge queues
 
@@ -38,7 +35,7 @@ product: '{% data reusables.gated-features.merge-queue %}'
 
 1. Click **Merge when ready** to add the pull request to the merge queue. Alternatively, if you are an administrator, you can:
 
-   -  Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow.
+   - Directly merge the pull request by checking **Merge without waiting for requirements to be met ({% ifversion bypass-branch-protections %}bypass branch protections{% else %}administrators only{% endif %})**, if allowed by branch protection settings, and follow the standard flow.
 
    ![Screenshot of the merge queue options for a pull request.](/assets/images/help/pull_requests/merge-queue-options.png)
 
@@ -103,6 +100,8 @@ You can view the merge queue for a base branch in various places on {% data vari
 
   ![Screenshot of the merge queue.](/assets/images/help/pull_requests/merge-queue-view.png)
 
-## Handling pull requests removed from the merge queue
+## Understanding why your pull request was removed from the merge queue
 
 {% data reusables.pull_requests.merge-queue-reject %}
+
+{% data reusables.pull_requests.merge-queue-removal-reasons %}

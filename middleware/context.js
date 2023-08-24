@@ -17,7 +17,7 @@ import { getDataByLanguage, getUIDataMerged } from '../lib/get-data.js'
 
 // This doesn't change just because the request changes, so compute it once.
 const enterpriseServerVersions = Object.keys(allVersions).filter((version) =>
-  version.startsWith('enterprise-server@')
+  version.startsWith('enterprise-server@'),
 )
 
 // Supply all route handlers with a baseline `req.context` object
@@ -34,6 +34,7 @@ export default async function contextualize(req, res, next) {
   req.context.currentLanguage = req.language
   req.context.userLanguage = req.userLanguage
   req.context.currentVersion = getVersionStringFromPath(req.pagePath)
+  req.context.currentVersionObj = allVersions[req.context.currentVersion]
   req.context.currentProduct = getProductStringFromPath(req.pagePath)
   req.context.currentCategory = getCategoryStringFromPath(req.pagePath)
   req.context.productMap = productMap

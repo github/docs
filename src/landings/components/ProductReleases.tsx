@@ -59,7 +59,7 @@ export function ProductReleases() {
                     className="text-bold"
                     {...{
                       'aria-label': `${shortTitle || title} - ${t(
-                        'browse_all'
+                        'browse_all',
                       )} ${releaseNumber} ${t('docs')}`,
                     }}
                     href={`/${router.locale}/${releaseVersion}`}

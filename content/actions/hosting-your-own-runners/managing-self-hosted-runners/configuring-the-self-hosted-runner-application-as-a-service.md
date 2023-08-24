@@ -92,6 +92,7 @@ You can manage the runner service in the Windows **Services** application, or yo
    ```shell
    ./svc.sh install
    ```
+
 {% endmac %}
 
 ## Starting the service
@@ -99,19 +100,25 @@ You can manage the runner service in the Windows **Services** application, or yo
 Start the service with the following command:
 
 {% linux %}
+
 ```shell
 sudo ./svc.sh start
 ```
+
 {% endlinux %}
 {% windows %}
+
 ```shell
 Start-Service "{{ service_win_name }}"
 ```
+
 {% endwindows %}
 {% mac %}
+
 ```shell
 ./svc.sh start
 ```
+
 {% endmac %}
 
 ## Checking the status of the service
@@ -119,19 +126,25 @@ Start-Service "{{ service_win_name }}"
 Check the status of the service with the following command:
 
 {% linux %}
+
 ```shell
 sudo ./svc.sh status
 ```
+
 {% endlinux %}
 {% windows %}
+
 ```shell
 Get-Service "{{ service_win_name }}"
 ```
+
 {% endwindows %}
 {% mac %}
+
 ```shell
 ./svc.sh status
 ```
+
 {% endmac %}
 
  For more information on viewing the status of your self-hosted runner, see  "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners)."
@@ -141,19 +154,25 @@ Get-Service "{{ service_win_name }}"
 Stop the service with the following command:
 
 {% linux %}
+
 ```shell
 sudo ./svc.sh stop
 ```
+
 {% endlinux %}
 {% windows %}
+
 ```shell
 Stop-Service "{{ service_win_name }}"
 ```
+
 {% endwindows %}
 {% mac %}
+
 ```shell
 ./svc.sh stop
 ```
+
 {% endmac %}
 
 ## Uninstalling the service
@@ -162,19 +181,25 @@ Stop-Service "{{ service_win_name }}"
 1. Uninstall the service with the following command:
 
     {% linux %}
+
     ```shell
     sudo ./svc.sh uninstall
     ```
+
     {% endlinux %}
     {% windows %}
+
     ```shell
     Remove-Service "{{ service_win_name }}"
     ```
+
     {% endwindows %}
     {% mac %}
+
     ```shell
     ./svc.sh uninstall
     ```
+
     {% endmac %}
 
 {% linux %}
