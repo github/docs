@@ -67,17 +67,17 @@ includeGuides:
   - /admin/administering-your-instance/site-admin-dashboard
   - /admin/configuration/hardening-security-for-your-enterprise/troubleshooting-tls-errors
   - /admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
-  - /admin/enterprise-management/configuring-high-availability/about-high-availability-configuration
-  - /admin/enterprise-management/monitoring-your-appliance/accessing-the-monitor-dashboard
-  - /admin/enterprise-management/configuring-high-availability/creating-a-high-availability-replica
-  - /admin/enterprise-management/configuring-clustering/differences-between-clustering-and-high-availability-ha
-  - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
-  - /admin/enterprise-management/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
-  - /admin/enterprise-management/monitoring-your-appliance/recommended-alert-thresholds
-  - /admin/enterprise-management/monitoring-your-appliance/setting-up-external-monitoring
-  - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
-  - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
-  - /admin/enterprise-management/monitoring-your-appliance/about-system-logs
+  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/about-high-availability-configuration
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/accessing-the-monitor-dashboard
+  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/creating-a-high-availability-replica
+  - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
+  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks
+  - /admin/monitoring-managing-and-updating-your-instance/configuring-high-availability/initiating-a-failover-to-your-replica-appliance
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/recommended-alert-thresholds
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/setting-up-external-monitoring
+  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrade-requirements
+  - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs
   - /support/learning-about-github-support/about-github-support
   - /admin/github-actions/managing-access-to-actions-from-githubcom/about-using-actions-in-your-enterprise
   - /admin/github-actions/advanced-configuration-and-troubleshooting/backing-up-and-restoring-github-enterprise-server-with-github-actions-enabled
@@ -119,10 +119,10 @@ includeGuides:
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise
   - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise
-  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/activity-dashboard
-  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/viewing-push-logs
-  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/log-forwarding
-  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity/managing-global-webhooks
+  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/activity-dashboard
+  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/viewing-push-logs
+  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding
+  - /admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise
   - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/managing-projects-using-jira
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise
