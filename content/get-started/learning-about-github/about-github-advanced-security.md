@@ -34,7 +34,7 @@ shortTitle: GitHub Advanced Security
 
 A {% data variables.product.prodname_GH_advanced_security %} license provides the following additional features:
 
-- **{% data variables.product.prodname_code_scanning_caps %}** - Search for potential security vulnerabilities and coding errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+- **{% data variables.product.prodname_code_scanning_caps %}** - Search for potential security vulnerabilities and coding errors in your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)."
 
 - **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into {% ifversion fpt %} private repositories{% else %} the repository{% endif %}. {% ifversion fpt%}{% data variables.secret-scanning.user_alerts_caps %} and {% data variables.secret-scanning.partner_alerts %} are available and free of charge for public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}{% ifversion secret-scanning-push-protection %} If push protection is enabled, also detects secrets when they are pushed to your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)."{% else %} For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."{% endif %}
 
@@ -106,7 +106,7 @@ If you have an enterprise account, license use for the entire enterprise is show
 {% data reusables.advanced-security.starter-workflows-beta %}
 {% data reusables.advanced-security.starter-workflow-overview %}
 
-For more information on starter workflows, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)" and "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)."
+For more information on starter workflows, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions)" and "[AUTOTITLE](/actions/using-workflows/using-starter-workflows)."
 
 {% endif %}
 

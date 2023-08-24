@@ -1,0 +1,1447 @@
+[
+  {
+    "action": "checks.auto_trigger_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "checks.auto_trigger_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "custom_hosted_runner.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "custom_hosted_runner.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "custom_hosted_runner.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "discussion_post.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "discussion_post.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "discussion_post_reply.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "discussion_post_reply.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "git.clone",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "git.fetch",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "git.push",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "github_hosted_runner.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "github_hosted_runner.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "github_hosted_runner.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "hook.config_changed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "hook.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "hook.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "hook.events_changed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_added",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.manager_removed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration.transfer",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.repositories_added",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.repositories_removed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "integration_installation.version_updated",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list.disable_for_installed_apps",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list.enable_for_installed_apps",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list_entry.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list_entry.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ip_allow_list_entry.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "oauth_application.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "oauth_application.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "oauth_application.reset_secret",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "oauth_application.revoke_tokens",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "oauth_application.transfer",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.accept_business_invitation",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.add_billing_manager",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.add_member",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.add_security_manager",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_disabled_for_new_repos",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_disabled_on_all_repos",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_enabled_for_new_repos",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_enabled_on_all_repos",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_policy_selected_member_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_policy_selected_member_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.audit_log_export",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.billing_signup_error",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.block_user",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.cancel_business_invitation",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.cancel_invitation",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.clear_custom_invitation_rate_limit",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.codeql_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.codeql_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.config.disable_collaborators_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.config.disable_contributors_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.config.disable_sockpuppet_disallowed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.config.enable_collaborators_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.config.enable_contributors_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.config.enable_sockpuppet_disallowed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.configure_self_hosted_jit_runner",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.confirm_business_invitation",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.disable_member_team_creation_permission",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.disable_reader_discussion_creation_permission",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.disable_saml",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.disable_two_factor_requirement",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.display_commenter_full_name_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.display_commenter_full_name_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.enable_member_team_creation_permission",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.enable_reader_discussion_creation_permission",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.enable_saml",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.enable_two_factor_requirement",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.integration_manager_added",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.integration_manager_removed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.invite_member",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.invite_to_business",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.members_can_update_protected_branches.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.members_can_update_protected_branches.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.rate_limited_invites",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.register_self_hosted_runner",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.remove_billing_manager",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.remove_member",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.remove_outside_collaborator",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.remove_security_manager",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.remove_self_hosted_runner",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.rename",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.restore_member",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.runner_group_created",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.runner_group_removed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.runner_group_runners_added",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.runner_group_runners_updated",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.runner_group_runner_removed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.runner_group_updated",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.secret_scanning_custom_pattern_push_protection_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.secret_scanning_custom_pattern_push_protection_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.secret_scanning_push_protection_custom_message_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.secret_scanning_push_protection_custom_message_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.secret_scanning_push_protection_custom_message_updated",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.secret_scanning_push_protection_disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.secret_scanning_push_protection_enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.secret_scanning_push_protection_new_repos_disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.secret_scanning_push_protection_new_repos_enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.self_hosted_runner_updated",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.set_actions_private_fork_pr_approvals_policy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.set_actions_retention_limit",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.set_custom_invitation_rate_limit",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.unblock_user",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.update_actions_settings",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.update_default_repository_permission",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.update_member_repository_creation_permission",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.update_member_repository_invitation_permission",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.update_saml_provider_settings",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.update_terms_of_service",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "organization_domain.approve",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "organization_domain.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "organization_domain.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "organization_domain.verify",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org_secret_scanning_custom_pattern.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org_secret_scanning_custom_pattern.delete",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org_secret_scanning_custom_pattern.publish",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org_secret_scanning_custom_pattern.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "packages.package_deleted",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "packages.package_published",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "packages.package_version_deleted",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "packages.package_version_published",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "premium_runner.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "premium_runner.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "premium_runner.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.authorized_users_teams",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.dismissal_restricted_users_teams",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.dismiss_stale_reviews",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.policy_override",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.rejected_ref_update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_admin_enforced",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_allow_deletions_enforcement_level",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_allow_force_pushes_enforcement_level",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_ignore_approvals_from_contributors",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_linear_history_requirement_enforcement_level",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_lock_allows_fetch_and_merge",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_lock_branch_enforcement_level",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_name",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_pull_request_reviews_enforcement_level",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_required_approving_review_count",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_required_status_checks_enforcement_level",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_require_code_owner_review",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_require_last_push_approval",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_signature_requirement_enforcement_level",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "protected_branch.update_strict_required_status_checks_policy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "public_key.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "public_key.delete",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "public_key.unverification_failure",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "public_key.unverify",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "public_key.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "public_key.verification_failure",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "public_key.verify",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.close",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.converted_to_draft",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.create_review_request",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.indirect_merge",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.in_progress",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.merge",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.ready_for_review",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.rebase",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.remove_review_request",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request.reopen",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request_review.delete",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request_review.dismiss",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request_review.submit",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request_review_comment.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request_review_comment.delete",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "pull_request_review_comment.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.access",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.add_member",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.add_topic",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.advanced_security_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.advanced_security_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.archived",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.change_merge_setting",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.codeql_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.codeql_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_analysis_deleted",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_configuration_for_branch_deleted",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.config.disable_collaborators_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.config.disable_contributors_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.config.disable_sockpuppet_disallowed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.config.enable_collaborators_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.config.enable_contributors_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.config.enable_sockpuppet_disallowed",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.configure_self_hosted_jit_runner",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.download_zip",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_cname",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_https_redirect_disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_https_redirect_enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_private",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_public",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_source",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.register_self_hosted_runner",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.remove_member",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.remove_self_hosted_runner",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.remove_topic",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.rename",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.restore",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.self_hosted_runner_updated",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.set_actions_private_fork_pr_approvals_policy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.set_actions_retention_limit",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.staff_unlock",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.transfer",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.transfer_outgoing",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.transfer_start",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.unarchived",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.update_actions_access_settings",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.update_actions_settings",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.update_member",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_branch_protection_evaluation.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_branch_protection_evaluation.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_invitation.accept",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_invitation.cancel",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_invitation.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_invitation.reject",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_ruleset.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_ruleset.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_ruleset.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_custom_pattern.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_custom_pattern.delete",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_custom_pattern.publish",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_custom_pattern.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_custom_pattern_push_protection.disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_custom_pattern_push_protection.enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_push_protection.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_secret_scanning_push_protection.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "restrict_notification_delivery.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "restrict_notification_delivery.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.reopen",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.resolve",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.revoke",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_new_repos.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_new_repos.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_push_protection.bypass",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ssh_certificate_authority.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ssh_certificate_authority.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ssh_certificate_requirement.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "ssh_certificate_requirement.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "staff.set_domain_token_expiration",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "staff.unverify_domain",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "staff.verify_domain",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.add_member",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.add_repository",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.change_parent_team",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.change_privacy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.demote_maintainer",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.promote_maintainer",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.remove_member",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.remove_repository",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.rename",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team.update_repository_permission",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team_discussions.clear",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team_discussions.disable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team_discussions.enable",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team_sync_tenant.disabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "team_sync_tenant.enabled",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.approve_workflow_job",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.bypass_protection_rules",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.cancel_workflow_run",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.comment_workflow_job",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.delete_workflow_run",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.disable_workflow",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.enable_workflow",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.reject_workflow_job",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "workflows.rerun_workflow_run",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  }
+]

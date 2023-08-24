@@ -18,7 +18,7 @@ topics:
   - CD
 shortTitle: Migrate from Travis CI
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -364,7 +364,7 @@ jobs:
       - name: Use Node.js
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '12.x'
+          node-version: '16.x'
       - run: npm install
       - run: npm run build
       - run: npm test

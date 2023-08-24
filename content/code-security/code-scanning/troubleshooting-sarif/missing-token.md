@@ -3,7 +3,6 @@ title: 'GitHub token is required to upload SARIF results'
 shortTitle: GitHub token missing
 allowTitleToDifferFromFilename: true
 intro: 'You need to provide an authentication method for the upload process to use to access the repository.'
-product: '{% data reusables.gated-features.code-scanning %}'
 type: reference
 topics:
   - Code scanning

@@ -49,7 +49,6 @@ You can set the following top-level keys for each issue form.
 | `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |{% ifversion projects-in-issue-forms %}
 | `projects` | Projects that any issues created with this template will automatically be added to. | Optional | Array or comma-delimited string |{% endif %}
 
-
 For the available `body` input types and their syntaxes, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
 
 ## Converting a Markdown issue template to a YAML issue form template

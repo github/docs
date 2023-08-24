@@ -31,7 +31,6 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
         }}
       >
         <Link
-          role="group"
           id={page.href}
           href={page.href}
           className={cx('color-fg-default no-underline', isCurrent ? 'text-bold' : '')}

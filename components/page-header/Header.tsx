@@ -48,6 +48,7 @@ export const Header = () => {
     hasAccount === false && // don't show if `null`
     (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
   const { width } = useWidth()
+  const returnFocusRef = useRef(null)
 
   useEffect(() => {
     function onScroll() {
@@ -336,8 +337,10 @@ export const Header = () => {
                   icon={ThreeBarsIcon}
                   aria-label="Open Sidebar"
                   onClick={openSidebar}
+                  ref={returnFocusRef}
                 />
                 <Dialog
+                  returnFocusRef={returnFocusRef}
                   isOpen={isSidebarOpen}
                   onDismiss={closeSidebar}
                   aria-labelledby="menu-title"

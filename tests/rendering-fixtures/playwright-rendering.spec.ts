@@ -35,7 +35,7 @@ test('use sidebar to go to Hello World page', async ({ page }) => {
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
   await page.getByTestId('product-sidebar').getByText('Quickstart').click()
-  await page.getByTestId('product-sidebar').getByRole('group', { name: 'Hello World' }).click()
+  await page.getByTestId('product-sidebar').getByText('Hello World').click()
   await expect(page).toHaveURL(/\/en\/get-started\/quickstart\/hello-world/)
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })

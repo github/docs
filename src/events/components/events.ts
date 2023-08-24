@@ -169,6 +169,7 @@ export function sendEvent<T extends EventType>({
       application_preference: Cookies.get('toolPreferred'),
       color_mode_preference: getColorModePreference(),
       os_preference: Cookies.get('osPreferred'),
+      code_display_preference: Cookies.get('annotate-mode'),
     },
 
     ...props,
