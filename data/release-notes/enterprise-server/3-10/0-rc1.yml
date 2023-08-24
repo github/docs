@@ -110,11 +110,8 @@ sections:
 
         # https://github.com/github/releases/issues/3112
         - |
-          Swift is supported for the GitHub Advisory Database, the dependency graph, and Dependabot alerts.
-          - Users can find curated security advisories for the Swift ecosystem in the GitHub Advisory Database. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database)."
-          - The dependency graph includes Swift dependencies detected in a `Package.resolved` file. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
-          - Dependabot can send alerts for vulnerabilities detected in Swift dependencies. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-
+          Users can find curated security advisories for the Swift ecosystem in the GitHub Advisory Database. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database)." [Updated: 2023-08-24]
+          
     - heading: GitHub Actions
       notes:
         # https://github.com/github/releases/issues/3136
