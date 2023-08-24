@@ -61,10 +61,22 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 
 #### Gradle
 
+{% ifversion dependabot-security-updates-gradle-support %}{% else %}Gradle is supported for {% data variables.product.prodname_dependabot_version_updates %} only.{% endif %}
+
 {% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to the following files:
 - `build.gradle`, `build.gradle.kts` (for Kotlin projects){% ifversion dependabot-updates-gradle-versions-catalog-support %}
 - `gradle/libs.versions.toml` (for projects using a standard Gradle version catalog){% endif %}
 - Files included via the `apply` declaration that have `dependencies` in the filename. Note that `apply` does not support `apply to`, recursion, or advanced syntaxes (for example, Kotlin's `apply` with `mapOf`, filenames defined by property).
+
+{% ifversion dependabot-security-updates-gradle-support %}
+For {% data variables.product.prodname_dependabot_security_updates %}, Gradle support is limited to manual uploads of the dependency graph data using the dependency submission API. For more information about the dependency submission API, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api)."
+
+{% note %}
+
+**Note:** When you upload Gradle dependencies to the dependency graph using the dependency submission API, all project dependencies are uploaded, even indirect dependencies that aren't explicitly mentioned in any dependency file. When an alert is detected in an indirect dependency, {% data variables.product.prodname_dependabot %} isn't able to find the vulnerable dependency in the repository, and therefore won't create a security update for that alert.
+
+{% endnote %}
+{% endif %}
 
 #### Maven
 
