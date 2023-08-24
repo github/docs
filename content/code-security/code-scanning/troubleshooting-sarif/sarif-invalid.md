@@ -3,7 +3,6 @@ title: 'SARIF file is invalid'
 shortTitle: SARIF file invalid
 allowTitleToDifferFromFilename: true
 intro: '{% data variables.product.prodname_code_scanning_caps %} can only process syntactically invalid SARIF files. Invalid files are rejected.'
-product: '{% data reusables.gated-features.code-scanning %}'
 type: reference
 topics:
   - Code scanning

@@ -3,7 +3,6 @@ title: 'Code scanning analysis takes too long'
 shortTitle: 'Analysis takes too long'
 intro: 'You can fine tune {% data variables.product.prodname_codeql %} to minimize analysis time.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'

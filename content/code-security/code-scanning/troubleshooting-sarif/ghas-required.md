@@ -3,7 +3,6 @@ title: 'Upload fails because GitHub Advanced Security is disabled'
 shortTitle: GitHub Advanced Security disabled
 allowTitleToDifferFromFilename: true
 intro: 'You can only upload SARIF results to {% ifversion fpt or ghec %}private or internal {% endif %}repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled.'
-product: '{% data reusables.gated-features.code-scanning %}'
 type: reference
 topics:
   - Code scanning

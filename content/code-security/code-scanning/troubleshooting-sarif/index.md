@@ -1,7 +1,6 @@
 ---
 title: Troubleshooting SARIF uploads
 intro: 'Learn how to resolve problems uploading SARIF files of {% data variables.product.prodname_code_scanning %} results to {% data variables.product.prodname_dotcom %}.'
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   feature: code-scanning-tool-status-page
 topics:

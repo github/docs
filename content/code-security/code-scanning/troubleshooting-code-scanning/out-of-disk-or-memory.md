@@ -3,7 +3,6 @@ title: 'Error: "Out of disk" or Error: "Out of memory"'
 shortTitle: 'Out of disk or memory'
 intro: 'If you see one of these errors with {% data variables.product.prodname_actions %}, {% ifversion ghes %}try reviewing the specifications of your self-hosted runners.{% else %}you can try alternative runners.{% endif %}'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'

@@ -3,7 +3,6 @@ title: 'Unclear what triggered a workflow run'
 shortTitle: 'Unclear what triggered a workflow'
 intro: 'If you don''t know what triggered an analysis, look at the log for the last scan.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   feature: code-scanning-without-workflow
 ---

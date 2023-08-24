@@ -2,7 +2,6 @@
 title: 'Enabling default setup takes too long'
 intro: 'If you think that enabling default setup has stalled, you can restart the process.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   feature: code-scanning-without-workflow
 ---

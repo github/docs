@@ -3,7 +3,6 @@ title: 'A particular language is causing default setup to fail'
 shortTitle: 'Default setup fails with a language'
 intro: 'When you enable default setup, all languages selected for analysis must be successfully analyzed, or the configuration of default setup will fail.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   feature: code-scanning-without-workflow-310
 ---
