@@ -8,6 +8,9 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
+redirect_from:
+  - /webhooks-and-events/webhooks/about-webhooks-for-repositories
+  - /webhooks/webhooks/about-webhooks-for-repositories
 ---
 
 ## About webhooks for repositories

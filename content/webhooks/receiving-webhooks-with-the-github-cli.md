@@ -8,6 +8,8 @@ topics:
 shortTitle: Receiving webhooks with the GitHub CLI
 redirect_from:
   - /developers/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli
+  - /webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli
+  - /webhooks/webhooks/receiving-webhooks-with-the-github-cli
 ---
 ## About receiving webhooks with {% data variables.product.prodname_cli %}
 

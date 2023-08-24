@@ -1,7 +1,7 @@
 ---
-title: Webhooks and events documentation
-shortTitle: Webhooks and events
-intro: 'You can set up, test, and secure webhooks so your integrations can subscribe and react to events on {% data variables.product.prodname_dotcom %}.'
+title: Webhooks documentation
+shortTitle: Webhooks
+intro: 'You can set up, test, and secure webhooks so your integrations can subscribe and react to webhook events on {% data variables.product.prodname_dotcom %}.'
 introLinks:
   overview: /webhooks-and-events/webhooks/about-webhooks
 featuredLinks:
@@ -24,13 +24,23 @@ versions:
   ghec: '*'
 topics:
   - Webhooks
-  - Events
 children:
-  - /webhooks
-  - /events
+  - /about-webhooks
+  - /webhook-events-and-payloads
+  - /creating-webhooks
+  - /configuring-your-server-to-receive-payloads
+  - /securing-your-webhooks
+  - /testing-webhooks
+  - /receiving-webhooks-with-the-github-cli
+  - /replacing-github-services
+  - /about-webhooks-for-repositories
 changelog:
   label: webhooks
 layout: product-landing
 redirect_from:
   - /developers/webhooks-and-events
+  - /webhooks-and-events
+  - /developers/webhooks-and-events/webhooks
+  - /webhooks-and-events/webhooks
 ---
+

@@ -5,6 +5,8 @@ redirect_from:
   - /webhooks/securing
   - /developers/webhooks-and-events/securing-your-webhooks
   - /developers/webhooks-and-events/webhooks/securing-your-webhooks
+  - /webhooks-and-events/webhooks/securing-your-webhooks
+  - /webhooks/webhooks/securing-your-webhooks
 versions:
   fpt: '*'
   ghes: '*'

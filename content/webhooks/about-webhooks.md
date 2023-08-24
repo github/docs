@@ -1,8 +1,7 @@
 ---
 title: About webhooks
-intro: Webhooks provide a way for notifications to be delivered to an external web server whenever certain events occur on {% data variables.product.company_short %}.
+intro: 'Webhooks provide a way for notifications to be delivered to an external web server whenever certain events occur on {% data variables.product.company_short %}.'
 redirect_from:
-  - /webhooks
   - /developers/webhooks-and-events/about-webhooks
   - /developers/webhooks-and-events/webhooks/about-webhooks
   - /get-started/exploring-integrations/about-webhooks
@@ -12,6 +11,8 @@ redirect_from:
   - /articles/about-webhooks
   - /github/extending-github/about-webhooks
   - /get-started/customizing-your-github-workflow/exploring-integrations/about-webhooks
+  - /webhooks-and-events/webhooks/about-webhooks
+  - /webhooks/webhooks/about-webhooks
 versions:
   fpt: '*'
   ghes: '*'
