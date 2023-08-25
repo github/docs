@@ -30,10 +30,9 @@ children:
   - /creating-webhooks
   - /configuring-your-server-to-receive-payloads
   - /securing-your-webhooks
-  - /testing-webhooks
-  - /receiving-webhooks-with-the-github-cli
   - /replacing-github-services
   - /about-webhooks-for-repositories
+  - /testing-and-troubleshooting-webhooks
 changelog:
   label: webhooks
 layout: product-landing
