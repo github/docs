@@ -28,6 +28,14 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 - adds the bypass event to the audit log.{% ifversion secret-scanning-push-protection-email %}
 - sends an email alert to organization or personal account owners, security managers, and repository administrators who are watching the repository, with a link to the secret and the reason why it was allowed.{% endif %}
 
+{% ifversion ghec or fpt %}
+{% note %}
+
+**Note:** The github.dev web-based editor doesn't support push protection. For more information about the editor, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor)." 
+
+{% endnote %}
+{% endif %}
+
 You can monitor security alerts to discover when users are bypassing push protections and creating alerts. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
 
 {% ifversion security-overview-push-protection-metrics-page %}
