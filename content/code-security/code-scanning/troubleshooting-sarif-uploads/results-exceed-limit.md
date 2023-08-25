@@ -11,6 +11,8 @@ topics:
   - Troubleshooting
 versions:
   feature: code-scanning-tool-status-page
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-sarif/results-exceed-limit
 ---
 
 ## About {% data variables.product.prodname_code_scanning %} limits on SARIF results
@@ -49,7 +51,7 @@ When soft limits are exceeded, {% data variables.product.prodname_code_scanning 
 
 ## Fixing "Analysis SARIF file rejected due to results limits"
 
-There are many considerations and potential solutions for reducing the number of results included in a SARIF results file. For guidance, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif/file-too-large)."
+There are many considerations and potential solutions for reducing the number of results included in a SARIF results file. For guidance, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads/file-too-large)."
 
 ## Fixing "Alert(s) in SARIF file exceeded thread flow location limits"
 
@@ -65,7 +67,7 @@ The simplest approach is generate a new SARIF file for each run and upload each 
 
 There are two possible approaches here.
 
-1. Reduce the number of rules you use to analyze the code. For more information, see "[Defining the query suite to run](/code-security/code-scanning/troubleshooting-sarif/file-too-large#defining-the-query-suite-to-run)" and "[Excluding a query from analysis](/code-security/code-scanning/troubleshooting-sarif/file-too-large#excluding-a-query-from-analysis)" in "SARIF results file too large."
+1. Reduce the number of rules you use to analyze the code. For more information, see "[Defining the query suite to run](/code-security/code-scanning/troubleshooting-sarif-uploads/file-too-large#defining-the-query-suite-to-run)" and "[Excluding a query from analysis](/code-security/code-scanning/troubleshooting-sarif-uploads/file-too-large#excluding-a-query-from-analysis)" in "SARIF results file too large."
 1. Run the analysis twice, each time with a different set of rules, and upload both results files to {% data variables.product.prodname_code_scanning %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#uploading-more-than-one-sarif-file-for-a-commit)."
 
 ## Fixing "Analysis SARIF file rejected due to extension limits"
@@ -76,7 +78,7 @@ The simplest approach is to create a separate SARIF file each time you run the t
 
 ## Fixing "Analysis SARIF file rejected due to location limit"
 
-The best way to resolve this problem is usually to identify the query that reports too many locations and exclude it from analysis. For information on how to do this, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif/file-too-large#excluding-a-query-from-analysis)."
+The best way to resolve this problem is usually to identify the query that reports too many locations and exclude it from analysis. For information on how to do this, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads/file-too-large#excluding-a-query-from-analysis)."
 
 ## Fixing "Analysis SARIF file rejected due to rule tag limits"
 

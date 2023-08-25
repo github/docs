@@ -14,5 +14,7 @@ children:
   - /sarif-invalid
   - /file-too-large
   - /results-exceed-limit
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-sarif
 ---
 

@@ -11,6 +11,8 @@ topics:
   - Troubleshooting
 versions:
   feature: code-scanning-tool-status-page
+redirect_from:
+  - /code-security/code-scanning/troubleshooting-sarif/default-setup-enabled
 ---
 
 ## About this error
