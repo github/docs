@@ -58,7 +58,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 
 {% tip %}
 
-**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time or save the "text code", which is the TOTP secret. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
+**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time or save the {% ifversion fpt or ghec or ghes > 3.8 %}"setup key"{% else %}"text code"{% endif %}, which is the TOTP secret. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
 
 {% endtip %}
 
