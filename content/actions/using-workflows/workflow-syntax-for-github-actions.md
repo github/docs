@@ -25,7 +25,7 @@ You must store workflow files in the `.github/workflows` directory of your repos
 
 ## `name`
 
-The name of your workflow. {% data variables.product.prodname_dotcom %} displays the names of your workflows on your repository's "Actions" tab. If you omit `name`, {% data variables.product.prodname_dotcom %} sets it to the workflow file path relative to the root of the repository.
+{% data reusables.actions.workflows.workflow-syntax-name %}
 
 {% ifversion actions-run-name %}
 
@@ -236,7 +236,7 @@ The value of this parameter is a string specifying the data type of the input. T
 
 ### Setting the `GITHUB_TOKEN` permissions for all jobs in a workflow
 
-You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow. 
+You can specify `permissions` at the top level of a workflow, so that the setting applies to all jobs in the workflow.
 
 #### Example: Setting the `GITHUB_TOKEN` permissions for an entire workflow
 
