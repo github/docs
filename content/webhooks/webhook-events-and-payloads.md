@@ -8,6 +8,8 @@ redirect_from:
   - /webhooks/event-payloads
   - /developers/webhooks-and-events/webhook-events-and-payloads
   - /developers/webhooks-and-events/webhooks/webhook-events-and-payloads
+  - /webhooks-and-events/webhooks/webhook-events-and-payloads
+  - /webhooks/webhooks/webhook-events-and-payloads
 versions:
   fpt: '*'
   ghes: '*'

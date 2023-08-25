@@ -5,6 +5,8 @@ redirect_from:
   - /v3/activity/event_types
   - /developers/webhooks-and-events/github-event-types
   - /developers/webhooks-and-events/events/github-event-types
+  - /webhooks-and-events/events/github-event-types
+  - /developers/webhooks-and-events/events
 versions:
   fpt: '*'
   ghes: '*'

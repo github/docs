@@ -6,6 +6,8 @@ redirect_from:
   - /v3/guides/automating-deployments-to-integrators
   - /v3/guides/replacing-github-services
   - /developers/overview/replacing-github-services
+  - /webhooks-and-events/webhooks/replacing-github-services
+  - /webhooks/webhooks/replacing-github-services
 versions:
   fpt: '*'
   ghes: '*'
