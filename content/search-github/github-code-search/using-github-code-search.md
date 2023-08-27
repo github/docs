@@ -1,6 +1,6 @@
 ---
 title: Using GitHub Code Search
-intro: 'You can use suggestions, completions and saved searches in the upgraded search interface to quickly find what you are looking for across {% data variables.product.prodname_dotcom_the_website %}.'
+intro: "You can use suggestions, completions and saved searches in the upgraded search interface to quickly find what you are looking for across {% data variables.product.prodname_dotcom_the_website %}."
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-code-view
@@ -27,9 +27,9 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 1. In the top navigation of {% data variables.product.prodname_dotcom_the_website %}, click the search bar.
 1. Under the search bar, you will see a list of suggestions organized by category, including recent searches and suggested repositories, teams, and projects that you have access to. You can also see a list of saved searches that you have created. For more information on saved searches, see "[Creating and managing saved searches](#creating-and-managing-saved-searches)."
 
-    ![Screenshot of the {% data variables.product.prodname_dotcom %} search bar. There is a list of search suggestions by category below the search bar.](/assets/images/help/search/code-search-beta-search-bar.png)
+   ![Screenshot of the {% data variables.product.prodname_dotcom %} search bar. There is a list of search suggestions by category below the search bar.](/assets/images/help/search/code-search-beta-search-bar.png)
 
-    If you click on any of the specific suggestions, you will be taken directly to the page for that suggestion (for example, the repository or project page). If you click on a recent or saved search, depending on the type of search, the search query will appear in the search bar or you will be taken to the search results page for the search term.
+   If you click on any of the specific suggestions, you will be taken directly to the page for that suggestion (for example, the repository or project page). If you click on a recent or saved search, depending on the type of search, the search query will appear in the search bar or you will be taken to the search results page for the search term.
 
 1. Once you start typing a search query, you will see a list of completions and suggestions that match your query. You can click on a suggestion to jump to a specific location. As you type more qualifiers, you will see more specific suggestions, such as code files you can jump to directly.
 
@@ -39,13 +39,29 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 
 ## Creating and managing saved searches
 
-## Creating and managing saved searches
-
 1. In the top navigation of {% data variables.product.prodname_dotcom_the_website %}, click the search bar and type `saved:`.
+<p align='center'>
+  <img src="/assets/images/help/search/step1navigatetosearch.png" />
+</p>
 1. Under the search bar, the "Saved queries" section should now appear. Click {% octicon "plus-circle" aria-hidden="true" %} **Manage saved searches**.
+<p align='center'>
+  <img src="/assets/images/help/search/step2clickmanagesavedsearches.png" />
+</p>
 1. In the pop-up window, fill out the name you want for your query and the query that you want to save. Click **Create saved search**.
+<p align='center'>
+  <img src="/assets/images/help/search/step3createsavedsearch.png" />
+</p>
+<p align='center'>
+  <img src="/assets/images/help/search/step3savedsearchview.png" />
+</p>
 1. If you click again on the search bar, you can now see your saved search in the "Saved queries" section under the search bar. Clicking on a saved search entry will add the query to the search bar and filter the suggestions accordingly.
-1. To edit or delete a saved search,  type `saved:` in the search bar, and click {% octicon "plus-circle" aria-hidden="true" %} **Manage saved searches**. In the pop-up window to the right of the saved search, click {% octicon "pencil" aria-label="The pencil icon" %}  to edit the search, or click {% octicon "trash" aria-label="The trash icon" %} to delete the search.
+<p align='center'>
+  <img src="/assets/images/help/search/step4savedsearchviewinnavbar.png" />
+</p>
+1. To edit or delete a saved search, type `saved:` in the search bar, and click {% octicon "plus-circle" aria-hidden="true" %} **Manage saved searches**. In the pop-up window to the right of the saved search, click {% octicon "pencil" aria-label="The pencil icon" %} to edit the search, or click {% octicon "trash" aria-label="The trash icon" %} to delete the search.
+<p align='center'>
+  <img src="/assets/images/help/search/step5savedsearchmutationview.png" />
+</p>
 
 ## Using the search results view
 
