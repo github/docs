@@ -1,3 +1,4 @@
+[index.md](https://github.com/github/docs/files/12447088/index.md)
 ---
 title: GitHub Issues documentation
 shortTitle: GitHub Issues
