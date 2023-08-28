@@ -42,6 +42,8 @@ jobs:
             // Note that *if you add* to this, remember to also add that
             // to the **required checks** in the branch protection rules.
             return [
+              { name: 'assets', path: 'src/assets/tests', },
+              // { name: 'audit-logs', path: 'src/assets/audit-logs', },
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
               { name: 'content', path: 'tests/content', },
               { name: 'content-render', path: 'src/content-render/tests', },
