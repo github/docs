@@ -1,55 +1,15 @@
-# GitHub Docs <!-- omit in toc -->
+# RSS Builder by B!Soft MarkBook RSS Feed 
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
-
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
-
-Use the table of contents icon <img src="/contributing/images/table-of-contents.png" width="25" height="25" /> on the top left corner of this document to navigate to a specific section quickly.
-
-## Contributing
-
-See [the contributing guide](CONTRIBUTING.md) for detailed instructions on how to get started with our project.
-
-We accept different [types of contributions](https://github.com/github/docs/blob/main/contributing/types-of-contributions.md), including some that don't require you to write a single line of code.
-
-On the GitHub Docs site, you can click the make a contribution button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
-
-<img src="./contributing/images/contribution_cta.png" width="400">
-
-For more complex contributions, you can open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
-
-If you're looking for a way to contribute, you can scan through our [existing issues](https://github.com/github/docs/issues) for something to work on. When ready, check out [Getting Started with Contributing](/CONTRIBUTING.md) for detailed instructions.
-
-### Join us in discussions
-
-We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing you've learned in our docs, join us in the [discussions](https://github.com/github/docs/discussions).
-
-### And that's it!
-
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
-
-That's how you can easily become a member of the GitHub Docs community. :sparkles:
-
-## READMEs
-
-In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
-
-- [content/README.md](content/README.md)
-- [content/graphql/README.md](content/graphql/README.md)
-- [content/rest/README.md](content/rest/README.md)
-- [contributing/README.md](contributing/README.md)
-- [data/README.md](data/README.md)
-- [data/reusables/README.md](data/reusables/README.md)
-- [data/variables/README.md](data/variables/README.md)
-- [src/README.md](src/README.md)
-
-## License
-
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
-
-All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
-
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
+https://www.markbook.com MarkBook RSS Feed. Keep up to date on the latest news. en-us mrichardson@acadiemgroup.com The Acadiem Group 2020 NEW MarkBook HTML5 is Here! 10 Oct 2020 10:00:00 -0400 
+https://www.markbook.com mrichardson@acadiemgroup.com News Our ALL NEW MarkBook HTML5 Web Application is Here! Flash or Flex is no longer required. Many added features in a clean new look. Now you can use MarkBook on your Chromebook, Android or iPadOS tablet as well as Windows, macOS or Linux devices. (Select tablets only) A new version of the app, 1.1.0 22 Dec 2020 16:30:00 -0400 
+https://www.markbook.com mrichardson@acadiemgroup.com News A new version of the app, 1.1.0, has been launched. It contains a major security update. Please see the Release Notes for the details. A new version of the app, 1.2.0 26 Jan 2021 17:30:00 -0400 
+https://www.markbook.com mrichardson@acadiemgroup.com News A new version of the app, 1.2.0, has been launched. You can now Copy Comments to many students at once and easily input entries on tablets using Numeric Keypad. Please see the Release Notes for the details. A new version of the app, 1.3.0 25 Mar 2021 17:30:00 -0400 
+https://www.markbook.com mrichardson@acadiemgroup.com News A new version of the app, 1.3.0, has been launched. Please see the Release Notes for the details. A new version of the app, 1.4.0 30 Apr 2021 08:00:00 -0400 
+https://www.markbook.com mrichardson@acadiemgroup.com News A new version of the app, 1.4.0, has been launched. Please see the Release Notes for the details. For TDSB users 6 Aug 2021 08:00:00 -0400 
+http://tdsb.on.ca/ mrichardson@acadiemgroup.com News TDSB users: In preparation for Single Sign On service in September, all usernames now use your Toronto District School Board email address. TDSB-logo.png Attention TDSB Users 18 Sep 2021 01:00:00 -0400 
+https://www.markbook.com mrichardson@acadiemgroup.com News On Saturday September 18th, Single Sign On (SSO) will be implemented for TDSB MarkBook (Cloud) users. After the implementation is completed, teachers will be required to sign onto MarkBook using their TDSB e- mail address and password. Teachers that are already signing onto MarkBook with their TDSB email address will have their existing class data maintained. Teachers that are currently using personal email accounts will need to contact support@markbookapp.com to request existing class data transfers, if required. TDSB-logo.png For TVDSB Users 09 Sep 2022 01:00:00 -0400 
+https://www.markbook.com News On Tuesday, September 6th, Single Sign On (SSO) was implemented for TVDSB MarkBook (Cloud) users. Teachers are now required to sign onto MarkBook using their TVDSB e-mail address and password in the Microsoft 365 Apps environment. Please follow the Information Guidesheet for "Transfer from Individual to Corporate Domain using SSO in MarkBook®”. Teachers that are already signing onto MarkBook with their TVDSB email address will have their existing class data maintained. Teachers that are currently using personal email accounts will need to contact support@markbookapp.com to request existing class data transfers, if required. TVDSB-logo.webp WECDSB 31 Oct 2022 01:00:00 -0400 
+https://www.markbook.com News WECDSB users, please ensure that you have updated ALL of your courses with the most recent Aspen extract that has your first initial and last name in the file name (i.e. see below). Furthermore, please ensure you have submitted a copy (screenshots) of your updated courses to your school-issued Google form. WECDSB-logo.png
 
 ## Thanks :purple_heart:
 
