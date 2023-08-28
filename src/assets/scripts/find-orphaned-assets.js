@@ -102,6 +102,7 @@ async function main(opts) {
     'stylesheets',
     'contributing',
     'src',
+    'assets',
     '.github/actions-scripts',
   ]
 
