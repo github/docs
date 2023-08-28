@@ -31,15 +31,15 @@ Audit logs for {% data variables.product.prodname_copilot_business_short %} can 
 
 ## Audit log events for {% data variables.product.prodname_copilot_business_short %}
 
-You can search for any of the {% data variables.product.prodname_copilot %} audit log events using the `action` qualifier, and the `copilot` category. For example, `action:copilot.cfb_seat_added`. Alternatively, you can review all of the {% data variables.product.prodname_copilot %} audit log events for your organization{% ifversion ghec %} or enterprise{% endif %} by searching for `action:copilot`.
+You can search for any of the {% data variables.product.prodname_copilot %} audit log events using the `action` qualifier, and the `copilot` category. For example, `action:copilot.cfb_seat_assignment_created`. Alternatively, you can review all of the {% data variables.product.prodname_copilot %} audit log events for your organization{% ifversion ghec %} or enterprise{% endif %} by searching for `action:copilot`.
 
 | Action | Description
 |------------------|-------------------{% ifversion ghec %}
 |`cfb_enterprise_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the enterprise level.
+|`copilot.cfb_enterprise_org_enablement_changed | The {% data variables.product.prodname_copilot_business_short %} enablement policy changed at the enterprise level or for an organization within the enterprise.
 |`clickwrap_save_event`| The {% data variables.product.prodname_copilot %} Product Specific Terms were accepted.{% endif %}
 |`cfb_org_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the organization level.
-|`cfb_seat_added`| A seat was added to the {% data variables.product.prodname_copilot_business_short %} subscription.
-|`cfb_seat_cancelled`| A seat was cancelled from the {% data variables.product.prodname_copilot_business_short %} subscription.
+|`copilot.cfb_seat_cancelled_by_staff`| A seat was cancelled from the {% data variables.product.prodname_copilot_business_short %} subscription manually by GitHub staff.
 |`cfb_seat_management_changed`| The seat management setting was changed for the {% data variables.product.prodname_copilot_business_short %} subscription.
 |`cfb_seat_assignment_reused`| A seat assignment was created for a user who already had a seat with no pending cancellation date.
 |`cfb_seat_assignment_refreshed`| A seat assignment that was already pending cancellation was created, revoking the cancellation.
