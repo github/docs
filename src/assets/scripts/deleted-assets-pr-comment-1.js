@@ -18,7 +18,7 @@
 // [end-readme]
 
 import { program } from 'commander'
-import main from '../.github/actions-scripts/deleted-assets-pr-comment.js'
+import main from './deleted-assets-pr-comment.js'
 
 program
   .description('If applicable, print a snippet of Markdown about deleted assets')

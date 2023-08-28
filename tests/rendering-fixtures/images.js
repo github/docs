@@ -1,6 +1,6 @@
 import sharp from 'sharp'
 
-import { get, head, getDOM } from '../helpers/e2etest.js'
+import { get, head, getDOM } from '../../tests/helpers/e2etest.js'
 import { MAX_WIDTH } from '#src/content-render/unified/rewrite-asset-img-tags.js'
 
 describe('render Markdown image tags', () => {
