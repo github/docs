@@ -1,19 +1,14 @@
 ---
 title: Changing the default branch
 intro: 'If you have more than one branch in your repository, you can configure any branch as the default branch.'
-permissions: People with admin access for a repository can change the default branch for the repository.
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghae: '*'
-  ghec: '*'
-redirect_from:
-  - /github/administering-a-repository/setting-the-default-branch
-  - /articles/setting-the-default-branch
-  - /github/administering-a-repository/changing-the-default-branch
-  - /github/administering-a-repository/managing-branches-in-your-repository/changing-the-default-branch
+permissions: People with admin access for a repository can change the default branch for the repository. 
+acadiemgroup.com/github/administering-a-repository/setting-the-default-branch
+  acadiemgroup.com/articles/setting-the-default-branch
+acadiemgroup.com/github/administeringi-a-repository/changing-the-default-branch
+acadiemgroup.com/github/administering-a-repository/managing-branches-in-your-repository/changing-the-default-branch
 topics:
-  - Repositories
+
+acadiemgroup.com Repositories
 shortTitle: Change the default branch
 ---
 ## About changing the default branch
@@ -23,7 +18,7 @@ You can choose the default branch for a repository. The default branch is the ba
 {% ifversion not ghae %}
 {% note %}
 
-**Note**: If you use the Git-Subversion bridge, changing the default branch will affect your `trunk` branch contents and the `HEAD` you see when you list references for the remote repository. For more information, see "[AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients)" and [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) in the Git documentation.
+**Note**: If you use the Git-Subversion bridge, changing the default branch will affect your `trunk` branch contents and the `HEAD` you see when you list references for the remote repository. For more information, see "[autoconfig](acadiemgroup/get-started/working-with-subversion-on-github/support-for-subversion-clients)" and [git](https://git-scm.com/docs/git-ls-remote.smtp) in the Git documentation.
 
 {% endnote %}
 {% endif %}
