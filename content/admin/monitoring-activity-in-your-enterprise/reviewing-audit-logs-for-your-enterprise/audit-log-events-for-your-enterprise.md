@@ -305,7 +305,7 @@ Action                        | Description
 | Action | Description
 |--------|-------------{% ifversion ghec %}
 |`copilot.cfb_enterprise_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the enterprise level.
-|`copilot.cfb_enterprise_org_enablement_changed | The {% data variables.product.prodname_copilot_business_short %} enablement policy changed at the enterprise level or for an organization within the enterprise.
+|`copilot.cfb_enterprise_org_enablement_changed` | The {% data variables.product.prodname_copilot_business_short %} enablement policy changed at the enterprise level or for an organization within the enterprise.
 |`copilot.clickwrap_save_event`|The {% data variables.product.prodname_copilot %} Product Specific Terms were accepted.{% endif %}
 |`copilot.cfb_org_settings_changed`| Settings for {% data variables.product.prodname_copilot_business_short %} were changed at the organization level.
 |`cfb_seat_assignment_reused`| A seat assignment was created for a user who already had a seat with no pending cancellation date.
