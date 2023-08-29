@@ -40,7 +40,7 @@ body:
 You can set the following top-level keys for each issue form.
 
 | Key | Description | Required | Type |
-| :-- | :-- | :-- | :-- | :-- |
+| :-- | :-- | :-- | :-- |
 | `name` | A name for the issue form template. Must be unique from all other templates, including Markdown templates. | Required | String |
 | `description` | A description for the issue form template, which appears in the template chooser interface. | Required | String |
 | `body` | Definition of the input types in the form. | Required | Array |
