@@ -29,4 +29,17 @@ export const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'search-replace': {
+    severity: 'error',
+    'severity-local-env': 'warning',
+    'partial-markdown-files': true,
+    rules: [
+      {
+        name: 'todocs-placeholder',
+        message: 'Catch occurrences of TODOCS placeholder.',
+        search: 'TODOCS',
+        searchScope: 'all',
+      },
+    ],
+  },
 }
