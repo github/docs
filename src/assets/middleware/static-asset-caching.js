@@ -1,4 +1,7 @@
-import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-key.js'
+import {
+  setFastlySurrogateKey,
+  SURROGATE_ENUMS,
+} from '../../../middleware/set-fastly-surrogate-key.js'
 
 export default function setStaticAssetCaching(req, res, next) {
   if (isChecksummed(req.path)) {
