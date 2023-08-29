@@ -26,11 +26,7 @@ export const DeprecationBanner = () => {
         <p>
           <b className="text-bold">
             <span dangerouslySetInnerHTML={{ __html: message }} />{' '}
-            <span
-              data-date={enterpriseServerReleases.nextDeprecationDate}
-              data-format="%B %d, %Y"
-              title={enterpriseServerReleases.nextDeprecationDate}
-            >
+            <span data-date={enterpriseServerReleases.nextDeprecationDate} data-format="%B %d, %Y">
               {enterpriseServerReleases.nextDeprecationDate}
             </span>
             .

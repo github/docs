@@ -67,7 +67,7 @@ children:
   - packages
   - search-github
   - apps
-  - webhooks-and-events
+  - webhooks
   - rest
   - graphql
   - github-cli
@@ -132,7 +132,7 @@ childGroups:
       - apps
       - rest
       - graphql
-      - webhooks-and-events
+      - webhooks
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
@@ -169,3 +169,4 @@ externalProducts:
     href: 'https://docs.npmjs.com/'
     external: true
 ---
+

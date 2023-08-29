@@ -1,5 +1,6 @@
 import { getDataByLanguage } from '../../lib/get-data.js'
 import { getDOM } from '../helpers/e2etest.js'
+import { supported } from '../../lib/enterprise-server-releases.js'
 
 describe('spotlight', () => {
   test('renders styled warnings', async () => {
@@ -152,6 +153,8 @@ describe('ifversion', () => {
   // the matchesPerVersion object contains a list of conditions that
   // should match per version tested, but we also operate against it
   // to find out versions that shouldn't match
+  const ghesLast = `enterprise-server@${supported[supported.length - 1]}`
+  const ghesPenultimate = `enterprise-server@${supported[supported.length - 2]}`
   const matchesPerVersion = {
     'free-pro-team@latest': [
       'condition-a',
@@ -162,7 +165,7 @@ describe('ifversion', () => {
       'condition-l',
     ],
     'enterprise-cloud@latest': ['condition-c', 'condition-j', 'condition-l'],
-    'enterprise-server@3.6': [
+    [ghesLast]: [
       'condition-c',
       'condition-e',
       'condition-f',
@@ -174,7 +177,7 @@ describe('ifversion', () => {
       'condition-n',
       'condition-o',
     ],
-    'enterprise-server@3.7': [
+    [ghesPenultimate]: [
       'condition-c',
       'condition-e',
       'condition-f',

@@ -84,16 +84,6 @@ When looking directly at an STL file on {% data variables.product.product_name %
 - Scroll to zoom in and out.
 - Click the different view modes to change the view.
 
-### Diffs
-
-When looking at a commit or set of changes which includes an STL file, you'll be able to see a before and after diff of the file.
-
-By default, you'll get a view where everything unchanged is in wireframe. Additions are colored in green, and removed parts are colored in red.
-
-![Screenshot of the diff for a STL file. Portions of a 3D object are red, and other portions are green.](/assets/images/help/repository/stl_wireframe.png)
-
-You can also select the **Revision Slider** option, which lets you use a slider at the top of the file to transition between the current and previous revisions.
-
 ### Fixing slow performance
 
 If you see {% octicon "info" aria-label="the info icon" %} in the corner of the viewer, with the tooltip "WebGL powered hardware support not available," then the WebGL technology is not available on your browser.

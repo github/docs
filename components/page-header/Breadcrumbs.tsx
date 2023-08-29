@@ -36,7 +36,7 @@ export const Breadcrumbs = ({ inHeader }: Props) => {
             const title = `${breadcrumb.title}`
             return [
               !breadcrumb.href ? (
-                <span data-testid="breadcrumb-title" key={title} title={title} className="px-2">
+                <span data-testid="breadcrumb-title" key={title} className="px-2">
                   {breadcrumb.title}
                 </span>
               ) : (

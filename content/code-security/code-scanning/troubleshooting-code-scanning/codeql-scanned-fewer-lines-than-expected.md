@@ -3,7 +3,6 @@ title: 'CodeQL scanned fewer lines than expected'
 shortTitle: 'Fewer lines scanned than expected'
 intro: 'If {% data variables.product.prodname_codeql %} analyzed less code than than you expected, you may need to use a custom build command.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'

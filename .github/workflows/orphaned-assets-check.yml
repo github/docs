@@ -41,7 +41,10 @@ jobs:
         run: |
           set -e
 
-          ./script/find-orphaned-assets.js | xargs git rm
+          filesToRemove=`./src/assets/scripts/find-orphaned-assets.js`
+          [ -z "$filesToRemove" ] && exit 0
+
+          echo $filesToRemove | xargs git rm
 
           git status
 

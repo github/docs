@@ -329,8 +329,6 @@ If you use the same configuration as in the example above, bumping the `requests
 {% ifversion dependabot-version-updates-groups %}
 ### `groups`
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
-
 {% data reusables.dependabot.dependabot-version-updates-groups-supported %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
@@ -340,6 +338,8 @@ If you use the same configuration as in the example above, bumping the `requests
 {% data reusables.dependabot.dependabot-version-updates-supported-options-for-groups %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+
+{% data variables.product.prodname_dependabot %} creates groups in the order they appear in your `dependabot.yml` file. If a dependency update could belong to more than one group, it is only assigned to the first group it matches with.
 
 If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal. {% data variables.product.prodname_dotcom %} reports in the logs if a group is empty. For more information, see "[{% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-fails-to-group-a-set-of-dependencies-into-a-single-pull-request)."
 
