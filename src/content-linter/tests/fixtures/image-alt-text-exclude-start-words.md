@@ -1,0 +1,6 @@
+![This is ok image](/images/this-is-ok.png)
+![Image with alt text](/images/image-with-alt-text.png)
+![image with alt text](/images/image-with-alt-text.png)
+![Graphic with alt text](/images/graphic-with-alt-text.png)
+![graphic with alt text](/images/graphic-with-alt-text.png)
+![This is ok grapic](/images/this-is-ok.png)

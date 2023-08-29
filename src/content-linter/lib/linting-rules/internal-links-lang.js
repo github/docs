@@ -1,6 +1,6 @@
 import { filterTokens } from 'markdownlint-rule-helpers'
 
-import { addFixErrorDetail } from '../helpers/utils.js'
+import { addFixErrorDetail, getRange } from '../helpers/utils.js'
 import { languageKeys } from '../../../../lib/languages.js'
 
 export const internalLinksLang = {
@@ -27,13 +27,14 @@ export const internalLinksLang = {
             }
           }
         } else if (child.type === 'link_close') {
+          const range = getRange(token.line, child.content)
           if (internalLinkHasLang) {
             addFixErrorDetail(
               onError,
               child.lineNumber,
               linkHref.replace(/(\/)?[a-z]{2}/, ''),
               linkHref,
-              undefined, // Todo add range
+              range,
               {
                 lineNumber: child.lineNumber,
                 editColumn: token.line.indexOf('(') + 2,
