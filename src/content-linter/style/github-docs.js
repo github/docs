@@ -29,6 +29,11 @@ export const githubDocsConfig = {
     severity: 'error',
     'partial-markdown-files': true,
   },
+  'image-alt-text-exclude-words': {
+    // GHD007
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
   'search-replace': {
     severity: 'error',
     'severity-local-env': 'warning',

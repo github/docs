@@ -6,6 +6,7 @@ import { imageFileKebab } from './image-file-kebab.js'
 import { incorrectAltTextLength } from './image-alt-text-length.js'
 import { internalLinksLang } from './internal-links-lang.js'
 import { internalLinksSlash } from './internal-links-slash.js'
+import { imageAltTextExcludeStartWords } from './image-alt-text-exclude-start-words.js'
 
 export const gitHubDocsMarkdownlint = {
   rules: [
@@ -16,5 +17,6 @@ export const gitHubDocsMarkdownlint = {
     incorrectAltTextLength,
     internalLinksLang,
     internalLinksSlash,
+    imageAltTextExcludeStartWords,
   ],
 }
