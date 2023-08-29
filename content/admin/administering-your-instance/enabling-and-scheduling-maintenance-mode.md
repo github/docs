@@ -78,9 +78,19 @@ You can also use a command-line utility to configure the IP exception list. For 
 
 {% endif %}
 
+{% ifversion maintenance-management-api %}
+
+## Managing maintenance mode using the REST API
+
+You can manage maintenance mode on {% data variables.location.product_location %} using the REST API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes#get-the-status-of-maintenance-mode)" in the REST API documentation.
+
+{% else %}
+
 ## Scheduling maintenance mode with the {% data variables.product.prodname_enterprise_api %}
 
-You can schedule maintenance for different times or dates with the {% data variables.product.prodname_enterprise_api %}. For more information, see "[AUTOTITLE](/rest/enterprise-admin#enable-or-disable-maintenance-mode)."
+You can schedule maintenance for different times or dates with the {% data variables.product.prodname_enterprise_api %}. For more information, see "[AUTOTITLE](/rest/enterprise-admin/management-console#enable-or-disable-maintenance-mode)."
+
+{% endif %}
 
 ## Enabling or disabling maintenance mode for {% data variables.product.prodname_ghe_server %} via the CLI
 
