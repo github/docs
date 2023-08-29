@@ -115,9 +115,9 @@ import hashlib
 import hmac
 def verify_signature(payload_body, secret_token, signature_header):
     """Verify that the payload was sent from GitHub by validating SHA256.
-    
+
     Raise and return 403 if not authorized.
-    
+
     Args:
         payload_body: original request body to verify (request.body())
         secret_token: GitHub app webhook token (WEBHOOK_SECRET)
@@ -210,5 +210,5 @@ const handleWebhook = (req: Request, res: Response) => {
 };
 ```
 
-[secure_compare]: https://rubydoc.info/github/rack/rack/main/Rack/Utils:secure_compare
+[secure_compare]: https://www.rubydoc.info/gems/rack/Rack%2FUtils:secure_compare
 [timingSafeEqual]: https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b

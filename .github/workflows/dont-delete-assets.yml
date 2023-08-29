@@ -37,7 +37,7 @@ jobs:
         id: comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: .github/actions-scripts/deleted-assets-pr-comment.js
+        run: src/assets/scripts/deleted-assets-pr-comment.js
 
       - name: Find possible previous comment
         if: ${{ steps.comment.outputs.markdown != '' }}
