@@ -301,11 +301,11 @@ A content file can have **two** types of versioning:
 
 ## Filenames
 
-When adding a new article, the filename is a [kebab-cased](https://en.wikipedia.org/wiki/Letter_case#Special_case_styles) version of the article's [`title`](#title) frontmatter. For example, the article "[About GitHub CLI](https://docs.github.com/en/github-cli/github-cli/about-github-cli)" has a `title` frontmatter of `About GitHub CLI` and a filename of `about-github-cli.md`.
+When adding a new article, the filename is a [kebab-cased](https://en.wikipedia.org/wiki/Letter_case#Kebab_case) version of the article's [`title`](#title) frontmatter. For example, the article "[About GitHub CLI](https://docs.github.com/en/github-cli/github-cli/about-github-cli)" has a `title` frontmatter of `About GitHub CLI` and a filename of `about-github-cli.md`.
 
 Directory names for categories and map topics can match the `title` or `shortTitle` frontmatter.
 
-For titles that have punctuation (such as "GitHub's Billing Plans"), you can omit punctuation in filenames (`githubs-billing-plans.md`). For titles that use Liquid variables (such as `About {% data variables.product.prodname_emus %}`), you can use the words that the Liquid renders as in filenames (`about-enterprise-managed-users.md`). A test will flag any discrepancies between title and filename. To override the requirement that titles and filenames match for a given article, you can add [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename) in the frontmatter.
+For a title that contains punctuation (such as "GitHub's Billing Plans"), you can omit the punctuation in the filename (`githubs-billing-plans.md`). For a title that uses a Liquid variable (such as `About {% data variables.product.prodname_emus %}`), you can use the words that the Liquid renders as in the filename (`about-enterprise-managed-users.md`). A test will flag any discrepancies between title and filename. To override the requirement that titles and filenames match for a given article, you can add [`allowTitleToDifferFromFilename`](#allowtitletodifferfromfilename) in the frontmatter.
 
 ## Whitespace control
 
