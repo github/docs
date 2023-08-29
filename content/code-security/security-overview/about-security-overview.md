@@ -21,7 +21,6 @@ topics:
   - Organizations
   - Secret scanning
   - Teams
-shortTitle: Security overview
 ---
 
 {% data reusables.security-overview.beta %}
