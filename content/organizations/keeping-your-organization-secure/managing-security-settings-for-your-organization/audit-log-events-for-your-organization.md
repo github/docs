@@ -392,6 +392,15 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `deauthorized` | Triggered when a member [deauthorizes credentials for use with SAML single sign-on](/authentication/authenticating-with-saml-single-sign-on).
 | `revoke` | Triggered when an owner [revokes authorized credentials](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization).
 
+{% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
+
+## `org_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|------------------|-------------------
+| `disabled` | Triggered when automatic validity checks for {% data variables.product.prodname_secret_scanning %} are disabled in an organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
+| `enabled` | Triggered when automatic validity checks for {% data variables.product.prodname_secret_scanning %} are enabled in an organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
+
 {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 
 ## `org_secret_scanning_custom_pattern` category actions
@@ -612,6 +621,16 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 |------------------|-------------------
 | `disable` | Triggered when a repository owner or person with admin access to the repository disables {% data variables.product.prodname_secret_scanning %} for a repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_secret_scanning %} for a repository.
+
+{% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
+
+
+## `repository_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|------------------|-------------------
+| `disabled` | Triggered when automatic validity checks for {% data variables.product.prodname_secret_scanning %} are disabled in a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+| `enabled` | Triggered when automatic validity checks for {% data variables.product.prodname_secret_scanning %} are enabled in a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
 
 {% endif %}{% ifversion secret-scanning-audit-log-custom-patterns %}
 
