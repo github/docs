@@ -40,11 +40,15 @@ For more information about the search syntax of code search, see "[AUTOTITLE](/s
 ## Creating and managing saved searches
 
 1. In the top navigation of {% data variables.product.prodname_dotcom_the_website %}, click the search bar and type `saved:`.
-1. Under the search bar, the "Saved searches" section should now appear. Click {% octicon "plus-circle" aria-hidden="true" %} **Create saved search**.
+![GitHub top navigation, user typing 'saved:' in search bar.](/assets/images/help/search/navigatetosearch.png)
+1. Under the search bar, the "Saved queries" section should now appear. Click {% octicon "plus-circle" aria-hidden="true" %} **Manage saved searches**.
+!['Saved queries' section, user clicking 'Manage saved searches'.](/assets/images/help/search/selectmanagesavedsearch.png)
 1. In the pop-up window, fill out the name you want for your query and the query that you want to save. Click **Create saved search**.
-1. If you click again on the search bar, you can now see your saved search in the "Saved searches" section under the search bar. Clicking on a saved search entry will add the query to the search bar and filter the suggestions accordingly.
-    - To edit a saved search, in the "Saved searches" section, click {% octicon "pencil" aria-label="The pencil icon" %} to the right of the saved search.
-    - To delete a saved search, click {% octicon "trash" aria-label="The trash icon" %} to the right of the saved search.
+![Pop-up window, user creating saved search with name and query.](/assets/images/help/search/savedsearchquery.png)
+1. If you click again on the search bar, you can now see your saved search in the "Saved queries" section under the search bar. Clicking on a saved search entry will add the query to the search bar and filter the suggestions accordingly.
+![Search bar, 'Saved queries' section displaying saved search.](/assets/images/help/search/savedsearchviewinnavbar.png)
+1. To edit or delete a saved search, type `saved:` in the search bar, and click {% octicon "plus-circle" aria-hidden="true" %} **Manage saved searches**. In the pop-up window to the right of the saved search, click {% octicon "pencil" aria-label="The pencil icon" %} to edit the search, or click {% octicon "trash" aria-label="The trash icon" %} to delete the search.
+![Search results, 'Manage saved searches' pop-up open for edit or delete.](/assets/images/help/search/deletesavedquery.png)
 
 ## Using the search results view
 
