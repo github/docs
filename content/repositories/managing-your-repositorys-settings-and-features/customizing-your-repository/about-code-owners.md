@@ -141,6 +141,12 @@ apps/ @octocat
 # subdirectory, as its owners are left empty.
 /apps/ @octocat
 /apps/github
+
+# In this example, @octocat owns any file in the `/apps`
+# directory in the root of your repository except for the `/apps/github`
+# subdirectory, as this subdirectory has its own owner @doctocat
+/apps/ @octocat
+/apps/github @doctocat
 ```
 
 ## CODEOWNERS and branch protection
