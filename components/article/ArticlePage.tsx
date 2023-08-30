@@ -20,7 +20,7 @@ import { LearningTrackCard } from 'src/learning-track/components/article/Learnin
 import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { Link } from 'components/Link'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { LinkPreviewPopover } from 'components/LinkPreviewPopover'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {

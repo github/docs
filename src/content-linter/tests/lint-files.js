@@ -15,7 +15,7 @@ import semver from 'semver'
 import { jest } from '@jest/globals'
 
 import { frontmatter, deprecatedProperties } from '../../../lib/frontmatter.js'
-import languages from '../../../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 import releaseNotesSchema from '../lib/release-notes-schema.js'
 import learningTracksSchema from '../lib/learning-tracks-schema.js'
 import { liquid } from '#src/content-render/index.js'

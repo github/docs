@@ -6,7 +6,7 @@ import fs from 'fs'
 
 import dotenv from 'dotenv'
 
-import { ROOT, TRANSLATIONS_ROOT, TRANSLATIONS_FIXTURE_ROOT } from './constants.js'
+import { ROOT, TRANSLATIONS_ROOT, TRANSLATIONS_FIXTURE_ROOT } from '../../../lib/constants.js'
 
 dotenv.config()
 

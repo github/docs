@@ -13,9 +13,9 @@ import Bottleneck from 'bottleneck'
 //    npm install --include=optional
 //
 
-import { loadPages } from '../../lib/page-data.js'
-import { allVersions } from '../../lib/all-versions.js'
-import languages from '../../lib/languages.js'
+import { loadPages } from '../../../lib/page-data.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import languages from '#src/languages/lib/languages.js'
 const port = 4002
 
 dotenv.config()

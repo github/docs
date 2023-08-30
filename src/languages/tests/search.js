@@ -1,5 +1,5 @@
-import { languageKeys } from '../../lib/languages'
-import { get } from '../helpers/e2etest.js'
+import { languageKeys } from '#src/languages/lib/languages'
+import { get } from '../../../tests/helpers/e2etest.js'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 
