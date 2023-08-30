@@ -1,0 +1,3 @@
+If you changed to a virtual machine with a different storage capacity (for example, from 32 GB to 64 GB), your codespace will be unavailable for a short time while the machine type is changed. If the codespace is currently active, it will automatically be stopped. When the change is complete, you'll be able to restart the codespace running on the new machine type.
+
+If you changed to a virtual machine with the same storage capacity, the change will be applied the next time you restart the codespace. An active codespace will not be stopped automatically. For more information on restarting a codespace, see "[AUTOTITLE](/codespaces/developing-in-codespaces/stopping-and-starting-a-codespace#restarting-a-codespace)."

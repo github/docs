@@ -1,1 +1,0 @@
-1. Klicke unter „{% data variables.product.prodname_insights %} License" (Lizenz) auf „Choose Files" (Dateien Auswählen), dann lade Deine {% data variables.product.prodname_enterprise %} Lizenzdatei. ![Schaltfläche „Choose Files" (Dateien Auswählen)](/assets/images/help/insights/choose-files.png)

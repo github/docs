@@ -1,0 +1,1 @@
+You can view whether your organization members have two-factor authentication enabled and choose to require two-factor authentication in your organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization)."

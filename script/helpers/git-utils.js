@@ -1,54 +1,59 @@
-const github = require('./github')()
+#!/usr/bin/env node
+import crypto from 'crypto'
+import fs from 'fs/promises'
+
+import Github from './github.js'
+const github = Github()
 
 // https://docs.github.com/rest/reference/git#get-a-reference
-async function getCommitSha (owner, repo, ref) {
+export async function getCommitSha(owner, repo, ref) {
   try {
     const { data } = await github.git.getRef({
       owner,
       repo,
-      ref
+      ref,
     })
     return data.object.sha
   } catch (err) {
     console.log('error getting tree')
-    throw (err)
+    throw err
   }
 }
 
 // https://docs.github.com/rest/reference/git#list-matching-references
-async function listMatchingRefs (owner, repo, ref) {
+export async function listMatchingRefs(owner, repo, ref) {
   try {
     // if the ref is found, this returns an array of objects;
     // if the ref is not found, this returns an empty array
     const { data } = await github.git.listMatchingRefs({
       owner,
       repo,
-      ref
+      ref,
     })
     return data
   } catch (err) {
     console.log('error getting tree')
-    throw (err)
+    throw err
   }
 }
 
 // https://docs.github.com/rest/reference/git#get-a-commit
-async function getTreeSha (owner, repo, commitSha) {
+export async function getTreeSha(owner, repo, commitSha) {
   try {
     const { data } = await github.git.getCommit({
       owner,
       repo,
-      commit_sha: commitSha
+      commit_sha: commitSha,
     })
     return data.tree.sha
   } catch (err) {
     console.log('error getting tree')
-    throw (err)
+    throw err
   }
 }
 
 // https://docs.github.com/rest/reference/git#get-a-tree
-async function getTree (owner, repo, ref, allowedPaths = []) {
+export async function getTree(owner, repo, ref) {
   const commitSha = await getCommitSha(owner, repo, ref)
   const treeSha = await getTreeSha(owner, repo, commitSha)
   try {
@@ -56,50 +61,183 @@ async function getTree (owner, repo, ref, allowedPaths = []) {
       owner,
       repo,
       tree_sha: treeSha,
-      recursive: 1
+      recursive: 1,
     })
     // only return files that match the patterns in allowedPaths
     // skip actions/changes files
     return data.tree
   } catch (err) {
     console.log('error getting tree')
-    throw (err)
+    throw err
   }
 }
 
 // https://docs.github.com/rest/reference/git#get-a-blob
-async function getContentsForBlob (owner, repo, blob) {
+export async function getContentsForBlob(owner, repo, sha) {
   const { data } = await github.git.getBlob({
     owner,
     repo,
-    file_sha: blob.sha
+    file_sha: sha,
   })
   // decode blob contents
   return Buffer.from(data.content, 'base64')
 }
 
 // https://docs.github.com/rest/reference/repos#get-repository-content
-async function getContents (owner, repo, ref, path) {
+export async function getContents(owner, repo, ref, path) {
   try {
-    const { data } = await github.repos.getContents({
+    const { data } = await github.repos.getContent({
       owner,
       repo,
       ref,
-      path
+      path,
     })
-    // decode contents
+
+    if (!data.content) {
+      const blob = await getContentsForBlob(owner, repo, data.sha)
+      // decode Base64 encoded contents
+      return Buffer.from(blob, 'base64').toString()
+    }
+    // decode Base64 encoded contents
     return Buffer.from(data.content, 'base64').toString()
   } catch (err) {
     console.log(`error getting ${path} from ${owner}/${repo} at ref ${ref}`)
-    throw (err)
+    throw err
   }
 }
 
-module.exports = {
-  getTree,
-  getTreeSha,
-  getCommitSha,
-  getContentsForBlob,
-  getContents,
-  listMatchingRefs
+// https://docs.github.com/en/rest/reference/pulls#list-pull-requests
+export async function listPulls(owner, repo) {
+  try {
+    const { data } = await github.pulls.list({
+      owner,
+      repo,
+      per_page: 100,
+    })
+    return data
+  } catch (err) {
+    console.log(`error listing pulls in ${owner}/${repo}`)
+    throw err
+  }
+}
+
+export async function createIssueComment(owner, repo, pullNumber, body) {
+  try {
+    const { data } = await github.issues.createComment({
+      owner,
+      repo,
+      issue_number: pullNumber,
+      body,
+    })
+    return data
+  } catch (err) {
+    console.log(`error creating a review comment on PR ${pullNumber} in ${owner}/${repo}`)
+    throw err
+  }
+}
+
+// Search for a string in a file in code and return the array of paths to files that contain string
+export async function getPathsWithMatchingStrings(
+  strArr,
+  org,
+  repo,
+  { cache = true, forceDownload = false } = {},
+) {
+  const perPage = 100
+  const paths = new Set()
+
+  for (const str of strArr) {
+    try {
+      const q = `q=${str}+in:file+repo:${org}/${repo}`
+      let currentPage = 1
+      let totalCount = 0
+      let currentCount = 0
+
+      do {
+        const data = await searchCode(q, perPage, currentPage, cache, forceDownload)
+        data.items.map((el) => paths.add(el.path))
+        totalCount = data.total_count
+        currentCount += data.items.length
+        currentPage++
+      } while (currentCount < totalCount)
+    } catch (err) {
+      console.log(`error searching for ${str} in ${org}/${repo}`)
+      throw err
+    }
+  }
+
+  return paths
+}
+
+async function searchCode(q, perPage, currentPage, cache = true, forceDownload = false) {
+  const cacheKey = `searchCode-${q}-${perPage}-${currentPage}`
+  const tempFilename = `/tmp/searchCode-${crypto
+    .createHash('md5')
+    .update(cacheKey)
+    .digest('hex')}.json`
+
+  if (!forceDownload && cache) {
+    try {
+      return JSON.parse(await fs.readFile(tempFilename, 'utf8'))
+    } catch (error) {
+      if (error.code !== 'ENOENT') {
+        throw error
+      }
+      console.log(`Cache miss on ${tempFilename} (${cacheKey})`)
+    }
+  }
+
+  try {
+    const { data } = await secondaryRateLimitRetry(github.rest.search.code, {
+      q,
+      per_page: perPage,
+      page: currentPage,
+    })
+    if (cache) {
+      await fs.writeFile(tempFilename, JSON.stringify(data))
+      console.log(`Wrote search results to ${tempFilename}`)
+    }
+
+    return data
+  } catch (err) {
+    console.log(`error searching for ${q} in code`)
+    throw err
+  }
+}
+
+async function secondaryRateLimitRetry(callable, args, maxAttempts = 10, sleepTime = 1000) {
+  try {
+    const response = await callable(args)
+    return response
+  } catch (err) {
+    // If you get a secondary rate limit error (403) you'll get a data
+    // response that includes:
+    //
+    //  {
+    //    documentation_url: 'https://docs.github.com/en/free-pro-team@latest/rest/overview/resources-in-the-rest-api#secondary-rate-limits',
+    //    message: 'You have exceeded a secondary rate limit. Please wait a few minutes before you try again.'
+    //  }
+    //
+    // Let's look for that an manually self-recurse, under certain conditions
+    const lookFor = 'You have exceeded a secondary rate limit.'
+    if (
+      err.status &&
+      err.status === 403 &&
+      err.response?.data?.message.includes(lookFor) &&
+      maxAttempts > 0
+    ) {
+      console.warn(
+        `Got secondary rate limit blocked. Sleeping for ${
+          sleepTime / 1000
+        } seconds. (attempts left: ${maxAttempts})`,
+      )
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(secondaryRateLimitRetry(callable, args, maxAttempts - 1, sleepTime * 2))
+        }, sleepTime)
+      })
+    }
+
+    throw err
+  }
 }

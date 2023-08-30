@@ -1,2 +1,1 @@
-1. Under {% if currentVersion ver_gt "enterprise-server@2.21" or currentVersion == "github-ae@latest" %} {% octicon "law" aria-label="The law icon" %} **Policies**{% else %}"{% octicon "gear" aria-label="The Settings gear" %} Settings"{% endif %}, click **Options**.
-![Options tab in the enterprise account settings sidebar](/assets/images/enterprise/business-accounts/settings-options-tab.png)
+1. Under {% ifversion ghes or ghae %} {% octicon "law" aria-hidden="true" %} **Policies**{% else %}"{% octicon "gear" aria-hidden="true" %} Settings"{% endif %}, click **Options**.

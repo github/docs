@@ -1,0 +1,7 @@
+# Reference: PR#31251
+# New action for the `workflow_run` webhook event that is triggered when a workflow run is `in_progress`.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>=3.8'

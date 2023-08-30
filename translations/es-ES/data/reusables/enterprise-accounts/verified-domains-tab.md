@@ -1,1 +1,0 @@
-1. Debajo de "Configuración", da clic en **Dominios verificados**. ![Pestaña de "Dominios verificados"](/assets/images/help/enterprises/verified-domains-tab.png)

@@ -8,4 +8,6 @@
 
 source script/check-for-node
 
+# TODO would need git clones from the language repos
+
 npm run start-all-languages

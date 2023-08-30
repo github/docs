@@ -1,0 +1,1 @@
+When you first publish a package, the default visibility is private. To change the visibility or set access permissions, see "[AUTOTITLE](/packages/learn-github-packages/configuring-a-packages-access-control-and-visibility)."

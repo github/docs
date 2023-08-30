@@ -1,1 +1,0 @@
-O [objeto de evento](#event-object-common-properties) inclui propriedades comuns para todos os eventos. Cada objeto de evento inclui uma propriedade de `carga` e o valor é único para cada tipo de evento. O objeto de `carga` para este evento está descrito abaixo.

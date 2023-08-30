@@ -1,1 +1,0 @@
-If you're starting a monthly sponsorship on behalf of your user account, you'll immediately be charged a prorated amount for the time until your next regular billing date. 如果您代表组织进行赞助，可以选择按比例支付金额或按月全额付款。

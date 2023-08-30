@@ -1,1 +1,0 @@
-- **Tempo de execução do fluxo de trabalho** - Cada execução do fluxo de trabalho é limitada a 72 horas. Se a execução de um fluxo de trabalho atingir esse limite, a execução do fluxo de trabalho será cancelada.

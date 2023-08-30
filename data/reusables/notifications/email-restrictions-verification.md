@@ -1,0 +1,1 @@
+{% ifversion fpt or ghec %}To continue receiving email notifications after you enable restrictions, members must verify any email addresses within domains that you verify or approve. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."{% endif %}

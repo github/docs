@@ -1,1 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" %}新しいOrganizationを作成すると、{% data variables.product.prodname_oauth_app %}のアクセス制限はデフォルトで有効です。 Organizationのオーナーは、いつでも[{% data variables.product.prodname_oauth_app %}アクセス制限を無効化](/articles/disabling-oauth-app-access-restrictions-for-your-organization)できます。{% endif %}

@@ -1,1 +1,0 @@
-1. Dentro de "Suscripciones", revisa tus cambios pendientes. ![Sección de suscripciones de la configuración de facturación listando cualquier cambio pendiente de suscripción](/assets/images/help/billing/review-pending-subscription-changes.png)

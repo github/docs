@@ -1,0 +1,4 @@
+# Issue 7923
+# Project visibility change permission policy
+versions:
+  ghec: '*'

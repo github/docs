@@ -1,4 +1,4 @@
-1. On user-owned forks, if you do not want to allow anyone with push access to the upstream repository to make changes to your pull request, unselect **Allow edits from maintainers**.
+1. On user-owned forks, if you want to allow anyone with push access to the upstream repository to make changes to your pull request, select **Allow edits from maintainers**.
 
     {% warning %}
 

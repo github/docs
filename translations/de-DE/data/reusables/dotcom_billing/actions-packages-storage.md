@@ -1,1 +1,0 @@
-1. Unter „Speicher für Aktionen und Pakete" findest Du Details zur kombinierten Speichernutzung von {% data variables.product.prodname_actions %} und {% data variables.product.prodname_registry %}. Speichernutzungsdaten werden stündlich synchronisiert. ![Details zur Speichernutzung](/assets/images/help/billing/actions-packages-storage.png)

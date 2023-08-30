@@ -1,0 +1,6 @@
+# Reference: #7336
+# General versioning for oidc hardening options
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'

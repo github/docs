@@ -1,1 +1,0 @@
-Cualquiera puede publicar una acción en {% data variables.product.prodname_marketplace %}. {% data variables.product.prodname_dotcom %} verifica algunas organizaciones aliadas y estas se muestran como creadores verificados.  

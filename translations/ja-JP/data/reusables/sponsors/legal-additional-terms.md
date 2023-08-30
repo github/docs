@@ -1,1 +1,0 @@
-{% data variables.product.prodname_matching_fund %}は、オープンソースの作業におけるコミュニティの資金調達を奨励するために設計された贈り物であり、追加の利用規約に従います。 {% data variables.product.prodname_matching_fund %}に関する詳細な情報については、「[{% data variables.product.prodname_sponsors %}の追加規約](/github/site-policy/github-sponsors-additional-terms)」を参照してください。

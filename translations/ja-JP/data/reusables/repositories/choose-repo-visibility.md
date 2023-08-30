@@ -1,1 +1,0 @@
-1. リポジトリの可視性を選択してください。 詳細は「[リポジトリの可視性について](/github/creating-cloning-and-archiving-repositories/about-repository-visibility)」を参照してください。 ![リポジトリの可視性を選択するラジオボタン](/assets/images/help/repository/create-repository-public-private.png)

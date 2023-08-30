@@ -1,2 +1,0 @@
-1. Select the "Repository access" drop-down menu, then click a repository you want to have access to the secret. Repeat for every repository you want to have access to the secret. 
-  !["Repository access" drop-down menu](/assets/images/help/settings/codespaces-secret-repository-access-drop-down.png)

@@ -1,0 +1,5 @@
+# Reference: Issue #9693 -  Dependabot Updates now can keep {% data variables.product.prodname_actions %} reusable workflows up to date - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.8'

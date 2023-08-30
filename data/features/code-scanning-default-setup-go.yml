@@ -1,0 +1,5 @@
+# Reference: #9961
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.9'

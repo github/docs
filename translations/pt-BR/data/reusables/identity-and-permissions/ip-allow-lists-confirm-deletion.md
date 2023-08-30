@@ -1,1 +1,0 @@
-1. Para excluir permanentemente a entrada, clique em **Yes, delete this IP allow list entry** (Sim, excluir este IP permitir a entrada da lista). ![Botão para excluir permanentemente a entrada da lista de permissões de IP](/assets/images/help/security/perm-delete-allowlist-entry-button.png)

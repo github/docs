@@ -1,1 +1,0 @@
-1. "{% data variables.product.prodname_insights %} License（{% data variables.product.prodname_insights %}ライセンス）"の下で、"Choose Files（ファイルの選択）"をクリックし、続いて{% data variables.product.prodname_enterprise %}のライセンスファイルをアップロードしてください。 ![ファイルの選択ボタン](/assets/images/help/insights/choose-files.png)

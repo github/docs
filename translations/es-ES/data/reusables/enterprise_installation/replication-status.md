@@ -1,1 +1,0 @@
-1. En la instancia replicada, para garantizar que se estén ejecutando correctamente los servicios de replicación, ejecuta `ghe-repl-status`. Este comando devolverá un `OK` para todos los servicios cuando exista una replicación exitosa en progreso y la réplica se haya mejorado.

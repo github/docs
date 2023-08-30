@@ -1,1 +1,0 @@
-{% data variables.product.prodname_github_connect %}を有効化した後は、Enterprise内のリポジトリでどのパブリックなアクションが使えるかを制限するポリシーが利用できます。 詳しい情報については、「[Enterprise に GitHub Actions のポリシーを施行する](/admin/github-actions/enforcing-github-actions-policies-for-your-enterprise)」を参照してください。

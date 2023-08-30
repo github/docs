@@ -1,0 +1,3 @@
+The repositories for an assignment can be public or private. If you use private repositories, only the student or team can see the feedback you provide.
+
+You can also decide whether to grant students admin permissions to the repository for an assignment. Grant admin permissions if the student should be able to perform administrative tasks for the assignment repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."

@@ -1,0 +1,7 @@
+# Reference: #7028.
+# Documentation for feature-specific page for security overview at enterprise-level.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.7'
+  ghae: '>= 3.7'

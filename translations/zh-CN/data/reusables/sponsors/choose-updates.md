@@ -1,1 +1,0 @@
-4. Decide whether you want to receive email updates from the sponsored account, then select or unselect "Receive email updates from _ACCOUNT_." ![接收来自赞助帐户的更新的复选框](/assets/images/help/sponsors/updates-checkbox-manage.png)

@@ -1,1 +1,0 @@
-If you're starting a monthly sponsorship on behalf of your user account, you'll immediately be charged a prorated amount for the time until your next regular billing date. Si estás patrocinando a alguien en nombre de una organización, puedes elegir pagar la cantidad prorrateada o hacer un pago completo mensual.

@@ -1,0 +1,1 @@
+You can choose to allow members to create and manage user accounts, or your enterprise can create and manage accounts for members with {% data variables.product.prodname_emus %}. If you allow members to manage their own accounts, you can also configure SAML authentication to both increase security and centralize identity and access for the web applications that your team uses.

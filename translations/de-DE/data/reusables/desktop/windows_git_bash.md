@@ -1,1 +1,0 @@
-Wenn Sie [{% data variables.product.prodname_desktop %}](https://desktop.github.com/) installiert haben, können Sie die Lösung verwenden, um Repositorys zu klonen und um nicht mit SSH-Schlüsseln zu arbeiten.

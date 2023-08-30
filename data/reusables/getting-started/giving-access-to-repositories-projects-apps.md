@@ -1,0 +1,3 @@
+You can give organization members, teams, and outside collaborators different levels of access to repositories owned by your organization with repository roles. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
+
+You can also customize access to your organization's project boards and allow individual organization members to manage your organization's {% data variables.product.prodname_github_apps %}. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards)" and "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization)."

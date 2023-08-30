@@ -1,7 +1,7 @@
-{% if currentVersion == "free-pro-team@latest" or currentVersion ver_gt "enterprise-server@3.0" %}
+{% ifversion fpt or ghes or ghec %}
 {% note %}
 
-**Note:** Organization owners can restrict the publication of {% data variables.product.prodname_pages %} sites from repositories owned by the organization. For more information, see "[Managing the publication of {% data variables.product.prodname_pages %} sites](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
+**Note:** Organization owners can restrict the publication of {% data variables.product.prodname_pages %} sites from repositories owned by the organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization)."
 
 {% endnote %}
 {% endif %}

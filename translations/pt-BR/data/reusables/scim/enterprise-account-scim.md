@@ -1,1 +1,0 @@
-Se você estiver participando do beta privado para o provisionamento de contas corporativas, ao habilitar o SAML para a sua conta corporativa, o provisionamento e desprovisionamento do SCIM é habilitado por padrão em {% data variables.product.product_name %}. Você pode usar o provisionamento para gerenciar a associação à organização, configurando o SCIM no seu IdP.

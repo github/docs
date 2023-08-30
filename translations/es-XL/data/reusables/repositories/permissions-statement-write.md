@@ -1,1 +1,0 @@
-Las personas con acceso de escritura en el repositorio pueden llevar a cabo estos pasos.

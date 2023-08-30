@@ -1,1 +1,0 @@
-1. To create a monthly tier, click **Add a monthly tier** at the right of the page. Alternatively, to create a tier for one-time payments, click **One-time tiers** and then click **Add a one-time tier**. ![層の追加ボタン](/assets/images/help/sponsors/add-a-tier-button.png)

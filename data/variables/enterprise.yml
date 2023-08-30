@@ -1,1 +1,19 @@
 management_console: 'Management Console'
+# https://support.github.com/enterprise/server-upgrade
+upgrade_assistant: 'Upgrade assistant'
+
+# GitHub Enterprise Managed Users
+prodname_managed_users_caps: 'Managed user accounts'
+prodname_managed_users: 'managed user accounts'
+prodname_managed_user: 'managed user account'
+prodname_emu_enterprise: 'enterprise with managed users'
+prodname_emu_org: 'organization with managed users'
+
+# GitHub Connect (enterprise accounts, other unified features)
+## Phrase content so that the uncapitalized unified contributions or unified search variables are not used at the start of a sentence.
+prodname_unified_contributions: 'unified contributions'
+prodname_unified_search: 'unified search'
+
+# Azure AD
+ghes_azure_ad_app_link: '[GitHub Enterprise Server application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.githubenterpriseserver)'
+ae_azure_ad_app_link: '[GitHub AE application](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aad.ghae)'

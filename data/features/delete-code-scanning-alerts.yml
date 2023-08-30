@@ -1,0 +1,5 @@
+# Tracking removing ability to delete code scanning alerts: ghae
+
+versions:
+  ghae: '*'
+  ghes: '<3.6'

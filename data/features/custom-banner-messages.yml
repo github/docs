@@ -1,0 +1,7 @@
+# Reference: issue #7643
+# Enterprise customers can create custom banner messages - [GA]
+
+versions:
+  ghec: '*'
+  ghes: '>=3.9'
+  ghae: '>=3.9'

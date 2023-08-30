@@ -1,1 +1,1 @@
-1. To prepare the archived migration data for import into a {% data variables.product.prodname_ghe_server %} instance, see "[Preparing to migrate data to your enterprise](/enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".
+1. To prepare the archived migration data for import into a {% data variables.product.prodname_ghe_server %} instance, see "[AUTOTITLE](/migrations/using-ghe-migrator/preparing-to-migrate-data-to-github-enterprise-server)".

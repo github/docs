@@ -1,2 +1,3 @@
-1. Click **Push origin** to push your local changes to the remote repository.
-![The Push button](/assets/images/help/desktop/push-origin-button.png)
+1. To push your local changes to the remote repository, in the repository bar, click **Push origin**.
+
+   ![Screenshot of the repository bar. A button, labeled "Push origin", is highlighted with an orange outline.](/assets/images/help/desktop/push-to-origin.png)

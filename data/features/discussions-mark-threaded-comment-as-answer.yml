@@ -1,0 +1,6 @@
+# Issue #8450
+# Mark threaded comment as answer in discussion
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

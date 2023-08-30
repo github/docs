@@ -1,1 +1,0 @@
-La actividad relacionada con las columnas en un tablero de proyecto. {% data reusables.webhooks.action_type_desc %} Para obtener más información, consulta la API de REST de "[columnas de proyecto](/rest/reference/projects#columns)".

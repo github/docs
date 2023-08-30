@@ -1,1 +1,0 @@
-1. Na barra lateral esquerda, clique em **Enterprise licensing** (Licenciamento Empresarial). ![Aba de licença na barra lateral de configurações de conta corporativa](/assets/images/enterprise/business-accounts/enterprise-licensing-tab.png)

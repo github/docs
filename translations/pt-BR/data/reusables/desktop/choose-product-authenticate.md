@@ -1,1 +1,0 @@
-1. À direita do "Servidor {% data variables.product.prodname_enterprise %}", clique em **Sign In** (Entrar). ![Botão Sign In (Entrar) do GitHub Enterprise Server](/assets/images/help/desktop/sign-in-ghes.png)

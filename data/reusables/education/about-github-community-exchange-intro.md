@@ -1,0 +1,1 @@
+{% data variables.product.prodname_community_exchange %} is a student community within the {% data variables.product.prodname_global_campus %} portal. As a student, it's a place where you can get exposure for your project and discover other student repositories in need of collaborators and maintainers.

@@ -1,1 +1,1 @@
-1. Using your favorite text editor, such as [Atom](https://atom.io/), make the necessary changes to files in your project.
+1. Using your favorite text editor, such as [{% data variables.product.prodname_vscode %}](https://code.visualstudio.com/), make the necessary changes to files in your project.

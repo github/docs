@@ -1,0 +1,1 @@
+When you create a new codespace from a template, it is always opened in the {% data variables.product.prodname_vscode %} web client. You can reopen an existing codespace in any supported editor. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/opening-an-existing-codespace)."

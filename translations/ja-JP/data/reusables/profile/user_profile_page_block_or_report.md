@@ -1,1 +1,0 @@
-1. 左のサイドバーのユーザのプロフィール写真の下にある [{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}] をクリックしてから、[**Block or report user（ユーザをブロックもしくは報告）**] をクリックします。 ![ユーザのブロックもしくはレポートのリンク](/assets/images/help/profile/profile-block-or-report-button.png)

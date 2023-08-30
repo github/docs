@@ -1,1 +1,1 @@
-SAML single sign-on (SSO) gives organization owners and enterprise owners on {% data variables.product.prodname_dotcom %} a way to control and secure access to organization resources like repositories, issues, and pull requests.
+SAML single sign-on (SSO) gives organization owners and enterprise owners using {% data variables.product.product_name %} a way to control and secure access to organization resources like repositories, issues, and pull requests.

@@ -1,0 +1,49 @@
+name: Local development
+
+# **What it does**: Can you start the local server like a writer would do?
+# **Why we have it**: Our CI is often heavily geared on testing in "production"
+#                     that historically we've been known to break local
+#                     development sometimes.
+# **Who does it impact**: Engineers, Contributors.
+
+on:
+  merge_group:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  local-dev:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab
+
+      # - uses: ./.github/actions/node-npm-setup
+      - name: Install dependencies
+        run: npm install
+
+      # Note that we don't check out docs-early-access, Elasticsearch,
+      # or any remote translations. Nothing fancy here!
+
+      - name: Start server in the background
+        run: npm start > /tmp/stdout.log 2> /tmp/stderr.log &
+
+      - name: View the home page
+        run: |
+          echo "Going to sleep a little to wait for the server to start"
+          sleep 10
+          curl --fail --retry-connrefused --retry 5 http://localhost:4000/
+
+      - name: Run basic tests
+        run: node .github/actions-scripts/test-local-dev.js
+
+      - if: ${{ failure() }}
+        name: Debug server outputs on errors
+        run: |
+          echo "____STDOUT____"
+          cat /tmp/stdout.log
+          echo "____STDERR____"
+          cat /tmp/stderr.log

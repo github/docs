@@ -1,0 +1,1 @@
+You can invite anyone to be a member of your organization, as long as they have a personal account on {% data variables.product.prodname_dotcom %}. You can also remove members and reinstate former members. For more information, see "[AUTOTITLE](/organizations/managing-membership-in-your-organization)."

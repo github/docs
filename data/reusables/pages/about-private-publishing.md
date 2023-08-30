@@ -1,1 +1,5 @@
-If your project site is published from a private or internal repository owned by an organization using {% data variables.product.prodname_ghe_cloud %}, you can manage access control for the site.
+{% ifversion fpt %}
+You can create {% data variables.product.prodname_pages %} sites that are publicly available on the internet. Organizations that use {% data variables.product.prodname_ghe_cloud %} can also publish sites privately by managing access control for the site.
+{% elsif ghec %}
+Unless your enterprise uses {% data variables.product.prodname_emus %}, you can choose to publish project sites publicly or privately by managing access control for the site.
+{% endif %}

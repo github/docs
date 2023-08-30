@@ -1,7 +1,0 @@
-Ao selecionar a opção **Rebase e merge** em um pull request no {% data variables.product.product_location %}, todos os commits do branch de tópico (ou branch de cabeçalho) serão adicionados ao branch base individualmente sem um commit do merge . Pull requests com commits de rebase em commits são mesclados usando a opção de [fast-forward](https://git-scm.com/docs/git-merge#_fast_forward_merge).
-
-Para fazer rebase e merge de pull requests, você deve ter [permissões de gravação](/articles/repository-permission-levels-for-an-organization/) no repositório, e o repositório deve [permitir o merge de rebase](/articles/configuring-commit-rebasing-for-pull-requests/).
-
-O comportamento de rebase e merge em {% data variables.product.product_name %} é ligeiramente diferente do `rebase do git`. O rebase e o merge em {% data variables.product.prodname_dotcom %} sempre atualizará as informações do autor do commit e criará novos SHAs, enquanto `rebase do git` fora do {% data variables.product.prodname_dotcom %} não altera a informação do committer quando a rebase acontece em cima de um commit de ancestral. Para obter mais informações sobre `git rebase`, consulte [a documentação oficial do Git](https://git-scm.com/docs/git-rebase).
-
-Para obter uma representação visual do `rebase do git`, consulte [o capítulo "Branches do Git - Rebase" do livro _Pro Git_](https://git-scm.com/book/en/Git-Branching-Rebasing).

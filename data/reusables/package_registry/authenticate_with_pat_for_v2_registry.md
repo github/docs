@@ -1,0 +1,9 @@
+For registries that support granular permissions, if your {% data variables.product.prodname_actions %} workflow is using a {% data variables.product.pat_generic %} to authenticate to a registry, we highly recommend you update your workflow to use the `GITHUB_TOKEN`. For guidance on updating your workflows that authenticate to a registry with a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions#upgrading-a-workflow-that-accesses-a-registry-using-a-personal-access-token)."
+
+{% data reusables.package_registry.delete-with-github-token-using-api-beta %}
+
+{% ifversion packages-delete-with-github-token-api %}
+You can use a `GITHUB_TOKEN` in a {% data variables.product.prodname_actions %} workflow to delete or restore a package using the REST API, if the token has `admin` permission to the package. Repositories that publish packages using a workflow, and repositories that you have explicitly connected to packages, are automatically granted `admin` permission to packages in the repository.
+{% endif %}
+
+For more information about the `GITHUB_TOKEN`, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow)." For more information about the best practices when using a registry in actions, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#considering-cross-repository-access)."

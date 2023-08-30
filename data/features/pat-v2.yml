@@ -1,0 +1,7 @@
+# Issue 7942
+# PAT v2
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'
+  ghae: '>=3.10'

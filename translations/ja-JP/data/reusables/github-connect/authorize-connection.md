@@ -1,1 +1,0 @@
-1. {% data variables.product.prodname_dotcom_the_website %}アカウントから{% data variables.product.prodname_ghe_server %}がアクセスするリソースをレビューし、** Authorize（承認）**をクリックしてください。 ![GitHub Enterprise ServerとGitHub.com間の接続の承認](/assets/images/help/settings/authorize-ghe-to-connect-to-dotcom.png)

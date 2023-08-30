@@ -4,11 +4,12 @@ intro: Learn about media types for specifying the format of the data you want to
 redirect_from:
   - /v3/media
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
-  - api
+  - API
 ---
 
 
@@ -20,150 +21,118 @@ formats that other resources don't.
 
 All {% data variables.product.product_name %} media types look like this:
 
-    application/vnd.github[.version].param[+json]
+    application/vnd.github.param[+json]
 
 The most basic media types the API supports are:
 
-    application/json
     application/vnd.github+json
-
-Neither of these specify a [version][versions], so you will always get the
-current default JSON representation of resources.
+    application/json
 
 {% note %}
 
-**Important:** The default version of the API may change in the
-future. If you're building an application and care about the stability of
-the API, be sure to request a specific version in the `Accept`
-header as shown in the examples below.
+**Note:** In the past, we recommended including `v3` in your `Accept` header. This is no longer required and will have no impact on your API requests.
 
 {% endnote %}
 
-You can specify a version like so:
-
-    application/vnd.github.v3+json
-
 If you're specifying a property (such as full/raw/etc defined below),
-put the version before the property:
+put it after `github`:
 
-    application/vnd.github.v3.raw+json
+    application/vnd.github.raw+json
 
-You can check the current version through every response's headers.  Look
-for the `X-GitHub-Media-Type` header:
+## Comment body properties
 
-```shell
-$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I
-> HTTP/1.1 200 OK
-> X-GitHub-Media-Type: github.v3
+The body of a comment can be written in [{% data variables.product.prodname_dotcom %} Flavored Markdown][gfm]. The APIs to manage [issues](/rest/issues), [issue comments](/rest/issues#comments), [pull request comments](/rest/pulls#comments), and [gist comments](/rest/gists#comments) all accept these same media types:
 
-$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
-$  -H "Accept: application/vnd.github.full+json"
-> HTTP/1.1 200 OK
-> X-GitHub-Media-Type: github.v3; param=full; format=json
+### Raw media type for comment body properties
 
-$ curl {% data variables.product.api_url_pre %}/users/technoweenie -I \
-$  -H "Accept: application/vnd.github.v3.full+json"
-> HTTP/1.1 200 OK
-> X-GitHub-Media-Type: github.v3; param=full; format=json
-```
-
-### Comment body properties
-
-The body of a comment can be written in [GitHub Flavored Markdown][gfm], [issues](/rest/reference/issues), [issue comments](/rest/reference/issues#comments), [pull request comments](/rest/reference/pulls#comments), and the [gist comments](/rest/reference/gists#comments) APIs all accept these same media types:
-
-#### Raw
-
-    application/vnd.github.VERSION.raw+json
+    application/vnd.github.raw+json
 
 Return the raw markdown body. Response will include `body`. This is the
 default if you do not pass any specific media type.
 
-#### Text
+### Text media type for comment body properties
 
-    application/vnd.github.VERSION.text+json
+    application/vnd.github.text+json
 
 Return a text only representation of the markdown body. Response will
 include `body_text`.
 
-#### HTML
+### HTML media type for comment body properties
 
-    application/vnd.github.VERSION.html+json
+    application/vnd.github.html+json
 
 Return HTML rendered from the body's markdown. Response will include
 `body_html`.
 
-#### Full
+### Full media type for comment body properties
 
-    application/vnd.github.VERSION.full+json
+    application/vnd.github.full+json
 
 Return raw, text and HTML representations. Response will include `body`,
 `body_text`, and `body_html`:
 
-### Git blob properties
+## Git blob properties
 
-The following media types are allowed when [getting a blob](/rest/reference/git#get-a-blob):
+The following media types are allowed when [getting a blob](/rest/git#get-a-blob):
 
-#### JSON
+### JSON media type for Git blob properties
 
-    application/vnd.github.VERSION+json
+    application/vnd.github+json
     application/json
 
 Return JSON representation of the blob with `content` as a base64
 encoded string. This is the default if nothing is passed.
 
-#### Raw
+### Raw media type for Git blob properties
 
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 Return the raw blob data.
 
-### Commits, commit comparison, and pull requests
+## Commits, commit comparison, and pull requests
 
-The [commits API](/rest/reference/repos#commits) and [pull requests API](/rest/reference/pulls) support
-[diff][git-diff] and [patch][git-patch] formats:
+The REST API to manage [commits](/rest/repos#commits) and [pull requests](/rest/pulls) support [diff][git-diff] and [patch][git-patch] formats:
 
-#### diff
+### diff media type for commits, commit comparison, and pull requests
 
-    application/vnd.github.VERSION.diff
+    application/vnd.github.diff
 
-#### patch
+### patch media type for commits, commit comparison, and pull requests
 
-    application/vnd.github.VERSION.patch
+    application/vnd.github.patch
 
-#### sha
+### sha media type for commits, commit comparison, and pull requests
 
-    application/vnd.github.VERSION.sha
+    application/vnd.github.sha
 
-### Repository contents
+## Repository contents
 
-#### Raw
+### Raw media type for repository contents
 
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 Return the raw contents of a file. This is the default if you do not pass any specific media type.
 
-#### HTML
+### HTML media type for repository contents
 
-    application/vnd.github.VERSION.html
+    application/vnd.github.html
 
 For markup files such as Markdown or AsciiDoc, you can retrieve the rendered HTML using the `.html` media type. Markup languages are rendered to HTML using our open-source [Markup library](https://github.com/github/markup).
 
-### Gists
+## Gists
 
-#### Raw
+### Raw media type for gists
 
-    application/vnd.github.VERSION.raw
+    application/vnd.github.raw
 
 Return the raw contents of a gist. This is the default if you do not pass any specific media type.
 
-#### base64
+### base64 media type for gists
 
-    application/vnd.github.VERSION.base64
+    application/vnd.github.base64
 
 The gist contents are base64-encoded before being sent out. This can be useful if your gist contains any invalid UTF-8 sequences.
 
-[gfm]:http://github.github.com/github-flavored-markdown/
-[git-diff]: http://git-scm.com/docs/git-diff
-[git-patch]: http://git-scm.com/docs/git-format-patch
-[hypermedia]: /rest#hypermedia
-[versions]: /developers/overview/about-githubs-apis
+[gfm]: https://github.github.com/github-flavored-markdown/
+[git-diff]: https://git-scm.com/docs/git-diff
+[git-patch]: https://git-scm.com/docs/git-format-patch

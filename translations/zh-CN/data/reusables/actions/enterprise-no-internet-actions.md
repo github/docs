@@ -1,1 +1,0 @@
-{% data variables.product.prodname_ghe_server %} 上的 {% data variables.product.prodname_actions %} 设计为在没有互联网连接的环境中工作。 默认情况下，工作流程不能使用直接来自 {% data variables.product.prodname_dotcom_the_website %} 和 [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions) 的操作。

@@ -1,1 +1,0 @@
-1. A partir do shell administrativo do nó modificado `cluster.conf`, execute `ghe-cluster-config-apply`. Isso irá validar o arquivo de configuração, copiá-lo para cada nó do cluster e marcar o nó offline.

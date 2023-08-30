@@ -1,1 +1,0 @@
-1. Oberhalb der Liste der Teammitglieder klicke auf {% octicon "repo" aria-label="The Repository icon" %} **Repositories** (Repositorys). ![Registerkarte mit Team-Repositorys](/assets/images/help/organizations/team-repositories-button.png)

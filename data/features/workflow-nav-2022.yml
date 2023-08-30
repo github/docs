@@ -1,0 +1,7 @@
+# Issue: 7898
+# Description: Actions workflow run and workflow list navigation updates, late 2022.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>=3.8'

@@ -1,1 +1,0 @@
-When you search for a date, you can use greater than, less than, and range qualifiers to further filter results. 詳しい情報については、「[検索構文を理解する](/github/searching-for-information-on-github/understanding-the-search-syntax)」を参照してください。

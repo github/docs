@@ -1,1 +1,0 @@
-Los pasos de configuración varían de acuerdo con el cliente del paquete. Para obtener información general sobre como configurar un flujo de trabajo para {% data variables.product.prodname_actions %}, consulta la sección "[Configurar un flujo de trabajo](/github/automating-your-workflow-with-github-actions/configuring-a-workflow)".

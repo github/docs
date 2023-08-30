@@ -1,0 +1,24 @@
+name: Set up local Elasticsearch
+
+description: Install a local Elasticseach with version that matches prod
+
+inputs:
+  token:
+    description: PAT
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Install a local Elasticsearch for testing
+      # For the sake of saving time, only run this step if the test-group
+      # is one that will run tests against an Elasticsearch on localhost.
+      uses: getong/elasticsearch-action@95b501ab0c83dee0aac7c39b7cea3723bef14954
+      with:
+        # Make sure this matches production and `sync-search-pr.yml`
+        elasticsearch version: '7.11.1'
+        host port: 9200
+        container port: 9200
+        host node port: 9300
+        node port: 9300
+        discovery type: 'single-node'

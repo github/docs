@@ -1,33 +1,61 @@
 ---
 title: About organizations
-intro: Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features.
+intro: '{% data reusables.organizations.short-summary %}'
 redirect_from:
   - /articles/about-organizations
   - /github/setting-up-and-managing-organizations-and-teams/about-organizations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
 ---
 
-{% data reusables.organizations.organizations_include %}
+## About organizations
 
-{% if currentVersion == "free-pro-team@latest" %}
-### Organizations and enterprise accounts
+{% data reusables.organizations.about-organizations %} For more information about account types, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 
-Enterprise accounts allow owners to centrally manage policy and billing for multiple {% data variables.product.prodname_dotcom_the_website %} organizations.
+You can invite an unlimited number of people to join your organization, then give these organization members a variety of roles that grant different levels of access to the organization and its data. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
 
-For organizations that belong to an enterprise account, billing is managed at the enterprise account level, and billing settings are not available at the organization level. Enterprise owners can set policy for all organizations in the enterprise account or allow organization owners to set the policy at the organization level. Organization owners cannot change settings enforced for your organization at the enterprise account level. If you have questions about a policy or setting for your organization, contact the owner of your enterprise account.
+In addition to managing access to the organization itself, you can separately manage access to your organization's repositories, project boards, and apps. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)", "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)", and "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization)."
 
-{% data reusables.gated-features.enterprise-accounts %}
+To simplify access management and enhance collaboration, you can create nested teams that reflect your group's structure, with cascading access permissions and mentions. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
 
-{% data reusables.organizations.org-ownership-recommendation %} For more information, see "[Maintaining ownership continuity for your organization](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization)."
+You can configure the organization to meet the unique needs of your group by managing settings, such as restricting the types of repositories that members can create. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings)."
 
-### Terms of service and data protection for organizations
+To harden your organization's security, you can enforce security requirements and review the organization's audit log. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure)."
 
-An entity, such as a company, non-profit, or group, can agree to the Standard Terms of Service or the Corporate Terms of Service for their organization. For more information, see "[Upgrading to the Corporate Terms of Service](/articles/upgrading-to-the-corporate-terms-of-service)."
+To learn how to use organizations most effectively, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)."
+
+{% ifversion fpt or ghec %}
+
+## About feature availability
+
+{% data reusables.organizations.organization-plans %}
+{% endif %}
+
+## Organizations and enterprise accounts
+
+{% ifversion fpt %}
+Enterprise accounts are a feature of {% data variables.product.prodname_ghe_cloud %} that allow owners to centrally manage policy and billing for multiple organizations. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/about-organizations).
+{% else %}
+{% ifversion ghec %}For organizations that belong to an enterprise account, billing is managed at the enterprise account level, and billing settings are not available at the organization level.{% endif %} Enterprise owners can set policy for all organizations in the enterprise account or allow organization owners to set the policy at the organization level. Organization owners cannot change settings enforced for your organization at the enterprise account level. If you have questions about a policy or setting for your organization, contact the owner of your enterprise account.
+
+{% ifversion ghec %}
+{% data reusables.enterprise.create-an-enterprise-account %} For more information, see "[AUTOTITLE](/admin/overview/creating-an-enterprise-account)."
+
+{% data reusables.enterprise-accounts.invite-organization %}
+
+{% endif %}
+{% endif %}
+
+{% ifversion fpt or ghec %}
+
+## Terms of service and data protection for organizations
+
+An entity, such as a company, non-profit, or group, can agree to the Standard Terms of Service or the {% data variables.product.company_short %} Customer Agreement for their organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement)."
 
 {% endif %}

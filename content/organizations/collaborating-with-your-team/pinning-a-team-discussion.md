@@ -6,22 +6,23 @@ redirect_from:
   - /github/building-a-strong-community/pinning-a-team-discussion
   - /github/setting-up-and-managing-organizations-and-teams/pinning-a-team-discussion
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  feature: team-discussions
 topics:
-  - community
+  - Community
 ---
 
-{% data reusables.profile.access_profile %}
+{% ifversion team-discussions-migration %}
+{% data reusables.organizations.team-discussions-migration %}
+{% endif %}
+
 {% data reusables.profile.access_org %}
+{% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team-discussions-tab %}
-5. Click {% octicon "pin" aria-label="The pin icon" %} next to the team discussion you want to pin. You can also unpin a discussion by clicking the icon.
-  ![Pin a discussion](/assets/images/help/projects/pin-discussion-button.png)
+1. Click {% octicon "pin" aria-label="Pin this discussion" %} next to the team discussion you want to pin. You can also unpin a discussion by clicking the icon.
 
-### Further reading
+## Further reading
 
-  - "[About team discussions](/organizations/collaborating-with-your-team/about-team-discussions)"
-  - "[Creating a team discussion](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
-  - "[Editing or deleting a team discussion](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"
+- "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)"
+- "[AUTOTITLE](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
+- "[AUTOTITLE](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"

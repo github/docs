@@ -1,0 +1,4 @@
+# Reference #4640
+# Documentation for pausing an audit log stream
+versions:
+  ghec: '*'

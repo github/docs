@@ -6,22 +6,25 @@ redirect_from:
   - /github/automating-your-workflow-with-github-actions/building-actions
   - /actions/automating-your-workflow-with-github-actions/building-actions
   - /actions/building-actions
-  - /articles/creating-a-github-action/
+  - /articles/creating-a-github-action
 versions:
-  free-pro-team: '*'
-  enterprise-server: '>=2.22'
-  github-ae: '*'
----
-
-{% data reusables.actions.enterprise-beta %}
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
+children:
+  - /about-custom-actions
+  - /creating-a-docker-container-action
+  - /creating-a-javascript-action
+  - /creating-a-composite-action
+  - /metadata-syntax-for-github-actions
+  - /dockerfile-support-for-github-actions
+  - /setting-exit-codes-for-actions
+  - /publishing-actions-in-github-marketplace
+  - /sharing-actions-and-workflows-from-your-private-repository
+  - /sharing-actions-and-workflows-with-your-enterprise
+  - /sharing-actions-and-workflows-with-your-organization
+  - /releasing-and-maintaining-actions
+  - /developing-a-third-party-cli-action
+--- 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-{% data reusables.actions.ae-beta %}
-
-{% link_in_list /about-actions %}
-{% link_in_list /creating-a-docker-container-action %}
-{% link_in_list /creating-a-javascript-action %}
-{% link_in_list /creating-a-composite-run-steps-action %}
-{% link_in_list /metadata-syntax-for-github-actions %}
-{% link_in_list /dockerfile-support-for-github-actions %}
-{% link_in_list /setting-exit-codes-for-actions %}
-{% link_in_list /publishing-actions-in-github-marketplace %}

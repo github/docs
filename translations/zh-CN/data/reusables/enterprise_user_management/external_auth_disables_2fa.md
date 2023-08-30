@@ -1,1 +1,0 @@
-使用 SAML 或 CAS 时，双重身份验证在 {% data variables.product.prodname_ghe_server %} 设备上不受支持或无法管理，但受外部身份验证提供商的支持。 在组织上无法实施双重身份验证。 有关在组织上实施双重身份验证的更多信息，请参阅“[您的组织中需要双重身份验证](/enterprise/{{ currentVersion }}/user/articles/requiring-two-factor-authentication-in-your-organization/)”。

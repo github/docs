@@ -1,1 +1,0 @@
-1. Klicke auf der linken Seitenleiste auf **Authentication** (Authentifizierung). ![Registerkarte „Authentication“ (Authentifizierung) auf der Seitenleiste mit den Einstellungen](/assets/images/enterprise/management-console/sidebar-authentication.png)

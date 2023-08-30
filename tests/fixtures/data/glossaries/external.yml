@@ -1,0 +1,8 @@
+- term: foo
+  description: >-
+    Foo is an intentionally meaningless placeholder word often used in computer
+    programming. See "[AUTOTITLE](/get-started/foo)."
+- term: check
+  description: >-
+    A check is a type of status check on {% data variables.product.product_name
+    %}. See "[foo](#foo)."

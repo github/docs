@@ -1,6 +1,13 @@
-{% if currentVersion == "free-pro-team@latest" %}{% data variables.product.prodname_code_scanning_capc %} is available for all public repositories and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled.
-{%- elsif currentVersion ver_gt "enterprise-server@3.0" %}{% data variables.product.prodname_code_scanning_capc %} is available if {% data variables.product.prodname_GH_advanced_security %} is enabled for the repository.
-{%- elsif currentVersion == "github-ae@latest" %}
-{% data variables.product.prodname_code_scanning_capc %} is available as part of {% data variables.product.prodname_GH_advanced_security %}, which is free during the beta release.
-{%- else %}
-{% data variables.product.prodname_code_scanning_capc %} is available if you have a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %} {% data reusables.advanced-security.more-info-ghas %}
+{%- ifversion fpt %}
+{% data variables.product.prodname_code_scanning_caps %} is available for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.prodname_code_scanning_caps %} is also available for private repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghec %}
+{% data variables.product.prodname_code_scanning_caps %} is available for all public repositories on {% data variables.product.prodname_dotcom_the_website %}. To use {% data variables.product.prodname_code_scanning %} in a private repository owned by an organization, you must have a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghes %}
+{% data variables.product.prodname_code_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %}. This feature requires a license for {% data variables.product.prodname_GH_advanced_security %}.
+
+{%- elsif ghae %}
+{% data variables.product.prodname_code_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+
+{%- endif %} {% data reusables.advanced-security.more-info-ghas %}

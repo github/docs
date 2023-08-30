@@ -1,0 +1,1 @@
+The commit SHA that triggered the workflow. The value of this commit SHA depends on the event that triggered the workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)." For example, `ffac537e6cbbf934b08745a378932722df287a53`.

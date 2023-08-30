@@ -1,0 +1,7 @@
+# Reference: #8927
+# General versioning for new OIDC custom claims
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'
+  ghae: '>=3.9'

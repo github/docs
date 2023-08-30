@@ -1,8 +1,11 @@
 gist_homepage: >-
-  {% if currentVersion == "free-pro-team@latest" %}[gist home page](https://gist.github.com/){% elsif currentVersion == "github-ae@latest" %}gist home page, `http(s)://gist.[hostname)`,{% else %}gist home page, `http(s)://[hostname]/gist` or `http(s)://gist.[hostname]` if subdomains are enabled{% endif %}
+  {% ifversion fpt or ghec %}[gist home page](https://gist.github.com/){% elsif ghae %}gist home page, `http(s)://gist.[hostname]`{% else %}gist home page, `http(s)://[hostname]/gist` or `http(s)://gist.[hostname]` if subdomains are enabled{% endif %}
 
 gist_search_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Gist Search](https://gist.github.com/search){% elsif currentVersion == "github-ae@latest" %}Gist Search, `http(s)://gist.[hostname]/search`,{% else %}Gist Search, `http(s)://[hostname]/gist/search` or `http(s)://gist.[hostname]/search` if subdomains are enabled{% endif %}
+  {% ifversion fpt or ghec %}[Gist Search](https://gist.github.com/search){% elsif ghae %}Gist Search, `http(s)://gist.[hostname]/search`{% else %}Gist Search, `http(s)://[hostname]/gist/search` or `http(s)://gist.[hostname]/search` if subdomains are enabled{% endif %}
 
 discover_url: >-
-  {% if currentVersion == "free-pro-team@latest" %}[Discover](https://gist.github.com/discover){% elsif currentVersion == "github-ae@latest" %}Discover, `http(s)://gist.[hostname]/discover`,{% else %}Discover, `http(s)://[hostname]/gist/discover` or `http(s)://gist.[hostname]/discover` if subdomains are enabled{% endif %}
+  {% ifversion fpt or ghec %}[Discover](https://gist.github.com/discover){% elsif ghae %}Discover, `http(s)://gist.[hostname]/discover`{% else %}Discover, `http(s)://[hostname]/gist/discover` or `http(s)://gist.[hostname]/discover` if subdomains are enabled{% endif %}
+
+gist_starred: >-
+  {% ifversion fpt or ghec %}[Gist starred page](https://gist.github.com/starred){% elsif ghae %}Gist starred page, `http(s)://gist.[hostname]/starred`{% else %}Gist starred page, `http(s)://[hostname]/gist/starred` or `http(s)://gist.[hostname]/starred` if subdomains are enabled{% endif %}

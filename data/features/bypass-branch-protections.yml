@@ -1,0 +1,7 @@
+# Issue: 6667
+# Description: Allow merging pull requests without complying with branch protection rules.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'
+  ghae: '>= 3.8'

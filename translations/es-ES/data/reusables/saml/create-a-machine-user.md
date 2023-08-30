@@ -1,1 +1,0 @@
-Crea y utiliza una cuenta de usuario máquina dedicada en tu IdP para asociarla con la cuenta del primer dueño de la empresa en {% data variables.product.product_name %}. Almacena las credenciales para la cuenta de usuario de forma segura en un administrador de contraseñas.

@@ -1,0 +1,6 @@
+# Ability to set a default in issue form dropdowns (#11231)
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'
+  ghae: '>=3.11'

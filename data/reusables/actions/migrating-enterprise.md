@@ -1,0 +1,1 @@
+If you're migrating your enterprise to {% data variables.product.prodname_actions %} from another provider, there are additional considerations. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions)."

@@ -5,14 +5,18 @@ redirect_from:
   - /v4/guides/migrating-from-rest
   - /graphql/guides/migrating-from-rest
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+  ghae: '*'
 topics:
-  - api
+  - API
+shortTitle: Migrate from REST to GraphQL
 ---
 
-### Differences in API logic
+## Differences in API logic
+
+{% data variables.product.company_short %} provides two APIs: a REST API and a GraphQL API. For more information about {% data variables.product.company_short %}'s APIs, see "[AUTOTITLE](/rest/overview/about-githubs-apis)."
 
 Migrating from REST to GraphQL represents a significant shift in API logic. The differences between REST as a style and GraphQL as a specification make it difficult&mdash;and often undesirable&mdash;to replace REST API calls with GraphQL API queries on a one-to-one basis. We've included specific examples of migration below.
 
@@ -34,6 +38,7 @@ Here are examples of each.
 ## Example: Getting the data you need and nothing more
 
 A single REST API call retrieves a list of your organization's members:
+
 ```shell
 curl -v {% data variables.product.api_url_pre %}/orgs/:org/members
 ```
@@ -56,11 +61,13 @@ query {
 ```
 
 Consider another example: retrieving a list of pull requests and checking if each one is mergeable. A call to the REST API retrieves a list of pull requests and their [summary representations](/rest#summary-representations):
+
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls
 ```
 
 Determining if a pull request is mergeable requires retrieving each pull request individually for its [detailed representation](/rest#detailed-representations) (a large payload) and checking whether its `mergeable` attribute is true or false:
+
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 ```
@@ -85,6 +92,7 @@ query {
 ## Example: Nesting
 
 Querying with nested fields lets you replace multiple REST calls with fewer GraphQL queries. For example, retrieving a pull request along with its commits, non-review comments, and reviews using the **REST API** requires four separate calls:
+
 ```shell
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number
 curl -v {% data variables.product.api_url_pre %}/repos/:owner/:repo/pulls/:number/commits

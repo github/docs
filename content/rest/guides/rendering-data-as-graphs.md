@@ -2,31 +2,32 @@
 title: Rendering data as graphs
 intro: Learn how to visualize the programming languages from your repository using the D3.js library and Ruby Octokit.
 redirect_from:
-  - /guides/rendering-data-as-graphs/
+  - /guides/rendering-data-as-graphs
   - /v3/guides/rendering-data-as-graphs
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
-  - api
+  - API
 ---
- 
+
 
 
 In this guide, we're going to use the API to fetch information about repositories
 that we own, and the programming languages that make them up. Then, we'll
 visualize that information in a couple of different ways using the [D3.js][D3.js] library. To
-interact with the {% data variables.product.product_name %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
+interact with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we'll be using the excellent Ruby library, [Octokit][Octokit].
 
 If you haven't already, you should read the ["Basics of Authentication"][basics-of-authentication]
 guide before starting this example. You can find the complete source code for this project in the [platform-samples][platform samples] repository.
 
 Let's jump right in!
 
-### Setting up an OAuth application
+## Setting up an {% data variables.product.prodname_oauth_app %}
 
-First, [register a new application][new oauth application] on {% data variables.product.product_name %}. Set the main and callback
+First, [register a new application](https://github.com/settings/applications/new) on {% data variables.product.product_name %}. Set the main and callback
 URLs to `http://localhost:4567/`. As [before][basics-of-authentication], we're going to handle authentication for the API by
 implementing a Rack middleware using [sinatra-auth-github][sinatra auth github]:
 
@@ -79,9 +80,9 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'server'))
 run Example::MyGraphApp
 ```
 
-### Fetching repository information
+## Fetching repository information
 
-This time, in order to talk to the {% data variables.product.product_name %} API, we're going to use the [Octokit
+This time, in order to talk to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, we're going to use the [Octokit
 Ruby library][Octokit]. This is much easier than directly making a bunch of
 REST calls. Plus, Octokit was developed by a GitHubber, and is actively maintained,
 so you know it'll work.
@@ -136,7 +137,7 @@ So far, so good, but not very human-friendly. A visualization
 would be great in helping us understand how these language counts are distributed. Let's feed
 our counts into D3 to get a neat bar graph representing the popularity of the languages we use.
 
-### Visualizing language counts
+## Visualizing language counts
 
 D3.js, or just D3, is a comprehensive library for creating many kinds of charts, graphs, and interactive visualizations.
 Using D3 in detail is beyond the scope of this guide, but for a good introductory article,
@@ -249,7 +250,7 @@ As the "D3 for Mortals" guide suggests, this isn't necessarily the best use of
 D3. But it does serve to illustrate how you can use the library, along with Octokit,
 to make some really amazing things.
 
-### Combining different API calls
+## Combining different API calls
 
 Now it's time for a confession: the `language` attribute within repositories
 only identifies the "primary" language defined. That means that if you have
@@ -270,7 +271,7 @@ something like this:
 ```
 
 Since we already have a list of repositories above, let's inspect each one, and
-call [the language listing API method][language API]:
+call the [GET /repos/{owner}/{repo}/languages endpoint][language API]:
 
 ``` ruby
 repos.each do |repo|
@@ -366,14 +367,11 @@ proportions that are easy to see at a glance. You might need to
 tweak the height and width of your treemap, passed as the first two
 arguments to `drawTreemap` above, to get all the information to show up properly.
 
-
-[D3.js]: http://d3js.org/
-[basics-of-authentication]: /rest/guides/basics-of-authentication
+[D3.js]: https://d3js.org/
+[basics-of-authentication]: /apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app
 [sinatra auth github]: https://github.com/atmos/sinatra_auth_github
 [Octokit]: https://github.com/octokit/octokit.rb
-[D3 mortals]: http://www.recursion.org/d3-for-mere-mortals/
-[D3 treemap]: http://bl.ocks.org/mbostock/4063582
-[language API]: /rest/reference/repos#list-repository-languages
-[simple tree map]: http://2kittymafiasoftware.blogspot.com/2011/09/simple-treemap-visualization-with-d3.html
+[D3 mortals]: http://recursion.org/d3-for-mere-mortals/
+[D3 treemap]: https://www.d3-graph-gallery.com/treemap.html
+[language api]: /rest/repos#list-repository-languages
 [platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/rendering-data-as-graphs
-[new oauth application]: https://github.com/settings/applications/new

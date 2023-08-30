@@ -9,6 +9,6 @@
 - Credit card numbers
 - PIN numbers
 
-For more information, see "[Removing sensitive data from a repository](/articles/removing-sensitive-data-from-a-repository)."
+For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
 
 {% endwarning %}

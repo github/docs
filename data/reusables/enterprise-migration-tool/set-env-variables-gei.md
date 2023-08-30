@@ -1,0 +1,1 @@
+Before you can use the {% data variables.product.prodname_gei_cli_short %} to migrate to {% data variables.product.prodname_ghe_cloud %}, you must create {% data variables.product.pat_generic %}s that can access the source and destination organizations, then set the {% data variables.product.pat_generic %}s as environment variables.

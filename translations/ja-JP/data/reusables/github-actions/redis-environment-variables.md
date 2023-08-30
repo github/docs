@@ -1,1 +1,0 @@
-*client.js*スクリプトは、クライアントを作成するために環境変数の`REDIS_HOST`と`REDIS_PORT`を探します。 ワークフローは、これら2つの環境変数を"Connect to Redis"ステップの一部として設定し、*client.js*スクリプトから利用できるようにします。 このスクリプトに関する詳しい情報については「[Redisサービスコンテナのテスト](#testing-the-redis-service-container)」を参照してください。

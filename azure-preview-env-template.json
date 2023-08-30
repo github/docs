@@ -1,0 +1,103 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appName": {
+      "defaultValue": null,
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 63,
+      "metadata": {
+        "description": "A unique name for the app"
+      }
+    },
+    "containerImage": {
+      "type": "string",
+      "defaultValue": null,
+      "metadata": {
+        "description": "Container image to deploy"
+      }
+    },
+    "dockerRegistryUrl": {
+      "type": "String",
+      "metadata": {
+        "description": "Should be a valid host name without protocol"
+      }
+    },
+    "dockerRegistryUsername": {
+      "type": "String"
+    },
+    "dockerRegistryPassword": {
+      "type": "SecureString"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "name": "[parameters('appName')]",
+      "apiVersion": "2021-07-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "containers": [
+          {
+            "name": "app",
+            "properties": {
+              "image": "[parameters('containerImage')]",
+              "ports": [
+                {
+                  "protocol": "TCP",
+                  "port": 4000
+                }
+              ],
+              "environmentVariables": [
+                {
+                  "name": "PORT",
+                  "value": "4000"
+                },
+                {
+                  "name": "NODE_ENV",
+                  "value": "production"
+                },
+                {
+                  "name": "WEB_CONCURRENCY",
+                  "value": "1"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "memoryInGB": 4,
+                  "cpu": 1
+                }
+              }
+            }
+          }
+        ],
+        "imageRegistryCredentials": [
+          {
+            "server": "[parameters('dockerRegistryUrl')]",
+            "username": "[parameters('dockerRegistryUsername')]",
+            "password": "[parameters('dockerRegistryPassword')]"
+          }
+        ],
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "ports": [
+            {
+              "protocol": "TCP",
+              "port": 4000
+            }
+          ],
+          "type": "Public",
+          "dnsNameLabel": "[parameters('appName')]"
+        },
+        "osType": "Linux"
+      }
+    }
+  ],
+  "outputs": {
+    "defaultHostName": {
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', parameters('appName'))).ipAddress.fqdn]",
+      "type": "string"
+    }
+  }
+}

@@ -1,1 +1,0 @@
-Agrega la dirección de correo electrónico a tu cuenta de {% data variables.product.product_name %} mediante la [configuración de tu dirección de correo electrónico para confirmaciones](/articles/setting-your-commit-email-address) para que dichas confirmaciones se te atribuyan y aparezcan en tu gráfica de contribuciones.

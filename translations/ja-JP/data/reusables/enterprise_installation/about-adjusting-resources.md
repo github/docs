@@ -1,1 +1,0 @@
-既存のインスタンスのリソース調整に関する詳しい情報については「[ストレージ容量の増加](/enterprise/admin/installation/increasing-storage-capacity)」及び「[CPUあるいはメモリリソースの増加](/enterprise/admin/installation/increasing-cpu-or-memory-resources)」を参照してください。

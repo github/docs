@@ -1,1 +1,0 @@
-1. {% data variables.product.product_location_enterprise %} にあるページの右上隅でプロフィール画像をクリックしてから、[**Settings**] をクリックします。 ![ユーザバーの [Settings（設定）] アイコン](/assets/images/help/settings/userbar-account-settings.png)

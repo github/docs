@@ -1,0 +1,278 @@
+{
+  "2023-04-01": [
+    {
+      "location": "Repository.squashPrTitleUsedAsDefault",
+      "description": "<p><code>squashPrTitleUsedAsDefault</code> will be removed. Use <code>Repository.squashMergeCommitTitle</code> instead.</p>",
+      "reason": "<p><code>squashPrTitleUsedAsDefault</code> will be removed.</p>",
+      "date": "2023-04-01",
+      "criticality": "breaking",
+      "owner": "github/pull_requests"
+    },
+    {
+      "location": "ProjectV2View.verticalGroupBy",
+      "description": "<p><code>verticalGroupBy</code> will be removed. Check out the <code>ProjectV2View#vertical_group_by_fields</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2View#vertical_group_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#vertical_group_by_fields</code> API.</p>",
+      "date": "2023-04-01",
+      "criticality": "breaking",
+      "owner": "traumverloren"
+    },
+    {
+      "location": "ProjectV2View.sortBy",
+      "description": "<p><code>sortBy</code> will be removed. Check out the <code>ProjectV2View#sort_by_fields</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2View#sort_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#sort_by_fields</code> API.</p>",
+      "date": "2023-04-01",
+      "criticality": "breaking",
+      "owner": "traumverloren"
+    },
+    {
+      "location": "ProjectV2View.groupBy",
+      "description": "<p><code>groupBy</code> will be removed. Check out the <code>ProjectV2View#group_by_fields</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2View#order_by</code> API is deprecated in favour of the more capable <code>ProjectV2View#group_by_field</code> API.</p>",
+      "date": "2023-04-01",
+      "criticality": "breaking",
+      "owner": "alcere"
+    }
+  ],
+  "2023-01-01": [
+    {
+      "location": "ProjectV2View.visibleFields",
+      "description": "<p><code>visibleFields</code> will be removed. Check out the <code>ProjectV2View#fields</code> API as an example for the more capable alternative.</p>",
+      "reason": "<p>The <code>ProjectV2View#visibleFields</code> API is deprecated in favour of the more capable <code>ProjectV2View#fields</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "mattruggio"
+    },
+    {
+      "location": "ProjectNextFieldType.TRACKS",
+      "description": "<p><code>TRACKS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.TRACKED_BY",
+      "description": "<p><code>TRACKED_BY</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.TITLE",
+      "description": "<p><code>TITLE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.TEXT",
+      "description": "<p><code>TEXT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.SINGLE_SELECT",
+      "description": "<p><code>SINGLE_SELECT</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.REVIEWERS",
+      "description": "<p><code>REVIEWERS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.REPOSITORY",
+      "description": "<p><code>REPOSITORY</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.NUMBER",
+      "description": "<p><code>NUMBER</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.MILESTONE",
+      "description": "<p><code>MILESTONE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.LINKED_PULL_REQUESTS",
+      "description": "<p><code>LINKED_PULL_REQUESTS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.LABELS",
+      "description": "<p><code>LABELS</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.ITERATION",
+      "description": "<p><code>ITERATION</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.DATE",
+      "description": "<p><code>DATE</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "ProjectNextFieldType.ASSIGNEES",
+      "description": "<p><code>ASSIGNEES</code> will be removed. Follow the ProjectV2 guide at <a href=\"https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/\">https://github.blog/changelog/2022-06-23-the-new-github-issues-june-23rd-update/</a>, to find a suitable replacement.</p>",
+      "reason": "<p>The <code>ProjectNext</code> API is deprecated in favour of the more capable <code>ProjectV2</code> API.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "lukewar"
+    },
+    {
+      "location": "Commit.changedFiles",
+      "description": "<p><code>changedFiles</code> will be removed. Use <code>changedFilesIfAvailable</code> instead.</p>",
+      "reason": "<p><code>changedFiles</code> will be removed.</p>",
+      "date": "2023-01-01",
+      "criticality": "breaking",
+      "owner": "adamshwert"
+    }
+  ],
+  "2022-10-01": [
+    {
+      "location": "RepositoryVulnerabilityAlert.fixReason",
+      "description": "<p><code>fixReason</code> will be removed.</p>",
+      "reason": "<p>The <code>fixReason</code> field is being removed. You can still use <code>fixedAt</code> and <code>dismissReason</code>.</p>",
+      "date": "2022-10-01",
+      "criticality": "breaking",
+      "owner": "jamestran201"
+    },
+    {
+      "location": "RemovePullRequestFromMergeQueueInput.branch",
+      "description": "<p><code>branch</code> will be removed.</p>",
+      "reason": "<p>PRs are removed from the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+      "date": "2022-10-01",
+      "criticality": "breaking",
+      "owner": "jhunschejones"
+    },
+    {
+      "location": "DependencyGraphDependency.packageLabel",
+      "description": "<p><code>packageLabel</code> will be removed. Use normalized <code>packageName</code> field instead.</p>",
+      "reason": "<p><code>packageLabel</code> will be removed.</p>",
+      "date": "2022-10-01",
+      "criticality": "breaking",
+      "owner": "github/dependency_graph"
+    }
+  ],
+  "2022-07-01": [
+    {
+      "location": "AddPullRequestToMergeQueueInput.branch",
+      "description": "<p><code>branch</code> will be removed.</p>",
+      "reason": "<p>PRs are added to the merge queue for the base branch, the <code>branch</code> argument is now a no-op</p>",
+      "date": "2022-07-01",
+      "criticality": "breaking",
+      "owner": "jhunschejones"
+    }
+  ],
+  "2021-10-01": [
+    {
+      "location": "ReactionGroup.users",
+      "description": "<p><code>users</code> will be removed. Use the <code>reactors</code> field instead.</p>",
+      "reason": "<p>Reactors can now be mannequins, bots, and organizations.</p>",
+      "date": "2021-10-01",
+      "criticality": "breaking",
+      "owner": "synthead"
+    }
+  ],
+  "2021-06-21": [
+    {
+      "location": "PackageType.DOCKER",
+      "description": "<p><code>DOCKER</code> will be removed.</p>",
+      "reason": "<p>DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API.</p>",
+      "date": "2021-06-21",
+      "criticality": "breaking",
+      "owner": "reybard"
+    }
+  ],
+  "2021-01-01": [
+    {
+      "location": "MergeStateStatus.DRAFT",
+      "description": "<p><code>DRAFT</code> will be removed. Use PullRequest.isDraft instead.</p>",
+      "reason": "<p>DRAFT state will be removed from this enum and <code>isDraft</code> should be used instead</p>",
+      "date": "2021-01-01",
+      "criticality": "breaking",
+      "owner": "nplasterer"
+    }
+  ],
+  "2020-10-01": [
+    {
+      "location": "PullRequest.timeline",
+      "description": "<p><code>timeline</code> will be removed. Use PullRequest.timelineItems instead.</p>",
+      "reason": "<p><code>timeline</code> will be removed</p>",
+      "date": "2020-10-01",
+      "criticality": "breaking",
+      "owner": "mikesea"
+    },
+    {
+      "location": "Issue.timeline",
+      "description": "<p><code>timeline</code> will be removed. Use Issue.timelineItems instead.</p>",
+      "reason": "<p><code>timeline</code> will be removed</p>",
+      "date": "2020-10-01",
+      "criticality": "breaking",
+      "owner": "mikesea"
+    }
+  ],
+  "2020-01-01": [
+    {
+      "location": "UnassignedEvent.user",
+      "description": "<p><code>user</code> will be removed. Use the <code>assignee</code> field instead.</p>",
+      "reason": "<p>Assignees can now be mannequins.</p>",
+      "date": "2020-01-01",
+      "criticality": "breaking",
+      "owner": "tambling"
+    },
+    {
+      "location": "AssignedEvent.user",
+      "description": "<p><code>user</code> will be removed. Use the <code>assignee</code> field instead.</p>",
+      "reason": "<p>Assignees can now be mannequins.</p>",
+      "date": "2020-01-01",
+      "criticality": "breaking",
+      "owner": "tambling"
+    }
+  ],
+  "2019-04-01": [
+    {
+      "location": "LegacyMigration.uploadUrlTemplate",
+      "description": "<p><code>uploadUrlTemplate</code> will be removed. Use <code>uploadUrl</code> instead.</p>",
+      "reason": "<p><code>uploadUrlTemplate</code> is being removed because it is not a standard URL and adds an extra user step.</p>",
+      "date": "2019-04-01",
+      "criticality": "breaking",
+      "owner": "tambling"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+You can choose to configure an assignment with {% data variables.product.prodname_github_codespaces %} to give students access to a browser-based Visual Studio Code environment with one-click setup. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/using-github-codespaces-with-github-classroom)."

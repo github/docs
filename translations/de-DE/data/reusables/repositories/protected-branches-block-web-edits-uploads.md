@@ -1,3 +1,0 @@
-Wenn ein Repository geschützte Branches hat, kannst Du mit {% data variables.product.prodname_dotcom %} keine Dateien im geschützten Branch verändern oder hochladen. Weitere Informationen findest Du unter „[Informationen zu geschützten Branches](/articles/about-protected-branches).“
-
-Du kannst {% data variables.product.prodname_desktop %} verwenden, um deine Änderungen in einen neuen Branch zu verschieben und zu committen. Weitere Informationen findest Du unter „[Committen und überprüfen von Änderungen an Deinem Projekt](/desktop/contributing-to-projects/committing-and-reviewing-changes-to-your-project)."

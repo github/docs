@@ -1,0 +1,6 @@
+# Issue 9856 - Comment on a file in pull requests (an image or source file)
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.9'
+  ghae: '>= 3.9'

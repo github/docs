@@ -1,2 +1,3 @@
 1. Use the **File** menu, then click **Options**.
-  ![The Options value in the Settings drop-down menu](/assets/images/help/desktop/windows-choose-options.png)
+
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "File" dropdown menu, the "Options" item is highlighted with an orange outline.](/assets/images/help/desktop/windows-choose-options.png)

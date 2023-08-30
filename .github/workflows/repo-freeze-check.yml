@@ -6,6 +6,7 @@ name: Repo Freeze Check
 
 on:
   workflow_dispatch:
+  merge_group:
   pull_request_target:
     types:
       - opened
@@ -15,6 +16,9 @@ on:
       - unlocked
     branches:
       - main
+
+permissions:
+  contents: none
 
 env:
   FREEZE: ${{ secrets.FREEZE }}

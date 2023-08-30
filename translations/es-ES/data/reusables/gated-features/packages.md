@@ -1,5 +1,0 @@
-El {% data variables.product.prodname_registry %} se encuentra disponible con {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} para organizaciones, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_ghe_server %} 2.22, {% data variables.product.prodname_ghe_one %}, y {% data variables.product.prodname_ghe_managed %}.
-{% if currentVersion == "free-pro-team@latest" %}
-<br>
-{% data variables.product.prodname_registry %} no está disponible para repositorios privados que pertenezcan a cuentas que utilicen planes tradicionales por repositorio. {% data variables.product.prodname_registry %} se encuentra disponible con {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} para organizaciones, {% data variables.product.prodname_team %}, {% data variables.product.prodname_ghe_cloud %}, y {% data variables.product.prodname_ghe_one %}. {% data reusables.gated-features.more-info %}
-{% endif %}

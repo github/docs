@@ -1,1 +1,1 @@
-For more information about keyboard shortcuts, see "Project boards" in "[Keyboard shortcuts](/articles/keyboard-shortcuts/#project-boards)."
+For more information about keyboard shortcuts, see "Project boards" in "[AUTOTITLE](/get-started/using-github/keyboard-shortcuts#project-boards)."

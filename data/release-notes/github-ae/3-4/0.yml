@@ -1,0 +1,164 @@
+date: '2022-10-25'
+sections:
+  features:
+    - heading: 'Security & access management'
+      notes:
+        - |
+          Users with admin access to a repository can better understand who has access to the repository, see what level of access each user has, and more easily manage access to the repository. For example, users can accomplish the following tasks.
+        
+          - Search all members, teams, and collaborators who have access to the repository.
+          - View when members have mixed role assignments, granted to them directly as individuals or indirectly via a team: a new "mixed roles" warning displays the highest level role the user is granted if their access is higher than their assigned role.
+        
+          For more information, see "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
+
+    - heading: 'Administration'
+      notes:
+        - |
+          Enterprise owners can now show additional links to enterprise members and collaborators in a custom footer. For more information, see "[Configuring custom footers](/admin/configuration/configuring-your-enterprise/configuring-custom-footers)."
+
+    - heading: 'GitHub Actions'
+      notes:
+        - |
+          Users can reuse a workflow with a single line of configuration. Reusable workflows save time and maintenance by removing the need to copy and paste workflow definitions across repositories. Reusable workflows are in beta and subject to change. For more information, see "[Reusing workflows](/actions/using-workflows/reusing-workflows)."
+        - |
+          The updated management experience for self-hosted runners simplifies management of runner groups and provides an improved overview of your runners. For more information, see "[About self-hosted runners](/actions/hosting-your-own-runners/about-self-hosted-runners)" and "[Managing access to self-hosted runners using groups](/actions/hosting-your-own-runners/managing-access-to-self-hosted-runners-using-groups)."
+        - |
+          Dependabot now shares secrets with GitHub Actions when Dependabot triggers a workflow run, so users can now pull from private package registries within CI pipelines using Dependabot's secrets. For more information, see "[Managing encrypted secrets for Dependabot](/code-security/dependabot/working-with-dependabot/managing-encrypted-secrets-for-dependabot)."
+        - |
+          Users can use an `if` conditional to prevent specific steps in a composite action from executing unless a condition is met. Like steps defined in workflows, you can use any supported context and expression to create a conditional. For more information about composite actions, see "[Creating a composite action](/actions/creating-actions/creating-a-composite-action)."
+        - |
+          Users can provide a better experience to users of a workflow by specifying input types for manually triggered workflows. Workflows now support `choice`, `boolean`, and `environment`. For more information, see "[Workflow syntax for GitHub Actions](/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs)."
+        - |
+          The first available matching runner at the repository, organization, or enterprise level will run each job in all cases, which means jobs are sent to self-hosted runners much faster, especially for organizations and enterprises with many self-hosted runners. Previously, when running a job that required a self-hosted runner, GitHub Actions would look for self-hosted runners in the repository, organization, and enterprise, in that order. For more information, see "[Using self-hosted runners in a workflow](/actions/hosting-your-own-runners/using-self-hosted-runners-in-a-workflow)."
+        - |
+          Users can specify that a JavaScript action should run in Node.js 16 by specifying `runs.using` as `node16`. Node.js 16 support supplements the existing support for Node.js 12. Runners must have version 2.285.0 or later of the GitHub Actions Runner installed. For more information, see "[Metadata syntax for GitHub Actions](/actions/creating-actions/metadata-syntax-for-github-actions#runs-for-javascript-actions)" and the [`actions/runner` repository](https://github.com/actions/runner).
+        - |
+          Users can add, list, and remove labels for self-hosted runners using the REST API. For more information, see "[Self-hosted runners](/rest/actions/self-hosted-runners)" in the REST API documentation.
+
+    - heading: 'GitHub Advanced Security'
+      notes:
+        - |
+          Users can improve the security of services and tools created with Ruby using CodeQL code scanning. For all common Ruby versions up to and including 3.02, CodeQL can detect common issues such as SQL injection, ReDoS, OS command and argument injection, XML entity expansion, reflected cross-site scripting (XSS), stored XSS, unsafe deserialization, and hard-coded credentials. To enable Ruby analysis, users must update an existing CodeQL code scanning workflow file. Ruby support for CodeQL is in beta and subject to change. For more information, see "[Configuring code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning#changing-the-languages-that-are-analyzed)" and the [CodeQL documentation](https://codeql.github.com/docs/codeql-language-guides/codeql-for-ruby). For more information about code scanning with CodeQL, see "[About code scanning with CodeQL](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql)."
+        - |
+          CodeQL's Python analysis supports additional frameworks and can detect more potential sources of untrusted user data, steps through which that data flows, and potentially dangerous sinks in which this data could end up. For more information, see "[Supported languages and frameworks](https://codeql.github.com/docs/codeql-overview/supported-languages-and-frameworks/#python-built-in-support)" in the CodeQL documentation.
+        - |
+          Users can retrieve commit details of secrets detected in private repository scans using the REST API. The new endpoint will surface details of a secret's first detection within a file, including the secret's location and commit SHA. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning)" and "[Secret scanning](/rest/secret-scanning)" in the REST API documentation.
+        - |
+          The code scanning API includes the following improvements.
+
+          - Alerts include the `fixed_at` timestamp, which is the first time that the alert was not detected in an analysis. Users can use this data to better understand when code scanning alerts are being fixed.
+          - Users can sort for the most important alert results using `sort` and `direction` on either `created`, `updated`, or `number`. For more information, see [Code scanning](/rest/reference/code-scanning#list-code-scanning-alerts-for-a-repository) in the REST API documentation.
+          - The alerts and alert endpoint response include a `Last-Modified` header. For more information, see [`Last-Modified`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Last-Modified) in the Mozilla documentation.
+          - SARIF responses for code scanning analyses include `relatedLocations`, which may contain locations which are not the primary location of the alert. For an example, see the [SARIF spec](https://docs.oasis-open.org/sarif/sarif/v2.1.0/cs01/sarif-v2.1.0-cs01.html#_Toc16012616). For more information, see [Code scanning](/rest/code-scanning#get-a-code-scanning-analysis-for-a-repository) in the REST API documentation.
+          - The webhook response alert rule object includes `help` and `tags` data. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)."
+        - |
+          Organization owners and security managers can retrieve private repositories' secret scanning results at the enterprise level using the REST API. For more information, see "[About secret scanning](/code-security/secret-scanning/about-secret-scanning#about-secret-scanning-for-private-repositories)" and "[Secret scanning](/rest/reference/secret-scanning)" in the REST API documentation.
+
+    - heading: 'Dependabot'
+      notes:
+        - |
+          Users can dismiss Dependabot alerts via the GraphQL API. For more information, see "[Mutations](/graphql/reference/mutations#dismissrepositoryvulnerabilityalert)" in the GraphQL API documentation.
+
+    - heading: 'Code security'
+      notes:
+        - |
+          Dependency graph detects Python dependencies in repositories that use the Poetry package manager. Dependencies will be detected from both `pyproject.toml`  and `poetry.lock` manifest files. For more information, see "[About the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)."
+        - |
+          Developers and security researchers can use CodeQL to build databases and analyze code on machines powered by Apple silicon chips, such as the M1. Both the [CodeQL CLI](https://codeql.github.com/docs/codeql-overview/about-codeql/) and [VS Code extension](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-codeql) support Apple silicon. To use the CodeQL CLI or the VS Code extension on Apple silicon, users must install the [Xcode command-line developer tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https://support.apple.com/en-us/HT211861). CodeQL support for Apple silicon is in beta and subject to change.
+
+          - For more information about configuration of the CodeQL CLI on supported platforms, see "[Using the CodeQL CLI](https://codeql.github.com/docs/codeql-cli/using-the-codeql-cli/#using-the-codeql-cli)" in the CodeQL documentation.
+          - For more information about CodeQL, see "[About CodeQL](https://codeql.github.com/docs/codeql-overview/about-codeql/)" in the CodeQL documentation and "[About code scanning](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning)."
+        - |
+          Users of the CodeQL CLI versions 2.7.1 and later can include query help in SARIF files as Markdown, and the help text will appear in GitHub AE's code scanning UI. Users can include query help as a Markdown file with the same name as the corresponding query file. For example, if your query file is `MyCustomQuery.ql`, the name of the query help file would be `MyCustomQuery.md`. For more information about authorship of query help for custom CodeQL queries, see the [query help style guide](https://github.com/github/codeql/blob/main/docs/query-help-style-guide.md).
+          - Users who don't use GitHub Actions for CI/CD and code scanning must specify the addition of query help when running the `codeql database analyze` command by including the `--sarif-add-query-help` flag. For more information, see "[Analyzing databases with the CodeQL CLI](https://codeql.github.com/docs/codeql-cli/analyzing-databases-with-the-codeql-cli/#including-query-help-for-custom-codeql-queries-in-sarif-files)" in the CodeQL documentation.
+
+    - heading: 'Notifications'
+      notes:
+        - |
+          Users can unsubscribe from all repositories owned by a given user or organization. For more information, see "[Managing your subscriptions](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github/managing-your-subscriptions#unwatching-repositories)."
+        - |
+          Organization owners can unsubscribe from email notifications when new deploy keys are added to repositories belonging to their organizations. For more information, see "[Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)."
+        - |
+          The subject line for email notifications for issues and pull requests includes "(Issue #_NUMBER_)" or "(PR #_NUMBER_)" to help users easily distinguish between the two notification types.
+        - |
+          The **View on GitHub** link at the bottom of email notifications is no longer hidden by default in Gmail.
+
+    - heading: 'Organizations'
+      notes:
+        - |
+          Organization members can now view a list of enterprise owners. Whenever an organization member encounters a prompt to contact an enterprise owner, a link will direct the user to the list. The list is also accessible using the GraphQL API's `Organization` object at the `enterpriseOwners` endpoint. For more information, see "[Viewing people's roles in an organization](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization#view-enterprise-owners-and-their-roles-in-an-organization)."
+
+    - heading: 'Repositories'
+      notes:
+        - |
+          Users with admin access to a repository can rename branches that are protected by branch protection rules. For more information, see "[Renaming a branch](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
+        - |
+          Instead of allowing all or no users to force push, people with admin access to a repository can choose who can force push to the repository. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#allow-force-pushes)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
+        - |
+          Users with admin access to a repository can require that all changes to a protected branch are made using a pull request, but without requiring reviews. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)" and "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
+        - |
+          Users with admin access to a repository can allow specific users and teams to bypass pull request requirements. For more information, see "[Managing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)."
+        - |
+          Users can use single-character prefixes for custom autolinks. Autolink prefixes also allow `.`, `-`, `_`, `+`, `=`, `:`, `/`, and `#` characters, as well as alphanumerics. For more information, see "[Configuring autolinks to reference external resources](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-autolinks-to-reference-external-resources)."
+
+    - heading: 'Pull requests'
+      notes:
+        - |
+          Users can enable **Only notify requested team members** independently of **Enable auto assignment** in the team's code review settings, allowing users to require the team for review, but without always notifying the whole team unnecessarily. For more information, see "[Managing code review settings for your team](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
+
+    - heading: 'Releases'
+      notes:
+        - |
+          The releases UI is improved, providing clarity into what's included in a given release and recognition for contributors to the release. Pagination is improved, and new search functionality is available.
+        - |
+          Users can automatically generate release notes that include a summary of all the pull requests for a given release. For more information, see "[Automatically generated release notes](/repositories/releasing-projects-on-github/automatically-generated-release-notes)."
+
+    - heading: 'Gists'
+      notes:
+        - |
+          Users can preview renderings of Markdown files in gists. When creating or editing a gist file with the Markdown file extension, `.md`, a **Preview** or **Preview changes** tab will display a Markdown rendering of the file's contents. For more information about gists, see "[Editing and sharing content with gists](/get-started/writing-on-github/editing-and-sharing-content-with-gists)."
+
+    - heading: 'Markdown'
+      notes:
+        - |
+          Users can choose to use a fixed-width font in Markdown fields, like comments on issues and pull requests. For more information, see "[About writing and formatting on GitHub](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github#enabling-fixed-width-fonts-in-the-editor)."
+        - |
+          Users can specify the theme an image is displayed for in Markdown. For more information, see "[Basic writing and formatting syntax](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#specifying-the-theme-an-image-is-shown-to)."
+        - |
+          Users can quickly create a Markdown link while editing text in Markdown-enabled fields like issue or pull request comments by selecting text and then pasting a URL.
+        - |
+          HTML links that users paste into Markdown fields are automatically converted into Markdown links. To paste HTML links as plain text, press <kbd>⌘</kbd>/<kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>v</kbd>.
+        - |
+          Right-to-left languages are supported natively in Markdown files and comments in issues, pull requests, and discussions.
+
+    - heading: 'Developer experience'
+      notes:
+        - |
+          Users can set a preferred tab size. All code on GitHub AE with tabs will render using the preferred tab size. For more information, see "[Managing your tab size rendering preference](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-tab-size-rendering-preference)."
+
+    - heading: 'Accessibility'
+      notes:
+        - |
+          Users can manage keyboard shortcuts with GitHub AE's new accessibility settings, and can choose to disable character key shortcuts that only use single characters, such as <kbd>s</kbd>, <kbd>g c</kbd>, and <kbd>.</kbd> (the period key). For more information, see "[Managing accessibility settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-accessibility-settings#managing-motion)."
+
+    - heading: 'GitHub Apps'
+      notes:
+        - |
+          To ensures all changes are validated by the intended app, users can now control which GitHub App a required status check is provided by. If status is then provided by a different app or by a user via a commit status, merging will be prevented. Existing required status checks will continue to accept status from any app, but can be updated to only accept status from a specific app. Newly-added required status checks will default to the app that most recently reported the status, but you can choose a different app or allow any app to provide the status. For more information, see "[About protected branches](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)" and "[Editing a branch protection rule](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#editing-a-branch-protection-rule)."
+
+    - heading: 'Webhooks'
+      notes:
+        - |
+          Organization owners and users with admin access to a repository can trigger webhooks to listen for changes to branch protection rules. For more information, see "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#branch_protection_rule)."
+
+  changes:
+    - When users are invited to a private repository, navigating to the private repository's URL will display a prompt to join the repository instead of a `404` error.
+    - Invitations to private repositories appear in notifications.
+    - When a user types `@` in the web UI to mention a user, the list ranks participants in issues, pull requests, and discussions higher so that it's more likely the person a user is looking for will be listed first.
+    - To prevent potentially malicious code from executing in a privileged workflow, the following changes apply to GitHub Actions workflows triggered by Dependabot.
+    
+      - Workflow runs triggered for the `create`, `deployment`, and `deployment_status` events will always receive a read-only token and no secrets.
+      - Workflow runs triggered for the `pull_request_target` event on pull requests where the base ref was created by Dependabot will always receive a read-only token and no secrets.
+      - Workflow runs on `push` and `pull_request` events triggered by Dependabot respect the `permissions` specified in your workflows. The default token permissions will remain read-only.
+    - The setting to hide whitespace changes in a pull request's **Files changed** tab is preserved for each pull request.
+    - The "Update a pull request branch" API for GitHub Apps now requires the calling user or application to have write access to the head repository. If the caller does not have write access, the API will return a `403 Forbidden` response. For more information, see "[Pulls](https://docs.github.com/rest/pulls/pulls#update-a-pull-request-branch)" in the REST API documentation.

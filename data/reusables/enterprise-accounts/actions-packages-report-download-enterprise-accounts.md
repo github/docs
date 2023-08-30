@@ -1,2 +1,3 @@
-1. Optionally, under "{% data variables.product.prodname_dotcom %} Actions and Packages monthly usage", click **Get usage report** to email a CSV report of storage use for {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} in each of your enterprise account's organizations to the primary email address for the account.
-  ![Download CSV report](/assets/images/help/billing/actions-packages-report-download-enterprise.png)
+1. Optionally, under the billing summary at the top of the page click **Get usage report** to email a CSV report of storage use for {% data variables.product.prodname_actions %}, {% data variables.product.prodname_registry %}, and {% data variables.product.prodname_github_codespaces %} in each of your enterprise account's organizations to the primary email address for the account.
+
+   ![Screenshot of the header of the billing settings page on GitHub. A button, labeled "Get usage report", is highlighted with an orange outline.](/assets/images/help/billing/actions-packages-report-download-enterprise.png)

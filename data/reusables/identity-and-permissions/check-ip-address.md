@@ -1,0 +1,1 @@
+1. Optionally, check if a particular IP address would be allowed by any of the enabled entries in your list. For more information, see "[Checking if an IP address is permitted](#checking-if-an-ip-address-is-permitted)."

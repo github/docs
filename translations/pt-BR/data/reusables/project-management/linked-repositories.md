@@ -1,1 +1,0 @@
-1. Opcionalmente, em **repositórios vinculados**, pesquise um repositório que você gostaria de vincular ao quadro de projetos. ![Campo de pesquisa para vincular os repositórios](/assets/images/help/projects/search-to-link-repository-on-create.png)

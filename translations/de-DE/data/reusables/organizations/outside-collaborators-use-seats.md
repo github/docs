@@ -1,1 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" %}Adding an outside collaborator to a private repository will use one of your organization's paid licenses. Weitere Informationen findest Du unter „[Informationen zur benutzerabhängigen Preisgestaltung](/articles/about-per-user-pricing/)“.{% endif %}

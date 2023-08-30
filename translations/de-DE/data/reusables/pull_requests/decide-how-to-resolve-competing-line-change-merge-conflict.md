@@ -1,1 +1,0 @@
-1. Entscheide, ob Du nur die Änderungen Deines Branch beibehalten, nur die Änderungen des anderen Branch beibehalten oder eine brandneue Änderung erstellen möchtest, die die Änderungen aus beiden Branches beinhalten kann. Lösche die Konflikthinweise `<<<<<<<`, `=======`, `>>>>>>>` und mache die gewünschten Änderungen in der endgültigen Zusammenführung.

@@ -1,0 +1,7 @@
+# Reference: Issue #8657 - Dependabot alerts: audit log improvements - [GA]
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.8'
+  ghae: '>= 3.8'

@@ -1,1 +1,0 @@
-4. スポンサードOrganizationからのメールによる更新を受信するかを決定し、"Receive updates from _ORGANIZATION_（Organizationからの更新を受信する）"を選択もしくは選択解除してください。 ![スポンサードOrganizationからの最新情報を受け取るためのチェックボックス](/assets/images/help/sponsors/org-updates-checkbox-manage.png)

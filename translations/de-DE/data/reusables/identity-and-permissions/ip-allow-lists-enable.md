@@ -1,1 +1,0 @@
-Um die IP-Zulassungsliste zu erzwingen, musst Du der Liste zuerst IP-Adressen hinzufügen und danach die IP-Zulassungsliste aktivieren. Du musst Deine aktuelle IP-Adresse oder einen passenden Adressbereich hinzufügen, bevor Du die Liste der zulässigen IP-Adressen aktivierst.

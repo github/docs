@@ -1,1 +1,0 @@
-Os administradores do repositório podem exigir que todos os pull requests recebam um número específico de revisões antes que alguém faça o merge do pull request em um branch protegido. Você pode exigir a aprovação de revisões de pessoas com permissões de gravação no repositório ou de um proprietário de código designado.

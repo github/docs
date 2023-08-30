@@ -1,1 +1,0 @@
-1. Wähle **Initialize this repository with a README** (Dieses Repository mit einer README-Datei initialisieren). ![Kontrollkästchen „Initialize this repository with a README“ (Dieses Repository mit einer README-Datei initialisieren)](/assets/images/help/repository/initialize-with-readme.png)

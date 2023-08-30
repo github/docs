@@ -1,1 +1,0 @@
-{% data variables.product.prodname_mobile %} is available as an Android and iOS app. {% data variables.product.prodname_mobile %} is generally available for {% data variables.product.prodname_dotcom_the_website %} users and in public beta for users of {% data variables.product.prodname_ghe_server %} 3.0+.

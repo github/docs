@@ -1,1 +1,0 @@
-1. Debajo de "Información de Facturación", confirma que estás reinstalando la aplicación para tu cuenta personal. ![Tu nombre, tu avatar, el texto "Cuenta personal" y un menú desplegable para cambiar de cuenta de facturación](/assets/images/help/marketplace/marketplace-confirm-personal-account.png)

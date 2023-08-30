@@ -1,1 +1,0 @@
-This procedure permanently removes the self-hosted runner. If you only want to temporarily stop a runner from being assigned jobs, you can either shut down the machine or stop the `run` application. The runner will remain assigned in an "Offline" state, and won't execute any jobs until you restart the runner using the `run` application.

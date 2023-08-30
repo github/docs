@@ -1,44 +1,51 @@
 ---
-title: Project board permissions for an organization
-intro: 'Organization owners and people with project board admin permissions can customize who has read, write, and admin permissions to your organization’s project boards.'
+title: '{% data variables.product.prodname_project_v1_caps %} permissions for an organization'
+intro: 'Organization owners and people with {% data variables.projects.projects_v1_board %} admin permissions can customize who has read, write, and admin permissions to your organization’s {% data variables.projects.projects_v1_boards %}.'
 redirect_from:
   - /articles/project-board-permissions-for-an-organization
   - /github/setting-up-and-managing-organizations-and-teams/project-board-permissions-for-an-organization
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+shortTitle: '{% data variables.product.prodname_project_v1_caps %} permissions'
+allowTitleToDifferFromFilename: true
 ---
 
-### Permissions overview
+{% data reusables.projects.project_boards_old %}
 
-There are three levels of permissions to a project board for people and teams:
+## Permissions overview
+
+There are three levels of permissions to a {% data variables.projects.projects_v1_board %} for people and teams:
 
 {% data reusables.project-management.project-board-permissions %}
 
-Organization owners and people with admin permissions can give a person access to an organization project board individually, as an outside collaborator or organization member, or through their membership in a team or organization. An outside collaborator is someone who is not an organization member but given permissions to collaborate in your organization.
+Organization owners and people with admin permissions can give a person access to an organization {% data variables.projects.projects_v1_board %} individually, as an outside collaborator or organization member, or through their membership in a team or organization. An outside collaborator is someone who is not an organization member but given permissions to collaborate in your organization.
 
-Organization owners and people with admin permissions to a project board can also:
+Organization owners and people with admin permissions to a {% data variables.projects.projects_v1_board %} can also:
 - Set default project board permissions for all organization members.
-- Manage access to the project board for organization members, teams, and outside collaborators. For more information, see "[Managing team access to an organization project board](/articles/managing-team-access-to-an-organization-project-board)", "[Managing an individual’s access to an organization project board](/articles/managing-an-individual-s-access-to-an-organization-project-board)", or "[Managing access to a project board for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
-- Manage project board visibility. For more information, see "[Managing access to a project board for organization members](/articles/managing-access-to-a-project-board-for-organization-members)."
+- Manage access to the project board for organization members, teams, and outside collaborators. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)", "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)", or "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)."
+- Manage project board visibility. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)."
 
-### Cascading permissions for project boards
+## Cascading permissions for {% data variables.projects.projects_v1_boards %}
 
 {% data reusables.project-management.cascading-permissions %}
 
-For example, if an organization owner has given all organization members read permissions to a project board, and a project board admin gives an organization member write permissions to that board as an individual collaborator, that person would have write permissions to the project board.
+For example, if an organization owner has given all organization members read permissions to a {% data variables.projects.projects_v1_board %}, and a {% data variables.projects.projects_v1_board %} admin gives an organization member write permissions to that board as an individual collaborator, that person would have write permissions to the {% data variables.projects.projects_v1_board %}.
 
-### Project board visibility
+## {% data variables.projects.projects_v1_board_caps %} visibility
 
-{% data reusables.project-management.project-board-visibility %} You can change the project board's visibility from private to {% if currentVersion == "github-ae@latest" %}internal{% else %}public{% endif %} and back again. For more information, see "[Changing project board visibility](/articles/changing-project-board-visibility)."
+{% ifversion classic-project-visibility-permissions %}{% data reusables.projects.owners-can-limit-visibility-permissions %}{% endif %}
 
-### Further reading
+{% data reusables.project-management.project-board-visibility %} You can change the {% data variables.projects.projects_v1_board %}'s visibility from private to {% ifversion ghae %}internal{% else %}public{% endif %} and back again. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)."
 
-- "[Changing project board visibility](/articles/changing-project-board-visibility)"
-- "[Managing an individual’s access to an organization project board](/articles/managing-an-individual-s-access-to-an-organization-project-board)"
-- "[Managing team access to an organization project board](/articles/managing-team-access-to-an-organization-project-board)"
-- "[Managing access to a project board for organization members](/articles/managing-access-to-a-project-board-for-organization-members)"
+## Further reading
+
+- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/changing-project-board-visibility)"
+- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-an-individuals-access-to-an-organization-project-board)"
+- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-team-access-to-an-organization-project-board)"
+- "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/managing-access-to-a-project-board-for-organization-members)"

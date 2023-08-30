@@ -1,0 +1,6 @@
+# Reference: #9214
+# Documentation for the addition of repo topic and team filters to the alert-centric views (Dependabot, code scanning, and secret scanning) of the security overview
+versions:
+  ghes: '>3.8'
+  ghae: '>3.8'
+  ghec: '*'

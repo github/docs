@@ -1,0 +1,5 @@
+# Reference: #6458
+# Larger GitHub-hosted runners
+versions:
+  fpt: '*'
+  ghec: '*'

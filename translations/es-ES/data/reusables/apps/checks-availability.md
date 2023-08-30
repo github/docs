@@ -1,1 +1,0 @@
-El permiso de escritura para la API de Verificaciones solo está disponible para las Github Apps. Las Apps de OAuth y los usuarios autenticados pueden ver las ejecuciones de verificación y las suites de verificación, pero no pueden crearlas. Si no estás creando una GitHub App, puede que te interese la [API de estados](/rest/reference/repos#statuses).

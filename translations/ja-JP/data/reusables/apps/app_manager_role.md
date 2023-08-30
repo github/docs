@@ -1,1 +1,0 @@
-デフォルトでは、Organization内のGitHub Appsの設定を管理できるのはOrganizationのオーナーだけです。 Organization内のGitHub Appsを管理できるユーザを追加するには、管理者がそのユーザにGitHub Appの管理者権限を許可します。 Organization内でのGitHub Appの管理者の追加と削除の方法を学ぶには、「[GitHub Appの管理者](/articles/permission-levels-for-an-organization/#github-app-managers)」を参照してください。

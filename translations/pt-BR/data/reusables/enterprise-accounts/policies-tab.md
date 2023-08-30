@@ -1,1 +1,0 @@
-1. Na barra lateral da conta corporativa, clique em {% octicon "law" aria-label="The law icon" %} **Policies**. ![Aba de políticas na barra lateral da conta corporativa](/assets/images/help/business-accounts/enterprise-account-policies-tab.png)

@@ -1,0 +1,7 @@
+# Issues 5812 and 6172, also 6411
+# Mermaid syntax support, also ASCII STL and geoJSON/topoJSON syntax support
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'
+  ghae: '>= 3.7'

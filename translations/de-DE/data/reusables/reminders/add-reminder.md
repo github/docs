@@ -1,1 +1,0 @@
-1. Klicke unter „Scheduled reminders" (Geplante Erinnerungen) auf **Add your first reminder** (Deine erste Erinnerung hinzufügen). ![Schaltfläche „Add reminder" (Erinnerung Hinzufügen)](/assets/images/help/settings/scheduled-reminders-add-button.png)

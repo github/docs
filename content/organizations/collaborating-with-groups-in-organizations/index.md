@@ -2,21 +2,26 @@
 title: Collaborating with groups in organizations
 intro: Groups of people can collaborate across many projects at the same time in organization accounts.
 redirect_from:
-  - /articles/creating-a-new-organization-account/
+  - /articles/creating-a-new-organization-account
   - /articles/collaborating-with-groups-in-organizations
   - /github/setting-up-and-managing-organizations-and-teams/collaborating-with-groups-in-organizations
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /about-organizations
+  - /about-your-organization-dashboard
+  - /best-practices-for-organizations
+  - /creating-a-new-organization-from-scratch
+  - /accessing-your-organizations-settings
+  - /customizing-your-organizations-profile
+  - /about-your-organizations-news-feed
+  - /viewing-insights-for-your-organization
+shortTitle: Collaborate with groups
 ---
 
-{% link_in_list /about-organizations %}
-{% link_in_list /about-your-organization-dashboard %}
-{% link_in_list /creating-a-new-organization-from-scratch %}
-{% link_in_list /accessing-your-organizations-settings %}
-{% link_in_list /about-your-organizations-news-feed %}
-{% link_in_list /viewing-insights-for-your-organization %}

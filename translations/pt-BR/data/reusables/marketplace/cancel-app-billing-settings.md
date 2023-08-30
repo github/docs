@@ -1,1 +1,0 @@
-1. Use o menu suspenso **Edit** e clique em **Cancel plan**. ![Cancelar o link na seção Compras no Marketplace das configurações de faturamento da sua conta pessoal](/assets/images/help/marketplace/marketplace-edit-app-billing-settings.png)

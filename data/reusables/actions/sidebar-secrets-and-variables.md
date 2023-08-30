@@ -1,0 +1,1 @@
+1. In the "Security" section of the sidebar, select {% ifversion actions-configuration-variables %}**{% octicon "key-asterisk" aria-hidden="true" %} Secrets and variables**, {% else %}**{% octicon "key-asterisk" aaria-hidden="true" %} Secrets**, {% endif %}then click **Actions**.

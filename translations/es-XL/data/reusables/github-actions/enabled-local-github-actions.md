@@ -1,1 +1,0 @@
-Cuando habilitas únicamente las acciones locales, los flujos de trabajo solo pueden ejecutar acciones ubicadas en tu repositorio u organización.

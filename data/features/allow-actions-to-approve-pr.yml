@@ -1,0 +1,7 @@
+# Reference: #6926.
+# Versioning for org policy settings for workflow PR approval permission. This is only org setting! For the later separate ship for the enterprise and repo setting, see the allow-actions-to-approve-pr-with-ent-repo flag.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.5'
+  ghae: '>= 3.5'

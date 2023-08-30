@@ -1,1 +1,0 @@
-1. Clique em **Complete order and begin installation** (Concluir pedido e comece a instalação). ![Botão de concluir o pedido e iniciar a instalação](/assets/images/help/marketplace/marketplace-complete-order-begin-installation-button.png)

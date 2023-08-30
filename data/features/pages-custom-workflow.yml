@@ -1,0 +1,6 @@
+# Issue 7066 and 7902 for the GHES release
+# Publishing Pages via custom Actions workflow
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.7'

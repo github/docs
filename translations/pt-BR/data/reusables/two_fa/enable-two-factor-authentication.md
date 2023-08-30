@@ -1,1 +1,0 @@
-1. Em "Autenticação de dois fatores", clique **Habilitar autenticação de dois fatores**. ![Habilitar a opção de autenticação de dois fatores](/assets/images/help/2fa/enable-two-factor-authentication-dialoge.png)

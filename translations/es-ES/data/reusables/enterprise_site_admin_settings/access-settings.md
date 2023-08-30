@@ -1,1 +1,0 @@
-1. Desde una cuenta administrativa en {% data variables.product.product_name %}, da clic en {% octicon "rocket" aria-label="The rocket ship" %} la esquina superior derecha de cualquier página. ![Ícono de cohete para acceder a las configuraciones de administrador del sitio](/assets/images/enterprise/site-admin-settings/access-new-settings.png)

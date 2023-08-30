@@ -1,1 +1,0 @@
-`column_name` | `string` | 却下されたレビューの情報。 `dismissed_review[state]` | `string` | 却下された時点でのPull Requestの状態。 `commented`、`approved`、`changes_requested`のいずれか。 `dismissed_review[review_id]` | `string` | Pull Requestのレビューの一意の識別子。 `dismissed_review[dismissal_message]` | `string` | レビューを却下する際にユーザが含めたメッセージ。 `dismissed_review[dismissal_commit_id]` | `string` | レビューを却下したコメントがある場合、その一意の識別子。

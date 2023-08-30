@@ -1,1 +1,0 @@
-{% if currentVersion == "free-pro-team@latest" %}创建新组织时，默认启用 {% data variables.product.prodname_oauth_app %} 访问限制。 组织所有者可随时[禁用 {% data variables.product.prodname_oauth_app %} 访问限制](/articles/disabling-oauth-app-access-restrictions-for-your-organization)。{% endif %}

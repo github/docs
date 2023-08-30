@@ -1,0 +1,4 @@
+# Issue #7791: SCIM for GitHub Enterprise Server
+
+versions:
+  ghes: '>=3.7'

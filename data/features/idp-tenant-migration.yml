@@ -1,0 +1,4 @@
+# Reference: #7781
+# Documentation for migrating an EMU-enabled enterprise's IdP or tenant
+versions:
+  ghec: '*'

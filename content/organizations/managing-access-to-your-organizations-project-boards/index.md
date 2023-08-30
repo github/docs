@@ -1,22 +1,26 @@
 ---
-title: Managing access to your organization’s project boards
-intro: 'As an organization owner or project board admin, you can give organization members, teams, and outside collaborators different levels of access to project boards owned by your organization.'
+title: 'Managing access to your organization’s {% data variables.product.prodname_projects_v1 %}'
+intro: 'As an organization owner or {% data variables.projects.projects_v1_board %} admin, you can give organization members, teams, and outside collaborators different levels of access to {% data variables.projects.projects_v1_boards %} owned by your organization.'
 redirect_from:
   - /articles/managing-access-to-your-organization-s-project-boards
   - /articles/managing-access-to-your-organizations-project-boards
   - /github/setting-up-and-managing-organizations-and-teams/managing-access-to-your-organizations-project-boards
 versions:
-  free-pro-team: '*'
-  enterprise-server: '*'
-  github-ae: '*'
+  fpt: '*'
+  ghes: '*'
+  ghae: '*'
+  ghec: '*'
 topics:
-  - organizations
-  - teams
+  - Organizations
+  - Teams
+children:
+  - /project-board-permissions-for-an-organization
+  - /managing-access-to-a-project-board-for-organization-members
+  - /managing-team-access-to-an-organization-project-board
+  - /managing-an-individuals-access-to-an-organization-project-board
+  - /adding-an-outside-collaborator-to-a-project-board-in-your-organization
+  - /removing-an-outside-collaborator-from-an-organization-project-board
+shortTitle: 'Manage {% data variables.product.prodname_project_v1 %} access'
+allowTitleToDifferFromFilename: true
 ---
 
-{% link_in_list /project-board-permissions-for-an-organization %}
-{% link_in_list /managing-access-to-a-project-board-for-organization-members %}
-{% link_in_list /managing-team-access-to-an-organization-project-board %}
-{% link_in_list /managing-an-individuals-access-to-an-organization-project-board %}
-{% link_in_list /adding-an-outside-collaborator-to-a-project-board-in-your-organization %}
-{% link_in_list /removing-an-outside-collaborator-from-an-organization-project-board %}

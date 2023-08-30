@@ -1,0 +1,6 @@
+# Reference: #7667.
+# Org owners can limit where forks can be created.
+versions:
+  ghec: '*'
+  ghes: '>=3.8'
+  ghae: '>=3.8'
