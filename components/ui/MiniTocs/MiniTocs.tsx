@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import cx from 'classnames'
 
 import type { MiniTocItem } from 'components/context/ArticleContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 import styles from './Minitocs.module.scss'
 

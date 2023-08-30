@@ -17,7 +17,7 @@ import {
 } from './set-fastly-surrogate-key.js'
 import handleErrors from '#src/observability/middleware/handle-errors.js'
 import handleNextDataPath from './handle-next-data-path.js'
-import detectLanguage from './detect-language.js'
+import detectLanguage from '#src/languages/middleware/detect-language.js'
 import reloadTree from './reload-tree.js'
 import context from './context.js'
 import shortVersions from './contextualizers/short-versions.js'

@@ -1,4 +1,4 @@
-import { languageKeys } from '../../../lib/languages.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
 import nonEnterpriseDefaultVersion from '../../../lib/non-enterprise-default-version.js'
 import { allVersions } from '../../../lib/all-versions.js'
 import {

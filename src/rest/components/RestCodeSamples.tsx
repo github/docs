@@ -9,7 +9,7 @@ import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import useClipboard from 'src/rest/components/useClipboard'
 import {
   getShellExample,

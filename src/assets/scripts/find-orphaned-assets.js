@@ -13,7 +13,7 @@ import { program } from 'commander'
 import walk from 'walk-sync'
 
 import walkFiles from '../../../script/helpers/walk-files.js'
-import languages from '../../../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 
 const EXCEPTIONS = new Set([
   'assets/images/site/favicon.ico',

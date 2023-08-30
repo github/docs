@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { IconButton, TextInput } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useQuery } from 'src/search/components/useQuery'
 import { useBreakpoint } from 'src/search/components/useBreakpoint'
