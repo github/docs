@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 
 import { Link } from 'components/Link'
 import { Notice } from './Notice'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { FieldT } from './types'
 
 type Props = {
