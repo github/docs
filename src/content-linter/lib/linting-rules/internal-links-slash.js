@@ -1,6 +1,6 @@
 import { filterTokens } from 'markdownlint-rule-helpers'
 
-import { addFixErrorDetail } from '../helpers/utils.js'
+import { addFixErrorDetail, getRange } from '../helpers/utils.js'
 
 export const internalLinksSlash = {
   names: ['GHD006', 'internal-links-slash'],
@@ -28,8 +28,9 @@ export const internalLinksSlash = {
             }
           }
         } else if (child.type === 'link_close') {
+          const range = getRange(token.line, child.content)
           if (!internalLinkHasSlash) {
-            addFixErrorDetail(onError, child.lineNumber, `/${linkHref}`, linkHref, undefined, {
+            addFixErrorDetail(onError, child.lineNumber, `/${linkHref}`, linkHref, range, {
               lineNumber: child.lineNumber,
               editColumn: token.line.indexOf('(') + 2,
               deleteCount: 0,

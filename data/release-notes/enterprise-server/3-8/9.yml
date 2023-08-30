@@ -30,5 +30,3 @@ sections:
       {% data reusables.release-notes.mermaid-rendering-known-issue %}
     - |
       {% data reusables.release-notes.migrations-blob-storage-unconfigurable-known-issue %}
-    - |
-      {% data reusables.release-notes.migrations-missing-section-known-issue %}

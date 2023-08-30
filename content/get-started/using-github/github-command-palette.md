@@ -138,7 +138,7 @@ These keystrokes are available when the command palette is in navigation and sea
 These commands are available from all scopes.
 
 | Command | Behavior|
-| :- | :- | :- |
+| :- | :- |
 |`Import repository`|Create a new repository by importing a project from another version control system. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer)."  |
 |`New gist`|Open a new gist. For more information, see "[AUTOTITLE](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)." |
 |`New organization`|Create a new organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." |

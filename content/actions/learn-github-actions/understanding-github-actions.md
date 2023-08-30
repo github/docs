@@ -17,7 +17,7 @@ topics:
   - Fundamentals
 layout: inline
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -89,10 +89,6 @@ For more information, see "[AUTOTITLE](/actions/creating-actions)."
 ## Next steps
 
 {% data reusables.actions.onboarding-next-steps %}
-
-## Contacting support
-
-{% data reusables.actions.contacting-support %}
 
 {% ifversion ghec or ghes or ghae %}
 

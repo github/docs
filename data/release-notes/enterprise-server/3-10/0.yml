@@ -1,13 +1,7 @@
-date: '2023-08-08'
-release_candidate: true
-deprecated: true
+date: '2023-08-29'
+release_candidate: false
+deprecated: false
 intro: |
-  {% note %}
-
-  **Note:** Release candidate (RC) builds are intended solely for use in a test environment. If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
-  {% endnote %}
-
   For upgrade instructions, see "[Upgrading {% data variables.product.prodname_ghe_server %}](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
 sections:
   # Remove section heading if the section contains no notes.
@@ -28,7 +22,11 @@ sections:
 
         # https://github.com/github/releases/issues/3378
         - |
-          Site administrators can use the Manage GitHub Enterprise Server API to view and manage the maintenance status of an instance, including setting an IP exception list and modifying the message displayed to  users during a maintenance window. For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" in the REST API documentation.
+          Site administrators can use the Manage GitHub Enterprise Server API to view and manage the maintenance status of an instance, including setting an IP exception list and modifying the message displayed to users during a maintenance window. For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" in the REST API documentation.
+        
+        # https://github.com/github/releases/issues/3251
+        - | 
+          Site administrators can use the Manage GitHub Enterprise Server API to change the `site admin` password and to make changes to [management console users](https://docs.github.com/en/enterprise-server@3.10/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#management-console-user). For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes)" in the REST API documentation.
 
     - heading: Authentication
       notes:
@@ -110,8 +108,8 @@ sections:
 
         # https://github.com/github/releases/issues/3112
         - |
-          Users can find curated security advisories for the Swift ecosystem in the GitHub Advisory Database. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database)." [Updated: 2023-08-24]
-          
+          Users can find curated security advisories for the Swift ecosystem in the GitHub Advisory Database. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database)."
+
     - heading: GitHub Actions
       notes:
         # https://github.com/github/releases/issues/3136
@@ -241,15 +239,6 @@ sections:
 
   known_issues:
     # INCLUDE NOTES FOR RELEASE FROM "GHES Release Note Tracking" PROJECT'S "Known Issues" TAB
-    # https://github.com/github/ghes/issues/6877 - this will be resolved before GA; @davidjarzebowski will create a separate PR to remove it
-    - |
-      When promoting a replica with `ghe-repl-promote`, applying the configuration fails at `Configuration phase 3`. This will be fixed when version 3.10.0 becomes generally available.
-    # https://github.com/github/ghes/issues/7048 - this will be resolved before GA; @davidjarzebowski will create a separate PR to remove it
-    - |
-      Instances running GitHub Enterprise Server 3.9.0 or 3.9.1 cannot upgrade to the 3.10.0 release candidate. The workaround to this issue is to first upgrade to the 3.9.2 patch before upgrading to the 3.10.0 release candidate. This will be fixed when version 3.10.0 becomes generally available, so that instances running 3.9.0 or 3.9.1 can upgrade to 3.10.0.
-    # https://github.com/github/mEAO/issues/1276 - this will be resolved before GA; @davidjarzebowski will create a separate PR to remove it
-    - |
-      On an instance with GitHub Connect and unified search enabled, users will receive a `500` error after performing a GitHub.com search then selecting Advanced search. This will be fixed when version 3.10.0 becomes generally available.
     - |
       After an administrator upgrades from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9 or 3.10, I/O utilization will increase, and in some cases the instance's performance will be impacted. Reduced performance is due to the database server being upgraded from MySQL 5.7 to MySQL 8.0. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
     - |
@@ -283,6 +272,7 @@ sections:
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
     - '{% data reusables.release-notes.2023-08-mssql-replication-known-issue %}'
+
 
   deprecations:
     # https://github.com/github/releases/issues/2605

@@ -18,7 +18,7 @@ program
   )
   .addOption(
     new Option(
-      '-e, --errors',
+      '--errors-only',
       'Only report rules that have the severity of error, not warning.',
     ).conflicts('rules'),
   )
@@ -38,7 +38,7 @@ program
   )
   .parse(process.argv)
 
-const { fix, paths, errors, rules, summaryByRule, verbose } = program.opts()
+const { fix, paths, errorsOnly, rules, summaryByRule, verbose } = program.opts()
 const ALL_CONTENT_DIR = ['content', 'data']
 
 main()
@@ -57,7 +57,7 @@ async function main() {
   const start = Date.now()
 
   // Initializes the config to pass to markdownlint based on the input options
-  const config = getMarkdownLintConfig(errors, rules)
+  const config = getMarkdownLintConfig(errorsOnly, rules)
   // Run Markdownlint on content and data directories individually
   // and get all results
   const results = await getMarkdownlintResults(config, files)
@@ -189,8 +189,11 @@ function formatResult(object) {
   const formattedResult = {}
 
   // Add severity of error or warning
-  const ruleName = object.ruleNames[1]
-  formattedResult.severity = allConfig[ruleName].severity
+  const ruleName = object.ruleNames[1] || object.ruleNames[0]
+  // The severity of the rule can be different when running locally vs in CI
+  formattedResult.severity = process.env.CI
+    ? allConfig[ruleName].severity
+    : allConfig[ruleName]['severity-local-env'] || allConfig[ruleName].severity
 
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {
@@ -263,7 +266,7 @@ async function getMarkdownlintResults(config, files) {
 // those Markdown files are partials included in full Markdown files.
 // Rules that can't be run on partials have the property
 // `partial-markdown-files` set to false.
-function getMarkdownLintConfig(errors, rules) {
+function getMarkdownLintConfig(errorsOnly, rules) {
   const config = {
     content: {
       default: false, // By default, don't turn on all markdownlint rules
@@ -274,7 +277,7 @@ function getMarkdownLintConfig(errors, rules) {
   }
 
   // Only configure the rules that have the severity of error
-  if (errors) {
+  if (errorsOnly) {
     const errorConfig = Object.keys(allConfig).reduce((acc, key) => {
       if (allConfig[key].severity === 'error') acc[key] = allConfig[key]
       return acc
