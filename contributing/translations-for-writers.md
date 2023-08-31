@@ -1,5 +1,5 @@
 # Translations guide for writers
-
+translations-for-writers.md
 Use the following checklist to help make your files more translation-friendly. For additional information, refer to the [style guide](../content-style-guide.md).
 
 - [ ] Use examples that are generic and can be understood by most people.
