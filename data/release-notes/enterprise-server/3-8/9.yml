@@ -9,6 +9,8 @@ sections:
     - When running the ghe-migrator, certain error messages contained an invalid link to import documentation. 
     - On an instance with GitHub Actions enabled, due to mismatched values, users could not easily associate workflow job run IDs from the GitHub Enterprise Server APIs or webhooks with a job in the UI. Workflow job runs now use a new URL pattern of `...actions/runs/job/{job_id}`, and `job_id` matches values from APIs and webhook payloads. 
     - On an instance with a GitHub Advanced Security license and secret scanning enabled, in some cases, custom patterns would erroneously show no results for a dry run. 
+    - |
+      Administrators could not use the "Migrations" section in an instance's Management Console to configure blob storage for GitHub Enterprise Importer. [Updated: 2023-08-31]
   changes:
     - Administrators with SSH access to an instance can view the version of GitHub Enterprise Server on the instance by using the `-v` flag with the `ghe-version` utility. 
   known_issues:
@@ -28,5 +30,3 @@ sections:
       When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
     - |
       {% data reusables.release-notes.mermaid-rendering-known-issue %}
-    - |
-      {% data reusables.release-notes.migrations-blob-storage-unconfigurable-known-issue %}
