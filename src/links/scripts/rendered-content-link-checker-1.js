@@ -10,10 +10,13 @@
 import fs from 'fs'
 import path from 'path'
 import { program, Option, InvalidArgumentError } from 'commander'
-import renderedContentLinkChecker from '../.github/actions-scripts/rendered-content-link-checker.js'
-import { getCoreInject, getUploadArtifactInject } from './helpers/action-injections.js'
-import { allVersions } from '../lib/all-versions.js'
-import github from './helpers/github.js'
+import renderedContentLinkChecker from '#src/links/scripts/rendered-content-link-checker.js'
+import {
+  getCoreInject,
+  getUploadArtifactInject,
+} from '../../../script/helpers/action-injections.js'
+import { allVersions } from '../../../lib/all-versions.js'
+import github from '../../../script/helpers/github.js'
 
 const STATIC_PREFIXES = {
   assets: path.resolve('assets'),

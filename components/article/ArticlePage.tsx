@@ -21,7 +21,7 @@ import { RestRedirect } from 'src/rest/components/RestRedirect'
 import { Breadcrumbs } from 'components/page-header/Breadcrumbs'
 import { Link } from 'components/Link'
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { LinkPreviewPopover } from 'components/LinkPreviewPopover'
+import { LinkPreviewPopover } from 'src/links/components/LinkPreviewPopover'
 
 const ClientSideRefresh = dynamic(() => import('components/ClientSideRefresh'), {
   ssr: false,

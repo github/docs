@@ -16,9 +16,9 @@ import { program } from 'commander'
 import chalk from 'chalk'
 import yaml from 'js-yaml'
 
-import { updateInternalLinks } from '../lib/update-internal-links.js'
-import frontmatter from '../lib/read-frontmatter.js'
-import walkFiles from './helpers/walk-files.js'
+import { updateInternalLinks } from '#src/links/lib/update-internal-links.js'
+import frontmatter from '../../../lib/read-frontmatter.js'
+import walkFiles from '../../../script/helpers/walk-files.js'
 
 program
   .description('Update internal links in content files')
