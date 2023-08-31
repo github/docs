@@ -41,19 +41,9 @@ git rm --cached FILENAME
 
 ## Configuring ignored files for all repositories on your computer
 
-You can also create a global _.gitignore_ file to define a list of rules for ignoring files in every Git repository on your computer. 
+You can tell Git to always ignore certain files or directories when you make a commit in any Git repository on your computer. For example, you could use this feature to ignore any temporary backup files that your text editor creates.
 
-By default, Git ignores files listed in the global configuration file _~/.config/git/ignore_.
-
-Additionally, you can set it up on your own. For example, you might create the file at _~/.gitignore_global_ and add some rules to it.
-
-{% data reusables.command_line.open_the_multi_os_terminal %}
-
-1. Configure Git to use the exclude file _~/.gitignore_global_ for all Git repositories.
-
-   ```shell
-   git config --global core.excludesfile ~/.gitignore_global
-   ```
+To always ignore a certain file or directory, add it to a file named `ignore` that's located inside the directory `~/.config/git`. By default, Git will ignore any files and directories that are listed in the global configuration file `~/.config/git/ignore`. If the `git` directory and `ignore` file don't exist yet, you may need to create them.
 
 ## Excluding local files without creating a _.gitignore_ file
 
