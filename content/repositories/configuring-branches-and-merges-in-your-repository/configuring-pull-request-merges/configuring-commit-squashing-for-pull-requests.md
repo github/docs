@@ -20,9 +20,14 @@ shortTitle: Configure commit squashing
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Pull Requests", select **Allow squash merging**. This allows contributors to merge a pull request by squashing all commits into a single commit. The default commit message presented to contributors when merging is the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. {% ifversion ghes = 3.6 %} To always use the title of the pull request regardless of the number of commits in the pull request select **Default to PR title for squash merge commits**.{% endif %}
+1. On the "General" tab (which is selected by default), scroll down to the section marked "Pull Requests".
+![Screenshot 2023-08-31 at 2 16 53 PM](https://github.com/github/docs/assets/59002/fc027e4c-62f5-4abd-8530-050fa24060a3)
+
+
+
+   Select **Allow squash merging**. This allows contributors to merge a pull request by squashing all commits into a single commit. The default commit message presented to contributors when merging is the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. {% ifversion ghes = 3.6 %} To always use the title of the pull request regardless of the number of commits in the pull request select **Default to PR title for squash merge commits**.{% endif %}
 {% ifversion default-merge-squash-commit-message %}
-1. Optionally, under **Allow squash merging**, select the dropdown menu, then click the format of the default squash commit message presented to contributors when merging.
+ Optionally, under **Allow squash merging**, select the dropdown menu, then click the format of the default squash commit message presented to contributors when merging.
 
    The default message uses the commit title and message if the pull request contains only 1 commit, or the pull request title and list of commits if the pull request contains 2 or more commits. You can also choose to use just the pull request title, the pull request title and commit details, or the pull request title and description.
 {% endif %}
