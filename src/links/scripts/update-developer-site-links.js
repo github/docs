@@ -2,11 +2,11 @@
 import fs from 'fs'
 import path from 'path'
 import walk from 'walk-sync'
-import frontmatter from '../../lib/read-frontmatter.js'
-import { loadPages, loadPageMap } from '../../lib/page-data.js'
-import patterns from '../../lib/patterns.js'
-import loadRedirects from '../../src/redirects/lib/precompile.js'
-import { allVersionKeys } from '../../lib/all-versions.js'
+import frontmatter from '../../../lib/read-frontmatter.js'
+import { loadPages, loadPageMap } from '../../../lib/page-data.js'
+import patterns from '../../../lib/patterns.js'
+import loadRedirects from '#src/redirects/lib/precompile.js'
+import { allVersionKeys } from '../../../lib/all-versions.js'
 
 // get all content and data files
 const files = ['content', 'data']
