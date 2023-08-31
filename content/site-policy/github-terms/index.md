@@ -20,5 +20,5 @@ children:
   - /github-open-source-applications-terms-and-conditions
   - /github-event-terms
   - /github-event-code-of-conduct
+  - /github-educational-use-agreement
 ---
-
