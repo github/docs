@@ -1,4 +1,4 @@
-import languages from '../../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 import { jest } from '@jest/globals'
 
 describe('files', () => {

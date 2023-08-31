@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'components/Link'
 import { sendEvent, EventType } from 'src/events/components/events'
 

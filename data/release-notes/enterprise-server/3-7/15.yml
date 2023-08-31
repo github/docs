@@ -4,8 +4,6 @@ sections:
     - |
       **LOW:**  An attacker could circumvent branch protection by changing a PR base branch to an invalid ref name. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). 
     - |
-      In some cases, users could reopen a pull request that should not have been able to be reopened. 
-    - |
       Packages have been updated to the latest security versions. 
   bugs:
     - |

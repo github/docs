@@ -16,7 +16,7 @@
 
 import path from 'path'
 
-import languages, { languageKeys } from '../lib/languages.js'
+import languages, { languageKeys } from '#src/languages/lib/languages.js'
 import createTree from '../lib/create-tree.js'
 import warmServer from '../lib/warm-server.js'
 import { loadSiteTree, loadPages, loadPageMap } from '../lib/page-data.js'

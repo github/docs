@@ -1,6 +1,6 @@
-import { languageKeys } from '../../lib/languages.js'
-import { get } from '../helpers/e2etest.js'
-import { USER_LANGUAGE_COOKIE_NAME } from '../../lib/constants.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
+import { get } from '../../../tests/helpers/e2etest.js'
+import { USER_LANGUAGE_COOKIE_NAME } from '../../../lib/constants.js'
 
 const langs = languageKeys.filter((lang) => lang !== 'en')
 

@@ -5,7 +5,7 @@ import { LinkExternalIcon, NoteIcon } from '@primer/octicons-react'
 
 import { Link } from 'components/Link'
 import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { useVersion } from 'components/hooks/useVersion'
 import { Lead } from 'components/ui/Lead'
 
