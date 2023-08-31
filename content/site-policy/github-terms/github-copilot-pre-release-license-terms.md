@@ -1,8 +1,9 @@
 ---
-title: GitHub Copilot Pre-release Terms
+title: GitHub Copilot Pre-release License Terms
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /site-policy/github-terms/github-copilot-chat-pre-release-terms
+  - /site-policy/github-terms/github-copilot-pre-release-terms
 versions:
   fpt: '*'
 topics:
@@ -10,11 +11,11 @@ topics:
   - Legal
 ---
 
-## GitHub Copilot Chat Limited Public Beta Pre-release License Terms 
+## GitHub Copilot Pre-release License Terms 
 
 These terms apply to the pre-release software made available to you by GitHub. To the extent there is a conflict between these terms and any other Agreement you have with us, these terms govern. 
 
-## 1. Pre-Release Software. 
+## 1. Pre-Release Software.
 
   The software provided is a pre-release version. “Pre-release” means software, online services, and additional products and features that are provided for preview, evaluation, demonstration, or trial purposes, as well as prerelease versions of those such as alpha, beta, or early access versions. 
 
@@ -24,11 +25,11 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 2. Installation and Use Rights. 
 
-  a. General. GitHub grants you a limited right to use a non-production instance of the software. You may use any number of copies of the software to develop and test your applications, including deployment within your internal corporate network. You may also use the software in demonstrating your applications. 
+  a. **General**. GitHub grants you a limited right to use a non-production instance of the software. You may use any number of copies of the software to develop and test your applications, including deployment within your internal corporate network. You may also use the software in demonstrating your applications. 
 
-  b. Inclusion of Third-Party Components. The software may include third-party components with separate legal notices or governed by other agreements, as may be described in a license file accompanying the software. 
+  b. **Inclusion of Third-Party Components.** The software may include third-party components with separate legal notices or governed by other agreements, as may be described in a license file accompanying the software. 
 
-  c. Optional Extensions. The software may give you the option to download other GitHub and third-party software packages. Any third-party software packages are provided for your convenience only, and are governed by any applicable agreements between you and the third party. GitHub is not responsible or liable for any third-party software. 
+  c. **Optional Extensions.** The software may give you the option to download other GitHub and third-party software packages. Any third-party software packages are provided for your convenience only, and are governed by any applicable agreements between you and the third party. GitHub is not responsible or liable for any third-party software. 
 
 ## 3. Scope of License. 
 
@@ -52,15 +53,15 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 4. Data Collection and Usage. 
 
-  a. Consent to Data Collection. The pre-release software may collect information about you and your use of the software, and send that information to GitHub. GitHub may use this information to provide services, to improve our products and services, or for any other purpose permitted under the GitHub Data Protection Agreement or GitHub Privacy Statement. Your use of the pre-release software operates as your consent to these practices. 
+  a. **Consent to Data Collection.** The pre-release software may collect information about you and your use of the software, and send that information to GitHub. GitHub may use this information to provide services, to improve our products and services, or for any other purpose permitted under the GitHub Data Protection Agreement or GitHub Privacy Statement. Your use of the pre-release software operates as your consent to these practices. 
 
-  b. Use of Collected Data. GitHub will use collected data for analytics and measurement to understand how our pre-release software and related products are used. The software will collect data and usage information about events generated when interacting with it. These events help us analyze and measure performance and features used. This usage information is used by GitHub and may be shared with affiliates and other third parties to help deliver, develop, evaluate, and improve the software and related products. We analyze data to ensure the pre-release software is working as intended, to evaluate the safety, reliability, and user experience of the software, and to investigate and detect potential abuse. We may combine the information we collect from the pre-release software with other data. 
+  b. **Use of Collected Data.** GitHub will use collected data for analytics and measurement to understand how our pre-release software and related products are used. The software will collect data and usage information about events generated when interacting with it. These events help us analyze and measure performance and features used. This usage information is used by GitHub and may be shared with affiliates and other third parties to help deliver, develop, evaluate, and improve the software and related products. We analyze data to ensure the pre-release software is working as intended, to evaluate the safety, reliability, and user experience of the software, and to investigate and detect potential abuse. We may combine the information we collect from the pre-release software with other data. 
 
-  c. Processing of Personal Data. To the extent GitHub is a processor or subprocessor of Personal Data in connection with the pre-release software, GitHub makes the commitments in the GitHub Data Protection Agreement. 
+  c. **Processing of Personal Data.** GitHub is the data controller in relation to the Personal Data processed in connection with the pre-release software.  
 
-  d. Data Collection by You. There may be some features in the pre-release software that enable you and GitHub to collect data from users of your applications. If you use these features, you must comply with all applicable laws on data collection, including providing appropriate notices to users of your applications as well as a copy of GitHub’s Privacy Statement. You can learn more about data collection and use in the software documentation. 
+  d. **Data Collection by You.** There may be some features in the pre-release software that enable you and GitHub to collect data from users of your applications. If you use these features, you must comply with all applicable laws on data collection, including providing appropriate notices to users of your applications as well as a copy of GitHub’s Privacy Statement. You can learn more about data collection and use in the software documentation. 
 
-  e. Revocation of Consent to Data Collection. You may revoke your consent to data collection by the prerelease software by contacting GitHub and requesting removal from the technical preview. Please note that, if you request removal from the preview, you will no longer be able to use the pre-release software. 
+  e. **Revocation of Consent to Data Collection.** You may revoke your consent to data collection by the prerelease software by contacting GitHub and requesting removal from the technical preview. Please note that, if you request removal from the preview, you will no longer be able to use the pre-release software. 
 
 ## 5. Updates. 
 
@@ -68,7 +69,7 @@ These terms apply to the pre-release software made available to you by GitHub. T
 
 ## 6. Time-Bound Software. 
 
-  Your use of the pre-release software will end upon any of (i) commercial release of the software, or (ii) at the discretion of GitHub to discontinue the support or development of the software, or (iii) termination of the technical preview by either party. You may not be able to access data used in the software when it stops running. 
+  Your use of the pre-release software will end upon any of _(i)_ commercial release of the software, or _(ii)_ at the discretion of GitHub to discontinue the support or development of the software, or _(iii)_ termination of the technical preview by either party. You may not be able to access data used in the software when it stops running. 
 
 ## 7. Feedback. 
 
@@ -105,7 +106,7 @@ You bear the sole risk of using the pre-release software.
 
   The pre-release software is non-public, confidential information of GitHub. Your use is subject to the confidentiality obligations between you and GitHub in the Agreement. 
 
-  Please do not (i) disclose or share the software with anyone who is not subject to these terms and a non-disclosure agreement; (ii) post or allow others to post any photos or videos of the pre-release software on or via any online platform, including personal social media websites; or (iii) describe or discuss any part of the software on or via any online platform, unless given advance and express permission by GitHub to do so. 
+  Please do not _(i)_ disclose or share the software with anyone who is not subject to these terms and a non-disclosure agreement; _(ii)_ post or allow others to post any photos or videos of the pre-release software on or via any online platform, including personal social media websites; or _(iii)_ describe or discuss any part of the software on or via any online platform, unless given advance and express permission by GitHub to do so. 
 
 ## 15. Nature of Terms for Microsoft Customers. 
 
