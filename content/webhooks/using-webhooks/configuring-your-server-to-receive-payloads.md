@@ -7,6 +7,7 @@ redirect_from:
   - /developers/webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads
   - /webhooks-and-events/webhooks/configuring-your-server-to-receive-payloads
   - /webhooks/webhooks/configuring-your-server-to-receive-payloads
+  - /webhooks/configuring-your-server-to-receive-payloads
 versions:
   fpt: '*'
   ghes: '*'

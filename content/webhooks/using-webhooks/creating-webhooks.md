@@ -7,6 +7,7 @@ redirect_from:
   - /developers/webhooks-and-events/webhooks/creating-webhooks
   - /webhooks-and-events/webhooks/creating-webhooks
   - /webhooks/webhooks/creating-webhooks
+  - /webhooks/creating-webhooks
 versions:
   fpt: '*'
   ghes: '*'
