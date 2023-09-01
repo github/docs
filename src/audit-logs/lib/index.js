@@ -28,18 +28,27 @@ export function getAuditLogEvents(page, version) {
     openApiVersion = openApiVersion.split('-')[0]
   }
 
+  // There's no ghae versioned audit log events
+  if (openApiVersion === 'ghae') {
+    openApiVersion = 'ghes'
+  }
+
   const auditLogFileName = path.join(AUDIT_LOG_DATA_DIR, openApiVersion, `${page}.json`)
 
   // If the data isn't cached for an entire version or a particular page, read
   // the data from the JSON file the first time around
-  if (!auditLogEventsCache.has(version)) {
-    auditLogEventsCache.set(version, new Map())
-    auditLogEventsCache.get(version).set(page, new Map())
-    auditLogEventsCache.get(version).set(page, readCompressedJsonFileFallback(auditLogFileName))
-  } else if (!auditLogEventsCache.get(version).has(page)) {
-    auditLogEventsCache.get(version).set(page, new Map())
-    auditLogEventsCache.get(version).set(page, readCompressedJsonFileFallback(auditLogFileName))
+  if (!auditLogEventsCache.has(openApiVersion)) {
+    auditLogEventsCache.set(openApiVersion, new Map())
+    auditLogEventsCache.get(openApiVersion).set(page, new Map())
+    auditLogEventsCache
+      .get(openApiVersion)
+      .set(page, readCompressedJsonFileFallback(auditLogFileName))
+  } else if (!auditLogEventsCache.get(openApiVersion).has(page)) {
+    auditLogEventsCache.get(openApiVersion).set(page, new Map())
+    auditLogEventsCache
+      .get(openApiVersion)
+      .set(page, readCompressedJsonFileFallback(auditLogFileName))
   }
 
-  return auditLogEventsCache.get(version).get(page)
+  return auditLogEventsCache.get(openApiVersion).get(page)
 }
