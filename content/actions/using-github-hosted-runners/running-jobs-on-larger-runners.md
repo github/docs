@@ -19,6 +19,28 @@ Once your runner type has been defined, you can update your workflow YAML files 
 
 Only owner or administrator accounts can see the runner settings. Non-administrative users can contact the organization owner to find out which runners are enabled. Your organization owner can create new runners and runner groups, as well as configure permissions to specify which repositories can access a runner group. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/managing-larger-runners#allowing-repositories-to-access-a-runner-group)."
 
+{% ifversion repository-actions-runners %}
+
+## Viewing available runners for a repository
+
+{% note %}
+
+**Note:** This feature is currently in beta and subject to change.
+
+{% endnote %}
+
+{% data reusables.actions.about-viewing-runner-list %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.repository-runners %}
+1. Review the list of available runners for the repository.
+{% data reusables.actions.copy-runner-label %}
+
+{% data reusables.actions.actions-tab-new-runners-note %}
+
+{% endif %}
+
 ## Using groups to control where jobs are run
 
 {% data reusables.actions.jobs.example-runs-on-groups %}

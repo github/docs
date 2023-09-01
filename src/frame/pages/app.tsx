@@ -10,7 +10,7 @@ import {
   LanguagesContext,
   LanguagesContextT,
   LanguageItem,
-} from 'components/context/LanguagesContext'
+} from 'src/languages/components/LanguagesContext'
 import { useTheme } from 'components/hooks/useTheme'
 
 type MyAppProps = AppProps & {

@@ -53,7 +53,7 @@
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
     "*.{js,mjs,scss,ts,tsx,yml,yaml}": "prettier --write",
-    "{content,data}/**/*.md": "src/content-linter/scripts/markdownlint.js --errors --paths"
+    "{content,data}/**/*.md": "src/content-linter/scripts/markdownlint.js --errors-only --paths"
   },
   "dependencies": {
     "@elastic/elasticsearch": "7.11.0",
@@ -187,6 +187,7 @@
     "make-promises-safe": "^5.1.0",
     "markdownlint": "^0.28.2",
     "markdownlint-rule-helpers": "^0.19.0",
+    "markdownlint-rule-search-replace": "^1.2.0",
     "mdast-util-gfm-table": "^2.0.0",
     "micromark-extension-gfm-table": "^2.0.0",
     "mkdirp": "^3.0.0",

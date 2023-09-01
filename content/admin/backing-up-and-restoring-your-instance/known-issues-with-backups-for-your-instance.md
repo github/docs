@@ -86,7 +86,7 @@ To ensure users can sign into the new target instance, ensure that your environm
    ```shell copy
    ghe-config secrets.github.encrypted-column-keying-material "KEY-LIST"
    ```
-{%- elsif ghes = 3.8 %}
+{%- elsif ghes = 3.8 or ghes = 3.9 %}
 1. To update the decryption keys on the destination instance, run the following command. Replace DECRYPTION-KEY-LIST with the output from step 1.
 
    ```shell copy

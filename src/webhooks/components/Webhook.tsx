@@ -8,7 +8,7 @@ import cx from 'classnames'
 import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'components/hooks/useVersion'
 import { HeadingLink } from 'components/article/HeadingLink'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
 

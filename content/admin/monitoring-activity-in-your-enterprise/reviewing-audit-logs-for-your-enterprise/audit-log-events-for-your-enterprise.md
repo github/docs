@@ -205,6 +205,17 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 
 {% endif %}
 
+{% ifversion secret-scanning-validity-check-audit-log %}
+
+## `business_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|--------|-------------
+| `business_secret_scanning_automatic_validity_checks.disabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were disabled for your enterprise. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
+| `business_secret_scanning_automatic_validity_checks.enabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were enabled for your enterprise. For more information, see "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features)."
+
+{% endif %}
+
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 
 ## `business_secret_scanning_custom_pattern` category actions
@@ -879,6 +890,17 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 | `org_credential_authorization.revoke` | An owner revoked authorized credentials. {% ifversion ghec %}For more information, see "[AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)."{% endif %}
 {%- endif %}
 
+{% ifversion secret-scanning-validity-check-audit-log %}
+
+## `org_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|--------|-------------
+| `org_secret_scanning_automatic_validity_checks.disabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were disabled for an organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
+| `org_secret_scanning_automatic_validity_checks.enabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were enabled for an organization. For more information, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization)."
+
+{% endif %}
+
 {%- ifversion secret-scanning-audit-log-custom-patterns %}
 
 ## `org_secret_scanning_custom_pattern` category actions
@@ -1249,6 +1271,18 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 |--------|-------------
 | `repository_secret_scanning.disable` | A repository owner or administrator disabled {% data variables.product.prodname_secret_scanning %} for a {% ifversion ghec %}private or internal {% endif %}repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/about-secret-scanning)."
 | `repository_secret_scanning.enable` | A repository owner or administrator enabled {% data variables.product.prodname_secret_scanning %} for a {% ifversion ghec %}private or internal {% endif %}repository.
+{%- endif %}
+
+{%- ifversion secret-scanning-validity-check-audit-log %}
+
+
+## `repository_secret_scanning_automatic_validity_checks` category actions
+
+| Action | Description
+|--------|-------------
+| `repository_secret_scanning_automatic_validity_checks.disabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were disabled for a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+| `repository_secret_scanning_automatic_validity_checks.enabled` | Automatic validity checks for {% data variables.product.prodname_secret_scanning %} were enabled for a repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#allowing-validity-checks-for-partner-patterns-in-a-repository)."
+
 {%- endif %}
 
 {%- ifversion secret-scanning-audit-log-custom-patterns %}

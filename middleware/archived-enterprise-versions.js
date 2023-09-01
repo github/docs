@@ -14,7 +14,7 @@ import { setFastlySurrogateKey, SURROGATE_ENUMS } from './set-fastly-surrogate-k
 import got from 'got'
 import { readCompressedJsonFileFallbackLazily } from '../lib/read-json-file.js'
 import { archivedCacheControl, languageCacheControl } from './cache-control.js'
-import { pathLanguagePrefixed, languagePrefixPathRegex } from '../lib/languages.js'
+import { pathLanguagePrefixed, languagePrefixPathRegex } from '#src/languages/lib/languages.js'
 import getRedirect, { splitPathByLanguage } from '../src/redirects/lib/get-redirect.js'
 import getRemoteJSON from './get-remote-json.js'
 
