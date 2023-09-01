@@ -39,7 +39,6 @@
     }
 
     th {
-      font-weight: normal;
       text-align: left;
       position: sticky;
       vertical-align: top;
@@ -72,10 +71,6 @@
       padding: 0.75rem 0.5rem;
       border: 0;
       vertical-align: top;
-
-      sup {
-        z-index: -1;
-      }
     }
 
     // markdown that has been converted to HTML is often wrapped in <p> tags

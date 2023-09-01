@@ -26,6 +26,8 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 
 {% data reusables.audit_log.retention-periods %}
 
+{% ifversion ghec %}Each audit log API endpoint has a rate limit of 1,750 queries per hour for a given combination of user and IP address. To avoid rate limiting, integrations that query the audit log API should query at a maximum frequency of 1,750 queries per hour. Additionally, if your integration receives a rate limit error (typically a 403 or 429 response), it should wait before making another request to the API. For more information, see "[AUTOTITLE](/rest/overview/resources-in-the-rest-api#exceeding-the-rate-limit)" and "[AUTOTITLE](/rest/guides/best-practices-for-integrators#dealing-with-rate-limits)."{% endif %}
+
 For more information about the audit log REST API, see "[AUTOTITLE](/rest/enterprise-admin#audit-log)" and "[AUTOTITLE](/rest/orgs#get-the-audit-log-for-an-organization)."
 
 ## Example 1: All events in an enterprise, for a specific date, with pagination

@@ -20,7 +20,7 @@ export const ProductSelections = ({ productGroups }: Props) => {
       <div className="">
         <div className="d-flex flex-wrap gutter gutter-xl-spacious">
           {productGroups.map((group) => {
-            return <ProductSelectionCard key={group.name} name={group.name} group={group} />
+            return <ProductSelectionCard key={group.name} group={group} />
           })}
         </div>
       </div>

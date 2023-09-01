@@ -50,10 +50,16 @@ The following features are not included in the trial of {% data variables.produc
 - {% data variables.product.prodname_github_codespaces %}
 - {% data variables.product.prodname_copilot_for_business %}
 - {% data variables.product.prodname_sponsors %}
-- {% data variables.product.prodname_marketplace %} apps
+- Paid {% data variables.product.prodname_marketplace %} apps (free apps are supported as part of the trial)
 - {% data variables.product.prodname_github_connect %}
 - For {% data variables.product.prodname_actions %}, increased minutes, job concurrency, and {% data variables.actions.hosted_runner %}s
 - If you set up your own trial, access to {% data variables.product.prodname_ghe_server %} is not included. If you would like to use {% data variables.product.prodname_ghe_server %}, contact {% data variables.contact.contact_enterprise_sales %}.
+
+{% note %}
+
+**Note:** If you transfer an existing organization into your trial enterprise, all of these features will be disabled, but will be re-enabled if the organization is removed from the enterprise.
+
+{% endnote %}
 
 ## Setting up your trial of {% data variables.product.prodname_ghe_cloud %}
 

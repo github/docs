@@ -96,10 +96,9 @@ If you're setting up your AMI for the first time, you will need to create a secu
    aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE
    ```
 
-  This table identifies what each port is used for.
+   This table identifies what each port is used for.
 
-  {% data reusables.enterprise_installation.necessary_ports %}
-
+   {% data reusables.enterprise_installation.necessary_ports %}
 ## Creating the {% data variables.product.prodname_ghe_server %} instance
 
 To create the instance, you'll need to launch an EC2 instance with your {% data variables.product.prodname_ghe_server %} AMI and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."

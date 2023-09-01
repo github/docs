@@ -1,1 +1,2 @@
-| Swift | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |  {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Unsupported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}<br>Swift Package Manager  |
+| Swift | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |  {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}<br>Swift Package Manager  |
+

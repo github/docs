@@ -12,11 +12,11 @@ topics:
 shortTitle: Source control
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 ## About source control in {% data variables.product.prodname_github_codespaces %}
 
@@ -98,7 +98,7 @@ For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-re
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Creating or switching branches
 
@@ -162,4 +162,4 @@ You can push changes you've saved and committed. This applies those changes to t
 
 1. In the Push Commits dialog, click **Push**.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}

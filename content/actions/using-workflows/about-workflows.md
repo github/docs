@@ -13,6 +13,7 @@ redirect_from:
   - /actions/using-workflows/advanced-workflow-features
 topics:
   - Workflows
+layout: inline
 ---
 
 ## About workflows
@@ -115,7 +116,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [12, 14, 16]
+        node: [14, 16]
     steps:
       - uses: {% data reusables.actions.action-setup-node %}
         with:

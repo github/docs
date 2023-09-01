@@ -180,6 +180,20 @@ You can view a list of members in your enterprise who don't have an email addres
 1. Under "Notification preferences", click the {% octicon "eye" aria-hidden="true" %} **View enterprise members without an approved or verified domain email** link.
 {% endif %}
 
+## Viewing whether members in your enterprise have 2FA enabled
+
+You can see which people in your enterprise have enabled two-factor authentication{% ifversion mandatory-2fa-required-overview %} or are required to do so{% endif %}.
+
+{% ifversion mandatory-2fa-required-overview %}
+{% data reusables.two_fa.mandatory-2fa-contributors-2023 %}
+{% endif %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. To view enterprise members who have enabled or disabled two-factor authentication, on the right, select **2FA**, then click **Enabled** or **Disabled**. {% ifversion mandatory-2fa-required-overview %}Additionally, you can view which members are required to enable two-factor authentication by clicking **Required**.
+
+   ![Screenshot of the list of organization members. A dropdown menu, labeled "2FA", is expanded and outlined in orange.](/assets/images/help/2fa/filter-org-members-by-2fa-required.png){% endif %}
+
 ## Further reading
 
 - "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)"

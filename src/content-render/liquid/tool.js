@@ -1,4 +1,4 @@
-import { allTools } from '../../../lib/all-tools.js'
+import { allTools } from '#src/tools/lib/all-tools.js'
 
 export const tags = Object.keys(allTools).concat(['mac', 'windows', 'linux', 'rowheaders'])
 

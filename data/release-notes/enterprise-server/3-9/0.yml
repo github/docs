@@ -381,9 +381,11 @@ sections:
 
   known_issues:
     - |
-      After an administrator upgrades from {% data variables.product.prodname_ghe_server %} 3.7 or 3.8 to 3.9, I/O utilization will increase, and in some cases the instance's performance will be impacted. Reduced performance is due to the database server being upgraded from MySQL 5.7 to MySQL 8.0. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/known-issues-with-upgrades-to-your-instance)."
+      {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
     - |
       {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
+      The Management Console may get stuck in a loop showing "Checking requirements..." when attempting to download an update. It is safe to proceed the update process manually via the command line. 
     - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
@@ -410,9 +412,13 @@ sections:
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |
       When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
+    - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      {% data reusables.release-notes.mermaid-rendering-known-issue %} [Updated: 2023-08-18]
+    - '{% data reusables.release-notes.2023-08-mssql-replication-known-issue %}'
 
   deprecations:
     # https://github.com/github/releases/issues/2826

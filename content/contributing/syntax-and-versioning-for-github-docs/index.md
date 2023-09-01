@@ -6,8 +6,11 @@ product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 children:
+  - /versioning-documentation
+  - /using-yaml-frontmatter
   - /using-markdown-and-liquid-in-github-docs
   - /changing-an-articles-title
+  - /configuring-redirects
   - /creating-tool-switchers-in-articles
   - /annotating-code-examples
 ---

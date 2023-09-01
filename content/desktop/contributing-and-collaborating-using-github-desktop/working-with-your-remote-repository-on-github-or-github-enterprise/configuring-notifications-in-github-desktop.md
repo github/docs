@@ -32,9 +32,10 @@ If system notifications are disabled for {% data variables.product.prodname_desk
 
 {% mac %}
 
-1. In the menu bar, select the Apple icon, then click **System Preferences**.
-1. Select **Notifications & Focus**.
-1. Select **{% data variables.product.prodname_desktop %}** from the list of applications.
+{% data reusables.desktop.mac-select-desktop-menu %}
+1. In the "Preferences" window, on the "Notifications" pane, select **Enable notifications**.
+1. In the "Enable notifications" description field, click the **Notification Settings** link to open the "Notifications" pane in the macOS "System Settings" window.
+1. In the "Application Notifications" list, select **{% data variables.product.prodname_desktop %}**.
 1. Click **Allow Notifications**.
 
 For more information about macOS system notifications, see "[Use notifications on your Mac](https://support.apple.com/en-us/HT204079)."
@@ -43,9 +44,11 @@ For more information about macOS system notifications, see "[Use notifications o
 
 {% windows %}
 
-1. Open the **Start** menu, then select **Settings**.
-1. Select **System**, then click **Notifications**.
-1. Find **{% data variables.product.prodname_desktop %}** in the application list and click **On**.
+{% data reusables.desktop.windows-choose-options %}
+1. In the "Options" windows, on the "Notifications" pane, select **Enable notifications**.
+1. In the "Enable notifications" description field, click the **Notification Settings** link to open the "Notifications" pane in the Windows "Settings" window.
+1. Under "Notifications", to enable notifications for Windows, click **On**.
+1. Under "Notifications from apps and other senders", find "{% data variables.product.prodname_desktop %}" in the application list and click **On**. 
 
 For more information about Windows system notifications, see "[Change notification settings in Windows](https://support.microsoft.com/en-us/windows/change-notification-settings-in-windows-8942c744-6198-fe56-4639-34320cf9444e)."
 

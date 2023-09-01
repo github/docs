@@ -21,6 +21,12 @@ redirect_from:
 
 ## Users cannot sign in after restoration of a backup
 
+{% note %}
+
+**Note:** This known issue has been fixed in {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.7 %}3.7.1{% elsif ghes = 3.8 %}3.8.1{% elsif ghes = 3.9 %}3.9.1{% endif %}.
+
+{% endnote %}
+
 If you used {% data variables.product.prodname_enterprise_backup_utilities %} {% ifversion ghes = 3.7 %}3.7.0{% elsif ghes = 3.8 %}3.7.0 or 3.8.0{% elsif ghes = 3.9 %}3.7.0, 3.8.0, or 3.9.0{% endif %} to back up an instance running any release in the {% data variables.product.product_name %} 3.7{% ifversion ghes = 3.8 or ghes = 3.9 %} or 3.8{% endif %} series, after you restore the backup to a new instance, users cannot sign in. Though users cannot sign in, the backup itself is unaffected and all data is intact.
 
 After you restore an existing backup affected by this issue, you can resolve the issue by modifying the configuration on the new instance.
@@ -80,7 +86,7 @@ To ensure users can sign into the new target instance, ensure that your environm
    ```shell copy
    ghe-config secrets.github.encrypted-column-keying-material "KEY-LIST"
    ```
-{%- elsif ghes = 3.8 %}
+{%- elsif ghes = 3.8 or ghes = 3.9 %}
 1. To update the decryption keys on the destination instance, run the following command. Replace DECRYPTION-KEY-LIST with the output from step 1.
 
    ```shell copy

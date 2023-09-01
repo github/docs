@@ -80,8 +80,8 @@ Downgrading from {% data variables.product.prodname_ghe_cloud %} disables any SA
 
 To reduce the number of paid seats your organization uses, you can remove members from your organization or convert members to outside collaborators and give them access to only public repositories. For more information, see:
 - "[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/converting-an-organization-member-to-an-outside-collaborator)"
-- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-an-individuals-access-to-an-organization-repository)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/converting-an-organization-member-to-an-outside-collaborator)"
+- "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)"
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Current plan", next to your current plan, select the **Edit** dropdown menu, then click **Remove seats**.
@@ -95,7 +95,12 @@ Enterprise accounts are only available with {% data variables.product.prodname_e
 
 To downgrade the plan of an individual organization within the enterprise account, you must remove the organization from the enterprise account first. For more information, see "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
 
-If you want to stop paying for {% data variables.product.prodname_enterprise %} altogether, you can [contact our sales team](https://github.com/enterprise/contact). All organizations owned by the enterprise account will removed from the enterprise, and the enterprise account will be frozen.
+If you want to stop paying for {% data variables.product.prodname_enterprise %} altogether, you must contact {% data variables.product.company_short %}.
+
+- If your company pays for {% data variables.product.prodname_enterprise %} via invoice, contact {% data variables.contact.contact_enterprise_sales %}.
+- Otherwise, contact {% data variables.contact.contact_ent_support %}.
+
+If you stop paying for {% data variables.product.prodname_enterprise %} plan, all organizations owned by the enterprise account will removed from the enterprise, and the enterprise account will be frozen.
 
 ## Removing paid seats for your enterprise account
 

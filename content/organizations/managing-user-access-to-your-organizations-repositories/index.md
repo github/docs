@@ -16,17 +16,7 @@ topics:
   - Organizations
   - Teams
 children:
-  - /repository-roles-for-an-organization
-  - /setting-base-permissions-for-an-organization
-  - /viewing-people-with-access-to-your-repository
-  - /managing-an-individuals-access-to-an-organization-repository
-  - /managing-team-access-to-an-organization-repository
-  - /adding-outside-collaborators-to-repositories-in-your-organization
-  - /canceling-an-invitation-to-become-an-outside-collaborator-in-your-organization
-  - /removing-an-outside-collaborator-from-an-organization-repository
-  - /converting-an-organization-member-to-an-outside-collaborator
-  - /converting-an-outside-collaborator-to-an-organization-member
-  - /reinstating-a-former-outside-collaborators-access-to-your-organization
-shortTitle: Manage user access to repos
+  - /managing-repository-roles
+  - /managing-outside-collaborators
+shortTitle: Manage repository access
 ---
-

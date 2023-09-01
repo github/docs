@@ -33,6 +33,14 @@ You can group items by a custom field value. {% data reusables.projects.customiz
 
 {% data reusables.projects.customize.group-fields %}
 
+{% ifversion projects-v2-slice-panel %}
+
+## Slicing by field values
+
+{% data reusables.projects.customize.slice-panel %}
+
+{% endif %} 
+
 ## Reordering fields
 
 You can change the order of fields.

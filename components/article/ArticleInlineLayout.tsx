@@ -41,6 +41,7 @@ export const ArticleInlineLayout = ({
 
         {toc && (
           <Box
+            data-container="toc"
             gridArea="sidebar"
             alignSelf="flex-start"
             className={cx(styles.sidebarBox, 'border-bottom border-lg-0 pb-4 mb-5 pb-xl-0 mb-xl-0')}
@@ -50,6 +51,7 @@ export const ArticleInlineLayout = ({
         )}
 
         <Box
+          data-container="article"
           gridArea="content"
           data-search="article-body"
           className={cx(styles.articleContainer, className)}

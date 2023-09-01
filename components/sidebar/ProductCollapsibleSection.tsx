@@ -3,7 +3,6 @@ import { TreeView } from '@primer/react'
 
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
-import { EventType, sendEvent } from 'src/events/components/events'
 
 type SectionProps = {
   routePath: string
@@ -25,11 +24,6 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
         current={isCurrent}
         defaultExpanded={isCurrent}
         onSelect={(e) => {
-          sendEvent({
-            type: EventType.navigate,
-            navigate_label: `product page navigate to: ${page.href}`,
-          })
-
           if (e.nativeEvent instanceof KeyboardEvent && e.nativeEvent.code === 'Enter') {
             document.getElementById(page.href)?.click()
             e?.stopPropagation()
@@ -37,7 +31,6 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
         }}
       >
         <Link
-          role="group"
           id={page.href}
           href={page.href}
           className={cx('color-fg-default no-underline', isCurrent ? 'text-bold' : '')}

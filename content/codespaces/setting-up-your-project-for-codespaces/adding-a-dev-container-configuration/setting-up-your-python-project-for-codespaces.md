@@ -22,6 +22,7 @@ This guide shows you how to set up an example Python project {% data reusables.c
 
 ## Step 1: Open the project in a codespace
 
+{% data reusables.getting-started.sign-in-dotcom %}
 1. Go to https://github.com/microsoft/vscode-remote-try-python.
 {% data reusables.codespaces.use-this-template %}
 

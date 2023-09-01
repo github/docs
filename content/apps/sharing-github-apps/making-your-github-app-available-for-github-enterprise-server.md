@@ -28,8 +28,8 @@ If {% data variables.product.prodname_ghe_server %} access is important, conside
 Organizations owned by a {% data variables.product.prodname_ghe_server %} instance cannot install {% data variables.product.prodname_github_apps %} registered on {% data variables.product.prodname_dotcom_the_website %} or on another {% data variables.product.prodname_ghe_server %} instance. Instead, they must register and install their own {% data variables.product.prodname_github_app %} for use on that instance.
 
 1. The app developer creates a manifest or URL parameters. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-from-a-manifest)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app-using-url-parameters)."
-1. The app developer shares the manifest or URL parameters with the {% data variables.product.prodname_ghe_server %} instance that wants to use the app. The same manifest or URL parameters can be shared with multiple {% data variables.product.prodname_ghe_server %} instances.
-1. An organization owned by the instance uses the manifest or URL parameters to register a {% data variables.product.prodname_github_app %}.
+1. The app developer shares the manifest or URL parameters with the {% data variables.product.prodname_ghe_server %} administrator that wants to use the app. The same manifest or URL parameters can be shared with multiple {% data variables.product.prodname_ghe_server %} instances.
+1. An organization administrator in the instance uses the manifest or URL parameters to register a {% data variables.product.prodname_github_app %}.
 1. The organization installs the {% data variables.product.prodname_github_app %} that they registered.
 
    Optionally, if the organization made the {% data variables.product.prodname_github_app %} public, other organizations within the instance can install the {% data variables.product.prodname_github_app %} as well. There is not a way to install a {% data variables.product.prodname_github_app %} on an entire instance, only on organizations within an instance.
@@ -40,7 +40,7 @@ You app's code will need the credentials of the {% data variables.product.prodna
 
 ### Get the credentials from the {% data variables.product.prodname_ghe_server %} instance
 
-The instance can share their {% data variables.product.prodname_github_app %} credentials and hostname with the app developer. The instance should only do this if they trust the app developer. Then, the app code can use the appropriate credentials depending on what actions it is taking. The app developer must take precautions to use the appropriate set of credentials and to not leak data.
+The instance can share their {% data variables.product.prodname_github_app %} credentials and hostname with the app developer. The site administrator should only do this if they trust the app developer. Then, the app code can use the appropriate credentials depending on what actions it is taking. The app developer must take precautions to use the appropriate set of credentials and to not leak data.
 
 Advantages:
 
@@ -51,6 +51,7 @@ Advantages:
 Disadvantages:
 
 - The app developer must take precautions to avoid leaking data from the instance.
+- The site administrator may need to open firewall exceptions for your application to reach the instance, and they may be reluctant to do so.
 
 ### Have the {% data variables.product.prodname_ghe_server %} customer host and manage a self-hostable version of the app
 
@@ -65,7 +66,7 @@ Advantages:
 
 Disadvantages:
 
-- The app developer relies on the instance to provide the infrastructure and set things up correctly.
+- The app developer relies on the site administrator to provide infrastructure for the app and set things up correctly.
 - Releasing updates to the app code may be more complex.
 - The app developer may lose visibility about app performance.
 

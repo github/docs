@@ -44,6 +44,7 @@ shortTitle: Configure default editor
 - [Emacs](https://www.gnu.org/software/emacs/)
 - [Lite XL](https://lite-xl.com/)
 - [Pulsar](https://pulsar-edit.dev/)
+- [Zed](https://zed.dev/)
 
 {% endmac %}
 
@@ -94,3 +95,36 @@ shortTitle: Configure default editor
 1. Click **Save**.
 
 {% endwindows %}
+
+## Opening a repository in the default editor
+
+To open the current repository in the default editor, you can use the menu bar:
+
+1. In the menu bar, select **Repository**.
+1. Click **Open in default editor**
+
+If you want to open another repository in the default editor, you can use the repository list.
+
+1. In the upper-left corner of {% data variables.product.prodname_desktop %}, to the right of the current repository name, click {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
+1. Right-click the repository, then click **Open in default editor**.
+
+{% tip %}
+
+{% mac %}
+
+**Tip:** You can use the <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
+
+{% endmac %}
+
+{% windows %}
+
+**Tip:** You can use the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
+
+{% endwindows %}
+
+{% endtip %}
+
+## Opening a file in the default editor
+
+1. Navigate to the "Changes" tab in the left sidebar.
+1. Double-click on the file, or right-click on the file and select **Open in default editor**.

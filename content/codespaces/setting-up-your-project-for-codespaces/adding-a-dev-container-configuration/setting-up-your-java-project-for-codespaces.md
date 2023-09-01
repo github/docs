@@ -22,6 +22,7 @@ This guide shows you how to set up an example Java project {% data reusables.cod
 
 ## Step 1: Open the project in a codespace
 
+{% data reusables.getting-started.sign-in-dotcom %}
 1. Go to https://github.com/microsoft/vscode-remote-try-java.
 {% data reusables.codespaces.use-this-template %}
 
