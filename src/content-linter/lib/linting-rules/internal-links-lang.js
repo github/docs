@@ -1,7 +1,7 @@
 import { filterTokens } from 'markdownlint-rule-helpers'
 
 import { addFixErrorDetail, getRange } from '../helpers/utils.js'
-import { languageKeys } from '../../../../lib/languages.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
 
 export const internalLinksLang = {
   names: ['GHD005', 'internal-links-lang'],

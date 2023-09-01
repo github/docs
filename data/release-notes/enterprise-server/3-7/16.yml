@@ -1,7 +1,8 @@
 date: '2023-08-24'
 sections:
   security_fixes:
-    - To prevent commits from a detached repository from syncing to prior forks that are now in a separate repository network, GitHub Enterprise Server closes pull requests between repositories during detachment. 
+    - |
+      An authorization/sensitive information disclosure vulnerability was identified in GitHub Enterprise Server that allowed a fork to retain read access to an upstream repository after the fork's visibility was changed to private. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and assigned [CVE-2023-23763](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23763). [Updated: 2023-09-01]
     - Packages have been updated to the latest security versions. 
   bugs:
     - syslog-ng configurations for containerized services caused errors for log forwarding services. The configurations have been removed. 

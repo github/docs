@@ -56,3 +56,4 @@ If you set up a subscription for {% data variables.product.prodname_copilot_for_
 ## Further reading
 
 - "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-copilot-for-business-privacy-statement)"
+- [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)

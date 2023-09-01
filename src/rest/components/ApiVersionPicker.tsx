@@ -5,7 +5,7 @@ import { InfoIcon } from '@primer/octicons-react'
 import { useMainContext } from 'components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { Picker } from 'src/tools/components/Picker'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { API_VERSION_COOKIE_NAME } from 'src/rest/components/RestRedirect'
 
 const API_VERSION_SUFFIX = ' (latest)'

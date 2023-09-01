@@ -7,7 +7,8 @@ intro: |
   {% endwarning %}
 sections:
   security_fixes:
-    - To prevent commits from a detached repository from syncing to prior forks that are now in a separate repository network, GitHub Enterprise Server closes pull requests between repositories during detachment. 
+    - |
+      An authorization/sensitive information disclosure vulnerability was identified in GitHub Enterprise Server that allowed a fork to retain read access to an upstream repository after the fork's visibility was changed to private. This vulnerability was reported via the [GitHub Bug Bounty Program](https://bounty.github.com/) and assigned [CVE-2023-23763](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23763). [Updated: 2023-09-01]
     - Packages have been updated to the latest security versions. 
   bugs:
     - On an instance with GitHub Actions enabled, scale sets configured at the enterprise level did not appear for use within the instance's organizations or repositories. 
@@ -17,6 +18,8 @@ sections:
     - In some cases, when starting a new GitHub Enterprise Server instance, the preflight page indicated that there was no user disk of sufficient size attached. 
     - When running the ghe-migrator, certain error messages contained an invalid link to import documentation. 
     - On an instance with GitHub Actions enabled, due to mismatched values, users could not easily associate workflow job run IDs from the GitHub Enterprise Server APIs or webhooks with a job in the UI. Workflow job runs now use a new URL pattern of `...actions/runs/job/{job_id}`, and `job_id` matches values from APIs and webhook payloads. 
+    - |
+      Administrators could not see or use the "Migrations" section in an instance's Management Console, which prevented the configuration of blob storage for GitHub Enterprise Importer. [Updated: 2023-08-31]
   known_issues:
     - |
       Custom firewall rules are removed during the upgrade process.
@@ -42,7 +45,3 @@ sections:
       {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
     - |
       {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
-    - |
-      {% data reusables.release-notes.migrations-blob-storage-unconfigurable-known-issue %}
-    - |
-      {% data reusables.release-notes.migrations-missing-section-known-issue %}

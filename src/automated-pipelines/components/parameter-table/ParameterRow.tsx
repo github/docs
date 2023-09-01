@@ -1,6 +1,6 @@
 import cx from 'classnames'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { ChildBodyParametersRows } from './ChildBodyParametersRows'
 import type { ChildParameter } from './types'
 
