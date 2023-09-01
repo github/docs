@@ -96,6 +96,8 @@ sections:
       The Management Console displays a warning about unexpected consequences that may result from modification of the instance's hostname after initial configuration.
     - |
       On an instance with multiple nodes, internal tooling to repair repositories now attempts to resolve problems within the entire repository network.
+    - |
+      To supplement a disaster recovery plan for a GitHub Enterprise Server instance in a cluster configuration, an administrator can configure a replica of an entire cluster in a separate datacenter, allowing the cluster to fail over to redundant nodes. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster)."
   known_issues:
     - |
       {% data reusables.release-notes.upgrade-to-3-9-or-to-3-10-io-utilization-increase %}
