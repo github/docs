@@ -81,8 +81,7 @@ For example, to enable Japanese and Portuguese in addition to English, you can e
 
 {% endnote %}
 
-The supported language codes are defined in [`src/languages/lib/languages.js`](https://github.com/github/docs/blob/main/src/languages/lib/languages.js).
-
+The supported language codes are defined in [`lib/languages.js`](https://github.com/github/docs/blob/main/lib/languages.js).
 
 ## Using {% data variables.product.prodname_github_codespaces %}
 

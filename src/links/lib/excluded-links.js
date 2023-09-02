@@ -64,5 +64,4 @@ export default [
   'https://packages.debian.org/search?keywords=netcat',
   'https://packages.debian.org/bullseye/ca-certificates',
   'https://oidref.com/1.3.6.1.2.1.25.4',
-  'https://www.ilo.org/global/about-the-ilo/newsroom/news/WCMS_574717/lang--en/index.htm',
 ]
