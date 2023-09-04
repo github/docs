@@ -64,11 +64,11 @@ async function main() {
 
   // Apply markdownlint fixes if available and rewrite the files
   if (fix) {
-    for (const file of [...files.content, ...files.data]) {
+    await Promise.all([...files.content, ...files.data].map(async(file) => {
       const content = await readFile(file, 'utf8')
       const applied = applyFixes(content, results[file])
-      await writeFile(file, applied)
-    }
+      return writeFile(file, applied)
+    }))
   }
 
   const errorFileCount = getErrorCountByFile(results)

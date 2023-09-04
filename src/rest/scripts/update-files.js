@@ -89,11 +89,10 @@ async function main() {
     includeBasePath: true,
     directories: false,
   }).filter((file) => file.endsWith('.deref.json'))
-
-  for (const file of dereferencedFiles) {
+  await Promise.all(dereferencedFiles.map((file) => {
     const baseName = path.basename(file)
-    await copyFile(file, path.join(TEMP_OPENAPI_DIR, baseName))
-  }
+    return copyFile(file, path.join(TEMP_OPENAPI_DIR, baseName))
+  }))
 
   rimraf.sync(TEMP_BUNDLED_OPENAPI_DIR)
   await normalizeDataVersionNames(TEMP_OPENAPI_DIR)
@@ -150,12 +149,12 @@ async function main() {
     }
 
     const pipelinesWithConfigs = pipelines.filter((pipeline) => !noConfig.includes(pipeline))
-    for (const pipeline of pipelinesWithConfigs) {
+    await Promise.all(pipelinesWithConfigs.map(async(pipeline) => {
       const configFilepath = `src/${pipeline}/lib/config.json`
       const configData = JSON.parse(await readFile(configFilepath, 'utf8'))
       configData.sha = syncedSha
-      await writeFile(configFilepath, JSON.stringify(configData, null, 2))
-    }
+      return writeFile(configFilepath, JSON.stringify(configData, null, 2))
+    }))
   }
 
   console.log(

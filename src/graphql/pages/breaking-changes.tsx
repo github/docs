@@ -38,8 +38,10 @@ export default function GraphqlBreakingChanges({
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-  const { getGraphqlBreakingChanges } = await import('src/graphql/lib/index.js')
-  const { getAutomatedPageMiniTocItems } = await import('lib/get-mini-toc-items.js')
+  const [{ getGraphqlBreakingChanges }, { getAutomatedPageMiniTocItems }] = await Promise.all([
+    import('src/graphql/lib/index.js'),
+    import('lib/get-mini-toc-items.js')
+  ])
 
   const req = context.req as any
   const res = context.res as any

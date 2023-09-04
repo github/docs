@@ -50,10 +50,18 @@ export default async function reloadTree(req, res, next) {
   // If refreshing of the `.en` part of the `unversionedTree` takes 40ms
   // then the following operations takes about 140ms.
   if (before !== after) {
-    warmed.siteTree = await loadSiteTree(warmed.unversionedTree)
-    warmed.pageList = await loadPages(warmed.unversionedTree)
-    warmed.pageMap = await loadPageMap(warmed.pageList)
-    warmed.redirects = await loadRedirects(warmed.pageList)
+    const [_siteTree, _pageList] = await Promise.all([
+      loadSiteTree(warmed.unversionedTree),
+      loadPages(warmed.unversionedTree)
+    ])
+    const [_pageMap, _redirects] = await Promise.all([
+      loadPageMap(warmed.pageList),
+      loadRedirects(warmed.pageList)
+    ])
+    warmed.siteTree = _siteTree
+    warmed.pageList = _pageList
+    warmed.pageMap = _pageMap
+    warmed.redirects = _redirects
   }
 
   return next()

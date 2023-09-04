@@ -29,6 +29,7 @@ glossary.forEach((term) => {
   }
 })
 
-await fs.writeFile(path.join(__dirname, '../data/glossaries/internal.yml'), yaml.dump(internal))
-
-await fs.writeFile(path.join(__dirname, '../data/glossaries/external.yml'), yaml.dump(external))
+await Promise.all([
+  fs.writeFile(path.join(__dirname, '../data/glossaries/internal.yml'), yaml.dump(internal)),
+  fs.writeFile(path.join(__dirname, '../data/glossaries/external.yml'), yaml.dump(external))
+])

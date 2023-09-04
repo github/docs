@@ -31,10 +31,12 @@ export async function getAppsData(pageType, docsVersion, apiVersion) {
 }
 
 export async function getAppsServerSideProps(context, pageType, { useDisplayTitle = false }) {
-  const { getAutomatedPageMiniTocItems } = await import('lib/get-mini-toc-items')
-  const { getAutomatedPageContextFromRequest } = await import(
-    'src/automated-pipelines/components/AutomatedPageContext'
-  )
+  const [{ getAutomatedPageMiniTocItems }, { getAutomatedPageContextFromRequest }] = await Promise.all([
+    import('lib/get-mini-toc-items'),
+    import(
+      'src/automated-pipelines/components/AutomatedPageContext'
+    ) 
+  ])
   const currentVersion = context.query.versionId
   const allVersions = context.req.context.allVersions
   const queryApiVersion = context.query.apiVersion

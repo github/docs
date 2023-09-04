@@ -126,8 +126,10 @@ router.get(
     await features(renderingReq, res, next)
     const context = renderingReq.context
 
-    const title = await page.renderProp('title', context, { textOnly: true })
-    const intro = await page.renderProp('intro', context, { textOnly: true })
+    const [title, intro] = await Promise.all([
+      page.renderProp('title', context, { textOnly: true }),
+      page.renderProp('intro', context, { textOnly: true })
+    ])
 
     let productPage = null
     for (const permalink of page.permalinks) {
