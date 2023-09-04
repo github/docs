@@ -158,7 +158,7 @@ export function ParameterRow({
           an API request to get the nested parameter data.
        */}
       {rowParams.type &&
-      (rowParams.type === 'object' || rowParams.type.includes('array of')) &&
+      (rowParams.type.includes('object') || rowParams.type.includes('array of')) &&
       rowParams.childParamsGroups &&
       rowParams.childParamsGroups.length === 0 &&
       !NO_CHILD_WEBHOOK_PROPERTIES.includes(rowParams.name) ? (
