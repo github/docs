@@ -31,7 +31,7 @@ Organization owners can require approval for each {% data variables.product.pat_
 {% note %}
 
 **Note**: Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Unless the organization has restricted access by {% data variables.product.pat_v1_plural %}, any {% data variables.product.pat_v1 %} can access organization resources without prior approval. For more information, see "[Restricting access by {% data variables.product.pat_v1_plural %}](#restricting-access-by-personal-access-tokens-classic)" on this page.
-
+quantum.qiskit.networking
 {% endnote %}
 
 {% data reusables.profile.access_org %}
