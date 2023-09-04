@@ -429,3 +429,80 @@ For guidance on using {% data variables.product.prodname_copilot %} in Vim/Neovi
 - [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
 
 {% endvimneovim %}
+
+{% qtcreator %}
+
+## About {% data variables.product.prodname_copilot %} and Qt Creator
+
+{% data reusables.copilot.procedural-intro %}
+
+If you use Qt Creator, you can view and incorporate suggestions from {% data variables.product.prodname_copilot %} directly within the editor.
+
+## Prerequisites
+
+{% data reusables.copilot.subscription-prerequisite %}
+
+To use {% data variables.product.prodname_copilot %} in Qt Creator, you must have the Neovim extension installed.
+
+## Enabling the Qt Creator {% data variables.product.prodname_copilot %} plugin
+
+{% data reusables.copilot.config-enable-copilot-in-qtcreator %}
+
+To enable the Qt Creator {% data variables.product.prodname_copilot %} plugin:
+
+1. In the **Help** menu, select **About Plugins**.
+1. In the **Installed Plugins** dialog, select **Copilot** under **Utilities**.
+1. Select **OK**.
+1. In the confirmation dialog, select the **Restart Now** button to restart Qt Creator and load the plugin.
+
+## Setting {% data variables.product.prodname_copilot %} Preferences in Qt Creator
+
+To set preferences for using {% data variables.product.prodname_copilot %}, select **Preferences** in the **Edit** menu, and then select the **Copilot** category. On macOS, you can find **Preferences** in the **Qt Creator** menu.
+
+![Screenshot of Copilot Preferences.](/assets/images/help/copilot/qtcreator-copilot-plugin-preferences.png)
+
+- To use {% data variables.product.prodname_copilot %}, select the **Enable Copilot** check box.
+- Select **Sign In** to sign into your subscription, activate your device, and authorize the {% data variables.product.prodname_copilot %} plugin. The button turns into a **Sign Out** button.
+- In the **Node.js path** field, enter the full path to the `Node.js` executable.
+- In the **Path to agent.js** field, enter the path to `agent.js` in the Copilot Neovim extension.
+- Select the **Request completions automatically** checkbox to receive suggestions for the current text cursor position when you make changes.
+
+For guidance on using {% data variables.product.prodname_copilot %} in Qt Creator, you can view the plugin documentation. To see the documentation, open Qt Creator and switch to the **Help** mode.
+
+## Receiving suggestions
+
+{% data reusables.copilot.receiving-suggestions %}
+
+When you write code in the Qt Creator **Edit** mode and **Request completions automatically** is enabled in **Preferences**, {% data variables.product.prodname_copilot %} automatically makes suggestions when you type.
+
+To manually request a suggestion at the current editor's cursor position, right-click to open a context menu and select **Request Copilot Suggestion**.
+
+## Applying suggestions
+
+{% data reusables.copilot.applying-suggestions %}
+
+Hover the mouse over a suggestion to show a toolbar with **Previous* and **Next** buttons for cycling between {% data variables.product.prodname_copilot %} suggestions.
+
+- To apply a suggestion as a whole, select **Apply** or press <kbd>Tab</kbd>.
+- To apply a suggestion word-by-word, select **Apply Word** or press <kbd>Alt</kbd>+<kbd>Right</kbd>.
+
+## Rejecting suggestions
+
+{% data reusables.copilot.rejecting-suggestions %}
+
+- To reject a suggestion, press <kbd>Esc</kbd> or the arrow keys.
+
+## Enabling and disabling suggestions
+
+{% data reusables.copilot.enabling-and-disabling-suggestions %}
+
+You can enable and disable the {% data variables.product.prodname_copilot %} suggestions either globally for all projects or at project level for a particular project.
+
+- To enable or disable {% data variables.product.prodname_copilot %} suggestions globally, select the **Toggle Copilot** button. This also sets the value of the **Enable Copilot** check box in **Preferences** accordingly.
+- To enable or disable {% data variables.product.prodname_copilot %} suggestions for a particular project, select **Projects**, then **Project Settings**, then **Copilot**, and finally select or deselect the **Enable Copilot** check box.
+
+## Further reading
+
+- [{% data variables.product.prodname_copilot %}](https://copilot.github.com/)
+
+{% endqtcreator %}
