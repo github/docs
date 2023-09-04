@@ -70,7 +70,7 @@ When you create a new tasklist, the default title is "Tasks." You can modify the
 
 ## Copying a tasklist
 
-When you copy your tasklist using the "Copy Markdown" option, {% data variables.product.product_name %} copies Markdown to your clipboard and includes the issue title so you can paste the tasklist outside of GitHub without losing context. See below for an example of a copied Markdown tasklist:
+When you copy your tasklist using the "Copy Markdown" option, {% data variables.product.product_name %} copies Markdown to your clipboard and includes the issue title, so you can paste the tasklist outside of GitHub without losing context. See below for an example of a copied Markdown tasklist:
 
 ```
 - [x] [Design new landing page](https://github.com/octocat/octoproject/issues/4)
