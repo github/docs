@@ -6,6 +6,7 @@ redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
   - /code-security/repository-security-advisories
+  - /code-security/security-advisories/repository-security-advisories
 versions:
   fpt: '*'
   ghec: '*'
@@ -28,4 +29,3 @@ children:
   - /removing-a-collaborator-from-a-repository-security-advisory
   - /withdrawing-a-repository-security-advisory
 ---
-

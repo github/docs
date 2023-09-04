@@ -37,7 +37,7 @@ shortTitle: Audit log events
 
 | Action | Description
 |------------------|-------------------
-| `accept` | Triggered when someone accepts credit for a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)."
+| `accept` | Triggered when someone accepts credit for a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory)."
 | `create` | Triggered when the administrator of a security advisory adds someone to the credit section.
 | `decline` | Triggered when someone declines credit for a security advisory.
 | `destroy` | Triggered when the administrator of a security advisory removes someone from the credit section.
@@ -577,7 +577,7 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 
 | Action | Description
 |------------------|-------------------
-| `close` | Triggered when someone closes a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+| `close` | Triggered when someone closes a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 | `cve_request` | Triggered when someone requests a CVE (Common Vulnerabilities and Exposures) number from {% data variables.product.prodname_dotcom %} for a draft security advisory.
 | `github_broadcast` | Triggered when {% data variables.product.prodname_dotcom %} makes a security advisory public in the {% data variables.product.prodname_advisory_database %}.
 | `github_withdraw` | Triggered when {% data variables.product.prodname_dotcom %} withdraws a security advisory that was published in error.
@@ -623,7 +623,6 @@ For more information, see "[AUTOTITLE](/organizations/managing-organization-sett
 | `enable` | Triggered when a repository owner or person with admin access to the repository enables {% data variables.product.prodname_secret_scanning %} for a repository.
 
 {% endif %}{% ifversion secret-scanning-validity-check-audit-log %}
-
 
 ## `repository_secret_scanning_automatic_validity_checks` category actions
 
