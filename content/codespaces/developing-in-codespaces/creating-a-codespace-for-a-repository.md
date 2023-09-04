@@ -126,7 +126,7 @@ If you enter a value for a recommended secret, the secret will available in the 
 
 If the name of a secret is shown with a checkbox that is unavailable for selection, and no input box, this is because you already have a secret of this name configured in your personal settings for {% data variables.product.prodname_codespaces %}, and you have associated it with this repository. If you've created a secret of this name but have not associated it with this repository, the checkbox will be available to select and by doing so you can update your settings to add the association.
 
-If you want to change the value of a preselected secret you can do so from your personal settings for {% data variables.product.prodname_codespaces %} at [github.com/settings/codespaces](https://github.com/settings/codespaces). For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+If you want to change the value of a preselected secret you can do so from your personal settings for {% data variables.product.prodname_codespaces %} at [github.com/settings/codespaces](https://github.com/settings/codespaces). For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
 
 {% endwebui %}
 

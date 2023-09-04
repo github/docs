@@ -1,7 +1,7 @@
 ---
-title: Managing encrypted secrets for your repository and organization for GitHub Codespaces
-shortTitle: Encrypted secrets
-intro: 'Encrypted secrets allow you to store sensitive information in your organization or repository for use with {% data variables.product.prodname_github_codespaces %}.'
+title: Managing secrets for your repository and organization for GitHub Codespaces
+shortTitle: Manage secrets
+intro: 'Secrets allow you to store sensitive information in your organization or repository for use with {% data variables.product.prodname_github_codespaces %}.'
 permissions: 'To manage secrets for {% data variables.product.prodname_github_codespaces %} for an organization, you must be an organization owner.'
 versions:
   fpt: '*'
@@ -12,16 +12,17 @@ topics:
   - Security
 redirect_from:
   - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-codespaces
-product: 'Encrypted secrets are available in all public repositories, in private repositories owned by personal accounts, and in private repositories owned by organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."'
+  - /codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces
+product: 'Secrets are available in all public repositories, in private repositories owned by personal accounts, and in private repositories owned by organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plans. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."'
 ---
 
 ## About secrets
 
-Secrets are encrypted environment variables that you create in the {% data variables.product.prodname_github_codespaces %} settings for an organization, a repository, or a personal account. For information on creating user-specific secrets, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+Secrets are {% ifversion fpt or ghec %}encrypted {% endif %}environment variables that you create in the {% data variables.product.prodname_github_codespaces %} settings for an organization, a repository, or a personal account. For information on creating user-specific secrets, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
 
-The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach {% data variables.product.prodname_dotcom %} and only decrypts them when you use them in a codespace.
+The secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach {% data variables.product.prodname_dotcom %} and only decrypts them when you use them in a codespace.
 
-Organization-level secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets.
+{% endif %}Organization-level secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets.
 
 {% data reusables.codespaces.secrets-on-start %}
 
@@ -86,4 +87,4 @@ You can check which access policies are applied to a secret in your organization
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)"

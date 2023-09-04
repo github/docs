@@ -1,5 +1,6 @@
 ---
-title: Managing encrypted secrets for your codespaces
+title: Managing secrets for your codespaces
+shortTitle: Codespace secrets
 intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
 versions:
   fpt: '*'
@@ -7,18 +8,18 @@ versions:
 redirect_from:
   - /github/developing-online-with-codespaces/managing-encrypted-secrets-for-codespaces
   - /codespaces/working-with-your-codespace/managing-encrypted-secrets-for-codespaces
+  - /codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces
 type: how_to
 topics:
   - Codespaces
   - Developer
   - Security
   - Secret store
-shortTitle: Encrypted secrets
 ---
 
-## About encrypted secrets for {% data variables.product.prodname_github_codespaces %}
+## About secrets for {% data variables.product.prodname_github_codespaces %}
 
-You can add encrypted secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as encrypted secrets.
+You can add secrets to your personal account that you want to use in your codespaces. For example, you may want to store and access the following sensitive information as secrets.
 
 - Access tokens to cloud services
 - Service principals
@@ -95,5 +96,5 @@ Codespace secrets cannot be used:
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-encrypted-secrets-for-your-repository-and-organization-for-github-codespaces)"
+- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/managing-secrets-for-your-repository-and-organization-for-github-codespaces)"
 - "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#recommended-secrets)"

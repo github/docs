@@ -1,6 +1,7 @@
 ---
-title: Encrypted secrets
-intro: 'Encrypted secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
+title: Using secrets in GitHub Actions
+shortTitle: Using secrets
+intro: 'Secrets allow you to store sensitive information in your organization{% ifversion fpt or ghes or ghec %}, repository, or repository environments{% else %} or repository{% endif %}.'
 redirect_from:
   - /github/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
   - /actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets
@@ -8,6 +9,7 @@ redirect_from:
   - /actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow
   - /actions/reference/encrypted-secrets
   - /actions/managing-workflows/storing-secrets
+  - /actions/security-guides/encrypted-secrets
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +19,7 @@ versions:
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About encrypted secrets
+## About secrets
 
 Secrets are variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_actions %} can only read a secret if you explicitly include the secret in a workflow.
 
@@ -51,7 +53,7 @@ To help ensure that {% data variables.product.prodname_dotcom %} redacts your se
 
 To make a secret available to an action, you must set the secret as an input or environment variable in the workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv)."
 
-You can use and read encrypted secrets in a workflow file if you have access to edit the file. For more information, see "[AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github)."
+You can use and read secrets in a workflow file if you have access to edit the file. For more information, see "[AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github)."
 
 {% data reusables.actions.secrets-redaction-warning %}
 
@@ -73,7 +75,7 @@ Instead of using a {% data variables.product.pat_generic %}, consider using a {%
 
 {% endnote %}
 
-## Creating encrypted secrets for a repository
+## Creating secrets for a repository
 
 {% data reusables.actions.permissions-statement-secrets-variables-repository %}
 
@@ -114,7 +116,7 @@ To list all secrets for the repository, use the `gh secret list` subcommand.
 
 {% endcli %}
 
-## Creating encrypted secrets for an environment
+## Creating secrets for an environment
 
 {% data reusables.actions.permissions-statement-secrets-environment %}
 
@@ -147,7 +149,7 @@ gh secret list --env ENV_NAME
 
 {% endcli %}
 
-## Creating encrypted secrets for an organization
+## Creating secrets for an organization
 
 {% data reusables.actions.actions-secrets-variables-repository-access %}
 
@@ -217,7 +219,7 @@ You can check which access policies are being applied to a secret in your organi
 {% data reusables.actions.sidebar-secrets-and-variables %}
 1. The list of secrets includes any configured permissions and policies. For more details about the configured permissions for each secret, click **Update**.
 
-## Using encrypted secrets in a workflow
+## Using secrets in a workflow
 
 {% note %}
 
@@ -311,7 +313,7 @@ Secrets are limited to 48 KB in size. To store larger secrets, see the "[Storing
 
 ### Storing large secrets
 
-To use secrets that are larger than 48 KB, you can use a workaround to store encrypted secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
+To use secrets that are larger than 48 KB, you can use a workaround to store secrets in your repository and save the decryption passphrase as a secret on {% data variables.product.prodname_dotcom %}. For example, you can use `gpg` to encrypt a file containing your secret locally before checking the encrypted file in to your repository on {% data variables.product.prodname_dotcom %}. For more information, see the "[gpg manpage](https://www.gnupg.org/gph/de/manual/r1023.html)."
 
 {% warning %}
 
@@ -339,7 +341,7 @@ To use secrets that are larger than 48 KB, you can use a workaround to store enc
 
    ```shell
    git add my_secret.json.gpg
-   git commit -m "Add new encrypted secret JSON file"
+   git commit -m "Add new secret JSON file"
    ```
 
 1. Create a shell script in your repository to decrypt the secret file. In this example, the script is named `decrypt_secret.sh`.
@@ -390,7 +392,7 @@ To use secrets that are larger than 48 KB, you can use a workaround to store enc
 
 ## Storing Base64 binary blobs as secrets
 
-You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#limits-for-secrets)."
+You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#limits-for-secrets)."
 
 {% note %}
 

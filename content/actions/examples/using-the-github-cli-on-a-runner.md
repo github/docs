@@ -76,7 +76,7 @@ jobs:
     if: github.repository == 'github/docs-internal'
     # Configures the job to run on an Ubuntu Linux runner. This means that the job will execute on a fresh virtual machine hosted by {% data variables.product.prodname_dotcom %}. For syntax examples using other runners, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
     runs-on: ubuntu-latest
-    # Creates custom environment variables, and redefines the built-in `GITHUB_TOKEN` variable to use a custom [secret](/actions/security-guides/encrypted-secrets). These variables will be referenced later in the workflow.
+    # Creates custom environment variables, and redefines the built-in `GITHUB_TOKEN` variable to use a custom [secret](/actions/security-guides/using-secrets-in-github-actions). These variables will be referenced later in the workflow.
     env:
       GITHUB_TOKEN: {% raw %}${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}{% endraw %}
       FIRST_RESPONDER_PROJECT: Docs content first responder
