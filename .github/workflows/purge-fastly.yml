@@ -46,4 +46,4 @@ jobs:
         if: ${{ !inputs.nuke_all }}
         env:
           LANGUAGES: ${{ inputs.languages }}
-        run: .github/actions-scripts/purge-fastly-edge-cache-per-language.js
+        run: src/languages/scripts/purge-fastly-edge-cache-per-language.js

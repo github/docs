@@ -57,21 +57,21 @@ includeGuides:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
-  - /code-security/security-advisories/repository-security-advisories/about-repository-security-advisories
-  - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
-  - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
-  - /code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
-  - /code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/permission-levels-for-repository-security-advisories
-  - /code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/withdrawing-a-repository-security-advisory
-  - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
-  - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
-  - /code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability
-  - /code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities
+  - /code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories
+  - /code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
+  - /code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
+  - /code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+  - /code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories
+  - /code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/withdrawing-a-repository-security-advisory
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/managing-privately-reported-security-vulnerabilities
   - /code-security/security-overview/about-security-overview
   - /code-security/security-overview/filtering-alerts-in-security-overview
   - /code-security/security-overview/assessing-code-security-risk
@@ -88,10 +88,10 @@ includeGuides:
   - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
   - /code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts
   - /code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
-  - /code-security/security-advisories/global-security-advisories/about-the-github-advisory-database
-  - /code-security/security-advisories/global-security-advisories/about-global-security-advisories
-  - /code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database
-  - /code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-global-security-advisories
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database
   - /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
   - /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
   - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
@@ -104,4 +104,3 @@ includeGuides:
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api
   - /code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository
 ---
-

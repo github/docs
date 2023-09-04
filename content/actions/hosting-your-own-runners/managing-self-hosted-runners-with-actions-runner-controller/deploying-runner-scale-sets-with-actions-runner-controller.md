@@ -439,7 +439,7 @@ When Kubernetes mode is enabled, workflows that are not configured with a contai
 Jobs without a job container are forbidden on this runner, please add a 'container:' to your job or contact your self-hosted runner administrator.
 ```
 
-In order to allow jobs without a job container to run, you need to instruct the runner to disable this check. You can do that by setting setting `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container:
+In order to allow jobs without a job container to run, you need to instruct the runner to disable this check. You can do that by setting `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container:
 
 ```yaml
 template:

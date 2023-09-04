@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { GraphqlItem } from './GraphqlItem'
 import type { EnumT } from './types'
 

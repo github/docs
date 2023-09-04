@@ -1,7 +1,7 @@
 import cx from 'classnames'
 import dayjs from 'dayjs'
 import { ActionList } from '@primer/react'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'components/Link'
 import { ArrowRightIcon } from '@primer/octicons-react'
 import { FeaturedLink } from 'src/landings/components/ProductLandingContext'
