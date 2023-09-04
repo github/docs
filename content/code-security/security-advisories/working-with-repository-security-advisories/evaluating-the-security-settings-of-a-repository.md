@@ -10,6 +10,8 @@ topics:
   - Security advisories
   - Vulnerabilities
 shortTitle: Evaluate repository security
+redirect_from:
+  - /code-security/security-advisories/repository-security-advisories/evaluating-the-security-settings-of-a-repository
 ---
 
 ## About evaluating a repository's security settings

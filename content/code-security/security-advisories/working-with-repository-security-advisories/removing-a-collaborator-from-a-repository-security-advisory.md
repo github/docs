@@ -5,6 +5,7 @@ redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
   - /code-security/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+  - /code-security/security-advisories/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
 versions:
   fpt: '*'
   ghec: '*'
@@ -35,5 +36,5 @@ People with admin permissions to a security advisory can remove collaborators fr
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/permission-levels-for-repository-security-advisories)"
-- "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"
+- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories)"
+- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory)"

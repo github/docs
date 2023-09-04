@@ -12,6 +12,8 @@ topics:
   - Alerts
   - Vulnerabilities
   - CVEs
+redirect_from:
+  - /code-security/security-advisories/global-security-advisories/about-the-github-advisory-database
 ---
 
 ## About the {% data variables.product.prodname_advisory_database %}

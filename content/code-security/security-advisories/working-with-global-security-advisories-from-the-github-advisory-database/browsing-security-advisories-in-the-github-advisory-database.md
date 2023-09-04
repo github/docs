@@ -8,6 +8,7 @@ redirect_from:
   - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/dependabot/dependabot-alerts/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/dependabot/dependabot-alerts/browsing-security-advisories-in-the-github-advisory-database
+  - /code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database
 versions:
   fpt: '*'
   ghec: '*'
@@ -45,7 +46,7 @@ Additionally, you can access the {% data variables.product.prodname_advisory_dat
 
 ## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
 
-You can suggest improvements to any advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database)."
+You can suggest improvements to any advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database)."
 
 ## Searching the {% data variables.product.prodname_advisory_database %}
 
@@ -75,7 +76,7 @@ You can search the database, and use qualifiers to narrow your search. For examp
 | `created:YYYY-MM-DD`| [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) will show only advisories created on this date. |
 | `updated:YYYY-MM-DD`| [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) will show only advisories updated on this date. |
 
-A `GHSA-ID` qualifier is a unique ID that we at {% data variables.product.prodname_dotcom %} automatically assign to every advisory in the {% data variables.product.prodname_advisory_database %}. For more information about these identifiers, see "[About the {% data variables.product.prodname_advisory_database %}](/code-security/security-advisories/global-security-advisories/about-the-github-advisory-database#about-ghsa-ids)."
+A `GHSA-ID` qualifier is a unique ID that we at {% data variables.product.prodname_dotcom %} automatically assign to every advisory in the {% data variables.product.prodname_advisory_database %}. For more information about these identifiers, see "[About the {% data variables.product.prodname_advisory_database %}](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-ghsa-ids)."
 
 ## Viewing your vulnerable repositories
 
@@ -105,7 +106,7 @@ You can use your local advisory database to check whether a specific security vu
    {% endnote %}
 1. Click an advisory to view details.{% ifversion GH-advisory-db-supports-malware %} By default, you will see {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. To show malware advisories, use `type:malware` in the search bar.{% endif %}
 
-You can also suggest improvements to any advisory directly from your local advisory database. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)".
+You can also suggest improvements to any advisory directly from your local advisory database. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database#editing-advisories-from-your-github-enterprise-server-instance)".
 
 ### Viewing vulnerable repositories for {% data variables.location.product_location %}
 
