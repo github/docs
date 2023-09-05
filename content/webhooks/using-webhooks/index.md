@@ -12,5 +12,6 @@ children:
   - /creating-webhooks
   - /configuring-your-server-to-receive-payloads
   - /securing-your-webhooks
+  - /best-practices-for-using-webhooks
 ---
 

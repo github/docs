@@ -137,11 +137,11 @@ When you update permissions, you should consider making your app backwards compa
 
 If your {% data variables.product.prodname_github_app %} is available to other users or organizations, you should give users and organization owners a way to delete their data. Users should not need to email or call a support person in order to delete their data.
 
-{% ifversion fpt or ghec %}
-
 ## Further reading
 
+{% ifversion fpt or ghec %}
 - "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
 - "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
-
 {% endif %}
+- "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+- "[AUTOTITLE](/rest/guides/best-practices-for-integrators)"
