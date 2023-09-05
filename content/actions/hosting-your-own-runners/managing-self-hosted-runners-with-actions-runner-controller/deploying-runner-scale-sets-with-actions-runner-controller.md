@@ -561,8 +561,6 @@ The following table shows the metrics emitted by the controller-manager and list
 | controller-manager | pending_ephemeral_runners      | gauge     | Number of ephemeral runners in a pending state                                                                      |
 | controller-manager | running_ephemeral_runners      | gauge     | Number of ephemeral runners in a running state                                                                      |
 | controller-manager | failed_ephemeral_runners       | gauge     | Number of ephemeral runners in a failed state                                                                       |
-| listener           | available_jobs                 | gauge     | Number of jobs where `runs-on` matches the runner scale set name and the job is not yet assigned to the runner scale set. |
-| listener           | acquired_jobs                  | gauge     | Number of jobs acquired by the runner scale set                                                                     |
 | listener           | assigned_jobs                  | gauge     | Number of jobs assigned to the runner scale set                                                                     |
 | listener           | running_jobs                   | gauge     | Number of jobs running or queued to run                                                                        |
 | listener           | registered_runners             | gauge     | Number of runners registered by the runner scale set                                                                |
