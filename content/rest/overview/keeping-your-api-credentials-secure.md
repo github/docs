@@ -10,7 +10,10 @@ versions:
 topics:
   - API
 ---
-
+curl --request GET \
+--url "https://api.github.com/octocat" \
+--header "Authorization: Bearer YOUR-TOKEN" \
+--header "X-GitHub-Api-Version: 2022-11-28"
 ## Choose an appropriate authentication method
 
 You should choose an authentication method that is appropriate for the task you want to accomplish.
