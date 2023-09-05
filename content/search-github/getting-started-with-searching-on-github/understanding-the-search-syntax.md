@@ -107,3 +107,5 @@ Query  | Example
 `QUALIFIER:@me` | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) matches issues assigned to the person viewing the results
 
 You can only use `@me` with a qualifier and not as search term, such as `@me main.workflow`.
+example 
+use @sammyfilly with a qualifier not search term ,such as @sammyfilly workflow
