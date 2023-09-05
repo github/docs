@@ -44,6 +44,7 @@ topics:
 |`cfb_seat_assignment_refreshed`| Triggered when you are assigned a seat through {% data variables.product.prodname_copilot_business_short %}, while your current seat assignment is pending cancellation, causing the cancellation to be revoked.
 |`cfb_seat_assignment_created`| Triggered when you are assigned a seat through {% data variables.product.prodname_copilot_business_short %}, while you have no other active seat assignment. For more information, see "[AUTOTITLE](/copilot/overview-of-github-copilot/about-github-copilot-for-business)."
 |`cfb_seat_assignment_unassigned`| Triggered when you are unassigned a seat through {% data variables.product.prodname_copilot_business_short %}. 
+|`copilot.cfb_seat_cancelled_by_staff`| Triggered when you are unassigned a seat through {% data variables.product.prodname_copilot_business_short %} manually by GitHub staff.
 
 ## `marketplace_agreement_signature` category actions
 
