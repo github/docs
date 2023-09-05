@@ -11,3 +11,8 @@ For content changes, make sure that you:
 - [ ] Copy-edit the changes for grammar, spelling, and adherence to the [style guide](https://github.com/github/docs/blob/main/contributing/content-style-guide.md).
 - [ ] Check new or updated Liquid statements to confirm that versioning is correct.
 - [ ] If there are any failing checks in your PR, troubleshoot them until they're all passing.
+```[tasklist]
+### My tasks
+- [ ] https://github.com/octo-org/octo-repo/issues/45
+- [ ] Draft task
+```
