@@ -48,7 +48,6 @@ For more information about authenticating with {% data variables.product.prodnam
 1. Install GCM using Homebrew:
 
    ```shell
-   brew tap microsoft/git
    brew install --cask git-credential-manager
    ```
 
