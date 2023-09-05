@@ -93,6 +93,8 @@ User Engagement Data, including pseudonymous identifiers and general usage data,
 
 {% data variables.product.prodname_copilot_for_business %} does not retain any Prompts or Suggestions.
 
+For more information about privacy for {% data variables.product.prodname_copilot_for_business %}, see the "[The {% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/#privacy)."
+
 ## Further reading
 
 - "[{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)"

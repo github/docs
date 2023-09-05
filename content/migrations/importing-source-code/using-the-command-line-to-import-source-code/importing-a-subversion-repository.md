@@ -56,3 +56,9 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 {% data reusables.migrations.move-into-git-repo-directory %}
 {% data reusables.migrations.add-github-repo-as-remote %}
 {% data reusables.migrations.push-to-github %}
+
+{% ifversion fpt or ghec %}
+## Further reading
+
+- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+{% endif %}

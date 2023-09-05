@@ -11,4 +11,5 @@ children:
   - /using-the-todocs-placeholder-to-leave-notes
   - /using-the-content-linter
   - /label-reference
+  - /self-review-checklist
 ---

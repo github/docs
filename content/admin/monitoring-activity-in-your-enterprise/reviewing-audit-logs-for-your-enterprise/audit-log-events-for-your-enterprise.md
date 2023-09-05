@@ -63,7 +63,7 @@ The scope of the events that appear in your enterprise's audit log depend on whe
 
 | Action | Description
 |--------|-------------
-| `advisory_credit.accept` | Someone accepted credit for a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory)."
+| `advisory_credit.accept` | Someone accepted credit for a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory)."
 | `advisory_credit.create` | The administrator of a security advisory added someone to the credit section.
 | `advisory_credit.decline` | Someone declined credit for a security advisory.
 | `advisory_credit.destroy` | The administrator of a security advisory removed someone from the credit section.
@@ -1230,7 +1230,7 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 
 | Action | Description
 |--------|-------------
-| `repository_advisory.close` | Someone closed a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/repository-security-advisories/about-repository-security-advisories)."
+| `repository_advisory.close` | Someone closed a security advisory. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
 | `repository_advisory.cve_request` | Someone requested a CVE (Common Vulnerabilities and Exposures) number from {% data variables.product.prodname_dotcom %} for a draft security advisory.
 | `repository_advisory.github_broadcast` | {% data variables.product.prodname_dotcom %} made a security advisory public in the {% data variables.product.prodname_advisory_database %}.
 | `repository_advisory.github_withdraw` | {% data variables.product.prodname_dotcom %} withdrew a security advisory that was published in error.
@@ -1289,7 +1289,6 @@ Before you'll see `git` category actions, you must enable Git events in the audi
 {%- endif %}
 
 {%- ifversion secret-scanning-validity-check-audit-log %}
-
 
 ## `repository_secret_scanning_automatic_validity_checks` category actions
 
