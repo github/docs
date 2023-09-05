@@ -49,7 +49,7 @@ For more information about authenticating with {% data variables.product.prodnam
 
    ```shell
    brew tap microsoft/git
-   brew install --cask git-credential-manager
+   brew install git-credential-manager-core
    ```
 
   For MacOS, you don't need to run `git config` because GCM automatically configures Git for you.
