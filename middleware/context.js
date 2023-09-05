@@ -1,4 +1,4 @@
-import languages from '../lib/languages.js'
+import languages from '#src/languages/lib/languages.js'
 import enterpriseServerReleases from '../lib/enterprise-server-releases.js'
 import { allVersions } from '../lib/all-versions.js'
 import { productMap } from '../lib/all-products.js'
@@ -34,6 +34,7 @@ export default async function contextualize(req, res, next) {
   req.context.currentLanguage = req.language
   req.context.userLanguage = req.userLanguage
   req.context.currentVersion = getVersionStringFromPath(req.pagePath)
+  req.context.currentVersionObj = allVersions[req.context.currentVersion]
   req.context.currentProduct = getProductStringFromPath(req.pagePath)
   req.context.currentCategory = getCategoryStringFromPath(req.pagePath)
   req.context.productMap = productMap

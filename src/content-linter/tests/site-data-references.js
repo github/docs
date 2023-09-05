@@ -20,8 +20,17 @@ const pages = await loadPages()
 const getDataPathRegex =
   /{%\s*?(?:data|indented_data_reference)\s+?(\S+?)\s*?(?:spaces=\d\d?\s*?)?%}/
 
+const rawLiquidPattern = /{%\s*raw\s*%}.*?{%\s*endraw\s*%}/gs
+
 const getDataReferences = (content) => {
-  const refs = content.match(patterns.dataReference) || []
+  // When looking for things like `{% data reusables.foo %}` in the
+  // content, we first have to exclude any Liquid that isn't real.
+  // E.g.
+  //   {% raw %}
+  //     Here's an example: {% data reusables.foo.bar %}
+  //  {% endraw %}
+  const withoutRawLiquidBlocks = content.replace(rawLiquidPattern, '')
+  const refs = withoutRawLiquidBlocks.match(patterns.dataReference) || []
   return refs.map((ref) => ref.replace(getDataPathRegex, '$1'))
 }
 

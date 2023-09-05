@@ -11,5 +11,6 @@ redirect_from:
   - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax
 children:
   - /automated-migrations
-  - /manual-migrations
+  - /manually-migrating-to-github-actions
 ---
+

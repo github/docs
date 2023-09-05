@@ -24,23 +24,23 @@ shortTitle: Configure dependabot.yml
 {% data reusables.dependabot.beta-security-and-version-updates %}
 {% data reusables.dependabot.enterprise-enable-dependabot %}
 
-## About the _dependabot.yml_ file
+## About the `dependabot.yml` file
 
-The {% data variables.product.prodname_dependabot %} configuration file, _dependabot.yml_, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+The {% data variables.product.prodname_dependabot %} configuration file, `dependabot.yml`, uses YAML syntax. If you're new to YAML and want to learn more, see "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
 
-You must store this file in the `.github` directory of your repository. When you add or update the _dependabot.yml_ file, this triggers an immediate check for version updates. For more information and an example, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
+You must store this file in the `.github` directory of your repository. When you add or update the `dependabot.yml` file, this triggers an immediate check for version updates. For more information and an example, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates)."
 
 Any options that also affect security updates are used the next time a security alert triggers a pull request for a security update.  For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)."
 
 {% note %}
 
-**Note:** You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the _dependabot.yml_ file.
+**Note:** You cannot configure {% data variables.product.prodname_dependabot_alerts %} using the `dependabot.yml` file.
 
 {% endnote %}
 
-The _dependabot.yml_ file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key{% ifversion ghes = 3.5 %} and/or a `enable-beta-ecosystems` key{% endif %}. The file must start with `version: 2`.
+The `dependabot.yml` file has two mandatory top-level keys: `version`, and `updates`. You can, optionally, include a top-level `registries` key. The file must start with `version: 2`.
 
-## Configuration options for the _dependabot.yml_ file
+## Configuration options for the `dependabot.yml` file
 
 The top-level `updates` key is mandatory. You use it to configure how {% data variables.product.prodname_dependabot %} updates the versions or your project's dependencies. Each entry configures the update settings for a particular package manager. You can use the following options.
 
@@ -329,28 +329,26 @@ If you use the same configuration as in the example above, bumping the `requests
 {% ifversion dependabot-version-updates-groups %}
 ### `groups`
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
+{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
 
 {% data reusables.dependabot.dependabot-version-updates-groups-about %}
 
-{% data reusables.dependabot.dependabot-version-updates-groups-supported %}
+{% data reusables.dependabot.dependabot-version-updates-groups-semver %}
 
-When you first configure a group, you specify a group name that will display in pull request titles and branch names. In the example below, the name of the group is `dev-dependencies`.
+{% data reusables.dependabot.dependabot-version-updates-supported-options-for-groups %}
 
-You then define `patterns` (strings of characters) that match with a dependency name (or multiple dependency names) to include those dependencies in the group.
+{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
 
-If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal.
+{% data variables.product.prodname_dependabot %} creates groups in the order they appear in your `dependabot.yml` file. If a dependency update could belong to more than one group, it is only assigned to the first group it matches with.
 
-You can also use `exclude-patterns` to exclude certain dependencies from the group. If a dependency is excluded from a group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version.
-
-Note that you can't use `@dependabot ignore` with pull requests for grouped updates. If you want to ignore version updates for a dependency, you must configure an [`ignore`](#ignore) rule for the dependency in the `dependabot.yml` file.
+If a dependency doesn't belong to any group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version as normal. {% data variables.product.prodname_dotcom %} reports in the logs if a group is empty. For more information, see "[{% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request](/code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors#dependabot-fails-to-group-a-set-of-dependencies-into-a-single-pull-request)."
 
 When a scheduled update runs, {% data variables.product.prodname_dependabot %} will refresh pull requests for grouped updates using the following rules:
 - if all the same dependencies need to be updated to the same versions, {% data variables.product.prodname_dependabot %} will rebase the branch.
 - if all the same dependencies need to be updated, but a newer version has become available for one (or more) of the dependencies, {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 - if the dependencies to be updated have changed - for example, if another dependency in the group now has an update available - {% data variables.product.prodname_dependabot %} will close the pull request and create a new one.
 
-{% data reusables.dependabot.dependabot-version-updates-groups-yaml-example %}
+You can also manage pull requests for grouped version updates using comment commands, which are short comments you can make on a pull request to give instructions to {% data variables.product.prodname_dependabot %}. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-for-grouped-version-updates-with-comment-commands)."
 
 {% endif %}
 
@@ -364,7 +362,7 @@ Dependencies can be ignored either by adding them to `ignore` or by using the `@
 
 Dependencies ignored by using the `@dependabot ignore` command are stored centrally for each package manager. If you start ignoring dependencies in the `dependabot.yml` file, these existing preferences are considered alongside the `ignore` dependencies in the configuration.
 
-You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`. If you wish to un-ignore a dependency ignored this way, re-open the pull request.
+You can check whether a repository has stored `ignore` preferences by searching the repository for `"@dependabot ignore" in:comments`, or by using the `@dependabot show DEPENDENCY_NAME ignore conditions` comment command. If you wish to unblock updates for a dependency ignored this way, re-open the pull request. This clears the `ignore` conditions that were set when the pull request was closed and resumes those {% data variables.product.prodname_dependabot %} version updates for the dependency. To update the dependency to a newer version, merge the pull request. {% ifversion dependabot-version-updates-groups %}In pull requests for grouped version updates, you can also use the `@dependabot unignore` commands to clear `ignore` settings for dependencies.{% endif %}
 
 For more information about the `@dependabot ignore` commands, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
@@ -372,13 +370,15 @@ For more information about the `@dependabot ignore` commands, see "[AUTOTITLE](/
 
 You can use the `ignore` option to customize which dependencies are updated. The `ignore` option supports the following options.
 
-- `dependency-name`—use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters. For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`). {% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %}
-- `versions`—use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager. For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax; for NuGet, use `7.*`.
-- `update-types`—use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies. Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. Security updates are unaffected by this setting.
+| Option | Description |
+|--------|-------------|
+|<code><span style="white-space: nowrap;">dependency-name</span></code> | Use to ignore updates for dependencies with matching names, optionally using `*` to match zero or more characters.</br>For Java dependencies, the format of the `dependency-name` attribute is: `groupId:artifactId` (for example: `org.kohsuke:github-api`).</br>{% ifversion dependabot-grouped-dependencies %} To prevent {% data variables.product.prodname_dependabot %} from automatically updating TypeScript type definitions from DefinitelyTyped, use `@types/*`.{% endif %} |
+| `versions` | Use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager.</br>For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax; for NuGet, use `7.*`. |
+| <code><span style="white-space: nowrap;">update-types</span></code> | Use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies.</br>Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. |
 
-If `versions` and `update-types` are used together, {% data variables.product.prodname_dependabot %} will ignore any update in either set.
+When used alone, the `ignore.versions` key affects both {% data variables.product.prodname_dependabot %} updates, but the `ignore.update-types` key affects only {% data variables.product.prodname_dependabot_version_updates %}.
 
-{% data reusables.dependabot.option-affects-security-updates %}
+However, if `versions` and `update-types` are used together in the same `ignore` rule, both {% data variables.product.prodname_dependabot %} updates are affected, unless the configuration uses `target-branch` to check for version updates on a non-default branch.
 
 ```yaml
 # Use `ignore` to specify dependencies that should not be updated
@@ -391,11 +391,11 @@ updates:
       interval: "weekly"
     ignore:
       - dependency-name: "express"
-        # For Express, ignore all updates for version 4 and 5
+        # For Express, ignore all Dependabot updates for version 4 and 5
         versions: ["4.x", "5.x"]
         # For Lodash, ignore all updates
       - dependency-name: "lodash"
-        # For AWS SDK, ignore all patch updates
+        # For AWS SDK, ignore all patch updates for version updates only
       - dependency-name: "aws-sdk"
         update-types: ["version-update:semver-patch"]
 ```
@@ -798,53 +798,69 @@ updates:
 
 ### `versioning-strategy`
 
-When {% data variables.product.prodname_dependabot %} edits a manifest file to update a version, it uses the following overall strategies:
+When {% data variables.product.prodname_dependabot %} edits a manifest file to update a version, there are several different potential versioning strategies:
 
-- For apps, the version requirements are increased, for example: npm, pip and Composer.
-- For libraries, the range of versions is widened, for example: Bundler and Cargo.
+| Option | Action |
+|--------|--------|
+| `auto` | Try to differentiate between apps and libraries. Use `increase` for apps and `widen` for libraries.|
+| `increase`| Always increase the minimum version requirement to match the new version. If a range already exists, typically this only increases the lower bound. |
+| `increase-if-necessary` | Leave the constraint if the original constraint allows the new version, otherwise, bump the constraint. |
+| `lockfile-only` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
+| `widen`| Widen the allowed version requirements to include both the new and old versions, when possible. Typically, this only increases the maximum allowed version requirement. |
+| N/A | Some package managers do not yet support configuring the `versioning-strategy` parameter. |
+
+The following table shows an example of how `versioning-strategy` can be used.
+
+| Current constraint | Current version | New version | Strategy | New constraint |
+|--------------------|-----------------|-------------|----------|----------------|
+| ^1.0.0 | 1.0.0 | 1.2.0 | `widen` | ^1.0.0 |
+| ^1.0.0 | 1.0.0 | 1.2.0 | `increase` | ^1.2.0 |
+| ^1.0.0 | 1.0.0 | 1.2.0 | `increase-if-necessary` | ^1.0.0 |
+| ^1.0.0 | 1.0.0 | 2.0.0 | `widen` | >=1.0.0 <3.0.0 |
+| ^1.0.0 | 1.0.0 | 2.0.0 | `increase` | ^2.0.0 |
+| ^1.0.0 | 1.0.0 | 2.0.0 | `increase-if-necessary` | ^2.0.0 |
 
 Use the `versioning-strategy` option to change this behavior for supported package managers.
 
 {% data reusables.dependabot.option-affects-security-updates %}
 
-Available update strategies
+Available update strategies:
 
-| Option | Supported by | Action |
-|--------|--------------|--------|
-| `lockfile-only` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Only create pull requests to update lockfiles. Ignore any new versions that would require package manifest changes. |
-| `auto` | `bundler`, `cargo`, `composer`, `mix`, `npm`, `pip` | Follow the default strategy described above.|
-| `widen`| `composer`, `npm` | Relax the version requirement to include both the new and old version, when possible. |
-| `increase`| `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %}  | Always increase the version requirement to match the new version. |
-| `increase-if-necessary` | `bundler`, `composer`, `npm`{% ifversion dependabot-increase-version-pip-support %}, `pip`{% endif %} | Increase the version requirement only when required by the new version. |
+| Ecosystem | Supported versioning strategies | Default strategy |
+|-----------|---------------------------------|------------------|
+| `bundler` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only` | `auto` |
+| `cargo` | `auto`, `lockfile-only` | `auto` |
+| `composer` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only`, `widen` | `auto` |
+| `docker` | N/A | N/A |
+| `github-actions` | N/A | N/A |
+| `gitsubmodule` | N/A | N/A |
+| `gomod` | N/A | N/A |
+| `gradle` | N/A | N/A |
+| `maven` | N/A | N/A |
+| `mix` | `auto`, `lockfile-only` | `auto` |
+| `npm` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only`, `widen` | `auto` |
+| `nuget` | N/A | N/A |
+| `pip` | `auto`, `increase`, `increase-if-necessary`, `lockfile-only` | `auto` |
+| `pub` | `auto`, `increase`, `increase-if-necessary`, `widen` | `auto` |
+| `terraform` | N/A | N/A |
+
+{% note %}
+
+**Note:** `N/A` indicates that the package manager does not yet support configuring the `versioning-strategy` parameter. The strategy code is open source, so if you'd like a particular ecosystem to support a new strategy, you are always welcome to submit a pull request in https://github.com/dependabot/dependabot-core/.
+
+{% endnote %}
 
 ```yaml
-# Customize the manifest version strategy
+# Example configuration for customizing the manifest version strategy
 
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    # Update the npm manifest file to relax
-    # the version requirements
-    versioning-strategy: widen
-
   - package-ecosystem: "composer"
     directory: "/"
     schedule:
       interval: "weekly"
-    # Increase the version requirements for Composer
-    # only when required
+    # Increase the version requirements for Composer only when required
     versioning-strategy: increase-if-necessary
-
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    # Only allow updates to the lockfile for pip and
-    # ignore any version updates that affect the manifest
-    versioning-strategy: lockfile-only
 ```
 
 ## Configuration options for private registries
@@ -876,7 +892,7 @@ The top-level `registries` key is optional. It allows you to specify authenticat
 
 {% endif %}
 
-The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following _dependabot.yml_ file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
+The value of the `registries` key is an associative array, each element of which consists of a key that identifies a particular registry and a value which is an associative array that specifies the settings required to access that registry. The following `dependabot.yml` file configures a registry identified as `dockerhub` in the `registries` section of the file and then references this in the `updates` section of the file.
 
 {% raw %}
 
@@ -907,7 +923,7 @@ You must provide the required settings for each configuration `type` that you sp
 
 ### `composer-repository`
 
-The `composer-repository` type supports username and password.
+The `composer-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -926,7 +942,7 @@ registries:
 
 {% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
-The `docker-registry` type supports username and password.
+The `docker-registry` type supports username and password. {% data reusables.dependabot.password-definition %}
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -988,7 +1004,7 @@ registries:
 
 ### `git`
 
-The `git` type supports username and password.
+The `git` type supports username and password. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1045,7 +1061,8 @@ registries:
 
 ### `maven-repository`
 
-The `maven-repository` type supports username and password.
+The `maven-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
+
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -1053,10 +1070,9 @@ The `maven-repository` type supports username and password.
 registries:
   maven-artifactory:
     type: maven-repository
-    url: https://artifactory.example.com
+    url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
-    replaces-base: true
 ```
 
 {% endraw %}
@@ -1067,7 +1083,7 @@ registries:
 registries:
   maven-artifactory:
     type: maven-repository
-    url: https://artifactory.example.com
+    url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
@@ -1076,7 +1092,7 @@ registries:
 
 ### `npm-registry`
 
-The `npm-registry` type supports username and password, or token.
+The `npm-registry` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
 
@@ -1143,7 +1159,7 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 
 ### `nuget-feed`
 
-The `nuget-feed` type supports username and password, or token.
+The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1173,7 +1189,7 @@ registries:
 
 ### `python-index`
 
-The `python-index` type supports username and password, or token.
+The `python-index` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1205,7 +1221,7 @@ registries:
 
 ### `rubygems-server`
 
-The `rubygems-server` type supports username and password, or token.
+The `rubygems-server` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% ifversion dependabot-private-registries %}
 {% raw %}
@@ -1230,7 +1246,7 @@ registries:
     type: rubygems-server
     url: https://rubygems.pkg.github.com/octocat/github_api
     token: ${{secrets.MY_GITHUB_PERSONAL_TOKEN}}
-   replaces-base: true
+    replaces-base: true
 ```
 
 {% endraw %}
@@ -1292,7 +1308,7 @@ There are currently no ecosystems in beta.
 
 version: 2
 enable-beta-ecosystems: true
-updates:{% ifversion fpt or ghec or ghes > 3.5 %}
+updates:{% ifversion fpt or ghec or ghes %}
   - package-ecosystem: "beta-ecosystem"{% else %}
   - package-ecosystem: "pub"{% endif %}
     directory: "/"

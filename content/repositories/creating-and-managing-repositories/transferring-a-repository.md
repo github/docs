@@ -37,7 +37,9 @@ Prerequisites for repository transfers:
 - Internal repositories can only be transferred to an organization in the enterprise. You cannot transfer an internal repository from an organization owned by one enterprise account to an organization owned by a different enterprise account.
 {%- endif %}
 
-{% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}{% endif %}
+{% ifversion fpt or ghec %}If you transfer a private repository to a {% data variables.product.prodname_free_user %} user or organization account, the repository will lose access to features like protected branches and {% data variables.product.prodname_pages %}. {% data reusables.gated-features.more-info %}
+
+If the transferred repository contains an action listed on {% data variables.product.prodname_marketplace %}, or had more than 100 clones or more than 100 uses of {% data variables.product.prodname_actions %} in the week prior to the transfer, {% data variables.product.prodname_dotcom %} permanently retires the owner name and repository name combination (`OWNER/REPOSITORY-NAME`) when you transfer the repository. If you try to create a repository using a retired owner name and repository name combination, you will see the error: "The repository `REPOSITORY_NAME` has been retired and cannot be reused."{% endif %}
 
 ### What's transferred with a repository?
 
@@ -60,7 +62,7 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 
   {% endwarning %}
 
-- When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
+- When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."{% ifversion fpt or ghec %}
 - Sponsors who have access to the repository through a sponsorship tier may be affected. For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)".{% endif %}
 - Packages associated with the repository {% ifversion packages-registries-v2 %}may be transferred, or may lose their link to the repository, depending on the registry they belong to{% else %}are transferred as part of the transfer process{% endif %}. For more information, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#about-repository-transfers)."
 

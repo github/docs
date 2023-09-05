@@ -27,7 +27,7 @@ To add a workflow status badge to your `README.md` file, first find the URL for 
 
 You can build the URL for a workflow status badge using the name of the workflow file:
 
-```
+```text
 {% ifversion fpt or ghec %}https://github.com{% else %}<HOSTNAME>{% endif %}/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg
 ```
 

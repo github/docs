@@ -46,15 +46,8 @@ To migrate to a new IdP or tenant, you cannot edit your existing SAML configurat
     - If you use Okta, navigate to the "Provisioning" tab of the application, click the **Integration** tab, and then click **Edit**. Deselect **Enable API integration**.
     - If you use PingFederate, navigate to the channel settings in the application. From the **Activation & Summary** tab, click **Active** or **Inactive** to toggle the provisioning status, and then click **Save**. For more information about managing provisioning, see "[Reviewing channel settings](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saaschanneltasklet_saasactivationstate)" and "[Managing channels](https://docs.pingidentity.com/r/en-us/pingfederate-112/help_saasmanagementtasklet_saasmanagementstate)" in the Ping Federate documentation.
 1. Use a recovery code to sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user, whose username is your enterprise's shortcode suffixed with `_admin`. For more information about the setup user, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#getting-started-with-enterprise-managed-users)."
-
-1. Deactivate SAML for the {% data variables.enterprise.prodname_emu_enterprise %}.
-
-   -  From your profile, click **Your enterprises**, and then click the appropriate enterprise.
-   - Click {% octicon "gear" aria-label="The Settings gear" %} **Settings**, and then click **Authentication security**.
-   - Under "SAML single sign-on", deselect **Require SAML authentication**, and then click **Save**.
-
+1. Deactivate SAML for the {% data variables.enterprise.prodname_emu_enterprise %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/disabling-authentication-for-enterprise-managed-users)."
 1. Wait for all users in the enterprise to show as suspended.
-
 1. While still signed in as the setup user, configure SAML and SCIM for the new IdP or tenant with a new {% data variables.product.prodname_emus %} application.
 
    After you configure provisioning for the new application, the {% data variables.enterprise.prodname_managed_users %} will be unsuspended, and your developers will be able to sign into their existing accounts again.

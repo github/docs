@@ -53,6 +53,9 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 {% ifversion code-scanning-runner-label %}
 If you are provisioning a self-hosted runner for {% data variables.product.prodname_codeql %} analysis, your runner must use a {% data variables.product.prodname_codeql %}-supported operating system version and CPU architecture. For more information, see the [{% data variables.product.prodname_codeql %} system requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/).
+
+If you are using default setup for {% data variables.product.prodname_code_scanning %}, assign the `code-scanning` label to your self-hosted runner. For more information about using labels with self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)."{% ifversion code-scanning-default-setup-self-hosted-310 %} For more information about using default setup for code scanning analysis of compiled languages, see "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/codeql-code-scanning-for-compiled-languages)."{% endif %}
+
 {% endif %}
 
 You must ensure that Git is in the PATH variable on any self-hosted runners you use to run {% data variables.product.prodname_codeql %} actions.
@@ -87,8 +90,7 @@ If you configure the {% data variables.product.prodname_codeql %} action sync to
 1. If you want to download action workflows on demand from {% data variables.product.prodname_dotcom_the_website %}, you need to enable {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect#enabling-github-connect)."
 1. You'll also need to enable {% data variables.product.prodname_actions %} for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server)."
 1. The next step is to configure access to actions on {% data variables.product.prodname_dotcom_the_website %} using {% data variables.product.prodname_github_connect %}. For more information, see "[AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect)."
-1. Add a self-hosted runner to your repository, organization, or enterprise account. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."{% ifversion code-scanning-runner-label %}
-1. If you are using the default setup for {% data variables.product.prodname_code_scanning %}, assign the `code-scanning` label to your self-hosted runner. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-labels-with-self-hosted-runners)" and "[AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository#configuring-code-scanning-automatically)."{% endif %}
+1. Add a self-hosted runner to your repository, organization, or enterprise account. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
 
 ## Running code scanning using the {% data variables.product.prodname_codeql_cli %}
 

@@ -2,7 +2,7 @@
 title: Pull request review comments
 shortTitle: Review comments
 intro: Use the REST API to interact with pull request review comments.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

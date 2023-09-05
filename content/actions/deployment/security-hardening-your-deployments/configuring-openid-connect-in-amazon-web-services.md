@@ -25,15 +25,20 @@ This guide explains how to configure AWS to trust {% data variables.product.prod
 
 {% data reusables.actions.oidc-security-notice %}
 
+{% ifversion ghes %}
+{% data reusables.actions.oidc-endpoints %}
+  <!-- This note is indented to align with the above reusable. -->
+  {% note %}
+
+  **Note:** {% data variables.product.prodname_dotcom %} does not natively support AWS session tags.
+
+  {% endnote %}
+{% endif %}
+
 ## Adding the identity provider to AWS
 
 To add the {% data variables.product.prodname_dotcom %} OIDC provider to IAM, see the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc.html).
 
-{% ifversion ghec %}
-- Two intermediate Certificate Authority(CA) certificate thumbprints must be added to the GitHub Actions OIDC IdP provider:
-  - `6938fd4d98bab03faadb97b34396831e3780aea1`
-  - `1c58a3a8518e8759bf075b76b750d4f2df264fcd`
-{% endif %}
 - For the provider URL: Use {% ifversion ghes %}`https://HOSTNAME/_services/token`{% else %}`https://token.actions.githubusercontent.com`{% endif %}
 - For the "Audience": Use `sts.amazonaws.com` if you are using the [official action](https://github.com/aws-actions/configure-aws-credentials).
 
@@ -125,3 +130,7 @@ jobs:
         run: |
           aws s3 cp ./index.html s3://{% raw %}${{ env.BUCKET_NAME }}{% endraw %}/
 ```
+
+## Further reading
+
+{% data reusables.actions.oidc-further-reading %}

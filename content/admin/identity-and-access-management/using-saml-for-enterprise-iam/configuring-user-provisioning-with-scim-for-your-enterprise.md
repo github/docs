@@ -174,6 +174,6 @@ After you enable SCIM on a {% data variables.product.product_name %} instance, a
 
    | Value | Other names | Description | Example |
    | :- | :- | :- | :- |
-   | URL | Tenant URL | URL to the SCIM provisioning API for your enterprise on {% data variables.product.product_name %} | <nobr><code>{% data variables.product.api_url_pre %}/scim/v2</nobr></code> |
+   | URL | Tenant URL | URL to the SCIM provisioning API for your enterprise on {% data variables.product.product_name %} | <code><span style="white-space: nowrap;">{% data variables.product.api_url_pre %}/scim/v2</span></code> |
    | Shared secret | {% data variables.product.pat_generic_caps %}, secret token | Token for application on your IdP to perform provisioning tasks on behalf of an enterprise owner | {% data variables.product.pat_generic_caps %} you created in step 1 |
    {%- endif %}

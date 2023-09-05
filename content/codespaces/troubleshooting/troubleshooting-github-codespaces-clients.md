@@ -12,11 +12,11 @@ redirect_from:
   - /codespaces/troubleshooting/troubleshooting-codespaces-clients
 ---
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 {% data reusables.codespaces.codespaces-jetbrains-beta-note %}
 
-{% endjetbrains %}
+{% endjetbrains_beta %}
 
 {% webui %}
 
@@ -68,7 +68,7 @@ If the problem isn't fixed in {% data variables.product.prodname_vscode %} Stabl
 
 {% endvscode %}
 
-{% jetbrains %}
+{% jetbrains_beta %}
 
 ## Troubleshooting JetBrains IDEs
 
@@ -80,12 +80,12 @@ If you are using a machine with 4 or more cores and the performance you are expe
 
 The recommended heap size varies according to the machine type of your codespace.
 
-| Machine type        | Maximum heap size |
-| ------------------- | ----------------- |
-| 4 core, 8 GB RAM    | 2048 MiB          |
-| 8 core, 16 GB RAM   | 4096 MiB          |
-| 16 cores, 32 GB RAM | 8192 MiB          |
-| 32 cores, 64 GB RAM | 16,384 MiB        |
+| Machine type         | Maximum heap size |
+| -------------------- | ----------------- |
+| 4 core, 16 GB RAM    | 2048 MiB          |
+| 8 core, 32 GB RAM    | 4096 MiB          |
+| 16 cores, 64 GB RAM  | 8192 MiB          |
+| 32 cores, 128 GB RAM | 16,384 MiB        |
 
 If the heap size is below the recommended value, a message is displayed when your codespace starts, suggesting that you increase the heap size. You can click the link in the message to increase the heap size automatically.
 
@@ -146,4 +146,4 @@ If you encounter problems with key validation, try upgrading your version of {% 
 
 For help with issues specific to the JetBrains IDE you are using, or the JetBrains Gateway application, see "[Product Support](https://www.jetbrains.com/support/)" on the JetBrains website.
 
-{% endjetbrains %}
+{% endjetbrains_beta %}

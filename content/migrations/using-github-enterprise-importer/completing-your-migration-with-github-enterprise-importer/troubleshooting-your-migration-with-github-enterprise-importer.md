@@ -113,7 +113,7 @@ If you're running Bitbucket Data Center in cluster mode with multiple notes, you
 
 ### `Repository rule violations found` error
 
-If you receive a `Repository rule violations found` error, such as `GH013: Repository rule violations found for refs/heads/main`, data in the origin repository conflicts with rulesets (public beta) configured on the destination organization. For more information, see "[AUTOTITLE]({% ifversion repo-rules %}{% else %}/enterprise-cloud@latest{% endif %}/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+If you receive a `Repository rule violations found` error, such as `GH013: Repository rule violations found for refs/heads/main`, data in the origin repository conflicts with rulesets configured on the destination organization. For more information, see "[AUTOTITLE]({% ifversion repo-rules %}{% else %}/enterprise-cloud@latest{% endif %}/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
 
 You can temporarily disable your rulesets during your migration, or you can use bypass mode or the bypass list to exempt your migration from configured rules. For more information, see "[AUTOTITLE]({% ifversion repo-rules-enterprise %}{% else %}/enterprise-cloud@latest{% endif %}/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization)."
 

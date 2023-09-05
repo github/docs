@@ -16,7 +16,7 @@ Discussions give a space for more collaborative conversations by connecting and 
 
 ## Enabling {% data variables.product.prodname_discussions %} on your repository
 
-Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes > 3.5 %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
+Repository owners and people with write access can enable {% data variables.product.prodname_discussions %} for a community on their public{% ifversion ghes %}, internal{% endif %} and private repositories. The visibility of a discussion is inherited from the repository the discussion is created in.
 
 When you first enable {% data variables.product.prodname_discussions %}, you will be invited to configure a welcome post.
 

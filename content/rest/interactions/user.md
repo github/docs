@@ -5,7 +5,7 @@ allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to temporarily restrict which type of user can comment, open
   issues, or create pull requests in your public repositories.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
 topics:

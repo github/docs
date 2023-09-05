@@ -3,7 +3,7 @@
 - LTI version 1.3
 - LTI Advantage
 
-Using LTI helps keep your information safe and secure. LTI is an industry-standard protocol and GitHub Classroom's use of LTI is certified by the Instructional Management System (IMS) Global Learning Consortium. For more information, see [Learning Tools Interoperability](https://www.imsglobal.org/activity/learning-tools-interoperability) and [About IMS Global Learning Consortium](http://www.imsglobal.org/aboutims.html) on the IMS Global Learning Consortium website.
+Using LTI helps keep your information safe and secure. LTI is an industry-standard protocol and GitHub Classroom's use of LTI is certified by the Instructional Management System (IMS) Global Learning Consortium. For more information, see [Learning Tools Interoperability](https://www.imsglobal.org/activity/learning-tools-interoperability) and [About IMS Global Learning Consortium](https://www.imsglobal.org/aboutims.html) on the IMS Global Learning Consortium website.
 
 {% data variables.product.company_short %} has tested and verified registration, connection and the import of roster data from the following LMSes into {% data variables.product.prodname_classroom %}.
 

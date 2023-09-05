@@ -1,8 +1,9 @@
 ---
 title: Billing
 intro: >-
-  Use the REST API to retrieve the billing information for a {% data variables.product.prodname_ghe_server %} instance.
-versions:
+  Use the REST API to retrieve the billing information for a {% data
+  variables.product.prodname_ghe_server %} instance.
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:

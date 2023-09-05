@@ -30,13 +30,13 @@ There are three ways that you can set persistent custom environment variables fo
 
 - You can edit the `devcontainer.json` configuration file for the repository
 - You can use a custom Dockerfile
-- You can use encrypted secrets
+- You can use secrets
 
 #### Edit the `devcontainer.json` configuration file for the repository
 
 Edit the `devcontainer.json` configuration file for the repository, and use the `remoteEnv` property to set the environment variable value:
 
-```
+```json
 {
     "remoteEnv": {
       "VARNAME": "value"
@@ -44,7 +44,7 @@ Edit the `devcontainer.json` configuration file for the repository, and use the 
 }
 ```
 
-Only use this method for values that you are happy to commit to your repository as plaintext. For sensitive values such as access tokens, use encrypted secrets.
+Only use this method for values that you are happy to commit to your repository as plaintext. For sensitive values such as access tokens, use secrets.
 
 The environment variable will be set within your editor's remote server process, and will be available for sub-processes of that remote server process, such as terminals and debugging sessions. However, the variable will not be available more broadly inside the container. This method is useful if you don't need the environment variable to be set for other background processes that run at startup, and if you are using a premade image and don't have or want a custom Dockerfile.
 
@@ -58,9 +58,9 @@ This method is useful if you already have a Dockerfile and want to set a variabl
 
 This setting will take effect when you rebuild your container or create a new codespace after pushing this change to the repository. For more information about applying configuration changes to a codespace, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
 
-#### Use encrypted secrets
+#### Use secrets
 
-You can use encrypted secrets for {% data variables.product.prodname_github_codespaces %} to set custom variables for codespaces created for the repository. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+You can use secrets for {% data variables.product.prodname_github_codespaces %} to set custom variables for codespaces created for the repository. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)."
 
 You should use this method for environment variable values that you do not want to commit to the repository as plaintext.
 

@@ -7,7 +7,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/accessing-a-pull-request-locally
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-a-pull-request-in-github-desktop
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 
 ## About pull requests in {% data variables.product.prodname_desktop %}

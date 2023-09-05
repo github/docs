@@ -14,6 +14,6 @@ If no group is specified during the registration process, runners are automatica
 When creating a group, you must choose a policy that defines which organizations have access to the runner group.
 
 {% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
-1. To choose a policy for organization access, select the **Organization access** dropdown menu and click a policy. You can configure a runner group to be accessible to a specific list of organizations, or all organizations in the enterprise.{% ifversion ghes %} By default, only private repositories can access runners in a runner group, but you can override this.{% endif %}
+{% data reusables.actions.workflows.runner-groups-enterprise-organization-access %}
 {% data reusables.actions.runner-group-assign-policy-workflow %}
 1. Click **Save group** to create the group and apply the policy.

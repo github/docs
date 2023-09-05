@@ -58,6 +58,8 @@ const PagePathToVaFlowMapping: Record<string, string> = {
     'contribution_troubleshooting',
   'content/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials.md':
     '2fa',
+  'content/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https.md':
+    'pages_ssl_check',
 }
 
 export const getArticleContextFromRequest = (req: any): ArticleContextT => {

@@ -32,13 +32,13 @@ You can use the `--custom-transformers` CLI option to specify which custom trans
 
 For example, if custom transformers are defined in a file named `transformers.rb`, you can use the following command to use them with {% data variables.product.prodname_actions_importer %}:
 
-```
+```shell
 gh actions-importer ... --custom-transformers transformers.rb
 ```
 
 Alternatively, you can use the glob pattern syntax to specify multiple custom transformer files. For example, if multiple custom transformer files are within a directory named `transformers`, you can provide them all to {% data variables.product.prodname_actions_importer %} with the following command:
 
-```
+```shell
 gh actions-importer ... --custom-transformers transformers/*.rb
 ```
 
@@ -156,7 +156,7 @@ There are several ways you can set up custom transformers to map your environmen
   env "MONALISA", secret("OCTOCAT")
   ```
 
-  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
+  This will set up a reference to a secret named `OCTOCAT` in the transformed workflow. For the secret to work, you will need to create the secret in your GitHub repository. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)."
 
 - You can also use regular expressions to update the values of multiple environment variables at once. For example, the following custom transformer removes all environment variables from the converted workflow:
 

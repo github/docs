@@ -83,7 +83,7 @@ If the branch you want to delete is associated with an open pull request, you mu
 1. Next to the branch that you want to delete, click {% octicon "trash" aria-label="The trash icon" %} .
 
    ![Screenshot of a branch in the branch list. A trash icon is highlighted with an orange outline.](/assets/images/help/branches/branches-delete.png)
-{%- ifversion fpt or ghes > 3.5 or ghae > 3.5 or ghec %}
+{%- ifversion fpt or ghes or ghae > 3.5 or ghec %}
 1. If the branch is associated with at least one open pull request, deleting the branch will close the pull requests. Read the warning, then click **Delete**.
 {%- endif %}
 

@@ -116,10 +116,14 @@ async function updateMarkdownFile(
     // Only modify the versions property when a file already existss
     newData.versions = sourceData.versions
     const targetContent = manuallyCreatedContent + commentDelimiter + sourceContent
-    await writeFile(file, matter.stringify(targetContent, newData))
+    const newFileContent = appendVersionComment(matter.stringify(targetContent, newData))
+    await writeFile(file, newFileContent)
   } else {
     await createDirectory(path.dirname(file))
-    await writeFile(file, matter.stringify(commentDelimiter + sourceContent, sourceData))
+    const newFileContent = appendVersionComment(
+      matter.stringify(commentDelimiter + sourceContent, sourceData),
+    )
+    await writeFile(file, newFileContent)
   }
 }
 
@@ -446,4 +450,11 @@ async function getDirectoryInfo(directory) {
 
   const directoryFiles = difference(directoryContents, childDirectories)
   return { directoryContents, directoryFiles, childDirectories }
+}
+
+function appendVersionComment(stringifiedContent) {
+  return stringifiedContent.replace(
+    '\nversions:\n',
+    `\nversions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖\n`,
+  )
 }

@@ -17,7 +17,7 @@ header:
   sign_up_cta: Sign up
   menu: Menu
 picker:
-  language_picker_default_text: Choose a language
+  language_picker_label: Language
   product_picker_default_text: All products
   version_picker_default_text: Choose a version
 release_notes:
@@ -84,6 +84,7 @@ contribution_cta:
   to_guidelines: Learn how to contribute
 parameter_table:
   body: Body parameters
+  webhook-body: Webhook request body parameters
   default: Default
   description: Description
   enum_description_title: Can be one of
@@ -97,6 +98,9 @@ parameter_table:
   type: Type
   single_enum_description: Value
 products:
+  button_text:
+    copy_to_clipboard: Copy to clipboard
+    copied: Copied!
   graphql:
     reference:
       implements: <code>{{ GraphQLItemTitle }}</code> Implements

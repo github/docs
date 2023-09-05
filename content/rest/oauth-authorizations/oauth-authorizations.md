@@ -1,7 +1,9 @@
 ---
 title: OAuth authorizations
-intro: Use the REST API to manage the access {% data variables.product.prodname_oauth_apps %} have to your account.
-versions:
+intro: >-
+  Use the REST API to manage the access {% data
+  variables.product.prodname_oauth_apps %} have to your account.
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'
 topics:
   - API

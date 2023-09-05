@@ -4,7 +4,7 @@ shortTitle: Software bill of materials (SBOM)
 intro: >-
   Use the REST API to export the software bill of materials (SBOM) for a
   repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'
   ghes: '>=3.9'

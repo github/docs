@@ -2,8 +2,7 @@
 title: Merging a pull request with a merge queue
 intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.product_name %} will merge the pull requests for you once all required checks have passed.'
 versions:
-  fpt: '*'
-  ghec: '*'
+  feature: merge-queue
 topics:
   - Pull requests
 shortTitle: Merge PR with merge queue
@@ -13,8 +12,6 @@ redirect_from:
 defaultTool: webui
 product: '{% data reusables.gated-features.merge-queue %}'
 ---
-
-{% data reusables.pull_requests.merge-queue-beta %}
 
 ## About merge queues
 

@@ -19,7 +19,7 @@ You can set a project as a template to share a pre-configured project with other
 
 The projects you have marked as templates are made available in the "Select a template" pop-up window when other people create projects in your organization.
 
-When someone creates a project from a template, the views, custom fields, and draft issues are copied from the template to the new project.
+When someone creates a project from a template, the {% data reusables.projects.what-gets-copied %} are copied from the template to the new project.
 
 ## Setting a project as a template
 
@@ -41,7 +41,7 @@ You can filter the list of projects in your organization to only show projects s
 
 ## Copying a project as a template
 
-If you have write or admin permissions for a project in your organization, you can choose to copy the project as a template. This will make a duplicate of the current project, copying the views, custom fields, and draft issues, and set that copied project as a template for your organization.
+If you have write or admin permissions for a project in your organization, you can choose to copy the project as a template. This will make a duplicate of the current project—copying the {% data reusables.projects.what-gets-copied %} —and set that copied project as a template for your organization.
 
 {% data reusables.projects.project-settings %}
 1. In the "Templates" section, click {% octicon "duplicate" aria-hidden="true" %} **Copy as template**.

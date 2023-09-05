@@ -1,13 +1,15 @@
-import { addError, filterTokens } from 'markdownlint-rule-helpers'
+import { filterTokens } from 'markdownlint-rule-helpers'
 
-import { languageKeys } from '../../../../lib/languages.js'
+import { addFixErrorDetail, getRange } from '../helpers/utils.js'
+import { languageKeys } from '#src/languages/lib/languages.js'
 
 export const internalLinksLang = {
-  names: ['MD114', 'internal-links-lang'],
+  names: ['GHD005', 'internal-links-lang'],
   description: 'Internal links must not have a hardcoded language code',
   severity: 'error',
   tags: ['links', 'url'],
-  function: function MD114(params, onError) {
+  information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
+  function: function GHD006(params, onError) {
     filterTokens(params, 'inline', (token) => {
       let linkHref = ''
       let internalLinkHasLang = false
@@ -16,21 +18,23 @@ export const internalLinksLang = {
           linkHref = ''
           for (const attr of child.attrs) {
             if (
-              languageKeys.includes(attr[1].split('/')[1]) ||
-              languageKeys.includes(attr[1].split('/')[0])
+              languageKeys.some(
+                (lang) => attr[1].startsWith(`/${lang}/`) || attr[1].startsWith(lang),
+              )
             ) {
               internalLinkHasLang = true
               linkHref = attr[1]
             }
           }
         } else if (child.type === 'link_close') {
+          const range = getRange(token.line, child.content)
           if (internalLinkHasLang) {
-            addError(
+            addFixErrorDetail(
               onError,
               child.lineNumber,
-              `This internal link: ${linkHref} must not start with a hardcoded language code.`,
-              undefined,
-              undefined,
+              linkHref.replace(/(\/)?[a-z]{2}/, ''),
+              linkHref,
+              range,
               {
                 lineNumber: child.lineNumber,
                 editColumn: token.line.indexOf('(') + 2,

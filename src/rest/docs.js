@@ -36,6 +36,13 @@ log(
     ' ' +
     chalk.magenta('npm run sync-rest -- --next --versions api.github.com ; npm run dev'),
 )
+log(
+  chalk.cyan.bold('  - Dotcom only, including unpublished operations:') +
+    '   ' +
+    chalk.magenta(
+      'npm run sync-rest -- --versions api.github.com --include-unpublished ; npm run dev',
+    ),
+)
 log(chalk.green.bold.underline('\nWebhook docs\n'))
 log(chalk.green.bold('  Examples of ways you can build the Webhook docs locally:\n'))
 log(

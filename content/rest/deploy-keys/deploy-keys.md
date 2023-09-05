@@ -1,7 +1,7 @@
 ---
 title: Deploy keys
 intro: Use the REST API to create and manage deploy keys.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'

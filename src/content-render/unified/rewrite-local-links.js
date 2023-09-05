@@ -14,7 +14,7 @@ import findPage from '../../../lib/find-page.js'
 const isProd = process.env.NODE_ENV === 'production'
 
 const supportedPlans = new Set(Object.values(allVersions).map((v) => v.plan))
-const externalRedirects = readJsonFile('./lib/redirects/external-sites.json')
+const externalRedirects = readJsonFile('./src/redirects/lib/external-sites.json')
 
 // Meaning it can be 'AUTOTITLE ' or ' AUTOTITLE' or 'AUTOTITLE'
 const AUTOTITLE = /^\s*AUTOTITLE\s*$/
@@ -42,14 +42,20 @@ const matcherAnchorLinks = (node) =>
 // Content authors write links like `/some/article/path`, but they need to be
 // rewritten on the fly to match the current language and page version
 export default function rewriteLocalLinks(context) {
-  const { currentLanguage, currentVersion } = context
+  const { currentLanguage, autotitleLanguage, currentVersion } = context
   // There's no languageCode or version passed, so nothing to do
   if (!currentLanguage || !currentVersion) return
 
   return async function (tree) {
     const nodes = []
     visit(tree, matcherInternalLinks, (node) => {
-      const newHref = getNewHref(node, currentLanguage, currentVersion)
+      // The context *might* have a `autotitleLanguage` which can be
+      // different from the regular `currentLanguage`.
+      // This means that AUTOTITLE links should be different from how,
+      // for example, reusables or other `{% data ... %}` Liquid tags work.
+      // Our release notes, for example, prefer to force the rendered text
+      // in English, but all AUTOTITLE links in the current language.
+      const newHref = getNewHref(node, autotitleLanguage || currentLanguage, currentVersion)
       if (newHref) {
         node.properties.href = newHref
       }
@@ -125,6 +131,19 @@ function getNewHref(node, languageCode, version) {
   const firstLinkSegment = href.split('/')[1]
   if (supportedPlans.has(firstLinkSegment.split('@')[0])) {
     newHref = path.posix.join('/', languageCode, href)
+  } else if (firstLinkSegment.includes('@')) {
+    // This could mean a bad typo!
+    // This can happend if you have something
+    // like `/enterprise-servr@3.9/foo/bar` which is a typo. I.e.
+    // `enterprise-servr` is not a valid plan, but it has a `@` character  in it.
+    console.warn(
+      `
+Warning! The first segment of the internal link has a '@' character in it
+but the plan is not recognized. This is likely a typo.
+Please inspect the link and fix it if it's a typo.
+Look for an internal link that starts with '${href}'.
+    `,
+    )
   }
 
   // If the link includes a deprecated version, do not update other than adding a language code

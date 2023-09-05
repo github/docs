@@ -1,6 +1,6 @@
 ---
 title: Configuring SAML single sign-on for Enterprise Managed Users
-shortTitle: SAML for managed users
+shortTitle: Configure SAML
 intro: 'You can automatically manage access to your enterprise account on {% data variables.product.prodname_dotcom %} by configuring Security Assertion Markup Language (SAML) single sign-on (SSO).'
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:
@@ -85,8 +85,7 @@ To configure your IdP, follow the instructions they provide for configuring the 
 
 After you install and configure the {% data variables.product.prodname_emu_idp_application %} application on your identity provider, you can configure your enterprise.
 
-1. Sign into {% data variables.product.prodname_dotcom_the_website %} as the setup user for your new enterprise with the username **@<em>SHORT-CODE</em>_admin**.
-
+{% data reusables.emus.sign-in-as-setup-user %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
@@ -96,7 +95,7 @@ After you install and configure the {% data variables.product.prodname_emu_idp_a
 1. Under **Issuer**, type your SAML issuer URL that you noted while configuring your IdP, to verify the authenticity of sent messages.
 1. Under **Public Certificate**, paste the certificate that you noted while configuring your IdP, to verify SAML responses.
 {% data reusables.saml.edit-signature-and-digest-methods %}
-1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**.
+1. Before enabling SAML SSO for your enterprise, to ensure that the information you've entered is correct, click **Test SAML configuration**. {% data reusables.saml.test-must-succeed %}
 1. Click **Save**.
 
     {% note %}

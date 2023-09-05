@@ -5,7 +5,7 @@ shortTitle: Manage GHES
 intro: >-
   Use the REST API to manage your {% data variables.product.product_name %}
   instance.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '>=3.9'
 topics:
   - API

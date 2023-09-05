@@ -4,7 +4,7 @@ intro: 'As you make changes to your project locally, you can keep them up-to-dat
 redirect_from:
   - /desktop/contributing-to-projects/working-with-your-remote-repository-on-github-or-github-enterprise
 versions:
-  fpt: '*'
+  feature: desktop
 children:
   - /creating-an-issue-or-pull-request-from-github-desktop
   - /viewing-a-pull-request-in-github-desktop

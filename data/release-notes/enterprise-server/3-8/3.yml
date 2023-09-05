@@ -2,7 +2,7 @@ date: '2023-05-09'
 sections:
   security_fixes:
     - |
-      **MEDIUM**: Updated Git to include fixes from 2.40.1. For more information, see [Git security vulnerabilities announced](https://github.blog/2023-04-25-git-security-vulnerabilities-announced-4/) on the GitHub Blog. 
+      **MEDIUM**: Updated Git to include fixes from 2.40.1. For more information, see [Git security vulnerabilities announced](https://github.blog/2023-04-25-git-security-vulnerabilities-announced-4/) on the GitHub Blog. [Updated: 2023-07-24]
   bugs:
     - Users were unable to upload GIF files as attachments within a comment in an issue or pull request. 
     - |
@@ -27,6 +27,8 @@ sections:
     - After a site administrator exports a migration archive using GitHub Enterprise Importers `gh-migrator` utility, the link to the archive remains accessible for 48 hours instead of one hour. 
   known_issues:
     - |
+      {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
+    - |
       {% data reusables.release-notes.enterprise-backup-utils-encryption-keys %}
     - |
       Custom firewall rules are removed during the upgrade process.
@@ -49,3 +51,7 @@ sections:
     # https://github.com/github/driftwood/issues/2746
     - |
       On an instance with audit log streaming enabled, the `driftwood` service does not start, preventing the normal operation of audit log streaming. [Updated: 2023-06-06]
+    - |
+      {% data reusables.release-notes.mermaid-rendering-known-issue %} [Updated: 2023-08-18]
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

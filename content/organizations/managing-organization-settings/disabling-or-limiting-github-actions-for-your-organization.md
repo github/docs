@@ -183,7 +183,7 @@ By default, when you create a new organization,{% ifversion ghec or ghes or ghae
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-general %}
-1. Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` {% ifversion actions-default-workflow-permissions-restrictive %}and `packages` scopes{% else %}scope{% endif %}.
+{% data reusables.actions.workflows.github-token-access %}
 1. Click **Save** to apply the settings.
 
 {% ifversion allow-actions-to-approve-pr %}

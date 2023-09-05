@@ -1,7 +1,7 @@
 ---
 title: Audit log
 intro: Use the REST API to retrieve audit logs for an enterprise.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghae: '*'
   ghec: '*'
   ghes: '*'

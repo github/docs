@@ -4,7 +4,8 @@ import IndentedDataReference from './indented-data-reference.js'
 import Data from './data.js'
 import Octicon from './octicon.js'
 import Ifversion from './ifversion.js'
-import { ExtendedMarkdown, tags } from './extended-markdown.js'
+import { Tool, tags as toolTags } from './tool.js'
+import { Spotlight, tags as spotlightTags } from './spotlight.js'
 
 export const engine = new Liquid({
   extname: '.html',
@@ -16,9 +17,12 @@ engine.registerTag('data', Data)
 engine.registerTag('octicon', Octicon)
 engine.registerTag('ifversion', Ifversion)
 
-for (const tag in tags) {
-  // Register all the extended markdown tags, like {% note %} and {% warning %}
-  engine.registerTag(tag, ExtendedMarkdown)
+for (const tag of toolTags) {
+  engine.registerTag(tag, Tool)
+}
+
+for (const tag in spotlightTags) {
+  engine.registerTag(tag, Spotlight)
 }
 
 /**

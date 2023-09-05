@@ -62,12 +62,6 @@ After you configure the application for {% data variables.product.product_name %
 
 {% endif %}
 
-{% ifversion ghes < 3.6 %}
-
-Your IdP does not communicate with {% data variables.product.product_name %} automatically when you assign or unassign the application. {% data variables.product.product_name %} creates a user account using SAML Just-in-Time (JIT) provisioning the first time someone navigates to {% data variables.product.product_name %} and signs in by authenticating through your IdP. You may need to manually notify users when you grant access to {% data variables.product.product_name %}.
-
-{% endif %}
-
 {% ifversion ghes %}
 
 {% data reusables.enterprise_user_management.external_auth_disables_2fa %}

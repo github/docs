@@ -32,13 +32,13 @@ shortTitle: About billing
 
 {% endnote %}
 
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription)."
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_registry %} usage beyond the amounts including with your account. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 Data transfer resets every month, while storage usage does not.
 
 {% rowheaders %}
 
-Product | Storage | Data transfer (per month)
+Plan | Storage | Data transfer (per month)
 ------- | ------- | ---------
 {% data variables.product.prodname_free_user %} | 500MB | 1GB
 {% data variables.product.prodname_pro %} | 2GB | 10GB

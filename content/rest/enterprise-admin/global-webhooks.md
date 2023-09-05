@@ -1,7 +1,7 @@
 ---
 title: Global Webhooks
 intro: Use the REST API to manage global webhooks for your enterprise.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghae: '*'
   ghes: '*'
 topics:

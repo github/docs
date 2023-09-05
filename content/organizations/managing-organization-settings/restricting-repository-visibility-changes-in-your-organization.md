@@ -20,6 +20,10 @@ You can restrict who has the ability to change the visibility of repositories in
 
 You can restrict the ability to change repository visibility to organization owners only, or you can allow anyone with admin access to a repository to change visibility.
 
+{% ifversion fpt or ghec or ghes %}
+Restricting who has the ability to change the visibility of repositories in your organization helps prevent sensitive information from being exposed. For more information, see "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)."
+{% endif %}
+
 {% warning %}
 
 **Warning**: If enabled, this setting allows people with admin access to choose any visibility for an existing repository, even if you do not allow that type of repository to be created. For more information about restricting the visibility of repositories during creation, see "[AUTOTITLE](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization)."

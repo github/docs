@@ -92,7 +92,7 @@ Ensure that you configure signed assertions for the {% data variables.product.pr
 If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 
 ```
-Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
+Audience is invalid. Audience attribute does not match https://YOUR-INSTANCE-URL
 ```
 
 Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.location.product_location %}, which is the full URL to your instance. For example, `https://ghe.corp.example.com`.

@@ -142,3 +142,11 @@ jobs:
 ```
 
 From your repository, click the **Actions** tab, and select the latest workflow run. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.
+
+## Example composite actions on {% data variables.product.prodname_dotcom_the_website %}
+
+You can find many examples of composite actions on {% data variables.product.prodname_dotcom_the_website %}.
+
+- [microsoft/action-python](https://github.com/microsoft/action-python)
+- [microsoft/gpt-review](https://github.com/microsoft/gpt-review)
+- [tailscale/github-action](https://github.com/tailscale/github-action)

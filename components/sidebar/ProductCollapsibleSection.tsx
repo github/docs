@@ -3,7 +3,6 @@ import { TreeView } from '@primer/react'
 
 import { Link } from 'components/Link'
 import { ProductTreeNode } from 'components/context/MainContext'
-import { EventType, sendEvent } from 'src/events/components/events'
 
 type SectionProps = {
   routePath: string
@@ -18,32 +17,28 @@ export const ProductCollapsibleSection = (props: SectionProps) => {
     const isCurrent = routePath === page.href
 
     return (
-      <Link
-        id={page.href}
-        href={page.href}
+      <TreeView.Item
+        id={page.href + ' item'}
         key={page.href}
-        className={cx('color-fg-default no-underline', isCurrent ? 'text-bold' : '')}
+        data-testid="sidebar-article"
+        current={isCurrent}
+        defaultExpanded={isCurrent}
+        onSelect={(e) => {
+          if (e.nativeEvent instanceof KeyboardEvent && e.nativeEvent.code === 'Enter') {
+            document.getElementById(page.href)?.click()
+            e?.stopPropagation()
+          }
+        }}
       >
-        <TreeView.Item
+        <Link
           id={page.href}
-          data-testid="sidebar-article"
-          current={isCurrent}
-          defaultExpanded={isCurrent}
-          onSelect={(e) => {
-            sendEvent({
-              type: EventType.navigate,
-              navigate_label: `product page navigate to: ${page.href}`,
-            })
-
-            if (e.nativeEvent instanceof KeyboardEvent && e.nativeEvent.code === 'Enter') {
-              document.getElementById(page.href)?.click()
-              e?.stopPropagation()
-            }
-          }}
+          href={page.href}
+          className={cx('color-fg-default no-underline', isCurrent ? 'text-bold' : '')}
+          aria-label={page.title + ' link'}
         >
           {title}
-        </TreeView.Item>
-      </Link>
+        </Link>
+      </TreeView.Item>
     )
   }
 

@@ -36,7 +36,7 @@ For more information about managing your preferences for Settings Sync, see "[AU
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.codespaces-tab %}
-1. Under "GPG verification," enable or disable GPG verification by selecting or deselecting **Enable**.
+1. On the page that's displayed, under "GPG verification," enable or disable GPG verification by selecting or deselecting **Enable**.
 {% data reusables.codespaces.trusted-repos-step %}
 
 {% data reusables.codespaces.gpg-in-active-codespaces %}

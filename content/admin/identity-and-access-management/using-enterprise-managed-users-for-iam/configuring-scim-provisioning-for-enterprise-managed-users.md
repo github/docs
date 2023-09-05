@@ -1,6 +1,6 @@
 ---
 title: Configuring SCIM provisioning for Enterprise Managed Users
-shortTitle: Provisioning managed users
+shortTitle: Configure SCIM provisioning
 intro: You can configure your identity provider to provision new users and manage their membership in your enterprise and teams.
 product: '{% data reusables.gated-features.emus %}'
 redirect_from:

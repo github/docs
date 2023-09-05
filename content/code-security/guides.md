@@ -26,25 +26,30 @@ includeGuides:
   - /code-security/getting-started/securing-your-repository
   - /code-security/getting-started/dependabot-quickstart-guide
   - /code-security/getting-started/auditing-security-alerts
+  - /code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization
   - /code-security/secret-scanning/about-secret-scanning
   - /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
   - /code-security/secret-scanning/defining-custom-patterns-for-secret-scanning
   - /code-security/secret-scanning/managing-alerts-from-secret-scanning
-  - /code-security/secret-scanning/protecting-pushes-with-secret-scanning
+  - /code-security/secret-scanning/push-protection-for-repositories-and-organizations
+  - /code-security/secret-scanning/push-protection-for-users
   - /code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection
   - /code-security/secret-scanning/secret-scanning-patterns
   - /code-security/secret-scanning/troubleshooting-secret-scanning
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-alerts
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-code-scanning-with-codeql
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-the-codeql-workflow-for-compiled-languages
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/managing-code-scanning-alerts-for-your-repository
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/running-codeql-code-scanning-in-a-container
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/triaging-code-scanning-alerts-in-pull-requests
-  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/viewing-code-scanning-logs
+  - /code-security/code-scanning/managing-code-scanning-alerts/tracking-code-scanning-alerts-in-issues-using-task-lists
+  - /code-security/code-scanning/introduction-to-code-scanning/about-code-scanning
+  - /code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts
+  - /code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql
+  - /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning
+  - /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages
+  - /code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository
+  - /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/running-codeql-code-scanning-in-a-container
+  - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning
+  - /code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale
+  - /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
+  - /code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning-with-codeql-at-scale
+  - /code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests
+  - /code-security/code-scanning/managing-your-code-scanning-configuration/viewing-code-scanning-logs
   - /code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning
   - /code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning
   - /code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
@@ -52,21 +57,21 @@ includeGuides:
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/configuring-codeql-cli-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/installing-codeql-cli-in-your-ci-system
   - /code-security/code-scanning/using-codeql-code-scanning-with-your-existing-ci-system/migrating-from-the-codeql-runner-to-codeql-cli
-  - /code-security/security-advisories/repository-security-advisories/about-repository-security-advisories
-  - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
-  - /code-security/security-advisories/repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
-  - /code-security/security-advisories/repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
-  - /code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/editing-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/permission-levels-for-repository-security-advisories
-  - /code-security/security-advisories/repository-security-advisories/publishing-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
-  - /code-security/security-advisories/repository-security-advisories/withdrawing-a-repository-security-advisory
-  - /code-security/security-advisories/guidance-on-reporting-and-writing/about-coordinated-disclosure-of-security-vulnerabilities
-  - /code-security/security-advisories/guidance-on-reporting-and-writing/best-practices-for-writing-repository-security-advisories
-  - /code-security/security-advisories/guidance-on-reporting-and-writing/privately-reporting-a-security-vulnerability
-  - /code-security/security-advisories/guidance-on-reporting-and-writing/managing-privately-reported-security-vulnerabilities
+  - /code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories
+  - /code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository
+  - /code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-an-organization
+  - /code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/collaborating-in-a-temporary-private-fork-to-resolve-a-repository-security-vulnerability
+  - /code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/permission-levels-for-repository-security-advisories
+  - /code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/removing-a-collaborator-from-a-repository-security-advisory
+  - /code-security/security-advisories/working-with-repository-security-advisories/withdrawing-a-repository-security-advisory
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/best-practices-for-writing-repository-security-advisories
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/privately-reporting-a-security-vulnerability
+  - /code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/managing-privately-reported-security-vulnerabilities
   - /code-security/security-overview/about-security-overview
   - /code-security/security-overview/filtering-alerts-in-security-overview
   - /code-security/security-overview/assessing-code-security-risk
@@ -83,10 +88,10 @@ includeGuides:
   - /code-security/dependabot/dependabot-alerts/about-dependabot-alerts
   - /code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts
   - /code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates
-  - /code-security/security-advisories/global-security-advisories/about-the-github-advisory-database
-  - /code-security/security-advisories/global-security-advisories/about-global-security-advisories
-  - /code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database
-  - /code-security/security-advisories/global-security-advisories/editing-security-advisories-in-the-github-advisory-database
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-global-security-advisories
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database
+  - /code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database
   - /code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates
   - /code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts
   - /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors

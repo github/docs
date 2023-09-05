@@ -16,8 +16,7 @@ describe('translations', () => {
     // You gotta know your tests/fixtures/translations/ja-jp/data/ui.yml
     expect(h1).toBe('日本 GitHub Docs')
 
-    // Sidebar uses the translated shortTitle
-    const links = $('[data-testid=sidebar] a[href]')
+    const links = $('[data-testid=product] a[href]')
     const hrefs = links
       .filter((i, link) => $(link).attr('href').startsWith('/'))
       .map((i, link) => $(link))

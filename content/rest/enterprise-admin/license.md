@@ -1,7 +1,7 @@
 ---
 title: License
 intro: Use the REST API to retrieve information about your Enterprise license.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghae: '*'
   ghec: '*'
   ghes: '*'
