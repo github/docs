@@ -1,4 +1,8 @@
----
+---```[tasklist]
+### My tasks
+- [ ] https://github.com/octo-org/octo-repo/issues/45
+- [ ] Draft task
+```
 title: 'Creating a tasklist'
 intro: 'You can create a tasklist using the {% data variables.product.product_name %} UI or Markdown.'
 allowTitleToDifferFromFilename: true
