@@ -260,6 +260,8 @@ You will commonly use either the `env` or `github` context to access variable va
 | `env` | Reference custom variables defined in the workflow. | <span style="white-space: nowrap;">{% raw %}`${{ env.MY_VARIABLE }}`{% endraw %}</span> |
 | `github` | Reference information about the workflow run and the event that triggered the run. | <span style="white-space: nowrap;">{% raw %}`${{ github.repository }}`{% endraw %}</span> |
 
+{% data reusables.actions.context-injection-warning %}
+
 {% ifversion actions-configuration-variables %}
 
 ### Using the `vars` context to access configuration variable values
