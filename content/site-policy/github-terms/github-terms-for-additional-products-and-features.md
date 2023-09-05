@@ -14,7 +14,7 @@ topics:
   - Legal
 ---
 
-Version Effective Date: November 3, 2022
+Version Effective Date: September 5, 2023
 
 When you use GitHub, you may be given access to lots of additional products and features ("Additional Products and Features"). Because many of the Additional Products and Features offer different functionality, your Agreement with us (the "Agreement") includes the specific terms for that product or feature combined with your main agreement — the GitHub Terms of Service or GitHub Customer Agreement, or the GitHub Corporate Terms of Service or other legacy GitHub contract, or a Microsoft volume licensing agreement. Below, we've listed those products and features, along with the corresponding additional terms that apply to your use of them.
 
@@ -144,6 +144,10 @@ _Prohibited Uses_
 GitHub Pages may not be used in violation of the Agreement, the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), or the GitHub Pages service limitations set forth in the [Pages documentation](/pages/getting-started-with-github-pages/about-github-pages#guidelines-for-using-github-pages).
 
 If you have questions about whether your use or intended use falls into these categories, please contact [GitHub Support](https://support.github.com/contact?tags=docs-policy). GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
+
+_Educational Exercises_
+
+Using GitHub Pages to create a copy of an existing website as a learning exercise is not prohibited. However, you must write the code yourself, the site must not collect any user data, and you must include a prominent disclaimer on the site indicating that the project is not associated with the original and was only created for educational purposes.
 
 ## Previews
 
