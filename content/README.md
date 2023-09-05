@@ -1,4 +1,4 @@
-# Content <!-- omit in toc -->
+# Content <!-- omit in toc --><!-- markdownlint-disable -->
 
 The `/content` directory is where all the site's (English) Markdown content lives!
 
