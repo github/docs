@@ -250,7 +250,7 @@ You can filter issues and pull requests by the number of interactions with the `
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>interactions:<em>n</em></code> | [** interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) matches pull requests or issues with more than 2000 interactions.
+| <code>interactions:<em>n</em></code> | [**interactions:&gt;2000**](https://github.com/search?q=interactions%3A%3E2000) matches pull requests or issues with more than 2000 interactions.
 | <code>interactions:<em>n..n</em></code> | [**interactions:500..1000**](https://github.com/search?q=interactions%3A500..1000) matches pull requests or issues with interactions ranging from 500 to 1,000.
 
 ## Search by number of reactions
@@ -259,7 +259,7 @@ You can filter issues and pull requests by the number of reactions using the `re
 
 | Qualifier        | Example
 | ------------- | -------------
-| <code>reactions:<em>n</em></code> | [** reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E1000&type=Issues) matches issues with more than 1000 reactions.
+| <code>reactions:<em>n</em></code> | [**reactions:&gt;1000**](https://github.com/search?q=reactions%3A%3E1000&type=Issues) matches issues with more than 1000 reactions.
 | <code>reactions:<em>n..n</em></code> | [**reactions:500..1000**](https://github.com/search?q=reactions%3A500..1000) matches issues with reactions ranging from 500 to 1,000.
 
 ## Search for draft pull requests
