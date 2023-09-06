@@ -45,10 +45,6 @@ These emails are infrequent and you can choose whether or not to participate. If
 
 ## Marketing emails
 
-{% data variables.product.product_name %} occasionally sends these types of marketing emails:
-
-- Tips and tricks for getting started with your account
-- Customized information about engaging projects or new features
-- Newsletters that you've subscribed to, such as {% data variables.explore.explore_github %}
+{% data reusables.accounts.marketing-emails %}
 
 For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/managing-marketing-emails-from-github)."
