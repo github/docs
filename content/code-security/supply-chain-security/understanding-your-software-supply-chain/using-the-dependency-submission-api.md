@@ -38,7 +38,6 @@ Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-d
 For example, the following [Go Dependency Submission](https://github.com/actions/go-dependency-submission) workflow calculates the dependencies for a Go build-target (a Go file with a `main` function) and submits the list to the Dependency submission API.
 
 ```yaml
-
 name: Go Dependency Submission
 on:
   push:
@@ -77,7 +76,6 @@ jobs:
             # used by all build targets for the module. This may
             # include Go dependencies used by tests and tooling.
             go-build-target: go-example/cmd/octocat.go
-
 ```
 
 ### Creating your own action

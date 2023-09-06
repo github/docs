@@ -19,7 +19,7 @@ You can set a project as a template to share a pre-configured project with other
 
 The projects you have marked as templates are made available in the "Select a template" pop-up window when other people create projects in your organization.
 
-When someone creates a project from a template, the {% data reusables.projects.what-gets-copied %} are copied from the template to the new project.
+When someone creates a project from a template, the {% data reusables.projects.what-gets-copied %} are copied from the template to the new project. {% ifversion projects-v2-org-templates-improvements %}You can find the template that a project used from the project's settings page, under the "Templates" section.{% endif %}
 
 ## Setting a project as a template
 
