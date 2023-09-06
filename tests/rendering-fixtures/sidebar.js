@@ -19,7 +19,7 @@ describe('sidebar', () => {
       const $ = await getDOM('/get-started/quickstart/hello-world')
       expect(
         $(
-          '[data-testid=sidebar] [data-testid=product-sidebar] nav ul li div ul li a[aria-current="page"] div span',
+          '[data-testid=sidebar] [data-testid=product-sidebar] a[aria-current="page"] div span',
         ).text(),
       ).toBe('Hello World')
     })
@@ -30,7 +30,7 @@ describe('sidebar', () => {
       // from its regular title.
       expect(
         $(
-          '[data-testid=sidebar] [data-testid=product-sidebar] nav ul li div ul li a[href*="/get-started/foo/bar"] div span',
+          '[data-testid=sidebar] [data-testid=product-sidebar] a[href*="/get-started/foo/bar"] div span',
         ).text(),
       ).toBe('Bar')
     })
@@ -38,7 +38,7 @@ describe('sidebar', () => {
     test('short titles with Liquid and HTML characters', async () => {
       const $ = await getDOM('/get-started/foo/html-short-title')
       const link = $(
-        '[data-testid=sidebar] [data-testid=product-sidebar] nav ul li div ul li a[href*="/get-started/foo/html-short-title"]',
+        '[data-testid=sidebar] [data-testid=product-sidebar] a[href*="/get-started/foo/html-short-title"]',
       )
       expect(link.text()).toBe('GitHub Pages & "GitHub"')
     })
