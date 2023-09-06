@@ -84,7 +84,6 @@ The default development container, or "dev container," for {% data variables.pro
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   // "remoteUser": "root"
 }
-
 ```
 
 {% data reusables.codespaces.devcontainer-properties-1 %}
