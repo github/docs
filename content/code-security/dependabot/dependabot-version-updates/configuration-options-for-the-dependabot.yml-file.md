@@ -470,7 +470,6 @@ updates:
       - ruby-github # only access to registries associated with this ecosystem/directory
     schedule:
       interval: "monthly"
-
 ```
 
 {% endraw %}

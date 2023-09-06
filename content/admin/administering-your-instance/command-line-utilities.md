@@ -208,7 +208,6 @@ This utility lists repositories on your appliance that use {% data variables.pro
 
 ```shell
 ghe-legacy-github-services-report
-
 ```
 
 ### ghe-logs-tail
