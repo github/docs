@@ -323,7 +323,7 @@ To grant {% data variables.product.prodname_actions %} access, you can use {% da
 
    ```
 
-{% indented_data_reference reusables.enterprise_migrations.retreive-enterprise-id-graphql spaces=3 %}
+   {% data reusables.enterprise_migrations.retreive-enterprise-id-graphql %}
 
 1. Save the following template in a file named `networkSettingsPayload.json`. Replace `DATABASE_ID` with the enterprise `databaseId` integer you retrieved using GraphQL in the previous step.
 
