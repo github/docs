@@ -1,1 +1,0 @@
-1. If you use a static site generator and custom {% data variables.product.prodname_actions %} workflow to build and publish, verify your subdomain. For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages#verifying-a-domain-for-your-user-site)."
