@@ -2,6 +2,8 @@
 title: Enabling and setting up GitHub Copilot for Business
 intro: 'To use {% data variables.product.prodname_copilot_for_business %}, you need to set up a subscription for your organization{% ifversion ghec %} or enterprise{% endif %}.'
 product: '{% data reusables.gated-features.copilot-billing %}'
+redirect_from:
+  - /copilot/overview-of-github-copilot/enabling-and-setting-up-github-copilot-for-business
 versions:
   feature: copilot
 topics:
