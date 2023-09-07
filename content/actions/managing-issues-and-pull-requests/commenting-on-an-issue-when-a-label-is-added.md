@@ -14,7 +14,7 @@ topics:
   - Project management
 shortTitle: Add label to comment on issue
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -30,10 +30,9 @@ In the tutorial, you will first make a workflow file that uses the [`peter-evans
 1. Copy the following YAML contents into your workflow file.
 
     ```yaml copy
+    {% data reusables.actions.actions-not-certified-by-github-comment %}
 
-{% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=4 %}
-
-{% indented_data_reference reusables.actions.actions-use-sha-pinning-comment spaces=4 %}
+    {% data reusables.actions.actions-use-sha-pinning-comment %}
 
     name: Add comment
     on:

@@ -20,4 +20,4 @@ Currently, the following data is **not** migrated.
 - Repository watchers
 - Commit status checks
 - Edit history of issue comments and pull request comments
-- Users' profiles, SSH keys or signing keys
+- Users' profiles, SSH keys, signing keys, or {% data variables.product.pat_generic_plural %}

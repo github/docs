@@ -185,11 +185,11 @@ api.github.com
 codeload.github.com
 ```
 
-**Needed for uploading/downloading job summaries and logs**
+**Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
 
 ```shell copy
 actions-results-receiver-production.githubapp.com
-productionresultssa*.blob.core.windows.net
+*.blob.core.windows.net
 ```
 
 **Needed for runner version updates:**
@@ -199,12 +199,6 @@ objects.githubusercontent.com
 objects-origin.githubusercontent.com
 github-releases.githubusercontent.com
 github-registry-files.githubusercontent.com
-```
-
-**Needed for uploading/downloading caches and workflow artifacts:**
-
-```shell copy
-*.blob.core.windows.net
 ```
 
 **Needed for retrieving OIDC tokens:**
