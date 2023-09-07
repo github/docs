@@ -70,7 +70,15 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 ```
 
 {% data reusables.pages.build-locally-download-cname %}
-{% data reusables.pages.build-remotely-verify-subdomain %}
+
+  {% note %}
+
+  **Note:** If your build and deployment is through {% data variables.product.prodname_actions %}, verify the subdomain. 
+
+  For more information, see "[AUTOTITLE](/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages#verifying-a-domain-for-your-user-site)."
+  
+  {% endnote %}
+
 {% data reusables.pages.enforce-https-custom-domain %}
 
 ## Configuring an apex domain
