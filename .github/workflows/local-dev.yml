@@ -47,3 +47,31 @@ jobs:
           cat /tmp/stdout.log
           echo "____STDERR____"
           cat /tmp/stderr.log
+
+      - name: Pre-commit hooks should prevent bad Markdown edits
+        run: |
+          set -e
+
+          # This test assumes this one file always exists
+          ls content/get-started/quickstart/hello-world.md
+
+          # Not sure if it matters but we're in a detached HEAD state
+          # after the actions/checkout action.
+          git checkout -b my-new-branch
+          # Also, do this so you don't get errors from git about this
+          # not being set up before your first commit attempt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          # To know what will fail the markdown lint, see src/content-linter/style/github-docs.js
+          # Add some NOT valid Markdown to it
+          # In this case an internal link with a hardcode /en/ prefix.
+          echo "This *is** not valid [Markdown](/en/foo)" >> content/get-started/quickstart/hello-world.md
+          git commit -a -m "this should fail"
+          exit_code=$?
+          if [ $exit_code != 0 ]; then
+            echo "That SHOULD have failed, but it DIDN'T"
+            exit 1
+          else
+            echo "As expected, it failed :)"
+          fi
