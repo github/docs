@@ -316,6 +316,9 @@ sections:
     # https://github.com/github/actions-dotnet/pull/12831
     - 'The maximum number of self-hosted runners in a runner group is limited to 10,000. Previously, there was no limit. [Updated: 2023-05-24]'
 
+    - |
+      If a user refreshes the page while creating a new issue or pull request, the assignees, reviewers, labels and projects will all be preserved. [Updated: 2023-09-06]
+
   known_issues:
     - |
       {% data reusables.release-notes.upgrade-mysql8-cannot-start-up %}
