@@ -5,6 +5,7 @@ versions:
   feature: desktop
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/getting-started-with-github-desktop
+  - /desktop/guides/getting-started
 shortTitle: Get started
 ---
 ## Introduction
