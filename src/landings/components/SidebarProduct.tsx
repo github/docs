@@ -85,7 +85,7 @@ function NavListItem({ childPage }: { childPage: ProductTreeNode }) {
 
   return (
     <NavList.Item
-      defaultOpen={routePath.includes(childPage.href)}
+      defaultOpen={childPage.childPages.length > 0 && routePath.includes(childPage.href)}
       href={childPage.href}
       aria-current={isActive ? 'page' : false}
       onClick={(event) => {
