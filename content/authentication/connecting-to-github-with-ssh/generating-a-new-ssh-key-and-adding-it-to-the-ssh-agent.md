@@ -70,7 +70,7 @@ If you are a site administrator for {% data variables.location.product_location 
    > Generating public/private ALGORITHM key pair.
    ```
 
-When you're prompted to "Enter a file in which to save the key", you can press **Enter** to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ssh_keyname with your custom key name.
+1. When you're prompted to "Enter a file in which to save the key", you can press **Enter** to accept the default file location. Please note that if you created SSH keys previously, ssh-keygen may ask you to rewrite another key, in which case we recommend creating a custom-named SSH key. To do so, type the default file location and replace id_ssh_keyname with your custom key name.
 
    {% mac %}
 
@@ -162,9 +162,9 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 
    The `--apple-use-keychain` option is in Apple's standard version of `ssh-add`. In MacOS versions prior to Monterey (12.0), the `--apple-use-keychain` and `--apple-load-keychain` flags used the syntax `-K` and `-A`, respectively.
 
-  If you don't have Apple's standard version of `ssh-add` installed, you may receive an error. For more information, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
-  
-  If you continue to be prompted for your passphrase, you may need to add the command to your `~/.zshrc` file (or your `~/.bashrc` file for bash).
+   If you don't have Apple's standard version of `ssh-add` installed, you may receive an error. For more information, see "[Error: ssh-add: illegal option -- K](/articles/error-ssh-add-illegal-option-k)."
+
+   If you continue to be prompted for your passphrase, you may need to add the command to your `~/.zshrc` file (or your `~/.bashrc` file for bash).
 
    {% endnote %}
 
@@ -173,8 +173,6 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 {% endmac %}
 
 {% windows %}
-
-{% data reusables.desktop.windows_git_bash %}
 
 1. Ensure the ssh-agent is running. You can use the "Auto-launching the ssh-agent" instructions in "[Working with SSH key passphrases](/articles/working-with-ssh-key-passphrases)", or start it manually:
 
@@ -185,8 +183,10 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
    ```
 
 1. Add your SSH private key to the ssh-agent.
-{% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent spaces=3 %}
-{% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent-commandline spaces=3 %}
+
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+
+   {% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent-commandline spaces=3 %}
 
 {% data reusables.ssh.add-public-key-to-github %}
 
@@ -197,8 +197,10 @@ Before adding a new SSH key to the ssh-agent to manage your keys, you should hav
 {% data reusables.command_line.start_ssh_agent %}
 
 1. Add your SSH private key to the ssh-agent.
-{% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent spaces=3 %}
-{% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent-commandline spaces=3 %}
+
+   {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
+
+   {% indented_data_reference reusables.ssh.add-ssh-key-to-ssh-agent-commandline spaces=3 %}
 
 {% data reusables.ssh.add-public-key-to-github %}
 
