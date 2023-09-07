@@ -45,6 +45,7 @@ jobs:
               { name: 'assets', path: 'src/assets/tests', },
               // { name: 'audit-logs', path: 'src/assets/audit-logs', },
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
+              { name: 'color-schemes', path: 'src/color-schemes/tests', },
               { name: 'content', path: 'tests/content', },
               { name: 'content-render', path: 'src/content-render/tests', },
               { name: 'events', path: 'src/events/tests', },
