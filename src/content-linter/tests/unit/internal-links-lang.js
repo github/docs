@@ -11,7 +11,7 @@ const errors = result[fixtureFilePath]
 describe(internalLinksLang.names.join(' - '), () => {
   test('internal links and hardcoded language codes', () => {
     expect(Object.keys(result).length).toBe(1)
-    expect(errors.length).toBe(3)
-    expect(errors.map((error) => error.lineNumber)).toEqual([3, 4, 8])
+    expect(errors.length).toBe(2)
+    expect(errors.map((error) => error.lineNumber)).toEqual([3, 21])
   })
 })

@@ -15,6 +15,8 @@ shortTitle: About GitHub Copilot for Business
 
 With {% data variables.product.prodname_copilot_business_short %}, you can manage access to {% data variables.product.prodname_copilot %} for organizations{% ifversion ghec %} within your enterprise{% endif %}. Once you grant an organization access to {% data variables.product.prodname_copilot %}, the administrators of that organization can grant access to individuals and teams. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
 
+{% data reusables.copilot.supported-tools %}
+
 {% data reusables.copilot.telemetry-setting-org %}
 
 ### Understanding the differences between {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_individuals_short %}
@@ -92,6 +94,8 @@ User Engagement Data is used by {% data variables.product.company_short %} and M
 User Engagement Data, including pseudonymous identifiers and general usage data, is necessary for the use of {% data variables.product.prodname_copilot %} and will continue to be collected, processed, and shared with Microsoft when you use {% data variables.product.prodname_copilot %}.
 
 {% data variables.product.prodname_copilot_for_business %} does not retain any Prompts or Suggestions.
+
+For more information about privacy for {% data variables.product.prodname_copilot_for_business %}, see the "[The {% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/#privacy)."
 
 ## Further reading
 

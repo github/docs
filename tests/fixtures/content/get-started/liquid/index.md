@@ -18,4 +18,5 @@ children:
   - /ifversion
   - /links-with-liquid
   - /tool-specific
+  - /data
 ---

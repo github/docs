@@ -1,7 +1,8 @@
 ---
-title: Viewing security alerts for repositories in your organization
+title: Viewing security information for your organization or enterprise
 shortTitle: Security overview
-intro: 'View, sort, and filter the security alerts from across your organization in one place.'
+allowTitleToDifferFromFilename: true
+intro: 'View, sort, and filter security alerts and coverage information from across your organization or enterprise, and enable security features for their repositories.'
 product: '{% data reusables.gated-features.security-overview %}'
 versions:
   fpt: '*'

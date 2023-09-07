@@ -181,27 +181,35 @@ async function deleteWorkflowRuns(
       )
 
       if (!dryRun) {
-        const { status } = await github.request(
-          'DELETE /repos/{owner}/{repo}/actions/runs/{run_id}/logs',
-          {
-            owner,
-            repo,
-            run_id: run.id,
-          },
-        )
-        assert(status === 204, `Unexpected status deleting logs for run ${run.id}: ${status}`)
+        try {
+          const { status } = await github.request(
+            'DELETE /repos/{owner}/{repo}/actions/runs/{run_id}/logs',
+            {
+              owner,
+              repo,
+              run_id: run.id,
+            },
+          )
+          assert(status === 204, `Unexpected status deleting logs for run ${run.id}: ${status}`)
+        } catch (error) {
+          console.warn('ERROR trying to delete the logs for run', run.id, error.message)
+        }
       }
 
       if (!dryRun) {
-        const { status } = await github.request(
-          'DELETE /repos/{owner}/{repo}/actions/runs/{run_id}',
-          {
-            owner,
-            repo,
-            run_id: run.id,
-          },
-        )
-        assert(status === 204, `Unexpected status deleting logs for run ${run.id}: ${status}`)
+        try {
+          const { status } = await github.request(
+            'DELETE /repos/{owner}/{repo}/actions/runs/{run_id}',
+            {
+              owner,
+              repo,
+              run_id: run.id,
+            },
+          )
+          assert(status === 204, `Unexpected status deleting logs for run ${run.id}: ${status}`)
+        } catch (error) {
+          console.warn('ERROR trying to delete run', run.id, error.message)
+        }
       }
 
       deletions++

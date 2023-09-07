@@ -78,12 +78,4 @@ For example, you can configure {% data variables.location.product_location %} to
 
 ## Viewing recent deliveries and responses
 
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.hooks-tab %}
-1. In the list of webhooks, click the URL of the webhook for which you'd like to see deliveries.
-
-   ![Screenshot of a list of global webhooks. The URL link to view a webhook is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/click-global-webhook.png)
-1. Under "Recent deliveries", click a delivery GUID to view details.
-
-   ![Screenshot of the "Recent deliveries" list for a global webhook. A delivery GUID in the list of deliveries is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/global-webhooks-recent-deliveries.png)
+You can view details about webhook deliveries that occurred in the past 30 days. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."

@@ -149,8 +149,6 @@ To allow {% data variables.product.prodname_dependabot %} to update the dependen
 
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
-
 {% data reusables.dependabot.dependabot-version-updates-groups-supported %}
 
 You must configure groups per package ecosystem. To debug the problem, we recommend you look at the logs. For information about accessing the logs for a manifest, see "[Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}](#investigating-errors-with-dependabot-version-updates)" above.
@@ -179,8 +177,6 @@ For more information on how to configure groups for {% data variables.product.pr
 
 ### {% data variables.product.prodname_dependabot %} fails to update one of the dependencies in a grouped pull request
 
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
-
 **Version updates only.** {% data variables.product.prodname_dependabot %} will show the failed update in your logs, as well as in the job summary at the end of your logs. You should use the `@dependabot recreate` comment on the pull request to build the group again. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 If the dependency still fails to update, you should use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
@@ -190,8 +186,6 @@ If the dependency still fails to update, there may be a problem with the depende
 {% data reusables.dependabot.dependabot-ignore-dependencies %}
 
 ### Continuous integration (CI) fails on my grouped pull request
-
-{% data reusables.dependabot.dependabot-version-updates-groups-beta %}
 
 **Version updates only.** If the failure is due to a single dependency, you should use the `exclude-patterns` configuration so that the dependency is excluded from the group. {% data variables.product.prodname_dependabot %} will then raise a separate pull request to update the dependency.
 

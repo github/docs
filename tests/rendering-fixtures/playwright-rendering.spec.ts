@@ -162,9 +162,9 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // the category, you'll be able to see the map-topic and the article
   // within.
   await page.goto('/actions')
-  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
+  await page.getByTestId('sidebar').getByText('Category').click()
   await page.getByText('Map & Topic').click()
-  await page.getByLabel('<article> link').click()
+  await page.getByText('<article>').click()
   await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
   await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
 })
@@ -478,11 +478,8 @@ test.describe('rest API reference pages', () => {
   test('REST actions', async ({ page }) => {
     await page.goto('/rest')
     await page.getByTestId('sidebar').getByText('Actions').click()
-    await page.getByTestId('rest-subcategory').getByRole('link', { name: 'Artifacts' }).click()
-    await page
-      .getByTestId('rest-subcategory')
-      .getByRole('link', { name: 'About artifacts in GitHub Actions' })
-      .click()
+    await page.getByTestId('sidebar').getByLabel('Artifacts').click()
+    await page.getByLabel('About artifacts in GitHub Actions').click()
     await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
     await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
   })

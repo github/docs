@@ -1,6 +1,6 @@
 import patterns from '../../../lib/patterns.js'
 import { URL } from 'url'
-import { pathLanguagePrefixed } from '../../../lib/languages.js'
+import { pathLanguagePrefixed } from '#src/languages/lib/languages.js'
 import { deprecatedWithFunctionalRedirects } from '../../../lib/enterprise-server-releases.js'
 import getRedirect from '../lib/get-redirect.js'
 import { defaultCacheControl, languageCacheControl } from '../../../middleware/cache-control.js'

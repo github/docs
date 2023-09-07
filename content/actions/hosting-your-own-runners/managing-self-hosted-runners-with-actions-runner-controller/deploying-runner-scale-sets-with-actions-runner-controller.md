@@ -439,7 +439,7 @@ When Kubernetes mode is enabled, workflows that are not configured with a contai
 Jobs without a job container are forbidden on this runner, please add a 'container:' to your job or contact your self-hosted runner administrator.
 ```
 
-In order to allow jobs without a job container to run, you need to instruct the runner to disable this check. You can do that by setting setting `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container:
+In order to allow jobs without a job container to run, you need to instruct the runner to disable this check. You can do that by setting `ACTIONS_RUNNER_REQUIRE_JOB_CONTAINER` to `false` on your runner container:
 
 ```yaml
 template:
@@ -561,8 +561,6 @@ The following table shows the metrics emitted by the controller-manager and list
 | controller-manager | pending_ephemeral_runners      | gauge     | Number of ephemeral runners in a pending state                                                                      |
 | controller-manager | running_ephemeral_runners      | gauge     | Number of ephemeral runners in a running state                                                                      |
 | controller-manager | failed_ephemeral_runners       | gauge     | Number of ephemeral runners in a failed state                                                                       |
-| listener           | available_jobs                 | gauge     | Number of jobs where `runs-on` matches the runner scale set name and the job is not yet assigned to the runner scale set. |
-| listener           | acquired_jobs                  | gauge     | Number of jobs acquired by the runner scale set                                                                     |
 | listener           | assigned_jobs                  | gauge     | Number of jobs assigned to the runner scale set                                                                     |
 | listener           | running_jobs                   | gauge     | Number of jobs running or queued to run                                                                        |
 | listener           | registered_runners             | gauge     | Number of runners registered by the runner scale set                                                                |

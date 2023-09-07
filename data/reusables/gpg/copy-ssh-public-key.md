@@ -1,7 +1,7 @@
 1. Copy the SSH public key to your clipboard.
 
    If your SSH public key file has a different name than the example code, modify the filename to match your current setup. When copying your key, don't add any newlines or whitespace.
-{% mac %}
+   {% mac %}
 
    ```shell
    $ pbcopy < ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
@@ -13,8 +13,8 @@
    **Tip:** If `pbcopy` isn't working, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
    {% endtip %}
-{% endmac %}
-{% windows %}
+   {% endmac %}
+   {% windows %}
 
    ```shell
    $ clip < ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
@@ -34,8 +34,8 @@
    ```
 
    {% endnote %}
-{% endwindows %}
-{% linux %}
+   {% endwindows %}
+   {% linux %}
 
    ```shell
    $ cat ~/.ssh/id_{% ifversion ghae %}rsa{% else %}ed25519{% endif %}.pub
@@ -48,4 +48,4 @@
    **Tip:** Alternatively, you can locate the hidden `.ssh` folder, open the file in your favorite text editor, and copy it to your clipboard.
 
    {% endtip %}
-{% endlinux %}
+   {% endlinux %}

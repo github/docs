@@ -3,7 +3,6 @@ title: 'Warning: "1 issue was detected with this workflow: git checkout HEAD^2 i
 shortTitle: 'Unnecessary step found'
 intro: 'If you see this warning, you should update your workflow to follow current best practice.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'

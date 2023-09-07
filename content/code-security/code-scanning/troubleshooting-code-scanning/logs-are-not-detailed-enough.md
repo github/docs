@@ -3,7 +3,6 @@ title: 'Logs are not detailed enough'
 shortTitle: 'Logs not detailed enough'
 intro: 'If you''d like to increase the level of detail in your logs, try these steps.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'

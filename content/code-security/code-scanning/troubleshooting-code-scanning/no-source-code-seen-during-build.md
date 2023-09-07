@@ -3,7 +3,6 @@ title: 'Error: "No source code was seen during the build" or "The process ''/opt
 shortTitle: 'No source code seen during build'
 intro: 'When {% data variables.product.prodname_codeql %} fails to find any source code, you need to resolve this problem to unblock {% data variables.product.prodname_code_scanning %} analysis.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'

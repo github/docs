@@ -2,7 +2,6 @@
 title: 'Results differ between platforms'
 intro: 'You may see different results depending on whether you run the {% data variables.code-scanning.codeql_workflow %} on Linux, macOS, or Windows.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghec: '*'

@@ -350,7 +350,6 @@ CLI:
       script: 'echo "$TOKEN" | codeql github upload-results --repository=my-org/example-repo \
     --ref=refs/heads/main --commit=deb275d2d5fe9a522a0b7bd8b6b6a1c939552718 \
     --sarif=/temp/example-repo-csharp.sarif --github-auth-stdin'
-
 ```
 
 ### Multiple languages using autobuild (C++, Python)

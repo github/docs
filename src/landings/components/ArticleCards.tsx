@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 
 import { useProductGuidesContext } from 'src/landings/components/ProductGuidesContext'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { ArticleCard } from './ArticleCard'
 import { ItemInput } from '@primer/react/lib/deprecated/ActionList/List'
 

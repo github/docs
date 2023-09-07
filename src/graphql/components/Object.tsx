@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { Link } from 'components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Table } from './Table'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import type { ObjectT, ImplementsT } from './types'
 
 type Props = {

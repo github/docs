@@ -9,7 +9,7 @@ import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
 
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import useClipboard from 'src/rest/components/useClipboard'
 import {
   getShellExample,
@@ -276,8 +276,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
             >
               <button
-                aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
                 className="js-btn-copy btn-octicon"
+                aria-label={
+                  isCopied
+                    ? t('button_text.copied')
+                    : `${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`
+                }
+                aria-live="polite"
+                aria-atomic="true"
                 onClick={() => setCopied()}
               >
                 {isCopied ? <CheckIcon /> : <CopyIcon />}

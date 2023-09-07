@@ -3,7 +3,6 @@ title: 'Automatic build failed for a compiled language'
 shortTitle: 'Automatic build failed'
 allowTitleToDifferFromFilename: true
 intro: 'If automatic build fails, you can configure {% data variables.product.prodname_code_scanning %} to use specific build steps for compiled languages.'
-product: '{% data reusables.gated-features.code-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'
