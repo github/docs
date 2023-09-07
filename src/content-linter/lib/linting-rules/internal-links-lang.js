@@ -11,38 +11,39 @@ export const internalLinksLang = {
   information: new URL('https://github.com/github/docs/blob/main/src/content-linter/README.md'),
   function: function GHD006(params, onError) {
     filterTokens(params, 'inline', (token) => {
-      let linkHref = ''
-      let internalLinkHasLang = false
       for (const child of token.children) {
-        if (child.type === 'link_open') {
-          linkHref = ''
-          for (const attr of child.attrs) {
-            if (
-              languageKeys.some(
-                (lang) => attr[1].startsWith(`/${lang}/`) || attr[1].startsWith(lang),
-              )
-            ) {
-              internalLinkHasLang = true
-              linkHref = attr[1]
-            }
-          }
-        } else if (child.type === 'link_close') {
-          const range = getRange(token.line, child.content)
-          if (internalLinkHasLang) {
-            addFixErrorDetail(
-              onError,
-              child.lineNumber,
-              linkHref.replace(/(\/)?[a-z]{2}/, ''),
-              linkHref,
-              range,
-              {
-                lineNumber: child.lineNumber,
-                editColumn: token.line.indexOf('(') + 2,
-                deleteCount: 3,
-              },
-            )
-            internalLinkHasLang = false
-          }
+        if (child.type !== 'link_open') continue
+
+        // Example child.attrs:
+        // [
+        //  ['href', 'get-started'], ['target', '_blank'],
+        //  ['rel', 'canonical'],
+        // ]
+        const hrefsMissingSlashes = child.attrs
+          // The attribute could also be `target` or `rel`
+          .filter((attr) => attr[0] === 'href')
+          .filter((attr) => attr[1].startsWith('/') || !attr[1].startsWith('//'))
+          // Filter out link paths that start with language code
+          .filter((attr) => languageKeys.some((lang) => attr[1].split('/')[1] === lang))
+          // Get the link path from the attribute
+          .map((attr) => attr[1])
+        // Create errors for each link path that includes a language code
+        for (const linkPath of hrefsMissingSlashes) {
+          const range = getRange(child.line, linkPath)
+          const languageCode = linkPath.split('/')[1]
+          const replaceChar = linkPath === `/${languageCode}` ? '/' : ''
+          addFixErrorDetail(
+            onError,
+            child.lineNumber,
+            linkPath.replace(`/${languageCode}`, replaceChar),
+            linkPath,
+            range,
+            {
+              lineNumber: child.lineNumber,
+              editColumn: child.line.indexOf(linkPath) + 1,
+              deleteCount: 3,
+            },
+          )
         }
       }
     })

@@ -7,5 +7,5 @@ export function addFixErrorDetail(onError, lineNumber, expected, actual, range, 
 
 export function getRange(line, content) {
   const startColumnIndex = line.indexOf(content)
-  return startColumnIndex ? [startColumnIndex + 1, content.length] : null
+  return startColumnIndex !== -1 ? [startColumnIndex + 1, content.length] : null
 }
