@@ -441,7 +441,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#context-availability)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 ## `jobs.<job_id>.steps[*].name`
 
@@ -570,7 +570,7 @@ jobs:
 
 ### Example: Using an action inside a different private repository than the workflow
 
-Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as an encrypted secret. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+Your workflow must checkout the private repository and reference the action locally. Generate a {% data variables.product.pat_generic %} and add the token as a secret. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
 
 Replace `PERSONAL_ACCESS_TOKEN` in the example with the name of your secret.
 

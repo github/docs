@@ -77574,7 +77574,7 @@
         },
         {
           "name": "continueOnError",
-          "description": "<p>Whether to continue the migration on error. Defaults to <code>false</code>. We strongly\nrecommend setting this to <code>true</code> for the smoothest migration experience. <em>This\ndefault will change to <code>true</code> on September 4, 2023.</em>.</p>",
+          "description": "<p>Whether to continue the migration on error. Defaults to <code>true</code>.</p>",
           "type": "Boolean",
           "id": "boolean",
           "kind": "scalars",

@@ -113,7 +113,7 @@ Compiled languages are not automatically included in default setup configuration
   {% endnote %}
 {% endif %}
 
-1. Review the settings for default setup on your repository, then click **Enable {% data variables.product.prodname_codeql %}**.
+1. Review the settings for default setup on your repository, then click **Enable {% data variables.product.prodname_codeql %}**. This will trigger a workflow that tests the new, automatically generated configuration.
 
   {% note %}
 

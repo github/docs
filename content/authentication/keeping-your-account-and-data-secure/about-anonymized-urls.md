@@ -79,7 +79,7 @@ Check the value of `Cache-Control`. In this example, there's no `Cache-Control`.
 - If you own the server that's hosting the image, modify it so that it returns a `Cache-Control` of `no-cache` for images.
 - If you're using an external service for hosting images, contact support for that service.
 
- If `Cache-Control` _is_ set to `no-cache`, contact {% data variables.contact.contact_support %} or search the {% data variables.contact.community_support_forum %}.
+If `Cache-Control` _is_ set to `no-cache`, contact {% data variables.contact.contact_support %} or search the {% data variables.contact.community_support_forum %}.
 
 ### Removing an image from Camo's cache
 

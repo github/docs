@@ -42,10 +42,10 @@ If your code depends on a package with a security vulnerability, this can cause 
 
 {% data reusables.dependabot.dependabot-alerts-beta %}
 
-{% data variables.product.prodname_dependabot %} performs a scan to detect insecure dependencies, and sends {% data variables.product.prodname_dependabot_alerts %} when:
+{% data variables.product.prodname_dependabot %} performs a scan of the default branch of your repository to detect insecure dependencies, and sends {% data variables.product.prodname_dependabot_alerts %} when:
 
 {% ifversion fpt or ghec %}
-- A new advisory is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/global-security-advisories/browsing-security-advisories-in-the-github-advisory-database)."{% else %}
+- A new advisory is added to the {% data variables.product.prodname_advisory_database %}. For more information, see "[AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/browsing-security-advisories-in-the-github-advisory-database)."{% else %}
 - New advisory data is synchronized to {% data variables.location.product_location %} each hour from {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.security-advisory.link-browsing-advisory-db %}{% endif %}
   {% note %}
 

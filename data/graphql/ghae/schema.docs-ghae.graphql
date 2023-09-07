@@ -39812,9 +39812,7 @@ input StartRepositoryMigrationInput {
   clientMutationId: String
 
   """
-  Whether to continue the migration on error. Defaults to `false`. We strongly
-  recommend setting this to `true` for the smoothest migration experience. *This
-  default will change to `true` on September 4, 2023.*
+  Whether to continue the migration on error. Defaults to `true`.
   """
   continueOnError: Boolean
 

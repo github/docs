@@ -242,6 +242,32 @@ jobs:
 
 {% data reusables.actions.test-private-action-example %}
 
+## Accessing files created by a container action
+
+When a container action runs, it will automatically map the default working directory (`GITHUB_WORKSPACE`) on the runner with the `/github/workspace` directory on the container. Any files added to this directory on the container will be available to any subsequent steps in the same job. For example, if you have a container action that builds your project, and you would like to upload the build output as an artifact, you can use the following steps.
+
+**workflow.yml**
+
+```yaml copy
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: {% data reusables.actions.action-checkout %}
+
+      # Output build artifacts to /github/workspace on the container.
+      - name: Containerized Build
+        uses: ./.github/actions/my-container-action
+
+      - name: Upload Build Artifacts
+        uses: {% data reusables.actions.action-upload-artifact %}
+        with:
+          name: workspace_artifacts
+          path: {% raw %}${{ github.workspace }}{% endraw %}
+```
+For more information about uploading build output as an artifact, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+
 ## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}
 
 You can find many examples of Docker container actions on {% data variables.product.prodname_dotcom_the_website %}.

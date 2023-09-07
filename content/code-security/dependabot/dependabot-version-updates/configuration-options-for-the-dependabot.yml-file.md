@@ -376,7 +376,9 @@ You can use the `ignore` option to customize which dependencies are updated. The
 | `versions` | Use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager.</br>For example, for npm, use `^1.0.0`; for Bundler, use `~> 2.0`; for Docker, use Ruby version syntax; for NuGet, use `7.*`. |
 | <code><span style="white-space: nowrap;">update-types</span></code> | Use to ignore types of updates, such as semver `major`, `minor`, or `patch` updates on version updates (for example: `version-update:semver-patch` will ignore patch updates). You can combine this with `dependency-name: "*"` to ignore particular `update-types` for all dependencies.</br>Currently, `version-update:semver-major`, `version-update:semver-minor`, and `version-update:semver-patch` are the only supported options. |
 
-{% data reusables.dependabot.option-affects-security-updates %}
+When used alone, the `ignore.versions` key affects both {% data variables.product.prodname_dependabot %} updates, but the `ignore.update-types` key affects only {% data variables.product.prodname_dependabot_version_updates %}.
+
+However, if `versions` and `update-types` are used together in the same `ignore` rule, both {% data variables.product.prodname_dependabot %} updates are affected, unless the configuration uses `target-branch` to check for version updates on a non-default branch.
 
 ```yaml
 # Use `ignore` to specify dependencies that should not be updated
@@ -468,7 +470,6 @@ updates:
       - ruby-github # only access to registries associated with this ecosystem/directory
     schedule:
       interval: "monthly"
-
 ```
 
 {% endraw %}
@@ -921,7 +922,7 @@ You must provide the required settings for each configuration `type` that you sp
 
 ### `composer-repository`
 
-The `composer-repository` type supports username and password.
+The `composer-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -940,7 +941,7 @@ registries:
 
 {% data variables.product.prodname_dependabot %}  works with any container registries that implement the OCI container registry spec. For more information, see [https://github.com/opencontainers/distribution-spec/blob/main/spec.md](https://github.com/opencontainers/distribution-spec/blob/main/spec.md).  {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
 
-The `docker-registry` type supports username and password.
+The `docker-registry` type supports username and password. {% data reusables.dependabot.password-definition %}
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -1002,7 +1003,7 @@ registries:
 
 ### `git`
 
-The `git` type supports username and password.
+The `git` type supports username and password. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1059,7 +1060,8 @@ registries:
 
 ### `maven-repository`
 
-The `maven-repository` type supports username and password.
+The `maven-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
+
 {% ifversion dependabot-private-registries %}
 {% raw %}
 
@@ -1067,10 +1069,9 @@ The `maven-repository` type supports username and password.
 registries:
   maven-artifactory:
     type: maven-repository
-    url: https://artifactory.example.com
+    url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
-    replaces-base: true
 ```
 
 {% endraw %}
@@ -1081,7 +1082,7 @@ registries:
 registries:
   maven-artifactory:
     type: maven-repository
-    url: https://artifactory.example.com
+    url: https://acme.jfrog.io/artifactory/my-maven-registry
     username: octocat
     password: ${{secrets.MY_ARTIFACTORY_PASSWORD}}
 ```
@@ -1090,7 +1091,7 @@ registries:
 
 ### `npm-registry`
 
-The `npm-registry` type supports username and password, or token.
+The `npm-registry` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 When using username and password, your `.npmrc`'s auth token may contain a `base64` encoded `_password`; however, the password referenced in your {% data variables.product.prodname_dependabot %} configuration file must be the original (unencoded) password.
 
@@ -1157,7 +1158,7 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 
 ### `nuget-feed`
 
-The `nuget-feed` type supports username and password, or token.
+The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1187,7 +1188,7 @@ registries:
 
 ### `python-index`
 
-The `python-index` type supports username and password, or token.
+The `python-index` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
@@ -1219,7 +1220,7 @@ registries:
 
 ### `rubygems-server`
 
-The `rubygems-server` type supports username and password, or token.
+The `rubygems-server` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
 {% ifversion dependabot-private-registries %}
 {% raw %}

@@ -15,6 +15,8 @@ shortTitle: About GitHub Copilot for Business
 
 With {% data variables.product.prodname_copilot_business_short %}, you can manage access to {% data variables.product.prodname_copilot %} for organizations{% ifversion ghec %} within your enterprise{% endif %}. Once you grant an organization access to {% data variables.product.prodname_copilot %}, the administrators of that organization can grant access to individuals and teams. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-in-your-organization)."
 
+{% data reusables.copilot.supported-tools %}
+
 {% data reusables.copilot.telemetry-setting-org %}
 
 ### Understanding the differences between {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_individuals_short %}
