@@ -107,6 +107,10 @@ dependency_version_updates:
     - >-
       /code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot
     - >-
+      /code-security/dependabot/working-with-dependabot/guidance-for-the-configuration-of-private-registries-for-dependabot
+    - >-
+      /code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries
+    - >-
       /code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates
     - >-
       /code-security/dependabot/working-with-dependabot/troubleshooting-dependabot-errors
