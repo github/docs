@@ -51,7 +51,7 @@ Define the private registry configuration in a `dependabot.yml` file without `re
 
 {% note %}
 
-**Note:** remove `replaces-base: true` from the configuration file.
+**Note:** Remove `replaces-base: true` from the configuration file.
 
 {% endnote %}
 
@@ -83,7 +83,7 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 
 {% note %}
 
-Note: remove replaces-base: true from the configuration file.
+**Note**: Remove replaces-base: true from the configuration file.
 
 {% endnote %}
 
@@ -136,7 +136,7 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 
 {% note %}
 
-**Note:** remove `replaces-base: true` from the configuration file.
+**Note:** Remove `replaces-base: true` from the configuration file.
 
 {% endnote %}
 
@@ -220,7 +220,7 @@ Define the private registry configuration in a `dependabot.yml` file. For more i
 {% endnote %}
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the `resolved` field to include the private registry URL.
-  
+
 {% raw %}
 
 ```yaml

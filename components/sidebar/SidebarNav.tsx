@@ -1,4 +1,5 @@
 import cx from 'classnames'
+import { useRouter } from 'next/router'
 
 import { useMainContext } from 'components/context/MainContext'
 import { SidebarProduct } from 'src/landings/components/SidebarProduct'
@@ -12,6 +13,7 @@ type Props = {
 
 export const SidebarNav = ({ variant = 'full' }: Props) => {
   const { currentProduct } = useMainContext()
+  const router = useRouter()
   const isRestPage = currentProduct && currentProduct.id === 'rest'
   // we need to roughly account for the site header height plus the height of
   // the side nav header (which is taller when we show the API version picker)
@@ -51,7 +53,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
           )}
           style={{ width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }}
         >
-          <SidebarProduct />
+          <SidebarProduct key={router.asPath} />
         </div>
       </nav>
     </div>

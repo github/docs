@@ -65,13 +65,19 @@ If you only require security updates and want to exclude version updates, you ca
 
 ```yaml
 # Example configuration file that:
+#  - Has a private registry
 #  - Ignores lodash dependency
 #  - Disables version-updates
 
 version: 2
+registries:
+  example:
+    type: npm-registry
+    url: https://example.com
+    token: {% raw %}${{secrets.NPM_TOKEN}}{% endraw %}
 updates:
   - package-ecosystem: "npm"
-    directory: "/"
+    directory: "/src/npm-project"
     schedule:
       interval: "daily"
     ignore:
@@ -79,7 +85,15 @@ updates:
         # For Lodash, ignore all updates
     # Disable version updates for npm dependencies
     open-pull-requests-limit: 0
+    registries:
+      - example
 ```
+
+{% note %}
+
+**Note:** In order for {% data variables.product.prodname_dependabot %} to use this configuration for security updates,  the `directory` must be the path to the manifest files, and you should not specify a `target-branch`.
+
+{% endnote %}
 
 For more information about the configuration options available for security updates, see the table in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file)."
 

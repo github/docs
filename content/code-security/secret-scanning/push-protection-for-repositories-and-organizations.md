@@ -31,7 +31,7 @@ If a contributor bypasses a push protection block for a secret, {% data variable
 {% ifversion ghec or fpt %}
 {% note %}
 
-**Note:** The github.dev web-based editor doesn't support push protection. For more information about the editor, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor)." 
+**Note:** The github.dev web-based editor doesn't support push protection. For more information about the editor, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor)."
 
 {% endnote %}
 {% endif %}
@@ -60,6 +60,12 @@ Organization owners, security managers, and repository administrators can also e
 
 {% ifversion secret-scanning-enterprise-level-api %}
 Enterprise administrators can also enable or disable {% data variables.product.prodname_secret_scanning %} as a push protection for the enterprise via the API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis)" in the REST API documentation.{% endif %}
+
+{% note %}
+
+**Note:** When you fork a repository with {% data variables.product.prodname_secret_scanning %} as a push protection enabled, this is not enabled by default on the fork. You can enable it on the fork the same way you enable it on a standalone repository.
+
+{% endnote %}
 
 {% ifversion secret-scanning-enterprise-level %}
 

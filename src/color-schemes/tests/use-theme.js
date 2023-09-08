@@ -4,7 +4,7 @@ import {
   getCssTheme,
   defaultCSSTheme,
   defaultComponentTheme,
-} from '../../components/hooks/useTheme.ts'
+} from '../components/useTheme.ts'
 
 describe('getTheme basics', () => {
   test('always return an object with certain keys', () => {

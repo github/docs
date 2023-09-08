@@ -16,7 +16,7 @@ redirect_from:
 
 {% data variables.product.prodname_copilot %} is trained on all languages that appear in public repositories. For each language, the quality of suggestions you receive may depend on the volume and diversity of training data for that language. For example, JavaScript is well-represented in public repositories and is one of {% data variables.product.prodname_copilot %}'s best supported languages. Languages with less representation in public repositories may produce fewer or less robust suggestions.
 
-{% data variables.product.prodname_copilot %} is available as an extension in Visual Studio Code, Visual Studio, Vim, Neovim and the JetBrains suite of IDEs. For more information, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot)."
+{% data reusables.copilot.supported-tools %}
 
 ### Understanding the differences between {% data variables.product.prodname_copilot_individuals_short %} and {% data variables.product.prodname_copilot_business_short %}
 
