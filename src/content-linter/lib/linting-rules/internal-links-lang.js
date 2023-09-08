@@ -1,7 +1,6 @@
 import { filterTokens } from 'markdownlint-rule-helpers'
-
 import { addFixErrorDetail, getRange } from '../helpers/utils.js'
-import { languageKeys } from '#src/languages/lib/languages.js'
+import { allLanguageKeys } from '#src/languages/lib/languages.js'
 
 export const internalLinksLang = {
   names: ['GHD005', 'internal-links-lang'],
@@ -24,7 +23,7 @@ export const internalLinksLang = {
           .filter((attr) => attr[0] === 'href')
           .filter((attr) => attr[1].startsWith('/') || !attr[1].startsWith('//'))
           // Filter out link paths that start with language code
-          .filter((attr) => languageKeys.some((lang) => attr[1].split('/')[1] === lang))
+          .filter((attr) => allLanguageKeys.some((lang) => attr[1].split('/')[1] === lang))
           // Get the link path from the attribute
           .map((attr) => attr[1])
         // Create errors for each link path that includes a language code

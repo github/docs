@@ -46,7 +46,7 @@ main()
 async function main() {
   // If paths has not been specified, lint all files
   const files = getFilesToLint((summaryByRule && ALL_CONTENT_DIR) || paths || getChangedFiles())
-  const spinner = ora({ text: 'Running content linter', spinner: 'simpleDots' })
+  const spinner = ora({ text: 'Running content linter\n\n', spinner: 'simpleDots' })
 
   if (!files.length) {
     spinner.succeed('No files to lint')
