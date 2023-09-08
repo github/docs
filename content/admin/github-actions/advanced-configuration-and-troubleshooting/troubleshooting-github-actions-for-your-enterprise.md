@@ -50,7 +50,7 @@ If you use Docker container actions or service containers in your workflows, you
 
 {% data reusables.actions.enterprise-http-proxy %}
 
-If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://<IP_ADDRESS>` when setting or changing your {% data variables.product.prodname_actions %} configuration.
+If these settings aren't correctly configured, you might receive errors like `Resource unexpectedly moved to https://IP-ADDRESS` when setting or changing your {% data variables.product.prodname_actions %} configuration.
 
 ## Runners not connecting to {% data variables.product.prodname_ghe_server %} with a new hostname
 
