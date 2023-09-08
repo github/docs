@@ -5,14 +5,27 @@ import { incorrectAltTextLength } from '../../lib/linting-rules/image-alt-text-l
 
 jest.setTimeout(60 * 1000)
 
-const fixtureFile = 'src/content-linter/tests/fixtures/image-alt-text-length.md'
-const result = await runRule(incorrectAltTextLength, fixtureFile)
-const errors = result[fixtureFile]
-
 describe(incorrectAltTextLength.names.join(' - '), () => {
-  test('image with correct length alt text', () => {
-    expect(Object.keys(result).length).toBe(1)
+  test('image with incorrect alt text length fails', async () => {
+    const markdown = [
+      '![012345678901234567890123456789012345678](./image.png)',
+      '![0123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567891](./image.png)',
+    ].join('\n')
+    const result = await runRule(incorrectAltTextLength, { markdown })
+    const errors = result.markdown
     expect(errors.length).toBe(2)
-    expect(errors.map((error) => error.lineNumber)).toEqual([1, 7])
+    expect(errors[0].lineNumber).toBe(1)
+    expect(errors[1].lineNumber).toBe(2)
+    expect(errors[0].errorRange).toEqual([3, 39])
+    expect(errors[1].errorRange).toEqual([3, 151])
+  })
+  test('image with correct lenght alt test passes', async () => {
+    const markdown = [
+      '![0123456789012345678901234567890123456789](./image.png)',
+      '![012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789](./image.png)',
+    ].join('\n')
+    const result = await runRule(incorrectAltTextLength, { markdown })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
   })
 })
