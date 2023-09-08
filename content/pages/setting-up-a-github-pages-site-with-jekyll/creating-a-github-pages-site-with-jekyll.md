@@ -68,20 +68,20 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
 {% data reusables.pages.navigate-publishing-source %}
   For example, if you chose to publish your site from the `docs` folder on the default branch, create and change directories to the `docs` folder.
 
- ```shell
- $ mkdir docs
- # Creates a new folder called docs
- $ cd docs
- ```
+    ```shell
+    $ mkdir docs
+    # Creates a new folder called docs
+    $ cd docs
+    ```
 
- If you chose to publish your site from the `gh-pages` branch, create and checkout the `gh-pages` branch.
+    If you chose to publish your site from the `gh-pages` branch, create and checkout the `gh-pages` branch.
 
- ```shell
- $ git checkout --orphan gh-pages
- # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
- $ git rm -rf .
- # Removes the contents from your default branch from the working directory
- ```
+    ```shell
+    $ git checkout --orphan gh-pages
+    # Creates a new branch, with no history or contents, called gh-pages, and switches to the gh-pages branch
+    $ git rm -rf .
+    # Removes the contents from your default branch from the working directory
+    ```
 
 1. To create a new Jekyll site, use the `jekyll new` command:
 

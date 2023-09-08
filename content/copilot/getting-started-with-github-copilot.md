@@ -14,6 +14,7 @@ redirect_from:
   - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
 versions:
   feature: copilot
+defaultTool: vscode
 topics:
   - Copilot
 ---

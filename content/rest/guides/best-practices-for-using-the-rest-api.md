@@ -1,9 +1,10 @@
 ---
-title: Best practices for integrators
-intro: "Follow these best practices when using {% data variables.product.company_short %}'s API."
+title: Best practices for using the REST API
+intro: 'Follow these best practices when using {% data variables.product.company_short %}''s API.'
 redirect_from:
   - /guides/best-practices-for-integrators
   - /v3/guides/best-practices-for-integrators
+  - /rest/guides/best-practices-for-integrators
 versions:
   fpt: '*'
   ghes: '*'
