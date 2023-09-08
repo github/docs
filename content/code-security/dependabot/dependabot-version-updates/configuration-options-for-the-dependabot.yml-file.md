@@ -157,7 +157,7 @@ version: 2
 updates:
 
   - package-ecosystem: "github-actions"
-    directory: "/"
+    directory: "/.github/workflows"
     schedule:
       # Check for updates to GitHub Actions every weekday
       interval: "daily"
