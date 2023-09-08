@@ -21,7 +21,7 @@ When you choose {% data reusables.actions.policy-label-for-select-actions-workfl
   {% ifversion fpt or ghec %}
   {% note %}
 
-  **Note:** The **Allow specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}** option is only available in public repositories with the {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, or {% data variables.product.prodname_team %} plan.
+  **Note:** For {% data variables.product.prodname_free_user %}, {% data variables.product.prodname_pro %}, {% data variables.product.prodname_free_team %} for organizations, or {% data variables.product.prodname_team %} plans, the **Allow specified actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %}** option is only available in public repositories.
 
   {% endnote %}
   {% endif %}
