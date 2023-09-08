@@ -190,10 +190,7 @@ function formatResult(object) {
 
   // Add severity of error or warning
   const ruleName = object.ruleNames[1] || object.ruleNames[0]
-  // The severity of the rule can be different when running locally vs in CI
-  formattedResult.severity = process.env.CI
-    ? allConfig[ruleName].severity
-    : allConfig[ruleName]['severity-local-env'] || allConfig[ruleName].severity
+  formattedResult.severity = allConfig[ruleName].severity
 
   return Object.entries(object).reduce((acc, [key, value]) => {
     if (key === 'fixInfo') {
@@ -279,7 +276,12 @@ function getMarkdownLintConfig(errorsOnly, rules) {
   // Only configure the rules that have the severity of error
   if (errorsOnly) {
     const errorConfig = Object.keys(allConfig).reduce((acc, key) => {
-      if (allConfig[key].severity === 'error') acc[key] = allConfig[key]
+      // The severity of the rule can be different when running locally vs in CI
+      const defaultSev = allConfig[key].severity
+      const localSev = allConfig[key]['severity-local-env'] || defaultSev
+      const severity = process.env.CI ? defaultSev : localSev
+
+      if (severity === 'error') acc[key] = allConfig[key]
       return acc
     }, config.content)
     Object.assign(config.content, errorConfig)
