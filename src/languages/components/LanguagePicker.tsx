@@ -45,6 +45,7 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
       key={`/${lang.code}${routerPath}`}
       selected={lang === selectedLang}
       as={Link}
+      lang={lang.code}
       href={`/${lang.code}${routerPath}`}
       onSelect={() => {
         if (lang.code) {
@@ -61,7 +62,7 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
         }
       }}
     >
-      <span data-testid="default-language">{lang.nativeName || lang.name}</span>
+      {lang.nativeName || lang.name}
     </ActionList.Item>
   ))
 

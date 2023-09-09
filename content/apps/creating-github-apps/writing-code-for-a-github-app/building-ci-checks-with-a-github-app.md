@@ -319,7 +319,6 @@ class GHAapp < Sinatra::Application
     # this request is an attack, and you should reject it. GitHub uses the HMAC
     # hexdigest to compute the signature. The `X-HUB-Signature` looks something
     # like this: 'sha1=123456'.
-    # See https://developer.github.com/webhooks/securing/ for details.
     def verify_webhook_signature
       their_signature_header = request.env['HTTP_X_HUB_SIGNATURE'] || 'sha1='
       method, their_digest = their_signature_header.split('=')
@@ -571,7 +570,7 @@ You can test that the server is listening to your app by triggering an event for
 
 1. Create a new repository to use for testing your tutorial code. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
 1. Install the {% data variables.product.prodname_github_app %} on the repository you just created. For more information, see "[AUTOTITLE](/apps/using-github-apps/installing-your-own-github-app#installing-your-own-github-app)." During the installation process, choose **Only select repositories**, and select the repository you created in the previous step.
-2. After you click **Install**, look at the output in the terminal tab where you're running `server.rb`. You should see something like this:
+1. After you click **Install**, look at the output in the terminal tab where you're running `server.rb`. You should see something like this:
 
    ```shell
    > D, [2023-06-08T15:45:43.773077 #30488] DEBUG -- : ---- received event installation
@@ -1147,7 +1146,7 @@ To push to a repository, your app must have write permissions for "Contents" in 
 To commit files, Git must know which username and email address to associate with the commit. Next you'll add environment variables to store the name and email address that your app will use when it makes Git commits.
 
 1. Open the `.env` file you created earlier in this tutorial.
-2. Add the following environment variables to your `.env` file. Replace `APP_NAME` with the name of your app, and `EMAIL_ADDRESS` with any email you'd like to use for this example.
+1. Add the following environment variables to your `.env` file. Replace `APP_NAME` with the name of your app, and `EMAIL_ADDRESS` with any email you'd like to use for this example.
 
    ```shell copy
    GITHUB_APP_USER_NAME="APP_NAME"
@@ -1542,7 +1541,6 @@ class GHAapp < Sinatra::Application
     # this request is an attack, and you should reject it. GitHub uses the HMAC
     # hexdigest to compute the signature. The `X-HUB-Signature` looks something
     # like this: 'sha1=123456'.
-    # See https://developer.github.com/webhooks/securing/ for details.
     def verify_webhook_signature
       their_signature_header = request.env['HTTP_X_HUB_SIGNATURE'] || 'sha1='
       method, their_digest = their_signature_header.split('=')
