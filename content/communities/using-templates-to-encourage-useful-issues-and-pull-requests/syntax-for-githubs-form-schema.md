@@ -39,7 +39,8 @@ For example, the following form definition includes four form elements: a text a
     multiple: false
     options:
       - 1.0.2 (Default)
-      - 1.0.3 (Edge)
+      - 1.0.3 (Edge){% ifversion issue-form-dropdown-defaults %}
+    default: 0{% endif %}
   validations:
     required: true
 - type: checkboxes
@@ -203,6 +204,7 @@ You can use a `dropdown` element to add a dropdown menu in your form.
 | `description` | A description of the dropdown to provide extra context or guidance, which is displayed in the form. | {% octicon "x" aria-label="Optional" %}  | String | Empty String | {% octicon "dash" aria-label="Not applicable" %} |
 | `multiple` | Determines if the user can select more than one option. | {% octicon "x" aria-label="Optional" %}  | Boolean | false | {% octicon "dash" aria-label="Not applicable" %} |
 | `options` | An array of options the user can choose from. Cannot be empty and all choices must be distinct. | {% octicon "check" aria-label="Required" %} | String array | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
+| `default` | Index of the preselected option in the `options` array. When a default option is specified, you cannot include "None" or "n/a" as options.  | {% octicon "x" aria-label="Optional" %}  | Integer | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
 
 #### Validations for `dropdown`
 
@@ -221,10 +223,11 @@ body:
   attributes:
     label: How did you download the software?
     options:
+      - Built from source
       - Homebrew
       - MacPorts
-      - apt-get
-      - Built from source
+      - apt-get{% ifversion issue-form-dropdown-defaults %}
+    default: 0{% endif %}
   validations:
     required: true
 ```
@@ -244,6 +247,7 @@ You can use the `checkboxes` element to add a set of checkboxes to your form.
 | `options` | An array of checkboxes that the user can select. For syntax, see below. | {% octicon "check" aria-label="Required" %} | Array | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
 
 {% data reusables.form-schema.options-syntax %}
+{% data reusables.form-schema.required-key %}
 
 #### Validations for `checkboxes`
 

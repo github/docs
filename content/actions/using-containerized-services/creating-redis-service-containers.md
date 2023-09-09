@@ -314,7 +314,7 @@ The script uses the `set` and `hset` methods to populate the database with some 
 
 When you run this workflow, you should see the following output in the "Connect to Redis" step confirming you created the Redis client and added data:
 
-```
+```shell
 Reply: OK
 Reply: 1
 Reply: 1

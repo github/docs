@@ -21,7 +21,7 @@ These endpoints are used by SCIM-enabled Identity Providers (IdPs) to automate p
 {% note %}
 
 **Notes:**
-- These endpoints are only available for individual organizations that use [{% data variables.product.prodname_ghe_cloud %}](/billing/managing-billing-for-your-github-account/about-billing-for-github-accounts) with SAML SSO enabled. For more information about SCIM, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)." For more information about authorizing a token for a SAML SSO organization, see "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)."
+- These endpoints are only available for individual organizations that use {% data variables.product.prodname_ghe_cloud %} with SAML SSO enabled. For more information about SCIM, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/about-scim-for-organizations)." For more information about authorizing a token for a SAML SSO organization, see "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)."
 - These endpoints cannot be used with an enterprise account or with an {% data variables.enterprise.prodname_emu_org %}.
 
 {% endnote %}

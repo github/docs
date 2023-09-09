@@ -7,15 +7,18 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
 
 .hljs {
   display: block;
-  overflow-x: auto;
   padding: 0.5em;
   color: var(--color-fg-default);
   background: var(--color-canvas-subtle);
 }
 
-.hljs-comment,
 .hljs-quote {
   color: var(--color-prettylights-syntax-comment);
+}
+
+// Updating color for code comments from prettylights to codemirror due to accessibility issues: audit 4975
+.hljs-comment {
+  color: var(--color-codemirror-syntax-comment);
 }
 
 .hljs-keyword,

@@ -82,7 +82,11 @@ A pull request can be merged automatically if its head branch is directly or ind
 
 If pull request **E** --> `main` is merged first, pull request **D** --> `main` will be marked as merged _automatically_ because all of the commits from `feature` are now reachable from `main`. Merging `feature_2` into `main` and pushing `main` to the server from the command line will mark _both_ pull requests as merged.
 
-Pull requests in this situation will be marked as `merged` even if [branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#about-branch-protection-rules) have not been satisfied.
+Indirect merges can only occur either when the commits in the pull request's head branch are pushed directly to the repository's default branch, or when the commits in the pull request's head branch are present in another pull request and are merged into the repository's default branch using the **Create a merge commit** option.
+
+If a pull request containing commits present in another pull request's head branch is merged using the **Squash and merge** or **Rebase and merge** options, a new commit is created on the base branch and the other pull request will not be automatically merged.
+
+Pull requests that are merged indirectly are marked as `merged` even if [branch protection rules](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#about-branch-protection-rules) have not been satisfied.
 
 ## Further reading
 

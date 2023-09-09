@@ -6,7 +6,7 @@ redirect_from:
   - /desktop/getting-started-with-github-desktop/updating-github-desktop
   - /desktop/installing-and-configuring-github-desktop/updating-github-desktop
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 
 {% mac %}

@@ -15,7 +15,6 @@ topics:
 
 {% endif %}
 
-
 ## About automatically archiving items
 
 You can configure your project's built-in workflows to automatically archive items. Archiving items will help you stay below the limit of {% data variables.projects.item_limit %} items in each project.
@@ -23,7 +22,7 @@ You can configure your project's built-in workflows to automatically archive ite
 The auto-archive workflow supports a subset of filters. You can use the following filters when configuring your workflow.
 
 | Qualifier | Possible values
-| --- | --- | --- |
+| --- | --- |
 | `is` | `open`, `closed`, `merged`, `draft`, `issue`, `pr`
 | `reason` | `completed`, `reopened`, `"not planned"`
 | `updated` | <code><@today-<em>14</em>d</code> (the last 14 days), <code><@today-<em>3</em>w</code> (the last 3 weeks), <code><@today-<em>1</em>m</code> (the last month)

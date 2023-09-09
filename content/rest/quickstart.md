@@ -82,8 +82,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
-
-  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
 
    on:
      workflow_dispatch:
@@ -97,13 +96,11 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
            with:
              app_id: {% raw %}${{ secrets.APP_ID }}{% endraw %}
              private_key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
-
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate_token.outputs.token }}{% endraw %}
            run: |
              gh api repos/octocat/Spoon-Knife/issues
-
    ```
 
 {% endcli %}
@@ -230,7 +227,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    ```yaml
 
-  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
 
    on:
      workflow_dispatch:
@@ -359,7 +356,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    ```yaml
 
-  {% indented_data_reference reusables.actions.actions-not-certified-by-github-comment spaces=1 %}
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
 
    on:
      workflow_dispatch:

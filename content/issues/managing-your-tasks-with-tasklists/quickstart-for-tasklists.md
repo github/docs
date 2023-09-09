@@ -48,11 +48,11 @@ Draft tasks are text items that are added to your tasklist. Draft tasks appear i
   
 1. Add some draft tasks to sketch out this work. Type your draft task and then press <kbd>Enter</kbd> after each one.
 
-  For our example landing page scenario, you can add:
-    * "Design new landing page"
-    * "Create content for landing page"
-    * "Translate content into supported languages"
-    
+   For our example landing page scenario, you can add:
+   - "Design new landing page"
+   - "Create content for landing page"
+   - "Translate content into supported languages"
+
 ## Converting a draft task into an issue
 
 You can convert your draft tasks into issues. You can convert draft tasks when you're ready to start work on a particular task. The issues are created in the same repository you have used for your tracking issue.
@@ -126,7 +126,6 @@ You can also track existing issues by adding them to your tasklist. You can add 
   
   ![Screenshot of an issue being edited. There are two tasklists present and the "Update comment" button is highlighted with an orange rectangle.](/assets/images/help/projects-v2/tasklist-markdown-draft-edit.png)
   
-
 You will see your new second tasklist displayed beneath your first tasklist.
 
 ## Tracking progress

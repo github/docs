@@ -1456,19 +1456,19 @@
       "slug": "manage-access-control-for-organization-codespaces",
       "subcategory": "organizations",
       "verb": "put",
-      "requestPath": "/orgs/{org}/codespaces/billing"
+      "requestPath": "/orgs/{org}/codespaces/access"
     },
     {
-      "slug": "add-users-to-codespaces-billing-for-an-organization",
+      "slug": "add-users-to-codespaces-access-for-an-organization",
       "subcategory": "organizations",
       "verb": "post",
-      "requestPath": "/orgs/{org}/codespaces/billing/selected_users"
+      "requestPath": "/orgs/{org}/codespaces/access/selected_users"
     },
     {
-      "slug": "remove-users-from-codespaces-billing-for-an-organization",
+      "slug": "remove-users-from-codespaces-access-for-an-organization",
       "subcategory": "organizations",
       "verb": "delete",
-      "requestPath": "/orgs/{org}/codespaces/billing/selected_users"
+      "requestPath": "/orgs/{org}/codespaces/access/selected_users"
     },
     {
       "slug": "list-organization-secrets",
@@ -2237,6 +2237,78 @@
       "subcategory": "billing",
       "verb": "get",
       "requestPath": "/enterprises/{enterprise}/settings/billing/shared-storage"
+    },
+    {
+      "slug": "list-provisioned-scim-groups-for-an-enterprise",
+      "subcategory": "scim",
+      "verb": "get",
+      "requestPath": "/scim/v2/Groups"
+    },
+    {
+      "slug": "provision-a-scim-enterprise-group",
+      "subcategory": "scim",
+      "verb": "post",
+      "requestPath": "/scim/v2/Groups"
+    },
+    {
+      "slug": "get-scim-provisioning-information-for-an-enterprise-group",
+      "subcategory": "scim",
+      "verb": "get",
+      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+    },
+    {
+      "slug": "set-scim-information-for-a-provisioned-enterprise-group",
+      "subcategory": "scim",
+      "verb": "put",
+      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+    },
+    {
+      "slug": "update-an-attribute-for-a-scim-enterprise-group",
+      "subcategory": "scim",
+      "verb": "patch",
+      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+    },
+    {
+      "slug": "delete-a-scim-group-from-an-enterprise",
+      "subcategory": "scim",
+      "verb": "delete",
+      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+    },
+    {
+      "slug": "list-scim-provisioned-identities-for-an-enterprise",
+      "subcategory": "scim",
+      "verb": "get",
+      "requestPath": "/scim/v2/Users"
+    },
+    {
+      "slug": "provision-a-scim-enterprise-user",
+      "subcategory": "scim",
+      "verb": "post",
+      "requestPath": "/scim/v2/Users"
+    },
+    {
+      "slug": "get-scim-provisioning-information-for-an-enterprise-user",
+      "subcategory": "scim",
+      "verb": "get",
+      "requestPath": "/scim/v2/Users/{scim_user_id}"
+    },
+    {
+      "slug": "set-scim-information-for-a-provisioned-enterprise-user",
+      "subcategory": "scim",
+      "verb": "put",
+      "requestPath": "/scim/v2/Users/{scim_user_id}"
+    },
+    {
+      "slug": "update-an-attribute-for-a-scim-enterprise-user",
+      "subcategory": "scim",
+      "verb": "patch",
+      "requestPath": "/scim/v2/Users/{scim_user_id}"
+    },
+    {
+      "slug": "delete-a-scim-user-from-an-enterprise",
+      "subcategory": "scim",
+      "verb": "delete",
+      "requestPath": "/scim/v2/Users/{scim_user_id}"
     }
   ],
   "gists": [
@@ -4063,6 +4135,12 @@
       "requestPath": "/repos/{owner}/{repo}"
     },
     {
+      "slug": "list-repository-activities",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/activity"
+    },
+    {
       "slug": "list-all-autolinks-of-a-repository",
       "subcategory": "autolinks",
       "verb": "get",
@@ -4085,6 +4163,12 @@
       "subcategory": "autolinks",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}"
+    },
+    {
+      "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+      "subcategory": "repos",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/automated-security-fixes"
     },
     {
       "slug": "enable-automated-security-fixes",
@@ -4151,6 +4235,18 @@
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/languages"
+    },
+    {
+      "slug": "enable-private-vulnerability-reporting-for-a-repository",
+      "subcategory": "repos",
+      "verb": "put",
+      "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
+    },
+    {
+      "slug": "disable-private-vulnerability-reporting-for-a-repository",
+      "subcategory": "repos",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/private-vulnerability-reporting"
     },
     {
       "slug": "get-rules-for-a-branch",
@@ -4401,6 +4497,24 @@
   ],
   "security-advisories": [
     {
+      "slug": "list-global-security-advisories",
+      "subcategory": "global-advisories",
+      "verb": "get",
+      "requestPath": "/advisories"
+    },
+    {
+      "slug": "get-a-global-security-advisory",
+      "subcategory": "global-advisories",
+      "verb": "get",
+      "requestPath": "/advisories/{ghsa_id}"
+    },
+    {
+      "slug": "list-repository-security-advisories-for-an-organization",
+      "subcategory": "repository-advisories",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/security-advisories"
+    },
+    {
       "slug": "list-repository-security-advisories",
       "subcategory": "repository-advisories",
       "verb": "get",
@@ -4429,6 +4543,12 @@
       "subcategory": "repository-advisories",
       "verb": "patch",
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}"
+    },
+    {
+      "slug": "request-a-cve-for-a-repository-security-advisory",
+      "subcategory": "repository-advisories",
+      "verb": "post",
+      "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/cve"
     }
   ],
   "teams": [

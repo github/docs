@@ -34,7 +34,7 @@ To keep your {% data variables.product.prodname_dotcom %} account secure you sho
 
 You can choose {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} to get access to different features for your personal account. You can upgrade at any time if you are unsure at first which product you want.
 
-For more information on all of {% data variables.product.prodname_dotcom %}'s plans, see "[AUTOTITLE](/get-started/learning-about-github/githubs-products)."
+For more information on all of {% data variables.product.prodname_dotcom %}'s plans, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
 
 ### 3. Verifying your email address
 

@@ -31,7 +31,6 @@ This article explains how site administrators can configure {% data variables.pr
 
 ## Review hardware requirements
 
-
 The CPU and memory resources available to {% data variables.location.product_location %} determine the number of runners that can be configured without performance loss. {% data reusables.actions.minimum-hardware %}
 
 The peak quantity of connected runners without performance loss depends on such factors as job duration, artifact usage, number of repositories running Actions, and how much other work your instance is doing not related to Actions. Internal testing at GitHub demonstrated performance targets for GitHub Enterprise Server on a range of CPU and memory configurations.

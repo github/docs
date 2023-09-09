@@ -56,7 +56,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
       https://api.github.com/orgs/ORG_NAME/migrations
       ```
 
-    -  If you want to lock the repositories before migrating them, make sure `lock_repositories` is set to `true`. This is highly recommended.
+    - If you want to lock the repositories before migrating them, make sure `lock_repositories` is set to `true`. This is highly recommended.
     - You can exclude file attachments by passing `exclude_attachments: true` to the endpoint. {% data reusables.enterprise_migrations.exclude-file-attachments %} The final archive size must be less than 20 GB.
 
   This request returns a unique `id` which represents your migration. You'll need it for subsequent calls to the Migrations API.

@@ -2,7 +2,7 @@ date: '2023-05-30'
 sections:
   security_fixes:
     - |
-      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. GitHub has requested CVE ID [CVE-2023-23765](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-23765) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
+      **MEDIUM**: Scoped installation tokens for a GitHub App kept approved permissions after the permissions on the integration installation were downgraded or removed. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com). 
     - Packages have been updated to the latest security versions.
   bugs:
     - On an instance in a cluster configuration, when upgrading the MySQL master node, the post-upgrade configuration run would take 600 seconds longer than required due to incorrect detection of unhealthy nodes. 
@@ -36,3 +36,6 @@ sections:
     - |
       When running `ghe-config-apply`, the process may stall with the message `Deployment is running pending automatic promotion`.
     - '{% data reusables.release-notes.slow-deleted-repos-migration-known-issue-updated %}'
+    - '{% data reusables.release-notes.user-already-taken %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-08-24]

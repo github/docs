@@ -133,13 +133,13 @@ These steps lead you through building a CLI and using device flow to get a user 
 
    In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb help`. You should see this output:
 
-   ```
+   ```shell
    `help` is not yet defined
    ```
 
    You can also test your script without a command or with an unhandled command. For example, `./app_cli.rb create-issue` should output:
 
-   ```
+   ```shell
    Unknown command `create-issue`
    ```
 
@@ -204,7 +204,7 @@ These steps lead you through building a CLI and using device flow to get a user 
 
    In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb help`. You should see this output:
 
-   ```
+   ```shell
    usage: app_cli <help>
    ```
 
@@ -474,7 +474,7 @@ The `login` command will run the device flow to get a user access token. For mor
 
    1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb login`. You should see output that looks like this. The code will differ every time:
 
-      ```
+      ```shell
       Please visit: {% data variables.product.oauth_host_code %}/login/device
       and enter code: CA86-8D94
       ```
@@ -705,13 +705,13 @@ This tutorial assumes that your app code is stored in a file named `app_cli.rb`.
 
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb help`. You should see output that looks like this.
 
-   ```
+   ```shell
    usage: app_cli <login | whoami | help>
    ```
 
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb login`. You should see output that looks like this. The code will differ every time:
 
-   ```
+   ```shell
    Please visit: {% data variables.product.oauth_host_code %}/login/device
    and enter code: CA86-8D94
    ```
@@ -721,21 +721,21 @@ This tutorial assumes that your app code is stored in a file named `app_cli.rb`.
 1. Your terminal should now say "Successfully authenticated!".
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb whoami`. You should see output that looks like this, where `octocat` is your username.
 
-   ```
+   ```shell
    You are octocat
    ```
 
 1. Open the `.token` file in your editor, and modify the token. Now, the token is invalid.
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb whoami`. You should see output that looks like this:
 
-   ```
+   ```shell
    You are not authorized. Run the `login` command.
    ```
 
 1. Delete the `.token` file.
 1. In your terminal, from the directory where `app_cli.rb` is stored, run `./app_cli.rb whoami`. You should see output that looks like this:
 
-   ```
+   ```shell
    You are not authorized. Run the `login` command.
    ```
 

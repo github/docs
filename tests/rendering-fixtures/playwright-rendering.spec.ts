@@ -30,13 +30,12 @@ test('view the for-playwright article', async ({ page }) => {
 })
 
 test('use sidebar to go to Hello World page', async ({ page }) => {
-  await page.goto('/')
+  await page.goto('/get-started')
 
-  await page.getByTestId('sidebar').getByRole('group', { name: 'Get started' }).click()
   await expect(page).toHaveTitle(/Getting started with HubGit/)
 
   await page.getByTestId('product-sidebar').getByText('Quickstart').click()
-  await page.getByTestId('product-sidebar').getByRole('group', { name: 'Hello World' }).click()
+  await page.getByTestId('product-sidebar').getByText('Hello World').click()
   await expect(page).toHaveURL(/\/en\/get-started\/quickstart\/hello-world/)
   await expect(page).toHaveTitle(/Hello World - GitHub Docs/)
 })
@@ -70,6 +69,24 @@ test.describe('platform picker', () => {
     await expect(page).toHaveURL(/\?platform=windows/)
     await expect(page.getByRole('heading', { name: /Windows 95/ })).toBeVisible()
     await expect(page.getByRole('heading', { name: /Macintosh/ })).not.toBeVisible()
+  })
+
+  test('minitoc matches picker', async ({ page }) => {
+    // default platform set to windows in fixture fronmatter
+    await page.goto('/get-started/liquid/platform-specific')
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Windows 95 was awesome' }),
+    ).toBeVisible()
+    await page.getByTestId('platform-picker').getByRole('link', { name: 'Linux' }).click()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'The year of Linux on the desktop' }),
+    ).toBeVisible()
   })
 
   test('remember last clicked OS', async ({ page }) => {
@@ -118,34 +135,24 @@ test.describe('tool picker', () => {
     await expect(page.getByText('this is desktop content')).not.toBeVisible()
     await expect(page.getByText('this is webui content')).toBeVisible()
   })
-})
 
-test('filter article cards', async ({ page }) => {
-  await page.goto('/code-security/guides')
-  const articleCards = page.getByTestId('article-cards')
-  await expect(articleCards.getByText('Secure quickstart')).toBeVisible()
-  await expect(articleCards.getByText('Securing your organization')).toBeVisible()
-
-  // For both the type and topic dropdowns, with the Primer component we use it
-  // ends creating a button to open the dropdowns so that's why we're clicking
-  // a button here to expand the option items.
-
-  // all the articles are displayed, filter by topic
-  await page.getByTestId('card-filter-topics').getByRole('button', { name: 'All' }).click()
-  await page.getByTestId('topics-dropdown').getByText('Organizations').click()
-  await expect(articleCards.getByText('Secure quickstart')).not.toBeVisible()
-  await expect(articleCards.getByText('Securing your organization')).toBeVisible()
-
-  // now show all the articles again and then filter by type
-  await page
-    .getByTestId('card-filter-topics')
-    .getByRole('button', { name: 'Organizations' })
-    .click()
-  await page.getByTestId('topics-dropdown').getByText('All').click()
-  await page.getByTestId('card-filter-types').getByRole('button', { name: 'All' }).click()
-  await page.getByTestId('types-dropdown').getByText('Quickstart').click()
-  await expect(articleCards.getByText('Secure quickstart')).toBeVisible()
-  await expect(articleCards.getByText('Securing your organization')).not.toBeVisible()
+  test('minitoc matches picker', async ({ page }) => {
+    // default tool set to desktop in fixture fronmatter
+    await page.goto('/get-started/liquid/tool-specific')
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+    ).toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).not.toBeVisible()
+    await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
+    ).not.toBeVisible()
+    await expect(
+      page.getByTestId('minitoc').getByRole('link', { name: 'Webui section' }),
+    ).toBeVisible()
+  })
 })
 
 test('navigate with side bar into article inside a map-topic inside a category', async ({
@@ -154,11 +161,10 @@ test('navigate with side bar into article inside a map-topic inside a category',
   // Our TreeView sidebar only shows "2 levels". If you click and expand
   // the category, you'll be able to see the map-topic and the article
   // within.
-  await page.goto('/')
-  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'GitHub Actions' }).click()
-  await page.getByTestId('sidebar').getByRole('treeitem', { name: 'Category' }).click()
+  await page.goto('/actions')
+  await page.getByTestId('sidebar').getByText('Category').click()
   await page.getByText('Map & Topic').click()
-  await page.getByLabel('<article> link').click()
+  await page.getByText('<article>').click()
   await expect(page.getByRole('heading', { name: 'Article title' })).toBeVisible()
   await expect(page).toHaveURL(/actions\/category\/map-topic\/article/)
 })
@@ -222,15 +228,15 @@ test('hovercards', async ({ page }) => {
 })
 
 test.describe('test nav at different viewports', () => {
-  test('x-large viewports - 1280+', async ({ page }) => {
+  test('xx-large viewports - 1400+', async ({ page }) => {
     page.setViewportSize({
-      width: 1300,
+      width: 1400,
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
 
-    // in article breadcrumbs at xl viewport should remove last breadcrumb so
-    // for this page we should only have 'Get Started / Foo'
+    // in article breadcrumbs at our custom xl viewport should remove last
+    // breadcrumb so for this page we should only have 'Get Started / Foo'
     expect(await page.getByTestId('breadcrumbs-in-article').getByRole('link').all()).toHaveLength(2)
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Foo')).toBeVisible()
     await expect(page.getByTestId('breadcrumbs-in-article').getByText('Bar')).not.toBeVisible()
@@ -298,7 +304,7 @@ test.describe('test nav at different viewports', () => {
 
     // language picker is in mobile menu
     await page.getByTestId('mobile-menu').click()
-    await page.getByRole('button', { name: 'Select language: current language is English' }).click()
+    await page.getByTestId('language-picker')
     await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
 
     // sign up button is in mobile menu
@@ -312,7 +318,41 @@ test.describe('test nav at different viewports', () => {
 
   test('small viewports - 544-767', async ({ page }) => {
     page.setViewportSize({
-      width: 500,
+      width: 555,
+      height: 700,
+    })
+    await page.goto('/get-started/foo/bar')
+
+    // header sign-up button is not visible
+    await expect(page.getByTestId('header-signup')).not.toBeVisible()
+
+    // language picker is not visible
+    await expect(page.getByTestId('language-picker')).not.toBeVisible()
+
+    // version picker is visible
+    await expect(
+      page.getByRole('button', {
+        name: 'Select GitHub product version: current version is free-pro-team@latest',
+      }),
+    ).toBeVisible()
+
+    // language picker is in mobile menu
+    await page.getByTestId('mobile-menu').click()
+    await page.getByTestId('language-picker')
+    await expect(page.getByRole('menuitemradio', { name: 'English' })).toBeVisible()
+
+    // sign up button is in mobile menu
+    await expect(page.getByTestId('mobile-signup')).toBeVisible()
+
+    // hamburger button for sidebar overlay is visible
+    await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
+    await page.getByTestId('sidebar-hamburger').click()
+    await expect(page.getByTestId('sidebar-product-dialog')).toBeVisible()
+  })
+
+  test('x-small viewports - 0-544', async ({ page }) => {
+    page.setViewportSize({
+      width: 345,
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
@@ -339,7 +379,7 @@ test.describe('test nav at different viewports', () => {
     await expect(page.getByTestId('open-mobile-menu').getByTestId('language-picker')).toBeVisible()
 
     // sign up button is in mobile menu
-    await expect(page.getByTestId('open-mobile-menu').getByTestId('version-picker')).toBeVisible()
+    await expect(page.getByTestId('mobile-signup')).toBeVisible()
 
     // hamburger button for sidebar overlay is visible
     await expect(page.getByTestId('sidebar-hamburger')).toBeVisible()
@@ -381,9 +421,9 @@ test.describe('test nav at different viewports', () => {
 
 test.describe('survey', () => {
   test('happy path, thumbs up and enter email', async ({ page }) => {
-    await page.goto('/get-started/foo/for-playwright')
-
     let fulfilled = 0
+    // Important to set this up *before* interacting with the page
+    // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
@@ -393,6 +433,8 @@ test.describe('survey', () => {
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
     })
+
+    await page.goto('/get-started/foo/for-playwright')
 
     // The label is visually an SVG. Finding it by its `for` value feels easier.
     await page.locator('[for=survey-yes]').click()
@@ -400,15 +442,16 @@ test.describe('survey', () => {
     await page.getByPlaceholder('email@example.com').fill('test@example.com')
 
     await page.getByRole('button', { name: 'Send' }).click()
-    // Because it sent one about the thumbs and then another with the email.
-    expect(fulfilled).toBe(2)
+    // One for the page view event, one for the thumbs up click, one for
+    // the submission.
+    expect(fulfilled).toBe(1 + 2)
     await expect(page.getByTestId('survey-end')).toBeVisible()
   })
 
   test('thumbs down without filling in the form sends an API POST', async ({ page }) => {
-    await page.goto('/get-started/foo/for-playwright')
-
     let fulfilled = 0
+    // Important to set this up *before* interacting with the page
+    // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
@@ -419,8 +462,11 @@ test.describe('survey', () => {
       // See https://github.com/microsoft/playwright/issues/12231
     })
 
+    await page.goto('/get-started/foo/for-playwright')
+
     await page.locator('[for=survey-yes]').click()
-    expect(fulfilled).toBe(1)
+    // One for the page view event and one for the thumbs up click
+    expect(fulfilled).toBe(1 + 1)
 
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await page.getByRole('button', { name: 'Cancel' }).click()
@@ -432,11 +478,8 @@ test.describe('rest API reference pages', () => {
   test('REST actions', async ({ page }) => {
     await page.goto('/rest')
     await page.getByTestId('sidebar').getByText('Actions').click()
-    await page.getByTestId('rest-subcategory').getByRole('link', { name: 'Artifacts' }).click()
-    await page
-      .getByTestId('rest-subcategory')
-      .getByRole('link', { name: 'About artifacts in GitHub Actions' })
-      .click()
+    await page.getByTestId('sidebar').getByLabel('Artifacts').click()
+    await page.getByLabel('About artifacts in GitHub Actions').click()
     await expect(page).toHaveURL(/\/en\/rest\/actions\/artifacts\?apiVersion=/)
     await expect(page).toHaveTitle(/GitHub Actions Artifacts - GitHub Docs/)
   })

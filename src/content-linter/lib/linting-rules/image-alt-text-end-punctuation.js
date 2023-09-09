@@ -1,6 +1,6 @@
 import { forEachInlineChild } from 'markdownlint-rule-helpers'
 
-import { addFixErrorDetail } from '../helpers.js'
+import { addFixErrorDetail, getRange, isStringQuoted } from '../helpers/utils.js'
 
 export const imageAltTextEndPunctuation = {
   names: ['GHD002', 'image-alt-text-end-punctuation'],
@@ -13,15 +13,16 @@ export const imageAltTextEndPunctuation = {
       const quoteRegex = /[.?!]['"]$/
       const endRegex = /[.?!]$/
       const imageAltText = token.content.trim()
-      const startColumnIndex = token.line.indexOf(imageAltText)
-      const range = startColumnIndex ? [startColumnIndex + 1, imageAltText.length] : null
+      const range = getRange(token.line, imageAltText)
       if (
         (!imageAltText.endsWith('"') && !imageAltText.slice(-1).match(endRegex)) ||
         (imageAltText.endsWith('"') && !imageAltText.slice(-2).match(quoteRegex))
       ) {
         addFixErrorDetail(onError, token.lineNumber, imageAltText + '.', imageAltText, range, {
           lineNumber: token.lineNumber,
-          editColumn: token.line.indexOf(']') + 1,
+          editColumn: isStringQuoted(imageAltText)
+            ? token.line.indexOf(']')
+            : token.line.indexOf(']') + 1,
           deleteCount: 0,
           insertText: '.',
         })

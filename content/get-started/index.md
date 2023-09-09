@@ -26,7 +26,7 @@ introLinks:
   quickstart: /get-started/quickstart
 featuredLinks:
   startHere:
-    - /get-started/learning-about-github/githubs-products
+    - /get-started/learning-about-github/githubs-plans
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud

@@ -13,8 +13,8 @@ topics:
 
 **Notes:**
 
-* Tasklists are currently in private beta and subject to change. If you are interested in trying tasklists, you can join the [waitlist](https://aka.ms/tasklist-roadmap-signup). Tasklists build upon the previous iteration of [task lists](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
-* For the best experience, we recommend adding no more than 50 tasks to a tasklist and no more than 5 tasklists per issue. There is a hard limit of 250 tasks per tasklist and 10 tasklists per issue.
+- Tasklists are in private beta and subject to change. We have currently paused onboarding to the beta. Tasklists build upon the previous iteration of [task lists](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
+- For the best experience, we recommend adding no more than 50 tasks to a tasklist and no more than 5 tasklists per issue. There is a hard limit of 250 tasks per tasklist and 10 tasklists per issue.
 
 {% endnote %}
 
@@ -34,4 +34,4 @@ Tasklists add support for hierarchies of issues on {% data variables.product.pro
 
 You can create a tasklist using Markdown or using the {% data variables.product.product_name %} UI. Regardless of how you created your tasklist, you can edit it using either Markdown or the UI. For more information, see "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/creating-a-tasklist)" and "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/managing-tasks-in-a-tasklist)."
 
-Tasklists also integrate with your projects. When you click on an issue in your project, the side-panel opens and displays the issue's place in the hierarchy on a breadcrumb menu, allowing you to navigate through the issues included in your tasklists. You can also add the "Tracks" and "Tracked-by fields" to your project views to quickly see the relationships between your issues. For information, see "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/using-projects-and-tasklists)."
+Tasklists also integrate with your projects. {% ifversion projects-v2-tasklists-without-breadcrumbs %}You can{% else %}When you click on an issue in your project, the side-panel opens and displays the issue's place in the hierarchy on a breadcrumb menu, allowing you to navigate through the issues included in your tasklists. You can also{% endif %} add the "Tracks" and "Tracked-by fields" to your project views to quickly see the relationships between your issues. For information, see "[AUTOTITLE](/issues/managing-your-tasks-with-tasklists/using-projects-and-tasklists)."

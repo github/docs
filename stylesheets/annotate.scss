@@ -1,3 +1,5 @@
+@import "stylesheets/breakpoint-xxl.scss";
+
 /* Code annotations
 ----------------------------------------------------------------------------*/
 
@@ -23,15 +25,6 @@
   pre {
     border: 0px !important;
     margin: 0px !important;
-
-    .hljs {
-      overflow-x: auto;
-      white-space: pre-wrap;
-      white-space: -moz-pre-wrap;
-      white-space: -pre-wrap;
-      white-space: -o-pre-wrap;
-      word-wrap: break-word;
-    }
   }
 }
 
@@ -50,7 +43,7 @@
     margin: 0 calc((100vw - 720px - 4rem) / 2 * -1);
   }
 
-  @include breakpoint(xl) {
+  @include breakpoint-xxl {
     // 326px: navigation width
     margin: 0 max(-12rem, calc((100vw - 720px - 326px - 4rem) / 2 * -1));
   }

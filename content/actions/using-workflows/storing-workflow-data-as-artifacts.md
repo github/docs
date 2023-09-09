@@ -75,7 +75,7 @@ You can use the `upload-artifact` action to upload artifacts. When uploading an 
 
 For example, your repository or a web application might contain SASS and TypeScript files that you must convert to CSS and JavaScript. Assuming your build configuration outputs the compiled files in the `dist` directory, you would deploy the files in the `dist` directory to your web application server if all tests completed successfully.
 
-```
+```text
 |-- hello-world (repository)
 |   └── dist
 |   └── tests

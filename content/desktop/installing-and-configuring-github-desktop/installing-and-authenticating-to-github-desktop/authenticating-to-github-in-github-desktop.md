@@ -8,7 +8,7 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/authenticating-to-github
   - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github
 versions:
-  fpt: '*'
+  feature: desktop
 ---
 ## About authentication
 
@@ -56,7 +56,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 {% data reusables.desktop.sign-in-browser %}
 
-  {% data reusables.user-settings.password-authentication-deprecation-desktop %}
+   {% indented_data_reference reusables.user-settings.password-authentication-deprecation-desktop spaces=3 %}
 
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}

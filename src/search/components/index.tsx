@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Heading } from '@primer/react'
 
 import type { SearchT } from 'src/search/components/types'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { DEFAULT_VERSION, useVersion } from 'components/hooks/useVersion'
 import { useNumberFormatter } from 'src/search/components/useNumberFormatter'
 import { SearchResults } from 'src/search/components/SearchResults'
@@ -63,7 +63,7 @@ export function Search({ search }: Props) {
         <ValidationErrors errors={validationErrors} />
       ) : null}
 
-      {results ? <SearchResults results={results} query={query} /> : null}
+      {results ? <SearchResults results={results} search={search.search} /> : null}
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { forEachInlineChild } from 'markdownlint-rule-helpers'
 
-import { addFixErrorDetail } from '../helpers.js'
+import { addFixErrorDetail } from '../helpers/utils.js'
 
 export const imageFileKebab = {
   names: ['GHD004', 'image-file-kebab'],

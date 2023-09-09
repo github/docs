@@ -125,9 +125,9 @@ async function testSiteSearch() {
     assert(/[\d,]+ Search results for "github"/.test($('h1').text()))
     assert($('[data-testid="search-result"]').length > 0)
   }
-  // Find 0 things on enterprise-server@latest
+  // Find 0 things on enterprise-cloud@latest
   {
-    const res = await get('/en/enterprise-server@latest/search?query=gobligook')
+    const res = await get('/en/enterprise-cloud@latest/search?query=gobligook')
     const $ = cheerio.load(res.body)
     assert(/0 Search results for "gobligook"/.test($('h1').text()))
     assert($('[data-testid="search-result"]').length === 0)

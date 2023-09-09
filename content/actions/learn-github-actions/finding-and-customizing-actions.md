@@ -73,7 +73,7 @@ If an action is defined in the same repository where your workflow file uses the
 
 Example repository file structure:
 
-```
+```shell
 |-- hello-world (repository)
 |   |__ .github
 |       └── workflows

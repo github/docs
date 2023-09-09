@@ -10,8 +10,6 @@ topics:
   - Projects
 ---
 
-{% data reusables.projects.insights-release-note %}
-
 {% data reusables.projects.access-insights %}
 1. In the menu on the left, click **New chart**.
 1. Optionally, to change the name of the new chart, click {% octicon "triangle-down" aria-label="The triangle icon" %}, type a new name, and press <kbd>Return</kbd>.

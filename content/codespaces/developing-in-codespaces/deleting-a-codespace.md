@@ -55,7 +55,6 @@ There are costs associated with storing codespaces. You should therefore delete 
 
 {% endnote %}
 
-
 {% vscode %}
 
 {% data reusables.codespaces.deleting-a-codespace-in-vscode %}
@@ -108,7 +107,7 @@ By default you are prompted to confirm deletion of any codespaces that contain u
 
 Delete all of the codespaces for the `octo-org/octo-repo` repository that you created more than 7 days ago.
 
-```
+```shell
 gh codespace delete --repo octo-org/octo-repo --days 7
 ```
 

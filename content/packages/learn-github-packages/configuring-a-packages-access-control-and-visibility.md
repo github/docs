@@ -227,10 +227,12 @@ When you first publish a package, the default visibility is private and only you
 {% data reusables.package_registry.package-settings-option %}
 1. At the bottom of the page, under "Danger Zone", click **Change visibility** and choose a visibility setting:
     - To make the package visible to anyone, click **Public**.
-     {% warning %}
 
-     **Warning:** Once you make a package public, you cannot make it private again.
+      {% warning %}
 
-     {% endwarning %}
+      **Warning:** Once you make a package public, you cannot make it private again.
+
+      {% endwarning %}
+
     - To make the package visible to a custom selection of people in your organization, click **Private**.{% ifversion not fpt %}
     - To make the package visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.{% endif %}

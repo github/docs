@@ -7,7 +7,7 @@ versions:
   feature: actions-hosted-runners
 type: tutorial
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## About runner groups
@@ -78,6 +78,16 @@ For runner groups in an organization, you can change what repositories in the or
 
 - [Changing which workflows can access an organization runner group](#changing-which-workflows-can-access-an-organization-runner-group)
 - [Changing which workflows can access an enterprise runner group](#changing-which-workflows-can-access-an-enterprise-runner-group)
+
+{% ifversion actions-private-networking-azure-vnet %}
+
+## Configuring private network access for larger runners
+
+{% data reusables.actions.azure-vnet-injected-runners-intro %}
+
+If you have configured your enterprise to connect to an Azure VNET, you can give runner groups access to the virtual network. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network#using-an-azure-virtual-network-vnet)."
+
+{% endif %}
 
 ### Changing which workflows can access an organization runner group
 
