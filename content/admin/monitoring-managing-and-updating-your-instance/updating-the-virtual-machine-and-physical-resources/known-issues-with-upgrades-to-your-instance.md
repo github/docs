@@ -130,55 +130,55 @@ If you cannot upgrade {% data variables.location.product_location %}, then you c
 
 1. Put your instance into maintenance mode:
 
-   ```shell copy
-   ghe-maintenance -s
-   ```
+  ```shell copy
+  ghe-maintenance -s
+  ```
 1. Update consul template for nomad:
 
-   ```shell copy
-   sudo sed -i.bak '/kill_signal/i \      kill_timeout = "10m"' /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl
-   ```
+  ```shell copy
+  sudo sed -i.bak '/kill_signal/i \      kill_timeout = "10m"' /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl
+  ```
 1. Render consul template for nomad:
 
-   ```shell copy
-   sudo consul-template -once -template /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl:/etc/nomad-jobs/mysql/mysql.hcl
-   ```
+  ```shell copy
+  sudo consul-template -once -template /etc/consul-templates/etc/nomad-jobs/mysql/mysql.hcl.ctmpl:/etc/nomad-jobs/mysql/mysql.hcl
+  ```
 1. Verify current `kill_timeout` setting:
 
-   ```shell copy
-   nomad job inspect mysql | grep KillTimeout
-   ```
+  ```shell copy
+  nomad job inspect mysql | grep KillTimeout
+  ```
 
-   Expected response:
+  Expected response:
 
-   ```shell copy
-   "KillTimeout": 5000000000
-   ```
+  ```shell copy
+  "KillTimeout": 5000000000
+  ```
 1. Stop MySQL:
 
-   ```shell copy
-   nomad job stop mysql
-   ```
+  ```shell copy
+  nomad job stop mysql
+  ```
 1. Run new MySQL job:
 
-   ```shell copy
-   nomad job run /etc/nomad-jobs/mysql/mysql.hcl
-   ```
+  ```shell copy
+  nomad job run /etc/nomad-jobs/mysql/mysql.hcl
+  ```
 1. Verify kill_timeout has been updated:
 
-   ```shell copy
-   nomad job inspect mysql | grep KillTimeout
-   ```
-   Expected response:
+  ```shell copy
+  nomad job inspect mysql | grep KillTimeout
+  ```
+  Expected response:
 
-   ```shell copy
-   "KillTimeout": 600000000000,
-   ```
+  ```shell copy
+  "KillTimeout": 600000000000,
+  ```
 1. Take instance out of maintenance mode:
 
-   ```shell copy
-   ghe-maintenance -u
-   ```
+  ```shell copy
+  ghe-maintenance -u
+  ```
 
 Now that the nomad timeout for MySQL has been updated you can upgrade your {% data variables.product.prodname_ghe_server %} instance to 3.9.
 

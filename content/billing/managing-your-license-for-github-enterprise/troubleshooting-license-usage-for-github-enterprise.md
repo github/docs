@@ -88,10 +88,9 @@ To ensure that the each user is only consuming a single seat for different deplo
 
    {% note %}
 
-   **Note:** To make troubleshooting easier, we recommend using verified domains with your enterprise account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
+  **Note:** To make troubleshooting easier, we recommend using verified domains with your enterprise account on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise)."
 
-   {% endnote %}
-
+  {% endnote %}
 1. After you identify users who are consuming multiple seats, make sure that the same email address is associated with all of the user's accounts. For more information about which email addresses must match, see "[About the calculation of consumed licenses](#about-the-calculation-of-consumed-licenses)."
 1. If an email address was recently updated or verified to correct a mismatch, view the timestamp of the last license sync job. If a job hasn't run since the correction was made, manually trigger a new job. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud)."
 

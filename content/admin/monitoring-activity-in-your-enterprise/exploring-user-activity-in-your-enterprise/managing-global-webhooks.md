@@ -44,12 +44,11 @@ For example, you can configure {% data variables.location.product_location %} to
 1. Optionally, in the **Secret** field, type a string to use as a `secret` key.
 1. Optionally, if your payload URL is HTTPS and you would not like {% data variables.product.prodname_ghe_server %} to verify SSL certificates when delivering payloads, under "SSL verification", select **Disable**. Read the information about SSL verification, then click **Disable, I understand my webhooks may not be secure**.
 
-   {% warning %}
+  {% warning %}
 
-   **Warning:** SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
+  **Warning:** SSL verification helps ensure that hook payloads are delivered securely. We do not recommend disabling SSL verification.
 
-   {% endwarning %}
-
+  {% endwarning %}
 1. Under "Which events would you like to trigger this webhook?", select if you'd like this webhook to trigger for every event or for selected events.
     - For every event, select **Send me everything**.
     - To choose specific events, select **Let me select individual events**.
