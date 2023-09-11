@@ -12,5 +12,6 @@ children:
   - /creating-webhooks
   - /handling-webhook-deliveries
   - /securing-your-webhooks
+  - /disabling-webhooks
   - /best-practices-for-using-webhooks
 ---
