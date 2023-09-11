@@ -26,7 +26,7 @@ topics:
 - To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "Search all of {% data variables.product.prodname_dotcom %}" in the search dropdown menu.
 - To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press **Enter**.
 
-{% ifversion code-search-code-view %} You can also use suggestions and completions in the search bar to quickly find what you need.
+  {% ifversion code-search-code-view %}You can also use suggestions and completions in the search bar to quickly find what you need.
 
 - If you click on the search bar in the top navigation of GitHub.com, you will see a list of suggestions organized by category, including recent searches and suggested repositories, teams, and projects that you have access to.
 - Clicking on any of the specific suggestions will take you directly to the page for that suggestion (for example, the repository or project page). If you click on a recent search, depending on the type of search, the search term will appear in the search bar or you will be taken to the search results page for the search term.

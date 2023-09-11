@@ -2,6 +2,8 @@
 title: Code security documentation
 shortTitle: Code security
 intro: 'Build security into your {% data variables.product.prodname_dotcom %} workflow with features to keep secrets and vulnerabilities out of your codebase{% ifversion not ghae %}, and to maintain your software supply chain{% endif %}.'
+redirect_from:
+  - /code-security/guides
 introLinks:
   overview: /code-security/getting-started/github-security-features
 featuredLinks:
@@ -56,5 +58,4 @@ children:
   - /supply-chain-security
   - /dependabot
   - /security-overview
-  - /guides
 ---

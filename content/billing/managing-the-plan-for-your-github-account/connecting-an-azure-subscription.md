@@ -1,6 +1,6 @@
 ---
 title: Connecting an Azure subscription
-intro: 'You can connect an Azure Subscription to your organization{% ifversion ghec %} or enterprise account{% endif %} to enable and pay for any {% data variables.product.prodname_dotcom %} metered services.'
+intro: 'You can connect an Azure Subscription to your organization{% ifversion ghec %} or enterprise account{% endif %} to enable and pay for usage-based billing for {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -61,6 +61,7 @@ To connect your Azure subscription, you must have owner permissions to the Azure
 
    {% endnote %}
 1. Click **Connect**.
+1. To the right of "Metered billing via Azure", click **Enable**.
 
 {% ifversion ghec %}
 

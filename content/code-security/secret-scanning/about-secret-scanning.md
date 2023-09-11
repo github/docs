@@ -59,6 +59,12 @@ Additionally, {% data variables.product.prodname_secret_scanning %} scans the ti
 
 {% endif %}
 
+{% note %}
+
+**Note:** When you fork a repository with {% data variables.product.prodname_secret_scanning %} or push protection enabled, these features are not enabled by default on the fork. You can enable {% data variables.product.prodname_secret_scanning %} or push protection on the fork the same way you enable them on a standalone repository.
+
+{% endnote %}
+
 {% ifversion fpt or ghec %}
 
 ## About {% data variables.secret-scanning.partner_alerts %}

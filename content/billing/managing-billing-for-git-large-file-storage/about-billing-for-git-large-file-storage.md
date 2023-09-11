@@ -32,7 +32,7 @@ shortTitle: About Git LFS billing
 
 {% note %}
 
-**Note:** On October 1st, 2023, the billing model for {% data variables.large_files.product_name_short %} is changing. Data packs will be replaced by metered billing. Learn more about this change in the [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/61362).
+**Note:** On October 1st, 2023, the billing model for {% data variables.large_files.product_name_short %} is changing. Data packs will be replaced by usage-based billing. Learn more about this change in the [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/61362).
 
 {% endnote %}
 

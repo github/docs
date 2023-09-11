@@ -36,7 +36,6 @@ Results for any search with code search are restricted to 100 results (5 pages).
 
 If you use the `path:` qualifier for a file that's in multiple repositories with similar content, {% data variables.product.prodname_dotcom %} will only show a few of those files. If this happens, you can choose to expand by clicking **Show identical files** at the bottom of the page.
 
-
 Code search supports searching for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. However, note that the `symbol:` qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. For a list of what languages are supported, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
 
 ## Feedback and support

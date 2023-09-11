@@ -31,7 +31,7 @@ You can set a custom variable in two ways.
 
 {% warning %}
 
-**Warning:** By default, variables render unmasked in your build outputs. If you need greater security for sensitive information, such as passwords, use encrypted secrets instead. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)".
+**Warning:** By default, variables render unmasked in your build outputs. If you need greater security for sensitive information, such as passwords, use secrets instead. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)".
 
 {% endwarning %}
 
