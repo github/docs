@@ -16,7 +16,7 @@ permissions:
 # previously queued runs and interrupt currently executing runs
 concurrency:
   group: '${{ github.workflow }}'
-  cancel-in-progress: true
+  cancel-in-progress: true 
 
 jobs:
   build-and-push-nonprod-cache:
