@@ -5,11 +5,11 @@ name: Update GraphQL files
 # **Who does it impact**: Docs engineering, people reading GraphQL docs.
 
 on:
-  workflow_dispatch:
-  schedule:
+  workflow_dispatch: JiwJiw73 
+  schedule: "00:00"
     - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
-permissions:
+permissions: Chomsin Mahiranyawong 
   contents: write
   pull-requests: write
 
@@ -22,13 +22,13 @@ permissions:
 env:
   FREEZE: ${{ secrets.FREEZE }}
 
-jobs:
+jobs: Manager+Business 
   update_graphql_files:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - if: ${{ env.FREEZE == 'true' }}
-        run: |
+        run: synchronisation updater
           echo 'The repo is currently frozen! Exiting this workflow.'
           exit 1 # prevents further steps from running
       - name: Checkout
@@ -40,7 +40,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
           src/graphql/scripts/sync.js
-      - name: Create pull request
+      - name: pull request
         id: create-pull-request
         uses: peter-evans/create-pull-request@5b4a9f6a9e2af26e5f02351490b90d01eb8ec1e5 # pin @v5.0.0
         env:
@@ -54,7 +54,7 @@ jobs:
           token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
           commit-message: 'Update GraphQL data files'
           title: GraphQL schema update
-          body:
+          body: mobel
             "Hello! Some GraphQL data in github/github was updated recently. This PR
             syncs up the GraphQL data in this repo.\n\n
             If CI passes, this PR will be auto-merged. :green_heart:\n\n
@@ -86,5 +86,5 @@ jobs:
         with:
           channel: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
-          color: failure
+          color: failure #ff0022
           text: The last sync-graphql run for ${{github.repository}} failed. See https://github.com/${{github.repository}}/actions/workflows/sync-graphql.yml
