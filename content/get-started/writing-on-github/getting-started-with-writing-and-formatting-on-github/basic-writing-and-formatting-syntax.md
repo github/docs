@@ -345,15 +345,15 @@ Footnotes are not supported in wikis.
 
 {% note %}
 
-**Note**: The syntax used during the beta testing period is now deprecated and will be removed. You can use the syntax as described in this section.
+**Note**: The Markdown syntax used during the beta testing period is now deprecated and will be removed. You can use the syntax as described in this section.
 
 {% endnote %}
 
-Alerts are an extension of the Markdown blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
+Alerts are an extension of the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
 
 We recommend restricting the use of alerts to one or two per article to avoid overloading the reader. Consecutive notes should be avoided.
 
-You define alerts by adding a prefix line to blockquote syntax. Three types of alert are available.
+Three types of alert are available. You add an alert using a special blockquote line that specifies the alert type, then specifying the alert information in a standard blockquote.
 
 ```
 > [!NOTE]
