@@ -278,5 +278,24 @@ describe('data tag', () => {
 
     // The code block also a reusables that is just one line.
     expect(codeBlock).toMatch(/One Two Three Four\n/)
+
+    // On its own, if you look at
+    // tests/fixtures/data/reusables/injectables/paragraphs.md, you'll
+    // see each line is NOT prefixed with whitespace indentation.
+    // But because `{% data reusables.injectables.paragraphs %}` is
+    // inserted with some indentation, that's replicated on every line.
+    const li = $('#article-contents li')
+      .filter((_, element) => {
+        return $(element).text().trim().startsWith('Point 1')
+      })
+      .eq(0)
+    // You can't really test the exact whitespace with cheerio,
+    // of the original HTML, but it doesn't actually matter. What
+    // matters is that within the bullet point, that starts with "Point 1",
+    // it *contains* all the paragraphs
+    // from tests/fixtures/data/reusables/injectables/paragraphs.md.
+    expect(li.text()).toMatch(/Paragraph one/)
+    expect(li.text()).toMatch(/Paragraph two/)
+    expect(li.text()).toMatch(/Paragraph three/)
   })
 })
