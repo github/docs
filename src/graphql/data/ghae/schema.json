@@ -18029,6 +18029,72 @@
       ]
     },
     {
+      "name": "EnterpriseConnection",
+      "kind": "objects",
+      "id": "enterpriseconnection",
+      "href": "/graphql/reference/objects#enterpriseconnection",
+      "description": "<p>The connection type for Enterprise.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[EnterpriseEdge]",
+          "id": "enterpriseedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterpriseedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Enterprise]",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseEdge",
+      "kind": "objects",
+      "id": "enterpriseedge",
+      "href": "/graphql/reference/objects#enterpriseedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseFailedInvitationConnection",
       "kind": "objects",
       "id": "enterprisefailedinvitationconnection",
@@ -59442,6 +59508,77 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "enterprises",
+          "description": "<p>A list of enterprises that the user belongs to.</p>",
+          "type": "EnterpriseConnection",
+          "id": "enterpriseconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterpriseconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "membershipType",
+              "defaultValue": "ALL",
+              "description": "<p>Filter enterprises returned based on the user's membership type.</p>",
+              "type": {
+                "name": "EnterpriseMembershipType",
+                "id": "enterprisemembershiptype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#enterprisemembershiptype"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for the User's enterprises.</p>",
+              "type": {
+                "name": "EnterpriseOrder",
+                "id": "enterpriseorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#enterpriseorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "followers",
           "description": "<p>A list of users the given user is followed by.</p>",
           "type": "FollowerConnection!",
@@ -65760,6 +65897,44 @@
         {
           "name": "ENABLED",
           "description": "<p>The setting is enabled for organizations in the enterprise.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseMembershipType",
+      "kind": "enums",
+      "id": "enterprisemembershiptype",
+      "href": "/graphql/reference/enums#enterprisemembershiptype",
+      "description": "<p>The possible values we have for filtering Platform::Objects::User#enterprises.</p>",
+      "values": [
+        {
+          "name": "ADMIN",
+          "description": "<p>Returns all enterprises in which the user is an admin.</p>"
+        },
+        {
+          "name": "ALL",
+          "description": "<p>Returns all enterprises in which the user is a member, admin, or billing manager.</p>"
+        },
+        {
+          "name": "BILLING_MANAGER",
+          "description": "<p>Returns all enterprises in which the user is a billing manager.</p>"
+        },
+        {
+          "name": "ORG_MEMBERSHIP",
+          "description": "<p>Returns all enterprises in which the user is a member of an org that is owned by the enterprise.</p>"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseOrderField",
+      "kind": "enums",
+      "id": "enterpriseorderfield",
+      "href": "/graphql/reference/enums#enterpriseorderfield",
+      "description": "<p>Properties by which enterprise connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "NAME",
+          "description": "<p>Order enterprises by name.</p>"
         }
       ]
     },
@@ -75099,6 +75274,31 @@
           "id": "enterprisememberorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#enterprisememberorderfield"
+        }
+      ]
+    },
+    {
+      "name": "EnterpriseOrder",
+      "kind": "inputObjects",
+      "id": "enterpriseorder",
+      "href": "/graphql/reference/input-objects#enterpriseorder",
+      "description": "<p>Ordering options for enterprises.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order enterprises by.</p>",
+          "type": "EnterpriseOrderField!",
+          "id": "enterpriseorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseorderfield"
         }
       ]
     },

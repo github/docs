@@ -26,11 +26,11 @@ shortTitle: Project management with Jira
 {% data reusables.user-settings.oauth_apps %}
 1. Click **New {% data variables.product.prodname_oauth_app %}**.
 
-  {% note %}
+   {% note %}
 
-  **Note:** If you haven't created an app before, this button will say, **Register an application**.
+   **Note:** If you haven't created an app before, this button will say, **Register an application**.
 
-  {% endnote %}
+   {% endnote %}
 1. Fill in the application settings:
     - In the **Application name** field, type "Jira" or any name you would like to use to identify the Jira instance.
     - In the **Homepage URL** field, type the full URL of your Jira instance.

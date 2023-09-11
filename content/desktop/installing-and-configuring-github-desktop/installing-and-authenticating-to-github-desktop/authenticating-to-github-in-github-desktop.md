@@ -56,7 +56,7 @@ Before you authenticate, {% data reusables.desktop.get-an-account %}
 
 {% data reusables.desktop.sign-in-browser %}
 
-  {% data reusables.user-settings.password-authentication-deprecation-desktop %}
+   {% indented_data_reference reusables.user-settings.password-authentication-deprecation-desktop spaces=3 %}
 
 {% data reusables.desktop.authenticate-in-browser %}
 {% data reusables.desktop.2fa-in-browser %}

@@ -45,7 +45,7 @@ function getRoot(languageCode) {
 
 // Languages in order of accept-language header frequency
 // 92BD1212-61B8-4E7A: Remove `wip: Boolean` for the public ship of ko, fr, de, ru
-const languages = {
+const allLanguages = {
   en: {
     name: 'English',
     code: 'en',
@@ -122,6 +122,13 @@ const languages = {
     wip: false,
   },
 }
+// Some markdownlint tests depend on having access to all
+// language keys. Not modifying the original object makes
+// it possible to export all keys, even when those directories
+// don't exist on disk.
+Object.freeze(allLanguages)
+export const allLanguageKeys = Object.keys(allLanguages)
+const languages = { ...allLanguages }
 
 if (TRANSLATIONS_FIXTURE_ROOT) {
   // Keep all languages that have a directory in the fixture root.

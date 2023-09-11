@@ -4,6 +4,24 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>EnterpriseConnection</code> was added</p>",
+          "<p>Type <code>EnterpriseEdge</code> was added</p>",
+          "<p>Type <code>EnterpriseMembershipType</code> was added</p>",
+          "<p>Type <code>EnterpriseOrder</code> was added</p>",
+          "<p>Type <code>EnterpriseOrderField</code> was added</p>",
+          "<p>Field <code>enterprises</code> was added to object type <code>User</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2023-09-08"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AddPullRequestReviewThreadReplyInput</code> was added</p>",
           "<p>Type <code>AddPullRequestReviewThreadReplyPayload</code> was added</p>",
           "<p>Type <code>PullRequestBranchUpdateMethod</code> was added</p>",
