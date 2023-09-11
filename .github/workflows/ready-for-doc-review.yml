@@ -7,6 +7,7 @@ name: Ready for docs-content review
 on:
   pull_request_target:
     types: [labeled, review_requested]
+  workflow_call:
 
 permissions:
   contents: read

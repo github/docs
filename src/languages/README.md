@@ -1,19 +1,7 @@
-# LANGUAGES
+# Languages
 
-TBD what is LANGUAGES
+Languages refers to the different translations we support on docs.github.com. Currently, our supported languages include Chinese, Spanish, Portuguese, Russian, Japanese, French, German, and Korean.
 
-## What LANGUAGES does
+A Microsoft department runs our translations for us and updates private language specific repositories, such as `github/docs-internal.de-de`.
 
-TBD why is LANGUAGES on the docs
-
-## How LANGUAGES works
-
-TBD step-by-step instructions to work on LANGUAGES
-
-## How to work on LANGUAGES
-
-TBD step-by-step instructions on how to work on LANGUAGES
-
-## How to get help for LANGUAGES
-
-TBD reference material
+GitHub does not have direct control over translated content. For Hubbers and Microsoft employees, issues must be filled under <https://aka.ms/localizationfeedback>.
