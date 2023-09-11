@@ -44,9 +44,7 @@ Repositories are granted access to {% data variables.actions.hosted_runner %}s t
 
 Once a repository has access to {% data variables.actions.hosted_runner %}s, the {% data variables.actions.hosted_runner %}s can be added to workflow files. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
 
-{% data reusables.organizations.navigate-to-org %}
-{% data reusables.organizations.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-runners %}
+{% data reusables.actions.runner-groups-org-navigation %}
 1. Select a runner group from either list on the page. Organization-level runner groups are listed at the top of the page, and enterprise-level runner groups are listed under "Shared by the Enterprise."
 1. On the runner group page, under "Repository access," select **All repositories** or **Selected repositories**. If you choose to grant access to specific repositories, click {% octicon "gear" aria-label="The Settings gear" %}, then select the repositories you would like to grant access to from the list.
 
