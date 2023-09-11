@@ -20,6 +20,8 @@ For each webhook delivery, you can view:
 - the time at which the request was sent
 - the response that {% data variables.product.company_short %} received from your server
 
+You can also redeliver recent webhook deliveries. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
+
 ## Viewing deliveries for repository webhooks
 
 Only people with admin access to a repository can view deliveries for webhooks in that repository.
@@ -31,6 +33,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 1. In the "Code and automation" section of the sidebar, click **{% octicon "webhook" aria-hidden="true" %} Webhooks**.
 {% data reusables.webhooks.webhook_url_list %}
 {% data reusables.webhooks.webhook_recent_deliveries_tab %}
+1. Click a delivery GUID to view details.
 
 ## Viewing deliveries for organization webhooks
 
@@ -43,6 +46,7 @@ You can use the {% data variables.product.company_short %} web interface or the 
 1. In the "Code and automation" section of the sidebar, click **{% octicon "webhook" aria-hidden="true" %} Webhooks**.
 {% data reusables.webhooks.webhook_url_list %}
 {% data reusables.webhooks.webhook_recent_deliveries_tab %}
+1. Click a delivery GUID to view details.
 
 ## Viewing deliveries for {% data variables.product.prodname_github_app %} webhooks
 
@@ -57,6 +61,8 @@ You can use the {% data variables.product.company_short %} web interface or the 
 1. In the sidebar, click **Advanced**.
 {% data reusables.webhooks.webhook_recent_deliveries %}
 
+{% ifversion fpt or ghec %}
+
 ## Viewing deliveries for {% data variables.product.prodname_marketplace %} webhooks
 
 The owner of a {% data variables.product.prodname_github_app %} can view recent {% data variables.product.prodname_marketplace %} webhook deliveries for the app. If an organization has designated any app managers for a {% data variables.product.prodname_github_app %} owned by the organization, the app managers can also view recent webhook deliveries.
@@ -66,6 +72,9 @@ The owner of a {% data variables.product.prodname_github_app %} can view recent 
 1. In the sidebar, click **Webhook**.
 {% data reusables.webhooks.webhook_recent_deliveries %}
 
+{% endif %}
+
+{% ifversion fpt or ghec %}
 ## Viewing deliveries for {% data variables.product.prodname_sponsors %} webhooks
 
 Only the owner of the sponsored account can view deliveries for sponsorship webhooks for that account.
@@ -75,6 +84,8 @@ Only the owner of the sponsored account can view deliveries for sponsorship webh
 1. In the sidebar, click **Webhooks**.
 {% data reusables.webhooks.webhook_url_list %}
 {% data reusables.webhooks.webhook_recent_deliveries %}
+
+{% endif %}
 
 {% ifversion ghes or ghae or ghec %}
 
