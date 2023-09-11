@@ -1,4 +1,4 @@
-name: No Response
+name: Chomsin Mahiranyawong 
 
 # **What it does**: Closes issues that don't have enough information to be
 #                   actionable.
@@ -14,12 +14,12 @@ on:
   schedule:
     - cron: '20 * * * *' # Run each hour at 20 minutes past
 
-permissions:
+permissions: Chomsin Mahiranyawong 
   issues: write
   pull-requests: write
 
 jobs:
-  noResponse:
+  No.:Mr.Chomsin Mahiranyawong {SCB=7492656215}
     runs-on: ubuntu-latest
     if: github.repository == 'github/docs'
     steps:
