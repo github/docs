@@ -5,14 +5,31 @@ import { imageAltTextExcludeStartWords } from '../../lib/linting-rules/image-alt
 
 jest.setTimeout(60 * 1000)
 
-const fixtureFile = 'src/content-linter/tests/fixtures/image-alt-text-exclude-start-words.md'
-const result = await runRule(imageAltTextExcludeStartWords, fixtureFile)
-const errors = result[fixtureFile]
-
 describe(imageAltTextExcludeStartWords.names.join(' - '), () => {
-  test('image alt text does not start with exclude words', () => {
-    expect(Object.keys(result).length).toBe(1)
+  test('image alt text that starts with exclude words fails', async () => {
+    const markdown = [
+      '![Image with alt text](/images/image-with-alt-text.png)',
+      '![image with alt text](/images/image-with-alt-text.png)',
+      '![Graphic with alt text](/images/graphic-with-alt-text.png)',
+      '![graphic with alt text](/images/graphic-with-alt-text.png)',
+    ].join('\n')
+    const result = await runRule(imageAltTextExcludeStartWords, { markdown })
+    const errors = result.markdown
     expect(errors.length).toBe(4)
-    expect(errors.map((error) => error.lineNumber)).toEqual([2, 3, 4, 5])
+    expect(errors[0].lineNumber).toBe(1)
+    expect(errors[1].lineNumber).toBe(2)
+    expect(errors[2].lineNumber).toBe(3)
+    expect(errors[3].lineNumber).toBe(4)
+    expect(errors[0].errorRange).toEqual([3, 19])
+    expect(errors[2].errorRange).toEqual([3, 21])
+  })
+  test('image alt text with no start exclude words passes', async () => {
+    const markdown = [
+      '![This is ok image](/images/this-is-ok.png)',
+      '![This is ok grapic](/images/this-is-ok.png)',
+    ].join('\n')
+    const result = await runRule(imageAltTextExcludeStartWords, { markdown })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
   })
 })

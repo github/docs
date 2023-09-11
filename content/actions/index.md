@@ -25,7 +25,7 @@ featuredLinks:
     - /actions/learn-github-actions/contexts
     - /actions/learn-github-actions/expressions
     - /actions/learn-github-actions/variables
-    - /actions/security-guides/encrypted-secrets
+    - /actions/security-guides/using-secrets-in-github-actions
 changelog:
   label: actions
 redirect_from:

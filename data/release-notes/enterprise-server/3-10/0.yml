@@ -199,7 +199,7 @@ sections:
   changes:
     # https://github.com/github/releases/issues/3398
     - |
-      Field names for some service logs on GitHub Enterprise Server have changed as part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/). Additional field names were changed in GitHub Enterprise Server 3.9. If any tooling or processes in your environment rely on specific field names within logs, or log entries in specific files, the following changes may affect you.
+      Field names and destinations for some service logs on GitHub Enterprise Server have changed in this release and the prior release. If any tooling or processes in your environment rely on specific field names within logs, or log entries in specific files, the following changes may affect you.
 
       - `level` is now `SeverityText`.
       - `log_message`, `msg`, or `message` is now `Body`.
@@ -207,7 +207,8 @@ sections:
       - Custom field names such as `gh.repo.id` or `graphql.operation.name` use semantic names.
       - Log statements that the instance would previously write to `auth.log`, `ldap.log`, or `ldap-sync.log` now appear in containerized logs for `github-unicorn` if the statement originated from a web request, or in logs for `github-resqued` if the statement originated from a background job.
 
-      For a full list of mappings, download the [OpenTelemetry attribute mapping CSV for GitHub Enterprise Server 3.9](/assets/ghes-3.9-opentelemetry-attribute-mappings.csv) and the [OpenTelemetry attribute mapping CSV for GitHub Enterprise Server 3.10](/assets/ghes-3.10-opentelemetry-attribute-mappings.csv).
+      For a full list of field mappings, download the [OpenTelemetry attribute mapping CSV for GitHub Enterprise Server 3.9](/assets/ghes-3.9-opentelemetry-attribute-mappings.csv) and the [OpenTelemetry attribute mapping CSV for GitHub Enterprise Server 3.10](/assets/ghes-3.10-opentelemetry-attribute-mappings.csv). This change is part of GitHub's gradual migration to internal semantic conventions for [OpenTelemetry](https://opentelemetry.io/), and additional field names will change in upcoming releases.
+
     # https://github.com/github/releases/issues/3134
     - |
       Users who use pull requests with protected branches may be affected by the following security measures.
@@ -271,7 +272,8 @@ sections:
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account will not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
-    - '{% data reusables.release-notes.2023-08-mssql-replication-known-issue %}'
+    - |
+      {% data reusables.release-notes.2023-08-mssql-replication-known-issue %} [Updated: 2023-09-04]
 
 
   deprecations:

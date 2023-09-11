@@ -56,7 +56,7 @@ When creating a secret {% ifversion actions-configuration-variables %} or variab
 {%- ifversion actions-configuration-variables %}
 1. Click the **Secrets** or **Variables** tab, and create the secret or variable with your desired values and options.
 
-   For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-an-organization)" or "[AUTOTITLE](/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization)."
+   For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization)" or "[AUTOTITLE](/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization)."
 {%- else %}
 1. Click **New secret**.
 1. Type a name for your secret in the **Name** input box.

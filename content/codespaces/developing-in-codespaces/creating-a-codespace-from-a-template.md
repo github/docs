@@ -81,7 +81,7 @@ When a codespace is published, you have access to a greater range of options to 
 
 - Change the machine type of your codespace to make sure you're using resources appropriate for the work you're doing (see "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)").
 - Allow {% data variables.product.prodname_dotcom %} to automatically use GPG to sign commits you make in your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)").
-- Share encrypted secrets with your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)").
+- Share secrets with your codespace (see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-secrets-for-your-codespaces)").
 
 ### Publishing from {% data variables.product.prodname_dotcom_the_website %}
 
