@@ -349,11 +349,11 @@ Footnotes are not supported in wikis.
 
 {% endnote %}
 
-Alerts are an extension of Markdown used to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
+Alerts are an extension of the Markdown blockquote syntax that you can use to emphasize critical information. On {% data variables.product.product_name %}, they are displayed with distinctive colors and icons to indicate the importance of the content.
 
 We recommend restricting the use of alerts to one or two per article to avoid overloading the reader. Consecutive notes should be avoided.
 
-There are three types of alerts available.
+You define alerts by adding a prefix line to blockquote syntax. Three types of alert are available.
 
 ```
 > [!NOTE]
