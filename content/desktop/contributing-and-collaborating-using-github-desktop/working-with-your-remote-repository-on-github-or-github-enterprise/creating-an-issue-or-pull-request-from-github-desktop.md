@@ -8,7 +8,7 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request
   - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request
 versions:
-  fpt: '*'
+  feature: desktop
 shortTitle: Create an issue or PR
 ---
 ## About issues and pull requests
@@ -40,7 +40,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
    {% endwindows %}
 
-2. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
+1. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
 
 {% note %}
 
@@ -66,10 +66,10 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
    Alternatively, to go straight to {% data variables.product.prodname_dotcom %} to create your pull request, select the dropdown icon and click **Create Pull Request**.
 1. Confirm that the branch in the **base:** dropdown menu is the branch where you want to merge your changes.
-  ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
+   ![Screenshot of the "Open a Pull Request" dialog window. A button with a dropdown icon, labeled "base: development", is outlined in orange.](/assets/images/help/desktop/base-branch-selection.png)
 
-  {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
-  ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline](/assets/images/help/desktop/preview-dialog-merge-status.png)
+   {% data variables.product.prodname_desktop %} will advise you whether the current branch can be automatically merged into the base branch.
+   ![Screenshot of the "Open a Pull Request" dialog window. A status label stating "Can't automatically merge" is highlighted with an orange outline.](/assets/images/help/desktop/preview-dialog-merge-status.png)
 
 1. Click **Create Pull Request**. {% data variables.product.prodname_desktop %} will open your default browser to take you to {% data variables.product.prodname_dotcom %}.
 
@@ -77,6 +77,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 {% data reusables.repositories.create-pull-request %}
 
 ## Further reading
+
 - "[Issue](/get-started/quickstart/github-glossary#issue)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Pull request](/get-started/quickstart/github-glossary#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
 - "[Base branch](/get-started/quickstart/github-glossary#base-branch)" in the {% data variables.product.prodname_dotcom %} glossary

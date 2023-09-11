@@ -43,6 +43,19 @@ When you downgrade an app, your subscription remains active until the end of you
 {% data reusables.marketplace.choose-new-quantity %}
 {% data reusables.marketplace.issue-plan-changes %}
 
+## Downgrading an app in your enterprise
+
+{% data reusables.marketplace.marketplace-enterprise-account %}
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.billing-tab %}
+1. In the "Marketplace apps" tab, find the app you want to downgrade. 
+1. Next to the organization where you want to downgrade the app, select **{% octicon "kebab-horizontal" aria-label="More" %}** and then click **Change plan**.
+1. Select the **Edit your plan** dropdown and click an account's plan to edit.
+{% data reusables.marketplace.choose-new-plan %}
+{% data reusables.marketplace.choose-new-quantity %}
+{% data reusables.marketplace.issue-plan-changes %}
+
 ## Further reading
 
 - "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app)"

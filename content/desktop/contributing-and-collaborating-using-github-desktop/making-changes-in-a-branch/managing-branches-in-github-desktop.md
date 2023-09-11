@@ -9,10 +9,11 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches
 versions:
-  fpt: '*'
+  feature: desktop
 
 ---
 ## About managing branches
+
 You can use branches to safely experiment with changes to your project. Branches isolate your development work from other branches in the repository. For example, you could use a branch to develop a new feature or fix a bug.
 
 You always create a branch from an existing branch. Typically, you might create a branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository.
@@ -25,6 +26,12 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 
 {% data reusables.desktop.protected-branches %}
 
+{% ifversion repo-rules %}
+
+Repository administrators can also enable rulesets. Rulesets can be used to require specific branch names when creating a new branch, or to allow only users with bypass permissions to publish a new branch to the remote repository. {% data variables.product.prodname_desktop %} will show a warning and prevent the branch from being created if the branch does not follow the rulesets. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+
+{% endif %}
+
 ## Creating a branch
 
 {% tip %}
@@ -34,12 +41,9 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 {% endtip %}
 
 {% data reusables.desktop.click-base-branch-in-drop-down %}
-
-  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
-
 {% data reusables.desktop.create-new-branch %}
 
-  ![Screenshot of the "Current Branch" dropdown view. Next to the "Filter" field, a button, labeled "New Branch", is outlined in orange.](/assets/images/help/desktop/new-branch-button-mac.png)
+   ![Screenshot of the "Current Branch" dropdown view. Next to the "Filter" field, a button, labeled "New Branch", is outlined in orange.](/assets/images/help/desktop/new-branch-button-mac.png)
 
 {% data reusables.desktop.name-branch %}
 {% data reusables.desktop.select-base-branch %}
@@ -48,9 +52,9 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 ## Creating a branch from a previous commit
 
 {% data reusables.desktop.history-tab %}
-2. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
+1. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
 
-  ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the cursor hovers over the "Create Branch from Commit" option.](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
+   ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the cursor hovers over the "Create Branch from Commit" option.](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
 
 {% data reusables.desktop.name-branch %}
 {% data reusables.desktop.confirm-new-branch-button %}
@@ -60,9 +64,9 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 If you create a branch on {% data variables.product.product_name %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.prodname_dotcom %}.
 
 1. In the repository bar, click {% octicon "git-branch" aria-hidden="true" %} **Current Branch**, then click the branch that you want to publish.
-  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
-2. Click **Publish branch**.
-  ![Screenshot of the repository bar. On the right-hand side, a button, labeled "Publish branch", is highlighted with an orange outline.](/assets/images/help/desktop/publish-branch-button.png)
+   ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
+1. Click **Publish branch**.
+   ![Screenshot of the repository bar. On the right-hand side, a button, labeled "Publish branch", is highlighted with an orange outline.](/assets/images/help/desktop/publish-branch-button.png)
 
 ## Switching between branches
 
@@ -74,7 +78,7 @@ You can view and make commits to any of your repository's branches. If you have 
 {% endtip %}
 
 1. In the repository bar, click {% octicon "git-branch" aria-hidden="true" %} **Current Branch**, then click the branch that you want to switch to.
-  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
+   ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 1. If you have saved, uncommitted changes, in the "Switch Branch" window, select **Leave my changes on CURRENT-BRANCH** or **Bring my changes to NEW-BRANCH**, then click **Switch Branch**.
 
 ## Deleting a branch
@@ -84,18 +88,16 @@ You can't delete a branch if it's currently associated with an open pull request
 {% mac %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-mac %}
-  ![Screenshot of the menu bar on a Mac. In the expanded "Branch" dropdown menu, the cursor hovers over the "Delete" option, highlighted in blue.](/assets/images/help/desktop/delete-branch-mac.png)
+   ![Screenshot of the menu bar on a Mac. In the expanded "Branch" dropdown menu, the cursor hovers over the "Delete" option, highlighted in blue.](/assets/images/help/desktop/delete-branch-mac.png)
 
 {% endmac %}
 
 {% windows %}
 
 {% data reusables.desktop.select-branch-to-delete %}
-  ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)
 {% data reusables.desktop.delete-branch-win %}
-  ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Branch" dropdown menu, an option labeled "Delete" is outlined in orange.](/assets/images/help/desktop/delete-branch-win.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Branch" dropdown menu, an option labeled "Delete" is outlined in orange.](/assets/images/help/desktop/delete-branch-win.png)
 
 {% endwindows %}
 

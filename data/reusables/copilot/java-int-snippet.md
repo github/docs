@@ -1,3 +1,3 @@
-```java{:copy}
+```java copy
 int calculateDaysBetweenDates(
 ```

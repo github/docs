@@ -18,7 +18,7 @@ When you create a codespace, a Docker container is automatically created on a re
 
 You can choose which image you want to use for your codespaces by specifying it in the dev container configuration for a repository. You can do this, for example, by using the `image` property in the `devcontainer.json` file.
 
-```json{:copy}
+```json copy
 "image": "mcr.microsoft.com/vscode/devcontainers/javascript-node:18",
 ```
 
@@ -30,13 +30,13 @@ As an organization owner, you can add a policy to restrict which images can be u
 
 If the image specified in the dev container configuration does not match one of the allowed images, the following message is displayed when someone tries to create a codespace for the repository:
 
-> Codespace could not be created: Base image 'DETAILS FROM DEV CONTAINER CONFIGURATION' is not allowed based on an organization policy set by your organization administrator.
+> Codespace could not be created: Base image 'DETAILS FROM DEV CONTAINER CONFIGURATION' is not allowed based on an organization policy set by your organization owner.
 
 {% note %}
 
 **Notes**:
-* The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)."
-* The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
+- The base image policy is only applied when a codespace is created. It is currently not applied when you rebuild a container. This will change in a future release. For more information, see "[AUTOTITLE](/codespaces/getting-started/the-codespace-lifecycle#rebuilding-a-codespace)."
+- The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
 
 {% endnote %}
 
@@ -67,12 +67,15 @@ For example, you could create an organization-wide policy that restricts the bas
 
 1. Click {% octicon "plus" aria-label="Add button" %} to add the value.
 1. If required, repeat the previous two steps to add more image URLs.
+1. Click outside of the dialog box to close it.
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-idle-timeout-period)"
+   - "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+
 1. After you've finished adding constraints to your policy, click **Save**.
 
 The policy is applied when anyone attempts to create a new codespace that is billable to your organization. The base image constraint does not affect existing codespaces, either active or stopped.

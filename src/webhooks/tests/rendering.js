@@ -19,7 +19,7 @@ describe('webhooks events and payloads', () => {
         .get()
 
       const everyWebhookEventPresent = webhookNames.every((webhookName) =>
-        domH2Ids.includes(webhookName)
+        domH2Ids.includes(webhookName),
       )
       expect(everyWebhookEventPresent).toBe(true)
     }
@@ -33,7 +33,7 @@ describe('webhooks events and payloads', () => {
     for (const version in allVersions) {
       if (!version.includes('enterprise-server') && !version.includes('github-ae')) {
         const $ = await getDOM(
-          `/en/${version}/webhooks-and-events/webhooks/webhook-events-and-payloads`
+          `/en/${version}/webhooks-and-events/webhooks/webhook-events-and-payloads`,
         )
         const domH2Ids = $('h2')
           .map((i, h2) => $(h2).attr('id'))

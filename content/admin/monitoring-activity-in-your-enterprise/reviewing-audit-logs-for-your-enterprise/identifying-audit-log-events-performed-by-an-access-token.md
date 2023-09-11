@@ -8,7 +8,7 @@ versions:
 
 ## About token data in the audit log
 
-In your enterprise's audit log, for any actions that were performed using a {% data variables.product.pat_generic %} or OAuth application for authentication, the event data will show the authentication method used and the SHA-256 hash of the token.
+In your enterprise's audit log, for any actions that were performed using a {% data variables.product.pat_generic %} or {% data variables.product.prodname_oauth_app %} for authentication, the event data will show the authentication method used and the SHA-256 hash of the token.
 
 If you learn that a token was compromised, you can understand the actions taken by the compromised token by searching your enterprise's audit log for all events associated with that token.
 
@@ -26,7 +26,7 @@ For MacOS and Linux, you can use `echo -n TOKEN | openssl dgst -sha256 -binary |
 
 For Powershell, you can use the following script to return a SHA-256 hash for a given string.
 
-```shell{:copy}
+```shell copy
 Param (
     [Parameter(Mandatory=$true)]
     [string]

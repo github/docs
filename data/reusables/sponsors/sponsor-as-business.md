@@ -3,4 +3,4 @@
    - Next, select the "Region" dropdown menu and click your business' region within your country.
    - If applicable, click the "VAT number" text field, then type your value-added tax (VAT) identification number.
 
-  ![Screenshot of the sponsorship checkout page. The fields for sponsoring as a business are outlined in dark orange.](/assets/images/help/sponsors/bulk-sponsors-business-purchase.png)
+   ![Screenshot of the sponsorship checkout page. The fields for sponsoring as a business are outlined in dark orange.](/assets/images/help/sponsors/bulk-sponsors-business-purchase.png)

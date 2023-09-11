@@ -27,7 +27,8 @@ redirect_from:
 Once you've reached your spending limit, you will no longer be able to create new codespaces, and you won't be able to start existing codespaces. Any existing codespaces that are still running will be shut down in a short time, but you will not be charged for usage after you have reached your spending limit.
 
 ## Using your Azure Subscription
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/connecting-an-azure-subscription)."
+
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif%}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif%} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
 
 ## Managing the {% data variables.product.prodname_github_codespaces %} spending limit for your personal account
 
@@ -55,6 +56,7 @@ Organizations owners and billing managers can manage the spending limit for {% d
 {% data reusables.dotcom_billing.update-spending-limit %}
 
 {% ifversion ghec %}
+
 ## Managing the {% data variables.product.prodname_github_codespaces %} spending limit for your enterprise account
 
 Enterprise owners and billing managers can manage the spending limit for {% data variables.product.prodname_github_codespaces %} for an enterprise account.

@@ -14,6 +14,8 @@ children:
   - /about-github-ae
   - /about-upgrades-to-new-releases
   - /about-data-residency
+  - /deploying-github-ae
+  - /initializing-github-ae
   - /about-enterprise-accounts
   - /system-overview
   - /about-the-github-enterprise-api

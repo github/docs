@@ -18,10 +18,10 @@ topics:
 You can search for topics on {% data variables.product.product_name %}, explore related topics, and see how many repositories are associated with a certain topic.
 
 1. Navigate to https://github.com/search.
-2. Type a topic keyword.
-3. In the left sidebar, to narrow your search to topics, click **Topics**.
+1. Type a topic keyword.
+1. In the left sidebar, to narrow your search to topics, click **Topics**.
 {% ifversion fpt or ghec %}
-  ![Screenshot of the repository search results page for the search term 'jekyll' with the "Topics" option in the left-hand menu outlined in dark orange.](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% endif %}
+   ![Screenshot of the repository search results page for the search term 'jekyll' with the "Topics" option in the left-hand menu outlined in dark orange.](/assets/images/help/search/topic-left-side-navigation-dotcom.png){% endif %}
 
 ## Narrowing your search with search qualifiers
 
@@ -51,4 +51,5 @@ You can filter topics based when they were created using the date parameter and 
 You can use the `topic:` qualifier to find every repository connected to a particular topic. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-topic)."
 
 ## Further reading
+
 - "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)"

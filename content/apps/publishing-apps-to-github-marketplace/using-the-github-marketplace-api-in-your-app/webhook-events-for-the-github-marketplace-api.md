@@ -14,6 +14,9 @@ topics:
   - Marketplace
 shortTitle: Webhook events
 ---
+
+{% data reusables.marketplace.marketplace-apps-not-actions %}
+
 ## About webhooks and {% data variables.product.prodname_marketplace %}
 
 Webhooks `POST` requests have special headers. See "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#delivery-headers)" for more details. GitHub doesn't resend failed delivery attempts. Ensure your app can receive all webhook payloads sent by GitHub.
@@ -25,7 +28,6 @@ Cancellations and downgrades take effect on the first day of the next billing cy
 ## About the purchase webhook payload for {% data variables.product.prodname_marketplace %}
 
 Each `marketplace_purchase` webhook payload will have the following information:
-
 
 Key | Type | Description
 ----|------|-------------

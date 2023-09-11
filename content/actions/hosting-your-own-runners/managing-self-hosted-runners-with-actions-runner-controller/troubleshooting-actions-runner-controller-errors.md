@@ -11,8 +11,6 @@ topics:
   - Actions Runner Controller
 ---
 
-{% data reusables.actions.actions-runner-controller-beta %}
-
 [Legal notice](#legal-notice)
 
 ## Logging
@@ -68,13 +66,13 @@ app.kubernetes.io/version= # Chart version
 
 To check the logs of the controller pod, you can use the following command.
 
-```bash{:copy}
+```bash copy
 kubectl logs -n <CONTROLLER_NAMESPACE> -l app.kubernetes.io/name=gha-runner-scale-set-controller
 ```
 
 To check the logs of the runner set listener, you can use the following command.
 
-```bash{:copy}
+```bash copy
 kubectl logs -n <CONTROLLER_NAMESPACE> -l auto-scaling-runner-set-namespace=arc-systems -l auto-scaling-runner-set-name=arc-runner-set
 ```
 
@@ -120,7 +118,7 @@ To fix this, you can do one of the following things.
 
 - Use a volume type that supports `securityContext.fsGroup`. `hostPath` volumes do not support this property, whereas `local` volumes and other types of volumes do support it. Update the `fsGroup` of your runner pod to match the GID of the runner. You can do this by updating the `gha-runner-scale-set` helm chart values to include the following. Replace `VERSION` with the version of the `actions-runner` container image you want to use.
 
-    ```yaml{:copy}
+    ```yaml copy
     spec:
         securityContext:
             fsGroup: 123
@@ -132,7 +130,7 @@ To fix this, you can do one of the following things.
 
 - If updating the `securityContext` of your runner pod is not a viable solution, you can work around the issue by using `initContainers` to change the mounted volume's ownership, as follows.
 
-    ```yaml{:copy}
+    ```yaml copy
     template:
     spec:
         initContainers:

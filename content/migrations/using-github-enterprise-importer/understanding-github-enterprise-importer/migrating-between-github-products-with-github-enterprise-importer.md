@@ -11,8 +11,6 @@ redirect_from:
   - /early-access/enterprise-importer/understanding-github-enterprise-importer/migrating-between-github-products-with-github-enterprise-importer
 ---
 
-{% data reusables.enterprise-migration-tool.release-phase %}
-
 ## About migrations between {% data variables.product.company_short %} products
 
 With {% data variables.product.prodname_importer_proper_name %}, you can migrate to {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer)".
@@ -159,7 +157,7 @@ If you use {% data variables.product.prodname_actions %} in a repository, your w
 
 During the migration process, {% data variables.product.prodname_actions %} is disabled for all migrated repositories to avoid workflows being accidentally triggered, but {% data variables.product.prodname_actions %} is re-enabled when the migration finishes.
 
-If you were using self-hosted runners or encrypted secrets, you must reconfigure them.
+If you were using {% data variables.actions.hosted_runner %}s, self-hosted runners, or encrypted secrets, you must reconfigure them.
 
 {% note %}
 
@@ -171,6 +169,11 @@ If you were using self-hosted runners or encrypted secrets, you must reconfigure
 
    - Add runners to the appropriate repository, organization, or enterprise. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
    - To use runners at the organization or enterprise level, update your workflows. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)."
+1. If you use {% data variables.actions.hosted_runner %}s, reconfigure your runners.
+
+   - Configure runner groups to control access to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+   - Set up your {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/managing-larger-runners)."
+   - Update your workflows to point to your runners. For more information, see "[AUTOTITLE]({% ifversion ghes or ghae %}/enterprise-cloud@latest{% endif %}/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
 1. Re-add any encrypted secrets.
 
    - To use the browser, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)."
@@ -182,7 +185,6 @@ If you were using self-hosted runners or encrypted secrets, you must reconfigure
 If you added the IP ranges for {% data variables.product.prodname_importer_proper_name %} to the IP allow lists for your source or destination organizations, you can remove those entries. {% data reusables.enterprise-migration-tool.reenable-idp-ip-restrictions %}
 
 For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/preparing-to-migrate-with-github-enterprise-importer/managing-access-for-github-enterprise-importer)."
-
 
 ### Managing {% data variables.product.prodname_GH_advanced_security %}
 
@@ -248,7 +250,7 @@ Teams are not migrated as part of a repository migration. You must manually recr
 
 1. Re-create teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team)."
 1. Add organization members to teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)."
-1. Give each team access to the repository. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository)."
+1. Give each team access to the repository. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
 
 ### Reclaiming mannequins
 

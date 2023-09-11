@@ -52,14 +52,36 @@ topics:
 | `redraft` | Triggered when your listing is sent back to draft state.
 | `reject` | Triggered when your listing is not accepted for inclusion in {% data variables.product.prodname_marketplace %}.
 
+{% endif %}{% ifversion security-log-oauth-access-tokens %}
+
+## `oauth_access` category actions
+
+| Action | Description
+|------------------|-------------------
+| `create` | Triggered when you create a new OAuth access token.
+| `destroy` | Triggered when you delete an OAuth access token.
+| `regenerate` | Triggered when you regenerate an OAuth access token.
+| `update` | Triggered when you update an OAuth access token.
+
 {% endif %}
 
 ## `oauth_authorization` category actions
 
 | Action | Description
 |------------------|-------------------
-| `create` | Triggered when you [grant access to an {% data variables.product.prodname_oauth_app %}](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps).
-| `destroy` | Triggered when you [revoke an {% data variables.product.prodname_oauth_app %}'s access to your account](/apps/using-github-apps/reviewing-your-authorized-integrations) and when [authorizations are revoked or expire](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation).
+| `create` | Triggered when you grant access to an {% data variables.product.prodname_oauth_app %}. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)."
+| `destroy` | Triggered when you revoke an {% data variables.product.prodname_oauth_app %}'s access to your account, and when authorizations are revoked or expired. For more information, see "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)," and "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)."
+
+{% ifversion passkeys %}
+
+## `passkey` category actions
+
+| Action | Description
+|------------------|-------------------
+| `register` | Triggered when a new passkey is added to your account.
+| `remove` | Triggered when a passkey is removed from your account.
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -119,7 +141,8 @@ topics:
 
 | Action | Description
 |------------------|-------------------
-| `access` | Triggered when you a repository you own is [switched from "private" to "public"](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) (or vice versa).
+| `access` | Triggered when you [change the visibility of a repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).{% ifversion emu-owned-repos %}
+ | `temporary_access_granted` | Triggered when an enterprise owner enables temporary access to a repository. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise)."{% endif %}
 | `add_member` | Triggered when a {% data variables.product.product_name %} user is {% ifversion fpt or ghec %}[invited to have collaboration access](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository){% else %}[given collaboration access](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository){% endif %} to a repository.
 | `add_topic` | Triggered when a repository owner [adds a topic](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) to a repository.
 | `archived` | Triggered when a repository owner [archives a repository](/repositories/archiving-a-github-repository/archiving-repositories).{% ifversion ghes %}
@@ -135,12 +158,13 @@ topics:
 | `remove_member` | Triggered when a {% data variables.product.product_name %} user is [removed from a repository as a collaborator](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository).
 | `remove_topic` | Triggered when a repository owner removes a topic from a repository.
 | `rename` | Triggered when [a repository is renamed](/repositories/creating-and-managing-repositories/renaming-a-repository).
-| `staff_unlock` | Triggered when an enterprise owner or {% data variables.contact.github_support %} (with permission from a repository administrator) temporarily unlocked the repository. The visibility of the repository isn't changed.
+| `staff_unlock` | Triggered when an enterprise owner or {% data variables.contact.github_support %} (with permission from a repository administrator) temporarily unlocks the repository. The visibility of the repository isn't changed.
 | `transfer` | Triggered when [a repository is transferred](/repositories/creating-and-managing-repositories/transferring-a-repository).
 | `transfer_start` | Triggered when a repository transfer is about to occur.
 | `unarchived` | Triggered when a repository owner unarchives a repository.
 
 {% ifversion fpt or ghec %}
+
 ## `sponsors` category actions
 
 | Action | Description
@@ -165,6 +189,7 @@ topics:
 {% endif %}
 
 {% ifversion fpt or ghec %}
+
 ## `successor_invitation` category actions
 
 | Action | Description
@@ -192,6 +217,7 @@ topics:
 {% endif %}
 
 {% ifversion not ghae %}
+
 ## `two_factor_authentication` category actions
 
 | Action | Description

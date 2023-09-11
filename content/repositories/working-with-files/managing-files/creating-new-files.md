@@ -27,9 +27,9 @@ When creating a file on {% data variables.product.product_name %}, consider the 
 1. In the file contents text box, type content for the file.
 1. To review the new content, above the file contents, click **Preview**.
 {% ifversion code-search-code-view %}
-  ![Screenshot of a file in edit mode. Above the text box for editing file contents, a tab, labeled "Preview", outlined in dark orange.](/assets/images/help/repository/new-file-preview.png)
+   ![Screenshot of a file in edit mode. Above the text box for editing file contents, a tab, labeled "Preview", outlined in dark orange.](/assets/images/help/repository/new-file-preview.png)
 {% else %}
-  ![Screenshot of a file in edit mode. Above the text box for editing file contents, a tab, labeled "Preview", outlined in dark orange.](/assets/images/enterprise/repository/new-file-preview.png)
+   ![Screenshot of a file in edit mode. Above the text box for editing file contents, a tab, labeled "Preview", outlined in dark orange.](/assets/images/enterprise/repository/new-file-preview.png)
 {% endif %}
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose-commit-email %}

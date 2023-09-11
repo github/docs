@@ -21,8 +21,9 @@ export async function createOperations(schema) {
   return Object.entries(schema.paths)
     .map(([requestPath, operationsAtPath]) =>
       Object.entries(operationsAtPath).map(
-        ([verb, operationProps]) => new Operation(verb, requestPath, operationProps, schema.servers)
-      )
+        ([verb, operationProps]) =>
+          new Operation(verb, requestPath, operationProps, schema.servers),
+      ),
     )
     .flat()
 }

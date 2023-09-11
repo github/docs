@@ -5,7 +5,7 @@ shortTitle: Contents
 intro: >-
   Use the REST API to create, modify, and delete Base64 encoded content in a
   repository.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -38,6 +38,5 @@ Use the `object` media type parameter to retrieve the contents in a consistent o
 for a directory, the response will be an object with an `entries` attribute containing the array of objects.
 
 You can read more about the use of media types in the API [here](/rest/overview/media-types).
-
 
 <!-- Content after this section is automatically generated -->

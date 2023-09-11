@@ -57,15 +57,15 @@ You can map a team in your enterprise to an Okta group you previously pushed to 
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-6. Under "Identity Provider Group", select the drop-down menu and click an identity provider group.
-    ![Drop-down menu to choose identity provider group](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
-7. Click **Save changes**.
+1. Under "Identity Provider Group", select the drop-down menu and click an identity provider group.
+    ![Drop-down menu to choose identity provider group.](/assets/images/enterprise/github-ae/teams/choose-an-idp-group.png)
+1. Click **Save changes**.
 
 ## Checking the status of your mapped teams
 
 Enterprise owners can use the site admin dashboard to check how Okta groups are mapped to teams on {% data variables.product.prodname_ghe_managed %}.
 
-1. To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-hidden="true" %}.
+1. To access the dashboard, in the upper-right corner of any page, click {% octicon "rocket" aria-label="Site admin" %}.
 1. In the left pane, click **External groups**.
 1. To view more details about a group, in the list of external groups, click on a group.
 1. The group's details includes the name of the Okta group, a list of the Okta users that are members of the group, and the corresponding mapped team on {% data variables.product.prodname_ghe_managed %}.

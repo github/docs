@@ -1,5 +1,7 @@
 # Content model for GitHub Docs
 
+**Note:** This version of the content model is no longer maintained and will be deprecated. See the [style guide](https://docs.github.com/en/contributing/writing-for-github-docs/style-guide) on docs.github.com for the most up to date version. Open any pull requests against the `contributing/writing-for-github-docs/style-guide.md` file.
+
 _Full TOC :arrow_upper_left:_
 
 - [Introduction](#introduction)

@@ -17,21 +17,22 @@ topics:
 ---
 
 {% ifversion ghes %}
+
 ## About problems with SAML authentication
 
-{% data variables.product.product_name %} logs error messages for failed SAML authentication in the authentication log at _/var/log/github/auth.log_. You can review responses in this log file, and you can also configure more verbose logging.
+{% data variables.product.product_name %} logs error messages for failed SAML authentication in the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% elsif ghes < 3.9 %}authentication log{% endif %} at {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %}. You can review responses in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}these log files{% elsif ghes < 3.9 %}this log file{% endif %}, and you can also configure more verbose logging.
 
 For more information about SAML response requirements, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)."
 
 ## Configuring SAML debugging
 
-You can configure {% data variables.product.product_name %} to write verbose debug logs to _/var/log/github/auth.log_ for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
+You can configure {% data variables.product.product_name %} to write verbose debug logs for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
 
 {% warning %}
 
 **Warnings**:
 
-- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of your log may increase much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
+- Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the log {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}files increase{% elsif ghes < 3.9 %}file increase{% endif %} much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
 - Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
 
 {% endwarning %}
@@ -41,15 +42,15 @@ You can configure {% data variables.product.product_name %} to write verbose deb
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "SAML debugging", select the drop-down and click **Enabled**.
 1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
-1. Review the debug output in _/var/log/github/auth.log_ on {% data variables.location.product_location %}.
+1. Review the debug output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} on {% data variables.location.product_location %}.
 1. When you're done troubleshooting, select the drop-down and click **Disabled**.
 
-## Decoding responses in _auth.log_
+## Decoding responses
 
-Some output in _auth.log_ may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+Some output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}_/var/log/github/unicorn.log_ or _/var/log/github/resqued.log_{% elsif ghes < 3.9 %}_/var/log/github/auth.log_{% endif %} may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
 
 ```shell
-$ base64 --decode ENCODED_OUTPUT
+base64 --decode ENCODED_OUTPUT
 ```
 
 ## Error: "Another user already owns the account"
@@ -91,7 +92,7 @@ Ensure that you configure signed assertions for the {% data variables.product.pr
 If the IdP's response has a missing or incorrect value for `Audience`, the following error message will appear in the authentication log.
 
 ```
-Audience is invalid. Audience attribute does not match https://<em>YOUR-INSTANCE-URL</em>
+Audience is invalid. Audience attribute does not match https://YOUR-INSTANCE-URL
 ```
 
 Ensure that you set the value for `Audience` on your IdP to the `EntityId` for {% data variables.location.product_location %}, which is the full URL to your instance. For example, `https://ghe.corp.example.com`.

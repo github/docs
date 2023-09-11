@@ -20,9 +20,10 @@ children:
   - /working-with-comments
   - /using-pagination-in-the-rest-api
   - /building-a-ci-server
-  - /best-practices-for-integrators
+  - /best-practices-for-using-the-rest-api
   - /using-the-rest-api-to-interact-with-your-git-database
   - /using-the-rest-api-to-interact-with-checks
+  - /encrypting-secrets-for-the-rest-api
 ---
 This section of the documentation is intended to get you up-and-running with
 real-world {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API applications. We'll go over everything you need to know, from authentication to results manipulation to integrating results with other apps.

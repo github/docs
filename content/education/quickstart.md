@@ -31,7 +31,7 @@ After you create your personal account, create a free organization account. You'
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.organizations %}
 {% data reusables.organizations.new-organization %}
-4. Follow the prompts to create a free organization.
+1. Follow the prompts to create a free organization.
 
 For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
 

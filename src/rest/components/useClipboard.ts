@@ -10,7 +10,7 @@ interface IOptions {
 
 export default function useCopyClipboard(
   text: string,
-  options?: IOptions
+  options?: IOptions,
 ): [boolean, () => Promise<void>] {
   const [isCopied, setIsCopied] = useState(false)
   const successDuration = options && options.successDuration

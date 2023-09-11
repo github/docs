@@ -5,7 +5,7 @@ shortTitle: Timeline
 intro: >-
   Use the REST API to receive events triggered by timeline activity in issues
   and pull requests.
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -22,6 +22,5 @@ You can use the REST API to view different types of events triggered by timeline
 You can use timeline events to display information about issues and pull requests or determine who should be notified of issue comments.
 
 {% data reusables.pull_requests.issues-pr-shared-api %}
-
 
 <!-- Content after this section is automatically generated -->

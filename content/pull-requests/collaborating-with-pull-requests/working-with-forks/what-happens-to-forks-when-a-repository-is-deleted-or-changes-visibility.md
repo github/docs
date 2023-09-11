@@ -64,9 +64,7 @@ If a private repository is made public and then deleted, its private forks will 
 
 ## Changing the visibility of an internal repository
 
-
-
-If the policy for your enterprise permits forking, any fork of an internal repository will be private. If you change the visibility of an internal repository, any fork owned by an organization or personal account will remain private.
+When you change a private repository to public, all the commits in that repository, including any commits made in the repositories it was forked into, will be visible to everyone. However, the private forks will not automatically become public. Instead, each private fork will become a separate private repository and create its own independent network of repositories. Any new changes made to these networks will not be accessible from the original repository.
 
 ### Deleting the internal repository
 

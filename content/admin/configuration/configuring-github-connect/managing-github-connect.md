@@ -40,7 +40,13 @@ Enabling {% data variables.product.prodname_github_connect %} creates a {% data 
 
 ## Prerequisites
 
-To use {% data variables.product.prodname_github_connect %}, you must have an enterprise account on {% data variables.product.prodname_dotcom_the_website %} that uses {% data variables.product.prodname_ghe_cloud %}. You may already have {% data variables.product.prodname_ghe_cloud %} included in your plan. {% data reusables.enterprise.link-to-ghec-trial %}
+To use {% data variables.product.prodname_github_connect %}, you must have an enterprise account on {% data variables.product.prodname_dotcom_the_website %} that uses {% data variables.product.prodname_ghe_cloud %}. You may already have {% data variables.product.prodname_ghe_cloud %} included in your plan.
+
+{% note %}
+
+**Note:** Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} must be invoiced. Enterprise accounts on the free trial of {% data variables.product.prodname_ghe_cloud %} or that pay by credit card cannot be connected to {% data variables.location.product_location %}.
+
+{% endnote %}
 
 {% ifversion ghes %}
 If your enterprise account on {% data variables.product.prodname_dotcom_the_website %} uses IP allow lists, you must add the IP address or network for {% data variables.location.product_location %} to your IP allow list on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise)" in the {% data variables.product.prodname_ghe_cloud %} documentation.

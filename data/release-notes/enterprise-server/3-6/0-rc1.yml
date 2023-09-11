@@ -58,7 +58,7 @@ sections:
         # https://github.com/github/releases/issues/2321
         - |
           Users on an instance with a GitHub Advanced Security license can opt to receive a webhook event that triggers when an organization owner or repository administrator enables or disables a code security or analysis feature. For more information, see the following documentation.
-          
+
           - "[Webhook events and payloads](/developers/webhooks-and-events/webhooks/webhook-events-and-payloads#security_and_analysis)" in the webhook documentation
           - "[Managing security and analysis settings for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)"
           - "[Managing security and analysis features for your repository](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)"
@@ -75,7 +75,7 @@ sections:
         # https://github.com/github/releases/issues/2277
         - |
           Enterprise owners and users on an instance with a GitHub Advanced Security license can view secret scanning alerts and bypasses of secret scanning's push protection in the enterprise and organization audit logs, and via the REST API. For more information, see the following documentation.
-          
+
           - "[Protecting pushes with secret scanning](/code-security/secret-scanning/protecting-pushes-with-secret-scanning)"
           - "[Audit log events for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#secret_scanning_push_protection-category-actions)"
           - "[Reviewing the audit log for your organization](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#secret_scanning_push_protection-category-actions)"
@@ -89,7 +89,7 @@ sections:
         # https://github.com/github/releases/issues/2236
         - |
           Users on an instance with a GitHub Advanced Security license can use `sort` and `direction` parameters in the REST API when retrieving secret scanning alerts, and sort based on the alert’s `created` or `updated` fields. The new parameters are available for the entire instance, or for individual organizations or repositories. For more information, see the following documentation.
-          
+
           - "[List secret scanning alerts for an enterprise](/rest/secret-scanning#list-secret-scanning-alerts-for-an-enterprise)"
           - "[List secret scanning alerts for an organization](/rest/secret-scanning#list-secret-scanning-alerts-for-an-organization)"
           - "[List secret scanning alerts for a repository](/rest/secret-scanning#list-secret-scanning-alerts-for-a-repository)"
@@ -127,7 +127,7 @@ sections:
         # https://github.com/github/releases/issues/1766
         - |
           If GitHub Connect is enabled for your instance, users can contribute an improvement to a security advisory in the [GitHub Advisory Database](https://github.com/advisories). To contribute, click **Suggest improvements for this vulnerability** while viewing an advisory's details. For more information, see the following articles.
-          
+
           - "[Managing GitHub Connect](/admin/configuration/configuring-github-connect/managing-github-connect)"
           - "[Browsing security vulnerabilities in the GitHub Advisory Database](/enterprise-cloud@latest/code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/browsing-security-vulnerabilities-in-the-github-advisory-database)" in the GitHub Enterprise Cloud documentation
           - "[About GitHub Security Advisories for repositories](/enterprise-cloud@latest/code-security/repository-security-advisories/about-github-security-advisories-for-repositories)" in the GitHub Enterprise Cloud documentation
@@ -168,12 +168,12 @@ sections:
         # https://github.com/github/releases/issues/2334
         - |
           Enterprise owners can migrate container images from the GitHub Docker registry to the GitHub Container registry. The Container registry provides the following benefits.
-          
+
           - Improves the sharing of containers within an organization
           - Allows the application of granular access permissions
           - Permits the anonymous sharing of public container images
           - Implements OCI standards for hosting Docker images
-          
+
           The Container registry is in beta and subject to change. For more information, see "[Migrating your enterprise to the Container registry from the Docker registry](/admin/packages/migrating-your-enterprise-to-the-container-registry-from-the-docker-registry)."
 
     - heading: Community experience
@@ -268,7 +268,7 @@ sections:
         # https://github.com/github/releases/issues/2260
         - |
           Editing Markdown in the web interface has been improved.
-          
+
           - After a user selects text and pastes a URL, the selected text will become a Markdown link to the pasted URL.
           - When a user pastes spreadsheet cells or HTML tables, the resulting text will render as a table.
           - When a user copies text containing links, the pasted text will include the link as a Markdown link.

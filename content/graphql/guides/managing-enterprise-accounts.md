@@ -41,9 +41,9 @@ For a list of the fields available with the Enterprise Accounts API, see "[AUTOT
 ## Getting started using GraphQL for enterprise accounts
 
 Follow these steps to get started using GraphQL to manage your enterprise accounts:
- - Authenticating with a {% data variables.product.pat_generic %}
- - Choosing a GraphQL client or using the GraphQL Explorer
- - Setting up Insomnia to use the GraphQL API
+- Authenticating with a {% data variables.product.pat_generic %}
+- Choosing a GraphQL client or using the GraphQL Explorer
+- Setting up Insomnia to use the GraphQL API
 
 For some example queries, see "[An example query using the Enterprise Accounts API](#an-example-query-using-the-enterprise-accounts-api)."
 
@@ -51,28 +51,28 @@ For some example queries, see "[An example query using the Enterprise Accounts A
 
 1. To authenticate with GraphQL, you need to generate a {% data variables.product.pat_generic %} from developer settings. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 
-2. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of your enterprise you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
+1. Grant admin and full control permissions to your {% data variables.product.pat_generic %} for areas of your enterprise you'd like to access. For full permission to private repositories, organizations, teams, user data, and access to enterprise billing and profile data, we recommend you select these scopes for your {% data variables.product.pat_generic %}:
     - `repo`
     - `admin:org`
     - `user`
     - `admin:enterprise`
 
-  The enterprise account specific scopes are:
+   The enterprise account specific scopes are:
     - `admin:enterprise`: Gives full control of enterprises (includes `manage_runners:enterprise`, `manage_billing:enterprise` and `read:enterprise`)
     - `manage_billing:enterprise`: Read and write enterprise billing data.{% ifversion ghes or ghae %}
     - `manage_runners:enterprise`: Access to manage GitHub Actions enterprise runners and runner-groups.{% endif %}
     - `read:enterprise`: Read enterprise profile data.
 
-3. Copy your {% data variables.product.pat_generic %} and keep it in a secure place until you add it to your GraphQL client.
+1. Copy your {% data variables.product.pat_generic %} and keep it in a secure place until you add it to your GraphQL client.
 
 ### 2. Choose a GraphQL client
 
 We recommend you use GraphiQL or another standalone GraphQL client that lets you configure the base URL.
 
 You may also consider using these GraphQL clients:
-  - [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
-  - [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
-  - [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
+- [Insomnia](https://support.insomnia.rest/article/176-graphql-queries)
+- [GraphiQL](https://www.gatsbyjs.org/docs/running-queries-with-graphiql/)
+- [Postman](https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/)
 
 The next steps will use Insomnia.
 
@@ -161,11 +161,13 @@ variables {
   "slug": "<enterprise-account-name>"
 }
 ```
+
 {% endif %}
 
 The next GraphQL query example shows how challenging it is to retrieve the number of {% ifversion not ghae %}`public`{% else %}`private`{% endif %} repositories in each organization without using the Enterprise Account API.  Notice that the GraphQL Enterprise Accounts API has made this task simpler for enterprises since you only need to customize a single variable. To customize this query, replace `<name-of-organization-one>` and `<name-of-organization-two>`, etc. with the organization names on your instance.
 
 {% ifversion not ghae %}
+
 ```graphql
 # Each organization is queried separately
 {
@@ -187,7 +189,9 @@ fragment repositories on Organization {
   }
 }
 ```
+
 {% else %}
+
 ```graphql
 # Each organization is queried separately
 {
@@ -209,6 +213,7 @@ fragment repositories on Organization {
   }
 }
 ```
+
 {% endif %}
 
 ## Query each organization separately

@@ -38,21 +38,26 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.paste-gpg-key-id %}
 {% data reusables.gpg.set-auto-sign %}
 1. If you aren't using the GPG suite, run the following command in the `zsh` shell to add the GPG key to your `.zshrc` file, if it exists, or your `.zprofile` file:
-  ```shell
-  $ if [ -r ~/.zshrc ]; then echo 'export GPG_TTY=$(tty)' >> ~/.zshrc; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.zprofile; fi
-  ```
-  Alternatively, if you use the `bash` shell, run this command:
-  ```shell
-  $ if [ -r ~/.bash_profile ]; then echo 'export GPG_TTY=$(tty)' >> ~/.bash_profile; \
-    else echo 'export GPG_TTY=$(tty)' >> ~/.profile; fi
-  ```
+
+   ```shell
+   $ if [ -r ~/.zshrc ]; then echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zshrc; \
+     else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.zprofile; fi
+   ```
+
+   Alternatively, if you use the `bash` shell, run this command:
+
+   ```shell
+   $ if [ -r ~/.bash_profile ]; then echo -e '\nexport GPG_TTY=$(tty)' >> ~/.bash_profile; \
+     else echo -e '\nexport GPG_TTY=$(tty)' >> ~/.profile; fi
+   ```
+
 1. Optionally, to prompt you to enter a PIN or passphrase when required, install `pinentry-mac`. For example, using [Homebrew](https://brew.sh/):
-  ```shell
-  $ brew install pinentry-mac
-  $ echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
-  $ killall gpg-agent
-  ```
+
+   ```shell
+   brew install pinentry-mac
+   echo "pinentry-program $(which pinentry-mac)" >> ~/.gnupg/gpg-agent.conf
+   killall gpg-agent
+   ```
 
 {% endmac %}
 
@@ -96,9 +101,11 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 {% data reusables.gpg.paste-gpg-key-id %}
 {% data reusables.gpg.set-auto-sign %}
 1. To add your GPG key to your `.bashrc` startup file, run the following command:
-  ```bash
-  $ [ -f ~/.bashrc ] && echo 'export GPG_TTY=$(tty)' >> ~/.bashrc
-  ```
+
+   ```bash
+   [ -f ~/.bashrc ] && echo -e '\nexport GPG_TTY=$(tty)' >> ~/.bashrc
+   ```
+
 {% endlinux %}
 {% ifversion ssh-commit-verification %}
 
@@ -115,6 +122,7 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 {% endif %}
 
 {% data reusables.gpg.x-509-key %}
+
 ## Further reading
 
 - "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."

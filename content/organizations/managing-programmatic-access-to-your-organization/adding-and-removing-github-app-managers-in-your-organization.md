@@ -57,9 +57,3 @@ shortTitle: GitHub App managers
 1. Under "{% data variables.product.prodname_github_apps %}", click on the avatar of the app you'd like to remove a {% data variables.product.prodname_github_app %} manager from.
 {% data reusables.organizations.app-managers-settings-sidebar %}
 1. Under "App managers", next to the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, click **Revoke**.
-
-{% ifversion fpt or ghec %}
-## Further reading
-
-- "[AUTOTITLE](/get-started/exploring-integrations/about-github-marketplace)"
-{% endif %}

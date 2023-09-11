@@ -1,4 +1,4 @@
-1.  Under "Team notifications", select **Enabled** or **Disabled**.
+1. Under "Team notifications", select **Enabled** or **Disabled**.
 
     {% note %}
 

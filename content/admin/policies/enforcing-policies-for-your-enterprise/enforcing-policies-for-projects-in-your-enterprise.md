@@ -36,10 +36,11 @@ Across all organizations owned by your enterprise, you can enable or disable org
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.projects-tab %}
-4. Under "Organization projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Organization projects", select the dropdown menu and click a policy.
+1. Under "Organization projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Organization projects", select the dropdown menu and click a policy.
 
 {% ifversion project-visibility-policy %}
+
 ## Enforcing a policy for visibility changes to projects
 
 Across all organizations owned by your enterprise, you can enable or disable the ability for people with admin access to a project to change the visibility of the project, or you can allow owners to administer the setting on the organization level.
@@ -52,6 +53,7 @@ Across all organizations owned by your enterprise, you can enable or disable the
 {% endif %}
 
 {% ifversion projects-v1 %}
+
 ## Enforcing policies for {% data variables.product.prodname_projects_v1 %}
 
 Some policies apply only to {% data variables.product.prodname_projects_v1 %}.
@@ -63,6 +65,6 @@ Across all organizations owned by your enterprise, you can enable or disable rep
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.projects-tab %}
-4. Under "Repository projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
-5. Under "Repository projects", select the dropdown menu and click a policy.
+1. Under "Repository projects", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
+1. Under "Repository projects", select the dropdown menu and click a policy.
 {% endif %}

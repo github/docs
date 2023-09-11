@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 
 import { Link } from 'components/Link'
 import { Notice } from './Notice'
-import { useTranslation } from 'components/hooks/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { FieldT } from './types'
 
 type Props = {
@@ -31,7 +31,11 @@ export function Table({ fields }: Props) {
               <p>
                 <code>{field.name}</code> (
                 <code>
-                  <Link href={field.href} locale={locale}>
+                  <Link
+                    href={field.href}
+                    locale={locale}
+                    aria-label={[field.name, field.type, 'type definition'].join(' ')}
+                  >
                     {field.type}
                   </Link>
                 </code>
@@ -63,7 +67,7 @@ export function Table({ fields }: Props) {
                     dangerouslySetInnerHTML={{
                       __html: t('graphql.reference.arguments').replace(
                         '{{ GraphQLItemTitle }}',
-                        field.name
+                        field.name,
                       ),
                     }}
                   />

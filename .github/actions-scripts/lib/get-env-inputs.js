@@ -13,7 +13,7 @@ export function getEnvInputs(options) {
         throw new Error(`You must supply a ${envVarName} environment variable`)
       }
       return [envVarName, envVarValue]
-    })
+    }),
   )
 }
 

@@ -26,13 +26,13 @@ shortTitle: Enable Packages with AWS
 Before you can enable and configure {% data variables.product.prodname_registry %} on {% data variables.location.product_location_enterprise %}, you need to prepare your AWS storage bucket. To prepare your AWS storage bucket, we recommend consulting the official AWS docs at [AWS Documentation](https://docs.aws.amazon.com/index.html).
 
 Ensure your AWS access key ID and secret have the following permissions:
-  - `s3:PutObject`
-  - `s3:GetObject`
-  - `s3:ListBucketMultipartUploads`
-  - `s3:ListMultipartUploadParts`
-  - `s3:AbortMultipartUpload`
-  - `s3:DeleteObject`
-  - `s3:ListBucket`
+- `s3:PutObject`
+- `s3:GetObject`
+- `s3:ListBucketMultipartUploads`
+- `s3:ListMultipartUploadParts`
+- `s3:AbortMultipartUpload`
+- `s3:DeleteObject`
+- `s3:ListBucket`
 
 ## Enabling {% data variables.product.prodname_registry %} with AWS external storage
 

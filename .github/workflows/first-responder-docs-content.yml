@@ -19,7 +19,7 @@ permissions:
 jobs:
   first-responder-triage-pr:
     name: Triage PR to FR project board
-    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]'
+    if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.event.action != 'unlabeled' && github.event.action != 'closed' && github.actor != 'dependabot[bot]' && github.event.pull_request.head.ref != 'repo-sync'
     runs-on: ubuntu-latest
 
     steps:
@@ -27,7 +27,7 @@ jobs:
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         id: set-result
         with:
-          github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           result-encoding: string
           script: |
             const repoName = context.payload.repository.name
@@ -42,8 +42,6 @@ jobs:
               `/orgs/github/teams/docs/members?per_page=100`
             )
             const teamLogins = teamMembers.data.map(member => member.login)
-            // ignore PRs opened by docs bot accounts
-            teamLogins.push('Octomerger', 'octoglot')
             if (teamLogins.some(login => login === updatedIssueInformation.data.user.login)) {
               console.log(`This issue or pull request was authored by a member of the github/docs team.`)
               return 'true'
@@ -52,15 +50,15 @@ jobs:
             return 'false'
       - name: Label external contributor pull requests with docs-content-fr
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
-        if: steps.set-result.outputs.result == 'false'
+        if: ${{ steps.set-result.outputs.result == 'false' || contains(github.event.pull_request.head.ref, 'codeql-cli-update') }}
         with:
-          repo-token: '${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}'
+          repo-token: '${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}'
           add-labels: 'docs-content-fr'
       - name: Triage to FR PR project column
         uses: rachmari/actions-add-new-issue-to-column@1a459ef92308ba7c9c9dc2fcdd72f232495574a9
         if: steps.set-result.outputs.result == 'false'
         with:
-          action-token: ${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}
+          action-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
           project-url: 'https://github.com/orgs/github/projects/1367'
           column-name: 'Docs-internal external contributor PRs'
 
@@ -73,7 +71,7 @@ jobs:
       - name: Remove card from project
         uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
         with:
-          github-token: ${{secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES}}
+          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
           result-encoding: string
           script: |
             const issueToRemove = context.payload.number
@@ -94,5 +92,5 @@ jobs:
         if: github.event.action == 'closed'
         uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
-          repo-token: '${{ secrets.DOCUBOT_READORG_REPO_WORKFLOW_SCOPES }}'
+          repo-token: '${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}'
           remove-labels: 'docs-content-fr'

@@ -127,14 +127,8 @@ Optionally, you can automatically grade assignments and create a space for discu
 You can see the teams that are working on or have submitted an assignment in the **Teams** tab for the assignment. {% data reusables.classroom.assignments-to-prevent-submission %}
 
 ## Monitoring students' progress
-The assignment overview page displays information about your assignment acceptances and team progress. You may have different summary information based on the configurations of your assignments.
 
-- **Total teams**: The number of teams that have been created.
-- **Rostered students**: The number of students on the Classroom's roster.
-- **Students not on a team**: The number of students on the Classroom roster who have not yet joined a team.
--  **Accepted teams**: The number of teams who have accepted this assignment.
--  **Assignment submissions**: The number of teams that have submitted the assignment. Submission is triggered at the assignment deadline.
--  **Passing teams**: The number of teams that are currently passing the autograding tests for this assignment.
+{% data reusables.classroom.link-to-assignment-overview-article %}
 
 ## Next steps
 

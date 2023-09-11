@@ -11,7 +11,7 @@ describe('getChangelogItems module', () => {
   beforeAll(async () => {
     const rssFeedContent = await fs.readFile(
       path.join(process.cwd(), 'tests/fixtures/rss-feed.xml'),
-      'utf8'
+      'utf8',
     )
 
     nock('https://github.blog').get('/changelog/label/packages/feed').reply(200, rssFeedContent)
@@ -27,7 +27,7 @@ describe('getChangelogItems module', () => {
       // because it explicitly uses nock() to mock the HTTP socket.
       // So even if we say "Don't use the cache" here, it still won't
       // depend on Internet access because we're using `nock` here.
-      true
+      true,
     )
   })
 

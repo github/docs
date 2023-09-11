@@ -22,12 +22,12 @@ However, because {% data variables.product.prodname_github_codespaces %} incurs 
 
 Automatic deletion happens irrespective of whether a codespace contains unpushed changes. To prevent automatic deletion of a codespace, just open the codespace again. The retention period is reset every time you connect to a codespace, and the retention countdown restarts when the codespace is stopped.
 
-If a repository belongs to an organization, the organization admin may have set a retention period for the whole organization. If this period is less than the default retention period in your personal settings then the organization retention period will apply to codespaces you create for this repository. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
+If a repository belongs to an organization, the organization owner may have set a retention period for the whole organization. If this period is less than the default retention period in your personal settings then the organization retention period will apply to codespaces you create for this repository. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)."
 
 Each codespace has its own retention period. You may, therefore, have codespaces with different retention periods. For example, if:
-* You created a codespace, changed your default retention period, then created another codespace.
-* You created a codespace using {% data variables.product.prodname_cli %} and specified a different retention period.
-* You created a codespace for an organization-owned repository that has a retention period configured in the organization settings. The ownership of the codespaces you create is shown on the "[Your codespaces](https://github.com/settings/codespaces)" page.
+- You created a codespace, changed your default retention period, then created another codespace.
+- You created a codespace using {% data variables.product.prodname_cli %} and specified a different retention period.
+- You created a codespace for an organization-owned repository that has a retention period configured in the organization settings. The ownership of the codespaces you create is shown on the "[Your codespaces](https://github.com/settings/codespaces)" page.
 
 {% note %}
 
@@ -93,6 +93,8 @@ Codespaces that you have exempted from automatic deletion are indicated in your 
 {% cli %}
 
 ## Setting a retention period for a codespace
+
+{% data reusables.codespaces.using-github-cli %}
 
 To set the codespace retention period when you create a codespace, use the `--retention-period` flag with the `codespace create` subcommand. Specify the period in days. The period must be between 0 and 30 days.
 

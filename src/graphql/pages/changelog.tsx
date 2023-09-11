@@ -2,12 +2,12 @@ import { GetServerSideProps } from 'next'
 import React from 'react'
 
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import { AutomatedPage } from 'components/article/AutomatedPage'
+import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'components/context/AutomatedPageContext'
+} from 'src/automated-pipelines/components/AutomatedPageContext'
 import { Changelog } from 'src/graphql/components/Changelog'
 import { ChangelogItemT } from 'src/graphql/components/types'
 

@@ -1,21 +1,15 @@
-import lodash from 'lodash-es'
 import enterpriseServerReleases from '../../lib/enterprise-server-releases.js'
 import { get, getDOM, head, post } from '../helpers/e2etest.js'
 import { describeViaActionsOnly } from '../helpers/conditional-runs.js'
 import { loadPages } from '../../lib/page-data.js'
 import CspParse from 'csp-parse'
-import { productMap } from '../../lib/all-products.js'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
 } from '../../middleware/set-fastly-surrogate-key.js'
-import { getPathWithoutVersion } from '../../lib/path-utils.js'
 import { describe, jest } from '@jest/globals'
 
 const AZURE_STORAGE_URL = 'githubdocs.azureedge.net'
-const activeProducts = Object.values(productMap).filter(
-  (product) => !product.wip && !product.hidden
-)
 
 jest.useFakeTimers({ legacyFakeTimers: true })
 
@@ -47,74 +41,6 @@ describe('server', () => {
     expect(res.statusCode).toBe(200)
   })
 
-  test('renders the homepage with links to expected products in both the sidebar and page body', async () => {
-    const $ = await getDOM('/en')
-    const sidebarItems = $('[data-testid=sidebar] ul a').get()
-    const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
-    const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
-
-    const productTitles = activeProducts.map((prod) => prod.name)
-    const productHrefs = activeProducts.map((prod) =>
-      prod.external ? prod.href : `/en${prod.href}`
-    )
-
-    const titlesInSidebarButNotProducts = lodash.difference(sidebarTitles, productTitles)
-    const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
-
-    const hrefsInSidebarButNotProducts = lodash.difference(sidebarHrefs, productHrefs)
-    const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
-
-    expect(
-      titlesInSidebarButNotProducts.length,
-      `Found unexpected titles in sidebar: ${titlesInSidebarButNotProducts.join(', ')}`
-    ).toBe(0)
-    expect(
-      titlesInProductsButNotSidebar.length,
-      `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`
-    ).toBe(0)
-    expect(
-      hrefsInSidebarButNotProducts.length,
-      `Found unexpected hrefs in sidebar: ${hrefsInSidebarButNotProducts.join(', ')}`
-    ).toBe(0)
-    expect(
-      hrefsInProductsButNotSidebar.length,
-      `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`
-    ).toBe(0)
-  })
-
-  test('renders the Enterprise homepages with links to expected products in both the sidebar and page body', async () => {
-    const enterpriseProducts = [
-      `enterprise-server@${enterpriseServerReleases.latest}`,
-      'enterprise-cloud@latest',
-    ]
-
-    for (const ep of enterpriseProducts) {
-      const $ = await getDOM(`/en/${ep}`)
-      const sidebarItems = $('[data-testid=sidebar] ul a').get()
-      const sidebarTitles = sidebarItems.map((el) => $(el).text().trim())
-      const sidebarHrefs = sidebarItems.map((el) => $(el).attr('href'))
-      const productItems = activeProducts.filter(
-        (prod) => prod.external || prod.versions.includes(ep)
-      )
-      const productTitles = productItems.map((prod) => prod.name)
-      const productHrefs = productItems.map((prod) =>
-        prod.external ? prod.href : `/en/${ep}${getPathWithoutVersion(prod.href)}`
-      )
-
-      const titlesInProductsButNotSidebar = lodash.difference(productTitles, sidebarTitles)
-      const hrefsInProductsButNotSidebar = lodash.difference(productHrefs, sidebarHrefs)
-
-      expect(
-        titlesInProductsButNotSidebar.length,
-        `Found titles missing from sidebar: ${titlesInProductsButNotSidebar.join(', ')}`
-      ).toBe(0)
-      expect(
-        hrefsInProductsButNotSidebar.length,
-        `Found hrefs missing from sidebar: ${hrefsInProductsButNotSidebar.join(', ')}`
-      ).toBe(0)
-    }
-  })
-
   test('sets Content Security Policy (CSP) headers', async () => {
     const res = await get('/en')
     expect(res.statusCode).toBe(200)
@@ -135,6 +61,8 @@ describe('server', () => {
 
     expect(csp.get('style-src').includes("'self'")).toBe(true)
     expect(csp.get('style-src').includes("'unsafe-inline'")).toBe(true)
+
+    expect(csp.get('manifest-src').includes("'self'")).toBe(true)
   })
 
   test('sets Fastly cache control headers', async () => {
@@ -154,13 +82,15 @@ describe('server', () => {
   })
 
   test('renders a 404 page', async () => {
-    const $ = await getDOM('/not-a-real-page', { allow404: true })
+    // Important to use the prefix /en/ on the failing URL or else
+    // it will render a very basic plain text 404 response.
+    const $ = await getDOM('/en/not-a-real-page', { allow404: true })
     expect($('h1').first().text()).toBe('Ooops!')
     expect($.text().includes("It looks like this page doesn't exist.")).toBe(true)
     expect(
       $.text().includes(
-        'We track these errors automatically, but if the problem persists please feel free to contact us.'
-      )
+        'We track these errors automatically, but if the problem persists please feel free to contact us.',
+      ),
     ).toBe(true)
     expect($.res.statusCode).toBe(404)
   })
@@ -180,8 +110,8 @@ describe('server', () => {
     expect($.text().includes('It looks like something went wrong.')).toBe(true)
     expect(
       $.text().includes(
-        'We track these errors automatically, but if the problem persists please feel free to contact us.'
-      )
+        'We track these errors automatically, but if the problem persists please feel free to contact us.',
+      ),
     ).toBe(true)
     expect($.res.statusCode).toBe(500)
   })
@@ -199,11 +129,11 @@ describe('server', () => {
   // see issue 9678
   test('does not use cached intros in map topics', async () => {
     let $ = await getDOM(
-      '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line'
+      '/en/get-started/importing-your-projects-to-github/importing-source-code-to-github/importing-a-git-repository-using-the-command-line',
     )
     const articleIntro = $('[data-testid="lead"]').text()
     $ = await getDOM(
-      '/en/enterprise/2.16/user/importing-your-projects-to-github/importing-source-code-to-github'
+      '/en/enterprise/2.16/user/importing-your-projects-to-github/importing-source-code-to-github',
     )
     const mapTopicIntro = $('.map-topic').first().next().text()
     expect(articleIntro).not.toEqual(mapTopicIntro)
@@ -243,7 +173,7 @@ describe('server', () => {
           page.languageCode === 'en' &&
           page.hidden &&
           page.relativePath.startsWith('early-access') &&
-          !page.relativePath.endsWith('index.md')
+          !page.relativePath.endsWith('index.md'),
       )
       for (const { href } of hiddenPages[0].permalinks) {
         const $ = await getDOM(href)
@@ -387,21 +317,51 @@ describe('static routes', () => {
 
     expect(
       (await get(`/public/ghes-${enterpriseServerReleases.latest}/schema.docs-enterprise.graphql`))
-        .statusCode
+        .statusCode,
     ).toBe(200)
     expect(
       (
         await get(
-          `/public/ghes-${enterpriseServerReleases.oldestSupported}/schema.docs-enterprise.graphql`
+          `/public/ghes-${enterpriseServerReleases.oldestSupported}/schema.docs-enterprise.graphql`,
         )
-      ).statusCode
+      ).statusCode,
     ).toBe(200)
     expect((await get('/public/ghae/schema.docs-ghae.graphql')).statusCode).toBe(200)
   })
 
-  it('does not serve repo contents that live outside the /assets directory', async () => {
-    expect((await get('/package.json', { followRedirects: true })).statusCode).toBe(404)
-    expect((await get('/README.md', { followRedirects: true })).statusCode).toBe(404)
-    expect((await get('/server.js', { followRedirects: true })).statusCode).toBe(404)
+  test('does not serve repo contents that live outside the /assets directory', async () => {
+    const paths = [
+      '/package.json',
+      '/README.md',
+      '/server.js',
+      '/.git',
+      '/.env',
+      // Also add paths that aren't at the root. But it doesn't matter
+      // which page this is done for so much.
+      '/en/billing/.env',
+      '/en/billing/.env.local',
+      '/en/pages/.env_sample',
+      '/en/pages/.env.development.local',
+    ]
+    for (const path of paths) {
+      const res = await get(path)
+      expect(res.statusCode).toBe(404)
+      expect(res.headers['content-type']).toMatch('text/plain')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers['cache-control']).toMatch('public')
+    }
+    expect.assertions(4 * paths.length)
+  })
+
+  test('junk requests with or without query strings is 404', async () => {
+    const paths = ['/env', '/xmlrpc.php', '/wp-login.php']
+    for (const path of paths) {
+      const res = await get(`${path}?r=${Math.random()}`)
+      expect(res.statusCode).toBe(404)
+      expect(res.headers['content-type']).toMatch('text/plain')
+      expect(res.headers['cache-control']).toMatch(/max-age=[1-9]/)
+      expect(res.headers['cache-control']).toMatch('public')
+    }
+    expect.assertions(4 * paths.length)
   })
 })

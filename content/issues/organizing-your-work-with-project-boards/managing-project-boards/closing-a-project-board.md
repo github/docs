@@ -16,12 +16,12 @@ allowTitleToDifferFromFilename: true
 
 When you close a {% data variables.projects.projects_v1_board %}, any configured workflow automation will pause by default.
 
-If you reopen a {% data variables.projects.projects_v1_board %}, you have the option to *sync* automation, which updates the position of the cards on the board according to the automation settings configured for the board. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board)" or "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)."
+If you reopen a {% data variables.projects.projects_v1_board %}, you have the option to _sync_ automation, which updates the position of the cards on the board according to the automation settings configured for the board. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/reopening-a-closed-project-board)" or "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)."
 
 1. Navigate to the list of {% data variables.projects.projects_v1_boards %} in your repository or organization, or owned by your personal account.
-2. In the projects list, next to the {% data variables.projects.projects_v1_board %} you want to close, click {% octicon "kebab-horizontal" aria-label="Project menu" %}.
-![Screenshot showing the projects index. The project menu icon is highlighted with an orange rectangle](/assets/images/help/projects/project-list-action-chevron.png)
-3. Click **Close**.
+1. In the projects list, next to the {% data variables.projects.projects_v1_board %} you want to close, click {% octicon "kebab-horizontal" aria-label="Project menu" %}.
+![Screenshot showing the projects index. The project menu icon is highlighted with an orange rectangle.](/assets/images/help/projects/project-list-action-chevron.png)
+1. Click **Close**.
 
 ## Further reading
 

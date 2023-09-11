@@ -26,7 +26,7 @@ Similarly, if your editor preference is "{% data variables.product.prodname_vsco
 
 After you have created a codespace you can check whether it was created from a prebuild by running the following {% data variables.product.prodname_cli %} command in the terminal:
 
-```shell{:copy}
+```shell copy
 gh api /user/codespaces/$CODESPACE_NAME --jq .prebuild
 ```
 
@@ -34,7 +34,7 @@ This returns `true` if the codespace was created using a prebuild.
 
 Alternatively, if {% data variables.product.prodname_cli %} (`gh`) is not installed, you can use the following command, which returns `createFromPrebuild` if the codespace was created from a prebuild:
 
-```shell{:copy}
+```shell copy
 cat /workspaces/.codespaces/shared/environment-variables.json | jq '.ACTION_NAME'
 ```
 
@@ -54,10 +54,10 @@ If your branch is not specifically enabled for prebuilds it may still benefit fr
 
 Here are things to check if the "{% octicon "zap" aaria-hidden="true" %} Prebuild Ready" label is not displayed for a particular branch:
 
-* Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this.
-* Confirm that the prebuild configuration includes your region.
-* Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
-* If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-hidden="true" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch.
+- Confirm that a prebuild configuration exists for this branch. If you’re not a repository administrator, you'll need to reach out to one to confirm this.
+- Confirm that the prebuild configuration includes your region.
+- Check whether a change to the dev container configuration was pushed to the prebuild-enabled branch recently. If so, you will typically have to wait until the prebuild workflow run for this push completes before prebuilds are available again.
+- If no configuration changes were recently made, go to the **Actions** tab of your repository, click **{% octicon "codespaces" aria-hidden="true" %} {% data variables.product.prodname_codespaces %} Prebuilds** in the workflows list, and check that prebuild workflow runs for the branch are succeeding. If latest runs of a workflow failed, and one or more of these failed runs contained changes to the dev container configuration, then there will be no available prebuilds for the associated branch.
 
 ## Some resources cannot be accessed in codespaces created using a prebuild
 

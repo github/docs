@@ -16,7 +16,6 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview of {% data variables.product.prodname_dotcom %}-hosted runners
@@ -29,7 +28,7 @@ Runners are the machines that execute jobs in a {% data variables.product.prodna
 
 ## Using a {% data variables.product.prodname_dotcom %}-hosted runner
 
-To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
+To use a {% data variables.product.prodname_dotcom %}-hosted runner, create a job and use `runs-on` to specify the type of runner that will process the job, such as `ubuntu-latest`, `windows-latest`, or `macos-latest`. For the full list of runner types, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."{% ifversion repository-actions-runners %} If you have `repo: write` access to a repository, you can view a list of the runners available to use in workflows in the repository. For more information, see "[Viewing available runners for a repository](#viewing-available-runners-for-a-repository)."{% endif %}
 
 When the job begins, {% data variables.product.prodname_dotcom %} automatically provisions a new VM for that job. All steps in the job execute on the VM, allowing the steps in that job to share information using the runner's filesystem. You can run workflows directly on the VM or in a Docker container. When the job has finished, the VM is automatically decommissioned.
 
@@ -42,7 +41,7 @@ The following example workflow has two jobs, named `Run-npm-on-Ubuntu` and `Run-
 - The job named `Run-npm-on-Ubuntu` is executed on a Linux VM, because the job's `runs-on:` specifies `ubuntu-latest`.
 - The job named `Run-PSScriptAnalyzer-on-Windows` is executed on a Windows VM, because the job's `runs-on:` specifies `windows-latest`.
 
-```yaml{:copy}
+```yaml copy
 name: Run commands on different operating systems
 on:
   push:
@@ -83,13 +82,35 @@ While the job runs, the logs and output can be viewed in the {% data variables.p
 
 {% data reusables.actions.runner-app-open-source %}
 
+{% ifversion repository-actions-runners %}
+
+## Viewing available runners for a repository
+
+{% note %}
+
+**Note:** This feature is currently in beta and subject to change.
+
+{% endnote %}
+
+{% data reusables.actions.about-viewing-runner-list %}
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.repository-runners %}
+1. Review the list of available GitHub-hosted runners for the repository.
+{% data reusables.actions.copy-runner-label %}
+
+{% data reusables.actions.actions-tab-new-runners-note %}
+
+{% endif %}
+
 ## Supported runners and hardware resources
 
 {% ifversion actions-hosted-runners %}
 
 {% note %}
 
-**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."
+**Note**: {% data variables.product.prodname_dotcom %} also offers {% data variables.actions.hosted_runner %}s, which are available in larger configurations, with autoscaling enabled by default and optional dedicated IP addresses. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners#machine-specs-for-larger-runners)."
 
 {% endnote %}
 {% endif %}
@@ -109,9 +130,21 @@ Hardware specification for macOS XL virtual machines:
 - 30 GB of RAM
 - 14 GB of SSD space
 
+{% note %}
+
+**Note:** macOS XL runners are considered {% data variables.actions.hosted_runner %}s and are billed in the same way. This means macOS XL runners are not eligible for the use of included minutes on private repositories. For both private and public repositories, when macOS XL runners are in use, they will always be billed at the per-minute rate. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners#understanding-billing)."
+
+{% endnote %}
+
 {% data reusables.actions.supported-github-runners %}
 
 Workflow logs list the runner used to run a job. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+
+### {% data variables.actions.hosted_runner_caps %}s
+
+{% data reusables.actions.about-larger-runners %}
+
+For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."
 
 ## Supported software
 
@@ -125,13 +158,13 @@ For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-w
 
 For the overall list of included tools for each runner operating system, see the links below:
 
-* [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
-* [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
-* [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
-* [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
-* [macOS 13](https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md)
-* [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
-* [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
+- [Ubuntu 22.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md)
+- [Ubuntu 20.04 LTS](https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md)
+- [Windows Server 2022](https://github.com/actions/runner-images/blob/main/images/win/Windows2022-Readme.md)
+- [Windows Server 2019](https://github.com/actions/runner-images/blob/main/images/win/Windows2019-Readme.md)
+- [macOS 13](https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md)
+- [macOS 12](https://github.com/actions/runner-images/blob/main/images/macos/macos-12-Readme.md)
+- [macOS 11](https://github.com/actions/runner-images/blob/main/images/macos/macos-11-Readme.md)
 
 {% data variables.product.prodname_dotcom %}-hosted runners include the operating system's default built-in tools, in addition to the packages listed in the above references. For example, Ubuntu and macOS runners include `grep`, `find`, and `which`, among other default tools.
 
@@ -187,6 +220,10 @@ Since there are so many IP address ranges for {% data variables.product.prodname
 
 The list of {% data variables.product.prodname_actions %} IP addresses returned by the API is updated once a week.
 
+## The `etc/hosts` file
+
+{% data reusables.actions.runners-etc-hosts-file %}
+
 ## File systems
 
 {% data variables.product.prodname_dotcom %} executes actions and shell commands in specific directories on the virtual machine. The file paths on virtual machines are not static. Use the environment variables {% data variables.product.prodname_dotcom %} provides to construct file paths for the `home`, `workspace`, and `workflow` directories.
@@ -210,6 +247,7 @@ Actions that run in Docker containers have static directories under the `/github
 - `/github/workflow`
 
 ## Further reading
+
 - "[AUTOTITLE](/billing/managing-billing-for-github-actions)"
 - You can use a matrix strategy to run your jobs on multiple images. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
 

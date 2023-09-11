@@ -65,5 +65,4 @@ If a team's access to a {% data variables.projects.projects_v1_board %} is inher
 
 - [Adding your project to a team](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)
 
-
 {% endif %}

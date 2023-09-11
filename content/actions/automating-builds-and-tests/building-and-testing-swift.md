@@ -14,8 +14,7 @@ topics:
   - Swift
 shortTitle: Build & test Swift
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -37,7 +36,7 @@ We recommend that you have a basic understanding of Swift packages. For more inf
 
 To get started quickly, add the starter workflow to the `.github/workflows` directory of your repository.
 
-```yaml{:copy}
+```yaml copy
 name: Swift
 
 on: [push]
@@ -67,7 +66,7 @@ The examples below demonstrate using the `swift-actions/setup-swift` action.
 
 You can configure your job to use multiple versions of Swift in a matrix.
 
-```yaml{:copy}
+```yaml copy
 
 {% data reusables.actions.actions-not-certified-by-github-comment %}
 
@@ -102,7 +101,8 @@ jobs:
 You can configure your job to use a single specific version of Swift, such as `5.3.3`.
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 steps:
   - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf
     with:
@@ -110,13 +110,14 @@ steps:
   - name: Get swift version
     run: swift --version # Swift 5.3.3
 ```
+
 {% endraw %}
 
 ## Building and testing your code
 
 You can use the same commands that you use locally to build and test your code using Swift. This example demonstrates how to use `swift build` and `swift test` in a job:
 
-```yaml{:copy}
+```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
   - uses: swift-actions/setup-swift@65540b95f51493d65f5e59e97dcef9629ddf11bf

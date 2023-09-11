@@ -16,7 +16,7 @@ children:
   - /about-authentication-to-github
   - /creating-a-strong-password
   - /updating-your-github-access-credentials
-  - /creating-a-personal-access-token
+  - /managing-your-personal-access-tokens
   - /reviewing-your-ssh-keys
   - /reviewing-your-deploy-keys
   - /token-expiration-and-revocation
@@ -31,3 +31,4 @@ children:
   - /viewing-and-managing-your-sessions
 shortTitle: Account security
 ---
+

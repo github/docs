@@ -18,8 +18,8 @@ shortTitle: Set backup email address
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.emails %}
-3. Under "Backup email address," use the dropdown menu to select the address you want to set as your backup email address.
-4. Click **Save**.
+1. Under "Backup email address," use the dropdown menu to select the address you want to set as your backup email address.
+1. Click **Save**.
 
 ## Further reading
 

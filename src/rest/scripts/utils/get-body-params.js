@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import renderContent from '../../../../lib/render-content/index.js'
+import { renderContent } from '#src/content-render/index.js'
 
 // If there is a oneOf at the top level, then we have to present just one
 // in the docs. We don't currently have a convention for showing more than one
@@ -92,7 +92,7 @@ export async function getBodyParams(schema, topLevel = false) {
         type: 'object',
         name: 'key',
         description: await renderContent(
-          `A user-defined key to represent an item in \`${paramKey}\`.`
+          `A user-defined key to represent an item in \`${paramKey}\`.`,
         ),
         isRequired: param.required,
         enum: param.enum,
@@ -106,18 +106,7 @@ export async function getBodyParams(schema, topLevel = false) {
         if (param.items.oneOf.every((object) => object.type === 'object')) {
           paramType.splice(paramType.indexOf('array'), 1, `array of objects`)
           param.oneOfObject = true
-
-          for (const oneOfParam of param.items.oneOf) {
-            const objParam = {
-              type: 'object',
-              name: oneOfParam.title,
-              description: await renderContent(oneOfParam.description),
-              isRequired: oneOfParam.required,
-              childParamsGroups: [],
-            }
-            objParam.childParamsGroups.push(...(await getBodyParams(oneOfParam, false)))
-            childParamsGroups.push(objParam)
-          }
+          childParamsGroups.push(...(await getOneOfChildParams(param.items)))
         }
       } else {
         const arrayType = param.items.type
@@ -129,7 +118,14 @@ export async function getBodyParams(schema, topLevel = false) {
         }
       }
     } else if (paramType && paramType.includes('object')) {
-      childParamsGroups.push(...(await getBodyParams(param, false)))
+      if (param && param.oneOf) {
+        if (param.oneOf.every((object) => object.type === 'object')) {
+          param.oneOfObject = true
+          childParamsGroups.push(...(await getOneOfChildParams(param)))
+        }
+      } else {
+        childParamsGroups.push(...(await getBodyParams(param, false)))
+      }
     } else if (param && param.oneOf) {
       // get concatenated description and type
       const descriptions = []
@@ -150,6 +146,8 @@ export async function getBodyParams(schema, topLevel = false) {
               descriptions.push({ type: childParam.type, description: childParam.description })
             }
           }
+        } else {
+          descriptions.push({ type: param.type, description: param.description })
         }
       }
       // Occasionally, there is no parent description and the description
@@ -176,6 +174,7 @@ export async function getBodyParams(schema, topLevel = false) {
         param.isRequired = param.anyOf[0].required
       }
     } else if (param && param.allOf) {
+      // this else is only used for webhooks handling of allOf
       for (const prop of param.allOf) {
         paramType.push('object')
         childParamsGroups.push(...(await getBodyParams(prop, false)))
@@ -210,7 +209,7 @@ async function getTransformedParam(param, paramType, props) {
   if (required && required.includes(paramKey)) {
     paramDecorated.isRequired = true
   }
-  if (childParamsGroups && childParamsGroups.length > 0) {
+  if (childParamsGroups && childParamsGroups.length > 0 && !param.oneOfObject) {
     // Since the allOf properties can have multiple duplicate properties we want to get rid of the duplicates with the same name, but keep the
     // the one that has isRequired set to true.
     const mergedChildParamsGroups = Array.from(
@@ -219,13 +218,15 @@ async function getTransformedParam(param, paramType, props) {
           const curr = childParam.get(obj.name)
           return childParam.set(
             obj.name,
-            curr ? (!Object.hasOwn(curr, 'isRequired') ? obj : curr) : obj
+            curr ? (!Object.hasOwn(curr, 'isRequired') ? obj : curr) : obj,
           )
         }, new Map())
-        .values()
+        .values(),
     )
 
     paramDecorated.childParamsGroups = mergedChildParamsGroups
+  } else if (childParamsGroups.length > 0) {
+    paramDecorated.childParamsGroups = childParamsGroups
   }
   if (param.enum) {
     paramDecorated.enum = param.enum
@@ -240,4 +241,20 @@ async function getTransformedParam(param, paramType, props) {
     paramDecorated.default = param.default
   }
   return paramDecorated
+}
+
+async function getOneOfChildParams(param) {
+  const childParamsGroups = []
+  for (const oneOfParam of param.oneOf) {
+    const objParam = {
+      type: 'object',
+      name: oneOfParam.title,
+      description: await renderContent(oneOfParam.description),
+      isRequired: oneOfParam.required,
+      childParamsGroups: [],
+    }
+    objParam.childParamsGroups.push(...(await getBodyParams(oneOfParam, false)))
+    childParamsGroups.push(objParam)
+  }
+  return childParamsGroups
 }

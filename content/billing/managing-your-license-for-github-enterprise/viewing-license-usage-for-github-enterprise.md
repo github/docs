@@ -52,6 +52,7 @@ You can view the license usage for your enterprise and download a file with lice
 
 {% endif %}
 {% ifversion ghec %}
+
 ## Viewing the last license sync date
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}

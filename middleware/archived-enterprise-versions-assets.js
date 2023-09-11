@@ -55,7 +55,7 @@ export default async function archivedEnterpriseVersionsAssets(req, res, next) {
 
   try {
     const r = await got(
-      `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`
+      `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`,
     )
     res.set('accept-ranges', 'bytes')
     res.set('content-type', r.headers['content-type'])

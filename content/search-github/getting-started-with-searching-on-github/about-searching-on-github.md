@@ -19,21 +19,21 @@ topics:
   - GitHub search
 ---
 
-## About searching on {% data variables.product.prodname_dotcom %} 
+## About searching on {% data variables.product.prodname_dotcom %}
 
 {% data reusables.search.you-can-search-globally %}
 
 - To search globally across all of {% data variables.product.product_name %}, type what you're looking for into the search field at the top of any page, and choose "Search all of {% data variables.product.prodname_dotcom %}" in the search dropdown menu.
 - To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press **Enter**.
 
-{% ifversion code-search-code-view %} You can also use suggestions and completions in the search bar to quickly find what you need.
+  {% ifversion code-search-code-view %}You can also use suggestions and completions in the search bar to quickly find what you need.
 
--  If you click on the search bar in the top navigation of GitHub.com, you will see a list of suggestions organized by category, including recent searches and suggested repositories, teams, and projects that you have access to. 
--  Clicking on any of the specific suggestions will take you directly to the page for that suggestion (for example, the repository or project page). If you click on a recent search, depending on the type of search, the search term will appear in the search bar or you will be taken to the search results page for the search term.
--  Once you start typing, you will see a list of completions and suggestions that match your query. You can click on a suggestion to jump to a specific location. As you continue to type, you will see more specific suggestions, such as code files you can jump to directly.
+- If you click on the search bar in the top navigation of GitHub.com, you will see a list of suggestions organized by category, including recent searches and suggested repositories, teams, and projects that you have access to.
+- Clicking on any of the specific suggestions will take you directly to the page for that suggestion (for example, the repository or project page). If you click on a recent search, depending on the type of search, the search term will appear in the search bar or you will be taken to the search results page for the search term.
+- Once you start typing, you will see a list of completions and suggestions that match your query. You can click on a suggestion to jump to a specific location. As you continue to type, you will see more specific suggestions, such as code files you can jump to directly.
 
 After typing a search query, you can press **Enter** to go to the full search results view, where you can see each match and a visual interface for applying filters. For more information, see "[Searching using a visual interface](#searching-using-a-visual-interface)."
-{% endif %} 
+{% endif %}
 
 {% note %}
 
@@ -71,7 +71,7 @@ In addition to the search bar, you can search {% data variables.product.product_
 
 The {% data variables.search.advanced_url %} provides a visual interface for constructing search queries. You can filter your searches by a variety of factors, such as the number of stars or number of forks a repository has. As you fill in the advanced search fields, your query will automatically be constructed in the top search bar.
 
-![Screenshot of the Advanced search page. The top search bar is filled in with the query "kittens user:octocat" and, under the "Advanced options" section below, the "From these owners" text box contains the term "octocat" and is outlined in dark orange.](/assets/images/help/search/advanced_search.png)
+![Screenshot of the Advanced search page. The top search bar is filled in with the query "kittens user:octocat" and, under the "Advanced options" section below, the "From these owners" text box contains the term "octocat" and is outlined in dark orange.](/assets/images/help/search/advanced-search.png)
 
 ## Searching repositories on {% data variables.product.prodname_dotcom_the_website %} from your private enterprise environment
 

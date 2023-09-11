@@ -16,7 +16,9 @@ shortTitle: Export dependencies as SBOM
 
 {% data reusables.dependabot.about-the-dependency-graph %}
 
-You can export the current state of the dependency graph for your repository as a Software Bill of Materials (SBOM) using the industry standard [SPDX](https://spdx.github.io/spdx-spec/v2.3/) format. 
+You can export the current state of the dependency graph for your repository as a Software Bill of Materials (SBOM) using the industry standard [SPDX](https://spdx.github.io/spdx-spec/v2.3/) format:
+- Via the {% data variables.product.prodname_dotcom %} UI
+- Using the REST API
 
 {% data reusables.dependency-graph.sbom-intro %}
 
@@ -27,4 +29,8 @@ If your company provides software to the US federal government per [Executive Or
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Dependency graph**.
-1. On the top right side of the **Dependencies** tab, click **Export SBOM** to generate an SBOM file for download from your browser. 
+1. On the top right side of the **Dependencies** tab, click **Export SBOM** to generate an SBOM file for download from your browser.
+
+## Exporting a software bill of material for your repository using the REST API
+
+If you want to use the REST API to export an SBOM for your repository, see [AUTOTITLE](/rest/dependency-graph/sboms#export-a-software-bill-of-materials-sbom-for-a-repository) in the REST API documentation for more information.

@@ -1,6 +1,6 @@
 ---
 title: pack create
-versions:
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghae: '*'
   ghec: '*'
@@ -26,7 +26,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack create [--output=<output>] [--threads=<num>] [--ram=<MB>] <options>... -- <dir>
 ```
 
@@ -55,14 +55,14 @@ Defaults to `./.codeql/pack`.
 
 #### `--format=<fmt>`
 
-Select output format, either `text` *(default)* or `json`.
+Select output format, either `text` _(default)_ or `json`.
 
 #### `-j, --threads=<num>`
 
 Use this many threads to compile queries.
 
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
-or -*N* to leave *N* cores unused (except still use at least one
+or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
 
 #### `-M, --ram=<MB>`
@@ -75,6 +75,13 @@ Set total amount of RAM that the compiler should be allowed to use.
 directory. This will reduce the size of the pack and the time it takes
 to create it, but will require compilation before the pack can be run.
 Only meaningful for query packs.
+
+#### `--no-validate-extensions`
+
+\[Advanced] Avoid validating data extensions as part of the compile
+step.
+
+Available since `v2.13.3`.
 
 #### `--no-overwrite`
 
@@ -115,8 +122,8 @@ matter; it is an error if a pack name is found in two different places
 through this list.
 
 This is useful if you're temporarily developing a new version of a pack
-that also appears in the default path. On the other hand, it is *not
-recommended* to override this option in a config file; some internal
+that also appears in the default path. On the other hand, it is _not
+recommended_ to override this option in a config file; some internal
 actions will add this option on the fly, overriding any configured
 value.
 
@@ -152,7 +159,7 @@ directory.
 #### `--registries-auth-stdin`
 
 Authenticate to GitHub Enterprise Server Container registries by passing
-a comma-separated list of \<registry\_url>=\<token> pairs.
+a comma-separated list of `<registry_url>=<token>` pairs.
 
 For example, you can pass
 `https://containers.GHEHOSTNAME1/v2/=TOKEN1,https://containers.GHEHOSTNAME2/v2/=TOKEN2`

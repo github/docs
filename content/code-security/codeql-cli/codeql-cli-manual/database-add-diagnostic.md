@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql database add-diagnostic --source-id=<id> --source-name=<name> <options>... -- <database>
 ```
 

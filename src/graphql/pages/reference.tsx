@@ -4,12 +4,12 @@ import React from 'react'
 import { GraphqlPage } from 'src/graphql/components/GraphqlPage'
 import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
 import type { ObjectT, GraphqlT } from 'src/graphql/components/types'
-import { AutomatedPage } from 'components/article/AutomatedPage'
+import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
 import {
   AutomatedPageContext,
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
-} from 'components/context/AutomatedPageContext'
+} from 'src/automated-pipelines/components/AutomatedPageContext'
 
 type Props = {
   mainContext: MainContextT

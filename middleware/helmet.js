@@ -48,6 +48,7 @@ const DEFAULT_OPTIONS = {
       frameAncestors: isDev ? ['*'] : [...GITHUB_DOMAINS],
       styleSrc: ["'self'", "'unsafe-inline'", 'data:', AZURE_STORAGE_URL],
       childSrc: ["'self'"], // exception for search in deprecated GHE versions
+      manifestSrc: ["'self'"],
       upgradeInsecureRequests: isDev ? null : [],
     },
   },
@@ -59,7 +60,7 @@ ndDirs.scriptSrc.push(
   "'unsafe-eval'",
   "'unsafe-inline'",
   'http://www.google-analytics.com',
-  'https://ssl.google-analytics.com'
+  'https://ssl.google-analytics.com',
 )
 ndDirs.connectSrc.push('https://www.google-analytics.com')
 ndDirs.imgSrc.push('http://www.google-analytics.com', 'https://ssl.google-analytics.com')

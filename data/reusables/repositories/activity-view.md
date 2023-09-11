@@ -1,0 +1,1 @@
+If you want to see a detailed history of changes to a repository, you can use the activity view. The activity view displays all pushes, merges, force pushes, and branch changes, and associates these changes with commits and authenticated users.

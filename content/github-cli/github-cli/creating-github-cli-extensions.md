@@ -82,11 +82,11 @@ You can use the `--precompiled=other` argument to create a project for your non-
 
 1. Write your script in the executable file. For example:
 
-  ```bash
-  #!/usr/bin/env bash
-  set -e
-  exec gh api user --jq '"You are @\(.login) (\(.name))."'
-  ```
+   ```bash
+   #!/usr/bin/env bash
+   set -e
+   exec gh api user --jq '"You are @\(.login) (\(.name))."'
+   ```
 
 1. From your directory, install the extension as a local extension.
 
@@ -245,26 +245,25 @@ For more information, see [`gh help formatting`](https://cli.github.com/manual/g
 
 1. Create a release to share your precompiled extension with others. Compile for each platform you want to support, attaching each binary to a release as an asset. Binary executables attached to releases must follow a naming convention and have a suffix of OS-ARCHITECTURE\[EXTENSION\].
 
-  For example, an extension named `whoami` compiled for Windows 64bit would have the name `gh-whoami-windows-amd64.exe` while the same extension compiled for Linux 32bit would have the name `gh-whoami-linux-386`. To see an exhaustive list of OS and architecture combinations recognized by `gh`, see [this source code](https://github.com/cli/cli/blob/14f704fd0da58cc01413ee4ba16f13f27e33d15e/pkg/cmd/extension/manager.go#L696).
+   For example, an extension named `whoami` compiled for Windows 64bit would have the name `gh-whoami-windows-amd64.exe` while the same extension compiled for Linux 32bit would have the name `gh-whoami-linux-386`. To see an exhaustive list of OS and architecture combinations recognized by `gh`, see [this source code](https://github.com/cli/cli/blob/14f704fd0da58cc01413ee4ba16f13f27e33d15e/pkg/cmd/extension/manager.go#L696).
 
-  {% note %}
+   {% note %}
 
-  **Note:** For your extension to run properly on Windows, its asset file must have a `.exe` extension. No extension is needed for other operating systems.
+   **Note:** For your extension to run properly on Windows, its asset file must have a `.exe` extension. No extension is needed for other operating systems.
 
-  {% endnote %}
+   {% endnote %}
 
-  Releases can be created from the command line. For example:
+   Releases can be created from the command line. For example:
 
-  ```shell
-  git tag v1.0.0
-  git push origin v1.0.0
-  GOOS=windows GOARCH=amd64 go build -o gh-EXTENSION-NAME-windows-amd64.exe
-  GOOS=linux GOARCH=amd64 go build -o gh-EXTENSION-NAME-linux-amd64
-  GOOS=darwin GOARCH=amd64 go build -o gh-EXTENSION-NAME-darwin-amd64
-  gh release create v1.0.0 ./*amd64*
+   ```shell
+   git tag v1.0.0
+   git push origin v1.0.0
+   GOOS=windows GOARCH=amd64 go build -o gh-EXTENSION-NAME-windows-amd64.exe
+   GOOS=linux GOARCH=amd64 go build -o gh-EXTENSION-NAME-linux-amd64
+   GOOS=darwin GOARCH=amd64 go build -o gh-EXTENSION-NAME-darwin-amd64
+   gh release create v1.0.0 ./*amd64*
 
 1. Optionally, to help other users discover your extension, add the repository topic `gh-extension`. This will make the extension appear on the [`gh-extension` topic page](https://github.com/topics/gh-extension). For more information about how to add a repository topic, see "[Classifying your repository with topics](/github/administering-a-repository/managing-repository-settings/classifying-your-repository-with-topics)."
-
 
 ## Tips for writing precompiled {% data variables.product.prodname_cli %} extensions
 

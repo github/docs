@@ -1,4 +1,4 @@
-1. Start the ssh-agent in the background. 
+1. Start the ssh-agent in the background.
 
     ```shell
     $ eval "$(ssh-agent -s)"

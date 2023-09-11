@@ -24,7 +24,7 @@ redirect_from:
 
 ## Synopsis
 
-```shell{:copy}
+```shell copy
 codeql pack init [--dir=<dir>] [--extractor=<extractor>] <options>... -- <package-name>
 ```
 
