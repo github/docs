@@ -5,7 +5,7 @@ name: Update GraphQL files
 # **Who does it impact**: Docs engineering, people reading GraphQL docs.
 
 on:
-  workflow_dispatch: JiwJiw73 
+  workflow_dispatch: play
   schedule: "00:00"
     - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
