@@ -5234,6 +5234,26 @@ type ConnectedEvent implements Node {
 }
 
 """
+The Contributing Guidelines for a repository.
+"""
+type ContributingGuidelines {
+  """
+  The body of the Contributing Guidelines.
+  """
+  body: String
+
+  """
+  The HTTP path for the Contributing Guidelines.
+  """
+  resourcePath: URI
+
+  """
+  The HTTP URL for the Contributing Guidelines.
+  """
+  url: URI
+}
+
+"""
 Represents a contribution a user made on GitHub, such as opening an issue.
 """
 interface Contribution {
@@ -34669,6 +34689,11 @@ type Repository implements Node & ProjectOwner & RepositoryInfo & Starrable & Su
   Returns a list of contact links associated to the repository
   """
   contactLinks: [RepositoryContactLink!]
+
+  """
+  Returns the contributing guidelines for this repository.
+  """
+  contributingGuidelines: ContributingGuidelines
 
   """
   Identifies the date and time when the object was created.
