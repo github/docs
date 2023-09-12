@@ -12,6 +12,7 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-administrative-shell-ssh
   - /admin/configuration/accessing-the-administrative-shell-ssh
   - /admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh
+  - /admin/administering-your-instance/accessing-the-administrative-shell-ssh
 intro: '{% data reusables.enterprise_site_admin_settings.about-ssh-access %}'
 versions:
   ghes: '*'

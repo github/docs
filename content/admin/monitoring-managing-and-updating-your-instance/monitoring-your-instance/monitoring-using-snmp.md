@@ -6,7 +6,8 @@ redirect_from:
   - /enterprise/admin/articles/monitoring-using-snmp
   - /enterprise/admin/enterprise-management/monitoring-using-snmp
   - /admin/enterprise-management/monitoring-using-snmp
-  - /admin/enterprise-management/monitoring-your-appliance/monitoring-using-snmp
+  - /admin/enterprise-management/monitoring-your-appliance/monitoring-using-snmp  
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/monitoring-using-snmp
 versions:
   ghes: '*'
 type: how_to

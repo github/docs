@@ -13,6 +13,7 @@ topics:
 product: '{% data reusables.gated-features.generated-health-checks %}'
 redirect_from:
   - /admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/generating-a-health-check-for-your-enterprise
 ---
 
 {% note %}

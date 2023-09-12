@@ -7,6 +7,7 @@ redirect_from:
   - /enterprise/admin/configuration/site-admin-dashboard
   - /admin/configuration/site-admin-dashboard
   - /admin/configuration/configuring-your-enterprise/site-admin-dashboard
+  - /admin/administering-your-instance/site-admin-dashboard
 versions:
   ghes: '*'
   ghae: '*'

@@ -1,5 +1,5 @@
 ---
-title: Monitoring your appliance
+title: Monitoring your instance
 intro: 'As use of {% data variables.location.product_location %} increases over time, the utilization of system resources, like CPU, memory, and storage will also increase. You can configure monitoring and alerting so that you''re aware of potential issues before they become critical enough to negatively impact application performance or availability.'
 redirect_from:
   - /enterprise/admin/guides/installation/system-resource-monitoring-and-alerting
@@ -7,6 +7,7 @@ redirect_from:
   - /enterprise/admin/installation/monitoring-your-github-enterprise-server-appliance
   - /enterprise/admin/enterprise-management/monitoring-your-appliance
   - /admin/enterprise-management/monitoring-your-appliance
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance
 versions:
   ghes: '*'
 topics:
@@ -19,4 +20,5 @@ children:
   - /monitoring-using-snmp
   - /about-system-logs
   - /generating-a-health-check-for-your-enterprise
+shortTitle: Monitor your instance
 ---

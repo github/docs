@@ -12,6 +12,7 @@ redirect_from:
   - /enterprise/admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/enabling-and-scheduling-maintenance-mode
   - /admin/configuration/configuring-your-enterprise/enabling-and-scheduling-maintenance-mode
+  - /admin/administering-your-instance/enabling-and-scheduling-maintenance-mode
 versions:
   ghes: '*'
 type: how_to
