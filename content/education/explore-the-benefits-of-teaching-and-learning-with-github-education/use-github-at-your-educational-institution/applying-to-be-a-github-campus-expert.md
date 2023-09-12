@@ -38,7 +38,7 @@ In the application form, we’re looking for students to tell us about the chall
 1. To learn if applications are open, click **Become a Campus Expert** {% octicon "arrow-right" aria-label="The right arrow icon" %}.
 1. If applications are open, a new page will appear titled “Your journey starts here”. To start your application, click **Apply Now**.
 
-  Otherwise, if applications are closed, a message will appear with the dates of the next application cycle.
+   Otherwise, if applications are closed, a message will appear with the dates of the next application cycle.
 1. Following the prompts in the form, complete the application.
 1. Click **Submit Application**.
 1. Optionally, to confirm your application was submitted successfully, check the email address you provided for an email confirming your submission.
@@ -60,4 +60,4 @@ In your video resume, we look forward to getting to know you as an individual.
 1. On the video submission form, add your email address and upload your video.
 1. Click **Submit** at the bottom of the form to send your video in for review.
 
-  After your video has been submitted, we’ll take about a week to review it. If the program is the right fit, you’ll be accepted and receive invitations to start the {% data variables.product.prodname_student_leader_program %} training and join an onboarding call.
+   After your video has been submitted, we’ll take about a week to review it. If the program is the right fit, you’ll be accepted and receive invitations to start the {% data variables.product.prodname_student_leader_program %} training and join an onboarding call.
