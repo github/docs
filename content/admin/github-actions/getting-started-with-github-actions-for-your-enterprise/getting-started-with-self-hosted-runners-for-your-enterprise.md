@@ -84,7 +84,7 @@ You can create a runner group to manage access to the runner that you added to y
 
    **Warning**:
 
-   {% indented_data_reference reusables.actions.self-hosted-runner-security spaces=3 %}
+   {% data reusables.actions.self-hosted-runner-security %}
 
    For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories)."
 
