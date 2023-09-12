@@ -36,7 +36,7 @@ sections:
       notes:
         # https://github.com/github/releases/issues/1438
         - |
-          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+          You can stream audit log and Git events for your instance to Amazon S3, Azure Blob Storage, Azure Event Hubs, Google Cloud Storage, or Splunk. Audit log streaming is in public beta and subject to change. Enabling this feature can cause a minor impact on the performance of {% data variables.location.product_location %}. For more information, see "[Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)." [Updated: 2023-09-12]
 
     - heading: GitHub Connect
       notes:
