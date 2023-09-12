@@ -29,7 +29,19 @@ export default {
       return
     }
 
-    if (text.trim().split('\n\n').length === 1 && text.split('\n').length > 0) {
+    // Any time what we're about to replace in here has more than one line,
+    // if the use of `{% data ... %}` was itself indented, from the left,
+    // keep *that* indentation, in replaced output, for every line.
+    //
+    // For example:
+    //
+    //   1. Bullet point
+    //      {% data variables.foo.bar %}
+    //
+    // In this example, the `{% data ...` starts with 3 whitespaces
+    // (based on the `1. Bull...` in the example). So put 3 whitespaces
+    // in front every line of the output.
+    if (text.split('\n').length > 0) {
       const { input, begin } = this.tagToken
       let i = 1
       while (input.charAt(begin - i) === ' ') {

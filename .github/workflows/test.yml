@@ -47,6 +47,7 @@ jobs:
               { name: 'automated-pipelines', path: 'src/automated-pipelines/tests', },
               { name: 'color-schemes', path: 'src/color-schemes/tests', },
               { name: 'content', path: 'tests/content', },
+              { name: 'content-linter', path: 'src/content-linter/tests', },
               { name: 'content-render', path: 'src/content-render/tests', },
               { name: 'events', path: 'src/events/tests', },
               { name: 'ghes-releases', path: 'src/ghes-releases/tests', },
@@ -54,7 +55,6 @@ jobs:
               { name: 'graphql', path: 'src/graphql/tests', },
               { name: 'landings', path: 'src/landings/tests', },
               { name: 'learning-track', path: 'src/learning-track/tests', },
-              { name: 'linting', path: 'src/content-linter/tests', },
               { name: 'observability', path: 'src/observability/tests' },
               { name: 'pageinfo', path: 'src/pageinfo/tests', },
               { name: 'redirects', path: 'src/redirects/tests', },
@@ -126,7 +126,7 @@ jobs:
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Gather files changed
-        if: ${{ matrix.name == 'linting' }}
+        if: ${{ matrix.name == 'content-linter' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ github.event.pull_request.number }}

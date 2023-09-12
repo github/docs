@@ -13,7 +13,7 @@ topics:
 
 ## Subscribe to the minimum number of events
 
-You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do.
+You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do. For more information, see "[AUTOTITLE](/webhooks/creating-webhooks)."
 
 ## Use a webhook secret
 
@@ -49,9 +49,7 @@ There are multiple webhook event types, and many events can have multiple action
 
 ## Redeliver missed deliveries
 
-If your server goes down, you should redeliver missed webhooks once your server is back up.
-
-For more information, see {% ifversion  ghes or ghae %}"[AUTOTITLE](/rest/webhooks/repo-deliveries)," "[AUTOTITLE](/rest/orgs/webhooks)," and "[AUTOTITLE](/rest/enterprise-admin/global-webhooks)."{% else %}"[AUTOTITLE](/rest/webhooks/repo-deliveries)" and "[AUTOTITLE](/rest/orgs/webhooks)."{% endif %}
+If your server goes down, you should redeliver missed webhooks once your server is back up. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
 
 ## Further reading
 
