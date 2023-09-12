@@ -85,17 +85,17 @@ The best practices you should take will depend on whether you use {% data variab
 ### Using GitHub Actions to access the dependency submission API and the dependency review API
 
 If you use {% data variables.product.prodname_actions %} to access the dependency submission API or the dependency review API:
-   * Make sure you run all of your dependency submission actions in the same {% data variables.product.prodname_actions %} workflow as your {% data variables.dependency-review.action_name %}. This will give you control over the order of execution, and it will ensure that dependency review will always work.
-   * If you do choose to run the {% data variables.dependency-review.action_name %} separately, for instance, as a required workflow, you should:
-     + Set `retry-on-snapshot-warnings` to `true`.
-     + Set `retry-on-snapshot-warnings-timeout` to slightly exceed the typical run time (in seconds) of your longest-running dependency submission action.
+   - Make sure you run all of your dependency submission actions in the same {% data variables.product.prodname_actions %} workflow as your {% data variables.dependency-review.action_name %}. This will give you control over the order of execution, and it will ensure that dependency review will always work.
+   - If you do choose to run the {% data variables.dependency-review.action_name %} separately, for instance, as a required workflow, you should:
+     - Set `retry-on-snapshot-warnings` to `true`.
+     - Set `retry-on-snapshot-warnings-timeout` to slightly exceed the typical run time (in seconds) of your longest-running dependency submission action.
 
 ### Using direct API access to the dependency submission API and the dependency review API
 
 If you don’t use {% data variables.product.prodname_actions %}, and your code relies on direct access to the dependency submission API and the dependency review API:
-   * Make sure you run the code that calls the dependency submission API first, and then run the code that calls the dependency review API afterwards.
-   * If you do choose to run the code for the dependency submission API and the dependency review API in parallel, you should implement a retry logic and note the following:
-     + When there are snapshots missing for either side of the comparison, you will see an explanation for that in the `x-github-dependency-graph-snapshot-warnings` header (as a base64-encoded string). Therefore, if the header is non-empty, you should consider retrying.
-     + Implement a retry logic with exponential backoff retries.
-     + Implement a reasonable number of retries to account for the typical runtime of your dependency submission code.
+   - Make sure you run the code that calls the dependency submission API first, and then run the code that calls the dependency review API afterwards.
+   - If you do choose to run the code for the dependency submission API and the dependency review API in parallel, you should implement a retry logic and note the following:
+     - When there are snapshots missing for either side of the comparison, you will see an explanation for that in the `x-github-dependency-graph-snapshot-warnings` header (as a base64-encoded string). Therefore, if the header is non-empty, you should consider retrying.
+     - Implement a retry logic with exponential backoff retries.
+     - Implement a reasonable number of retries to account for the typical runtime of your dependency submission code.
 {% endif %}
