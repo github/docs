@@ -27272,6 +27272,11 @@ type Organization implements Actor & AnnouncementBanner & MemberStatusable & Nod
   ): Boolean!
 
   """
+  Identifies the date and time when the organization was archived.
+  """
+  archivedAt: DateTime
+
+  """
   Audit log entries of the organization
   """
   auditLog(
