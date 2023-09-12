@@ -11,6 +11,7 @@ topics:
   - Security
 redirect_from:
   - /admin/enterprise-management/monitoring-your-appliance/about-system-logs
+  - /admin/monitoring-managing-and-updating-your-instance/monitoring-your-appliance/about-system-logs
 ---
 
 ## System logs

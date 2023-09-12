@@ -12,7 +12,7 @@ children:
   - /about-pre-receive-hooks
   - /creating-a-pre-receive-hook-environment
   - /creating-a-pre-receive-hook-script
-  - /managing-pre-receive-hooks-on-the-github-enterprise-server-appliance
+  - /managing-pre-receive-hooks-on-your-instance
 shortTitle: Policy with pre-receive hooks
 ---
 

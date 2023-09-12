@@ -1,7 +1,8 @@
 ---
 title: About the Management Console
-shortTitle: About
 intro: '{% data reusables.enterprise_site_admin_settings.management-console-overview %}'
+redirect_from:
+  - /admin/configuration/administering-your-instance-from-the-management-console/about-the-management-console
 versions:
   ghes: '*'
 type: overview
