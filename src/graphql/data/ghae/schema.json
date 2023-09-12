@@ -33310,6 +33310,14 @@
           ]
         },
         {
+          "name": "archivedAt",
+          "description": "<p>Identifies the date and time when the organization was archived.</p>",
+          "type": "DateTime",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
           "name": "auditLog",
           "description": "<p>Audit log entries of the organization.</p>",
           "type": "OrganizationAuditEntryConnection!",
