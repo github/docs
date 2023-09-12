@@ -139,9 +139,9 @@ schedule:
   - cron:  "40 19 * * *"
 ```
 
-### File and directory names
+### File names and directory names
 
-Use inline codeblocks to refer to file and directory names. If a file type generally follows a specific capitalization convention, such as all caps for README files, use the established convention.
+Use backticks to format references to file names and directory names in a monospaced font. If a file type generally follows a specific capitalization convention, such as all caps for README files, use the established convention.
 
 - **Use:** In your `README.md` file, add info about your repository.
 - **Use:** In your `.github/workflows/` directory, create the `example-workflow.yml` file.
@@ -262,9 +262,9 @@ Do not use screenshots of command-line interfaces to convey commands and their o
 
 When using a screenshot of a command-line interface to show user interface elements, follow standard alt text guidelines for screenshots.
 
-### Filenames
+### File names for images
 
-Be descriptive when naming image files: include the name, action, and UI element in the filename. Mirror product language. Use kebab case. Do not use Liquid conditionals in filenames. If replacing an image, use the exact filename.
+Be descriptive when naming image files: include the name, action, and UI element in the file name. Mirror product language. Use kebab case. Do not use Liquid conditionals in file names. If replacing an image, use the exact file name.
 - **Use:** `data-pack-purchase-button.png`
 - **Avoid:** `purchase_button.png`
 - **Avoid:** `purchase-button{% ifversion ghes %}-for-admins{% endif %}.png`
@@ -575,7 +575,7 @@ This section describes additional conventions that are specific to GitHub produc
 
 Code examples that use first-party actions must use the respective reusable for that action. This makes action version updates (e.g. from `v1` to `v2`) easier to manage for products like {% data variables.product.prodname_ghe_server %}, which might not have the same action version available until a future {% data variables.product.prodname_ghe_server %} release.
 
-Actions reusables are located in `/data/reusables/actions/` and have a filename like `action-<action_name>.md`
+Actions reusables are located in `/data/reusables/actions/` and have a file name like `action-<action_name>.md`
 
 For example, to use the `actions/checkout` action in an example, use its reusable:
 

@@ -46,6 +46,12 @@ All streamed audit logs are sent as compressed JSON files. The filename format i
 
 {% endnote %}
 
+{% ifversion ghes %}
+
+Enabling audit log streaming can cause a minor impact on the performance of {% data variables.location.product_location %}. For more information about increasing resources to mitigate this performance impact, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-cpu-or-memory-resources)."
+
+{% endif %}
+
 ## Setting up audit log streaming
 
 You set up the audit log stream on {% data variables.product.product_name %} by following the instructions for your provider.

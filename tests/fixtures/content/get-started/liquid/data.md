@@ -58,6 +58,8 @@ And now for a table on its own starting line
 
 1. Point 1
 
+   {% data reusables.injectables.paragraphs %}
+
 1. Point 2
 
    What's important here is that in CommonMark when a Markdown table
