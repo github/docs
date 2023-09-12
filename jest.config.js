@@ -2,11 +2,7 @@
 
 const isActions = Boolean(process.env.GITHUB_ACTIONS)
 
-const reporters = ['default']
-
-if (isActions) {
-  reporters.push('jest-github-actions-reporter')
-}
+const reporters = ['default', 'github-actions']
 
 export default {
   preset: 'ts-jest',
