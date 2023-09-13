@@ -30,14 +30,14 @@ When you add a URL for an issue, pull request, or another {% data variables.proj
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to add notes.
 1. In the column you want to add a note to, click {% octicon "plus" aria-label="Add a note to this column" %}.
-![Screenshot showing a project column. The 'add a note to this column' button is highlighted with an orange outline.](/assets/images/help/projects/add-note-button.png)
+   ![Screenshot showing a project column. The 'add a note to this column' button is highlighted with an orange outline.](/assets/images/help/projects/add-note-button.png)
 1. Type your note, then click **Add**.
 
-  {% tip %}
+   {% tip %}
 
-  **Tip:** You can reference an issue or pull request in your note by typing its URL in the card.
+   **Tip:** You can reference an issue or pull request in your note by typing its URL in the card.
 
-  {% endtip %}
+   {% endtip %}
 
 ## Converting a note to an issue
 
